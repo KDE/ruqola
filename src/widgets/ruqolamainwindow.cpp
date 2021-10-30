@@ -462,7 +462,7 @@ void RuqolaMainWindow::slotLogout()
 
 void RuqolaMainWindow::slotSearchChannel()
 {
-    SearchChannelDialog dlg(this);
+    SearchChannelDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 

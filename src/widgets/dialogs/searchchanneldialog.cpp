@@ -31,9 +31,9 @@ namespace
 {
 static const char mySearchChannelDialogGroupName[] = "SearchChannelDialog";
 }
-SearchChannelDialog::SearchChannelDialog(QWidget *parent)
+SearchChannelDialog::SearchChannelDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mSearchChannelWidget(new SearchChannelWidget(this))
+    , mSearchChannelWidget(new SearchChannelWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Search Channel"));
     auto mainLayout = new QVBoxLayout(this);

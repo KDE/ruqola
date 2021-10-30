@@ -24,11 +24,12 @@
 #include <QWidget>
 class SearchWithDelayLineEdit;
 class SearchChannelListView;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SearchChannelWidget(QWidget *parent = nullptr);
+    explicit SearchChannelWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchChannelWidget() override;
 
 private:
@@ -37,5 +38,6 @@ private:
     void slotSearchCleared();
     SearchWithDelayLineEdit *const mSearchLineEdit;
     SearchChannelListView *const mResultListWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

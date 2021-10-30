@@ -32,10 +32,11 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-SearchChannelWidget::SearchChannelWidget(QWidget *parent)
+SearchChannelWidget::SearchChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLineEdit(new SearchWithDelayLineEdit(this))
     , mResultListWidget(new SearchChannelListView(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -52,13 +53,17 @@ SearchChannelWidget::SearchChannelWidget(QWidget *parent)
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchChannelWidget::slotSearchCleared);
     mainLayout->addWidget(mSearchLineEdit);
 
-    mResultListWidget->setModel(Ruqola::self()->rocketChatAccount()->searchChannelFilterProxyModel());
+    if (mRocketChatAccount) {
+        mResultListWidget->setModel(mRocketChatAccount->searchChannelFilterProxyModel());
+    }
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     auto searchDeletegate = new SearchChannelDelegate(this);
     mResultListWidget->setItemDelegate(searchDeletegate);
     connect(searchDeletegate, &SearchChannelDelegate::channelSelected, this, &SearchChannelWidget::slotOpenChannel);
-    Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(QString());
+    if (mRocketChatAccount) {
+        mRocketChatAccount->channelAndPrivateAutocomplete(QString());
+    }
 }
 
 SearchChannelWidget::~SearchChannelWidget()
@@ -67,13 +72,13 @@ SearchChannelWidget::~SearchChannelWidget()
 
 void SearchChannelWidget::slotSearchCleared()
 {
-    Ruqola::self()->rocketChatAccount()->searchChannelModel()->clear();
+    mRocketChatAccount->searchChannelModel()->clear();
     mResultListWidget->setSearchChannel(false);
 }
 
 void SearchChannelWidget::slotTextChanged(const QString &str)
 {
-    Ruqola::self()->rocketChatAccount()->channelAndPrivateAutocomplete(str);
+    mRocketChatAccount->channelAndPrivateAutocomplete(str);
     mResultListWidget->setSearchChannel(!str.isEmpty());
 }
 
@@ -83,9 +88,9 @@ void SearchChannelWidget::slotOpenChannel(const QModelIndex &index)
         const auto channelType = index.data(SearchChannelModel::ChannelType).value<Channel::ChannelType>();
         const QString channelId = index.data(SearchChannelModel::ChannelId).toString();
         if (channelType == Channel::ChannelType::Room) {
-            Ruqola::self()->rocketChatAccount()->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
         } else if (channelType == Channel::ChannelType::DirectChannel) {
-            Ruqola::self()->rocketChatAccount()->openDirectChannel(channelId);
+            mRocketChatAccount->openDirectChannel(channelId);
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << "Unknown open channel type : " << channelType << " channelid : " << channelId;
         }

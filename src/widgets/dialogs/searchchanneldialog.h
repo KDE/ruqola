@@ -23,11 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class SearchChannelWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchChannelDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SearchChannelDialog(QWidget *parent = nullptr);
+    explicit SearchChannelDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchChannelDialog() override;
 
 private:
