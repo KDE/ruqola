@@ -605,8 +605,7 @@ void RoomWidget::connectRoom()
 
 void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    MessageModel *roomMessageModel = rcAccount->messageModelForRoom(mRoomWidgetBase->roomId());
+    MessageModel *roomMessageModel = mCurrentRocketChatAccount->messageModelForRoom(mRoomWidgetBase->roomId());
     if (roomMessageModel->rowCount() >= numberOfMessage) {
         const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
@@ -633,20 +632,17 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
         // qDebug() << " info.latestMessage " << info.latestMessage;
         job->setChannelHistoryInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
-        connect(job,
-                &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone,
-                this,
-                [this, numberOfMessage, rcAccount, roomMessageModel](const QJsonObject &obj) {
-                    rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
-                    // qDebug() << " obj " << obj;
-                    //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
-                    //                qDebug() << " numberOfMessage " << numberOfMessage;
-                    //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [this, numberOfMessage, roomMessageModel](const QJsonObject &obj) {
+            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+            // qDebug() << " obj " << obj;
+            //                qDebug() << " roomMessageModel->rowCount() " << roomMessageModel->rowCount();
+            //                qDebug() << " numberOfMessage " << numberOfMessage;
+            //                qDebug() << " initialRowCount " <<  (roomMessageModel->rowCount() - numberOfMessage);
 
-                    const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
-                    mRoomWidgetBase->messageListView()->goToMessage(messageId);
-                });
+            const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
+            mRoomWidgetBase->messageListView()->goToMessage(messageId);
+        });
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
         }
@@ -662,7 +658,6 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
     if (index.isValid()) {
         messageListView->scrollTo(index);
     } else {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
@@ -687,19 +682,16 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         info.count = 50000;
         qDebug() << " info " << info;
         job->setChannelHistoryInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
-        connect(job,
-                &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone,
-                this,
-                [messageId, rcAccount, messageModel, messageListView](const QJsonObject &obj) {
-                    rcAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
-                    const QModelIndex index = messageModel->indexForMessage(messageId);
-                    if (index.isValid()) {
-                        messageListView->scrollTo(index);
-                    } else {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Message not found:" << messageId;
-                    }
-                });
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [messageId, messageModel, messageListView, this](const QJsonObject &obj) {
+            mCurrentRocketChatAccount->rocketChatBackend()->processIncomingMessages(obj.value(QLatin1String("messages")).toArray(), true, true);
+            const QModelIndex index = messageModel->indexForMessage(messageId);
+            if (index.isValid()) {
+                messageListView->scrollTo(index);
+            } else {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Message not found:" << messageId;
+            }
+        });
         if (!job->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelHistoryJob";
         }

@@ -126,6 +126,7 @@ void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void DirectChannelInfoWidget::setUser(const User &user)
 {
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString name = user.name();
     if (name.isEmpty()) {
         hideWidget(mName);
@@ -144,7 +145,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
-    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
+    const QUrl iconUrlStr = QUrl(rcAccount->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
 
     const QStringList i18nRoles{user.i18nRoles()};
