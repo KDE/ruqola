@@ -30,7 +30,7 @@ MyAccountProfileConfigureAvatarWidgetTest::MyAccountProfileConfigureAvatarWidget
 
 void MyAccountProfileConfigureAvatarWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccountProfileConfigureAvatarWidget w;
+    MyAccountProfileConfigureAvatarWidget w(nullptr);
 
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

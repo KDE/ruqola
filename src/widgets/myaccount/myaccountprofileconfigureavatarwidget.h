@@ -23,12 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QPushButton>
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AvatarImage : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit AvatarImage(QWidget *parent = nullptr);
+    explicit AvatarImage(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AvatarImage() override;
 
     void setCurrentIconPath(const QString &currentPath);
@@ -40,15 +40,16 @@ private:
     void changeUrl();
     void changeImage();
     void resetAvatar();
-    QString mCurrentIconPath;
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    QString mCurrentIconPath;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountProfileConfigureAvatarWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccountProfileConfigureAvatarWidget(QWidget *parent = nullptr);
+    explicit MyAccountProfileConfigureAvatarWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountProfileConfigureAvatarWidget() override;
     void setCurrentIconPath(const QString &currentPath);
 

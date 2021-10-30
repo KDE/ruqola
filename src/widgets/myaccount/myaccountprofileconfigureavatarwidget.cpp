@@ -30,9 +30,9 @@
 #include <QInputDialog>
 #include <QMenu>
 
-MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(QWidget *parent)
+MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mAvatarImage(new AvatarImage(this))
+    , mAvatarImage(new AvatarImage(account, this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -49,14 +49,17 @@ void MyAccountProfileConfigureAvatarWidget::setCurrentIconPath(const QString &cu
     mAvatarImage->setCurrentIconPath(currentPath);
 }
 
-AvatarImage::AvatarImage(QWidget *parent)
+AvatarImage::AvatarImage(RocketChatAccount *account, QWidget *parent)
     : QPushButton(parent)
+    , mRocketChatAccount(account)
 {
     setIconSize(QSize(100, 100));
     setFixedSize(QSize(120, 120));
 
     connect(this, &AvatarImage::clicked, this, &AvatarImage::changeImage);
-    connect(Ruqola::self()->rocketChatAccount(), &RocketChatAccount::fileDownloaded, this, &AvatarImage::slotFileDownloaded);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &AvatarImage::slotFileDownloaded);
+    }
 }
 
 AvatarImage::~AvatarImage()
@@ -68,8 +71,8 @@ void AvatarImage::slotFileDownloaded(const QString &filePath, const QUrl &cacheI
     Q_UNUSED(filePath);
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
-    info.identifier = Ruqola::self()->rocketChatAccount()->ownUser().userName();
-    const QUrl iconUrlStr = QUrl(Ruqola::self()->rocketChatAccount()->avatarUrl(info));
+    info.identifier = mRocketChatAccount->ownUser().userName();
+    const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     if (!iconUrlStr.isEmpty()) {
         if (iconUrlStr == cacheImageUrl) {
             setCurrentIconPath(cacheImageUrl.toLocalFile());
@@ -90,7 +93,7 @@ void AvatarImage::changeImage()
     filter = QStringLiteral("%1 (%2)").arg(i18n("Image"), filter);
     const QUrl url = QFileDialog::getOpenFileUrl(this, i18n("Select Image"), {}, filter);
     if (!url.isEmpty()) {
-        Ruqola::self()->rocketChatAccount()->setImageUrl(url);
+        mRocketChatAccount->setImageUrl(url);
         setCurrentIconPath(url.toLocalFile());
     }
 }
@@ -99,13 +102,13 @@ void AvatarImage::changeUrl()
 {
     const QString url = QInputDialog::getText(this, i18n("Change Url"), i18n("Define Avatar Url:"));
     if (!url.isEmpty()) {
-        Ruqola::self()->rocketChatAccount()->setAvatarUrl(url);
+        mRocketChatAccount->setAvatarUrl(url);
     }
 }
 
 void AvatarImage::resetAvatar()
 {
-    Ruqola::self()->rocketChatAccount()->resetAvatar();
+    mRocketChatAccount->resetAvatar();
 }
 
 void AvatarImage::contextMenuEvent(QContextMenuEvent *event)

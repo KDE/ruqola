@@ -45,7 +45,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     , mDeleteMyAccount(new QPushButton(i18n("Delete my Account"), this))
     , mLogoutFromOtherLocation(new QPushButton(i18n("Logout From Other Logged In Locations"), this))
     , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
-    , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(this))
+    , mConfigureAvatarWidget(new MyAccountProfileConfigureAvatarWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto topLayout = new QVBoxLayout(this);
