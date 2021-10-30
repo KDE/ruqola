@@ -70,4 +70,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.accountRoomSettings());
     QVERIFY(w.commandsModel());
     QVERIFY(!w.allowAvatarChanged());
+    QVERIFY(w.customSoundManager());
 }

@@ -23,6 +23,7 @@
 
 #include "ddpclient.h"
 #include "connection.h"
+#include "customsound/customsoundsmanager.h"
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"
 #include "rocketchataccount.h"
@@ -48,9 +49,12 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 
 void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
 {
+    qDebug() << " root " << root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
     }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    account->customSoundManager()->parseCustomSounds(obj);
 }
 
 void block_user(const QJsonObject &root, RocketChatAccount *account)

@@ -92,6 +92,7 @@
 #include <plugins/pluginauthenticationinterface.h>
 
 #include "channels/channelopenjob.h"
+#include "customsound/customsoundsmanager.h"
 #include "groups/groupopenjob.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
@@ -104,7 +105,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mOtrManager(new OtrManager(this))
     , mMessageCache(new MessageCache(this))
     , mManageChannels(new ManageChannels(this))
-
+    , mCustomSoundManager(new CustomSoundsManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2297,6 +2298,7 @@ void RocketChatAccount::initializeAccount()
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
+    ddp()->listCustomSounds();
     customUsersStatus();
     slotLoadRoles();
 
@@ -2683,4 +2685,9 @@ void RocketChatAccount::slotLoadRoles()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start RolesListJob job";
     }
+}
+
+CustomSoundsManager *RocketChatAccount::customSoundManager() const
+{
+    return mCustomSoundManager;
 }

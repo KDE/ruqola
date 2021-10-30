@@ -93,6 +93,7 @@ class UsersForRoomModel;
 class MessageCache;
 class ManageChannels;
 class EmoticonCustomModel;
+class CustomSoundsManager;
 
 namespace RocketChatRestApi
 {
@@ -476,6 +477,8 @@ public:
 
     Q_REQUIRED_RESULT const QVector<RoleInfo> &roleInfo() const;
 
+    Q_REQUIRED_RESULT CustomSoundsManager *customSoundManager() const;
+
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -632,6 +635,7 @@ private:
     DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
     MessageCache *const mMessageCache;
     ManageChannels *const mManageChannels;
+    CustomSoundsManager *const mCustomSoundManager;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;

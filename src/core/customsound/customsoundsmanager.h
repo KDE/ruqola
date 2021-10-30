@@ -34,6 +34,8 @@ public:
     Q_REQUIRED_RESULT const CustomSoundsInfo &customSoundsInfo() const;
     void setCustomSoundsInfo(const CustomSoundsInfo &newCustomSoundsInfo);
 
+    void parseCustomSounds(const QJsonObject &obj);
+
 private:
     CustomSoundsInfo mCustomSoundsInfo;
 };

@@ -38,3 +38,8 @@ void CustomSoundsManager::setCustomSoundsInfo(const CustomSoundsInfo &newCustomS
 {
     mCustomSoundsInfo = newCustomSoundsInfo;
 }
+
+void CustomSoundsManager::parseCustomSounds(const QJsonObject &obj)
+{
+    // TODO
+}
