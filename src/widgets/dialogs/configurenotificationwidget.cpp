@@ -41,7 +41,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mDesktopAlertCombobox(new QComboBox(this))
     , mDesktopAudioCombobox(new QComboBox(this))
     , mDesktopSoundCombobox(new QComboBox(this))
-    , mDesktopDurationCombobox(new QComboBox(this))
     , mMobileAlertCombobox(new QComboBox(this))
     , mEmailAlertCombobox(new QComboBox(this))
 {
@@ -101,15 +100,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
                                              NotificationPreferences::self()->desktopSoundNotificationModel()->currentPreference(index));
     });
 
-    mDesktopDurationCombobox->setObjectName(QStringLiteral("mDesktopDurationCombobox"));
-    desktopGroupBoxLayout->addRow(i18n("Duration:"), mDesktopDurationCombobox);
-    mDesktopDurationCombobox->setModel(NotificationPreferences::self()->desktopDurationNotificationModel());
-    connect(mDesktopDurationCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::DesktopDurationNotifications,
-                                             NotificationPreferences::self()->desktopDurationNotificationModel()->currentPreference(index));
-    });
-
     auto mobileGroupBox = new QGroupBox(i18n("Mobile"), this);
     mobileGroupBox->setObjectName(QStringLiteral("mobileGroupBox"));
     topLayout->addWidget(mobileGroupBox);
@@ -165,8 +155,6 @@ void ConfigureNotificationWidget::setRoom(Room *room)
         NotificationPreferences::self()->desktopAudioNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotifications()));
     mDesktopSoundCombobox->setCurrentIndex(
         NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotificationValue()));
-    mDesktopDurationCombobox->setCurrentIndex(NotificationPreferences::self()->desktopDurationNotificationModel()->setCurrentNotificationPreference(
-        QString::number(notificationOptions.desktopNotificationDuration())));
     mMobileAlertCombobox->setCurrentIndex(
         NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(notificationOptions.mobilePushNotification()));
     mEmailAlertCombobox->setCurrentIndex(

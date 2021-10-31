@@ -44,7 +44,6 @@ private:
     QComboBox *const mDesktopAlertCombobox;
     QComboBox *const mDesktopAudioCombobox;
     QComboBox *const mDesktopSoundCombobox;
-    QComboBox *const mDesktopDurationCombobox;
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;
 };

@@ -64,9 +64,6 @@ public:
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
-    Q_REQUIRED_RESULT int desktopNotificationDuration() const;
-    void setDesktopNotificationDuration(int desktopNotificationDuration);
-
     Q_REQUIRED_RESULT static QJsonObject serialize(const NotificationOptions &message);
     Q_REQUIRED_RESULT static NotificationOptions fromJSon(const QJsonObject &o);
 
@@ -88,7 +85,6 @@ private:
     QString mEmailNotifications;
     QString mUnreadTrayIconAlert;
     QString mAudioNotificationValue; // Type
-    int mDesktopNotificationDuration = 0; // seconds
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;

@@ -40,7 +40,6 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
     QVERIFY(!w.hideUnreadStatus());
     QVERIFY(!w.muteGroupMentions());
     QVERIFY(w.audioNotificationValue().isEmpty());
-    QCOMPARE(w.desktopNotificationDuration(), 0);
 }
 
 void NotificationOptionsTest::shouldAssignValue()
@@ -73,9 +72,6 @@ void NotificationOptionsTest::shouldAssignValue()
     bool muteGroupMentions = true;
     w.setMuteGroupMentions(muteGroupMentions);
 
-    int desktopNotificationDuration = 15;
-    w.setDesktopNotificationDuration(desktopNotificationDuration);
-
     QCOMPARE(w.audioNotifications(), audioNotifications);
     QCOMPARE(w.desktopNotifications(), desktopNotifications);
     QCOMPARE(w.mobilePushNotification(), mobilePushNotification);
@@ -84,7 +80,6 @@ void NotificationOptionsTest::shouldAssignValue()
     QCOMPARE(w.audioNotificationValue(), audioNotificationValue);
     QCOMPARE(w.disableNotifications(), disableNotifications);
     QCOMPARE(w.hideUnreadStatus(), hideUnreadStatus);
-    QCOMPARE(w.desktopNotificationDuration(), desktopNotificationDuration);
     QCOMPARE(w.muteGroupMentions(), muteGroupMentions);
 
     NotificationOptions t;

@@ -66,9 +66,6 @@ void ConfigureNotificationWidgetTest::shouldHaveDefaultValues()
     auto mDesktopSoundCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopSoundCombobox"));
     QVERIFY(mDesktopSoundCombobox);
 
-    auto mDesktopDurationCombobox = topLayout->findChild<QComboBox *>(QStringLiteral("mDesktopDurationCombobox"));
-    QVERIFY(mDesktopDurationCombobox);
-
     auto mobileGroupBox = topLayout->findChild<QGroupBox *>(QStringLiteral("mobileGroupBox"));
     QVERIFY(mobileGroupBox);
     QVERIFY(!mobileGroupBox->title().isEmpty());
