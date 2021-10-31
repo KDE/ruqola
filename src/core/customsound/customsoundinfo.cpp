@@ -48,11 +48,28 @@ void CustomSoundInfo::parseCustomSoundInfo(const QJsonObject &obj)
 {
     mName = obj[QLatin1String("name")].toString();
     mIdentifier = obj[QLatin1String("_id")].toString();
+    mExtension = obj[QLatin1String("extension")].toString();
+}
+
+const QString &CustomSoundInfo::extension() const
+{
+    return mExtension;
+}
+
+void CustomSoundInfo::setExtension(const QString &newExtension)
+{
+    mExtension = newExtension;
+}
+
+bool CustomSoundInfo::isValid() const
+{
+    return !mIdentifier.isEmpty() && !mName.isEmpty();
 }
 
 QDebug operator<<(QDebug d, const CustomSoundInfo &t)
 {
     d << "Identifier: " << t.identifier();
     d << "Name: " << t.name();
+    d << "Extension: " << t.extension();
     return d;
 }

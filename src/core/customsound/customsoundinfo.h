@@ -38,9 +38,15 @@ public:
 
     void parseCustomSoundInfo(const QJsonObject &obj);
 
+    Q_REQUIRED_RESULT const QString &extension() const;
+    void setExtension(const QString &newExtension);
+
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     QString mIdentifier;
     QString mName;
+    QString mExtension;
 };
 
 Q_DECLARE_METATYPE(CustomSoundInfo)
