@@ -38,7 +38,7 @@ InviteUsersWidgetTest::InviteUsersWidgetTest(QObject *parent)
 
 void InviteUsersWidgetTest::shouldHaveDefaultValues()
 {
-    InviteUsersWidget w;
+    InviteUsersWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});

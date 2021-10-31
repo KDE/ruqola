@@ -31,9 +31,9 @@ namespace
 {
 static const char myInviteUsersDialogGroupName[] = "InviteUsersDialog";
 }
-InviteUsersDialog::InviteUsersDialog(QWidget *parent)
+InviteUsersDialog::InviteUsersDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mInviteUsersWidget(new InviteUsersWidget(this))
+    , mInviteUsersWidget(new InviteUsersWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Invite Users"));
     auto mainLayout = new QVBoxLayout(this);

@@ -23,11 +23,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class InviteUsersWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit InviteUsersDialog(QWidget *parent = nullptr);
+    explicit InviteUsersDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~InviteUsersDialog() override;
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);

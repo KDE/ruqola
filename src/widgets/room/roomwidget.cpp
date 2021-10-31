@@ -259,7 +259,7 @@ void RoomWidget::slotAddUsersInRoom()
 
 void RoomWidget::slotInviteUsers()
 {
-    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(this);
+    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->generateLink();
     dlg->exec();

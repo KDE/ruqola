@@ -35,7 +35,7 @@ InviteUsersDialogTest::InviteUsersDialogTest(QObject *parent)
 
 void InviteUsersDialogTest::shouldHaveDefaultValues()
 {
-    InviteUsersDialog w;
+    InviteUsersDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

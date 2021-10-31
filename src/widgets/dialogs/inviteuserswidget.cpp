@@ -36,12 +36,13 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
-InviteUsersWidget::InviteUsersWidget(QWidget *parent)
+InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInviteUserLineEdit(new QLineEdit(this))
     , mExpireDateLabel(new QLabel(this))
     , mExpirationDays(new QComboBox(this))
     , mMaxUses(new QComboBox(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -74,10 +75,9 @@ InviteUsersWidget::InviteUsersWidget(QWidget *parent)
     collapsibleGroupBox->setTitle(i18n("Options"));
     mainLayout->addWidget(collapsibleGroupBox);
 
-    connect(Ruqola::self()->rocketChatAccount()->restApi(),
-            &RocketChatRestApi::Connection::findOrCreateInviteDone,
-            this,
-            &InviteUsersWidget::slotFindOrCreateInvite);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount->restApi(), &RocketChatRestApi::Connection::findOrCreateInviteDone, this, &InviteUsersWidget::slotFindOrCreateInvite);
+    }
 
     auto formLayout = new QFormLayout(collapsibleGroupBox);
     formLayout->setObjectName(QStringLiteral("formLayout"));
@@ -147,7 +147,7 @@ void InviteUsersWidget::setRoomId(const QString &roomId)
 
 void InviteUsersWidget::generateLink(int maxUses, int numberOfDays)
 {
-    Ruqola::self()->rocketChatAccount()->restApi()->findOrCreateInvite(mRoomId, maxUses, numberOfDays);
+    mRocketChatAccount->restApi()->findOrCreateInvite(mRoomId, maxUses, numberOfDays);
 }
 
 void InviteUsersWidget::fillComboBox()

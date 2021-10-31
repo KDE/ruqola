@@ -26,11 +26,12 @@
 class QLineEdit;
 class QLabel;
 class QComboBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT InviteUsersWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit InviteUsersWidget(QWidget *parent = nullptr);
+    explicit InviteUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~InviteUsersWidget() override;
 
     Q_REQUIRED_RESULT QString roomId() const;
@@ -48,5 +49,6 @@ private:
     QLabel *const mExpireDateLabel;
     QComboBox *const mExpirationDays;
     QComboBox *const mMaxUses;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
