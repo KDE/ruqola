@@ -41,12 +41,12 @@ CustomSoundsManager::~CustomSoundsManager()
 {
 }
 
-const CustomSoundsInfo &CustomSoundsManager::customSoundsInfo() const
+const QVector<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
 {
     return mCustomSoundsInfo;
 }
 
-void CustomSoundsManager::setCustomSoundsInfo(const CustomSoundsInfo &newCustomSoundsInfo)
+void CustomSoundsManager::setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo)
 {
     mCustomSoundsInfo = newCustomSoundsInfo;
 }
