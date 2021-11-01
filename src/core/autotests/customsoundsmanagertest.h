@@ -30,4 +30,7 @@ public:
     ~CustomSoundsManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+
+    void shouldParseCustomSounds();
+    void shouldParseCustomSounds_data();
 };

@@ -20,6 +20,7 @@
 
 #include "customsoundsmanagertest.h"
 #include "customsound/customsoundsmanager.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_MAIN(CustomSoundsManagerTest)
 
@@ -32,5 +33,31 @@ void CustomSoundsManagerTest::shouldHaveDefaultValues()
 {
     CustomSoundsManager w;
     QVERIFY(w.customSoundsInfo().isEmpty());
-    // TODO
+}
+
+void CustomSoundsManagerTest::shouldParseCustomSounds_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<int>("numberOfSounds");
+    {
+        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << 5;
+    }
+}
+
+void CustomSoundsManagerTest::shouldParseCustomSounds()
+{
+    QFETCH(QString, name);
+    QFETCH(int, numberOfSounds);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+    CustomSoundsManager w;
+    w.parseCustomSounds(customSoundsArray);
+//    CustomEmoji originalEmoji;
+//    originalEmoji.parseEmoji(obj);
+//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+//    if (!emojiIsEqual) {
+//        qDebug() << "originalEmoji " << originalEmoji;
+//        qDebug() << "ExpectedEmoji " << expectedEmoji;
+//    }
+    QCOMPARE(w.customSoundsInfo().count(), numberOfSounds);
 }
