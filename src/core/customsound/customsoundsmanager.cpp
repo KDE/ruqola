@@ -86,5 +86,37 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
 
 void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
 {
+    qDebug() << " void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)" << replyArray;
+    const int count{replyArray.count()};
+    for (int i = 0; i < count; ++i) {
+        const QJsonObject obj = replyArray.at(i).toObject();
+        const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
+        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
+        if (!identifier.isEmpty()) {
+            bool soundIdentifierFound = false;
+            for (int i = 0; i < mCustomSoundsInfo.count(); ++i) {
+                if (mCustomSoundsInfo.at(i).identifier() == identifier) {
+                    soundIdentifierFound = true;
+                    mCustomSoundsInfo.removeAt(i);
+                    CustomSoundInfo sound;
+                    sound.parseCustomSoundInfo(emojiData);
+                    if (sound.isValid()) {
+                        mCustomSoundsInfo.append(sound);
+                        Q_EMIT customSoundUpdated(identifier);
+                    }
+                    break;
+                }
+            }
+            if (!soundIdentifierFound) {
+                CustomSoundInfo sound;
+                sound.parseCustomSoundInfo(emojiData);
+                if (sound.isValid()) {
+                    mCustomSoundsInfo.append(sound);
+                    Q_EMIT customSoundAdded(identifier);
+                }
+            }
+        }
+    }
+    // [{"soundData":{"_id":"QM9RnDaKu5ddCcjRK","extension":"mp3","name":"rr","newFile":true,"random":211}}]
     // TODO
 }
