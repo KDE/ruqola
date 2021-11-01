@@ -42,7 +42,8 @@ public:
 
 Q_SIGNALS:
     void customSoundRemoved(const QString &identifier);
-
+    void customSoundAdded(const QString &identifier);
+    void customSoundUpdated(const QString &identifier);
 private:
     QVector<CustomSoundInfo> mCustomSoundsInfo;
 };
