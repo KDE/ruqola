@@ -36,6 +36,9 @@ public:
 
     void parseCustomSounds(const QJsonArray &obj);
 
+    void deleteCustomSounds(const QJsonArray &replyArray);
+
+    void updateCustomSounds(const QJsonArray &replyArray);
 private:
     QVector<CustomSoundInfo> mCustomSoundsInfo;
 };

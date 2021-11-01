@@ -64,3 +64,13 @@ void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
         }
     }
 }
+
+void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
+{
+    // TODO
+}
+
+void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
+{
+    // TODO
+}
