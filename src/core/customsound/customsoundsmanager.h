@@ -34,7 +34,7 @@ public:
     Q_REQUIRED_RESULT const QVector<CustomSoundInfo> &customSoundsInfo() const;
     void setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo);
 
-    void parseCustomSounds(const QJsonObject &obj);
+    void parseCustomSounds(const QJsonArray &obj);
 
 private:
     QVector<CustomSoundInfo> mCustomSoundsInfo;

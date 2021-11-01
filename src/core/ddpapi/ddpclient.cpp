@@ -53,7 +53,7 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("list custom sounds:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    const QJsonArray obj = root.value(QLatin1String("result")).toArray();
     account->customSoundManager()->parseCustomSounds(obj);
 }
 

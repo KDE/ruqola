@@ -20,11 +20,13 @@
 
 #include "customsoundsmanager.h"
 
+#include <QJsonArray>
+
 CustomSoundsManager::CustomSoundsManager(QObject *parent)
     : QObject{parent}
 {
 #if 0 // Core from RC
-we had some default sound. No code for loading it directly. It's default list
+we had some default sound. No code for loading it directly. It s default list
                 this.add({ _id: 'chime', name: 'Chime', extension: 'mp3', src: getURL('sounds/chime.mp3') });
                 this.add({ _id: 'door', name: 'Door', extension: 'mp3', src: getURL('sounds/door.mp3') });
                 this.add({ _id: 'beep', name: 'Beep', extension: 'mp3', src: getURL('sounds/beep.mp3') });
@@ -51,7 +53,14 @@ void CustomSoundsManager::setCustomSoundsInfo(const QVector<CustomSoundInfo> &ne
     mCustomSoundsInfo = newCustomSoundsInfo;
 }
 
-void CustomSoundsManager::parseCustomSounds(const QJsonObject &obj)
+void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
 {
-    // TODO
+    mCustomSoundsInfo.clear();
+    for (int i = 0; i < replyArray.count(); ++i) {
+        CustomSoundInfo info;
+        info.parseCustomSoundInfo(replyArray.at(i).toObject());
+        if (info.isValid()) {
+            mCustomSoundsInfo.append(info);
+        }
+    }
 }
