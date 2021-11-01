@@ -240,6 +240,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mManageChannels, &ManageChannels::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
     connect(&mRolesManager, &RolesManager::rolesChanged, this, &RocketChatAccount::rolesUpdated);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, &RocketChatAccount::customSoundRemoved);
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, &RocketChatAccount::customSoundAdded);
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, &RocketChatAccount::customSoundUpdated);
 }
 
 RocketChatAccount::~RocketChatAccount()

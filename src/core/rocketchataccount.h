@@ -521,7 +521,11 @@ Q_SIGNALS:
     void updateStatusComboBox();
     void permissionChanged();
     void displayReconnectWidget(int seconds);
+
     void customSoundRemoved(const QString &identifier);
+    void customSoundAdded(); // TODO add argument ?
+    void customSoundUpdated(); // TODO add argument ?
+
     void insertStdOutInfo(const QString &str);
     void rolesUpdated();
 
