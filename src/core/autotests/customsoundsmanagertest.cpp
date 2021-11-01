@@ -129,7 +129,47 @@ void CustomSoundsManagerTest::shouldAddCustomSounds_data()
     }
 }
 
+void CustomSoundsManagerTest::shouldUpdateCustomSounds()
+{
+    QFETCH(QString, name);
+    QFETCH(QString, updateFileName);
+    QFETCH(int, initialNumberOfSounds);
+    QFETCH(int, afterDeletingNumberOfSounds);
+    QFETCH(int, signalsEmittingCount);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+    CustomSoundsManager w;
+    QSignalSpy spyUpdateSignal(&w, &CustomSoundsManager::customSoundUpdated);
+    w.parseCustomSounds(customSoundsArray);
 
+    //    CustomEmoji originalEmoji;
+    //    originalEmoji.parseEmoji(obj);
+    //    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    //    if (!emojiIsEqual) {
+    //        qDebug() << "originalEmoji " << originalEmoji;
+    //        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    //    }
+    QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
+
+    QString updateJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + updateFileName + QLatin1String(".json");
+    const QJsonArray addCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(updateJsonFile);
+    w.updateCustomSounds(addCustomSoundsArray);
+    QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
+
+    QCOMPARE(spyUpdateSignal.count(), signalsEmittingCount);
+}
+
+void CustomSoundsManagerTest::shouldUpdateCustomSounds_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QString>("updateFileName");
+    QTest::addColumn<int>("initialNumberOfSounds");
+    QTest::addColumn<int>("afterDeletingNumberOfSounds");
+    QTest::addColumn<int>("signalsEmittingCount");
+    {
+        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 5 << 5 << 1;
+    }
+}
 void CustomSoundsManagerTest::shouldParseCustomSounds()
 {
     QFETCH(QString, name);

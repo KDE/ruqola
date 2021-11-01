@@ -86,7 +86,6 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
 
 void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
 {
-    qDebug() << " void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)" << replyArray;
     const int count{replyArray.count()};
     for (int i = 0; i < count; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
