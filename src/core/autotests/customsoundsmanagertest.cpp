@@ -21,6 +21,7 @@
 #include "customsoundsmanagertest.h"
 #include "customsound/customsoundsmanager.h"
 #include "ruqola_autotest_helper.h"
+#include <QSignalSpy>
 #include <QTest>
 QTEST_MAIN(CustomSoundsManagerTest)
 
@@ -44,6 +45,48 @@ void CustomSoundsManagerTest::shouldParseCustomSounds_data()
     }
 }
 
+void CustomSoundsManagerTest::shouldDeleteCustomSounds()
+{
+    QFETCH(QString, name);
+    QFETCH(QString, deleteFileName);
+    QFETCH(int, initialNumberOfSounds);
+    QFETCH(int, afterDeletingNumberOfSounds);
+    QFETCH(int, signalsEmittingCount);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+    CustomSoundsManager w;
+    QSignalSpy spyDeleteSignal(&w, &CustomSoundsManager::deleteCustomSounds);
+    w.parseCustomSounds(customSoundsArray);
+
+//    CustomEmoji originalEmoji;
+//    originalEmoji.parseEmoji(obj);
+//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+//    if (!emojiIsEqual) {
+//        qDebug() << "originalEmoji " << originalEmoji;
+//        qDebug() << "ExpectedEmoji " << expectedEmoji;
+//    }
+    QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
+
+    QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + deleteFileName + QLatin1String(".json");
+    const QJsonArray deleteCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(deleteJsonFile);
+    w.deleteCustomSounds(deleteCustomSoundsArray);
+    QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
+
+    QCOMPARE(spyDeleteSignal.count(), signalsEmittingCount);
+}
+
+void CustomSoundsManagerTest::shouldDeleteCustomSounds_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QString>("deleteFileName");
+    QTest::addColumn<int>("initialNumberOfSounds");
+    QTest::addColumn<int>("afterDeletingNumberOfSounds");
+    QTest::addColumn<int>("signalsEmittingCount");
+    {
+        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 5 << 4 << 1;
+    }
+}
+
 void CustomSoundsManagerTest::shouldParseCustomSounds()
 {
     QFETCH(QString, name);
@@ -52,12 +95,12 @@ void CustomSoundsManagerTest::shouldParseCustomSounds()
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
     w.parseCustomSounds(customSoundsArray);
-//    CustomEmoji originalEmoji;
-//    originalEmoji.parseEmoji(obj);
-//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
-//    if (!emojiIsEqual) {
-//        qDebug() << "originalEmoji " << originalEmoji;
-//        qDebug() << "ExpectedEmoji " << expectedEmoji;
-//    }
+    //    CustomEmoji originalEmoji;
+    //    originalEmoji.parseEmoji(obj);
+    //    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    //    if (!emojiIsEqual) {
+    //        qDebug() << "originalEmoji " << originalEmoji;
+    //        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    //    }
     QCOMPARE(w.customSoundsInfo().count(), numberOfSounds);
 }
