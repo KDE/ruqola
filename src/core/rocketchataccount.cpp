@@ -239,6 +239,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mManageChannels, &ManageChannels::missingChannelPassword, this, &RocketChatAccount::missingChannelPassword);
     connect(mManageChannels, &ManageChannels::openArchivedRoom, this, &RocketChatAccount::openArchivedRoom);
     connect(&mRolesManager, &RolesManager::rolesChanged, this, &RocketChatAccount::rolesUpdated);
+    connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, &RocketChatAccount::customSoundRemoved);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -1483,17 +1484,6 @@ const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
     mCustomSoundManager->deleteCustomSounds(replyArray);
-    qDebug() << " deleteCustomSound " << replyArray;
-    // TODO move it in sound custom manager when we create it.
-    const int count{replyArray.count()};
-    for (int i = 0; i < count; ++i) {
-        const QJsonObject obj = replyArray.at(i).toObject();
-        const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
-        const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
-        if (!identifier.isEmpty()) {
-            Q_EMIT customSoundRemoved(identifier);
-        }
-    }
 }
 
 void RocketChatAccount::updateRoles(const QJsonArray &contents)

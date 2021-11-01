@@ -39,6 +39,10 @@ public:
     void deleteCustomSounds(const QJsonArray &replyArray);
 
     void updateCustomSounds(const QJsonArray &replyArray);
+
+Q_SIGNALS:
+    void customSoundRemoved(const QString &identifier);
+
 private:
     QVector<CustomSoundInfo> mCustomSoundsInfo;
 };
