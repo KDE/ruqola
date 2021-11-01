@@ -87,6 +87,49 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds_data()
     }
 }
 
+void CustomSoundsManagerTest::shouldAddCustomSounds()
+{
+    QFETCH(QString, name);
+    QFETCH(QString, addFileName);
+    QFETCH(int, initialNumberOfSounds);
+    QFETCH(int, afterDeletingNumberOfSounds);
+    QFETCH(int, signalsEmittingCount);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
+    const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
+    CustomSoundsManager w;
+    QSignalSpy spyAddSignal(&w, &CustomSoundsManager::customSoundAdded);
+    w.parseCustomSounds(customSoundsArray);
+
+    //    CustomEmoji originalEmoji;
+    //    originalEmoji.parseEmoji(obj);
+    //    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    //    if (!emojiIsEqual) {
+    //        qDebug() << "originalEmoji " << originalEmoji;
+    //        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    //    }
+    QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
+
+    QString addJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + addFileName + QLatin1String(".json");
+    const QJsonArray addCustomSoundsArray = AutoTestHelper::loadJsonArrayObject(addJsonFile);
+    w.updateCustomSounds(addCustomSoundsArray);
+    QCOMPARE(w.customSoundsInfo().count(), afterDeletingNumberOfSounds);
+
+    QCOMPARE(spyAddSignal.count(), signalsEmittingCount);
+}
+
+void CustomSoundsManagerTest::shouldAddCustomSounds_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<QString>("addFileName");
+    QTest::addColumn<int>("initialNumberOfSounds");
+    QTest::addColumn<int>("afterDeletingNumberOfSounds");
+    QTest::addColumn<int>("signalsEmittingCount");
+    {
+        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 5 << 6 << 1;
+    }
+}
+
+
 void CustomSoundsManagerTest::shouldParseCustomSounds()
 {
     QFETCH(QString, name);
