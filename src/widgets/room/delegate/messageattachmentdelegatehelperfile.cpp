@@ -116,7 +116,12 @@ MessageAttachmentDelegateHelperFile::doLayout(const MessageAttachment &msgAttach
     return layout;
 }
 
-enum class UserChoice { Save, Open, OpenWith, Cancel };
+enum class UserChoice {
+    Save,
+    Open,
+    OpenWith,
+    Cancel,
+};
 Q_DECLARE_METATYPE(UserChoice)
 
 static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)

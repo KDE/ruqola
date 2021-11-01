@@ -39,7 +39,12 @@ LocalMessageLogger::LocalMessageLogger()
 }
 
 static const char s_schema[] = "CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)";
-enum class Fields { MessageId, TimeStamp, UserName, Text }; // in the same order as the table
+enum class Fields {
+    MessageId,
+    TimeStamp,
+    UserName,
+    Text,
+}; // in the same order as the table
 
 QString LocalMessageLogger::dbFileName(const QString &accountName, const QString &roomName) const
 {

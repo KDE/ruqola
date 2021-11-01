@@ -45,7 +45,12 @@ static QString existingRoomName()
 {
     return QStringLiteral("existingRoom");
 }
-enum class Fields { MessageId, TimeStamp, UserName, Text }; // in the same order as the table
+enum class Fields {
+    MessageId,
+    TimeStamp,
+    UserName,
+    Text,
+}; // in the same order as the table
 
 void LocalMessageLoggerTest::initTestCase()
 {
