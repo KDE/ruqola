@@ -1482,6 +1482,7 @@ const QVector<RoleInfo> &RocketChatAccount::roleInfo() const
 
 void RocketChatAccount::deleteCustomSound(const QJsonArray &replyArray)
 {
+    mCustomSoundManager->deleteCustomSounds(replyArray);
     qDebug() << " deleteCustomSound " << replyArray;
     // TODO move it in sound custom manager when we create it.
     const int count{replyArray.count()};
@@ -1513,7 +1514,7 @@ void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
 
 void RocketChatAccount::updateCustomSound(const QJsonArray &replyArray)
 {
-    // TODO
+    mCustomSoundManager->updateCustomSounds(replyArray);
 }
 
 void RocketChatAccount::deleteUser(const QJsonArray &replyArray)
