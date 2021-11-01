@@ -33,6 +33,7 @@ private Q_SLOTS:
 
     void shouldParseCustomSounds();
     void shouldParseCustomSounds_data();
+
     void shouldDeleteCustomSounds();
     void shouldDeleteCustomSounds_data();
 };

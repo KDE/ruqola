@@ -55,7 +55,7 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + name + QLatin1String(".json");
     const QJsonArray customSoundsArray = AutoTestHelper::loadJsonArrayObject(originalJsonFile);
     CustomSoundsManager w;
-    QSignalSpy spyDeleteSignal(&w, &CustomSoundsManager::deleteCustomSounds);
+    QSignalSpy spyDeleteSignal(&w, &CustomSoundsManager::customSoundRemoved);
     w.parseCustomSounds(customSoundsArray);
 
 //    CustomEmoji originalEmoji;
