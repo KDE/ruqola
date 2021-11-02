@@ -88,7 +88,7 @@ void ViewLogWidget::slotInsertStdOutInfo(const QString &str)
 
 void ViewLogWidget::insertLine(const QString &str)
 {
-    mPlainTextEdit->appendHtml(QStringLiteral("<p style=\"color:red;white-space:pre\">%1</p>").arg(str));
+    mPlainTextEdit->appendHtml(QStringLiteral("<p white-space:pre\">%1</p>").arg(str));
 }
 
 void ViewLogWidget::slotStdoutQueueDone(const QJsonObject &obj)
