@@ -157,7 +157,7 @@ void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
     QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(mRocketChatAccount, this);
     dlg->setRoleId(modelIndex.data().toString());
     if (dlg->exec()) {
-        // TODO
+        // TODO use dialogbox for adding user.
     }
     delete dlg;
 }
