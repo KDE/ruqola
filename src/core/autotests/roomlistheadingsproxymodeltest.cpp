@@ -2,7 +2,6 @@
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 
-#include <QStandardItemModel>
 #include <QTest>
 #include <rocketchataccount.h>
 

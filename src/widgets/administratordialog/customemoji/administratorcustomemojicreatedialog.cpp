@@ -19,7 +19,6 @@
 */
 
 #include "administratorcustomemojicreatedialog.h"
-#include "administratorcustomemojicreatewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>

@@ -20,7 +20,6 @@
 #include "rolescombobox.h"
 #include "connection.h"
 #include "model/rolesmodel.h"
-#include "roles/roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 

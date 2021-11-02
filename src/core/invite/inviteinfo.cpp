@@ -21,7 +21,6 @@
 #include "inviteinfo.h"
 #include "utils.h"
 
-#include <QDateTime>
 InviteInfo::InviteInfo()
 {
 }

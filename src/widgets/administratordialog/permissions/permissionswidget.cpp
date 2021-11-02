@@ -28,7 +28,6 @@
 #include "permissionseditdialog.h"
 #include "permissionstreeview.h"
 #include "rocketchataccount.h"
-#include "roles/roleinfo.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>

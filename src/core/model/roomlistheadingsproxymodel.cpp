@@ -1,5 +1,4 @@
 #include "roomlistheadingsproxymodel.h"
-#include "roommodel.h"
 #include "ruqola_rooms_debug.h"
 
 #include <QApplication>
