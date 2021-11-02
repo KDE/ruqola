@@ -48,3 +48,14 @@ void UserInRoleEditWidget::setRoleId(const QString &newRoleId)
 {
     mUserInRoleWidget->setRoleId(newRoleId);
 }
+
+const QString &UserInRoleEditWidget::roleName() const
+{
+    return mUserInRoleWidget->roleName();
+}
+
+void UserInRoleEditWidget::setRoleName(const QString &newRoleName)
+{
+    mUserInRoleWidget->setRoleName(newRoleName);
+}
+

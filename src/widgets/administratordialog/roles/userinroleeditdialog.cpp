@@ -66,6 +66,16 @@ void UserInRoleEditDialog::setRoleId(const QString &newRoleId)
     mUserInRoleEditWidget->setRoleId(newRoleId);
 }
 
+const QString &UserInRoleEditDialog::roleName() const
+{
+    return mUserInRoleEditWidget->roleName();
+}
+
+void UserInRoleEditDialog::setRoleName(const QString &newRoleName)
+{
+    mUserInRoleEditWidget->setRoleName(newRoleName);
+}
+
 void UserInRoleEditDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myUserInRoleEditDialogGroupName);

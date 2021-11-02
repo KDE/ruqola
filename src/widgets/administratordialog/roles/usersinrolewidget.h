@@ -33,6 +33,9 @@ public:
     Q_REQUIRED_RESULT const QString &roleId() const;
     void setRoleId(const QString &newRoleId);
 
+    Q_REQUIRED_RESULT const QString &roleName() const;
+    void setRoleName(const QString &newRoleName);
+
 protected:
     void updateLabel() override;
     void slotLoadElements(int offset = -1, int count = -1, const QString &searchName = {}) override;
@@ -50,4 +53,5 @@ private:
     void slotRemoveUsersFromRoleDone(const QJsonObject &replyObject);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     QString mRoleId;
+    QString mRoleName;
 };

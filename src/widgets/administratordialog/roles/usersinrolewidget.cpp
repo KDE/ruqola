@@ -116,6 +116,16 @@ QString UsersInRoleWidget::displayShowMessageInRoom() const
     return displayMessageStr;
 }
 
+const QString &UsersInRoleWidget::roleName() const
+{
+    return mRoleName;
+}
+
+void UsersInRoleWidget::setRoleName(const QString &newRoleName)
+{
+    mRoleName = newRoleName;
+}
+
 const QString &UsersInRoleWidget::roleId() const
 {
     return mRoleId;

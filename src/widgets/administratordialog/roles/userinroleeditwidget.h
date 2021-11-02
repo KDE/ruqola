@@ -34,6 +34,9 @@ public:
     Q_REQUIRED_RESULT const QString &roleId() const;
     void setRoleId(const QString &newRoleId);
 
+    Q_REQUIRED_RESULT const QString &roleName() const;
+    void setRoleName(const QString &newRoleName);
+
 private:
     UsersInRoleWidget *const mUserInRoleWidget;
 };
