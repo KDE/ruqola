@@ -25,6 +25,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+
+#include <KLocalizedString>
+
 using namespace RocketChatRestApi;
 RemoveUserFromRoleJob::RemoveUserFromRoleJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -63,6 +66,14 @@ void RemoveUserFromRoleJob::slotRemoveUsersFromRoleDone()
         reply->deleteLater();
     }
     deleteLater();
+}
+
+QString RemoveUserFromRoleJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("error-user-not-in-role")) {
+        return i18n("This user is not in this role.");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 const QString &RemoveUserFromRoleJob::username() const
@@ -121,6 +132,7 @@ QJsonDocument RemoveUserFromRoleJob::json() const
     jsonObj[QLatin1String("roleName")] = mRoleName;
     jsonObj[QLatin1String("username")] = mUsername;
 
+    qDebug() << "mRoleName  " << mRoleName << " mUsername " << mUsername;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
