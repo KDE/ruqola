@@ -52,8 +52,12 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
         job->setInfo(info);
         job->setAccountName(account->accountName());
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-        connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId) {
-            account->sendMessage(roomId, str);
+        connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
+            if (tmId.isEmpty()) {
+                account->sendMessage(roomId, str);
+            } else {
+                account->replyOnThread(roomId, tmId, str);
+            }
             // qDebug() << " str" << str << " Room Name " << roomName;
         });
         job->start();

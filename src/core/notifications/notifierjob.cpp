@@ -52,7 +52,7 @@ void NotifierJob::start()
         replyAction->setPlaceholderText(i18n("Reply..."));
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
             // qDebug() << " mInfo " << mInfo;
-            Q_EMIT sendReply(text, mInfo.roomId);
+            Q_EMIT sendReply(text, mInfo.roomId, mInfo.tmId);
             // qDebug() << " reply " << text;
         });
         notification->setReplyAction(std::move(replyAction));
