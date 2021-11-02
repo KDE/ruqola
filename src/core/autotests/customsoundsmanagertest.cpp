@@ -82,9 +82,8 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    {
-        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 5 << 4 << 1;
-    }
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds1") << 5 << 4 << 1;
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("deleteCustomSounds2") << 5 << 5 << 0;
 }
 
 void CustomSoundsManagerTest::shouldAddCustomSounds()
