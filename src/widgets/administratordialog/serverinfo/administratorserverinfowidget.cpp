@@ -61,9 +61,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
 
     mTreeWidget->setObjectName(QStringLiteral("mTreeWidget"));
     mTreeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(mTreeWidget, &QTreeWidget::customContextMenuRequested, this, [this](const QPoint &pos) {
-        slotContextMenu(pos);
-    });
+    connect(mTreeWidget, &QTreeWidget::customContextMenuRequested, this, &AdministratorServerInfoWidget::slotContextMenu);
 
     mainLayout->addWidget(mTreeWidget);
     mTreeWidget->header()->hide();
