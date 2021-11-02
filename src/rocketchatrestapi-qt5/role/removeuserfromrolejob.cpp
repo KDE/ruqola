@@ -128,11 +128,11 @@ QNetworkRequest RemoveUserFromRoleJob::request() const
 
 QJsonDocument RemoveUserFromRoleJob::json() const
 {
+    // TODO restapi seems to not working. Need to report bug.
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roleName")] = mRoleName;
     jsonObj[QLatin1String("username")] = mUsername;
 
-    qDebug() << "mRoleName  " << mRoleName << " mUsername " << mUsername;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
