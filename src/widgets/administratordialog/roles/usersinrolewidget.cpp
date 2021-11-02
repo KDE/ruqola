@@ -70,7 +70,7 @@ void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
     if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()), i18n("Remove User"))
         == KMessageBox::Yes) {
         auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
-        job->setRoleName(mRoleId);
+        job->setRoleName(mRoleName);
         modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::UserName);
         job->setUsername(modelIndex.data().toString());
 
