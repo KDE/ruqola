@@ -140,6 +140,7 @@ Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
         info.roomId = payloadObj[QStringLiteral("rid")].toString();
         info.roomName = payloadObj[QStringLiteral("name")].toString();
         info.channelType = payloadObj[QStringLiteral("type")].toString();
+        info.tmId = payloadObj[QStringLiteral("tmid")].toString();
         const QJsonObject senderObj = payloadObj.value(QLatin1String("sender")).toObject();
         if (!senderObj.isEmpty()) {
             info.senderId = senderObj.value(QLatin1String("_id")).toString();

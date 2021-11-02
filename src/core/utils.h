@@ -38,6 +38,7 @@ struct NotificationInfo {
     QString roomName;
     QString roomId;
     QString channelType;
+    QString tmId;
     QPixmap pixmap;
     // Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const
