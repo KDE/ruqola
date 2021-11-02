@@ -123,9 +123,7 @@ void CustomSoundsManagerTest::shouldAddCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    {
-        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 5 << 6 << 1;
-    }
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("addCustomSounds1") << 5 << 6 << 1;
 }
 
 void CustomSoundsManagerTest::shouldUpdateCustomSounds()
@@ -165,10 +163,9 @@ void CustomSoundsManagerTest::shouldUpdateCustomSounds_data()
     QTest::addColumn<int>("initialNumberOfSounds");
     QTest::addColumn<int>("afterDeletingNumberOfSounds");
     QTest::addColumn<int>("signalsEmittingCount");
-    {
-        QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 5 << 5 << 1;
-    }
+    QTest::addRow("customSounds1") << QStringLiteral("customSounds1") << QStringLiteral("updateCustomSounds1") << 5 << 5 << 1;
 }
+
 void CustomSoundsManagerTest::shouldParseCustomSounds()
 {
     QFETCH(QString, name);
