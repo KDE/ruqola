@@ -31,7 +31,8 @@ public:
         Name,
         Email,
         UserId,
-        LastColumn = UserId,
+        UserName,
+        LastColumn = UserName,
     };
     Q_ENUM(UsersInRoleRoles)
     explicit UsersInRoleModel(QObject *parent = nullptr);

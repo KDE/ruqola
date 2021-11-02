@@ -43,7 +43,7 @@ int UsersInRoleModel::rowCount(const QModelIndex &parent) const
 
 QList<int> UsersInRoleModel::hideColumns() const
 {
-    return {UserId};
+    return {UserId, UserName};
 }
 
 void UsersInRoleModel::addMoreElements(const QJsonObject &obj)
@@ -88,6 +88,8 @@ QVariant UsersInRoleModel::data(const QModelIndex &index, int role) const
         return user.userEmailsInfo().email;
     case UsersInRoleRoles::UserId:
         return user.userId();
+    case UsersInRoleRoles::UserName:
+        return user.userName();
     }
     return {};
 }
@@ -101,6 +103,7 @@ QVariant UsersInRoleModel::headerData(int section, Qt::Orientation orientation, 
         case UsersInRoleModel::Email:
             return i18n("Emails");
         case UsersInRoleModel::UserId:
+        case UsersInRoleModel::UserName:
             return {};
         }
     }
