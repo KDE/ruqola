@@ -49,10 +49,22 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     connectModel();
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomSoundsWidget::slotModifyCustomSound);
     connect(mRocketChatAccount, &RocketChatAccount::customSoundRemoved, this, &AdministratorCustomSoundsWidget::slotCustomSoundRemoved);
+    connect(mRocketChatAccount, &RocketChatAccount::customSoundAdded, this, &AdministratorCustomSoundsWidget::slotCustomSoundAdded);
+    connect(mRocketChatAccount, &RocketChatAccount::customSoundUpdated, this, &AdministratorCustomSoundsWidget::slotCustomSoundUpdated);
 }
 
 AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
 {
+}
+
+void AdministratorCustomSoundsWidget::slotCustomSoundAdded()
+{
+    // TODO
+}
+
+void AdministratorCustomSoundsWidget::slotCustomSoundUpdated()
+{
+    // TODO
 }
 
 void AdministratorCustomSoundsWidget::slotCustomSoundRemoved(const QString &identifier)
@@ -131,7 +143,6 @@ void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &i
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
         const QString soundIdentifier = modelIndex.data().toString();
         mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);
-        // TODO update list.
     }
 }
 
