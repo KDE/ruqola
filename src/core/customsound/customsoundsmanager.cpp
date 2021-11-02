@@ -116,6 +116,4 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
             }
         }
     }
-    // [{"soundData":{"_id":"QM9RnDaKu5ddCcjRK","extension":"mp3","name":"rr","newFile":true,"random":211}}]
-    // TODO
 }
