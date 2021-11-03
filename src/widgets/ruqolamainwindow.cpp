@@ -307,7 +307,7 @@ void RuqolaMainWindow::setupActions()
     connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
     ac->addAction(QStringLiteral("show_log"), mShowLog);
 
-    mClearAlerts = new QAction(i18n("Mark all channels read"), this);
+    mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
     ac->addAction(QStringLiteral("mark_all_channels_read"), mClearAlerts);
