@@ -68,7 +68,7 @@ void UsersInRoleWidget::slotAddUser()
         const auto users = dlg->userNames();
         for (const auto &user : users) {
             auto job = new RocketChatRestApi::AddUserToRoleJob(this);
-            job->setRoleName(mRoleName);
+            job->setRoleName(mRoleId);
             job->setUsername(user);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::AddUserToRoleJob::addUsersToRoleDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
