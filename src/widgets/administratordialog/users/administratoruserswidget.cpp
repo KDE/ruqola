@@ -196,14 +196,14 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
         const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
-        const bool activateUser = modelIndex.data().toBool();
-        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
-            slotActivateUser(newModelIndex, activateUser);
-        });
-        menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
             slotModifyUser(modelIndex);
+        });
+        menu.addSeparator();
+        const bool activateUser = modelIndex.data().toBool();
+        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
+            slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
