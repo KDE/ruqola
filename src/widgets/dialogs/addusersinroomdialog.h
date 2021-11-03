@@ -29,6 +29,7 @@ public:
     explicit AddUsersInRoomDialog(QWidget *parent = nullptr);
     ~AddUsersInRoomDialog() override;
     Q_REQUIRED_RESULT QStringList userIds() const;
+    Q_REQUIRED_RESULT QStringList userNames() const;
 
 private:
     void readConfig();

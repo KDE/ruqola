@@ -49,4 +49,5 @@ void AddUsersInRoomDialogTest::shouldHaveDefaultValues()
     QVERIFY(okButton);
     QVERIFY(!okButton->isEnabled());
     QVERIFY(w.userIds().isEmpty());
+    QVERIFY(w.userNames().isEmpty());
 }

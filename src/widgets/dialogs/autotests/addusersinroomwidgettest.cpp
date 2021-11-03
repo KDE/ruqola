@@ -42,4 +42,5 @@ void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAddUsersWidget);
 
     QVERIFY(w.userIds().isEmpty());
+    QVERIFY(w.userNames().isEmpty());
 }

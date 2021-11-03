@@ -48,3 +48,8 @@ QStringList AddUsersInRoomWidget::userIds() const
 {
     return mAddUsersWidget->userIds();
 }
+
+QStringList AddUsersInRoomWidget::userNames() const
+{
+    return mAddUsersWidget->userNames();
+}

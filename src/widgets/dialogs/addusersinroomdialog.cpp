@@ -62,6 +62,11 @@ QStringList AddUsersInRoomDialog::userIds() const
     return mAddUsersInRoomWidget->userIds();
 }
 
+QStringList AddUsersInRoomDialog::userNames() const
+{
+    return mAddUsersInRoomWidget->userNames();
+}
+
 void AddUsersInRoomDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAddUsersInRoomDialogGroupName);

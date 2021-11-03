@@ -32,6 +32,7 @@ public:
 
     Q_REQUIRED_RESULT QStringList userIds() const;
 
+    Q_REQUIRED_RESULT QStringList userNames() const;
 Q_SIGNALS:
     void updateOkButton(bool state);
 
