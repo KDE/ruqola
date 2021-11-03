@@ -49,6 +49,10 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmail);
     QVERIFY(mEmail->text().isEmpty());
 
+    auto mStatusText = w.findChild<QLineEdit *>(QStringLiteral("mStatusText"));
+    QVERIFY(mStatusText);
+    QVERIFY(mStatusText->text().isEmpty());
+
     auto mJoinDefaultChannels = w.findChild<QCheckBox *>(QStringLiteral("mJoinDefaultChannels"));
     QVERIFY(mJoinDefaultChannels);
     QVERIFY(!mJoinDefaultChannels->text().isEmpty());

@@ -18,6 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 #include "administratoradduserwidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "misc/rolescombobox.h"
 #include "ruqolawidgets_debug.h"
 #include "user.h"
@@ -33,6 +34,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mEmail(new QLineEdit(this))
+    , mStatusText(new QLineEdit(this))
     , mJoinDefaultChannels(new QCheckBox(i18n("Join Default Channels"), this))
     , mSendWelcomeEmails(new QCheckBox(i18n("Send Welcome Email"), this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
@@ -43,6 +45,12 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mName->setObjectName(QStringLiteral("mName"));
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mEmail->setObjectName(QStringLiteral("mEmail"));
+    mStatusText->setObjectName(QStringLiteral("mStatusText"));
+    new LineEditCatchReturnKey(mName, this);
+    new LineEditCatchReturnKey(mUserName, this);
+    new LineEditCatchReturnKey(mEmail, this);
+    new LineEditCatchReturnKey(mStatusText, this);
+
     mJoinDefaultChannels->setObjectName(QStringLiteral("mJoinDefaultChannels"));
     mSendWelcomeEmails->setObjectName(QStringLiteral("mSendWelcomeEmails"));
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
@@ -50,6 +58,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
     formLayout->addRow(i18n("Name:"), mName);
     formLayout->addRow(i18n("Username:"), mUserName);
+    formLayout->addRow(i18n("Status Message:"), mStatusText);
     formLayout->addRow(i18n("Email:"), mEmail);
     formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     formLayout->addWidget(mJoinDefaultChannels);
@@ -67,10 +76,8 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget()
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {
-    // TODO verify if password can be empty
-    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty() /*
-         && !mPasswordLineEdit->password().isEmpty()*/
-        ;
+    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty()
+        && !mPasswordLineEdit->password().isEmpty();
     Q_EMIT updateButtonOk(enableOkButton);
 }
 
@@ -83,6 +90,7 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
     info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     info.mPassword = mPasswordLineEdit->password();
+    info.mStatusText = mStatusText->text().trimmed();
     // TODO add more
     return info;
 }
@@ -98,6 +106,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mName = mName->text().trimmed();
     info.mEmail = mEmail->text().trimmed();
     info.mUserName = mUserName->text();
+    info.mStatusText = mStatusText->text().trimmed();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
     info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     info.mPassword = mPasswordLineEdit->password();
@@ -110,7 +119,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mUserName->setText(user.userName());
     mEmail->setText(user.userEmailsInfo().email);
     mRolesComboBox->setRoles(user.roles());
+    mStatusText->setText(user.statusText());
+    // TODO add mSendWelcomeEmail and mJoinDefaultChannels
     // mJoinDefaultChannels->setChecked(user.jo)
-
-    // TODO
 }

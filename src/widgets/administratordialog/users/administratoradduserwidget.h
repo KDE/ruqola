@@ -53,6 +53,8 @@ private:
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mEmail;
+    QLineEdit *const mStatusText;
+
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
     KPasswordLineEdit *const mPasswordLineEdit;
