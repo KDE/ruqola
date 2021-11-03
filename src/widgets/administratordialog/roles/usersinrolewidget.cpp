@@ -83,6 +83,7 @@ void UsersInRoleWidget::slotAddUser()
 void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
 {
     qDebug() << " replyObject " << replyObject;
+    initialize(); // Reload list
 }
 
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
