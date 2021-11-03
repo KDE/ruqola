@@ -28,7 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomDialog : public QDialog
 public:
     explicit AddUsersInRoomDialog(QWidget *parent = nullptr);
     ~AddUsersInRoomDialog() override;
-    Q_REQUIRED_RESULT QStringList users() const;
+    Q_REQUIRED_RESULT QStringList userIds() const;
 
 private:
     void readConfig();

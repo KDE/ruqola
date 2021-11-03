@@ -41,5 +41,5 @@ void AddUsersInRoomWidgetTest::shouldHaveDefaultValues()
     auto mAddUsersWidget = w.findChild<AddUsersWidget *>(QStringLiteral("mAddUsersWidget"));
     QVERIFY(mAddUsersWidget);
 
-    QVERIFY(w.users().isEmpty());
+    QVERIFY(w.userIds().isEmpty());
 }

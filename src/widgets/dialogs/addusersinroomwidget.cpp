@@ -44,7 +44,7 @@ AddUsersInRoomWidget::~AddUsersInRoomWidget()
 {
 }
 
-QStringList AddUsersInRoomWidget::users() const
+QStringList AddUsersInRoomWidget::userIds() const
 {
     return mAddUsersWidget->userIds();
 }

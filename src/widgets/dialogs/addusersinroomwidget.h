@@ -30,7 +30,7 @@ public:
     explicit AddUsersInRoomWidget(QWidget *parent = nullptr);
     ~AddUsersInRoomWidget() override;
 
-    Q_REQUIRED_RESULT QStringList users() const;
+    Q_REQUIRED_RESULT QStringList userIds() const;
 
 Q_SIGNALS:
     void updateOkButton(bool state);

@@ -57,9 +57,9 @@ AddUsersInRoomDialog::~AddUsersInRoomDialog()
     writeConfig();
 }
 
-QStringList AddUsersInRoomDialog::users() const
+QStringList AddUsersInRoomDialog::userIds() const
 {
-    return mAddUsersInRoomWidget->users();
+    return mAddUsersInRoomWidget->userIds();
 }
 
 void AddUsersInRoomDialog::readConfig()
