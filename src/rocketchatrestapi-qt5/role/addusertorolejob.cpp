@@ -43,11 +43,11 @@ bool AddUserToRoleJob::start()
     }
     addStartRestApiInfo("AddUserToRoleJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &AddUserToRoleJob::slotRemoveUsersFromRoleDone);
+    connect(reply, &QNetworkReply::finished, this, &AddUserToRoleJob::slotAddUsersToRoleDone);
     return true;
 }
 
-void AddUserToRoleJob::slotRemoveUsersFromRoleDone()
+void AddUserToRoleJob::slotAddUsersToRoleDone()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -55,7 +55,7 @@ void AddUserToRoleJob::slotRemoveUsersFromRoleDone()
         const QJsonObject replyObject = replyJson.object();
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("AddUserToRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeUsersFromRoleDone(replyObject);
+            Q_EMIT addUsersToRoleDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("AddUserToRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

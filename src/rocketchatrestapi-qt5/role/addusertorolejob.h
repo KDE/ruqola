@@ -45,11 +45,11 @@ public:
     void setUsername(const QString &newUsername);
 
 Q_SIGNALS:
-    void removeUsersFromRoleDone(const QJsonObject &replyObject);
+    void addUsersToRoleDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(AddUserToRoleJob)
-    void slotRemoveUsersFromRoleDone();
+    void slotAddUsersToRoleDone();
     QString mRoleName;
     QString mUsername;
 };
