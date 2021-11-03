@@ -27,6 +27,7 @@
 #include "role/addusertorolejob.h"
 #include "role/getusersinrolejob.h"
 #include "role/removeuserfromrolejob.h"
+#include "dialogs/addusersinroomdialog.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -61,7 +62,27 @@ void UsersInRoleWidget::slotTextChanged(const QString &str)
 
 void UsersInRoleWidget::slotAddUser()
 {
-    // TODO
+    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
+    dlg->setWindowTitle(i18nc("@title:window", "Add Users in Role"));
+    if (dlg->exec()) {
+        const auto users = dlg->users();
+        for (const auto &user : users) {
+            auto job = new RocketChatRestApi::AddUserToRoleJob(this);
+            job->setRoleName(mRoleName);
+            job->setUsername(user);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::AddUserToRoleJob::addUsersToRoleDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start AddUserToRoleJob job";
+            }
+        }
+    }
+    delete dlg;
+}
+
+void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
+{
+    qDebug() << " replyObject " << replyObject;
 }
 
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
