@@ -419,7 +419,7 @@ void RoomWidget::slotTeamChannelsRequested()
     if (!mRoom) {
         return;
     }
-    QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(this);
+    QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(mCurrentRocketChatAccount, this);
     dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;

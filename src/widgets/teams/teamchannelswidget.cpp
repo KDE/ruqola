@@ -46,13 +46,14 @@
 #include <QPointer>
 #include <QVBoxLayout>
 
-TeamChannelsWidget::TeamChannelsWidget(QWidget *parent)
+TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mTeamChannelsCombobox(new TeamChannelsComboBox(this))
     , mTeamRoomsModel(new TeamRoomsModel(this))
     , mTeamRoomFilterProxyModel(new TeamRoomsFilterProxyModel(mTeamRoomsModel, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -102,10 +103,9 @@ void TeamChannelsWidget::setRoom(Room *room)
 
 void TeamChannelsWidget::initializeTeamRoomsList()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
     job->setTeamId(mTeamId);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &TeamChannelsWidget::slotTeamListRoomsDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
@@ -156,11 +156,10 @@ void TeamChannelsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void TeamChannelsWidget::updateAutojoin(const QString &roomId, bool autojoin)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::TeamUpdateRoomJob(this);
     job->setIsDefault(!autojoin);
     job->setRoomId(roomId);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamUpdateRoomJob::teamUpdateRoomDone, this, &TeamChannelsWidget::slotTeamUpdateRoomDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamUpdateRoomJob job";
@@ -179,11 +178,10 @@ void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 {
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this, i18n("Would you like to remove this Channel from team?"), i18nc("@title", "Remove Channel from Team"))) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
         job->setTeamId(mTeamId);
         job->setRoomId(roomId);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamRemoveRoomJob::removeTeamRoomDone, this, &TeamChannelsWidget::slotRemoveTeamRoomDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
@@ -200,17 +198,16 @@ void TeamChannelsWidget::slotRemoveTeamRoomDone()
 void TeamChannelsWidget::slotAddExistingRoom()
 {
     QStringList roomIds;
-    QPointer<TeamSearchRoomDialog> dlg = new TeamSearchRoomDialog(this);
+    QPointer<TeamSearchRoomDialog> dlg = new TeamSearchRoomDialog(mRocketChatAccount, this);
     if (dlg->exec()) {
         roomIds = dlg->roomIds();
     }
     delete dlg;
     if (!roomIds.isEmpty()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
         job->setTeamId(mTeamId);
         job->setRoomIds(roomIds);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &TeamChannelsWidget::slotTeamAddRoomsDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
@@ -229,13 +226,12 @@ void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 
 void TeamChannelsWidget::slotCreateRoom()
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
     CreateNewChannelWidget::Features flags;
-    if (rcAccount->broadCastEnabled()) {
+    if (mRocketChatAccount->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;
     }
-    if (rcAccount->encryptionEnabled()) {
+    if (mRocketChatAccount->encryptionEnabled()) {
         flags |= CreateNewChannelWidget::Feature::Encrypted;
     }
     dlg->setFeatures(flags);
@@ -254,10 +250,9 @@ void TeamChannelsWidget::slotCreateRoom()
 
 void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::CreateChannelJob(this);
     // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiConnection::slotAddJoinCodeToChannel);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::CreateChannelJob::createChannelDone, this, [this](const QJsonObject &replyObject) {
         const QJsonObject obj = replyObject[QLatin1String("channel")].toObject();
         TeamRoom teamRoom;
@@ -273,8 +268,7 @@ void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo 
 void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateRoomInfo &info)
 {
     auto job = new RocketChatRestApi::CreateGroupsJob(this);
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     job->setCreateGroupsInfo(info);
     connect(job, &RocketChatRestApi::CreateGroupsJob::createGroupsDone, this, [this](const QJsonObject &replyObject) {
         const QJsonObject obj = replyObject[QLatin1String("group")].toObject();

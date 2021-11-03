@@ -60,12 +60,14 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
 
 SearchMessageWidget::~SearchMessageWidget()
 {
-    Ruqola::self()->rocketChatAccount()->clearSearchModel();
+    if (mCurrentRocketChatAccount) {
+        mCurrentRocketChatAccount->clearSearchModel();
+    }
 }
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
-    Ruqola::self()->rocketChatAccount()->messageSearch(str, mRoomId, true);
+    mCurrentRocketChatAccount->messageSearch(str, mRoomId, true);
 }
 
 void SearchMessageWidget::slotSearchLineMessagesEnterPressed()

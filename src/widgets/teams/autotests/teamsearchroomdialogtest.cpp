@@ -34,7 +34,7 @@ TeamSearchRoomDialogTest::TeamSearchRoomDialogTest(QObject *parent)
 
 void TeamSearchRoomDialogTest::shouldHaveDefaultValues()
 {
-    TeamSearchRoomDialog d;
+    TeamSearchRoomDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

@@ -23,11 +23,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class TeamSearchRoomForTeamWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TeamSearchRoomWidget(QWidget *parent = nullptr);
+    explicit TeamSearchRoomWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomWidget() override;
 
     Q_REQUIRED_RESULT QStringList roomIds() const;

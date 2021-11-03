@@ -25,11 +25,12 @@
 #include "libruqolawidgets_private_export.h"
 class TeamChannelsWidget;
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit TeamChannelsDialog(QWidget *parent = nullptr);
+    explicit TeamChannelsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamChannelsDialog() override;
     void setRoom(Room *room);
 

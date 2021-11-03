@@ -29,9 +29,9 @@ namespace
 {
 const char myTeamChannelsDialogConfigGroupName[] = "TeamChannelsDialog";
 }
-TeamChannelsDialog::TeamChannelsDialog(QWidget *parent)
+TeamChannelsDialog::TeamChannelsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mTeamChannelsWidget(new TeamChannelsWidget(this))
+    , mTeamChannelsWidget(new TeamChannelsWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Team Channels"));
     auto mainLayout = new QVBoxLayout(this);

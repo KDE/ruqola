@@ -22,9 +22,9 @@
 #include "teamsearchroomforteamwidget.h"
 #include <QVBoxLayout>
 
-TeamSearchRoomWidget::TeamSearchRoomWidget(QWidget *parent)
+TeamSearchRoomWidget::TeamSearchRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mTeamSearchRoomForTeamWidget(new TeamSearchRoomForTeamWidget(this))
+    , mTeamSearchRoomForTeamWidget(new TeamSearchRoomForTeamWidget(account, this))
 {
     auto vboxLayout = new QVBoxLayout(this);
     vboxLayout->setObjectName(QStringLiteral("vboxLayout"));

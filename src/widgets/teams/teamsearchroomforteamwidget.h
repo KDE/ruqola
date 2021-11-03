@@ -26,11 +26,12 @@
 #include <QWidget>
 class FlowLayout;
 class ClickableWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamSearchRoomForTeamWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TeamSearchRoomForTeamWidget(QWidget *parent = nullptr);
+    explicit TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamSearchRoomForTeamWidget() override;
 
     void setPlaceholderText(const QString &str);

@@ -55,5 +55,6 @@ private:
     SearchWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
     SearchMessageFilterProxyModel *mModel = nullptr;
+    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };
 

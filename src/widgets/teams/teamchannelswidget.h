@@ -30,11 +30,12 @@ class TeamRoomsModel;
 class TeamRoomsFilterProxyModel;
 class TeamChannelsComboBox;
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamChannelsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TeamChannelsWidget(QWidget *parent = nullptr);
+    explicit TeamChannelsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~TeamChannelsWidget() override;
 
     void setRoom(Room *room);
@@ -60,5 +61,6 @@ private:
     TeamRoomsModel *const mTeamRoomsModel;
     TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
     Room *mRoom = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
     QString mTeamId;
 };

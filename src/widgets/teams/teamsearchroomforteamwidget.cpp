@@ -23,9 +23,9 @@
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
-TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(QWidget *parent)
+TeamSearchRoomForTeamWidget::TeamSearchRoomForTeamWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mSearchRoomLineEdit(new AddTeamRoomCompletionLineEdit(this))
+    , mSearchRoomLineEdit(new AddTeamRoomCompletionLineEdit(account, this))
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);

@@ -34,10 +34,11 @@
 
 using namespace std::chrono_literals;
 
-AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(QWidget *parent)
+AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mTeamRoomCompleterModel(new TeamRoomCompleterModel(this))
     , mSearchTimer(new QTimer(this))
+    , mRocketChatAccount(account)
 {
     setCompletionModel(mTeamRoomCompleterModel);
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
@@ -71,13 +72,12 @@ void AddTeamRoomCompletionLineEdit::slotTextChanged(const QString &text)
     if (text.trimmed().isEmpty()) {
         mTeamRoomCompleterModel->clear();
     } else {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob(this);
 
         RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteChannelAndPrivateInfo info;
         info.name = text;
         job->setRoomsCompleterInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job,
                 &RocketChatRestApi::RoomsAutocompleteAvailableForTeamsJob::roomsAutoCompleteChannelAndPrivateDone,
                 this,

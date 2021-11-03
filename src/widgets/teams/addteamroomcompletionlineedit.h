@@ -24,6 +24,7 @@
 #include "libruqolawidgets_private_export.h"
 class TeamRoomCompleterModel;
 class QTimer;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddTeamRoomCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -32,7 +33,7 @@ public:
         QString roomId;
         QString roomName;
     };
-    explicit AddTeamRoomCompletionLineEdit(QWidget *parent = nullptr);
+    explicit AddTeamRoomCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddTeamRoomCompletionLineEdit() override;
 
 Q_SIGNALS:
@@ -46,4 +47,5 @@ private:
     void slotAutoCompletTeamRoomDone(const QJsonObject &obj);
     TeamRoomCompleterModel *const mTeamRoomCompleterModel;
     QTimer *const mSearchTimer;
+    RocketChatAccount *const mRocketChatAccount;
 };
