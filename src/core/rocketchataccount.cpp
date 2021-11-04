@@ -102,7 +102,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
     , mOtrManager(new OtrManager(this))
-    , mMessageCache(new MessageCache(this))
+    , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this))
     , mCustomSoundManager(new CustomSoundsManager(this))
 {

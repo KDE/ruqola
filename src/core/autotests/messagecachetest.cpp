@@ -69,7 +69,7 @@ MessageCacheTest::MessageCacheTest(QObject *parent)
 void MessageCacheTest::shouldLoadSingleMessage()
 {
     // GIVEN
-    MyMessageCache cache;
+    MyMessageCache cache(nullptr);
     const QString messageId = QStringLiteral("Co6LnNbu5TYcXPuMG");
     QSignalSpy loadedSpy(&cache, &MessageCache::messageLoaded);
 

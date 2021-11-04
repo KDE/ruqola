@@ -38,7 +38,7 @@ class LIBRUQOLACORE_EXPORT MessageCache : public QObject
 {
     Q_OBJECT
 public:
-    explicit MessageCache(QObject *parent = nullptr);
+    explicit MessageCache(RocketChatAccount *account, QObject *parent = nullptr);
     ~MessageCache() override;
 
     Q_REQUIRED_RESULT ThreadMessageModel *threadMessageModel(const QString &threadMessageId);
@@ -60,5 +60,6 @@ private:
 
     mutable QMap<QString, RocketChatRestApi::GetMessageJob *> mMessageJobs;
     QCache<QString, Message> mMessages;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

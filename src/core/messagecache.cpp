@@ -29,8 +29,9 @@
 
 #include <model/threadmessagemodel.h>
 
-MessageCache::MessageCache(QObject *parent)
+MessageCache::MessageCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -101,7 +102,6 @@ void MessageCache::slotGetMessageDone(const QJsonObject &obj, const QString &mes
 
 bool MessageCache::startJob(RocketChatRestApi::RestApiAbstractJob *job)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     return job->start();
 }
