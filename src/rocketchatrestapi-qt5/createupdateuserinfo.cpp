@@ -39,8 +39,10 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
     d << "mEmail " << t.mEmail;
     d << "mName " << t.mName;
     d << "mUserName " << t.mUserName;
+    d << "mBio " << t.mBio;
     // d << "mPassword " << t.mPassword;
     d << "mStatusText " << t.mStatusText;
+    d << "mNickName " << t.mNickName;
     d << "mJoinDefaultChannels " << t.mJoinDefaultChannels;
     d << "mRequirePasswordChange " << t.mRequirePasswordChange;
     d << "mAssignRandomPassword " << t.mAssignRandomPassword;
@@ -66,6 +68,12 @@ QJsonDocument CreateUpdateUserInfo::json() const
     }
     if (!mStatusText.isEmpty()) {
         userInfoObj[QLatin1String("statusText")] = mStatusText;
+    }
+    if (!mBio.isEmpty()) {
+        userInfoObj[QLatin1String("bio")] = mBio;
+    }
+    if (!mNickName.isEmpty()) {
+        userInfoObj[QLatin1String("nickname")] = mNickName;
     }
     if (!mRoles.isEmpty()) {
         userInfoObj[QLatin1String("roles")] = QJsonArray::fromStringList(mRoles);

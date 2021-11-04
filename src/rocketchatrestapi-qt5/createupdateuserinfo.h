@@ -40,6 +40,8 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     QString mUserName;
     QString mPassword;
     QString mStatusText;
+    QString mBio;
+    QString mNickName;
     InfoType mTypeInfo = Create;
     bool mJoinDefaultChannels = false;
     bool mRequirePasswordChange = false;
