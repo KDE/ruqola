@@ -35,11 +35,11 @@
 #include <QStackedWidget>
 #include <QVBoxLayout>
 
-ChannelInfoWidget::ChannelInfoWidget(QWidget *parent)
+ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
-    , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(this))
-    , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(this))
+    , mChannelInfoEditableWidget(new ChannelInfoEditableWidget(account, this))
+    , mChannelInfoReadOnlyWidget(new ChannelInfoReadOnlyWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

@@ -32,7 +32,7 @@ ChannelInfoReadOnlyWidgetTest::ChannelInfoReadOnlyWidgetTest(QObject *parent)
 
 void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelInfoReadOnlyWidget w;
+    ChannelInfoReadOnlyWidget w(nullptr);
     auto layoutReadOnly = w.findChild<QFormLayout *>(QStringLiteral("layoutReadOnly"));
     QVERIFY(layoutReadOnly);
     QCOMPARE(layoutReadOnly->contentsMargins(), {});

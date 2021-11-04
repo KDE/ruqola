@@ -41,7 +41,7 @@
 #include <QPointer>
 #include <QPushButton>
 
-ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
+ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
     , mComment(new MessageTextEditor(this))
@@ -56,6 +56,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
     , mChannelInfoPruneWidget(new ChannelInfoPruneWidget(this))
     , mSystemMessageCombox(new SystemMessagesComboBox(this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
+    , mRocketChatAccount(account)
 {
     auto layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
@@ -93,14 +94,14 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
 
     mArchive->setObjectName(QStringLiteral("mArchive"));
     layout->addRow(i18n("Archive:"), mArchive);
-    const bool canArchiveOrUnarchive = (Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("archive-room"))
-                                        || Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("unarchive-room")));
+    const bool canArchiveOrUnarchive = mRocketChatAccount
+        && (mRocketChatAccount->hasPermission(QStringLiteral("archive-room")) || mRocketChatAccount->hasPermission(QStringLiteral("unarchive-room")));
     mArchive->setEnabled(canArchiveOrUnarchive);
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
         const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
         if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
-            // Ruqola::self()->rocketChatAccount()->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
+            // mRocketChatAccount->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
 
@@ -129,7 +130,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(QWidget *parent)
             }
         } else {
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18nc("@title", "Delete Room"))) {
-                Ruqola::self()->rocketChatAccount()->eraseRoom(mRoom->roomId(), mRoom->channelType());
+                mRocketChatAccount->eraseRoom(mRoom->roomId(), mRoom->channelType());
                 Q_EMIT channelDeleted();
             }
         }
@@ -142,10 +143,9 @@ ChannelInfoEditableWidget::~ChannelInfoEditableWidget()
 
 void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
     job->setTeamId(teamId);
-    rcAccount->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, &ChannelInfoEditableWidget::slotTeamListRoomsDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
@@ -157,7 +157,7 @@ void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringL
     auto *job = new RocketChatRestApi::TeamDeleteJob(this);
     job->setTeamId(teamId);
     job->setRoomsId(roomIds);
-    Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
@@ -178,7 +178,7 @@ void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
             auto *job = new RocketChatRestApi::TeamDeleteJob(this);
             job->setRoomsId(roomIds);
             job->setTeamId(teamId);
-            Ruqola::self()->rocketChatAccount()->restApi()->initializeRestApiJob(job);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::TeamDeleteJob::deleteTeamDone, this, &ChannelInfoEditableWidget::slotTeamDeleteDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamsListRoomsJob job";
@@ -303,7 +303,7 @@ void ChannelInfoEditableWidget::connectEditableWidget()
     });
 
     const Utils::AvatarInfo avatarInfo = mRoom->avatarInfo();
-    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(avatarInfo);
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(avatarInfo);
     if (!iconUrlStr.isEmpty()) {
         const QString iconPath{QUrl(iconUrlStr).toLocalFile()};
         mRoomAvatarWidget->setCurrentIconPath(iconPath);
@@ -324,5 +324,5 @@ void ChannelInfoEditableWidget::updateUiFromPermission()
 
 bool ChannelInfoEditableWidget::hasRetentionPermission() const
 {
-    return Ruqola::self()->rocketChatAccount()->hasPermission(QStringLiteral("edit-room-retention-policy"));
+    return mRocketChatAccount->hasPermission(QStringLiteral("edit-room-retention-policy"));
 }

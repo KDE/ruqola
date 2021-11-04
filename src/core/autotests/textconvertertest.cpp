@@ -337,7 +337,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     // Load emoji
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/emojiparent.json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
-    EmojiManager manager;
+    EmojiManager manager(nullptr);
     manager.loadCustomEmoji(obj);
     manager.setServerUrl(serverUrl);
 

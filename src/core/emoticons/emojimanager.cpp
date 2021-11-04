@@ -29,8 +29,9 @@
 #include <QRegularExpressionMatch>
 #include <QTextStream>
 
-EmojiManager::EmojiManager(QObject *parent)
+EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -183,8 +184,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         qCWarning(RUQOLA_LOG) << "Server Url not defined";
         return emojiIdentifier;
     }
-    auto rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    if (!rocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
+    if (mRocketChatAccount && !mRocketChatAccount->ownUserPreferences().convertAsciiEmoji()) {
         return emojiIdentifier;
     }
     if (emojiIdentifier.startsWith(QLatin1Char(':')) && emojiIdentifier.endsWith(QLatin1Char(':'))) {
@@ -197,8 +197,8 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                         cachedHtml = emoji.generateAnimatedUrlFromCustomEmoji(mServerUrl);
                     } else {
                         const QString fileName = customEmojiFileName(emojiIdentifier);
-                        if (!fileName.isEmpty()) {
-                            const QUrl emojiUrl = rocketChatAccount->attachmentUrl(fileName);
+                        if (!fileName.isEmpty() && mRocketChatAccount) {
+                            const QUrl emojiUrl = mRocketChatAccount->attachmentUrl(fileName);
                             if (emojiUrl.isEmpty()) {
                                 // The download is happening, this will all be updated again later
                             } else {

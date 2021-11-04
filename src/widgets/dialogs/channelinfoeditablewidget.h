@@ -33,11 +33,12 @@ class KPasswordLineEdit;
 class SystemMessagesComboBox;
 class QLineEdit;
 class RoomAvatarWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoEditableWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoEditableWidget(QWidget *parent = nullptr);
+    explicit ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoEditableWidget() override;
     void setRoom(Room *room);
     Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveRoomSettingsInfo() const;
@@ -74,4 +75,5 @@ private:
     ChannelInfoPruneWidget *const mChannelInfoPruneWidget;
     SystemMessagesComboBox *const mSystemMessageCombox;
     RoomAvatarWidget *const mRoomAvatarWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };

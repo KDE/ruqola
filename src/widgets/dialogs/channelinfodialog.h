@@ -26,11 +26,12 @@
 class ChannelInfoWidget;
 class Room;
 class QDialogButtonBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoDialog(QWidget *parent = nullptr);
+    explicit ChannelInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoDialog() override;
     void setRoom(Room *room);
 

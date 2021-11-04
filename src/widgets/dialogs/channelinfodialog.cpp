@@ -27,9 +27,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-ChannelInfoDialog::ChannelInfoDialog(QWidget *parent)
+ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mChannelInfoWidget(new ChannelInfoWidget(this))
+    , mChannelInfoWidget(new ChannelInfoWidget(account, this))
     , mButtonBox(new QDialogButtonBox(this))
 {
     setWindowTitle(i18nc("@title:window", "Channel Info"));

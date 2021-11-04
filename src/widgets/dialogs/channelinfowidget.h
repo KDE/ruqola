@@ -28,11 +28,12 @@ class QStackedWidget;
 class Room;
 class ChannelInfoReadOnlyWidget;
 class ChannelInfoEditableWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoWidget(QWidget *parent = nullptr);
+    explicit ChannelInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoWidget() override;
 
     void setRoom(Room *room);

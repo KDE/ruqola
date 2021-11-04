@@ -27,13 +27,14 @@
 #include <QFormLayout>
 #include <QLabel>
 
-ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(QWidget *parent)
+ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mNameReadOnly(new QLabel(this))
     , mCommentReadOnly(new QLabel(this))
     , mAnnouncementReadOnly(new QLabel(this))
     , mDescriptionReadOnly(new QLabel(this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
+    , mRocketChatAccount(account)
 {
     auto layoutReadOnly = new QFormLayout(this);
     layoutReadOnly->setObjectName(QStringLiteral("layoutReadOnly"));
@@ -109,7 +110,7 @@ void ChannelInfoReadOnlyWidget::connectReadOnlyWidget()
         mDescriptionReadOnly->setText(mRoom->description());
     });
     const Utils::AvatarInfo avatarInfo = mRoom->avatarInfo();
-    const QString iconUrlStr = Ruqola::self()->rocketChatAccount()->avatarUrl(avatarInfo);
+    const QString iconUrlStr = mRocketChatAccount->avatarUrl(avatarInfo);
     if (!iconUrlStr.isEmpty()) {
         const QIcon icon(QUrl(iconUrlStr).toLocalFile());
         mRoomAvatarWidget->setIcon(icon);

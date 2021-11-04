@@ -26,12 +26,12 @@
 #include "unicodeemoticon.h"
 #include <QObject>
 #include <QRegularExpression>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmojiManager(QObject *parent = nullptr);
+    explicit EmojiManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~EmojiManager() override;
 
     void loadCustomEmoji(const QJsonObject &obj);
@@ -70,6 +70,7 @@ private:
     QVector<CustomEmoji> mCustomEmojiList;
     QString mServerUrl;
     QRegularExpression mReplacePattern;
+    RocketChatAccount *const mRocketChatAccount;
     bool mReplacePatternDirty = true;
 };
 

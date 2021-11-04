@@ -24,11 +24,12 @@
 class QLabel;
 class Room;
 class RoomAvatarWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelInfoReadOnlyWidget(QWidget *parent = nullptr);
+    explicit ChannelInfoReadOnlyWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelInfoReadOnlyWidget() override;
 
     void setRoom(Room *room);
@@ -42,4 +43,5 @@ private:
     QLabel *const mDescriptionReadOnly;
     RoomAvatarWidget *const mRoomAvatarWidget;
     Room *mRoom = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };

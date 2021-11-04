@@ -146,7 +146,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     UnicodeEmoticonManager::self();
 
     // After loadSettings
-    mEmojiManager = new EmojiManager(this);
+    mEmojiManager = new EmojiManager(this, this);
     mEmojiManager->setServerUrl(mSettings->serverUrl());
     connect(mEmojiManager, &EmojiManager::customEmojiChanged, this, &RocketChatAccount::updateCustomEmojiList);
 

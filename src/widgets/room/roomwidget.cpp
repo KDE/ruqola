@@ -144,7 +144,7 @@ void RoomWidget::slotChannelInfoRequested()
         dlg->exec();
         delete dlg;
     } else {
-        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(this);
+        QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(mCurrentRocketChatAccount, this);
         dlg->setRoom(mRoom);
         if (dlg->exec()) {
             const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info = dlg->saveRoomSettingsInfo();
