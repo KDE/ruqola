@@ -49,6 +49,18 @@ void UsersCreateJobTest::shouldGenerateRequest()
 void UsersCreateJobTest::shouldGenerateJson()
 {
     UsersCreateJob job;
+    CreateUpdateUserInfo info;
+    const QString password{QStringLiteral("ccc")};
+    info.mPassword = password;
+    const QString email{QStringLiteral("bla@kde.org")};
+    info.mEmail = email;
+    job.setCreateInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(R"({"email":"%1","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
+            .arg(email, password)
+            .toLatin1());
+
     // TODO
 }
 
