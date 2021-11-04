@@ -7,6 +7,10 @@ if (TARGET KUserFeedbackWidgets)
         userfeedback/userfeedbackmanager.cpp
         userfeedback/ruqolauserfeedbackprovider.cpp
         userfeedback/accountinfosource.cpp
+        userfeedback/ruqolauserfeedbackprovider.h
+        userfeedback/accountinfosource.h
+        userfeedback/userfeedbackmanager.h
+
         )
 endif()
 
@@ -334,9 +338,6 @@ target_sources(libruqolawidgets PRIVATE
     otr/otrwidget.h
     registeruser/registeruserdialog.h
     registeruser/registeruserwidget.h
-    userfeedback/ruqolauserfeedbackprovider.h
-    userfeedback/accountinfosource.h
-    userfeedback/userfeedbackmanager.h
     threadwidget/threadmessagedialog.h
     threadwidget/threadmessagewidget.h
     ruqolamainwindow.h
