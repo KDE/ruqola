@@ -1,6 +1,8 @@
 set(ruqola_webshortcuttextplugin_SRCS
     webshortcuttextinterface.cpp
     webshortcuttextplugin.cpp
+    webshortcuttextinterface.h
+    webshortcuttextplugin.h
     )
 
 kcoreaddons_add_plugin(ruqola_webshortcuttextplugin JSON ruqola_webshortcuttextplugin.json SOURCES

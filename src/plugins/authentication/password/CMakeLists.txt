@@ -3,6 +3,8 @@
 set(ruqola_passwordauthenticationplugin_SRCS
     passwordauthenticationinterface.cpp
     passwordpluginauthentication.cpp
+    passwordauthenticationinterface.h
+    passwordpluginauthentication.h
     )
 
 ecm_qt_declare_logging_category(ruqola_passwordauthenticationplugin_SRCS HEADER passwordauthenticationplugin_debug.h

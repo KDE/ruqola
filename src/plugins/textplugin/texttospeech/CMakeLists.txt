@@ -3,6 +3,8 @@
 set(ruqola_texttospeechtextplugin_SRCS
     texttospeechtextinterface.cpp
     texttospeechtextplugin.cpp
+    texttospeechtextinterface.h
+    texttospeechtextplugin.h
     )
 
 kcoreaddons_add_plugin(ruqola_texttospeechtextplugin JSON ruqola_texttospeechtextplugin.json SOURCES
