@@ -222,7 +222,12 @@ void RoomWidget::slotPruneMessages()
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
         info.roomId = mRoomWidgetBase->roomId();
-        if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Do you want really remove history?"), i18n("Remove History"))) {
+        if (KMessageBox::Yes
+            == KMessageBox::warningYesNo(this,
+                                         i18n("Do you want really remove history?"),
+                                         i18n("Remove History"),
+                                         KStandardGuiItem::remove(),
+                                         KStandardGuiItem::cancel())) {
             mCurrentRocketChatAccount->cleanChannelHistory(info);
         }
     }

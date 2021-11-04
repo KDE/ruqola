@@ -141,7 +141,8 @@ void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User")) == KMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User"), KStandardGuiItem::remove(), KStandardGuiItem::cancel())
+        == KMessageBox::Yes) {
         auto job = new RocketChatRestApi::DeleteUserJob(this);
         RocketChatRestApi::UserBaseJob::UserInfo info;
         info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
