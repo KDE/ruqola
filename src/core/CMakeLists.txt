@@ -332,7 +332,6 @@ target_sources(libruqolacore PRIVATE
     roominfo/roomsinfo.h
     commands/commands.h
     commands/command.h
-    unityservicemanager.h
     ownuser/ownuserpreferences.h
     ownuser/ownuser.h
     convertertextjob/convertertextabstractjob.h
@@ -423,7 +422,7 @@ kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 
 if (NOT WIN32)
-    target_sources(libruqolacore PRIVATE unityservicemanager.cpp)
+    target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
 endif()
 
 if (NOT ANDROID)
