@@ -20,22 +20,23 @@
 
 #include "channelnamevalidlineedit.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
 #include <KColorScheme>
 
-ChannelNameValidLineEdit::ChannelNameValidLineEdit(QWidget *parent)
+ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
+    , mRocketChatAccount(account)
 {
     setDelayMs(500);
     setPlaceholderText(QString());
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, [this] {
         updateStyleSheet(true);
     });
-    connect(rcAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
+    }
 }
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit()
@@ -45,8 +46,7 @@ ChannelNameValidLineEdit::~ChannelNameValidLineEdit()
 void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
-        mDdpIdentifier = rcAccount->ddp()->roomNameExists(text);
+        mDdpIdentifier = mRocketChatAccount->ddp()->roomNameExists(text);
     } else {
         updateStyleSheet(true);
     }

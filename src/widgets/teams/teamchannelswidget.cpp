@@ -226,7 +226,7 @@ void TeamChannelsWidget::slotTeamAddRoomsDone(const QJsonObject &obj)
 
 void TeamChannelsWidget::slotCreateRoom()
 {
-    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mRocketChatAccount, this);
     CreateNewChannelWidget::Features flags;
     if (mRocketChatAccount->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;

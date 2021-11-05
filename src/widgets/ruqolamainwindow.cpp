@@ -361,7 +361,7 @@ void RuqolaMainWindow::slotClearAccountAlerts()
 
 void RuqolaMainWindow::slotCreateTeam()
 {
-    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mCurrentRocketChatAccount, this);
     dlg->setWindowTitle(i18nc("@title:window", "Create Team"));
     CreateNewChannelWidget::Features flags;
     if (mCurrentRocketChatAccount->broadCastEnabled()) {
@@ -403,7 +403,7 @@ void RuqolaMainWindow::slotCreateDirectMessages()
 
 void RuqolaMainWindow::slotCreateNewChannel()
 {
-    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(this);
+    QPointer<CreateNewChannelDialog> dlg = new CreateNewChannelDialog(mCurrentRocketChatAccount, this);
     CreateNewChannelWidget::Features flags;
     if (mCurrentRocketChatAccount->broadCastEnabled()) {
         flags |= CreateNewChannelWidget::Feature::BroadCast;

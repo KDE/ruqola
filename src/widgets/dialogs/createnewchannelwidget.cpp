@@ -28,9 +28,9 @@
 #include <QFormLayout>
 #include <QLineEdit>
 
-CreateNewChannelWidget::CreateNewChannelWidget(QWidget *parent)
+CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mChannelName(new ChannelNameValidLineEdit(this))
+    , mChannelName(new ChannelNameValidLineEdit(account, this))
     , mUsers(new AddUsersWidget(this))
     , mReadOnly(new QCheckBox(this))
     , mBroadcast(new QCheckBox(this))

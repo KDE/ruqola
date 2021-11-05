@@ -26,11 +26,12 @@
 #include <QDialog>
 class CreateNewChannelWidget;
 class QPushButton;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit CreateNewChannelDialog(QWidget *parent = nullptr);
+    explicit CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewChannelDialog() override;
     struct NewChannelInfo {
         RocketChatRestApi::CreateRoomInfo info;

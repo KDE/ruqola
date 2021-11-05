@@ -24,12 +24,12 @@
 #include "misc/searchwithdelaylineedit.h"
 
 #include <QJsonDocument>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWithDelayLineEdit
 {
     Q_OBJECT
 public:
-    explicit ChannelNameValidLineEdit(QWidget *parent = nullptr);
+    explicit ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelNameValidLineEdit() override;
 Q_SIGNALS:
     void channelIsValid(bool valid);
@@ -41,4 +41,5 @@ private:
     void emitIsValid(bool state);
     QString mNegativeBackground;
     quint64 mDdpIdentifier = 0;
+    RocketChatAccount *const mRocketChatAccount;
 };

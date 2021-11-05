@@ -34,7 +34,7 @@ CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
 
 void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewChannelWidget w;
+    CreateNewChannelWidget w(nullptr);
     auto mChannelName = w.findChild<ChannelNameValidLineEdit *>(QStringLiteral("mChannelName"));
     QVERIFY(mChannelName);
 

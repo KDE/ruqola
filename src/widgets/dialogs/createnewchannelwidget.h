@@ -29,6 +29,7 @@ class KPasswordLineEdit;
 class AddUsersWidget;
 class QFormLayout;
 class QLineEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelWidget : public QWidget
 {
     Q_OBJECT
@@ -41,7 +42,7 @@ public:
     Q_DECLARE_FLAGS(Features, Feature)
     Q_FLAG(Features)
 
-    explicit CreateNewChannelWidget(QWidget *parent = nullptr);
+    explicit CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewChannelWidget() override;
 
     Q_REQUIRED_RESULT QString channelName() const;

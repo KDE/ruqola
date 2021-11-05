@@ -29,6 +29,6 @@ ChannelNameValidLineEditTest::ChannelNameValidLineEditTest(QObject *parent)
 
 void ChannelNameValidLineEditTest::shouldHaveDefaultValue()
 {
-    ChannelNameValidLineEdit d;
+    ChannelNameValidLineEdit d(nullptr);
     QVERIFY(d.isClearButtonEnabled());
 }

@@ -31,9 +31,9 @@ namespace
 {
 static const char myCreateNewChannelDialogGroupName[] = "CreateNewChannelDialog";
 }
-CreateNewChannelDialog::CreateNewChannelDialog(QWidget *parent)
+CreateNewChannelDialog::CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mCreateNewChannelWidget(new CreateNewChannelWidget(this))
+    , mCreateNewChannelWidget(new CreateNewChannelWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Create Channel"));
     auto mainLayout = new QVBoxLayout(this);
