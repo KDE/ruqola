@@ -32,6 +32,7 @@ EmoticonRecentUsedFilterProxyModel::EmoticonRecentUsedFilterProxyModel(QObject *
     : QSortFilterProxyModel(parent)
 {
     loadRecentUsed();
+    sort(0);
 }
 
 EmoticonRecentUsedFilterProxyModel::~EmoticonRecentUsedFilterProxyModel()
@@ -70,7 +71,7 @@ void EmoticonRecentUsedFilterProxyModel::setUsedIdentifier(const QStringList &us
 void EmoticonRecentUsedFilterProxyModel::addIdentifier(const QString &identifier)
 {
     if (!mUsedIdentifier.contains(identifier)) {
-        mUsedIdentifier.append(identifier);
+        mUsedIdentifier.prepend(identifier);
         writeRecentUsed();
         invalidateFilter();
     }
@@ -84,4 +85,13 @@ bool EmoticonRecentUsedFilterProxyModel::filterAcceptsRow(int source_row, const 
         return true;
     }
     return false;
+}
+
+bool EmoticonRecentUsedFilterProxyModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    const QString identifierLeft = source_left.data(EmoticonModel::Identifier).toString();
+    const QString identifierRight = source_right.data(EmoticonModel::Identifier).toString();
+    const int indexLeft = mUsedIdentifier.indexOf(identifierLeft);
+    const int indexRight = mUsedIdentifier.indexOf(identifierRight);
+    return indexLeft < indexRight;
 }
