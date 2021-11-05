@@ -70,11 +70,15 @@ void EmoticonRecentUsedFilterProxyModel::setUsedIdentifier(const QStringList &us
 
 void EmoticonRecentUsedFilterProxyModel::addIdentifier(const QString &identifier)
 {
-    if (!mUsedIdentifier.contains(identifier)) {
-        mUsedIdentifier.prepend(identifier);
-        writeRecentUsed();
-        invalidateFilter();
+    if (int i = mUsedIdentifier.indexOf(identifier)) {
+        // Remove it for adding in top of list
+        if (i != -1) {
+            mUsedIdentifier.removeAt(i);
+        }
     }
+    mUsedIdentifier.prepend(identifier);
+    writeRecentUsed();
+    invalidateFilter();
 }
 
 bool EmoticonRecentUsedFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
