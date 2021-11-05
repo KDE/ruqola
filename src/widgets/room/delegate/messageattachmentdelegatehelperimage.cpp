@@ -134,16 +134,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            const auto file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Image"), QUrl::fromLocalFile(layout.imagePath));
-            if (!file.isEmpty()) {
-                if (!QFile::remove(file)) { // copy() doesn't overwrite
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to remove : " << file;
-                }
-                QFile sourceFile(layout.imagePath);
-                if (!sourceFile.copy(file)) {
-                    KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
-                }
-            }
+            DelegateUtil::saveFile(parentWidget, layout.imagePath, i18n("Save Image"));
             return true;
         } else if (!layout.pixmap.isNull()) {
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();

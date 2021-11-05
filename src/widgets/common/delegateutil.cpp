@@ -19,6 +19,9 @@
 */
 
 #include "delegateutil.h"
+#include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
+#include <KMessageBox>
 
 #include <QDir>
 #include <QFileDialog>
@@ -50,4 +53,18 @@ QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, c
         }();
     }
     return QFileDialog::getSaveFileName(parent, title, dir.absoluteFilePath(fileName));
+}
+
+void DelegateUtil::saveFile(QWidget *parentWidget, const QString &filePath, const QString &title)
+{
+    const auto file = DelegateUtil::querySaveFileName(parentWidget, title, QUrl::fromLocalFile(filePath));
+    if (!file.isEmpty()) {
+        if (!QFile::remove(file)) { // copy() doesn't overwrite
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to remove : " << file;
+        }
+        QFile sourceFile(filePath);
+        if (!sourceFile.copy(file)) {
+            KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
+        }
+    }
 }

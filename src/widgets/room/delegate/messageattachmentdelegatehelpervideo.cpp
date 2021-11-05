@@ -92,14 +92,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
         VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            const QString file = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Video"), QUrl::fromLocalFile(layout.videoPath));
-            if (!file.isEmpty()) {
-                QFile::remove(file); // copy() doesn't overwrite
-                QFile sourceFile(layout.videoPath);
-                if (!sourceFile.copy(file)) {
-                    KMessageBox::error(parentWidget, sourceFile.errorString(), i18n("Error saving file"));
-                }
-            }
+            DelegateUtil::saveFile(parentWidget, layout.videoPath, i18n("Save Image"));
             return true;
         } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
