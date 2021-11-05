@@ -39,8 +39,10 @@ ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
 void ShowImageWidgetTest::shouldHaveDefaultValues()
 {
     ShowImageWidget w;
+    ShowImageWidget::ImageInfo info;
     const auto pixmap = QPixmap(QStringLiteral(":/icons/systray.png"));
-    w.setImage(pixmap);
+    info.pixmap = pixmap;
+    w.setImageInfo(info);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -76,12 +78,13 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mSlider->value(), 300);
     QCOMPARE(graphicsView->zoom(), (qreal)3.0);
 
-    QVERIFY(!w.isAnimatedPixmap());
-
     auto resetButton = w.findChild<QPushButton *>(QStringLiteral("resetButton"));
     QVERIFY(resetButton);
     resetButton->click();
     QCOMPARE(graphicsView->zoom(), (qreal)1.0);
     QCOMPARE(mZoomSpin->value(), 1.0);
     QCOMPARE(mSlider->value(), 100);
+
+    QVERIFY(!w.imageInfo().isAnimatedImage);
+    QVERIFY(!w.imageInfo().pixmap.isNull());
 }

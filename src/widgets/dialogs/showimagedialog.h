@@ -20,19 +20,16 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "showimagewidget.h"
 #include <QDialog>
-class ShowImageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ShowImageDialog(QWidget *parent = nullptr);
     ~ShowImageDialog() override;
-    void setImage(const QPixmap &pix);
-    void setImagePath(const QString &imagePath);
 
-    Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
-    void setIsAnimatedPixmap(bool value);
+    void setImageInfo(const ShowImageWidget::ImageInfo &info);
 
 private:
     void readConfig();

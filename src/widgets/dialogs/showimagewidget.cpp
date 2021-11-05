@@ -82,36 +82,32 @@ ImageGraphicsView::~ImageGraphicsView()
 {
 }
 
-void ImageGraphicsView::setImage(const QPixmap &pixmap)
+void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     clearContents();
+    mImageInfo = info;
+    if (!mImageInfo.isAnimatedImage) {
+        mGraphicsPixmapItem->setPixmap(mImageInfo.pixmap);
+        QTimer::singleShot(0, this, [=] {
+            updateRanges();
 
-    mGraphicsPixmapItem->setPixmap(pixmap);
-    QTimer::singleShot(0, this, [=] {
-        updateRanges();
-
-        fitToView();
-    });
-}
-
-
-void ImageGraphicsView::setImagePath(const QString &imagePath)
-{
-    clearContents();
-
-    mMovie.reset(new QMovie(this));
-    mMovie->setFileName(imagePath);
-    mMovie->start();
-    mMovie->stop();
-    mAnimatedLabel->setMovie(mMovie.data());
-
-    QTimer::singleShot(0, this, [=] {
-        mOriginalMovieSize = mMovie->currentPixmap().size();
-        updateRanges();
-
-        fitToView();
+            fitToView();
+        });
+    } else {
+        mMovie.reset(new QMovie(this));
+        mMovie->setFileName(mImageInfo.imagePath);
         mMovie->start();
-    });
+        mMovie->stop();
+        mAnimatedLabel->setMovie(mMovie.data());
+
+        QTimer::singleShot(0, this, [=] {
+            mOriginalMovieSize = mMovie->currentPixmap().size();
+            updateRanges();
+
+            fitToView();
+            mMovie->start();
+        });
+    }
 }
 
 void ImageGraphicsView::zoomIn(const QPointF &centerPos)
@@ -174,6 +170,11 @@ QSize ImageGraphicsView::originalImageSize() const
     }
 
     return mGraphicsPixmapItem->pixmap().size();
+}
+
+const ShowImageWidget::ImageInfo &ImageGraphicsView::imageInfo() const
+{
+    return mImageInfo;
 }
 
 qreal ImageGraphicsView::zoom() const
@@ -290,16 +291,6 @@ ShowImageWidget::~ShowImageWidget()
 {
 }
 
-bool ShowImageWidget::isAnimatedPixmap() const
-{
-    return mIsAnimatedPixmap;
-}
-
-void ShowImageWidget::setIsAnimatedPixmap(bool value)
-{
-    mIsAnimatedPixmap = value;
-}
-
 void ShowImageWidget::updateRanges()
 {
     const auto min = mImageGraphicsView->minimumZoom();
@@ -308,12 +299,12 @@ void ShowImageWidget::updateRanges()
     mSlider->setRange(min * 100.0, max * 100.0);
 }
 
-void ShowImageWidget::setImagePath(const QString &imagePath)
+void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
-    mImageGraphicsView->setImagePath(imagePath);
+    mImageGraphicsView->setImageInfo(info);
 }
 
-void ShowImageWidget::setImage(const QPixmap &pixmap)
+const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 {
-    mImageGraphicsView->setImage(pixmap);
+    return mImageGraphicsView->imageInfo();
 }

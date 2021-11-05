@@ -43,12 +43,11 @@ int main(int argc, char **argv)
     const QString fileName = parser.positionalArguments().value(0);
 
     ShowImageDialog dlg;
-    if (parser.isSet(isAnimatedImageOption)) {
-        dlg.setIsAnimatedPixmap(true);
-        dlg.setImagePath(fileName);
-    } else {
-        dlg.setImage(QPixmap(fileName));
-    }
+    ShowImageWidget::ImageInfo info;
+    info.isAnimatedImage = parser.isSet(isAnimatedImageOption);
+    info.imagePath = fileName;
+    info.pixmap = QPixmap(fileName);
+    dlg.setImageInfo(info);
     dlg.resize(800, 600);
     dlg.show();
 

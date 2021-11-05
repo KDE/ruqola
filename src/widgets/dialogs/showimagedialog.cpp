@@ -19,7 +19,6 @@
 */
 
 #include "showimagedialog.h"
-#include "showimagewidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -54,24 +53,9 @@ ShowImageDialog::~ShowImageDialog()
     writeConfig();
 }
 
-void ShowImageDialog::setImagePath(const QString &imagePath)
+void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
-    mShowImageWidget->setImagePath(imagePath);
-}
-
-bool ShowImageDialog::isAnimatedPixmap() const
-{
-    return mShowImageWidget->isAnimatedPixmap();
-}
-
-void ShowImageDialog::setIsAnimatedPixmap(bool value)
-{
-    mShowImageWidget->setIsAnimatedPixmap(value);
-}
-
-void ShowImageDialog::setImage(const QPixmap &pix)
-{
-    mShowImageWidget->setImage(pix);
+    mShowImageWidget->setImageInfo(info);
 }
 
 void ShowImageDialog::readConfig()

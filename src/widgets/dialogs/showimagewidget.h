@@ -29,6 +29,31 @@ class QLabel;
 class QSlider;
 class QDoubleSpinBox;
 class QMovie;
+class ImageGraphicsView;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    struct ImageInfo {
+        QString imagePath;
+        QPixmap pixmap;
+        bool isAnimatedImage = false;
+    };
+
+    explicit ShowImageWidget(QWidget *parent = nullptr);
+    ~ShowImageWidget() override;
+
+    void setImageInfo(const ImageInfo &info);
+    Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
+private Q_SLOTS:
+    void updateRanges();
+
+private:
+    ImageGraphicsView *mImageGraphicsView = nullptr;
+    QWidget *const mZoomControls;
+    QDoubleSpinBox *const mZoomSpin;
+    QSlider *const mSlider;
+};
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView
 {
@@ -41,8 +66,6 @@ public:
     explicit ImageGraphicsView(QWidget *parent = nullptr);
     ~ImageGraphicsView() override;
 
-    void setImage(const QPixmap &pixmap);
-    void setImagePath(const QString &imagePath);
     void clearContents();
 
     Q_REQUIRED_RESULT qreal minimumZoom() const;
@@ -50,6 +73,9 @@ public:
 
     Q_REQUIRED_RESULT qreal zoom() const;
     void setZoom(qreal zoom, const QPointF &centerPos = {});
+
+    void setImageInfo(const ShowImageWidget::ImageInfo &info);
+    Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
 
 public Q_SLOTS:
     void zoomIn(const QPointF &centerPos = {});
@@ -68,38 +94,18 @@ private:
     void updateRanges();
     QSize originalImageSize() const;
 
-    QLabel *mAnimatedLabel = nullptr;
+    QString mImagePath;
+
     QSize mOriginalMovieSize;
     QScopedPointer<QMovie> mMovie;
+    ShowImageWidget::ImageInfo mImageInfo;
 
     QGraphicsProxyWidget *mGraphicsProxyWidget = nullptr;
     QGraphicsPixmapItem *mGraphicsPixmapItem = nullptr;
+    QLabel *mAnimatedLabel = nullptr;
 
     qreal mMinimumZoom;
     qreal mMaximumZoom;
     bool mIsUpdatingZoom = false;
 };
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit ShowImageWidget(QWidget *parent = nullptr);
-    ~ShowImageWidget() override;
-
-    void setImage(const QPixmap &pixmap);
-    void setImagePath(const QString &imagePath);
-
-    Q_REQUIRED_RESULT bool isAnimatedPixmap() const;
-    void setIsAnimatedPixmap(bool value);
-
-private Q_SLOTS:
-    void updateRanges();
-
-private:
-    ImageGraphicsView *mImageGraphicsView = nullptr;
-    QWidget *const mZoomControls;
-    QDoubleSpinBox *const mZoomSpin;
-    QSlider *const mSlider;
-    bool mIsAnimatedPixmap = false;
-};

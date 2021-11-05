@@ -142,13 +142,12 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             if (imageRect.contains(pos)) {
                 auto *parentWidget = const_cast<QWidget *>(option.widget);
                 auto dlg = new ShowImageDialog(parentWidget);
-                dlg->setIsAnimatedPixmap(layout.isAnimatedImage);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
-                if (layout.isAnimatedImage) {
-                    dlg->setImagePath(layout.imagePath);
-                } else {
-                    dlg->setImage(layout.pixmap);
-                }
+                ShowImageWidget::ImageInfo info;
+                info.imagePath = layout.imagePath;
+                info.pixmap = layout.pixmap;
+                info.isAnimatedImage = layout.isAnimatedImage;
+                dlg->setImageInfo(info);
                 dlg->show();
             }
             return true;
