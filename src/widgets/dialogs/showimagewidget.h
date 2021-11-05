@@ -41,9 +41,7 @@ public:
     explicit ImageGraphicsView(QWidget *parent = nullptr);
     ~ImageGraphicsView() override;
 
-    Q_REQUIRED_RESULT QPixmap image() const;
     void setImage(const QPixmap &pixmap);
-    Q_REQUIRED_RESULT QString imagePath() const;
     void setImagePath(const QString &imagePath);
     void clearContents();
 

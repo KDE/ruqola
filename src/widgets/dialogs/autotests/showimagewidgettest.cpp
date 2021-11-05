@@ -49,9 +49,6 @@ void ShowImageWidgetTest::shouldHaveDefaultValues()
     auto graphicsView = w.findChild<ImageGraphicsView *>(QStringLiteral("mImageGraphicsView"));
     QVERIFY(graphicsView);
 
-    auto image = graphicsView->image();
-    QVERIFY(!image.isNull());
-
     auto zoomLayout = w.findChild<QHBoxLayout *>(QStringLiteral("zoomLayout"));
     QVERIFY(zoomLayout);
 

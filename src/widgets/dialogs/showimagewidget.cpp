@@ -82,11 +82,6 @@ ImageGraphicsView::~ImageGraphicsView()
 {
 }
 
-QPixmap ImageGraphicsView::image() const
-{
-    return mGraphicsPixmapItem->pixmap();
-}
-
 void ImageGraphicsView::setImage(const QPixmap &pixmap)
 {
     clearContents();
@@ -99,10 +94,6 @@ void ImageGraphicsView::setImage(const QPixmap &pixmap)
     });
 }
 
-QString ImageGraphicsView::imagePath() const
-{
-    return mMovie ? mMovie->fileName() : QString();
-}
 
 void ImageGraphicsView::setImagePath(const QString &imagePath)
 {
