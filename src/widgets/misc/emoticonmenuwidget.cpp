@@ -107,8 +107,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     const int index = mTabWidget->addTab(mRecentUsedEmoticonView, QIcon::fromTheme(QStringLiteral("deep-history")), {});
     mTabWidget->setTabToolTip(index, i18n("Recent"));
     connect(mRecentUsedEmoticonView, &QListView::activated, this, [this](const QModelIndex &index) {
-        const QString identifier = index.data().toString();
-        // It's already in recent tab => don't try to save it
+        const QString identifier = index.data(EmoticonModel::Identifier).toString();
         Q_EMIT insertEmoticons(identifier);
     });
 
