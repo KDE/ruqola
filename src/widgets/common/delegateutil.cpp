@@ -59,7 +59,7 @@ void DelegateUtil::saveFile(QWidget *parentWidget, const QString &filePath, cons
 {
     const auto file = DelegateUtil::querySaveFileName(parentWidget, title, QUrl::fromLocalFile(filePath));
     if (!file.isEmpty()) {
-        if (!QFile::remove(file)) { // copy() doesn't overwrite
+        if (QFile::exists(file) && !QFile::remove(file)) { // copy() doesn't overwrite
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to remove : " << file;
         }
         QFile sourceFile(filePath);
