@@ -26,10 +26,11 @@ using namespace RocketChatRestApi;
 
 bool CreateUpdateUserInfo::isValid() const
 {
+    bool valid = !mEmail.isEmpty() && !mName.isEmpty();
     if (mTypeInfo == Create) {
-        return !mPassword.isEmpty(); // TODO verify it
+        return valid && !mPassword.isEmpty(); // TODO verify it
     }
-    return !mUserId.isEmpty();
+    return valid && !mUserId.isEmpty(); // Need password ?
 }
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
