@@ -45,6 +45,9 @@ public:
 
     void setImageInfo(const ImageInfo &info);
     Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
+
+    void saveAs();
+
 private Q_SLOTS:
     void updateRanges();
 

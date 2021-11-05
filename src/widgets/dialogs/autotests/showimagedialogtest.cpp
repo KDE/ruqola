@@ -46,4 +46,5 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+    QCOMPARE(button->standardButtons(), {QDialogButtonBox::Close | QDialogButtonBox::Save});
 }

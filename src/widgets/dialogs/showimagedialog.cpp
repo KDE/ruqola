@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 namespace
@@ -41,9 +42,10 @@ ShowImageDialog::ShowImageDialog(QWidget *parent)
     mShowImageWidget->setObjectName(QStringLiteral("mShowImageWidget"));
     mainLayout->addWidget(mShowImageWidget);
 
-    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
     buttonBox->setObjectName(QStringLiteral("button"));
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
+    connect(buttonBox->button(QDialogButtonBox::Save), &QPushButton::clicked, mShowImageWidget, &ShowImageWidget::saveAs);
     mainLayout->addWidget(buttonBox);
     readConfig();
 }

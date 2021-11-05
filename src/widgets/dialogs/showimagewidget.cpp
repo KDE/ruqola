@@ -19,6 +19,7 @@
 */
 
 #include "showimagewidget.h"
+#include "common/delegateutil.h"
 #include <KLocalizedString>
 #include <QDoubleSpinBox>
 #include <QGraphicsPixmapItem>
@@ -307,4 +308,9 @@ void ShowImageWidget::setImageInfo(const ShowImageWidget::ImageInfo &info)
 const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 {
     return mImageGraphicsView->imageInfo();
+}
+
+void ShowImageWidget::saveAs()
+{
+    DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().imagePath, i18n("Save Image"));
 }
