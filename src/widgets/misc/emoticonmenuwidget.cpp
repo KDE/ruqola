@@ -62,7 +62,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
     layout->addWidget(mTabWidget);
     QFont f = mTabWidget->font();
-    f.setPointSize(22);
+    f.setPointSize(12);
     f.setFamily(Utils::emojiFontName());
     mTabWidget->tabBar()->setFont(f);
     setAttribute(Qt::WA_DeleteOnClose);

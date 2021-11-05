@@ -30,9 +30,9 @@ EmoticonListView::EmoticonListView(QWidget *parent)
     setSelectionMode(QAbstractItemView::SingleSelection);
     setMouseTracking(true);
     setDragEnabled(false);
-    setIconSize(QSize(32, 32));
+    setIconSize(QSize(16, 16));
     QFont f = font();
-    f.setPointSize(22);
+    f.setPointSize(12);
     f.setFamily(Utils::emojiFontName());
     setFont(f);
 
