@@ -123,6 +123,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
+    setMinimumSize(400, 100);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget()
