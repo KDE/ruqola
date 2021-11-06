@@ -421,7 +421,7 @@ target_sources(libruqolacore PRIVATE
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 
-if (NOT WIN32)
+if (UNITY_SUPPORT)
     target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
 endif()
 
