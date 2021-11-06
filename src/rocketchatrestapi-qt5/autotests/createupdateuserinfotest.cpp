@@ -41,7 +41,6 @@ void CreateUpdateUserInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.mNickName.isEmpty());
     QVERIFY(!info.mJoinDefaultChannels);
     QVERIFY(!info.mRequirePasswordChange);
-    QVERIFY(!info.mAssignRandomPassword);
     QVERIFY(!info.mSendWelcomeEmail);
     QVERIFY(!info.mSetRandomPassword);
     QVERIFY(!info.mVerified);

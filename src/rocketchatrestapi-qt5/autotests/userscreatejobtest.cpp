@@ -97,6 +97,24 @@ void UsersCreateJobTest::shouldGenerateJson()
             R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})")
             .arg(email, password, nickame)
             .toLatin1());
+
+    info.mVerified = true;
+    job.setCreateInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(
+            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
+            .arg(email, password, nickame)
+            .toLatin1());
+
+    info.mSetRandomPassword = true;
+    job.setCreateInfo(info);
+    QCOMPARE(
+        job.json().toJson(QJsonDocument::Compact),
+        QStringLiteral(
+            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":true,"verified":true})")
+            .arg(email, password, nickame)
+            .toLatin1());
 }
 
 void UsersCreateJobTest::shouldNotStarting()

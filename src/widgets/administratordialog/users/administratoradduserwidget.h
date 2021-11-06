@@ -57,6 +57,8 @@ private:
 
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
+    QCheckBox *const mRequirePassword;
+    QCheckBox *const mSetRandowPassword;
     KPasswordLineEdit *const mPasswordLineEdit;
     RolesComboBox *const mRolesComboBox;
 };

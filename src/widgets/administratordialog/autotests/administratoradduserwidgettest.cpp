@@ -63,6 +63,16 @@ void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSendWelcomeEmails->text().isEmpty());
     QVERIFY(!mSendWelcomeEmails->isChecked());
 
+    auto mRequirePassword = w.findChild<QCheckBox *>(QStringLiteral("mRequirePassword"));
+    QVERIFY(mRequirePassword);
+    QVERIFY(!mRequirePassword->text().isEmpty());
+    QVERIFY(!mRequirePassword->isChecked());
+
+    auto mSetRandowPassword = w.findChild<QCheckBox *>(QStringLiteral("mSetRandowPassword"));
+    QVERIFY(mSetRandowPassword);
+    QVERIFY(!mSetRandowPassword->text().isEmpty());
+    QVERIFY(!mSetRandowPassword->isChecked());
+
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);
     QVERIFY(mPasswordLineEdit->password().isEmpty());

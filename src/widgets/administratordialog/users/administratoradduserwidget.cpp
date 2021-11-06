@@ -37,6 +37,8 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mStatusText(new QLineEdit(this))
     , mJoinDefaultChannels(new QCheckBox(i18n("Join Default Channels"), this))
     , mSendWelcomeEmails(new QCheckBox(i18n("Send Welcome Email"), this))
+    , mRequirePassword(new QCheckBox(i18n("Require Password Change"), this))
+    , mSetRandowPassword(new QCheckBox(i18n("Set random password and send by email"), this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mRolesComboBox(new RolesComboBox(this))
 {
@@ -56,6 +58,8 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
     mRolesComboBox->setObjectName(QStringLiteral("mRolesComboBox"));
+    mRequirePassword->setObjectName(QStringLiteral("mRequirePassword"));
+    mSetRandowPassword->setObjectName(QStringLiteral("mSetRandowPassword"));
     formLayout->addRow(i18n("Name:"), mName);
     formLayout->addRow(i18n("Username:"), mUserName);
     formLayout->addRow(i18n("Status Message:"), mStatusText);
@@ -91,6 +95,9 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     info.mPassword = mPasswordLineEdit->password();
     info.mStatusText = mStatusText->text().trimmed();
+
+    info.mRequirePasswordChange = mRequirePassword->isChecked();
+    info.mSetRandomPassword = mSetRandowPassword->isChecked();
     // TODO add more
     return info;
 }
@@ -110,6 +117,9 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
     info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
     info.mPassword = mPasswordLineEdit->password();
+    info.mRequirePasswordChange = mRequirePassword->isChecked();
+    info.mSetRandomPassword = mSetRandowPassword->isChecked();
+
     return info;
 }
 
@@ -120,6 +130,9 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mEmail->setText(user.userEmailsInfo().email);
     mRolesComboBox->setRoles(user.roles());
     mStatusText->setText(user.statusText());
+
+    // mSetRandowPassword
+    // mRequirePasswordChange
     // TODO add mSendWelcomeEmail and mJoinDefaultChannels
     // mJoinDefaultChannels->setChecked(user.jo)
 }

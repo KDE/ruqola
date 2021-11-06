@@ -45,7 +45,6 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateUpdateUserInfo {
     InfoType mTypeInfo = Create;
     bool mJoinDefaultChannels = false;
     bool mRequirePasswordChange = false;
-    bool mAssignRandomPassword = false;
     bool mSendWelcomeEmail = false;
     bool mSetRandomPassword = false;
     bool mVerified = false;

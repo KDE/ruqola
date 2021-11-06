@@ -46,7 +46,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateUpdateUserInfo &t)
     d << "mNickName " << t.mNickName;
     d << "mJoinDefaultChannels " << t.mJoinDefaultChannels;
     d << "mRequirePasswordChange " << t.mRequirePasswordChange;
-    d << "mAssignRandomPassword " << t.mAssignRandomPassword;
+    d << "mAssignRandomPassword " << t.mSetRandomPassword;
     d << "mSendWelcomeEmail " << t.mSendWelcomeEmail;
     return d;
 }
