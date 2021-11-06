@@ -67,6 +67,8 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
+    formLayout->addWidget(mRequirePassword);
+    formLayout->addWidget(mSetRandowPassword);
     formLayout->addRow(i18n("Roles:"), mRolesComboBox);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
