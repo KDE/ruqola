@@ -46,7 +46,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
 public:
     explicit TextSelection(DocumentFactoryInterface *factory);
     Q_REQUIRED_RESULT bool hasSelection() const;
-    enum Format { Text, Html };
+    enum Format {
+        Text,
+        Html,
+    };
     Q_REQUIRED_RESULT QString selectedText(Format format) const;
     Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos) const;
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc) const;
