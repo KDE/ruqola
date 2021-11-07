@@ -55,7 +55,7 @@ QString TextSelection::selectedText(Format format) const
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
         QTextDocument *doc = mDocumentFactory->documentForIndex(index);
-        QTextCursor cursor = selectionForIndex(index, doc);
+        const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();
         if (row < ordered.toRow) {
