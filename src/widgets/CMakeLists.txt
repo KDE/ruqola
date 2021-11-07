@@ -311,6 +311,7 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagedelegatehelperbase.h
     room/delegate/messagedelegateutils.h
     room/delegate/messagelistdelegate.h
+    room/delegate/textselection.h
     room/usersinroomflowwidget.h
     room/roomreplythreadwidget.h
     room/teamnamelabel.h
