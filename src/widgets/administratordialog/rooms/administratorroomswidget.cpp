@@ -90,6 +90,7 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
 
 void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 {
+    qWarning() << "modify room NOT IMPLEMENTED";
     // TODO
 }
 
