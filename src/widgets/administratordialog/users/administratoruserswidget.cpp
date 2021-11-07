@@ -207,6 +207,8 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
+        // Add support for reset E2E/TOTP etc.
+
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
             const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
             slotRemoveUser(i);
