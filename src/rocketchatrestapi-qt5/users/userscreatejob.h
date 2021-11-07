@@ -46,6 +46,9 @@ public:
 Q_SIGNALS:
     void usersCreateDone(const QJsonObject &obj);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 private:
     Q_DISABLE_COPY(UsersCreateJob)
     void slotUsersCreate();

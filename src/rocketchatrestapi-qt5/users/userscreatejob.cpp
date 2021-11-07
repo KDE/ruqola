@@ -22,6 +22,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -104,4 +106,14 @@ QNetworkRequest UsersCreateJob::request() const
 QJsonDocument UsersCreateJob::json() const
 {
     return mCreateInfo.json();
+}
+
+QString UsersCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    // qDebug() << " str " << str << " details " << detail;
+    if (str == QStringLiteral("error-field-unavailable")) {
+        const QString field = detail.value(QLatin1String("field")).toString();
+        return i18n("%1 is already in use.", field);
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
