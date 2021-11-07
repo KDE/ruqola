@@ -39,6 +39,7 @@
 #include <QAbstractItemView>
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScreen>
@@ -55,8 +56,8 @@ static QSizeF dprAwareSize(const QPixmap &pixmap)
     return pixmap.size() / pixmap.devicePixelRatioF();
 }
 
-MessageListDelegate::MessageListDelegate(QObject *parent)
-    : QItemDelegate(parent)
+MessageListDelegate::MessageListDelegate(QListView *view)
+    : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
@@ -64,7 +65,8 @@ MessageListDelegate::MessageListDelegate(QObject *parent)
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
-    , mHelperText(new MessageDelegateHelperText)
+    , mListView(view)
+    , mHelperText(new MessageDelegateHelperText(view))
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
     , mHelperReactions(new MessageDelegateHelperReactions)
@@ -345,7 +347,7 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Layout layout = doLayout(option, index);
-    mHelperText->selectAll(option.widget, layout.textRect, index);
+    mHelperText->selectAll(index);
 }
 
 void MessageListDelegate::clearTextDocumentCache()
@@ -532,11 +534,10 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const Message::MessageType messageType = message->messageType();
         const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
         if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
-            auto mEmoticonMenuWidget = new EmoticonMenuWidget(parentWidget);
+            auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
-            positionPopup(mev->globalPos(), parentWidget, mEmoticonMenuWidget);
+            positionPopup(mev->globalPos(), mListView, mEmoticonMenuWidget);
             mEmoticonMenuWidget->show();
             connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, this, [=](const QString &id) {
                 mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
@@ -659,7 +660,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
-        if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, view, layout.textRect, index)) {
+        if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
             return true;
         }
         if (layout.timeStampRect.contains(helpEvent->pos())) {

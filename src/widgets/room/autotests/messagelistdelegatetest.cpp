@@ -84,7 +84,7 @@ void MessageListDelegateTest::layoutChecks()
     QFETCH(bool, withDateHeader);
 
     // GIVEN a delegate and an index pointing to a message
-    MessageListDelegate delegate;
+    MessageListDelegate delegate(nullptr);
     delegate.setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     QStyleOptionViewItem option;
     QWidget fakeWidget;

@@ -25,7 +25,9 @@
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"
+#include <messagecache.h>
 #include <model/messagemodel.h>
+#include <model/threadmessagemodel.h>
 
 #include <KStringHandler>
 
@@ -34,6 +36,7 @@
 #include <QClipboard>
 #include <QDrag>
 #include <QGuiApplication>
+#include <QListView>
 #include <QMimeData>
 #include <QPainter>
 #include <QScreen>
@@ -42,11 +45,8 @@
 #include <QTextDocumentFragment>
 #include <QTextStream>
 #include <QToolTip>
-#include <messagecache.h>
 
-#include <model/threadmessagemodel.h>
-
-QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, const QWidget *widget) const
+QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, bool connectToUpdates) const
 {
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
@@ -74,21 +74,21 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                             Message *msg = messageCache->messageForId(threadMessageId);
                             if (msg) {
                                 contextMessage = *msg;
-                            } else {
+                            } else if (connectToUpdates) {
                                 QPersistentModelIndex persistentIndex(index);
                                 connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                                     if (msgId == threadMessageId) {
-                                        that->updateView(widget, persistentIndex);
+                                        that->updateView(persistentIndex);
                                     }
                                 });
                             }
                         } else {
                             // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                         }
-                    } else {
+                    } else if (connectToUpdates) {
                         QPersistentModelIndex persistentIndex(index);
                         connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
-                            that->updateView(widget, persistentIndex);
+                            that->updateView(persistentIndex);
                         });
                     }
                 }
@@ -104,11 +104,11 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
                                                                                 rcAccount->emojiManager(),
                                                                                 rcAccount->messageCache(),
                                                                                 needUpdateMessageId);
-                if (!needUpdateMessageId.isEmpty()) {
+                if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     QPersistentModelIndex persistentIndex(index);
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                         if (msgId == needUpdateMessageId) {
-                            that->updateView(widget, persistentIndex);
+                            that->updateView(persistentIndex);
                         }
                     });
                 }
@@ -122,33 +122,13 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, con
 
 bool MessageDelegateHelperText::hasSelection() const
 {
-    if (mCurrentTextCursor.isNull()) {
-        return false;
-    }
-    return mCurrentTextCursor.hasSelection();
+    return mSelection.hasSelection();
 }
 
-void MessageDelegateHelperText::setCurrentIndex(const QModelIndex &index, const QWidget *view, QRect messageRect)
+void MessageDelegateHelperText::selectAll(const QModelIndex &index)
 {
-    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << index.row();
-    if (mCurrentIndex.isValid()) {
-        // The old index no longer has selection, repaint it
-        updateView(view, mCurrentIndex);
-    }
-    mCurrentIndex = index;
-    mCurrentDocument = documentForIndex(index, messageRect.width(), view);
-}
-
-void MessageDelegateHelperText::selectAll(const QWidget *view, QRect messageRect, const QModelIndex &index)
-{
-    if (mCurrentIndex != index) {
-        setCurrentIndex(index, view, messageRect);
-    }
-    if (mCurrentDocument && mCurrentTextCursor.isNull()) {
-        mCurrentTextCursor = QTextCursor(mCurrentDocument);
-    }
-    mCurrentTextCursor.select(QTextCursor::Document);
-    updateView(view, mCurrentIndex);
+    mSelection.selectMessage(index);
+    updateView(index);
     setClipboardSelection();
 }
 
@@ -164,11 +144,7 @@ void MessageDelegateHelperText::clearTextDocumentCache()
 
 QString MessageDelegateHelperText::selectedText() const
 {
-    if (mCurrentTextCursor.isNull()) {
-        return QString();
-    }
-    const QTextDocumentFragment fragment(mCurrentTextCursor);
-    const QString text = fragment.toPlainText();
+    const QString text = mSelection.selectedText(TextSelection::Text);
     qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "selected text : " << text;
     return text;
 }
@@ -176,19 +152,15 @@ QString MessageDelegateHelperText::selectedText() const
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
-    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "mCurrentTextCursor:" << (mCurrentTextCursor.isNull() ? "null" : "valid");
-    if (!mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection() && clipboard->supportsSelection()) {
-        const QTextDocumentFragment fragment(mCurrentTextCursor);
-        const QString text = fragment.toPlainText();
+    if (mSelection.hasSelection() && clipboard->supportsSelection()) {
+        const QString text = mSelection.selectedText(TextSelection::Text);
         clipboard->setText(text, QClipboard::Selection);
     }
 }
 
-void MessageDelegateHelperText::updateView(const QWidget *widget, const QModelIndex &index)
+void MessageDelegateHelperText::updateView(const QModelIndex &index)
 {
-    auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(widget));
-    Q_ASSERT(view);
-    view->update(index);
+    mListView->update(index);
 }
 
 static bool useItalicsForMessage(const QModelIndex &index)
@@ -204,23 +176,30 @@ static bool pendingMessage(const QModelIndex &index)
     return index.data(MessageModel::PendingMessage).toBool();
 }
 
-MessageDelegateHelperText::~MessageDelegateHelperText()
+MessageDelegateHelperText::MessageDelegateHelperText(QListView *view)
+    : QObject(view)
+    , mListView(view)
+    , mSelection(this)
 {
+    connect(&mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
 }
+
+MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
 void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
-    auto *doc = documentForIndex(index, rect.width(), option.widget);
+    auto *doc = documentForIndex(index, rect.width(), true);
     if (!doc) {
         return;
     }
 
     QVector<QAbstractTextDocumentLayout::Selection> selections;
-    if (index == mCurrentIndex) {
+    const QTextCursor selectionTextCursor = mSelection.selectionForIndex(index, doc);
+    if (!selectionTextCursor.isNull()) {
         QTextCharFormat selectionFormat;
         selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
         selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
-        selections.append({mCurrentTextCursor, selectionFormat});
+        selections.append({selectionTextCursor, selectionFormat});
     }
     if (useItalicsForMessage(index) || pendingMessage(index)) {
         QTextCursor cursor(doc);
@@ -247,7 +226,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    auto *doc = documentForIndex(index, maxWidth, option.widget);
+    auto *doc = documentForIndex(index, maxWidth, true);
     if (!doc) {
         return {};
     }
@@ -259,8 +238,12 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     return size;
 }
 
-bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent,
+                                                 const QRect &messageRect,
+                                                 const QStyleOptionViewItem &option,
+                                                 const QModelIndex &index)
 {
+    Q_UNUSED(option)
     if (!messageRect.contains(mouseEvent->pos())) {
         return false;
     }
@@ -271,34 +254,35 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
     switch (eventType) {
     case QEvent::MouseButtonPress:
         mMightStartDrag = false;
-        setCurrentIndex(index, option.widget, messageRect);
-        if (mCurrentDocument) {
-            const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
+            const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
                 return false;
             }
-            if (mCurrentTextCursor.hasSelection() && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()
-                && mCurrentDocument->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mSelection.contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
                 return true;
             }
 
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
-            mCurrentTextCursor = QTextCursor(mCurrentDocument);
-            mCurrentTextCursor.setPosition(charPos);
+            // (look there if you want to add these things)
+
+            mSelection.setStart(index, charPos);
             return true;
         } else {
-            mCurrentIndex = QModelIndex();
+            mSelection.clear();
         }
         break;
     case QEvent::MouseMove:
-        if (index == mCurrentIndex && mCurrentDocument && !mMightStartDrag) {
-            const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-            if (charPos != -1) {
-                // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                mCurrentTextCursor.setPosition(charPos, QTextCursor::KeepAnchor);
-                return true;
+        if (!mMightStartDrag) {
+            if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
+                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mSelection.setEnd(index, charPos);
+                    return true;
+                }
             }
         }
         break;
@@ -306,22 +290,22 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
         setClipboardSelection();
         // Clicks on links
-        if (index == mCurrentIndex && mCurrentDocument && !hasSelection()) {
-            const QString link = mCurrentDocument->documentLayout()->anchorAt(pos);
-            if (!link.isEmpty()) {
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                Q_EMIT rcAccount->openLinkRequested(link);
-                return true;
+        if (!mSelection.hasSelection()) {
+            if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
+                const QString link = doc->documentLayout()->anchorAt(pos);
+                if (!link.isEmpty()) {
+                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                    Q_EMIT rcAccount->openLinkRequested(link);
+                    return true;
+                }
             }
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
     case QEvent::MouseButtonDblClick:
-        if (index == mCurrentIndex) {
-            if (!hasSelection()) {
-                mCurrentTextCursor.select(QTextCursor::WordUnderCursor);
-                return true;
-            }
+        if (!mSelection.hasSelection()) {
+            mSelection.selectWordUnderCursor();
+            return true;
         }
         break;
     default:
@@ -330,13 +314,13 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
     return false;
 }
 
-bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect messageRect, const QModelIndex &index)
+bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index)
 {
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
 
-    const auto *doc = documentForIndex(index, messageRect.width(), view);
+    const auto *doc = documentForIndex(index, messageRect.width(), true);
     if (!doc) {
         return false;
     }
@@ -362,7 +346,7 @@ bool MessageDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QWidget *
     addLine(href);
     stream << QLatin1String("</qt>");
 
-    QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
+    QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
     return true;
 }
 
@@ -372,13 +356,13 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
         return false;
     }
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
-    if (index == mCurrentIndex && !mCurrentTextCursor.isNull() && mCurrentTextCursor.hasSelection()) {
-        const int charPos = mCurrentDocument->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        if (charPos != -1 && mCurrentTextCursor.selectionStart() <= charPos && charPos <= mCurrentTextCursor.selectionEnd()) {
+    if (mSelection.hasSelection()) {
+        const auto *doc = documentForIndex(index, messageRect.width(), false);
+        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (charPos != -1 && mSelection.contains(index, charPos)) {
             auto mimeData = new QMimeData;
-            const QTextDocumentFragment fragment(mCurrentTextCursor);
-            mimeData->setHtml(fragment.toHtml());
-            mimeData->setText(fragment.toPlainText());
+            mimeData->setHtml(mSelection.selectedText(TextSelection::Html));
+            mimeData->setText(mSelection.selectedText(TextSelection::Text));
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);
@@ -393,8 +377,14 @@ void MessageDelegateHelperText::setShowThreadContext(bool b)
     mShowThreadContext = b;
 }
 
-QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, const QWidget *widget) const
+QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index) const
 {
+    return documentForIndex(index, -1, false);
+}
+
+QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const
+{
+    Q_ASSERT(index.isValid());
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
     const auto messageId = message->messageId();
@@ -403,13 +393,13 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     auto it = mDocumentCache.find(messageId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
-        if (!qFuzzyCompare(ret->textWidth(), width)) {
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
             ret->setTextWidth(width);
         }
         return ret;
     }
 
-    const QString text = makeMessageText(index, widget);
+    const QString text = makeMessageText(index, connectToUpdates);
     if (text.isEmpty()) {
         return nullptr;
     }

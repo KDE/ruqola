@@ -29,6 +29,7 @@
 #include <QItemDelegate>
 #include <QScopedPointer>
 
+class QListView;
 class RocketChatAccount;
 class Message;
 class MessageDelegateHelperBase;
@@ -46,7 +47,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
-    explicit MessageListDelegate(QObject *parent = nullptr);
+    explicit MessageListDelegate(QListView *view);
     ~MessageListDelegate() override;
 
     void setRocketChatAccount(RocketChatAccount *rcAccount);
@@ -151,6 +152,7 @@ private:
     QColor mOpenDiscussionColorMode;
     QColor mReplyThreadColorMode;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    QListView *const mListView;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
     QScopedPointer<MessageAttachmentDelegateHelperImage> mHelperAttachmentImage;
@@ -161,4 +163,3 @@ private:
     QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
     AvatarCacheManager *const mAvatarCacheManager;
 };
-

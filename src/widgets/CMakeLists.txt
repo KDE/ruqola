@@ -129,6 +129,7 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messageattachmentdelegatehelpersound.cpp
     room/delegate/runninganimatedimage.cpp
     room/delegate/messagedelegateutils.cpp
+    room/delegate/textselection.cpp
     room/messagelinewidget.cpp
     room/readonlylineeditwidget.cpp
     room/usersinroomflowwidget.cpp
