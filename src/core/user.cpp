@@ -69,7 +69,7 @@ bool User::operator==(const User &other) const
 {
     return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
         && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
-        && (mLastLogin == other.lastLogin()) && (mActive == other.active());
+        && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange());
 }
 
 bool User::operator!=(const User &other) const
@@ -132,6 +132,7 @@ QDebug operator<<(QDebug d, const User &t)
     d << "Last Login " << t.lastLogin();
     d << "userEmailsInfo " << t.userEmailsInfo();
     d << "active " << t.active();
+    d << "mRequirePasswordChange " << t.requirePasswordChange();
     return d;
 }
 
@@ -171,6 +172,7 @@ void User::parseUserRestApi(const QJsonObject &object)
             setUserEmailsInfo(info);
         }
     }
+    setRequirePasswordChange(object.value(QLatin1String("requirePasswordChange")).toBool(false));
 
     // TODO emails
     // qDebug() << " object "  << object;
@@ -288,6 +290,16 @@ void User::parseUser(const QJsonObject &object)
 QString User::generateStatusStr() const
 {
     return Utils::displaytextFromPresenceStatus(mStatus);
+}
+
+bool User::requirePasswordChange() const
+{
+    return mRequirePasswordChange;
+}
+
+void User::setRequirePasswordChange(bool newRequirePasswordChange)
+{
+    mRequirePasswordChange = newRequirePasswordChange;
 }
 
 QString User::iconFromStatus() const

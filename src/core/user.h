@@ -104,6 +104,9 @@ public:
 
     Q_REQUIRED_RESULT QString generateStatusStr() const;
 
+    Q_REQUIRED_RESULT bool requirePasswordChange() const;
+    void setRequirePasswordChange(bool newRequirePasswordChange);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -118,6 +121,7 @@ private:
     QStringList mI18nRoles;
     double mUtcOffset = 0.0;
     bool mActive = true;
+    bool mRequirePasswordChange = false;
 };
 Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
