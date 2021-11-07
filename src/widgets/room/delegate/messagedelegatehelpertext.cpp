@@ -149,6 +149,11 @@ QString MessageDelegateHelperText::selectedText() const
     return text;
 }
 
+void MessageDelegateHelperText::clearSelection()
+{
+    mSelection.clear();
+}
+
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();

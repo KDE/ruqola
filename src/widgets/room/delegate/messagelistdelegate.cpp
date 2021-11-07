@@ -355,6 +355,11 @@ void MessageListDelegate::clearTextDocumentCache()
     mHelperText->clearTextDocumentCache();
 }
 
+void MessageListDelegate::clearSelection()
+{
+    mHelperText->clearSelection();
+}
+
 QString MessageListDelegate::selectedText() const
 {
     return mHelperText->selectedText();

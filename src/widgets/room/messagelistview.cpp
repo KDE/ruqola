@@ -91,6 +91,7 @@ void MessageListView::setRoom(Room *room)
 {
     if (mRoom) {
         disconnect(mRoom, &Room::lastSeenChanged, this, &MessageListView::slotUpdateLastSeen);
+        mMessageListDelegate->clearSelection();
     }
     mRoom = room;
     if (mRoom) {
