@@ -99,6 +99,13 @@ void UsersUpdateJobTest::shouldNotStarting()
     UpdateUserInfo info;
     info.mUserId = QStringLiteral("userid");
     job.setUpdateInfo(info);
+    QVERIFY(!job.canStart());
 
+    info.mName = QStringLiteral("mname");
+    job.setUpdateInfo(info);
+    QVERIFY(!job.canStart());
+
+    info.mEmail = QStringLiteral("emil");
+    job.setUpdateInfo(info);
     QVERIFY(job.canStart());
 }
