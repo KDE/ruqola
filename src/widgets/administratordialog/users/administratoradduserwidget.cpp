@@ -134,6 +134,8 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mStatusText->setText(user.statusText());
     mSetRandowPassword->setChecked(user.requirePasswordChange());
 
+    mJoinDefaultChannels->setVisible(false);
+    mSendWelcomeEmails->setVisible(false);
     // mSetRandowPassword
     // mRequirePasswordChange
     // TODO add mSendWelcomeEmail and mJoinDefaultChannels
