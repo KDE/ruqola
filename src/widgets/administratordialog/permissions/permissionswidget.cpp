@@ -132,8 +132,8 @@ void PermissionsWidget::modifyRoles(const QModelIndex &index)
 void PermissionsWidget::slotEditRoles(const QStringList &roles, const QString &identifier)
 {
     QPointer<PermissionsEditDialog> dialog = new PermissionsEditDialog(this, identifier);
-    dialog->setRoles(roles);
     dialog->setRolesInfo(mRoleInfo);
+    dialog->setRoles(roles);
     if (dialog->exec()) {
         const QStringList lst = dialog->roles();
         auto permissionsUpdateJob = new RocketChatRestApi::PermissionUpdateJob(this);
