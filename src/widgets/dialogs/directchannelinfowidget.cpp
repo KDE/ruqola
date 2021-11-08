@@ -157,7 +157,21 @@ void DirectChannelInfoWidget::setUser(const User &user)
     if (i18nRoles.isEmpty()) {
         hideWidget(mRoles);
     } else {
-        mRoles->setText(i18nRoles.join(QStringLiteral(", ")));
+        QStringList newRolesList;
+        for (const QString &rolestr : i18nRoles) {
+            bool found = false;
+            for (const RoleInfo &roleInfo : std::as_const(mListRoleInfos)) {
+                if (roleInfo.identifier() == rolestr) {
+                    newRolesList.append(roleInfo.name());
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                newRolesList.append(rolestr);
+            }
+        }
+        mRoles->setText(newRolesList.join(QStringLiteral(", ")));
     }
 
     if (user.createdAt().isValid()) {
