@@ -107,6 +107,8 @@ public:
     Q_REQUIRED_RESULT bool requirePasswordChange() const;
     void setRequirePasswordChange(bool newRequirePasswordChange);
 
+    static Q_REQUIRED_RESULT QString roleI18n(const QString &roleStr);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;

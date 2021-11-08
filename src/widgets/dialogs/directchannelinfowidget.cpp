@@ -153,22 +153,17 @@ void DirectChannelInfoWidget::setUser(const User &user)
     const QUrl iconUrlStr = QUrl(rcAccount->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
 
-    const QStringList i18nRoles{user.i18nRoles()};
-    if (i18nRoles.isEmpty()) {
+    const QStringList roles{user.roles()};
+    if (roles.isEmpty()) {
         hideWidget(mRoles);
     } else {
         QStringList newRolesList;
-        for (const QString &rolestr : i18nRoles) {
-            bool found = false;
+        for (const QString &rolestr : roles) {
             for (const RoleInfo &roleInfo : std::as_const(mListRoleInfos)) {
                 if (roleInfo.identifier() == rolestr) {
-                    newRolesList.append(roleInfo.name());
-                    found = true;
+                    newRolesList.append(User::roleI18n(roleInfo.name()));
                     break;
                 }
-            }
-            if (!found) {
-                newRolesList.append(rolestr);
             }
         }
         mRoles->setText(newRolesList.join(QStringLiteral(", ")));

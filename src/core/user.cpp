@@ -210,6 +210,21 @@ QStringList User::roles() const
     return mRoles;
 }
 
+QString User::roleI18n(const QString &roleStr)
+{
+    QString ri18n;
+    if (roleStr == QLatin1String("user")) {
+        ri18n = i18n("User");
+    } else if (roleStr == QLatin1String("admin")) {
+        ri18n = i18n("Administrator");
+    } else if (roleStr == QLatin1String("bot")) {
+        ri18n = i18n("Bot");
+    } else {
+        ri18n = roleStr;
+    }
+    return ri18n;
+}
+
 void User::setRoles(const QStringList &roles)
 {
     QStringList rolesI18n;
@@ -260,6 +275,7 @@ void User::setUserEmailsInfo(const UserEmailsInfo &userEmailsInfo)
     mUserEmailsInfo = userEmailsInfo;
 }
 
+// TODO remove it ????
 QStringList User::i18nRoles() const
 {
     return mI18nRoles;
