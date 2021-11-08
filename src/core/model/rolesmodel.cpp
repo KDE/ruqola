@@ -67,6 +67,7 @@ QStringList RolesModel::rolesSelected() const
 void RolesModel::setRolesSelected(const QStringList &newRolesSelected)
 {
     mRolesSelected = newRolesSelected;
+    fillRoleSelected();
 }
 
 void RolesModel::fillRoleSelected()
