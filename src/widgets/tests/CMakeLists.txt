@@ -12,7 +12,7 @@ add_executable(testaudio_gui testaudio_gui.cpp)
 target_link_libraries(testaudio_gui libruqolawidgets KF5::I18n)
 
 ####
-add_executable(testnotification_gui testnotification_gui.cpp notificationwidget.cpp)
+add_executable(testnotification_gui testnotification_gui.cpp notificationwidget.cpp notificationwidget.h)
 target_link_libraries(testnotification_gui libruqolawidgets KF5::I18n)
 
 ####
