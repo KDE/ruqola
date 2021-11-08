@@ -230,15 +230,7 @@ void User::setRoles(const QStringList &roles)
     QStringList rolesI18n;
     rolesI18n.reserve(roles.count());
     for (const QString &role : roles) {
-        if (role == QLatin1String("user")) {
-            rolesI18n << i18n("User");
-        } else if (role == QLatin1String("admin")) {
-            rolesI18n << i18n("Administrator");
-        } else if (role == QLatin1String("bot")) {
-            rolesI18n << i18n("Bot");
-        } else {
-            rolesI18n << role;
-        }
+        rolesI18n.append(User::roleI18n(role));
     }
     // TODO use roleInfo for show correct role description
     mI18nRoles = rolesI18n;
