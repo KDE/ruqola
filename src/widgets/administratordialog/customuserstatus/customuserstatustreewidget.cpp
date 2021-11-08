@@ -131,7 +131,11 @@ void CustomUserStatusTreeWidget::removeClicked()
     auto customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
     if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", userStatus.name()), i18nc("@title", "Remove Custom User Status"))) {
+        == KMessageBox::questionYesNo(this,
+                                      i18n("Do you want to remove \"%1\"?", userStatus.name()),
+                                      i18nc("@title", "Remove Custom User Status"),
+                                      KStandardGuiItem::remove(),
+                                      KStandardGuiItem::cancel())) {
         mRocketChatAccount->removeCustomUserStatus(userStatus.identifier());
     }
 }

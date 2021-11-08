@@ -125,11 +125,21 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account,
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (mRoom->teamInfo().mainTeam()) {
-            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this Team?"), i18nc("@title", "Delete Team"))) {
+            if (KMessageBox::Yes
+                == KMessageBox::questionYesNo(this,
+                                              i18n("Do you want to delete this Team?"),
+                                              i18nc("@title", "Delete Team"),
+                                              KStandardGuiItem::del(),
+                                              KStandardGuiItem::cancel())) {
                 selectRoomToDelete(mRoom->teamInfo().teamId());
             }
         } else {
-            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to delete this room?"), i18nc("@title", "Delete Room"))) {
+            if (KMessageBox::Yes
+                == KMessageBox::questionYesNo(this,
+                                              i18n("Do you want to delete this room?"),
+                                              i18nc("@title", "Delete Room"),
+                                              KStandardGuiItem::del(),
+                                              KStandardGuiItem::cancel())) {
                 mRocketChatAccount->eraseRoom(mRoom->roomId(), mRoom->channelType());
                 Q_EMIT channelDeleted();
             }

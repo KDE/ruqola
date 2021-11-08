@@ -97,7 +97,12 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 {
     const QString roomName = index.data(AdminRoomsModel::Name).toString();
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this, i18n("Do you want to remove \"%1\"?", roomName), i18nc("@title", "Remove Room"))) {
+    if (KMessageBox::Yes
+        == KMessageBox::questionYesNo(this,
+                                      i18n("Do you want to remove \"%1\"?", roomName),
+                                      i18nc("@title", "Remove Room"),
+                                      KStandardGuiItem::remove(),
+                                      KStandardGuiItem::cancel())) {
         qWarning() << " NOT IMPLEMENTED";
     }
 }

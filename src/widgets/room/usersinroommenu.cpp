@@ -46,7 +46,12 @@ void UsersInRoomMenu::slotBlockUser()
 {
     const bool userIsBlocked = mRoom->blocker();
     if (!userIsBlocked) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to block this user?"), i18nc("@title", "Block User"))) {
+        if (KMessageBox::No
+            == KMessageBox::questionYesNo(mParentWidget,
+                                          i18n("Do you want to block this user?"),
+                                          i18nc("@title", "Block User"),
+                                          KGuiItem(i18nc("@action:button", "Block User"), QStringLiteral("dialog-ok")),
+                                          KStandardGuiItem::cancel())) {
             return;
         }
     }
@@ -57,7 +62,12 @@ void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
     if (!userIsIgnored) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(mParentWidget, i18n("Do you want to ignore this user?"), i18nc("@title", "Ignore User"))) {
+        if (KMessageBox::No
+            == KMessageBox::questionYesNo(mParentWidget,
+                                          i18n("Do you want to ignore this user?"),
+                                          i18nc("@title", "Ignore User"),
+                                          KGuiItem(i18nc("@action:button", "Ignore User"), QStringLiteral("dialog-ok")),
+                                          KStandardGuiItem::cancel())) {
             return;
         }
     }

@@ -89,7 +89,11 @@ void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
 {
     QModelIndex modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::Name);
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()), i18n("Remove User"))
+    if (KMessageBox::questionYesNo(this,
+                                   i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()),
+                                   i18n("Remove User"),
+                                   KStandardGuiItem::remove(),
+                                   KStandardGuiItem::cancel())
         == KMessageBox::Yes) {
         auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
         job->setRoleName(mRoleName);

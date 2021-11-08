@@ -161,7 +161,12 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this emoji?"), i18nc("@title", "Remove Emoji")) == KMessageBox::Yes) {
+    if (KMessageBox::questionYesNo(this,
+                                   i18n("Do you want to remove this emoji?"),
+                                   i18nc("@title", "Remove Emoji"),
+                                   KStandardGuiItem::remove(),
+                                   KStandardGuiItem::cancel())
+        == KMessageBox::Yes) {
         auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
         const QString emojiId = index.data().toString();
         job->setEmojiId(emojiId);
