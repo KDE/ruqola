@@ -97,6 +97,11 @@ void DirectChannelInfoWidget::setUserName(const QString &userName)
     fetchUserInfo(userName);
 }
 
+void DirectChannelInfoWidget::setRoles(const QVector<RoleInfo> &newRoles)
+{
+    mListRoleInfos = newRoles;
+}
+
 void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 {
     auto *rcAccount = Ruqola::self()->rocketChatAccount();

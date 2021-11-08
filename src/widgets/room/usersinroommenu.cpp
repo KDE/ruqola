@@ -167,6 +167,7 @@ void UsersInRoomMenu::slotUserInfo()
 {
     DirectChannelInfoDialog dlg(mParentWidget);
     dlg.setUserName(mUserName);
+    dlg.setRoles(Ruqola::self()->rocketChatAccount()->roleInfo());
     dlg.exec();
 }
 

@@ -19,7 +19,9 @@
 */
 
 #pragma once
+#include "roles/roleinfo.h"
 #include <QDialog>
+#include <QVector>
 
 #include "libruqolawidgets_private_export.h"
 class DirectChannelInfoWidget;
@@ -31,6 +33,7 @@ public:
     explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
     void setUserName(const QString &userName);
+    void setRoles(const QVector<RoleInfo> &newRoles);
 
 private:
     void readConfig();

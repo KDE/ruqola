@@ -20,6 +20,8 @@
 
 #pragma once
 
+#include "roles/roleinfo.h"
+#include <QVector>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -35,11 +37,14 @@ public:
 
     void setUserName(const QString &userName);
 
+    void setRoles(const QVector<RoleInfo> &newRoles);
+
 private:
     void slotUserInfoDone(const QJsonObject &obj);
     void fetchUserInfo(const QString &userName);
     void setUser(const User &user);
     void hideWidget(QLabel *label);
+    QVector<RoleInfo> mListRoleInfos;
     QLabel *const mName;
     QLabel *const mUserName;
     QLabel *const mCustomStatus;

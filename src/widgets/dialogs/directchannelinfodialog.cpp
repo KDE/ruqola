@@ -58,6 +58,11 @@ void DirectChannelInfoDialog::setUserName(const QString &userName)
     mDirectChannelInfoWidget->setUserName(userName);
 }
 
+void DirectChannelInfoDialog::setRoles(const QVector<RoleInfo> &newRoles)
+{
+    mDirectChannelInfoWidget->setRoles(newRoles);
+}
+
 void DirectChannelInfoDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigDirectChannelInfoDialogGroupName);
