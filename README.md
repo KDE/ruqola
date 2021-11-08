@@ -5,8 +5,34 @@ Ruqola is a Rocket.Chat client for the KDE desktop.
 
 ## Features
 
-It supports multi-account, search in room, open close rooms, direct message, thread, discussions, teams, administrator.
-RC settings can be changed directly.
+It supports RC feature:
+- Direct Message
+- group channel
+- channel
+- Configuring room notification
+- Thread message support
+- Discussion room
+- Teams room support
+- Configuring own account
+- Registering new account
+- Support multi account
+- Search message in room.
+- Show mention/attachment/Pinned message/start message
+- Support emoji
+- Video support
+- Configure administrator support 
+- Support OTR (in progress)
+- support gif image
+- Add support for uploading attachment files.
+- Show unread message information
+- Allow to block/unblock users
+
+Extra features:
+- Allow to reply directly to message from notification (kde features)
+- Dnd image from ruqola to website or local folder
+- Store message in local database so we can search in offline
+
+
 
 ## Source Code
 
@@ -28,6 +54,10 @@ cd build
 cmake ..
 make
 make install
+````
+or using CMakePresets support (need cmake > 3.20)
+````
+cmake --preset dev && cmake --build --preset dev
 ````
 
 ## ASAN
