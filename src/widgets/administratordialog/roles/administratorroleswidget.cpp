@@ -72,10 +72,20 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
 
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorRolesWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &AdministratorRolesWidget::slotCustomContextMenuRequested);
+    connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorRolesWidget::slotModifyDoubleClickRoles);
 }
 
 AdministratorRolesWidget::~AdministratorRolesWidget()
 {
+}
+
+void AdministratorRolesWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        if (mRocketChatAccount->hasPermission(QStringLiteral("access-permissions"))) {
+            modifyRole(index);
+        }
+    }
 }
 
 void AdministratorRolesWidget::initialize()
@@ -164,6 +174,9 @@ void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
 
 void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
 {
+    if (!modelIndex.isValid()) {
+        return;
+    }
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
     RoleEditWidget::RoleEditDialogInfo info;
     QModelIndex index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);

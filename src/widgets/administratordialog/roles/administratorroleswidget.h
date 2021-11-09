@@ -45,6 +45,7 @@ private:
     void addUserInRole(const QModelIndex &modelIndex);
     void modifyRole(const QModelIndex &modelIndex);
     void deleteRole(const QModelIndex &modelIndex);
+    void slotModifyDoubleClickRoles(const QModelIndex &index);
     void slotRoleCreateDone();
     void slotRoleUpdateDone();
     void slotRoleDeleteDone();
