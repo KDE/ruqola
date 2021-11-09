@@ -164,12 +164,11 @@ void AdministratorRolesWidget::slotRoleCreateDone()
 
 void AdministratorRolesWidget::addUserInRole(const QModelIndex &modelIndex)
 {
-    QPointer<UserInRoleEditDialog> dlg = new UserInRoleEditDialog(mRocketChatAccount, this);
-    dlg->setRoleId(modelIndex.data().toString());
+    UserInRoleEditDialog dlg(mRocketChatAccount, this);
+    dlg.setRoleId(modelIndex.data().toString());
     const QModelIndex index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
-    dlg->setRoleName(index.data().toString());
-    dlg->exec();
-    delete dlg;
+    dlg.setRoleName(index.data().toString());
+    dlg.exec();
 }
 
 void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
