@@ -96,7 +96,7 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
         });
     } else {
         mMovie.reset(new QMovie(this));
-        mMovie->setFileName(mImageInfo.imagePath);
+        mMovie->setFileName(mImageInfo.bigImagePath);
         mMovie->start();
         mMovie->stop();
         mAnimatedLabel->setMovie(mMovie.data());
@@ -312,5 +312,5 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 
 void ShowImageWidget::saveAs()
 {
-    DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().imagePath, i18n("Save Image"));
+    DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().bigImagePath, i18n("Save Image"));
 }

@@ -35,7 +35,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
     Q_OBJECT
 public:
     struct ImageInfo {
-        QString imagePath;
+        QString bigImagePath;
+        QString previewImagePath;
         QPixmap pixmap;
         bool isAnimatedImage = false;
     };

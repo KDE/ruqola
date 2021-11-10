@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     ShowImageDialog dlg;
     ShowImageWidget::ImageInfo info;
     info.isAnimatedImage = parser.isSet(isAnimatedImageOption);
-    info.imagePath = fileName;
+    info.bigImagePath = fileName;
     info.pixmap = QPixmap(fileName);
     dlg.setImageInfo(info);
     dlg.resize(800, 600);
