@@ -224,6 +224,7 @@ void ImageGraphicsView::fitToView()
 
 ShowImageWidget::ShowImageWidget(QWidget *parent)
     : QWidget(parent)
+    , mImageGraphicsView(new ImageGraphicsView(this))
     , mZoomControls(new QWidget(this))
     , mZoomSpin(new QDoubleSpinBox(this))
     , mSlider(new QSlider(this))
@@ -232,7 +233,6 @@ ShowImageWidget::ShowImageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mImageGraphicsView = new ImageGraphicsView(this);
     mImageGraphicsView->setObjectName(QStringLiteral("mImageGraphicsView"));
     mainLayout->addWidget(mImageGraphicsView);
     connect(mImageGraphicsView, &ImageGraphicsView::zoomChanged, this, [this](qreal zoom) {

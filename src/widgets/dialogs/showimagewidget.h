@@ -52,7 +52,7 @@ private Q_SLOTS:
     void updateRanges();
 
 private:
-    ImageGraphicsView *mImageGraphicsView = nullptr;
+    ImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
     QSlider *const mSlider;
