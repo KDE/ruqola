@@ -117,7 +117,6 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
-            // TODO
             // TODO update list
         });
         if (!job->start()) {
@@ -149,7 +148,6 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::EmojiCustomUpdateJob::emojiCustomUpdateDone, this, [](const QJsonObject &replyObject) {
             qDebug() << " replyObject " << replyObject;
-            // TODO
             // TODO update list
         });
         if (!job->start()) {
