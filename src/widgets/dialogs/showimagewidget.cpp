@@ -40,7 +40,7 @@ namespace
 constexpr qreal defaultMinimumZoomScale = (qreal)0.1;
 constexpr qreal defaultMaximumZoomScale = (qreal)10.0;
 
-qreal fitToViewZoomScale(const QSize &imageSize, const QSize &widgetSize)
+qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 {
     if (imageSize.width() > widgetSize.width() || imageSize.height() > widgetSize.height()) {
         // Make sure it fits, we care only about the first two decimal points, so round to the smaller value
