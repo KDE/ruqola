@@ -35,7 +35,6 @@ void CreateRoomInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.description.isEmpty());
     QVERIFY(info.teamId.isEmpty());
-    QVERIFY(info.password.isEmpty());
     QVERIFY(!info.readOnly);
     QVERIFY(!info.broadcast);
     QVERIFY(!info.encrypted);

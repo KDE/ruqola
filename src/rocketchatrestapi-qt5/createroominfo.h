@@ -30,7 +30,6 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT bool canStart() const;
     QString name;
-    QString password;
     QString description;
     QString teamId;
 

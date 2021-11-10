@@ -67,7 +67,6 @@ QJsonDocument CreateRoomInfo::json() const
 QDebug operator<<(QDebug d, const RocketChatRestApi::CreateRoomInfo &t)
 {
     d << "name " << t.name;
-    // d << "password " << t.password;
     d << "description " << t.description;
     d << "teamId " << t.teamId;
     d << "members " << t.members;

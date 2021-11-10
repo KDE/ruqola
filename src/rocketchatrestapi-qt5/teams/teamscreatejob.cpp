@@ -57,16 +57,6 @@ void TeamsCreateJob::slotTeamCreateFinished()
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("TeamsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT teamCreateDone();
-            if (!mTeamsCreateJobInfo.password.isEmpty()) {
-                const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
-                const QString channelId = channelObj[QStringLiteral("_id")].toString();
-                if (channelId.isEmpty()) {
-                    emitFailedMessage(replyObject, reply);
-                    addLoggerWarning(QByteArrayLiteral("TeamsCreateJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
-                } else {
-                    Q_EMIT addJoinCodeToChannel(channelId, mTeamsCreateJobInfo.password);
-                }
-            }
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("TeamsCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

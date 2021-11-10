@@ -59,16 +59,6 @@ void CreateChannelJob::slotCreateChannelFinished()
             addLoggerInfo(QByteArrayLiteral("CreateChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             qDebug() << " replyObject : " << replyObject;
             Q_EMIT createChannelDone(replyObject);
-            if (!mCreateChannelInfo.password.isEmpty()) {
-                const QJsonObject channelObj = replyObject[QStringLiteral("channel")].toObject();
-                const QString channelId = channelObj[QStringLiteral("_id")].toString();
-                if (channelId.isEmpty()) {
-                    emitFailedMessage(replyObject, reply);
-                    addLoggerWarning(QByteArrayLiteral("CreateChannelJob Impossible to extract channel id: ") + replyJson.toJson(QJsonDocument::Indented));
-                } else {
-                    Q_EMIT addJoinCodeToChannel(channelId, mCreateChannelInfo.password);
-                }
-            }
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("CreateChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));

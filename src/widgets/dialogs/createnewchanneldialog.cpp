@@ -64,7 +64,6 @@ CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo() con
     RocketChatRestApi::CreateRoomInfo info;
     info.members = mCreateNewChannelWidget->users();
     info.name = mCreateNewChannelWidget->channelName();
-    info.password = mCreateNewChannelWidget->password();
     info.readOnly = mCreateNewChannelWidget->readOnly();
     info.broadcast = mCreateNewChannelWidget->broadCast();
     info.encrypted = mCreateNewChannelWidget->encryptedRoom();

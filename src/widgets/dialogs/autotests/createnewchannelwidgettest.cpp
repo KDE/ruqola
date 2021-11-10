@@ -22,7 +22,6 @@
 #include "dialogs/channelnamevalidlineedit.h"
 #include "dialogs/createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
-#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QLineEdit>
 #include <QTest>
@@ -52,7 +51,4 @@ void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mPrivate);
     auto mEncryptedRoom = w.findChild<QCheckBox *>(QStringLiteral("mEncryptedRoom"));
     QVERIFY(mEncryptedRoom);
-
-    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
-    QVERIFY(mPasswordLineEdit);
 }

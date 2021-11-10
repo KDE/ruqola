@@ -23,7 +23,6 @@
 #include "misc/adduserswidget.h"
 #include <KAuthorized>
 #include <KLocalizedString>
-#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
@@ -36,7 +35,6 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     , mBroadcast(new QCheckBox(this))
     , mPrivate(new QCheckBox(this))
     , mEncryptedRoom(new QCheckBox(this))
-    , mPasswordLineEdit(new KPasswordLineEdit(this))
     , mTopicLineEdit(new QLineEdit(this))
     , mMainLayout(new QFormLayout(this))
 {
@@ -55,23 +53,23 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));
     mReadOnly->setChecked(false);
+    mReadOnly->setToolTip(i18n("All users in this team can write messages"));
     mMainLayout->addRow(i18n("Read-Only:"), mReadOnly);
 
     mBroadcast->setObjectName(QStringLiteral("mBroadcast"));
     mBroadcast->setChecked(false);
+    mBroadcast->setToolTip(i18n("Only authorized users can write new messages, but the other users will be able to reply"));
     mMainLayout->addRow(i18n("Broadcast:"), mBroadcast);
 
     mPrivate->setObjectName(QStringLiteral("mPrivate"));
     mPrivate->setChecked(false);
+    mPrivate->setToolTip(i18n("Only invited people can join"));
+
     mMainLayout->addRow(i18n("Private Room:"), mPrivate);
 
     mEncryptedRoom->setObjectName(QStringLiteral("mEncryptedRoom"));
     mEncryptedRoom->setChecked(false);
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
-
-    mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
-    mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
-    mMainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mChannelName, &ChannelNameValidLineEdit::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
@@ -113,11 +111,6 @@ bool CreateNewChannelWidget::privateChannel() const
 bool CreateNewChannelWidget::encryptedRoom() const
 {
     return mEncryptedRoom->isChecked();
-}
-
-QString CreateNewChannelWidget::password() const
-{
-    return mPasswordLineEdit->password();
 }
 
 QString CreateNewChannelWidget::topic() const

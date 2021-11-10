@@ -39,7 +39,6 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
-    QVERIFY(info.password.isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 

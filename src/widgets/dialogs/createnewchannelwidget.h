@@ -25,7 +25,6 @@
 #include "libruqolawidgets_private_export.h"
 class ChannelNameValidLineEdit;
 class QCheckBox;
-class KPasswordLineEdit;
 class AddUsersWidget;
 class QFormLayout;
 class QLineEdit;
@@ -51,7 +50,6 @@ public:
     Q_REQUIRED_RESULT bool privateChannel() const;
     Q_REQUIRED_RESULT bool broadCast() const;
     Q_REQUIRED_RESULT bool readOnly() const;
-    Q_REQUIRED_RESULT QString password() const;
     Q_REQUIRED_RESULT QString topic() const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
@@ -66,7 +64,6 @@ private:
     QCheckBox *const mBroadcast;
     QCheckBox *const mPrivate;
     QCheckBox *const mEncryptedRoom;
-    KPasswordLineEdit *const mPasswordLineEdit;
     QLineEdit *const mTopicLineEdit;
     QFormLayout *const mMainLayout;
 };
