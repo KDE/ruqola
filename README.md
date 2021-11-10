@@ -10,6 +10,7 @@ It supports RC feature:
 - group channel
 - channel
 - Configuring room notification
+- Configuring room
 - Thread message support
 - Discussion room
 - Teams room support
@@ -20,7 +21,7 @@ It supports RC feature:
 - Show mention/attachment/Pinned message/start message
 - Support emoji
 - Video support
-- Configure administrator support 
+- Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.) 
 - Support OTR (in progress)
 - support gif image
 - Add support for uploading attachment files.
