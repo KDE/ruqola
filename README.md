@@ -9,6 +9,7 @@ It supports RC feature:
 - Direct Message
 - group channel
 - channel
+- Support autotranslate (when RC has it)
 - Configuring room notification
 - Configuring room
 - Thread message support
