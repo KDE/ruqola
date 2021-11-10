@@ -50,10 +50,9 @@ public:
 
     void saveAs();
 
-private Q_SLOTS:
-    void updateRanges();
-
 private:
+    void updateRanges();
+    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     ImageGraphicsView *const mImageGraphicsView;
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;

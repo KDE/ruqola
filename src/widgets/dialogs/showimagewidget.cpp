@@ -20,6 +20,7 @@
 
 #include "showimagewidget.h"
 #include "common/delegateutil.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QDoubleSpinBox>
 #include <QGraphicsPixmapItem>
@@ -286,10 +287,17 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
         mImageGraphicsView->setZoom(static_cast<qreal>(value) / 100);
     });
 
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::fileDownloaded, this, &ShowImageWidget::slotFileDownloaded);
+    }
     updateRanges();
 }
 
 ShowImageWidget::~ShowImageWidget()
+{
+}
+
+void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
 }
 
