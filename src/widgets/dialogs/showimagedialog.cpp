@@ -31,9 +31,9 @@ namespace
 {
 static const char myShowImageDialogGroupName[] = "ShowImageDialog";
 }
-ShowImageDialog::ShowImageDialog(QWidget *parent)
+ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mShowImageWidget(new ShowImageWidget(this))
+    , mShowImageWidget(new ShowImageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);

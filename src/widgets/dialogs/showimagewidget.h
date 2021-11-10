@@ -30,6 +30,7 @@ class QSlider;
 class QDoubleSpinBox;
 class QMovie;
 class ImageGraphicsView;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageWidget : public QWidget
 {
     Q_OBJECT
@@ -41,7 +42,7 @@ public:
         bool isAnimatedImage = false;
     };
 
-    explicit ShowImageWidget(QWidget *parent = nullptr);
+    explicit ShowImageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowImageWidget() override;
 
     void setImageInfo(const ImageInfo &info);
@@ -57,6 +58,7 @@ private:
     QWidget *const mZoomControls;
     QDoubleSpinBox *const mZoomSpin;
     QSlider *const mSlider;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView

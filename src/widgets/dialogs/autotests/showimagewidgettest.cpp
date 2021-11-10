@@ -38,7 +38,7 @@ ShowImageWidgetTest::ShowImageWidgetTest(QObject *parent)
 
 void ShowImageWidgetTest::shouldHaveDefaultValues()
 {
-    ShowImageWidget w;
+    ShowImageWidget w(nullptr);
     ShowImageWidget::ImageInfo info;
     const auto pixmap = QPixmap(QStringLiteral(":/icons/systray.png"));
     info.pixmap = pixmap;

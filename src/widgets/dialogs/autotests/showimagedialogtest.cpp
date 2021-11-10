@@ -35,7 +35,7 @@ ShowImageDialogTest::ShowImageDialogTest(QObject *parent)
 
 void ShowImageDialogTest::shouldHaveDefaultValues()
 {
-    ShowImageDialog w;
+    ShowImageDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

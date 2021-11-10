@@ -222,12 +222,13 @@ void ImageGraphicsView::fitToView()
     centerOn(mGraphicsPixmapItem);
 }
 
-ShowImageWidget::ShowImageWidget(QWidget *parent)
+ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mImageGraphicsView(new ImageGraphicsView(this))
     , mZoomControls(new QWidget(this))
     , mZoomSpin(new QDoubleSpinBox(this))
     , mSlider(new QSlider(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

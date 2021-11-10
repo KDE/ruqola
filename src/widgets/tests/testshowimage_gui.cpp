@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 
     const QString fileName = parser.positionalArguments().value(0);
 
-    ShowImageDialog dlg;
+    ShowImageDialog dlg(nullptr);
     ShowImageWidget::ImageInfo info;
     info.isAnimatedImage = parser.isSet(isAnimatedImageOption);
     info.bigImagePath = fileName;

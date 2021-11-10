@@ -22,11 +22,12 @@
 #include "libruqolawidgets_private_export.h"
 #include "showimagewidget.h"
 #include <QDialog>
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowImageDialog(QWidget *parent = nullptr);
+    explicit ShowImageDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowImageDialog() override;
 
     void setImageInfo(const ShowImageWidget::ImageInfo &info);
