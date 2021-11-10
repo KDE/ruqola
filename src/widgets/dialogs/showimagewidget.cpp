@@ -86,6 +86,7 @@ ImageGraphicsView::~ImageGraphicsView()
 
 void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
+    qDebug() << "ShowImageWidget::ImageInfo  " << info;
     clearContents();
     mImageInfo = info;
     if (!mImageInfo.isAnimatedImage) {
@@ -299,6 +300,11 @@ ShowImageWidget::~ShowImageWidget()
 
 void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
+    const ImageInfo info = imageInfo();
+    if (filePath == info.bigImagePath) {
+        qDebug() << "ShowImageWidget::slotFileDownloaded********************************************** " << cacheImageUrl;
+        // TODO update icons.
+    }
 }
 
 void ShowImageWidget::updateRanges()
@@ -322,4 +328,13 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 void ShowImageWidget::saveAs()
 {
     DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().bigImagePath, i18n("Save Image"));
+}
+
+QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
+{
+    d << "bigImagePath : " << t.bigImagePath;
+    d << "previewImagePath : " << t.previewImagePath;
+    d << "isAnimatedImage : " << t.isAnimatedImage;
+    d << " pixmap is null ? " << t.pixmap.isNull();
+    return d;
 }

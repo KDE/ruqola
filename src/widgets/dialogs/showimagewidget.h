@@ -113,4 +113,4 @@ private:
     qreal mMaximumZoom;
     bool mIsUpdatingZoom = false;
 };
-
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t);
