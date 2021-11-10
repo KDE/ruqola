@@ -24,9 +24,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(QWidget *parent)
+AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mAutoTranslateConfigureWidget(new AutoTranslateConfigureWidget(this))
+    , mAutoTranslateConfigureWidget(new AutoTranslateConfigureWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Auto-Translate"));
     auto mainLayout = new QVBoxLayout(this);

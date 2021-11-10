@@ -30,10 +30,11 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
+AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAutoTranslate(new QCheckBox(i18n("Auto-Translate"), this))
     , mLanguage(new QComboBox(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -54,7 +55,9 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(QWidget *parent)
     horizontalLayout->addWidget(label);
 
     mLanguage->setObjectName(QStringLiteral("mLanguage"));
-    mLanguage->setModel(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel());
+    if (mRocketChatAccount) {
+        mLanguage->setModel(mRocketChatAccount->autoTranslateLanguagesModel());
+    }
     connect(mLanguage, &QComboBox::activated, this, &AutoTranslateConfigureWidget::slotLanguageChanged);
 
     horizontalLayout->addWidget(mLanguage);
@@ -73,14 +76,12 @@ Room *AutoTranslateConfigureWidget::room() const
 
 void AutoTranslateConfigureWidget::slotLanguageChanged(int index)
 {
-    Ruqola::self()->rocketChatAccount()->autoTranslateSaveLanguageSettings(
-        mRoom->roomId(),
-        Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->selectedLanguage(index));
+    mRocketChatAccount->autoTranslateSaveLanguageSettings(mRoom->roomId(), mRocketChatAccount->autoTranslateLanguagesModel()->selectedLanguage(index));
 }
 
 void AutoTranslateConfigureWidget::slotChangeAutoTranslate(bool status)
 {
-    Ruqola::self()->rocketChatAccount()->autoTranslateSaveAutoTranslateSettings(mRoom->roomId(), status);
+    mRocketChatAccount->autoTranslateSaveAutoTranslateSettings(mRoom->roomId(), status);
 }
 
 void AutoTranslateConfigureWidget::slotAutoTranslateChanged()
@@ -90,7 +91,7 @@ void AutoTranslateConfigureWidget::slotAutoTranslateChanged()
 
 void AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged()
 {
-    mLanguage->setCurrentIndex(Ruqola::self()->rocketChatAccount()->autoTranslateLanguagesModel()->currentLanguage(mRoom->autoTranslateLanguage()));
+    mLanguage->setCurrentIndex(mRocketChatAccount->autoTranslateLanguagesModel()->currentLanguage(mRoom->autoTranslateLanguage()));
 }
 
 void AutoTranslateConfigureWidget::setRoom(Room *room)

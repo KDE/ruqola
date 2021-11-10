@@ -281,7 +281,7 @@ void RoomWidget::slotConfigureAutoTranslate()
     if (!mRoom) {
         return;
     }
-    QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(this);
+    QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(mCurrentRocketChatAccount, this);
     dlg->setRoom(mRoom);
     dlg->exec();
     delete dlg;

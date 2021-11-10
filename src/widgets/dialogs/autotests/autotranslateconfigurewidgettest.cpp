@@ -34,7 +34,7 @@ AutoTranslateConfigureWidgetTest::AutoTranslateConfigureWidgetTest(QObject *pare
 
 void AutoTranslateConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    AutoTranslateConfigureWidget w;
+    AutoTranslateConfigureWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

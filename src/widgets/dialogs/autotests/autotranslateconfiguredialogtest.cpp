@@ -33,7 +33,7 @@ AutoTranslateConfigureDialogTest::AutoTranslateConfigureDialogTest(QObject *pare
 
 void AutoTranslateConfigureDialogTest::shouldHaveDefaultValues()
 {
-    AutoTranslateConfigureDialog w;
+    AutoTranslateConfigureDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

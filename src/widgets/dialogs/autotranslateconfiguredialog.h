@@ -24,11 +24,12 @@
 #include <QDialog>
 class AutoTranslateConfigureWidget;
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AutoTranslateConfigureDialog(QWidget *parent = nullptr);
+    explicit AutoTranslateConfigureDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AutoTranslateConfigureDialog() override;
     void setRoom(Room *room);
 

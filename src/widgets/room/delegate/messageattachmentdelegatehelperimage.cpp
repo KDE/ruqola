@@ -145,6 +145,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
                 info.bigImagePath = layout.imagePath;
+                // TODO add preview path info.previewImagePath = {};
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(info);

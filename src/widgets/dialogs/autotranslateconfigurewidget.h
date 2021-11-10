@@ -26,11 +26,12 @@
 class QCheckBox;
 class QComboBox;
 class Room;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AutoTranslateConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AutoTranslateConfigureWidget(QWidget *parent = nullptr);
+    explicit AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AutoTranslateConfigureWidget() override;
 
     Room *room() const;
@@ -44,5 +45,6 @@ private:
     QCheckBox *const mAutoTranslate;
     QComboBox *const mLanguage;
     Room *mRoom = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
