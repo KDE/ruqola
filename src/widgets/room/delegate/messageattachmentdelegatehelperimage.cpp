@@ -165,7 +165,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
 {
     ImageLayout layout;
     const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link());
-    const QUrl urlPreview = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
+    // TODO use it in the future const QUrl urlPreview = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
