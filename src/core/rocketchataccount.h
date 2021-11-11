@@ -185,7 +185,7 @@ public:
     void
     uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
-    Q_REQUIRED_RESULT QUrl attachmentUrl(const QString &url);
+    Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
     void loadHistory(const QString &roomID, bool initial = false, qint64 timeStep = 0);
     void channelAndPrivateAutocomplete(const QString &pattern);
 

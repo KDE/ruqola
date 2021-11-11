@@ -1632,9 +1632,9 @@ void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl 
     mCache->downloadFile(downloadFileUrl, localFile);
 }
 
-QUrl RocketChatAccount::attachmentUrl(const QString &url)
+QUrl RocketChatAccount::attachmentUrlFromLocalCache(const QString &url)
 {
-    return mCache->attachmentUrl(url);
+    return mCache->attachmentUrlFromLocalCache(url);
 }
 
 QString RocketChatAccount::loadMessagesHistory(const QString &roomID, qint64 numberOfMessages)

@@ -110,7 +110,7 @@ MessageAttachmentDelegateHelperSound::SoundLayout
 MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     SoundLayout layout;
-    const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link());
+    const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();

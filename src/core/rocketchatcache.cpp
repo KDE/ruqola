@@ -104,7 +104,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
     }
 }
 
-QUrl RocketChatCache::attachmentUrl(const QString &url)
+QUrl RocketChatCache::attachmentUrlFromLocalCache(const QString &url)
 {
     const QString cachePath = fileCachePath(QUrl(url));
     if (QFileInfo::exists(cachePath)) {

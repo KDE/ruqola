@@ -71,7 +71,7 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     }
 
     auto mimeData = new QMimeData;
-    mimeData->setUrls({Ruqola::self()->rocketChatAccount()->attachmentUrl(msgAttach.link())});
+    mimeData->setUrls({Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link())});
 
     auto drag = new QDrag(const_cast<QWidget *>(option.widget));
     drag->setMimeData(mimeData);

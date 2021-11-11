@@ -198,7 +198,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
                     } else {
                         const QString fileName = customEmojiFileName(emojiIdentifier);
                         if (!fileName.isEmpty() && mRocketChatAccount) {
-                            const QUrl emojiUrl = mRocketChatAccount->attachmentUrl(fileName);
+                            const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
                             if (emojiUrl.isEmpty()) {
                                 // The download is happening, this will all be updated again later
                             } else {

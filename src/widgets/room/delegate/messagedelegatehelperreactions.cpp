@@ -60,7 +60,7 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
         } else {
             const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
             if (!fileName.isEmpty()) {
-                const QUrl emojiUrl = rcAccount->attachmentUrl(fileName);
+                const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
                 if (emojiUrl.isEmpty()) {
                     // The download is happening, this will all be updated again later
                 } else {
