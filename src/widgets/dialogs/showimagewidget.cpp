@@ -57,6 +57,7 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 
 ImageGraphicsView::ImageGraphicsView(QWidget *parent)
     : QGraphicsView(parent)
+    , mAnimatedLabel(new QLabel)
     , mMinimumZoom(defaultMinimumZoomScale)
     , mMaximumZoom(defaultMaximumZoomScale)
 {
@@ -65,7 +66,6 @@ ImageGraphicsView::ImageGraphicsView(QWidget *parent)
     auto scene = new QGraphicsScene(this);
     setScene(scene);
 
-    mAnimatedLabel = new QLabel;
     mAnimatedLabel->setObjectName(QStringLiteral("mAnimatedLabel"));
     mAnimatedLabel->setBackgroundRole(QPalette::Base);
     mAnimatedLabel->setAlignment(Qt::AlignCenter);
@@ -113,12 +113,12 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
     }
 }
 
-void ImageGraphicsView::zoomIn(const QPointF &centerPos)
+void ImageGraphicsView::zoomIn(QPointF centerPos)
 {
     setZoom(zoom() * 1.1, centerPos);
 }
 
-void ImageGraphicsView::zoomOut(const QPointF &centerPos)
+void ImageGraphicsView::zoomOut(QPointF centerPos)
 {
     setZoom(zoom() * 0.9, centerPos);
 }
@@ -185,7 +185,7 @@ qreal ImageGraphicsView::zoom() const
     return transform().m11();
 }
 
-void ImageGraphicsView::setZoom(qreal zoom, const QPointF &centerPos)
+void ImageGraphicsView::setZoom(qreal zoom, QPointF centerPos)
 {
     // clamp value
     zoom = qBound(minimumZoom(), zoom, maximumZoom());
@@ -267,17 +267,15 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     zoomLayout->addWidget(mSlider);
     mSlider->setValue(mZoomSpin->value() * 100.0);
 
-    auto resetButton = new QPushButton(this);
+    auto resetButton = new QPushButton(i18n("100%"), this);
     resetButton->setObjectName(QStringLiteral("resetButton"));
-    resetButton->setText(i18n("100%"));
     zoomLayout->addWidget(resetButton);
     connect(resetButton, &QPushButton::clicked, this, [=] {
         mImageGraphicsView->setZoom(1.0);
     });
 
-    auto fitToViewButton = new QPushButton(this);
+    auto fitToViewButton = new QPushButton(i18n("Fit to View"), this);
     fitToViewButton->setObjectName(QStringLiteral("fitToViewButton"));
-    fitToViewButton->setText(i18n("Fit to View"));
     zoomLayout->addWidget(fitToViewButton);
     connect(fitToViewButton, &QPushButton::clicked, mImageGraphicsView, &ImageGraphicsView::fitToView);
 

@@ -77,14 +77,14 @@ public:
     Q_REQUIRED_RESULT qreal maximumZoom() const;
 
     Q_REQUIRED_RESULT qreal zoom() const;
-    void setZoom(qreal zoom, const QPointF &centerPos = {});
+    void setZoom(qreal zoom, QPointF centerPos = {});
 
     void setImageInfo(const ShowImageWidget::ImageInfo &info);
     Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
 
 public Q_SLOTS:
-    void zoomIn(const QPointF &centerPos = {});
-    void zoomOut(const QPointF &centerPos = {});
+    void zoomIn(QPointF centerPos = {});
+    void zoomOut(QPointF centerPos = {});
     void fitToView();
 
 protected:
@@ -107,7 +107,7 @@ private:
 
     QGraphicsProxyWidget *mGraphicsProxyWidget = nullptr;
     QGraphicsPixmapItem *mGraphicsPixmapItem = nullptr;
-    QLabel *mAnimatedLabel = nullptr;
+    QLabel *const mAnimatedLabel;
 
     qreal mMinimumZoom;
     qreal mMaximumZoom;
