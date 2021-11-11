@@ -145,6 +145,9 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
                 info.bigImagePath = layout.imagePreviewPath; // TODO info.imagePreviewPath = layout.imagePreviewPath;
+                // if (Ruqola::self()->rocketChatAccount()->attachmentIsInLocalCache(layout.imageBigPath)) {//Check if we have big image in cache.
+                //      //Create pixmap
+                // }
                 // TODO add preview path info.bigImagePath = layout.imageBigPath;
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
@@ -164,16 +167,16 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
                                                                                                     int attachmentsHeight) const
 {
     ImageLayout layout;
-    const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link());
-    // TODO use it in the future const QUrl urlPreview = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
+    const QUrl previewImageUrl = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link()); // Use msgAttach.imageUrlPreview()
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
 
     layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
 
-    if (url.isLocalFile()) {
-        layout.imagePreviewPath = url.toLocalFile();
+    if (previewImageUrl.isLocalFile()) {
+        layout.imagePreviewPath = previewImageUrl.toLocalFile();
+        layout.imageBigPath = msgAttach.link();
         layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         // or we could do layout.attachment = msgAttach; if we need many fields from it
