@@ -63,7 +63,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
                 } else {
                     mRunningAnimatedImages.emplace_back(index);
                     auto &rai = mRunningAnimatedImages.back();
-                    rai.movie->setFileName(layout.imagePath);
+                    rai.movie->setFileName(layout.imagePreviewPath);
                     rai.movie->setScaledSize(layout.imageSize);
                     auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
                     const QPersistentModelIndex &idx = rai.index;
@@ -134,7 +134,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
-            DelegateUtil::saveFile(parentWidget, layout.imagePath, i18n("Save Image"));
+            DelegateUtil::saveFile(parentWidget, layout.imagePreviewPath, i18n("Save Image"));
             return true;
         } else if (!layout.pixmap.isNull()) {
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
@@ -144,7 +144,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 auto dlg = new ShowImageDialog(Ruqola::self()->rocketChatAccount(), parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
-                info.bigImagePath = layout.imagePath;
+                info.bigImagePath = layout.imagePreviewPath;
                 // TODO add preview path info.previewImagePath = {};
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
@@ -173,8 +173,8 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
     layout.descriptionSize = documentDescriptionForIndexSize(msgAttach, attachmentsWidth);
 
     if (url.isLocalFile()) {
-        layout.imagePath = url.toLocalFile();
-        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePath);
+        layout.imagePreviewPath = url.toLocalFile();
+        layout.pixmap = mPixmapCache.pixmapForLocalFile(layout.imagePreviewPath);
         layout.pixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
         // or we could do layout.attachment = msgAttach; if we need many fields from it
         layout.isShown = msgAttach.showAttachment();
