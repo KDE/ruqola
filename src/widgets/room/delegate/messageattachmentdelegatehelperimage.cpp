@@ -144,8 +144,8 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 auto dlg = new ShowImageDialog(Ruqola::self()->rocketChatAccount(), parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
-                info.bigImagePath = layout.imagePreviewPath;
-                // TODO add preview path info.previewImagePath = {};
+                info.bigImagePath = layout.imagePreviewPath; // TODO info.imagePreviewPath = layout.imagePreviewPath;
+                // TODO add preview path info.bigImagePath = layout.imageBigPath;
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(info);
