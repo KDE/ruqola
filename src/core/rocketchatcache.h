@@ -54,6 +54,7 @@ public:
     Q_REQUIRED_RESULT QString avatarUrlFromCacheOnly(const QString &userId);
 
     void updateAvatar(const Utils::AvatarInfo &info);
+    Q_REQUIRED_RESULT bool attachmentIsInLocalCache(const QString &url);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

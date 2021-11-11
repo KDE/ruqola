@@ -1637,6 +1637,11 @@ QUrl RocketChatAccount::attachmentUrlFromLocalCache(const QString &url)
     return mCache->attachmentUrlFromLocalCache(url);
 }
 
+bool RocketChatAccount::attachmentIsInLocalCache(const QString &url)
+{
+    return mCache->attachmentIsInLocalCache(url);
+}
+
 QString RocketChatAccount::loadMessagesHistory(const QString &roomID, qint64 numberOfMessages)
 {
     MessageModel *roomMessageModel = messageModelForRoom(roomID);
