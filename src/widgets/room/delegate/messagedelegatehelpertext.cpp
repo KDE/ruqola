@@ -304,6 +304,9 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent,
                     return true;
                 }
             }
+        } else if (mMightStartDrag) {
+            // clicked into selection, didn't start drag, clear it (like kwrite and QTextEdit)
+            mSelection.clear();
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
@@ -371,6 +374,7 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);
+            mMightStartDrag = false; // don't clear selection on release
             return true;
         }
     }
