@@ -40,6 +40,7 @@ public:
         QString previewImagePath;
         QPixmap pixmap;
         bool isAnimatedImage = false;
+        bool needToDownloadBigImage = false;
     };
 
     explicit ShowImageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
