@@ -87,6 +87,7 @@ ImageGraphicsView::~ImageGraphicsView()
 void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     qDebug() << "ShowImageWidget::ImageInfo  " << info;
+    // TODO download big image if necessary
     clearContents();
     mImageInfo = info;
     if (!mImageInfo.isAnimatedImage) {
