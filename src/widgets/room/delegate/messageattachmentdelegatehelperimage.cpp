@@ -144,7 +144,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 auto dlg = new ShowImageDialog(Ruqola::self()->rocketChatAccount(), parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
-                info.bigImagePath = layout.imagePreviewPath;
+                info.bigImagePath = layout.imageBigPath;
                 info.previewImagePath = layout.imagePreviewPath;
                 info.needToDownloadBigImage = !Ruqola::self()->rocketChatAccount()->attachmentIsInLocalCache(layout.imageBigPath);
                 info.pixmap = layout.pixmap;
@@ -165,7 +165,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
                                                                                                     int attachmentsHeight) const
 {
     ImageLayout layout;
-    const QUrl previewImageUrl = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link()); // Use msgAttach.imageUrlPreview()
+    const QUrl previewImageUrl = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);

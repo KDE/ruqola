@@ -114,15 +114,21 @@ void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
 
 void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
+    mImageInfo = info;
     if (info.needToDownloadBigImage) {
-        qDebug() << " Download big image " << info.needToDownloadBigImage;
+        // qDebug() << " Download big image " << info.needToDownloadBigImage;
         // We just need to download image not get url as it will be empty as we need to download it.
         (void)Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(info.bigImagePath);
+        updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath); // TODO use correct path. big or not.
+    } else {
+        // Use big image.
+        // qDebug() << " Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile() " <<
+        // Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile(); qDebug() << " mImageInfo." <<
+        // mImageInfo.previewImagePath;
+        const QPixmap pix(Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
+        updatePixmap(pix, mImageInfo.bigImagePath);
     }
-    qDebug() << "ShowImageWidget::ImageInfo  " << info;
-    // TODO download big image if necessary
-    mImageInfo = info;
-    updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath); // TODO use correct path. big or not.
+    // qDebug() << "ShowImageWidget::ImageInfo  " << info;
 }
 
 void ImageGraphicsView::zoomIn(QPointF centerPos)
@@ -312,11 +318,9 @@ void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &ca
 {
     const ImageInfo info = imageInfo();
     if (filePath == info.bigImagePath) {
-        QPixmap pixmap(cacheImageUrl.toLocalFile());
-        mImageGraphicsView->updatePixmap(pixmap, cacheImageUrl.toLocalFile());
-
-        qDebug() << "ShowImageWidget::slotFileDownloaded********************************************** " << cacheImageUrl;
-        // TODO update icons.
+        const QString cacheImageUrlPath{cacheImageUrl.toLocalFile()};
+        const QPixmap pixmap(cacheImageUrlPath);
+        mImageGraphicsView->updatePixmap(pixmap, cacheImageUrlPath);
     }
 }
 
@@ -349,5 +353,6 @@ QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
     d << "previewImagePath : " << t.previewImagePath;
     d << "isAnimatedImage : " << t.isAnimatedImage;
     d << " pixmap is null ? " << t.pixmap.isNull();
+    d << " needToDownloadBigImage ? " << t.needToDownloadBigImage;
     return d;
 }
