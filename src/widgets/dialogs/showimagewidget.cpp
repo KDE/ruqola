@@ -21,6 +21,7 @@
 #include "showimagewidget.h"
 #include "common/delegateutil.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <QDoubleSpinBox>
 #include <QGraphicsPixmapItem>
@@ -84,14 +85,11 @@ ImageGraphicsView::~ImageGraphicsView()
 {
 }
 
-void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
+void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
 {
-    qDebug() << "ShowImageWidget::ImageInfo  " << info;
-    // TODO download big image if necessary
     clearContents();
-    mImageInfo = info;
     if (!mImageInfo.isAnimatedImage) {
-        mGraphicsPixmapItem->setPixmap(mImageInfo.pixmap);
+        mGraphicsPixmapItem->setPixmap(pix);
         QTimer::singleShot(0, this, [=] {
             updateRanges();
 
@@ -99,7 +97,7 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
         });
     } else {
         mMovie.reset(new QMovie(this));
-        mMovie->setFileName(mImageInfo.bigImagePath);
+        mMovie->setFileName(path);
         mMovie->start();
         mMovie->stop();
         mAnimatedLabel->setMovie(mMovie.data());
@@ -112,6 +110,19 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
             mMovie->start();
         });
     }
+}
+
+void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
+{
+    if (info.needToDownloadBigImage) {
+        qDebug() << " Download big image " << info.needToDownloadBigImage;
+        // We just need to download image not get url as it will be empty as we need to download it.
+        (void)Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(info.bigImagePath);
+    }
+    qDebug() << "ShowImageWidget::ImageInfo  " << info;
+    // TODO download big image if necessary
+    mImageInfo = info;
+    updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath); // TODO use correct path. big or not.
 }
 
 void ImageGraphicsView::zoomIn(QPointF centerPos)
@@ -301,6 +312,9 @@ void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &ca
 {
     const ImageInfo info = imageInfo();
     if (filePath == info.bigImagePath) {
+        QPixmap pixmap(cacheImageUrl.toLocalFile());
+        mImageGraphicsView->updatePixmap(pixmap, cacheImageUrl.toLocalFile());
+
         qDebug() << "ShowImageWidget::slotFileDownloaded********************************************** " << cacheImageUrl;
         // TODO update icons.
     }
