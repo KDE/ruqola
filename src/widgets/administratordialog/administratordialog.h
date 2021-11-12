@@ -36,6 +36,6 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    AdministratorWidget *mAdministratorWidget = nullptr;
+    AdministratorWidget *const mAdministratorWidget;
 };
 
