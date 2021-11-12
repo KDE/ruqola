@@ -26,7 +26,6 @@
 AuthenticationComboBox::AuthenticationComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    initialize();
 }
 
 AuthenticationComboBox::~AuthenticationComboBox()
