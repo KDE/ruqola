@@ -22,13 +22,13 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AuthenticationComboBox : public QComboBox
 {
     Q_OBJECT
 public:
     explicit AuthenticationComboBox(QWidget *parent = nullptr);
     ~AuthenticationComboBox() override;
-    void initialize();
+    void switchRocketChatAccount(RocketChatAccount *account);
 };
 

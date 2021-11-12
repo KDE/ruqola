@@ -148,7 +148,7 @@ void RuqolaLoginWidget::initialize()
     mUserName->setText(rocketChatAccount->userName());
     mLdapCheckBox->setChecked(rocketChatAccount->useLdap());
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(rocketChatAccount->password());
-    mAuthenticationCombobox->initialize(); // Authentication is rocketchatAccount specific
+    mAuthenticationCombobox->switchRocketChatAccount(rocketChatAccount); // Authentication is rocketchatAccount specific
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
     mLdapCheckBox->setVisible(rocketChatAccount->ldapEnabled());
 }

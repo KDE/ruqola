@@ -32,9 +32,9 @@ AuthenticationComboBox::~AuthenticationComboBox()
 {
 }
 
-void AuthenticationComboBox::initialize()
+void AuthenticationComboBox::switchRocketChatAccount(RocketChatAccount *account)
 {
-    const QVector<AuthenticationInfo> authenticationInfos = Ruqola::self()->rocketChatAccount()->loginMethodModel()->authentications();
+    const QVector<AuthenticationInfo> authenticationInfos = account->loginMethodModel()->authentications();
     for (const AuthenticationInfo &info : authenticationInfos) {
         addItem(QIcon::fromTheme(info.iconName()), info.name(), QVariant::fromValue(info.oauthType()));
     }
