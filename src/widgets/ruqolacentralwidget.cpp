@@ -112,7 +112,7 @@ void RuqolaCentralWidget::slotLoginStatusChanged()
         mStackedWidget->setCurrentWidget(mRuqolaMainWidget);
     } else {
         mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
-        mRuqolaLoginWidget->initialize();
+        mRuqolaLoginWidget->setRocketChatAccount(mCurrentRocketChatAccount);
         loginPage = true;
     }
     Q_EMIT loginPageActivated(loginPage);

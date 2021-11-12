@@ -39,7 +39,7 @@ public:
     explicit RuqolaLoginWidget(QWidget *parent = nullptr);
     ~RuqolaLoginWidget() override;
 
-    void initialize();
+    void setRocketChatAccount(RocketChatAccount *account);
     void setLoginStatus(DDPAuthenticationManager::LoginStatus status);
     void showError(const QString &text);
 
@@ -61,5 +61,6 @@ private:
     QWidget *const mAuthenticationWidget;
     QWidget *const mAuthenticationAccountWidget;
     AuthenticationComboBox *const mAuthenticationCombobox;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 
