@@ -119,12 +119,9 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
         // qDebug() << " Download big image " << info.needToDownloadBigImage;
         // We just need to download image not get url as it will be empty as we need to download it.
         (void)Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(info.bigImagePath);
-        updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath); // TODO use correct path. big or not.
+        updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath);
     } else {
         // Use big image.
-        // qDebug() << " Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile() " <<
-        // Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile(); qDebug() << " mImageInfo." <<
-        // mImageInfo.previewImagePath;
         const QPixmap pix(Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
         updatePixmap(pix, mImageInfo.bigImagePath);
     }
