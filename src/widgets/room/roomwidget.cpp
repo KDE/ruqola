@@ -209,6 +209,12 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::FollowMessages:
         slotFollowMessages();
         break;
+    case RoomHeaderWidget::OtrMessages:
+        // TODO
+        break;
+    case RoomHeaderWidget::EncryptMessages:
+        // TODO
+        break;
     }
 }
 
