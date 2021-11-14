@@ -98,10 +98,10 @@ private:
     QString mQuotePermalink;
     QString mQuoteText;
     EditingMode mMode = EditingMode::NewMessage;
-    MessageTextEdit *mMessageTextEdit = nullptr;
-    QToolButton *mSendFile = nullptr;
-    QToolButton *mEmoticonButton = nullptr;
-    QToolButton *mSendMessageButton = nullptr;
+    MessageTextEdit *const mMessageTextEdit;
+    QToolButton *const mSendFile;
+    QToolButton *const mEmoticonButton;
+    QToolButton *const mSendMessageButton;
     EmoticonMenuWidget *mEmoticonMenuWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;

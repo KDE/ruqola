@@ -43,13 +43,16 @@
 
 MessageLineWidget::MessageLineWidget(QWidget *parent)
     : QWidget(parent)
+    , mMessageTextEdit(new MessageTextEdit(this))
+    , mSendFile(new QToolButton(this))
+    , mEmoticonButton(new QToolButton(this))
+    , mSendMessageButton(new QToolButton(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mainLayout->setSpacing(0);
 
-    mMessageTextEdit = new MessageTextEdit(this);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
     mainLayout->addWidget(mMessageTextEdit);
     connect(mMessageTextEdit, &MessageTextEdit::sendMessage, this, &MessageLineWidget::slotSendMessage);
@@ -57,14 +60,12 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     connect(mMessageTextEdit, &MessageTextEdit::textEditing, this, &MessageLineWidget::slotTextEditing);
     connect(mMessageTextEdit, &MessageTextEdit::textClicked, this, &MessageLineWidget::textEditClicked);
 
-    mSendFile = new QToolButton(this);
     mSendFile->setAutoRaise(true);
     mSendFile->setObjectName(QStringLiteral("mSendFile"));
     mainLayout->addWidget(mSendFile);
     mSendFile->setIcon(QIcon::fromTheme(QStringLiteral("document-send-symbolic")));
     connect(mSendFile, &QToolButton::clicked, this, &MessageLineWidget::slotSendFile);
 
-    mEmoticonButton = new QToolButton(this);
     mEmoticonButton->setAutoRaise(true);
     mEmoticonButton->setObjectName(QStringLiteral("mEmoticonButton"));
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
@@ -72,7 +73,6 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mEmoticonButton->setPopupMode(QToolButton::InstantPopup);
     mainLayout->addWidget(mEmoticonButton);
 
-    mSendMessageButton = new QToolButton(this);
     mSendMessageButton->setAutoRaise(true);
     mSendMessageButton->setObjectName(QStringLiteral("mSendMessageButton"));
     mSendMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("mail-sent")));
