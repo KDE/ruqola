@@ -56,9 +56,10 @@ qreal fitToViewZoomScale(QSize imageSize, QSize widgetSize)
 
 }
 
-ImageGraphicsView::ImageGraphicsView(QWidget *parent)
+ImageGraphicsView::ImageGraphicsView(RocketChatAccount *account, QWidget *parent)
     : QGraphicsView(parent)
     , mAnimatedLabel(new QLabel)
+    , mRocketChatAccount(account)
     , mMinimumZoom(defaultMinimumZoomScale)
     , mMaximumZoom(defaultMaximumZoomScale)
 {
@@ -118,11 +119,11 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
     if (info.needToDownloadBigImage) {
         // qDebug() << " Download big image " << info.needToDownloadBigImage;
         // We just need to download image not get url as it will be empty as we need to download it.
-        (void)Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(info.bigImagePath);
+        (void)mRocketChatAccount->attachmentUrlFromLocalCache(info.bigImagePath);
         updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath);
     } else {
         // Use big image.
-        const QPixmap pix(Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
+        const QPixmap pix(mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
         updatePixmap(pix, mImageInfo.bigImagePath);
     }
     // qDebug() << "ShowImageWidget::ImageInfo  " << info;
@@ -241,7 +242,7 @@ void ImageGraphicsView::fitToView()
 
 ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mImageGraphicsView(new ImageGraphicsView(this))
+    , mImageGraphicsView(new ImageGraphicsView(account, this))
     , mZoomControls(new QWidget(this))
     , mZoomSpin(new QDoubleSpinBox(this))
     , mSlider(new QSlider(this))

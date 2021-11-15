@@ -69,7 +69,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView
     Q_PROPERTY(qreal maximumZoom READ maximumZoom NOTIFY maximumZoomChanged)
 
 public:
-    explicit ImageGraphicsView(QWidget *parent = nullptr);
+    explicit ImageGraphicsView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ImageGraphicsView() override;
 
     void clearContents();
@@ -110,6 +110,7 @@ private:
     QGraphicsProxyWidget *mGraphicsProxyWidget = nullptr;
     QGraphicsPixmapItem *mGraphicsPixmapItem = nullptr;
     QLabel *const mAnimatedLabel;
+    RocketChatAccount *const mRocketChatAccount;
 
     qreal mMinimumZoom;
     qreal mMaximumZoom;
