@@ -57,7 +57,7 @@ public:
     void clear();
     void setStart(const QModelIndex &index, int charPos);
     void setEnd(const QModelIndex &index, int charPos);
-    void selectWordUnderCursor();
+    void selectWordUnderCursor(const QModelIndex &index, int charPos);
     void selectMessage(const QModelIndex &index);
 
 Q_SIGNALS:

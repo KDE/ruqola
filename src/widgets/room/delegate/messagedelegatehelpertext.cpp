@@ -312,8 +312,15 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent,
         break;
     case QEvent::MouseButtonDblClick:
         if (!mSelection.hasSelection()) {
-            mSelection.selectWordUnderCursor();
-            return true;
+            if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
+                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mSelection.selectWordUnderCursor(index, charPos);
+                return true;
+            }
         }
         break;
     default:

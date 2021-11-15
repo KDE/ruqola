@@ -183,8 +183,7 @@ void TextSelectionTest::testSelectWordUnderCursor()
     TextSelection selection(&factory);
 
     // WHEN
-    selection.setStart(index1, 2);
-    selection.selectWordUnderCursor();
+    selection.selectWordUnderCursor(index1, 2);
 
     // THEN
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("Line"));
@@ -199,7 +198,7 @@ void TextSelectionTest::testSelectWordUnderCursor()
     selection.setStart(index2, 8);
     selection.setEnd(index2, 8); // tiny mouse move while double-clicking
     QVERIFY(!selection.hasSelection());
-    selection.selectWordUnderCursor();
+    selection.selectWordUnderCursor(index2, 8);
 
     // THEN
     QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("bold"));

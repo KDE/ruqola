@@ -165,12 +165,11 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos)
     mEndPos = charPos;
 }
 
-void TextSelection::selectWordUnderCursor()
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
 {
-    const QModelIndex index = mStartIndex;
     QTextDocument *doc = mDocumentFactory->documentForIndex(index);
     QTextCursor cursor(doc);
-    cursor.setPosition(mStartPos);
+    cursor.setPosition(charPos);
     clear();
     cursor.select(QTextCursor::WordUnderCursor);
     mStartIndex = index;
