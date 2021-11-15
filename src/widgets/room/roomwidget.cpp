@@ -270,11 +270,10 @@ void RoomWidget::slotAddUsersInRoom()
 
 void RoomWidget::slotInviteUsers()
 {
-    QPointer<InviteUsersDialog> dlg = new InviteUsersDialog(mCurrentRocketChatAccount, this);
-    dlg->setRoomId(mRoomWidgetBase->roomId());
-    dlg->generateLink();
-    dlg->exec();
-    delete dlg;
+    InviteUsersDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setRoomId(mRoomWidgetBase->roomId());
+    dlg.generateLink();
+    dlg.exec();
 }
 
 void RoomWidget::updateListView()
@@ -287,10 +286,9 @@ void RoomWidget::slotConfigureAutoTranslate()
     if (!mRoom) {
         return;
     }
-    QPointer<AutoTranslateConfigureDialog> dlg = new AutoTranslateConfigureDialog(mCurrentRocketChatAccount, this);
-    dlg->setRoom(mRoom);
-    dlg->exec();
-    delete dlg;
+    AutoTranslateConfigureDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setRoom(mRoom);
+    dlg.exec();
 }
 
 void RoomWidget::slotConfigureNotification()
@@ -298,10 +296,9 @@ void RoomWidget::slotConfigureNotification()
     if (!mRoom) {
         return;
     }
-    QPointer<ConfigureNotificationDialog> dlg = new ConfigureNotificationDialog(mCurrentRocketChatAccount, this);
-    dlg->setRoom(mRoom);
-    dlg->exec();
-    delete dlg;
+    ConfigureNotificationDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setRoom(mRoom);
+    dlg.exec();
 }
 
 void RoomWidget::slotStarredMessages()
@@ -430,10 +427,9 @@ void RoomWidget::slotTeamChannelsRequested()
     if (!mRoom) {
         return;
     }
-    QPointer<TeamChannelsDialog> dlg = new TeamChannelsDialog(mCurrentRocketChatAccount, this);
-    dlg->setRoom(mRoom);
-    dlg->exec();
-    delete dlg;
+    TeamChannelsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setRoom(mRoom);
+    dlg.exec();
 }
 
 void RoomWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
@@ -763,13 +759,12 @@ void RoomWidget::slotGoBackToRoom()
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
 {
-    QPointer<ThreadMessageDialog> dlg = new ThreadMessageDialog(this);
-    dlg->setThreadMessageId(threadMessageId);
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoom(mRoom);
-    dlg->exec();
-    delete dlg;
+    ThreadMessageDialog dlg(this);
+    dlg.setThreadMessageId(threadMessageId);
+    dlg.setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg.setThreadPreview(threadMessagePreview);
+    dlg.setRoom(mRoom);
+    dlg.exec();
 }
 
 void RoomWidget::slotFollowMessages()
