@@ -26,7 +26,7 @@ class ShowPinnedMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit ShowPinnedMessagesDialog(QWidget *parent = nullptr);
+    explicit ShowPinnedMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowPinnedMessagesDialog() override;
 
 private:

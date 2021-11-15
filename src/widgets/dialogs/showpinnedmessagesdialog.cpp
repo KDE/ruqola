@@ -29,8 +29,8 @@ namespace
 static const char myShowPinnedMessagesDialogGroupName[] = "ShowPinnedMessagesDialog";
 }
 
-ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(QWidget *parent)
-    : ShowListMessageBaseDialog(parent)
+ShowPinnedMessagesDialog::ShowPinnedMessagesDialog(RocketChatAccount *account, QWidget *parent)
+    : ShowListMessageBaseDialog(account, parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Pinned Messages"));
     readConfig();

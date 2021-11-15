@@ -25,7 +25,7 @@ class ShowStarredMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit ShowStarredMessagesDialog(QWidget *parent = nullptr);
+    explicit ShowStarredMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowStarredMessagesDialog() override;
 
 private:

@@ -31,8 +31,8 @@ namespace
 {
 static const char myShowThreadsDialogGroupName[] = "ShowThreadsDialog";
 }
-ShowThreadsDialog::ShowThreadsDialog(QWidget *parent)
-    : ShowListMessageBaseDialog(parent)
+ShowThreadsDialog::ShowThreadsDialog(RocketChatAccount *account, QWidget *parent)
+    : ShowListMessageBaseDialog(account, parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Threads Messages"));
     readConfig();

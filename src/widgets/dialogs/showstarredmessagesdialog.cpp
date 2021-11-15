@@ -28,8 +28,8 @@ namespace
 static const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesDialog";
 }
 
-ShowStarredMessagesDialog::ShowStarredMessagesDialog(QWidget *parent)
-    : ShowListMessageBaseDialog(parent)
+ShowStarredMessagesDialog::ShowStarredMessagesDialog(RocketChatAccount *account, QWidget *parent)
+    : ShowListMessageBaseDialog(account, parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Starred Messages"));
     readConfig();

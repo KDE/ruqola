@@ -26,7 +26,7 @@ class ShowMentionsMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit ShowMentionsMessagesDialog(QWidget *parent = nullptr);
+    explicit ShowMentionsMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowMentionsMessagesDialog() override;
 
 private:

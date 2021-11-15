@@ -28,8 +28,8 @@ namespace
 static const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";
 }
 
-ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(QWidget *parent)
-    : ShowListMessageBaseDialog(parent)
+ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(RocketChatAccount *account, QWidget *parent)
+    : ShowListMessageBaseDialog(account, parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Mentions Messages"));
     readConfig();

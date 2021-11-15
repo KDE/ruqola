@@ -31,7 +31,7 @@ class LIBRUQOLAWIDGETS_EXPORT ShowListMessageBaseDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ShowListMessageBaseDialog(QWidget *parent = nullptr);
+    explicit ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseDialog() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
@@ -48,5 +48,6 @@ private:
     void slotLoadMoreMessages();
     QString mRoomId;
     ShowListMessageBaseWidget *const mShowListMessage;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

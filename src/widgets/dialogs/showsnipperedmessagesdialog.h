@@ -26,7 +26,7 @@ class ShowSnipperedMessagesDialog : public ShowListMessageBaseDialog
 {
     Q_OBJECT
 public:
-    explicit ShowSnipperedMessagesDialog(QWidget *parent = nullptr);
+    explicit ShowSnipperedMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowSnipperedMessagesDialog() override;
 
 private:

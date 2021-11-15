@@ -25,7 +25,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowThreadsDialog : public ShowListMessageBa
 {
     Q_OBJECT
 public:
-    explicit ShowThreadsDialog(QWidget *parent = nullptr);
+    explicit ShowThreadsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowThreadsDialog() override;
 
 private:

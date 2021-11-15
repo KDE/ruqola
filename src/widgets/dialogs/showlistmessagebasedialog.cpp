@@ -28,9 +28,10 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ShowListMessageBaseDialog::ShowListMessageBaseDialog(QWidget *parent)
+ShowListMessageBaseDialog::ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowListMessage(new ShowListMessageBaseWidget(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -57,7 +58,7 @@ void ShowListMessageBaseDialog::slotLoadMoreMessages()
         qCWarning(RUQOLAWIDGETS_LOG) << "RoomId is empty. It's a bug";
         return;
     }
-    Ruqola::self()->rocketChatAccount()->loadMoreListMessages(roomId());
+    mRocketChatAccount->loadMoreListMessages(roomId());
 }
 
 void ShowListMessageBaseDialog::setModel(ListMessagesModelFilterProxyModel *model)

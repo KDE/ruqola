@@ -28,8 +28,8 @@ namespace
 static const char myShowSnipperedMessagesDialogGroupName[] = "ShowSnipperedMessagesDialog";
 }
 
-ShowSnipperedMessagesDialog::ShowSnipperedMessagesDialog(QWidget *parent)
-    : ShowListMessageBaseDialog(parent)
+ShowSnipperedMessagesDialog::ShowSnipperedMessagesDialog(RocketChatAccount *account, QWidget *parent)
+    : ShowListMessageBaseDialog(account, parent)
 {
     setWindowTitle(i18nc("@title:window", "Show Snippered Messages"));
     readConfig();

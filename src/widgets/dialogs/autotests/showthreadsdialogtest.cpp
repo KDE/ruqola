@@ -34,7 +34,7 @@ ShowThreadsDialogTest::ShowThreadsDialogTest(QObject *parent)
 
 void ShowThreadsDialogTest::shouldHaveDefaultValues()
 {
-    ShowThreadsDialog w;
+    ShowThreadsDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
