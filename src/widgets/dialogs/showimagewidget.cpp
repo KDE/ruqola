@@ -119,12 +119,16 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
     if (info.needToDownloadBigImage) {
         // qDebug() << " Download big image " << info.needToDownloadBigImage;
         // We just need to download image not get url as it will be empty as we need to download it.
-        (void)mRocketChatAccount->attachmentUrlFromLocalCache(info.bigImagePath);
+        if (mRocketChatAccount) {
+            (void)mRocketChatAccount->attachmentUrlFromLocalCache(info.bigImagePath);
+        }
         updatePixmap(mImageInfo.pixmap, mImageInfo.bigImagePath);
     } else {
         // Use big image.
-        const QPixmap pix(mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
-        updatePixmap(pix, mImageInfo.bigImagePath);
+        if (mRocketChatAccount) {
+            const QPixmap pix(mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
+            updatePixmap(pix, mImageInfo.bigImagePath);
+        }
     }
     // qDebug() << "ShowImageWidget::ImageInfo  " << info;
 }
