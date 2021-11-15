@@ -23,6 +23,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class KPasswordLineEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TwoAuthenticationPasswordWidget : public QWidget
 {
     Q_OBJECT
@@ -33,11 +34,15 @@ public:
 
     void clear();
 
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
 Q_SIGNALS:
     void updateButtonOk(bool state);
 
 private:
     void slotSendNewEmailCode();
     KPasswordLineEdit *const mTwoFactorAuthenticationPasswordLineEdit;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };
 

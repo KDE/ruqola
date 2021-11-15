@@ -41,4 +41,5 @@ void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
     auto mTwoFactorAuthenticationPasswordLineEdit = w.findChild<TwoAuthenticationPasswordWidget *>(QStringLiteral("mTwoFactorAuthenticationPasswordLineEdit"));
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit->code().isEmpty());
+    QVERIFY(!mTwoFactorAuthenticationPasswordLineEdit->rocketChatAccount());
 }

@@ -66,6 +66,15 @@ void TwoAuthenticationPasswordWidget::clear()
 
 void TwoAuthenticationPasswordWidget::slotSendNewEmailCode()
 {
-    auto *rocketChatAccount = Ruqola::self()->rocketChatAccount();
-    rocketChatAccount->sendUserEmailCode();
+    mRocketChatAccount->sendUserEmailCode();
+}
+
+RocketChatAccount *TwoAuthenticationPasswordWidget::rocketChatAccount() const
+{
+    return mRocketChatAccount;
+}
+
+void TwoAuthenticationPasswordWidget::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
 }
