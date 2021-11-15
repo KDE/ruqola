@@ -390,8 +390,7 @@ void RuqolaMainWindow::slotCreateTeam()
 
 void RuqolaMainWindow::slotCreateDiscussion()
 {
-    CreateNewDiscussionDialog dlg(this);
-    dlg.setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 

@@ -129,14 +129,11 @@ void RoomWidgetBase::slotShowQuoteMessage(const QString &permalink, const QStrin
 
 void RoomWidgetBase::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage, const QString &channelName)
 {
-    QPointer<CreateNewDiscussionDialog> dlg = new CreateNewDiscussionDialog(this);
-    dlg->setDiscussionName(originalMessage);
-    dlg->setChannelInfo(channelName, mRoomId);
-    if (dlg->exec()) {
-        const CreateNewDiscussionDialog::NewDiscussionInfo info = dlg->newDiscussionInfo();
-        mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, messageId, info.users);
-    }
-    delete dlg;
+    CreateNewDiscussionDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setDiscussionName(originalMessage);
+    dlg.setChannelInfo(channelName, mRoomId);
+    dlg.setMessageId(messageId);
+    dlg.exec();
 }
 
 void RoomWidgetBase::closeQuoteAndThreadInfo()

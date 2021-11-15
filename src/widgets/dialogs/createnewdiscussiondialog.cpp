@@ -32,9 +32,10 @@ namespace
 {
 static const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionDialog";
 }
-CreateNewDiscussionDialog::CreateNewDiscussionDialog(QWidget *parent)
+CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(this))
+    , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Discussion"));
     auto mainLayout = new QVBoxLayout(this);
@@ -102,16 +103,16 @@ void CreateNewDiscussionDialog::setDiscussionName(const QString &name)
 void CreateNewDiscussionDialog::createNewDiscussion()
 {
     const CreateNewDiscussionDialog::NewDiscussionInfo info = newDiscussionInfo();
-    mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, {}, info.users);
+    mCurrentRocketChatAccount->createDiscussion(info.channelId, info.discussionName, info.message, mMessageId, info.users);
     accept();
 }
 
-RocketChatAccount *CreateNewDiscussionDialog::currentRocketChatAccount() const
+const QString &CreateNewDiscussionDialog::messageId() const
 {
-    return mCurrentRocketChatAccount;
+    return mMessageId;
 }
 
-void CreateNewDiscussionDialog::setCurrentRocketChatAccount(RocketChatAccount *account)
+void CreateNewDiscussionDialog::setMessageId(const QString &newMessageId)
 {
-    mCurrentRocketChatAccount = account;
+    mMessageId = newMessageId;
 }

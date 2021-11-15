@@ -36,7 +36,7 @@ public:
         QString message;
         QString channelId;
     };
-    explicit CreateNewDiscussionDialog(QWidget *parent = nullptr);
+    explicit CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewDiscussionDialog() override;
 
     Q_REQUIRED_RESULT NewDiscussionInfo newDiscussionInfo() const;
@@ -44,15 +44,15 @@ public:
     void setChannelInfo(const QString &name, const QString &channelId);
     void setDiscussionName(const QString &name);
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
-
-    Q_REQUIRED_RESULT RocketChatAccount *currentRocketChatAccount() const;
+    const QString &messageId() const;
+    void setMessageId(const QString &newMessageId);
 
 private:
     void readConfig();
     void writeConfig();
     void createNewDiscussion();
+    QString mMessageId;
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    RocketChatAccount *const mCurrentRocketChatAccount;
 };
 
