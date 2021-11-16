@@ -423,6 +423,7 @@ kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 if (UNITY_SUPPORT)
     target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
+    target_link_libraries(libruqolacore Qt5::DBus)
 endif()
 
 if (NOT ANDROID)
@@ -471,11 +472,6 @@ target_link_libraries(libruqolacore
     KF5::ConfigGui
     KF5::ConfigWidgets
 )
-
-
-if (NOT WIN32)
-    target_link_libraries(libruqolacore Qt5::DBus)
-endif()
 
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF5::IconThemes)
