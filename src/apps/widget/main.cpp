@@ -38,9 +38,12 @@
 #include <iostream>
 
 #include <KAboutData>
-#include <KDBusService>
 #include <QDirIterator>
 #include <QIcon>
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#include <KDBusService>
+#endif
 
 int main(int argc, char *argv[])
 {
@@ -127,7 +130,11 @@ int main(int argc, char *argv[])
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
+
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+    // TODO Port to something like KDSingleApplication
     KDBusService service(KDBusService::Unique);
+#endif
 
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
