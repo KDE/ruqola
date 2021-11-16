@@ -25,22 +25,72 @@
 CustomSoundsManager::CustomSoundsManager(QObject *parent)
     : QObject{parent}
 {
-#if 0 // Core from RC
-we had some default sound. No code for loading it directly. It s default list
-                this.add({ _id: 'chime', name: 'Chime', extension: 'mp3', src: getURL('sounds/chime.mp3') });
-                this.add({ _id: 'door', name: 'Door', extension: 'mp3', src: getURL('sounds/door.mp3') });
-                this.add({ _id: 'beep', name: 'Beep', extension: 'mp3', src: getURL('sounds/beep.mp3') });
-                this.add({ _id: 'chelle', name: 'Chelle', extension: 'mp3', src: getURL('sounds/chelle.mp3') });
-                this.add({ _id: 'ding', name: 'Ding', extension: 'mp3', src: getURL('sounds/ding.mp3') });
-                this.add({ _id: 'droplet', name: 'Droplet', extension: 'mp3', src: getURL('sounds/droplet.mp3') });
-                this.add({ _id: 'highbell', name: 'Highbell', extension: 'mp3', src: getURL('sounds/highbell.mp3') });
-                this.add({ _id: 'seasons', name: 'Seasons', extension: 'mp3', src: getURL('sounds/seasons.mp3') });
-
-#endif
 }
 
 CustomSoundsManager::~CustomSoundsManager()
 {
+}
+
+void CustomSoundsManager::initializeDefaultSounds()
+{
+    QVector<CustomSoundInfo> listSounds;
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("chime"));
+        info.setName(QStringLiteral("Chime"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("door"));
+        info.setName(QStringLiteral("Door"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("beep"));
+        info.setName(QStringLiteral("Beep"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("chelle"));
+        info.setName(QStringLiteral("Chelle"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("ding"));
+        info.setName(QStringLiteral("Ding"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("droplet"));
+        info.setName(QStringLiteral("Droplet"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("highbell"));
+        info.setName(QStringLiteral("Highbell"));
+        listSounds.append(info);
+    }
+    {
+        CustomSoundInfo info;
+        info.setExtension(QStringLiteral("mp3"));
+        info.setIdentifier(QStringLiteral("seasons"));
+        info.setName(QStringLiteral("Seasons"));
+        listSounds.append(info);
+    }
+    setCustomSoundsInfo(listSounds);
 }
 
 const QVector<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const

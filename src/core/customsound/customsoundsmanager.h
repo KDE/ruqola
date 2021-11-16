@@ -40,6 +40,7 @@ public:
 
     void updateCustomSounds(const QJsonArray &replyArray);
 
+    void initializeDefaultSounds();
 Q_SIGNALS:
     void customSoundRemoved(const QString &identifier);
     void customSoundAdded(const QString &identifier);
