@@ -2295,6 +2295,8 @@ void RocketChatAccount::initializeAccount()
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
         ddp()->setDefaultStatus(User::PresenceStatus::PresenceOnline);
     }
+    // Initialize sounds
+    mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
     customUsersStatus();
     slotLoadRoles();
