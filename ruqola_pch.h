@@ -18,12 +18,6 @@
 #include <QContextMenuEvent>
 #include <QCoreApplication>
 #include <QCryptographicHash>
-#include <QDBusConnection>
-#include <QDBusConnectionInterface>
-#include <QDBusMessage>
-#include <QDBusPendingCallWatcher>
-#include <QDBusPendingReply>
-#include <QDBusServiceWatcher>
 #include <QDataStream>
 #include <QDateEdit>
 #include <QDateTime>
