@@ -33,7 +33,8 @@ public:
         PrivateRooms = 4,
         DiscussionRooms = 8,
         TeamRooms = 16,
-        All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms | TeamRooms
+        Omnichannel = 32,
+        All = DirectRooms | PublicRooms | DiscussionRooms | PrivateRooms | TeamRooms | Omnichannel,
     };
     Q_FLAGS(FilterRoom FilterRooms)
     Q_DECLARE_FLAGS(FilterRooms, FilterRoom)

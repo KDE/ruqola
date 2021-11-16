@@ -128,6 +128,8 @@ static QString convertChannelType(const QString &str, bool mainTeam)
         }
     } else if (str == QLatin1Char('d')) {
         return i18n("Direct");
+    } else if (str == QLatin1Char('l')) {
+        return i18n("Omnichannel");
     } else {
         qCWarning(RUQOLA_LOG) << " Unkwnon channel type " << str;
         return str;

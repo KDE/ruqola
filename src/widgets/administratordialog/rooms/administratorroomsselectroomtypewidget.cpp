@@ -30,6 +30,7 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     , mPrivateRooms(new QCheckBox(i18n("Private"), this))
     , mDiscussionRooms(new QCheckBox(i18n("Discussions"), this))
     , mTeamRooms(new QCheckBox(i18n("Teams"), this))
+    , mOmniChannel(new QCheckBox(i18n("Omnichannel"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -40,18 +41,21 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     mPrivateRooms->setObjectName(QStringLiteral("mPrivateRooms"));
     mDiscussionRooms->setObjectName(QStringLiteral("mDiscussionRooms"));
     mTeamRooms->setObjectName(QStringLiteral("mTeamRooms"));
+    mOmniChannel->setObjectName(QStringLiteral("mOmniChannel"));
 
     mainLayout->addWidget(mDirectRooms);
     mainLayout->addWidget(mPublicRooms);
     mainLayout->addWidget(mPrivateRooms);
     mainLayout->addWidget(mDiscussionRooms);
     mainLayout->addWidget(mTeamRooms);
+    mainLayout->addWidget(mOmniChannel);
     mainLayout->addStretch(0);
     connect(mDirectRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
     connect(mPublicRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
     connect(mPrivateRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
     connect(mDiscussionRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
     connect(mTeamRooms, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
+    connect(mOmniChannel, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
 }
 
 AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget()
@@ -73,6 +77,9 @@ void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
     }
     if (mDiscussionRooms->isChecked()) {
         filters |= AdminRoomsFilterProxyModel::FilterRoom::DiscussionRooms;
+    }
+    if (mOmniChannel->isChecked()) {
+        filters |= AdminRoomsFilterProxyModel::FilterRoom::Omnichannel;
     }
     if (mTeamRooms->isChecked()) {
         filters |= AdminRoomsFilterProxyModel::FilterRoom::TeamRooms;

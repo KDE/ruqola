@@ -43,6 +43,6 @@ private:
     QCheckBox *const mPrivateRooms;
     QCheckBox *const mDiscussionRooms;
     QCheckBox *const mTeamRooms;
-    // Omnichannel ?? what is it?
+    QCheckBox *const mOmniChannel;
 };
 

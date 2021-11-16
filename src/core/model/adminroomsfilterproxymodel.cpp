@@ -60,5 +60,10 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
             return true;
         }
     }
+    if (mFilters & FilterRoom::PrivateRooms) {
+        if (channelType == QLatin1String("l")) {
+            return true;
+        }
+    }
     return false;
 }
