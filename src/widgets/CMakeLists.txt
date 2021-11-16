@@ -519,11 +519,6 @@ target_link_libraries(libruqolawidgets
     libruqolacore
 )
 
-if (NOT WIN32)
-    target_link_libraries(libruqolawidgets Qt5::DBus)
-endif()
-
-
 set_target_properties(libruqolawidgets
     PROPERTIES OUTPUT_NAME ruqolawidgets VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
     )
