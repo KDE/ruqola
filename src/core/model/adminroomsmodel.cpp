@@ -57,7 +57,6 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
         case AdminRoomsRoles::DefaultRoom:
             return i18n("Default Room");
         case AdminRoomsRoles::ChannelType:
-            return i18n("Type");
         case AdminRoomsRoles::ChannelTypeStr:
             return i18n("Type");
         }
