@@ -35,7 +35,7 @@ ThreadMessageDialogTest::ThreadMessageDialogTest(QObject *parent)
 
 void ThreadMessageDialogTest::shouldHaveDefaultValues()
 {
-    ThreadMessageDialog w;
+    ThreadMessageDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

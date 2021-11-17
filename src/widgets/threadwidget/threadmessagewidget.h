@@ -30,13 +30,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ThreadMessageWidget(QWidget *parent = nullptr);
+    explicit ThreadMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ThreadMessageWidget() override;
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
 
     void setThreadPreview(const QString &preview);
 
@@ -47,9 +46,11 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
+    void intialize();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     QString mThreadMessageId;
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

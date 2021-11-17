@@ -30,10 +30,11 @@
 #include <QMimeData>
 #include <QVBoxLayout>
 
-ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
+ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mThreadPreview(new QLabel(this))
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::ThreadEditing, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -48,6 +49,9 @@ ThreadMessageWidget::ThreadMessageWidget(QWidget *parent)
     mainLayout->addWidget(mRoomWidgetBase);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
     setAcceptDrops(true);
+    if (mRocketChatAccount) {
+        intialize();
+    }
 }
 
 ThreadMessageWidget::~ThreadMessageWidget()
@@ -69,16 +73,16 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
     if (mThreadMessageId != threadMessageId) {
         mThreadMessageId = threadMessageId;
         Ruqola::self()->rocketChatAccount()->getThreadMessages(mThreadMessageId);
-        mRoomWidgetBase->messageListView()->setModel(Ruqola::self()->rocketChatAccount()->threadMessageModel());
+        mRoomWidgetBase->messageListView()->setModel(mRocketChatAccount->threadMessageModel());
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(mThreadMessageId, {}, true);
     }
 }
 
-void ThreadMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+void ThreadMessageWidget::intialize()
 {
-    mRoomWidgetBase->setCurrentRocketChatAccount(account);
-    mRoomWidgetBase->messageLineWidget()->setCurrentRocketChatAccount(account, true);
-    mRoomWidgetBase->messageListView()->setCurrentRocketChatAccount(account);
+    mRoomWidgetBase->setCurrentRocketChatAccount(mRocketChatAccount);
+    mRoomWidgetBase->messageLineWidget()->setCurrentRocketChatAccount(mRocketChatAccount, true);
+    mRoomWidgetBase->messageListView()->setCurrentRocketChatAccount(mRocketChatAccount);
     // When we switch we need to update it.
     mRoomWidgetBase->messageLineWidget()->slotPublicSettingChanged();
     mRoomWidgetBase->messageLineWidget()->slotOwnUserPreferencesChanged();

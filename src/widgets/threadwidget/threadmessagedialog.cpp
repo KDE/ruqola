@@ -31,9 +31,9 @@ namespace
 static const char myThreadMessageDialogGroupName[] = "ThreadMessageDialog";
 }
 
-ThreadMessageDialog::ThreadMessageDialog(QWidget *parent)
+ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mThreadMessageWidget(new ThreadMessageWidget(this))
+    , mThreadMessageWidget(new ThreadMessageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Threads")); // TODO fixme name
     auto mainLayout = new QVBoxLayout(this);
@@ -77,11 +77,6 @@ QString ThreadMessageDialog::threadMessageId() const
 void ThreadMessageDialog::setThreadMessageId(const QString &threadMessageId)
 {
     mThreadMessageWidget->setThreadMessageId(threadMessageId);
-}
-
-void ThreadMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *account)
-{
-    mThreadMessageWidget->setCurrentRocketChatAccount(account);
 }
 
 void ThreadMessageDialog::setRoom(Room *room)

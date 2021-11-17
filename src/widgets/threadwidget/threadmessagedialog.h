@@ -29,13 +29,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ThreadMessageDialog(QWidget *parent = nullptr);
+    explicit ThreadMessageDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ThreadMessageDialog() override;
 
     void setThreadMessageId(const QString &threadMessageId);
     Q_REQUIRED_RESULT QString threadMessageId() const;
 
-    void setCurrentRocketChatAccount(RocketChatAccount *account);
     void setThreadPreview(const QString &preview);
     void setRoom(Room *room);
 

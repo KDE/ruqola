@@ -35,7 +35,7 @@ ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
 
 void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
-    ThreadMessageWidget w;
+    ThreadMessageWidget w(nullptr);
     QVERIFY(w.threadMessageId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
