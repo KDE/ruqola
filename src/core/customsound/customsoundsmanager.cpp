@@ -91,6 +91,7 @@ void CustomSoundsManager::initializeDefaultSounds()
         listSounds.append(info);
     }
     setCustomSoundsInfo(listSounds);
+    // TODO download it in customsound repo I think.
 }
 
 const QVector<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
