@@ -125,7 +125,7 @@ public:
 
     Q_REQUIRED_RESULT qint64 generateNewStartTimeStamp(qint64 lastTimeStamp);
 
-    void setRoomId(const QString &roomID);
+    void setRoomId(const QString &roomId);
     Q_REQUIRED_RESULT bool isEmpty() const;
 
     void clear();

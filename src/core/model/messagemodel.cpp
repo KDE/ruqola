@@ -492,9 +492,9 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     return TextConverter::convertMessageText(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
 }
 
-void MessageModel::setRoomId(const QString &roomID)
+void MessageModel::setRoomId(const QString &roomId)
 {
-    mRoomId = roomID;
+    mRoomId = roomId;
 }
 
 bool MessageModel::isEmpty() const
