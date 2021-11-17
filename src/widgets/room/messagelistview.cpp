@@ -641,7 +641,8 @@ MessageListView::Mode MessageListView::mode() const
 void MessageListView::slotReplyInThread(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
-    Q_EMIT replyInThreadRequested(messageId);
+    const QString threadPreview = index.data(MessageModel::OriginalMessage).toString();
+    Q_EMIT replyInThreadRequested(messageId, threadPreview);
 }
 
 void MessageListView::updateVerticalPageStep()

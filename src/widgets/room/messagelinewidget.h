@@ -68,7 +68,7 @@ public:
     void clearMessageIdBeingEdited();
 
     Q_REQUIRED_RESULT QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox = false);
+    void setThreadMessageId(const QString &threadMessageId, const QString &text = {}, bool replyInDialogBox = false);
 
     void slotPublicSettingChanged();
     void slotOwnUserPreferencesChanged();
@@ -79,7 +79,7 @@ public:
 
 Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
-    void threadMessageIdChanged(const QString &threadMessageId);
+    void threadMessageIdChanged(const QString &threadMessageId, const QString &text);
     void quoteMessageChanged(const QString &permalink, const QString &text);
 
 private:

@@ -28,6 +28,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomReplyThreadWidget : public KMessageWidge
 public:
     explicit RoomReplyThreadWidget(QWidget *parent = nullptr);
     ~RoomReplyThreadWidget() override;
+    void setMessageText(const QString &str);
 Q_SIGNALS:
     void cancelReplyingInThread();
 };

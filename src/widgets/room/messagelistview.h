@@ -78,7 +78,7 @@ Q_SIGNALS:
     void createPrivateConversation(const QString &userName);
     void loadHistoryRequested();
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
-    void replyInThreadRequested(const QString &messageId);
+    void replyInThreadRequested(const QString &messageId, const QString &text);
 
 private:
     void checkIfAtBottom();

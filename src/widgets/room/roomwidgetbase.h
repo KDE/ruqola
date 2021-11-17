@@ -63,7 +63,7 @@ private:
     void slotShowQuoteMessage(const QString &permalink, const QString &text);
     void slotCreatePrivateDiscussion(const QString &userName);
     void keyPressedInLineEdit(QKeyEvent *ev);
-    void slotShowThreadMessage(const QString &threadMessageId);
+    void slotShowThreadMessage(const QString &threadMessageId, const QString &text);
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     QString mRoomId;
     UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;

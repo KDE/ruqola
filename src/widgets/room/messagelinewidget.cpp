@@ -255,7 +255,7 @@ QString MessageLineWidget::threadMessageId() const
     return mThreadMessageId;
 }
 
-void MessageLineWidget::setThreadMessageId(const QString &threadMessageId, bool replyInDialogBox)
+void MessageLineWidget::setThreadMessageId(const QString &threadMessageId, const QString &text, bool replyInDialogBox)
 {
     mReplyInThreadDialogBox = replyInDialogBox;
 
@@ -264,7 +264,7 @@ void MessageLineWidget::setThreadMessageId(const QString &threadMessageId, bool 
     }
 
     mThreadMessageId = threadMessageId;
-    Q_EMIT threadMessageIdChanged(mThreadMessageId);
+    Q_EMIT threadMessageIdChanged(mThreadMessageId, text);
 }
 
 MessageLineWidget::EditingMode MessageLineWidget::mode() const

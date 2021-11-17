@@ -95,8 +95,8 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     connect(mMessageListView, &MessageListView::createNewDiscussion, this, &RoomWidgetBase::createNewDiscussion);
     connect(mMessageListView, &MessageListView::createPrivateConversation, this, &RoomWidgetBase::slotCreatePrivateDiscussion);
     connect(mMessageListView, &MessageListView::loadHistoryRequested, this, &RoomWidgetBase::loadHistory);
-    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId) {
-        mMessageLineWidget->setThreadMessageId(messageId);
+    connect(mMessageListView, &MessageListView::replyInThreadRequested, mMessageLineWidget, [this](const QString &messageId, const QString &text) {
+        mMessageLineWidget->setThreadMessageId(messageId, text, false);
     });
 
     setAcceptDrops(true);
@@ -106,8 +106,9 @@ RoomWidgetBase::~RoomWidgetBase()
 {
 }
 
-void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId)
+void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const QString &text)
 {
+    mRoomReplyThreadWidget->setMessageText(text);
     mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
