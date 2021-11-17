@@ -38,7 +38,6 @@ void AdministratorRolesWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mTreeView = w.findChild<RolesTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);

@@ -53,7 +53,6 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));

@@ -40,7 +40,6 @@ void PermissionsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
 
     auto mTreeView = w.findChild<PermissionsTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
