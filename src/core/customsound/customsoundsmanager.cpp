@@ -19,7 +19,7 @@
 */
 
 #include "customsoundsmanager.h"
-
+#include "ruqola_custom_sounds_debug.h"
 #include <QJsonArray>
 
 CustomSoundsManager::CustomSoundsManager(QObject *parent)
@@ -101,6 +101,7 @@ const QVector<CustomSoundInfo> &CustomSoundsManager::customSoundsInfo() const
 void CustomSoundsManager::setCustomSoundsInfo(const QVector<CustomSoundInfo> &newCustomSoundsInfo)
 {
     mCustomSoundsInfo = newCustomSoundsInfo;
+    qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Assign Custom Sounds count: " << mCustomSoundsInfo.count();
 }
 
 void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
@@ -113,6 +114,7 @@ void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
             mCustomSoundsInfo.append(info);
         }
     }
+    qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Parse Custom Sounds count: " << mCustomSoundsInfo.count();
 }
 
 void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
@@ -132,6 +134,7 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
             }
         }
     }
+    qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Delete Custom Sounds count: " << mCustomSoundsInfo.count();
 }
 
 void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
@@ -166,4 +169,5 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
             }
         }
     }
+    qCDebug(RUQOLA_CUSTOMSOUNDS_LOG) << " Update Custom Sounds count: " << mCustomSoundsInfo.count();
 }
