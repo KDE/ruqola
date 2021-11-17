@@ -194,6 +194,28 @@ void RoomListHeadingsProxyModelTest::shouldReturnData()
     QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
 }
 
+void RoomListHeadingsProxyModelTest::shouldUpdateOnSectionUpdates()
+{
+    // GIVEN
+    RoomListHeadingsProxyModel proxy;
+    proxy.setSourceModel(&mSourceModel);
+
+    // WHEN
+    mSourceModel.item(0)->setData(QVariant::fromValue(RoomModel::Section::Favorites), RoomModel::RoomSection);
+
+    // THEN
+    const QStringList newExpected{QStringLiteral("Favorites"),
+                                  QStringLiteral("Team 1"),
+                                  QStringLiteral("Teams"),
+                                  QStringLiteral("Team 2"),
+                                  QStringLiteral("Private Messages"),
+                                  QStringLiteral("PM 1"),
+                                  QStringLiteral("Discussions"),
+                                  QStringLiteral("Discuss 1"),
+                                  QStringLiteral("Discuss 2")};
+    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
+}
+
 void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
 {
     // GIVEN

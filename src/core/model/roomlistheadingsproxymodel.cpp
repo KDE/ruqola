@@ -20,7 +20,10 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
 
     connect(sourceModel, &QAbstractItemModel::rowsInserted, this, &RoomListHeadingsProxyModel::setDirty);
     connect(sourceModel, &QAbstractItemModel::rowsRemoved, this, &RoomListHeadingsProxyModel::setDirty);
-    connect(sourceModel, &QAbstractItemModel::rowsMoved, this, &RoomListHeadingsProxyModel::setDirty);
+    connect(sourceModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &, const QModelIndex &, const QVector<int> &roles) {
+        if (roles.empty() || roles.contains(RoomModel::RoomSection))
+            setDirty();
+    });
     connect(sourceModel, &QAbstractItemModel::modelReset, this, &RoomListHeadingsProxyModel::setDirty);
     QIdentityProxyModel::setSourceModel(sourceModel);
 

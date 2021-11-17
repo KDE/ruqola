@@ -19,6 +19,7 @@ private Q_SLOTS:
     void shouldMapSourceRows();
     void shouldDetermineProxyRowSection();
     void shouldReturnData();
+    void shouldUpdateOnSectionUpdates();
     void shouldWorkOnTopOfQSFPM();
 
 private:
