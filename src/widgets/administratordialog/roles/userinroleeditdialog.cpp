@@ -19,7 +19,7 @@
 */
 
 #include "userinroleeditdialog.h"
-#include "userinroleeditwidget.h"
+#include "usersinrolewidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -35,7 +35,7 @@ const char myUserInRoleEditDialogGroupName[] = "UserInRoleEditDialog";
 
 UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mUserInRoleEditWidget(new UserInRoleEditWidget(account, this))
+    , mUserInRoleEditWidget(new UsersInRoleWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Add User in Role"));
     auto mainLayout = new QVBoxLayout(this);

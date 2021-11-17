@@ -22,7 +22,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "roleeditwidget.h"
 #include <QDialog>
-class UserInRoleEditWidget;
+class UsersInRoleWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserInRoleEditDialog : public QDialog
 {
@@ -40,5 +40,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    UserInRoleEditWidget *const mUserInRoleEditWidget;
+    UsersInRoleWidget *const mUserInRoleEditWidget;
 };

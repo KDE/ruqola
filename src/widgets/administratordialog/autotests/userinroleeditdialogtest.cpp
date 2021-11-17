@@ -20,7 +20,7 @@
 
 #include "userinroleeditdialogtest.h"
 #include "administratordialog/roles/userinroleeditdialog.h"
-#include "administratordialog/roles/userinroleeditwidget.h"
+#include "administratordialog/roles/usersinrolewidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
@@ -44,8 +44,6 @@ void UserInRoleEditDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
-    auto mUserInRoleEditWidget = d.findChild<UserInRoleEditWidget *>(QStringLiteral("mUserInRoleEditWidget"));
+    auto mUserInRoleEditWidget = d.findChild<UsersInRoleWidget *>(QStringLiteral("mUserInRoleEditWidget"));
     QVERIFY(mUserInRoleEditWidget);
-
-    // TODO
 }

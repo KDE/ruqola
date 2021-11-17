@@ -230,7 +230,6 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/roles/roleeditwidget.cpp
     administratordialog/roles/rolescopecombobox.cpp
     administratordialog/roles/userinroleeditdialog.cpp
-    administratordialog/roles/userinroleeditwidget.cpp
     administratordialog/roles/usersinrolewidget.cpp
 
     exportmessages/exportmessagesdialog.cpp
@@ -378,7 +377,6 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/customemoji/administratorcustomemojicreatedialog.h
     administratordialog/customemoji/administratorcustomemojiwidget.h
     administratordialog/roles/userinroleeditdialog.h
-    administratordialog/roles/userinroleeditwidget.h
     administratordialog/roles/rolestreeview.h
     administratordialog/roles/roleeditdialog.h
     administratordialog/roles/administratorroleswidget.h
