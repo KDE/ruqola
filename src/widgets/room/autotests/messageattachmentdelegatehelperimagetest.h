@@ -31,7 +31,5 @@ public:
 
 private Q_SLOTS:
     void shouldExtractMessageData();
-
-private:
 };
 
