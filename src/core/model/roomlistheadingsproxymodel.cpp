@@ -165,7 +165,7 @@ int RoomListHeadingsProxyModel::numVisibleSections() const
 RoomModel::Section RoomListHeadingsProxyModel::proxyRowSection(int proxyRow) const
 {
     ensureCachedCounts();
-    int sourceRow = 0;
+    // int sourceRow = 0;
     int remaining = proxyRow;
     for (size_t section = 0; section < mSectionCounts.size(); ++section) {
         const int sectionCount = mSectionCounts[section];
@@ -173,7 +173,7 @@ RoomModel::Section RoomListHeadingsProxyModel::proxyRowSection(int proxyRow) con
             if (remaining <= sectionCount) {
                 return RoomModel::Section(section);
             }
-            sourceRow += sectionCount;
+            // sourceRow += sectionCount;
             remaining -= sectionCount + 1;
         }
     }
