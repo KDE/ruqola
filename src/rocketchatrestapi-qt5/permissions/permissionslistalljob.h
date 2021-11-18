@@ -40,7 +40,7 @@ public:
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
-    const QDateTime &updatedSince() const;
+    Q_REQUIRED_RESULT const QDateTime &updatedSince() const;
     void setUpdatedSince(const QDateTime &newUpdatedSince);
 
 Q_SIGNALS:
