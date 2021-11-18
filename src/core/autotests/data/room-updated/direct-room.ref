@@ -14,7 +14,6 @@
     "notifications": {
         "audioNotificationValue": "",
         "audioNotifications": "",
-        "desktopNotificationDuration": 0,
         "desktopNotifications": "mentions",
         "disableNotifications": false,
         "emailNotifications": "mentions",

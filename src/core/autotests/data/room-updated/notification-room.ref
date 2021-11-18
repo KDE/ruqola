@@ -15,7 +15,6 @@
     "notifications": {
         "audioNotificationValue": "chime",
         "audioNotifications": "all",
-        "desktopNotificationDuration": 12,
         "desktopNotifications": "mentions",
         "disableNotifications": false,
         "emailNotifications": "default",
