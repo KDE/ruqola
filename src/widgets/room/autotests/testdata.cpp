@@ -56,7 +56,7 @@ MessageAttachment testAttachment()
 
 QUrl avatarLink()
 {
-    // Save the pixmap directly into the cache so that no download hpapens
+    // Save the pixmap directly into the cache so that no download happens
     const QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, Ruqola::self()->rocketChatAccount()->accountName());
     QDir().mkpath(cachePath);
     const QString link = QStringLiteral("/avatarpix.png");
