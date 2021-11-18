@@ -125,6 +125,10 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
         obj[QStringLiteral("title")] = message.title();
     }
     obj[QStringLiteral("url")] = message.link();
+    if (!message.imageUrlPreview().isEmpty()) {
+        obj[QStringLiteral("image_preview")] = message.imageUrlPreview();
+    }
+
     const QString authorname = message.authorName();
     if (!authorname.isEmpty()) {
         obj[QStringLiteral("authorname")] = authorname;
@@ -172,6 +176,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     att.setTitle(o.value(QLatin1String("title")).toString());
     att.setText(o.value(QLatin1String("text")).toString());
     att.setLink(o.value(QLatin1String("url")).toString());
+    att.setImageUrlPreview(o.value(QLatin1String("image_preview")).toString());
     att.setAuthorName(o.value(QLatin1String("authorname")).toString());
     att.setAuthorIcon(o.value(QLatin1String("authoricon")).toString());
     att.setMimeType(o.value(QLatin1String("mimetype")).toString());

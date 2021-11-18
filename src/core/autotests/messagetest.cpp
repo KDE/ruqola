@@ -110,6 +110,7 @@ void MessageTest::shouldParseMessage_data()
         MessageAttachment attImage;
         attImage.setTitle(QStringLiteral("Clipboard"));
         attImage.setLink(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
+        attImage.setImageUrlPreview(QStringLiteral("/file-upload/Kt7DBWPe7pnadXDQH/test file"));
         attImage.setMimeType(QStringLiteral("image/png"));
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
