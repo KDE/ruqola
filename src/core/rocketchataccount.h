@@ -480,6 +480,7 @@ public:
     Q_REQUIRED_RESULT CustomSoundsManager *customSoundManager() const;
 
     Q_REQUIRED_RESULT bool attachmentIsInLocalCache(const QString &url);
+    void privateSettingsUpdated(const QJsonArray &replyArray);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

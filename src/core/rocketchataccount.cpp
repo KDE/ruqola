@@ -1468,6 +1468,12 @@ void RocketChatAccount::deleteEmojiCustom(const QJsonArray &replyArray)
     mEmojiManager->deleteEmojiCustom(replyArray);
 }
 
+void RocketChatAccount::privateSettingsUpdated(const QJsonArray &replyArray)
+{
+    // TODO
+    qWarning() << " privateSettingsUpdated not implemented " << replyArray;
+}
+
 void RocketChatAccount::permissionUpdated(const QJsonArray &replyArray)
 {
     if (mPermissionManager.updatePermission(replyArray)) {
