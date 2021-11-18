@@ -51,6 +51,7 @@ MessageAttachment testAttachment()
     const QString pixFileName = cachePath + link;
     pix.save(pixFileName, "png");
     msgAttach.setLink(link);
+    msgAttach.setImageUrlPreview(link);
     return msgAttach;
 }
 
