@@ -156,6 +156,7 @@ void RocketChatBackend::slotConnectedChanged()
     restApi->serverInfo(false);
     connect(restApi, &RocketChatRestApi::Connection::serverInfoDone, this, &RocketChatBackend::parseServerVersionDone, Qt::UniqueConnection);
     connect(restApi, &RocketChatRestApi::Connection::serverInfoFailed, this, &RocketChatBackend::slotGetServerInfoFailed, Qt::UniqueConnection);
+    connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
@@ -236,6 +237,11 @@ void RocketChatBackend::slotLoginStatusChanged()
         restApi->getPrivateSettings();
         restApi->getOwnInfo();
     }
+}
+
+void RocketChatBackend::slotPrivateInfoDone(const QJsonObject &data)
+{
+    qDebug() << "parse private info not implemented . Needed ? "; // << data;
 }
 
 void RocketChatBackend::parseServerVersionDone(const QString &version)

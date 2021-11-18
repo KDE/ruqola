@@ -63,6 +63,7 @@ private:
     void slotUserIDChanged();
     void slotGetServerInfoFailed(bool useDeprecatedVersion);
     void parseServerVersionDone(const QString &version);
+    void slotPrivateInfoDone(const QJsonObject &data);
 
     QVector<User> mUsers;
     QVector<File> mFiles;
