@@ -75,3 +75,11 @@ void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
 {
     Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && !mAlias->text().trimmed().isEmpty());
 }
+
+QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &t)
+{
+    d << "alias " << t.alias;
+    d << "name " << t.name;
+    d << "fileNameUrl " << t.fileNameUrl;
+    return d;
+}

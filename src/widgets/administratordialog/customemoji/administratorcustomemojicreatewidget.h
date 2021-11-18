@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QDebug>
 #include <QUrl>
 #include <QWidget>
 class QLineEdit;
@@ -50,3 +51,4 @@ private:
     QLineEdit *const mAlias;
     KUrlRequester *const mSelectFile;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &t);
