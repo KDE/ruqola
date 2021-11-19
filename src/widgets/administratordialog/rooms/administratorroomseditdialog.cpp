@@ -27,7 +27,7 @@
 AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(QWidget *parent)
     : QDialog(parent)
 {
-    setWindowTitle(i18nc("@title:window", "Add Role"));
+    setWindowTitle(i18nc("@title:window", "Edit Room"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     //    mRoleEditWidget->setObjectName(QStringLiteral("mRoleEditWidget"));
