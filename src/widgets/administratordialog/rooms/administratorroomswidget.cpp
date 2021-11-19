@@ -19,7 +19,11 @@
 */
 
 #include "administratorroomswidget.h"
+#include "administratorroomseditdialog.h"
+#include "channels/channeldeletejob.h"
 #include "connection.h"
+#include "directmessage/deletedmjob.h"
+#include "groups/groupsdeletejob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminroomsmodel.h"
 #include "rocketchataccount.h"
@@ -94,17 +98,79 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     // TODO
 }
 
-void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
+void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &parentIndex)
 {
-    const QString roomName = index.data(AdminRoomsModel::Name).toString();
+    const QModelIndex index = mProxyModelModel->mapToSource(parentIndex);
+    const QString roomName = mModel->index(index.row(), AdminRoomsModel::Name).data().toString();
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this,
                                       i18n("Do you want to remove \"%1\"?", roomName),
                                       i18nc("@title", "Remove Room"),
                                       KStandardGuiItem::remove(),
                                       KStandardGuiItem::cancel())) {
-        qWarning() << " NOT IMPLEMENTED";
+        const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
+        const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
+        Room::RoomType roomType = Room::roomTypeFromString(channelType);
+        switch (roomType) {
+        case Room::RoomType::Private: {
+            auto job = new RocketChatRestApi::GroupsDeleteJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+            info.identifier = roomIdentifier;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            job->setChannelGroupInfo(info);
+            connect(job, &RocketChatRestApi::GroupsDeleteJob::deleteGroupsDone, this, &AdministratorRoomsWidget::slotDeleteGroupsDone);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start GroupsDeleteJob";
+            }
+            break;
+        }
+        case Room::RoomType::Channel: {
+            auto job = new RocketChatRestApi::ChannelDeleteJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            info.identifier = roomIdentifier;
+            job->setChannelGroupInfo(info);
+            connect(job, &RocketChatRestApi::ChannelDeleteJob::deletechannelDone, this, &AdministratorRoomsWidget::slotDeletechannelDone);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelDeleteJob";
+            }
+            break;
+        }
+        case Room::RoomType::Direct: {
+            auto job = new RocketChatRestApi::DeleteDmJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo info;
+            info.channelGroupInfoType = RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+            info.identifier = roomIdentifier;
+            job->setChannelGroupInfo(info);
+            connect(job, &RocketChatRestApi::DeleteDmJob::deleteDirectMessagesDone, this, &AdministratorRoomsWidget::slotDeleteDirectMessageDone);
+            if (!job->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelDeleteJob";
+            }
+            break;
+        }
+        case Room::RoomType::Unknown:
+            qCWarning(RUQOLAWIDGETS_LOG) << " unsupported delete for type " << channelType;
+            break;
+        }
     }
+}
+
+void AdministratorRoomsWidget::slotDeleteGroupsDone(const QString &identifier)
+{
+    mModel->removeElement(identifier);
+}
+
+void AdministratorRoomsWidget::slotDeletechannelDone(const QString &identifier)
+{
+    mModel->removeElement(identifier);
+}
+
+void AdministratorRoomsWidget::slotDeleteDirectMessageDone(const QString &identifier)
+{
+    mModel->removeElement(identifier);
 }
 
 void AdministratorRoomsWidget::slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters)

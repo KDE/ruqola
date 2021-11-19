@@ -21,10 +21,10 @@
 #pragma once
 
 #include "channelgroupbasejob.h"
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelDeleteJob : public ChannelGroupBaseJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ChannelDeleteJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -40,7 +40,7 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void deletechannelDone();
+    void deletechannelDone(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(ChannelDeleteJob)

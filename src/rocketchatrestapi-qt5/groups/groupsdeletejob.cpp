@@ -56,7 +56,7 @@ void GroupsDeleteJob::slotDeleteGroupsFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("GroupsDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT deleteGroupsDone();
+            Q_EMIT deleteGroupsDone(channelGroupInfo().identifier);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("GroupsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

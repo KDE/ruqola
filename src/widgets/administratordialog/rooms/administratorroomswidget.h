@@ -40,9 +40,12 @@ protected:
 
 private:
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
+    void slotDeleteGroupsDone(const QString &identifier);
+    void slotDeletechannelDone(const QString &identifier);
+    void slotDeleteDirectMessageDone(const QString &identifier);
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
     void slotModifyRoom(const QModelIndex &index);
-    void slotRemoveRoom(const QModelIndex &index);
+    void slotRemoveRoom(const QModelIndex &parentIndex);
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
 };
 

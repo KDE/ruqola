@@ -56,7 +56,7 @@ void ChannelDeleteJob::slotChanneldeleteFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ChannelDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT deletechannelDone();
+            Q_EMIT deletechannelDone(channelGroupInfo().identifier);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ChannelDeleteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
