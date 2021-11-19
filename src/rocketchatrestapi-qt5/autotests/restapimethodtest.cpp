@@ -196,6 +196,9 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImMembers), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.members")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImOpen), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.open")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImSetTopic), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.setTopic")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImFiles), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.files")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ImDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/im.delete")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::LoadEmojiCustom), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::EmojiCustomCreate), QUrl(QStringLiteral("http://www.kde.org/api/v1/emoji-custom.create")));

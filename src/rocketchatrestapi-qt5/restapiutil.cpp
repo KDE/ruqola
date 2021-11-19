@@ -312,6 +312,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("im.history");
     case RestApiUtil::RestApiUrlType::ImFiles:
         return QStringLiteral("im.files");
+    case RestApiUtil::RestApiUrlType::ImDelete:
+        return QStringLiteral("im.delete");
     case RestApiUtil::RestApiUrlType::ImMessages:
         return QStringLiteral("im.messages");
     case RestApiUtil::RestApiUrlType::ImMembers:

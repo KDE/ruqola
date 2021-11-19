@@ -183,6 +183,7 @@ enum class RestApiUrlType {
     ImFiles,
     ImOpen,
     ImMessages,
+    ImDelete,
     // Since 0.59
     ImMembers,
     ImSetTopic,

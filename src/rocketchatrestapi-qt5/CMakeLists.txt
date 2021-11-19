@@ -138,6 +138,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     directmessage/createdmjob.cpp
     directmessage/opendmjob.cpp
     directmessage/settopicdmjob.cpp
+    directmessage/deletedmjob.cpp
+    directmessage/deletedmjob.h
 
     rooms/savenotificationjob.cpp
     rooms/getroomsjob.cpp
