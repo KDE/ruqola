@@ -474,6 +474,9 @@ target_sources(libruqolawidgets PRIVATE
     teams/searchteamdialog.h
     teams/searchteamwidget.h
     ruqolacentralwidget.h
+
+    administratordialog/rooms/administratorroomseditdialog.cpp
+    administratordialog/rooms/administratorroomseditdialog.h
     )
 
 
