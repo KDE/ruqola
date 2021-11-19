@@ -127,34 +127,36 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         if (rcAccount->teamEnabled()) {
             const QString roomId = index.data(RoomModel::RoomId).toString();
             Room *room = rcAccount->room(roomId);
-            const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
-            if (!mainTeam) {
-                if (room && room->hasPermission(QStringLiteral("convert-team"))) {
-                    menu.addSeparator();
-                    auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
-                    connect(convertToTeam, &QAction::triggered, this, [=]() {
-                        slotConvertToTeam(index, roomType);
-                    });
-                    menu.addAction(convertToTeam);
+            if (room) {
+                const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
+                if (!mainTeam) {
+                    if (room->hasPermission(QStringLiteral("convert-team"))) {
+                        menu.addSeparator();
+                        auto convertToTeam = new QAction(i18n("Convert to Team"), &menu);
+                        connect(convertToTeam, &QAction::triggered, this, [=]() {
+                            slotConvertToTeam(index, roomType);
+                        });
+                        menu.addAction(convertToTeam);
+                    }
+                } else {
+                    if (room->hasPermission(QStringLiteral("convert-team"))) {
+                        menu.addSeparator();
+                        auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
+                        connect(convertToChanne, &QAction::triggered, this, [=]() {
+                            slotConvertToChannel(index);
+                        });
+                        menu.addAction(convertToChanne);
+                    }
                 }
-            } else {
-                if (room && room->hasPermission(QStringLiteral("convert-team"))) {
+                const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
+                if (mainTeamId.isEmpty() && !mainTeam && room->hasPermission(QStringLiteral("add-team-channel"))) {
                     menu.addSeparator();
-                    auto convertToChanne = new QAction(i18n("Convert to Channel"), &menu);
-                    connect(convertToChanne, &QAction::triggered, this, [=]() {
-                        slotConvertToChannel(index);
+                    auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
+                    connect(moveToTeam, &QAction::triggered, this, [=]() {
+                        slotMoveToTeam(index);
                     });
-                    menu.addAction(convertToChanne);
+                    menu.addAction(moveToTeam);
                 }
-            }
-            const QString mainTeamId = index.data(RoomModel::RoomTeamId).toString();
-            if (mainTeamId.isEmpty() && !mainTeam && room && room->hasPermission(QStringLiteral("add-team-channel"))) {
-                menu.addSeparator();
-                auto moveToTeam = new QAction(i18n("Move to Team"), &menu);
-                connect(moveToTeam, &QAction::triggered, this, [=]() {
-                    slotMoveToTeam(index);
-                });
-                menu.addAction(moveToTeam);
             }
         }
 
