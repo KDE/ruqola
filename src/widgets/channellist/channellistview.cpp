@@ -222,7 +222,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             job->setTeamId(teamId);
             job->setRoomsToRemove(lst);
             rcAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, [this]() {
+            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
                 // TODO ?
             });
             if (!job->start()) {
