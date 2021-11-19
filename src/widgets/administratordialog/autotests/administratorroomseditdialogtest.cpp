@@ -18,15 +18,17 @@
    Boston, MA 02110-1301, USA.
 */
 
-#pragma once
-
-#include "libruqolawidgets_private_export.h"
-#include <QDialog>
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialog
+#include "administratorroomseditdialogtest.h"
+#include "administratordialog/rooms/administratorroomseditdialog.h"
+#include <QTest>
+QTEST_MAIN(AdministratorRoomsEditDialogTest)
+AdministratorRoomsEditDialogTest::AdministratorRoomsEditDialogTest(QObject *parent)
+    : QObject{parent}
 {
-    Q_OBJECT
-public:
-    explicit AdministratorRoomsEditDialog(QWidget *parent = nullptr);
-    ~AdministratorRoomsEditDialog() override;
-};
+}
+
+void AdministratorRoomsEditDialogTest::shouldHaveDefaultValues()
+{
+    AdministratorRoomsEditDialog d;
+    // TODO
+}

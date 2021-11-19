@@ -17,16 +17,16 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-
 #pragma once
 
-#include "libruqolawidgets_private_export.h"
-#include <QDialog>
+#include <QObject>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialog
+class AdministratorRoomsEditDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AdministratorRoomsEditDialog(QWidget *parent = nullptr);
-    ~AdministratorRoomsEditDialog() override;
+    explicit AdministratorRoomsEditDialogTest(QObject *parent = nullptr);
+    ~AdministratorRoomsEditDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
