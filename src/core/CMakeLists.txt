@@ -416,6 +416,9 @@ target_sources(libruqolacore PRIVATE
     emoticons/unicodeemoticonparser.h
     emoticons/customemojisinfo.h
     messagecache.h
+
+    away/awaymanager.h
+    away/awaymanager.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
