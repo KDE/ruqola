@@ -65,8 +65,9 @@ AdministratorRoomsWidget::~AdministratorRoomsWidget()
 void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    const QModelIndex index = mTreeView->indexAt(pos);
-    if (index.isValid()) {
+    const QModelIndex parentIndex = mTreeView->indexAt(pos);
+    if (parentIndex.isValid()) {
+        const QModelIndex index = mProxyModelModel->mapToSource(parentIndex);
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
             slotModifyRoom(index);
         });
@@ -98,9 +99,8 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     // TODO
 }
 
-void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &parentIndex)
+void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 {
-    const QModelIndex index = mProxyModelModel->mapToSource(parentIndex);
     const QString roomName = mModel->index(index.row(), AdminRoomsModel::Name).data().toString();
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this,
