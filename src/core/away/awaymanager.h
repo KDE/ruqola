@@ -33,6 +33,9 @@ public:
     Q_REQUIRED_RESULT bool enabled() const;
     void setEnabled(bool newEnabled);
 
+Q_SIGNALS:
+    void awayChanged(bool away);
+
 private:
     void slotResumeFromIdle();
     void slotIdleTimeoutReached();
