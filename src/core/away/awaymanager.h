@@ -30,6 +30,12 @@ public:
     explicit AwayManager(RocketChatAccount *const account, QObject *parent = nullptr);
     ~AwayManager() override;
 
+    Q_REQUIRED_RESULT bool enabled() const;
+    void setEnabled(bool newEnabled);
+
 private:
+    void slotResumeFromIdle();
+    void slotIdleTimeoutReached();
     RocketChatAccount *const mRocketChatAccount;
+    bool mEnabled = false;
 };

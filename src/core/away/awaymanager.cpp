@@ -24,8 +24,30 @@ AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
 {
+    connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &AwayManager::slotResumeFromIdle);
+    connect(KIdleTime::instance(), QOverload<int, int>::of(&KIdleTime::timeoutReached), this, &AwayManager::slotIdleTimeoutReached);
 }
 
 AwayManager::~AwayManager()
 {
+}
+
+void AwayManager::slotResumeFromIdle()
+{
+    // TODO
+}
+
+void AwayManager::slotIdleTimeoutReached()
+{
+    // TODO
+}
+
+bool AwayManager::enabled() const
+{
+    return mEnabled;
+}
+
+void AwayManager::setEnabled(bool newEnabled)
+{
+    mEnabled = newEnabled;
 }

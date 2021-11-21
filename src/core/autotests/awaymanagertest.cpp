@@ -30,5 +30,6 @@ AwayManagerTest::AwayManagerTest(QObject *parent)
 void AwayManagerTest::shouldHaveDefaultValues()
 {
     AwayManager m(nullptr);
+    QVERIFY(!m.enabled());
     // TODO
 }
