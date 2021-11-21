@@ -61,3 +61,10 @@ void AwayManager::setEnabled(bool newEnabled)
 {
     mEnabled = newEnabled;
 }
+
+QDebug operator<<(QDebug d, const AwayManager &t)
+{
+    d << "mEnabled " << t.enabled();
+    d << "mIdleTiming " << t.idleTiming();
+    return d;
+}

@@ -21,6 +21,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include <QDebug>
 #include <QObject>
 class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT AwayManager : public QObject
@@ -46,3 +47,4 @@ private:
     int mIdleTiming = -1;
     bool mEnabled = false;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const AwayManager &t);
