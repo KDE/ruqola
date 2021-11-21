@@ -59,6 +59,9 @@ public:
     Q_REQUIRED_RESULT int idleTimeLimit() const;
     void setIdleTimeLimit(int newIdleTimeLimit);
 
+    Q_REQUIRED_RESULT bool enableAutoAway() const;
+    void setEnableAutoAway(bool newEnableAutoAway);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -69,6 +72,7 @@ private:
     bool mUseEmojis = true;
     bool mHideRoles = false;
     bool mHideAvatars = false;
+    bool mEnableAutoAway = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

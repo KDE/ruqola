@@ -47,6 +47,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setHideRoles(replyObject.value(QLatin1String("hideRoles")).toBool(false));
     setHideAvatars(replyObject.value(QLatin1String("hideAvatars")).toBool(false));
     setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
+    setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -54,7 +55,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications() && mUseEmojis == other.useEmojis()
         && mConvertAsciiEmoji == other.convertAsciiEmoji() && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars()
-        && mIdleTimeLimit == other.idleTimeLimit();
+        && mIdleTimeLimit == other.idleTimeLimit() && mEnableAutoAway == other.enableAutoAway();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -147,6 +148,16 @@ void OwnUserPreferences::setIdleTimeLimit(int newIdleTimeLimit)
     mIdleTimeLimit = newIdleTimeLimit;
 }
 
+bool OwnUserPreferences::enableAutoAway() const
+{
+    return mEnableAutoAway;
+}
+
+void OwnUserPreferences::setEnableAutoAway(bool newEnableAutoAway)
+{
+    mEnableAutoAway = newEnableAutoAway;
+}
+
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d << "mHighlightWords " << t.highlightWords();
@@ -158,5 +169,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mHideRoles " << t.hideRoles();
     d << "mHideAvatars " << t.hideAvatars();
     d << "mIdleTimeLimit " << t.idleTimeLimit();
+    d << "mEnableAutoAway " << t.enableAutoAway();
     return d;
 }
