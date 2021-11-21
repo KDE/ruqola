@@ -28,4 +28,6 @@ class AwayManagerTest : public QObject
 public:
     explicit AwayManagerTest(QObject *parent = nullptr);
     ~AwayManagerTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

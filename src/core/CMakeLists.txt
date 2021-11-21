@@ -475,6 +475,7 @@ target_link_libraries(libruqolacore
     librocketchatrestapi-qt5
     KF5::ConfigGui
     KF5::ConfigWidgets
+    KF5::IdleTime
 )
 
 if (WIN32 OR APPLE)

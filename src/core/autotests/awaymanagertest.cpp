@@ -19,9 +19,16 @@
 */
 
 #include "awaymanagertest.h"
+#include "away/awaymanager.h"
 #include <QTest>
 QTEST_MAIN(AwayManagerTest)
 AwayManagerTest::AwayManagerTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void AwayManagerTest::shouldHaveDefaultValues()
+{
+    AwayManager m(nullptr);
+    // TODO
 }
