@@ -56,6 +56,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setDesktopNotifications(QStringLiteral("mentions"));
         preferences.setConvertAsciiEmoji(false);
         preferences.setUseEmojis(false);
+        preferences.setIdleTimeLimit(300);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }

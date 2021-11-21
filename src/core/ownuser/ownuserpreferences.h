@@ -56,11 +56,15 @@ public:
     Q_REQUIRED_RESULT bool hideAvatars() const;
     void setHideAvatars(bool hideAvatars);
 
+    Q_REQUIRED_RESULT int idleTimeLimit() const;
+    void setIdleTimeLimit(int newIdleTimeLimit);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
     QString mMobileNotifications;
+    int mIdleTimeLimit = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;

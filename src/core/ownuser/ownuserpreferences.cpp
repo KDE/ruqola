@@ -30,6 +30,7 @@ OwnUserPreferences::~OwnUserPreferences() = default;
 
 void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 {
+    // qDebug() << " replyObject " << replyObject;
     const QJsonArray highlightsArray = replyObject.value(QLatin1String("highlights")).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsArray.count();
@@ -45,13 +46,15 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool(true));
     setHideRoles(replyObject.value(QLatin1String("hideRoles")).toBool(false));
     setHideAvatars(replyObject.value(QLatin1String("hideAvatars")).toBool(false));
+    setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications() && mUseEmojis == other.useEmojis()
-        && mConvertAsciiEmoji == other.convertAsciiEmoji() && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars();
+        && mConvertAsciiEmoji == other.convertAsciiEmoji() && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars()
+        && mIdleTimeLimit == other.idleTimeLimit();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -134,6 +137,16 @@ void OwnUserPreferences::setHideAvatars(bool hideAvatars)
     mHideAvatars = hideAvatars;
 }
 
+int OwnUserPreferences::idleTimeLimit() const
+{
+    return mIdleTimeLimit;
+}
+
+void OwnUserPreferences::setIdleTimeLimit(int newIdleTimeLimit)
+{
+    mIdleTimeLimit = newIdleTimeLimit;
+}
+
 QDebug operator<<(QDebug d, const OwnUserPreferences &t)
 {
     d << "mHighlightWords " << t.highlightWords();
@@ -144,5 +157,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
     d << "mHideRoles " << t.hideRoles();
     d << "mHideAvatars " << t.hideAvatars();
+    d << "mIdleTimeLimit " << t.idleTimeLimit();
     return d;
 }

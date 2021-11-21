@@ -75,6 +75,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setDesktopNotifications(QStringLiteral("all"));
     ownUser.setMobileNotifications(QStringLiteral("all"));
     ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
+    ownUser.setIdleTimeLimit(300);
     result.setOwnUserPreferences(ownUser);
 
     QTest::addRow("example1") << QStringLiteral("example1") << result;
