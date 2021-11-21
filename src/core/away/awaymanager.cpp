@@ -20,8 +20,9 @@
 
 #include "awaymanager.h"
 
-AwayManager::AwayManager(QObject *parent)
+AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     : QObject{parent}
+    , mRocketChatAccount(account)
 {
 }
 

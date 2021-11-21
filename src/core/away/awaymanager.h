@@ -22,11 +22,14 @@
 
 #include "libruqola_private_export.h"
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT AwayManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit AwayManager(QObject *parent = nullptr);
+    explicit AwayManager(RocketChatAccount *const account, QObject *parent = nullptr);
     ~AwayManager() override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -96,6 +96,8 @@
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
 
+#include "away/awaymanager.h"
+
 #define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -105,6 +107,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this))
     , mCustomSoundManager(new CustomSoundsManager(this))
+    , mAwayManager(new AwayManager(this, this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
