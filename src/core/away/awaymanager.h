@@ -33,6 +33,9 @@ public:
     Q_REQUIRED_RESULT bool enabled() const;
     void setEnabled(bool newEnabled);
 
+    Q_REQUIRED_RESULT int idleTiming() const;
+    void setIdleTiming(int newIdleTiming);
+
 Q_SIGNALS:
     void awayChanged(bool away);
 
@@ -40,5 +43,6 @@ private:
     void slotResumeFromIdle();
     void slotIdleTimeoutReached();
     RocketChatAccount *const mRocketChatAccount;
+    int mIdleTiming = -1;
     bool mEnabled = false;
 };

@@ -42,6 +42,16 @@ void AwayManager::slotIdleTimeoutReached()
     // TODO
 }
 
+int AwayManager::idleTiming() const
+{
+    return mIdleTiming;
+}
+
+void AwayManager::setIdleTiming(int newIdleTiming)
+{
+    mIdleTiming = newIdleTiming;
+}
+
 bool AwayManager::enabled() const
 {
     return mEnabled;

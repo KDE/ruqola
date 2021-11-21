@@ -31,5 +31,6 @@ void AwayManagerTest::shouldHaveDefaultValues()
 {
     AwayManager m(nullptr);
     QVERIFY(!m.enabled());
+    QCOMPARE(m.idleTiming(), -1);
     // TODO
 }

@@ -2649,6 +2649,8 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
+        mAwayManager->setEnabled(ownUserPreferences.enableAutoAway());
+        mAwayManager->setEnabled(ownUserPreferences.idleTimeLimit());
         Q_EMIT ownUserPreferencesChanged();
     }
 }
