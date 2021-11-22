@@ -527,7 +527,7 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
                             msgAttachments.end(),
                             [&](const MessageAttachment &attach) {
                                 // Transform link() the way RocketChatCache::downloadFile does it
-                                return mRocketChatAccount->urlForLink(attach.link()).path() == filePath;
+                                return mRocketChatAccount->urlForLink(attach.imageUrlPreview()).path() == filePath;
                             })
             != msgAttachments.end();
     };
