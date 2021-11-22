@@ -26,6 +26,8 @@ AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
 {
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &AwayManager::slotResumeFromIdle);
     connect(KIdleTime::instance(), QOverload<int, int>::of(&KIdleTime::timeoutReached), this, &AwayManager::slotIdleTimeoutReached);
+
+    KIdleTime::instance()->catchNextResumeEvent();
 }
 
 AwayManager::~AwayManager()
@@ -39,7 +41,11 @@ void AwayManager::slotResumeFromIdle()
 
 void AwayManager::slotIdleTimeoutReached(int timerId)
 {
-    // TODO
+    if (mTimerId == timerId) {
+        // TODO change account to away.
+        // Account is away => we need to catch next resume event.
+        KIdleTime::instance()->catchNextResumeEvent();
+    }
 }
 
 int AwayManager::idleTiming() const
@@ -59,7 +65,15 @@ bool AwayManager::enabled() const
 
 void AwayManager::setEnabled(bool newEnabled)
 {
-    mEnabled = newEnabled;
+    if (mEnabled != newEnabled) {
+        mEnabled = newEnabled;
+        if (!mEnabled && (mTimerId != -1)) {
+            KIdleTime::instance()->removeIdleTimeout(mTimerId);
+            mTimerId = -1;
+        } else if (mEnabled && (mTimerId == -1)) {
+            KIdleTime::instance()->catchNextResumeEvent();
+        }
+    }
 }
 
 QDebug operator<<(QDebug d, const AwayManager &t)

@@ -44,6 +44,7 @@ private:
     void slotResumeFromIdle();
     void slotIdleTimeoutReached(int timerId);
     RocketChatAccount *const mRocketChatAccount;
+    int mTimerId = -1;
     int mIdleTiming = -1;
     bool mEnabled = false;
 };
