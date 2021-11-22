@@ -18,36 +18,18 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "administratorroomseditdialog.h"
-
+#include "administratorroomseditwidget.h"
 #include <KLocalizedString>
-#include <QDialogButtonBox>
-#include <QPushButton>
 #include <QVBoxLayout>
 
-AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(QWidget *parent)
-    : QDialog(parent)
+AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
+    : QWidget{parent}
 {
-    setWindowTitle(i18nc("@title:window", "Edit Room"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    //    mRoleEditWidget->setObjectName(QStringLiteral("mRoleEditWidget"));
-    //    mainLayout->addWidget(mRoleEditWidget);
-
-    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    button->setObjectName(QStringLiteral("button"));
-    mainLayout->addWidget(button);
-    auto okButton = button->button(QDialogButtonBox::Ok);
-    okButton->setEnabled(false);
-
-    connect(button, &QDialogButtonBox::rejected, this, &AdministratorRoomsEditDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &AdministratorRoomsEditDialog::accept);
-    resize(350, 50);
-    //    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, this, [okButton](bool b) {
-    //        okButton->setEnabled(b);
-    //    });
+    mainLayout->setContentsMargins({});
 }
 
-AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog()
+AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget()
 {
 }

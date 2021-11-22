@@ -477,6 +477,8 @@ target_sources(libruqolawidgets PRIVATE
 
     administratordialog/rooms/administratorroomseditdialog.cpp
     administratordialog/rooms/administratorroomseditdialog.h
+    administratordialog/rooms/administratorroomseditwidget.h
+    administratordialog/rooms/administratorroomseditwidget.cpp
     )
 
 
