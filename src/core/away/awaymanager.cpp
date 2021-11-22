@@ -68,6 +68,7 @@ bool AwayManager::enabled() const
 
 void AwayManager::setEnabled(bool newEnabled)
 {
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::setEnabled()" << newEnabled;
     if (mEnabled != newEnabled) {
         mEnabled = newEnabled;
         if (!mEnabled && (mTimerId != -1)) {
