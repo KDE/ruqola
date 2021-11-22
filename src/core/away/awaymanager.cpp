@@ -37,7 +37,7 @@ void AwayManager::slotResumeFromIdle()
     // TODO
 }
 
-void AwayManager::slotIdleTimeoutReached()
+void AwayManager::slotIdleTimeoutReached(int timerId)
 {
     // TODO
 }

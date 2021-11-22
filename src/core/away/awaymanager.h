@@ -42,7 +42,7 @@ Q_SIGNALS:
 
 private:
     void slotResumeFromIdle();
-    void slotIdleTimeoutReached();
+    void slotIdleTimeoutReached(int timerId);
     RocketChatAccount *const mRocketChatAccount;
     int mIdleTiming = -1;
     bool mEnabled = false;
