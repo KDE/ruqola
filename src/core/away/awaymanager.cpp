@@ -81,8 +81,10 @@ void AwayManager::setEnabled(bool newEnabled)
         mEnabled = newEnabled;
         if (!mEnabled && (mTimerId != -1)) {
             KIdleTime::instance()->removeIdleTimeout(mTimerId);
+            qCDebug(RUQOLA_AWAY_LOG) << " Remove Idle Timeout " << newEnabled;
             mTimerId = -1;
         } else if (mEnabled && (mTimerId == -1)) {
+            qCDebug(RUQOLA_AWAY_LOG) << " Catch Next Resume Event " << newEnabled;
             KIdleTime::instance()->catchNextResumeEvent();
         }
     }
