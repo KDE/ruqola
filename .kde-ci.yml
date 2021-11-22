@@ -27,3 +27,4 @@ Dependencies:
     'frameworks/sonnet': '@stable' 
     'frameworks/ktextwidgets': '@stable'
     'frameworks/syntaxhighlighting': '@stable'
+    'frameworks/kidletime': '@stable'
