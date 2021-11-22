@@ -444,6 +444,7 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_notificat
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_custom_sounds_debug.h IDENTIFIER RUQOLA_CUSTOMSOUNDS_LOG CATEGORY_NAME org.kde.ruqola.customsounds DESCRIPTION "ruqola custom sounds" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_away_debug.h IDENTIFIER RUQOLA_AWAY_LOG CATEGORY_NAME org.kde.ruqola.away DESCRIPTION "ruqola away manager" EXPORT RUQOLA)
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)

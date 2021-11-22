@@ -19,6 +19,7 @@
 */
 
 #include "awaymanager.h"
+#include "ruqola_away_debug.h"
 #include <KIdleTime>
 AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     : QObject{parent}
@@ -36,11 +37,13 @@ AwayManager::~AwayManager()
 
 void AwayManager::slotResumeFromIdle()
 {
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotResumeFromIdle()";
     // TODO
 }
 
 void AwayManager::slotIdleTimeoutReached(int timerId)
 {
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotIdleTimeoutReached()" << timerId << " mTimerId " << mTimerId;
     if (mTimerId == timerId) {
         // TODO change account to away.
         // Account is away => we need to catch next resume event.
