@@ -2445,8 +2445,8 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
-    // qDebug() << "RocketChatBackend::parseOwnInfoDown " << replyObject;
     mOwnUser.parseOwnUserInfo(replyObject);
+    updateAwayManager(mOwnUser.ownUserPreferences());
     const User user = mOwnUser.user();
     // qDebug() << " USER  " << user;
     if (user.isValid()) {
@@ -2644,15 +2644,21 @@ void RocketChatAccount::setUserPreferences(const RocketChatRestApi::UsersSetPref
 
 void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)
 {
+    qDebug() << " void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)" << replyObject;
     const QJsonObject user = replyObject.value(QLatin1String("user")).toObject();
     if (user.value(QLatin1String("_id")).toString() == userId()) {
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
-        mAwayManager->setEnabled(ownUserPreferences.enableAutoAway());
-        mAwayManager->setEnabled(ownUserPreferences.idleTimeLimit());
+        updateAwayManager(ownUserPreferences);
         Q_EMIT ownUserPreferencesChanged();
     }
+}
+
+void RocketChatAccount::updateAwayManager(const OwnUserPreferences &preferences)
+{
+    mAwayManager->setEnabled(preferences.enableAutoAway());
+    mAwayManager->setEnabled(preferences.idleTimeLimit());
 }
 
 bool RocketChatAccount::hasAutotranslateSupport() const
