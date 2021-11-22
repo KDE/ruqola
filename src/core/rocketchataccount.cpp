@@ -2446,7 +2446,7 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
     mOwnUser.parseOwnUserInfo(replyObject);
-    updateAwayManager(mOwnUser.ownUserPreferences());
+    mAwayManager->updateSettings();
     const User user = mOwnUser.user();
     // qDebug() << " USER  " << user;
     if (user.isValid()) {
@@ -2650,15 +2650,8 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         OwnUserPreferences ownUserPreferences;
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
-        updateAwayManager(ownUserPreferences);
         Q_EMIT ownUserPreferencesChanged();
     }
-}
-
-void RocketChatAccount::updateAwayManager(const OwnUserPreferences &preferences)
-{
-    mAwayManager->setEnabled(preferences.enableAutoAway());
-    mAwayManager->setEnabled(preferences.idleTimeLimit());
 }
 
 bool RocketChatAccount::hasAutotranslateSupport() const

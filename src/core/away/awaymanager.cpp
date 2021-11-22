@@ -19,6 +19,7 @@
 */
 
 #include "awaymanager.h"
+#include "rocketchataccount.h"
 #include "ruqola_away_debug.h"
 #include <KIdleTime>
 AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
@@ -59,6 +60,13 @@ int AwayManager::idleTiming() const
 void AwayManager::setIdleTiming(int newIdleTiming)
 {
     mIdleTiming = newIdleTiming;
+}
+
+void AwayManager::updateSettings()
+{
+    const auto &ownerUserPref = mRocketChatAccount->ownUserPreferences();
+    setEnabled(ownerUserPref.enableAutoAway());
+    setIdleTiming(ownerUserPref.idleTimeLimit());
 }
 
 bool AwayManager::enabled() const

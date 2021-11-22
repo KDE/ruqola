@@ -37,6 +37,8 @@ public:
     Q_REQUIRED_RESULT int idleTiming() const;
     void setIdleTiming(int newIdleTiming);
 
+    void updateSettings();
+
 Q_SIGNALS:
     void awayChanged(bool away);
 
