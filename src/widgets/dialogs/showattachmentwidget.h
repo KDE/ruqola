@@ -27,11 +27,12 @@ class QLabel;
 class QListView;
 class FilesForRoomFilterProxyModel;
 class ShowAttachmentComboBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowAttachmentWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ShowAttachmentWidget(QWidget *parent = nullptr);
+    explicit ShowAttachmentWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowAttachmentWidget() override;
     void setModel(FilesForRoomFilterProxyModel *model);
 

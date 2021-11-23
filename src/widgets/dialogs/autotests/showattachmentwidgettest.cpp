@@ -34,7 +34,7 @@ ShowAttachmentWidgetTest::ShowAttachmentWidgetTest(QObject *parent)
 
 void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
 {
-    ShowAttachmentWidget w;
+    ShowAttachmentWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});

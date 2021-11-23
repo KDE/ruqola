@@ -36,7 +36,7 @@ static const char myShowAttachmentDialogGroupName[] = "ShowAttachmentDialog";
 
 ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mShowAttachmentWidget(new ShowAttachmentWidget(this))
+    , mShowAttachmentWidget(new ShowAttachmentWidget(account, this))
     , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Attachments"));

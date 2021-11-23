@@ -29,7 +29,7 @@
 #include <QListView>
 #include <QVBoxLayout>
 
-ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
+ShowAttachmentWidget::ShowAttachmentWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchAttachmentFileLineEdit(new QLineEdit(this))
     , mAttachmentCombobox(new ShowAttachmentComboBox(this))
@@ -67,7 +67,7 @@ ShowAttachmentWidget::ShowAttachmentWidget(QWidget *parent)
 
     mListAttachment->setObjectName(QStringLiteral("mListAttachment"));
     mainLayout->addWidget(mListAttachment);
-    auto delegate = new ListAttachmentDelegate(this);
+    auto delegate = new ListAttachmentDelegate(account, this);
     connect(delegate, &ListAttachmentDelegate::deleteAttachment, this, &ShowAttachmentWidget::deleteAttachment);
     mListAttachment->setItemDelegate(delegate);
 }

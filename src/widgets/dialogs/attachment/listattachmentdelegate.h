@@ -22,11 +22,12 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListAttachmentDelegate : public QItemDelegate
 {
     Q_OBJECT
 public:
-    explicit ListAttachmentDelegate(QObject *parent = nullptr);
+    explicit ListAttachmentDelegate(RocketChatAccount *account, QObject *parent = nullptr);
     ~ListAttachmentDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
@@ -65,5 +66,6 @@ private:
     Q_REQUIRED_RESULT ListAttachmentDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     const QIcon mDownloadIcon;
     const QIcon mDeleteIcon;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

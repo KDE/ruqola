@@ -30,10 +30,11 @@
 #include <QPainter>
 #include <QStyle>
 
-ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
+ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
     , mDeleteIcon(QIcon::fromTheme(QStringLiteral("delete")))
+    , mRocketChatAccount(account)
 {
 }
 
@@ -82,7 +83,7 @@ void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem
         QPoint(DelegatePaintUtil::margin() + option.rect.x() + layout.mimetypeHeight, layout.timeStampY + painter->fontMetrics().ascent()));
 
     // Draw delete icon (for our own messages)
-    if (file->userId() == Ruqola::self()->rocketChatAccount()->userId()) {
+    if (file->userId() == mRocketChatAccount->userId()) {
         mDeleteIcon.paint(painter, layout.deleteAttachmentRect);
     }
 
@@ -109,11 +110,11 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
             const QString fileName = DelegateUtil::querySaveFileName(parentWidget, i18n("Save Attachment"), QUrl(file->url()));
 
             if (!fileName.isEmpty()) {
-                Ruqola::self()->rocketChatAccount()->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
+                mRocketChatAccount->downloadFile(file->url(), QUrl::fromLocalFile(fileName));
             }
             return true;
         }
-        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == Ruqola::self()->rocketChatAccount()->userId())) {
+        if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == mRocketChatAccount->userId())) {
             auto *parentWidget = const_cast<QWidget *>(option.widget);
             if (KMessageBox::Yes
                 == KMessageBox::questionYesNo(parentWidget,
