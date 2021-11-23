@@ -22,11 +22,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class AdministratorRoomsEditWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit AdministratorRoomsEditDialog(QWidget *parent = nullptr);
     ~AdministratorRoomsEditDialog() override;
+
+private:
+    AdministratorRoomsEditWidget *const mAdministratorRoomEditWidget;
 };
