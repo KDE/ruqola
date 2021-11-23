@@ -85,9 +85,9 @@ void AwayManager::slotIdleTimeoutReached(int timerId)
     if (!mEnabled) {
         return;
     }
-    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotIdleTimeoutReached()" << timerId << " mTimerId " << mTimerId
-                             << "name : " << mRocketChatAccount->accountName();
     if (mTimerId == timerId) {
+        qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotIdleTimeoutReached()" << timerId << " mTimerId " << mTimerId
+                                 << "name : " << mRocketChatAccount->accountName();
         Q_EMIT awayChanged(true); // Away now
         // Account is away => we need to catch next resume event.
         KIdleTime::instance()->catchNextResumeEvent();
