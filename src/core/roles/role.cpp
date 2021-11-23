@@ -23,9 +23,7 @@
 
 #include <QJsonArray>
 
-Role::Role()
-{
-}
+Role::Role() = default;
 
 QString Role::userId() const
 {

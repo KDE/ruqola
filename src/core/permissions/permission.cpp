@@ -22,9 +22,7 @@
 
 #include "utils.h"
 
-Permission::Permission()
-{
-}
+Permission::Permission() = default;
 
 bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<RoleInfo> &roleInfo, bool restApi)
 {

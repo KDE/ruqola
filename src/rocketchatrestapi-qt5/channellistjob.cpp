@@ -30,9 +30,7 @@ ChannelListJob::ChannelListJob(QObject *parent)
 {
 }
 
-ChannelListJob::~ChannelListJob()
-{
-}
+ChannelListJob::~ChannelListJob() = default;
 
 bool ChannelListJob::start()
 {

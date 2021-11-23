@@ -41,9 +41,7 @@ AutoTranslateConfigureDialog::AutoTranslateConfigureDialog(RocketChatAccount *ac
     connect(button, &QDialogButtonBox::rejected, this, &AutoTranslateConfigureDialog::reject);
 }
 
-AutoTranslateConfigureDialog::~AutoTranslateConfigureDialog()
-{
-}
+AutoTranslateConfigureDialog::~AutoTranslateConfigureDialog() = default;
 
 void AutoTranslateConfigureDialog::setRoom(Room *room)
 {

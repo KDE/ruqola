@@ -36,9 +36,7 @@ DownloadAppsLanguagesJob::DownloadAppsLanguagesJob(QObject *parent)
     connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &DownloadAppsLanguagesJob::slotSslErrors);
 }
 
-DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob()
-{
-}
+DownloadAppsLanguagesJob::~DownloadAppsLanguagesJob() = default;
 
 void DownloadAppsLanguagesJob::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
 {

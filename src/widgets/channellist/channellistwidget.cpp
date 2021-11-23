@@ -80,9 +80,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     // END: Actions
 }
 
-ChannelListWidget::~ChannelListWidget()
-{
-}
+ChannelListWidget::~ChannelListWidget() = default;
 
 void ChannelListWidget::clearFilterChannel()
 {

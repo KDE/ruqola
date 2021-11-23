@@ -25,9 +25,7 @@ DirectoryUsersProxyModel::DirectoryUsersProxyModel(QAbstractListModel *model, QO
 {
 }
 
-DirectoryUsersProxyModel::~DirectoryUsersProxyModel()
-{
-}
+DirectoryUsersProxyModel::~DirectoryUsersProxyModel() = default;
 
 bool DirectoryUsersProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

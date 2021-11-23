@@ -31,9 +31,7 @@ TeamInfoJob::TeamInfoJob(QObject *parent)
 {
 }
 
-TeamInfoJob::~TeamInfoJob()
-{
-}
+TeamInfoJob::~TeamInfoJob() = default;
 
 bool TeamInfoJob::requireHttpAuthentication() const
 {

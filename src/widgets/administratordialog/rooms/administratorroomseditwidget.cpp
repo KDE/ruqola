@@ -30,6 +30,4 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 }
 
-AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget()
-{
-}
+AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;

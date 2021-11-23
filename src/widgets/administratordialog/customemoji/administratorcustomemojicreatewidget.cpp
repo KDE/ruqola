@@ -50,9 +50,7 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
 }
 
-AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget()
-{
-}
+AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget() = default;
 
 void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiCreateInfo &info)
 {

@@ -36,9 +36,7 @@ AccountManager::AccountManager(QObject *parent)
     loadAccount();
 }
 
-AccountManager::~AccountManager()
-{
-}
+AccountManager::~AccountManager() = default;
 
 int AccountManager::accountNumber() const
 {

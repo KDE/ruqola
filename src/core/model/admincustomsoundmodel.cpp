@@ -26,9 +26,7 @@ AdminCustomSoundModel::AdminCustomSoundModel(QObject *parent)
 {
 }
 
-AdminCustomSoundModel::~AdminCustomSoundModel()
-{
-}
+AdminCustomSoundModel::~AdminCustomSoundModel() = default;
 
 int AdminCustomSoundModel::rowCount(const QModelIndex &parent) const
 {
@@ -48,7 +46,7 @@ QVariant AdminCustomSoundModel::headerData(int section, Qt::Orientation orientat
             return i18n("Identifier");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminCustomSoundModel::columnCount(const QModelIndex &parent) const

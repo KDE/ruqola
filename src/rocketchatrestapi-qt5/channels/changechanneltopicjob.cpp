@@ -30,9 +30,7 @@ ChangeChannelTopicJob::ChangeChannelTopicJob(QObject *parent)
 {
 }
 
-ChangeChannelTopicJob::~ChangeChannelTopicJob()
-{
-}
+ChangeChannelTopicJob::~ChangeChannelTopicJob() = default;
 
 bool ChangeChannelTopicJob::start()
 {

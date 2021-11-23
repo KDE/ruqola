@@ -22,9 +22,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-AutotranslateLanguages::AutotranslateLanguages()
-{
-}
+AutotranslateLanguages::AutotranslateLanguages() = default;
 
 QVector<AutotranslateLanguage> AutotranslateLanguages::autotranslateLanguage() const
 {

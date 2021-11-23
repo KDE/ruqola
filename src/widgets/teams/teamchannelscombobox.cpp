@@ -26,9 +26,7 @@ TeamChannelsComboBox::TeamChannelsComboBox(QWidget *parent)
     init();
 }
 
-TeamChannelsComboBox::~TeamChannelsComboBox()
-{
-}
+TeamChannelsComboBox::~TeamChannelsComboBox() = default;
 
 void TeamChannelsComboBox::init()
 {

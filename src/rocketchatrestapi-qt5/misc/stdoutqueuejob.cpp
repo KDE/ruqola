@@ -30,9 +30,7 @@ StdoutQueueJob::StdoutQueueJob(QObject *parent)
 {
 }
 
-StdoutQueueJob::~StdoutQueueJob()
-{
-}
+StdoutQueueJob::~StdoutQueueJob() = default;
 
 bool StdoutQueueJob::requireHttpAuthentication() const
 {

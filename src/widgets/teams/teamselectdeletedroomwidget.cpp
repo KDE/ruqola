@@ -56,9 +56,7 @@ TeamSelectDeletedRoomWidget::TeamSelectDeletedRoomWidget(QWidget *parent)
     mListView->setModel(mTeamSelectProxyModel);
 }
 
-TeamSelectDeletedRoomWidget::~TeamSelectDeletedRoomWidget()
-{
-}
+TeamSelectDeletedRoomWidget::~TeamSelectDeletedRoomWidget() = default;
 
 void TeamSelectDeletedRoomWidget::slotTextChanged(const QString &str)
 {

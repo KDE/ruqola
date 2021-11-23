@@ -25,9 +25,7 @@ PluginTextInterface::PluginTextInterface(QObject *parent)
 {
 }
 
-PluginTextInterface::~PluginTextInterface()
-{
-}
+PluginTextInterface::~PluginTextInterface() = default;
 
 void PluginTextInterface::setSelectedText(const QString &str)
 {

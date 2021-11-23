@@ -32,9 +32,7 @@ ChannelMembersJob::ChannelMembersJob(QObject *parent)
 {
 }
 
-ChannelMembersJob::~ChannelMembersJob()
-{
-}
+ChannelMembersJob::~ChannelMembersJob() = default;
 
 bool ChannelMembersJob::start()
 {

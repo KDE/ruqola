@@ -95,9 +95,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
     topLayout->addStretch();
 }
 
-MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget()
-{
-}
+MyAccountProfileConfigureWidget::~MyAccountProfileConfigureWidget() = default;
 
 void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 {

@@ -26,9 +26,7 @@ AdminCustomEmojiModel::AdminCustomEmojiModel(QObject *parent)
 {
 }
 
-AdminCustomEmojiModel::~AdminCustomEmojiModel()
-{
-}
+AdminCustomEmojiModel::~AdminCustomEmojiModel() = default;
 
 int AdminCustomEmojiModel::rowCount(const QModelIndex &parent) const
 {
@@ -50,7 +48,7 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
             return i18n("Identifier");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminCustomEmojiModel::columnCount(const QModelIndex &parent) const

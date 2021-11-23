@@ -31,9 +31,7 @@ FacebookAuthJob::FacebookAuthJob(QObject *parent)
 {
 }
 
-FacebookAuthJob::~FacebookAuthJob()
-{
-}
+FacebookAuthJob::~FacebookAuthJob() = default;
 
 bool FacebookAuthJob::canStart() const
 {

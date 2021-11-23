@@ -30,9 +30,7 @@ UserInfoJob::UserInfoJob(QObject *parent)
 {
 }
 
-UserInfoJob::~UserInfoJob()
-{
-}
+UserInfoJob::~UserInfoJob() = default;
 
 bool UserInfoJob::requireHttpAuthentication() const
 {

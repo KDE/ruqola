@@ -28,9 +28,7 @@ RoomCounterInfoWidget::RoomCounterInfoWidget(QWidget *parent)
     connect(this, &KMessageWidget::linkActivated, this, &RoomCounterInfoWidget::slotLinkActivated);
 }
 
-RoomCounterInfoWidget::~RoomCounterInfoWidget()
-{
-}
+RoomCounterInfoWidget::~RoomCounterInfoWidget() = default;
 
 ChannelCounterInfo RoomCounterInfoWidget::channelCounterInfo() const
 {

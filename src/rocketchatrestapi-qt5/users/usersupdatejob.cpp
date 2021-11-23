@@ -32,9 +32,7 @@ UsersUpdateJob::UsersUpdateJob(QObject *parent)
 {
 }
 
-UsersUpdateJob::~UsersUpdateJob()
-{
-}
+UsersUpdateJob::~UsersUpdateJob() = default;
 
 bool UsersUpdateJob::start()
 {

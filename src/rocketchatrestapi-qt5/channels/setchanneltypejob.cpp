@@ -31,9 +31,7 @@ SetChannelTypeJob::SetChannelTypeJob(QObject *parent)
 {
 }
 
-SetChannelTypeJob::~SetChannelTypeJob()
-{
-}
+SetChannelTypeJob::~SetChannelTypeJob() = default;
 
 bool SetChannelTypeJob::start()
 {

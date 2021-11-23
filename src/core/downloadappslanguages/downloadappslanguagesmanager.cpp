@@ -32,9 +32,7 @@ DownloadAppsLanguagesManager::DownloadAppsLanguagesManager(QObject *parent)
 {
 }
 
-DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager()
-{
-}
+DownloadAppsLanguagesManager::~DownloadAppsLanguagesManager() = default;
 
 QString DownloadAppsLanguagesManager::storedFileName() const
 {

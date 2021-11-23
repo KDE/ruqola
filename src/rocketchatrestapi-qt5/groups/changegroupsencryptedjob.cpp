@@ -31,9 +31,7 @@ ChangeGroupsEncryptedJob::ChangeGroupsEncryptedJob(QObject *parent)
 {
 }
 
-ChangeGroupsEncryptedJob::~ChangeGroupsEncryptedJob()
-{
-}
+ChangeGroupsEncryptedJob::~ChangeGroupsEncryptedJob() = default;
 
 bool ChangeGroupsEncryptedJob::start()
 {

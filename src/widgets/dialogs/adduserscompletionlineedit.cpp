@@ -33,9 +33,7 @@ AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(QWidget *parent)
     connect(this, &AddUsersCompletionLineEdit::complete, this, &AddUsersCompletionLineEdit::slotComplete);
 }
 
-AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit()
-{
-}
+AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit() = default;
 
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {

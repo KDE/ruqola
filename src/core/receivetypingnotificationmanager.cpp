@@ -25,9 +25,7 @@ ReceiveTypingNotificationManager::ReceiveTypingNotificationManager(QObject *pare
 {
 }
 
-ReceiveTypingNotificationManager::~ReceiveTypingNotificationManager()
-{
-}
+ReceiveTypingNotificationManager::~ReceiveTypingNotificationManager() = default;
 
 void ReceiveTypingNotificationManager::clearTypingNotification()
 {
@@ -67,7 +65,7 @@ void ReceiveTypingNotificationManager::insertTypingNotification(const QString &r
 QString ReceiveTypingNotificationManager::generateNotification(const QStringList &userNames) const
 {
     if (userNames.isEmpty()) {
-        return QString();
+        return {};
     }
     if (userNames.count() == 1) {
         return i18n("<strong>%1</strong> is typing...", userNames[0]);

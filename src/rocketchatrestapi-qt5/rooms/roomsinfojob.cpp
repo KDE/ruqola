@@ -30,9 +30,7 @@ RoomsInfoJob::RoomsInfoJob(QObject *parent)
 {
 }
 
-RoomsInfoJob::~RoomsInfoJob()
-{
-}
+RoomsInfoJob::~RoomsInfoJob() = default;
 
 bool RoomsInfoJob::requireHttpAuthentication() const
 {

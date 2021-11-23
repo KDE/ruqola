@@ -31,9 +31,7 @@ GetDiscussionsJob::GetDiscussionsJob(QObject *parent)
 {
 }
 
-GetDiscussionsJob::~GetDiscussionsJob()
-{
-}
+GetDiscussionsJob::~GetDiscussionsJob() = default;
 
 bool GetDiscussionsJob::requireHttpAuthentication() const
 {

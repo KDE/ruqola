@@ -307,7 +307,7 @@ void RocketChatAccountSettings::setServerUrl(const QString &serverUrl)
 QString RocketChatAccountSettings::cacheBasePath()
 {
     if (mServerUrl.isEmpty()) {
-        return QString();
+        return {};
     }
     if (mCachePath.isEmpty()) {
         mCachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccountName);

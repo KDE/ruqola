@@ -21,9 +21,7 @@
 #include "inviteinfo.h"
 #include "utils.h"
 
-InviteInfo::InviteInfo()
-{
-}
+InviteInfo::InviteInfo() = default;
 
 void InviteInfo::parseInviteInfo(const QJsonObject &replyObject)
 {

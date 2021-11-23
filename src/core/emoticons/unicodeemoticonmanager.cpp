@@ -34,9 +34,7 @@ UnicodeEmoticonManager::UnicodeEmoticonManager(QObject *parent)
     loadUnicodeEmoji();
 }
 
-UnicodeEmoticonManager::~UnicodeEmoticonManager()
-{
-}
+UnicodeEmoticonManager::~UnicodeEmoticonManager() = default;
 
 UnicodeEmoticonManager *UnicodeEmoticonManager::self()
 {

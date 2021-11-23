@@ -30,9 +30,7 @@ ForgotPasswordJob::ForgotPasswordJob(QObject *parent)
 {
 }
 
-ForgotPasswordJob::~ForgotPasswordJob()
-{
-}
+ForgotPasswordJob::~ForgotPasswordJob() = default;
 
 bool ForgotPasswordJob::canStart() const
 {

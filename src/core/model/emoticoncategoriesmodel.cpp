@@ -25,9 +25,7 @@ EmoticonCategoriesModel::EmoticonCategoriesModel(QObject *parent)
 {
 }
 
-EmoticonCategoriesModel::~EmoticonCategoriesModel()
-{
-}
+EmoticonCategoriesModel::~EmoticonCategoriesModel() = default;
 
 int EmoticonCategoriesModel::rowCount(const QModelIndex &parent) const
 {

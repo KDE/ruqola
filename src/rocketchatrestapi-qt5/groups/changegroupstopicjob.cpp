@@ -30,9 +30,7 @@ ChangeGroupsTopicJob::ChangeGroupsTopicJob(QObject *parent)
 {
 }
 
-ChangeGroupsTopicJob::~ChangeGroupsTopicJob()
-{
-}
+ChangeGroupsTopicJob::~ChangeGroupsTopicJob() = default;
 
 bool ChangeGroupsTopicJob::start()
 {

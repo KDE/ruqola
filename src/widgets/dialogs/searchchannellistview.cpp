@@ -27,9 +27,7 @@ SearchChannelListView::SearchChannelListView(QWidget *parent)
 {
 }
 
-SearchChannelListView::~SearchChannelListView()
-{
-}
+SearchChannelListView::~SearchChannelListView() = default;
 
 void SearchChannelListView::paintEvent(QPaintEvent *event)
 {

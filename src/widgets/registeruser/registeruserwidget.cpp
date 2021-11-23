@@ -65,9 +65,7 @@ RegisterUserWidget::RegisterUserWidget(RocketChatAccount *account, QWidget *pare
     mRegisterButton->setEnabled(false);
 }
 
-RegisterUserWidget::~RegisterUserWidget()
-{
-}
+RegisterUserWidget::~RegisterUserWidget() = default;
 
 void RegisterUserWidget::slotUpdateRegisterButton()
 {

@@ -46,9 +46,7 @@ UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     connect(mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged, this, &UsersInRoomFlowWidget::generateListUsersWidget);
 }
 
-UsersInRoomFlowWidget::~UsersInRoomFlowWidget()
-{
-}
+UsersInRoomFlowWidget::~UsersInRoomFlowWidget() = default;
 
 void UsersInRoomFlowWidget::setRoom(Room *room)
 {

@@ -31,9 +31,7 @@ EmojiCustomDelegate::EmojiCustomDelegate(QObject *parent)
 {
 }
 
-EmojiCustomDelegate::~EmojiCustomDelegate()
-{
-}
+EmojiCustomDelegate::~EmojiCustomDelegate() = default;
 
 void EmojiCustomDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {

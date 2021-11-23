@@ -28,9 +28,7 @@ AuthenticationComboBox::AuthenticationComboBox(QWidget *parent)
 {
 }
 
-AuthenticationComboBox::~AuthenticationComboBox()
-{
-}
+AuthenticationComboBox::~AuthenticationComboBox() = default;
 
 void AuthenticationComboBox::switchRocketChatAccount(RocketChatAccount *account)
 {

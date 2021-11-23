@@ -31,9 +31,7 @@ UsersForRoomFilterProxyModel::UsersForRoomFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel()
-{
-}
+UsersForRoomFilterProxyModel::~UsersForRoomFilterProxyModel() = default;
 
 void UsersForRoomFilterProxyModel::clearFilter()
 {

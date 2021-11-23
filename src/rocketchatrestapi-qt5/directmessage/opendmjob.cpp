@@ -31,9 +31,7 @@ OpenDmJob::OpenDmJob(QObject *parent)
 {
 }
 
-OpenDmJob::~OpenDmJob()
-{
-}
+OpenDmJob::~OpenDmJob() = default;
 
 bool OpenDmJob::start()
 {

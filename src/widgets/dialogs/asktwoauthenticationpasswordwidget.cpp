@@ -37,9 +37,7 @@ AskTwoAuthenticationPasswordWidget::AskTwoAuthenticationPasswordWidget(QWidget *
             &AskTwoAuthenticationPasswordWidget::updateButtonOk);
 }
 
-AskTwoAuthenticationPasswordWidget::~AskTwoAuthenticationPasswordWidget()
-{
-}
+AskTwoAuthenticationPasswordWidget::~AskTwoAuthenticationPasswordWidget() = default;
 
 QString AskTwoAuthenticationPasswordWidget::code() const
 {

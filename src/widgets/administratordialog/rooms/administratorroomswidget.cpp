@@ -58,9 +58,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, Q
     connectModel();
 }
 
-AdministratorRoomsWidget::~AdministratorRoomsWidget()
-{
-}
+AdministratorRoomsWidget::~AdministratorRoomsWidget() = default;
 
 void AdministratorRoomsWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {

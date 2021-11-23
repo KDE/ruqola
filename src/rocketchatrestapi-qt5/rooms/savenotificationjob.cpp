@@ -31,9 +31,7 @@ SaveNotificationJob::SaveNotificationJob(QObject *parent)
 {
 }
 
-SaveNotificationJob::~SaveNotificationJob()
-{
-}
+SaveNotificationJob::~SaveNotificationJob() = default;
 
 bool SaveNotificationJob::start()
 {

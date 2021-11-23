@@ -30,9 +30,7 @@ UnFollowMessageJob::UnFollowMessageJob(QObject *parent)
 {
 }
 
-UnFollowMessageJob::~UnFollowMessageJob()
-{
-}
+UnFollowMessageJob::~UnFollowMessageJob() = default;
 
 bool UnFollowMessageJob::start()
 {

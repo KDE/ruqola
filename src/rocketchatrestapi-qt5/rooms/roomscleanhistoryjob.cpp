@@ -32,9 +32,7 @@ RoomsCleanHistoryJob::RoomsCleanHistoryJob(QObject *parent)
 {
 }
 
-RoomsCleanHistoryJob::~RoomsCleanHistoryJob()
-{
-}
+RoomsCleanHistoryJob::~RoomsCleanHistoryJob() = default;
 
 bool RoomsCleanHistoryJob::start()
 {

@@ -30,9 +30,7 @@ RemoveInviteJob::RemoveInviteJob(QObject *parent)
 {
 }
 
-RemoveInviteJob::~RemoveInviteJob()
-{
-}
+RemoveInviteJob::~RemoveInviteJob() = default;
 
 bool RemoveInviteJob::requireHttpAuthentication() const
 {

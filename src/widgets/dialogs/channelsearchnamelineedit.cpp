@@ -41,9 +41,7 @@ ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
     connect(this, &ChannelSearchNameLineEdit::complete, this, &ChannelSearchNameLineEdit::slotComplete);
 }
 
-ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit()
-{
-}
+ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit() = default;
 
 void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {

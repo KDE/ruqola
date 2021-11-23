@@ -38,9 +38,7 @@ FilesForRoomFilterProxyModel::FilesForRoomFilterProxyModel(FilesForRoomModel *fi
     connect(mFilesForRoomModel, &FilesForRoomModel::loadingInProgressChanged, this, &FilesForRoomFilterProxyModel::loadingInProgressChanged);
 }
 
-FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel()
-{
-}
+FilesForRoomFilterProxyModel::~FilesForRoomFilterProxyModel() = default;
 
 void FilesForRoomFilterProxyModel::setFilterString(const QString &string)
 {

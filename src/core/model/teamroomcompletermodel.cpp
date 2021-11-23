@@ -27,9 +27,7 @@ TeamRoomCompleterModel::TeamRoomCompleterModel(QObject *parent)
 {
 }
 
-TeamRoomCompleterModel::~TeamRoomCompleterModel()
-{
-}
+TeamRoomCompleterModel::~TeamRoomCompleterModel() = default;
 
 void TeamRoomCompleterModel::clear()
 {
@@ -63,7 +61,7 @@ int TeamRoomCompleterModel::rowCount(const QModelIndex &parent) const
 QVariant TeamRoomCompleterModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mRooms.count()) {
-        return QVariant();
+        return {};
     }
     const TeamRoomCompleter &room = mRooms.at(index.row());
     switch (role) {

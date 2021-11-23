@@ -42,6 +42,4 @@ CreateVideoMessageDialog::CreateVideoMessageDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
 }
 
-CreateVideoMessageDialog::~CreateVideoMessageDialog()
-{
-}
+CreateVideoMessageDialog::~CreateVideoMessageDialog() = default;

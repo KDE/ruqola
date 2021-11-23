@@ -103,9 +103,7 @@ InviteUsersWidget::InviteUsersWidget(RocketChatAccount *account, QWidget *parent
     fillComboBox();
 }
 
-InviteUsersWidget::~InviteUsersWidget()
-{
-}
+InviteUsersWidget::~InviteUsersWidget() = default;
 
 void InviteUsersWidget::slotGenerateNewLink()
 {

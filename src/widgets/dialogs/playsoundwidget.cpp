@@ -65,9 +65,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mainLayout->addWidget(mSoundSlider);
 }
 
-PlaySoundWidget::~PlaySoundWidget()
-{
-}
+PlaySoundWidget::~PlaySoundWidget() = default;
 
 void PlaySoundWidget::muteChanged(bool state)
 {

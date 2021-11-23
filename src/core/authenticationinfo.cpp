@@ -20,13 +20,9 @@
 
 #include "authenticationinfo.h"
 
-AuthenticationInfo::AuthenticationInfo()
-{
-}
+AuthenticationInfo::AuthenticationInfo() = default;
 
-AuthenticationInfo::~AuthenticationInfo()
-{
-}
+AuthenticationInfo::~AuthenticationInfo() = default;
 
 QString AuthenticationInfo::name() const
 {

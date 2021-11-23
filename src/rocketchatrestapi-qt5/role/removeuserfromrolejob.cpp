@@ -34,9 +34,7 @@ RemoveUserFromRoleJob::RemoveUserFromRoleJob(QObject *parent)
 {
 }
 
-RemoveUserFromRoleJob::~RemoveUserFromRoleJob()
-{
-}
+RemoveUserFromRoleJob::~RemoveUserFromRoleJob() = default;
 
 bool RemoveUserFromRoleJob::start()
 {

@@ -34,9 +34,7 @@ GetChannelRolesJob::GetChannelRolesJob(QObject *parent)
 {
 }
 
-GetChannelRolesJob::~GetChannelRolesJob()
-{
-}
+GetChannelRolesJob::~GetChannelRolesJob() = default;
 
 bool GetChannelRolesJob::canStart() const
 {

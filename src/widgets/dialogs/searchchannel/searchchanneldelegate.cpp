@@ -33,9 +33,7 @@ SearchChannelDelegate::SearchChannelDelegate(QObject *parent)
 {
 }
 
-SearchChannelDelegate::~SearchChannelDelegate()
-{
-}
+SearchChannelDelegate::~SearchChannelDelegate() = default;
 
 void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
@@ -48,7 +46,7 @@ void SearchChannelDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
     drawBackground(painter, optionCopy, index);
 
-    const QIcon icon = index.data(SearchChannelModel::IconName).value<QIcon>();
+    const auto icon = index.data(SearchChannelModel::IconName).value<QIcon>();
     icon.paint(painter, layout.joinButtonRect, Qt::AlignCenter);
 
     painter->drawText(layout.usableRect, layout.channelName);

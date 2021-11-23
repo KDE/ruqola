@@ -31,9 +31,7 @@ SetGroupTypeJob::SetGroupTypeJob(QObject *parent)
 {
 }
 
-SetGroupTypeJob::~SetGroupTypeJob()
-{
-}
+SetGroupTypeJob::~SetGroupTypeJob() = default;
 
 bool SetGroupTypeJob::start()
 {

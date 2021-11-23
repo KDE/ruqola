@@ -32,9 +32,7 @@ GetMentionedMessagesJob::GetMentionedMessagesJob(QObject *parent)
 {
 }
 
-GetMentionedMessagesJob::~GetMentionedMessagesJob()
-{
-}
+GetMentionedMessagesJob::~GetMentionedMessagesJob() = default;
 
 bool GetMentionedMessagesJob::requireHttpAuthentication() const
 {

@@ -31,9 +31,7 @@ PinMessageJob::PinMessageJob(QObject *parent)
 {
 }
 
-PinMessageJob::~PinMessageJob()
-{
-}
+PinMessageJob::~PinMessageJob() = default;
 
 bool PinMessageJob::start()
 {

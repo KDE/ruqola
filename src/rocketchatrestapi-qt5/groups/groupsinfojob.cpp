@@ -32,9 +32,7 @@ GroupsInfoJob::GroupsInfoJob(QObject *parent)
 {
 }
 
-GroupsInfoJob::~GroupsInfoJob()
-{
-}
+GroupsInfoJob::~GroupsInfoJob() = default;
 
 bool GroupsInfoJob::start()
 {

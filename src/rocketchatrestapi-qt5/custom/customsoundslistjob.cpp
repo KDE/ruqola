@@ -31,9 +31,7 @@ CustomSoundsListJob::CustomSoundsListJob(QObject *parent)
 {
 }
 
-CustomSoundsListJob::~CustomSoundsListJob()
-{
-}
+CustomSoundsListJob::~CustomSoundsListJob() = default;
 
 bool CustomSoundsListJob::start()
 {

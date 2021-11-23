@@ -20,9 +20,7 @@
 #include "messagetranslation.h"
 #include <QJsonObject>
 
-MessageTranslation::MessageTranslation()
-{
-}
+MessageTranslation::MessageTranslation() = default;
 
 QDebug operator<<(QDebug d, const MessageTranslation &t)
 {

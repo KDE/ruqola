@@ -260,7 +260,7 @@ void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
     std::vector<QPersistentModelIndex> persistentIndexes;
     const int proxyCount = proxy.rowCount();
     for (int row = 0; row < proxyCount; ++row) {
-        persistentIndexes.push_back(proxy.index(row, 0));
+        persistentIndexes.emplace_back(proxy.index(row, 0));
     }
     QVERIFY(compareWithExpected(extractTexts(persistentIndexes), initialExpectedList()));
 

@@ -31,9 +31,7 @@ GroupsInviteJob::GroupsInviteJob(QObject *parent)
 {
 }
 
-GroupsInviteJob::~GroupsInviteJob()
-{
-}
+GroupsInviteJob::~GroupsInviteJob() = default;
 
 bool GroupsInviteJob::start()
 {

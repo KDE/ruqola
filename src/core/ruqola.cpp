@@ -31,9 +31,7 @@
 
 static Ruqola *s_self = nullptr;
 
-Ruqola::~Ruqola()
-{
-}
+Ruqola::~Ruqola() = default;
 
 Ruqola *Ruqola::self()
 {

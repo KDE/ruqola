@@ -31,9 +31,7 @@ ChangeArchivationStateJob::ChangeArchivationStateJob(QObject *parent)
 {
 }
 
-ChangeArchivationStateJob::~ChangeArchivationStateJob()
-{
-}
+ChangeArchivationStateJob::~ChangeArchivationStateJob() = default;
 
 bool ChangeArchivationStateJob::start()
 {

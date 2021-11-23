@@ -27,9 +27,7 @@ RESTAuthenticationManager::RESTAuthenticationManager(RocketChatRestApi::Connecti
 {
 }
 
-RESTAuthenticationManager::~RESTAuthenticationManager()
-{
-}
+RESTAuthenticationManager::~RESTAuthenticationManager() = default;
 
 void RESTAuthenticationManager::setAuthToken(const QString &authToken)
 {

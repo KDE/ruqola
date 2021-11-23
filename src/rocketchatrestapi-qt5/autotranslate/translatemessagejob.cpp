@@ -31,9 +31,7 @@ TranslateMessageJob::TranslateMessageJob(QObject *parent)
 {
 }
 
-TranslateMessageJob::~TranslateMessageJob()
-{
-}
+TranslateMessageJob::~TranslateMessageJob() = default;
 
 bool TranslateMessageJob::start()
 {

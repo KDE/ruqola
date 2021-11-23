@@ -48,9 +48,7 @@ ShowListMessageBaseDialog::ShowListMessageBaseDialog(RocketChatAccount *account,
     connect(mShowListMessage->messageListView(), &MessageListView::goToMessageRequested, this, &ShowListMessageBaseDialog::goToMessageRequested);
 }
 
-ShowListMessageBaseDialog::~ShowListMessageBaseDialog()
-{
-}
+ShowListMessageBaseDialog::~ShowListMessageBaseDialog() = default;
 
 void ShowListMessageBaseDialog::slotLoadMoreMessages()
 {

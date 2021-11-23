@@ -46,9 +46,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
     connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::updateOkButton);
 }
 
-CreateDirectMessagesWidget::~CreateDirectMessagesWidget()
-{
-}
+CreateDirectMessagesWidget::~CreateDirectMessagesWidget() = default;
 
 QStringList CreateDirectMessagesWidget::userNames() const
 {

@@ -34,9 +34,7 @@ AuthenticationManager::AuthenticationManager(QObject *parent)
     initializePluginList();
 }
 
-AuthenticationManager::~AuthenticationManager()
-{
-}
+AuthenticationManager::~AuthenticationManager() = default;
 
 AuthenticationManager *AuthenticationManager::self()
 {

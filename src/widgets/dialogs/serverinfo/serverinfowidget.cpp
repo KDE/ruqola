@@ -57,9 +57,7 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     layout->addRow(i18n("Server Version:"), mServerVersion);
 }
 
-ServerInfoWidget::~ServerInfoWidget()
-{
-}
+ServerInfoWidget::~ServerInfoWidget() = default;
 
 void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
 {

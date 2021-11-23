@@ -20,9 +20,7 @@
 
 #include "teaminfo.h"
 
-TeamInfo::TeamInfo()
-{
-}
+TeamInfo::TeamInfo() = default;
 
 void TeamInfo::parseTeamInfo(const QJsonObject &replyObject)
 {

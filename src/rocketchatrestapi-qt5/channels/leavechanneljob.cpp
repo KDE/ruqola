@@ -31,9 +31,7 @@ LeaveChannelJob::LeaveChannelJob(QObject *parent)
 {
 }
 
-LeaveChannelJob::~LeaveChannelJob()
-{
-}
+LeaveChannelJob::~LeaveChannelJob() = default;
 
 bool LeaveChannelJob::start()
 {

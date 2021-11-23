@@ -27,9 +27,7 @@ CustomSoundsManager::CustomSoundsManager(QObject *parent)
 {
 }
 
-CustomSoundsManager::~CustomSoundsManager()
-{
-}
+CustomSoundsManager::~CustomSoundsManager() = default;
 
 void CustomSoundsManager::initializeDefaultSounds()
 {

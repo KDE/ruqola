@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-ListMessages::ListMessages()
-{
-}
+ListMessages::ListMessages() = default;
 
 void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &arrayName)
 {

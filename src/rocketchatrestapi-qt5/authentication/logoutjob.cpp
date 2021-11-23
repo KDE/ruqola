@@ -31,9 +31,7 @@ LogoutJob::LogoutJob(QObject *parent)
 {
 }
 
-LogoutJob::~LogoutJob()
-{
-}
+LogoutJob::~LogoutJob() = default;
 
 bool LogoutJob::start()
 {

@@ -27,9 +27,7 @@ ChannelCompleterModel::ChannelCompleterModel(QObject *parent)
 {
 }
 
-ChannelCompleterModel::~ChannelCompleterModel()
-{
-}
+ChannelCompleterModel::~ChannelCompleterModel() = default;
 
 void ChannelCompleterModel::clear()
 {
@@ -63,7 +61,7 @@ int ChannelCompleterModel::rowCount(const QModelIndex &parent) const
 QVariant ChannelCompleterModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mChannels.count()) {
-        return QVariant();
+        return {};
     }
     const Channel channel = mChannels.at(index.row());
     switch (role) {

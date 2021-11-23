@@ -31,9 +31,7 @@ LeaveGroupsJob::LeaveGroupsJob(QObject *parent)
 {
 }
 
-LeaveGroupsJob::~LeaveGroupsJob()
-{
-}
+LeaveGroupsJob::~LeaveGroupsJob() = default;
 
 bool LeaveGroupsJob::start()
 {

@@ -31,9 +31,7 @@ UsersListJob::UsersListJob(QObject *parent)
 {
 }
 
-UsersListJob::~UsersListJob()
-{
-}
+UsersListJob::~UsersListJob() = default;
 
 bool UsersListJob::requireHttpAuthentication() const
 {

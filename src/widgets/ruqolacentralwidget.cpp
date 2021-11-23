@@ -51,9 +51,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
 }
 
-RuqolaCentralWidget::~RuqolaCentralWidget()
-{
-}
+RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 
 void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
 {

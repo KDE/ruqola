@@ -31,9 +31,7 @@ ChannelCloseJob::ChannelCloseJob(QObject *parent)
 {
 }
 
-ChannelCloseJob::~ChannelCloseJob()
-{
-}
+ChannelCloseJob::~ChannelCloseJob() = default;
 
 bool ChannelCloseJob::start()
 {

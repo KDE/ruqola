@@ -30,9 +30,7 @@ UsersPresenceJob::UsersPresenceJob(QObject *parent)
 {
 }
 
-UsersPresenceJob::~UsersPresenceJob()
-{
-}
+UsersPresenceJob::~UsersPresenceJob() = default;
 
 bool UsersPresenceJob::requireHttpAuthentication() const
 {

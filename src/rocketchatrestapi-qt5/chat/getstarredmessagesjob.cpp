@@ -32,9 +32,7 @@ GetStarredMessagesJob::GetStarredMessagesJob(QObject *parent)
 {
 }
 
-GetStarredMessagesJob::~GetStarredMessagesJob()
-{
-}
+GetStarredMessagesJob::~GetStarredMessagesJob() = default;
 
 bool GetStarredMessagesJob::requireHttpAuthentication() const
 {

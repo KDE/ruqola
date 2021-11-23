@@ -37,9 +37,7 @@ RoomReplyThreadWidget::RoomReplyThreadWidget(QWidget *parent)
     addAction(cancelReplyingInThreadAction);
 }
 
-RoomReplyThreadWidget::~RoomReplyThreadWidget()
-{
-}
+RoomReplyThreadWidget::~RoomReplyThreadWidget() = default;
 
 void RoomReplyThreadWidget::setMessageText(const QString &str)
 {

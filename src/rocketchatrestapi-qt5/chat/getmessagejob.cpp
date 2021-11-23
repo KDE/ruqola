@@ -31,9 +31,7 @@ GetMessageJob::GetMessageJob(QObject *parent)
 {
 }
 
-GetMessageJob::~GetMessageJob()
-{
-}
+GetMessageJob::~GetMessageJob() = default;
 
 bool GetMessageJob::requireHttpAuthentication() const
 {

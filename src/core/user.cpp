@@ -27,13 +27,9 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-User::User()
-{
-}
+User::User() = default;
 
-User::~User()
-{
-}
+User::~User() = default;
 
 QString User::name() const
 {

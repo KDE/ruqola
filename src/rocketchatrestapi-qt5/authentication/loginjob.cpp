@@ -31,9 +31,7 @@ LoginJob::LoginJob(QObject *parent)
 {
 }
 
-LoginJob::~LoginJob()
-{
-}
+LoginJob::~LoginJob() = default;
 
 bool LoginJob::canStart() const
 {

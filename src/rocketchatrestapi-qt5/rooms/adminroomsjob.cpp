@@ -31,9 +31,7 @@ AdminRoomsJob::AdminRoomsJob(QObject *parent)
 {
 }
 
-AdminRoomsJob::~AdminRoomsJob()
-{
-}
+AdminRoomsJob::~AdminRoomsJob() = default;
 
 bool AdminRoomsJob::requireHttpAuthentication() const
 {

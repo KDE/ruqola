@@ -44,9 +44,7 @@ UsersInRoomLabel::UsersInRoomLabel(QWidget *parent)
     mainLayout->addWidget(mUserNameLabel);
 }
 
-UsersInRoomLabel::~UsersInRoomLabel()
-{
-}
+UsersInRoomLabel::~UsersInRoomLabel() = default;
 
 void UsersInRoomLabel::setUserInfo(const UsersInRoomLabel::UserInfo &info)
 {
@@ -70,9 +68,7 @@ UserLabel::UserLabel(QWidget *parent)
     connect(this, &QLabel::linkActivated, this, &UserLabel::slotOpenConversation);
 }
 
-UserLabel::~UserLabel()
-{
-}
+UserLabel::~UserLabel() = default;
 
 void UserLabel::setRoom(Room *room)
 {

@@ -57,9 +57,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
 }
 
-ChannelListView::~ChannelListView()
-{
-}
+ChannelListView::~ChannelListView() = default;
 
 void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {

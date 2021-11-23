@@ -30,9 +30,7 @@ SearchMessageModel::SearchMessageModel(const QString &roomID, RocketChatAccount 
 {
 }
 
-SearchMessageModel::~SearchMessageModel()
-{
-}
+SearchMessageModel::~SearchMessageModel() = default;
 
 void SearchMessageModel::clearModel()
 {

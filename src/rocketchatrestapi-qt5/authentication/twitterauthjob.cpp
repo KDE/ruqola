@@ -31,9 +31,7 @@ TwitterAuthJob::TwitterAuthJob(QObject *parent)
 {
 }
 
-TwitterAuthJob::~TwitterAuthJob()
-{
-}
+TwitterAuthJob::~TwitterAuthJob() = default;
 
 bool TwitterAuthJob::canStart() const
 {

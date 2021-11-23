@@ -31,9 +31,7 @@ ArchiveChannelJob::ArchiveChannelJob(QObject *parent)
 {
 }
 
-ArchiveChannelJob::~ArchiveChannelJob()
-{
-}
+ArchiveChannelJob::~ArchiveChannelJob() = default;
 
 bool ArchiveChannelJob::start()
 {

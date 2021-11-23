@@ -35,9 +35,7 @@ ChannelListDelegate::ChannelListDelegate(QObject *parent)
 {
 }
 
-ChannelListDelegate::~ChannelListDelegate()
-{
-}
+ChannelListDelegate::~ChannelListDelegate() = default;
 
 void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
@@ -69,10 +67,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     drawBackground(painter, optionCopy, index);
 
     if (!isHeader) {
-        const QIcon icon = index.data(Qt::DecorationRole).value<QIcon>();
+        const auto icon = index.data(Qt::DecorationRole).value<QIcon>();
         icon.paint(painter, decorationRect, Qt::AlignCenter);
         if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
-            const Utils::AvatarInfo avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
+            const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
             if (avatarInfo.isValid()) {
                 const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());
                 painter->drawPixmap(margin, option.rect.top(), pix);

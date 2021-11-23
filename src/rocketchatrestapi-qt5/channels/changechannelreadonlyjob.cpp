@@ -31,9 +31,7 @@ ChangeChannelReadonlyJob::ChangeChannelReadonlyJob(QObject *parent)
 {
 }
 
-ChangeChannelReadonlyJob::~ChangeChannelReadonlyJob()
-{
-}
+ChangeChannelReadonlyJob::~ChangeChannelReadonlyJob() = default;
 
 bool ChangeChannelReadonlyJob::start()
 {

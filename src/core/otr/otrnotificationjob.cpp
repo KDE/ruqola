@@ -29,9 +29,7 @@ OtrNotificationJob::OtrNotificationJob(QObject *parent)
 {
 }
 
-OtrNotificationJob::~OtrNotificationJob()
-{
-}
+OtrNotificationJob::~OtrNotificationJob() = default;
 
 void OtrNotificationJob::setRocketChatAccount(RocketChatAccount *account)
 {

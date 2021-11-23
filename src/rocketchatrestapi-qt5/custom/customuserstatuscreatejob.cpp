@@ -31,9 +31,7 @@ CustomUserStatusCreateJob::CustomUserStatusCreateJob(QObject *parent)
 {
 }
 
-CustomUserStatusCreateJob::~CustomUserStatusCreateJob()
-{
-}
+CustomUserStatusCreateJob::~CustomUserStatusCreateJob() = default;
 
 bool CustomUserStatusCreateJob::start()
 {

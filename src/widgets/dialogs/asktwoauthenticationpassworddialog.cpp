@@ -46,9 +46,7 @@ AskTwoAuthenticationPasswordDialog::AskTwoAuthenticationPasswordDialog(QWidget *
     connect(mAskTwoAuthicationPasswordWidget, &AskTwoAuthenticationPasswordWidget::updateButtonOk, mOkButton, &QPushButton::setEnabled);
 }
 
-AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog()
-{
-}
+AskTwoAuthenticationPasswordDialog::~AskTwoAuthenticationPasswordDialog() = default;
 
 QString AskTwoAuthenticationPasswordDialog::code() const
 {

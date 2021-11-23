@@ -31,9 +31,7 @@ ChannelRemoveLeaderJob::ChannelRemoveLeaderJob(QObject *parent)
 {
 }
 
-ChannelRemoveLeaderJob::~ChannelRemoveLeaderJob()
-{
-}
+ChannelRemoveLeaderJob::~ChannelRemoveLeaderJob() = default;
 
 bool ChannelRemoveLeaderJob::start()
 {

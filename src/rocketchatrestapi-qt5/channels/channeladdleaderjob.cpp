@@ -31,9 +31,7 @@ ChannelAddLeaderJob::ChannelAddLeaderJob(QObject *parent)
 {
 }
 
-ChannelAddLeaderJob::~ChannelAddLeaderJob()
-{
-}
+ChannelAddLeaderJob::~ChannelAddLeaderJob() = default;
 
 bool ChannelAddLeaderJob::start()
 {

@@ -40,9 +40,7 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     mainLayout->addWidget(mTeamSelectDeletedRoomWidget);
 }
 
-TeamConvertToChannelWidget::~TeamConvertToChannelWidget()
-{
-}
+TeamConvertToChannelWidget::~TeamConvertToChannelWidget() = default;
 
 QStringList TeamConvertToChannelWidget::roomIdsToDelete() const
 {

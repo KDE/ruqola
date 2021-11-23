@@ -29,9 +29,7 @@ RecentUsedEmoticonView::RecentUsedEmoticonView(QWidget *parent)
     setContextMenuPolicy(Qt::DefaultContextMenu);
 }
 
-RecentUsedEmoticonView::~RecentUsedEmoticonView()
-{
-}
+RecentUsedEmoticonView::~RecentUsedEmoticonView() = default;
 
 void RecentUsedEmoticonView::contextMenuEvent(QContextMenuEvent *event)
 {

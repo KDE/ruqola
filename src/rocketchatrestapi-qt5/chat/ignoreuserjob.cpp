@@ -31,9 +31,7 @@ IgnoreUserJob::IgnoreUserJob(QObject *parent)
 {
 }
 
-IgnoreUserJob::~IgnoreUserJob()
-{
-}
+IgnoreUserJob::~IgnoreUserJob() = default;
 
 bool IgnoreUserJob::requireHttpAuthentication() const
 {

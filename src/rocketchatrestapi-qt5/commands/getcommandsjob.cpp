@@ -31,9 +31,7 @@ GetCommandsJob::GetCommandsJob(QObject *parent)
 {
 }
 
-GetCommandsJob::~GetCommandsJob()
-{
-}
+GetCommandsJob::~GetCommandsJob() = default;
 
 bool GetCommandsJob::requireHttpAuthentication() const
 {

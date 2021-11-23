@@ -39,9 +39,7 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     mainLayout->addStretch(1);
 }
 
-MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
-{
-}
+MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget() = default;
 
 void MyAccount2FaConfigureWidget::load()
 {

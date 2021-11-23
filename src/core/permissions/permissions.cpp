@@ -23,9 +23,7 @@
 
 #include <QJsonArray>
 
-Permissions::Permissions()
-{
-}
+Permissions::Permissions() = default;
 
 QVector<Permission> Permissions::permissions() const
 {

@@ -46,9 +46,7 @@ ModifyStatusWidget::ModifyStatusWidget(QWidget *parent)
     mainLayout->addRow(i18n("Status:"), mStatusCombobox);
 }
 
-ModifyStatusWidget::~ModifyStatusWidget()
-{
-}
+ModifyStatusWidget::~ModifyStatusWidget() = default;
 
 void ModifyStatusWidget::setMessageStatus(const QString &statusStr)
 {

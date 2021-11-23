@@ -29,9 +29,7 @@ SearchChannelFilterProxyModel::SearchChannelFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel()
-{
-}
+SearchChannelFilterProxyModel::~SearchChannelFilterProxyModel() = default;
 
 bool SearchChannelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

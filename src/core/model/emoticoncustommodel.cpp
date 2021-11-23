@@ -25,9 +25,7 @@ EmoticonCustomModel::EmoticonCustomModel(QObject *parent)
 {
 }
 
-EmoticonCustomModel::~EmoticonCustomModel()
-{
-}
+EmoticonCustomModel::~EmoticonCustomModel() = default;
 
 int EmoticonCustomModel::rowCount(const QModelIndex &parent) const
 {

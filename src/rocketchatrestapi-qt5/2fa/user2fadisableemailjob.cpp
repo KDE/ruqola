@@ -32,9 +32,7 @@ User2FADisableEmailJob::User2FADisableEmailJob(QObject *parent)
 {
 }
 
-User2FADisableEmailJob::~User2FADisableEmailJob()
-{
-}
+User2FADisableEmailJob::~User2FADisableEmailJob() = default;
 
 bool User2FADisableEmailJob::start()
 {

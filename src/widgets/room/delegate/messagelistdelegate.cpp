@@ -81,9 +81,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }
 
-MessageListDelegate::~MessageListDelegate()
-{
-}
+MessageListDelegate::~MessageListDelegate() = default;
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
@@ -106,7 +104,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString emojiStr = index.data(MessageModel::Emoji).toString();
-    const Utils::AvatarInfo info = index.data(MessageModel::AvatarInfo).value<Utils::AvatarInfo>();
+    const auto info = index.data(MessageModel::AvatarInfo).value<Utils::AvatarInfo>();
     if (emojiStr.isEmpty()) {
         const QString avatarUrl = index.data(MessageModel::Avatar).toString();
         if (!avatarUrl.isEmpty()) {

@@ -22,13 +22,9 @@
 #include "utils.h"
 #include <QJsonArray>
 
-OwnUser::OwnUser()
-{
-}
+OwnUser::OwnUser() = default;
 
-OwnUser::~OwnUser()
-{
-}
+OwnUser::~OwnUser() = default;
 
 void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
 {

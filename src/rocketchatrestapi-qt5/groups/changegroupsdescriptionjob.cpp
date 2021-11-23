@@ -31,9 +31,7 @@ ChangeGroupsDescriptionJob::ChangeGroupsDescriptionJob(QObject *parent)
 {
 }
 
-ChangeGroupsDescriptionJob::~ChangeGroupsDescriptionJob()
-{
-}
+ChangeGroupsDescriptionJob::~ChangeGroupsDescriptionJob() = default;
 
 bool ChangeGroupsDescriptionJob::start()
 {

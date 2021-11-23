@@ -37,9 +37,7 @@ CompletionListView::CompletionListView()
     connect(this, &QListView::clicked, this, &CompletionListView::complete);
 }
 
-CompletionListView::~CompletionListView()
-{
-}
+CompletionListView::~CompletionListView() = default;
 
 void CompletionListView::setTextWidget(QWidget *textWidget)
 {

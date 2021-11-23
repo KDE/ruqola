@@ -50,9 +50,7 @@ MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile()
 {
 }
 
-MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile()
-{
-}
+MessageAttachmentDelegateHelperFile::~MessageAttachmentDelegateHelperFile() = default;
 
 void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttach,
                                                QPainter *painter,

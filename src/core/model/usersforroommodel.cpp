@@ -32,9 +32,7 @@ UsersForRoomModel::UsersForRoomModel(QObject *parent)
 {
 }
 
-UsersForRoomModel::~UsersForRoomModel()
-{
-}
+UsersForRoomModel::~UsersForRoomModel() = default;
 
 void UsersForRoomModel::setUsers(const QVector<User> &users)
 {
@@ -76,7 +74,7 @@ int UsersForRoomModel::rowCount(const QModelIndex &parent) const
 QVariant UsersForRoomModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mUsers.count()) {
-        return QVariant();
+        return {};
     }
 
     const User &user = mUsers.at(index.row());

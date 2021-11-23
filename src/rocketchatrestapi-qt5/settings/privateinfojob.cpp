@@ -30,9 +30,7 @@ PrivateInfoJob::PrivateInfoJob(QObject *parent)
 {
 }
 
-PrivateInfoJob::~PrivateInfoJob()
-{
-}
+PrivateInfoJob::~PrivateInfoJob() = default;
 
 bool PrivateInfoJob::start()
 {

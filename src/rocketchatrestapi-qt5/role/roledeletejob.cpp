@@ -31,9 +31,7 @@ RoleDeleteJob::RoleDeleteJob(QObject *parent)
 {
 }
 
-RoleDeleteJob::~RoleDeleteJob()
-{
-}
+RoleDeleteJob::~RoleDeleteJob() = default;
 
 bool RoleDeleteJob::start()
 {

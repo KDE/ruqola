@@ -31,9 +31,7 @@ MarkRoomAsReadJob::MarkRoomAsReadJob(QObject *parent)
 {
 }
 
-MarkRoomAsReadJob::~MarkRoomAsReadJob()
-{
-}
+MarkRoomAsReadJob::~MarkRoomAsReadJob() = default;
 
 bool MarkRoomAsReadJob::start()
 {

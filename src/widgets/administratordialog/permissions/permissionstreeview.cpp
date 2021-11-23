@@ -31,6 +31,4 @@ PermissionsTreeView::PermissionsTreeView(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
-PermissionsTreeView::~PermissionsTreeView()
-{
-}
+PermissionsTreeView::~PermissionsTreeView() = default;

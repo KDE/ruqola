@@ -28,9 +28,7 @@ AdminUsersModel::AdminUsersModel(QObject *parent)
 {
 }
 
-AdminUsersModel::~AdminUsersModel()
-{
-}
+AdminUsersModel::~AdminUsersModel() = default;
 
 Users::ParseType AdminUsersModel::parseType() const
 {
@@ -100,7 +98,7 @@ QVariant AdminUsersModel::headerData(int section, Qt::Orientation orientation, i
             return {};
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminUsersModel::columnCount(const QModelIndex &parent) const

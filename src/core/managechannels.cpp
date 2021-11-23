@@ -34,9 +34,7 @@ ManageChannels::ManageChannels(RocketChatAccount *account, QObject *parent)
 {
 }
 
-ManageChannels::~ManageChannels()
-{
-}
+ManageChannels::~ManageChannels() = default;
 
 ManageChannels::SearchChannelFound ManageChannels::searchOpenChannels(const QString &roomId)
 {

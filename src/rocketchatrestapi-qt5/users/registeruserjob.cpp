@@ -31,9 +31,7 @@ RegisterUserJob::RegisterUserJob(QObject *parent)
 {
 }
 
-RegisterUserJob::~RegisterUserJob()
-{
-}
+RegisterUserJob::~RegisterUserJob() = default;
 
 bool RegisterUserJob::canStart() const
 {

@@ -30,9 +30,7 @@ GetSupportedLanguagesJob::GetSupportedLanguagesJob(QObject *parent)
 {
 }
 
-GetSupportedLanguagesJob::~GetSupportedLanguagesJob()
-{
-}
+GetSupportedLanguagesJob::~GetSupportedLanguagesJob() = default;
 
 bool GetSupportedLanguagesJob::requireHttpAuthentication() const
 {

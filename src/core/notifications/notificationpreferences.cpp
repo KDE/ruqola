@@ -34,9 +34,7 @@ NotificationPreferences::NotificationPreferences(QObject *parent)
 {
 }
 
-NotificationPreferences::~NotificationPreferences()
-{
-}
+NotificationPreferences::~NotificationPreferences() = default;
 
 NotificationPreferenceModel *NotificationPreferences::emailNotificationModel() const
 {

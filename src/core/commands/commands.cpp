@@ -26,9 +26,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Commands::Commands()
-{
-}
+Commands::Commands() = default;
 
 bool Commands::isEmpty() const
 {

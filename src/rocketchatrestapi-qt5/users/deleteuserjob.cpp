@@ -31,9 +31,7 @@ DeleteUserJob::DeleteUserJob(QObject *parent)
 {
 }
 
-DeleteUserJob::~DeleteUserJob()
-{
-}
+DeleteUserJob::~DeleteUserJob() = default;
 
 bool DeleteUserJob::start()
 {

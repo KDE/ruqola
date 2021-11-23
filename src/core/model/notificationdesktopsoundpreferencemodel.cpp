@@ -27,9 +27,7 @@ NotificationDesktopSoundPreferenceModel::NotificationDesktopSoundPreferenceModel
     fillModel();
 }
 
-NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceModel()
-{
-}
+NotificationDesktopSoundPreferenceModel::~NotificationDesktopSoundPreferenceModel() = default;
 
 int NotificationDesktopSoundPreferenceModel::rowCount(const QModelIndex &parent) const
 {

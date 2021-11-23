@@ -34,9 +34,7 @@ RoomHeaderLabel::RoomHeaderLabel(QWidget *parent)
     connect(this, &QLabel::linkActivated, this, &RoomHeaderLabel::slotMoreInfo);
 }
 
-RoomHeaderLabel::~RoomHeaderLabel()
-{
-}
+RoomHeaderLabel::~RoomHeaderLabel() = default;
 
 void RoomHeaderLabel::resizeEvent(QResizeEvent *ev)
 {

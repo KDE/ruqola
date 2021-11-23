@@ -122,9 +122,7 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     });
 }
 
-AccountsOverviewWidget::~AccountsOverviewWidget()
-{
-}
+AccountsOverviewWidget::~AccountsOverviewWidget() = default;
 
 void AccountsOverviewWidget::updateButtons()
 {

@@ -31,9 +31,7 @@ RoleCreateJob::RoleCreateJob(QObject *parent)
 {
 }
 
-RoleCreateJob::~RoleCreateJob()
-{
-}
+RoleCreateJob::~RoleCreateJob() = default;
 
 bool RoleCreateJob::start()
 {

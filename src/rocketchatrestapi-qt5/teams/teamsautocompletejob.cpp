@@ -31,9 +31,7 @@ TeamsAutoCompleteJob::TeamsAutoCompleteJob(QObject *parent)
 {
 }
 
-TeamsAutoCompleteJob::~TeamsAutoCompleteJob()
-{
-}
+TeamsAutoCompleteJob::~TeamsAutoCompleteJob() = default;
 
 bool TeamsAutoCompleteJob::requireHttpAuthentication() const
 {

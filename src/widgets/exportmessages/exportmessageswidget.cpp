@@ -45,9 +45,7 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     fillFormat();
 }
 
-ExportMessagesWidget::~ExportMessagesWidget()
-{
-}
+ExportMessagesWidget::~ExportMessagesWidget() = default;
 
 void ExportMessagesWidget::fillFormat()
 {

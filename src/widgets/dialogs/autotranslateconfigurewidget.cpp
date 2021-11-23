@@ -65,9 +65,7 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *ac
     mainLayout->addStretch(1);
 }
 
-AutoTranslateConfigureWidget::~AutoTranslateConfigureWidget()
-{
-}
+AutoTranslateConfigureWidget::~AutoTranslateConfigureWidget() = default;
 
 Room *AutoTranslateConfigureWidget::room() const
 {

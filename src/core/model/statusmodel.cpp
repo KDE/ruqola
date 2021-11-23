@@ -30,9 +30,7 @@ StatusModel::StatusModel(QObject *parent)
     fillModel();
 }
 
-StatusModel::~StatusModel()
-{
-}
+StatusModel::~StatusModel() = default;
 
 User::PresenceStatus StatusModel::currentUserStatus() const
 {

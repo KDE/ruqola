@@ -31,9 +31,7 @@ ChangeGroupsReadonlyJob::ChangeGroupsReadonlyJob(QObject *parent)
 {
 }
 
-ChangeGroupsReadonlyJob::~ChangeGroupsReadonlyJob()
-{
-}
+ChangeGroupsReadonlyJob::~ChangeGroupsReadonlyJob() = default;
 
 bool ChangeGroupsReadonlyJob::start()
 {

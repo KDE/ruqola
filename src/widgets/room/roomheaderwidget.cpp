@@ -151,9 +151,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     connect(mTeamName, &TeamNameLabel::openTeam, this, &RoomHeaderWidget::openTeam);
 }
 
-RoomHeaderWidget::~RoomHeaderWidget()
-{
-}
+RoomHeaderWidget::~RoomHeaderWidget() = default;
 
 void RoomHeaderWidget::setTeamRoomInfo(const Room::TeamRoomInfo &info)
 {

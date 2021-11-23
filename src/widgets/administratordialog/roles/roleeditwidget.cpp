@@ -54,9 +54,7 @@ RoleEditWidget::RoleEditWidget(QWidget *parent)
     });
 }
 
-RoleEditWidget::~RoleEditWidget()
-{
-}
+RoleEditWidget::~RoleEditWidget() = default;
 
 void RoleEditWidget::setRoleEditDialogInfo(const RoleEditDialogInfo &info)
 {

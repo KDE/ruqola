@@ -33,9 +33,7 @@ TeamDeleteJob::TeamDeleteJob(QObject *parent)
 {
 }
 
-TeamDeleteJob::~TeamDeleteJob()
-{
-}
+TeamDeleteJob::~TeamDeleteJob() = default;
 
 bool TeamDeleteJob::start()
 {

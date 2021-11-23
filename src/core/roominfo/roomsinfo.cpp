@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-RoomsInfo::RoomsInfo()
-{
-}
+RoomsInfo::RoomsInfo() = default;
 
 bool RoomsInfo::isEmpty() const
 {

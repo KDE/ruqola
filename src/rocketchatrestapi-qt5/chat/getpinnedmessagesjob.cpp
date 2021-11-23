@@ -32,9 +32,7 @@ GetPinnedMessagesJob::GetPinnedMessagesJob(QObject *parent)
 {
 }
 
-GetPinnedMessagesJob::~GetPinnedMessagesJob()
-{
-}
+GetPinnedMessagesJob::~GetPinnedMessagesJob() = default;
 
 bool GetPinnedMessagesJob::requireHttpAuthentication() const
 {

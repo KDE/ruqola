@@ -33,9 +33,7 @@ ConfigureSpellCheckingWidget::ConfigureSpellCheckingWidget(QWidget *parent)
     mainLayout->addWidget(mConfigWidget);
 }
 
-ConfigureSpellCheckingWidget::~ConfigureSpellCheckingWidget()
-{
-}
+ConfigureSpellCheckingWidget::~ConfigureSpellCheckingWidget() = default;
 
 void ConfigureSpellCheckingWidget::save()
 {

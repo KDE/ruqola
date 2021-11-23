@@ -25,9 +25,7 @@ TranslateTextJob::TranslateTextJob(QObject *parent)
 {
 }
 
-TranslateTextJob::~TranslateTextJob()
-{
-}
+TranslateTextJob::~TranslateTextJob() = default;
 
 void TranslateTextJob::start()
 {

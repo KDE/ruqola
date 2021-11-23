@@ -35,9 +35,7 @@ RoomQuoteMessageWidget::RoomQuoteMessageWidget(QWidget *parent)
     addAction(cancelReplyingInThreadAction);
 }
 
-RoomQuoteMessageWidget::~RoomQuoteMessageWidget()
-{
-}
+RoomQuoteMessageWidget::~RoomQuoteMessageWidget() = default;
 
 void RoomQuoteMessageWidget::setMessageText(const QString &str)
 {

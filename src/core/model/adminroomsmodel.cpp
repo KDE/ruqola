@@ -26,9 +26,7 @@ AdminRoomsModel::AdminRoomsModel(QObject *parent)
 {
 }
 
-AdminRoomsModel::~AdminRoomsModel()
-{
-}
+AdminRoomsModel::~AdminRoomsModel() = default;
 
 int AdminRoomsModel::rowCount(const QModelIndex &parent) const
 {
@@ -61,7 +59,7 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Type");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminRoomsModel::columnCount(const QModelIndex &parent) const

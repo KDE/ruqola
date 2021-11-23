@@ -31,9 +31,7 @@ ReportMessageJob::ReportMessageJob(QObject *parent)
 {
 }
 
-ReportMessageJob::~ReportMessageJob()
-{
-}
+ReportMessageJob::~ReportMessageJob() = default;
 
 bool ReportMessageJob::start()
 {

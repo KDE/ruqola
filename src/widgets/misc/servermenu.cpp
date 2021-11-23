@@ -34,9 +34,7 @@ ServerMenu::ServerMenu(QWidget *parent)
     connect(menu(), &QMenu::aboutToShow, this, &ServerMenu::slotUpdateAccountMenu);
 }
 
-ServerMenu::~ServerMenu()
-{
-}
+ServerMenu::~ServerMenu() = default;
 
 void ServerMenu::setActionCollection(KActionCollection *ac)
 {

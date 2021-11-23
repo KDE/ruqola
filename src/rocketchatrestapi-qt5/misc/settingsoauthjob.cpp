@@ -30,9 +30,7 @@ SettingsOauthJob::SettingsOauthJob(QObject *parent)
 {
 }
 
-SettingsOauthJob::~SettingsOauthJob()
-{
-}
+SettingsOauthJob::~SettingsOauthJob() = default;
 
 bool SettingsOauthJob::requireHttpAuthentication() const
 {

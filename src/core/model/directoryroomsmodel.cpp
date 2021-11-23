@@ -26,9 +26,7 @@ DirectoryRoomsModel::DirectoryRoomsModel(QObject *parent)
 {
 }
 
-DirectoryRoomsModel::~DirectoryRoomsModel()
-{
-}
+DirectoryRoomsModel::~DirectoryRoomsModel() = default;
 
 void DirectoryRoomsModel::checkFullList()
 {
@@ -150,7 +148,7 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
             return {};
         }
     }
-    return QVariant();
+    return {};
 }
 
 int DirectoryRoomsModel::columnCount(const QModelIndex &parent) const

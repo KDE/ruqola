@@ -50,6 +50,4 @@ RuqolaUserFeedbackProvider::RuqolaUserFeedbackProvider(QObject *parent)
     addDataSource(new AccountInfoSource);
 }
 
-RuqolaUserFeedbackProvider::~RuqolaUserFeedbackProvider()
-{
-}
+RuqolaUserFeedbackProvider::~RuqolaUserFeedbackProvider() = default;

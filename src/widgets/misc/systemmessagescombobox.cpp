@@ -30,9 +30,7 @@ SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     connect(mSystemMessagesModel, &SystemMessagesModel::dataChanged, this, &SystemMessagesComboBox::settingsChanged);
 }
 
-SystemMessagesComboBox::~SystemMessagesComboBox()
-{
-}
+SystemMessagesComboBox::~SystemMessagesComboBox() = default;
 
 void SystemMessagesComboBox::setMessagesSystem(const QStringList &lst)
 {

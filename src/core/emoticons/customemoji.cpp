@@ -24,13 +24,9 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-CustomEmoji::CustomEmoji()
-{
-}
+CustomEmoji::CustomEmoji() = default;
 
-CustomEmoji::~CustomEmoji()
-{
-}
+CustomEmoji::~CustomEmoji() = default;
 
 bool CustomEmoji::hasEmoji(const QString &identifier) const
 {

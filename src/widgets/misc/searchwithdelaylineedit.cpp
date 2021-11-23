@@ -32,9 +32,7 @@ SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
     connect(this, &SearchWithDelayLineEdit::textChanged, this, &SearchWithDelayLineEdit::slotSearchTextEdited);
 }
 
-SearchWithDelayLineEdit::~SearchWithDelayLineEdit()
-{
-}
+SearchWithDelayLineEdit::~SearchWithDelayLineEdit() = default;
 
 void SearchWithDelayLineEdit::setDelayMs(int ms)
 {

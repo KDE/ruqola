@@ -139,9 +139,7 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     connect(mRocketChatAccount, &RocketChatAccount::connectedChanged, this, &RocketChatBackend::slotConnectedChanged);
 }
 
-RocketChatBackend::~RocketChatBackend()
-{
-}
+RocketChatBackend::~RocketChatBackend() = default;
 
 // TODO load public info even if we are not connected.
 void RocketChatBackend::slotConnectedChanged()

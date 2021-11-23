@@ -32,9 +32,7 @@ DownloadAvartarUrlManager::DownloadAvartarUrlManager(QObject *parent)
     connect(mNetworkAccessManager, &QNetworkAccessManager::sslErrors, this, &DownloadAvartarUrlManager::slotSslErrors);
 }
 
-DownloadAvartarUrlManager::~DownloadAvartarUrlManager()
-{
-}
+DownloadAvartarUrlManager::~DownloadAvartarUrlManager() = default;
 
 void DownloadAvartarUrlManager::slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error)
 {

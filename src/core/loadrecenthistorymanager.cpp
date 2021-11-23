@@ -21,13 +21,9 @@
 #include "loadrecenthistorymanager.h"
 #include "ruqola_debug.h"
 
-LoadRecentHistoryManager::LoadRecentHistoryManager()
-{
-}
+LoadRecentHistoryManager::LoadRecentHistoryManager() = default;
 
-LoadRecentHistoryManager::~LoadRecentHistoryManager()
-{
-}
+LoadRecentHistoryManager::~LoadRecentHistoryManager() = default;
 
 qint64 LoadRecentHistoryManager::lastLoadingTimeStamp() const
 {

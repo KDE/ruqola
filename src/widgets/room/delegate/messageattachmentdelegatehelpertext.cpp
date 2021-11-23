@@ -35,9 +35,7 @@
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText()
-{
-}
+MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText() = default;
 
 void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach,
                                                QPainter *painter,

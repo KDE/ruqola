@@ -68,9 +68,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
     mTreeWidget->setColumnCount(2);
 }
 
-AdministratorServerInfoWidget::~AdministratorServerInfoWidget()
-{
-}
+AdministratorServerInfoWidget::~AdministratorServerInfoWidget() = default;
 
 void AdministratorServerInfoWidget::slotContextMenu(const QPoint &pos)
 {

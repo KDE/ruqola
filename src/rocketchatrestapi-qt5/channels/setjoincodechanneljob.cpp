@@ -31,9 +31,7 @@ SetJoinCodeChannelJob::SetJoinCodeChannelJob(QObject *parent)
 {
 }
 
-SetJoinCodeChannelJob::~SetJoinCodeChannelJob()
-{
-}
+SetJoinCodeChannelJob::~SetJoinCodeChannelJob() = default;
 
 bool SetJoinCodeChannelJob::start()
 {

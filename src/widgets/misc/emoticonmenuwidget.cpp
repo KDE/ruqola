@@ -125,9 +125,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     setMinimumSize(400, 100);
 }
 
-EmoticonMenuWidget::~EmoticonMenuWidget()
-{
-}
+EmoticonMenuWidget::~EmoticonMenuWidget() = default;
 
 void EmoticonMenuWidget::loadRecentUsed()
 {

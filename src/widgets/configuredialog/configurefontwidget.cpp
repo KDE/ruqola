@@ -52,9 +52,7 @@ ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     connect(mCustomFontCheck, &QCheckBox::toggled, mFontChooser, &KFontChooser::setEnabled);
 }
 
-ConfigureFontWidget::~ConfigureFontWidget()
-{
-}
+ConfigureFontWidget::~ConfigureFontWidget() = default;
 
 void ConfigureFontWidget::save()
 {

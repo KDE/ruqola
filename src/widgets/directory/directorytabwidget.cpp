@@ -34,9 +34,7 @@ DirectoryTabWidget::DirectoryTabWidget(RocketChatAccount *account, QWidget *pare
     addTab(mTeams, i18n("Teams"));
 }
 
-DirectoryTabWidget::~DirectoryTabWidget()
-{
-}
+DirectoryTabWidget::~DirectoryTabWidget() = default;
 
 void DirectoryTabWidget::fillTabs()
 {

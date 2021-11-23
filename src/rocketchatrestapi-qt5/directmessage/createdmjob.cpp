@@ -31,9 +31,7 @@ CreateDmJob::CreateDmJob(QObject *parent)
 {
 }
 
-CreateDmJob::~CreateDmJob()
-{
-}
+CreateDmJob::~CreateDmJob() = default;
 
 bool CreateDmJob::start()
 {

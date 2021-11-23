@@ -36,9 +36,7 @@ SetAvatarJob::SetAvatarJob(QObject *parent)
 {
 }
 
-SetAvatarJob::~SetAvatarJob()
-{
-}
+SetAvatarJob::~SetAvatarJob() = default;
 
 bool SetAvatarJob::start()
 {

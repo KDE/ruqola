@@ -31,9 +31,7 @@ GroupsDeleteJob::GroupsDeleteJob(QObject *parent)
 {
 }
 
-GroupsDeleteJob::~GroupsDeleteJob()
-{
-}
+GroupsDeleteJob::~GroupsDeleteJob() = default;
 
 bool GroupsDeleteJob::start()
 {

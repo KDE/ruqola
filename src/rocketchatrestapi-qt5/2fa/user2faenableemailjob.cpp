@@ -31,9 +31,7 @@ User2FAEnableEmailJob::User2FAEnableEmailJob(QObject *parent)
 {
 }
 
-User2FAEnableEmailJob::~User2FAEnableEmailJob()
-{
-}
+User2FAEnableEmailJob::~User2FAEnableEmailJob() = default;
 
 bool User2FAEnableEmailJob::start()
 {

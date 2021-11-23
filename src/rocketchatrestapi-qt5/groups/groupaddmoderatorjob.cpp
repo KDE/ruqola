@@ -31,9 +31,7 @@ GroupAddModeratorJob::GroupAddModeratorJob(QObject *parent)
 {
 }
 
-GroupAddModeratorJob::~GroupAddModeratorJob()
-{
-}
+GroupAddModeratorJob::~GroupAddModeratorJob() = default;
 
 bool GroupAddModeratorJob::start()
 {

@@ -20,13 +20,9 @@
 
 #include "accountroomsettings.h"
 
-AccountRoomSettings::AccountRoomSettings()
-{
-}
+AccountRoomSettings::AccountRoomSettings() = default;
 
-AccountRoomSettings::~AccountRoomSettings()
-{
-}
+AccountRoomSettings::~AccountRoomSettings() = default;
 
 void AccountRoomSettings::remove(const QString &roomId)
 {

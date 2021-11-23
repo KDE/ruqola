@@ -30,9 +30,7 @@ PasswordPluginAuthentication::PasswordPluginAuthentication(QObject *parent, cons
 {
 }
 
-PasswordPluginAuthentication::~PasswordPluginAuthentication()
-{
-}
+PasswordPluginAuthentication::~PasswordPluginAuthentication() = default;
 
 PluginAuthenticationInterface *PasswordPluginAuthentication::createInterface(QObject *parent)
 {

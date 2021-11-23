@@ -31,9 +31,7 @@ StarMessageJob::StarMessageJob(QObject *parent)
 {
 }
 
-StarMessageJob::~StarMessageJob()
-{
-}
+StarMessageJob::~StarMessageJob() = default;
 
 bool StarMessageJob::canStart() const
 {

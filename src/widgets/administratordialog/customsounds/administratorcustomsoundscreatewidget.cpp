@@ -44,9 +44,7 @@ AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWi
     mainLayout->addRow(i18n("File:"), mSelectFile);
 }
 
-AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget()
-{
-}
+AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget() = default;
 
 void AdministratorCustomSoundsCreateWidget::setCustomSoundInfo(const CustomSoundInfo &info)
 {

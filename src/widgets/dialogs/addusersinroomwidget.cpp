@@ -40,9 +40,7 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
     mainLayout->addStretch(1);
 }
 
-AddUsersInRoomWidget::~AddUsersInRoomWidget()
-{
-}
+AddUsersInRoomWidget::~AddUsersInRoomWidget() = default;
 
 QStringList AddUsersInRoomWidget::userIds() const
 {

@@ -40,9 +40,7 @@ ClickableWidget::ClickableWidget(const QString &userName, QWidget *parent)
     connect(mClickableLabel, &ClickableLabel::clicked, this, &ClickableWidget::slotRemove);
 }
 
-ClickableWidget::~ClickableWidget()
-{
-}
+ClickableWidget::~ClickableWidget() = default;
 
 void ClickableWidget::slotRemove()
 {
@@ -75,9 +73,7 @@ ClickableLabel::ClickableLabel(QWidget *parent)
     setPixmap(QIcon::fromTheme(QStringLiteral("delete")).pixmap(18, 18));
 }
 
-ClickableLabel::~ClickableLabel()
-{
-}
+ClickableLabel::~ClickableLabel() = default;
 
 void ClickableLabel::mousePressEvent(QMouseEvent *event)
 {

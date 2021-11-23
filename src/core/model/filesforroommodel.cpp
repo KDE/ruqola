@@ -120,7 +120,7 @@ int FilesForRoomModel::rowCount(const QModelIndex &parent) const
 QVariant FilesForRoomModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mFileAttachments->fileAttachments().count()) {
-        return QVariant();
+        return {};
     }
 
     const File &file = mFileAttachments->fileAttachments().at(index.row());

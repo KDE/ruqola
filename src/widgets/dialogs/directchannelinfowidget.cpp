@@ -88,9 +88,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
 }
 
-DirectChannelInfoWidget::~DirectChannelInfoWidget()
-{
-}
+DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
 
 void DirectChannelInfoWidget::setUserName(const QString &userName)
 {

@@ -28,9 +28,7 @@ UserCompleterModel::UserCompleterModel(QObject *parent)
 {
 }
 
-UserCompleterModel::~UserCompleterModel()
-{
-}
+UserCompleterModel::~UserCompleterModel() = default;
 
 void UserCompleterModel::clear()
 {
@@ -64,7 +62,7 @@ int UserCompleterModel::rowCount(const QModelIndex &parent) const
 QVariant UserCompleterModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mUsers.count()) {
-        return QVariant();
+        return {};
     }
     const User user = mUsers.at(index.row());
     switch (role) {

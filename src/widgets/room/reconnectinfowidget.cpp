@@ -38,9 +38,7 @@ ReconnectInfoWidget::ReconnectInfoWidget(QWidget *parent)
     connect(this, &KMessageWidget::linkActivated, this, &ReconnectInfoWidget::slotLinkActivated);
 }
 
-ReconnectInfoWidget::~ReconnectInfoWidget()
-{
-}
+ReconnectInfoWidget::~ReconnectInfoWidget() = default;
 
 void ReconnectInfoWidget::slotUpdateTimer()
 {

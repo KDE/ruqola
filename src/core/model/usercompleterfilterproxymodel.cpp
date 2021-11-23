@@ -29,9 +29,7 @@ UserCompleterFilterProxyModel::UserCompleterFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-UserCompleterFilterProxyModel::~UserCompleterFilterProxyModel()
-{
-}
+UserCompleterFilterProxyModel::~UserCompleterFilterProxyModel() = default;
 
 void UserCompleterFilterProxyModel::clear()
 {

@@ -147,9 +147,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account,
     });
 }
 
-ChannelInfoEditableWidget::~ChannelInfoEditableWidget()
-{
-}
+ChannelInfoEditableWidget::~ChannelInfoEditableWidget() = default;
 
 void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
 {

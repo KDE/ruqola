@@ -31,9 +31,7 @@ GetGroupRolesJob::GetGroupRolesJob(QObject *parent)
 {
 }
 
-GetGroupRolesJob::~GetGroupRolesJob()
-{
-}
+GetGroupRolesJob::~GetGroupRolesJob() = default;
 
 bool GetGroupRolesJob::canStart() const
 {

@@ -31,9 +31,7 @@ EmojiCustomAllJob::EmojiCustomAllJob(QObject *parent)
 {
 }
 
-EmojiCustomAllJob::~EmojiCustomAllJob()
-{
-}
+EmojiCustomAllJob::~EmojiCustomAllJob() = default;
 
 bool EmojiCustomAllJob::start()
 {

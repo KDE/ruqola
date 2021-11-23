@@ -42,9 +42,7 @@ ModifyStatusDialog::ModifyStatusDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::rejected, this, &ModifyStatusDialog::reject);
 }
 
-ModifyStatusDialog::~ModifyStatusDialog()
-{
-}
+ModifyStatusDialog::~ModifyStatusDialog() = default;
 
 User::PresenceStatus ModifyStatusDialog::status() const
 {

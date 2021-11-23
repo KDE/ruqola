@@ -23,13 +23,9 @@
 
 #include <QJsonArray>
 
-CustomUserStatuses::CustomUserStatuses()
-{
-}
+CustomUserStatuses::CustomUserStatuses() = default;
 
-CustomUserStatuses::~CustomUserStatuses()
-{
-}
+CustomUserStatuses::~CustomUserStatuses() = default;
 
 void CustomUserStatuses::parseCustomUserStatuses(const QJsonObject &customStatusObj)
 {

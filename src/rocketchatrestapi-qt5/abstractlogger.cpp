@@ -22,10 +22,6 @@
 
 using namespace RocketChatRestApi;
 
-AbstractLogger::AbstractLogger()
-{
-}
+AbstractLogger::AbstractLogger() = default;
 
-AbstractLogger::~AbstractLogger()
-{
-}
+AbstractLogger::~AbstractLogger() = default;

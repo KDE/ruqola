@@ -53,9 +53,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     connect(mRocketChatAccount, &RocketChatAccount::customSoundUpdated, this, &AdministratorCustomSoundsWidget::slotCustomSoundUpdated);
 }
 
-AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget()
-{
-}
+AdministratorCustomSoundsWidget::~AdministratorCustomSoundsWidget() = default;
 
 void AdministratorCustomSoundsWidget::slotCustomSoundAdded()
 {

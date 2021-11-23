@@ -32,9 +32,7 @@ MarkRoomAsUnReadJob::MarkRoomAsUnReadJob(QObject *parent)
 {
 }
 
-MarkRoomAsUnReadJob::~MarkRoomAsUnReadJob()
-{
-}
+MarkRoomAsUnReadJob::~MarkRoomAsUnReadJob() = default;
 
 bool MarkRoomAsUnReadJob::start()
 {

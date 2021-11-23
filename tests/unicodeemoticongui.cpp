@@ -65,9 +65,7 @@ UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     load();
 }
 
-UnicodeEmoticonGui::~UnicodeEmoticonGui()
-{
-}
+UnicodeEmoticonGui::~UnicodeEmoticonGui() = default;
 
 void UnicodeEmoticonGui::slotItemSelectionChanged()
 {
@@ -137,9 +135,7 @@ UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
     mainLayout->addRow(QStringLiteral("order:"), mOrder);
 }
 
-UnicodeEmoticonInfo::~UnicodeEmoticonInfo()
-{
-}
+UnicodeEmoticonInfo::~UnicodeEmoticonInfo() = default;
 
 UnicodeEmoticon UnicodeEmoticonInfo::info() const
 {

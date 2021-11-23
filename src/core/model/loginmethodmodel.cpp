@@ -27,9 +27,7 @@ LoginMethodModel::LoginMethodModel(QObject *parent)
 {
 }
 
-LoginMethodModel::~LoginMethodModel()
-{
-}
+LoginMethodModel::~LoginMethodModel() = default;
 
 int LoginMethodModel::rowCount(const QModelIndex &parent) const
 {
@@ -72,7 +70,7 @@ QVector<AuthenticationInfo> LoginMethodModel::authentications() const
 QVariant LoginMethodModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mAuthentications.count()) {
-        return QVariant();
+        return {};
     }
 
     const AuthenticationInfo info = mAuthentications.at(index.row());

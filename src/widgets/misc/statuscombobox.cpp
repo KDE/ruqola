@@ -28,9 +28,7 @@ StatusCombobox::StatusCombobox(QWidget *parent)
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
-StatusCombobox::~StatusCombobox()
-{
-}
+StatusCombobox::~StatusCombobox() = default;
 
 User::PresenceStatus StatusCombobox::status() const
 {

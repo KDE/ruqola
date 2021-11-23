@@ -30,9 +30,7 @@ LicensesListJob::LicensesListJob(QObject *parent)
 {
 }
 
-LicensesListJob::~LicensesListJob()
-{
-}
+LicensesListJob::~LicensesListJob() = default;
 
 bool LicensesListJob::requireHttpAuthentication() const
 {

@@ -25,9 +25,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-MessageAttachment::MessageAttachment()
-{
-}
+MessageAttachment::MessageAttachment() = default;
 
 void MessageAttachment::parseAttachment(const QJsonObject &attachment)
 {

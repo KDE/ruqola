@@ -26,9 +26,7 @@ RolesManager::RolesManager(QObject *parent)
 {
 }
 
-RolesManager::~RolesManager()
-{
-}
+RolesManager::~RolesManager() = default;
 
 void RolesManager::parseRoles(const QJsonObject &obj)
 {

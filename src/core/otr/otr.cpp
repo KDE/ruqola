@@ -21,13 +21,9 @@
 #include "ruqola_debug.h"
 #include <QJsonObject>
 
-Otr::Otr()
-{
-}
+Otr::Otr() = default;
 
-Otr::~Otr()
-{
-}
+Otr::~Otr() = default;
 
 void Otr::extractRoomUser(const QJsonObject &obj)
 {

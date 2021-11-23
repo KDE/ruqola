@@ -102,9 +102,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     setAcceptDrops(true);
 }
 
-RoomWidgetBase::~RoomWidgetBase()
-{
-}
+RoomWidgetBase::~RoomWidgetBase() = default;
 
 void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const QString &text)
 {

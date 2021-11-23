@@ -30,9 +30,7 @@ ListInviteJob::ListInviteJob(QObject *parent)
 {
 }
 
-ListInviteJob::~ListInviteJob()
-{
-}
+ListInviteJob::~ListInviteJob() = default;
 
 bool ListInviteJob::requireHttpAuthentication() const
 {

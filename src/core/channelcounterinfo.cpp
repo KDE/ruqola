@@ -20,13 +20,9 @@
 
 #include "channelcounterinfo.h"
 
-ChannelCounterInfo::ChannelCounterInfo()
-{
-}
+ChannelCounterInfo::ChannelCounterInfo() = default;
 
-ChannelCounterInfo::~ChannelCounterInfo()
-{
-}
+ChannelCounterInfo::~ChannelCounterInfo() = default;
 
 void ChannelCounterInfo::parseCounterInfo(const QJsonObject &replyObject)
 {

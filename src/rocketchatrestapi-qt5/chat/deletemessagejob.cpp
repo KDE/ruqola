@@ -31,9 +31,7 @@ DeleteMessageJob::DeleteMessageJob(QObject *parent)
 {
 }
 
-DeleteMessageJob::~DeleteMessageJob()
-{
-}
+DeleteMessageJob::~DeleteMessageJob() = default;
 
 bool DeleteMessageJob::start()
 {

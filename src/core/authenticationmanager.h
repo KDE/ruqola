@@ -28,9 +28,7 @@ class PluginAuthentication;
 class PluginUtilData
 {
 public:
-    PluginUtilData()
-    {
-    }
+    PluginUtilData() = default;
 
     QStringList mExtraInfo;
     QString mIdentifier;
@@ -40,9 +38,7 @@ public:
 class AuthenticationManagerInfo
 {
 public:
-    AuthenticationManagerInfo()
-    {
-    }
+    AuthenticationManagerInfo() = default;
 
     KPluginMetaData data;
     QString metaDataFileNameBaseName;

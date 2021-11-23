@@ -32,9 +32,7 @@ ChannelHistoryJob::ChannelHistoryJob(QObject *parent)
 {
 }
 
-ChannelHistoryJob::~ChannelHistoryJob()
-{
-}
+ChannelHistoryJob::~ChannelHistoryJob() = default;
 
 bool ChannelHistoryJob::start()
 {

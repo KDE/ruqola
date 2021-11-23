@@ -33,9 +33,7 @@ TeamAddRoomsJob::TeamAddRoomsJob(QObject *parent)
 {
 }
 
-TeamAddRoomsJob::~TeamAddRoomsJob()
-{
-}
+TeamAddRoomsJob::~TeamAddRoomsJob() = default;
 
 bool TeamAddRoomsJob::start()
 {

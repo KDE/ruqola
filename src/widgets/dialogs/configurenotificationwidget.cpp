@@ -133,9 +133,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     });
 }
 
-ConfigureNotificationWidget::~ConfigureNotificationWidget()
-{
-}
+ConfigureNotificationWidget::~ConfigureNotificationWidget() = default;
 
 Room *ConfigureNotificationWidget::room() const
 {

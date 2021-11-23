@@ -31,9 +31,7 @@ ChannelFilesJob::ChannelFilesJob(QObject *parent)
 {
 }
 
-ChannelFilesJob::~ChannelFilesJob()
-{
-}
+ChannelFilesJob::~ChannelFilesJob() = default;
 
 bool ChannelFilesJob::start()
 {

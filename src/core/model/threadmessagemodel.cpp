@@ -27,9 +27,7 @@ ThreadMessageModel::ThreadMessageModel(const QString &roomID, RocketChatAccount 
 {
 }
 
-ThreadMessageModel::~ThreadMessageModel()
-{
-}
+ThreadMessageModel::~ThreadMessageModel() = default;
 
 QString ThreadMessageModel::threadMessageId() const
 {

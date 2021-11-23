@@ -26,13 +26,9 @@
 #include <QJsonArray>
 #include <QLocale>
 
-RoomInfo::RoomInfo()
-{
-}
+RoomInfo::RoomInfo() = default;
 
-RoomInfo::~RoomInfo()
-{
-}
+RoomInfo::~RoomInfo() = default;
 
 void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {

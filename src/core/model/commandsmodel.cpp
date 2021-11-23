@@ -25,9 +25,7 @@ CommandsModel::CommandsModel(QObject *parent)
 {
 }
 
-CommandsModel::~CommandsModel()
-{
-}
+CommandsModel::~CommandsModel() = default;
 
 int CommandsModel::rowCount(const QModelIndex &parent) const
 {

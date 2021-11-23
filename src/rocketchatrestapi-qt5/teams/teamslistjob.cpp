@@ -31,9 +31,7 @@ TeamsListJob::TeamsListJob(QObject *parent)
 {
 }
 
-TeamsListJob::~TeamsListJob()
-{
-}
+TeamsListJob::~TeamsListJob() = default;
 
 bool TeamsListJob::requireHttpAuthentication() const
 {

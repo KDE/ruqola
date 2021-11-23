@@ -55,9 +55,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
     connectModel();
 }
 
-AdministratorUsersWidget::~AdministratorUsersWidget()
-{
-}
+AdministratorUsersWidget::~AdministratorUsersWidget() = default;
 
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {

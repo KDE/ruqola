@@ -30,9 +30,7 @@ NotifierJob::NotifierJob(QObject *parent)
 {
 }
 
-NotifierJob::~NotifierJob()
-{
-}
+NotifierJob::~NotifierJob() = default;
 
 void NotifierJob::start()
 {

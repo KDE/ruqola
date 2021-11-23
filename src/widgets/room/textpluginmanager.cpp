@@ -34,9 +34,7 @@ TextPluginManager::TextPluginManager(QObject *parent)
     initializePluginList();
 }
 
-TextPluginManager::~TextPluginManager()
-{
-}
+TextPluginManager::~TextPluginManager() = default;
 
 TextPluginManager *TextPluginManager::self()
 {

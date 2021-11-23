@@ -35,9 +35,7 @@ MessageCache::MessageCache(RocketChatAccount *account, QObject *parent)
 {
 }
 
-MessageCache::~MessageCache()
-{
-}
+MessageCache::~MessageCache() = default;
 
 ThreadMessageModel *MessageCache::threadMessageModel(const QString &threadMessageId)
 {

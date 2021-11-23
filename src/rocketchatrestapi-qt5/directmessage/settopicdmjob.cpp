@@ -31,9 +31,7 @@ SetTopicDmJob::SetTopicDmJob(QObject *parent)
 {
 }
 
-SetTopicDmJob::~SetTopicDmJob()
-{
-}
+SetTopicDmJob::~SetTopicDmJob() = default;
 
 bool SetTopicDmJob::start()
 {

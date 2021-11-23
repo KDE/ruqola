@@ -20,13 +20,9 @@
 
 #include "messageattachmentfield.h"
 
-MessageAttachmentField::MessageAttachmentField()
-{
-}
+MessageAttachmentField::MessageAttachmentField() = default;
 
-MessageAttachmentField::~MessageAttachmentField()
-{
-}
+MessageAttachmentField::~MessageAttachmentField() = default;
 
 bool MessageAttachmentField::operator==(const MessageAttachmentField &other) const
 {

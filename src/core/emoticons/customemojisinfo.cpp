@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-CustomEmojisInfo::CustomEmojisInfo()
-{
-}
+CustomEmojisInfo::CustomEmojisInfo() = default;
 
 bool CustomEmojisInfo::isEmpty() const
 {

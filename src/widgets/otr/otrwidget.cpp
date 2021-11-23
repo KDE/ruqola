@@ -41,7 +41,4 @@ OtrWidget::OtrWidget(QWidget *parent)
     addAction(refreshKeysAction);
 }
 
-OtrWidget::~OtrWidget()
-{
-}
-
+OtrWidget::~OtrWidget() = default;

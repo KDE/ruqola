@@ -31,9 +31,7 @@ ChannelAddOwnerJob::ChannelAddOwnerJob(QObject *parent)
 {
 }
 
-ChannelAddOwnerJob::~ChannelAddOwnerJob()
-{
-}
+ChannelAddOwnerJob::~ChannelAddOwnerJob() = default;
 
 bool ChannelAddOwnerJob::start()
 {

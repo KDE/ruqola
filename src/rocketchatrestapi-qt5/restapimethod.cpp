@@ -21,9 +21,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 using namespace RocketChatRestApi;
-RestApiMethod::RestApiMethod()
-{
-}
+RestApiMethod::RestApiMethod() = default;
 
 QString RestApiMethod::serverUrl() const
 {

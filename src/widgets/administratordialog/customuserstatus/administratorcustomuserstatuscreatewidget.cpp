@@ -44,9 +44,7 @@ AdministratorCustomUserStatusCreateWidget::AdministratorCustomUserStatusCreateWi
     connect(mStatusCombobox, &StatusCombobox::activated, this, &AdministratorCustomUserStatusCreateWidget::slotCheckValues);
 }
 
-AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget()
-{
-}
+AdministratorCustomUserStatusCreateWidget::~AdministratorCustomUserStatusCreateWidget() = default;
 
 void AdministratorCustomUserStatusCreateWidget::slotCheckValues()
 {

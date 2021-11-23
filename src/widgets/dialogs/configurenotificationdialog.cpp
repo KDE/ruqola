@@ -42,9 +42,7 @@ ConfigureNotificationDialog::ConfigureNotificationDialog(RocketChatAccount *acco
     resize(300, 400);
 }
 
-ConfigureNotificationDialog::~ConfigureNotificationDialog()
-{
-}
+ConfigureNotificationDialog::~ConfigureNotificationDialog() = default;
 
 void ConfigureNotificationDialog::setRoom(Room *room)
 {

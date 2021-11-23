@@ -30,9 +30,7 @@ FetchMyKeysJob::FetchMyKeysJob(QObject *parent)
 {
 }
 
-FetchMyKeysJob::~FetchMyKeysJob()
-{
-}
+FetchMyKeysJob::~FetchMyKeysJob() = default;
 
 bool FetchMyKeysJob::canStart() const
 {

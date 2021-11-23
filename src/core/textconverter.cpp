@@ -91,7 +91,7 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
 QString markdownToRichText(const QString &markDown)
 {
     if (markDown.isEmpty()) {
-        return QString();
+        return {};
     }
 
     // qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;

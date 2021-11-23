@@ -47,9 +47,7 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     hboxLayout->addWidget(mProgressBar);
 }
 
-UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget()
-{
-}
+UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget() = default;
 
 void UploadFileProgressStatusWidget::setUploadFileName(const QString &str)
 {

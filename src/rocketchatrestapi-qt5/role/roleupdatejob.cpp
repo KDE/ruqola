@@ -31,9 +31,7 @@ RoleUpdateJob::RoleUpdateJob(QObject *parent)
 {
 }
 
-RoleUpdateJob::~RoleUpdateJob()
-{
-}
+RoleUpdateJob::~RoleUpdateJob() = default;
 
 bool RoleUpdateJob::start()
 {

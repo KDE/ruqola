@@ -21,9 +21,7 @@
 #include "messagestarred.h"
 #include <QJsonArray>
 #include <QJsonObject>
-MessageStarred::MessageStarred()
-{
-}
+MessageStarred::MessageStarred() = default;
 
 bool MessageStarred::isStarred() const
 {

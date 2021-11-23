@@ -76,9 +76,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
 }
 
-AdministratorAddUserWidget::~AdministratorAddUserWidget()
-{
-}
+AdministratorAddUserWidget::~AdministratorAddUserWidget() = default;
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {

@@ -39,9 +39,7 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
     }
 }
 
-ChannelNameValidLineEdit::~ChannelNameValidLineEdit()
-{
-}
+ChannelNameValidLineEdit::~ChannelNameValidLineEdit() = default;
 
 void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {

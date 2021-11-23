@@ -82,9 +82,7 @@ ImageGraphicsView::ImageGraphicsView(RocketChatAccount *account, QWidget *parent
     updateRanges();
 }
 
-ImageGraphicsView::~ImageGraphicsView()
-{
-}
+ImageGraphicsView::~ImageGraphicsView() = default;
 
 void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
 {
@@ -312,9 +310,7 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
     updateRanges();
 }
 
-ShowImageWidget::~ShowImageWidget()
-{
-}
+ShowImageWidget::~ShowImageWidget() = default;
 
 void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {

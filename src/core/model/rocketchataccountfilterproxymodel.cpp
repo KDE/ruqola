@@ -29,6 +29,4 @@ RocketChatAccountFilterProxyModel::RocketChatAccountFilterProxyModel(QObject *pa
     sort(0);
 }
 
-RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel()
-{
-}
+RocketChatAccountFilterProxyModel::~RocketChatAccountFilterProxyModel() = default;

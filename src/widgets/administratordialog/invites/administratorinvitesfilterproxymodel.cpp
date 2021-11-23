@@ -25,9 +25,7 @@ AdministratorInvitesFilterProxyModel::AdministratorInvitesFilterProxyModel(QAbst
 {
 }
 
-AdministratorInvitesFilterProxyModel::~AdministratorInvitesFilterProxyModel()
-{
-}
+AdministratorInvitesFilterProxyModel::~AdministratorInvitesFilterProxyModel() = default;
 
 bool AdministratorInvitesFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

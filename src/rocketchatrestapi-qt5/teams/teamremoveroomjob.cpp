@@ -31,9 +31,7 @@ TeamRemoveRoomJob::TeamRemoveRoomJob(QObject *parent)
 {
 }
 
-TeamRemoveRoomJob::~TeamRemoveRoomJob()
-{
-}
+TeamRemoveRoomJob::~TeamRemoveRoomJob() = default;
 
 bool TeamRemoveRoomJob::start()
 {

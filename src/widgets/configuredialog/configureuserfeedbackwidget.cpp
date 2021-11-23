@@ -42,9 +42,7 @@ ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
 #endif
 }
 
-ConfigureUserFeedbackWidget::~ConfigureUserFeedbackWidget()
-{
-}
+ConfigureUserFeedbackWidget::~ConfigureUserFeedbackWidget() = default;
 
 void ConfigureUserFeedbackWidget::save()
 {

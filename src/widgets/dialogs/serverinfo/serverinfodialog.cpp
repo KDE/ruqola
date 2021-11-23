@@ -41,9 +41,7 @@ ServerInfoDialog::ServerInfoDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::rejected, this, &ServerInfoDialog::close);
 }
 
-ServerInfoDialog::~ServerInfoDialog()
-{
-}
+ServerInfoDialog::~ServerInfoDialog() = default;
 
 void ServerInfoDialog::setServerConfigInfo(ServerConfigInfo *info)
 {

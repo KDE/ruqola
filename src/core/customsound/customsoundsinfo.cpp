@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-CustomSoundsInfo::CustomSoundsInfo()
-{
-}
+CustomSoundsInfo::CustomSoundsInfo() = default;
 
 bool CustomSoundsInfo::isEmpty() const
 {

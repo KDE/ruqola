@@ -30,9 +30,7 @@ UsersForRoomFilterProxyModelTest::UsersForRoomFilterProxyModelTest(QObject *pare
 {
 }
 
-UsersForRoomFilterProxyModelTest::~UsersForRoomFilterProxyModelTest()
-{
-}
+UsersForRoomFilterProxyModelTest::~UsersForRoomFilterProxyModelTest() = default;
 
 void UsersForRoomFilterProxyModelTest::shouldHaveDefaultValues()
 {

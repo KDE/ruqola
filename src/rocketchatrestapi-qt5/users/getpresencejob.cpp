@@ -30,9 +30,7 @@ GetPresenceJob::GetPresenceJob(QObject *parent)
 {
 }
 
-GetPresenceJob::~GetPresenceJob()
-{
-}
+GetPresenceJob::~GetPresenceJob() = default;
 
 bool GetPresenceJob::canStart() const
 {

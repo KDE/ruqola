@@ -32,9 +32,7 @@ GroupOpenJob::GroupOpenJob(QObject *parent)
 {
 }
 
-GroupOpenJob::~GroupOpenJob()
-{
-}
+GroupOpenJob::~GroupOpenJob() = default;
 
 bool GroupOpenJob::start()
 {

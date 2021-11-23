@@ -31,6 +31,4 @@ RolesTreeView::RolesTreeView(QWidget *parent)
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
-RolesTreeView::~RolesTreeView()
-{
-}
+RolesTreeView::~RolesTreeView() = default;

@@ -31,9 +31,7 @@ ChannelInviteJob::ChannelInviteJob(QObject *parent)
 {
 }
 
-ChannelInviteJob::~ChannelInviteJob()
-{
-}
+ChannelInviteJob::~ChannelInviteJob() = default;
 
 bool ChannelInviteJob::start()
 {

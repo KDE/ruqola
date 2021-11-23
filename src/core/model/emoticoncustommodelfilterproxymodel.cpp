@@ -29,9 +29,7 @@ EmoticonCustomModelFilterProxyModel::EmoticonCustomModelFilterProxyModel(QObject
     sort(0);
 }
 
-EmoticonCustomModelFilterProxyModel::~EmoticonCustomModelFilterProxyModel()
-{
-}
+EmoticonCustomModelFilterProxyModel::~EmoticonCustomModelFilterProxyModel() = default;
 
 bool EmoticonCustomModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

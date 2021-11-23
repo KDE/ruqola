@@ -75,9 +75,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &SearchTreeBaseWidget::slotCustomContextMenuRequested);
 }
 
-SearchTreeBaseWidget::~SearchTreeBaseWidget()
-{
-}
+SearchTreeBaseWidget::~SearchTreeBaseWidget() = default;
 
 QString SearchTreeBaseWidget::clickableStr() const
 {

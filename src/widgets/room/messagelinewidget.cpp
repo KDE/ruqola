@@ -95,9 +95,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     setFocusProxy(mMessageTextEdit);
 }
 
-MessageLineWidget::~MessageLineWidget()
-{
-}
+MessageLineWidget::~MessageLineWidget() = default;
 
 void MessageLineWidget::slotSendMessage(const QString &msg)
 {
@@ -339,7 +337,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
     } else if (mimeData->hasImage()) {
         QTemporaryFile tempFile(QDir::tempPath() + QLatin1String("/XXXXXX.png"));
         if (tempFile.open()) {
-            QImage image = mimeData->imageData().value<QImage>();
+            auto image = mimeData->imageData().value<QImage>();
             QImageWriter writer(&tempFile, "PNG");
             if (writer.write(image)) {
                 const QUrl url = QUrl::fromLocalFile(tempFile.fileName());

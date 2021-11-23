@@ -30,9 +30,7 @@ OwnInfoJob::OwnInfoJob(QObject *parent)
 {
 }
 
-OwnInfoJob::~OwnInfoJob()
-{
-}
+OwnInfoJob::~OwnInfoJob() = default;
 
 bool OwnInfoJob::requireHttpAuthentication() const
 {

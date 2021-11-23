@@ -22,9 +22,7 @@
 
 #include <QVariant>
 
-DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo()
-{
-}
+DownloadAppsLanguagesInfo::DownloadAppsLanguagesInfo() = default;
 
 bool DownloadAppsLanguagesInfo::parse(const QJsonObject &language, const QString &id)
 {

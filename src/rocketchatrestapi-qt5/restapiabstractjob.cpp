@@ -32,9 +32,7 @@ RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
 {
 }
 
-RestApiAbstractJob::~RestApiAbstractJob()
-{
-}
+RestApiAbstractJob::~RestApiAbstractJob() = default;
 
 QNetworkAccessManager *RestApiAbstractJob::networkAccessManager() const
 {
@@ -466,9 +464,7 @@ QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)
     return replyDocument;
 }
 
-QueryParameters::QueryParameters()
-{
-}
+QueryParameters::QueryParameters() = default;
 
 int QueryParameters::offset() const
 {

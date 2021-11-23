@@ -31,9 +31,7 @@ DeleteDmJob::DeleteDmJob(QObject *parent)
 {
 }
 
-DeleteDmJob::~DeleteDmJob()
-{
-}
+DeleteDmJob::~DeleteDmJob() = default;
 
 bool DeleteDmJob::start()
 {

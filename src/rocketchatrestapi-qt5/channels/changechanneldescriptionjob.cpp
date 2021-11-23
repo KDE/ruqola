@@ -31,9 +31,7 @@ ChangeChannelDescriptionJob::ChangeChannelDescriptionJob(QObject *parent)
 {
 }
 
-ChangeChannelDescriptionJob::~ChangeChannelDescriptionJob()
-{
-}
+ChangeChannelDescriptionJob::~ChangeChannelDescriptionJob() = default;
 
 bool ChangeChannelDescriptionJob::start()
 {

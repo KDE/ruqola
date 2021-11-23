@@ -30,9 +30,7 @@ ServerInfoJob::ServerInfoJob(QObject *parent)
 {
 }
 
-ServerInfoJob::~ServerInfoJob()
-{
-}
+ServerInfoJob::~ServerInfoJob() = default;
 
 bool ServerInfoJob::start()
 {

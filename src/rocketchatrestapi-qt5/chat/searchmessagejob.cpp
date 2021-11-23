@@ -31,9 +31,7 @@ SearchMessageJob::SearchMessageJob(QObject *parent)
 {
 }
 
-SearchMessageJob::~SearchMessageJob()
-{
-}
+SearchMessageJob::~SearchMessageJob() = default;
 
 bool SearchMessageJob::requireHttpAuthentication() const
 {

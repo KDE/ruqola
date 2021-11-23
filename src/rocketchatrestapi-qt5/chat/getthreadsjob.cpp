@@ -31,9 +31,7 @@ GetThreadsJob::GetThreadsJob(QObject *parent)
 {
 }
 
-GetThreadsJob::~GetThreadsJob()
-{
-}
+GetThreadsJob::~GetThreadsJob() = default;
 
 bool GetThreadsJob::requireHttpAuthentication() const
 {

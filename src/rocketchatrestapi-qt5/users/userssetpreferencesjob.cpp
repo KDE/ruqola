@@ -33,9 +33,7 @@ UsersSetPreferencesJob::UsersSetPreferencesJob(QObject *parent)
 {
 }
 
-UsersSetPreferencesJob::~UsersSetPreferencesJob()
-{
-}
+UsersSetPreferencesJob::~UsersSetPreferencesJob() = default;
 
 bool UsersSetPreferencesJob::start()
 {

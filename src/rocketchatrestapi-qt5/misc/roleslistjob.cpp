@@ -30,9 +30,7 @@ RolesListJob::RolesListJob(QObject *parent)
 {
 }
 
-RolesListJob::~RolesListJob()
-{
-}
+RolesListJob::~RolesListJob() = default;
 
 bool RolesListJob::requireHttpAuthentication() const
 {

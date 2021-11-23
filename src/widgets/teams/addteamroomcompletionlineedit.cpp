@@ -47,9 +47,7 @@ AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *
     connect(this, &QLineEdit::textChanged, this, &AddTeamRoomCompletionLineEdit::slotSearchTextEdited);
 }
 
-AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit()
-{
-}
+AddTeamRoomCompletionLineEdit::~AddTeamRoomCompletionLineEdit() = default;
 
 void AddTeamRoomCompletionLineEdit::slotSearchTimerFired()
 {

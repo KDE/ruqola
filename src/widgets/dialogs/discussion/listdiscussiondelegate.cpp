@@ -32,9 +32,7 @@ ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
 {
 }
 
-ListDiscussionDelegate::~ListDiscussionDelegate()
-{
-}
+ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 
 // [date]
 // text

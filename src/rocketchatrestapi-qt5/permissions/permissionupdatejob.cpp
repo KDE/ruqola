@@ -32,9 +32,7 @@ PermissionUpdateJob::PermissionUpdateJob(QObject *parent)
 {
 }
 
-PermissionUpdateJob::~PermissionUpdateJob()
-{
-}
+PermissionUpdateJob::~PermissionUpdateJob() = default;
 
 bool PermissionUpdateJob::start()
 {

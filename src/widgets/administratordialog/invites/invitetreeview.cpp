@@ -36,9 +36,7 @@ InviteTreeView::InviteTreeView(QWidget *parent)
     initialize();
 }
 
-InviteTreeView::~InviteTreeView()
-{
-}
+InviteTreeView::~InviteTreeView() = default;
 
 void InviteTreeView::initialize()
 {

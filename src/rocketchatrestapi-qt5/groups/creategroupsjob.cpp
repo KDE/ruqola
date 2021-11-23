@@ -31,9 +31,7 @@ CreateGroupsJob::CreateGroupsJob(QObject *parent)
 {
 }
 
-CreateGroupsJob::~CreateGroupsJob()
-{
-}
+CreateGroupsJob::~CreateGroupsJob() = default;
 
 bool CreateGroupsJob::start()
 {

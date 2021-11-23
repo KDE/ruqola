@@ -20,9 +20,7 @@
 
 #include "retentioninfo.h"
 
-RetentionInfo::RetentionInfo()
-{
-}
+RetentionInfo::RetentionInfo() = default;
 
 bool RetentionInfo::isNotDefault() const
 {

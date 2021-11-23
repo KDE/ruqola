@@ -30,9 +30,7 @@ FollowMessageJob::FollowMessageJob(QObject *parent)
 {
 }
 
-FollowMessageJob::~FollowMessageJob()
-{
-}
+FollowMessageJob::~FollowMessageJob() = default;
 
 bool FollowMessageJob::start()
 {

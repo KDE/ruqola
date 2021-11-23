@@ -32,9 +32,7 @@ SaveRoomSettingsJob::SaveRoomSettingsJob(QObject *parent)
 {
 }
 
-SaveRoomSettingsJob::~SaveRoomSettingsJob()
-{
-}
+SaveRoomSettingsJob::~SaveRoomSettingsJob() = default;
 
 bool SaveRoomSettingsJob::start()
 {

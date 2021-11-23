@@ -19,9 +19,7 @@
 
 #include "autotranslatelanguage.h"
 
-AutotranslateLanguage::AutotranslateLanguage()
-{
-}
+AutotranslateLanguage::AutotranslateLanguage() = default;
 
 QString AutotranslateLanguage::language() const
 {

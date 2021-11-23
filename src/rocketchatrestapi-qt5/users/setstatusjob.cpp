@@ -31,9 +31,7 @@ SetStatusJob::SetStatusJob(QObject *parent)
 {
 }
 
-SetStatusJob::~SetStatusJob()
-{
-}
+SetStatusJob::~SetStatusJob() = default;
 
 bool SetStatusJob::start()
 {

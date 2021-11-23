@@ -60,9 +60,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
 }
 
-ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
-{
-}
+ShowListMessageBaseWidget::~ShowListMessageBaseWidget() = default;
 
 void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
 {

@@ -33,9 +33,7 @@ TeamRemoveMembersJob::TeamRemoveMembersJob(QObject *parent)
 {
 }
 
-TeamRemoveMembersJob::~TeamRemoveMembersJob()
-{
-}
+TeamRemoveMembersJob::~TeamRemoveMembersJob() = default;
 
 bool TeamRemoveMembersJob::start()
 {

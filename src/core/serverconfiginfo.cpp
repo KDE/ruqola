@@ -28,9 +28,7 @@ ServerConfigInfo::ServerConfigInfo(RocketChatAccount *account, QObject *parent)
 {
 }
 
-ServerConfigInfo::~ServerConfigInfo()
-{
-}
+ServerConfigInfo::~ServerConfigInfo() = default;
 
 QString ServerConfigInfo::serverVersionStr() const
 {

@@ -29,9 +29,7 @@ TeamNameLabel::TeamNameLabel(QWidget *parent)
     connect(this, &QLabel::linkActivated, this, &TeamNameLabel::slotGoToRoomTeam);
 }
 
-TeamNameLabel::~TeamNameLabel()
-{
-}
+TeamNameLabel::~TeamNameLabel() = default;
 
 void TeamNameLabel::slotGoToRoomTeam(const QString &contents)
 {

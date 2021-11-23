@@ -34,9 +34,7 @@ ConfigureAccountWidget::ConfigureAccountWidget(QWidget *parent)
     mainLayout->addWidget(mConfigureAccountServerWidget);
 }
 
-ConfigureAccountWidget::~ConfigureAccountWidget()
-{
-}
+ConfigureAccountWidget::~ConfigureAccountWidget() = default;
 
 void ConfigureAccountWidget::save()
 {

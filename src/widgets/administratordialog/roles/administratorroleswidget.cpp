@@ -74,9 +74,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorRolesWidget::slotModifyDoubleClickRoles);
 }
 
-AdministratorRolesWidget::~AdministratorRolesWidget()
-{
-}
+AdministratorRolesWidget::~AdministratorRolesWidget() = default;
 
 void AdministratorRolesWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 {

@@ -24,13 +24,9 @@
 
 #include <QJsonObject>
 
-Channel::Channel()
-{
-}
+Channel::Channel() = default;
 
-Channel::~Channel()
-{
-}
+Channel::~Channel() = default;
 
 void Channel::parseChannel(const QJsonObject &object, ChannelType type)
 {

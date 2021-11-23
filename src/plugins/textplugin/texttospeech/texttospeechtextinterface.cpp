@@ -34,9 +34,7 @@ TextToSpeechTextInterface::TextToSpeechTextInterface(QObject *parent)
 {
 }
 
-TextToSpeechTextInterface::~TextToSpeechTextInterface()
-{
-}
+TextToSpeechTextInterface::~TextToSpeechTextInterface() = default;
 
 void TextToSpeechTextInterface::addAction(QMenu *menu)
 {

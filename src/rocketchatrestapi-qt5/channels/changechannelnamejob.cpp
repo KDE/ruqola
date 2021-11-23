@@ -31,9 +31,7 @@ ChangeChannelNameJob::ChangeChannelNameJob(QObject *parent)
 {
 }
 
-ChangeChannelNameJob::~ChangeChannelNameJob()
-{
-}
+ChangeChannelNameJob::~ChangeChannelNameJob() = default;
 
 bool ChangeChannelNameJob::start()
 {

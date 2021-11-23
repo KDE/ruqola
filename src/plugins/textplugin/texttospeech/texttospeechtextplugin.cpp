@@ -29,9 +29,7 @@ TextToSpeechTextPlugin::TextToSpeechTextPlugin(QObject *parent, const QVariantLi
 {
 }
 
-TextToSpeechTextPlugin::~TextToSpeechTextPlugin()
-{
-}
+TextToSpeechTextPlugin::~TextToSpeechTextPlugin() = default;
 
 PluginTextInterface *TextToSpeechTextPlugin::createInterface(QObject *parent)
 {

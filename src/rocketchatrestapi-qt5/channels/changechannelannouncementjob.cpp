@@ -31,9 +31,7 @@ ChangeChannelAnnouncementJob::ChangeChannelAnnouncementJob(QObject *parent)
 {
 }
 
-ChangeChannelAnnouncementJob::~ChangeChannelAnnouncementJob()
-{
-}
+ChangeChannelAnnouncementJob::~ChangeChannelAnnouncementJob() = default;
 
 bool ChangeChannelAnnouncementJob::start()
 {

@@ -31,9 +31,7 @@ ResetAvatarJob::ResetAvatarJob(QObject *parent)
 {
 }
 
-ResetAvatarJob::~ResetAvatarJob()
-{
-}
+ResetAvatarJob::~ResetAvatarJob() = default;
 
 bool ResetAvatarJob::start()
 {

@@ -64,9 +64,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     // TODO add support for two factor ?
 }
 
-CreateNewServerWidget::~CreateNewServerWidget()
-{
-}
+CreateNewServerWidget::~CreateNewServerWidget() = default;
 
 AccountManager::AccountManagerInfo CreateNewServerWidget::accountInfo()
 {

@@ -20,9 +20,7 @@
 
 #include "teamroomcompleter.h"
 
-TeamRoomCompleter::TeamRoomCompleter()
-{
-}
+TeamRoomCompleter::TeamRoomCompleter() = default;
 
 bool TeamRoomCompleter::operator==(const TeamRoomCompleter &other) const
 {

@@ -21,9 +21,7 @@
 #include "notificationoptions.h"
 #include "ruqola_debug.h"
 
-NotificationOptions::NotificationOptions()
-{
-}
+NotificationOptions::NotificationOptions() = default;
 
 void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
 {

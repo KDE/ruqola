@@ -34,9 +34,7 @@ SearchMessageFilterProxyModel::SearchMessageFilterProxyModel(SearchMessageModel 
     connect(mSearchMessageModel, &SearchMessageModel::loadingInProgressChanged, this, &SearchMessageFilterProxyModel::loadingInProgressChanged);
 }
 
-SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel()
-{
-}
+SearchMessageFilterProxyModel::~SearchMessageFilterProxyModel() = default;
 
 bool SearchMessageFilterProxyModel::stringNotFound() const
 {

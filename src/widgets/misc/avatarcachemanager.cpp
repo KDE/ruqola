@@ -32,9 +32,7 @@ AvatarCacheManager::AvatarCacheManager(const Utils::AvatarType avatarType, QObje
 {
 }
 
-AvatarCacheManager::~AvatarCacheManager()
-{
-}
+AvatarCacheManager::~AvatarCacheManager() = default;
 
 qreal AvatarCacheManager::checkIfNeededToClearCache(const QWidget *widget) const
 {

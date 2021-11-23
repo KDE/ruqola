@@ -31,9 +31,7 @@ ChannelInfoJob::ChannelInfoJob(QObject *parent)
 {
 }
 
-ChannelInfoJob::~ChannelInfoJob()
-{
-}
+ChannelInfoJob::~ChannelInfoJob() = default;
 
 bool ChannelInfoJob::start()
 {

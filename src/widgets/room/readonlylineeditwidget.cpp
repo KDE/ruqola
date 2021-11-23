@@ -37,9 +37,7 @@ ReadOnlyLineEditWidget::ReadOnlyLineEditWidget(QWidget *parent)
     mLabel->setFont(font);
 }
 
-ReadOnlyLineEditWidget::~ReadOnlyLineEditWidget()
-{
-}
+ReadOnlyLineEditWidget::~ReadOnlyLineEditWidget() = default;
 
 void ReadOnlyLineEditWidget::setMessage(const QString &str)
 {

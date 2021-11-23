@@ -29,9 +29,7 @@ CommandsModelFilterProxyModel::CommandsModelFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-CommandsModelFilterProxyModel::~CommandsModelFilterProxyModel()
-{
-}
+CommandsModelFilterProxyModel::~CommandsModelFilterProxyModel() = default;
 
 bool CommandsModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

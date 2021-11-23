@@ -52,9 +52,7 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mErrorLabel->setVisible(false);
 }
 
-CreateVideoMessageWidget::~CreateVideoMessageWidget()
-{
-}
+CreateVideoMessageWidget::~CreateVideoMessageWidget() = default;
 
 void CreateVideoMessageWidget::startCamera()
 {

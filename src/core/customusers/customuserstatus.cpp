@@ -22,13 +22,9 @@
 
 #include "utils.h"
 
-CustomUserStatus::CustomUserStatus()
-{
-}
+CustomUserStatus::CustomUserStatus() = default;
 
-CustomUserStatus::~CustomUserStatus()
-{
-}
+CustomUserStatus::~CustomUserStatus() = default;
 
 bool CustomUserStatus::isValid() const
 {

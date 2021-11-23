@@ -29,9 +29,7 @@ ChannelCompleterFilterProxyModel::ChannelCompleterFilterProxyModel(QObject *pare
     sort(0);
 }
 
-ChannelCompleterFilterProxyModel::~ChannelCompleterFilterProxyModel()
-{
-}
+ChannelCompleterFilterProxyModel::~ChannelCompleterFilterProxyModel() = default;
 
 void ChannelCompleterFilterProxyModel::clear()
 {

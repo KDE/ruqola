@@ -31,9 +31,7 @@ ChannelKickJob::ChannelKickJob(QObject *parent)
 {
 }
 
-ChannelKickJob::~ChannelKickJob()
-{
-}
+ChannelKickJob::~ChannelKickJob() = default;
 
 bool ChannelKickJob::start()
 {

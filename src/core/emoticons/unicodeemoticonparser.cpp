@@ -24,13 +24,9 @@
 
 #include <algorithm>
 
-UnicodeEmoticonParser::UnicodeEmoticonParser()
-{
-}
+UnicodeEmoticonParser::UnicodeEmoticonParser() = default;
 
-UnicodeEmoticonParser::~UnicodeEmoticonParser()
-{
-}
+UnicodeEmoticonParser::~UnicodeEmoticonParser() = default;
 
 QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) const
 {

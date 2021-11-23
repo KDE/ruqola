@@ -31,9 +31,7 @@ ChannelDeleteJob::ChannelDeleteJob(QObject *parent)
 {
 }
 
-ChannelDeleteJob::~ChannelDeleteJob()
-{
-}
+ChannelDeleteJob::~ChannelDeleteJob() = default;
 
 bool ChannelDeleteJob::start()
 {

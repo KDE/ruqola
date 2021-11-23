@@ -20,9 +20,7 @@
 
 #include "teamcompleter.h"
 
-TeamCompleter::TeamCompleter()
-{
-}
+TeamCompleter::TeamCompleter() = default;
 
 bool TeamCompleter::operator==(const TeamCompleter &other) const
 {

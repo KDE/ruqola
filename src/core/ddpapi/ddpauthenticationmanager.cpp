@@ -48,9 +48,7 @@ DDPAuthenticationManager::DDPAuthenticationManager(DDPClient *ddpClient, QObject
     });
 }
 
-DDPAuthenticationManager::~DDPAuthenticationManager()
-{
-}
+DDPAuthenticationManager::~DDPAuthenticationManager() = default;
 
 void DDPAuthenticationManager::setAuthToken(const QString &authToken)
 {

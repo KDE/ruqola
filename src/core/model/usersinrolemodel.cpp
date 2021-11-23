@@ -26,9 +26,7 @@ UsersInRoleModel::UsersInRoleModel(QObject *parent)
 {
 }
 
-UsersInRoleModel::~UsersInRoleModel()
-{
-}
+UsersInRoleModel::~UsersInRoleModel() = default;
 
 void UsersInRoleModel::checkFullList()
 {
@@ -107,7 +105,7 @@ QVariant UsersInRoleModel::headerData(int section, Qt::Orientation orientation, 
             return {};
         }
     }
-    return QVariant();
+    return {};
 }
 
 int UsersInRoleModel::columnCount(const QModelIndex &parent) const

@@ -10,7 +10,7 @@
 
 #include <QRegularExpression>
 
-#include <limits.h>
+#include <climits>
 
 KTextToHTMLHelper::KTextToHTMLHelper(const QString &plainText, int pos, int maxUrlLen, int maxAddressLen)
     : mText(plainText)
@@ -35,7 +35,7 @@ QString KTextToHTMLHelper::getEmailAddress()
                && (mText.at(start).isLetterOrNumber() || mText.at(start) == QLatin1Char('@') // allow @ to find invalid email addresses
                    || allowedSpecialChars.indexOf(mText.at(start)) != -1)) {
             if (mText.at(start) == QLatin1Char('@')) {
-                return QString(); // local part contains '@' -> no email address
+                return {}; // local part contains '@' -> no email address
             }
             --start;
         }
@@ -45,7 +45,7 @@ QString KTextToHTMLHelper::getEmailAddress()
             ++start;
         }
         if (start == mPos) {
-            return QString(); // local part is empty -> no email address
+            return {}; // local part is empty -> no email address
         }
 
         // determine the domain part of the email address
@@ -55,7 +55,7 @@ QString KTextToHTMLHelper::getEmailAddress()
                && (mText.at(end).isLetterOrNumber() || mText.at(end) == QLatin1Char('@') // allow @ to find invalid email addresses
                    || mText.at(end) == QLatin1Char('.') || mText.at(end) == QLatin1Char('-'))) {
             if (mText.at(end) == QLatin1Char('@')) {
-                return QString(); // domain part contains '@' -> no email address
+                return {}; // domain part contains '@' -> no email address
             }
             if (mText.at(end) == QLatin1Char('.')) {
                 dotPos = qMin(dotPos, end); // remember index of first dot in domain
@@ -67,14 +67,14 @@ QString KTextToHTMLHelper::getEmailAddress()
             --end;
         }
         if (end == mPos) {
-            return QString(); // domain part is empty -> no email address
+            return {}; // domain part is empty -> no email address
         }
         if (dotPos >= end) {
-            return QString(); // domain part doesn't contain a dot
+            return {}; // domain part doesn't contain a dot
         }
 
         if (end - start > mMaxAddressLen) {
-            return QString(); // too long -> most likely no email address
+            return {}; // too long -> most likely no email address
         }
         address = mText.mid(start, end - start);
 
@@ -267,7 +267,7 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
                     if (badurl) {
                         *badurl = true;
                     }
-                    return QString();
+                    return {};
                 }
                 if (mText.at(mPos) == QLatin1Char('"')) {
                     previousCharIsADoubleQuote = true;
@@ -318,12 +318,12 @@ QString KTextToHTMLHelper::highlightedText()
 {
     // formating symbols must be prepended with a whitespace
     if ((mPos > 0) && !mText.at(mPos - 1).isSpace()) {
-        return QString();
+        return {};
     }
 
     const QChar ch = mText.at(mPos);
     if (ch != QLatin1Char('~') && ch != QLatin1Char('*') && ch != QLatin1Char('_')) {
-        return QString();
+        return {};
     }
 
     QRegularExpression re(QStringLiteral("\\%1([^\\s|^\\%1].*[^\\s|^\\%1])\\%1").arg(ch));
@@ -335,7 +335,7 @@ QString KTextToHTMLHelper::highlightedText()
             int length = match.capturedLength();
             // there must be a whitespace after the closing formating symbol
             if (mPos + length < mText.length() && !mText.at(mPos + length).isSpace()) {
-                return QString();
+                return {};
             }
             mPos += length - 1;
             switch (ch.toLatin1()) {
@@ -348,7 +348,7 @@ QString KTextToHTMLHelper::highlightedText()
             }
         }
     }
-    return QString();
+    return {};
 }
 
 QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextToHTML::Options flags, int maxUrlLen, int maxAddressLen)

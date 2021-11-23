@@ -31,9 +31,7 @@ AddUserToRoleJob::AddUserToRoleJob(QObject *parent)
 {
 }
 
-AddUserToRoleJob::~AddUserToRoleJob()
-{
-}
+AddUserToRoleJob::~AddUserToRoleJob() = default;
 
 bool AddUserToRoleJob::start()
 {

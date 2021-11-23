@@ -32,9 +32,7 @@ AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     KIdleTime::instance()->catchNextResumeEvent();
 }
 
-AwayManager::~AwayManager()
-{
-}
+AwayManager::~AwayManager() = default;
 
 void AwayManager::slotResumeFromIdle()
 {

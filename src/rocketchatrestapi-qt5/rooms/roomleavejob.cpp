@@ -31,9 +31,7 @@ RoomLeaveJob::RoomLeaveJob(QObject *parent)
 {
 }
 
-RoomLeaveJob::~RoomLeaveJob()
-{
-}
+RoomLeaveJob::~RoomLeaveJob() = default;
 
 bool RoomLeaveJob::start()
 {

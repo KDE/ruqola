@@ -25,9 +25,7 @@ ConverterTextAbstractJob::ConverterTextAbstractJob(QObject *parent)
 {
 }
 
-ConverterTextAbstractJob::~ConverterTextAbstractJob()
-{
-}
+ConverterTextAbstractJob::~ConverterTextAbstractJob() = default;
 
 QString ConverterTextAbstractJob::messageId() const
 {

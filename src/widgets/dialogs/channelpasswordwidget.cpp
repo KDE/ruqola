@@ -44,9 +44,7 @@ ChannelPasswordWidget::ChannelPasswordWidget(QWidget *parent)
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &ChannelPasswordWidget::slotPasswordChanged);
 }
 
-ChannelPasswordWidget::~ChannelPasswordWidget()
-{
-}
+ChannelPasswordWidget::~ChannelPasswordWidget() = default;
 
 QString ChannelPasswordWidget::password() const
 {

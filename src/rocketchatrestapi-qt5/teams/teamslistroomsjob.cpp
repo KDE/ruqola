@@ -31,9 +31,7 @@ TeamsListRoomsJob::TeamsListRoomsJob(QObject *parent)
 {
 }
 
-TeamsListRoomsJob::~TeamsListRoomsJob()
-{
-}
+TeamsListRoomsJob::~TeamsListRoomsJob() = default;
 
 bool TeamsListRoomsJob::requireHttpAuthentication() const
 {

@@ -31,9 +31,7 @@ ChannelGetAllUserMentionsJob::ChannelGetAllUserMentionsJob(QObject *parent)
 {
 }
 
-ChannelGetAllUserMentionsJob::~ChannelGetAllUserMentionsJob()
-{
-}
+ChannelGetAllUserMentionsJob::~ChannelGetAllUserMentionsJob() = default;
 
 bool ChannelGetAllUserMentionsJob::canStart() const
 {

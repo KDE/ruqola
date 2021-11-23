@@ -22,9 +22,7 @@
 
 #include <QJsonArray>
 
-OwnUserPreferences::OwnUserPreferences()
-{
-}
+OwnUserPreferences::OwnUserPreferences() = default;
 
 OwnUserPreferences::~OwnUserPreferences() = default;
 

@@ -31,9 +31,7 @@ GroupsConvertToTeamJob::GroupsConvertToTeamJob(QObject *parent)
 {
 }
 
-GroupsConvertToTeamJob::~GroupsConvertToTeamJob()
-{
-}
+GroupsConvertToTeamJob::~GroupsConvertToTeamJob() = default;
 
 bool GroupsConvertToTeamJob::start()
 {

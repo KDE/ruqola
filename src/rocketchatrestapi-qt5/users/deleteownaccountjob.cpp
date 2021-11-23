@@ -31,9 +31,7 @@ DeleteOwnAccountJob::DeleteOwnAccountJob(QObject *parent)
 {
 }
 
-DeleteOwnAccountJob::~DeleteOwnAccountJob()
-{
-}
+DeleteOwnAccountJob::~DeleteOwnAccountJob() = default;
 
 bool DeleteOwnAccountJob::start()
 {

@@ -102,9 +102,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     mainLayout->addStretch(1);
 }
 
-PruneMessagesWidget::~PruneMessagesWidget()
-{
-}
+PruneMessagesWidget::~PruneMessagesWidget() = default;
 
 void PruneMessagesWidget::updateLabelInfo()
 {

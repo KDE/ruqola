@@ -30,9 +30,7 @@ WebShortcutTextInterface::WebShortcutTextInterface(QObject *parent)
 {
 }
 
-WebShortcutTextInterface::~WebShortcutTextInterface()
-{
-}
+WebShortcutTextInterface::~WebShortcutTextInterface() = default;
 
 void WebShortcutTextInterface::addAction(QMenu *menu)
 {

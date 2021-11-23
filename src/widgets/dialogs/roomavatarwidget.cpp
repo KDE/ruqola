@@ -35,9 +35,7 @@ RoomAvatarWidget::RoomAvatarWidget(QWidget *parent)
     connect(this, &RoomAvatarWidget::clicked, this, &RoomAvatarWidget::slotChangeImage);
 }
 
-RoomAvatarWidget::~RoomAvatarWidget()
-{
-}
+RoomAvatarWidget::~RoomAvatarWidget() = default;
 
 void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 {

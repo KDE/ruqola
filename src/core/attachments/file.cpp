@@ -21,9 +21,7 @@
 #include "utils.h"
 #include <QDateTime>
 
-File::File()
-{
-}
+File::File() = default;
 
 void File::parseFile(const QJsonObject &object, bool restApi)
 {

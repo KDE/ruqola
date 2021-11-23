@@ -23,9 +23,7 @@
 
 #include <QJsonArray>
 
-Roles::Roles()
-{
-}
+Roles::Roles() = default;
 
 QVector<Role> Roles::roles() const
 {

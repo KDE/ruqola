@@ -35,9 +35,7 @@ TeamRoomsFilterProxyModel::TeamRoomsFilterProxyModel(TeamRoomsModel *teamModel, 
     sort(0, Qt::AscendingOrder);
 }
 
-TeamRoomsFilterProxyModel::~TeamRoomsFilterProxyModel()
-{
-}
+TeamRoomsFilterProxyModel::~TeamRoomsFilterProxyModel() = default;
 
 void TeamRoomsFilterProxyModel::setFilterString(const QString &string)
 {

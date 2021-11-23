@@ -74,9 +74,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
     mainLayout->addWidget(mMessageTextEdit);
 }
 
-CreateNewDiscussionWidget::~CreateNewDiscussionWidget()
-{
-}
+CreateNewDiscussionWidget::~CreateNewDiscussionWidget() = default;
 
 void CreateNewDiscussionWidget::setChannelInfo(const QString &name, const QString &channelId)
 {

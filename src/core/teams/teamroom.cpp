@@ -22,9 +22,7 @@
 
 #include <QJsonArray>
 
-TeamRoom::TeamRoom()
-{
-}
+TeamRoom::TeamRoom() = default;
 
 bool TeamRoom::operator==(const TeamRoom &other) const
 {

@@ -31,9 +31,7 @@ EmojiCustomUpdateJob::EmojiCustomUpdateJob(QObject *parent)
 {
 }
 
-EmojiCustomUpdateJob::~EmojiCustomUpdateJob()
-{
-}
+EmojiCustomUpdateJob::~EmojiCustomUpdateJob() = default;
 
 bool EmojiCustomUpdateJob::start()
 {

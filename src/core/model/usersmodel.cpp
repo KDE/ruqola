@@ -29,9 +29,7 @@ UsersModel::UsersModel(QObject *parent)
 {
 }
 
-UsersModel::~UsersModel()
-{
-}
+UsersModel::~UsersModel() = default;
 
 int UsersModel::rowCount(const QModelIndex &parent) const
 {
@@ -42,7 +40,7 @@ int UsersModel::rowCount(const QModelIndex &parent) const
 QVariant UsersModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mUsers.count()) {
-        return QVariant();
+        return {};
     }
     const User &user = mUsers.at(index.row());
     switch (role) {

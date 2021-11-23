@@ -30,9 +30,7 @@ PermissionsListAllJob::PermissionsListAllJob(QObject *parent)
 {
 }
 
-PermissionsListAllJob::~PermissionsListAllJob()
-{
-}
+PermissionsListAllJob::~PermissionsListAllJob() = default;
 
 bool PermissionsListAllJob::requireHttpAuthentication() const
 {

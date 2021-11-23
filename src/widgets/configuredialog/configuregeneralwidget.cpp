@@ -58,9 +58,7 @@ ConfigureGeneralWidget::ConfigureGeneralWidget(QWidget *parent)
     mainLayout->addStretch(1);
 }
 
-ConfigureGeneralWidget::~ConfigureGeneralWidget()
-{
-}
+ConfigureGeneralWidget::~ConfigureGeneralWidget() = default;
 
 void ConfigureGeneralWidget::save()
 {

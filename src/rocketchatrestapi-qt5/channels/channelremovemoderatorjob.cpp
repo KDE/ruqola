@@ -31,9 +31,7 @@ ChannelRemoveModeratorJob::ChannelRemoveModeratorJob(QObject *parent)
 {
 }
 
-ChannelRemoveModeratorJob::~ChannelRemoveModeratorJob()
-{
-}
+ChannelRemoveModeratorJob::~ChannelRemoveModeratorJob() = default;
 
 bool ChannelRemoveModeratorJob::start()
 {

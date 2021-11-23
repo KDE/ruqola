@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Users::Users()
-{
-}
+Users::Users() = default;
 
 bool Users::isEmpty() const
 {

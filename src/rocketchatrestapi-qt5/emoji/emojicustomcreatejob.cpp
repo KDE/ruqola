@@ -35,9 +35,7 @@ EmojiCustomCreateJob::EmojiCustomCreateJob(QObject *parent)
 {
 }
 
-EmojiCustomCreateJob::~EmojiCustomCreateJob()
-{
-}
+EmojiCustomCreateJob::~EmojiCustomCreateJob() = default;
 
 bool EmojiCustomCreateJob::start()
 {

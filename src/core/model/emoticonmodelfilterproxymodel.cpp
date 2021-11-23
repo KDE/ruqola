@@ -29,9 +29,7 @@ EmoticonModelFilterProxyModel::EmoticonModelFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-EmoticonModelFilterProxyModel::~EmoticonModelFilterProxyModel()
-{
-}
+EmoticonModelFilterProxyModel::~EmoticonModelFilterProxyModel() = default;
 
 bool EmoticonModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

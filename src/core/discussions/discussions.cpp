@@ -22,9 +22,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Discussions::Discussions()
-{
-}
+Discussions::Discussions() = default;
 
 QVector<Discussion> Discussions::discussions() const
 {

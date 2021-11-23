@@ -58,9 +58,7 @@ AdministratorRoomsSelectRoomTypeWidget::AdministratorRoomsSelectRoomTypeWidget(Q
     connect(mOmniChannel, &QCheckBox::clicked, this, &AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged);
 }
 
-AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget()
-{
-}
+AdministratorRoomsSelectRoomTypeWidget::~AdministratorRoomsSelectRoomTypeWidget() = default;
 
 void AdministratorRoomsSelectRoomTypeWidget::slotFilterChanged()
 {

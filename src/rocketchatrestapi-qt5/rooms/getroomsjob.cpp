@@ -30,9 +30,7 @@ GetRoomsJob::GetRoomsJob(QObject *parent)
 {
 }
 
-GetRoomsJob::~GetRoomsJob()
-{
-}
+GetRoomsJob::~GetRoomsJob() = default;
 
 bool GetRoomsJob::requireHttpAuthentication() const
 {

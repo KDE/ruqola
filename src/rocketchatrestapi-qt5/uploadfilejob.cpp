@@ -36,9 +36,7 @@ UploadFileJob::UploadFileJob(QObject *parent)
 {
 }
 
-UploadFileJob::~UploadFileJob()
-{
-}
+UploadFileJob::~UploadFileJob() = default;
 
 bool UploadFileJob::canStart() const
 {

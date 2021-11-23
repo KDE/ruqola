@@ -36,9 +36,7 @@ NotificationWidget::NotificationWidget(QWidget *parent)
     connect(sendNotification, &QPushButton::clicked, this, &NotificationWidget::slotSendNotification);
 }
 
-NotificationWidget::~NotificationWidget()
-{
-}
+NotificationWidget::~NotificationWidget() = default;
 
 void NotificationWidget::slotSendNotification()
 {

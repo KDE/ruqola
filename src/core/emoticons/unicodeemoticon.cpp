@@ -22,9 +22,7 @@
 #include "utils.h"
 #include <sstream>
 
-UnicodeEmoticon::UnicodeEmoticon()
-{
-}
+UnicodeEmoticon::UnicodeEmoticon() = default;
 
 bool UnicodeEmoticon::isValid() const
 {

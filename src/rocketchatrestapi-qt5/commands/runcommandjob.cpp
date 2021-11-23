@@ -31,9 +31,7 @@ RunCommandJob::RunCommandJob(QObject *parent)
 {
 }
 
-RunCommandJob::~RunCommandJob()
-{
-}
+RunCommandJob::~RunCommandJob() = default;
 
 bool RunCommandJob::start()
 {

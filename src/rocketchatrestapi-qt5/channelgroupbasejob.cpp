@@ -27,9 +27,7 @@ ChannelGroupBaseJob::ChannelGroupBaseJob(QObject *parent)
 {
 }
 
-ChannelGroupBaseJob::~ChannelGroupBaseJob()
-{
-}
+ChannelGroupBaseJob::~ChannelGroupBaseJob() = default;
 
 bool ChannelGroupBaseJob::hasIdentifier() const
 {

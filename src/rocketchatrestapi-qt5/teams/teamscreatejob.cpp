@@ -31,9 +31,7 @@ TeamsCreateJob::TeamsCreateJob(QObject *parent)
 {
 }
 
-TeamsCreateJob::~TeamsCreateJob()
-{
-}
+TeamsCreateJob::~TeamsCreateJob() = default;
 
 bool TeamsCreateJob::start()
 {

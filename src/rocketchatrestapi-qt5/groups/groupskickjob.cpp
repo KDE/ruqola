@@ -31,9 +31,7 @@ GroupsKickJob::GroupsKickJob(QObject *parent)
 {
 }
 
-GroupsKickJob::~GroupsKickJob()
-{
-}
+GroupsKickJob::~GroupsKickJob() = default;
 
 bool GroupsKickJob::start()
 {

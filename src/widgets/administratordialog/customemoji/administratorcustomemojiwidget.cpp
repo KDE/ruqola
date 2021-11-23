@@ -53,9 +53,7 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorCustomEmojiWidget::slotModifyCustomEmoji);
 }
 
-AdministratorCustomEmojiWidget::~AdministratorCustomEmojiWidget()
-{
-}
+AdministratorCustomEmojiWidget::~AdministratorCustomEmojiWidget() = default;
 
 void AdministratorCustomEmojiWidget::updateLabel()
 {

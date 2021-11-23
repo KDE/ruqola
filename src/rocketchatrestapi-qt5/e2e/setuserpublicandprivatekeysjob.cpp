@@ -31,9 +31,7 @@ SetUserPublicAndPrivateKeysJob::SetUserPublicAndPrivateKeysJob(QObject *parent)
 {
 }
 
-SetUserPublicAndPrivateKeysJob::~SetUserPublicAndPrivateKeysJob()
-{
-}
+SetUserPublicAndPrivateKeysJob::~SetUserPublicAndPrivateKeysJob() = default;
 
 bool SetUserPublicAndPrivateKeysJob::start()
 {

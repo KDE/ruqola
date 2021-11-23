@@ -32,9 +32,7 @@ GroupRemoveOwnerJob::GroupRemoveOwnerJob(QObject *parent)
 {
 }
 
-GroupRemoveOwnerJob::~GroupRemoveOwnerJob()
-{
-}
+GroupRemoveOwnerJob::~GroupRemoveOwnerJob() = default;
 
 bool GroupRemoveOwnerJob::start()
 {

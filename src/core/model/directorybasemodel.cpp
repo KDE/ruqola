@@ -25,9 +25,7 @@ DirectoryBaseModel::DirectoryBaseModel(QObject *parent)
 {
 }
 
-DirectoryBaseModel::~DirectoryBaseModel()
-{
-}
+DirectoryBaseModel::~DirectoryBaseModel() = default;
 
 bool DirectoryBaseModel::loadMoreInProgress() const
 {

@@ -31,9 +31,7 @@ SetUserActiveStatusJob::SetUserActiveStatusJob(QObject *parent)
 {
 }
 
-SetUserActiveStatusJob::~SetUserActiveStatusJob()
-{
-}
+SetUserActiveStatusJob::~SetUserActiveStatusJob() = default;
 
 bool SetUserActiveStatusJob::start()
 {

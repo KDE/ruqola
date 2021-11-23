@@ -31,9 +31,7 @@ StatisticsJob::StatisticsJob(QObject *parent)
 {
 }
 
-StatisticsJob::~StatisticsJob()
-{
-}
+StatisticsJob::~StatisticsJob() = default;
 
 bool StatisticsJob::requireHttpAuthentication() const
 {

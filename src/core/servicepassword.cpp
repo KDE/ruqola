@@ -21,13 +21,9 @@
 #include "servicepassword.h"
 #include <QDebug>
 
-ServicePassword::ServicePassword()
-{
-}
+ServicePassword::ServicePassword() = default;
 
-ServicePassword::~ServicePassword()
-{
-}
+ServicePassword::~ServicePassword() = default;
 
 bool ServicePassword::operator==(const ServicePassword &other) const
 {

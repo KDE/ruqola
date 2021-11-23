@@ -46,9 +46,7 @@ SearchTeamCompletionLineEdit::SearchTeamCompletionLineEdit(QWidget *parent)
     connect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
 }
 
-SearchTeamCompletionLineEdit::~SearchTeamCompletionLineEdit()
-{
-}
+SearchTeamCompletionLineEdit::~SearchTeamCompletionLineEdit() = default;
 
 const QString &SearchTeamCompletionLineEdit::teamId() const
 {

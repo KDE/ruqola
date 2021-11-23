@@ -27,9 +27,7 @@ AdminInviteModel::AdminInviteModel(QObject *parent)
 {
 }
 
-AdminInviteModel::~AdminInviteModel()
-{
-}
+AdminInviteModel::~AdminInviteModel() = default;
 
 int AdminInviteModel::rowCount(const QModelIndex &parent) const
 {
@@ -59,7 +57,7 @@ QVariant AdminInviteModel::headerData(int section, Qt::Orientation orientation, 
             return i18n("Expiration");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminInviteModel::columnCount(const QModelIndex &parent) const

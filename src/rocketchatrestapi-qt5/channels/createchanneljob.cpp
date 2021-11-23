@@ -32,9 +32,7 @@ CreateChannelJob::CreateChannelJob(QObject *parent)
 {
 }
 
-CreateChannelJob::~CreateChannelJob()
-{
-}
+CreateChannelJob::~CreateChannelJob() = default;
 
 bool CreateChannelJob::start()
 {

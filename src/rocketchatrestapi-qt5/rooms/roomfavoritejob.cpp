@@ -31,9 +31,7 @@ RoomFavoriteJob::RoomFavoriteJob(QObject *parent)
 {
 }
 
-RoomFavoriteJob::~RoomFavoriteJob()
-{
-}
+RoomFavoriteJob::~RoomFavoriteJob() = default;
 
 bool RoomFavoriteJob::start()
 {

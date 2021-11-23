@@ -30,9 +30,7 @@ OtrManager::OtrManager(RocketChatAccount *account, QObject *parent)
 {
 }
 
-OtrManager::~OtrManager()
-{
-}
+OtrManager::~OtrManager() = default;
 
 void OtrManager::slotActivateNotificationAction()
 {

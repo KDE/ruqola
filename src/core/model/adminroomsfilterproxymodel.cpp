@@ -26,9 +26,7 @@ AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(DirectoryBaseModel *model
     sort(0, Qt::DescendingOrder);
 }
 
-AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel()
-{
-}
+AdminRoomsFilterProxyModel::~AdminRoomsFilterProxyModel() = default;
 
 void AdminRoomsFilterProxyModel::setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters)
 {

@@ -41,9 +41,7 @@ PlaySoundDialog::PlaySoundDialog(QWidget *parent)
     mainLayout->addWidget(buttonBox);
 }
 
-PlaySoundDialog::~PlaySoundDialog()
-{
-}
+PlaySoundDialog::~PlaySoundDialog() = default;
 
 void PlaySoundDialog::setAudioUrl(const QUrl &url)
 {

@@ -32,9 +32,7 @@ RoomsExportJob::RoomsExportJob(QObject *parent)
 {
 }
 
-RoomsExportJob::~RoomsExportJob()
-{
-}
+RoomsExportJob::~RoomsExportJob() = default;
 
 bool RoomsExportJob::start()
 {

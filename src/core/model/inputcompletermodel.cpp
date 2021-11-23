@@ -31,9 +31,7 @@ InputCompleterModel::InputCompleterModel(QObject *parent)
 {
 }
 
-InputCompleterModel::~InputCompleterModel()
-{
-}
+InputCompleterModel::~InputCompleterModel() = default;
 
 void InputCompleterModel::setDefaultUserCompletion()
 {

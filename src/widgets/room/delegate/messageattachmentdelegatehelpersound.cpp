@@ -41,9 +41,7 @@ MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound()
 {
 }
 
-MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound()
-{
-}
+MessageAttachmentDelegateHelperSound::~MessageAttachmentDelegateHelperSound() = default;
 
 void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAttach,
                                                 QPainter *painter,

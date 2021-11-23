@@ -31,9 +31,7 @@ ChannelsModeratorsJob::ChannelsModeratorsJob(QObject *parent)
 {
 }
 
-ChannelsModeratorsJob::~ChannelsModeratorsJob()
-{
-}
+ChannelsModeratorsJob::~ChannelsModeratorsJob() = default;
 
 bool ChannelsModeratorsJob::start()
 {

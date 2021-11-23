@@ -31,9 +31,7 @@ TranslateSaveSettingsJob::TranslateSaveSettingsJob(QObject *parent)
 {
 }
 
-TranslateSaveSettingsJob::~TranslateSaveSettingsJob()
-{
-}
+TranslateSaveSettingsJob::~TranslateSaveSettingsJob() = default;
 
 bool TranslateSaveSettingsJob::start()
 {

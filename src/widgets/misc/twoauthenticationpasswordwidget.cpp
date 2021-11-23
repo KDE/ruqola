@@ -50,9 +50,7 @@ TwoAuthenticationPasswordWidget::TwoAuthenticationPasswordWidget(QWidget *parent
     });
 }
 
-TwoAuthenticationPasswordWidget::~TwoAuthenticationPasswordWidget()
-{
-}
+TwoAuthenticationPasswordWidget::~TwoAuthenticationPasswordWidget() = default;
 
 QString TwoAuthenticationPasswordWidget::code() const
 {

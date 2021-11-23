@@ -38,9 +38,7 @@ InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
 {
 }
 
-InputTextManager::~InputTextManager()
-{
-}
+InputTextManager::~InputTextManager() = default;
 
 void InputTextManager::setEmoticonModel(QAbstractItemModel *model)
 {

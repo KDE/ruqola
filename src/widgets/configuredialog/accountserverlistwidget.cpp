@@ -33,9 +33,7 @@ AccountServerListWidget::AccountServerListWidget(QWidget *parent)
     connect(this, &AccountServerListWidget::itemDoubleClicked, this, &AccountServerListWidget::modifyAccountConfig);
 }
 
-AccountServerListWidget::~AccountServerListWidget()
-{
-}
+AccountServerListWidget::~AccountServerListWidget() = default;
 
 void AccountServerListWidget::load()
 {
@@ -135,9 +133,7 @@ AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)
 {
 }
 
-AccountServerListWidgetItem::~AccountServerListWidgetItem()
-{
-}
+AccountServerListWidgetItem::~AccountServerListWidgetItem() = default;
 
 AccountManager::AccountManagerInfo AccountServerListWidgetItem::accountInfo() const
 {

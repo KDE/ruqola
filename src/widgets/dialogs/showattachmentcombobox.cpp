@@ -26,9 +26,7 @@ ShowAttachmentComboBox::ShowAttachmentComboBox(QWidget *parent)
     fillCombobox();
 }
 
-ShowAttachmentComboBox::~ShowAttachmentComboBox()
-{
-}
+ShowAttachmentComboBox::~ShowAttachmentComboBox() = default;
 
 void ShowAttachmentComboBox::fillCombobox()
 {

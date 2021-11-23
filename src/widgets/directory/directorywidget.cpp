@@ -71,9 +71,7 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
     connectModel();
 }
 
-DirectoryWidget::~DirectoryWidget()
-{
-}
+DirectoryWidget::~DirectoryWidget() = default;
 
 void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {

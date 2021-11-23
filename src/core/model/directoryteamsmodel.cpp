@@ -26,9 +26,7 @@ DirectoryTeamsModel::DirectoryTeamsModel(QObject *parent)
 {
 }
 
-DirectoryTeamsModel::~DirectoryTeamsModel()
-{
-}
+DirectoryTeamsModel::~DirectoryTeamsModel() = default;
 
 void DirectoryTeamsModel::checkFullList()
 {
@@ -112,7 +110,7 @@ QVariant DirectoryTeamsModel::headerData(int section, Qt::Orientation orientatio
             return {};
         }
     }
-    return QVariant();
+    return {};
 }
 
 int DirectoryTeamsModel::columnCount(const QModelIndex &parent) const

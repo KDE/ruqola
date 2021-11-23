@@ -46,9 +46,7 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     });
 }
 
-UploadFileWidget::~UploadFileWidget()
-{
-}
+UploadFileWidget::~UploadFileWidget() = default;
 
 QString UploadFileWidget::description() const
 {

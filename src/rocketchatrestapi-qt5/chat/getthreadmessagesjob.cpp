@@ -32,9 +32,7 @@ GetThreadMessagesJob::GetThreadMessagesJob(QObject *parent)
 {
 }
 
-GetThreadMessagesJob::~GetThreadMessagesJob()
-{
-}
+GetThreadMessagesJob::~GetThreadMessagesJob() = default;
 
 bool GetThreadMessagesJob::requireHttpAuthentication() const
 {

@@ -25,9 +25,7 @@ AutotranslateLanguagesModel::AutotranslateLanguagesModel(QObject *parent)
 {
 }
 
-AutotranslateLanguagesModel::~AutotranslateLanguagesModel()
-{
-}
+AutotranslateLanguagesModel::~AutotranslateLanguagesModel() = default;
 
 int AutotranslateLanguagesModel::rowCount(const QModelIndex &parent) const
 {

@@ -30,9 +30,7 @@ ChannelGetCountersJob::ChannelGetCountersJob(QObject *parent)
 {
 }
 
-ChannelGetCountersJob::~ChannelGetCountersJob()
-{
-}
+ChannelGetCountersJob::~ChannelGetCountersJob() = default;
 
 bool ChannelGetCountersJob::canStart() const
 {

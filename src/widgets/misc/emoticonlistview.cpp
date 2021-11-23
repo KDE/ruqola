@@ -42,6 +42,4 @@ EmoticonListView::EmoticonListView(QWidget *parent)
     });
 }
 
-EmoticonListView::~EmoticonListView()
-{
-}
+EmoticonListView::~EmoticonListView() = default;

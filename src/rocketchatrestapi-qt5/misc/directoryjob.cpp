@@ -31,9 +31,7 @@ DirectoryJob::DirectoryJob(QObject *parent)
 {
 }
 
-DirectoryJob::~DirectoryJob()
-{
-}
+DirectoryJob::~DirectoryJob() = default;
 
 bool DirectoryJob::requireHttpAuthentication() const
 {

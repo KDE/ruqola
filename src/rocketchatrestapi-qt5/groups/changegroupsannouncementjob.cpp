@@ -31,9 +31,7 @@ ChangeGroupsAnnouncementJob::ChangeGroupsAnnouncementJob(QObject *parent)
 {
 }
 
-ChangeGroupsAnnouncementJob::~ChangeGroupsAnnouncementJob()
-{
-}
+ChangeGroupsAnnouncementJob::~ChangeGroupsAnnouncementJob() = default;
 
 bool ChangeGroupsAnnouncementJob::start()
 {

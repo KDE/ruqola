@@ -31,9 +31,7 @@ PostMessageJob::PostMessageJob(QObject *parent)
 {
 }
 
-PostMessageJob::~PostMessageJob()
-{
-}
+PostMessageJob::~PostMessageJob() = default;
 
 bool PostMessageJob::start()
 {

@@ -31,9 +31,7 @@ UsersAutocompleteJob::UsersAutocompleteJob(QObject *parent)
 {
 }
 
-UsersAutocompleteJob::~UsersAutocompleteJob()
-{
-}
+UsersAutocompleteJob::~UsersAutocompleteJob() = default;
 
 bool UsersAutocompleteJob::requireHttpAuthentication() const
 {

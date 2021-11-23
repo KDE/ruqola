@@ -34,9 +34,7 @@ TeamSearchRoomWidget::TeamSearchRoomWidget(RocketChatAccount *account, QWidget *
     vboxLayout->addWidget(mTeamSearchRoomForTeamWidget);
 }
 
-TeamSearchRoomWidget::~TeamSearchRoomWidget()
-{
-}
+TeamSearchRoomWidget::~TeamSearchRoomWidget() = default;
 
 QStringList TeamSearchRoomWidget::roomIds() const
 {

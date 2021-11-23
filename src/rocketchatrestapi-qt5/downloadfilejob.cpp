@@ -33,9 +33,7 @@ DownloadFileJob::DownloadFileJob(QObject *parent)
 {
 }
 
-DownloadFileJob::~DownloadFileJob()
-{
-}
+DownloadFileJob::~DownloadFileJob() = default;
 
 bool DownloadFileJob::start()
 {

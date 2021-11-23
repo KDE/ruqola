@@ -61,9 +61,7 @@ ReportMessageWidget::ReportMessageWidget(QWidget *parent)
     });
 }
 
-ReportMessageWidget::~ReportMessageWidget()
-{
-}
+ReportMessageWidget::~ReportMessageWidget() = default;
 
 QString ReportMessageWidget::message() const
 {

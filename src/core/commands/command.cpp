@@ -24,9 +24,7 @@
 #include <KLocalizedString>
 #include <QJsonArray>
 
-Command::Command()
-{
-}
+Command::Command() = default;
 
 QString Command::params() const
 {

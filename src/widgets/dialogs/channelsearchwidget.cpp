@@ -44,9 +44,7 @@ ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
     connect(mChannelSearchLineResult, &ChannelSearchNameLineResultWidget::clearRoomName, this, &ChannelSearchWidget::slotClearRoom);
 }
 
-ChannelSearchWidget::~ChannelSearchWidget()
-{
-}
+ChannelSearchWidget::~ChannelSearchWidget() = default;
 
 void ChannelSearchWidget::setChannelInfo(const QString &name, const QString &channelId)
 {

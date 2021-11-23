@@ -27,9 +27,7 @@ RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     sort(0);
 }
 
-RoomFilterProxyModel::~RoomFilterProxyModel()
-{
-}
+RoomFilterProxyModel::~RoomFilterProxyModel() = default;
 
 bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

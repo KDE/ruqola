@@ -30,9 +30,7 @@ GetAvatarJob::GetAvatarJob(QObject *parent)
 {
 }
 
-GetAvatarJob::~GetAvatarJob()
-{
-}
+GetAvatarJob::~GetAvatarJob() = default;
 
 bool GetAvatarJob::canStart() const
 {

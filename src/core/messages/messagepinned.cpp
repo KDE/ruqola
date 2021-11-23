@@ -20,9 +20,7 @@
 
 #include "messagepinned.h"
 #include <QJsonObject>
-MessagePinned::MessagePinned()
-{
-}
+MessagePinned::MessagePinned() = default;
 
 bool MessagePinned::pinned() const
 {

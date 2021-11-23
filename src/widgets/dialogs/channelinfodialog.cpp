@@ -49,9 +49,7 @@ ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent
     connect(mChannelInfoWidget, &ChannelInfoWidget::roomNameValid, this, &ChannelInfoDialog::slotRoomNameValid);
 }
 
-ChannelInfoDialog::~ChannelInfoDialog()
-{
-}
+ChannelInfoDialog::~ChannelInfoDialog() = default;
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
 {

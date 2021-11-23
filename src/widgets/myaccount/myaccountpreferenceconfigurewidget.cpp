@@ -96,9 +96,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     initComboboxValues();
 }
 
-MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget()
-{
-}
+MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget() = default;
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {

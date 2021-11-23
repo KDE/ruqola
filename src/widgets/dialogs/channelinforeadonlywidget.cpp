@@ -76,9 +76,7 @@ ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account,
     layoutReadOnly->addRow(i18n("Description:"), mDescriptionReadOnly);
 }
 
-ChannelInfoReadOnlyWidget::~ChannelInfoReadOnlyWidget()
-{
-}
+ChannelInfoReadOnlyWidget::~ChannelInfoReadOnlyWidget() = default;
 
 void ChannelInfoReadOnlyWidget::setRoom(Room *room)
 {

@@ -31,9 +31,7 @@ CustomUserStatusDeleteJob::CustomUserStatusDeleteJob(QObject *parent)
 {
 }
 
-CustomUserStatusDeleteJob::~CustomUserStatusDeleteJob()
-{
-}
+CustomUserStatusDeleteJob::~CustomUserStatusDeleteJob() = default;
 
 bool CustomUserStatusDeleteJob::start()
 {

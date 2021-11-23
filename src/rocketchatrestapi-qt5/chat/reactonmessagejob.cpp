@@ -33,9 +33,7 @@ ReactOnMessageJob::ReactOnMessageJob(QObject *parent)
 {
 }
 
-ReactOnMessageJob::~ReactOnMessageJob()
-{
-}
+ReactOnMessageJob::~ReactOnMessageJob() = default;
 
 bool ReactOnMessageJob::start()
 {

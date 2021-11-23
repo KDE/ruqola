@@ -47,9 +47,7 @@ SearchTeamDialog::SearchTeamDialog(QWidget *parent)
     connect(mSearchTeamWidget, &SearchTeamWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-SearchTeamDialog::~SearchTeamDialog()
-{
-}
+SearchTeamDialog::~SearchTeamDialog() = default;
 
 const QString &SearchTeamDialog::teamId() const
 {

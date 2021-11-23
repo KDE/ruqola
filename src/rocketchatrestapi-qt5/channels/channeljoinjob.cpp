@@ -33,9 +33,7 @@ ChannelJoinJob::ChannelJoinJob(QObject *parent)
 {
 }
 
-ChannelJoinJob::~ChannelJoinJob()
-{
-}
+ChannelJoinJob::~ChannelJoinJob() = default;
 
 bool ChannelJoinJob::start()
 {

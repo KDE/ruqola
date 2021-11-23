@@ -55,9 +55,7 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::roomNameValid, this, &ChannelInfoWidget::roomNameValid);
 }
 
-ChannelInfoWidget::~ChannelInfoWidget()
-{
-}
+ChannelInfoWidget::~ChannelInfoWidget() = default;
 
 void ChannelInfoWidget::updateUiFromPermission()
 {

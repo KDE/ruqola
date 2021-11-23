@@ -35,9 +35,7 @@ EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
 {
 }
 
-EmojiManager::~EmojiManager()
-{
-}
+EmojiManager::~EmojiManager() = default;
 
 QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 {

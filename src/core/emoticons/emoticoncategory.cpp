@@ -20,9 +20,7 @@
 
 #include "emoticons/emoticoncategory.h"
 
-EmoticonCategory::EmoticonCategory()
-{
-}
+EmoticonCategory::EmoticonCategory() = default;
 
 QString EmoticonCategory::name() const
 {

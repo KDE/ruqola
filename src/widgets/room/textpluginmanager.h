@@ -30,9 +30,7 @@ class PluginText;
 class PluginTextUtilData
 {
 public:
-    PluginTextUtilData()
-    {
-    }
+    PluginTextUtilData() = default;
 
     QStringList mExtraInfo;
     QString mIdentifier;
@@ -42,9 +40,7 @@ public:
 class TextPluginManagerInfo
 {
 public:
-    TextPluginManagerInfo()
-    {
-    }
+    TextPluginManagerInfo() = default;
 
     KPluginMetaData data;
     QString metaDataFileNameBaseName;

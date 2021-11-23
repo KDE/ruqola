@@ -31,9 +31,7 @@ ChannelsConvertToTeamJob::ChannelsConvertToTeamJob(QObject *parent)
 {
 }
 
-ChannelsConvertToTeamJob::~ChannelsConvertToTeamJob()
-{
-}
+ChannelsConvertToTeamJob::~ChannelsConvertToTeamJob() = default;
 
 bool ChannelsConvertToTeamJob::start()
 {

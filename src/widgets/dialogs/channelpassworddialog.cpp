@@ -48,9 +48,7 @@ ChannelPasswordDialog::ChannelPasswordDialog(QWidget *parent)
     });
 }
 
-ChannelPasswordDialog::~ChannelPasswordDialog()
-{
-}
+ChannelPasswordDialog::~ChannelPasswordDialog() = default;
 
 QString ChannelPasswordDialog::password() const
 {

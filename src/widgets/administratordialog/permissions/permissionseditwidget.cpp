@@ -36,9 +36,7 @@ PermissionsEditWidget::PermissionsEditWidget(QWidget *parent)
     mainLayout->addRow(label, mRolesCombobox);
 }
 
-PermissionsEditWidget::~PermissionsEditWidget()
-{
-}
+PermissionsEditWidget::~PermissionsEditWidget() = default;
 
 void PermissionsEditWidget::setRolesInfo(const QVector<RoleInfo> &rolesinfo)
 {

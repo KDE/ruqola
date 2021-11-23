@@ -46,9 +46,7 @@ AdministratorAddUserDialog::AdministratorAddUserDialog(QWidget *parent)
     connect(mAdministratorWidget, &AdministratorAddUserWidget::updateButtonOk, buttonOk, &QPushButton::setEnabled);
 }
 
-AdministratorAddUserDialog::~AdministratorAddUserDialog()
-{
-}
+AdministratorAddUserDialog::~AdministratorAddUserDialog() = default;
 
 RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserDialog::createInfo() const
 {

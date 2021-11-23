@@ -31,9 +31,7 @@ User2FASendEmailCodeJob::User2FASendEmailCodeJob(QObject *parent)
 {
 }
 
-User2FASendEmailCodeJob::~User2FASendEmailCodeJob()
-{
-}
+User2FASendEmailCodeJob::~User2FASendEmailCodeJob() = default;
 
 bool User2FASendEmailCodeJob::start()
 {

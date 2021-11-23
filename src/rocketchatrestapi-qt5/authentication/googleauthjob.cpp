@@ -31,9 +31,7 @@ GoogleAuthJob::GoogleAuthJob(QObject *parent)
 {
 }
 
-GoogleAuthJob::~GoogleAuthJob()
-{
-}
+GoogleAuthJob::~GoogleAuthJob() = default;
 
 bool GoogleAuthJob::canStart() const
 {

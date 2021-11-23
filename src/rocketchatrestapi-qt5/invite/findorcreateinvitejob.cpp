@@ -33,9 +33,7 @@ FindOrCreateInviteJob::FindOrCreateInviteJob(QObject *parent)
 {
 }
 
-FindOrCreateInviteJob::~FindOrCreateInviteJob()
-{
-}
+FindOrCreateInviteJob::~FindOrCreateInviteJob() = default;
 
 bool FindOrCreateInviteJob::start()
 {

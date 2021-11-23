@@ -33,9 +33,7 @@ ChannelOpenJob::ChannelOpenJob(QObject *parent)
 {
 }
 
-ChannelOpenJob::~ChannelOpenJob()
-{
-}
+ChannelOpenJob::~ChannelOpenJob() = default;
 
 bool ChannelOpenJob::start()
 {

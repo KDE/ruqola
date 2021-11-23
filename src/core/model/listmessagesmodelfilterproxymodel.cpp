@@ -36,9 +36,7 @@ ListMessagesModelFilterProxyModel::ListMessagesModelFilterProxyModel(ListMessage
     connect(mModel, &ListMessagesModel::loadingInProgressChanged, this, &ListMessagesModelFilterProxyModel::loadingInProgressChanged);
 }
 
-ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel()
-{
-}
+ListMessagesModelFilterProxyModel::~ListMessagesModelFilterProxyModel() = default;
 
 int ListMessagesModelFilterProxyModel::total() const
 {

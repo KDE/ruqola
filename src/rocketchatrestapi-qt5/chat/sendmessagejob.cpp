@@ -30,9 +30,7 @@ SendMessageJob::SendMessageJob(QObject *parent)
 {
 }
 
-SendMessageJob::~SendMessageJob()
-{
-}
+SendMessageJob::~SendMessageJob() = default;
 
 bool SendMessageJob::start()
 {

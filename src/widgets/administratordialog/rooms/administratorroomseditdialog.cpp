@@ -48,6 +48,4 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(QWidget *parent)
     //    });
 }
 
-AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog()
-{
-}
+AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog() = default;

@@ -27,9 +27,7 @@ NotificationDesktopDurationPreferenceModel::NotificationDesktopDurationPreferenc
     fillModel();
 }
 
-NotificationDesktopDurationPreferenceModel::~NotificationDesktopDurationPreferenceModel()
-{
-}
+NotificationDesktopDurationPreferenceModel::~NotificationDesktopDurationPreferenceModel() = default;
 
 int NotificationDesktopDurationPreferenceModel::rowCount(const QModelIndex &parent) const
 {

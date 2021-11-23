@@ -25,9 +25,7 @@ RolesModel::RolesModel(QObject *parent)
 {
 }
 
-RolesModel::~RolesModel()
-{
-}
+RolesModel::~RolesModel() = default;
 
 void RolesModel::createItem(const QString &displayStr, const QString &identifier)
 {

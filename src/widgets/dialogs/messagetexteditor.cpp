@@ -26,9 +26,7 @@ MessageTextEditor::MessageTextEditor(QWidget *parent)
     setAcceptRichText(false);
 }
 
-MessageTextEditor::~MessageTextEditor()
-{
-}
+MessageTextEditor::~MessageTextEditor() = default;
 
 QSize MessageTextEditor::sizeHint() const
 {

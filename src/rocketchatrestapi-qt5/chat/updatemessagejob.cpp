@@ -30,9 +30,7 @@ UpdateMessageJob::UpdateMessageJob(QObject *parent)
 {
 }
 
-UpdateMessageJob::~UpdateMessageJob()
-{
-}
+UpdateMessageJob::~UpdateMessageJob() = default;
 
 bool UpdateMessageJob::start()
 {

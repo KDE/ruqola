@@ -74,9 +74,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     connect(mChannelName, &ChannelNameValidLineEdit::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
 
-CreateNewChannelWidget::~CreateNewChannelWidget()
-{
-}
+CreateNewChannelWidget::~CreateNewChannelWidget() = default;
 
 void CreateNewChannelWidget::slotChangeOkButtonEnabled(bool state)
 {

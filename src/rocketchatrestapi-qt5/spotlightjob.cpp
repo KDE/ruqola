@@ -31,9 +31,7 @@ SpotlightJob::SpotlightJob(QObject *parent)
 {
 }
 
-SpotlightJob::~SpotlightJob()
-{
-}
+SpotlightJob::~SpotlightJob() = default;
 
 bool SpotlightJob::start()
 {

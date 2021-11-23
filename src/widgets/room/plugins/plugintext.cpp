@@ -25,6 +25,4 @@ PluginText::PluginText(QObject *parent)
 {
 }
 
-PluginText::~PluginText()
-{
-}
+PluginText::~PluginText() = default;

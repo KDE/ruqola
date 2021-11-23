@@ -25,6 +25,4 @@ MessageDownloadManager::MessageDownloadManager(QObject *parent)
 {
 }
 
-MessageDownloadManager::~MessageDownloadManager()
-{
-}
+MessageDownloadManager::~MessageDownloadManager() = default;

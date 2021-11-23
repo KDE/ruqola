@@ -31,9 +31,7 @@ GroupRemoveLeaderJob::GroupRemoveLeaderJob(QObject *parent)
 {
 }
 
-GroupRemoveLeaderJob::~GroupRemoveLeaderJob()
-{
-}
+GroupRemoveLeaderJob::~GroupRemoveLeaderJob() = default;
 
 bool GroupRemoveLeaderJob::start()
 {

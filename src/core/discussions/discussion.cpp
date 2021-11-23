@@ -23,9 +23,7 @@
 #include <QDateTime>
 #include <QJsonObject>
 
-Discussion::Discussion()
-{
-}
+Discussion::Discussion() = default;
 
 QString Discussion::description() const
 {

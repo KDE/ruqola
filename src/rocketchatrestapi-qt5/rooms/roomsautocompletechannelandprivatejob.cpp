@@ -31,9 +31,7 @@ RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateJob(QOb
 {
 }
 
-RoomsAutocompleteChannelAndPrivateJob::~RoomsAutocompleteChannelAndPrivateJob()
-{
-}
+RoomsAutocompleteChannelAndPrivateJob::~RoomsAutocompleteChannelAndPrivateJob() = default;
 
 bool RoomsAutocompleteChannelAndPrivateJob::requireHttpAuthentication() const
 {

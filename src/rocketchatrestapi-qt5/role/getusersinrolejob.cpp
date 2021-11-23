@@ -31,9 +31,7 @@ GetUsersInRoleJob::GetUsersInRoleJob(QObject *parent)
 {
 }
 
-GetUsersInRoleJob::~GetUsersInRoleJob()
-{
-}
+GetUsersInRoleJob::~GetUsersInRoleJob() = default;
 
 bool GetUsersInRoleJob::requireHttpAuthentication() const
 {

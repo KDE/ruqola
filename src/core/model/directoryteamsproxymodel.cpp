@@ -25,9 +25,7 @@ DirectoryTeamsProxyModel::DirectoryTeamsProxyModel(QAbstractListModel *model, QO
 {
 }
 
-DirectoryTeamsProxyModel::~DirectoryTeamsProxyModel()
-{
-}
+DirectoryTeamsProxyModel::~DirectoryTeamsProxyModel() = default;
 
 bool DirectoryTeamsProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

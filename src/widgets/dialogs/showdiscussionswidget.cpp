@@ -58,9 +58,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
     mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));
 }
 
-ShowDiscussionsWidget::~ShowDiscussionsWidget()
-{
-}
+ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {

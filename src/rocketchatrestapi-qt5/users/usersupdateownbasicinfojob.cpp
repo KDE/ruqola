@@ -33,9 +33,7 @@ UsersUpdateOwnBasicInfoJob::UsersUpdateOwnBasicInfoJob(QObject *parent)
 {
 }
 
-UsersUpdateOwnBasicInfoJob::~UsersUpdateOwnBasicInfoJob()
-{
-}
+UsersUpdateOwnBasicInfoJob::~UsersUpdateOwnBasicInfoJob() = default;
 
 bool UsersUpdateOwnBasicInfoJob::start()
 {

@@ -33,9 +33,7 @@ UsersInRoomMenu::UsersInRoomMenu(QObject *parent)
 {
 }
 
-UsersInRoomMenu::~UsersInRoomMenu()
-{
-}
+UsersInRoomMenu::~UsersInRoomMenu() = default;
 
 void UsersInRoomMenu::slotOpenConversation()
 {

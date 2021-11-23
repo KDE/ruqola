@@ -28,6 +28,4 @@ RoleScopeComboBox::RoleScopeComboBox(QWidget *parent)
     addItem(i18n("Global"), QStringLiteral("Users"));
 }
 
-RoleScopeComboBox::~RoleScopeComboBox()
-{
-}
+RoleScopeComboBox::~RoleScopeComboBox() = default;

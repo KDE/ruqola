@@ -31,9 +31,7 @@ GroupAddLeaderJob::GroupAddLeaderJob(QObject *parent)
 {
 }
 
-GroupAddLeaderJob::~GroupAddLeaderJob()
-{
-}
+GroupAddLeaderJob::~GroupAddLeaderJob() = default;
 
 bool GroupAddLeaderJob::start()
 {

@@ -26,9 +26,7 @@ AdminRolesModel::AdminRolesModel(QObject *parent)
 {
 }
 
-AdminRolesModel::~AdminRolesModel()
-{
-}
+AdminRolesModel::~AdminRolesModel() = default;
 
 int AdminRolesModel::rowCount(const QModelIndex &parent) const
 {
@@ -56,7 +54,7 @@ QVariant AdminRolesModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Description");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminRolesModel::columnCount(const QModelIndex &parent) const

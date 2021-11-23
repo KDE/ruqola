@@ -30,6 +30,4 @@ MyAccountSecurityConfigureWidget::MyAccountSecurityConfigureWidget(QWidget *pare
     topLayout->setContentsMargins({});
 }
 
-MyAccountSecurityConfigureWidget::~MyAccountSecurityConfigureWidget()
-{
-}
+MyAccountSecurityConfigureWidget::~MyAccountSecurityConfigureWidget() = default;

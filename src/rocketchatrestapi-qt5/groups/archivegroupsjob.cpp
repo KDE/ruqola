@@ -31,9 +31,7 @@ ArchiveGroupsJob::ArchiveGroupsJob(QObject *parent)
 {
 }
 
-ArchiveGroupsJob::~ArchiveGroupsJob()
-{
-}
+ArchiveGroupsJob::~ArchiveGroupsJob() = default;
 
 bool ArchiveGroupsJob::start()
 {

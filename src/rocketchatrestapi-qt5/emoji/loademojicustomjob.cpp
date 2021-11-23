@@ -31,9 +31,7 @@ LoadEmojiCustomJob::LoadEmojiCustomJob(QObject *parent)
 {
 }
 
-LoadEmojiCustomJob::~LoadEmojiCustomJob()
-{
-}
+LoadEmojiCustomJob::~LoadEmojiCustomJob() = default;
 
 bool LoadEmojiCustomJob::start()
 {

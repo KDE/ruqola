@@ -68,9 +68,7 @@ ChannelInfoPruneWidget::ChannelInfoPruneWidget(QWidget *parent)
     maxAgeLayout->addWidget(mMaximumAgeInDay);
 }
 
-ChannelInfoPruneWidget::~ChannelInfoPruneWidget()
-{
-}
+ChannelInfoPruneWidget::~ChannelInfoPruneWidget() = default;
 
 void ChannelInfoPruneWidget::setOverrideGlobalSettings(bool override)
 {

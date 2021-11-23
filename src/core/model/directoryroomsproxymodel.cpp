@@ -25,9 +25,7 @@ DirectoryRoomsProxyModel::DirectoryRoomsProxyModel(QAbstractListModel *model, QO
 {
 }
 
-DirectoryRoomsProxyModel::~DirectoryRoomsProxyModel()
-{
-}
+DirectoryRoomsProxyModel::~DirectoryRoomsProxyModel() = default;
 
 bool DirectoryRoomsProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

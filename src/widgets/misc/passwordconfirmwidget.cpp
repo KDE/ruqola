@@ -43,9 +43,7 @@ PasswordConfirmWidget::PasswordConfirmWidget(QWidget *parent)
     mConfirmPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
 }
 
-PasswordConfirmWidget::~PasswordConfirmWidget()
-{
-}
+PasswordConfirmWidget::~PasswordConfirmWidget() = default;
 
 bool PasswordConfirmWidget::isNewPasswordConfirmed() const
 {

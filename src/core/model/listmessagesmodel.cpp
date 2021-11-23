@@ -27,9 +27,7 @@ ListMessagesModel::ListMessagesModel(const QString &roomID, RocketChatAccount *a
 {
 }
 
-ListMessagesModel::~ListMessagesModel()
-{
-}
+ListMessagesModel::~ListMessagesModel() = default;
 
 void ListMessagesModel::parse(const QJsonObject &obj)
 {

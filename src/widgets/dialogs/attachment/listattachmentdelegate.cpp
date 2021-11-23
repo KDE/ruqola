@@ -37,9 +37,7 @@ ListAttachmentDelegate::ListAttachmentDelegate(QObject *parent)
 {
 }
 
-ListAttachmentDelegate::~ListAttachmentDelegate()
-{
-}
+ListAttachmentDelegate::~ListAttachmentDelegate() = default;
 
 void ListAttachmentDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {

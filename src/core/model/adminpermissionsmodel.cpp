@@ -26,9 +26,7 @@ AdminPermissionsModel::AdminPermissionsModel(QObject *parent)
 {
 }
 
-AdminPermissionsModel::~AdminPermissionsModel()
-{
-}
+AdminPermissionsModel::~AdminPermissionsModel() = default;
 
 int AdminPermissionsModel::rowCount(const QModelIndex &parent) const
 {
@@ -49,7 +47,7 @@ QVariant AdminPermissionsModel::headerData(int section, Qt::Orientation orientat
             return i18n("Roles");
         }
     }
-    return QVariant();
+    return {};
 }
 
 int AdminPermissionsModel::columnCount(const QModelIndex &parent) const

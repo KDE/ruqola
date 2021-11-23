@@ -90,9 +90,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->addWidget(mSoundSlider);
 }
 
-ShowVideoWidget::~ShowVideoWidget()
-{
-}
+ShowVideoWidget::~ShowVideoWidget() = default;
 
 void ShowVideoWidget::muteChanged(bool state)
 {

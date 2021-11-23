@@ -33,9 +33,7 @@ UsersCreateJob::UsersCreateJob(QObject *parent)
 {
 }
 
-UsersCreateJob::~UsersCreateJob()
-{
-}
+UsersCreateJob::~UsersCreateJob() = default;
 
 bool UsersCreateJob::start()
 {

@@ -31,9 +31,7 @@ GroupAddOwnerJob::GroupAddOwnerJob(QObject *parent)
 {
 }
 
-GroupAddOwnerJob::~GroupAddOwnerJob()
-{
-}
+GroupAddOwnerJob::~GroupAddOwnerJob() = default;
 
 bool GroupAddOwnerJob::start()
 {

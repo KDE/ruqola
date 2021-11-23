@@ -31,9 +31,7 @@ ChannelRemoveOwnerJob::ChannelRemoveOwnerJob(QObject *parent)
 {
 }
 
-ChannelRemoveOwnerJob::~ChannelRemoveOwnerJob()
-{
-}
+ChannelRemoveOwnerJob::~ChannelRemoveOwnerJob() = default;
 
 bool ChannelRemoveOwnerJob::start()
 {

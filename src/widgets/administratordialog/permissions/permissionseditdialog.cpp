@@ -40,9 +40,7 @@ PermissionsEditDialog::PermissionsEditDialog(QWidget *parent, const QString &per
     resize(350, 50);
 }
 
-PermissionsEditDialog::~PermissionsEditDialog()
-{
-}
+PermissionsEditDialog::~PermissionsEditDialog() = default;
 
 void PermissionsEditDialog::setRoles(const QStringList &lst)
 {

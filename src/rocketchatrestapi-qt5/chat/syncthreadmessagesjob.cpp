@@ -31,9 +31,7 @@ SyncThreadMessagesJob::SyncThreadMessagesJob(QObject *parent)
 {
 }
 
-SyncThreadMessagesJob::~SyncThreadMessagesJob()
-{
-}
+SyncThreadMessagesJob::~SyncThreadMessagesJob() = default;
 
 bool SyncThreadMessagesJob::requireHttpAuthentication() const
 {

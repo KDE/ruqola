@@ -30,9 +30,7 @@ ListCommandsJob::ListCommandsJob(QObject *parent)
 {
 }
 
-ListCommandsJob::~ListCommandsJob()
-{
-}
+ListCommandsJob::~ListCommandsJob() = default;
 
 bool ListCommandsJob::requireHttpAuthentication() const
 {

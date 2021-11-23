@@ -27,9 +27,7 @@ StatusModelFilterProxyModel::StatusModelFilterProxyModel(QObject *parent)
     setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
-StatusModelFilterProxyModel::~StatusModelFilterProxyModel()
-{
-}
+StatusModelFilterProxyModel::~StatusModelFilterProxyModel() = default;
 
 bool StatusModelFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {

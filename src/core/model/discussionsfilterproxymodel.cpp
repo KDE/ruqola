@@ -33,9 +33,7 @@ DiscussionsFilterProxyModel::DiscussionsFilterProxyModel(DiscussionsModel *model
     connect(mDiscussionsModel, &DiscussionsModel::loadingInProgressChanged, this, &DiscussionsFilterProxyModel::loadingInProgressChanged);
 }
 
-DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel()
-{
-}
+DiscussionsFilterProxyModel::~DiscussionsFilterProxyModel() = default;
 
 void DiscussionsFilterProxyModel::setFilterString(const QString &string)
 {

@@ -23,9 +23,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-FileAttachments::FileAttachments()
-{
-}
+FileAttachments::FileAttachments() = default;
 
 bool FileAttachments::isEmpty() const
 {

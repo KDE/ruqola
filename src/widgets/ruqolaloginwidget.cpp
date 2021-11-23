@@ -130,9 +130,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mFailedError->hide();
 }
 
-RuqolaLoginWidget::~RuqolaLoginWidget()
-{
-}
+RuqolaLoginWidget::~RuqolaLoginWidget() = default;
 
 void RuqolaLoginWidget::slotUpdateLoginButton()
 {

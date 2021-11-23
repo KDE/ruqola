@@ -40,9 +40,7 @@ MyAccountProfileConfigureAvatarWidget::MyAccountProfileConfigureAvatarWidget(Roc
     mainLayout->addWidget(mAvatarImage, 0, Qt::AlignLeft);
 }
 
-MyAccountProfileConfigureAvatarWidget::~MyAccountProfileConfigureAvatarWidget()
-{
-}
+MyAccountProfileConfigureAvatarWidget::~MyAccountProfileConfigureAvatarWidget() = default;
 
 void MyAccountProfileConfigureAvatarWidget::setCurrentIconPath(const QString &currentPath)
 {
@@ -62,9 +60,7 @@ AvatarImage::AvatarImage(RocketChatAccount *account, QWidget *parent)
     }
 }
 
-AvatarImage::~AvatarImage()
-{
-}
+AvatarImage::~AvatarImage() = default;
 
 void AvatarImage::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {

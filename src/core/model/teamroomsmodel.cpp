@@ -26,9 +26,7 @@ TeamRoomsModel::TeamRoomsModel(QObject *parent)
 {
 }
 
-TeamRoomsModel::~TeamRoomsModel()
-{
-}
+TeamRoomsModel::~TeamRoomsModel() = default;
 
 int TeamRoomsModel::rowCount(const QModelIndex &parent) const
 {

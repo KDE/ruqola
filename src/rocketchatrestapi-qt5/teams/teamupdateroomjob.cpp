@@ -31,9 +31,7 @@ TeamUpdateRoomJob::TeamUpdateRoomJob(QObject *parent)
 {
 }
 
-TeamUpdateRoomJob::~TeamUpdateRoomJob()
-{
-}
+TeamUpdateRoomJob::~TeamUpdateRoomJob() = default;
 
 bool TeamUpdateRoomJob::start()
 {

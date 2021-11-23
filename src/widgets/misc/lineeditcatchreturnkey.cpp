@@ -30,9 +30,7 @@ LineEditCatchReturnKey::LineEditCatchReturnKey(QLineEdit *lineEdit, QObject *par
     mLineEdit->installEventFilter(this);
 }
 
-LineEditCatchReturnKey::~LineEditCatchReturnKey()
-{
-}
+LineEditCatchReturnKey::~LineEditCatchReturnKey() = default;
 
 bool LineEditCatchReturnKey::eventFilter(QObject *obj, QEvent *event)
 {

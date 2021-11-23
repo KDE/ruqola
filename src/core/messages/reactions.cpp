@@ -21,9 +21,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Reactions::Reactions()
-{
-}
+Reactions::Reactions() = default;
 
 void Reactions::setReactions(const QVector<Reaction> &reactions)
 {

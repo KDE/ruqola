@@ -30,9 +30,7 @@ CommandCompletionDelegate::CommandCompletionDelegate(QObject *parent)
 {
 }
 
-CommandCompletionDelegate::~CommandCompletionDelegate()
-{
-}
+CommandCompletionDelegate::~CommandCompletionDelegate() = default;
 
 void CommandCompletionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {

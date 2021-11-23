@@ -435,7 +435,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
 
     switch (role) {
     case MessageModel::DisplayAttachment: {
-        const AttachmentVisibility visibility = value.value<AttachmentVisibility>();
+        const auto visibility = value.value<AttachmentVisibility>();
         auto attachments = message.attachements();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
             const MessageAttachment att = attachments.at(i);
@@ -471,7 +471,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     if (mRoom) {
         return mRoom->rolesForUserId(userId);
     }
-    return QStringList();
+    return {};
 }
 
 QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords) const

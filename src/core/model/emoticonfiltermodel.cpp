@@ -27,9 +27,7 @@ EmoticonFilterModel::EmoticonFilterModel(QObject *parent)
 {
 }
 
-EmoticonFilterModel::~EmoticonFilterModel()
-{
-}
+EmoticonFilterModel::~EmoticonFilterModel() = default;
 
 void EmoticonFilterModel::setCurrentCategory(const QString &category)
 {

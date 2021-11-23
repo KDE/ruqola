@@ -27,9 +27,7 @@ UsersInRoomComboBox::UsersInRoomComboBox(QWidget *parent)
     fillCombobox();
 }
 
-UsersInRoomComboBox::~UsersInRoomComboBox()
-{
-}
+UsersInRoomComboBox::~UsersInRoomComboBox() = default;
 
 void UsersInRoomComboBox::fillCombobox()
 {

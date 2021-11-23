@@ -20,13 +20,9 @@
 
 #include "serverinfo.h"
 
-ServerInfo::ServerInfo()
-{
-}
+ServerInfo::ServerInfo() = default;
 
-ServerInfo::~ServerInfo()
-{
-}
+ServerInfo::~ServerInfo() = default;
 
 void ServerInfo::parseServerInfo(const QJsonObject &obj)
 {

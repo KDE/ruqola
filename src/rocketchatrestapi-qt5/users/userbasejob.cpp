@@ -29,9 +29,7 @@ UserBaseJob::UserBaseJob(QObject *parent)
 {
 }
 
-UserBaseJob::~UserBaseJob()
-{
-}
+UserBaseJob::~UserBaseJob() = default;
 
 UserBaseJob::UserInfo UserBaseJob::userInfo() const
 {

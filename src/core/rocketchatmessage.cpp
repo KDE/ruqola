@@ -27,9 +27,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-RocketChatMessage::RocketChatMessage()
-{
-}
+RocketChatMessage::RocketChatMessage() = default;
 
 void RocketChatMessage::setJsonFormat(QJsonDocument::JsonFormat jsonFormat)
 {

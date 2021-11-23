@@ -30,9 +30,7 @@ SearchChannelModel::SearchChannelModel(QObject *parent)
 {
 }
 
-SearchChannelModel::~SearchChannelModel()
-{
-}
+SearchChannelModel::~SearchChannelModel() = default;
 
 void SearchChannelModel::setChannels(const QVector<Channel> &channels)
 {

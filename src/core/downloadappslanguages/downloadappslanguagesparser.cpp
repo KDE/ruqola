@@ -26,9 +26,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 
-DownloadAppsLanguagesParser::DownloadAppsLanguagesParser()
-{
-}
+DownloadAppsLanguagesParser::DownloadAppsLanguagesParser() = default;
 
 void DownloadAppsLanguagesParser::setFilename(const QString &filename)
 {

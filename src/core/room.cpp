@@ -42,9 +42,7 @@ Room::Room(RocketChatAccount *account, QObject *parent)
     mMessageModel = new MessageModel(QString(), mRocketChatAccount, this, this);
 }
 
-Room::~Room()
-{
-}
+Room::~Room() = default;
 
 Room::RoomType Room::roomTypeFromString(const QString &type)
 {
@@ -1477,7 +1475,7 @@ QString Room::roomMessageInfo() const
     if (mBlocked) {
         return i18n("Channel was blocked.");
     }
-    return QString();
+    return {};
 }
 
 bool Room::canChangeRoles() const

@@ -31,9 +31,7 @@ EmojiCustomDeleteJob::EmojiCustomDeleteJob(QObject *parent)
 {
 }
 
-EmojiCustomDeleteJob::~EmojiCustomDeleteJob()
-{
-}
+EmojiCustomDeleteJob::~EmojiCustomDeleteJob() = default;
 
 bool EmojiCustomDeleteJob::start()
 {

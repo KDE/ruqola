@@ -61,9 +61,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::Create, true);
 }
 
-AdministratorInvitesWidget::~AdministratorInvitesWidget()
-{
-}
+AdministratorInvitesWidget::~AdministratorInvitesWidget() = default;
 
 void AdministratorInvitesWidget::slotTextChanged(const QString &str)
 {

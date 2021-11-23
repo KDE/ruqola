@@ -44,9 +44,7 @@ SearchTeamWidget::SearchTeamWidget(QWidget *parent)
     });
 }
 
-SearchTeamWidget::~SearchTeamWidget()
-{
-}
+SearchTeamWidget::~SearchTeamWidget() = default;
 
 const QString &SearchTeamWidget::teamId() const
 {

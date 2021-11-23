@@ -24,9 +24,7 @@
 #include <QRegularExpression>
 #include <QStringList>
 
-RuqolaServerConfig::RuqolaServerConfig()
-{
-}
+RuqolaServerConfig::RuqolaServerConfig() = default;
 
 QString RuqolaServerConfig::uniqueId() const
 {

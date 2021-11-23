@@ -31,9 +31,7 @@ RoomsAutocompleteAvailableForTeamsJob::RoomsAutocompleteAvailableForTeamsJob(QOb
 {
 }
 
-RoomsAutocompleteAvailableForTeamsJob::~RoomsAutocompleteAvailableForTeamsJob()
-{
-}
+RoomsAutocompleteAvailableForTeamsJob::~RoomsAutocompleteAvailableForTeamsJob() = default;
 
 bool RoomsAutocompleteAvailableForTeamsJob::requireHttpAuthentication() const
 {

@@ -54,9 +54,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     }
 }
 
-ThreadMessageWidget::~ThreadMessageWidget()
-{
-}
+ThreadMessageWidget::~ThreadMessageWidget() = default;
 
 void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {

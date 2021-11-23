@@ -45,9 +45,7 @@ PasswordLineEditWidget::PasswordLineEditWidget(QWidget *parent)
     connect(mResetPasswordButton, &QPushButton::clicked, this, &PasswordLineEditWidget::slotResetPasswordButton);
 }
 
-PasswordLineEditWidget::~PasswordLineEditWidget()
-{
-}
+PasswordLineEditWidget::~PasswordLineEditWidget() = default;
 
 KPasswordLineEdit *PasswordLineEditWidget::passwordLineEdit() const
 {

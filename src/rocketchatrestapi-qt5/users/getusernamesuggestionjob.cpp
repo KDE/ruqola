@@ -30,9 +30,7 @@ GetUsernameSuggestionJob::GetUsernameSuggestionJob(QObject *parent)
 {
 }
 
-GetUsernameSuggestionJob::~GetUsernameSuggestionJob()
-{
-}
+GetUsernameSuggestionJob::~GetUsernameSuggestionJob() = default;
 
 bool GetUsernameSuggestionJob::canStart() const
 {

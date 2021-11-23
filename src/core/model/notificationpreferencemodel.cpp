@@ -26,9 +26,7 @@ NotificationPreferenceModel::NotificationPreferenceModel(QObject *parent)
     fillModel();
 }
 
-NotificationPreferenceModel::~NotificationPreferenceModel()
-{
-}
+NotificationPreferenceModel::~NotificationPreferenceModel() = default;
 
 int NotificationPreferenceModel::rowCount(const QModelIndex &parent) const
 {

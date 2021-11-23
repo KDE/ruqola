@@ -28,9 +28,7 @@ AccountInfoSource::AccountInfoSource()
 {
 }
 
-AccountInfoSource::~AccountInfoSource()
-{
-}
+AccountInfoSource::~AccountInfoSource() = default;
 
 QString AccountInfoSource::name() const
 {

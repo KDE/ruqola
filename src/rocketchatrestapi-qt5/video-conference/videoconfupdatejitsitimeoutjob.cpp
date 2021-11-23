@@ -31,9 +31,7 @@ VideoConfUpdateJitsiTimeOutJob::VideoConfUpdateJitsiTimeOutJob(QObject *parent)
 {
 }
 
-VideoConfUpdateJitsiTimeOutJob::~VideoConfUpdateJitsiTimeOutJob()
-{
-}
+VideoConfUpdateJitsiTimeOutJob::~VideoConfUpdateJitsiTimeOutJob() = default;
 
 bool VideoConfUpdateJitsiTimeOutJob::start()
 {

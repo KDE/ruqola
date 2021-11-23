@@ -66,9 +66,7 @@ SearchChannelWidget::SearchChannelWidget(RocketChatAccount *account, QWidget *pa
     }
 }
 
-SearchChannelWidget::~SearchChannelWidget()
-{
-}
+SearchChannelWidget::~SearchChannelWidget() = default;
 
 void SearchChannelWidget::slotSearchCleared()
 {

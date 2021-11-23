@@ -41,9 +41,7 @@ MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo()
 {
 }
 
-MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo()
-{
-}
+MessageAttachmentDelegateHelperVideo::~MessageAttachmentDelegateHelperVideo() = default;
 
 void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAttach,
                                                 QPainter *painter,

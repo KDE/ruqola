@@ -20,9 +20,7 @@
 
 #include "customsoundinfo.h"
 
-CustomSoundInfo::CustomSoundInfo()
-{
-}
+CustomSoundInfo::CustomSoundInfo() = default;
 
 const QString &CustomSoundInfo::identifier() const
 {

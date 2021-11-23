@@ -43,9 +43,7 @@ ChannelSearchNameLineResultWidget::ChannelSearchNameLineResultWidget(QWidget *pa
     connect(mClearToolButton, &QToolButton::clicked, this, &ChannelSearchNameLineResultWidget::clearRoomName);
 }
 
-ChannelSearchNameLineResultWidget::~ChannelSearchNameLineResultWidget()
-{
-}
+ChannelSearchNameLineResultWidget::~ChannelSearchNameLineResultWidget() = default;
 
 void ChannelSearchNameLineResultWidget::setRoomName(const QString &name)
 {

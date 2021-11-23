@@ -22,13 +22,9 @@
 #include "ruqola_debug.h"
 #include <QDebug>
 #include <QJsonArray>
-PermissionManager::PermissionManager()
-{
-}
+PermissionManager::PermissionManager() = default;
 
-PermissionManager::~PermissionManager()
-{
-}
+PermissionManager::~PermissionManager() = default;
 
 void PermissionManager::parsePermissions(const QJsonObject &replyObject)
 {

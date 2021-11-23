@@ -34,9 +34,7 @@ CustomUserStatusTreeWidgetItem::CustomUserStatusTreeWidgetItem(QTreeWidget *pare
 {
 }
 
-CustomUserStatusTreeWidgetItem::~CustomUserStatusTreeWidgetItem()
-{
-}
+CustomUserStatusTreeWidgetItem::~CustomUserStatusTreeWidgetItem() = default;
 
 CustomUserStatus CustomUserStatusTreeWidgetItem::userStatus() const
 {
@@ -65,9 +63,7 @@ CustomUserStatusTreeWidget::CustomUserStatusTreeWidget(RocketChatAccount *accoun
     connect(this, &CustomUserStatusTreeWidget::itemDoubleClicked, this, &CustomUserStatusTreeWidget::editClicked);
 }
 
-CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget()
-{
-}
+CustomUserStatusTreeWidget::~CustomUserStatusTreeWidget() = default;
 
 void CustomUserStatusTreeWidget::initialize()
 {

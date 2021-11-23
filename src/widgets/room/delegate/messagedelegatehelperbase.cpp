@@ -31,9 +31,7 @@
 #include <QRect>
 #include <QStyleOptionViewItem>
 
-MessageDelegateHelperBase::~MessageDelegateHelperBase()
-{
-}
+MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
 bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
                                                  QMouseEvent *mouseEvent,

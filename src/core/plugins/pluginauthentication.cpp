@@ -25,6 +25,4 @@ PluginAuthentication::PluginAuthentication(QObject *parent)
 {
 }
 
-PluginAuthentication::~PluginAuthentication()
-{
-}
+PluginAuthentication::~PluginAuthentication() = default;

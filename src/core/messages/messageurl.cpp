@@ -22,9 +22,7 @@
 
 #include <QJsonObject>
 
-MessageUrl::MessageUrl()
-{
-}
+MessageUrl::MessageUrl() = default;
 
 QJsonObject MessageUrl::serialize(const MessageUrl &url)
 {

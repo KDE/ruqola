@@ -26,9 +26,7 @@ DirectoryUsersModel::DirectoryUsersModel(QObject *parent)
 {
 }
 
-DirectoryUsersModel::~DirectoryUsersModel()
-{
-}
+DirectoryUsersModel::~DirectoryUsersModel() = default;
 
 void DirectoryUsersModel::checkFullList()
 {
@@ -116,7 +114,7 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
             return {};
         }
     }
-    return QVariant();
+    return {};
 }
 
 int DirectoryUsersModel::columnCount(const QModelIndex &parent) const

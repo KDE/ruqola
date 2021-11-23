@@ -32,9 +32,7 @@ GetSnippetedMessagesJob::GetSnippetedMessagesJob(QObject *parent)
 {
 }
 
-GetSnippetedMessagesJob::~GetSnippetedMessagesJob()
-{
-}
+GetSnippetedMessagesJob::~GetSnippetedMessagesJob() = default;
 
 bool GetSnippetedMessagesJob::requireHttpAuthentication() const
 {

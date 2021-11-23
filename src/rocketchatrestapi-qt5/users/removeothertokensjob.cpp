@@ -31,9 +31,7 @@ RemoveOtherTokensJob::RemoveOtherTokensJob(QObject *parent)
 {
 }
 
-RemoveOtherTokensJob::~RemoveOtherTokensJob()
-{
-}
+RemoveOtherTokensJob::~RemoveOtherTokensJob() = default;
 
 bool RemoveOtherTokensJob::start()
 {

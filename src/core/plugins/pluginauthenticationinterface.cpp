@@ -27,9 +27,7 @@ PluginAuthenticationInterface::PluginAuthenticationInterface(QObject *parent)
 {
 }
 
-PluginAuthenticationInterface::~PluginAuthenticationInterface()
-{
-}
+PluginAuthenticationInterface::~PluginAuthenticationInterface() = default;
 
 RocketChatAccount *PluginAuthenticationInterface::account() const
 {

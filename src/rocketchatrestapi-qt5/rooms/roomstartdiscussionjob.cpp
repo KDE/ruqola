@@ -34,9 +34,7 @@ RoomStartDiscussionJob::RoomStartDiscussionJob(QObject *parent)
 {
 }
 
-RoomStartDiscussionJob::~RoomStartDiscussionJob()
-{
-}
+RoomStartDiscussionJob::~RoomStartDiscussionJob() = default;
 
 bool RoomStartDiscussionJob::start()
 {

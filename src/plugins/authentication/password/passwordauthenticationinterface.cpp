@@ -29,9 +29,7 @@ PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent
 {
 }
 
-PasswordAuthenticationInterface::~PasswordAuthenticationInterface()
-{
-}
+PasswordAuthenticationInterface::~PasswordAuthenticationInterface() = default;
 
 void PasswordAuthenticationInterface::login()
 {

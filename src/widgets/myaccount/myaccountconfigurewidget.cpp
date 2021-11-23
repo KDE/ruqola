@@ -55,9 +55,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
 }
 
-MyAccountConfigureWidget::~MyAccountConfigureWidget()
-{
-}
+MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
 
 void MyAccountConfigureWidget::save()
 {

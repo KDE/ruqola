@@ -25,6 +25,4 @@ AbstractWebSocket::AbstractWebSocket(QObject *parent)
 {
 }
 
-AbstractWebSocket::~AbstractWebSocket()
-{
-}
+AbstractWebSocket::~AbstractWebSocket() = default;

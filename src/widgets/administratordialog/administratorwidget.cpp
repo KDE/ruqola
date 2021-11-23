@@ -89,9 +89,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mTabWidget->addTab(mRolesWidget, i18n("Roles"));
 }
 
-AdministratorWidget::~AdministratorWidget()
-{
-}
+AdministratorWidget::~AdministratorWidget() = default;
 
 void AdministratorWidget::initialize()
 {

@@ -28,9 +28,7 @@ SystemMessagesModel::SystemMessagesModel(QObject *parent)
     fillModel();
 }
 
-SystemMessagesModel::~SystemMessagesModel()
-{
-}
+SystemMessagesModel::~SystemMessagesModel() = default;
 
 void SystemMessagesModel::createItem(const QString &displayStr, const QString &systemStr)
 {

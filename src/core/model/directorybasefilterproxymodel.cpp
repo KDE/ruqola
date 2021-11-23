@@ -27,9 +27,7 @@ DirectoryBaseFilterProxyModel::DirectoryBaseFilterProxyModel(QAbstractListModel 
     sort(0, Qt::DescendingOrder);
 }
 
-DirectoryBaseFilterProxyModel::~DirectoryBaseFilterProxyModel()
-{
-}
+DirectoryBaseFilterProxyModel::~DirectoryBaseFilterProxyModel() = default;
 
 void DirectoryBaseFilterProxyModel::setFilterString(const QString &string)
 {

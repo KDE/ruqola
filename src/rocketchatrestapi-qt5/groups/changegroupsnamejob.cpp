@@ -31,9 +31,7 @@ ChangeGroupsNameJob::ChangeGroupsNameJob(QObject *parent)
 {
 }
 
-ChangeGroupsNameJob::~ChangeGroupsNameJob()
-{
-}
+ChangeGroupsNameJob::~ChangeGroupsNameJob() = default;
 
 bool ChangeGroupsNameJob::start()
 {

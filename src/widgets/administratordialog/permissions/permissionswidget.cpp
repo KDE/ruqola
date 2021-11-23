@@ -65,9 +65,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     connect(mTreeView, &QTreeView::doubleClicked, this, &PermissionsWidget::slotModifyDoubleClickRoles);
 }
 
-PermissionsWidget::~PermissionsWidget()
-{
-}
+PermissionsWidget::~PermissionsWidget() = default;
 
 void PermissionsWidget::slotFilterTextChanged(const QString &str)
 {

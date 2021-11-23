@@ -31,9 +31,7 @@ CustomUserStatusUpdateJob::CustomUserStatusUpdateJob(QObject *parent)
 {
 }
 
-CustomUserStatusUpdateJob::~CustomUserStatusUpdateJob()
-{
-}
+CustomUserStatusUpdateJob::~CustomUserStatusUpdateJob() = default;
 
 bool CustomUserStatusUpdateJob::start()
 {

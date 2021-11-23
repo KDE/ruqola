@@ -51,9 +51,7 @@ UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent
     connectModel();
 }
 
-UsersInRoleWidget::~UsersInRoleWidget()
-{
-}
+UsersInRoleWidget::~UsersInRoleWidget() = default;
 
 void UsersInRoleWidget::slotTextChanged(const QString &str)
 {

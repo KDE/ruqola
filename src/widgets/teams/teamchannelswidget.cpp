@@ -85,9 +85,7 @@ TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *pare
     connect(mListView, &QListView::customContextMenuRequested, this, &TeamChannelsWidget::slotCustomContextMenuRequested);
 }
 
-TeamChannelsWidget::~TeamChannelsWidget()
-{
-}
+TeamChannelsWidget::~TeamChannelsWidget() = default;
 
 void TeamChannelsWidget::slotTypeTeamListChanged(int index)
 {
