@@ -45,6 +45,7 @@ Q_SIGNALS:
 private:
     void slotResumeFromIdle();
     void slotIdleTimeoutReached(int timerId);
+    Q_REQUIRED_RESULT int calculateRemainingTime() const;
     RocketChatAccount *const mRocketChatAccount;
     int mTimerId = -1;
     int mIdleTiming = -1;
