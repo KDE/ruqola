@@ -22,6 +22,7 @@
 #include "rocketchataccount.h"
 #include "ruqola_away_debug.h"
 #include <KIdleTime>
+//#define DEBUG_IDLETIME 1
 AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     : QObject{parent}
     , mRocketChatAccount(account)
@@ -36,15 +37,18 @@ AwayManager::~AwayManager() = default;
 
 void AwayManager::slotResumeFromIdle()
 {
-    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotResumeFromIdle()";
+    Q_EMIT awayChanged(false); // Not away now
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotResumeFromIdle() : name : " << mRocketChatAccount->accountName();
+    KIdleTime::instance()->catchNextResumeEvent();
     // TODO
 }
 
 void AwayManager::slotIdleTimeoutReached(int timerId)
 {
-    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotIdleTimeoutReached()" << timerId << " mTimerId " << mTimerId;
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::slotIdleTimeoutReached()" << timerId << " mTimerId " << mTimerId
+                             << "name : " << mRocketChatAccount->accountName();
     if (mTimerId == timerId) {
-        // TODO change account to away.
+        Q_EMIT awayChanged(true); // Away now
         // Account is away => we need to catch next resume event.
         KIdleTime::instance()->catchNextResumeEvent();
     }
@@ -63,8 +67,8 @@ void AwayManager::setIdleTiming(int newIdleTiming)
 void AwayManager::updateSettings()
 {
     const auto &ownerUserPref = mRocketChatAccount->ownUserPreferences();
-    setEnabled(ownerUserPref.enableAutoAway());
     setIdleTiming(ownerUserPref.idleTimeLimit());
+    setEnabled(ownerUserPref.enableAutoAway());
 }
 
 bool AwayManager::enabled() const
@@ -74,7 +78,7 @@ bool AwayManager::enabled() const
 
 void AwayManager::setEnabled(bool newEnabled)
 {
-    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::setEnabled()" << newEnabled;
+    qCDebug(RUQOLA_AWAY_LOG) << " void AwayManager::setEnabled()" << newEnabled << "name : " << mRocketChatAccount->accountName();
     if (mEnabled != newEnabled) {
         mEnabled = newEnabled;
         if (!mEnabled && (mTimerId != -1)) {
@@ -82,7 +86,12 @@ void AwayManager::setEnabled(bool newEnabled)
             qCDebug(RUQOLA_AWAY_LOG) << " Remove Idle Timeout " << newEnabled;
             mTimerId = -1;
         } else if (mEnabled && (mTimerId == -1)) {
-            qCDebug(RUQOLA_AWAY_LOG) << " Catch Next Resume Event " << newEnabled;
+#ifdef DEBUG_IDLETIME
+            mTimerId = KIdleTime::instance()->addIdleTimeout(60 * 1000);
+#else
+            mTimerId = KIdleTime::instance()->addIdleTimeout(mIdleTiming * 60 * 1000);
+#endif
+            qCDebug(RUQOLA_AWAY_LOG) << " Catch Next Resume Event " << newEnabled << " mIdleTiming (s)" << mIdleTiming;
             KIdleTime::instance()->catchNextResumeEvent();
         }
     }
