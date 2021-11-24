@@ -33,7 +33,7 @@ SearchTeamWidgetTest::SearchTeamWidgetTest(QObject *parent)
 
 void SearchTeamWidgetTest::shouldHaveDefaultValues()
 {
-    SearchTeamWidget d;
+    SearchTeamWidget d(nullptr);
 
     auto mainLayout = d.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

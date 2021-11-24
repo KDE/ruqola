@@ -30,9 +30,9 @@ namespace
 {
 static const char myConfigDirectChannelInfoDialogGroupName[] = "DirectChannelInfoDialog";
 }
-DirectChannelInfoDialog::DirectChannelInfoDialog(QWidget *parent)
+DirectChannelInfoDialog::DirectChannelInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mDirectChannelInfoWidget(new DirectChannelInfoWidget(this))
+    , mDirectChannelInfoWidget(new DirectChannelInfoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "User Info"));
     auto mainLayout = new QVBoxLayout(this);

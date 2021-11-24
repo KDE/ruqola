@@ -137,7 +137,7 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
 {
     if (index.isValid()) {
         const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
-        DirectChannelInfoDialog dlg(this);
+        DirectChannelInfoDialog dlg(Ruqola::self()->rocketChatAccount(), this);
         dlg.setUserName(userName);
         dlg.exec();
     }

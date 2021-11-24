@@ -34,7 +34,7 @@ SearchTeamDialogTest::SearchTeamDialogTest(QObject *parent)
 
 void SearchTeamDialogTest::shouldHaveDefaultValues()
 {
-    SearchTeamDialog d;
+    SearchTeamDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

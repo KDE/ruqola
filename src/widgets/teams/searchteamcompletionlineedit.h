@@ -24,14 +24,15 @@
 #include "libruqolawidgets_private_export.h"
 class TeamCompleterModel;
 class QTimer;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
 public:
-    explicit SearchTeamCompletionLineEdit(QWidget *parent = nullptr);
+    explicit SearchTeamCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamCompletionLineEdit() override;
 
-    const QString &teamId() const;
+    Q_REQUIRED_RESULT const QString &teamId() const;
 
 private:
     void slotSearchTimerFired();
@@ -42,4 +43,5 @@ private:
     QString mTeamId;
     TeamCompleterModel *const mTeamCompleterModel;
     QTimer *const mSearchTimer;
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -28,11 +28,12 @@
 class QLabel;
 class User;
 class QFormLayout;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DirectChannelInfoWidget(QWidget *parent = nullptr);
+    explicit DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelInfoWidget() override;
 
     void setUserName(const QString &userName);
@@ -56,5 +57,6 @@ private:
     QLabel *const mLastLogin;
     QLabel *const mEmailsInfo;
     QFormLayout *const mMainLayout;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

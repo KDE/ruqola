@@ -31,7 +31,7 @@
 #include <QIcon>
 #include <QLabel>
 
-DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
+DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mName(new QLabel(this))
     , mUserName(new QLabel(this))
@@ -44,6 +44,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(QWidget *parent)
     , mLastLogin(new QLabel(this))
     , mEmailsInfo(new QLabel(this))
     , mMainLayout(new QFormLayout(this))
+    , mRocketChatAccount(account)
 {
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
     mMainLayout->setContentsMargins({});
@@ -102,9 +103,8 @@ void DirectChannelInfoWidget::setRoles(const QVector<RoleInfo> &newRoles)
 
 void DirectChannelInfoWidget::fetchUserInfo(const QString &userName)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto userJob = new RocketChatRestApi::UserInfoJob(this);
-    rcAccount->restApi()->initializeRestApiJob(userJob);
+    mRocketChatAccount->restApi()->initializeRestApiJob(userJob);
     RocketChatRestApi::UserInfoJob::UserInfo info;
     info.userIdentifier = userName;
     info.userInfoType = RocketChatRestApi::UserInfoJob::UserInfoType::UserName;
@@ -129,7 +129,6 @@ void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void DirectChannelInfoWidget::setUser(const User &user)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString name = user.name();
     if (name.isEmpty()) {
         hideWidget(mName);
@@ -148,7 +147,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
-    const QUrl iconUrlStr = QUrl(rcAccount->avatarUrl(info));
+    const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
 
     const QStringList roles{user.roles()};

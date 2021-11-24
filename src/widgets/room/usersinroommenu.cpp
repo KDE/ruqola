@@ -163,9 +163,10 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
 
 void UsersInRoomMenu::slotUserInfo()
 {
-    DirectChannelInfoDialog dlg(mParentWidget);
+    auto rcAccount = Ruqola::self()->rocketChatAccount();
+    DirectChannelInfoDialog dlg(rcAccount, mParentWidget);
     dlg.setUserName(mUserName);
-    dlg.setRoles(Ruqola::self()->rocketChatAccount()->roleInfo());
+    dlg.setRoles(rcAccount->roleInfo());
     dlg.exec();
 }
 

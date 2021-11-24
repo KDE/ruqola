@@ -139,7 +139,7 @@ void RoomWidget::slotChannelInfoRequested()
         return;
     }
     if (mRoomType == Room::RoomType::Direct) {
-        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(this);
+        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(mCurrentRocketChatAccount, this);
         dlg->setUserName(mRoom->name());
         dlg->exec();
         delete dlg;

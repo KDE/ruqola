@@ -183,11 +183,11 @@ void ChannelListView::setModel(QAbstractItemModel *model)
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 {
-    QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(this);
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(rcAccount, this);
     if (dlg->exec()) {
         const QString teamId = dlg->teamId();
         if (!teamId.isEmpty()) {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
             auto job = new RocketChatRestApi::TeamAddRoomsJob(this);
             job->setTeamId(teamId);
             const QString roomId = index.data(RoomModel::RoomId).toString();

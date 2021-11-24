@@ -31,7 +31,7 @@ DirectChannelInfoWidgetTest::DirectChannelInfoWidgetTest(QObject *parent)
 
 void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
 {
-    DirectChannelInfoWidget w;
+    DirectChannelInfoWidget w(nullptr);
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

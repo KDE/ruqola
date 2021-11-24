@@ -25,9 +25,9 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-SearchTeamWidget::SearchTeamWidget(QWidget *parent)
+SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mSearchLine(new SearchTeamCompletionLineEdit(this))
+    , mSearchLine(new SearchTeamCompletionLineEdit(account, this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

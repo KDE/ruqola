@@ -26,11 +26,12 @@
 #include "libruqolawidgets_private_export.h"
 class DirectChannelInfoWidget;
 class User;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectChannelInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit DirectChannelInfoDialog(QWidget *parent = nullptr);
+    explicit DirectChannelInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DirectChannelInfoDialog() override;
     void setUserName(const QString &userName);
     void setRoles(const QVector<RoleInfo> &newRoles);

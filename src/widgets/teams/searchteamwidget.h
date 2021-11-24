@@ -24,14 +24,15 @@
 
 #include "libruqolawidgets_private_export.h"
 class SearchTeamCompletionLineEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SearchTeamWidget(QWidget *parent = nullptr);
+    explicit SearchTeamWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamWidget() override;
 
-    const QString &teamId() const;
+    Q_REQUIRED_RESULT const QString &teamId() const;
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

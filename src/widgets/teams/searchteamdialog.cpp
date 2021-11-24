@@ -26,9 +26,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-SearchTeamDialog::SearchTeamDialog(QWidget *parent)
+SearchTeamDialog::SearchTeamDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mSearchTeamWidget(new SearchTeamWidget(this))
+    , mSearchTeamWidget(new SearchTeamWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Search Team"));
     auto mainLayout = new QVBoxLayout(this);

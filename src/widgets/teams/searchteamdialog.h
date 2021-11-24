@@ -24,11 +24,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class SearchTeamWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTeamDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SearchTeamDialog(QWidget *parent = nullptr);
+    explicit SearchTeamDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchTeamDialog() override;
 
     const QString &teamId() const;
