@@ -2700,5 +2700,10 @@ CustomSoundsManager *RocketChatAccount::customSoundManager() const
 
 void RocketChatAccount::slotAwayStatusChanged(bool away)
 {
+    if (away) {
+        restApi()->setUserStatus(userId(), RocketChatRestApi::SetStatusJob::Away, {});
+    } else {
+        restApi()->setUserStatus(userId(), RocketChatRestApi::SetStatusJob::OnLine, {});
+    }
     qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
