@@ -244,6 +244,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, &RocketChatAccount::customSoundRemoved);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, &RocketChatAccount::customSoundAdded);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, &RocketChatAccount::customSoundUpdated);
+
+    connect(mAwayManager, &AwayManager::awayChanged, this, &RocketChatAccount::slotAwayStatusChanged);
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -2699,4 +2701,9 @@ void RocketChatAccount::slotLoadRoles()
 CustomSoundsManager *RocketChatAccount::customSoundManager() const
 {
     return mCustomSoundManager;
+}
+
+void RocketChatAccount::slotAwayStatusChanged(bool away)
+{
+    qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
