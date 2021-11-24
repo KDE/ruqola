@@ -36,6 +36,7 @@
 #include <KMessageBox>
 #include <QLabel>
 #include <QMenu>
+#include <QPointer>
 #include <QTreeView>
 #include <QVBoxLayout>
 
@@ -93,6 +94,9 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
 
 void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 {
+    QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(this);
+    if (dlg->exec()) { }
+    delete dlg;
     qWarning() << "modify room NOT IMPLEMENTED";
     // TODO
 }
