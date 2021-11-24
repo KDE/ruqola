@@ -174,7 +174,6 @@ public:
     void joinRoom(const QString &roomId, const QString &joinCode = QString());
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?
-    void changeDefaultStatus(int index, const QString &messageStatus);
     void createJitsiConfCall(const QString &roomId);
     void deleteMessage(const QString &messageId, const QString &roomId);
     void userAutocomplete(const QString &searchText, const QString &exception);

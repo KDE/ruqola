@@ -799,11 +799,6 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
     restApi()->setUserStatus(userId(), type, messageStatus);
 }
 
-void RocketChatAccount::changeDefaultStatus(int index, const QString &messageStatus)
-{
-    setDefaultStatus(mStatusModel->status(index), messageStatus);
-}
-
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
