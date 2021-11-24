@@ -68,7 +68,7 @@ void AwayManager::slotResumeFromIdle()
     }
     // Check if we already have a timer.
     if (mTimerId == -1) {
-        mTimerId = KIdleTime::instance()->addIdleTimeout(remainingTime);
+        mTimerId = KIdleTime::instance()->addIdleTimeout(timeValue());
     }
 }
 
@@ -126,16 +126,21 @@ void AwayManager::setEnabled(bool newEnabled)
             qCDebug(RUQOLA_AWAY_LOG) << " Remove Idle Timeout " << newEnabled;
             mTimerId = -1;
         } else if (mEnabled && (mTimerId == -1)) {
-#ifdef DEBUG_IDLETIME
-            const int timerValue = 60 * 1000;
-#else
-            const int timerValue = mIdleTiming * 60 * 1000;
-#endif
-            mTimerId = KIdleTime::instance()->addIdleTimeout(timerValue);
-            qCDebug(RUQOLA_AWAY_LOG) << " Catch Next Resume Event " << newEnabled << " mIdleTiming (s)" << mIdleTiming << " time " << timerValue;
+            mTimerId = KIdleTime::instance()->addIdleTimeout(timeValue());
+            qCDebug(RUQOLA_AWAY_LOG) << " Catch Next Resume Event " << newEnabled << " mIdleTiming (s)" << mIdleTiming << " mTimerId " << mTimerId;
             KIdleTime::instance()->catchNextResumeEvent();
         }
     }
+}
+
+int AwayManager::timeValue() const
+{
+#ifdef DEBUG_IDLETIME
+    const int timerValue = 60 * 1000;
+#else
+    const int timerValue = mIdleTiming * 60 * 1000;
+#endif
+    return timerValue;
 }
 
 QDebug operator<<(QDebug d, const AwayManager &t)
