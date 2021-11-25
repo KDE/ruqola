@@ -28,6 +28,7 @@ It supports RC feature:
 - Add support for uploading attachment files.
 - Show unread message information
 - Allow to block/unblock users
+- Auto-away
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
