@@ -22,11 +22,21 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QCheckBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorRoomsEditWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsEditWidget() override;
+
+private:
+    QLineEdit *const mLineEdit;
+    QCheckBox *const mDefaultCheckBox;
+    QCheckBox *const mFavoriteCheckBox;
+    QCheckBox *const mFeaturedCheckBox;
+    QCheckBox *const mPrivateCheckBox;
+    QCheckBox *const mReadOnlyCheckBox;
+    QCheckBox *const mArchivedCheckBox;
 };

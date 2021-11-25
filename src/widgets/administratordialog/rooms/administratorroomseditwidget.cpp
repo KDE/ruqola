@@ -20,14 +20,39 @@
 
 #include "administratorroomseditwidget.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QLineEdit>
 
 AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     : QWidget{parent}
+    , mLineEdit(new QLineEdit(this))
+    , mDefaultCheckBox(new QCheckBox(i18n("Default"), this))
+    , mFavoriteCheckBox(new QCheckBox(i18n("Favorite"), this))
+    , mFeaturedCheckBox(new QCheckBox(i18n("Featured"), this))
+    , mPrivateCheckBox(new QCheckBox(i18n("Private"), this))
+    , mReadOnlyCheckBox(new QCheckBox(i18n("Read-Only"), this))
+    , mArchivedCheckBox(new QCheckBox(i18n("Archived"), this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+    mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
+    mainLayout->addRow(i18n("Name:"), mLineEdit);
+
+    mDefaultCheckBox->setObjectName(QStringLiteral("mDefaultCheckBox"));
+    mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));
+    mFeaturedCheckBox->setObjectName(QStringLiteral("mFeaturedCheckBox"));
+    mPrivateCheckBox->setObjectName(QStringLiteral("mPrivateCheckBox"));
+    mReadOnlyCheckBox->setObjectName(QStringLiteral("mReadOnlyCheckBox"));
+    mArchivedCheckBox->setObjectName(QStringLiteral("mArchivedCheckBox"));
+
+    mainLayout->addRow(mReadOnlyCheckBox);
+    mainLayout->addRow(mPrivateCheckBox);
+    mainLayout->addRow(mDefaultCheckBox);
+    mainLayout->addRow(mFavoriteCheckBox);
+    mainLayout->addRow(mFeaturedCheckBox);
+    mainLayout->addRow(mArchivedCheckBox);
 }
 
 AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;

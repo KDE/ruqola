@@ -36,6 +36,7 @@ AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *
     mainLayout->setContentsMargins({});
     mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
     mainLayout->addRow(i18n("Name:"), mLineEdit);
+    mLineEdit->setReadOnly(true);
 
     mDefaultCheckBox->setObjectName(QStringLiteral("mDefaultCheckBox"));
     mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));
