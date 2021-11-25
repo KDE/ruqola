@@ -27,6 +27,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialo
 {
     Q_OBJECT
 public:
+    enum RoomType {
+        Unknown,
+        DirectRoom,
+        Team,
+        Group,
+        Channel,
+    };
     explicit AdministratorRoomsEditDialog(QWidget *parent = nullptr);
     ~AdministratorRoomsEditDialog() override;
 
