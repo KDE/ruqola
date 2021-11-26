@@ -26,9 +26,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(QWidget *parent)
+AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent)
     : QDialog(parent)
     , mAdministratorRoomEditWidget(new AdministratorRoomsEditWidget(this))
+    , mRoomType(roomType)
 {
     setWindowTitle(i18nc("@title:window", "Edit Room"));
     auto mainLayout = new QVBoxLayout(this);
@@ -48,6 +49,11 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(QWidget *parent)
     //    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, this, [okButton](bool b) {
     //        okButton->setEnabled(b);
     //    });
+}
+
+AdministratorRoomsEditDialog::RoomType AdministratorRoomsEditDialog::roomType() const
+{
+    return mRoomType;
 }
 
 AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog() = default;

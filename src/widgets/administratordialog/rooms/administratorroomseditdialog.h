@@ -34,9 +34,12 @@ public:
         Group,
         Channel,
     };
-    explicit AdministratorRoomsEditDialog(QWidget *parent = nullptr);
+    explicit AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent = nullptr);
     ~AdministratorRoomsEditDialog() override;
+
+    Q_REQUIRED_RESULT RoomType roomType() const;
 
 private:
     AdministratorRoomsEditWidget *const mAdministratorRoomEditWidget;
+    const RoomType mRoomType;
 };
