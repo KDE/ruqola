@@ -19,6 +19,9 @@
 */
 
 #include "administratorroomseditwidget.h"
+#include "dialogs/messagetexteditor.h"
+#include "dialogs/roomavatarwidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
@@ -33,12 +36,30 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     , mPrivateCheckBox(new QCheckBox(i18n("Private"), this))
     , mReadOnlyCheckBox(new QCheckBox(i18n("Read-Only"), this))
     , mArchivedCheckBox(new QCheckBox(i18n("Archived"), this))
+    , mRoomAvatarWidget(new RoomAvatarWidget(this))
+    , mComment(new MessageTextEditor(this))
+    , mAnnouncement(new MessageTextEditor(this))
+    , mDescription(new MessageTextEditor(this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
+    mainLayout->addWidget(mRoomAvatarWidget);
+
     mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
     mainLayout->addRow(i18n("Name:"), mLineEdit);
+    new LineEditCatchReturnKey(mLineEdit, this);
+
+    mComment->setObjectName(QStringLiteral("mComment"));
+    mainLayout->addRow(i18n("Comment:"), mComment);
+
+    mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
+    mainLayout->addRow(i18n("Announcement:"), mAnnouncement);
+
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    mainLayout->addRow(i18n("Description:"), mDescription);
 
     mDefaultCheckBox->setObjectName(QStringLiteral("mDefaultCheckBox"));
     mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));

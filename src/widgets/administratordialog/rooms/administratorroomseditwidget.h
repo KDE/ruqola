@@ -24,6 +24,8 @@
 #include <QWidget>
 class QCheckBox;
 class QLineEdit;
+class RoomAvatarWidget;
+class MessageTextEditor;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditWidget : public QWidget
 {
     Q_OBJECT
@@ -39,4 +41,9 @@ private:
     QCheckBox *const mPrivateCheckBox;
     QCheckBox *const mReadOnlyCheckBox;
     QCheckBox *const mArchivedCheckBox;
+
+    RoomAvatarWidget *const mRoomAvatarWidget;
+    MessageTextEditor *const mComment;
+    MessageTextEditor *const mAnnouncement;
+    MessageTextEditor *const mDescription;
 };
