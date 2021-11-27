@@ -29,6 +29,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditBaseWidget : public QW
 public:
     struct RoomEditInfo {
         QString name;
+        QString comment;
+        QString announcement;
+        QString description;
         bool featured = false;
         bool defaultRoom = false;
         bool favorite = false;

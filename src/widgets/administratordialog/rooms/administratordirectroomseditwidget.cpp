@@ -67,6 +67,4 @@ void AdministratorDirectRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &new
     mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
     mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
     mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
-
-    // TODO
 }
