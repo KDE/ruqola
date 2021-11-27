@@ -44,6 +44,6 @@ public:
     void setRoomEditInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &newRoomEditInfo);
 
 private:
-    AdministratorRoomsEditBaseWidget *const mAdministratorRoomEditWidget;
+    AdministratorRoomsEditBaseWidget *mAdministratorRoomEditWidget = nullptr;
     const RoomType mRoomType;
 };

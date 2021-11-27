@@ -19,6 +19,7 @@
 */
 
 #include "administratorroomseditdialog.h"
+#include "administratordirectroomseditwidget.h"
 #include "administratorroomseditwidget.h"
 
 #include <KLocalizedString>
@@ -28,12 +29,25 @@
 
 AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent)
     : QDialog(parent)
-    , mAdministratorRoomEditWidget(new AdministratorRoomsEditWidget(this))
     , mRoomType(roomType)
 {
     setWindowTitle(i18nc("@title:window", "Edit Room"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    switch (mRoomType) {
+    case DirectRoom:
+        mAdministratorRoomEditWidget = new AdministratorDirectRoomsEditWidget(this);
+        break;
+    case Unknown:
+        Q_ASSERT(false);
+        break;
+    case Team:
+    case Group:
+    case Channel:
+        mAdministratorRoomEditWidget = new AdministratorRoomsEditWidget(this);
+        break;
+    }
     mAdministratorRoomEditWidget->setObjectName(QStringLiteral("mAdministratorRoomEditWidget"));
     mainLayout->addWidget(mAdministratorRoomEditWidget);
 
