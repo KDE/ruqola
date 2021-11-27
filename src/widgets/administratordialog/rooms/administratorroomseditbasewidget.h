@@ -34,11 +34,9 @@ public:
     explicit AdministratorRoomsEditBaseWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsEditBaseWidget() override;
 
-    virtual Q_REQUIRED_RESULT const RoomEditInfo &roomEditInfo() const = 0;
+    virtual Q_REQUIRED_RESULT RoomEditInfo roomEditInfo() const = 0;
     virtual void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) = 0;
 
-protected:
-    RoomEditInfo mRoomEditInfo;
 };
 
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t);

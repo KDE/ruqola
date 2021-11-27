@@ -51,12 +51,16 @@ AdministratorDirectRoomsEditWidget::~AdministratorDirectRoomsEditWidget()
 {
 }
 
-const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorDirectRoomsEditWidget::roomEditInfo() const
+AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorDirectRoomsEditWidget::roomEditInfo() const
 {
-    return mRoomEditInfo;
+    AdministratorRoomsEditBaseWidget::RoomEditInfo info;
+    info.name = mLineEdit->text();
+    return info;
 }
 
 void AdministratorDirectRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
 {
+    mLineEdit->setText(newRoomEditInfo.name);
+
     // TODO
 }

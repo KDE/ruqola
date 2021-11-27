@@ -58,7 +58,7 @@ AdministratorRoomsEditDialog::RoomType AdministratorRoomsEditDialog::roomType() 
     return mRoomType;
 }
 
-const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorRoomsEditDialog::roomEditInfo() const
+AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditDialog::roomEditInfo() const
 {
     return mAdministratorRoomEditWidget->roomEditInfo();
 }

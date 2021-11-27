@@ -40,7 +40,7 @@ public:
 
     Q_REQUIRED_RESULT RoomType roomType() const;
 
-    Q_REQUIRED_RESULT const AdministratorRoomsEditBaseWidget::RoomEditInfo &roomEditInfo() const;
+    Q_REQUIRED_RESULT AdministratorRoomsEditBaseWidget::RoomEditInfo roomEditInfo() const;
     void setRoomEditInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &newRoomEditInfo);
 
 private:

@@ -31,7 +31,7 @@ public:
     explicit AdministratorDirectRoomsEditWidget(QWidget *parent = nullptr);
     ~AdministratorDirectRoomsEditWidget() override;
 
-    Q_REQUIRED_RESULT const RoomEditInfo &roomEditInfo() const override;
+    Q_REQUIRED_RESULT RoomEditInfo roomEditInfo() const override;
     void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) override;
 
 private:

@@ -80,11 +80,14 @@ AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;
 
 void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
 {
+    mLineEdit->setText(newRoomEditInfo.name);
     // TODO
 }
 
-const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorRoomsEditWidget::roomEditInfo() const
+AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roomEditInfo() const
 {
+    AdministratorRoomsEditBaseWidget::RoomEditInfo info;
+    info.name = mLineEdit->text();
     // TODO
-    return mRoomEditInfo;
+    return info;
 }

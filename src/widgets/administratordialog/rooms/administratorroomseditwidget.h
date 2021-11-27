@@ -34,7 +34,7 @@ public:
     ~AdministratorRoomsEditWidget() override;
 
     void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) override;
-    Q_REQUIRED_RESULT const RoomEditInfo &roomEditInfo() const override;
+    Q_REQUIRED_RESULT RoomEditInfo roomEditInfo() const override;
 
 private:
     QLineEdit *const mLineEdit;
