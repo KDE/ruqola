@@ -37,6 +37,7 @@ public:
         bool favorite = false;
         bool readOnly = false;
         bool privateRoom = false;
+        bool archived = false;
     };
 
     explicit AdministratorRoomsEditBaseWidget(QWidget *parent = nullptr);
