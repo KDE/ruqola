@@ -98,15 +98,18 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     const Room::RoomType roomType = Room::roomTypeFromString(channelType);
     AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::Unknown};
 
-    AdministratorRoomsEditBaseWidget::RoomEditInfo Info;
+    AdministratorRoomsEditBaseWidget::RoomEditInfo info;
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
     } else {
         admRoomType = AdministratorRoomsEditDialog::Channel;
     }
     QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(admRoomType, this);
-    dlg->setRoomEditInfo(Info);
-    if (dlg->exec()) { }
+    dlg->setRoomEditInfo(info);
+    if (dlg->exec()) {
+        info = dlg->roomEditInfo();
+        // TODO apply
+    }
     delete dlg;
 }
 
