@@ -77,3 +77,14 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
 }
 
 AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;
+
+void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
+{
+    // TODO
+}
+
+const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorRoomsEditWidget::roomEditInfo() const
+{
+    // TODO
+    return mRoomEditInfo;
+}

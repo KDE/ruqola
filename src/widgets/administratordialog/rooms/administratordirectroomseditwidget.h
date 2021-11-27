@@ -31,6 +31,9 @@ public:
     explicit AdministratorDirectRoomsEditWidget(QWidget *parent = nullptr);
     ~AdministratorDirectRoomsEditWidget() override;
 
+    Q_REQUIRED_RESULT const RoomEditInfo &roomEditInfo() const override;
+    void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) override;
+
 private:
     QLineEdit *const mLineEdit;
     QCheckBox *const mDefaultCheckBox;

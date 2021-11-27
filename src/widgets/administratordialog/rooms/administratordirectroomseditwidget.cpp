@@ -50,3 +50,13 @@ AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *
 AdministratorDirectRoomsEditWidget::~AdministratorDirectRoomsEditWidget()
 {
 }
+
+const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorDirectRoomsEditWidget::roomEditInfo() const
+{
+    return mRoomEditInfo;
+}
+
+void AdministratorDirectRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
+{
+    // TODO
+}
