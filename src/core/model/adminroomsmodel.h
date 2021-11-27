@@ -37,6 +37,7 @@ public:
         UsersCount,
         ReadOnly,
         DefaultRoom,
+        Featured,
         Identifier,
         LastColumn = Identifier,
     };

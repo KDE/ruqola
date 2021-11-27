@@ -99,6 +99,11 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::Unknown};
 
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
+    const bool readOnly = mModel->index(index.row(), AdminRoomsModel::ReadOnly).data().toBool();
+    info.readOnly = readOnly;
+    const bool featured = mModel->index(index.row(), AdminRoomsModel::Featured).data().toBool();
+    info.featured = featured;
+
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
     } else {

@@ -81,6 +81,9 @@ public:
 
     Q_REQUIRED_RESULT QString createdRoomDisplayDateTimeStr() const;
 
+    Q_REQUIRED_RESULT bool featured() const;
+    void setFeatured(bool newFeatured);
+
 private:
     void generateDisplayChannelType();
     TeamInfo mTeamInfo;
@@ -99,6 +102,7 @@ private:
     int mUsersCount = -1;
     bool mDefaultRoom = false;
     bool mReadOnly = false;
+    bool mFeatured = false;
 };
 Q_DECLARE_METATYPE(RoomInfo)
 Q_DECLARE_TYPEINFO(RoomInfo, Q_MOVABLE_TYPE);

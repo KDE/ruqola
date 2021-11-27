@@ -40,4 +40,5 @@ void RoomInfoTest::shouldHaveDefaultValues()
     QVERIFY(!w.readOnly());
     QVERIFY(w.name().isEmpty());
     QCOMPARE(w.lastMessage(), -1);
+    QVERIFY(!w.featured());
 }

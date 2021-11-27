@@ -32,7 +32,7 @@ RoomInfo::~RoomInfo() = default;
 
 void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
-    // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
+    qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
         setTopic(object[QStringLiteral("topic")].toString());
     }
@@ -45,9 +45,7 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     if (object.contains(QLatin1String("t"))) {
         setChannelType(object[QStringLiteral("t")].toString());
     }
-    if (object.contains(QLatin1String("default"))) {
-        setDefaultRoom(object[QStringLiteral("default")].toBool());
-    }
+    setDefaultRoom(object[QStringLiteral("default")].toBool(false));
     if (object.contains(QLatin1String("lastMessage"))) {
         setLastMessage(Utils::parseIsoDate(QStringLiteral("_updatedAt"), object[QStringLiteral("lastMessage")].toObject()));
     }
@@ -56,6 +54,8 @@ void RoomInfo::parseRoomInfo(const QJsonObject &object)
     }
     setIdentifier(object[QStringLiteral("_id")].toString());
     setReadOnly(object[QStringLiteral("ro")].toBool());
+
+    setFeatured(object[QStringLiteral("featured")].toBool(false));
     if (object.contains(QLatin1String("usersCount"))) {
         setUsersCount(object[QStringLiteral("usersCount")].toInt());
     }
@@ -135,6 +135,16 @@ static QString convertChannelType(const QString &str, bool mainTeam)
 void RoomInfo::generateDisplayChannelType()
 {
     mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
+}
+
+bool RoomInfo::featured() const
+{
+    return mFeatured;
+}
+
+void RoomInfo::setFeatured(bool newFeatured)
+{
+    mFeatured = newFeatured;
 }
 
 qint64 RoomInfo::createdRoom() const
