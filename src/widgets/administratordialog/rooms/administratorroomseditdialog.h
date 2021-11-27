@@ -22,7 +22,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class AdministratorRoomsEditWidget;
+class AdministratorRoomsEditBaseWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialog
 {
     Q_OBJECT
@@ -40,6 +40,6 @@ public:
     Q_REQUIRED_RESULT RoomType roomType() const;
 
 private:
-    AdministratorRoomsEditWidget *const mAdministratorRoomEditWidget;
+    AdministratorRoomsEditBaseWidget *const mAdministratorRoomEditWidget;
     const RoomType mRoomType;
 };
