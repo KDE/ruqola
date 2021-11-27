@@ -51,9 +51,19 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
     //    });
 }
 
+AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog() = default;
+
 AdministratorRoomsEditDialog::RoomType AdministratorRoomsEditDialog::roomType() const
 {
     return mRoomType;
 }
 
-AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog() = default;
+const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorRoomsEditDialog::roomEditInfo() const
+{
+    return mAdministratorRoomEditWidget->roomEditInfo();
+}
+
+void AdministratorRoomsEditDialog::setRoomEditInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &newRoomEditInfo)
+{
+    mAdministratorRoomEditWidget->setRoomEditInfo(newRoomEditInfo);
+}

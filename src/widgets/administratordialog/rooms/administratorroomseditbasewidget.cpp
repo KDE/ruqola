@@ -28,3 +28,19 @@ AdministratorRoomsEditBaseWidget::AdministratorRoomsEditBaseWidget(QWidget *pare
 AdministratorRoomsEditBaseWidget::~AdministratorRoomsEditBaseWidget()
 {
 }
+
+const AdministratorRoomsEditBaseWidget::RoomEditInfo &AdministratorRoomsEditBaseWidget::roomEditInfo() const
+{
+    return mRoomEditInfo;
+}
+
+void AdministratorRoomsEditBaseWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
+{
+    mRoomEditInfo = newRoomEditInfo;
+}
+
+QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t)
+{
+    d << "Name " << t.name;
+    return d;
+}

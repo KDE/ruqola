@@ -21,11 +21,24 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QDebug>
 #include <QWidget>
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditBaseWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct RoomEditInfo {
+        QString name;
+    };
+
     explicit AdministratorRoomsEditBaseWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsEditBaseWidget() override;
+
+    Q_REQUIRED_RESULT const RoomEditInfo &roomEditInfo() const;
+    void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo);
+
+private:
+    RoomEditInfo mRoomEditInfo;
 };
+
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t);

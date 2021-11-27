@@ -20,9 +20,9 @@
 
 #pragma once
 
+#include "administratorroomseditbasewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class AdministratorRoomsEditBaseWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditDialog : public QDialog
 {
     Q_OBJECT
@@ -34,10 +34,14 @@ public:
         Group,
         Channel,
     };
+
     explicit AdministratorRoomsEditDialog(RoomType roomType, QWidget *parent = nullptr);
     ~AdministratorRoomsEditDialog() override;
 
     Q_REQUIRED_RESULT RoomType roomType() const;
+
+    Q_REQUIRED_RESULT const AdministratorRoomsEditBaseWidget::RoomEditInfo &roomEditInfo() const;
+    void setRoomEditInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &newRoomEditInfo);
 
 private:
     AdministratorRoomsEditBaseWidget *const mAdministratorRoomEditWidget;
