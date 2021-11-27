@@ -94,12 +94,18 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
 
 void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 {
+    const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
+    const Room::RoomType roomType = Room::roomTypeFromString(channelType);
+    AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::Unknown};
+    if (roomType == Room::RoomType::Direct) {
+        admRoomType = AdministratorRoomsEditDialog::DirectRoom;
+    } else {
+        admRoomType = AdministratorRoomsEditDialog::Channel;
+    }
     // TODO customize type.
-    QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(AdministratorRoomsEditDialog::Channel, this);
+    QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(admRoomType, this);
     if (dlg->exec()) { }
     delete dlg;
-    qWarning() << "modify room NOT IMPLEMENTED";
-    // TODO
 }
 
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
@@ -113,7 +119,7 @@ void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
                                       KStandardGuiItem::cancel())) {
         const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
         const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
-        Room::RoomType roomType = Room::roomTypeFromString(channelType);
+        const Room::RoomType roomType = Room::roomTypeFromString(channelType);
         switch (roomType) {
         case Room::RoomType::Private: {
             auto job = new RocketChatRestApi::GroupsDeleteJob(this);
