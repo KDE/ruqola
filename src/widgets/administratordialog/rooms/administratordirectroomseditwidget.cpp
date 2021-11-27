@@ -55,12 +55,18 @@ AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorDirectRoomsEditWidge
 {
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
     info.name = mLineEdit->text();
+    info.featured = mFeaturedCheckBox->isChecked();
+    info.defaultRoom = mDefaultCheckBox->isChecked();
+    info.favorite = mFavoriteCheckBox->isChecked();
     return info;
 }
 
 void AdministratorDirectRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
 {
     mLineEdit->setText(newRoomEditInfo.name);
+    mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
+    mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
+    mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
 
     // TODO
 }

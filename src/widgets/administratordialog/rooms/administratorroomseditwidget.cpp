@@ -81,13 +81,19 @@ AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;
 void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEditInfo)
 {
     mLineEdit->setText(newRoomEditInfo.name);
+    mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
+    mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
+    mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
     // TODO
 }
 
 AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roomEditInfo() const
 {
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
+    info.featured = mFeaturedCheckBox->isChecked();
+    info.defaultRoom = mDefaultCheckBox->isChecked();
     info.name = mLineEdit->text();
+    info.favorite = mFavoriteCheckBox->isChecked();
     // TODO
     return info;
 }

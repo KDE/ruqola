@@ -32,5 +32,7 @@ AdministratorRoomsEditBaseWidget::~AdministratorRoomsEditBaseWidget()
 QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t)
 {
     d << "Name " << t.name;
+    d << "featured " << t.featured;
+    d << "defaultRoom " << t.defaultRoom;
     return d;
 }
