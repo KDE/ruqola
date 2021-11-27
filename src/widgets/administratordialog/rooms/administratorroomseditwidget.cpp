@@ -84,12 +84,14 @@ void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEd
     mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
     mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
     mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
+    mReadOnlyCheckBox->setChecked(newRoomEditInfo.readOnly);
+    mPrivateCheckBox->setChecked(newRoomEditInfo.privateRoom);
 
     mComment->setPlainText(newRoomEditInfo.comment); // TODO Plain text ???
     mAnnouncement->setPlainText(newRoomEditInfo.announcement); // TODO Plain text ???
     mDescription->setPlainText(newRoomEditInfo.description); // TODO Plain text ???
 
-    // TODO mRoomAvatarWidget mReadOnlyCheckBox mPrivateCheckBox mArchivedCheckBox
+    // TODO mRoomAvatarWidget mArchivedCheckBox
 }
 
 AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roomEditInfo() const
@@ -97,8 +99,12 @@ AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roo
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
     info.featured = mFeaturedCheckBox->isChecked();
     info.defaultRoom = mDefaultCheckBox->isChecked();
+    info.privateRoom = mPrivateCheckBox->isChecked();
+
     info.name = mLineEdit->text();
     info.favorite = mFavoriteCheckBox->isChecked();
+
+    info.readOnly = mReadOnlyCheckBox->isChecked();
 
     info.comment = mComment->toPlainText(); // TODO Plain text ???
     info.announcement = mAnnouncement->toPlainText(); // TODO Plain text ???

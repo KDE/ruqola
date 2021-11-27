@@ -37,5 +37,7 @@ QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo
     d << "comment " << t.comment;
     d << "announcement " << t.announcement;
     d << "description " << t.description;
+    d << "readOnly " << t.readOnly;
+    d << "privateRoom " << t.privateRoom;
     return d;
 }
