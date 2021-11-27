@@ -20,11 +20,11 @@
 
 #pragma once
 
+#include "administratorroomseditbasewidget.h"
 #include "libruqolawidgets_private_export.h"
-#include <QWidget>
 class QLineEdit;
 class QCheckBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDirectRoomsEditWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorDirectRoomsEditWidget : public AdministratorRoomsEditBaseWidget
 {
     Q_OBJECT
 public:

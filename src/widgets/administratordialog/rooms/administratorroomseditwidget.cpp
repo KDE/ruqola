@@ -28,7 +28,7 @@
 #include <QLineEdit>
 
 AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
-    : QWidget{parent}
+    : AdministratorRoomsEditBaseWidget{parent}
     , mLineEdit(new QLineEdit(this))
     , mDefaultCheckBox(new QCheckBox(i18n("Default"), this))
     , mFavoriteCheckBox(new QCheckBox(i18n("Favorite"), this))
