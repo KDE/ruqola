@@ -26,5 +26,6 @@ Dependencies:
     'frameworks/kparts': '@stable'
     'frameworks/sonnet': '@stable' 
     'frameworks/ktextwidgets': '@stable'
-    'frameworks/syntaxhighlighting': '@stable'
+    'frameworks/syntax-highlighting': '@stable'
     'frameworks/kidletime': '@stable'
+    'frameworks/knotifyconfig': '@latest'
