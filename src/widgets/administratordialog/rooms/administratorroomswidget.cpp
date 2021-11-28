@@ -29,6 +29,7 @@
 #include "rocketchataccount.h"
 #include "roominfo/roomsinfo.h"
 #include "rooms/adminroomsjob.h"
+#include "rooms/saveroomsettingsjob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -116,6 +117,15 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
         info = dlg->roomEditInfo();
+#if 0
+        auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+        saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+        mRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
+        if (!saveRoomSettingsJob->start()) {
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+        }
+#endif
+
         // TODO apply
     }
     delete dlg;
