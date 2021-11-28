@@ -68,12 +68,12 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     mReadOnlyCheckBox->setObjectName(QStringLiteral("mReadOnlyCheckBox"));
     mArchivedCheckBox->setObjectName(QStringLiteral("mArchivedCheckBox"));
 
-    mainLayout->addRow(mReadOnlyCheckBox);
-    mainLayout->addRow(mPrivateCheckBox);
-    mainLayout->addRow(mDefaultCheckBox);
-    mainLayout->addRow(mFavoriteCheckBox);
-    mainLayout->addRow(mFeaturedCheckBox);
-    mainLayout->addRow(mArchivedCheckBox);
+    mainLayout->addWidget(mReadOnlyCheckBox);
+    mainLayout->addWidget(mPrivateCheckBox);
+    mainLayout->addWidget(mDefaultCheckBox);
+    mainLayout->addWidget(mFavoriteCheckBox);
+    mainLayout->addWidget(mFeaturedCheckBox);
+    mainLayout->addWidget(mArchivedCheckBox);
 }
 
 AdministratorRoomsEditWidget::~AdministratorRoomsEditWidget() = default;
