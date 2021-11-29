@@ -1,7 +1,7 @@
 /*
    SPDX-FileCopyrightText: 2017-2020 Montel Laurent <montel@kde.org>
 
-   SPDX-License-Identifier: SPDX-License-Identifier: GPL-2.0-or-later
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "loadroomcache.h"

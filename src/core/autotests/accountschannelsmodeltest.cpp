@@ -1,7 +1,7 @@
 /*
    SPDX-FileCopyrightText: 2020 Olivier de Gaalon <olivier.jg@gmail.com>
 
-   SPDX-License-Identifier: GPL-2.0-or-later
+   SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "accountschannelsmodeltest.h"
