@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: none
+
 # clang-format
 a799fe872a25bc17a1bed67f6c24576d2a3f1578
 #clang-tidy: one declaration per line; braces around statements
