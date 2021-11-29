@@ -40,15 +40,10 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    auto okButton = button->button(QDialogButtonBox::Ok);
-    okButton->setEnabled(false);
 
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorRoomsEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorRoomsEditDialog::accept);
     resize(350, 50);
-    //    connect(mRoleEditWidget, &RoleEditWidget::updateOkButton, this, [okButton](bool b) {
-    //        okButton->setEnabled(b);
-    //    });
 }
 
 AdministratorRoomsEditDialog::~AdministratorRoomsEditDialog() = default;
