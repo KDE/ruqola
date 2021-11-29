@@ -1,3 +1,9 @@
+/*
+   SPDX-FileCopyrightText: 2021 David Faure <faure@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
 #pragma once
 
 #include <QObject>
