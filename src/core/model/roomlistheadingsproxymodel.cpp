@@ -1,3 +1,8 @@
+/*
+   SPDX-FileCopyrightText: 2021 David Faure <faure@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
 #include "roomlistheadingsproxymodel.h"
 #include "ruqola_rooms_debug.h"
 
