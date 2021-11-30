@@ -27,8 +27,8 @@ Dependencies:
     'frameworks/sonnet': '@stable' 
     'frameworks/ktextwidgets': '@stable'
     'frameworks/syntax-highlighting': '@stable'
-    'frameworks/kidletime': '@stable'
 
 - 'on': ['Linux', 'FreeBSD'] 
-  'require': 
+  'require':
+    'frameworks/kidletime': '@stable' 
     'frameworks/knotifyconfig': '@stable'

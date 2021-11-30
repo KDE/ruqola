@@ -80,7 +80,9 @@ class MessageCache;
 class ManageChannels;
 class EmoticonCustomModel;
 class CustomSoundsManager;
+#ifndef Q_OS_ANDROID
 class AwayManager;
+#endif
 
 namespace RocketChatRestApi
 {
@@ -629,7 +631,9 @@ private:
     MessageCache *const mMessageCache;
     ManageChannels *const mManageChannels;
     CustomSoundsManager *const mCustomSoundManager;
+#ifndef Q_OS_ANDROID
     AwayManager *const mAwayManager;
+#endif
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;

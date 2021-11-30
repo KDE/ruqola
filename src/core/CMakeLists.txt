@@ -417,9 +417,14 @@ target_sources(libruqolacore PRIVATE
     emoticons/customemojisinfo.h
     messagecache.h
 
-    away/awaymanager.h
-    away/awaymanager.cpp
+
 )
+
+if (NOT ANDROID)
+    target_sources(libruqolacore PRIVATE
+        away/awaymanager.h
+        away/awaymanager.cpp )
+endif()
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
@@ -430,7 +435,7 @@ if (UNITY_SUPPORT)
 endif()
 
 if (NOT ANDROID)
-    target_sources(libruqolacore PRIVATE notifications/notification.cpp)
+    target_sources(libruqolacore PRIVATE notifications/notification.cpp notifications/notification.h)
 endif()
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)
