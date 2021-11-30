@@ -29,5 +29,6 @@ Dependencies:
     'frameworks/syntax-highlighting': '@stable'
     'frameworks/kidletime': '@stable'
 
-- 'on': ['Linux', 'FreeBSD']  
+- 'on': ['Linux', 'FreeBSD'] 
+   'require': 
     'frameworks/knotifyconfig': '@latest'
