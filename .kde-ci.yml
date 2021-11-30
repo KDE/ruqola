@@ -30,5 +30,5 @@ Dependencies:
     'frameworks/kidletime': '@stable'
 
 - 'on': ['Linux', 'FreeBSD'] 
-   'require': 
-    'frameworks/knotifyconfig': '@latest'
+  'require': 
+    'frameworks/knotifyconfig': '@stable'
