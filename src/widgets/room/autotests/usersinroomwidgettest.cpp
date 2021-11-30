@@ -22,7 +22,7 @@ UsersInRoomWidgetTest::UsersInRoomWidgetTest(QObject *parent)
 
 void UsersInRoomWidgetTest::shouldHaveDefaultValues()
 {
-    UsersInRoomWidget w;
+    UsersInRoomWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});

@@ -19,13 +19,14 @@
 #include <QListView>
 #include <QVBoxLayout>
 
-UsersInRoomWidget::UsersInRoomWidget(QWidget *parent)
+UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mListView(new QListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
     , mUsersForRoomFilterProxy(new UsersForRoomFilterProxyModel(this))
     , mUsersInRoomComboBox(new UsersInRoomComboBox(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -84,7 +85,7 @@ void UsersInRoomWidget::setRoom(Room *room)
 {
     mRoom = room;
     if (mRoom) {
-        auto model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
+        auto model = mRocketChatAccount->usersModelForRoom(mRoom->roomId());
         auto sourceModel = mUsersForRoomFilterProxy->sourceModel();
         if (sourceModel) {
             auto usersForRoomModel = qobject_cast<UsersForRoomModel *>(mUsersForRoomFilterProxy->sourceModel());
@@ -123,7 +124,7 @@ void UsersInRoomWidget::slotShowUserInfo(const QModelIndex &index)
 {
     if (index.isValid()) {
         const QString userName = index.data(UsersForRoomModel::UsersForRoomRoles::UserName).toString();
-        DirectChannelInfoDialog dlg(Ruqola::self()->rocketChatAccount(), this);
+        DirectChannelInfoDialog dlg(mRocketChatAccount, this);
         dlg.setUserName(userName);
         dlg.exec();
     }
@@ -150,5 +151,5 @@ QString UsersInRoomWidget::displayShowMessageInRoom() const
 
 void UsersInRoomWidget::loadMoreUsers()
 {
-    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
+    mRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }

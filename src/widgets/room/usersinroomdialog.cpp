@@ -18,9 +18,9 @@ namespace
 static const char myUsersInRoomDialogGroupName[] = "UsersInRoomDialog";
 }
 
-UsersInRoomDialog::UsersInRoomDialog(QWidget *parent)
+UsersInRoomDialog::UsersInRoomDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mUsersInRoomWidget(new UsersInRoomWidget(this))
+    , mUsersInRoomWidget(new UsersInRoomWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Users"));
     auto mainLayout = new QVBoxLayout(this);

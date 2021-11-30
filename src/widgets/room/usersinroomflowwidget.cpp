@@ -135,7 +135,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 
 void UsersInRoomFlowWidget::loadExternalDialog()
 {
-    UsersInRoomDialog dlg(this);
+    UsersInRoomDialog dlg(Ruqola::self()->rocketChatAccount(), this);
     dlg.setRoom(mRoom);
     dlg.exec();
 }
