@@ -116,12 +116,13 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
 AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType)
 {
+    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
     if (roomType == Room::RoomType::Direct) {
         // TODO
     } else {
         // TODO
     }
-    return {};
+    return roomSettingsInfo;
 }
 
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
