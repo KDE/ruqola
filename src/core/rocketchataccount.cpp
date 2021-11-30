@@ -81,9 +81,7 @@
 #include "groups/groupopenjob.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
-#ifndef Q_OS_ANDROID
 #include "away/awaymanager.h"
-#endif
 #define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
@@ -93,9 +91,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this))
     , mCustomSoundManager(new CustomSoundsManager(this))
-#ifndef Q_OS_ANDROID
     , mAwayManager(new AwayManager(this, this))
-#endif
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -232,9 +228,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundRemoved, this, &RocketChatAccount::customSoundRemoved);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundAdded, this, &RocketChatAccount::customSoundAdded);
     connect(mCustomSoundManager, &CustomSoundsManager::customSoundUpdated, this, &RocketChatAccount::customSoundUpdated);
-#ifndef Q_OS_ANDROID
     connect(mAwayManager, &AwayManager::awayChanged, this, &RocketChatAccount::slotAwayStatusChanged);
-#endif
 }
 
 RocketChatAccount::~RocketChatAccount()
@@ -680,7 +674,7 @@ void RocketChatAccount::joinJitsiConfCall(const QString &roomId)
     qCDebug(RUQOLA_LOG) << " void RocketChatAccount::joinJitsiConfCall(const QString &roomId)" << roomId;
     // const QString hash = QString::fromLatin1(QCryptographicHash::hash((mRuqolaServerConfig->uniqueId() + roomId).toUtf8(), QCryptographicHash::Md5).toHex());
     const QString hash = mRuqolaServerConfig->uniqueId() + roomId;
-#if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
+#if defined(Q_OS_IOS)
     const QString scheme = QStringLiteral("org.jitsi.meet://");
 #else
     const QString scheme = QStringLiteral("https://");
@@ -2432,9 +2426,7 @@ RuqolaServerConfig::ServerConfigFeatureTypes RocketChatAccount::serverConfigFeat
 void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
     mOwnUser.parseOwnUserInfo(replyObject);
-#ifndef Q_OS_ANDROID
     mAwayManager->updateSettings();
-#endif
     const User user = mOwnUser.user();
     // qDebug() << " USER  " << user;
     if (user.isValid()) {

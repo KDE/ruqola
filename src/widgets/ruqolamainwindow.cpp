@@ -114,13 +114,9 @@ void RuqolaMainWindow::slotRoomNeedAttention()
 
 void RuqolaMainWindow::logout(const QString &accountName)
 {
-#ifdef Q_OS_ANDROID
-    Q_UNUSED(accountName)
-#else
     if (mNotification) {
         mNotification->clearNotification(accountName);
     }
-#endif
 }
 
 void RuqolaMainWindow::updateNotification(bool hasAlert, int nbUnread, const QString &accountName)
@@ -562,7 +558,7 @@ void RuqolaMainWindow::slotClose()
 
 void RuqolaMainWindow::createSystemTray()
 {
-#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+#if !defined(Q_OS_IOS)
     if (!RuqolaGlobalConfig::self()->enableSystemTray()) {
         delete mNotification;
         mNotification = nullptr;
