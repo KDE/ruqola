@@ -118,6 +118,11 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
     if (roomType == Room::RoomType::Direct) {
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
+        //        mLineEdit->setText(newRoomEditInfo.name);
+        //        mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
+        //        mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
+        //        mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
         // TODO
     } else {
         // TODO
