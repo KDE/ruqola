@@ -15,10 +15,11 @@
 #include "ruqolawidgets_debug.h"
 #include <QJsonObject>
 
-ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(QWidget *parent)
+ChannelSearchNameLineEdit::ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mChannelCompleterFilterProxyModel(new ChannelCompleterFilterProxyModel(this))
     , mChannelCompleterModel(new ChannelCompleterModel(this))
+    , mRocketChatAccount(account)
 {
     new LineEditCatchReturnKey(this, this);
     mChannelCompleterFilterProxyModel->setSourceModel(mChannelCompleterModel);
@@ -32,13 +33,12 @@ ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit() = default;
 void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         auto job = new RocketChatRestApi::DirectoryJob(this);
         RocketChatRestApi::DirectoryJob::DirectoryInfo info;
         info.pattern = text;
         info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
         job->setDirectoryInfo(info);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelSearchNameLineEdit::slotSearchDone);
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";

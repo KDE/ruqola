@@ -13,11 +13,12 @@ class QLineEdit;
 class ChannelSearchWidget;
 class KTextEdit;
 class AddUsersWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewDiscussionWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CreateNewDiscussionWidget(QWidget *parent = nullptr);
+    explicit CreateNewDiscussionWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewDiscussionWidget() override;
 
     void setChannelInfo(const QString &name, const QString &channelId);

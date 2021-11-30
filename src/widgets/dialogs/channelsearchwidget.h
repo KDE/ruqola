@@ -13,11 +13,12 @@
 class QStackedWidget;
 class ChannelSearchNameLineEdit;
 class ChannelSearchNameLineResultWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ChannelSearchWidget(QWidget *parent = nullptr);
+    explicit ChannelSearchWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelSearchWidget() override;
 
     Q_REQUIRED_RESULT QString channelName() const;

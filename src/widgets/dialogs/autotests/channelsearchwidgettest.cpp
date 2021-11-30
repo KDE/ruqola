@@ -18,7 +18,7 @@ ChannelSearchWidgetTest::ChannelSearchWidgetTest(QObject *parent)
 
 void ChannelSearchWidgetTest::shouldHaveDefaultValues()
 {
-    ChannelSearchWidget w;
+    ChannelSearchWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

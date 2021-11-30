@@ -14,9 +14,9 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-CreateNewDiscussionWidget::CreateNewDiscussionWidget(QWidget *parent)
+CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mChannelSearchWidget(new ChannelSearchWidget(this))
+    , mChannelSearchWidget(new ChannelSearchWidget(account, this))
     , mDiscussionNameLineEdit(new QLineEdit(this))
     , mUsers(new AddUsersWidget(this))
     , mMessageTextEdit(new KTextEdit(this))

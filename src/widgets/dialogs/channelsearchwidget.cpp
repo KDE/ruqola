@@ -8,10 +8,10 @@
 #include "channelsearchnamelineresultwidget.h"
 #include <QStackedWidget>
 #include <QVBoxLayout>
-ChannelSearchWidget::ChannelSearchWidget(QWidget *parent)
+ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mStackedWidget(new QStackedWidget(this))
-    , mChannelSearchNameLineEdit(new ChannelSearchNameLineEdit(this))
+    , mChannelSearchNameLineEdit(new ChannelSearchNameLineEdit(account, this))
     , mChannelSearchLineResult(new ChannelSearchNameLineResultWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);

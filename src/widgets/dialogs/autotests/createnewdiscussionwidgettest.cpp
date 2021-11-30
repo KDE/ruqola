@@ -24,7 +24,7 @@ CreateNewDiscussionWidgetTest::CreateNewDiscussionWidgetTest(QObject *parent)
 
 void CreateNewDiscussionWidgetTest::shouldHaveDefaultValues()
 {
-    CreateNewDiscussionWidget w;
+    CreateNewDiscussionWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), {});

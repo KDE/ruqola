@@ -20,7 +20,7 @@ static const char myCreateNewDiscussionDialogGroupName[] = "CreateNewDiscussionD
 }
 CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(this))
+    , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(account, this))
     , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Discussion"));

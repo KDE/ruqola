@@ -11,6 +11,7 @@
 class QJsonObject;
 class ChannelCompleterModel;
 class ChannelCompleterFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelSearchNameLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -19,7 +20,7 @@ public:
         QString channelName;
         QString channelId;
     };
-    explicit ChannelSearchNameLineEdit(QWidget *parent = nullptr);
+    explicit ChannelSearchNameLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelSearchNameLineEdit() override;
 Q_SIGNALS:
     void newRoomName(const ChannelSearchNameLineEdit::ChannelCompletionInfo &userInfo);
@@ -30,4 +31,5 @@ private:
     void slotSearchDone(const QJsonObject &obj);
     ChannelCompleterFilterProxyModel *const mChannelCompleterFilterProxyModel;
     ChannelCompleterModel *const mChannelCompleterModel;
+    RocketChatAccount *const mRocketChatAccount;
 };
