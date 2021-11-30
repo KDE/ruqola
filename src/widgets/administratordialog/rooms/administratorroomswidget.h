@@ -6,10 +6,13 @@
 
 #pragma once
 
+#include "administratorroomseditbasewidget.h"
 #include "administratorroomsselectroomtypewidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 #include "model/adminroomsfilterproxymodel.h"
+#include "room.h"
+#include "rooms/saveroomsettingsjob.h"
 #include <QWidget>
 class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
@@ -32,6 +35,9 @@ private:
     void slotFilterChanged(AdminRoomsFilterProxyModel::FilterRooms filters);
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &parentIndex);
+    Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
+    convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType);
+
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
 };
 

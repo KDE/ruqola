@@ -99,6 +99,6 @@ AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roo
     info.announcement = mAnnouncement->toPlainText();
     info.description = mDescription->toPlainText();
 
-    // TODO
+    // TODO mRoomAvatarWidget
     return info;
 }

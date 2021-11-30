@@ -15,7 +15,6 @@
 #include "rocketchataccount.h"
 #include "roominfo/roomsinfo.h"
 #include "rooms/adminroomsjob.h"
-#include "rooms/saveroomsettingsjob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -103,18 +102,26 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
         info = dlg->roomEditInfo();
-#if 0
+        const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType);
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
-        saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+        saveRoomSettingsJob->setSaveRoomSettingsInfo(saveInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
         if (!saveRoomSettingsJob->start()) {
             qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
         }
-#endif
-
-        // TODO apply
     }
     delete dlg;
+}
+
+RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
+AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType)
+{
+    if (roomType == Room::RoomType::Direct) {
+        // TODO
+    } else {
+        // TODO
+    }
+    return {};
 }
 
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
