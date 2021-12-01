@@ -73,6 +73,7 @@ public:
     Q_REQUIRED_RESULT const ShowImageWidget::ImageInfo &imageInfo() const;
 
     void updatePixmap(const QPixmap &pix, const QString &path);
+    Q_REQUIRED_RESULT QPixmap pixmap() const;
 public Q_SLOTS:
     void zoomIn(QPointF centerPos = {});
     void zoomOut(QPointF centerPos = {});

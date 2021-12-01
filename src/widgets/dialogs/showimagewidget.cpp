@@ -9,11 +9,14 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
+#include <QApplication>
+#include <QClipboard>
 #include <QDoubleSpinBox>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsProxyWidget>
 #include <QGraphicsScene>
 #include <QLabel>
+#include <QMimeData>
 #include <QMovie>
 #include <QPushButton>
 #include <QScopedValueRollback>
@@ -134,6 +137,11 @@ void ImageGraphicsView::clearContents()
     mMovie.reset();
 
     mGraphicsPixmapItem->setPixmap({});
+}
+
+QPixmap ImageGraphicsView::pixmap() const
+{
+    return mGraphicsPixmapItem->pixmap();
 }
 
 qreal ImageGraphicsView::minimumZoom() const
@@ -328,17 +336,23 @@ const ShowImageWidget::ImageInfo &ShowImageWidget::imageInfo() const
 
 void ShowImageWidget::saveAs()
 {
-    DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().bigImagePath, i18n("Save Image"));
+    DelegateUtil::saveFile(this,
+                           mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile(),
+                           i18n("Save Image"));
 }
 
 void ShowImageWidget::copyImage()
 {
-    // TODO
+    auto data = new QMimeData();
+    data->setImageData(mImageGraphicsView->pixmap().toImage());
+    data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
+    QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
 }
 
 void ShowImageWidget::copyLocation()
 {
-    // TODO
+    const QString imagePath = mRocketChatAccount->attachmentUrlFromLocalCache(mImageGraphicsView->imageInfo().bigImagePath).toLocalFile();
+    QApplication::clipboard()->setText(imagePath);
 }
 
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
