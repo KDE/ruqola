@@ -8,6 +8,7 @@
 #include "common/delegateutil.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_showimage_debug.h"
 #include <KLocalizedString>
 #include <QApplication>
 #include <QClipboard>
@@ -103,8 +104,9 @@ void ImageGraphicsView::updatePixmap(const QPixmap &pix, const QString &path)
 void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mImageInfo = info;
+    qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "ShowImageWidget::ImageInfo  " << info;
     if (info.needToDownloadBigImage) {
-        // qDebug() << " Download big image " << info.needToDownloadBigImage;
+        qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << " Download big image " << info.needToDownloadBigImage << " use same image";
         // We just need to download image not get url as it will be empty as we need to download it.
         if (mRocketChatAccount) {
             (void)mRocketChatAccount->attachmentUrlFromLocalCache(info.bigImagePath);
@@ -113,11 +115,11 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
     } else {
         // Use big image.
         if (mRocketChatAccount) {
+            qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << " Big image already downloaded " << info.needToDownloadBigImage;
             const QPixmap pix(mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
             updatePixmap(pix, mImageInfo.bigImagePath);
         }
     }
-    // qDebug() << "ShowImageWidget::ImageInfo  " << info;
 }
 
 void ImageGraphicsView::zoomIn(QPointF centerPos)
@@ -308,8 +310,11 @@ ShowImageWidget::~ShowImageWidget() = default;
 
 void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
+    qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheImageUrl;
     const ImageInfo info = imageInfo();
-    if (filePath == info.bigImagePath) {
+    qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "info.bigImagePath  " << info.bigImagePath;
+    if (filePath == QUrl(info.bigImagePath).toString()) {
+        qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Update image  " << info << "filePath" << filePath << "cacheImageUrl " << cacheImageUrl;
         const QString cacheImageUrlPath{cacheImageUrl.toLocalFile()};
         const QPixmap pixmap(cacheImageUrlPath);
         mImageGraphicsView->updatePixmap(pixmap, cacheImageUrlPath);
