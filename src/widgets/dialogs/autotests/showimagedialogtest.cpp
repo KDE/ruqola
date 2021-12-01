@@ -8,8 +8,10 @@
 #include "dialogs/showimagedialog.h"
 #include "dialogs/showimagewidget.h"
 #include <QDialogButtonBox>
+#include <QMenu>
 #include <QStandardPaths>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 QTEST_MAIN(ShowImageDialogTest)
 
@@ -33,4 +35,18 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
     QCOMPARE(button->standardButtons(), {QDialogButtonBox::Close | QDialogButtonBox::Save});
+
+    auto clipboardButton = w.findChild<QToolButton *>(QStringLiteral("clipboardButton"));
+    QVERIFY(clipboardButton);
+
+    auto mClipboardMenu = w.findChild<QMenu *>(QStringLiteral("mClipboardMenu"));
+    QVERIFY(mClipboardMenu);
+
+    auto clipboardImageAction = w.findChild<QAction *>(QStringLiteral("clipboardLocationAction"));
+    QVERIFY(clipboardImageAction);
+    QVERIFY(!clipboardImageAction->text().isEmpty());
+
+    auto clipboardLocationAction = w.findChild<QAction *>(QStringLiteral("clipboardLocationAction"));
+    QVERIFY(clipboardLocationAction);
+    QVERIFY(!clipboardLocationAction->text().isEmpty());
 }

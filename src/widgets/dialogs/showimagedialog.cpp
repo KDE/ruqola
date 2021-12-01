@@ -35,9 +35,11 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     buttonBox->setObjectName(QStringLiteral("button"));
 
     auto clipboardImageAction = KStandardAction::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
+    clipboardImageAction->setObjectName(QStringLiteral("clipboardLocationAction"));
     clipboardImageAction->setText(i18n("Copy Image to Clipboard"));
 
     auto clipboardLocationAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Location to Clipboard"), this);
+    clipboardLocationAction->setObjectName(QStringLiteral("clipboardLocationAction"));
     connect(clipboardLocationAction, &QAction::triggered, mShowImageWidget, &ShowImageWidget::copyLocation);
 
     mClipboardMenu->setObjectName(QStringLiteral("mClipboardMenu"));
