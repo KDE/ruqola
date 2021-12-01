@@ -9,7 +9,9 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KStandardAction>
 #include <QDialogButtonBox>
+#include <QMenu>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -20,6 +22,7 @@ static const char myShowImageDialogGroupName[] = "ShowImageDialog";
 ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mShowImageWidget(new ShowImageWidget(account, this))
+    , mClipboardMenu(new QMenu(this))
 {
     setWindowTitle(i18nc("@title:window", "Display Image"));
     auto mainLayout = new QVBoxLayout(this);
@@ -30,6 +33,26 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
 
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
     buttonBox->setObjectName(QStringLiteral("button"));
+
+    auto clipboardImageAction = KStandardAction::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
+    clipboardImageAction->setText(i18n("Copy Image to Clipboard"));
+
+    auto clipboardLocationAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Location to Clipboard"), this);
+    connect(clipboardLocationAction, &QAction::triggered, mShowImageWidget, &ShowImageWidget::copyLocation);
+
+    mClipboardMenu->setObjectName(QStringLiteral("mClipboardMenu"));
+    mClipboardMenu->addAction(clipboardImageAction);
+    mClipboardMenu->addAction(clipboardLocationAction);
+
+    auto clipboardButton = new QToolButton(this);
+    clipboardButton->setObjectName(QStringLiteral("clipboardButton"));
+
+    clipboardButton->setMenu(mClipboardMenu);
+    clipboardButton->setPopupMode(QToolButton::MenuButtonPopup);
+    clipboardButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonBox->addButton(clipboardButton, QDialogButtonBox::ActionRole);
+    clipboardButton->setDefaultAction(clipboardLocationAction);
+
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ShowImageDialog::reject);
     connect(buttonBox->button(QDialogButtonBox::Save), &QPushButton::clicked, mShowImageWidget, &ShowImageWidget::saveAs);
     mainLayout->addWidget(buttonBox);

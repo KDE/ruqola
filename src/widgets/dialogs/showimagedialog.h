@@ -9,6 +9,7 @@
 #include "showimagewidget.h"
 #include <QDialog>
 class RocketChatAccount;
+class QMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowImageDialog : public QDialog
 {
     Q_OBJECT
@@ -22,5 +23,6 @@ private:
     void readConfig();
     void writeConfig();
     ShowImageWidget *const mShowImageWidget;
+    QMenu *const mClipboardMenu;
 };
 

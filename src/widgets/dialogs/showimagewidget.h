@@ -37,6 +37,9 @@ public:
 
     void saveAs();
 
+    void copyImage();
+    void copyLocation();
+
 private:
     void updateRanges();
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

@@ -331,6 +331,16 @@ void ShowImageWidget::saveAs()
     DelegateUtil::saveFile(this, mImageGraphicsView->imageInfo().bigImagePath, i18n("Save Image"));
 }
 
+void ShowImageWidget::copyImage()
+{
+    // TODO
+}
+
+void ShowImageWidget::copyLocation()
+{
+    // TODO
+}
+
 QDebug operator<<(QDebug d, const ShowImageWidget::ImageInfo &t)
 {
     d << "bigImagePath : " << t.bigImagePath;
