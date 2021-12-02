@@ -116,8 +116,9 @@ void ImageGraphicsView::setImageInfo(const ShowImageWidget::ImageInfo &info)
         // Use big image.
         if (mRocketChatAccount) {
             qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << " Big image already downloaded " << info.needToDownloadBigImage;
-            const QPixmap pix(mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile());
-            updatePixmap(pix, mImageInfo.bigImagePath);
+            const QString pixBigImagePath{mRocketChatAccount->attachmentUrlFromLocalCache(mImageInfo.bigImagePath).toLocalFile()};
+            const QPixmap pix(pixBigImagePath);
+            updatePixmap(pix, pixBigImagePath);
         }
     }
 }
