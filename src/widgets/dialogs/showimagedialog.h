@@ -24,5 +24,6 @@ private:
     void writeConfig();
     ShowImageWidget *const mShowImageWidget;
     QMenu *const mClipboardMenu;
+    QAction *mClipboardImageAction = nullptr;
 };
 

@@ -34,16 +34,16 @@ ShowImageDialog::ShowImageDialog(RocketChatAccount *account, QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Save, this);
     buttonBox->setObjectName(QStringLiteral("button"));
 
-    auto clipboardImageAction = KStandardAction::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
-    clipboardImageAction->setObjectName(QStringLiteral("clipboardLocationAction"));
-    clipboardImageAction->setText(i18n("Copy Image to Clipboard"));
+    mClipboardImageAction = KStandardAction::copy(mShowImageWidget, &ShowImageWidget::copyImage, this);
+    mClipboardImageAction->setObjectName(QStringLiteral("clipboardLocationAction"));
+    mClipboardImageAction->setText(i18n("Copy Image to Clipboard"));
 
     auto clipboardLocationAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Location to Clipboard"), this);
     clipboardLocationAction->setObjectName(QStringLiteral("clipboardLocationAction"));
     connect(clipboardLocationAction, &QAction::triggered, mShowImageWidget, &ShowImageWidget::copyLocation);
 
     mClipboardMenu->setObjectName(QStringLiteral("mClipboardMenu"));
-    mClipboardMenu->addAction(clipboardImageAction);
+    mClipboardMenu->addAction(mClipboardImageAction);
     mClipboardMenu->addAction(clipboardLocationAction);
 
     auto clipboardButton = new QToolButton(this);
@@ -69,6 +69,9 @@ ShowImageDialog::~ShowImageDialog()
 void ShowImageDialog::setImageInfo(const ShowImageWidget::ImageInfo &info)
 {
     mShowImageWidget->setImageInfo(info);
+    if (info.isAnimatedImage) {
+        mClipboardImageAction->setEnabled(false);
+    }
 }
 
 void ShowImageDialog::readConfig()
