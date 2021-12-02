@@ -311,6 +311,10 @@ void TextConverterTest::shouldConvertTextWithEmoji_data()
     QTest::newRow("inline-code-with-smiley") << QStringLiteral(":) `:)` :)")
                                              << QStringLiteral("<div>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</div>").arg(smileyText)
                                              << QStringLiteral("www.kde.org");
+
+    QTest::newRow("url-with-emoji") << QStringLiteral("https://www.kde.org/:x:/bla.html")
+                                    << QStringLiteral("<div>%1 <code style='background-color:$BGCOLOR$'>:)</code> %1</div>").arg(smileyText)
+                                    << QStringLiteral("www.kde.org");
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji()
@@ -335,5 +339,6 @@ void TextConverterTest::shouldConvertTextWithEmoji()
         // the text color is syntax highlighting theme dependent, so hard for us to check
         actualOutput.replace(QRegularExpression(QStringLiteral("<code><span style=\".+\">:\\)</span></code>")), QStringLiteral("<code>:)</code>"));
     }
+    QEXPECT_FAIL("url-with-emoji", "Currently it if we have a emoji char in url", Continue);
     QCOMPARE(actualOutput, output); // TODO add autotest for highlightwords
 }
