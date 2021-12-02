@@ -117,14 +117,25 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
 AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType)
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
+    roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
+    roomSettingsInfo.favorite = info.favorite;
+    roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomName;
+    roomSettingsInfo.roomName = info.name;
     if (roomType == Room::RoomType::Direct) {
-        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
         //        mLineEdit->setText(newRoomEditInfo.name);
         //        mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
         //        mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
         //        mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
         // TODO
     } else {
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::ReadOnly;
+        roomSettingsInfo.readOnly = info.readOnly;
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomAnnouncement;
+        roomSettingsInfo.roomAnnouncement = info.announcement;
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomDescription;
+        roomSettingsInfo.roomDescription = info.description;
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomTopic;
+        roomSettingsInfo.roomTopic = info.comment;
         // TODO
     }
     return roomSettingsInfo;
