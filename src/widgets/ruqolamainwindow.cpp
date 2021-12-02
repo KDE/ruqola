@@ -140,6 +140,7 @@ void RuqolaMainWindow::slotAccountChanged()
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, nullptr, this, nullptr);
+        disconnect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
