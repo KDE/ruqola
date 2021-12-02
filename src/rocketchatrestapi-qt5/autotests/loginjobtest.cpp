@@ -75,11 +75,10 @@ void LoginJobTest::shouldHaveArguments()
 void LoginJobTest::shouldGenerateLoginRequest()
 {
     LoginJob job;
-    QNetworkRequest request = QNetworkRequest(QUrl());
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    request = job.request();
+    QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/login")));
 }
 

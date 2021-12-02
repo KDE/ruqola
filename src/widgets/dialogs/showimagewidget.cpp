@@ -312,7 +312,7 @@ ShowImageWidget::~ShowImageWidget() = default;
 void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
     qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheImageUrl;
-    const ImageInfo info = imageInfo();
+    const ImageInfo &info = imageInfo();
     qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "info.bigImagePath  " << info.bigImagePath;
     if (filePath == QUrl(info.bigImagePath).toString()) {
         qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "Update image  " << info << "filePath" << filePath << "cacheImageUrl " << cacheImageUrl;

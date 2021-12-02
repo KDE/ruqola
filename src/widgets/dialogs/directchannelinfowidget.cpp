@@ -165,8 +165,8 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
 
     if (user.userEmailsInfo().isValid()) {
-        const QString info = i18n("%1 [%2]", user.userEmailsInfo().email, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
-        mEmailsInfo->setText(info);
+        const QString infoStr = i18n("%1 [%2]", user.userEmailsInfo().email, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
+        mEmailsInfo->setText(infoStr);
     } else {
         hideWidget(mEmailsInfo);
     }

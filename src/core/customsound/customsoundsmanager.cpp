@@ -110,9 +110,9 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
         if (!identifier.isEmpty()) {
-            for (int i = 0; i < mCustomSoundsInfo.count(); ++i) {
-                if (mCustomSoundsInfo.at(i).identifier() == identifier) {
-                    mCustomSoundsInfo.removeAt(i);
+            for (int j = 0; j < mCustomSoundsInfo.count(); ++j) {
+                if (mCustomSoundsInfo.at(j).identifier() == identifier) {
+                    mCustomSoundsInfo.removeAt(j);
                     Q_EMIT customSoundRemoved(identifier);
                     break;
                 }
