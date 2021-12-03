@@ -153,12 +153,16 @@ void RuqolaMainWindow::slotAccountChanged()
             &RuqolaMainWindow::slotClearNotification);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::missingChannelPassword, this, &RuqolaMainWindow::slotMissingChannelPassword);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::updateActions);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::updateActions);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::updateActions);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, [this]() {
+        slotPermissionChanged();
+        updateActions();
+    });
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, [this]() {
+        updateActions();
+        slotPermissionChanged();
+    });
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::permissionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::serverVersionChanged, this, &RuqolaMainWindow::slotPermissionChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownInfoChanged, this, &RuqolaMainWindow::slotPermissionChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::registerUserSuccess, this, &RuqolaMainWindow::slotRegisterUserSuccessed);
     connect(mCurrentRocketChatAccount,
             &RocketChatAccount::userStatusUpdated,
