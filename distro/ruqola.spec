@@ -1,5 +1,5 @@
 Name:           ruqola
-Version:        1.5.0
+Version:        1.6.0
 Release:        0
 Summary:        Rocket.Chat client for the KDE desktop
 Source0:        %{name}-%{version}.tar.gz
@@ -13,11 +13,11 @@ Packager:       Klaralvdalens Datakonsult AB (KDAB) <info@kdab.com>
 
 BuildRequires: cmake extra-cmake-modules qtkeychain-qt5-devel
 %if %{defined suse_version}
-BuildRequires:  python update-desktop-files libqt5-qtbase-devel libqt5-qtwebsockets-devel libqt5-qtnetworkauth-devel libqt5-qtmultimedia-devel libqt5-qtsvg-devel kcoreaddons-devel ki18n-devel kcrash-devel knotifications-devel kiconthemes-devel syntax-highlighting-devel knotifyconfig-devel kdoctools-devel kdbusaddons-devel kxmlgui-devel kio-devel sonnet-devel ktextwidgets-devel
+BuildRequires:  python update-desktop-files libqt5-qtbase-devel libqt5-qtwebsockets-devel libqt5-qtnetworkauth-devel libqt5-qtmultimedia-devel libqt5-qtsvg-devel kcoreaddons-devel ki18n-devel kcrash-devel knotifications-devel kiconthemes-devel syntax-highlighting-devel knotifyconfig-devel kdoctools-devel kdbusaddons-devel kxmlgui-devel kio-devel sonnet-devel ktextwidgets-devel kidletime-devel
 %endif
 
 %if %{defined fedora}
-BuildRequires:  gcc-c++ shared-mime-info python desktop-file-utils qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtnetworkauth-devel qt5-qtmultimedia-devel qt5-qtsvg-devel  kf5-kcoreaddons-devel kf5-ki18n-devel kf5-kcrash-devel kf5-knotifications-devel kf5-kiconthemes-devel kf5-syntax-highlighting-devel kf5-knotifyconfig-devel kf5-kdoctools-devel kf5-kdbusaddons-devel kf5-kxmlgui-devel kf5-kio-devel kf5-sonnet-devel kf5-ktextwidgets-devel
+BuildRequires:  gcc-c++ shared-mime-info python desktop-file-utils qt5-qtbase-devel qt5-qtwebsockets-devel qt5-qtnetworkauth-devel qt5-qtmultimedia-devel qt5-qtsvg-devel  kf5-kcoreaddons-devel kf5-ki18n-devel kf5-kcrash-devel kf5-knotifications-devel kf5-kiconthemes-devel kf5-syntax-highlighting-devel kf5-knotifyconfig-devel kf5-kdoctools-devel kf5-kdbusaddons-devel kf5-kxmlgui-devel kf5-kio-devel kf5-sonnet-devel kf5-ktextwidgets-devel kf5-kidletime-devel generic-logos
 %endif
 
 %description
@@ -64,6 +64,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/qlogging-categories5/ruqola.categories
 
 %changelog
+* Fri Dec 03 2021 Allen Winter <allen.winter@kdab.com> 1.6.0
+- 1.6.0 release
 * Fri Aug 06 2021 Allen Winter <allen.winter@kdab.com> 1.5.0
 - 1.5.0 release
 * Wed May 19 2021 Allen Winter <allen.winter@kdab.com> 1.4.1
