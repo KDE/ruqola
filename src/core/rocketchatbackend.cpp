@@ -563,7 +563,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         //{"collection":"stream-notify-all","fields":{"args":[{"soundData":{"_id":"LmShBQiqaCJDbgduR","_updatedAt":{"$date":1603350386481},"extension":"mp3","name":"ss"}}],"eventName":"deleteCustomSound"},"id":"id","msg":"changed"}
     } else if (collection == QLatin1String("stream-stdout")) {
         const QJsonObject fields = object.value(QLatin1String("fields")).toObject();
-        const QString eventname = fields.value(QLatin1String("eventName")).toString();
+        // const QString eventname = fields.value(QLatin1String("eventName")).toString();
         const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
         mRocketChatAccount->addStdoutInfo(contents);
     } else if (collection == QLatin1String("stream-roles")) {

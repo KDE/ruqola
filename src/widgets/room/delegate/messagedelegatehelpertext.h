@@ -34,7 +34,7 @@ public:
     ~MessageDelegateHelperText() override;
     void draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
-    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, const QRect &messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     Q_REQUIRED_RESULT bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index);
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 

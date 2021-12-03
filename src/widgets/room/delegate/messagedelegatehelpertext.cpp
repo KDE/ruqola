@@ -229,10 +229,7 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
     return size;
 }
 
-bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent,
-                                                 const QRect &messageRect,
-                                                 const QStyleOptionViewItem &option,
-                                                 const QModelIndex &index)
+bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(option)
     if (!messageRect.contains(mouseEvent->pos())) {
