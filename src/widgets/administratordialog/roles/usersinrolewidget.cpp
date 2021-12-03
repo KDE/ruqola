@@ -66,7 +66,7 @@ void UsersInRoleWidget::slotAddUser()
 
 void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
 {
-    qDebug() << " replyObject " << replyObject;
+    // qDebug() << " replyObject " << replyObject;
     initialize(); // Reload list
 }
 
@@ -94,8 +94,8 @@ void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
 
 void UsersInRoleWidget::slotRemoveUsersFromRoleDone(const QJsonObject &replyObject)
 {
-    // TODO
-    qDebug() << " replyObject " << replyObject;
+    initialize(); // Reload list
+    // qDebug() << " replyObject " << replyObject;
 }
 
 void UsersInRoleWidget::slotCustomContextMenuRequested(const QPoint &pos)
