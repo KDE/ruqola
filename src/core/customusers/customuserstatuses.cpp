@@ -90,7 +90,7 @@ void CustomUserStatuses::setCustomUserses(const QVector<CustomUserStatus> &custo
 
 void CustomUserStatuses::deleteCustomUserStatuses(const QJsonArray &replyArray)
 {
-    for (int i = 0; i < replyArray.count(); ++i) {
+    for (int i = 0, total = replyArray.count(); i < total; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject customStatusObj = obj.value(QLatin1String("userStatusData")).toObject();
         if (!customStatusObj.isEmpty()) {

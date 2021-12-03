@@ -92,7 +92,7 @@ void CustomSoundsManager::setCustomSoundsInfo(const QVector<CustomSoundInfo> &ne
 void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
 {
     mCustomSoundsInfo.clear();
-    for (int i = 0; i < replyArray.count(); ++i) {
+    for (int i = 0, total = replyArray.count(); i < total; ++i) {
         CustomSoundInfo info;
         info.parseCustomSoundInfo(replyArray.at(i).toObject());
         if (info.isValid()) {
@@ -110,7 +110,7 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
         if (!identifier.isEmpty()) {
-            for (int j = 0; j < mCustomSoundsInfo.count(); ++j) {
+            for (int j = 0, total = mCustomSoundsInfo.count(); j < total; ++j) {
                 if (mCustomSoundsInfo.at(j).identifier() == identifier) {
                     mCustomSoundsInfo.removeAt(j);
                     Q_EMIT customSoundRemoved(identifier);
@@ -131,7 +131,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
         if (!identifier.isEmpty()) {
             bool soundIdentifierFound = false;
-            for (int i = 0; i < mCustomSoundsInfo.count(); ++i) {
+            for (int i = 0, total = mCustomSoundsInfo.count(); i < total; ++i) {
                 if (mCustomSoundsInfo.at(i).identifier() == identifier) {
                     soundIdentifierFound = true;
                     mCustomSoundsInfo.removeAt(i);
