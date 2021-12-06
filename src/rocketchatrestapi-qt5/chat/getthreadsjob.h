@@ -16,6 +16,11 @@ class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetThreadsJob : public RestApiAbstra
 {
     Q_OBJECT
 public:
+    enum class TheadSearchType {
+        All = 0,
+        Following,
+        Unread,
+    };
     explicit GetThreadsJob(QObject *parent = nullptr);
     ~GetThreadsJob() override;
 
@@ -31,12 +36,16 @@ public:
     void setRoomId(const QString &roomId);
     Q_REQUIRED_RESULT bool hasQueryParameterSupport() const override;
 
+    Q_REQUIRED_RESULT TheadSearchType searchType() const;
+    void setSearchType(TheadSearchType newSearchType);
+
 Q_SIGNALS:
     void getThreadsDone(const QJsonObject &obj, const QString &roomId);
 
 private:
     Q_DISABLE_COPY(GetThreadsJob)
     void slotGetThreadsFinished();
+    TheadSearchType mSearchType = TheadSearchType::All;
     QString mRoomId;
 };
 }

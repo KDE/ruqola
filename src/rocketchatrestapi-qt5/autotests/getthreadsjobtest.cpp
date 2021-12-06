@@ -25,6 +25,7 @@ void GetThreadsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QCOMPARE(job.searchType(), GetThreadsJob::TheadSearchType::All);
 }
 
 void GetThreadsJobTest::shouldGenerateRequest()
@@ -35,8 +36,20 @@ void GetThreadsJobTest::shouldGenerateRequest()
     job.setRestApiMethod(&method);
     const QString roomId = QStringLiteral("bla");
     job.setRoomId(roomId);
-    const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1").arg(roomId)));
+    QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all").arg(roomId)));
+
+    job.setSearchType(GetThreadsJob::TheadSearchType::Following);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=following").arg(roomId)));
+
+    job.setSearchType(GetThreadsJob::TheadSearchType::Unread);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=unread").arg(roomId)));
+
+    job.setSearchType(GetThreadsJob::TheadSearchType::All);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getThreadsList?rid=%1&type=all").arg(roomId)));
 }
 
 void GetThreadsJobTest::shouldNotStarting()
