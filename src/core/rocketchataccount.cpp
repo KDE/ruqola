@@ -849,6 +849,23 @@ void RocketChatAccount::membersInRoom(const QString &roomId, Room::RoomType chan
     restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
 }
 
+void RocketChatAccount::updateUserInRoom(const QJsonObject &roomData)
+{
+    const QString roomId = roomData.value(QStringLiteral("_id")).toString();
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+    if (usersModelForRoom) {
+        const int numberOfUsers = roomData.value(QStringLiteral("usersCount")).toInt();
+        if (usersModelForRoom->total() != numberOfUsers) {
+            if (!usersModelForRoom->loadMoreUsersInProgress()) {
+                usersModelForRoom->clear();
+                usersModelForRoom->setLoadMoreUsersInProgress(true);
+                const QString channelType = roomData.value(QStringLiteral("t")).toString();
+                restApi()->membersInRoom(roomId, channelType, 0, qMin(50, usersModelForRoom->offset()));
+            }
+        }
+    }
+}
+
 void RocketChatAccount::parseUsersForRooms(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
     // FIXME channelInfo
