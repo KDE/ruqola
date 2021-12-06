@@ -455,11 +455,9 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("otr")) {
         return i18n("Encrypted Message");
     } else if (mSystemMessageType == QLatin1String("user-unmuted")) {
-        // TODO improve it
-        return i18n("%1 was unmuted", mUsername);
+        return i18n("%1 was unmuted by %2", mText, mUsername);
     } else if (mSystemMessageType == QLatin1String("user-muted")) {
-        // TODO improve it
-        return i18n("%1 was muted", mUsername);
+        return i18n("%1 was muted by %2", mText, mUsername);
     } else if (mSystemMessageType == QLatin1String("subscription-role-added")) {
         return i18n("Role \'%3\' was added to %1 by %2", mText, mUsername, mRole);
     } else if (mSystemMessageType == QLatin1String("subscription-role-removed")) {
