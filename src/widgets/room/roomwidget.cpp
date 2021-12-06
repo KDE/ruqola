@@ -393,14 +393,13 @@ void RoomWidget::slotSearchMessages()
     if (!mRoom) {
         return;
     }
-    QPointer<SearchMessageDialog> dlg = new SearchMessageDialog(this);
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    dlg->setRoomId(mRoomWidgetBase->roomId());
-    dlg->setRoom(mRoom);
-    dlg->setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
-    connect(dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
-    dlg->exec();
-    delete dlg;
+    SearchMessageDialog dlg(this);
+    dlg.setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    dlg.setRoomId(mRoomWidgetBase->roomId());
+    dlg.setRoom(mRoom);
+    dlg.setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
+    connect(&dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
+    dlg.exec();
 }
 
 void RoomWidget::slotOpenTeamRequested(const QString &teamId)
