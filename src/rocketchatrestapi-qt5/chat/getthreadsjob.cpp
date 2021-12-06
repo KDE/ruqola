@@ -67,6 +67,16 @@ void GetThreadsJob::slotGetThreadsFinished()
     deleteLater();
 }
 
+GetThreadsJob::TheadSearchType GetThreadsJob::searchType() const
+{
+    return mSearchType;
+}
+
+void GetThreadsJob::setSearchType(TheadSearchType newSearchType)
+{
+    mSearchType = newSearchType;
+}
+
 QString GetThreadsJob::roomId() const
 {
     return mRoomId;
@@ -82,6 +92,18 @@ QNetworkRequest GetThreadsJob::request() const
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::ChatGetThreadsList);
     QUrlQuery queryUrl;
     queryUrl.addQueryItem(QStringLiteral("rid"), mRoomId);
+    switch (mSearchType) {
+    case TheadSearchType::All:
+        queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("all"));
+        break;
+    case TheadSearchType::Following:
+        queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("following"));
+        break;
+    case TheadSearchType::Unread:
+        queryUrl.addQueryItem(QStringLiteral("type"), QStringLiteral("unread"));
+        break;
+    }
+
     addQueryParameter(queryUrl);
     url.setQuery(queryUrl);
 
