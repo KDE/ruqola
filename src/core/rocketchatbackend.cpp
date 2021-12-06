@@ -384,6 +384,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 qCDebug(RUQOLA_LOG) << " Update room " << lst;
                 const QJsonObject roomData = lst[1].toObject();
                 model->updateRoom(roomData);
+                qDebug() << "roomData  " << roomData << " userCount " << roomData.value(QStringLiteral("usersCount")).toInt();
+                // UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(channelInfoIdentifier);
             } else if (actionName == QLatin1String("inserted")) {
                 qCDebug(RUQOLA_LOG) << "****************************************** insert new Room !!!!!" << lst;
                 const QJsonObject roomData = lst[1].toObject();
