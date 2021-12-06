@@ -796,7 +796,7 @@ void Connection::addUserInGroup(const QString &roomId, const QString &userId)
     info.identifier = roomId;
     job->setChannelGroupInfo(info);
 
-    job->setUserId(userId);
+    job->setInviteUserId(userId);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start addUserInGroup job";
     }
