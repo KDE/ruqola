@@ -36,7 +36,7 @@ private:
     void slotModifyRoom(const QModelIndex &index);
     void slotRemoveRoom(const QModelIndex &parentIndex);
     Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
-    convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType);
+    convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType, const QString &roomIdentifier);
 
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
 };

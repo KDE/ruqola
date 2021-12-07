@@ -102,7 +102,8 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
         info = dlg->roomEditInfo();
-        const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType);
+        const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
+        const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType, roomIdentifier);
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
         saveRoomSettingsJob->setSaveRoomSettingsInfo(saveInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
@@ -114,20 +115,21 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
-AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType)
+AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info,
+                                                        const Room::RoomType roomType,
+                                                        const QString &roomIdentifier)
 {
     RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo roomSettingsInfo;
+    roomSettingsInfo.roomId = roomIdentifier;
     roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::Favorite;
     roomSettingsInfo.favorite = info.favorite;
-    roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomName;
-    roomSettingsInfo.roomName = info.name;
     if (roomType == Room::RoomType::Direct) {
-        //        mLineEdit->setText(newRoomEditInfo.name);
         //        mFeaturedCheckBox->setChecked(newRoomEditInfo.featured);
         //        mDefaultCheckBox->setChecked(newRoomEditInfo.defaultRoom);
-        //        mFavoriteCheckBox->setChecked(newRoomEditInfo.favorite);
         // TODO
     } else {
+        roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomName;
+        roomSettingsInfo.roomName = info.name;
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::ReadOnly;
         roomSettingsInfo.readOnly = info.readOnly;
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomAnnouncement;
