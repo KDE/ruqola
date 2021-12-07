@@ -8,6 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -59,6 +61,14 @@ SaveRoomSettingsJob::SaveRoomSettingsInfo SaveRoomSettingsJob::saveRoomSettingsI
 void SaveRoomSettingsJob::setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &saveRoomSettingsInfo)
 {
     mSaveRoomSettingsInfo = saveRoomSettingsInfo;
+}
+
+QString SaveRoomSettingsJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-invalid-room-name")) {
+        return i18n("\'%1\' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
 
 bool SaveRoomSettingsJob::requireHttpAuthentication() const

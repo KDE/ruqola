@@ -76,6 +76,9 @@ public:
     Q_REQUIRED_RESULT SaveRoomSettingsInfo saveRoomSettingsInfo() const;
     void setSaveRoomSettingsInfo(const SaveRoomSettingsInfo &saveRoomSettingsInfo);
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 Q_SIGNALS:
     void saveRoomSettingsDone();
 
