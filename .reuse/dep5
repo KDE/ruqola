@@ -3,6 +3,6 @@ Upstream-Name: ruqola
 Upstream-Contact: Montel Laurent <montel@kde.org>
 Source: https://invent.kde.org/network/ruqola
 
-Files: src/core/autotests/data/room-update-subscription/*.json src/core/autotests/data/room-update-subscription/*.ref src/core/autotests/data/room-updated/*.json src/core/autotests/data/room-updated/*.ref src/core/autotests/data/method/*.ref src/core/autotests/data/*/*.json src/core/autotests/data/*/*.ref distro/*
+Files: src/core/autotests/data/room-update-subscription/*.json src/core/autotests/data/room-update-subscription/*.ref src/core/autotests/data/room-updated/*.json src/core/autotests/data/room-updated/*.ref src/core/autotests/data/method/*.ref src/core/autotests/data/*/*.json src/core/autotests/data/*/*.ref distro/* development/TODO src/core/autotests/data/downloadappslanguages/*
 Copyright: none
 License: CC0-1.0
