@@ -105,6 +105,7 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
         const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
         const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType, roomIdentifier);
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+        connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this, &AdministratorRoomsWidget::slotSaveRoomSettingsDone);
         saveRoomSettingsJob->setSaveRoomSettingsInfo(saveInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
         if (!saveRoomSettingsJob->start()) {
@@ -112,6 +113,11 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
         }
     }
     delete dlg;
+}
+
+void AdministratorRoomsWidget::slotSaveRoomSettingsDone()
+{
+    // TODO
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
