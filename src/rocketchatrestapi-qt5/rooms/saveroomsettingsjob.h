@@ -80,7 +80,7 @@ protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 Q_SIGNALS:
-    void saveRoomSettingsDone();
+    void saveRoomSettingsDone(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(SaveRoomSettingsJob)
