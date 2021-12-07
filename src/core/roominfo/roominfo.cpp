@@ -18,7 +18,7 @@ RoomInfo::~RoomInfo() = default;
 
 void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
-    qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
+    // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("topic"))) {
         setTopic(object[QStringLiteral("topic")].toString());
     }
