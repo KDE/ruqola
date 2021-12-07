@@ -43,7 +43,7 @@ void SaveRoomSettingsJob::slotSaveRoomSettingsFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("SaveRoomSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT saveRoomSettingsDone();
+            Q_EMIT saveRoomSettingsDone(replyObject.value(QStringLiteral("rid")).toString());
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("SaveRoomSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

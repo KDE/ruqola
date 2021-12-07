@@ -115,9 +115,10 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     delete dlg;
 }
 
-void AdministratorRoomsWidget::slotSaveRoomSettingsDone()
+void AdministratorRoomsWidget::slotSaveRoomSettingsDone(const QString &roomId)
 {
-    // TODO
+    qDebug() << " roomId" << roomId;
+    // TODO update specific roomId
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
