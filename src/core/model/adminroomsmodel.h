@@ -48,6 +48,8 @@ public:
 
     void removeElement(const QString &identifier) override;
 
+    void updateElement(const QJsonObject &obj) override;
+
 private:
     Q_DISABLE_COPY(AdminRoomsModel)
     void checkFullList();

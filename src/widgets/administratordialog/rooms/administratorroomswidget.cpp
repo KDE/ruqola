@@ -44,6 +44,12 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, Q
     mSearchLayout->addWidget(mSelectRoomType);
     hideColumns();
     connectModel();
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            const QModelIndex i = mProxyModelModel->mapToSource(index);
+            slotModifyRoom(i);
+        }
+    });
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget() = default;
@@ -125,13 +131,11 @@ void AdministratorRoomsWidget::slotSaveRoomSettingsDone(const QString &roomId)
     if (!getRoomSettingsJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsGetRoomJob";
     }
-    qDebug() << " roomId" << roomId;
-    // TODO update specific roomId
 }
 
 void AdministratorRoomsWidget::slotGetRoomSettingsDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    mModel->updateElement(obj);
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo

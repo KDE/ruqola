@@ -35,6 +35,8 @@ public:
 
     virtual void removeElement(const QString &identifier);
 
+    virtual void updateElement(const QJsonObject &obj);
+
     void initialize();
 Q_SIGNALS:
     void hasFullListChanged();

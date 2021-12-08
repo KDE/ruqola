@@ -40,6 +40,7 @@ public:
     void setRoomsCount(int adminroomsCount);
 
     RoomInfo takeAt(int index);
+    void insertRoom(int index, const RoomInfo &room);
 
 private:
     void parseListRooms(const QJsonObject &commandsObj, ParseType type);
