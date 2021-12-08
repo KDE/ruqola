@@ -147,6 +147,23 @@ void AdminRoomsModel::addMoreElements(const QJsonObject &obj)
     checkFullList();
 }
 
+void AdminRoomsModel::updateElement(const QJsonObject &obj)
+{
+    const int roomCount = mAdminRooms.count();
+    const QString identifier{obj.value(QStringLiteral("_id")).toString()};
+    for (int i = 0; i < roomCount; ++i) {
+        if (mAdminRooms.at(i).identifier() == identifier) {
+            mAdminRooms.takeAt(i);
+            RoomInfo room;
+            room.parseRoomInfo(obj);
+            beginInsertRows(QModelIndex(), i, i);
+            mAdminRooms.insertRoom(i, room);
+            endInsertRows();
+            break;
+        }
+    }
+}
+
 QList<int> AdminRoomsModel::hideColumns() const
 {
     return {AdminRoomsRoles::Identifier, AdminRoomsRoles::ChannelType, AdminRoomsRoles::Featured};

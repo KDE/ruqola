@@ -125,13 +125,11 @@ void AdministratorRoomsWidget::slotSaveRoomSettingsDone(const QString &roomId)
     if (!getRoomSettingsJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsGetRoomJob";
     }
-    qDebug() << " roomId" << roomId;
-    // TODO update specific roomId
 }
 
 void AdministratorRoomsWidget::slotGetRoomSettingsDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
+    mModel->updateElement(obj);
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo

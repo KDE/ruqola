@@ -81,6 +81,11 @@ RoomInfo RoomsInfo::takeAt(int index)
     return mRooms.takeAt(index);
 }
 
+void RoomsInfo::insertRoom(int index, const RoomInfo &room)
+{
+    mRooms.insert(index, room);
+}
+
 QVector<RoomInfo> RoomsInfo::rooms() const
 {
     return mRooms;
