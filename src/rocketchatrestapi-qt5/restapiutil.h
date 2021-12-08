@@ -163,6 +163,7 @@ enum class RestApiUrlType {
     RoomsSaveNotification,
     RoomsSaveSettings,
     RoomsAdminRooms,
+    RoomsAdminRoomsGetRoom,
     ImClose,
     ImCreate,
     ImHistory,

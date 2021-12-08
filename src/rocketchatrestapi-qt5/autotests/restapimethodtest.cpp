@@ -193,6 +193,8 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveNotification), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveNotification")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsSaveSettings), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.saveRoomSettings")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRooms), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::RoomsAdminRoomsGetRoom), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms.getRoom")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsRead), QUrl(QStringLiteral("http://www.kde.org/api/v1/subscriptions.read")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SubscriptionsUnRead), QUrl(QStringLiteral("http://www.kde.org/api/v1/subscriptions.unread")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SettingsOauth), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings.oauth")));

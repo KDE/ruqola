@@ -154,6 +154,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     rooms/roomsexportjob.cpp
     rooms/saveroomsettingsjob.cpp
     rooms/changearchivationstatejob.cpp
+    rooms/adminroomsgetroomjob.cpp
+    rooms/adminroomsgetroomjob.h
 
     subscriptions/markroomasreadjob.cpp
     subscriptions/markroomasunreadjob.cpp

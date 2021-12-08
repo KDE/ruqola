@@ -14,6 +14,7 @@
 #include "model/adminroomsmodel.h"
 #include "rocketchataccount.h"
 #include "roominfo/roomsinfo.h"
+#include "rooms/adminroomsgetroomjob.h"
 #include "rooms/adminroomsjob.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -117,8 +118,20 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
 
 void AdministratorRoomsWidget::slotSaveRoomSettingsDone(const QString &roomId)
 {
+    auto getRoomSettingsJob = new RocketChatRestApi::AdminRoomsGetRoomJob(this);
+    getRoomSettingsJob->setRoomId(roomId);
+    connect(getRoomSettingsJob, &RocketChatRestApi::AdminRoomsGetRoomJob::adminRoomGetRoomDone, this, &AdministratorRoomsWidget::slotGetRoomSettingsDone);
+    mRocketChatAccount->restApi()->initializeRestApiJob(getRoomSettingsJob);
+    if (!getRoomSettingsJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsGetRoomJob";
+    }
     qDebug() << " roomId" << roomId;
     // TODO update specific roomId
+}
+
+void AdministratorRoomsWidget::slotGetRoomSettingsDone(const QJsonObject &obj)
+{
+    qDebug() << " obj " << obj;
 }
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
