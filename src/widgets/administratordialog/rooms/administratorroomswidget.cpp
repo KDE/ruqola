@@ -44,6 +44,12 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, Q
     mSearchLayout->addWidget(mSelectRoomType);
     hideColumns();
     connectModel();
+    connect(mTreeView, &QTreeView::doubleClicked, this, [this](const QModelIndex &index) {
+        if (index.isValid()) {
+            const QModelIndex i = mProxyModelModel->mapToSource(index);
+            slotModifyRoom(i);
+        }
+    });
 }
 
 AdministratorRoomsWidget::~AdministratorRoomsWidget() = default;
