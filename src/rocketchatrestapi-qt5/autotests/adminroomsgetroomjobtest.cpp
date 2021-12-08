@@ -35,5 +35,5 @@ void AdminRoomsGetRoomJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms.getRoom?roomId=%1").arg(roomId)));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms.getRoom?rid=%1").arg(roomId)));
 }
