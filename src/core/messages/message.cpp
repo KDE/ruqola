@@ -488,6 +488,8 @@ QString Message::systemMessageText() const
         return i18n("This room's encryption has been disabled by %1", mUsername);
     } else if (mSystemMessageType == QLatin1String("room-set-read-only")) {
         return i18n("Room set as Read Only by  %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("room-removed-read-only")) {
+        return i18n("Room added writing permission by  %1", mUsername);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
