@@ -18,13 +18,13 @@ RoomInfo::~RoomInfo() = default;
 
 void RoomInfo::parseRoomInfo(const QJsonObject &object)
 {
-    // qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
-    if (object.contains(QLatin1String("topic"))) {
-        setTopic(object[QStringLiteral("topic")].toString());
-    }
+    qDebug() << " void AdminRoom::parseAdminRoom(const QJsonObject &object)" << object;
     if (object.contains(QLatin1String("name"))) {
         setName(object[QStringLiteral("name")].toString());
     }
+    setTopic(object[QStringLiteral("topic")].toString());
+    setDescription(object[QStringLiteral("description")].toString());
+    setAnnouncement(object[QStringLiteral("announcement")].toString());
     if (object.contains(QLatin1String("msgs"))) {
         setMessageCount(object[QStringLiteral("msgs")].toInt());
     }
@@ -121,6 +121,26 @@ static QString convertChannelType(const QString &str, bool mainTeam)
 void RoomInfo::generateDisplayChannelType()
 {
     mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
+}
+
+const QString &RoomInfo::announcement() const
+{
+    return mAnnouncement;
+}
+
+void RoomInfo::setAnnouncement(const QString &newAnnouncement)
+{
+    mAnnouncement = newAnnouncement;
+}
+
+const QString &RoomInfo::description() const
+{
+    return mDescription;
+}
+
+void RoomInfo::setDescription(const QString &newDescription)
+{
+    mDescription = newDescription;
 }
 
 bool RoomInfo::featured() const
@@ -264,7 +284,7 @@ bool RoomInfo::operator==(const RoomInfo &other) const
     return mDefaultRoom == other.defaultRoom() && mUsersCount == other.usersCount() && mMessageCount == other.messageCount()
         && mChannelType == other.channelType() && mIdentifier == other.identifier() && mTopic == other.topic() && mName == other.name()
         && mUserNames == other.userNames() && mUsers == other.users() && mTeamInfo == other.teamInfo() && mLastMessage == other.lastMessage()
-        && mCreatedRoom == other.createdRoom();
+        && mCreatedRoom == other.createdRoom() && mDescription == other.description() && mAnnouncement == other.announcement();
 }
 
 QDebug operator<<(QDebug d, const RoomInfo &t)
@@ -281,5 +301,7 @@ QDebug operator<<(QDebug d, const RoomInfo &t)
     d << " teaminfo: " << t.teamInfo();
     d << " lastMessage : " << t.lastMessage();
     d << " created : " << t.createdRoom();
+    d << " description : " << t.description();
+    d << " announcement : " << t.announcement();
     return d;
 }

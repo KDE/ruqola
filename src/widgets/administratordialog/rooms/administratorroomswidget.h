@@ -37,6 +37,7 @@ private:
     void slotRemoveRoom(const QModelIndex &parentIndex);
     void slotSaveRoomSettingsDone(const QString &roomId);
     void slotGetRoomSettingsDone(const QJsonObject &obj);
+    void slotGetRoomSettingsModifyDone(const QJsonObject &obj, Room::RoomType roomType);
     Q_REQUIRED_RESULT RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo
     convertToSaveRoomSettingsInfo(const AdministratorRoomsEditBaseWidget::RoomEditInfo &info, const Room::RoomType roomType, const QString &roomIdentifier);
 

@@ -22,6 +22,8 @@ void RoomInfoTest::shouldHaveDefaultValues()
     QCOMPARE(w.messageCount(), -1);
     QVERIFY(w.channelType().isEmpty());
     QVERIFY(w.topic().isEmpty());
+    QVERIFY(w.announcement().isEmpty());
+    QVERIFY(w.description().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QVERIFY(!w.readOnly());
     QVERIFY(w.name().isEmpty());
