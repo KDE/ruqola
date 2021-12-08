@@ -23,7 +23,7 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     , mReadOnlyCheckBox(new QCheckBox(i18n("Read-Only"), this))
     , mArchivedCheckBox(new QCheckBox(i18n("Archived"), this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
-    , mComment(new MessageTextEditor(this))
+    , mTopic(new MessageTextEditor(this))
     , mAnnouncement(new MessageTextEditor(this))
     , mDescription(new MessageTextEditor(this))
 {
@@ -38,8 +38,8 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     mainLayout->addRow(i18n("Name:"), mLineEdit);
     new LineEditCatchReturnKey(mLineEdit, this);
 
-    mComment->setObjectName(QStringLiteral("mComment"));
-    mainLayout->addRow(i18n("Comment:"), mComment);
+    mTopic->setObjectName(QStringLiteral("mComment"));
+    mainLayout->addRow(i18n("Comment:"), mTopic);
 
     mAnnouncement->setObjectName(QStringLiteral("mAnnouncement"));
     mainLayout->addRow(i18n("Announcement:"), mAnnouncement);
@@ -74,7 +74,7 @@ void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEd
     mPrivateCheckBox->setChecked(newRoomEditInfo.privateRoom);
     mArchivedCheckBox->setChecked(newRoomEditInfo.archived);
 
-    mComment->setPlainText(newRoomEditInfo.comment);
+    mTopic->setPlainText(newRoomEditInfo.topic);
     mAnnouncement->setPlainText(newRoomEditInfo.announcement);
     mDescription->setPlainText(newRoomEditInfo.description);
 
@@ -95,7 +95,7 @@ AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorRoomsEditWidget::roo
 
     info.readOnly = mReadOnlyCheckBox->isChecked();
 
-    info.comment = mComment->toPlainText();
+    info.topic = mTopic->toPlainText();
     info.announcement = mAnnouncement->toPlainText();
     info.description = mDescription->toPlainText();
 

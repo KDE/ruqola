@@ -32,7 +32,7 @@ private:
     QCheckBox *const mArchivedCheckBox;
 
     RoomAvatarWidget *const mRoomAvatarWidget;
-    MessageTextEditor *const mComment;
+    MessageTextEditor *const mTopic;
     MessageTextEditor *const mAnnouncement;
     MessageTextEditor *const mDescription;
 };

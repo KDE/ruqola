@@ -99,6 +99,7 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     const bool defaultRoom = mModel->index(index.row(), AdminRoomsModel::DefaultRoom).data().toBool();
     info.defaultRoom = defaultRoom;
     info.name = mModel->index(index.row(), AdminRoomsModel::Name).data().toString();
+    info.topic = mModel->index(index.row(), AdminRoomsModel::Topic).data().toString();
 
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
@@ -161,7 +162,7 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomDescription;
         roomSettingsInfo.roomDescription = info.description;
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomTopic;
-        roomSettingsInfo.roomTopic = info.comment;
+        roomSettingsInfo.roomTopic = info.topic;
         // TODO
     }
     return roomSettingsInfo;
