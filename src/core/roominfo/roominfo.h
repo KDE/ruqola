@@ -70,6 +70,12 @@ public:
     Q_REQUIRED_RESULT bool featured() const;
     void setFeatured(bool newFeatured);
 
+    Q_REQUIRED_RESULT const QString &description() const;
+    void setDescription(const QString &newDescription);
+
+    Q_REQUIRED_RESULT const QString &announcement() const;
+    void setAnnouncement(const QString &newAnnouncement);
+
 private:
     void generateDisplayChannelType();
     TeamInfo mTeamInfo;
@@ -82,6 +88,8 @@ private:
     QString mName;
     QString mLastMessageDisplayTime;
     QString mCreatedRoomDisplayTime;
+    QString mDescription;
+    QString mAnnouncement;
     qint64 mLastMessage = -1;
     qint64 mCreatedRoom = -1;
     int mMessageCount = -1;

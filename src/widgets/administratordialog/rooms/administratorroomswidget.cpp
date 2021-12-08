@@ -85,22 +85,19 @@ QString AdministratorRoomsWidget::displayShowMessageInRoom() const
     return displayMessageStr;
 }
 
-void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
+void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &obj, Room::RoomType roomType)
 {
-    const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
-    const Room::RoomType roomType = Room::roomTypeFromString(channelType);
     AdministratorRoomsEditDialog::RoomType admRoomType{AdministratorRoomsEditDialog::Unknown};
-
+    RoomInfo roomInfo;
+    roomInfo.parseRoomInfo(obj);
     AdministratorRoomsEditBaseWidget::RoomEditInfo info;
-    const bool readOnly = mModel->index(index.row(), AdminRoomsModel::ReadOnly).data().toBool();
-    info.readOnly = readOnly;
-    const bool featured = mModel->index(index.row(), AdminRoomsModel::Featured).data().toBool();
-    info.featured = featured;
-    const bool defaultRoom = mModel->index(index.row(), AdminRoomsModel::DefaultRoom).data().toBool();
-    info.defaultRoom = defaultRoom;
-    info.name = mModel->index(index.row(), AdminRoomsModel::Name).data().toString();
-    info.topic = mModel->index(index.row(), AdminRoomsModel::Topic).data().toString();
-
+    info.readOnly = roomInfo.readOnly();
+    info.featured = roomInfo.featured();
+    info.defaultRoom = roomInfo.defaultRoom();
+    info.name = roomInfo.name();
+    info.topic = roomInfo.topic();
+    info.announcement = roomInfo.announcement();
+    info.description = roomInfo.description();
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
     } else {
@@ -110,7 +107,7 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
     dlg->setRoomEditInfo(info);
     if (dlg->exec()) {
         info = dlg->roomEditInfo();
-        const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
+        const QString roomIdentifier = roomInfo.identifier();
         const RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo saveInfo = convertToSaveRoomSettingsInfo(info, roomType, roomIdentifier);
         auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
         connect(saveRoomSettingsJob, &RocketChatRestApi::SaveRoomSettingsJob::saveRoomSettingsDone, this, &AdministratorRoomsWidget::slotSaveRoomSettingsDone);
@@ -121,6 +118,22 @@ void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
         }
     }
     delete dlg;
+}
+
+void AdministratorRoomsWidget::slotModifyRoom(const QModelIndex &index)
+{
+    const QString roomId = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
+    const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
+    const Room::RoomType roomType = Room::roomTypeFromString(channelType);
+    auto getRoomSettingsJob = new RocketChatRestApi::AdminRoomsGetRoomJob(this);
+    getRoomSettingsJob->setRoomId(roomId);
+    connect(getRoomSettingsJob, &RocketChatRestApi::AdminRoomsGetRoomJob::adminRoomGetRoomDone, this, [this, roomType](const QJsonObject &obj) {
+        slotGetRoomSettingsModifyDone(obj, roomType);
+    });
+    mRocketChatAccount->restApi()->initializeRestApiJob(getRoomSettingsJob);
+    if (!getRoomSettingsJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start AdminRoomsGetRoomJob";
+    }
 }
 
 void AdministratorRoomsWidget::slotSaveRoomSettingsDone(const QString &roomId)
@@ -163,7 +176,6 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
         roomSettingsInfo.roomDescription = info.description;
         roomSettingsInfo.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::SettingChanged::RoomTopic;
         roomSettingsInfo.roomTopic = info.topic;
-        // TODO
     }
     return roomSettingsInfo;
 }
