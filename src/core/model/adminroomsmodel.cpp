@@ -153,7 +153,9 @@ void AdminRoomsModel::updateElement(const QJsonObject &obj)
     const QString identifier{obj.value(QStringLiteral("_id")).toString()};
     for (int i = 0; i < roomCount; ++i) {
         if (mAdminRooms.at(i).identifier() == identifier) {
+            beginRemoveRows(QModelIndex(), i, i);
             mAdminRooms.takeAt(i);
+            endRemoveRows();
             RoomInfo room;
             room.parseRoomInfo(obj);
             beginInsertRows(QModelIndex(), i, i);
