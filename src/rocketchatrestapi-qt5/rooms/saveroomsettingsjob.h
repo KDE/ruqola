@@ -35,6 +35,7 @@ public:
             Encrypted = 32768,
             RoomAvatar = 65536,
             ReactWhenReadOnly = 131072,
+            Featured = 262144,
         };
         Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -56,6 +57,7 @@ public:
         bool readOnly = false;
         bool encrypted = false;
         bool reactWhenReadOnly = false;
+        bool featured = false;
         int retentionMaxAge = 32;
         //'featured','roomCustomFields',
         //'reactWhenReadOnly', 'default','tokenpass', 'streamingOptions'
