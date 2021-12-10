@@ -25,6 +25,8 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     mResetE2eKey->setObjectName(QStringLiteral("mResetE2eKey"));
     mainLayout->addWidget(mResetE2eKey);
     connect(mResetE2eKey, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotResetE2EKey);
+
+    mainLayout->addStretch(1);
 }
 
 MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
@@ -41,4 +43,5 @@ void MyAccount2e2ConfigureWidget::slotResetE2EKey()
 
 void MyAccount2e2ConfigureWidget::slotReset2E2KeyDone(const QJsonObject &replyObject)
 {
+    qDebug() << " replyObject " << replyObject;
 }
