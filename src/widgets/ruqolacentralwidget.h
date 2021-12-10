@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     void slotLoginStatusChanged();
-    void slotJobFailedInfo(const QString &messageError);
+    void slotJobFailedInfo(const QString &messageError, const QString &accountName);
     void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
 
     QStackedWidget *const mStackedWidget;

@@ -490,7 +490,7 @@ Q_SIGNALS:
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void editingModeChanged();
     void sortUnreadOnTopChanged();
-    void jobFailed(const QString &message);
+    void jobFailed(const QString &message, const QString &accountName);
     void switchedRooms();
     void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);
     void publicSettingChanged();
@@ -574,6 +574,7 @@ private:
     void updateCustomEmojiList();
     void slotLoadRoles();
     void slotAwayStatusChanged(bool away);
+    void slotJobFailed(const QString &str);
 
     AccountRoomSettings *const mAccountRoomSettings;
 

@@ -39,9 +39,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 
-void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
+void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const QString &accountName)
 {
-    KMessageBox::error(this, messageError, i18n("Error"));
+    KMessageBox::error(this, messageError, i18n("Error from \'%1\' account", accountName));
 }
 
 void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, const QString &errorString)

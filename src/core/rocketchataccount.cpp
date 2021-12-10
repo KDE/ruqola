@@ -498,7 +498,7 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelRolesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
-        connect(mRestApi, &RocketChatRestApi::Connection::failed, this, &RocketChatAccount::jobFailed);
+        connect(mRestApi, &RocketChatRestApi::Connection::failed, this, &RocketChatAccount::slotJobFailed);
         connect(mRestApi, &RocketChatRestApi::Connection::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
         connect(mRestApi, &RocketChatRestApi::Connection::directoryDone, this, &RocketChatAccount::slotDirectoryDone);
         connect(mRestApi, &RocketChatRestApi::Connection::getThreadMessagesDone, this, &RocketChatAccount::slotGetThreadMessagesDone);
@@ -546,6 +546,11 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         mCache->setRestApiConnection(mRestApi);
     }
     return mRestApi;
+}
+
+void RocketChatAccount::slotJobFailed(const QString &str)
+{
+    Q_EMIT jobFailed(str, accountName());
 }
 
 void RocketChatAccount::leaveRoom(const QString &roomId, Room::RoomType channelType)
