@@ -24,7 +24,6 @@ class QRect;
 class QMouseEvent;
 class QHelpEvent;
 class QStyleOptionViewItem;
-class QWidget;
 
 class MessageDelegateHelperText : public QObject, public DocumentFactoryInterface
 {
