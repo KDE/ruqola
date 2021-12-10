@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 
 AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
@@ -22,6 +23,7 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
     , mPrivateCheckBox(new QCheckBox(i18n("Private"), this))
     , mReadOnlyCheckBox(new QCheckBox(i18n("Read-Only"), this))
     , mArchivedCheckBox(new QCheckBox(i18n("Archived"), this))
+    , mOwnerName(new QLabel(this))
     , mRoomAvatarWidget(new RoomAvatarWidget(this))
     , mTopic(new MessageTextEditor(this))
     , mAnnouncement(new MessageTextEditor(this))
@@ -33,6 +35,9 @@ AdministratorRoomsEditWidget::AdministratorRoomsEditWidget(QWidget *parent)
 
     mRoomAvatarWidget->setObjectName(QStringLiteral("mRoomAvatarWidget"));
     mainLayout->addWidget(mRoomAvatarWidget);
+
+    mOwnerName->setObjectName(QStringLiteral("mOwnerName"));
+    mainLayout->addRow(i18n("Owner:"), mOwnerName);
 
     mLineEdit->setObjectName(QStringLiteral("mLineEdit"));
     mainLayout->addRow(i18n("Name:"), mLineEdit);
@@ -78,6 +83,7 @@ void AdministratorRoomsEditWidget::setRoomEditInfo(const RoomEditInfo &newRoomEd
     mAnnouncement->setPlainText(newRoomEditInfo.announcement);
     mDescription->setPlainText(newRoomEditInfo.description);
 
+    mOwnerName->setText(newRoomEditInfo.userOwnerName);
     // TODO mRoomAvatarWidget
 }
 

@@ -12,6 +12,7 @@ class QCheckBox;
 class QLineEdit;
 class RoomAvatarWidget;
 class MessageTextEditor;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsEditWidget : public AdministratorRoomsEditBaseWidget
 {
     Q_OBJECT
@@ -30,6 +31,7 @@ private:
     QCheckBox *const mPrivateCheckBox;
     QCheckBox *const mReadOnlyCheckBox;
     QCheckBox *const mArchivedCheckBox;
+    QLabel *const mOwnerName;
 
     RoomAvatarWidget *const mRoomAvatarWidget;
     MessageTextEditor *const mTopic;

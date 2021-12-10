@@ -10,6 +10,7 @@
 #include "dialogs/roomavatarwidget.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorRoomsEditWidgetTest)
@@ -28,6 +29,10 @@ void AdministratorRoomsEditWidgetTest::shouldHaveDefaultValues()
     auto mLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mLineEdit"));
     QVERIFY(mLineEdit);
     QVERIFY(mLineEdit->text().isEmpty());
+
+    auto mOwnerName = w.findChild<QLabel *>(QStringLiteral("mOwnerName"));
+    QVERIFY(mOwnerName);
+    QVERIFY(mOwnerName->text().isEmpty());
 
     auto mDefaultCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mDefaultCheckBox"));
     QVERIFY(mDefaultCheckBox);
