@@ -11,6 +11,8 @@
 MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 MyAccount2e2ConfigureWidget::~MyAccount2e2ConfigureWidget() = default;
