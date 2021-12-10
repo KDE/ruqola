@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ArchiveGroupsJob)
-    void slotArchiveGroupsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     bool mArchive = true;
 };
 }

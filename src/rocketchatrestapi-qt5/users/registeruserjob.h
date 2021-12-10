@@ -47,7 +47,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RegisterUserJob)
-    void slotRegisterUser();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     RegisterUserInfo mRegisterUserInfo;
 };
 }

@@ -41,7 +41,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReactOnMessageJob)
-    void slotReactonMessageFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mMessageId;
     QString mEmoji;
     bool mAddReact = true;

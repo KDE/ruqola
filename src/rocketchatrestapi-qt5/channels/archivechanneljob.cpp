@@ -26,28 +26,20 @@ bool ArchiveChannelJob::start()
         return false;
     }
     addStartRestApiInfo("ArchiveChannelJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ArchiveChannelJob::slotArchiveChannelFinished);
+    submitPostRequest(json());
     return true;
 }
 
-void ArchiveChannelJob::slotArchiveChannelFinished()
+void ArchiveChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("archive or unarchive channel success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT archiveChannelDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("Problem when we tried to archive or unarchive a channel: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("archive or unarchive channel success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT archiveChannelDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("Problem when we tried to archive or unarchive a channel: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool ArchiveChannelJob::archive() const

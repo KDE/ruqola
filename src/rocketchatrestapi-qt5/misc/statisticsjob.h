@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(StatisticsJob)
-    void slotStatisticFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     bool mRefresh = false;
 };
 }

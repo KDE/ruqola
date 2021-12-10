@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(CreateDmJob)
-    void slotCreateDmFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QStringList mUserNames;
 };
 }

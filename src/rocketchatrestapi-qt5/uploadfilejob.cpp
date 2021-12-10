@@ -86,10 +86,10 @@ bool UploadFileJob::start()
     descriptionPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"description\"")));
     descriptionPart.setBody(mUploadFileInfo.description.toUtf8());
     multiPart->append(descriptionPart);
-    QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
-    connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
-    connect(reply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
-    multiPart->setParent(reply); // delete the multiPart with the reply
+    mReply = networkAccessManager()->post(request(), multiPart);
+    connect(mReply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
+    connect(mReply, &QNetworkReply::finished, this, &UploadFileJob::slotUploadFinished);
+    multiPart->setParent(mReply); // delete the multiPart with the reply
     // TODO signal error ?
     addStartRestApiInfo("UploadFileJob::start");
     return true;
@@ -116,15 +116,19 @@ QNetworkRequest UploadFileJob::request() const
 
 void UploadFileJob::slotUploadFinished()
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = mReply;
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
         const QJsonObject replyObject = replyJson.object();
         if (replyObject.value(QLatin1String("success")).toBool()) {
             addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            if (reply->error() != QNetworkReply::NoError) {
+                Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
+            } else {
+                emitFailedMessage(replyObject);
+                addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            }
         }
         reply->deleteLater();
     }

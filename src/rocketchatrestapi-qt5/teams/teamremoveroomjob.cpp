@@ -26,28 +26,22 @@ bool TeamRemoveRoomJob::start()
         return false;
     }
     addStartRestApiInfo("TeamRemoveRoomJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &TeamRemoveRoomJob::slotRemoveTeamRoomFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void TeamRemoveRoomJob::slotRemoveTeamRoomFinished()
+void TeamRemoveRoomJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("TeamRemoveRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeTeamRoomDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("TeamRemoveRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("TeamRemoveRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT removeTeamRoomDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("TeamRemoveRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString TeamRemoveRoomJob::teamId() const

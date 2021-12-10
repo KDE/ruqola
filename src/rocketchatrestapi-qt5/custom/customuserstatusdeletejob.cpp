@@ -26,27 +26,21 @@ bool CustomUserStatusDeleteJob::start()
         return false;
     }
     addStartRestApiInfo("CustomUserStatusDeleteJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &CustomUserStatusDeleteJob::slotUserStatusDelete);
+    submitPostRequest(json());
+
     return true;
 }
 
-void CustomUserStatusDeleteJob::slotUserStatusDelete()
+void CustomUserStatusDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("CustomUserStatusDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT userStatusDeletedDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("CustomUserStatusDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("CustomUserStatusDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT userStatusDeletedDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("CustomUserStatusDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString CustomUserStatusDeleteJob::customUserStatusId() const

@@ -36,7 +36,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupsInviteJob)
-    void slotInviteGroupsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mInviteUserId;
     QString mInviteUserName;
 };

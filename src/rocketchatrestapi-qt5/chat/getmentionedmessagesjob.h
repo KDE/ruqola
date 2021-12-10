@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetMentionedMessagesJob)
-    void slotGetMentionedMessagesFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
 };
 }

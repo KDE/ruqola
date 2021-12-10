@@ -26,28 +26,22 @@ bool SetJoinCodeChannelJob::start()
         return false;
     }
     addStartRestApiInfo("SetJoinCodeChannelJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &SetJoinCodeChannelJob::slotSetJoinCodeFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void SetJoinCodeChannelJob::slotSetJoinCodeFinished()
+void SetJoinCodeChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setJoinCodeDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("SetJoinCodeChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT setJoinCodeDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("SetJoinCodeChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString SetJoinCodeChannelJob::joinCode() const

@@ -63,7 +63,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SaveNotificationJob)
-    void slotChangeNotificationFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 
     enum SettingChanged {
         Unknown = 0,

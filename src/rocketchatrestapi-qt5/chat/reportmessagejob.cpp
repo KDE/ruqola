@@ -26,14 +26,14 @@ bool ReportMessageJob::start()
         return false;
     }
     addStartRestApiInfo("ReportMessageJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ReportMessageJob::slotReportMessage);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ReportMessageJob::slotReportMessage()
+void ReportMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = mReply;
     if (reply) {
         const QByteArray data = reply->readAll();
         addLoggerInfo(QByteArrayLiteral("ReportMessageJob: success: ") + data);

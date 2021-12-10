@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(PermissionUpdateJob)
-    void slotPermissionUpdateFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     // Id, roles
     QMap<QString, QStringList> mPermissions;
 };

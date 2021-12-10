@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomsAutocompleteChannelAndPrivateJob)
-    void slotRoomsAutoCompleteChannelAndPrivateFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     RoomsAutocompleteChannelAndPrivateInfo mRoomsAutocompleteInfo;
 };
 }

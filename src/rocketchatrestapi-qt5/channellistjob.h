@@ -27,6 +27,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelListJob)
-    void slotListInfo();
+    void onGetRequestResponse(const QJsonDocument &reply) override;
 };
 }

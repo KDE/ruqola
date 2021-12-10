@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupAddLeaderJob)
-    void slotAddLeaderFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mAddLeaderUserId;
 };
 }

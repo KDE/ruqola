@@ -11,14 +11,21 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QPointer>
 #include <QUrlQuery>
+
 using namespace RocketChatRestApi;
 RestApiAbstractJob::RestApiAbstractJob(QObject *parent)
     : QObject(parent)
 {
 }
 
-RestApiAbstractJob::~RestApiAbstractJob() = default;
+RestApiAbstractJob::~RestApiAbstractJob()
+{
+    if (mReply) {
+        mReply->disconnect(this);
+    }
+}
 
 QNetworkAccessManager *RestApiAbstractJob::networkAccessManager() const
 {
@@ -157,14 +164,8 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
     }
 }
 
-void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply)
+void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
 {
-    const auto error = reply->error();
-    // HTTP-level error (e.g. host not found)
-    if (error != QNetworkReply::NoError) {
-        Q_EMIT failed(reply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
-        return;
-    }
     Q_EMIT failed(errorStr(replyObject));
 }
 
@@ -417,27 +418,82 @@ QString RestApiAbstractJob::jobName() const
     return {};
 }
 
-QNetworkReply *RestApiAbstractJob::submitDeleteRequest()
+void RestApiAbstractJob::submitDeleteRequest()
 {
-    QNetworkReply *reply = mNetworkAccessManager->deleteResource(request());
-    reply->setProperty("job", QVariant::fromValue(this));
-    return reply;
+    mReply = mNetworkAccessManager->deleteResource(request());
+    QByteArray className = this->metaObject()->className();
+    mReply->setProperty("jobClassName", className);
+
+    connect(mReply.data(), &QNetworkReply::finished, this, [this] {
+        if (!mReply) {
+            deleteLater();
+            return;
+        }
+
+        auto jsonDoc = convertToJsonDocument(mReply);
+
+        if (mReply->error() != QNetworkReply::NoError) {
+            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
+        } else {
+            onDeleteRequestResponse(jsonDoc);
+        }
+
+        mReply->deleteLater();
+        deleteLater();
+    });
 }
 
-QNetworkReply *RestApiAbstractJob::submitGetRequest()
+void RestApiAbstractJob::submitGetRequest()
 {
-    QNetworkReply *reply = mNetworkAccessManager->get(request());
-    reply->setProperty("job", QVariant::fromValue(this));
-    return reply;
+    mReply = mNetworkAccessManager->get(request());
+    QByteArray className = this->metaObject()->className();
+    mReply->setProperty("jobClassName", className);
+
+    connect(mReply.data(), &QNetworkReply::finished, this, [this] {
+        if (!mReply) {
+            deleteLater();
+            return;
+        }
+
+        auto jsonDoc = convertToJsonDocument(mReply);
+
+        if (mReply->error() != QNetworkReply::NoError) {
+            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
+        } else {
+            onGetRequestResponse(jsonDoc);
+        }
+
+        mReply->deleteLater();
+        deleteLater();
+    });
 }
 
-QNetworkReply *RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
+void RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
 {
     const QByteArray baPostData = doc.isNull() ? QByteArray() : doc.toJson(QJsonDocument::Compact);
-    QNetworkReply *reply = mNetworkAccessManager->post(request(), baPostData);
-    reply->setProperty("job", QVariant::fromValue(this));
-    addLoggerInfo(QByteArray(metaObject()->className()) + " started " + baPostData);
-    return reply;
+    mReply = mNetworkAccessManager->post(request(), baPostData);
+    QByteArray className = this->metaObject()->className();
+    mReply->setProperty("jobClassName", className);
+
+    addLoggerInfo(className + " started " + baPostData);
+
+    connect(mReply.data(), &QNetworkReply::finished, this, [this] {
+        if (!mReply) {
+            deleteLater();
+            return;
+        }
+
+        auto jsonDoc = convertToJsonDocument(mReply);
+
+        if (mReply->error() != QNetworkReply::NoError) {
+            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
+        } else {
+            onPostRequestResponse(jsonDoc);
+        }
+
+        mReply->deleteLater();
+        deleteLater();
+    });
 }
 
 QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)

@@ -49,7 +49,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(RoomStartDiscussionJob)
-    void slotStartDiscussionFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QStringList mUsers;
     QString mParentRoomId;
     QString mDiscussionName;

@@ -50,7 +50,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UsersSetPreferencesJob)
-    void slotUsersSetPreferences();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     UsersSetPreferencesInfo mUsersSetPreferencesInfo;
 };
 }

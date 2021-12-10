@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(DeleteOwnAccountJob)
-    void slotDeleteOwnAccount();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mPassword;
 };
 }

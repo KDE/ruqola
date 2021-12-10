@@ -58,7 +58,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomsExportJob)
-    void slotRoomExportFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     void createJsonForFile(QJsonObject &jsonObj) const;
     void createJsonForEmail(QJsonObject &jsonObj) const;
     RoomsExportInfo mRoomExportInfo;

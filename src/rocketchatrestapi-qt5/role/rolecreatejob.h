@@ -41,7 +41,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoleCreateJob)
-    void slotCreateRoleDone();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     RoleCreateInfo mRoleCreateInfo;
 };
 }

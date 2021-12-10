@@ -27,6 +27,9 @@ public:
     Q_REQUIRED_RESULT QString usernameOrEmail() const;
     void setUsernameOrEmail(const QString &usernameOrEmail);
 
+protected:
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+
 Q_SIGNALS:
     void sendEmailCodeDone();
 

@@ -32,30 +32,22 @@ bool GetUsernameSuggestionJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetUsernameSuggestionJob::slotGetUsernameSuggestion);
+    submitGetRequest();
     addStartRestApiInfo("GetUsernameSuggestionJob start");
-
     return true;
 }
 
-void GetUsernameSuggestionJob::slotGetUsernameSuggestion()
+void GetUsernameSuggestionJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            const QString result = replyObject[QStringLiteral("result")].toString();
-            Q_EMIT getUsernameSuggestionDone(result);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GetUsernameSuggestionJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GetUsernameSuggestionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        const QString result = replyObject[QStringLiteral("result")].toString();
+        Q_EMIT getUsernameSuggestionDone(result);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GetUsernameSuggestionJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest GetUsernameSuggestionJob::request() const

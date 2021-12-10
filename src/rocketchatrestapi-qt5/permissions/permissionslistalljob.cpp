@@ -30,28 +30,22 @@ bool PermissionsListAllJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &PermissionsListAllJob::slotPermissionListAllFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("ListPermissionsJob: Ask info about me"));
     return true;
 }
 
-void PermissionsListAllJob::slotPermissionListAllFinished()
+void PermissionsListAllJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT permissionListAllDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT permissionListAllDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QDateTime &PermissionsListAllJob::updatedSince() const

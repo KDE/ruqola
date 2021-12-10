@@ -28,15 +28,15 @@ bool DownloadFileJob::start()
         return false;
     }
 
-    QNetworkReply *reply = submitGetRequest();
+    mReply = networkAccessManager()->get(request());
     addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType.toLatin1() + " saveAs " + mLocalFileUrl.toEncoded());
-    connect(reply, &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
+    connect(mReply.data(), &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
 
 void DownloadFileJob::slotDownloadDone()
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = mReply;
     if (reply) {
         const QByteArray data = reply->readAll();
         const int status = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();

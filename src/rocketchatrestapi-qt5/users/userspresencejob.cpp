@@ -30,28 +30,21 @@ bool UsersPresenceJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &UsersPresenceJob::slotUsersPresenceFinished);
+    submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("UsersPresenceJob: Ask info about me"));
     return true;
 }
 
-void UsersPresenceJob::slotUsersPresenceFinished()
+void UsersPresenceJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersPresenceDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("UsersPresenceJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT usersPresenceDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("UsersPresenceJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest UsersPresenceJob::request() const

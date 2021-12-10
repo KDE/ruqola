@@ -27,27 +27,21 @@ bool PermissionUpdateJob::start()
         return false;
     }
     addStartRestApiInfo("PermissionUpdateJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &PermissionUpdateJob::slotPermissionUpdateFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void PermissionUpdateJob::slotPermissionUpdateFinished()
+void PermissionUpdateJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("PermissionUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT permissionUpdateDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("PermissionUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("PermissionUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT permissionUpdateDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("PermissionUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QMap<QString, QStringList> &PermissionUpdateJob::permissions() const

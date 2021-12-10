@@ -38,7 +38,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(RemoveUserFromRoleJob)
-    void slotRemoveUsersFromRoleDone();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoleName;
     QString mUsername;
 

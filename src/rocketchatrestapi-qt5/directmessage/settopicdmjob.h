@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SetTopicDmJob)
-    void slotSetTopicDmFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mDirectUserId;
     QString mTopic;
 };

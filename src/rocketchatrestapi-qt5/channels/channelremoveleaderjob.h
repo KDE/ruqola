@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelRemoveLeaderJob)
-    void slotRemoveLeaderFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRemoveUserId;
 };
 }

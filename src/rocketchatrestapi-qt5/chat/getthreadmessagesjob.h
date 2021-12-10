@@ -36,7 +36,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetThreadMessagesJob)
-    void slotGetThreadMessagesFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mThreadMessageId;
 };
 }

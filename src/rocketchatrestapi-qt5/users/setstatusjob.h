@@ -39,7 +39,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SetStatusJob)
-    void slotSetStatus();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mStatusUserId;
     QString mStatusMessage;
     StatusType mStatus = Unknown;

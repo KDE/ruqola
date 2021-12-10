@@ -26,10 +26,8 @@ bool ServerInfoJob::start()
         return false;
     }
 
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
     addStartRestApiInfo("ServerInfoJob::start");
-    connect(reply, &QNetworkReply::finished, this, &ServerInfoJob::slotServerInfoFinished);
-
     return true;
 }
 
@@ -56,35 +54,29 @@ bool ServerInfoJob::useDeprecatedVersion() const
     return mUseDeprecatedVersion;
 }
 
-void ServerInfoJob::slotServerInfoFinished()
+void ServerInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        // TODO send replyObject too. Need by administrator server info.
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            QString versionStr;
-            if (mUseDeprecatedVersion) {
-                const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
-                versionStr = version.value(QStringLiteral("version")).toString();
-                addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-                Q_EMIT serverInfoDone(versionStr, replyObject);
-            } else {
-                versionStr = replyObject.value(QStringLiteral("version")).toString();
-                addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-                Q_EMIT serverInfoDone(versionStr, replyObject);
-            }
+    const QJsonObject replyObject = replyJson.object();
+    // TODO send replyObject too. Need by administrator server info.
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        QString versionStr;
+        if (mUseDeprecatedVersion) {
+            const QJsonObject version = replyObject.value(QStringLiteral("info")).toObject();
+            versionStr = version.value(QStringLiteral("version")).toString();
+            addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT serverInfoDone(versionStr, replyObject);
         } else {
-            Q_EMIT serverInfoFailed(mUseDeprecatedVersion);
-            addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            if (!mUseDeprecatedVersion) {
-                emitFailedMessage(replyObject, reply);
-            }
+            versionStr = replyObject.value(QStringLiteral("version")).toString();
+            addLoggerInfo(QByteArrayLiteral("ServerInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT serverInfoDone(versionStr, replyObject);
         }
-        reply->deleteLater();
+    } else {
+        Q_EMIT serverInfoFailed(mUseDeprecatedVersion);
+        addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        if (!mUseDeprecatedVersion) {
+            emitFailedMessage(replyObject);
+        }
     }
-    deleteLater();
 }
 
 bool ServerInfoJob::forceRequiresAuthentication() const

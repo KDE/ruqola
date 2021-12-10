@@ -50,7 +50,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(DirectoryJob)
     void initialQueryParameters();
-    void slotDirectoryFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     DirectoryInfo mDirectoryInfo;
 };
 }

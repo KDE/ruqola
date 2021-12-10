@@ -30,29 +30,23 @@ bool RolesListJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &RolesListJob::slotRolesListFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("RolesListJob: Ask for server statistics"));
     return true;
 }
 
-void RolesListJob::slotRolesListFinished()
+void RolesListJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RolesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT rolesListDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RolesListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("RolesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT rolesListDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("RolesListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest RolesListJob::request() const

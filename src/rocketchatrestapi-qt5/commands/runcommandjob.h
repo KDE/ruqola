@@ -42,7 +42,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RunCommandJob)
-    void slotRunCommand();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     RunCommandInfo mRunCommandInfo;
 };
 }

@@ -30,7 +30,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetRoomsJob)
-    void slotGetRoomsFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     // TODO add updatedSince
 };
 }

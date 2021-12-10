@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetCommandsJob)
-    void slotGetCommandsFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mCommandName;
 };
 }

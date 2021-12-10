@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(CustomUserStatusDeleteJob)
-    void slotUserStatusDelete();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mCustomUserStatusId;
 };
 }

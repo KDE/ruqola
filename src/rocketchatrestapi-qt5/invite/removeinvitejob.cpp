@@ -41,16 +41,19 @@ bool RemoveInviteJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitDeleteRequest();
 
-    connect(reply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
+    mReply = networkAccessManager()->deleteResource(request());
+    QByteArray className = this->metaObject()->className();
+    mReply->setProperty("jobClassName", className);
+
+    connect(mReply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
     addStartRestApiInfo(QByteArrayLiteral("RemoveInviteJob: Ask for displaying all invite link url"));
     return true;
 }
 
 void RemoveInviteJob::slotRemoveInviteFinished()
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = mReply;
     if (reply) {
         if (reply->readAll() == "true") {
             addLoggerInfo(QByteArrayLiteral("RemoveInviteJob: success: "));

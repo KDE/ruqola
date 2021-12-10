@@ -43,28 +43,22 @@ bool AdminRoomsGetRoomJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &AdminRoomsGetRoomJob::slotRoomsAdminGetRoomFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: Ask info about room admin info"));
     return true;
 }
 
-void AdminRoomsGetRoomJob::slotRoomsAdminGetRoomFinished()
+void AdminRoomsGetRoomJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT adminRoomGetRoomDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("AdminRoomsGetRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT adminRoomGetRoomDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("AdminRoomsGetRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QString &AdminRoomsGetRoomJob::roomId() const

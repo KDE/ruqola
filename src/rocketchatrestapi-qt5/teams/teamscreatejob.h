@@ -36,7 +36,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamsCreateJob)
-    void slotTeamCreateFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     CreateRoomInfo mTeamsCreateJobInfo;
 };
 }

@@ -26,27 +26,20 @@ bool RoleCreateJob::start()
         return false;
     }
     addStartRestApiInfo("RoleCreateJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &RoleCreateJob::slotCreateRoleDone);
+    submitPostRequest(json());
     return true;
 }
 
-void RoleCreateJob::slotCreateRoleDone()
+void RoleCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RoleCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT createRoleDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RoleCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("RoleCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT createRoleDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("RoleCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 RoleCreateJob::RoleCreateInfo RoleCreateJob::createRoleInfo() const

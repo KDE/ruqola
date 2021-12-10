@@ -29,6 +29,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(LoadEmojiCustomJob)
-    void slotloadEmojiCustomDone();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

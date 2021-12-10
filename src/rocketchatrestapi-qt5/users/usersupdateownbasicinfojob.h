@@ -54,7 +54,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UsersUpdateOwnBasicInfoJob)
-    void slotUpdateOwnBasicInfo();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     UpdateOwnBasicInfo mUpdateOwnBasicInfo;
 };
 }

@@ -26,28 +26,22 @@ bool GroupsConvertToTeamJob::start()
         return false;
     }
     addStartRestApiInfo("GroupsConvertToTeamJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupsConvertToTeamJob::slotGroupConvertToTeamFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void GroupsConvertToTeamJob::slotGroupConvertToTeamFinished()
+void GroupsConvertToTeamJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupsConvertToTeamJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT groupConvertToTeamDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupsConvertToTeamJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GroupsConvertToTeamJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT groupConvertToTeamDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GroupsConvertToTeamJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString GroupsConvertToTeamJob::roomId() const

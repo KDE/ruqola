@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeGroupsReadonlyJob)
-    void slotChangeReadonlyFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     bool mReadOnly = false;
 };
 }

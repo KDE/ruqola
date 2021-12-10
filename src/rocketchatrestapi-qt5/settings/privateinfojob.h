@@ -28,6 +28,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(PrivateInfoJob)
-    void slotPrivateInfoDone();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

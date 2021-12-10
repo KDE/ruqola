@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupAddOwnerJob)
-    void slotAddOwnerFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mAddownerUserId;
 };
 }

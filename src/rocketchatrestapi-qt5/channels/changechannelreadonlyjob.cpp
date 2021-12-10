@@ -26,27 +26,20 @@ bool ChangeChannelReadonlyJob::start()
         return false;
     }
     addStartRestApiInfo("ChangeChannelReadonlyJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChangeChannelReadonlyJob::slotChangeReadonlyFinished);
+    submitPostRequest(json());
     return true;
 }
 
-void ChangeChannelReadonlyJob::slotChangeReadonlyFinished()
+void ChangeChannelReadonlyJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT changeReadonlyDone();
-        } else {
-            addLoggerInfo(QByteArrayLiteral("Problem when we tried to change read only status: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT changeReadonlyDone();
+    } else {
+        addLoggerInfo(QByteArrayLiteral("Problem when we tried to change read only status: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool ChangeChannelReadonlyJob::readOnly() const

@@ -31,28 +31,22 @@ bool RoomsAutocompleteAvailableForTeamsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &RoomsAutocompleteAvailableForTeamsJob::slotRoomsAutoCompleteChannelAndPrivateFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: Ask all rooms"));
     return true;
 }
 
-void RoomsAutocompleteAvailableForTeamsJob::slotRoomsAutoCompleteChannelAndPrivateFinished()
+void RoomsAutocompleteAvailableForTeamsJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("RoomsAutocompleteAvailableForTeamsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest RoomsAutocompleteAvailableForTeamsJob::request() const

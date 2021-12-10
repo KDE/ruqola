@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UnFollowMessageJob)
-    void slotUnFollowMessageFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mMessageId;
 };
 }

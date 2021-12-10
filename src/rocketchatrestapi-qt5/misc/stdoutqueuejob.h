@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(StdoutQueueJob)
-    void slotStdoutQueueFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

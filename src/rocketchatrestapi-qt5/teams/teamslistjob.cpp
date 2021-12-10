@@ -31,28 +31,22 @@ bool TeamsListJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &TeamsListJob::slotTeamsListFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("TeamsListJob: ask users list"));
     return true;
 }
 
-void TeamsListJob::slotTeamsListFinished()
+void TeamsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("TeamsListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT teamsListDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("TeamsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("TeamsListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT teamsListDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("TeamsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QString &TeamsListJob::pattern() const

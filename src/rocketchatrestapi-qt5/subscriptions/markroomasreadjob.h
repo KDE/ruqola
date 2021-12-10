@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(MarkRoomAsReadJob)
-    void slotMarkAsRead();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
 };
 }

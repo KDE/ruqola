@@ -28,6 +28,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RemoveOtherTokensJob)
-    void slotRemoveOtherTokens();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

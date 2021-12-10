@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelFilesJob)
-    void slotFilesinChannelFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     ChannelType mChannelType = Unknown;
 };
 }

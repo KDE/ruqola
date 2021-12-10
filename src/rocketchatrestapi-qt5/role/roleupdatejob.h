@@ -42,7 +42,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoleUpdateJob)
-    void slotUpdateRoleDone();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     RoleUpdateInfo mRoleCreateInfo;
 };
 }

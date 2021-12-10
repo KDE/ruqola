@@ -38,7 +38,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UpdateMessageJob)
-    void slotUpdateMessageFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mMessageId;
     QString mUpdatedText;

@@ -43,7 +43,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TranslateSaveSettingsJob)
-    void slotTranslateSaveSettingsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mLanguage;
     TranslateSaveSettingsJob::SettingType mType = Underfined;

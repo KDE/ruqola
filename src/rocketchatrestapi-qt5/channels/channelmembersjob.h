@@ -8,6 +8,8 @@
 
 #include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
+#include <QPointer>
+
 namespace RocketChatRestApi
 {
 class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ChannelMembersJob : public ChannelGroupBaseJob
@@ -43,8 +45,9 @@ protected:
 
 private:
     Q_DISABLE_COPY(ChannelMembersJob)
-    void slotChannelMembersFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     ChannelType mChannelType = Unknown;
+    QPointer<QNetworkReply> mReply;
 };
 }
 

@@ -30,24 +30,18 @@ bool OwnInfoJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &OwnInfoJob::slotOwnInfoFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("OwnInfoJob: Ask info about me"));
     return true;
 }
 
-void OwnInfoJob::slotOwnInfoFinished()
+void OwnInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        // TODO check success !
-        addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT ownInfoDone(replyObject);
-        reply->deleteLater();
-    }
-    deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    // TODO check success !
+    addLoggerInfo(QByteArrayLiteral("OwnInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+    Q_EMIT ownInfoDone(replyObject);
 }
 
 QNetworkRequest OwnInfoJob::request() const

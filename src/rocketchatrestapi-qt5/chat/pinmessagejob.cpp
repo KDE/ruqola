@@ -26,32 +26,26 @@ bool PinMessageJob::start()
         return false;
     }
     addStartRestApiInfo("PinMessageJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &PinMessageJob::slotPinMessage);
+    submitPostRequest(json());
+
     return true;
 }
 
-void PinMessageJob::slotPinMessage()
+void PinMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("PinMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            if (mPinMessage) {
-                Q_EMIT pinMessageDone();
-            } else {
-                Q_EMIT unPinMessageDone();
-            }
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("PinMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        if (mPinMessage) {
+            Q_EMIT pinMessageDone();
         } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("PinMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT unPinMessageDone();
         }
-        reply->deleteLater();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("PinMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool PinMessageJob::requireHttpAuthentication() const

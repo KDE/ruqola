@@ -26,28 +26,22 @@ bool GroupsInviteJob::start()
         return false;
     }
     addStartRestApiInfo("GroupsInviteJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupsInviteJob::slotInviteGroupsFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void GroupsInviteJob::slotInviteGroupsFinished()
+void GroupsInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupsInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT inviteGroupsDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupsInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GroupsInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT inviteGroupsDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GroupsInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString GroupsInviteJob::inviteUserName() const

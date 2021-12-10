@@ -38,7 +38,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelJoinJob)
-    void slotChannelJoinFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mJoinCode;
 };
 }

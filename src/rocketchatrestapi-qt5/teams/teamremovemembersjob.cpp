@@ -28,28 +28,22 @@ bool TeamRemoveMembersJob::start()
         return false;
     }
     addStartRestApiInfo("TeamRemoveMembersJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &TeamRemoveMembersJob::slotRemoveTeamMembersFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void TeamRemoveMembersJob::slotRemoveTeamMembersFinished()
+void TeamRemoveMembersJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("TeamRemoveMembersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeTeamMembersDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("TeamRemoveMembersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("TeamRemoveMembersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT removeTeamMembersDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("TeamRemoveMembersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QStringList TeamRemoveMembersJob::roomsId() const

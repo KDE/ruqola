@@ -51,7 +51,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(AdminRoomsJob)
-    void slotRoomsAdminFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     void initialUrlParameters(QUrlQuery &urlQuery) const;
     AdminRoomsJobInfo mRoomsAdminInfo;
 };

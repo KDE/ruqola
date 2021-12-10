@@ -26,29 +26,23 @@ bool DeleteDmJob::start()
         return false;
     }
     addStartRestApiInfo("DeleteDmJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &DeleteDmJob::slotDeleteDirectMessageFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void DeleteDmJob::slotDeleteDirectMessageFinished()
+void DeleteDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("DeleteDmJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            qDebug() << " replyObject " << replyObject;
-            Q_EMIT deleteDirectMessagesDone(channelGroupInfo().identifier);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("DeleteDmJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("DeleteDmJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        qDebug() << " replyObject " << replyObject;
+        Q_EMIT deleteDirectMessagesDone(channelGroupInfo().identifier);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("DeleteDmJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool DeleteDmJob::requireHttpAuthentication() const

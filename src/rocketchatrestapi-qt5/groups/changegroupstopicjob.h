@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeGroupsTopicJob)
-    void slotChangeTopicFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mTopic;
 };
 }

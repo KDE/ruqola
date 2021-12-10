@@ -63,10 +63,10 @@ bool EmojiCustomCreateJob::start()
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
     multiPart->append(aliasesPart);
 
-    QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
+    mReply = networkAccessManager()->post(request(), multiPart);
     // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
-    connect(reply, &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
-    multiPart->setParent(reply); // delete the multiPart with the reply
+    connect(mReply.data(), &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
+    multiPart->setParent(mReply); // delete the multiPart with the reply
     return true;
 }
 
@@ -82,7 +82,7 @@ void EmojiCustomCreateJob::slotEmojiCustomCreateFinished()
             addLoggerInfo(QByteArrayLiteral("EmojiCustomCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
             Q_EMIT emojiCustomCreateDone(replyObject);
         } else {
-            emitFailedMessage(replyObject, reply);
+            emitFailedMessage(replyObject);
             addLoggerWarning(QByteArrayLiteral("EmojiCustomCreateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         }
         reply->deleteLater();

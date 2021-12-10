@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamDeleteJob)
-    void slotDeleteTeamFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QStringList mRoomToDeleteId;
     QString mTeamId;
 };

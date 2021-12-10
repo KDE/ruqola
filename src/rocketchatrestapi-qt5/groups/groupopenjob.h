@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupOpenJob)
-    void slotGroupOpenFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }
