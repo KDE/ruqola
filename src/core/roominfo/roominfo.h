@@ -76,6 +76,9 @@ public:
     Q_REQUIRED_RESULT const QString &announcement() const;
     void setAnnouncement(const QString &newAnnouncement);
 
+    Q_REQUIRED_RESULT const QString &ownerName() const;
+    void setOwnerName(const QString &newOwnerName);
+
 private:
     void generateDisplayChannelType();
     TeamInfo mTeamInfo;
@@ -90,6 +93,7 @@ private:
     QString mCreatedRoomDisplayTime;
     QString mDescription;
     QString mAnnouncement;
+    QString mOwnerName;
     qint64 mLastMessage = -1;
     qint64 mCreatedRoom = -1;
     int mMessageCount = -1;
