@@ -9,8 +9,10 @@
 #include "ruqola.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QApplication>
 #include <QHBoxLayout>
 #include <QStackedWidget>
 
@@ -41,6 +43,11 @@ RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 
 void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError)
 {
+    if (qApp->activeModalWidget() && messageError.startsWith(mLastError)) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Not opening message box again for the same error: " << messageError;
+        return;
+    }
+    mLastError = messageError;
     KMessageBox::error(this, messageError, i18n("Error"));
 }
 

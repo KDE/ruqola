@@ -42,5 +42,6 @@ private:
     RuqolaMainWidget *const mRuqolaMainWidget;
     RuqolaLoginWidget *const mRuqolaLoginWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QString mLastError;
 };
 
