@@ -18,6 +18,7 @@ public:
         QString topic;
         QString announcement;
         QString description;
+        QString userOwnerName;
         bool featured = false;
         bool defaultRoom = false;
         bool favorite = false;

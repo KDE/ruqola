@@ -95,12 +95,13 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
     info.featured = roomInfo.featured();
     info.defaultRoom = roomInfo.defaultRoom();
     info.name = roomInfo.name();
-    info.topic = roomInfo.topic();
-    info.announcement = roomInfo.announcement();
-    info.description = roomInfo.description();
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
     } else {
+        info.topic = roomInfo.topic();
+        info.announcement = roomInfo.announcement();
+        info.description = roomInfo.description();
+        info.userOwnerName = roomInfo.ownerName();
         admRoomType = AdministratorRoomsEditDialog::Channel;
     }
     QPointer<AdministratorRoomsEditDialog> dlg = new AdministratorRoomsEditDialog(admRoomType, this);
