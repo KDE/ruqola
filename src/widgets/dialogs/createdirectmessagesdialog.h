@@ -9,7 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class CreateDirectMessagesWidget;
-class QPushButton;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesDialog : public QDialog
 {
