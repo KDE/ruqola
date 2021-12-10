@@ -190,6 +190,8 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountpreferenceconfigurewidget.cpp
     myaccount/myaccountprofileconfigureavatarwidget.cpp
     myaccount/myaccountsecurityconfigurewidget.cpp
+    myaccount/myaccount2e2configurewidget.h
+    myaccount/myaccount2e2configurewidget.cpp
 
     administratordialog/administratordialog.cpp
     administratordialog/administratorwidget.cpp
