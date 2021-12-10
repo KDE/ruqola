@@ -408,6 +408,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     settings/privateinfojob.h
     restapiutil.h
 
+
+    e2e/resetowne2ekeyjob.cpp
+    e2e/resetowne2ekeyjob.h
     )
 
 
