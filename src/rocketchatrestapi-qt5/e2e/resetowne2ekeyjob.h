@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT ResetOwnE2eKeyJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT ResetOwnE2eKeyJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
@@ -25,10 +25,10 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
 Q_SIGNALS:
-    void addKeyToChainDone();
+    void resetE2eKeyDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(ResetOwnE2eKeyJob)
-    void slotAddKeyToChainFinished();
+    void slotResetE2eKeyFinished();
 };
 }

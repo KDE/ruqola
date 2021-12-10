@@ -9,11 +9,18 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-
+class QPushButton;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2e2ConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccount2e2ConfigureWidget(QWidget *parent = nullptr);
+    explicit MyAccount2e2ConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2e2ConfigureWidget() override;
+
+private:
+    void slotReset2E2KeyDone(const QJsonObject &replyObject);
+    void slotResetE2EKey();
+    QPushButton *const mResetE2eKey;
+    RocketChatAccount *const mRocketChatAccount;
 };

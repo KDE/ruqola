@@ -16,6 +16,6 @@ MyAccount2e2ConfigureWidgetTest::MyAccount2e2ConfigureWidgetTest(QObject *parent
 
 void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    MyAccount2e2ConfigureWidget w;
+    MyAccount2e2ConfigureWidget w(nullptr);
     // TODO
 }

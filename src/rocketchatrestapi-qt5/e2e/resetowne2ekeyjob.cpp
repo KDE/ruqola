@@ -27,11 +27,11 @@ bool ResetOwnE2eKeyJob::start()
     }
     addStartRestApiInfo("ResetOwnE2eKeyJob::start");
     QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ResetOwnE2eKeyJob::slotAddKeyToChainFinished);
+    connect(reply, &QNetworkReply::finished, this, &ResetOwnE2eKeyJob::slotResetE2eKeyFinished);
     return true;
 }
 
-void ResetOwnE2eKeyJob::slotAddKeyToChainFinished()
+void ResetOwnE2eKeyJob::slotResetE2eKeyFinished()
 {
     auto reply = qobject_cast<QNetworkReply *>(sender());
     if (reply) {
@@ -40,7 +40,7 @@ void ResetOwnE2eKeyJob::slotAddKeyToChainFinished()
 
         if (replyObject[QStringLiteral("success")].toBool()) {
             addLoggerInfo(QByteArrayLiteral("ResetOwnE2eKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT addKeyToChainDone();
+            Q_EMIT resetE2eKeyDone(replyObject);
         } else {
             emitFailedMessage(replyObject, reply);
             addLoggerWarning(QByteArrayLiteral("ResetOwnE2eKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

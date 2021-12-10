@@ -6,7 +6,6 @@
 
 #include "myaccount2faconfigurewidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QVBoxLayout>
