@@ -180,7 +180,7 @@ void MessageTextEdit::insertFormat(QChar formatChar)
         const QString text = formatChar + cursor.selectedText() + formatChar;
         cursor.insertText(text);
     } else {
-        cursor.insertText(QString(formatChar + formatChar));
+        cursor.insertText(QString(formatChar) + QString(formatChar));
     }
     cursor.setPosition(cursor.position() - 1);
     setTextCursor(cursor);
