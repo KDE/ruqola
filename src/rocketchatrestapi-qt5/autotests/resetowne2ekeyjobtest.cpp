@@ -5,7 +5,7 @@
 */
 
 #include "resetowne2ekeyjobtest.h"
-#include "e2e/setuserpublicandprivatekeysjob.h"
+#include "e2e/resetowne2ekeyjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
@@ -18,36 +18,31 @@ ResetOwnE2eKeyJobTest::ResetOwnE2eKeyJobTest(QObject *parent)
 
 void ResetOwnE2eKeyJobTest::shouldHaveDefaultValue()
 {
-    SetUserPublicAndPrivateKeysJob job;
+    ResetOwnE2eKeyJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    QVERIFY(job.rsaPrivateKey().isEmpty());
-    QVERIFY(job.rsaPublicKey().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void ResetOwnE2eKeyJobTest::shouldGenerateRequest()
 {
-    SetUserPublicAndPrivateKeysJob job;
+    ResetOwnE2eKeyJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.setUserPublicAndPrivateKeys")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/e2e.resetOwnE2EKey")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void ResetOwnE2eKeyJobTest::shouldGenerateJson()
 {
-    SetUserPublicAndPrivateKeysJob job;
-    const QString rsapublic = QStringLiteral("foo1");
-    job.setRsaPublicKey(rsapublic);
-    const QString rsaprivate = QStringLiteral("private");
-    job.setRsaPrivateKey(rsaprivate);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
+    ResetOwnE2eKeyJob job;
+    // TODO
+    // QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"private_key":"%2","public_key":"%1"})").arg(rsapublic, rsaprivate).toLatin1());
 }
 
 void ResetOwnE2eKeyJobTest::shouldNotStarting()
 {
-    SetUserPublicAndPrivateKeysJob job;
+    ResetOwnE2eKeyJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -61,12 +56,6 @@ void ResetOwnE2eKeyJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-    QVERIFY(!job.canStart());
-    const QString rsaprivate = QStringLiteral("foo1");
-    job.setRsaPrivateKey(rsaprivate);
-    QVERIFY(!job.canStart());
-
-    const QString rsapublic = QStringLiteral("bla");
-    job.setRsaPublicKey(rsapublic);
+    // QVERIFY(!job.canStart());
     QVERIFY(job.canStart());
 }
