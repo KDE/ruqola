@@ -5,6 +5,8 @@
 */
 
 #include "myaccount2e2configurewidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(QWidget *parent)
     : QWidget{parent}
