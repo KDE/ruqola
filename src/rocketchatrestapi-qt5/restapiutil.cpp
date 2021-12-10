@@ -368,6 +368,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("e2e.getUsersOfRoomWithoutKey");
     case RestApiUtil::RestApiUrlType::E2ERequestSubscriptionKeys:
         return QStringLiteral("e2e.requestSubscriptionKeys");
+    case RestApiUtil::RestApiUrlType::E2EResetOwnE2EKey:
+        return QStringLiteral("e2e.resetOwnE2EKey");
 
     case RestApiUtil::RestApiUrlType::RolesList:
         return QStringLiteral("roles.list");
