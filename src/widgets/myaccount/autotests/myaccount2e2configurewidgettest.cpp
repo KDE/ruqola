@@ -6,6 +6,7 @@
 
 #include "myaccount2e2configurewidgettest.h"
 #include "myaccount/myaccount2e2configurewidget.h"
+#include <QLabel>
 #include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
@@ -25,5 +26,9 @@ void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
     auto mResetE2eKey = w.findChild<QPushButton *>(QStringLiteral("mResetE2eKey"));
     QVERIFY(mResetE2eKey);
     QVERIFY(!mResetE2eKey->text().isEmpty());
-    // TODO
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
+    QVERIFY(label->wordWrap());
 }

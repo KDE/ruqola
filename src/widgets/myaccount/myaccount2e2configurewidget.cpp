@@ -11,6 +11,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QLabel>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -22,10 +23,18 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    auto label = new QLabel(
+        i18n("This option will remove your current E2E key and log you out. "
+             "When you login again, Rocket.Chat will generate you a new key and restore your access to any encrypted room that has one or more members online."
+             " Due to the nature of the E2E encryption, Rocket.Chat will not be able to restore access to any encrypted room that has no member online."),
+        this);
+    label->setObjectName(QStringLiteral("label"));
+    label->setWordWrap(true);
+    mainLayout->addWidget(label);
+
     mResetE2eKey->setObjectName(QStringLiteral("mResetE2eKey"));
     mainLayout->addWidget(mResetE2eKey);
     connect(mResetE2eKey, &QPushButton::clicked, this, &MyAccount2e2ConfigureWidget::slotResetE2EKey);
-
     mainLayout->addStretch(1);
 }
 
