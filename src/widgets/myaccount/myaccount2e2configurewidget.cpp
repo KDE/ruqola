@@ -23,6 +23,8 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
+    // TODO add change password
+
     auto label = new QLabel(
         i18n("This option will remove your current E2E key and log you out. "
              "When you login again, Rocket.Chat will generate you a new key and restore your access to any encrypted room that has one or more members online."
