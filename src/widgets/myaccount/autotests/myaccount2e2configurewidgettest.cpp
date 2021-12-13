@@ -5,6 +5,7 @@
 */
 
 #include "myaccount2e2configurewidgettest.h"
+#include "misc/passwordconfirmwidget.h"
 #include "myaccount/myaccount2e2configurewidget.h"
 #include <QLabel>
 #include <QPushButton>
@@ -31,4 +32,7 @@ void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
     QVERIFY(label->wordWrap());
+
+    auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
+    QVERIFY(mPasswordConfirmWidget);
 }

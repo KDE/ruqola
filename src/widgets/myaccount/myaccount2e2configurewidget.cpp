@@ -7,6 +7,7 @@
 #include "myaccount2e2configurewidget.h"
 #include "connection.h"
 #include "e2e/resetowne2ekeyjob.h"
+#include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -19,11 +20,14 @@ MyAccount2e2ConfigureWidget::MyAccount2e2ConfigureWidget(RocketChatAccount *acco
     : QWidget{parent}
     , mResetE2eKey(new QPushButton(i18n("Reset E2E Key"), this))
     , mRocketChatAccount(account)
+    , mPasswordConfirmWidget(new PasswordConfirmWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     // TODO add change password
+    mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));
+    mainLayout->addWidget(mPasswordConfirmWidget);
 
     auto label = new QLabel(
         i18n("This option will remove your current E2E key and log you out. "

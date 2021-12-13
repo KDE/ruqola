@@ -11,6 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class QPushButton;
 class RocketChatAccount;
+class PasswordConfirmWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2e2ConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -23,4 +24,5 @@ private:
     void slotResetE2EKey();
     QPushButton *const mResetE2eKey;
     RocketChatAccount *const mRocketChatAccount;
+    PasswordConfirmWidget *const mPasswordConfirmWidget;
 };
