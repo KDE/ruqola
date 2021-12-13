@@ -359,7 +359,6 @@ public:
 
     Q_REQUIRED_RESULT AccountRoomSettings *accountRoomSettings() const;
 
-    Q_REQUIRED_RESULT bool hasInviteUserSupport() const;
     Q_REQUIRED_RESULT bool isMessageDeletable(const Message &message) const;
     void joinDiscussion(const QString &roomId, const QString &joinCode);
     void setNameChanged(const QJsonArray &array);

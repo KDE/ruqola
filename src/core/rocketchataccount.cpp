@@ -1089,11 +1089,6 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     restApi()->getStarredMessages(roomId);
 }
 
-bool RocketChatAccount::hasInviteUserSupport() const
-{
-    return mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0);
-}
-
 void RocketChatAccount::getSnippetedMessages(const QString &roomId)
 {
     mListMessageModel->clear();
@@ -2285,11 +2280,7 @@ void RocketChatAccount::usersPresence()
 
 void RocketChatAccount::customUsersStatus()
 {
-    if (mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0)) {
-        restApi()->customUserStatus();
-    } else {
-        qCWarning(RUQOLA_LOG) << " RocketChatAccount::customUserStatus is not supported before server 2.4.0" << accountName();
-    }
+    restApi()->customUserStatus();
 }
 
 void RocketChatAccount::initializeAccount()

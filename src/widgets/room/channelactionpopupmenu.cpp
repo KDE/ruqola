@@ -172,10 +172,9 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
     mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
 
-    bool hasInviteUserSupport = mCurrentRocketChatAccount->hasInviteUserSupport();
     bool hasPermissionInviteUserSupport = mRoom && mRoom->hasPermission(QStringLiteral("create-invite-links"));
-    mInviteUsersGenerateUrl->setVisible(hasInviteUserSupport && hasPermissionInviteUserSupport);
-    mInviteUsersGenerateUrlSeparator->setVisible(hasInviteUserSupport && hasPermissionInviteUserSupport);
+    mInviteUsersGenerateUrl->setVisible(hasPermissionInviteUserSupport);
+    mInviteUsersGenerateUrlSeparator->setVisible(hasPermissionInviteUserSupport);
     mStartVideoChat->setVisible(mCurrentRocketChatAccount->jitsiEnabled());
 
     mAddUserInRoomsSeparator->setVisible(mRoom && mRoom->canBeModify());
