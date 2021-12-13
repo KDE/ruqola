@@ -94,7 +94,7 @@ void AdministratorRoomsWidget::slotGetRoomSettingsModifyDone(const QJsonObject &
     info.readOnly = roomInfo.readOnly();
     info.featured = roomInfo.featured();
     info.defaultRoom = roomInfo.defaultRoom();
-    info.name = roomInfo.name();
+    info.name = roomInfo.roomName();
     if (roomType == Room::RoomType::Direct) {
         admRoomType = AdministratorRoomsEditDialog::DirectRoom;
     } else {
