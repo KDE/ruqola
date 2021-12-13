@@ -36,6 +36,6 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
     auto mMyAccount2FaConfigureWidget = w.findChild<MyAccount2FaConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
     QVERIFY(mMyAccount2FaConfigureWidget);
 
-    auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
     QVERIFY(mMyAccountPreferenceConfigureWidget);
 }

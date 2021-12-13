@@ -5,6 +5,7 @@
 */
 
 #include "myaccountconfigurewidget.h"
+#include "myaccount2e2configurewidget.h"
 #include "myaccount2faconfigurewidget.h"
 #include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
@@ -19,6 +20,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     , mMyAccount2FaConfigureWidget(new MyAccount2FaConfigureWidget(account, this))
     , mMyAccount2ProfileConfigureWidget(new MyAccountProfileConfigureWidget(account, this))
     , mMyAccountPreferenceConfigureWidget(new MyAccountPreferenceConfigureWidget(account, this))
+    , mMyAccount2e2ConfigureWidget(new MyAccount2e2ConfigureWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,7 +39,14 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         mMyAccount2ProfileConfigureWidget->setVisible(false);
     }
 
-    mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
+    mMyAccount2e2ConfigureWidget->setObjectName(QStringLiteral("mMyAccount2e2ConfigureWidget"));
+    int index = tabWidget->addTab(mMyAccount2e2ConfigureWidget, i18n("E2E Encryption"));
+    // TODO
+    // if (account && !account->allowProfileChange()) {
+    tabWidget->setTabVisible(index, false);
+    // }
+
+    mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
     tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
 }
 
@@ -48,6 +57,7 @@ void MyAccountConfigureWidget::save()
     mMyAccount2ProfileConfigureWidget->save();
     mMyAccount2FaConfigureWidget->save();
     mMyAccountPreferenceConfigureWidget->save();
+    mMyAccount2e2ConfigureWidget->save();
 }
 
 void MyAccountConfigureWidget::load()
@@ -55,6 +65,7 @@ void MyAccountConfigureWidget::load()
     mMyAccount2ProfileConfigureWidget->load();
     mMyAccount2FaConfigureWidget->load();
     mMyAccountPreferenceConfigureWidget->load();
+    mMyAccount2e2ConfigureWidget->load();
 }
 
 void MyAccountConfigureWidget::initialize()
