@@ -333,14 +333,14 @@ void RuqolaMainWindow::setupActions()
     }
 
     mNextTab = new QAction(this);
-    mNextTab->setText(i18n("&Next Tab"));
+    mNextTab->setText(i18n("&Next Server"));
     mNextTab->setIcon(QIcon::fromTheme(nextIcon));
     actionCollection()->setDefaultShortcuts(mNextTab, nextShortcut);
     connect(mNextTab, &QAction::triggered, this, &RuqolaMainWindow::showNextView);
     actionCollection()->addAction(QStringLiteral("next_tab"), mNextTab);
 
     mPreviewTab = new QAction(this);
-    mPreviewTab->setText(i18n("&Previous Tab"));
+    mPreviewTab->setText(i18n("&Previous Server"));
     mPreviewTab->setIcon(QIcon::fromTheme(prevIcon));
     actionCollection()->setDefaultShortcuts(mPreviewTab, prevShortcut);
     connect(mPreviewTab, &QAction::triggered, this, &RuqolaMainWindow::showPreviousView);
