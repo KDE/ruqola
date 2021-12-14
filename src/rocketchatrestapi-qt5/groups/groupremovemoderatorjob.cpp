@@ -26,28 +26,22 @@ bool GroupRemoveModeratorJob::start()
         return false;
     }
     addStartRestApiInfo("GroupRemoveModeratorJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupRemoveModeratorJob::slotRemoveModeratorFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void GroupRemoveModeratorJob::slotRemoveModeratorFinished()
+void GroupRemoveModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT removeModeratorDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT removeModeratorDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString GroupRemoveModeratorJob::removeUserId() const

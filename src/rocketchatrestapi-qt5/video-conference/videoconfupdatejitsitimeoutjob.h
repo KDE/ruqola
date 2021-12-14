@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(VideoConfUpdateJitsiTimeOutJob)
-    void slotUpdateJitsiTimeOut();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
 };
 }

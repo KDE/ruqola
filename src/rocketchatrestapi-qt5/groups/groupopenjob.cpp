@@ -27,28 +27,22 @@ bool GroupOpenJob::start()
         return false;
     }
     addStartRestApiInfo("GroupOpenJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupOpenJob::slotGroupOpenFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void GroupOpenJob::slotGroupOpenFinished()
+void GroupOpenJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GroupOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool GroupOpenJob::requireHttpAuthentication() const

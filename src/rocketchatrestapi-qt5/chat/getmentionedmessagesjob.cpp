@@ -44,28 +44,22 @@ bool GetMentionedMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetMentionedMessagesJob::slotGetMentionedMessagesFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("getMentionedMessagesJob: Ask starred messages"));
     return true;
 }
 
-void GetMentionedMessagesJob::slotGetMentionedMessagesFinished()
+void GetMentionedMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("getMentionedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getMentionedMessagesDone(replyObject, mRoomId);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("getMentionedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("getMentionedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getMentionedMessagesDone(replyObject, mRoomId);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("getMentionedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString GetMentionedMessagesJob::roomId() const

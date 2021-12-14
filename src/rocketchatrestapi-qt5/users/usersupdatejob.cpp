@@ -27,27 +27,20 @@ bool UsersUpdateJob::start()
         return false;
     }
     addStartRestApiInfo("UsersUpdateJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &UsersUpdateJob::slotUsersUpdate);
+    submitPostRequest(json());
     return true;
 }
 
-void UsersUpdateJob::slotUsersUpdate()
+void UsersUpdateJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("UsersUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT usersUpdateDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("UsersUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("UsersUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT usersUpdateDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("UsersUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 UpdateUserInfo UsersUpdateJob::updateInfo() const

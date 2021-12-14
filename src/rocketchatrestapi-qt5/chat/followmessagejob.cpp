@@ -25,28 +25,22 @@ bool FollowMessageJob::start()
         return false;
     }
     addStartRestApiInfo("FollowMessageJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &FollowMessageJob::slotFollowMessageFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void FollowMessageJob::slotFollowMessageFinished()
+void FollowMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT followMessageDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("FollowMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT followMessageDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("FollowMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool FollowMessageJob::requireHttpAuthentication() const

@@ -27,27 +27,20 @@ bool User2FADisableEmailJob::start()
         return false;
     }
     addStartRestApiInfo("User2FADisableEmailJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &User2FADisableEmailJob::slotDisableEmail);
+    submitPostRequest(json());
     return true;
 }
 
-void User2FADisableEmailJob::slotDisableEmail()
+void User2FADisableEmailJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("User2FADisableEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT disableEmailDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("User2FADisableEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("User2FADisableEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT disableEmailDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("User2FADisableEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool User2FADisableEmailJob::requireHttpAuthentication() const

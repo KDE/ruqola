@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomsInfoJob)
-    void slotRoomsInfoFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

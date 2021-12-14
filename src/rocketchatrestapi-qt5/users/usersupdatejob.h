@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UsersUpdateJob)
-    void slotUsersUpdate();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     UpdateUserInfo mUpdateInfo;
 };
 }

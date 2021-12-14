@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SetUserActiveStatusJob)
-    void slotSetUserActiveStatus();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mActivateUserId;
     bool mActivate = true;
 };

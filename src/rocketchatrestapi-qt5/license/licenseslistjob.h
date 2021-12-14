@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(LicensesListJob)
-    void slotLicensesListFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

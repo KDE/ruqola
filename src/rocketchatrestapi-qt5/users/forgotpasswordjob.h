@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ForgotPasswordJob)
-    void slotForgotPassword();
+    void onPostRequestResponse(const QJsonDocument &reply) override;
     QString mEmail;
 };
 }

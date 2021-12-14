@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SpotlightJob)
-    void slotSpotlightDone();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mSearchPattern;
 };
 }

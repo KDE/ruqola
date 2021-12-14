@@ -26,28 +26,22 @@ bool ChannelCloseJob::start()
         return false;
     }
     addStartRestApiInfo("ChannelCloseJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChannelCloseJob::slotCloseChannelFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ChannelCloseJob::slotCloseChannelFinished()
+void ChannelCloseJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChannelCloseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT closeChannelDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChannelCloseJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChannelCloseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT closeChannelDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChannelCloseJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 ChannelCloseJob::ChannelType ChannelCloseJob::channelType() const

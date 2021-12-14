@@ -37,7 +37,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(UsersCreateJob)
-    void slotUsersCreate();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     CreateUpdateUserInfo mCreateInfo;
 };
 }

@@ -26,27 +26,20 @@ bool RoleDeleteJob::start()
         return false;
     }
     addStartRestApiInfo("RoleDeleteJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &RoleDeleteJob::slotDeleteRoleDone);
+    submitPostRequest(json());
     return true;
 }
 
-void RoleDeleteJob::slotDeleteRoleDone()
+void RoleDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("RoleDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT deleteRoleDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("RoleDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("RoleDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT deleteRoleDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("RoleDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QString &RoleDeleteJob::roleId() const

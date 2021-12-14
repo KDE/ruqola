@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(PermissionsListAllJob)
-    void slotPermissionListAllFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QDateTime mUpdatedSince;
 };
 }

@@ -42,7 +42,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UsersAutocompleteJob)
-    void slotUsersAutocompleteFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     UsersAutocompleterInfo mUsersCompleterInfo;
 };
 }

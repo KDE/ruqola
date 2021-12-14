@@ -39,7 +39,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(CreateChannelJob)
-    void slotCreateChannelFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     CreateRoomInfo mCreateChannelInfo;
 };
 }

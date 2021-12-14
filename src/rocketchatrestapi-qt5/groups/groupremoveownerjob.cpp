@@ -27,31 +27,25 @@ bool GroupRemoveOwnerJob::start()
         return false;
     }
     addStartRestApiInfo("GroupRemoveOwnerJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &GroupRemoveOwnerJob::slotRemoveOwnerFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void GroupRemoveOwnerJob::slotRemoveOwnerFinished()
+void GroupRemoveOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GroupRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT groupRemoveOwnerDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-remove-last-owner")) {
-                Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
-            }
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GroupRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT groupRemoveOwnerDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-remove-last-owner")) {
+            Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));
         }
-        reply->deleteLater();
     }
-    deleteLater();
 }
 
 QString GroupRemoveOwnerJob::removeUserId() const

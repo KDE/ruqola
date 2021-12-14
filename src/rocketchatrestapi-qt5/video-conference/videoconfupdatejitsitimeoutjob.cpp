@@ -26,28 +26,20 @@ bool VideoConfUpdateJitsiTimeOutJob::start()
         return false;
     }
     addStartRestApiInfo("VideoConfUpdateJitsiTimeOutJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut);
+    submitPostRequest(json());
     return true;
 }
 
-void VideoConfUpdateJitsiTimeOutJob::slotUpdateJitsiTimeOut()
+void VideoConfUpdateJitsiTimeOutJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT updateJitsiTimeOutDone(replyObject[QStringLiteral("jitsiTimeout")].toString());
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT updateJitsiTimeOutDone(replyObject[QStringLiteral("jitsiTimeout")].toString());
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("VideoConfUpdateJitsiTimeOutJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString VideoConfUpdateJitsiTimeOutJob::roomId() const

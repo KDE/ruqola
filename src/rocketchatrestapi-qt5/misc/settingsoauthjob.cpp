@@ -30,29 +30,23 @@ bool SettingsOauthJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &SettingsOauthJob::slotSettingsOauthFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("SettingsOauthJob: Ask settings oauth"));
     return true;
 }
 
-void SettingsOauthJob::slotSettingsOauthFinished()
+void SettingsOauthJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT settingsOauthDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("SettingsOauthJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT settingsOauthDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("SettingsOauthJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest SettingsOauthJob::request() const

@@ -28,35 +28,29 @@ bool ChannelJoinJob::start()
         return false;
     }
     addStartRestApiInfo("ChannelJoinJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChannelJoinJob::slotChannelJoinFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ChannelJoinJob::slotChannelJoinFinished()
+void ChannelJoinJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setChannelJoinDone(channelGroupInfo());
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            // Invalid password
-            const QString errorType = replyObject[QStringLiteral("errorType")].toString();
-            if (errorType == QLatin1String("error-code-invalid")) {
-                Q_EMIT missingChannelPassword(channelGroupInfo());
-            } else if (errorType == QLatin1String("error-room-archived")) {
-                Q_EMIT openArchivedRoom(channelGroupInfo());
-            }
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT setChannelJoinDone(channelGroupInfo());
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        // Invalid password
+        const QString errorType = replyObject[QStringLiteral("errorType")].toString();
+        if (errorType == QLatin1String("error-code-invalid")) {
+            Q_EMIT missingChannelPassword(channelGroupInfo());
+        } else if (errorType == QLatin1String("error-room-archived")) {
+            Q_EMIT openArchivedRoom(channelGroupInfo());
         }
-        reply->deleteLater();
     }
-    deleteLater();
 }
 
 QString ChannelJoinJob::joinCode() const

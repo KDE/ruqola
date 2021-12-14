@@ -26,30 +26,24 @@ bool ArchiveGroupsJob::start()
         return false;
     }
     addStartRestApiInfo("ArchiveGroupsJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ArchiveGroupsJob::slotArchiveGroupsFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ArchiveGroupsJob::slotArchiveGroupsFinished()
+void ArchiveGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT archiveGroupsDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
-            // FIXME report error
-            Q_EMIT archiveGroupsError(QString());
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT archiveGroupsDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        // FIXME report error
+        Q_EMIT archiveGroupsError(QString());
     }
-    deleteLater();
 }
 
 bool ArchiveGroupsJob::archive() const

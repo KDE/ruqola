@@ -40,9 +40,11 @@ public:
 Q_SIGNALS:
     void loginDone(const QString &authToken, const QString &userId);
 
+protected:
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+
 private:
     Q_DISABLE_COPY(LoginJob)
-    void slotLoginDone();
     QString mUserName;
     QString mPassword;
     QString mResume;

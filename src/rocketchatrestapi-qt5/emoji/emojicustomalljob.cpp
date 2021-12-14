@@ -26,30 +26,23 @@ bool EmojiCustomAllJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("EmojiCustomAllJob: Load Emoji custom"));
-    connect(reply, &QNetworkReply::finished, this, &EmojiCustomAllJob::slotEmojiCustomAllDone);
 
     return true;
 }
 
-void EmojiCustomAllJob::slotEmojiCustomAllDone()
+void EmojiCustomAllJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("EmojiCustomAllJob done: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT emojiCustomAllDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("EmojiCustomAllJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("EmojiCustomAllJob done: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT emojiCustomAllDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("EmojiCustomAllJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool EmojiCustomAllJob::requireHttpAuthentication() const

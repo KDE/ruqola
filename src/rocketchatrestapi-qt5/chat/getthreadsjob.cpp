@@ -43,28 +43,22 @@ bool GetThreadsJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetThreadsJob::slotGetThreadsFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("GetThreadsJob: Ask All threads in room"));
     return true;
 }
 
-void GetThreadsJob::slotGetThreadsFinished()
+void GetThreadsJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getThreadsDone(replyObject, mRoomId);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GetThreadsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getThreadsDone(replyObject, mRoomId);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GetThreadsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 GetThreadsJob::TheadSearchType GetThreadsJob::searchType() const

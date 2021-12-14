@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(AddUserToRoleJob)
-    void slotAddUsersToRoleDone();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoleName;
     QString mUsername;
 };

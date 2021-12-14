@@ -62,7 +62,7 @@ void MessageQueue::loadCache()
                 char *byteArray;
                 quint32 length;
                 in.readBytes(byteArray, length);
-                QByteArray ba = QByteArray::fromRawData(byteArray, length);
+                const QByteArray ba = QByteArray::fromRawData(byteArray, length);
                 QPair<QString, QJsonDocument> pair = MessageQueue::fromJson(QJsonDocument::fromBinaryData(ba).object());
 
                 QString method = pair.first;

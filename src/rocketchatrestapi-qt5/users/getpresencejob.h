@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetPresenceJob)
-    void slotGetPresenceUserId();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

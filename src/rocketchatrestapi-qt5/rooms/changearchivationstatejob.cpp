@@ -26,28 +26,22 @@ bool ChangeArchivationStateJob::start()
         return false;
     }
     addStartRestApiInfo("ChangeArchivationStateJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChangeArchivationStateJob::slotChangeArchivationStateFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ChangeArchivationStateJob::slotChangeArchivationStateFinished()
+void ChangeArchivationStateJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChangeArchivationStateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT changeArchivationStateDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChangeArchivationStateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChangeArchivationStateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT changeArchivationStateDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChangeArchivationStateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString ChangeArchivationStateJob::roomId() const

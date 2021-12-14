@@ -27,28 +27,22 @@ bool ChannelHistoryJob::start()
         return false;
     }
     addStartRestApiInfo("ChannelHistoryJob::start");
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &ChannelHistoryJob::slotLoadHistoryChannelFinished);
+    submitGetRequest();
+
     return true;
 }
 
-void ChannelHistoryJob::slotLoadHistoryChannelFinished()
+void ChannelHistoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 ChannelHistoryJob::ChannelHistoryInfo ChannelHistoryJob::channelHistoryInfo() const

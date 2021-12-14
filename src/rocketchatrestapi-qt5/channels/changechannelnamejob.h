@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeChannelNameJob)
-    void slotChangeNameFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mName;
     QString mRoomId;
 };

@@ -36,33 +36,28 @@ bool GetAvatarJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetAvatarJob::slotGetAvatar);
+
+    submitGetRequest();
     addStartRestApiInfo("GetAvatarJob ask for avatarUserId: " + mUserInfo.userIdentifier.toLatin1());
     addStartRestApiInfo("GetAvatarJob::start");
     return true;
 }
 
-void GetAvatarJob::slotGetAvatar()
+void GetAvatarJob::onGetRequestResponse(const QJsonDocument &)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QString userId = mUserInfo.userIdentifier;
-        if (!reply->error()) {
-            const QUrl url = reply->url();
-            if (url.isValid() && !url.scheme().isEmpty()) {
-                addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
-                Q_EMIT avatar(mUserInfo, url);
-            } else {
-                qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
-            }
+    const QString userId = mUserInfo.userIdentifier;
+    if (!mReply->error()) {
+        const QUrl url = mReply->url();
+        if (url.isValid() && !url.scheme().isEmpty()) {
+            addLoggerInfo(QByteArrayLiteral("GetAvatarJob success: ") + userId.toUtf8());
+            Q_EMIT avatar(mUserInfo, url);
         } else {
-            addLoggerWarning(QByteArrayLiteral("GetAvatarJob error: ") + userId.toUtf8());
-            Q_EMIT avatar(mUserInfo, QUrl());
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "expected a URL, got something else:";
         }
-        reply->deleteLater();
+    } else {
+        addLoggerWarning(QByteArrayLiteral("GetAvatarJob error: ") + userId.toUtf8());
+        Q_EMIT avatar(mUserInfo, QUrl());
     }
-    deleteLater();
 }
 
 QNetworkRequest GetAvatarJob::request() const

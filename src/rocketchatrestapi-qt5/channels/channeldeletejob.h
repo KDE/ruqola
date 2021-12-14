@@ -30,7 +30,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelDeleteJob)
-    void slotChanneldeleteFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }
 

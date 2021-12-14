@@ -86,7 +86,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SaveRoomSettingsJob)
-    void slotSaveRoomSettingsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 
     SaveRoomSettingsInfo mSaveRoomSettingsInfo;
 };

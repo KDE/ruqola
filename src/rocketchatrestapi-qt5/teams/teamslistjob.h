@@ -37,7 +37,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(TeamsListJob)
     void initialQueryParameters();
-    void slotTeamsListFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mPattern;
 };
 }

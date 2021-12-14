@@ -32,7 +32,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelsConvertToTeamJob)
-    void slotChannelConvertToTeamFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mChannelId;
 };
 }

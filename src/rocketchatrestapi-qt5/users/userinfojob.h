@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UserInfoJob)
-    void slotUserInfoFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

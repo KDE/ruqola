@@ -26,28 +26,22 @@ bool ChannelAddOwnerJob::start()
         return false;
     }
     addStartRestApiInfo("ChannelAddOwnerJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ChannelAddOwnerJob::slotAddOwnerFinished);
+    submitPostRequest(json());
+
     return true;
 }
 
-void ChannelAddOwnerJob::slotAddOwnerFinished()
+void ChannelAddOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("Add owner success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT addOwnerDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("Problem when we tried to add owner: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("Add owner success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT addOwnerDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("Problem when we tried to add owner: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString ChannelAddOwnerJob::addownerUserId() const

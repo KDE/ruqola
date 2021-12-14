@@ -39,7 +39,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SetGroupTypeJob)
-    void slotSetGroupTypeFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     GroupType mType = Unknown;
 };
 }

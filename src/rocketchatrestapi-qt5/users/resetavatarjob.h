@@ -29,6 +29,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ResetAvatarJob)
-    void slotResetAvatar();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(PinMessageJob)
-    void slotPinMessage();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mMessageId;
     bool mPinMessage = true;
 };

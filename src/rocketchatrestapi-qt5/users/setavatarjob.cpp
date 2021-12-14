@@ -32,8 +32,7 @@ bool SetAvatarJob::start()
     }
     addStartRestApiInfo("SetAvatarJob::start");
     if (!mAvatarInfo.mAvatarUrl.isEmpty()) {
-        QNetworkReply *reply = submitPostRequest(json());
-        connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
+        submitPostRequest(json());
     } else {
         const QString fileNameAsLocalFile = mAvatarInfo.mImageUrl.toLocalFile();
         auto file = new QFile(fileNameAsLocalFile);
@@ -63,30 +62,35 @@ bool SetAvatarJob::start()
         userPart.setBody(userId().toUtf8());
         multiPart->append(userPart);
 
-        QNetworkReply *reply = networkAccessManager()->post(request(), multiPart);
+        mReply = networkAccessManager()->post(request(), multiPart);
         // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
-        connect(reply, &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
-        multiPart->setParent(reply); // delete the multiPart with the reply
+        connect(mReply.data(), &QNetworkReply::finished, this, &SetAvatarJob::slotSetAvatar);
+        multiPart->setParent(mReply); // delete the multiPart with the reply
     }
     return true;
 }
 
 void SetAvatarJob::slotSetAvatar()
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
+    auto reply = mReply;
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT setAvatarDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
+        onPostRequestResponse(replyJson);
         reply->deleteLater();
     }
     deleteLater();
+}
+
+void SetAvatarJob::onPostRequestResponse(const QJsonDocument &replyJson)
+{
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT setAvatarDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+    }
 }
 
 SetAvatarJob::SetAvatarInfo SetAvatarJob::avatarInfo() const

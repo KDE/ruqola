@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamLeaveRoomJob)
-    void slotTeamLeaveRoomFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mTeamId;
 };

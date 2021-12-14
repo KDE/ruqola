@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(FetchMyKeysJob)
-    void slotFetchMyKeys();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

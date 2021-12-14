@@ -30,29 +30,23 @@ bool StdoutQueueJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &StdoutQueueJob::slotStdoutQueueFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("StdoutQueueJob: Ask for server statistics"));
     return true;
 }
 
-void StdoutQueueJob::slotStdoutQueueFinished()
+void StdoutQueueJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("StdoutQueueJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT stdoutQueueDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("StdoutQueueJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("StdoutQueueJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT stdoutQueueDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("StdoutQueueJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest StdoutQueueJob::request() const

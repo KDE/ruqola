@@ -36,7 +36,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReportMessageJob)
-    void slotReportMessage();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mMessageId;
     QString mReportMessage;
 };

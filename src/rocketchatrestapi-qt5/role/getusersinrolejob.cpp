@@ -43,28 +43,21 @@ bool GetUsersInRoleJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetUsersInRoleJob::slotGetUsersInRoleFinished);
+    submitGetRequest();
     addStartRestApiInfo(QByteArrayLiteral("GetUsersInRoleJob: Ask info about users in role"));
     return true;
 }
 
-void GetUsersInRoleJob::slotGetUsersInRoleFinished()
+void GetUsersInRoleJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetUsersInRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getUsersInRoleDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GetUsersInRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GetUsersInRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getUsersInRoleDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GetUsersInRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool GetUsersInRoleJob::hasQueryParameterSupport() const

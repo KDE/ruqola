@@ -37,28 +37,20 @@ bool ForgotPasswordJob::start()
         return false;
     }
     addStartRestApiInfo("ForgotPasswordJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ForgotPasswordJob::slotForgotPassword);
+    submitPostRequest(json());
     return true;
 }
 
-void ForgotPasswordJob::slotForgotPassword()
+void ForgotPasswordJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT forgotPasswordDone();
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ForgotPasswordJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT forgotPasswordDone();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ForgotPasswordJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString ForgotPasswordJob::email() const

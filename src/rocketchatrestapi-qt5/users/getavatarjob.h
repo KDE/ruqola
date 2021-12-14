@@ -8,6 +8,7 @@
 
 #include "librestapi_private_export.h"
 #include "userbasejob.h"
+#include <QPointer>
 
 #include <QNetworkRequest>
 namespace RocketChatRestApi
@@ -35,6 +36,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetAvatarJob)
-    void slotGetAvatar();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

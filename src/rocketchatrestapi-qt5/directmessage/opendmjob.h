@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(OpenDmJob)
-    void slotOpenDmFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mDirectUserId;
 };
 }

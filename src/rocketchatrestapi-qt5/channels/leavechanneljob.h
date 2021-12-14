@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(LeaveChannelJob)
-    void slotLeaveChannelFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

@@ -37,7 +37,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(DeleteMessageJob)
-    void slotDeleteMessageFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mMessageId;
 };

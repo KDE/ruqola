@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeChannelAnnouncementJob)
-    void slotChangeAnnouncementFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mAnnouncement;
     QString mRoomId;
 };

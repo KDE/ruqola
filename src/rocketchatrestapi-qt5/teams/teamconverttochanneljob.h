@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamConvertToChannelJob)
-    void slotTeamConvertToChannelFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mTeamId;
     QStringList mRoomsToRemove;
 };

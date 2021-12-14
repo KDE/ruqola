@@ -38,9 +38,8 @@ bool ChannelGetCountersJob::start()
         return false;
     }
 
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
     addStartRestApiInfo("ChannelGetCountersJob::start");
-    connect(reply, &QNetworkReply::finished, this, &ChannelGetCountersJob::slotChannelGetCountersFinished);
 
     return true;
 }
@@ -61,22 +60,16 @@ bool ChannelGetCountersJob::requireHttpAuthentication() const
     return true;
 }
 
-void ChannelGetCountersJob::slotChannelGetCountersFinished()
+void ChannelGetCountersJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool ChannelGetCountersJob::hasQueryParameterSupport() const

@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RolesListJob)
-    void slotRolesListFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

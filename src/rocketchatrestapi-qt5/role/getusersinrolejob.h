@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetUsersInRoleJob)
-    void slotGetUsersInRoleFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     void initialUrlParameters(QUrlQuery &urlQuery) const;
     QString mRoleId;
 };

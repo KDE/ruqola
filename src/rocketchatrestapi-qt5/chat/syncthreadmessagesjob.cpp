@@ -47,28 +47,22 @@ bool SyncThreadMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &SyncThreadMessagesJob::slotSyncThreadMessagesFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("SyncThreadMessagesJob: update threads message in room"));
     return true;
 }
 
-void SyncThreadMessagesJob::slotSyncThreadMessagesFinished()
+void SyncThreadMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("SyncThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("SyncThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString SyncThreadMessagesJob::timeStamp() const

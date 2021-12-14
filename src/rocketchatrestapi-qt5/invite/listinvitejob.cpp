@@ -29,23 +29,16 @@ bool ListInviteJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
 
-    connect(reply, &QNetworkReply::finished, this, &ListInviteJob::slotListInviteFinished);
     addStartRestApiInfo(QByteArrayLiteral("ListInviteJob: Ask for displaying all invite link url"));
     return true;
 }
 
-void ListInviteJob::slotListInviteFinished()
+void ListInviteJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT listInviteDone(replyJson);
-        reply->deleteLater();
-    }
-    deleteLater();
+    addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+    Q_EMIT listInviteDone(replyJson);
 }
 
 bool ListInviteJob::hasQueryParameterSupport() const

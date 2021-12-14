@@ -8,6 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
+
 class QNetworkRequest;
 namespace RocketChatRestApi
 {
@@ -34,6 +35,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetChannelRolesJob)
-    void slotGetChannelRolesFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

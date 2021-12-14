@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SetUserPublicAndPrivateKeysJob)
-    void slotAddKeyToChainFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRsaPublicKey;
     QString mRsaPrivateKey;
 };

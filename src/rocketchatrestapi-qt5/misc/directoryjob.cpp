@@ -31,9 +31,8 @@ bool DirectoryJob::start()
         return false;
     }
     initialQueryParameters();
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
 
-    connect(reply, &QNetworkReply::finished, this, &DirectoryJob::slotDirectoryFinished);
     addStartRestApiInfo(QByteArrayLiteral("DirectoryJob: Ask for search room or users or teams"));
     return true;
 }
@@ -63,23 +62,17 @@ void DirectoryJob::initialQueryParameters()
     setQueryParameters(parameters);
 }
 
-void DirectoryJob::slotDirectoryFinished()
+void DirectoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("DirectoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT directoryDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("DirectoryJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("DirectoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT directoryDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("DirectoryJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 DirectoryJob::DirectoryInfo DirectoryJob::directoryInfo() const

@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeArchivationStateJob)
-    void slotChangeArchivationStateFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mArchive = true;
 };

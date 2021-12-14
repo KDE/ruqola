@@ -44,28 +44,22 @@ bool GetPinnedMessagesJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &GetPinnedMessagesJob::slotGetPinnedMessagesFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("GetPinnedMessagesJob: Ask pinned messages"));
     return true;
 }
 
-void GetPinnedMessagesJob::slotGetPinnedMessagesFinished()
+void GetPinnedMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString GetPinnedMessagesJob::roomId() const

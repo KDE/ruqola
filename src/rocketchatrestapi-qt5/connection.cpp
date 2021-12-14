@@ -222,9 +222,8 @@ void Connection::slotResult(QNetworkReply *reply)
 {
     const auto error = reply->error();
     if (error != QNetworkReply::NoError) {
-        auto job = reply->property("job").value<RestApiAbstractJob *>();
-        const QString className = job ? QString::fromLatin1(job->metaObject()->className()) : QString();
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << className << "error reply: " << reply->errorString();
+        const QByteArray jobClassName = reply->property("jobClassName").value<QByteArray>();
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << jobClassName << "error reply: " << reply->errorString();
     }
 }
 

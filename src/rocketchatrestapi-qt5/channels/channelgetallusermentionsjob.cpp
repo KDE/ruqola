@@ -39,9 +39,8 @@ bool ChannelGetAllUserMentionsJob::start()
         return false;
     }
 
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
     addStartRestApiInfo("ChannelGetAllUserMentionsJob::start");
-    connect(reply, &QNetworkReply::finished, this, &ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished);
 
     return true;
 }
@@ -65,22 +64,16 @@ bool ChannelGetAllUserMentionsJob::requireHttpAuthentication() const
     return true;
 }
 
-void ChannelGetAllUserMentionsJob::slotChannelGetAllUserMentionsFinished()
+void ChannelGetAllUserMentionsJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QString ChannelGetAllUserMentionsJob::roomId() const

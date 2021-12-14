@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupRemoveOwnerJob)
-    void slotRemoveOwnerFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRemoveUserId;
 };
 }

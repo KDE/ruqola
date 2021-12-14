@@ -47,7 +47,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomsCleanHistoryJob)
-    void slotCleanHistoryFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     CleanHistoryInfo mCleanHistoryInfo;
 };
 }

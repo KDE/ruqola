@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(StarMessageJob)
-    void slotStarMessageFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mMessageId;
     bool mStarMessage = true;
 };

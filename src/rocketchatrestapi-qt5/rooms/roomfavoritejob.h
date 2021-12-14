@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomFavoriteJob)
-    void slotChangeFavoriteFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
 
     bool mFavorite = true;

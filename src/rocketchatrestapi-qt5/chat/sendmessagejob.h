@@ -38,7 +38,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SendMessageJob)
-    void slotSendMessageDone();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     SendMessageArguments mSendMessageArguments;
 };
 }

@@ -44,7 +44,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GetThreadsJob)
-    void slotGetThreadsFinished();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     TheadSearchType mSearchType = TheadSearchType::All;
     QString mRoomId;
 };

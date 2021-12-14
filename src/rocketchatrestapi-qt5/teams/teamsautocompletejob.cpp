@@ -31,28 +31,22 @@ bool TeamsAutoCompleteJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitGetRequest();
-    connect(reply, &QNetworkReply::finished, this, &TeamsAutoCompleteJob::slotTeamAutoCompleteFinished);
+    submitGetRequest();
+
     addStartRestApiInfo(QByteArrayLiteral("TeamsAutoCompleteJob: ask list of rooms in team"));
     return true;
 }
 
-void TeamsAutoCompleteJob::slotTeamAutoCompleteFinished()
+void TeamsAutoCompleteJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("TeamsAutoCompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT teamAutoCompleteDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("TeamsAutoCompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("TeamsAutoCompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT teamAutoCompleteDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("TeamsAutoCompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 const QString &TeamsAutoCompleteJob::name() const

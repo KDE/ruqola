@@ -30,7 +30,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(CustomSoundsListJob)
-    void slotCustomSoundsDone();
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
     QString mPattern;
 };
 }

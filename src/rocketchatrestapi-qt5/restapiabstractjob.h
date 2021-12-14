@@ -9,6 +9,7 @@
 #include "librestapi_private_export.h"
 #include <QNetworkRequest>
 #include <QObject>
+#include <QPointer>
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -105,17 +106,37 @@ Q_SIGNALS:
 
 protected:
     Q_DISABLE_COPY(RestApiAbstractJob)
+
+    Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
+
     Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
-    void emitFailedMessage(const QJsonObject &replyObject, QNetworkReply *reply);
+    void emitFailedMessage(const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
     virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail);
     virtual Q_REQUIRED_RESULT QString jobName() const;
     virtual Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
-    Q_REQUIRED_RESULT QNetworkReply *submitGetRequest();
-    Q_REQUIRED_RESULT QNetworkReply *submitPostRequest(const QJsonDocument &doc);
-    Q_REQUIRED_RESULT QNetworkReply *submitDeleteRequest();
+
+    // The main methods used for sending requests to the server
+    void submitGetRequest();
+    void submitPostRequest(const QJsonDocument &doc);
+    void submitDeleteRequest();
 
     RocketChatRestApi::RestApiMethod *mRestApiMethod = nullptr;
+    QPointer<QNetworkReply> mReply;
+
+protected Q_SLOTS:
+    virtual void onGetRequestResponse(const QJsonDocument &replyJson)
+    {
+        Q_UNUSED(replyJson)
+    }
+    virtual void onPostRequestResponse(const QJsonDocument &replyJson)
+    {
+        Q_UNUSED(replyJson)
+    }
+    virtual void onDeleteRequestResponse(const QJsonDocument &replyJson)
+    {
+        Q_UNUSED(replyJson)
+    }
 
 private:
     QueryParameters mQueryParameters;
@@ -123,8 +144,5 @@ private:
     QString mUserId;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
-
-private:
-    Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
 };
 }

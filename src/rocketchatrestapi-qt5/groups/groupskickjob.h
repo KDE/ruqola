@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupsKickJob)
-    void slotKickUsersFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mKickUserId;
 };
 }

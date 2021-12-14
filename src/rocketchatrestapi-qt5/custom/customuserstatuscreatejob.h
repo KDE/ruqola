@@ -39,7 +39,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(CustomUserStatusCreateJob)
-    void slotCreateUserStatus();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     StatusCreateInfo mStatusCreateInfo;
 };
 }

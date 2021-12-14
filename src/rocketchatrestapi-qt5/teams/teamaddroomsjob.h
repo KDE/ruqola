@@ -38,7 +38,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(TeamAddRoomsJob)
-    void slotTeamAddRoomsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QStringList mRoomIds;
     QString mTeamId;
 };

@@ -45,33 +45,26 @@ bool FacebookAuthJob::start()
         deleteLater();
         return false;
     }
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &FacebookAuthJob::slotFacebookauthDone);
+    submitPostRequest(json());
     return true;
 }
 
-void FacebookAuthJob::slotFacebookauthDone()
+void FacebookAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
-            const QJsonObject dataObject = replyObject[QStringLiteral("data")].toObject();
+    if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
+        const QJsonObject dataObject = replyObject[QStringLiteral("data")].toObject();
 
-            if (dataObject.contains(QLatin1String("authToken")) && dataObject.contains(QLatin1String("userId"))) {
-                const QString authToken = dataObject[QStringLiteral("authToken")].toString();
-                const QString userId = dataObject[QStringLiteral("userId")].toString();
-                Q_EMIT facebookDone(authToken, userId);
-            }
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
+        if (dataObject.contains(QLatin1String("authToken")) && dataObject.contains(QLatin1String("userId"))) {
+            const QString authToken = dataObject[QStringLiteral("authToken")].toString();
+            const QString userId = dataObject[QStringLiteral("userId")].toString();
+            Q_EMIT facebookDone(authToken, userId);
         }
-        reply->deleteLater();
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 int FacebookAuthJob::expireTokenInSeconds() const

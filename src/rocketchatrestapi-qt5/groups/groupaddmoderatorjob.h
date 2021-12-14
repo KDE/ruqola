@@ -33,7 +33,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupAddModeratorJob)
-    void slotAddModeratorFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mAddModeratorUserId;
 };
 }

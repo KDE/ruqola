@@ -29,6 +29,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GroupsDeleteJob)
-    void slotDeleteGroupsFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }

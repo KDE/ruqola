@@ -41,7 +41,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(MarkRoomAsUnReadJob)
-    void slotMarkAsUnRead();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mObjectId;
     MarkAsUnReadObject mUnReadObject = Unknown;
 };

@@ -27,31 +27,22 @@ bool LogoutJob::start()
         return false;
     }
 
-    QNetworkReply *reply = submitGetRequest();
+    submitGetRequest();
     addStartRestApiInfo("LogoutJob::start");
-    connect(reply, &QNetworkReply::finished, this, &LogoutJob::slotLogout);
     return true;
 }
 
-void LogoutJob::slotLogout()
+void LogoutJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
-
-        if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
-            addLoggerInfo(QByteArrayLiteral("LogoutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
-            Q_EMIT logoutDone(); // connected to RestApiConnection::slotLogout
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning("Error during to logout" + replyJson.toJson(QJsonDocument::Indented));
-        }
-
-        reply->deleteLater();
+    const QJsonObject replyObject = replyJson.object();
+    if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success")) {
+        addLoggerInfo(QByteArrayLiteral("LogoutJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        qCDebug(ROCKETCHATQTRESTAPI_LOG) << " Logout";
+        Q_EMIT logoutDone(); // connected to RestApiConnection::slotLogout
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning("Error during to logout" + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 QNetworkRequest LogoutJob::request() const

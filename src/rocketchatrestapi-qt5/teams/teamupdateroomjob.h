@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(TeamUpdateRoomJob)
-    void slotTeamUpdateRoomFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mIsDefault = false;
 };
