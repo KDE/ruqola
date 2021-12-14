@@ -36,12 +36,21 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
 {
     // TODO: move MessageConvertedText implementation to Message?
     QString text = index.data(MessageModel::MessageConvertedText).toString();
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    Q_ASSERT(message);
+    const QString threadMessageId = message->threadMessageId();
 
-    if (mShowThreadContext) {
-        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-        Q_ASSERT(message);
-        const QString threadMessageId = message->threadMessageId();
-        if (!threadMessageId.isEmpty()) {
+    if (mShowThreadContext && !threadMessageId.isEmpty()) {
+        const auto sameAsPreviousMessageThread = [&] {
+            if (index.row() < 1) {
+                return false;
+            }
+            const auto previousIndex = index.siblingAtRow(index.row() - 1);
+            const auto *previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
+            Q_ASSERT(previousMessage);
+            return threadMessageId == previousMessage->threadMessageId();
+        }();
+        if (!sameAsPreviousMessageThread) {
             auto *rcAccount = Ruqola::self()->rocketChatAccount();
             const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
             if (model) {

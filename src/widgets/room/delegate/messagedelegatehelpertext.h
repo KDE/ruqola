@@ -38,6 +38,10 @@ public:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     void setShowThreadContext(bool b);
+    Q_REQUIRED_RESULT bool showThreadContext() const
+    {
+        return mShowThreadContext;
+    }
 
     Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText() const;

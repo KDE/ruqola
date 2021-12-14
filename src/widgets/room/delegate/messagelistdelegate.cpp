@@ -63,6 +63,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
 {
     KColorScheme scheme;
     mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
+    mThreadedMessageBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }
@@ -376,9 +377,15 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     painter->save();
 
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+
     drawBackground(painter, option, index);
-    if (index.data(MessageModel::MessageInEditMode).toBool()) {
-        painter->fillRect(option.rect.adjusted(0, 0, -1, -1), mEditColorMode);
+
+    const auto fullRect = option.rect.adjusted(-1, -1, -1, -1);
+    if (message->isEditingMode()) {
+        painter->fillRect(fullRect, mEditColorMode);
+    } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
+        painter->fillRect(fullRect, mThreadedMessageBackgroundColor);
     }
 
     const Layout layout = doLayout(option, index);
@@ -391,7 +398,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         drawLastSeenLine(painter, layout.displayLastSeenMessageY, option);
     }
 
-    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
     const Message::MessageType messageType = message->messageType();

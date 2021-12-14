@@ -138,6 +138,7 @@ private:
     const QIcon mPinIcon;
     const QIcon mTranslatedIcon;
     QColor mEditColorMode;
+    QColor mThreadedMessageBackgroundColor;
     QColor mOpenDiscussionColorMode;
     QColor mReplyThreadColorMode;
     RocketChatAccount *mRocketChatAccount = nullptr;
