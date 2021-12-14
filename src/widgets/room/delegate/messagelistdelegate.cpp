@@ -123,10 +123,23 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     Q_ASSERT(message);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
+    const auto sameSenderAsPreviousMessage = [&] {
+        if (index.row() < 1) {
+            return false;
+        }
+
+        const auto previousIndex = index.siblingAtRow(index.row() - 1);
+        const auto previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
+        Q_ASSERT(previousMessage);
+
+        return message->userId() == previousMessage->userId();
+    }();
+
     Layout layout;
     layout.senderText = QLatin1Char('@') + message->username();
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
+    layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage;
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
@@ -393,19 +406,21 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Draw the pixmap
-    if (!mRocketChatAccount->hideAvatars()) {
+    if (!mRocketChatAccount->hideAvatars() && !layout.sameSenderAsPreviousMessage) {
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
     }
 
-    // Draw the sender
-    const QFont oldFont = painter->font();
-    painter->setFont(layout.senderFont);
-    painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
-    painter->setFont(oldFont);
+    if (!layout.sameSenderAsPreviousMessage) {
+        // Draw the sender
+        const QFont oldFont = painter->font();
+        painter->setFont(layout.senderFont);
+        painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+        painter->setFont(oldFont);
 
-    // Draw the roles icon
-    if (!index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
-        mRolesIcon.paint(painter, layout.rolesIconRect);
+        // Draw the roles icon
+        if (!index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles()) {
+            mRolesIcon.paint(painter, layout.rolesIconRect);
+        }
     }
 
     // Draw the edited icon

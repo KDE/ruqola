@@ -121,6 +121,7 @@ private:
 
         // showIgnoreMessage
         bool showIgnoreMessage = false;
+        bool sameSenderAsPreviousMessage = false;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
