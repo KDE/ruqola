@@ -34,6 +34,8 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 
+#include <tuple>
+
 static QSizeF dprAwareSize(const QPixmap &pixmap)
 {
     if (pixmap.isNull()) {
@@ -133,7 +135,10 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         const auto previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
         Q_ASSERT(previousMessage);
 
-        return message->userId() == previousMessage->userId();
+        auto toTuple = [](const Message *message) {
+            return std::make_tuple(message->userId(), message->threadMessageId(), QDateTime::fromMSecsSinceEpoch(message->timeStamp()).date());
+        };
+        return toTuple(message) == toTuple(previousMessage);
     }();
 
     Layout layout;
