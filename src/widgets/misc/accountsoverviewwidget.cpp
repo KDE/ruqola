@@ -170,3 +170,23 @@ void AccountsOverviewWidget::updateCurrentTab()
     };
     mTabBar->setCurrentIndex(tabIndex());
 }
+
+void AccountsOverviewWidget::showNextView()
+{
+    goToView(mTabBar->currentIndex() + 1);
+}
+
+void AccountsOverviewWidget::showPreviousView()
+{
+    goToView(mTabBar->currentIndex() - 1);
+}
+
+void AccountsOverviewWidget::goToView(int index)
+{
+    if (index >= 0 && index < mTabBar->count()) {
+        auto rocketChatAccount = mTabBar->tabData(index).value<RocketChatAccount *>();
+        if (rocketChatAccount) {
+            Ruqola::self()->accountManager()->setCurrentAccount(rocketChatAccount->accountName());
+        }
+    }
+}

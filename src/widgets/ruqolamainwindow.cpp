@@ -315,6 +315,37 @@ void RuqolaMainWindow::setupActions()
     connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
     ac->addAction(QStringLiteral("directory"), mDirectory);
 
+    // Actions to navigate through the different pages
+    QList<QKeySequence> nextShortcut;
+    QList<QKeySequence> prevShortcut;
+
+    QString nextIcon, prevIcon;
+    if (QApplication::isRightToLeft()) {
+        prevShortcut.append(QKeySequence(QStringLiteral("Alt+Right")));
+        nextShortcut.append(QKeySequence(QStringLiteral("Alt+Left")));
+        nextIcon = QStringLiteral("go-previous-view");
+        prevIcon = QStringLiteral("go-next-view");
+    } else {
+        nextShortcut.append(QKeySequence(QStringLiteral("Alt+Right")));
+        prevShortcut.append(QKeySequence(QStringLiteral("Alt+Left")));
+        nextIcon = QStringLiteral("go-next-view");
+        prevIcon = QStringLiteral("go-previous-view");
+    }
+
+    mNextTab = new QAction(this);
+    mNextTab->setText(i18n("&Next Tab"));
+    mNextTab->setIcon(QIcon::fromTheme(nextIcon));
+    actionCollection()->setDefaultShortcuts(mNextTab, nextShortcut);
+    connect(mNextTab, &QAction::triggered, this, &RuqolaMainWindow::showNextView);
+    actionCollection()->addAction(QStringLiteral("next_tab"), mNextTab);
+
+    mPreviewTab = new QAction(this);
+    mPreviewTab->setText(i18n("&Previous Tab"));
+    mPreviewTab->setIcon(QIcon::fromTheme(prevIcon));
+    actionCollection()->setDefaultShortcuts(mPreviewTab, prevShortcut);
+    connect(mPreviewTab, &QAction::triggered, this, &RuqolaMainWindow::showPreviousView);
+    actionCollection()->addAction(QStringLiteral("previous_tab"), mPreviewTab);
+
     {
         auto action = new QWidgetAction(this);
         action->setText(i18n("Status"));
@@ -337,6 +368,16 @@ void RuqolaMainWindow::setupActions()
         connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
         ac->addAction(QStringLiteral("status"), mStatus);
     }
+}
+
+void RuqolaMainWindow::showNextView()
+{
+    mAccountOverviewWidget->showNextView();
+}
+
+void RuqolaMainWindow::showPreviousView()
+{
+    mAccountOverviewWidget->showPreviousView();
 }
 
 void RuqolaMainWindow::slotClearAccountAlerts()

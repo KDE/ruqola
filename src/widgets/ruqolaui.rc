@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="24">
+<gui name="ruqola" version="27">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -32,6 +32,11 @@
    <Action name="create_team" />
    <Separator/>
    <Action name="add_user_in_room" />
+  </Menu>
+  <Menu name="windows" append="settings_merge">
+    <text>&amp;Window</text>
+    <Action name="previous_tab" />
+    <Action name="next_tab" />
   </Menu>
   <Menu name="display" >
    <text>Display</text>

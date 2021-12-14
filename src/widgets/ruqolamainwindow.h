@@ -68,6 +68,9 @@ private:
     void slotCreateTeam();
     void slotPermissionChanged();
     void slotDirectory();
+    void showNextView();
+    void showPreviousView();
+
     bool mReallyClose{false};
 
     RuqolaCentralWidget *const mMainWidget;
@@ -86,6 +89,8 @@ private:
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
     QAction *mDirectory = nullptr;
+    QAction *mNextTab = nullptr;
+    QAction *mPreviewTab = nullptr;
     QWidgetAction *mStatus = nullptr;
     ServerMenu *mServerMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
