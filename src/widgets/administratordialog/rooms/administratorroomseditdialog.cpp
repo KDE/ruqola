@@ -25,13 +25,13 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
     case DirectRoom:
         mAdministratorRoomEditWidget = new AdministratorDirectRoomsEditWidget(this);
         break;
-    case Unknown:
-        Q_ASSERT(false);
-        break;
     case Team:
     case Group:
     case Channel:
         mAdministratorRoomEditWidget = new AdministratorRoomsEditWidget(this);
+        break;
+    case Unknown:
+        Q_ASSERT(false);
         break;
     }
     mAdministratorRoomEditWidget->setObjectName(QStringLiteral("mAdministratorRoomEditWidget"));
