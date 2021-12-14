@@ -732,7 +732,7 @@ void DDPClient::onWSConnected()
     protocol[QStringLiteral("msg")] = QStringLiteral("connect");
     protocol[QStringLiteral("version")] = QStringLiteral("1");
     protocol[QStringLiteral("support")] = supportedVersions;
-    QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
+    const QByteArray serialize = QJsonDocument(protocol).toJson(QJsonDocument::Compact);
     qint64 bytes = mWebSocket->sendTextMessage(QString::fromUtf8(serialize));
     if (bytes < serialize.length()) {
         qCWarning(RUQOLA_DDPAPI_COMMAND_LOG) << "onWSConnected: ERROR! I couldn't send all of my message. This is a bug! (try again)";

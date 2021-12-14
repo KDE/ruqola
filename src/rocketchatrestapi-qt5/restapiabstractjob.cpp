@@ -421,7 +421,7 @@ QString RestApiAbstractJob::jobName() const
 void RestApiAbstractJob::submitDeleteRequest()
 {
     mReply = mNetworkAccessManager->deleteResource(request());
-    QByteArray className = this->metaObject()->className();
+    const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
 
     connect(mReply.data(), &QNetworkReply::finished, this, [this] {
@@ -446,7 +446,7 @@ void RestApiAbstractJob::submitDeleteRequest()
 void RestApiAbstractJob::submitGetRequest()
 {
     mReply = mNetworkAccessManager->get(request());
-    QByteArray className = this->metaObject()->className();
+    const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
 
     connect(mReply.data(), &QNetworkReply::finished, this, [this] {
@@ -472,7 +472,7 @@ void RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
 {
     const QByteArray baPostData = doc.isNull() ? QByteArray() : doc.toJson(QJsonDocument::Compact);
     mReply = mNetworkAccessManager->post(request(), baPostData);
-    QByteArray className = this->metaObject()->className();
+    const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
 
     addLoggerInfo(className + " started " + baPostData);

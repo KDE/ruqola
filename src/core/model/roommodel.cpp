@@ -96,7 +96,7 @@ void RoomModel::reset()
                     char *byteArray;
                     quint32 length;
                     in.readBytes(byteArray, length);
-                    QByteArray arr = QByteArray::fromRawData(byteArray, length);
+                    const QByteArray arr = QByteArray::fromRawData(byteArray, length);
                     Room m = Room::fromJSon(QJsonDocument::fromBinaryData(arr).object());
                     qDebug() <<" Load from cache room name: " << m.name;
                     addRoom(m.id, m.name, m.selected);

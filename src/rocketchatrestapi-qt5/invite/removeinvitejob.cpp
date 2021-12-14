@@ -43,7 +43,7 @@ bool RemoveInviteJob::start()
     }
 
     mReply = networkAccessManager()->deleteResource(request());
-    QByteArray className = this->metaObject()->className();
+    const QByteArray className = metaObject()->className();
     mReply->setProperty("jobClassName", className);
 
     connect(mReply, &QNetworkReply::finished, this, &RemoveInviteJob::slotRemoveInviteFinished);
