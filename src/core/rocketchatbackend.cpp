@@ -443,6 +443,17 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             mRocketChatAccount->addMessage(roomData);
             qCDebug(RUQOLA_LOG) << "stream-notify-user : Message  " << eventname << " contents " << contents;
             qDebug() << "stream-notify-user : Message  " << eventname << " contents " << contents;
+        } else if (eventname.endsWith(QLatin1String("/userData"))) {
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: userData event: ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown change: " << object;
+            }
+            // TODO update avatar
+            qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
+
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -628,6 +639,12 @@ void RocketChatBackend::slotUserIDChanged()
         // Subscribe message
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        // Subscribe avatardata
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("userData"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
