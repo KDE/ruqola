@@ -430,7 +430,7 @@ void RestApiAbstractJob::submitDeleteRequest()
             return;
         }
 
-        auto jsonDoc = convertToJsonDocument(mReply);
+        const auto jsonDoc = convertToJsonDocument(mReply);
 
         if (mReply->error() != QNetworkReply::NoError) {
             Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
@@ -455,7 +455,7 @@ void RestApiAbstractJob::submitGetRequest()
             return;
         }
 
-        auto jsonDoc = convertToJsonDocument(mReply);
+        const auto jsonDoc = convertToJsonDocument(mReply);
 
         if (mReply->error() != QNetworkReply::NoError) {
             Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
@@ -483,7 +483,7 @@ void RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
             return;
         }
 
-        auto jsonDoc = convertToJsonDocument(mReply);
+        const auto jsonDoc = convertToJsonDocument(mReply);
 
         if (mReply->error() != QNetworkReply::NoError) {
             Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
