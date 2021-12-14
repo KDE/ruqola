@@ -145,6 +145,10 @@
             "name": "unity",
             "configurePreset": "unity"
         },
+	{
+            "name": "asan",
+            "configurePreset": "asan"
+        },
         {
             "name": "clazy",
             "configurePreset": "clazy",
