@@ -26,28 +26,21 @@ bool ResetOwnE2eKeyJob::start()
         return false;
     }
     addStartRestApiInfo("ResetOwnE2eKeyJob::start");
-    QNetworkReply *reply = submitPostRequest(json());
-    connect(reply, &QNetworkReply::finished, this, &ResetOwnE2eKeyJob::slotResetE2eKeyFinished);
+    submitPostRequest(json());
     return true;
 }
 
-void ResetOwnE2eKeyJob::slotResetE2eKeyFinished()
+void ResetOwnE2eKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
 {
-    auto reply = qobject_cast<QNetworkReply *>(sender());
-    if (reply) {
-        const QJsonDocument replyJson = convertToJsonDocument(reply);
-        const QJsonObject replyObject = replyJson.object();
+    const QJsonObject replyObject = replyJson.object();
 
-        if (replyObject[QStringLiteral("success")].toBool()) {
-            addLoggerInfo(QByteArrayLiteral("ResetOwnE2eKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-            Q_EMIT resetE2eKeyDone(replyObject);
-        } else {
-            emitFailedMessage(replyObject, reply);
-            addLoggerWarning(QByteArrayLiteral("ResetOwnE2eKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
-        }
-        reply->deleteLater();
+    if (replyObject[QStringLiteral("success")].toBool()) {
+        addLoggerInfo(QByteArrayLiteral("ResetOwnE2eKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
+        Q_EMIT resetE2eKeyDone(replyObject);
+    } else {
+        emitFailedMessage(replyObject);
+        addLoggerWarning(QByteArrayLiteral("ResetOwnE2eKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
-    deleteLater();
 }
 
 bool ResetOwnE2eKeyJob::requireHttpAuthentication() const

@@ -29,6 +29,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ResetOwnE2eKeyJob)
-    void slotResetE2eKeyFinished();
+    void onPostRequestResponse(const QJsonDocument &replyJson) override;
 };
 }
