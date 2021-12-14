@@ -252,9 +252,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotQuoteMessage(index);
     });
 
-    auto copyLinkAction = new QAction(i18n("Copy Link To Message"), &menu); // TODO add icon
-    connect(copyLinkAction, &QAction::triggered, this, [=]() {
-        slotCopyLink(index);
+    auto copyLinkToMessageAction = new QAction(i18n("Copy Link To Message"), &menu); // TODO add icon
+    connect(copyLinkToMessageAction, &QAction::triggered, this, [=]() {
+        slotCopyLinkToMessage(index);
     });
 
     if (mMode == Mode::Editing) {
@@ -301,7 +301,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
-        menu.addAction(copyLinkAction);
+        menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
 
@@ -335,7 +335,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(quoteAction);
         menu.addSeparator();
         menu.addAction(copyAction);
-        menu.addAction(copyLinkAction);
+        menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
         if (canMarkAsUnread) {
@@ -362,7 +362,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
-        menu.addAction(copyLinkAction);
+        menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
         menu.addSeparator();
@@ -487,7 +487,7 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
 }
 
-void MessageListView::slotCopyLink(const QModelIndex &index)
+void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
 {
     const QString messageId = index.data(MessageModel::MessageId).toString();
     const QString permalink = generatePermalink(messageId);
