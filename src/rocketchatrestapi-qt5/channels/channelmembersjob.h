@@ -8,7 +8,6 @@
 
 #include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include <QPointer>
 
 namespace RocketChatRestApi
 {
@@ -47,7 +46,6 @@ private:
     Q_DISABLE_COPY(ChannelMembersJob)
     void onGetRequestResponse(const QJsonDocument &replyJson) override;
     ChannelType mChannelType = Unknown;
-    QPointer<QNetworkReply> mReply;
 };
 }
 
