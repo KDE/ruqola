@@ -30,5 +30,6 @@ private:
     MyAccountProfileConfigureWidget *const mMyAccount2ProfileConfigureWidget;
     MyAccountPreferenceConfigureWidget *const mMyAccountPreferenceConfigureWidget;
     MyAccount2e2ConfigureWidget *const mMyAccount2e2ConfigureWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

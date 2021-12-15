@@ -21,6 +21,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     , mMyAccount2ProfileConfigureWidget(new MyAccountProfileConfigureWidget(account, this))
     , mMyAccountPreferenceConfigureWidget(new MyAccountPreferenceConfigureWidget(account, this))
     , mMyAccount2e2ConfigureWidget(new MyAccount2e2ConfigureWidget(account, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -56,18 +57,34 @@ MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
 
 void MyAccountConfigureWidget::save()
 {
-    mMyAccount2ProfileConfigureWidget->save();
-    mMyAccount2FaConfigureWidget->save();
     mMyAccountPreferenceConfigureWidget->save();
-    mMyAccount2e2ConfigureWidget->save();
+    if (mRocketChatAccount) {
+        if (mRocketChatAccount->allowProfileChange()) {
+            mMyAccount2ProfileConfigureWidget->save();
+        }
+        if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
+            mMyAccount2FaConfigureWidget->save();
+        }
+        if (mRocketChatAccount->encryptionEnabled()) {
+            mMyAccount2e2ConfigureWidget->save();
+        }
+    }
 }
 
 void MyAccountConfigureWidget::load()
 {
-    mMyAccount2ProfileConfigureWidget->load();
-    mMyAccount2FaConfigureWidget->load();
     mMyAccountPreferenceConfigureWidget->load();
-    mMyAccount2e2ConfigureWidget->load();
+    if (mRocketChatAccount) {
+        if (mRocketChatAccount->allowProfileChange()) {
+            mMyAccount2ProfileConfigureWidget->load();
+        }
+        if (mRocketChatAccount->twoFactorAuthenticationEnabled()) {
+            mMyAccount2FaConfigureWidget->load();
+        }
+        if (mRocketChatAccount->encryptionEnabled()) {
+            mMyAccount2e2ConfigureWidget->load();
+        }
+    }
 }
 
 void MyAccountConfigureWidget::initialize()
