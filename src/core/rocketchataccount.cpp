@@ -2525,6 +2525,10 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 void RocketChatAccount::updateUserData(const QJsonArray &contents)
 {
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
+    // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])
+    // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552237550}},"type":"updated","unset":{"avatarETag":1,"avatarOrigin":1}}])
+    // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552298748},"nickname":"ss"},"type":"updated","unset":{}}])
+    // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552390152}},"type":"updated","unset":{"nickname":1}}])
     // TODO
 }
 
