@@ -23,5 +23,11 @@ void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mActivate2FAViaEmailCheckbox = w.findChild<QCheckBox *>(QStringLiteral("mActivate2FAViaEmailCheckbox"));
     QVERIFY(mActivate2FAViaEmailCheckbox);
+    QVERIFY(!mActivate2FAViaEmailCheckbox->isChecked());
     QVERIFY(!mActivate2FAViaEmailCheckbox->text().isEmpty());
+
+    auto mActivate2FAViaTOTPCheckbox = w.findChild<QCheckBox *>(QStringLiteral("mActivate2FAViaTOTPCheckbox"));
+    QVERIFY(mActivate2FAViaTOTPCheckbox);
+    QVERIFY(!mActivate2FAViaTOTPCheckbox->isChecked());
+    QVERIFY(!mActivate2FAViaTOTPCheckbox->text().isEmpty());
 }

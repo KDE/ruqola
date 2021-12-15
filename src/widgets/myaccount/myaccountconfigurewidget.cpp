@@ -31,20 +31,22 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     mainLayout->addWidget(tabWidget);
 
     mMyAccount2ProfileConfigureWidget->setObjectName(QStringLiteral("mMyAccount2ProfileConfigureWidget"));
-    tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
+    const int profileIndexPage = tabWidget->addTab(mMyAccount2ProfileConfigureWidget, i18n("Profile"));
+    if (account && !account->allowProfileChange()) {
+        tabWidget->setTabVisible(profileIndexPage, false);
+    }
 
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
-    tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
-    if (account && !account->allowProfileChange()) {
-        mMyAccount2ProfileConfigureWidget->setVisible(false);
+    const int index2faPage = tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
+    if (account && !account->twoFactorAuthenticationEnabled()) {
+        tabWidget->setTabVisible(index2faPage, false);
     }
 
     mMyAccount2e2ConfigureWidget->setObjectName(QStringLiteral("mMyAccount2e2ConfigureWidget"));
-    int index = tabWidget->addTab(mMyAccount2e2ConfigureWidget, i18n("E2E Encryption"));
-    // TODO
-    // if (account && !account->allowProfileChange()) {
-    tabWidget->setTabVisible(index, false);
-    // }
+    const int index2e2Page = tabWidget->addTab(mMyAccount2e2ConfigureWidget, i18n("E2E Encryption"));
+    if (account && !account->encryptionEnabled()) {
+        tabWidget->setTabVisible(index2e2Page, false);
+    }
 
     mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
     tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));

@@ -21,6 +21,7 @@ public:
 
 private:
     QCheckBox *const mActivate2FAViaEmailCheckbox;
+    QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
 };
 

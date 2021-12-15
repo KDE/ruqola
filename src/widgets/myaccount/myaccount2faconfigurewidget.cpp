@@ -13,6 +13,7 @@
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mActivate2FAViaEmailCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via Email"), this))
+    , mActivate2FAViaTOTPCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via TOTP"), this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -20,6 +21,9 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
 
     mActivate2FAViaEmailCheckbox->setObjectName(QStringLiteral("mActivate2FAViaEmailCheckbox"));
     mainLayout->addWidget(mActivate2FAViaEmailCheckbox);
+
+    mActivate2FAViaTOTPCheckbox->setObjectName(QStringLiteral("mActivate2FAViaTOTPCheckbox"));
+    mainLayout->addWidget(mActivate2FAViaTOTPCheckbox);
 
     mainLayout->addStretch(1);
 }
