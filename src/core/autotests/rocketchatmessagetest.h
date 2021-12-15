@@ -50,6 +50,8 @@ private Q_SLOTS:
 
     void listCustomSounds();
 
+    void enable2fa();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

@@ -174,3 +174,11 @@ void RocketChatMessageTest::deleteCustomSound()
     RocketChatMessage::RocketChatMessageResult r = m.deleteCustomSound(QStringLiteral("identifier"), 43);
     compareFile(r.result, QStringLiteral("deleteCustomSound"));
 }
+
+void RocketChatMessageTest::enable2fa()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.enable2fa(43);
+    compareFile(r.result, QStringLiteral("enable2fa"));
+}

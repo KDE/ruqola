@@ -186,6 +186,7 @@ public:
     quint64 uploadCustomSound(const QByteArray &sound);
     void unsubscribe(quint64 registerId);
     quint64 listCustomSounds();
+    quint64 enable2fa();
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

@@ -71,6 +71,14 @@ void update_custom_sound(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
+    }
+    qDebug() << "enable_2fa  " << root;
+}
+
 void otr_end(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << "otr_end  " << root;
@@ -421,6 +429,12 @@ quint64 DDPClient::streamNotifyUserOtrHandshake(const QString &userFrom, const Q
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->streamNotifyUserOtrHandshake(userFrom, userTo, publicKey, m_uid);
     return method(result, otr_end, DDPClient::Persistent);
+}
+
+quint64 DDPClient::enable2fa()
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(m_uid);
+    return method(result, enable_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey)

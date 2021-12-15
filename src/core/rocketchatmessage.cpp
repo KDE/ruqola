@@ -240,6 +240,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::streamNotifyUserOt
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::enable2fa(quint64 id)
+{
+    const QJsonArray params;
+    return generateMethod(QStringLiteral("2fa:enable"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
 {
