@@ -45,6 +45,9 @@ public:
         LdapEnabled = 0x1000000,
         JitsiEnabledTeams = 0x2000000,
         JitsiEnabledChannels = 0x4000000,
+        TwoFactorAuthenticationEnabled = 0x8000000,
+        TwoFactorAuthenticationByEmailEnabled = 0x10000000,
+        TwoFactorAuthenticationByTOTPEnabled = 0x20000000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)

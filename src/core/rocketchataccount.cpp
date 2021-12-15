@@ -1793,6 +1793,21 @@ bool RocketChatAccount::encryptionEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::EncryptionEnabled;
 }
 
+bool RocketChatAccount::twoFactorAuthenticationEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnabled;
+}
+
+bool RocketChatAccount::twoFactorAuthenticationByEmailEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled;
+}
+
+bool RocketChatAccount::twoFactorAuthenticationByTOTPEnabled() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
+}
+
 bool RocketChatAccount::broadCastEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::BroadCastEnabled;

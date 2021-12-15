@@ -57,4 +57,8 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.commandsModel());
     QVERIFY(!w.allowAvatarChanged());
     QVERIFY(w.customSoundManager());
+
+    QVERIFY(!w.twoFactorAuthenticationEnabled());
+    QVERIFY(!w.twoFactorAuthenticationByEmailEnabled());
+    QVERIFY(!w.twoFactorAuthenticationByTOTPEnabled());
 }
