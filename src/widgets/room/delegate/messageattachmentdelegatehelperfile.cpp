@@ -108,7 +108,7 @@ enum class UserChoice {
 };
 Q_DECLARE_METATYPE(UserChoice)
 
-static UserChoice askUser(const QUrl &url, KService::Ptr offer, QWidget *widget)
+static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *widget)
 {
     const QString title = i18nc("@title:window", "Open Attachment?");
     const QString text = xi18nc("@info", "Open attachment <filename>%1</filename>?<nl/>", url.fileName());
