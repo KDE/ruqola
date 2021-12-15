@@ -48,7 +48,7 @@ void RoleEditWidget::setRoleEditDialogInfo(const RoleEditDialogInfo &info)
     mDescription->setText(info.mDescription);
     mTwoFactor->setChecked(info.mTwoFactor);
     mRoleScopeComboBox->setCurrentIndex(mRoleScopeComboBox->findData(info.mScope));
-    mName->setEnabled(false); // Not allow to modify name.
+    mName->setReadOnly(true); // Not allow to modify name.
     mRoleScopeComboBox->setEnabled(!info.mIsProtected);
 }
 
