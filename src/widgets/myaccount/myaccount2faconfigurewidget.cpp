@@ -32,11 +32,33 @@ MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget() = default;
 
 void MyAccount2FaConfigureWidget::load()
 {
-    mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().email2faEnabled());
+    if (mRocketChatAccount) {
+        if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
+            mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().email2faEnabled());
+        }
+        if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
+            // TODO
+        }
+    }
 }
 
 void MyAccount2FaConfigureWidget::save()
 {
-    // TODO verify it
-    mRocketChatAccount->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
+    if (mRocketChatAccount) {
+        // TODO verify it
+        if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
+            mRocketChatAccount->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
+        }
+        if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
+            // TODO
+        }
+    }
+}
+
+void MyAccount2FaConfigureWidget::initialize()
+{
+    if (mRocketChatAccount) {
+        mActivate2FAViaEmailCheckbox->setVisible(mRocketChatAccount->twoFactorAuthenticationByEmailEnabled());
+        mActivate2FAViaTOTPCheckbox->setVisible(mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled());
+    }
 }

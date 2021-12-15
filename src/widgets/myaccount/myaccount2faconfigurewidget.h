@@ -19,6 +19,8 @@ public:
     void load();
     void save();
 
+    void initialize();
+
 private:
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
