@@ -385,12 +385,13 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    drawBackground(painter, option, index);
 
     if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
         painter->fillRect(option.rect, mThreadedMessageBackgroundColor);
+    } else {
+        drawBackground(painter, option, index);
     }
 
     const Layout layout = doLayout(option, index);
