@@ -2526,6 +2526,12 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
     addMessage(roomInfo, true, true);
 }
 
+void RocketChatAccount::updateUserData(const QJsonArray &contents)
+{
+    qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
+    // TODO
+}
+
 void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestApi, bool temporaryMessage)
 {
     const QString roomId = replyObject.value(QLatin1String("rid")).toString();
