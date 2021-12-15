@@ -469,6 +469,9 @@ public:
     void privateSettingsUpdated(const QJsonArray &replyArray);
     void updateUserInRoom(const QJsonObject &roomData);
     void updateUserData(const QJsonArray &contents);
+    Q_REQUIRED_RESULT bool twoFactorAuthenticationEnabled() const;
+    Q_REQUIRED_RESULT bool twoFactorAuthenticationByEmailEnabled() const;
+    Q_REQUIRED_RESULT bool twoFactorAuthenticationByTOTPEnabled() const;
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();

@@ -166,8 +166,6 @@ void RuqolaServerConfig::addOauthService(const QString &service)
     } else {
         qCDebug(RUQOLA_LOG) << "Unknown service type: " << service;
     }
-    // Add Accounts_TwoFactorAuthentication_Enabled
-    // Add Accounts_TwoFactorAuthentication_By_Email_Enabled
 }
 
 void RuqolaServerConfig::adaptToServerVersion()
@@ -460,6 +458,18 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             }
         } else if (id == QLatin1String("Accounts_LoginExpiration")) {
             setLoginExpiration(value.toInt());
+        } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_Enabled")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationEnabled;
+            }
+        } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_By_Email_Enabled")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled;
+            }
+        } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_By_TOTP_Enabled")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
+            }
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }
