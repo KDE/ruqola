@@ -34,6 +34,7 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 
+#include <cmath>
 #include <tuple>
 
 static QSizeF dprAwareSize(const QPixmap &pixmap)
@@ -386,11 +387,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     drawBackground(painter, option, index);
 
-    const auto fullRect = option.rect.adjusted(-1, -1, -1, -1);
     if (message->isEditingMode()) {
-        painter->fillRect(fullRect, mEditColorMode);
+        painter->fillRect(option.rect, mEditColorMode);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
-        painter->fillRect(fullRect, mThreadedMessageBackgroundColor);
+        painter->fillRect(option.rect, mThreadedMessageBackgroundColor);
     }
 
     const Layout layout = doLayout(option, index);
