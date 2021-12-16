@@ -25,6 +25,7 @@ Dependencies:
     'frameworks/sonnet': '@stable' 
     'frameworks/ktextwidgets': '@stable'
     'frameworks/syntax-highlighting': '@stable'
+    'frameworks/prison' : '@stable'
 
 - 'on': ['Linux', 'FreeBSD'] 
   'require':

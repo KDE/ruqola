@@ -471,6 +471,7 @@ public:
     Q_REQUIRED_RESULT bool twoFactorAuthenticationEnabled() const;
     Q_REQUIRED_RESULT bool twoFactorAuthenticationByEmailEnabled() const;
     Q_REQUIRED_RESULT bool twoFactorAuthenticationByTOTPEnabled() const;
+    void generate2FaTotp(const QJsonObject &obj);
 Q_SIGNALS:
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
@@ -520,6 +521,7 @@ Q_SIGNALS:
 
     void insertStdOutInfo(const QString &str);
     void rolesUpdated();
+    void totpResult(const QString &secret, const QString &url);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

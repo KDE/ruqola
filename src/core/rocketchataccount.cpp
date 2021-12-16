@@ -2728,3 +2728,11 @@ void RocketChatAccount::slotAwayStatusChanged(bool away)
     }
     qCDebug(RUQOLA_LOG) << "RocketChatAccount::slotAwayStatusChanged  " << away;
 }
+
+void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
+{
+    qDebug() << "RocketChatAccount::generate2FaTotp " << obj;
+    const QString secret = obj.value(QStringLiteral("secret")).toString();
+    const QString url = obj.value(QStringLiteral("url")).toString();
+    Q_EMIT totpResult(secret, url);
+}

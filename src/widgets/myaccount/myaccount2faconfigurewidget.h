@@ -10,6 +10,11 @@
 #include <QWidget>
 class QCheckBox;
 class RocketChatAccount;
+class QLabel;
+namespace Prison
+{
+class AbstractBarcode;
+}
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -23,8 +28,11 @@ public:
 
 private:
     void slot2FAViaTOTPActivated(bool checked);
+    void slotTotpResult(const QString &secret, const QString &url);
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
+    Prison::AbstractBarcode *const mQRCode;
+    QLabel *const mTotpQrCode;
 };
 

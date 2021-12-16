@@ -76,6 +76,8 @@ void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Enable 2FA:") + QJsonDocument(root).toJson());
     }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    account->generate2FaTotp(obj);
     qDebug() << "enable_2fa  " << root;
 }
 
