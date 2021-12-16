@@ -24,11 +24,17 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
 
     mActivate2FAViaTOTPCheckbox->setObjectName(QStringLiteral("mActivate2FAViaTOTPCheckbox"));
     mainLayout->addWidget(mActivate2FAViaTOTPCheckbox);
+    connect(mActivate2FAViaTOTPCheckbox, &QCheckBox::clicked, this, &MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated);
 
     mainLayout->addStretch(1);
 }
 
 MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget() = default;
+
+void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
+{
+    // TODO
+}
 
 void MyAccount2FaConfigureWidget::load()
 {

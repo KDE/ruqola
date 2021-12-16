@@ -22,6 +22,7 @@ public:
     void initialize();
 
 private:
+    void slot2FAViaTOTPActivated(bool checked);
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
