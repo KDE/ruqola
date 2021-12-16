@@ -57,6 +57,8 @@ public:
 
     void clearSelection();
 
+    Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
+
 private:
     Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;

@@ -364,6 +364,12 @@ void MessageListDelegate::clearSelection()
     mHelperText->clearSelection();
 }
 
+QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
+{
+    const auto messageRect = doLayout(option, index).textRect;
+    return mHelperText->urlAt(index, pos - messageRect.topLeft());
+}
+
 QString MessageListDelegate::selectedText() const
 {
     return mHelperText->selectedText();

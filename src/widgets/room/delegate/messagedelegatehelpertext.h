@@ -51,6 +51,8 @@ public:
     void removeMessageCache(const QString &messageId);
     void clearTextDocumentCache();
 
+    Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;
+
 private:
     friend class TextSelection; // for documentForIndex
     Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, bool connectToUpdates) const;

@@ -149,6 +149,16 @@ void MessageDelegateHelperText::clearSelection()
     mSelection.clear();
 }
 
+QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const
+{
+    auto document = documentForIndex(index);
+    if (!document) {
+        return {};
+    }
+
+    return document->documentLayout()->anchorAt(relativePos);
+}
+
 void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();

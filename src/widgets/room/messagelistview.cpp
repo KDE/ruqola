@@ -257,6 +257,20 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotCopyLinkToMessage(index);
     });
 
+    auto copyUrlAction = [&]() -> QAction * {
+        auto options = viewOptions();
+        options.rect = visualRect(index);
+        options.index = index;
+        const auto url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
+        if (url.isEmpty())
+            return nullptr;
+        auto action = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy URL"), &menu);
+        connect(action, &QAction::triggered, this, [url]() {
+            QGuiApplication::clipboard()->setText(url);
+        });
+        return action;
+    }();
+
     if (mMode == Mode::Editing) {
         // ## Ideally we'd want to show this when the mouse is over the nickname
         if (mRoom->channelType() != Room::RoomType::Direct) {
@@ -301,6 +315,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
+        if (copyUrlAction) {
+            menu.addAction(copyUrlAction);
+        }
         menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
@@ -335,6 +352,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(quoteAction);
         menu.addSeparator();
         menu.addAction(copyAction);
+        if (copyUrlAction) {
+            menu.addAction(copyUrlAction);
+        }
         menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
@@ -362,6 +382,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
         }
         menu.addAction(copyAction);
+        if (copyUrlAction) {
+            menu.addAction(copyUrlAction);
+        }
         menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
