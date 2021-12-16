@@ -7,6 +7,7 @@
 #include "myaccount2faconfigurewidgettest.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include <QCheckBox>
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
@@ -30,4 +31,8 @@ void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mActivate2FAViaTOTPCheckbox);
     QVERIFY(!mActivate2FAViaTOTPCheckbox->isChecked());
     QVERIFY(!mActivate2FAViaTOTPCheckbox->text().isEmpty());
+
+    auto mTotpQrCode = w.findChild<QLabel *>(QStringLiteral("mTotpQrCode"));
+    QVERIFY(mTotpQrCode);
+    QVERIFY(mTotpQrCode->text().isEmpty());
 }
