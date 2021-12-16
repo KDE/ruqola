@@ -71,6 +71,29 @@ void update_custom_sound(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void validateTempToken_2fa(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    if (obj.isEmpty()) {
+        Q_EMIT account->totpInvalid();
+    } else {
+        account->totpVerify(obj);
+    }
+}
+
+void disable_2fa(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Disable 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    // TODO
+    qDebug() << " disable_2fa " << obj;
+}
+
 void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -78,7 +101,6 @@ void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
     }
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     account->generate2FaTotp(obj);
-    qDebug() << "enable_2fa  " << root;
 }
 
 void otr_end(const QJsonObject &root, RocketChatAccount *account)
@@ -437,6 +459,18 @@ quint64 DDPClient::enable2fa()
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->enable2fa(m_uid);
     return method(result, enable_2fa, DDPClient::Persistent);
+}
+
+quint64 DDPClient::disable2fa()
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(m_uid);
+    return method(result, disable_2fa, DDPClient::Persistent);
+}
+
+quint64 DDPClient::validateTempToken2fa(const QString &code)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->validateTempToken2fa(code, m_uid);
+    return method(result, validateTempToken_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::streamNotifyUserOtrAcknowledge(const QString &roomId, const QString &userId, const QString &publicKey)

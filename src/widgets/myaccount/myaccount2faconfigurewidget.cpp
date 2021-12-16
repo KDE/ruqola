@@ -6,22 +6,19 @@
 
 #include "myaccount2faconfigurewidget.h"
 #include "ddpapi/ddpclient.h"
+#include "myaccount2fatotpwidget.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QCheckBox>
-#include <QGuiApplication>
 #include <QLabel>
-#include <QScreen>
 #include <QVBoxLayout>
-#include <prison/Prison>
 
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mActivate2FAViaEmailCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via Email"), this))
     , mActivate2FAViaTOTPCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via TOTP"), this))
     , mRocketChatAccount(account)
-    , mQRCode(Prison::createBarcode(Prison::QRCode))
-    , mTotpQrCode(new QLabel(this))
+    , mMyAccount2FaTotpWidget(new MyAccount2FaTotpWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -33,19 +30,15 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     mainLayout->addWidget(mActivate2FAViaTOTPCheckbox);
     connect(mActivate2FAViaTOTPCheckbox, &QCheckBox::clicked, this, &MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated);
 
-    mTotpQrCode->setObjectName(QStringLiteral("mTotpQrCode"));
-    mainLayout->addWidget(mTotpQrCode);
-    mTotpQrCode->setVisible(false);
+    mMyAccount2FaTotpWidget->setObjectName(QStringLiteral("mMyAccount2FaTotpWidget"));
+    mainLayout->addWidget(mMyAccount2FaTotpWidget);
+    mMyAccount2FaTotpWidget->setVisible(false);
 
     mainLayout->addStretch(1);
-    if (mRocketChatAccount) {
-        connect(mRocketChatAccount, &RocketChatAccount::totpResult, this, &MyAccount2FaConfigureWidget::slotTotpResult);
-    }
 }
 
 MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 {
-    delete mQRCode;
 }
 
 void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
@@ -53,13 +46,6 @@ void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
     if (checked) {
         mRocketChatAccount->ddp()->enable2fa();
     }
-}
-
-void MyAccount2FaConfigureWidget::slotTotpResult(const QString &secret, const QString &url)
-{
-    mQRCode->setData(url);
-    mTotpQrCode->setVisible(true);
-    mTotpQrCode->setPixmap(QPixmap::fromImage(mQRCode->toImage(mQRCode->preferredSize(QGuiApplication::primaryScreen()->devicePixelRatio()).toSize())));
 }
 
 void MyAccount2FaConfigureWidget::load()

@@ -246,6 +246,18 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::enable2fa(quint64 
     return generateMethod(QStringLiteral("2fa:enable"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::disable2fa(quint64 id)
+{
+    const QJsonArray params;
+    return generateMethod(QStringLiteral("2fa:disable"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::validateTempToken2fa(const QString &code, quint64 id)
+{
+    const QJsonArray params{code};
+    return generateMethod(QStringLiteral("2fa:validateTempToken"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::streamNotifyUserOtrHandshake(const QString &userFrom, const QString &userTo, const QString &publicKeys, quint64 id)
 {

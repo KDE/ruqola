@@ -187,6 +187,8 @@ public:
     void unsubscribe(quint64 registerId);
     quint64 listCustomSounds();
     quint64 enable2fa();
+    quint64 disable2fa();
+    quint64 validateTempToken2fa(const QString &code);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

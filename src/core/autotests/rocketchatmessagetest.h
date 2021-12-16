@@ -41,16 +41,15 @@ private Q_SLOTS:
     void deleteFileMessage();
 
     void streamNotifyUserOtrEnd();
-
     void streamNotifyUserOtrHandshake();
-
     void streamNotifyUserOtrAcknowledge();
 
     void deleteCustomSound();
-
     void listCustomSounds();
 
     void enable2fa();
+    void disable2fa();
+    void validateTempToken2fa();
 
 private:
     void compareFile(const QString &data, const QString &name);

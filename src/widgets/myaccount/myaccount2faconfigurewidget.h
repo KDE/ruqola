@@ -10,11 +10,7 @@
 #include <QWidget>
 class QCheckBox;
 class RocketChatAccount;
-class QLabel;
-namespace Prison
-{
-class AbstractBarcode;
-}
+class MyAccount2FaTotpWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -32,7 +28,6 @@ private:
     QCheckBox *const mActivate2FAViaEmailCheckbox;
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
-    Prison::AbstractBarcode *const mQRCode;
-    QLabel *const mTotpQrCode;
+    MyAccount2FaTotpWidget *const mMyAccount2FaTotpWidget;
 };
 

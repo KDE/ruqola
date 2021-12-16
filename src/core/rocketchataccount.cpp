@@ -2736,3 +2736,16 @@ void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
     const QString url = obj.value(QStringLiteral("url")).toString();
     Q_EMIT totpResult(secret, url);
 }
+
+void RocketChatAccount::totpVerify(const QJsonObject &obj)
+{
+    qDebug() << "totpValid " << obj;
+    QStringList lstCodes;
+    const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
+    const int nbCodes{codes.count()};
+    lstCodes.reserve(nbCodes);
+    for (int i = 0; i < nbCodes; ++i) {
+        lstCodes.append(codes.at(i).toString());
+    }
+    Q_EMIT totpValid(lstCodes);
+}

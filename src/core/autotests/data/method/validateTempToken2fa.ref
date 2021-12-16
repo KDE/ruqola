@@ -1,0 +1,8 @@
+{
+    "id": "43",
+    "method": "2fa:validateTempToken",
+    "msg": "method",
+    "params": [
+        "bla"
+    ]
+}

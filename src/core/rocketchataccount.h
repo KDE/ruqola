@@ -472,7 +472,10 @@ public:
     Q_REQUIRED_RESULT bool twoFactorAuthenticationByEmailEnabled() const;
     Q_REQUIRED_RESULT bool twoFactorAuthenticationByTOTPEnabled() const;
     void generate2FaTotp(const QJsonObject &obj);
+    void totpVerify(const QJsonObject &obj);
 Q_SIGNALS:
+    void totpInvalid();
+    void totpValid(const QStringList &code);
     void avatarWasChanged(const Utils::AvatarInfo &info);
     void accountInitialized();
     void connectedChanged();
