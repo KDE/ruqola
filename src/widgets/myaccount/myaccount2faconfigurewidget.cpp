@@ -57,7 +57,7 @@ void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
 
 void MyAccount2FaConfigureWidget::slotTotpResult(const QString &secret, const QString &url)
 {
-    mQRCode->setData(secret);
+    mQRCode->setData(url);
     mTotpQrCode->setVisible(true);
     mTotpQrCode->setPixmap(QPixmap::fromImage(mQRCode->toImage(mQRCode->preferredSize(QGuiApplication::primaryScreen()->devicePixelRatio()).toSize())));
 }
