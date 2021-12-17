@@ -8,10 +8,14 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaDisableTotpWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MyAccount2FaDisableTotpWidget(QWidget *parent = nullptr);
+    explicit MyAccount2FaDisableTotpWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2FaDisableTotpWidget() override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };

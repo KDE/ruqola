@@ -5,11 +5,14 @@
 */
 
 #include "myaccount2fadisabletotpwidget.h"
+#include "ddpapi/ddpclient.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(QWidget *parent)
+MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
