@@ -65,8 +65,10 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult enable2fa(quint64 id);
 
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult disable2fa(quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult disable2fa(const QString &code, quint64 id);
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult validateTempToken2fa(const QString &code, quint64 id);
+
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult regenerateCodes2fa(const QString &code, quint64 id);
 
 private:
     Q_DISABLE_COPY(RocketChatMessage)

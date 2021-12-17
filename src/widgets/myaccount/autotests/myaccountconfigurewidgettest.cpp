@@ -9,6 +9,7 @@
 #include "myaccount/myaccountconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
+#include <QStackedWidget>
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -38,4 +39,7 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
     QVERIFY(mMyAccountPreferenceConfigureWidget);
+
+    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    QVERIFY(mStackedWidget);
 }

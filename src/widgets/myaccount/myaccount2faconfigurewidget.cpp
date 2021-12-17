@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QLabel>
+#include <QStackedWidget>
 #include <QVBoxLayout>
 
 MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent)
@@ -19,6 +20,7 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     , mActivate2FAViaTOTPCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via TOTP"), this))
     , mRocketChatAccount(account)
     , mMyAccount2FaTotpWidget(new MyAccount2FaTotpWidget(account, this))
+    , mStackedWidget(new QStackedWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -29,6 +31,9 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     mActivate2FAViaTOTPCheckbox->setObjectName(QStringLiteral("mActivate2FAViaTOTPCheckbox"));
     mainLayout->addWidget(mActivate2FAViaTOTPCheckbox);
     connect(mActivate2FAViaTOTPCheckbox, &QCheckBox::clicked, this, &MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated);
+
+    mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
+    mainLayout->addWidget(mStackedWidget);
 
     mMyAccount2FaTotpWidget->setObjectName(QStringLiteral("mMyAccount2FaTotpWidget"));
     mainLayout->addWidget(mMyAccount2FaTotpWidget);

@@ -246,10 +246,16 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::enable2fa(quint64 
     return generateMethod(QStringLiteral("2fa:enable"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::disable2fa(quint64 id)
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::disable2fa(const QString &code, quint64 id)
 {
-    const QJsonArray params;
+    const QJsonArray params{code};
     return generateMethod(QStringLiteral("2fa:disable"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::regenerateCodes2fa(const QString &code, quint64 id)
+{
+    const QJsonArray params{code};
+    return generateMethod(QStringLiteral("2fa:regenerateCodes"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::validateTempToken2fa(const QString &code, quint64 id)

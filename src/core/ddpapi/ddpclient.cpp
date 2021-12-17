@@ -94,6 +94,16 @@ void disable_2fa(const QJsonObject &root, RocketChatAccount *account)
     qDebug() << " disable_2fa " << obj;
 }
 
+void regenerateCodes_2fa(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Regenerate Codes 2FA:") + QJsonDocument(root).toJson());
+    }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    // TODO
+    qDebug() << " regenerateCodes_2fa " << obj;
+}
+
 void enable_2fa(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -461,10 +471,16 @@ quint64 DDPClient::enable2fa()
     return method(result, enable_2fa, DDPClient::Persistent);
 }
 
-quint64 DDPClient::disable2fa()
+quint64 DDPClient::disable2fa(const QString &code)
 {
-    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(m_uid);
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->disable2fa(code, m_uid);
     return method(result, disable_2fa, DDPClient::Persistent);
+}
+
+quint64 DDPClient::regenerateCodes2fa(const QString &code)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->regenerateCodes2fa(code, m_uid);
+    return method(result, regenerateCodes_2fa, DDPClient::Persistent);
 }
 
 quint64 DDPClient::validateTempToken2fa(const QString &code)

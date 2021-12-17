@@ -9,6 +9,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class RocketChatAccount;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaDisableTotpWidget : public QWidget
 {
     Q_OBJECT
@@ -17,5 +18,8 @@ public:
     ~MyAccount2FaDisableTotpWidget() override;
 
 private:
+    void slotVerify();
+    void slotRegenerateCode();
     RocketChatAccount *const mRocketChatAccount;
+    QLineEdit *const mDisableCodeLineEdit;
 };

@@ -50,6 +50,7 @@ private Q_SLOTS:
     void enable2fa();
     void disable2fa();
     void validateTempToken2fa();
+    void regenerateCodes2fa();
 
 private:
     void compareFile(const QString &data, const QString &name);

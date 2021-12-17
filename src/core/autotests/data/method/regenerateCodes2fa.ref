@@ -1,6 +1,6 @@
 {
     "id": "43",
-    "method": "2fa:disable",
+    "method": "2fa:regenerateCodes",
     "msg": "method",
     "params": [
         "bla"

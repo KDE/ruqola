@@ -11,6 +11,7 @@
 class QCheckBox;
 class RocketChatAccount;
 class MyAccount2FaTotpWidget;
+class QStackedWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -29,5 +30,6 @@ private:
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
     MyAccount2FaTotpWidget *const mMyAccount2FaTotpWidget;
+    QStackedWidget *const mStackedWidget;
 };
 
