@@ -55,7 +55,7 @@ void MyAccount2FaConfigureWidget::load()
             mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().email2faEnabled());
         }
         if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
-            mActivate2FAViaEmailCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().totp());
+            mActivate2FAViaTOTPCheckbox->setChecked(mRocketChatAccount->ownUser().servicePassword().totp());
         }
     }
 }
