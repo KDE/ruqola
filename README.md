@@ -29,6 +29,8 @@ It supports RC feature:
 - Show unread message information
 - Allow to block/unblock users
 - Auto-away
+- Two-factor authentication via TOTP
+- Two-factor authentication via email
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
