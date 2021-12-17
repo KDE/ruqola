@@ -7,6 +7,7 @@
 #pragma once
 
 #include "librestapi_private_export.h"
+#include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QObject>
 #include <QPointer>
@@ -139,6 +140,8 @@ protected Q_SLOTS:
     }
 
 private:
+    void genericResponseHandler(void (RestApiAbstractJob::*func)(const QJsonDocument &replyJson));
+
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;

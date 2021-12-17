@@ -418,6 +418,31 @@ QString RestApiAbstractJob::jobName() const
     return {};
 }
 
+void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*responseHandler)(const QJsonDocument &))
+{
+    if (!mReply) {
+        deleteLater();
+        return;
+    }
+
+    if (mReply->error() != QNetworkReply::NoError) {
+        if (mReply->error() == QNetworkReply::NetworkSessionFailedError) {
+            // Ignore NetworkSessionFailedError. It will be handled in Connection class.
+            // no deleting, we will be trying to destroy everything and relogin
+            // reply will be invalid at this point, deleting it will crash us
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "NetworkSessionFailedError. Lost connection? ";
+            return;
+        }
+        auto json = QJsonDocument::fromJson(mReply->readAll()).object();
+        Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(json));
+    } else {
+        (this->*responseHandler)(convertToJsonDocument(mReply));
+    }
+
+    mReply->deleteLater();
+    deleteLater();
+}
+
 void RestApiAbstractJob::submitDeleteRequest()
 {
     mReply = mNetworkAccessManager->deleteResource(request());
@@ -425,21 +450,7 @@ void RestApiAbstractJob::submitDeleteRequest()
     mReply->setProperty("jobClassName", className);
 
     connect(mReply.data(), &QNetworkReply::finished, this, [this] {
-        if (!mReply) {
-            deleteLater();
-            return;
-        }
-
-        const auto jsonDoc = convertToJsonDocument(mReply);
-
-        if (mReply->error() != QNetworkReply::NoError) {
-            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
-        } else {
-            onDeleteRequestResponse(jsonDoc);
-        }
-
-        mReply->deleteLater();
-        deleteLater();
+        genericResponseHandler(&RestApiAbstractJob::onDeleteRequestResponse);
     });
 }
 
@@ -450,21 +461,7 @@ void RestApiAbstractJob::submitGetRequest()
     mReply->setProperty("jobClassName", className);
 
     connect(mReply.data(), &QNetworkReply::finished, this, [this] {
-        if (!mReply) {
-            deleteLater();
-            return;
-        }
-
-        const auto jsonDoc = convertToJsonDocument(mReply);
-
-        if (mReply->error() != QNetworkReply::NoError) {
-            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
-        } else {
-            onGetRequestResponse(jsonDoc);
-        }
-
-        mReply->deleteLater();
-        deleteLater();
+        genericResponseHandler(&RestApiAbstractJob::onGetRequestResponse);
     });
 }
 
@@ -478,21 +475,7 @@ void RestApiAbstractJob::submitPostRequest(const QJsonDocument &doc)
     addLoggerInfo(className + " started " + baPostData);
 
     connect(mReply.data(), &QNetworkReply::finished, this, [this] {
-        if (!mReply) {
-            deleteLater();
-            return;
-        }
-
-        const auto jsonDoc = convertToJsonDocument(mReply);
-
-        if (mReply->error() != QNetworkReply::NoError) {
-            Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(jsonDoc.object()));
-        } else {
-            onPostRequestResponse(jsonDoc);
-        }
-
-        mReply->deleteLater();
-        deleteLater();
+        genericResponseHandler(&RestApiAbstractJob::onPostRequestResponse);
     });
 }
 

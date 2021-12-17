@@ -64,6 +64,10 @@ QModelIndex RoomListHeadingsProxyModel::index(int row, int column, const QModelI
     if (sourceRow == -1) {
         return createIndex(row, column);
     }
+    if (sourceRow == -2) {
+        // we crash on Logout->Login otherwise
+        return {};
+    }
 
     const QModelIndex sourceParent = mapToSource(parent);
     const QModelIndex sourceIndex = sourceModel()->index(sourceRow, column, sourceParent);
@@ -206,7 +210,7 @@ int RoomListHeadingsProxyModel::proxyRowToSourceRow(int proxyRow) const
     }
     qCWarning(RUQOLA_ROOMS_LOG) << proxyRow << "out of bounds? rowCount=" << rowCount();
     dumpCache();
-    return -1;
+    return -2;
 }
 
 void RoomListHeadingsProxyModel::dumpCache() const

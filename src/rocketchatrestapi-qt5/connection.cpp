@@ -140,8 +140,11 @@
 #include <QNetworkCookie>
 #include <QNetworkCookieJar>
 #include <QNetworkReply>
+#include <QTimer>
 
+using namespace std::chrono_literals;
 using namespace RocketChatRestApi;
+
 Connection::Connection(QObject *parent)
     : QObject(parent)
 {
@@ -224,6 +227,13 @@ void Connection::slotResult(QNetworkReply *reply)
     if (error != QNetworkReply::NoError) {
         const QByteArray jobClassName = reply->property("jobClassName").value<QByteArray>();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << jobClassName << "error reply: " << reply->errorString();
+
+        if (error == QNetworkReply::NetworkSessionFailedError && !mSessionFailed) {
+            mSessionFailed = true;
+            QTimer::singleShot(1ms, this, [this] {
+                Q_EMIT networkSessionFailedError();
+            });
+        }
     }
 }
 
@@ -290,6 +300,7 @@ void Connection::slotLogout()
 void Connection::initializeRestApiJob(RocketChatRestApi::RestApiAbstractJob *job)
 {
     connect(job, &RocketChatRestApi::RestApiAbstractJob::failed, this, &Connection::failed);
+
     job->setNetworkAccessManager(mNetworkAccessManager);
     job->setRestApiLogger(mRuqolaLogger);
     job->setRestApiMethod(mRestApiMethod);

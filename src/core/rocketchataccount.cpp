@@ -541,6 +541,11 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::uploadProgress, this, &RocketChatAccount::slotUploadProgress);
+        connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
+            logOut();
+            slotReconnectToServer();
+        });
+
         mRestApi->setServerUrl(mSettings->serverUrl());
         mRestApi->setRestApiLogger(mRuqolaLogger);
         mCache->setRestApiConnection(mRestApi);

@@ -124,6 +124,10 @@ void UploadFileJob::slotUploadFinished()
             addLoggerInfo(QByteArrayLiteral("UploadFileJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
             if (reply->error() != QNetworkReply::NoError) {
+                if (mReply->error() == QNetworkReply::NetworkSessionFailedError) {
+                    qCWarning(ROCKETCHATQTRESTAPI_LOG) << metaObject()->className() << "NetworkSessionFailedError. Connection loss?";
+                    return;
+                }
                 Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
             } else {
                 emitFailedMessage(replyObject);
