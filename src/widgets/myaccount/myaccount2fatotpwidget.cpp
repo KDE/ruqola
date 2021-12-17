@@ -9,6 +9,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QGuiApplication>
 #include <QLabel>
 #include <QLineEdit>
@@ -62,12 +63,28 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     });
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::totpResult, this, &MyAccount2FaTotpWidget::slotTotpResult);
+        connect(mRocketChatAccount, &RocketChatAccount::totpInvalid, this, &MyAccount2FaTotpWidget::slotTotpInvalid);
+        connect(mRocketChatAccount, &RocketChatAccount::totpValid, this, &MyAccount2FaTotpWidget::slotTotpValid);
     }
 }
 
 MyAccount2FaTotpWidget::~MyAccount2FaTotpWidget()
 {
     delete mQRCode;
+}
+
+void MyAccount2FaTotpWidget::slotTotpValid(const QStringList &listCodes)
+{
+    KMessageBox::information(
+        this,
+        i18n("Make sure you have a copy of your codes:\n%1\nIf you lose access to your authenticator app, you can use one of these codes to log in.",
+             listCodes.join(QLatin1Char('\n'))),
+        i18n("Backup Codes"));
+}
+
+void MyAccount2FaTotpWidget::slotTotpInvalid()
+{
+    KMessageBox::error(this, i18n("Invalid two factor code."), i18n("Check Two Factor Code"));
 }
 
 void MyAccount2FaTotpWidget::slotVerify()

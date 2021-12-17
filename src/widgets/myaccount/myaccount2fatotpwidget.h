@@ -24,6 +24,8 @@ public:
 private:
     void slotTotpResult(const QString &secret, const QString &url);
     void slotVerify();
+    void slotTotpInvalid();
+    void slotTotpValid(const QStringList &listCodes);
     Prison::AbstractBarcode *const mQRCode;
     QLabel *const mTotpQrCode;
     QLabel *const mQrCoreLabel;
