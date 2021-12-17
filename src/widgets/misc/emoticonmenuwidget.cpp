@@ -78,7 +78,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         mEmoticonFilterProxyModel->setFilterFixedString(text);
     });
     connect(mSearchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
-        const QString identifier = index.data().toString();
+        const QString identifier = index.data(EmoticonModel::Identifier).toString();
         slotInsertEmoticons(identifier);
     });
 
