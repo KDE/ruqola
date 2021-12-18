@@ -77,11 +77,7 @@ void validateTempToken_2fa(const QJsonObject &root, RocketChatAccount *account)
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Validate Temp Token 2FA:") + QJsonDocument(root).toJson());
     }
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    if (obj.isEmpty()) {
-        Q_EMIT account->totpInvalid();
-    } else {
-        account->totpVerify(obj);
-    }
+    account->totpVerify(obj);
 }
 
 void disable_2fa(const QJsonObject &root, RocketChatAccount *account)

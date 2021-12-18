@@ -2739,13 +2739,17 @@ void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
 
 void RocketChatAccount::totpVerify(const QJsonObject &obj)
 {
-    // qDebug() << "totpValid " << obj;
-    QStringList lstCodes;
-    const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
-    const int nbCodes{codes.count()};
-    lstCodes.reserve(nbCodes);
-    for (int i = 0; i < nbCodes; ++i) {
-        lstCodes.append(codes.at(i).toString());
+    if (obj.isEmpty()) {
+        Q_EMIT totpInvalid();
+    } else {
+        // qDebug() << "totpValid " << obj;
+        QStringList lstCodes;
+        const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
+        const int nbCodes{codes.count()};
+        lstCodes.reserve(nbCodes);
+        for (int i = 0; i < nbCodes; ++i) {
+            lstCodes.append(codes.at(i).toString());
+        }
+        Q_EMIT totpValid(lstCodes);
     }
-    Q_EMIT totpValid(lstCodes);
 }
