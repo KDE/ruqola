@@ -34,6 +34,7 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
+    // Add widget here.
 
     mMyAccount2FaTotpWidget->setObjectName(QStringLiteral("mMyAccount2FaTotpWidget"));
     mainLayout->addWidget(mMyAccount2FaTotpWidget);
@@ -68,10 +69,10 @@ void MyAccount2FaConfigureWidget::load()
 void MyAccount2FaConfigureWidget::save()
 {
     if (mRocketChatAccount) {
-        // TODO verify it
         if (mRocketChatAccount->twoFactorAuthenticationByEmailEnabled()) {
             mRocketChatAccount->enable2FaEmailJob(mActivate2FAViaEmailCheckbox->isChecked());
         }
+        // Not necessary
         if (mRocketChatAccount->twoFactorAuthenticationByTOTPEnabled()) {
             // TODO
         }
