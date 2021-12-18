@@ -2731,7 +2731,7 @@ void RocketChatAccount::slotAwayStatusChanged(bool away)
 
 void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
 {
-    qDebug() << "RocketChatAccount::generate2FaTotp " << obj;
+    // qDebug() << "RocketChatAccount::generate2FaTotp " << obj;
     const QString secret = obj.value(QStringLiteral("secret")).toString();
     const QString url = obj.value(QStringLiteral("url")).toString();
     Q_EMIT totpResult(secret, url);
@@ -2739,7 +2739,7 @@ void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
 
 void RocketChatAccount::totpVerify(const QJsonObject &obj)
 {
-    qDebug() << "totpValid " << obj;
+    // qDebug() << "totpValid " << obj;
     QStringList lstCodes;
     const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
     const int nbCodes{codes.count()};
