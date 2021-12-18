@@ -6,6 +6,7 @@
 
 #include "myaccount2faconfigurewidget.h"
 #include "ddpapi/ddpclient.h"
+#include "myaccount2fadisabletotpwidget.h"
 #include "myaccount2fatotpwidget.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -20,6 +21,8 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
     , mActivate2FAViaTOTPCheckbox(new QCheckBox(i18n("Activate Two Authentication Factor via TOTP"), this))
     , mRocketChatAccount(account)
     , mMyAccount2FaTotpWidget(new MyAccount2FaTotpWidget(account, this))
+    , mMyAccountDisable2FaTotpWidget(new MyAccount2FaDisableTotpWidget(account, this))
+    , mMyAccount2FaEmpty(new QWidget(this))
     , mStackedWidget(new QStackedWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -34,11 +37,19 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
-    // Add widget here.
 
+    mMyAccountDisable2FaTotpWidget->setObjectName(QStringLiteral("mMyAccountDisable2FaTotpWidget"));
     mMyAccount2FaTotpWidget->setObjectName(QStringLiteral("mMyAccount2FaTotpWidget"));
-    mainLayout->addWidget(mMyAccount2FaTotpWidget);
-    mMyAccount2FaTotpWidget->setVisible(false);
+    mMyAccount2FaEmpty->setObjectName(QStringLiteral("mMyAccount2FaEmpty"));
+
+    connect(mMyAccount2FaTotpWidget, &MyAccount2FaTotpWidget::show2FaEnabledWidget, this, [this]() {
+        mStackedWidget->setCurrentIndex(Enable2FaPage);
+    });
+
+    mStackedWidget->insertWidget(EmptyPage, mMyAccount2FaEmpty);
+    mStackedWidget->insertWidget(Enable2FaPage, mMyAccount2FaTotpWidget);
+    mStackedWidget->insertWidget(Disable2FaPage, mMyAccountDisable2FaTotpWidget);
+    mStackedWidget->setCurrentIndex(EmptyPage);
 
     mainLayout->addStretch(1);
 }
@@ -51,6 +62,8 @@ void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
 {
     if (checked) {
         mRocketChatAccount->ddp()->enable2fa();
+    } else {
+        mStackedWidget->setCurrentIndex(Disable2FaPage);
     }
 }
 

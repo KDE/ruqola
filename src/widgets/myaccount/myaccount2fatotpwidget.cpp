@@ -95,8 +95,8 @@ void MyAccount2FaTotpWidget::slotVerify()
 
 void MyAccount2FaTotpWidget::slotTotpResult(const QString &secret, const QString &url)
 {
-    setVisible(true);
     mQrCoreLabel->setText(secret);
     mQRCode->setData(url);
     mTotpQrCode->setPixmap(QPixmap::fromImage(mQRCode->toImage(mQRCode->preferredSize(QGuiApplication::primaryScreen()->devicePixelRatio()).toSize())));
+    Q_EMIT show2FaEnabledWidget();
 }

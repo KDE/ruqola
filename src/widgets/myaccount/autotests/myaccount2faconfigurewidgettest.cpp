@@ -6,8 +6,11 @@
 
 #include "myaccount2faconfigurewidgettest.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
+#include "myaccount/myaccount2fadisabletotpwidget.h"
+#include "myaccount/myaccount2fatotpwidget.h"
 #include <QCheckBox>
 #include <QLabel>
+#include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccount2FaConfigureWidgetTest)
@@ -35,4 +38,16 @@ void MyAccount2FaConfigureWidgetTest::shouldHaveDefaultValues()
     auto mTotpQrCode = w.findChild<QLabel *>(QStringLiteral("mTotpQrCode"));
     QVERIFY(mTotpQrCode);
     QVERIFY(mTotpQrCode->text().isEmpty());
+
+    auto mMyAccount2FaTotpWidget = w.findChild<MyAccount2FaTotpWidget *>(QStringLiteral("mMyAccount2FaTotpWidget"));
+    QVERIFY(mMyAccount2FaTotpWidget);
+
+    auto mMyAccountDisable2FaTotpWidget = w.findChild<MyAccount2FaDisableTotpWidget *>(QStringLiteral("mMyAccountDisable2FaTotpWidget"));
+    QVERIFY(mMyAccountDisable2FaTotpWidget);
+
+    auto mMyAccount2FaEmpty = w.findChild<QWidget *>(QStringLiteral("mMyAccount2FaEmpty"));
+    QVERIFY(mMyAccount2FaEmpty);
+
+    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
+    QVERIFY(mStackedWidget);
 }

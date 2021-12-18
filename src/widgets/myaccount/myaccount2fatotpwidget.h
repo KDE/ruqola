@@ -21,6 +21,9 @@ public:
     explicit MyAccount2FaTotpWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2FaTotpWidget() override;
 
+Q_SIGNALS:
+    void show2FaEnabledWidget();
+
 private:
     void slotTotpResult(const QString &secret, const QString &url);
     void slotVerify();

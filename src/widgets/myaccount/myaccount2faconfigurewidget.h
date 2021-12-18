@@ -11,11 +11,17 @@
 class QCheckBox;
 class RocketChatAccount;
 class MyAccount2FaTotpWidget;
+class MyAccount2FaDisableTotpWidget;
 class QStackedWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccount2FaConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum PageType {
+        EmptyPage = 0,
+        Enable2FaPage,
+        Disable2FaPage,
+    };
     explicit MyAccount2FaConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2FaConfigureWidget() override;
     void load();
@@ -30,6 +36,8 @@ private:
     QCheckBox *const mActivate2FAViaTOTPCheckbox;
     RocketChatAccount *const mRocketChatAccount;
     MyAccount2FaTotpWidget *const mMyAccount2FaTotpWidget;
+    MyAccount2FaDisableTotpWidget *const mMyAccountDisable2FaTotpWidget;
+    QWidget *const mMyAccount2FaEmpty;
     QStackedWidget *const mStackedWidget;
 };
 
