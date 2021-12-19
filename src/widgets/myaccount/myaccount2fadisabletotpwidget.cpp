@@ -50,6 +50,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     regenerateCode->setObjectName(QStringLiteral("regenerateCode"));
     mainLayout->addWidget(regenerateCode);
     connect(regenerateCode, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotRegenerateCode);
+    mainLayout->addStretch(1);
 }
 
 MyAccount2FaDisableTotpWidget::~MyAccount2FaDisableTotpWidget()

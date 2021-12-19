@@ -66,6 +66,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
         connect(mRocketChatAccount, &RocketChatAccount::totpInvalid, this, &MyAccount2FaTotpWidget::slotTotpInvalid);
         connect(mRocketChatAccount, &RocketChatAccount::totpValid, this, &MyAccount2FaTotpWidget::slotTotpValid);
     }
+    mainLayout->addStretch(1);
 }
 
 MyAccount2FaTotpWidget::~MyAccount2FaTotpWidget()
