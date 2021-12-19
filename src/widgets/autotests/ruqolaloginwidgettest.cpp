@@ -44,9 +44,9 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     auto mPasswordLineEditWidget = w.findChild<PasswordLineEditWidget *>(QStringLiteral("mPasswordLineEditWidget"));
     QVERIFY(mPasswordLineEditWidget);
 
-    auto mLdapCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mLdapCheckBox"));
-    QVERIFY(mLdapCheckBox);
-    QVERIFY(!mLdapCheckBox->isChecked());
+    //    auto mLdapCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mLdapCheckBox"));
+    //    QVERIFY(mLdapCheckBox);
+    //    QVERIFY(!mLdapCheckBox->isChecked());
 
     auto mLoginButton = w.findChild<QPushButton *>(QStringLiteral("mLoginButton"));
     QVERIFY(mLoginButton);

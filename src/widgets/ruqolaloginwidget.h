@@ -39,7 +39,7 @@ private:
     QLineEdit *const mServerName;
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
-    QCheckBox *const mLdapCheckBox;
+    // QCheckBox *const mLdapCheckBox;
     QPushButton *const mLoginButton;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     QLabel *const mFailedError;
