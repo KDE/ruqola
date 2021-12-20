@@ -473,7 +473,9 @@ public:
     Q_REQUIRED_RESULT bool twoFactorAuthenticationByTOTPEnabled() const;
     void generate2FaTotp(const QJsonObject &obj);
     void totpVerify(const QJsonObject &obj);
+    void totpDisabledVerify(const QJsonObject &root);
 Q_SIGNALS:
+    void disabledTotpValid(bool checked);
     void totpInvalid();
     void totpValid(const QStringList &code);
     void avatarWasChanged(const Utils::AvatarInfo &info);

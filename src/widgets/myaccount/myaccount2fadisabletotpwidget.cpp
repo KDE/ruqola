@@ -9,6 +9,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -51,10 +52,22 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     mainLayout->addWidget(regenerateCode);
     connect(regenerateCode, &QPushButton::clicked, this, &MyAccount2FaDisableTotpWidget::slotRegenerateCode);
     mainLayout->addStretch(1);
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::disabledTotpValid, this, &MyAccount2FaDisableTotpWidget::slotTotpInvalid);
+    }
 }
 
 MyAccount2FaDisableTotpWidget::~MyAccount2FaDisableTotpWidget()
 {
+}
+
+void MyAccount2FaDisableTotpWidget::slotTotpInvalid(bool check)
+{
+    if (check) {
+        Q_EMIT hide2FaDisableTotpWidget();
+    } else {
+        KMessageBox::error(this, i18n("Invalid two factor code."), i18n("Check Two Factor Code"));
+    }
 }
 
 void MyAccount2FaDisableTotpWidget::slotVerify()

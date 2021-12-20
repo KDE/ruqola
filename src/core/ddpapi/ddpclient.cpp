@@ -85,9 +85,7 @@ void disable_2fa(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Disable 2FA:") + QJsonDocument(root).toJson());
     }
-    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
-    // TODO
-    qDebug() << " disable_2fa " << obj;
+    account->totpDisabledVerify(root);
 }
 
 void regenerateCodes_2fa(const QJsonObject &root, RocketChatAccount *account)
@@ -97,7 +95,7 @@ void regenerateCodes_2fa(const QJsonObject &root, RocketChatAccount *account)
     }
     const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     // TODO
-    qDebug() << " regenerateCodes_2fa " << obj;
+    qDebug() << " regenerateCodes_2fa " << root;
 }
 
 void enable_2fa(const QJsonObject &root, RocketChatAccount *account)

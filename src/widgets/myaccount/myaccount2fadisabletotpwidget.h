@@ -17,9 +17,13 @@ public:
     explicit MyAccount2FaDisableTotpWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccount2FaDisableTotpWidget() override;
 
+Q_SIGNALS:
+    void hide2FaDisableTotpWidget();
+
 private:
     void slotVerify();
     void slotRegenerateCode();
+    void slotTotpInvalid(bool check);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mDisableCodeLineEdit;
 };

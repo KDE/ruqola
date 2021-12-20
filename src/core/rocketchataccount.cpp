@@ -2737,6 +2737,12 @@ void RocketChatAccount::generate2FaTotp(const QJsonObject &obj)
     Q_EMIT totpResult(secret, url);
 }
 
+void RocketChatAccount::totpDisabledVerify(const QJsonObject &root)
+{
+    const int result = root.value(QStringLiteral("result")).toInt();
+    Q_EMIT disabledTotpValid(result == 1);
+}
+
 void RocketChatAccount::totpVerify(const QJsonObject &obj)
 {
     if (obj.isEmpty()) {

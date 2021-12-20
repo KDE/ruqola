@@ -46,6 +46,10 @@ MyAccount2FaConfigureWidget::MyAccount2FaConfigureWidget(RocketChatAccount *acco
         mStackedWidget->setCurrentIndex(Enable2FaPage);
     });
 
+    connect(mMyAccountDisable2FaTotpWidget, &MyAccount2FaDisableTotpWidget::hide2FaDisableTotpWidget, this, [this]() {
+        mStackedWidget->setCurrentIndex(EmptyPage);
+    });
+
     mStackedWidget->insertWidget(EmptyPage, mMyAccount2FaEmpty);
     mStackedWidget->insertWidget(Enable2FaPage, mMyAccount2FaTotpWidget);
     mStackedWidget->insertWidget(Disable2FaPage, mMyAccountDisable2FaTotpWidget);
