@@ -61,9 +61,11 @@ MyAccount2FaConfigureWidget::~MyAccount2FaConfigureWidget()
 void MyAccount2FaConfigureWidget::slot2FAViaTOTPActivated(bool checked)
 {
     if (checked) {
-        mRocketChatAccount->ddp()->enable2fa();
-    } else {
         if (!mRocketChatAccount->ownUser().servicePassword().totp()) {
+            mRocketChatAccount->ddp()->enable2fa();
+        }
+    } else {
+        if (mRocketChatAccount->ownUser().servicePassword().totp()) {
             mStackedWidget->setCurrentIndex(Disable2FaPage);
         }
     }
