@@ -189,7 +189,6 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountprofileconfigurewidget.cpp
     myaccount/myaccountpreferenceconfigurewidget.cpp
     myaccount/myaccountprofileconfigureavatarwidget.cpp
-    myaccount/myaccountsecurityconfigurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2e2configurewidget.cpp
 
@@ -347,7 +346,6 @@ target_sources(libruqolawidgets PRIVATE
     ruqolaloginwidget.h
     myaccount/myaccountprofileconfigurewidget.h
     myaccount/myaccountconfigurewidget.h
-    myaccount/myaccountsecurityconfigurewidget.h
     myaccount/myaccountprofileconfigureavatarwidget.h
     myaccount/myaccount2faconfigurewidget.h
     myaccount/myaccountpreferenceconfigurewidget.h
