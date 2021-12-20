@@ -15,7 +15,7 @@ OtrWidget::OtrWidget(QWidget *parent)
     setVisible(false);
     setCloseButtonVisible(false);
     setMessageType(Information);
-    setText(i18n("Otr activated")); // FIXME i18n ?
+    setText(i18n("Otr Activated"));
     auto endOtrAction = new QAction(i18n("End OTR"), this);
     endOtrAction->setObjectName(QStringLiteral("endOtrAction"));
     connect(endOtrAction, &QAction::triggered, this, &OtrWidget::closeOtr);
