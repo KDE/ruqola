@@ -6,7 +6,6 @@
 
 #include "emoticonmenuwidget.h"
 #include "common/emojicompletiondelegate.h"
-#include "common/emojicustomdelegate.h"
 #include "emoticonlistview.h"
 #include "emoticonrecentusedfilterproxymodel.h"
 #include "emoticons/emojimanager.h"
@@ -100,8 +99,6 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // Custom
     mCustomEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mCustomEmojiView->setModel(mEmoticonCustomFilterProxyModel);
-    // Use a custom Emoji delegate
-    mCustomEmojiView->setItemDelegate(new EmojiCustomDelegate(mCustomEmojiView));
 
     mTabWidget->addTab(mCustomEmojiView, i18n("Custom"));
     connect(mCustomEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {

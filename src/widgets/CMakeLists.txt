@@ -177,7 +177,6 @@ target_sources(libruqolawidgets PRIVATE
     common/commandcompletiondelegate.cpp
     common/delegatepaintutil.cpp
     common/delegateutil.cpp
-    common/emojicustomdelegate.cpp
 
     room/textpluginmanager.cpp
     room/plugins/plugintext.cpp
@@ -295,7 +294,6 @@ target_sources(libruqolawidgets PRIVATE
     common/authenticationcombobox.h
     common/emojicompletiondelegate.h
     common/delegatepaintutil.h
-    common/emojicustomdelegate.h
     common/flowlayout.h
     common/delegateutil.h
     common/completionlineedit.h

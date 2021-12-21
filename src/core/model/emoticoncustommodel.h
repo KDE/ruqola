@@ -31,6 +31,7 @@ public:
 
 private:
     Q_DISABLE_COPY(EmoticonCustomModel)
+    Q_REQUIRED_RESULT QIcon generateIcon(const QString &name) const;
     QVector<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list

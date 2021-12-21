@@ -5,6 +5,11 @@
 */
 
 #include "emoticoncustommodel.h"
+#include "emoticons/emojimanager.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include <QIcon>
+#include <QUrl>
 
 EmoticonCustomModel::EmoticonCustomModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -33,12 +38,30 @@ QVariant EmoticonCustomModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case EmojiName:
             return customEmoti.name(); // Display name for the moment. In the future we need to display "icon"
+        case Qt::DecorationRole:
+            return generateIcon(customEmoti.emojiIdentifier());
         case Identifier:
         case Qt::DisplayRole: // for the completion popup (until we have a delegate)
             if (row.second == -1) {
                 return customEmoti.emojiIdentifier();
             }
             return customEmoti.aliases().value(row.second);
+        }
+    }
+    return {};
+}
+
+QIcon EmoticonCustomModel::generateIcon(const QString &name) const
+{
+    auto rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount) {
+        const QString fileName = rcAccount->emojiManager()->customEmojiFileName(name);
+        if (!fileName.isEmpty()) {
+            const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
+            if (!emojiUrl.isEmpty()) {
+                const QIcon icon(emojiUrl.toLocalFile());
+                return icon;
+            }
         }
     }
     return {};
