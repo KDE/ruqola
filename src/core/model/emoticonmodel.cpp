@@ -5,7 +5,12 @@
 */
 
 #include "emoticonmodel.h"
+#include "emoticons/emojimanager.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
+#include <QIcon>
+#include <QUrl>
 
 EmoticonModel::EmoticonModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -22,6 +27,22 @@ int EmoticonModel::rowCount(const QModelIndex &parent) const
     return mUnicodeRows.count() + mCustomRows.count();
 }
 
+QIcon EmoticonModel::createCustomIcon(const QString &name) const
+{
+    auto rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount) {
+        const QString fileName = rcAccount->emojiManager()->customEmojiFileName(name);
+        if (!fileName.isEmpty()) {
+            const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
+            if (!emojiUrl.isEmpty()) {
+                const QIcon icon(emojiUrl.toLocalFile());
+                return icon;
+            }
+        }
+    }
+    return {};
+}
+
 QVariant EmoticonModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= (mUnicodeRows.count() + mCustomRows.count())) {
@@ -36,6 +57,16 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             switch (role) {
             case CompleterName:
                 return unicodeEmoti.identifier().mid(1);
+#if 0
+            case Qt::DecorationRole: {
+                QPixmap px(8,8);
+                px.fill(Qt::transparent);
+                QPainter painter(&px);
+                painter.drawText(QRect(0, 0, 8, 8),Qt::AlignCenter,unicodeEmoti.unicode());
+                QIcon icon(px);
+                return icon;
+            }
+#endif
             case Qt::DisplayRole: // for the completion popup (until we have a delegate)
             case UnicodeEmoji:
                 return unicodeEmoti.unicode();
@@ -57,10 +88,13 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
             case CompleterName:
                 return customEmoti.emojiIdentifier().mid(1);
             case Qt::DisplayRole:
+                return customEmoti.emojiIdentifier();
             case UnicodeEmoji:
                 return customEmoti.name(); // Display name for the moment. In the future we need to display "icon"
             case Category:
                 return i18n("Custom");
+            case Qt::DecorationRole:
+                return createCustomIcon(customEmoti.emojiIdentifier());
             case Qt::ToolTipRole:
             case Identifier:
                 if (row.second == -1) {
