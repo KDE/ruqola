@@ -42,6 +42,7 @@ public:
     void addEmojiCustomList(const QVector<CustomEmoji> &newCustomEmojiList);
 
 private:
+    Q_REQUIRED_RESULT QIcon createCustomIcon(const QString &name) const;
     Q_DISABLE_COPY(EmoticonModel)
     QVector<UnicodeEmoticon> mEmoticons;
     QVector<CustomEmoji> mCustomEmojiList;

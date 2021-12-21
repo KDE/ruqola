@@ -84,7 +84,6 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // Recent
     mRecentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
-    mRecentUsedEmoticonView->setItemDelegate(new EmojiCompletionDelegate(mRecentUsedEmoticonView));
     connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
