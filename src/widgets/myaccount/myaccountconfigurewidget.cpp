@@ -37,6 +37,9 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         tabWidget->setTabVisible(profileIndexPage, false);
     }
 
+    mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
+    tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
+
     mMyAccount2FaConfigureWidget->setObjectName(QStringLiteral("mMyAccount2FaConfigureWidget"));
     const int index2faPage = tabWidget->addTab(mMyAccount2FaConfigureWidget, i18n("Two Authentication Factor"));
     if (account && !account->twoFactorAuthenticationEnabled()) {
@@ -48,9 +51,6 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && !account->encryptionEnabled()) {
         tabWidget->setTabVisible(index2e2Page, false);
     }
-
-    mMyAccountPreferenceConfigureWidget->setObjectName(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
-    tabWidget->addTab(mMyAccountPreferenceConfigureWidget, i18n("Preference"));
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
