@@ -6,10 +6,12 @@
 
 #include "emojicustomdelegate.h"
 #include "common/delegatepaintutil.h"
+#include "emoticons/emojimanager.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include "utils.h"
-#include <model/emoticonmodel.h>
-
 #include <QPainter>
+#include <model/emoticonmodel.h>
 
 EmojiCustomDelegate::EmojiCustomDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -23,15 +25,22 @@ void EmojiCustomDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 {
     drawBackground(painter, option, index);
     const int margin = DelegatePaintUtil::margin();
-    // TODO Use Icon for custom emoji
-    const QFontMetricsF emojiFontMetrics(mEmojiFont);
-    const QString emojiText = index.data(EmoticonModel::UnicodeEmoji).toString();
-    const int emojiWidth = emojiFontMetrics.horizontalAdvance(emojiText);
-    painter->setFont(mEmojiFont);
-    painter->drawText(margin, option.rect.y() + emojiFontMetrics.ascent(), emojiText);
 
     const QString text = index.data(EmoticonModel::CompleterName).toString();
-    const int xText = option.rect.x() + margin + emojiWidth;
+    const int iconSize = 15; // TODO fix icon size
+    auto rcAccount = Ruqola::self()->rocketChatAccount();
+    if (rcAccount) {
+        const QString fileName = rcAccount->emojiManager()->customEmojiFileName(text);
+        if (!fileName.isEmpty()) {
+            const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
+            if (!emojiUrl.isEmpty()) {
+                const QIcon icon(emojiUrl.toLocalFile());
+                icon.paint(painter, option.rect, Qt::AlignLeft);
+            }
+        }
+    }
+
+    const int xText = option.rect.x() + margin + iconSize;
     const QRect displayRect(xText, option.rect.y(), option.rect.width() - xText, option.rect.height());
 
     drawDisplay(painter, option, displayRect, text);
