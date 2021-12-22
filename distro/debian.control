@@ -8,7 +8,7 @@ Homepage: https://invent.kde.org/network/ruqola
 
 Package: ruqola
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, breeze-icon-theme
 Description: Ruqola is a Rocket.Chat client for the KDE desktop.
  It supports multi-account, search in room, open close rooms, direct message, thread,
  discussions. RC settings can be changed directly.
