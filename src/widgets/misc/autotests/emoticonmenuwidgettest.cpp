@@ -8,9 +8,9 @@
 #include "misc/emoticonmenuwidget.h"
 #include "misc/emoticonrecentusedfilterproxymodel.h"
 #include "misc/recentusedemoticonview.h"
+#include "misc/searchwithdelaylineedit.h"
 #include "model/emoticoncustommodelfilterproxymodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
-#include <QLineEdit>
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -30,7 +30,7 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
 
-    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    auto mSearchLineEdit = w.findChild<SearchWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());

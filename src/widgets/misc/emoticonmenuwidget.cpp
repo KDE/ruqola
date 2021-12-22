@@ -17,6 +17,7 @@
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "searchwithdelaylineedit.h"
 #include "utils.h"
 #include <KLocalizedString>
 
@@ -26,7 +27,7 @@
 
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : QWidget(parent)
-    , mSearchLineEdit(new QLineEdit(this))
+    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
     , mTabWidget(new QTabWidget(this))
     , mRecentUsedFilterProxyModel(new EmoticonRecentUsedFilterProxyModel(this))
     , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
@@ -68,14 +69,15 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
 
     mAllTabIndex = mTabWidget->addTab(mSearchEmojisView, QIcon::fromTheme(QStringLiteral("edit-find")), {});
     mTabWidget->setTabToolTip(mAllTabIndex, i18n("Search"));
-    connect(mSearchLineEdit, &QLineEdit::textChanged, this, [=](const QString &text) {
-        const bool textIsNotEmpty{!text.isEmpty()};
-        mTabWidget->setTabVisible(mAllTabIndex, textIsNotEmpty);
-        if (textIsNotEmpty) {
-            mTabWidget->setCurrentWidget(mSearchEmojisView);
-        }
-        mEmoticonFilterProxyModel->setFilterFixedString(text);
+
+    connect(mSearchLineEdit, &QLineEdit::returnPressed, this, [this]() {
+        slotSearchTextChanged(mSearchLineEdit->text());
     });
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &EmoticonMenuWidget::slotSearchTextChanged);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, [this]() {
+        slotSearchTextChanged({});
+    });
+
     connect(mSearchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data(EmoticonModel::Identifier).toString();
         slotInsertEmoticons(identifier);
@@ -108,6 +110,16 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
+
+void EmoticonMenuWidget::slotSearchTextChanged(const QString &text)
+{
+    const bool textIsNotEmpty{!text.isEmpty()};
+    mTabWidget->setTabVisible(mAllTabIndex, textIsNotEmpty);
+    if (textIsNotEmpty) {
+        mTabWidget->setCurrentWidget(mSearchEmojisView);
+    }
+    mEmoticonFilterProxyModel->setFilterFixedString(text);
+}
 
 void EmoticonMenuWidget::loadRecentUsed()
 {
