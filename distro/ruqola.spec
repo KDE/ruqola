@@ -1,5 +1,5 @@
 Name:           ruqola
-Version:        1.6.0
+Version:        1.6.1
 Release:        0
 Summary:        Rocket.Chat client for the KDE desktop
 Source0:        %{name}-%{version}.tar.gz
@@ -11,6 +11,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Vendor:         KDE
 Packager:       Klaralvdalens Datakonsult AB (KDAB) <info@kdab.com>
 
+Requires: breeze-icon-theme
 BuildRequires: cmake extra-cmake-modules qtkeychain-qt5-devel
 %if %{defined suse_version}
 BuildRequires:  python update-desktop-files libqt5-qtbase-devel libqt5-qtwebsockets-devel libqt5-qtnetworkauth-devel libqt5-qtmultimedia-devel libqt5-qtsvg-devel kcoreaddons-devel ki18n-devel kcrash-devel knotifications-devel kiconthemes-devel syntax-highlighting-devel knotifyconfig-devel kdoctools-devel kdbusaddons-devel kxmlgui-devel kio-devel sonnet-devel ktextwidgets-devel kidletime-devel
@@ -64,6 +65,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/qlogging-categories5/ruqola.categories
 
 %changelog
+* Wed Dec 22 2021 Allen Winter <allen.winter@kdab.com> 1.6.1
+- 1.6.1 release
 * Fri Dec 03 2021 Allen Winter <allen.winter@kdab.com> 1.6.0
 - 1.6.0 release
 * Fri Aug 06 2021 Allen Winter <allen.winter@kdab.com> 1.5.0

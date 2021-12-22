@@ -1,5 +1,11 @@
 ruqola (1.6.0) final; urgency=low
 
+  * 1.6.1
+
+ -- Allen Winter <allen.winter@kdab.com>  Wed, 22 Dec 2021 11:30:00 -0500
+
+ruqola (1.6.0) final; urgency=low
+
   * 1.6.0
 
  -- Allen Winter <allen.winter@kdab.com>  Fri, 03 Dec 2021 15:30:00 -0500
