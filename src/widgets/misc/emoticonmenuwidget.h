@@ -10,7 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
-class QLineEdit;
+class SearchWithDelayLineEdit;
 class QListView;
 class RocketChatAccount;
 class EmoticonRecentUsedFilterProxyModel;
@@ -33,8 +33,9 @@ Q_SIGNALS:
 private:
     void slotInsertEmoticons(const QString &identifier);
     void initializeTab(RocketChatAccount *account);
+    void slotSearchTextChanged(const QString &text);
 
-    QLineEdit *const mSearchLineEdit;
+    SearchWithDelayLineEdit *const mSearchLineEdit;
     QTabWidget *const mTabWidget;
     EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
     EmoticonModelFilterProxyModel *const mEmoticonFilterProxyModel;
