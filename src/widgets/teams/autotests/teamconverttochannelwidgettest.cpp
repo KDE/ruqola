@@ -21,7 +21,7 @@ void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto deleteLabel = w.findChild<QLabel *>(QStringLiteral("deleteLabel"));
     QVERIFY(deleteLabel);

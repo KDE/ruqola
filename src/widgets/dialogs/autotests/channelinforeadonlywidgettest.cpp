@@ -21,7 +21,7 @@ void ChannelInfoReadOnlyWidgetTest::shouldHaveDefaultValues()
     ChannelInfoReadOnlyWidget w(nullptr);
     auto layoutReadOnly = w.findChild<QFormLayout *>(QStringLiteral("layoutReadOnly"));
     QVERIFY(layoutReadOnly);
-    QCOMPARE(layoutReadOnly->contentsMargins(), {});
+    QCOMPARE(layoutReadOnly->contentsMargins(), QMargins{});
 
     auto mNameReadOnly = w.findChild<QLabel *>(QStringLiteral("mNameReadOnly"));
     QVERIFY(mNameReadOnly);

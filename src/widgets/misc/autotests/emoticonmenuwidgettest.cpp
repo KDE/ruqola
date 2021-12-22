@@ -25,7 +25,7 @@ void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
     EmoticonMenuWidget w;
     auto layout = w.findChild<QVBoxLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
-    QCOMPARE(layout->contentsMargins(), {});
+    QCOMPARE(layout->contentsMargins(), QMargins{});
 
     auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);

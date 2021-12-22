@@ -22,7 +22,7 @@ void MyAccount2FaDisableTotpWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
@@ -30,7 +30,7 @@ void MyAccount2FaDisableTotpWidgetTest::shouldHaveDefaultValues()
 
     auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
     QVERIFY(hboxLayout);
-    QCOMPARE(hboxLayout->contentsMargins(), {});
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
     auto mDisableCodeLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mDisableCodeLineEdit"));
     QVERIFY(mDisableCodeLineEdit);

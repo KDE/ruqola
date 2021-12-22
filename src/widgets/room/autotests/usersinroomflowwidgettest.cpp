@@ -21,5 +21,5 @@ void UsersInRoomFlowWidgetTest::shouldHaveDefaultValues()
     auto mFlowLayout = w.findChild<FlowLayout *>(QStringLiteral("mFlowLayout"));
     QVERIFY(mFlowLayout);
     QCOMPARE(mFlowLayout->spacing(), 0);
-    QCOMPARE(mFlowLayout->contentsMargins(), {});
+    QCOMPARE(mFlowLayout->contentsMargins(), QMargins{});
 }

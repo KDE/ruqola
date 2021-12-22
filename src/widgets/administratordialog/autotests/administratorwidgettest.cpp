@@ -31,7 +31,7 @@ void AdministratorWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);

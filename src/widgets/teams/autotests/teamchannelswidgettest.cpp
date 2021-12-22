@@ -25,7 +25,7 @@ void TeamChannelsWidgetTest::shouldHaveDefaultValues()
 
     auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
     QVERIFY(hboxLayout);
-    QCOMPARE(hboxLayout->contentsMargins(), {});
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
     auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
     QVERIFY(mListView);

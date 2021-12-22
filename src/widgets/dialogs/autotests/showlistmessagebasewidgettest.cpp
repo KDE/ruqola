@@ -24,7 +24,7 @@ void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mSearchMessageLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchMessageLineEdit"));
     QVERIFY(mSearchMessageLineEdit);

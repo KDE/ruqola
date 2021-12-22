@@ -20,7 +20,7 @@ void ChannelInfoEditableWidgetTest::shouldHaveDefaultValues()
     ChannelInfoEditableWidget w(nullptr);
     auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
-    QCOMPARE(layout->contentsMargins(), {});
+    QCOMPARE(layout->contentsMargins(), QMargins{});
 
     auto mRoomAvatarWidget = w.findChild<RoomAvatarWidget *>(QStringLiteral("mRoomAvatarWidget"));
     QVERIFY(mRoomAvatarWidget);

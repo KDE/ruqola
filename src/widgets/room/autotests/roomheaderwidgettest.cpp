@@ -25,7 +25,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
     RoomHeaderWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mRoomName = w.findChild<QLabel *>(QStringLiteral("mRoomName"));
     QVERIFY(mRoomName);
@@ -35,7 +35,7 @@ void RoomHeaderWidgetTest::shouldHaveDefaultValues()
 
     auto roomNameLayout = w.findChild<QHBoxLayout *>(QStringLiteral("roomNameLayout"));
     QVERIFY(roomNameLayout);
-    QCOMPARE(roomNameLayout->contentsMargins(), {});
+    QCOMPARE(roomNameLayout->contentsMargins(), QMargins{});
 
     auto mTeamName = w.findChild<TeamNameLabel *>(QStringLiteral("mTeamName"));
     QVERIFY(mTeamName);

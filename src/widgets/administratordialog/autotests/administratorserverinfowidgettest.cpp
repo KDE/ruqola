@@ -35,7 +35,7 @@ void AdministratorServerInfoWidgetTest::shouldHaveDefaultValues()
 
     auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
     QVERIFY(hboxLayout);
-    QCOMPARE(hboxLayout->contentsMargins(), {});
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
     auto mRefreshButton = w.findChild<QPushButton *>(QStringLiteral("mRefreshButton"));
     QVERIFY(mRefreshButton);

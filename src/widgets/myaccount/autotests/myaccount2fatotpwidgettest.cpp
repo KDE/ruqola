@@ -21,7 +21,7 @@ void MyAccount2FaTotpWidgetTest::shouldHaveDefaultValues()
     MyAccount2FaTotpWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     auto mTotpQrCode = w.findChild<QLabel *>(QStringLiteral("mTotpQrCode"));
     QVERIFY(mTotpQrCode);
 

@@ -25,5 +25,5 @@ void TeamSearchRoomWidgetTest::shouldHaveDefaultValues()
 
     auto vboxLayout = w.findChild<QVBoxLayout *>(QStringLiteral("vboxLayout"));
     QVERIFY(vboxLayout);
-    QCOMPARE(vboxLayout->contentsMargins(), {});
+    QCOMPARE(vboxLayout->contentsMargins(), QMargins{});
 }

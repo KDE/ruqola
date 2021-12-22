@@ -22,7 +22,7 @@ void ChannelSearchNameLineResultWidgetTest::shouldHaveDefaultValues()
     ChannelSearchNameLineResultWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);

@@ -30,7 +30,7 @@ void DirectoryWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit->text().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);

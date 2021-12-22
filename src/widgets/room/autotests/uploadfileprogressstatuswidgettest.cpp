@@ -23,7 +23,7 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 
     auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
     QVERIFY(hboxLayout);
-    QCOMPARE(hboxLayout->contentsMargins(), {});
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins{});
 
     auto mProgressBar = w.findChild<QProgressBar *>(QStringLiteral("mProgressBar"));
     QVERIFY(mProgressBar);

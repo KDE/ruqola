@@ -20,7 +20,7 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
     ReadOnlyLineEditWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);

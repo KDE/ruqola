@@ -22,7 +22,7 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
     UploadFileWidget w;
     auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
-    QCOMPARE(layout->contentsMargins(), {});
+    QCOMPARE(layout->contentsMargins(), QMargins{});
 
     auto mDescription = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
     QVERIFY(mDescription);

@@ -26,7 +26,7 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto tabWidget = w.findChild<QTabWidget *>(QStringLiteral("tabWidget"));
     QVERIFY(tabWidget);

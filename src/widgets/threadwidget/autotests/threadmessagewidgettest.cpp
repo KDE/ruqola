@@ -25,7 +25,7 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.threadMessageId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     QVERIFY(mThreadPreview);

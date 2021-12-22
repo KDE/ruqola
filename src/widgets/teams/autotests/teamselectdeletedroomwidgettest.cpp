@@ -23,7 +23,7 @@ void TeamSelectDeletedRoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.roomsId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
     QVERIFY(mListView);

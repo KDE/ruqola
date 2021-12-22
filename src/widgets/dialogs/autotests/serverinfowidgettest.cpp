@@ -20,7 +20,7 @@ void ServerInfoWidgetTest::shouldHaveDefaultValues()
     ServerInfoWidget w;
     auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
-    QCOMPARE(layout->contentsMargins(), {});
+    QCOMPARE(layout->contentsMargins(), QMargins{});
 
     auto mAccountName = w.findChild<QLabel *>(QStringLiteral("mAccountName"));
     QVERIFY(mAccountName);

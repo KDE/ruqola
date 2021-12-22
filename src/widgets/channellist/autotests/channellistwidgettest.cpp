@@ -25,7 +25,7 @@ void ChannelListWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mSearchRoom = w.findChild<QLineEdit *>(QStringLiteral("mSearchRoom"));
     QVERIFY(mSearchRoom);

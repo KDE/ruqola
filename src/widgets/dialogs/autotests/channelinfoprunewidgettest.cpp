@@ -22,7 +22,7 @@ void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
     ChannelInfoPruneWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mAutomaticPruneOldMessages = w.findChild<QCheckBox *>(QStringLiteral("mAutomaticPruneOldMessages"));
     QVERIFY(mAutomaticPruneOldMessages);

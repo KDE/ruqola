@@ -21,7 +21,7 @@ void PasswordLineEditWidgetTest::shouldHaveDefaultValues()
     PasswordLineEditWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
     QVERIFY(mPasswordLineEdit);

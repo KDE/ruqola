@@ -22,7 +22,7 @@ void ChannelPasswordWidgetTest::shouldHaveDefaultValues()
     ChannelPasswordWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);

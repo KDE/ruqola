@@ -25,7 +25,7 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
     UsersInRoomWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mListView = w.findChild<QListView *>(QStringLiteral("mListView"));
     QVERIFY(mListView);
@@ -45,5 +45,5 @@ void UsersInRoomWidgetTest::shouldHaveDefaultValues()
 
     auto hMainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hMainLayout"));
     QVERIFY(hMainLayout);
-    QCOMPARE(hMainLayout->contentsMargins(), {});
+    QCOMPARE(hMainLayout->contentsMargins(), QMargins{});
 }

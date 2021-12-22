@@ -23,11 +23,11 @@ void ShowAttachmentWidgetTest::shouldHaveDefaultValues()
     ShowAttachmentWidget w(nullptr);
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto searchAttachmentLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchAttachmentLayout"));
     QVERIFY(searchAttachmentLayout);
-    QCOMPARE(searchAttachmentLayout->contentsMargins(), {});
+    QCOMPARE(searchAttachmentLayout->contentsMargins(), QMargins{});
 
     auto mSearchAttachmentFileLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchAttachmentFileLineEdit"));
     QVERIFY(mSearchAttachmentFileLineEdit);

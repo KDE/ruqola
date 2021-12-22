@@ -22,7 +22,7 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
     RuqolaCentralWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), {});
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
