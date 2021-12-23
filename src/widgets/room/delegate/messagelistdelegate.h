@@ -85,6 +85,9 @@ private:
         // Pinned icon
         QRect pinIconRect;
 
+        // Pinned icon
+        QRect followingIconRect;
+
         // Translated icon
         QRect translatedIconRect;
 
@@ -124,6 +127,7 @@ private:
         // showIgnoreMessage
         bool showIgnoreMessage = false;
         bool sameSenderAsPreviousMessage = false;
+        bool messageIsFollowing = false;
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
