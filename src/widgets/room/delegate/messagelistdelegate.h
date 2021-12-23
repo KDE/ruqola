@@ -139,6 +139,7 @@ private:
     const QIcon mRolesIcon;
     const QIcon mAddReactionIcon;
     const QIcon mFavoriteIcon;
+    const QIcon mFollowingIcon;
     const QIcon mPinIcon;
     const QIcon mTranslatedIcon;
     QColor mEditColorMode;
