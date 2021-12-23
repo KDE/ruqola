@@ -50,6 +50,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
+    , mFollowingIcon(QIcon::fromTheme(QStringLiteral("visibility"))) // TODO use better icon for following message
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
     , mHelperText(new MessageDelegateHelperText(view))
@@ -173,6 +174,13 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
         textLeft += iconSize + margin;
     }
 
+    const int followingIconX = textLeft;
+    layout.messageIsFollowing = message->replies().contains(message->userId());
+    // Following icon
+    if (layout.messageIsFollowing) {
+        textLeft += iconSize + margin;
+    }
+
     const int translatedIconX = textLeft;
     // translated icon
     if (message->isAutoTranslated()) {
@@ -226,7 +234,9 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     if (message->isPinned()) {
         layout.pinIconRect = QRect(pinIconX, layout.senderRect.y(), iconSize, iconSize);
     }
-
+    if (layout.messageIsFollowing) {
+        layout.followingIconRect = QRect(followingIconX, layout.senderRect.y(), iconSize, iconSize);
+    }
     if (message->isAutoTranslated()) {
         layout.translatedIconRect = QRect(translatedIconX, layout.senderRect.y(), iconSize, iconSize);
     }
@@ -419,6 +429,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     // Draw the pin icon
     if (message->isPinned()) {
         mPinIcon.paint(painter, layout.pinIconRect);
+    }
+    // Draw the following icon
+    if (layout.messageIsFollowing) {
+        mFollowingIcon.paint(painter, layout.followingIconRect);
     }
     // Draw translated string
     if (message->isAutoTranslated()) {
