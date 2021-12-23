@@ -415,13 +415,13 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (mDebug) {
         createSeparator(menu);
-        auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu);
+        auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
         connect(debugMessageAction, &QAction::triggered, this, [=]() {
             slotDebugMessage(index);
         });
         menu.addAction(debugMessageAction);
         createSeparator(menu);
-        auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu);
+        auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
         connect(debugRoomAction, &QAction::triggered, this, [=]() {
             // Dump info about room => don't use qCDebug here.
             qDebug() << " *mRoom " << *mRoom;
