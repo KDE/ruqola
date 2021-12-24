@@ -87,9 +87,9 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
-    , mOtrManager(new OtrManager(this))
+    , mOtrManager(new OtrManager(this, this))
     , mMessageCache(new MessageCache(this, this))
-    , mManageChannels(new ManageChannels(this))
+    , mManageChannels(new ManageChannels(this, this))
     , mCustomSoundManager(new CustomSoundsManager(this))
     , mAwayManager(new AwayManager(this, this))
 {
