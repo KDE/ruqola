@@ -5,11 +5,11 @@
 */
 
 #pragma once
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT FollowMessageJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT FollowMessageJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
