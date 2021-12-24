@@ -696,6 +696,18 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
+        if (layout.followingIconRect.contains(helpEvent->pos())) {
+            QToolTip::showText(helpEvent->globalPos(), i18n("Following"), view);
+            return true;
+        }
+        if (layout.pinIconRect.contains(helpEvent->pos())) {
+            QToolTip::showText(helpEvent->globalPos(), i18n("Message has been pinned"), view);
+            return true;
+        }
+        if (layout.favoriteIconRect.contains(helpEvent->pos())) {
+            QToolTip::showText(helpEvent->globalPos(), i18n("Message has been starred"), view);
+            return true;
+        }
         if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
             return true;
         }
