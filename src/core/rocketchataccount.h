@@ -148,6 +148,7 @@ public:
     void hideRoom(const QString &roomId, Room::RoomType channelType);
     void tryLogin();
     void logOut();
+    void reLogin();
     void clearAllUnreadMessages();
     void markRoomAsRead(const QString &roomId);
     void changeFavorite(const QString &roomId, bool checked);

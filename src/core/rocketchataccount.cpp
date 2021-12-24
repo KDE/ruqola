@@ -215,8 +215,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != QLatin1String("/") && mDdp) {
-            logOut();
-            slotReconnectToServer();
+            reLogin();
         }
     });
 #endif
@@ -542,8 +541,7 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::uploadProgress, this, &RocketChatAccount::slotUploadProgress);
         connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
-            logOut();
-            slotReconnectToServer();
+            reLogin();
         });
 
         mRestApi->setServerUrl(mSettings->serverUrl());
@@ -636,6 +634,12 @@ void RocketChatAccount::logOut()
     }
     delete mRestApi;
     mRestApi = nullptr;
+}
+
+void RocketChatAccount::reLogin()
+{
+    logOut();
+    slotReconnectToServer();
 }
 
 void RocketChatAccount::clearAllUnreadMessages()

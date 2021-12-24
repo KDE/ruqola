@@ -822,6 +822,16 @@ void DDPClient::onWSclosed()
     if (!normalClose) {
         qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
                                      << " close code : " << mWebSocket->closeCode();
+
+        // Handle 1001
+        // This happens sometimes when you have connectivity issues. Ruqola will take you to logout
+        // screen, but clicking login will not log you in. So instead, logout => destroy everything
+        // and log back in.
+        if (mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeGoingAway && mRocketChatAccount) {
+            mRocketChatAccount->reLogin();
+            // MUST return here, since we will be deleted after the above function call
+            return;
+        }
     }
 
     if (normalClose) {
