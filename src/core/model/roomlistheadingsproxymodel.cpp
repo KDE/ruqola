@@ -58,7 +58,6 @@ int RoomListHeadingsProxyModel::rowCount(const QModelIndex &parent) const
 
 QModelIndex RoomListHeadingsProxyModel::index(int row, int column, const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
     // QIdentityProxyModel uses the proxy row as a source row, we can't do that.
     const int sourceRow = proxyRowToSourceRow(row);
     if (sourceRow == -1) {
