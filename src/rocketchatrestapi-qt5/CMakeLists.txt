@@ -421,9 +421,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE ${librocketchatrestapi_qt5_debug
 #ruqola_target_precompile_headers(librocketchatrestapi-qt5 PUBLIC ../../ruqola_pch.h)
 generate_export_header(librocketchatrestapi-qt5 BASE_NAME librocketchatrestapi-qt5)
 target_link_libraries(librocketchatrestapi-qt5
-    Qt5::Core
-    Qt5::Network
-    Qt5::NetworkAuth
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::Network
+    Qt${QT_MAJOR_VERSION}::NetworkAuth
     KF5::I18n
 )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)

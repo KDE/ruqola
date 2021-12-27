@@ -521,9 +521,9 @@ endif()
 
 
 target_link_libraries(libruqolawidgets
-    Qt5::Gui
-    Qt5::Widgets
-    Qt5::MultimediaWidgets
+    Qt${QT_MAJOR_VERSION}::Gui
+    Qt${QT_MAJOR_VERSION}::Widgets
+    Qt${QT_MAJOR_VERSION}::MultimediaWidgets
     KF5::I18n
     KF5::ConfigCore
     KF5::XmlGui

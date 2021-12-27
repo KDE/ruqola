@@ -3,7 +3,7 @@
 add_executable(expandjsontest expandjson.cpp expandjson.h)
 
 target_link_libraries(expandjsontest
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     )
 
 # ==================================================================== #
@@ -12,7 +12,7 @@ add_executable(unicodeemoticongui)
 target_sources(unicodeemoticongui PRIVATE unicodeemoticongui.cpp unicodeemoticongui.h ../src/core/ruqolacore.qrc)
 
 target_link_libraries(unicodeemoticongui
-    Qt5::Widgets
+    Qt${QT_MAJOR_VERSION}::Widgets
     KF5::ItemViews
     libruqolacore
     )

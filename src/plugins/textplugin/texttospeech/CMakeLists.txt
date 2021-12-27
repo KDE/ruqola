@@ -11,7 +11,7 @@ target_sources(ruqola_texttospeechtextplugin PRIVATE
     )
 target_link_libraries(ruqola_texttospeechtextplugin
     libruqolawidgets
-    Qt5::TextToSpeech
+    Qt${QT_MAJOR_VERSION}::TextToSpeech
     )
 if (BUILD_TESTING)
     add_subdirectory(autotests)
