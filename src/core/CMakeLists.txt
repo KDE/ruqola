@@ -430,7 +430,7 @@ kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 if (UNITY_SUPPORT)
     target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
-    target_link_libraries(libruqolacore Qt5::DBus)
+    target_link_libraries(libruqolacore Qt${QT_MAJOR_VERSION}::DBus)
 endif()
 
 
@@ -464,12 +464,12 @@ if (HAVE_NETWORKMANAGER)
 endif()
 
 target_link_libraries(libruqolacore
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Sql
-    Qt5::WebSockets
-    Qt5::Network
-    Qt5::NetworkAuth
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::Gui
+    Qt${QT_MAJOR_VERSION}::Sql
+    Qt${QT_MAJOR_VERSION}::WebSockets
+    Qt${QT_MAJOR_VERSION}::Network
+    Qt${QT_MAJOR_VERSION}::NetworkAuth
     KF5::CoreAddons
     KF5::I18n
     KF5::Notifications
@@ -483,8 +483,11 @@ target_link_libraries(libruqolacore
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF5::IconThemes)
 endif()
-
-target_link_libraries(libruqolacore qt5keychain)
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(libruqolacore qt6keychain)
+else()
+    target_link_libraries(libruqolacore qt5keychain)
+endif()
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 set_target_properties(libruqolacore

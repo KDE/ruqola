@@ -7,7 +7,7 @@ macro(add_rocketchatrestapi_test _source)
   add_executable( ${_name} ${_test} )
   add_test(NAME ${_name} COMMAND ${_name} )
   ecm_mark_as_test(${_name})
-  target_link_libraries( ${_name} Qt5::Test librocketchatrestapi-qt5)
+  target_link_libraries( ${_name} Qt${QT_MAJOR_VERSION}::Test librocketchatrestapi-qt5)
 endmacro()
 
 add_rocketchatrestapi_test(restapiutiltest.cpp)
