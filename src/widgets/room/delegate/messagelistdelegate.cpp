@@ -132,7 +132,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    if (!mRocketChatAccount->hideAvatars()) {
+    if (mRocketChatAccount && !mRocketChatAccount->hideAvatars()) {
         layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
     }
 
@@ -151,7 +151,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     int textLeft = senderX + senderTextSize.width() + margin;
 
     // Roles icon
-    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && !mRocketChatAccount->hideRoles();
+    const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
     if (hasRoles) {
         textLeft += iconSize + margin;
     }
@@ -175,7 +175,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }
 
     const int followingIconX = textLeft;
-    layout.messageIsFollowing = message->replies().contains(message->userId());
+    layout.messageIsFollowing = mRocketChatAccount && message->replies().contains(mRocketChatAccount->userId());
     // Following icon
     if (layout.messageIsFollowing) {
         textLeft += iconSize + margin;
