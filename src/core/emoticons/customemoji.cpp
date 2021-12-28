@@ -46,10 +46,10 @@ void CustomEmoji::parseEmoji(const QJsonObject &emoji, bool useIsoDate)
         mUpdatedAt = Utils::parseIsoDate(QStringLiteral("_updatedAt"), emoji);
     }
     const QJsonArray array = emoji.value(QLatin1String("aliases")).toArray();
-    const int arrayCount = array.count();
+    const auto arrayCount = array.count();
     QStringList lst;
     lst.reserve(arrayCount);
-    for (int i = 0; i < arrayCount; ++i) {
+    for (auto i = 0; i < arrayCount; ++i) {
         lst.append(QLatin1Char(':') + array.at(i).toString() + QLatin1Char(':'));
     }
     mAliases = lst;

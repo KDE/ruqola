@@ -78,9 +78,9 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
     // qDebug() << " obj " << obj;
     const QJsonArray items = obj[QLatin1String("teams")].toArray();
     QVector<TeamCompleter> teams;
-    const int total = items.count();
+    const auto total = items.count();
     teams.reserve(total);
-    for (int i = 0; i < total; ++i) {
+    for (auto i = 0; i < total; ++i) {
         TeamCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());
         teams.append(teamCompleter);

@@ -73,9 +73,9 @@ void Roles::parseRole(const QJsonObject &obj)
     mRoles.clear();
 
     const QJsonArray roleArray = obj[QStringLiteral("roles")].toArray();
-    const int roleArrayCount = roleArray.count();
+    const auto roleArrayCount = roleArray.count();
     mRoles.reserve(roleArrayCount);
-    for (int i = 0; i < roleArrayCount; ++i) {
+    for (auto i = 0; i < roleArrayCount; ++i) {
         Role r;
         r.parseRole(roleArray.at(i).toObject());
         if (r.isValid()) {
