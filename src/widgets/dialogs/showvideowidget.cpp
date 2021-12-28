@@ -56,7 +56,9 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     mainLayout->addWidget(mErrorLabel);
     mMediaPlayer->setVideoOutput(videoWidget);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
+#endif
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
     connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
@@ -102,7 +104,7 @@ void ShowVideoWidget::play()
         break;
     }
 }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
 {
     switch (state) {
@@ -114,7 +116,7 @@ void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
         break;
     }
 }
-
+#endif
 void ShowVideoWidget::positionChanged(qint64 position)
 {
     mPositionSlider->setValue(position);

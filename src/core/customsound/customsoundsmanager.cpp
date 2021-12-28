@@ -104,8 +104,8 @@ void CustomSoundsManager::parseCustomSounds(const QJsonArray &replyArray)
 
 void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
 {
-    const int count{replyArray.count()};
-    for (int i = 0; i < count; ++i) {
+    const auto count{replyArray.count()};
+    for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
@@ -124,8 +124,8 @@ void CustomSoundsManager::deleteCustomSounds(const QJsonArray &replyArray)
 
 void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
 {
-    const int count{replyArray.count()};
-    for (int i = 0; i < count; ++i) {
+    const auto count{replyArray.count()};
+    for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = replyArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("soundData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();

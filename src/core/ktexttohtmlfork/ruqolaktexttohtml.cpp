@@ -126,7 +126,11 @@ QString KTextToHTMLHelper::getPhoneNumber()
             }
         }
         if (openIdx > 0) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             m = m.leftRef(openIdx - 1).trimmed().toString();
+#else
+            m = QStringView(m).left(openIdx - 1).trimmed().toString();
+#endif
         }
 
         // check if there's a plausible separator at the end
@@ -339,6 +343,7 @@ QString KTextToHTMLHelper::highlightedText()
             }
             mPos += length - 1;
             switch (ch.toLatin1()) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             case '*':
                 return QLatin1String("<b>") + match.capturedRef(1) + QLatin1String("</b>");
             case '_':
@@ -346,6 +351,15 @@ QString KTextToHTMLHelper::highlightedText()
             case '~':
                 return QLatin1String("<s>") + match.capturedRef(1) + QLatin1String("</s>");
             }
+#else
+            case '*':
+                return QLatin1String("<b>") + match.capturedView(1) + QLatin1String("</b>");
+            case '_':
+                return QLatin1String("<i>") + match.capturedView(1) + QLatin1String("</i>");
+            case '~':
+                return QLatin1String("<s>") + match.capturedView(1) + QLatin1String("</s>");
+            }
+#endif
         }
     }
     return {};

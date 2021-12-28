@@ -119,7 +119,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     mSearchMessageButton->setObjectName(QStringLiteral("mSearchMessageButton"));
     mSearchMessageButton->setIcon(QIcon::fromTheme(QStringLiteral("edit-find")));
     mSearchMessageButton->setCheckable(false);
-    mSearchMessageButton->setShortcut(Qt::CTRL + Qt::Key_F);
+    mSearchMessageButton->setShortcut(Qt::CTRL | Qt::Key_F);
     mSearchMessageButton->setToolTip(i18n("Search Messages..."));
     buttonLayout->addWidget(mSearchMessageButton, 0, Qt::AlignTop);
     connect(mSearchMessageButton, &QToolButton::clicked, this, &RoomHeaderWidget::searchMessageRequested);

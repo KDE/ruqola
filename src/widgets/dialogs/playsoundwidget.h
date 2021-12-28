@@ -24,7 +24,9 @@ public:
 private:
     void play();
     void muteChanged(bool state);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
+#endif
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
     QToolButton *const mSoundButton;

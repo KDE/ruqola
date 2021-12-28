@@ -117,7 +117,7 @@ QModelIndex RoomListHeadingsProxyModel::mapToSource(const QModelIndex &proxyInde
     if (sourceRow == -1) { // title, no source row
         return {};
     };
-#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
     return sourceModel()->createSourceIndex(sourceRow, proxyIndex.column(), proxyIndex.internalPointer());
 #else
     // hack, until createSourceIndex exists

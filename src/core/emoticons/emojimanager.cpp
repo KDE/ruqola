@@ -77,8 +77,8 @@ void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomAr
 void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
 {
     // ([{"emojiData":{"_id":"PpawhZMaseBcEuGCG","_updatedAt":{"$date":1631858916014},"aliases":[],"extension":"png","name":"ruqolaff"}}])
-    const int count{arrayEmojiCustomArray.count()};
-    for (int i = 0; i < count; ++i) {
+    const auto count{arrayEmojiCustomArray.count()};
+    for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
         const QJsonObject emojiData = obj.value(QStringLiteral("emojiData")).toObject();
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
@@ -268,7 +268,11 @@ void EmojiManager::replaceEmojis(QString *str)
 
     int offset = 0;
     while (offset < str->size()) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const auto match = mReplacePattern.match(str, offset);
+#else
+        const auto match = mReplacePattern.match(QStringView(*str), offset);
+#endif
         if (!match.hasMatch()) {
             break;
         }

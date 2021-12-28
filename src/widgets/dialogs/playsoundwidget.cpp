@@ -27,9 +27,9 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     // mMediaPlayer->setVolume(50);
 
     // Allow to change volume
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &PlaySoundWidget::mediaStateChanged);
-
+#endif
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
@@ -76,7 +76,7 @@ void PlaySoundWidget::play()
         break;
     }
 }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
 {
     switch (state) {
@@ -88,3 +88,4 @@ void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
         break;
     }
 }
+#endif

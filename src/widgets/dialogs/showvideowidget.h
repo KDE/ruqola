@@ -22,7 +22,9 @@ public:
     void setVideoUrl(const QUrl &videoPath);
 
 private:
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
+#endif
     void positionChanged(qint64 position);
     void durationChanged(qint64 duration);
     void muteChanged(bool state);

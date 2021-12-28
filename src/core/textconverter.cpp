@@ -117,7 +117,11 @@ QString generateRichText(const QString &str, const QString &username, const QStr
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             const QStringRef word = match.capturedRef(2);
+#else
+            const QStringView word = match.capturedView(2);
+#endif
             bool inAnUrl = false;
             const int matchCapturedStart = match.capturedStart(2);
             for (const HrefPos &hrefPos : lstPos) {
@@ -180,7 +184,11 @@ QString generateRichText(const QString &str, const QString &username, const QStr
     const auto userMentionBackgroundColor = colorScheme.background(KColorScheme::NegativeBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const QStringRef word = match.capturedRef(2);
+#else
+        const QStringView word = match.capturedView(2);
+#endif
         // Highlight only if it's yours
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
