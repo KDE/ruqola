@@ -1505,8 +1505,8 @@ void RocketChatAccount::updateRoles(const QJsonArray &contents)
 
 void RocketChatAccount::addStdoutInfo(const QJsonArray &contents)
 {
-    const int count{contents.count()};
-    for (int i = 0; i < count; ++i) {
+    const auto count{contents.count()};
+    for (auto i = 0; i < count; ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         const QString infoStr = obj[QStringLiteral("string")].toString();
         // qDebug() << " infoStr " << infoStr;
@@ -2756,9 +2756,9 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
         // qDebug() << "totpValid " << obj;
         QStringList lstCodes;
         const QJsonArray codes = obj.value(QStringLiteral("codes")).toArray();
-        const int nbCodes{codes.count()};
+        const auto nbCodes{codes.count()};
         lstCodes.reserve(nbCodes);
-        for (int i = 0; i < nbCodes; ++i) {
+        for (auto i = 0; i < nbCodes; ++i) {
             lstCodes.append(codes.at(i).toString());
         }
         Q_EMIT totpValid(lstCodes);
