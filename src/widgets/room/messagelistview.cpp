@@ -188,9 +188,9 @@ QStyleOptionViewItem MessageListView::listViewOptions() const
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     return QListView::viewOptions();
 #else
-    // TODO implement it
-    qWarning() << " NOT implemented";
-    return {};
+    QStyleOptionViewItem option;
+    initViewItemOption(&option);
+    return option;
 #endif
 }
 
