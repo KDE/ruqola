@@ -34,7 +34,7 @@ void ShowImageDialogTest::shouldHaveDefaultValues()
 
     auto button = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
-    QCOMPARE(button->standardButtons(), {QDialogButtonBox::Close | QDialogButtonBox::Save});
+    QCOMPARE(button->standardButtons(), QDialogButtonBox::Close | QDialogButtonBox::Save);
 
     auto clipboardButton = w.findChild<QToolButton *>(QStringLiteral("clipboardButton"));
     QVERIFY(clipboardButton);

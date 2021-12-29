@@ -92,6 +92,7 @@ private:
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
 
 private:
+    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;

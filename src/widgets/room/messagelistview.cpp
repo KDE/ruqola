@@ -183,6 +183,17 @@ void MessageListView::maybeScrollToBottom()
     }
 }
 
+QStyleOptionViewItem MessageListView::listViewOptions() const
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return QListView::viewOptions();
+#else
+    // TODO implement it
+    qWarning() << " NOT implemented";
+    return {};
+#endif
+}
+
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
@@ -259,7 +270,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
 
     auto copyUrlAction = [&]() -> QAction * {
-        auto options = viewOptions();
+        auto options = listViewOptions();
         options.rect = visualRect(index);
         options.index = index;
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
@@ -448,7 +459,7 @@ void MessageListView::mouseMoveEvent(QMouseEvent *event)
         mPressedPosition = {};
         const QPersistentModelIndex index = indexAt(event->pos());
         if (index.isValid()) {
-            QStyleOptionViewItem options = viewOptions();
+            QStyleOptionViewItem options = listViewOptions();
             options.rect = visualRect(index);
             if (mMessageListDelegate->maybeStartDrag(event, options, index)) {
                 return;
@@ -477,14 +488,14 @@ void MessageListView::createSeparator(QMenu &menu)
 
 void MessageListView::slotSelectAll(const QModelIndex &index)
 {
-    mMessageListDelegate->selectAll(viewOptions(), index);
+    mMessageListDelegate->selectAll(listViewOptions(), index);
 }
 
 void MessageListView::handleMouseEvent(QMouseEvent *event)
 {
     const QPersistentModelIndex index = indexAt(event->pos());
     if (index.isValid()) {
-        QStyleOptionViewItem options = viewOptions();
+        QStyleOptionViewItem options = listViewOptions();
         options.rect = visualRect(index);
         if (mMessageListDelegate->mouseEvent(event, options, index)) {
             update(index);

@@ -17,7 +17,12 @@
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
-    , mMediaPlayer(new QMediaPlayer(this, QMediaPlayer::VideoSurface))
+    , mMediaPlayer(new QMediaPlayer(this
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+                                    ,
+                                    QMediaPlayer::VideoSurface
+#endif
+                                    ))
     , mPlayButton(new QPushButton(this))
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
     , mErrorLabel(new QLabel(this))
