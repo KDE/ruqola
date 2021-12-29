@@ -24,7 +24,6 @@
 
 #include <QAbstractItemView>
 #include <QApplication>
-#include <QDesktopWidget>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>

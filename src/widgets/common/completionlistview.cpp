@@ -8,7 +8,6 @@
 
 #include <QApplication>
 #include <QDebug>
-#include <QDesktopWidget>
 #include <QKeyEvent>
 #include <QScreen>
 #include <QScrollBar>
