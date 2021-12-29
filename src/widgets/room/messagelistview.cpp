@@ -26,6 +26,7 @@
 #include <QKeyEvent>
 #include <QMenu>
 #include <QScrollBar>
+#include <QUrl>
 
 #include <KIO/KUriFilterSearchProviderActions>
 
@@ -261,7 +262,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         auto options = viewOptions();
         options.rect = visualRect(index);
         options.index = index;
-        const auto url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
+        const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
         if (url.isEmpty())
             return nullptr;
         auto action = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy URL"), &menu);

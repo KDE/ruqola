@@ -39,15 +39,18 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
+#endif
     mainLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
-
+#endif
     mainLayout->addWidget(mSoundSlider);
 }
 
@@ -60,13 +63,16 @@ void PlaySoundWidget::muteChanged(bool state)
 
 void PlaySoundWidget::setAudioUrl(const QUrl &url)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
     mMediaPlayer->setMedia(url);
     mPlayButton->setEnabled(true);
+#endif
 }
 
 void PlaySoundWidget::play()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     switch (mMediaPlayer->state()) {
     case QMediaPlayer::PlayingState:
         mMediaPlayer->pause();
@@ -75,6 +81,7 @@ void PlaySoundWidget::play()
         mMediaPlayer->play();
         break;
     }
+#endif
 }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)

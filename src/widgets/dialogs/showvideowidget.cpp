@@ -61,20 +61,24 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 #endif
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
-
+#endif
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::muteChanged);
+#endif
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(100);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
-
+#endif
     controlLayout->addWidget(mSoundSlider);
 }
 
@@ -87,14 +91,17 @@ void ShowVideoWidget::muteChanged(bool state)
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mErrorLabel->setText(QString());
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
     mMediaPlayer->setMedia(url);
     mPlayButton->setEnabled(true);
+#endif
 }
 
 void ShowVideoWidget::play()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     switch (mMediaPlayer->state()) {
     case QMediaPlayer::PlayingState:
         mMediaPlayer->pause();
@@ -103,6 +110,7 @@ void ShowVideoWidget::play()
         mMediaPlayer->play();
         break;
     }
+#endif
 }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)

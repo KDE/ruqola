@@ -6,8 +6,12 @@
 
 #include "createvideomessagewidget.h"
 #include <QCamera>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <QCameraImageCapture>
 #include <QCameraViewfinder>
+#else
+#include <QImageCapture>
+#endif
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -20,17 +24,18 @@ CreateVideoMessageWidget::CreateVideoMessageWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mCamera->setObjectName(QStringLiteral("mCamera"));
 
     auto viewfinder = new QCameraViewfinder(this);
     viewfinder->show();
 
     mCamera->setViewfinder(viewfinder);
-
     auto imageCapture = new QCameraImageCapture(mCamera, this);
 
     mCamera->setCaptureMode(QCamera::CaptureStillImage);
     mCamera->start();
+#endif
 
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mErrorLabel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
