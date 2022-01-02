@@ -99,9 +99,10 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
         auto job = new RocketChatRestApi::EmojiCustomCreateJob(this);
         job->setEmojiInfo(emojiInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [](const QJsonObject &replyObject) {
-            qDebug() << " replyObject " << replyObject;
-            // TODO update list
+        connect(job, &RocketChatRestApi::EmojiCustomCreateJob::emojiCustomCreateDone, this, [this](const QJsonObject &replyObject) {
+            Q_UNUSED(replyObject)
+            // qDebug() << " replyObject " << replyObject;
+            initialize(); // No info about updating list without reload it
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start EmojiCustomCreateJob job";
