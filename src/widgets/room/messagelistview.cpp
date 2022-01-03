@@ -5,6 +5,9 @@
 */
 
 #include "messagelistview.h"
+#include "chat/followmessagejob.h"
+#include "chat/unfollowmessagejob.h"
+#include "connection.h"
 #include "delegate/messagelistdelegate.h"
 #include "dialogs/reportmessagedialog.h"
 #include "rocketchataccount.h"
@@ -536,7 +539,24 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 
 void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIsFollowing)
 {
-    // TODO
+    const QString messageId = index.data(MessageModel::MessageId).toString();
+    if (messageIsFollowing) {
+        auto job = new RocketChatRestApi::UnFollowMessageJob(this);
+        job->setMessageId(messageId);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UnFollowMessageJob job";
+        }
+    } else {
+        auto job = new RocketChatRestApi::FollowMessageJob(this);
+        job->setMessageId(messageId);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start FollowMessageJob job";
+        }
+    }
 }
 
 void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
