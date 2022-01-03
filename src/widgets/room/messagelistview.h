@@ -89,6 +89,7 @@ private:
     void slotShowFullThread(const QModelIndex &index);
     void slotQuoteMessage(const QModelIndex &index);
     void slotCopyLinkToMessage(const QModelIndex &index);
+    void slotFollowMessage(const QModelIndex &index, bool messageIsFollowing);
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
 
 private:

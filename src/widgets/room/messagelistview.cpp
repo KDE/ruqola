@@ -269,6 +269,15 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotCopyLinkToMessage(index);
     });
 
+    // TODO customize i18n (follow/unfollow)
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    bool messageIsFollowing = mCurrentRocketChatAccount && message->replies().contains(mCurrentRocketChatAccount->userId());
+
+    auto followingToMessageAction = new QAction(messageIsFollowing ? i18n("Unfollow Message") : i18n("Follow Message"), &menu); // TODO add icon
+    connect(followingToMessageAction, &QAction::triggered, this, [=]() {
+        slotFollowMessage(index, messageIsFollowing);
+    });
+
     auto copyUrlAction = [&]() -> QAction * {
         auto options = listViewOptions();
         options.rect = visualRect(index);
@@ -338,6 +347,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         if (canMarkAsUnread) {
             menu.addAction(markMessageAsUnReadAction);
         }
+
+        menu.addSeparator();
+        menu.addAction(followingToMessageAction);
 
         if (deleteAction) {
             menu.addSeparator();
@@ -520,6 +532,11 @@ void MessageListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 {
     mCurrentRocketChatAccount = currentRocketChatAccount;
     mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+}
+
+void MessageListView::slotFollowMessage(const QModelIndex &index, bool messageIsFollowing)
+{
+    // TODO
 }
 
 void MessageListView::slotCopyLinkToMessage(const QModelIndex &index)
