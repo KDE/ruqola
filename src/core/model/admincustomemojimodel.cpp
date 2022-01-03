@@ -31,7 +31,7 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
         case CustomEmojiRoles::Identifier:
             return i18n("Identifier");
         case CustomEmojiRoles::Aliases:
-            return i18n("Identifier");
+            return i18n("Aliases");
         }
     }
     return {};
