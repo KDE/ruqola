@@ -357,7 +357,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         }
         if (mCurrentRocketChatAccount->hasAutotranslateSupport()) {
             createSeparator(menu);
-            const bool isTranslated = index.data(MessageModel::ShowTranslatedMessage).toBool();
+            const bool isTranslated = message->showTranslatedMessage();
             auto translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
             connect(translateAction, &QAction::triggered, this, [=]() {
                 slotTranslateMessage(index, !isTranslated);
@@ -415,7 +415,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
-            const QString messageId = index.data(MessageModel::MessageId).toString();
+            const QString messageId = message->messageId();
             const QString messageDateTimeUtc = index.data(MessageModel::DateTimeUtc).toString();
             Q_EMIT goToMessageRequested(messageId, messageDateTimeUtc);
         });
