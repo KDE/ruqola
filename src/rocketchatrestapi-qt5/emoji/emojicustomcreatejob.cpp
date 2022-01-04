@@ -60,15 +60,12 @@ bool EmojiCustomCreateJob::start()
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(namePart);
 
-    if (!mEmojiInfo.alias.isEmpty()) {
-        QHttpPart aliasesPart;
-        aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
-        aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
-        multiPart->append(aliasesPart);
-    }
+    QHttpPart aliasesPart;
+    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+    aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
+    multiPart->append(aliasesPart);
 
     mReply = networkAccessManager()->post(request(), multiPart);
-    // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
     connect(mReply.data(), &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
     multiPart->setParent(mReply); // delete the multiPart with the reply
     return true;
