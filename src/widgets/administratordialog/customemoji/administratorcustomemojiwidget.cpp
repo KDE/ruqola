@@ -127,7 +127,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
         emojiInfo.alias = info.alias;
         emojiInfo.name = info.name;
         emojiInfo.emojiId = mModel->index(index.row(), AdminCustomEmojiModel::Identifier).data().toString();
-        // TODO emojiInfo.fileNameUrl = ???
+        emojiInfo.fileNameUrl = info.fileNameUrl;
         auto job = new RocketChatRestApi::EmojiCustomUpdateJob(this);
         job->setEmojiInfo(emojiInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
