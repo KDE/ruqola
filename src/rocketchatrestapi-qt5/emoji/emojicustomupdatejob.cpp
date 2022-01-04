@@ -8,8 +8,12 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
+#include <QFile>
+#include <QHttpMultiPart>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMimeDatabase>
 #include <QNetworkReply>
 using namespace RocketChatRestApi;
 EmojiCustomUpdateJob::EmojiCustomUpdateJob(QObject *parent)
@@ -26,8 +30,53 @@ bool EmojiCustomUpdateJob::start()
         return false;
     }
     addStartRestApiInfo("EmojiCustomUpdateJob::start");
-    submitPostRequest(json());
 
+    const QString fileNameAsLocalFile = mEmojiInfo.fileNameUrl.toLocalFile();
+    auto file = new QFile(fileNameAsLocalFile);
+    if (!file->open(QIODevice::ReadOnly)) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << " Impossible to open filename " << mEmojiInfo.fileNameUrl;
+        Q_EMIT failed(i18n("File not found \'%1\'", fileNameAsLocalFile));
+        delete file;
+        deleteLater();
+        return false;
+    }
+    QMimeDatabase db;
+    const QMimeType mimeType = db.mimeTypeForFile(fileNameAsLocalFile);
+
+    auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
+
+    if (!mEmojiInfo.fileNameUrl.isEmpty()) {
+        QHttpPart filePart;
+        filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+        const QString filePartInfo = QStringLiteral("form-data; name=\"emoji\"; filename=\"%1\"").arg(mEmojiInfo.fileNameUrl.fileName());
+        filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
+
+        filePart.setBodyDevice(file);
+        file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+        multiPart->append(filePart);
+    }
+
+    QHttpPart identifierPart;
+    identifierPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"_id\"")));
+    identifierPart.setBody(mEmojiInfo.emojiId.toUtf8());
+    multiPart->append(identifierPart);
+
+    QHttpPart namePart;
+    namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
+    namePart.setBody(mEmojiInfo.name.toUtf8());
+    multiPart->append(namePart);
+
+    if (!mEmojiInfo.alias.isEmpty()) {
+        QHttpPart aliasesPart;
+        aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+        aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
+        multiPart->append(aliasesPart);
+    }
+
+    mReply = networkAccessManager()->post(request(), multiPart);
+    // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
+    connect(mReply.data(), &QNetworkReply::finished, this, &EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished);
+    multiPart->setParent(mReply); // delete the multiPart with the reply
     return true;
 }
 
@@ -54,6 +103,26 @@ void EmojiCustomUpdateJob::setEmojiInfo(const EmojiInfo &newEmojiInfo)
     mEmojiInfo = newEmojiInfo;
 }
 
+void EmojiCustomUpdateJob::slotEmojiCustomUpdateFinished()
+{
+    auto reply = qobject_cast<QNetworkReply *>(sender());
+
+    if (reply) {
+        const QJsonDocument replyJson = convertToJsonDocument(reply);
+        const QJsonObject replyObject = replyJson.object();
+
+        if (replyObject[QStringLiteral("success")].toBool()) {
+            addLoggerInfo(QByteArrayLiteral("EmojiCustomUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
+            Q_EMIT emojiCustomUpdateDone(replyObject);
+        } else {
+            emitFailedMessage(replyObject);
+            addLoggerWarning(QByteArrayLiteral("EmojiCustomUpdateJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
+        reply->deleteLater();
+    }
+    deleteLater();
+}
+
 bool EmojiCustomUpdateJob::requireHttpAuthentication() const
 {
     return true;
@@ -69,15 +138,6 @@ bool EmojiCustomUpdateJob::canStart() const
         return false;
     }
     return true;
-}
-
-QJsonDocument EmojiCustomUpdateJob::json() const
-{
-    QJsonObject jsonObj;
-    // TODO
-    // jsonObj[QLatin1String("emojiId")] = emojiId();
-    const QJsonDocument postData = QJsonDocument(jsonObj);
-    return postData;
 }
 
 QNetworkRequest EmojiCustomUpdateJob::request() const

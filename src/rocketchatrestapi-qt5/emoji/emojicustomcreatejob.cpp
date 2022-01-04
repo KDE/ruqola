@@ -44,24 +44,28 @@ bool EmojiCustomCreateJob::start()
 
     auto multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
-    QHttpPart filePart;
-    filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
-    const QString filePartInfo = QStringLiteral("form-data; name=\"emoji\"; filename=\"%1\"").arg(mEmojiInfo.fileNameUrl.fileName());
-    filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
+    if (!mEmojiInfo.fileNameUrl.isEmpty()) {
+        QHttpPart filePart;
+        filePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant(mimeType.name()));
+        const QString filePartInfo = QStringLiteral("form-data; name=\"emoji\"; filename=\"%1\"").arg(mEmojiInfo.fileNameUrl.fileName());
+        filePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(filePartInfo));
 
-    filePart.setBodyDevice(file);
-    file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
-    multiPart->append(filePart);
+        filePart.setBodyDevice(file);
+        file->setParent(multiPart); // we cannot delete the file now, so delete it with the multiPart
+        multiPart->append(filePart);
+    }
 
     QHttpPart namePart;
     namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
     namePart.setBody(mEmojiInfo.name.toUtf8());
     multiPart->append(namePart);
 
-    QHttpPart aliasesPart;
-    aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
-    aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
-    multiPart->append(aliasesPart);
+    if (!mEmojiInfo.alias.isEmpty()) {
+        QHttpPart aliasesPart;
+        aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
+        aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
+        multiPart->append(aliasesPart);
+    }
 
     mReply = networkAccessManager()->post(request(), multiPart);
     // connect(reply, &QNetworkReply::uploadProgress, this, &UploadFileJob::slotUploadProgress);
