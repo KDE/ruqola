@@ -16,6 +16,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <QHeaderView>
 #include <QLineEdit>
 #include <QVBoxLayout>
 
@@ -79,6 +80,9 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
     mAdminInviteModel->setAdminInvites(lstInvite);
     // qDebug() << " lstInvite " << lstInvite;
     // qDebug() << " obj " << obj;
+    for (int i : {AdminInviteModel::AdminInviteRoles::CreateStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
+        mInviteTreeView->resizeColumnToContents(i);
+    }
 }
 
 void AdministratorInvitesWidget::slotRemoveInvite(const QString &identifier)
