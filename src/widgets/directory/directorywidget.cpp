@@ -75,35 +75,33 @@ void DirectoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void DirectoryWidget::slotOpen(const QModelIndex &index)
 {
-    if (index.isValid()) {
-        switch (mType) {
-        case Room: {
-            QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
-            const QString channelId = modelIndex.data().toString();
-            modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
-            const QString channelType = modelIndex.data().toString();
-            if (channelType == QLatin1String("p")) {
-                mRocketChatAccount->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
-            } else if (channelType == QLatin1String("c")) {
-                mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
-            }
-            break;
-        }
-        case User: {
-            const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserId);
-            const QString channelId = modelIndex.data().toString();
-            mRocketChatAccount->openDirectChannel(channelId);
-            break;
-        }
-        case Team: {
-            const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::TeamIdentifier);
-            const QString channelId = modelIndex.data().toString();
+    switch (mType) {
+    case Room: {
+        QModelIndex modelIndex = mModel->index(index.row(), DirectoryRoomsModel::Identifier);
+        const QString channelId = modelIndex.data().toString();
+        modelIndex = mModel->index(index.row(), DirectoryRoomsModel::ChannelType);
+        const QString channelType = modelIndex.data().toString();
+        if (channelType == QLatin1String("p")) {
+            mRocketChatAccount->openPrivateGroup(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+        } else if (channelType == QLatin1String("c")) {
             mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
-            break;
         }
-        case Unknown:
-            break;
-        }
+        break;
+    }
+    case User: {
+        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryUsersModel::UserName);
+        const QString userId = modelIndex.data().toString();
+        mRocketChatAccount->openDirectChannel(userId);
+        break;
+    }
+    case Team: {
+        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::TeamIdentifier);
+        const QString channelId = modelIndex.data().toString();
+        mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+        break;
+    }
+    case Unknown:
+        break;
     }
 }
 

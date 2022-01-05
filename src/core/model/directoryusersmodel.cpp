@@ -28,7 +28,7 @@ int DirectoryUsersModel::rowCount(const QModelIndex &parent) const
 
 QList<int> DirectoryUsersModel::hideColumns() const
 {
-    return {UserId, JoinAtDateTime};
+    return {UserId, JoinAtDateTime, UserName};
 }
 
 Users::ParseType DirectoryUsersModel::parseType() const
@@ -82,6 +82,8 @@ QVariant DirectoryUsersModel::data(const QModelIndex &index, int role) const
         return user.createdAt();
     case DirectoryUsersRoles::UserId:
         return user.userId();
+    case DirectoryUsersModel::UserName:
+        return user.userName();
     }
     return {};
 }
@@ -98,6 +100,7 @@ QVariant DirectoryUsersModel::headerData(int section, Qt::Orientation orientatio
             return i18n("Join At");
         case DirectoryUsersModel::JoinAtDateTime:
         case DirectoryUsersModel::UserId:
+        case DirectoryUsersModel::UserName:
             return {};
         }
     }
