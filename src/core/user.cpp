@@ -121,7 +121,6 @@ QDebug operator<<(QDebug d, const User &t)
 // FIXME Add autotest for it!
 void User::parseUserRestApi(const QJsonObject &object)
 {
-    qDebug() << " obnject " << object;
     setUserId(object.value(QLatin1String("_id")).toString());
     setName(object.value(QLatin1String("name")).toString());
     setStatus(Utils::presenceStatusFromString(object.value(QLatin1String("status")).toString()));
