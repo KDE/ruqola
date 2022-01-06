@@ -34,7 +34,7 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
 
     if (sourceModel) {
         // The handling of persistent model indexes assumes mapToSource can be called for any index
-        // This breaks for the extra column, so we'll have to do it ourselves
+        // This breaks for the extra rows, so we'll have to do it ourselves
         disconnect(sourceModel,
                    SIGNAL(layoutAboutToBeChanged(QList<QPersistentModelIndex>, QAbstractItemModel::LayoutChangeHint)),
                    this,
