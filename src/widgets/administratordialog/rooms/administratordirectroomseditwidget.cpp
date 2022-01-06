@@ -28,9 +28,9 @@ AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *
     mFavoriteCheckBox->setObjectName(QStringLiteral("mFavoriteCheckBox"));
     mFeaturedCheckBox->setObjectName(QStringLiteral("mFeaturedCheckBox"));
 
-    mainLayout->addRow(mDefaultCheckBox);
-    mainLayout->addRow(mFavoriteCheckBox);
-    mainLayout->addRow(mFeaturedCheckBox);
+    mainLayout->addWidget(mDefaultCheckBox);
+    mainLayout->addWidget(mFavoriteCheckBox);
+    mainLayout->addWidget(mFeaturedCheckBox);
 }
 
 AdministratorDirectRoomsEditWidget::~AdministratorDirectRoomsEditWidget()
