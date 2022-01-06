@@ -79,6 +79,9 @@ void AdministratorRolesWidget::initialize()
 
     connect(mRocketChatAccount, &RocketChatAccount::rolesUpdated, this, updateRoleList);
     updateRoleList();
+    for (int i : {AdminRolesModel::AdminRoles::Name}) {
+        mTreeView->resizeColumnToContents(i);
+    }
 }
 
 void AdministratorRolesWidget::slotFilterTextChanged(const QString &str)
