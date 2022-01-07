@@ -21,7 +21,7 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     : QDialog(parent)
     , mThreadMessageWidget(new ThreadMessageWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Threads")); // TODO fixme name
+    setWindowTitle(i18nc("@title:window", "Thread"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
