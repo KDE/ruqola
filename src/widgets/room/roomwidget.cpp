@@ -743,11 +743,11 @@ void RoomWidget::slotGoBackToRoom()
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
 {
-    ThreadMessageDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setThreadMessageId(threadMessageId);
-    dlg.setThreadPreview(threadMessagePreview);
-    dlg.setRoom(mRoom);
-    dlg.exec();
+    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
+    dlg->setThreadMessageId(threadMessageId);
+    dlg->setThreadPreview(threadMessagePreview);
+    dlg->setRoom(mRoom);
+    dlg->show();
 }
 
 void RoomWidget::slotFollowMessages()

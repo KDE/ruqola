@@ -33,6 +33,7 @@ ThreadMessageDialog::ThreadMessageDialog(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ThreadMessageDialog::reject);
     readConfig();
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 ThreadMessageDialog::~ThreadMessageDialog()
