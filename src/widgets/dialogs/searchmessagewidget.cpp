@@ -16,11 +16,12 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-SearchMessageWidget::SearchMessageWidget(QWidget *parent)
+SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
-    , mSearchLineEdit(new SearchMessageWithDelayLineEdit(this))
+    , mSearchLineEdit(new SearchMessageWithDelayLineEdit(account, this))
     , mResultListWidget(new MessageListView(MessageListView::Mode::Viewing, this))
+    , mCurrentRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -42,6 +43,9 @@ SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
+    if (mCurrentRocketChatAccount) {
+        mResultListWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    }
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -53,6 +57,7 @@ SearchMessageWidget::~SearchMessageWidget()
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
+    mSearchLineEdit->addCompletionItem(str);
     mCurrentRocketChatAccount->messageSearch(str, mRoomId, true);
 }
 
@@ -95,12 +100,6 @@ void SearchMessageWidget::setModel(SearchMessageFilterProxyModel *model)
     connect(mModel, &SearchMessageFilterProxyModel::stringNotFoundChanged, this, &SearchMessageWidget::updateLabel);
     connect(mModel, &SearchMessageFilterProxyModel::loadingInProgressChanged, this, &SearchMessageWidget::updateLabel);
     updateLabel();
-}
-
-void SearchMessageWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
-{
-    mCurrentRocketChatAccount = currentRocketChatAccount;
-    mResultListWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
 void SearchMessageWidget::setRoom(Room *room)

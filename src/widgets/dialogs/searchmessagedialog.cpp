@@ -18,9 +18,9 @@ namespace
 {
 static const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 }
-SearchMessageDialog::SearchMessageDialog(QWidget *parent)
+SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mSearchMessageWidget(new SearchMessageWidget(this))
+    , mSearchMessageWidget(new SearchMessageWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Search Messages"));
     auto mainLayout = new QVBoxLayout(this);
@@ -65,11 +65,6 @@ void SearchMessageDialog::writeConfig()
 void SearchMessageDialog::setModel(SearchMessageFilterProxyModel *model)
 {
     mSearchMessageWidget->setModel(model);
-}
-
-void SearchMessageDialog::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
-{
-    mSearchMessageWidget->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
 void SearchMessageDialog::setRoom(Room *room)

@@ -19,14 +19,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SearchMessageWidget(QWidget *parent = nullptr);
+    explicit SearchMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageWidget() override;
 
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &roomId);
 
     void setModel(SearchMessageFilterProxyModel *model);
-    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
     void setRoom(Room *room);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
@@ -41,6 +40,6 @@ private:
     SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
     SearchMessageFilterProxyModel *mModel = nullptr;
-    RocketChatAccount *mCurrentRocketChatAccount = nullptr;
+    RocketChatAccount *const mCurrentRocketChatAccount;
 };
 

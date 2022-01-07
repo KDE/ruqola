@@ -17,13 +17,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit SearchMessageDialog(QWidget *parent = nullptr);
+    explicit SearchMessageDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageDialog() override;
 
     void setRoomId(const QString &roomId);
 
     void setModel(SearchMessageFilterProxyModel *model);
-    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
     void setRoom(Room *room);
 Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);

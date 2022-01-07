@@ -9,11 +9,12 @@
 #include "misc/searchwithdelaylineedit.h"
 class QCompleter;
 class QStringListModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWithDelayLineEdit : public SearchWithDelayLineEdit
 {
     Q_OBJECT
 public:
-    explicit SearchMessageWithDelayLineEdit(QWidget *parent = nullptr);
+    explicit SearchMessageWithDelayLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SearchMessageWithDelayLineEdit() override;
     void addCompletionItem(const QString &str);
 
@@ -21,4 +22,5 @@ private:
     QStringList mListCompetion;
     QCompleter *const mCompleter;
     QStringListModel *const mCompleterListModel;
+    RocketChatAccount *const mCurrentRocketChatAccount;
 };

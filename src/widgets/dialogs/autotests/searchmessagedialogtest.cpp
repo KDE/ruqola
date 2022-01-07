@@ -22,7 +22,7 @@ SearchMessageDialogTest::SearchMessageDialogTest(QObject *parent)
 
 void SearchMessageDialogTest::shouldHaveDefaultValues()
 {
-    SearchMessageDialog w;
+    SearchMessageDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

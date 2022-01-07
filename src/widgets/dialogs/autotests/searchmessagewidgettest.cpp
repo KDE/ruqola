@@ -19,7 +19,7 @@ SearchMessageWidgetTest::SearchMessageWidgetTest(QObject *parent)
 
 void SearchMessageWidgetTest::shouldHaveDefaultValues()
 {
-    SearchMessageWidget w;
+    SearchMessageWidget w(nullptr);
 
     auto mSearchLineEdit = w.findChild<SearchMessageWithDelayLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
