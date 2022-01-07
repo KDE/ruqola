@@ -276,7 +276,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     bool messageIsFollowing = mCurrentRocketChatAccount && message->replies().contains(mCurrentRocketChatAccount->userId());
 
-    auto followingToMessageAction = new QAction(messageIsFollowing ? i18n("Unfollow Message") : i18n("Follow Message"), &menu); // TODO add icon
+    auto followingToMessageAction =
+        new QAction(messageIsFollowing ? QIcon::fromTheme(QStringLiteral("notifications-disabled")) : QIcon::fromTheme(QStringLiteral("notifications")),
+                    messageIsFollowing ? i18n("Unfollow Message") : i18n("Follow Message"),
+                    &menu);
     connect(followingToMessageAction, &QAction::triggered, this, [=]() {
         slotFollowMessage(index, messageIsFollowing);
     });
