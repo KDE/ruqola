@@ -6,11 +6,11 @@
 
 #include "searchmessagewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "misc/searchwithdelaylineedit.h"
 #include "model/searchmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include "ruqola.h"
+#include "searchmessagewithdelaylineedit.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
@@ -19,7 +19,7 @@
 SearchMessageWidget::SearchMessageWidget(QWidget *parent)
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
-    , mSearchLineEdit(new SearchWithDelayLineEdit(this))
+    , mSearchLineEdit(new SearchMessageWithDelayLineEdit(this))
     , mResultListWidget(new MessageListView(MessageListView::Mode::Viewing, this))
 {
     auto mainLayout = new QVBoxLayout(this);

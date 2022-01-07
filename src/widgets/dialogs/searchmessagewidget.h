@@ -9,7 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class SearchWithDelayLineEdit;
+class SearchMessageWithDelayLineEdit;
 class MessageListView;
 class QLabel;
 class SearchMessageFilterProxyModel;
@@ -38,7 +38,7 @@ private:
     Q_REQUIRED_RESULT QString displayShowSearch() const;
     QString mRoomId;
     QLabel *const mSearchLabel;
-    SearchWithDelayLineEdit *const mSearchLineEdit;
+    SearchMessageWithDelayLineEdit *const mSearchLineEdit;
     MessageListView *const mResultListWidget;
     SearchMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;

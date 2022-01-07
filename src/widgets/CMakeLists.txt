@@ -94,6 +94,8 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/channelinfoeditablewidget.cpp
     dialogs/roomavatarwidget.cpp
     dialogs/messagetexteditor.cpp
+    dialogs/searchmessagewithdelaylineedit.h
+    dialogs/searchmessagewithdelaylineedit.cpp
 
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp
