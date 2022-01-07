@@ -474,6 +474,10 @@ public:
     void generate2FaTotp(const QJsonObject &obj);
     void totpVerify(const QJsonObject &obj);
     void totpDisabledVerify(const QJsonObject &root);
+
+    Q_REQUIRED_RESULT const QStringList &searchListCompletion() const;
+    void setSearchListCompletion(const QStringList &newSearchListCompletion);
+
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();
@@ -646,6 +650,7 @@ private:
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
     RolesManager mRolesManager;
+    QStringList mSearchListCompletion;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

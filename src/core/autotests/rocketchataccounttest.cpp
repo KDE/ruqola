@@ -61,4 +61,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(!w.twoFactorAuthenticationEnabled());
     QVERIFY(!w.twoFactorAuthenticationByEmailEnabled());
     QVERIFY(!w.twoFactorAuthenticationByTOTPEnabled());
+
+    QVERIFY(w.searchListCompletion().isEmpty());
 }

@@ -558,6 +558,16 @@ void RocketChatAccount::slotJobFailed(const QString &str)
     Q_EMIT jobFailed(str, accountName());
 }
 
+const QStringList &RocketChatAccount::searchListCompletion() const
+{
+    return mSearchListCompletion;
+}
+
+void RocketChatAccount::setSearchListCompletion(const QStringList &newSearchListCompletion)
+{
+    mSearchListCompletion = newSearchListCompletion;
+}
+
 void RocketChatAccount::leaveRoom(const QString &roomId, Room::RoomType channelType)
 {
     switch (channelType) {
