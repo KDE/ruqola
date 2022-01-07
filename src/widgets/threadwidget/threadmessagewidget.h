@@ -12,6 +12,7 @@ class RocketChatAccount;
 class Room;
 class QLabel;
 class RoomWidgetBase;
+class QToolButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -38,5 +39,6 @@ private:
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;
     RocketChatAccount *const mRocketChatAccount;
+    QToolButton *const mFollowButton;
 };
 

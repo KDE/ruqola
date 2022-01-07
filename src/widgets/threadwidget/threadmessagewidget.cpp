@@ -14,6 +14,7 @@
 #include "ruqola.h"
 #include <QLabel>
 #include <QMimeData>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
@@ -21,15 +22,26 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     , mThreadPreview(new QLabel(this))
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::ThreadEditing, this))
     , mRocketChatAccount(account)
+    , mFollowButton(new QToolButton(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    auto hboxLayout = new QHBoxLayout;
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
+    hboxLayout->setContentsMargins(QMargins());
+
+    mainLayout->addLayout(hboxLayout);
+
+    mFollowButton->setObjectName(QStringLiteral("mFollowButton"));
+    mFollowButton->setAutoRaise(true);
+    hboxLayout->addWidget(mFollowButton);
+
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
     mThreadPreview->setContextMenuPolicy(Qt::CustomContextMenu);
     mThreadPreview->setWordWrap(true);
-    mainLayout->addWidget(mThreadPreview);
+    hboxLayout->addWidget(mThreadPreview);
 
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
