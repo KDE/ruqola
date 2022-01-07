@@ -272,7 +272,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         slotCopyLinkToMessage(index);
     });
 
-    // TODO customize i18n (follow/unfollow)
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     bool messageIsFollowing = mCurrentRocketChatAccount && message->replies().contains(mCurrentRocketChatAccount->userId());
 
