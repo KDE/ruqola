@@ -51,7 +51,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
-    , mFollowingIcon(QIcon::fromTheme(QStringLiteral("visibility")))
+    , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin"))) // TODO use better icon for following message
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
