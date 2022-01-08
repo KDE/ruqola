@@ -11,6 +11,7 @@
 #include "threadwidget/threadmessagewidget.h"
 #include <QLabel>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 QTEST_MAIN(ThreadMessageWidgetTest)
 
@@ -35,4 +36,12 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 
     auto mRoomWidgetBase = w.findChild<RoomWidgetBase *>(QStringLiteral("mRoomWidgetBase"));
     QVERIFY(mRoomWidgetBase);
+
+    auto hboxLayout = w.findChild<QHBoxLayout *>(QStringLiteral("hboxLayout"));
+    QVERIFY(hboxLayout);
+    QCOMPARE(hboxLayout->contentsMargins(), QMargins());
+
+    auto mFollowButton = w.findChild<QToolButton *>(QStringLiteral("mFollowButton"));
+    QVERIFY(mFollowButton);
+    QVERIFY(mFollowButton->autoRaise());
 }
