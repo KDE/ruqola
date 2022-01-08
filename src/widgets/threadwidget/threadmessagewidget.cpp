@@ -59,6 +59,11 @@ void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, cons
     mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, QString());
 }
 
+void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
+{
+    mFollowButton->setIcon(followThread ? QIcon::fromTheme(QStringLiteral("notifications")) : QIcon::fromTheme(QStringLiteral("notifications-disabled")));
+}
+
 QString ThreadMessageWidget::threadMessageId() const
 {
     return mThreadMessageId;
