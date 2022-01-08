@@ -5,6 +5,9 @@
 */
 
 #include "threadmessagewidget.h"
+#include "chat/followmessagejob.h"
+#include "chat/unfollowmessagejob.h"
+#include "connection.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "room/messagelinewidget.h"
@@ -12,6 +15,7 @@
 #include "room/messagetextedit.h"
 #include "room/roomwidgetbase.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <QLabel>
 #include <QMimeData>
 #include <QToolButton>
@@ -62,7 +66,24 @@ void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, cons
 
 void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
 {
-    // TODO
+    if (clicked) {
+        auto job = new RocketChatRestApi::UnFollowMessageJob(this);
+        job->setMessageId(mThreadMessageId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UnFollowMessageJob job";
+        }
+    } else {
+        auto job = new RocketChatRestApi::FollowMessageJob(this);
+        job->setMessageId(mThreadMessageId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start FollowMessageJob job";
+        }
+    }
+    // TODO update icon
 }
 
 void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
