@@ -36,6 +36,7 @@ private:
     void intialize();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     void updateFollowThreadIcon(bool followThread);
+    void slotFollowThreadChanged(bool clicked);
     QString mThreadMessageId;
     QLabel *const mThreadPreview;
     RoomWidgetBase *const mRoomWidgetBase;

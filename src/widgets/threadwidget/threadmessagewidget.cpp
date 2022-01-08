@@ -37,6 +37,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     mFollowButton->setObjectName(QStringLiteral("mFollowButton"));
     mFollowButton->setAutoRaise(true);
     hboxLayout->addWidget(mFollowButton);
+    connect(mFollowButton, &QToolButton::clicked, this, &ThreadMessageWidget::slotFollowThreadChanged);
 
     mThreadPreview->setObjectName(QStringLiteral("mThreadPreview"));
     mThreadPreview->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -57,6 +58,11 @@ ThreadMessageWidget::~ThreadMessageWidget() = default;
 void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {
     mRoomWidgetBase->slotCreateNewDiscussion(messageId, originalMessage, QString());
+}
+
+void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
+{
+    // TODO
 }
 
 void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
