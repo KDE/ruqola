@@ -70,7 +70,9 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
         auto job = new RocketChatRestApi::UnFollowMessageJob(this);
         job->setMessageId(mThreadMessageId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        connect(job, &RocketChatRestApi::UnFollowMessageJob::unFollowMessageDone, this, [this]() {
+            updateFollowThreadIcon(false); // TODO verify it
+        });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UnFollowMessageJob job";
         }
@@ -78,12 +80,13 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
         auto job = new RocketChatRestApi::FollowMessageJob(this);
         job->setMessageId(mThreadMessageId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        // connect(job, &RocketChatRestApi::UnFollowMessageJob::followMessageDone, this, &UsersInRoleWidget::slotAddUsersToRoleDone);
+        connect(job, &RocketChatRestApi::FollowMessageJob::followMessageDone, this, [this]() {
+            updateFollowThreadIcon(true); // TODO verify it
+        });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start FollowMessageJob job";
         }
     }
-    // TODO update icon
 }
 
 void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
