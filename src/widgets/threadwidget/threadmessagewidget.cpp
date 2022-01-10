@@ -16,6 +16,9 @@
 #include "room/roomwidgetbase.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+
+#include <KLocalizedString>
+
 #include <QLabel>
 #include <QMimeData>
 #include <QToolButton>
@@ -39,6 +42,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addLayout(hboxLayout);
 
     mFollowButton->setObjectName(QStringLiteral("mFollowButton"));
+    mFollowButton->setCheckable(true);
     mFollowButton->setAutoRaise(true);
     hboxLayout->addWidget(mFollowButton);
     connect(mFollowButton, &QToolButton::clicked, this, &ThreadMessageWidget::slotFollowThreadChanged);
@@ -92,11 +96,17 @@ void ThreadMessageWidget::slotFollowThreadChanged(bool clicked)
 void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
 {
     mFollowButton->setIcon(followThread ? QIcon::fromTheme(QStringLiteral("notifications")) : QIcon::fromTheme(QStringLiteral("notifications-disabled")));
+    mFollowButton->setToolTip(followThread ? i18n("Follow Message") : i18n("Unfollow Message"));
 }
 
 QString ThreadMessageWidget::threadMessageId() const
 {
     return mThreadMessageId;
+}
+
+void ThreadMessageWidget::setFollowingThread(bool threadIsFollowing)
+{
+    updateFollowThreadIcon(threadIsFollowing);
 }
 
 void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)

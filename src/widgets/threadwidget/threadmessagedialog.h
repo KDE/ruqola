@@ -21,6 +21,8 @@ public:
     void setThreadMessageId(const QString &threadMessageId);
     Q_REQUIRED_RESULT QString threadMessageId() const;
 
+    void setFollowingThread(bool threadIsFollowing);
+
     void setThreadPreview(const QString &preview);
     void setRoom(Room *room);
 

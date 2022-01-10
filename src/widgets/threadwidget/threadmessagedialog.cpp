@@ -61,6 +61,11 @@ QString ThreadMessageDialog::threadMessageId() const
     return mThreadMessageWidget->threadMessageId();
 }
 
+void ThreadMessageDialog::setFollowingThread(bool threadIsFollowing)
+{
+    mThreadMessageWidget->setFollowingThread(threadIsFollowing);
+}
+
 void ThreadMessageDialog::setThreadMessageId(const QString &threadMessageId)
 {
     mThreadMessageWidget->setThreadMessageId(threadMessageId);

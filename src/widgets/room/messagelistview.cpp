@@ -599,11 +599,16 @@ void MessageListView::slotEditMessage(const QModelIndex &index)
 
 void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
-    const QString threadMessageId = index.data(MessageModel::ThreadMessageId).toString();
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    const QString threadMessageId = message->threadMessageId();
     const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+
+    const bool threadIsFollowing = mCurrentRocketChatAccount && message->replies().contains(mCurrentRocketChatAccount->userId());
+
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     dlg->setThreadMessageId(threadMessageId);
     dlg->setThreadPreview(threadMessagePreview);
+    dlg->setFollowingThread(threadIsFollowing);
     dlg->setRoom(mRoom);
     dlg->show();
 }

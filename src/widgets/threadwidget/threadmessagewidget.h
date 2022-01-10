@@ -28,6 +28,8 @@ public:
 
     void setRoom(Room *room);
 
+    void setFollowingThread(bool threadIsFollowing);
+
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;
     void dropEvent(QDropEvent *event) override;

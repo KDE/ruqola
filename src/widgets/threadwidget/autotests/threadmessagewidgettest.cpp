@@ -44,4 +44,5 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     auto mFollowButton = w.findChild<QToolButton *>(QStringLiteral("mFollowButton"));
     QVERIFY(mFollowButton);
     QVERIFY(mFollowButton->autoRaise());
+    QVERIFY(mFollowButton->isCheckable());
 }
