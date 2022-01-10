@@ -28,7 +28,7 @@ RegisterUserWidget::RegisterUserWidget(RocketChatAccount *account, QWidget *pare
     mainLayout->setContentsMargins({});
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
-    mainLayout->addRow(i18n("UserName:"), mUserName);
+    mainLayout->addRow(i18n("Username:"), mUserName);
     connect(mUserName, &QLineEdit::textChanged, this, &RegisterUserWidget::slotUpdateRegisterButton);
 
     mEmail->setObjectName(QStringLiteral("mEmail"));
