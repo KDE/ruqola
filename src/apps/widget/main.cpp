@@ -120,6 +120,13 @@ int main(int argc, char *argv[])
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
+    QString messageUrl;
+    if (parser.isSet(QStringLiteral("messageurl"))) {
+        messageUrl = parser.value(QStringLiteral("messageurl"));
+    }
+    if (!messageUrl.isEmpty()) {
+        Ruqola::self()->openMessageUrl(messageUrl);
+    }
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
     // TODO Port to something like KDSingleApplication

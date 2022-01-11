@@ -38,6 +38,8 @@ public:
 
     void setCurrentAccount(const QString &accountName);
 
+    void openMessageUrl(const QString &url);
+
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;

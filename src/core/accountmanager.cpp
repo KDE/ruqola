@@ -29,6 +29,11 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
+void AccountManager::openMessageUrl(const QString &url)
+{
+    // TODO parse url => switch server => open room
+}
+
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {

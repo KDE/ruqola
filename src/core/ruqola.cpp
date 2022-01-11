@@ -41,6 +41,11 @@ Ruqola::Ruqola(QObject *parent)
     mAccountManager = new AccountManager(this);
 }
 
+void Ruqola::openMessageUrl(const QString &url)
+{
+    mAccountManager->openMessageUrl(url);
+}
+
 void Ruqola::setCurrentAccount(const QString &accountName)
 {
     mAccountManager->setCurrentAccount(accountName);
