@@ -11,7 +11,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
-
+#include <QUrlQuery>
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)
@@ -29,14 +29,27 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
-void AccountManager::openMessageUrl(const QString &url)
+void AccountManager::openMessageUrl(const QString &messageUrl)
 {
-    // TODO parse url => switch server => open room
-    auto account = mRocketChatAccountModel->accountFromServerUrl(url);
+    QUrl url(messageUrl);
+    auto account = mRocketChatAccountModel->accountFromServerUrl(messageUrl);
     if (account) {
+        QUrlQuery query(url);
+        qDebug() << " query " << query.toString();
+        qDebug() << " url " << url;
+        qDebug() << " url path " << url.path();
+
+        QString linkRoom;
+        if (url.path().startsWith(QStringLiteral("/channel/"))) {
+            linkRoom = QStringLiteral("ruqola:/room/%1").arg(url.path().remove(QStringLiteral("/channel/")));
+        } else {
+            // TODO
+        }
+        const QString messageId = query.queryItemValue(QStringLiteral("msg"));
+        // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());
         Q_EMIT mCurrentAccount->raiseWindow();
-        // TODO Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
+        Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
         // TODO highlight message too => load it etc.
     } else {
         // TODO report error

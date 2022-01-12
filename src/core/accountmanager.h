@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT QStringList accountsName() const;
 
     Q_REQUIRED_RESULT int accountNumber() const;
-    void openMessageUrl(const QString &url);
+    void openMessageUrl(const QString &messageUrl);
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
