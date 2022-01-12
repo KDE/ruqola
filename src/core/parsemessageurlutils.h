@@ -13,6 +13,12 @@
 class LIBRUQOLACORE_TESTS_EXPORT ParseMessageUrlUtils
 {
 public:
+    enum ChannelType {
+        Unknown = 0,
+        Direct = 1,
+        Channel = 2,
+    };
+
     ParseMessageUrlUtils();
     ~ParseMessageUrlUtils();
 
@@ -32,3 +38,5 @@ private:
     QString mRoomId;
     QString mServerPath;
 };
+
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t);

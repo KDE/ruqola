@@ -16,5 +16,8 @@ ParseMessageUrlUtilsTest::ParseMessageUrlUtilsTest(QObject *parent)
 void ParseMessageUrlUtilsTest::shouldHaveDefaultValues()
 {
     ParseMessageUrlUtils w;
+    QVERIFY(w.messageId().isEmpty());
+    QVERIFY(w.roomId().isEmpty());
+    QVERIFY(w.serverPath().isEmpty());
     // TODO
 }

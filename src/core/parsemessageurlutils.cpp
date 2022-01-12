@@ -50,3 +50,11 @@ void ParseMessageUrlUtils::setServerPath(const QString &newServerPath)
 {
     mServerPath = newServerPath;
 }
+
+QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
+{
+    d << "mServerPath " << t.serverPath();
+    d << "mRoomId " << t.roomId();
+    d << "mMessageId " << t.messageId();
+    return d;
+}
