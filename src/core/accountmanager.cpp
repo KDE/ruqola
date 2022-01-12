@@ -8,6 +8,7 @@
 #include "managerdatapaths.h"
 #include "notifications/notifierjob.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
@@ -35,9 +36,9 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
     auto account = mRocketChatAccountModel->accountFromServerUrl(messageUrl);
     if (account) {
         QUrlQuery query(url);
-        qDebug() << " query " << query.toString();
-        qDebug() << " url " << url;
-        qDebug() << " url path " << url.path();
+        // qDebug() << " query " << query.toString();
+        // qDebug() << " url " << url;
+        // qDebug() << " url path " << url.path();
 
         QString linkRoom;
         if (url.path().startsWith(QStringLiteral("/channel/"))) {
@@ -52,6 +53,8 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
         Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
         // TODO highlight message too => load it etc.
     } else {
+        // TODO !!!!
+        Q_EMIT messageUrlNotFound(i18n("Server not found: %1", messageUrl));
         // TODO report error
     }
 }

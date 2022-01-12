@@ -54,6 +54,7 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void currentAccountChanged();
     void roomNeedAttention();
+    void messageUrlNotFound(const QString &str);
 
 private:
     Q_DISABLE_COPY(AccountManager)
