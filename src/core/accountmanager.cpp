@@ -32,6 +32,15 @@ int AccountManager::accountNumber() const
 void AccountManager::openMessageUrl(const QString &url)
 {
     // TODO parse url => switch server => open room
+    auto account = mRocketChatAccountModel->accountFromServerUrl(url);
+    if (account) {
+        setCurrentAccount(account->accountName());
+        Q_EMIT mCurrentAccount->raiseWindow();
+        // TODO Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
+        // TODO highlight message too => load it etc.
+    } else {
+        // TODO report error
+    }
 }
 
 void AccountManager::connectToAccount(RocketChatAccount *account)
