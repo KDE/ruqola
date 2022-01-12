@@ -420,6 +420,9 @@ target_sources(libruqolacore PRIVATE
     away/awaymanager.cpp
     notifications/notification.cpp
     notifications/notification.h
+
+    parsemessageurlutils.h
+    parsemessageurlutils.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
