@@ -214,11 +214,9 @@ void AccountManager::setCurrentAccount(const QString &accountName)
             settings.sync();
             mCurrentAccount = account;
             Q_EMIT currentAccountChanged();
-            qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
         }
     } else {
         qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system. Fallback to default one.";
-        qDebug() << " GGGGGGGGGGGGGGGGG";
     }
 }
 

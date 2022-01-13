@@ -36,6 +36,7 @@
 #include "room.h"
 #include "ruqola.h"
 #include "ruqolacentralwidget.h"
+#include "ruqolacommandlineoptions.h"
 #include "ruqolaserverconfig.h"
 #include "teams/teamscreatejob.h"
 #include <KActionCollection>
@@ -108,26 +109,18 @@ RuqolaMainWindow::~RuqolaMainWindow()
 
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
+    Q_UNUSED(workingDirectory)
     if (!arguments.isEmpty()) {
-#if 0
+        QCommandLineParser parser;
+        ruqolaOptions(&parser);
+        parser.parse(arguments);
         if (parser.isSet(QStringLiteral("messageurl"))) {
             const QString messageUrl = parser.value(QStringLiteral("messageurl"));
             if (!messageUrl.isEmpty()) {
                 Ruqola::self()->openMessageUrl(messageUrl);
-                qDebug() << " Ruqola::self() " << Ruqola::self();
             }
         }
-
-#endif
-        /*
-        QCommandLineParser parser;
-        populateCommandLineParser(&parser);
-        parser.parse(args);
-        commandLineParser->parse(arguments); // same QCommandLineParser instance as the one used in main()
-        handleCmdLine(workingDirectory); // shared method with main(), which uses commandLineParser to handle options and positional arguments
-        */
     }
-    // TODO
 }
 
 void RuqolaMainWindow::slotRoomNeedAttention()
