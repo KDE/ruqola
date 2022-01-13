@@ -161,7 +161,6 @@ void RuqolaMainWindow::slotAccountChanged()
         disconnect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
-    qDebug() << " mCurrentRocketChatAccount " << mCurrentRocketChatAccount->accountName();
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
             &ReceiveTypingNotificationManager::notificationChanged,
             this,
