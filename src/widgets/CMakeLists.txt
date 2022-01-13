@@ -488,6 +488,9 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccount2fatotpwidget.h
     myaccount/myaccount2fadisabletotpwidget.h
     myaccount/myaccount2fadisabletotpwidget.cpp
+
+    ruqolacommandlineoptions.cpp
+    ruqolacommandlineoptions.h
     )
 
 

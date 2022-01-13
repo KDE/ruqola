@@ -49,6 +49,7 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
             // qDebug() << " parseUrl " << parseUrl;
             // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
             setCurrentAccount(account->accountName());
+            qDebug() << " account->accountName() : " << account->accountName();
             Q_EMIT mCurrentAccount->raiseWindow();
             Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
             // TODO highlight message too => load it etc.
@@ -213,9 +214,11 @@ void AccountManager::setCurrentAccount(const QString &accountName)
             settings.sync();
             mCurrentAccount = account;
             Q_EMIT currentAccountChanged();
+            qDebug() << " SSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
         }
     } else {
         qCWarning(RUQOLA_LOG) << "AccountName " << accountName << " is not found on system. Fallback to default one.";
+        qDebug() << " GGGGGGGGGGGGGGGGG";
     }
 }
 

@@ -48,6 +48,7 @@
 #include <KSharedConfig>
 #include <KStandardAction>
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDir>
 #include <QFontDatabase>
 #include <QHBoxLayout>
@@ -105,6 +106,30 @@ RuqolaMainWindow::~RuqolaMainWindow()
     Ruqola::destroy();
 }
 
+void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
+{
+    if (!arguments.isEmpty()) {
+#if 0
+        if (parser.isSet(QStringLiteral("messageurl"))) {
+            const QString messageUrl = parser.value(QStringLiteral("messageurl"));
+            if (!messageUrl.isEmpty()) {
+                Ruqola::self()->openMessageUrl(messageUrl);
+                qDebug() << " Ruqola::self() " << Ruqola::self();
+            }
+        }
+
+#endif
+        /*
+        QCommandLineParser parser;
+        populateCommandLineParser(&parser);
+        parser.parse(args);
+        commandLineParser->parse(arguments); // same QCommandLineParser instance as the one used in main()
+        handleCmdLine(workingDirectory); // shared method with main(), which uses commandLineParser to handle options and positional arguments
+        */
+    }
+    // TODO
+}
+
 void RuqolaMainWindow::slotRoomNeedAttention()
 {
     if (mNotification) {
@@ -143,6 +168,7 @@ void RuqolaMainWindow::slotAccountChanged()
         disconnect(mCurrentRocketChatAccount->receiveTypingNotificationManager(), nullptr, this, nullptr);
     }
     mCurrentRocketChatAccount = Ruqola::self()->rocketChatAccount();
+    qDebug() << " mCurrentRocketChatAccount " << mCurrentRocketChatAccount->accountName();
     connect(mCurrentRocketChatAccount->receiveTypingNotificationManager(),
             &ReceiveTypingNotificationManager::notificationChanged,
             this,

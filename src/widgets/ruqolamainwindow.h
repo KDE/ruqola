@@ -27,6 +27,8 @@ public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
     ~RuqolaMainWindow() override;
 
+    void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);
+
 protected:
     Q_REQUIRED_RESULT bool queryClose() override;
 

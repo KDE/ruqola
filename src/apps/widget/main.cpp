@@ -9,6 +9,7 @@
 #include "config-ruqola.h"
 #include "managerdatapaths.h"
 #include "ruqola.h"
+#include "ruqolacommandlineoptions.h"
 #include "ruqolaglobalconfig.h"
 #include <KCrash>
 #include <KLocalizedString>
@@ -75,13 +76,7 @@ int main(int argc, char *argv[])
     KAboutData::setApplicationData(aboutData);
 
     QCommandLineParser parser;
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("account"), i18n("Start with specific account"), QStringLiteral("accountname")));
-    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("messageurl"), i18n("Show Message"), QStringLiteral("url")));
-
-#if HAVE_KUSERFEEDBACK
-    parser.addOption(QCommandLineOption(QStringLiteral("feedback"), i18n("Lists the available options for user feedback")));
-#endif
+    ruqolaOptions(&parser);
 
     aboutData.setupCommandLine(&parser);
     parser.process(app);
@@ -120,17 +115,6 @@ int main(int argc, char *argv[])
     if (!loadAccount.isEmpty()) {
         Ruqola::self()->setCurrentAccount(loadAccount);
     }
-    if (parser.isSet(QStringLiteral("messageurl"))) {
-        const QString messageUrl = parser.value(QStringLiteral("messageurl"));
-        if (!messageUrl.isEmpty()) {
-            Ruqola::self()->openMessageUrl(messageUrl);
-        }
-    }
-
-#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
-    // TODO Port to something like KDSingleApplication
-    KDBusService service(KDBusService::Unique);
-#endif
 
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
@@ -141,6 +125,11 @@ int main(int argc, char *argv[])
     }
 
     auto mw = new RuqolaMainWindow();
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+    // TODO Port to something like KDSingleApplication
+    KDBusService service(KDBusService::Unique);
+    QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
+#endif
     mw->show();
     const int val = app.exec();
     return val;
