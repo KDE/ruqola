@@ -30,13 +30,17 @@ public:
     const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    const QString &serverPath() const;
-    void setServerPath(const QString &newServerPath);
+    const QString &serverHost() const;
+    void setServerHost(const QString &newServerPath);
+
+    const QString &path() const;
+    void setPath(const QString &newPath);
 
 private:
     QString mMessageId;
     QString mRoomId;
-    QString mServerPath;
+    QString mServerHost;
+    QString mPath;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t);

@@ -27,9 +27,11 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         QList<QPair<QString, QString>> queryItems = query.queryItems();
         qDebug() << "queryItems " << queryItems;
 
-        mServerPath = query.queryItemValue(QStringLiteral("host"));
+        mServerHost = query.queryItemValue(QStringLiteral("host"));
         mRoomId = query.queryItemValue(QStringLiteral("rid"));
         mMessageId = query.queryItemValue(QStringLiteral("mid"));
+        mPath = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
+        qDebug() << " mPath " << mPath;
         return true;
     }
     // https://go.rocket.chat/room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=<server
@@ -59,20 +61,31 @@ void ParseMessageUrlUtils::setRoomId(const QString &newRoomId)
     mRoomId = newRoomId;
 }
 
-const QString &ParseMessageUrlUtils::serverPath() const
+const QString &ParseMessageUrlUtils::serverHost() const
 {
-    return mServerPath;
+    return mServerHost;
 }
 
-void ParseMessageUrlUtils::setServerPath(const QString &newServerPath)
+void ParseMessageUrlUtils::setServerHost(const QString &newServerPath)
 {
-    mServerPath = newServerPath;
+    mServerHost = newServerPath;
+}
+
+const QString &ParseMessageUrlUtils::path() const
+{
+    return mPath;
+}
+
+void ParseMessageUrlUtils::setPath(const QString &newPath)
+{
+    mPath = newPath;
 }
 
 QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
 {
-    d << "mServerPath " << t.serverPath();
+    d << "mServerPath " << t.serverHost();
     d << "mRoomId " << t.roomId();
     d << "mMessageId " << t.messageId();
+    d << "mPath " << t.path();
     return d;
 }
