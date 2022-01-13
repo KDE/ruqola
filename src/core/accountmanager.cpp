@@ -35,7 +35,7 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
 {
     ParseMessageUrlUtils parseUrl;
     if (parseUrl.parseUrl(messageUrl)) {
-        auto account = mRocketChatAccountModel->accountFromServerUrl(messageUrl);
+        auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
         if (account) {
             QString path{parseUrl.path()};
             QString linkRoom;
@@ -44,7 +44,9 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
             } else {
                 linkRoom = QStringLiteral("ruqola:/user/%1").arg(path.remove(QStringLiteral("/direct/")));
             }
+            // TODO use roomId directly.
             const QString messageId = parseUrl.messageId();
+            // qDebug() << " parseUrl " << parseUrl;
             // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
             setCurrentAccount(account->accountName());
             Q_EMIT mCurrentAccount->raiseWindow();

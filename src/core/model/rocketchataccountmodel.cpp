@@ -53,7 +53,7 @@ RocketChatAccount *RocketChatAccountModel::accountFromServerUrl(const QString &s
     }
     for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
         RocketChatAccount *model = mRocketChatAccount.at(i);
-        if (model->serverUrl() == serverName) {
+        if (model->serverUrl().contains(serverName)) {
             return model;
         }
     }
