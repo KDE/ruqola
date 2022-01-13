@@ -7,6 +7,7 @@
 #include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "notifications/notifierjob.h"
+#include "parsemessageurlutils.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QDir>
@@ -32,26 +33,28 @@ int AccountManager::accountNumber() const
 
 void AccountManager::openMessageUrl(const QString &messageUrl)
 {
-    QUrl url(messageUrl);
-    auto account = mRocketChatAccountModel->accountFromServerUrl(messageUrl);
-    if (account) {
-        QUrlQuery query(url);
-        // qDebug() << " query " << query.toString();
-        // qDebug() << " url " << url;
-        // qDebug() << " url path " << url.path();
-
-        QString linkRoom;
-        if (url.path().startsWith(QStringLiteral("/channel/"))) {
-            linkRoom = QStringLiteral("ruqola:/room/%1").arg(url.path().remove(QStringLiteral("/channel/")));
+    ParseMessageUrlUtils parseUrl;
+    if (parseUrl.parseUrl(messageUrl)) {
+        auto account = mRocketChatAccountModel->accountFromServerUrl(messageUrl);
+        if (account) {
+            QString path{parseUrl.path()};
+            QString linkRoom;
+            if (path.startsWith(QStringLiteral("channel/"))) {
+                linkRoom = QStringLiteral("ruqola:/room/%1").arg(path.remove(QStringLiteral("/channel/")));
+            } else {
+                linkRoom = QStringLiteral("ruqola:/user/%1").arg(path.remove(QStringLiteral("/direct/")));
+            }
+            const QString messageId = parseUrl.messageId();
+            // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
+            setCurrentAccount(account->accountName());
+            Q_EMIT mCurrentAccount->raiseWindow();
+            Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
+            // TODO highlight message too => load it etc.
         } else {
-            // TODO
+            // TODO !!!! remove duplicate code
+            Q_EMIT messageUrlNotFound(i18n("Server not found: %1", messageUrl));
+            // TODO report error
         }
-        const QString messageId = query.queryItemValue(QStringLiteral("msg"));
-        // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
-        setCurrentAccount(account->accountName());
-        Q_EMIT mCurrentAccount->raiseWindow();
-        Q_EMIT mCurrentAccount->openLinkRequested(linkRoom);
-        // TODO highlight message too => load it etc.
     } else {
         // TODO !!!!
         Q_EMIT messageUrlNotFound(i18n("Server not found: %1", messageUrl));
