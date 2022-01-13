@@ -25,16 +25,30 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
 {
     QTest::addColumn<QString>("messageUrl");
     QTest::addColumn<bool>("parsingValid");
-    QTest::addRow("empty") << QString() << false;
-    QTest::addRow("kde") << QStringLiteral("http://www.kde.org") << false;
-    QTest::addRow("kde-1") << QStringLiteral("https://www.kde.org") << false;
-    QTest::addRow("kde-2") << QStringLiteral("www.kde.org") << false;
+    QTest::addColumn<QString>("messageId");
+    QTest::addColumn<QString>("roomId");
+    QTest::addColumn<QString>("serverPath");
+
+    QTest::addRow("empty") << QString() << false << QString() << QString() << QString();
+    QTest::addRow("kde") << QStringLiteral("http://www.kde.org") << false << QString() << QString() << QString();
+    QTest::addRow("kde-1") << QStringLiteral("https://www.kde.org") << false << QString() << QString() << QString();
+    QTest::addRow("kde-2") << QStringLiteral("www.kde.org") << false << QString() << QString() << QString();
+    QTest::addRow("gorocketchat") << QStringLiteral("https://go.rocket.chat/") << true << QString() << QString() << QString();
+    QTest::addRow("gorocketchat-1") << QStringLiteral(
+        "https://go.rocket.chat/room?rid=NCrToCewka5MgMcDM&mid=Xope7b8WYWz82yHaq&host=www.kde.org&path=channel%2Fthales%3Fmsg%3DXope7b8WYWz82yHaq")
+                                    << true << QStringLiteral("Xope7b8WYWz82yHaq") << QStringLiteral("NCrToCewka5MgMcDM") << QStringLiteral("www.kde.org");
 }
 
 void ParseMessageUrlUtilsTest::shouldParseUrl()
 {
     QFETCH(QString, messageUrl);
     QFETCH(bool, parsingValid);
+    QFETCH(QString, messageId);
+    QFETCH(QString, roomId);
+    QFETCH(QString, serverPath);
     ParseMessageUrlUtils w;
     QCOMPARE(w.parseUrl(messageUrl), parsingValid);
+    QCOMPARE(w.messageId(), messageId);
+    QCOMPARE(w.roomId(), roomId);
+    QCOMPARE(w.serverPath(), serverPath);
 }

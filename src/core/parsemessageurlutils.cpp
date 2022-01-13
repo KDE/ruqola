@@ -26,6 +26,10 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         QUrlQuery query(url);
         QList<QPair<QString, QString>> queryItems = query.queryItems();
         qDebug() << "queryItems " << queryItems;
+
+        mServerPath = query.queryItemValue(QStringLiteral("host"));
+        mRoomId = query.queryItemValue(QStringLiteral("rid"));
+        mMessageId = query.queryItemValue(QStringLiteral("mid"));
         return true;
     }
     // https://go.rocket.chat/room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=<server
