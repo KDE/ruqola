@@ -19,5 +19,19 @@ void ParseMessageUrlUtilsTest::shouldHaveDefaultValues()
     QVERIFY(w.messageId().isEmpty());
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.serverPath().isEmpty());
-    // TODO
+}
+
+void ParseMessageUrlUtilsTest::shouldParseUrl_data()
+{
+    QTest::addColumn<QString>("messageUrl");
+    QTest::addColumn<bool>("parsingValid");
+    QTest::addRow("empty") << QString() << false;
+}
+
+void ParseMessageUrlUtilsTest::shouldParseUrl()
+{
+    QFETCH(QString, messageUrl);
+    QFETCH(bool, parsingValid);
+    ParseMessageUrlUtils w;
+    QCOMPARE(w.parseUrl(messageUrl), parsingValid);
 }

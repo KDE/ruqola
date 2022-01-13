@@ -16,4 +16,6 @@ public:
     ~ParseMessageUrlUtilsTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseUrl();
+    void shouldParseUrl_data();
 };
