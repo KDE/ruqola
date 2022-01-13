@@ -106,15 +106,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    QString loadAccount;
-    if (parser.isSet(QStringLiteral("account"))) {
-        loadAccount = parser.value(QStringLiteral("account"));
-    }
     (void)Ruqola::self();
-
-    if (!loadAccount.isEmpty()) {
-        Ruqola::self()->setCurrentAccount(loadAccount);
-    }
 
     if (RuqolaGlobalConfig::self()->useCustomFont()) {
         qApp->setFont(RuqolaGlobalConfig::self()->generalFont());
@@ -132,6 +124,8 @@ int main(int argc, char *argv[])
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
     QObject::connect(&service, &KDBusService::activateRequested, mw, &RuqolaMainWindow::slotActivateRequested);
 #endif
+    mw->parseCommandLine(&parser);
+
     mw->show();
     const int val = app.exec();
     return val;

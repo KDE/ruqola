@@ -20,6 +20,7 @@ class QLabel;
 class AccountsOverviewWidget;
 class Notification;
 class StatusModelFilterProxyModel;
+class QCommandLineParser;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -28,6 +29,8 @@ public:
     ~RuqolaMainWindow() override;
 
     void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);
+
+    void parseCommandLine(QCommandLineParser *parser);
 
 protected:
     Q_REQUIRED_RESULT bool queryClose() override;
@@ -72,6 +75,7 @@ private:
     void slotDirectory();
     void showNextView();
     void showPreviousView();
+    void slotMessageUrlNotFound(const QString &str);
 
     bool mReallyClose{false};
 

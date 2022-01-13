@@ -22,9 +22,9 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         return false;
     }
     if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
-        QUrl url(messageUrl);
-        QUrlQuery query(url);
-        QList<QPair<QString, QString>> queryItems = query.queryItems();
+        const QUrl url(messageUrl);
+        const QUrlQuery query(url);
+        const QList<QPair<QString, QString>> queryItems = query.queryItems();
         // qDebug() << "queryItems " << queryItems;
 
         mServerHost = query.queryItemValue(QStringLiteral("host"));

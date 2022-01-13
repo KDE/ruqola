@@ -87,6 +87,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
+    connect(Ruqola::self()->accountManager(), &AccountManager::messageUrlNotFound, this, &RuqolaMainWindow::slotMessageUrlNotFound);
     connect(Ruqola::self()->accountManager(), &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
 
     slotAccountChanged();
@@ -107,6 +108,22 @@ RuqolaMainWindow::~RuqolaMainWindow()
     Ruqola::destroy();
 }
 
+void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
+{
+    if (parser->isSet(QStringLiteral("messageurl"))) {
+        const QString messageUrl = parser->value(QStringLiteral("messageurl"));
+        if (!messageUrl.isEmpty()) {
+            Ruqola::self()->openMessageUrl(messageUrl);
+        }
+    }
+    if (parser->isSet(QStringLiteral("account"))) {
+        const QString loadAccount = parser->value(QStringLiteral("account"));
+        if (!loadAccount.isEmpty()) {
+            Ruqola::self()->setCurrentAccount(loadAccount);
+        }
+    }
+}
+
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
     Q_UNUSED(workingDirectory)
@@ -114,12 +131,7 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const
         QCommandLineParser parser;
         ruqolaOptions(&parser);
         parser.parse(arguments);
-        if (parser.isSet(QStringLiteral("messageurl"))) {
-            const QString messageUrl = parser.value(QStringLiteral("messageurl"));
-            if (!messageUrl.isEmpty()) {
-                Ruqola::self()->openMessageUrl(messageUrl);
-            }
-        }
+        parseCommandLine(&parser);
     }
 }
 
@@ -667,4 +679,9 @@ void RuqolaMainWindow::slotStatusChanged()
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
+}
+
+void RuqolaMainWindow::slotMessageUrlNotFound(const QString &str)
+{
+    KMessageBox::information(this, str, i18n("Message"));
 }
