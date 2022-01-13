@@ -26,6 +26,9 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
     QTest::addColumn<QString>("messageUrl");
     QTest::addColumn<bool>("parsingValid");
     QTest::addRow("empty") << QString() << false;
+    QTest::addRow("kde") << QStringLiteral("http://www.kde.org") << false;
+    QTest::addRow("kde-1") << QStringLiteral("https://www.kde.org") << false;
+    QTest::addRow("kde-2") << QStringLiteral("www.kde.org") << false;
 }
 
 void ParseMessageUrlUtilsTest::shouldParseUrl()
