@@ -40,6 +40,13 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
         "https://go.rocket.chat/room?rid=NCrToCewka5MgMcDM&mid=Xope7b8WYWz82yHaq&host=www.kde.org&path=channel%2Ffoo%3Fmsg%3DXope7b8WYWz82yHaq")
                                     << true << QStringLiteral("Xope7b8WYWz82yHaq") << QStringLiteral("NCrToCewka5MgMcDM") << QStringLiteral("www.kde.org")
                                     << QStringLiteral("channel/foo?msg=Xope7b8WYWz82yHaq");
+
+    QTest::addRow("gorocketchat-2") << QStringLiteral(
+        "https://go.rocket.chat/"
+        "room?rid=XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH&mid=Bo8pcAH86LxiYzu98&host=www.kde.org&path=direct%2FXQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH%3Fmsg%"
+        "3DBo8pcAH86LxiYzu98") << true
+                                    << QStringLiteral("Bo8pcAH86LxiYzu98") << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH")
+                                    << QStringLiteral("www.kde.org") << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98");
 }
 
 void ParseMessageUrlUtilsTest::shouldParseUrl()
