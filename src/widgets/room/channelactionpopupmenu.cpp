@@ -122,13 +122,6 @@ void ChannelActionPopupMenu::createMenu()
     });
 
     mMenu->addSeparator();
-    mFollowMessage = new QAction(i18n("Follow Message..."), this);
-    mMenu->addAction(mFollowMessage);
-    connect(mFollowMessage, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(RoomHeaderWidget::FollowMessages);
-    });
-
-    mMenu->addSeparator();
     mOffTheRecordMessages = new QAction(i18n("OTR"), this);
     mOffTheRecordMessages->setCheckable(true);
     mMenu->addAction(mOffTheRecordMessages);
@@ -185,9 +178,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
     mPruneMessagesSeparator->setVisible(showPruneMessage);
 
     mExportMessages->setVisible(mCurrentRocketChatAccount->hasPermission(QStringLiteral("mail-messages")));
-
-    // FIXME Disable for the moment
-    mFollowMessage->setVisible(false && mCurrentRocketChatAccount->threadsEnabled());
 
     // FIXME Disable for the moment
     mOffTheRecordMessages->setVisible(false && mCurrentRocketChatAccount->otrEnabled() && mRoom->channelType() == Room::RoomType::Direct);

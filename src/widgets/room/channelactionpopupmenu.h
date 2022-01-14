@@ -50,7 +50,6 @@ private:
     QAction *mPruneMessages = nullptr;
     QAction *mPruneMessagesSeparator = nullptr;
     QAction *mExportMessages = nullptr;
-    QAction *mFollowMessage = nullptr;
     QAction *mOffTheRecordMessages = nullptr;
     QAction *mEncryptMessages = nullptr;
 
