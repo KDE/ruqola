@@ -22,7 +22,7 @@ public:
     ParseMessageUrlUtils();
     ~ParseMessageUrlUtils();
 
-    bool parseUrl(const QString &messageUrl);
+    Q_REQUIRED_RESULT bool parseUrl(const QString &messageUrl);
 
     const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
