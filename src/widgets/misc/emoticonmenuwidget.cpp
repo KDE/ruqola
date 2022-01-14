@@ -86,6 +86,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // Recent
     mRecentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
+    // mRecentUsedEmoticonView->setViewMode(QListView::IconMode);
+    // mRecentUsedEmoticonView->setIconSize(QSize(16, 16));
     connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
@@ -100,6 +102,8 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // Custom
     mCustomEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mCustomEmojiView->setModel(mEmoticonCustomFilterProxyModel);
+    // mCustomEmojiView->setViewMode(QListView::IconMode);
+    // mCustomEmojiView->setIconSize(QSize(16, 16));
 
     mTabWidget->addTab(mCustomEmojiView, i18n("Custom"));
     connect(mCustomEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
