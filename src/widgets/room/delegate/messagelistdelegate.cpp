@@ -590,9 +590,11 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
                 const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+                const bool threadIsFollowing = message->replies().contains(mRocketChatAccount->userId());
                 Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
                                                                threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString()
-                                                                                              : threadMessagePreview);
+                                                                                              : threadMessagePreview,
+                                                               threadIsFollowing);
                 return true;
             }
         }

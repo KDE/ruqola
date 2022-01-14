@@ -107,6 +107,7 @@ QString ThreadMessageWidget::threadMessageId() const
 void ThreadMessageWidget::setFollowingThread(bool threadIsFollowing)
 {
     updateFollowThreadIcon(threadIsFollowing);
+    mFollowButton->setChecked(!threadIsFollowing);
 }
 
 void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)

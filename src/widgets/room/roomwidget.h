@@ -71,7 +71,7 @@ private:
     void slotSnipperedMessages();
     void slotConfigureNotification();
     void slotLoadHistory();
-    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview);
+    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing);
     void slotConfigureAutoTranslate();
     void slotChannelInfoRequested();
     void slotInviteUsers();
@@ -81,7 +81,6 @@ private:
     void slotPruneMessages();
     void slotUpdateRoomCounterInfoWidget();
     void slotExportMessages();
-    void slotFollowMessages();
     void clearBeforeSwitching();
     void slotTeamChannelsRequested();
     void slotJumpToUnreadMessage(qint64 numberOfMessage);

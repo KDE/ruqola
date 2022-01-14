@@ -36,9 +36,8 @@ public:
         VideoChat = 12,
         PruneMessages = 13,
         ExportMessages = 14,
-        FollowMessages = 15,
-        OtrMessages = 16,
-        EncryptMessages = 17,
+        OtrMessages = 15,
+        EncryptMessages = 16,
     };
     Q_ENUM(ChannelActionType)
 

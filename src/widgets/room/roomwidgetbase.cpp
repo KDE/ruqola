@@ -14,7 +14,6 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomutil.h"
-#include "threadwidget/threadmessagedialog.h"
 #include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>

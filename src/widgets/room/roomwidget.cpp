@@ -192,9 +192,6 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
     case RoomHeaderWidget::ExportMessages:
         slotExportMessages();
         break;
-    case RoomHeaderWidget::FollowMessages:
-        slotFollowMessages();
-        break;
     case RoomHeaderWidget::OtrMessages:
         // TODO
         break;
@@ -741,18 +738,14 @@ void RoomWidget::slotGoBackToRoom()
     Q_EMIT selectChannelRequested(mRoom->parentRid());
 }
 
-void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview)
+void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
 {
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     dlg->setThreadMessageId(threadMessageId);
+    dlg->setFollowingThread(threadIsFollowing);
     dlg->setThreadPreview(threadMessagePreview);
     dlg->setRoom(mRoom);
     dlg->show();
-}
-
-void RoomWidget::slotFollowMessages()
-{
-    qDebug() << " RoomWidget::slotFollowMessages() not implemented yet";
 }
 
 void RoomWidget::setLayoutSpacing(int spacing)
