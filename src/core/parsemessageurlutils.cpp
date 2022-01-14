@@ -21,16 +21,25 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     if (messageUrl.isEmpty()) {
         return false;
     }
+    const QUrl url(messageUrl);
+    const QUrlQuery query(url);
+    const QList<QPair<QString, QString>> queryItems = query.queryItems();
     if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
-        const QUrl url(messageUrl);
-        const QUrlQuery query(url);
-        const QList<QPair<QString, QString>> queryItems = query.queryItems();
         // qDebug() << "queryItems " << queryItems;
 
         mServerHost = query.queryItemValue(QStringLiteral("host"));
         mRoomId = query.queryItemValue(QStringLiteral("rid"));
         mMessageId = query.queryItemValue(QStringLiteral("mid"));
         mPath = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
+        return true;
+    } else {
+        // Example https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
+        mMessageId = query.queryItemValue(QStringLiteral("msg"));
+        if (mMessageId.isEmpty()) {
+            return false;
+        }
+        mServerHost = url.host();
+        mPath = url.path(QUrl::FullyDecoded);
         return true;
     }
     return false;
