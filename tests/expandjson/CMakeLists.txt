@@ -3,6 +3,6 @@
 add_executable(expandjsontest expandjson.cpp expandjson.h)
 
 target_link_libraries(expandjsontest
-    Qt5::Widgets
+    Qt::Widgets
     )
 

@@ -8,7 +8,7 @@ macro(add_ruqola_test _source)
   add_executable( ${_name} ${_test} ${ARGN} ${_name}.h)
   add_test(NAME ${_name} COMMAND ${_name} )
   ecm_mark_as_test(${_name})
-  target_link_libraries( ${_name} Qt5::Test libruqolacore)
+  target_link_libraries( ${_name} Qt${QT_MAJOR_VERSION}::Test libruqolacore)
   set_target_properties(${_name} PROPERTIES
     DISABLE_PRECOMPILE_HEADERS ON
 )

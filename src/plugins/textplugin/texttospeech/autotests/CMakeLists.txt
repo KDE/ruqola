@@ -7,7 +7,7 @@ macro(add_ruqola_plugin_textplugin_unittest _source _additional)
     add_test(NAME ${_name} COMMAND ${_name} )
 
     ecm_mark_as_test(${_name})
-    target_link_libraries( ${_name} Qt5::Test KF5::I18n libruqolawidgets Qt5::TextToSpeech)
+    target_link_libraries( ${_name} Qt${QT_MAJOR_VERSION}::Test KF5::I18n libruqolawidgets Qt${QT_MAJOR_VERSION}::TextToSpeech)
 endmacro ()
 
 add_ruqola_plugin_textplugin_unittest(texttospeechtextplugintest.cpp "../texttospeechtextplugin.cpp;../texttospeechtextinterface.cpp")
