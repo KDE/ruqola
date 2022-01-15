@@ -73,7 +73,7 @@ if (UNITY_SUPPORT)
     add_definitions(-DUNITY_SUPPORT)
 endif()
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
@@ -104,8 +104,9 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-find_package(Qt${QT_MAJOR_VERSION}Keychain CONFIG)
-set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
+
+find_package(Qt5Keychain CONFIG)
+set_package_properties(Qt5Keychain PROPERTIES
                                    DESCRIPTION "Provides support for secure credentials storage"
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
@@ -135,7 +136,7 @@ set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)
@@ -150,7 +151,7 @@ set(RUQOLA_LIB_SOVERSION "0")
 configure_file(config-ruqola.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-ruqola.h)
 
 if(BUILD_TESTING)
-    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Test)
    add_definitions(-DBUILD_TESTING)
 endif(BUILD_TESTING)
 
