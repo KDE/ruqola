@@ -13,10 +13,15 @@
 class LIBRUQOLACORE_TESTS_EXPORT ParseMessageUrlUtils
 {
 public:
-    enum ChannelType {
+    enum class ChannelType {
         Unknown = 0,
         Direct = 1,
         Channel = 2,
+    };
+    enum class RoomIdType {
+        Unknown = 0,
+        RoomId = 1,
+        RoomName = 2,
     };
 
     ParseMessageUrlUtils();
