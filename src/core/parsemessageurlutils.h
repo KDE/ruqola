@@ -41,11 +41,15 @@ public:
     const QString &path() const;
     void setPath(const QString &newPath);
 
+    Q_REQUIRED_RESULT RoomIdType roomIdType() const;
+    void setRoomIdType(RoomIdType newRoomIdType);
+
 private:
     QString mMessageId;
     QString mRoomId;
     QString mServerHost;
     QString mPath;
+    RoomIdType mRoomIdType = RoomIdType::Unknown;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t);

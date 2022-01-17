@@ -85,11 +85,22 @@ void ParseMessageUrlUtils::setPath(const QString &newPath)
     mPath = newPath;
 }
 
+ParseMessageUrlUtils::RoomIdType ParseMessageUrlUtils::roomIdType() const
+{
+    return mRoomIdType;
+}
+
+void ParseMessageUrlUtils::setRoomIdType(ParseMessageUrlUtils::RoomIdType newRoomIdType)
+{
+    mRoomIdType = newRoomIdType;
+}
+
 QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
 {
     d << "mServerPath " << t.serverHost();
     d << "mRoomId " << t.roomId();
     d << "mMessageId " << t.messageId();
     d << "mPath " << t.path();
+    d << "roomIdType " << static_cast<int>(t.roomIdType());
     return d;
 }
