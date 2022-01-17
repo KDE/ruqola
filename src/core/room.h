@@ -45,7 +45,7 @@ public:
     };
     Q_ENUM(RoomType)
 
-    static Q_REQUIRED_RESULT QString roomFromRoomType(RoomType type);
+    Q_REQUIRED_RESULT static QString roomFromRoomType(RoomType type);
 
     // To be used in ID find: message ID
     Q_REQUIRED_RESULT bool operator==(const Room &other) const;
@@ -247,7 +247,7 @@ public:
     Q_REQUIRED_RESULT RetentionInfo retentionInfo() const;
     void setRetentionInfo(RetentionInfo retentionInfo);
 
-    static Q_REQUIRED_RESULT Room::RoomType roomTypeFromString(const QString &type);
+    Q_REQUIRED_RESULT static Room::RoomType roomTypeFromString(const QString &type);
     Q_REQUIRED_RESULT TeamInfo teamInfo() const;
     void setTeamInfo(const TeamInfo &teamInfo);
 

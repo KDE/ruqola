@@ -25,7 +25,7 @@ public:
     Q_REQUIRED_RESULT bool hasTeamRoom() const;
 
     static void serialize(const TeamInfo &teams, QJsonObject &obj);
-    static Q_REQUIRED_RESULT TeamInfo fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT static TeamInfo fromJSon(const QJsonObject &o);
 
     Q_REQUIRED_RESULT bool isValid() const;
 
