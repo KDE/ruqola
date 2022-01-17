@@ -30,6 +30,7 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
     QTest::addColumn<QString>("roomId");
     QTest::addColumn<QString>("serverHost");
     QTest::addColumn<QString>("path");
+    // TODO add mRoomIdType support
 
     QTest::addRow("empty") << QString() << false << QString() << QString() << QString() << QString();
     QTest::addRow("kde") << QStringLiteral("http://www.kde.org") << false << QString() << QString() << QString() << QString();

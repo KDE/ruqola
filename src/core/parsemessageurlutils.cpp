@@ -31,6 +31,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         mRoomId = query.queryItemValue(QStringLiteral("rid"));
         mMessageId = query.queryItemValue(QStringLiteral("mid"));
         mPath = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
+        mRoomIdType = RoomIdType::RoomId;
         return true;
     } else {
         // Example https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
@@ -40,6 +41,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         }
         mServerHost = url.host();
         mPath = url.path(QUrl::FullyDecoded);
+        mRoomIdType = RoomIdType::RoomName;
         return true;
     }
     return false;
