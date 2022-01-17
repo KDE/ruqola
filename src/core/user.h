@@ -68,7 +68,7 @@ public:
 
     void parseUserRestApi(const QJsonObject &object);
 
-    static Q_REQUIRED_RESULT QVector<User> parseUsersList(const QJsonObject &object);
+    Q_REQUIRED_RESULT static QVector<User> parseUsersList(const QJsonObject &object);
     void parseUser(const QVariantList &list);
 
     Q_REQUIRED_RESULT QStringList roles() const;
@@ -93,7 +93,7 @@ public:
     Q_REQUIRED_RESULT bool requirePasswordChange() const;
     void setRequirePasswordChange(bool newRequirePasswordChange);
 
-    static Q_REQUIRED_RESULT QString roleI18n(const QString &roleStr);
+    Q_REQUIRED_RESULT static QString roleI18n(const QString &roleStr);
 
 private:
     UserEmailsInfo mUserEmailsInfo;

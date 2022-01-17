@@ -30,7 +30,7 @@ public:
 
     Q_REQUIRED_RESULT QString identifier() const;
     void setIdentifier(const QString &identifier);
-    static Q_REQUIRED_RESULT QVector<TeamRoom> parseTeamRooms(const QJsonObject &obj);
+    Q_REQUIRED_RESULT static QVector<TeamRoom> parseTeamRooms(const QJsonObject &obj);
 
 private:
     QString mName;
