@@ -131,10 +131,10 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
         const QString identifier = emojiData.value(QStringLiteral("_id")).toString();
         if (!identifier.isEmpty()) {
             bool soundIdentifierFound = false;
-            for (int i = 0, total = mCustomSoundsInfo.count(); i < total; ++i) {
-                if (mCustomSoundsInfo.at(i).identifier() == identifier) {
+            for (int j = 0, total = mCustomSoundsInfo.count(); j < total; ++j) {
+                if (mCustomSoundsInfo.at(j).identifier() == identifier) {
                     soundIdentifierFound = true;
-                    mCustomSoundsInfo.removeAt(i);
+                    mCustomSoundsInfo.removeAt(j);
                     CustomSoundInfo sound;
                     sound.parseCustomSoundInfo(emojiData);
                     if (sound.isValid()) {
