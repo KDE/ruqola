@@ -113,9 +113,9 @@ protected:
     Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
     void emitFailedMessage(const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
-    virtual Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail);
-    virtual Q_REQUIRED_RESULT QString jobName() const;
-    virtual Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const;
+    Q_REQUIRED_RESULT virtual QString errorMessage(const QString &str, const QJsonObject &detail);
+    Q_REQUIRED_RESULT virtual QString jobName() const;
+    Q_REQUIRED_RESULT virtual QString generateErrorMessage(const QString &errorStr) const;
 
     // The main methods used for sending requests to the server
     void submitGetRequest();

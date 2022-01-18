@@ -30,7 +30,7 @@ public:
     explicit AdministratorRoomsEditBaseWidget(QWidget *parent = nullptr);
     ~AdministratorRoomsEditBaseWidget() override;
 
-    virtual Q_REQUIRED_RESULT RoomEditInfo roomEditInfo() const = 0;
+    Q_REQUIRED_RESULT virtual RoomEditInfo roomEditInfo() const = 0;
     virtual void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) = 0;
 
 };
