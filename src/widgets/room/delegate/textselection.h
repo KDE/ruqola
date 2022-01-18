@@ -23,7 +23,7 @@ public:
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
-    virtual Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
+    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
