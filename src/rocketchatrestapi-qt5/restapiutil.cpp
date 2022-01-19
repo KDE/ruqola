@@ -320,8 +320,6 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("subscriptions.read");
     case RestApiUtil::RestApiUrlType::SubscriptionsUnRead:
         return QStringLiteral("subscriptions.unread");
-    case RestApiUtil::RestApiUrlType::SettingsOauth:
-        return QStringLiteral("settings.oauth");
     case RestApiUtil::RestApiUrlType::RoomsGet:
         return QStringLiteral("rooms.get");
     case RestApiUtil::RestApiUrlType::RoomsFavorite:
@@ -488,6 +486,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("oauth-apps.list");
     case RestApiUtil::RestApiUrlType::OauthAppsGet:
         return QStringLiteral("oauth-apps.get");
+    case RestApiUtil::RestApiUrlType::SettingsOauth:
+        return QStringLiteral("settings.oauth");
     case RestApiUtil::RestApiUrlType::LicensesGet:
         return QStringLiteral("licenses.get");
     case RestApiUtil::RestApiUrlType::LicensesMaxActiveUsers:
