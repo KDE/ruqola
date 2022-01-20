@@ -22,6 +22,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     misc/directoryjob.cpp
     misc/roleslistjob.cpp
     misc/stdoutqueuejob.cpp
+    misc/oauthappsjob.cpp
+    misc/oauthappsjob.h
 
     users/userbasejob.cpp
     users/getavatarjob.cpp
