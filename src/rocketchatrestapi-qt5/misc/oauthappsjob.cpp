@@ -16,6 +16,22 @@ OauthAppsJob::OauthAppsJob(QObject *parent)
 {
 }
 
+bool OauthAppsJob::canStart() const
+{
+    if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (mAppId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "OauthAppsJob: mAppId is undefined";
+        return false;
+    }
+    if (mClientId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "OauthAppsJob: mClientId is undefined";
+        return false;
+    }
+    return true;
+}
+
 OauthAppsJob::~OauthAppsJob() = default;
 
 bool OauthAppsJob::requireHttpAuthentication() const
@@ -47,6 +63,26 @@ void OauthAppsJob::onGetRequestResponse(const QJsonDocument &replyJson)
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+const QString &OauthAppsJob::clientId() const
+{
+    return mClientId;
+}
+
+void OauthAppsJob::setClientId(const QString &newClientId)
+{
+    mClientId = newClientId;
+}
+
+const QString &OauthAppsJob::appId() const
+{
+    return mAppId;
+}
+
+void OauthAppsJob::setAppId(const QString &newAppId)
+{
+    mAppId = newAppId;
 }
 
 QNetworkRequest OauthAppsJob::request() const

@@ -19,11 +19,19 @@ public:
     explicit OauthAppsJob(QObject *parent = nullptr);
     ~OauthAppsJob() override;
 
+    Q_REQUIRED_RESULT bool canStart() const override;
+
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
     Q_REQUIRED_RESULT bool start() override;
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+    Q_REQUIRED_RESULT const QString &appId() const;
+    void setAppId(const QString &newAppId);
+
+    Q_REQUIRED_RESULT const QString &clientId() const;
+    void setClientId(const QString &newClientId);
 
 Q_SIGNALS:
     void oauthAppDone(const QJsonObject &obj);
@@ -31,5 +39,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(OauthAppsJob)
     void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    QString mAppId;
+    QString mClientId;
 };
 }
