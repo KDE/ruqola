@@ -42,7 +42,7 @@ void OauthAppsJob::onGetRequestResponse(const QJsonDocument &replyJson)
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("OauthAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT settingsOauthDone(replyObject);
+        Q_EMIT oauthAppDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
