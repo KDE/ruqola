@@ -103,6 +103,6 @@ QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
     d << "mRoomId " << t.roomId();
     d << "mMessageId " << t.messageId();
     d << "mPath " << t.path();
-    d << "roomIdType " << static_cast<int>(t.roomIdType());
+    d << "roomIdType " << t.roomIdType();
     return d;
 }

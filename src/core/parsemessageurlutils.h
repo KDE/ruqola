@@ -12,17 +12,20 @@
 
 class LIBRUQOLACORE_TESTS_EXPORT ParseMessageUrlUtils
 {
+    Q_GADGET
 public:
     enum class ChannelType {
         Unknown = 0,
         Direct = 1,
         Channel = 2,
     };
+    Q_ENUM(ChannelType)
     enum class RoomIdType {
         Unknown = 0,
         RoomId = 1,
         RoomName = 2,
     };
+    Q_ENUM(RoomIdType)
 
     ParseMessageUrlUtils();
     ~ParseMessageUrlUtils();
