@@ -139,7 +139,7 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
     }
 }
 
-void ChannelListWidget::slotSelectMessageRequested(const QString &messageId, const QString &roomId)
+void ChannelListWidget::slotSelectMessageRequested(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType)
 {
     // TODO
 }

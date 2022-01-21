@@ -22,6 +22,7 @@
 #include "model/listmessagesmodel.h"
 #include "model/roommodel.h"
 #include "ownuser/ownuser.h"
+#include "parsemessageurlutils.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
 #include "roles/rolesmanager.h"
@@ -532,7 +533,7 @@ Q_SIGNALS:
     void rolesUpdated();
     void totpResult(const QString &secret, const QString &url);
 
-    void selectMessage(const QString &messageId, const QString &roomId);
+    void selectMessage(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

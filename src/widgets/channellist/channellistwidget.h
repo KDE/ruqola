@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "parsemessageurlutils.h"
 #include "room.h"
 #include <QPointer>
 #include <QWidget>
@@ -40,7 +41,7 @@ private:
     void slotOpenTeamRequested(const QString &identifier);
     void selectNextChannel(int direction);
     void applyChannelSelection();
-    void slotSelectMessageRequested(const QString &messageId, const QString &roomId);
+    void slotSelectMessageRequested(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType);
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoomLineEdit;
