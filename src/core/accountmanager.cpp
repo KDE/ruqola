@@ -37,7 +37,7 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
     if (parseUrl.parseUrl(messageUrl)) {
         auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
         if (account) {
-            QString path{parseUrl.path()};
+            const QString path{parseUrl.path()};
             const QString messageId = parseUrl.messageId();
             // qDebug() << " parseUrl " << parseUrl;
             // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h

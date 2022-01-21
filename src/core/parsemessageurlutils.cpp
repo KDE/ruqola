@@ -21,7 +21,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     if (messageUrl.isEmpty()) {
         return false;
     }
-    const QUrl url(messageUrl);
+    QUrl url(messageUrl);
     const QUrlQuery query(url);
     const QList<QPair<QString, QString>> queryItems = query.queryItems();
     if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
@@ -42,6 +42,8 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         mServerHost = url.host();
         mPath = url.path(QUrl::FullyDecoded);
         mRoomIdType = RoomIdType::RoomName;
+        url.setQuery(QUrlQuery());
+        mRoomId = url.path(QUrl::FullyDecoded).remove(QStringLiteral("/channel/"));
         return true;
     }
     return false;

@@ -50,7 +50,7 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
                                     << QStringLiteral("www.kde.org") << QStringLiteral("direct/XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH?msg=Bo8pcAH86LxiYzu98");
 
     QTest::addRow("url-1") << QStringLiteral("https://www.kde.org/channel/python?msg=sn3gEQom7NcLxTg5h") << true << QStringLiteral("sn3gEQom7NcLxTg5h")
-                           << QString() << QStringLiteral("www.kde.org") << QStringLiteral("/channel/python");
+                           << QStringLiteral("python") << QStringLiteral("www.kde.org") << QStringLiteral("/channel/python");
 }
 
 void ParseMessageUrlUtilsTest::shouldParseUrl()
