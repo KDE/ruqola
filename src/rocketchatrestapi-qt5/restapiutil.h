@@ -177,6 +177,7 @@ enum class RestApiUrlType {
     SubscriptionsRead,
     SubscriptionsUnRead,
     SettingsOauth,
+    SettingsAddCustomOauth,
     RoomsGet,
     RoomsFavorite,
     RoomsCleanHistory,
