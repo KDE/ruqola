@@ -532,6 +532,8 @@ Q_SIGNALS:
     void rolesUpdated();
     void totpResult(const QString &secret, const QString &url);
 
+    void selectMessage(const QString &messageId, const QString &roomId);
+
 private:
     Q_DISABLE_COPY(RocketChatAccount)
 

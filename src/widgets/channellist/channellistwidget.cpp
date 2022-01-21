@@ -88,6 +88,7 @@ void ChannelListWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openTeamNameRequested, this, &ChannelListWidget::slotOpenTeamRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomNameRequested, mChannelView, &ChannelListView::selectChannelByRoomNameRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::selectRoomByRoomIdRequested, mChannelView, &ChannelListView::selectChannelRequested);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::selectMessage, this, &ChannelListWidget::slotSelectMessageRequested);
 
     mChannelView->setCurrentRocketChatAccount(account);
     mChannelView->setFilterModel(mCurrentRocketChatAccount->roomFilterProxyModel());
@@ -136,6 +137,11 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
     if (!mChannelView->selectChannelByRoomIdRequested(identifier)) {
         mCurrentRocketChatAccount->openChannel(identifier, RocketChatAccount::ChannelTypeInfo::RoomId);
     }
+}
+
+void ChannelListWidget::slotSelectMessageRequested(const QString &messageId, const QString &roomId)
+{
+    // TODO
 }
 
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
