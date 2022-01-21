@@ -5,7 +5,7 @@
 */
 
 #include "oauthappsjobtest.h"
-#include "misc/listoauthappsjob.h"
+#include "misc/oauthappsjob.h"
 #include "ruqola_restapi_helper.h"
 #include <QTest>
 #include <restapimethod.h>
@@ -18,7 +18,7 @@ OauthAppsJobTest::OauthAppsJobTest(QObject *parent)
 
 void OauthAppsJobTest::shouldHaveDefaultValue()
 {
-    ListOauthAppsJob job;
+    OauthAppsJob job;
     verifyDefaultValue(&job);
     QVERIFY(!job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -26,8 +26,35 @@ void OauthAppsJobTest::shouldHaveDefaultValue()
 
 void OauthAppsJobTest::shouldGenerateRequest()
 {
-    ListOauthAppsJob job;
+    OauthAppsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.list")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get")));
+}
+
+void OauthAppsJobTest::shouldNotStarting()
+{
+    OauthAppsJob job;
+
+    RestApiMethod method;
+    method.setServerUrl(QStringLiteral("http://www.kde.org"));
+    job.setRestApiMethod(&method);
+
+    QNetworkAccessManager mNetworkAccessManager;
+    job.setNetworkAccessManager(&mNetworkAccessManager);
+    QVERIFY(!job.canStart());
+    const QString auth = QStringLiteral("foo");
+    const QString userId = QStringLiteral("foo");
+    job.setAuthToken(auth);
+    QVERIFY(!job.canStart());
+    job.setUserId(userId);
+    QVERIFY(!job.canStart());
+
+    const QString clientId = QStringLiteral("cli");
+    job.setClientId(clientId);
+    QVERIFY(!job.canStart());
+
+    const QString appId = QStringLiteral("appId");
+    job.setAppId(appId);
+    QVERIFY(job.canStart());
 }
