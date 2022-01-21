@@ -7,6 +7,7 @@
 #include "channellistwidget.h"
 #include "channellistview.h"
 #include "model/roomfilterproxymodel.h"
+#include "ruqolawidgets_debug.h"
 
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -141,6 +142,38 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
 
 void ChannelListWidget::slotSelectMessageRequested(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType)
 {
+    switch (roomType) {
+    case ParseMessageUrlUtils::RoomIdType::Unknown:
+        qCWarning(RUQOLAWIDGETS_LOG) << "Room type undefined!";
+        break;
+    case ParseMessageUrlUtils::RoomIdType::RoomId: {
+        const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+        if (selectedIndex.isValid()) {
+            const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
+            if (roomId == currentRoomId) {
+                return;
+            }
+            if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
+                mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            }
+        }
+        break;
+    }
+    case ParseMessageUrlUtils::RoomIdType::RoomName: {
+        const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
+        if (selectedIndex.isValid()) {
+            const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
+            if (roomId == currentRoomName) {
+                return;
+            }
+            if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
+                mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
+            }
+        }
+        break;
+    }
+    }
+
     // TODO
 }
 
