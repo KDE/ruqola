@@ -14,7 +14,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
+PruneMessagesWidget::PruneMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mInclusive(new QCheckBox(i18n("Inclusive"), this))
     , mDoNotPrunePinnedMessage(new QCheckBox(i18n("Do not Prune Pinned Messages"), this))
@@ -23,7 +23,7 @@ PruneMessagesWidget::PruneMessagesWidget(QWidget *parent)
     , mOnlyRemoveAttachedFiles(new QCheckBox(i18n("Only Remove Attached Files. Keep messages"), this))
     , mLastestDateTimeEdit(new QDateTimeEdit(this))
     , mOldestDateTimeEdit(new QDateTimeEdit(this))
-    , mUsers(new AddUsersWidget(this))
+    , mUsers(new AddUsersWidget(account, this))
     , mInfoLabel(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);

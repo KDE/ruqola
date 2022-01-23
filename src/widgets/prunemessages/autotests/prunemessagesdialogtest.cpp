@@ -21,7 +21,7 @@ PruneMessagesDialogTest::PruneMessagesDialogTest(QObject *parent)
 
 void PruneMessagesDialogTest::shouldHaveDefaultValues()
 {
-    PruneMessagesDialog d;
+    PruneMessagesDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
 
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

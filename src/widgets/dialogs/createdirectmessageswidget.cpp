@@ -10,9 +10,9 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
-CreateDirectMessagesWidget::CreateDirectMessagesWidget(QWidget *parent)
+CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mUsers(new AddUsersWidget(this))
+    , mUsers(new AddUsersWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

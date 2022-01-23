@@ -18,7 +18,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     : QWidget(parent)
     , mChannelSearchWidget(new ChannelSearchWidget(account, this))
     , mDiscussionNameLineEdit(new QLineEdit(this))
-    , mUsers(new AddUsersWidget(this))
+    , mUsers(new AddUsersWidget(account, this))
     , mMessageTextEdit(new KTextEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);

@@ -19,9 +19,9 @@ namespace
 const char myConfigGroupName[] = "PruneMessagesDialog";
 }
 
-PruneMessagesDialog::PruneMessagesDialog(QWidget *parent)
+PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mPruneMessageWidget(new PruneMessagesWidget(this))
+    , mPruneMessageWidget(new PruneMessagesWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Prune Messages"));
     auto mainLayout = new QVBoxLayout(this);

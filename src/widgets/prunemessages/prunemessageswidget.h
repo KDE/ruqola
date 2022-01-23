@@ -13,11 +13,12 @@ class QCheckBox;
 class QDateTimeEdit;
 class AddUsersWidget;
 class QLabel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PruneMessagesWidget(QWidget *parent = nullptr);
+    explicit PruneMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PruneMessagesWidget() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;

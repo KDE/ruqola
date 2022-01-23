@@ -11,11 +11,14 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
-AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(QWidget *parent)
+AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
+    , mRocketChatAccount(account)
 {
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
-    setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+    if (mRocketChatAccount) {
+        setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+    }
     connect(this, &AddUsersCompletionLineEdit::complete, this, &AddUsersCompletionLineEdit::slotComplete);
 }
 
@@ -23,10 +26,9 @@ AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit() = default;
 
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     // TODO add exception!
     // Add current user + list of users already added.
-    rcAccount->userAutocomplete(text, QString());
+    mRocketChatAccount->userAutocomplete(text, QString());
 }
 
 void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)

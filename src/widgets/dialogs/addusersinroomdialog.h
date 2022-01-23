@@ -8,11 +8,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class AddUsersInRoomWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AddUsersInRoomDialog(QWidget *parent = nullptr);
+    explicit AddUsersInRoomDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersInRoomDialog() override;
     Q_REQUIRED_RESULT QStringList userIds() const;
     Q_REQUIRED_RESULT QStringList userNames() const;

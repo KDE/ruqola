@@ -11,9 +11,9 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-AddUsersInRoomWidget::AddUsersInRoomWidget(QWidget *parent)
+AddUsersInRoomWidget::AddUsersInRoomWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mAddUsersWidget(new AddUsersWidget(this))
+    , mAddUsersWidget(new AddUsersWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

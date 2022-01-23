@@ -18,7 +18,7 @@ AddUsersWidgetTest::AddUsersWidgetTest(QObject *parent)
 
 void AddUsersWidgetTest::shouldHaveDefaultValues()
 {
-    AddUsersWidget w;
+    AddUsersWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

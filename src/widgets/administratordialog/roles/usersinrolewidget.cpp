@@ -46,7 +46,7 @@ void UsersInRoleWidget::slotTextChanged(const QString &str)
 
 void UsersInRoleWidget::slotAddUser()
 {
-    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
+    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(mRocketChatAccount, this);
     dlg->setWindowTitle(i18nc("@title:window", "Add Users in Role"));
     if (dlg->exec()) {
         const auto users = dlg->userNames();

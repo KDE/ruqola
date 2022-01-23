@@ -16,7 +16,7 @@
 CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mChannelName(new ChannelNameValidLineEdit(account, this))
-    , mUsers(new AddUsersWidget(this))
+    , mUsers(new AddUsersWidget(account, this))
     , mReadOnly(new QCheckBox(this))
     , mBroadcast(new QCheckBox(this))
     , mPrivate(new QCheckBox(this))

@@ -206,7 +206,7 @@ void RoomWidget::slotPruneMessages()
     if (!mRoom) {
         return;
     }
-    QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(this);
+    QPointer<PruneMessagesDialog> dlg = new PruneMessagesDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomName(mRoom->name());
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
@@ -241,7 +241,7 @@ void RoomWidget::slotVideoChat()
 
 void RoomWidget::slotAddUsersInRoom()
 {
-    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(this);
+    QPointer<AddUsersInRoomDialog> dlg = new AddUsersInRoomDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QStringList users = dlg->userIds();
         for (const QString &user : users) {

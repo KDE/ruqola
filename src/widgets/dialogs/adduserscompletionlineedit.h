@@ -8,7 +8,7 @@
 
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -17,7 +17,7 @@ public:
         QString username;
         QString userId;
     };
-    explicit AddUsersCompletionLineEdit(QWidget *parent = nullptr);
+    explicit AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersCompletionLineEdit() override;
 
 Q_SIGNALS:
@@ -26,5 +26,6 @@ Q_SIGNALS:
 private:
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
+    RocketChatAccount *const mRocketChatAccount;
 };
 

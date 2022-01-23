@@ -9,9 +9,9 @@
 #include "misc/clickablewidget.h"
 #include <QVBoxLayout>
 
-AddUsersWidget::AddUsersWidget(QWidget *parent)
+AddUsersWidget::AddUsersWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mSearchUserLineEdit(new AddUsersCompletionLineEdit(this))
+    , mSearchUserLineEdit(new AddUsersCompletionLineEdit(account, this))
     , mFlowLayout(new FlowLayout)
 {
     auto mainLayout = new QVBoxLayout(this);

@@ -12,11 +12,12 @@
 #include <QWidget>
 class FlowLayout;
 class ClickableWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AddUsersWidget(QWidget *parent = nullptr);
+    explicit AddUsersWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersWidget() override;
 
     Q_REQUIRED_RESULT QStringList userIds() const;

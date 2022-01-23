@@ -12,11 +12,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class PruneMessagesWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PruneMessagesDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PruneMessagesDialog(QWidget *parent = nullptr);
+    explicit PruneMessagesDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PruneMessagesDialog() override;
     Q_REQUIRED_RESULT RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo cleanHistoryInfo() const;
 

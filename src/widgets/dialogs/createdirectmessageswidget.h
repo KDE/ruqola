@@ -10,11 +10,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class AddUsersWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CreateDirectMessagesWidget(QWidget *parent = nullptr);
+    explicit CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateDirectMessagesWidget() override;
     Q_REQUIRED_RESULT QStringList userNames() const;
 Q_SIGNALS:

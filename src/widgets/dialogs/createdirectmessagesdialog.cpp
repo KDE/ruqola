@@ -22,7 +22,7 @@ static const char myConfigCreateDirectMessagesDialogGroupName[] = "CreateDirectM
 }
 CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(this))
+    , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(account, this))
     , mCurrentRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Create Direct Messages"));

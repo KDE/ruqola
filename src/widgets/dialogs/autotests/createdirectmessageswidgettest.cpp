@@ -18,7 +18,7 @@ CreateDirectMessagesWidgetTest::CreateDirectMessagesWidgetTest(QObject *parent)
 
 void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
 {
-    CreateDirectMessagesWidget w;
+    CreateDirectMessagesWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

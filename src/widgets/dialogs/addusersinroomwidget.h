@@ -9,11 +9,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class AddUsersWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersInRoomWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AddUsersInRoomWidget(QWidget *parent = nullptr);
+    explicit AddUsersInRoomWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AddUsersInRoomWidget() override;
 
     Q_REQUIRED_RESULT QStringList userIds() const;
