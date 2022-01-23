@@ -17,7 +17,7 @@ AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *accoun
 {
     connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
     if (mRocketChatAccount) {
-        setCompletionModel(Ruqola::self()->rocketChatAccount()->userCompleterFilterModelProxy());
+        setCompletionModel(mRocketChatAccount->userCompleterFilterModelProxy());
     }
     connect(this, &AddUsersCompletionLineEdit::complete, this, &AddUsersCompletionLineEdit::slotComplete);
 }
