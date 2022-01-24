@@ -26,7 +26,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void settingsOauthDone(const QJsonObject &obj);
+    void listOauthDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(ListOauthAppsJob)

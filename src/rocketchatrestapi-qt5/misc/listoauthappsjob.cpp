@@ -20,7 +20,7 @@ ListOauthAppsJob::~ListOauthAppsJob() = default;
 
 bool ListOauthAppsJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 bool ListOauthAppsJob::start()
@@ -42,7 +42,7 @@ void ListOauthAppsJob::onGetRequestResponse(const QJsonDocument &replyJson)
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ListOauthAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT settingsOauthDone(replyObject);
+        Q_EMIT listOauthDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("ListOauthAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
