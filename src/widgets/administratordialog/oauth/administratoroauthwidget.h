@@ -15,4 +15,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthWidget : public QWidget
     Q_OBJECT
 public:
     explicit AdministratorOauthWidget(QWidget *parent = nullptr);
+    ~AdministratorOauthWidget() override;
 };
