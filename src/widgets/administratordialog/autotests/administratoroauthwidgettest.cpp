@@ -6,7 +6,10 @@
 
 #include "administratoroauthwidgettest.h"
 #include "administratordialog/oauth/administratoroauthwidget.h"
+#include "administratordialog/oauth/oauthtreeview.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorOauthWidgetTest)
 AdministratorOauthWidgetTest::AdministratorOauthWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +19,14 @@ AdministratorOauthWidgetTest::AdministratorOauthWidgetTest(QObject *parent)
 void AdministratorOauthWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorOauthWidget d(nullptr);
-    // TODO
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    auto mSearchLineWidget = d.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
+    QVERIFY(mSearchLineWidget->text().isEmpty());
+    QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
+
+    auto mOauthTreeView = d.findChild<OauthTreeView *>(QStringLiteral("mOauthTreeView"));
+    QVERIFY(mOauthTreeView);
 }

@@ -25,9 +25,11 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
+    mSearchLineWidget->setPlaceholderText(i18n("Search Oauth Apps..."));
 
     mOauthTreeView->setObjectName(QStringLiteral("mOauthTreeView"));
     mainLayout->addWidget(mOauthTreeView);
+    // TODO add model
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;
