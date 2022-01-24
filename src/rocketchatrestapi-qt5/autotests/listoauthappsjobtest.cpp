@@ -20,7 +20,7 @@ void ListOauthAppsJobTest::shouldHaveDefaultValue()
 {
     ListOauthAppsJob job;
     verifyDefaultValue(&job);
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
