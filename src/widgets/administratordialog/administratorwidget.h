@@ -21,6 +21,7 @@ class AdministratorCustomEmojiWidget;
 class PermissionsWidget;
 class AdministratorRolesWidget;
 class RocketChatAccount;
+class AdministratorOauthWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorWidget : public QWidget
 {
     Q_OBJECT
@@ -43,6 +44,7 @@ private:
     ViewLogWidget *const mViewLogWidget;
     PermissionsWidget *const mPermissionsWidget;
     AdministratorRolesWidget *const mRolesWidget;
+    AdministratorOauthWidget *const mOauthWidget;
     RocketChatAccount *const mRocketChatAccount;
     int mCustomSoundsTabIndex = -1;
     int mServerInfoTabIndex = -1;

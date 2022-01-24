@@ -5,9 +5,16 @@
 */
 
 #include "administratoroauthwidgettest.h"
+#include "administratordialog/oauth/administratoroauthwidget.h"
 #include <QTest>
 QTEST_MAIN(AdministratorOauthWidgetTest)
 AdministratorOauthWidgetTest::AdministratorOauthWidgetTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void AdministratorOauthWidgetTest::shouldHaveDefaultValues()
+{
+    AdministratorOauthWidget d(nullptr);
+    // TODO
 }

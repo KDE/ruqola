@@ -14,4 +14,6 @@ class AdministratorOauthWidgetTest : public QObject
 public:
     explicit AdministratorOauthWidgetTest(QObject *parent = nullptr);
     ~AdministratorOauthWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

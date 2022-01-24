@@ -6,6 +6,7 @@
 
 #include "administratorwidget.h"
 #include "administratordialog/logs/viewlogwidget.h"
+#include "administratordialog/oauth/administratoroauthwidget.h"
 #include "administratordialog/permissions/permissionswidget.h"
 #include "administratordialog/roles/administratorroleswidget.h"
 #include "customemoji/administratorcustomemojiwidget.h"
@@ -35,6 +36,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     , mViewLogWidget(new ViewLogWidget(account, this))
     , mPermissionsWidget(new PermissionsWidget(account, this))
     , mRolesWidget(new AdministratorRolesWidget(account, this))
+    , mOauthWidget(new AdministratorOauthWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -73,6 +75,9 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
 
     mRolesWidget->setObjectName(QStringLiteral("mRolesWidget"));
     mTabWidget->addTab(mRolesWidget, i18n("Roles"));
+
+    mOauthWidget->setObjectName(QStringLiteral("mOauthWidget"));
+    mTabWidget->addTab(mOauthWidget, i18n("Oauth"));
 }
 
 AdministratorWidget::~AdministratorWidget() = default;
@@ -88,6 +93,7 @@ void AdministratorWidget::initialize()
     mRolesWidget->initialize();
     mAdministratorServerInfoWidget->initialize();
     mAdministratorInvitesWidget->initialize();
+    mOauthWidget->initialize();
 }
 
 void AdministratorWidget::updateUiFromPermission()
