@@ -17,6 +17,7 @@ public:
     ~OauthInfo() = default;
     Q_REQUIRED_RESULT bool operator==(const OauthInfo &other) const;
     void parseOauthInfo(const QJsonObject &replyObject);
+
     Q_REQUIRED_RESULT const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
@@ -26,9 +27,17 @@ public:
     Q_REQUIRED_RESULT const QString &name() const;
     void setName(const QString &newName);
 
+    Q_REQUIRED_RESULT const QString &clientId() const;
+    void setClientId(const QString &newClientId);
+
+    Q_REQUIRED_RESULT const QString &clientSecret() const;
+    void setClientSecret(const QString &newClientSecret);
+
 private:
     QString mIdentifier;
     QString mName;
+    QString mClientId;
+    QString mClientSecret;
     bool mActive = false;
 };
 

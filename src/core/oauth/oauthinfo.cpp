@@ -13,13 +13,16 @@ QDebug operator<<(QDebug d, const OauthInfo &t)
     d << "Identifier " << t.identifier();
     d << "Active " << t.active();
     d << "Name " << t.name();
+    d << "ClientId " << t.clientId();
+    d << "ClientSecret " << t.clientSecret();
     // TODO
     return d;
 }
 
 bool OauthInfo::operator==(const OauthInfo &other) const
 {
-    return mIdentifier == other.identifier() && mActive == other.active() && mName == other.name();
+    return mIdentifier == other.identifier() && mActive == other.active() && mName == other.name() && mClientId == other.clientId()
+        && mClientSecret == other.clientSecret();
 }
 
 void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
@@ -27,6 +30,8 @@ void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
     mIdentifier = replyObject[QLatin1String("_id")].toString();
     mActive = replyObject[QLatin1String("active")].toBool();
     mName = replyObject[QLatin1String("name")].toString();
+    mClientId = replyObject[QLatin1String("clientId")].toString();
+    mClientSecret = replyObject[QLatin1String("clientSecret")].toString();
 #if 0
     mUserIdentifier = replyObject[QLatin1String("userId")].toString();
     mRoomId = replyObject[QLatin1String("rid")].toString();
@@ -69,4 +74,24 @@ const QString &OauthInfo::name() const
 void OauthInfo::setName(const QString &newName)
 {
     mName = newName;
+}
+
+const QString &OauthInfo::clientId() const
+{
+    return mClientId;
+}
+
+void OauthInfo::setClientId(const QString &newClientId)
+{
+    mClientId = newClientId;
+}
+
+const QString &OauthInfo::clientSecret() const
+{
+    return mClientSecret;
+}
+
+void OauthInfo::setClientSecret(const QString &newClientSecret)
+{
+    mClientSecret = newClientSecret;
 }

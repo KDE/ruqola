@@ -17,5 +17,10 @@ OauthInfoTest::OauthInfoTest(QObject *parent)
 void OauthInfoTest::shouldHaveDefaultValues()
 {
     OauthInfo info;
+    QVERIFY(info.identifier().isEmpty());
+    QVERIFY(info.name().isEmpty());
+    QVERIFY(info.clientId().isEmpty());
+    QVERIFY(info.clientSecret().isEmpty());
+    QVERIFY(!info.active());
     // TODO
 }
