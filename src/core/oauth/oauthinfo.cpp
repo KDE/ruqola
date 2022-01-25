@@ -15,6 +15,7 @@ QDebug operator<<(QDebug d, const OauthInfo &t)
     d << "Name " << t.name();
     d << "ClientId " << t.clientId();
     d << "ClientSecret " << t.clientSecret();
+    d << "RedirectUri " << t.redirectUri();
     // TODO
     return d;
 }
@@ -22,7 +23,7 @@ QDebug operator<<(QDebug d, const OauthInfo &t)
 bool OauthInfo::operator==(const OauthInfo &other) const
 {
     return mIdentifier == other.identifier() && mActive == other.active() && mName == other.name() && mClientId == other.clientId()
-        && mClientSecret == other.clientSecret();
+        && mClientSecret == other.clientSecret() && mRedirectUri == other.redirectUri();
 }
 
 void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
@@ -32,11 +33,9 @@ void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
     mName = replyObject[QLatin1String("name")].toString();
     mClientId = replyObject[QLatin1String("clientId")].toString();
     mClientSecret = replyObject[QLatin1String("clientSecret")].toString();
+    mRedirectUri = replyObject[QLatin1String("redirectUri")].toString();
+    // TODO _createdAt / _updatedAt / _updatedAt
 #if 0
-    mUserIdentifier = replyObject[QLatin1String("userId")].toString();
-    mRoomId = replyObject[QLatin1String("rid")].toString();
-    mUses = replyObject[QLatin1String("uses")].toInt();
-    mMaxUses = replyObject[QLatin1String("maxUses")].toInt();
     if (replyObject.contains(QLatin1String("createdAt"))) {
         setCreateDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject)));
     }
@@ -94,4 +93,14 @@ const QString &OauthInfo::clientSecret() const
 void OauthInfo::setClientSecret(const QString &newClientSecret)
 {
     mClientSecret = newClientSecret;
+}
+
+const QString &OauthInfo::redirectUri() const
+{
+    return mRedirectUri;
+}
+
+void OauthInfo::setRedirectUri(const QString &newRedirectUri)
+{
+    mRedirectUri = newRedirectUri;
 }

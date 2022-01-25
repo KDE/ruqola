@@ -21,6 +21,7 @@ void OauthInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.name().isEmpty());
     QVERIFY(info.clientId().isEmpty());
     QVERIFY(info.clientSecret().isEmpty());
+    QVERIFY(info.redirectUri().isEmpty());
     QVERIFY(!info.active());
     // TODO
 }

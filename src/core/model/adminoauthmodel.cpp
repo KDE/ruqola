@@ -26,21 +26,9 @@ int AdminOauthModel::rowCount(const QModelIndex &parent) const
 QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
-        switch (static_cast<AdminInviteRoles>(section)) {
-        case AdminOauthModel::UserIdentifier:
-        case AdminOauthModel::RoomId:
-            break;
+        switch (static_cast<AdminOauthRoles>(section)) {
         case AdminOauthModel::Identifier:
-            return i18n("Token");
-        case AdminOauthModel::CreateStr:
-        case AdminOauthModel::Create:
-            return i18n("Created at");
-        case AdminOauthModel::Uses:
-            return i18n("Uses");
-        case AdminOauthModel::MaxUses:
-            return i18n("Uses left");
-        case AdminOauthModel::Expire:
-            return i18n("Expiration");
+            return i18n("Identifier");
         }
     }
     return {};
@@ -119,7 +107,6 @@ QString AdminOauthModel::expireInvitation(const InviteInfo &inviteInfo) const
 void AdminOauthModel::removeOauth(const QString &identifier)
 {
     const int roomCount = mAdminOauth.count();
-#if 0
     for (int i = 0; i < roomCount; ++i) {
         if (mAdminOauth.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
@@ -128,5 +115,4 @@ void AdminOauthModel::removeOauth(const QString &identifier)
             break;
         }
     }
-#endif
 }

@@ -33,11 +33,15 @@ public:
     Q_REQUIRED_RESULT const QString &clientSecret() const;
     void setClientSecret(const QString &newClientSecret);
 
+    Q_REQUIRED_RESULT const QString &redirectUri() const;
+    void setRedirectUri(const QString &newRedirectUri);
+
 private:
     QString mIdentifier;
     QString mName;
     QString mClientId;
     QString mClientSecret;
+    QString mRedirectUri;
     bool mActive = false;
 };
 
