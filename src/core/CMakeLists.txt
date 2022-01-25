@@ -241,6 +241,9 @@ target_sources(libruqolacore PRIVATE
 
     invite/inviteinfo.cpp
 
+    oauth/oauthinfo.h
+    oauth/oauthinfo.cpp
+
     ruqolacore.qrc
     managechannels.cpp
     texthighlighter.h
