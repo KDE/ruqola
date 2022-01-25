@@ -86,6 +86,9 @@ target_sources(libruqolacore PRIVATE
 
     model/admininvitemodel.cpp
 
+    model/adminoauthmodel.cpp
+    model/adminoauthmodel.h
+
     model/directoryroomsmodel.cpp
     model/directoryteamsmodel.cpp
     model/directoryusersmodel.cpp

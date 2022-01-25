@@ -6,6 +6,7 @@
 #include "administratoroauthwidget.h"
 #include "connection.h"
 #include "misc/listoauthappsjob.h"
+#include "model/adminoauthmodel.h"
 #include "oauthtreeview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -19,6 +20,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
     , mOauthTreeView(new OauthTreeView(this))
+    , mAdminInviteModel(new AdminOauthModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -29,6 +31,9 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
 
     mOauthTreeView->setObjectName(QStringLiteral("mOauthTreeView"));
     mainLayout->addWidget(mOauthTreeView);
+    // mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
+    // mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
+    // TODO mInviteTreeView->setModel(mAdminInviteFilterProxyModel);
     // TODO add model
 }
 

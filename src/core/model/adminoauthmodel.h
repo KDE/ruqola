@@ -1,0 +1,47 @@
+/*
+   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include "invite/inviteinfo.h"
+#include "libruqolacore_export.h"
+#include <QAbstractListModel>
+
+class LIBRUQOLACORE_EXPORT AdminOauthModel : public QAbstractListModel
+{
+    Q_OBJECT
+public:
+    enum AdminInviteRoles {
+        UserIdentifier,
+        Identifier,
+        RoomId,
+        Create,
+        CreateStr,
+        Expire,
+        Uses,
+        MaxUses,
+        LastColumn = MaxUses,
+    };
+    Q_ENUM(AdminInviteRoles)
+
+    explicit AdminOauthModel(QObject *parent = nullptr);
+    ~AdminOauthModel() override;
+
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    const QVector<InviteInfo> &adminInvites() const;
+    void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
+
+    void removeInvite(const QString &identifier);
+
+private:
+    Q_DISABLE_COPY(AdminOauthModel)
+    Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    QVector<InviteInfo> mAdminInvites;
+};

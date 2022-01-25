@@ -13,6 +13,7 @@
 class RocketChatAccount;
 class QLineEdit;
 class OauthTreeView;
+class AdminOauthModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthWidget : public QWidget
 {
     Q_OBJECT
@@ -27,4 +28,5 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     OauthTreeView *const mOauthTreeView;
+    AdminOauthModel *const mAdminInviteModel;
 };
