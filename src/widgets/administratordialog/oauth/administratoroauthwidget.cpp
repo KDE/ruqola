@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "administratoroauthwidget.h"
+#include "administratoroauthfilterproxymodel.h"
 #include "connection.h"
 #include "misc/listoauthappsjob.h"
 #include "model/adminoauthmodel.h"
@@ -20,7 +21,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
     , mOauthTreeView(new OauthTreeView(this))
-    , mAdminInviteModel(new AdminOauthModel(this))
+    , mAdminOauthModel(new AdminOauthModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -31,10 +32,9 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
 
     mOauthTreeView->setObjectName(QStringLiteral("mOauthTreeView"));
     mainLayout->addWidget(mOauthTreeView);
-    // mAdminInviteFilterProxyModel = new AdministratorInvitesFilterProxyModel(mAdminInviteModel, this);
-    // mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
-    // TODO mInviteTreeView->setModel(mAdminInviteFilterProxyModel);
-    // TODO add model
+    mAdminInviteFilterProxyModel = new AdministratorOauthFilterProxyModel(mAdminOauthModel, this);
+    mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
+    mOauthTreeView->setModel(mAdminInviteFilterProxyModel);
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;

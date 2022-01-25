@@ -238,6 +238,8 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/oauth/administratoroauthwidget.cpp
     administratordialog/oauth/oauthtreeview.cpp
     administratordialog/oauth/oauthtreeview.h
+    administratordialog/oauth/administratoroauthfilterproxymodel.cpp
+    administratordialog/oauth/administratoroauthfilterproxymodel.h
 
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessageswidget.cpp
