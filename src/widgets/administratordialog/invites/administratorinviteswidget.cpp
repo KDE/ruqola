@@ -16,6 +16,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include <KLocalizedString>
 #include <QHeaderView>
 #include <QLineEdit>
 #include <QVBoxLayout>
@@ -35,6 +36,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
+    mSearchLineWidget->setPlaceholderText(i18n("Search Invite..."));
 
     mInviteTreeView->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeView);
