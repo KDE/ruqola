@@ -8,6 +8,7 @@
 #include "connection.h"
 #include "misc/listoauthappsjob.h"
 #include "model/adminoauthmodel.h"
+#include "oauth/oauthinfo.h"
 #include "oauthtreeview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -52,4 +53,22 @@ void AdministratorOauthWidget::initialize()
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
 {
     qDebug() << " obj " << obj;
+    QVector<OauthInfo> lstOauth;
+    const QJsonArray array = obj[QStringLiteral("oauthApps")].toArray();
+    const auto arrayCount{array.count()};
+    lstOauth.reserve(arrayCount);
+#if 0
+    for (auto i = 0; i < arrayCount; ++i) {
+        const QJsonObject o = array.at(i).toObject();
+        OauthInfo info;
+        invite.parseInviteInfo(o);
+        lstOauth.append(info);
+    }
+    mAdminInviteModel->setAdminInvites(lstInvite);
+    // qDebug() << " lstInvite " << lstInvite;
+    // qDebug() << " obj " << obj;
+    for (int i : {AdminInviteModel::AdminInviteRoles::CreateStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
+        mInviteTreeView->resizeColumnToContents(i);
+    }
+#endif
 }

@@ -20,7 +20,7 @@ int AdminOauthModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid()) {
         return 0; // flat model
     }
-    return mAdminInvites.count();
+    return mAdminOauth.count();
 }
 
 QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -52,57 +52,60 @@ int AdminOauthModel::columnCount(const QModelIndex &parent) const
     return static_cast<int>(AdminOauthModel::LastColumn) + 1;
 }
 
-const QVector<InviteInfo> &AdminOauthModel::adminInvites() const
+const QVector<OauthInfo> &AdminOauthModel::adminOauth() const
 {
-    return mAdminInvites;
+    return mAdminOauth;
 }
 
-void AdminOauthModel::setAdminInvites(const QVector<InviteInfo> &newAdminInvites)
+void AdminOauthModel::setAdminOauth(const QVector<OauthInfo> &newAdminInvites)
 {
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mAdminInvites.count() - 1);
-        mAdminInvites.clear();
+        beginRemoveRows(QModelIndex(), 0, mAdminOauth.count() - 1);
+        mAdminOauth.clear();
         endRemoveRows();
     }
     if (!newAdminInvites.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, newAdminInvites.count() - 1);
-        mAdminInvites = newAdminInvites;
+        mAdminOauth = newAdminInvites;
         endInsertRows();
     }
 }
 
 QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= mAdminInvites.count()) {
+    if (index.row() < 0 || index.row() >= mAdminOauth.count()) {
         return {};
     }
     if (role != Qt::DisplayRole) {
         return {};
     }
 
-    const InviteInfo &inviteInfo = mAdminInvites.at(index.row());
+    const OauthInfo &info = mAdminOauth.at(index.row());
     const int col = index.column();
-    switch (col) {
+#if 0
+    switch (col) {    
     case AdminOauthModel::UserIdentifier:
-        return inviteInfo.userIdentifier();
+        return info.userIdentifier();
     case AdminOauthModel::Identifier:
-        return inviteInfo.identifier();
+        return info.identifier();
     case AdminOauthModel::RoomId:
-        return inviteInfo.roomId();
+        return info.roomId();
     case AdminOauthModel::Create:
-        return inviteInfo.createDateTime();
+        return info.createDateTime();
     case AdminOauthModel::CreateStr:
-        return inviteInfo.createDateTime().toString();
+        return info.createDateTime().toString();
     case AdminOauthModel::Uses:
-        return inviteInfo.uses();
+        return info.uses();
     case AdminOauthModel::MaxUses:
-        return inviteInfo.maxUses();
+        return info.maxUses();
     case AdminOauthModel::Expire:
-        return expireInvitation(inviteInfo);
+        return expireInvitation(info);
     }
+#endif
     return {};
 }
 
+#if 0
 QString AdminOauthModel::expireInvitation(const InviteInfo &inviteInfo) const
 {
     if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
@@ -111,16 +114,19 @@ QString AdminOauthModel::expireInvitation(const InviteInfo &inviteInfo) const
         return i18n("Expired");
     }
 }
+#endif
 
-void AdminOauthModel::removeInvite(const QString &identifier)
+void AdminOauthModel::removeOauth(const QString &identifier)
 {
-    const int roomCount = mAdminInvites.count();
+    const int roomCount = mAdminOauth.count();
+#if 0
     for (int i = 0; i < roomCount; ++i) {
-        if (mAdminInvites.at(i).identifier() == identifier) {
+        if (mAdminOauth.at(i).identifier() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
-            mAdminInvites.removeAt(i);
+            mAdminOauth.removeAt(i);
             endRemoveRows();
             break;
         }
     }
+#endif
 }

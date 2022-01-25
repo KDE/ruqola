@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "invite/inviteinfo.h"
 #include "libruqolacore_export.h"
+#include "oauth/oauthinfo.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT AdminOauthModel : public QAbstractListModel
@@ -35,13 +35,13 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    const QVector<InviteInfo> &adminInvites() const;
-    void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
+    const QVector<OauthInfo> &adminOauth() const;
+    void setAdminOauth(const QVector<OauthInfo> &newAdminInvites);
 
-    void removeInvite(const QString &identifier);
+    void removeOauth(const QString &identifier);
 
 private:
     Q_DISABLE_COPY(AdminOauthModel)
-    Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
-    QVector<InviteInfo> mAdminInvites;
+    // Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    QVector<OauthInfo> mAdminOauth;
 };
