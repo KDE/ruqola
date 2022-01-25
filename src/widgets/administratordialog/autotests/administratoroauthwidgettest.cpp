@@ -27,6 +27,6 @@ void AdministratorOauthWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineWidget->text().isEmpty());
     QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
 
-    auto mOauthTreeView = d.findChild<OauthTreeView *>(QStringLiteral("mOauthTreeView"));
-    QVERIFY(mOauthTreeView);
+    auto mOauthTreeWidget = d.findChild<OauthTreeView *>(QStringLiteral("mOauthTreeWidget"));
+    QVERIFY(mOauthTreeWidget);
 }

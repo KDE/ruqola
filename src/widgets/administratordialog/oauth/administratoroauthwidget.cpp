@@ -20,7 +20,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
-    , mOauthTreeView(new OauthTreeView(this))
+    , mOauthTreeWidget(new OauthTreeView(this))
     , mAdminOauthModel(new AdminOauthModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -30,11 +30,11 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18n("Search Oauth Apps..."));
 
-    mOauthTreeView->setObjectName(QStringLiteral("mOauthTreeView"));
-    mainLayout->addWidget(mOauthTreeView);
+    mOauthTreeWidget->setObjectName(QStringLiteral("mOauthTreeWidget"));
+    mainLayout->addWidget(mOauthTreeWidget);
     mAdminInviteFilterProxyModel = new AdministratorOauthFilterProxyModel(mAdminOauthModel, this);
     mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
-    mOauthTreeView->setModel(mAdminInviteFilterProxyModel);
+    mOauthTreeWidget->setModel(mAdminInviteFilterProxyModel);
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;

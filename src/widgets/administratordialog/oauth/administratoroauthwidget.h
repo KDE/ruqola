@@ -28,7 +28,7 @@ private:
     void slotListOauthDone(const QJsonObject &obj);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
-    OauthTreeView *const mOauthTreeView;
+    OauthTreeView *const mOauthTreeWidget;
     AdminOauthModel *const mAdminOauthModel;
     AdministratorOauthFilterProxyModel *mAdminInviteFilterProxyModel = nullptr;
 };
