@@ -6,7 +6,10 @@
 
 #include "administratorinviteswidgettest.h"
 #include "administratordialog/invites/administratorinviteswidget.h"
+#include "administratordialog/invites/invitetreeview.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorInvitesWidgetTest)
 AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
     : QObject(parent)
@@ -15,6 +18,14 @@ AdministratorInvitesWidgetTest::AdministratorInvitesWidgetTest(QObject *parent)
 
 void AdministratorInvitesWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorInvitesWidget w(nullptr);
-    // TODO
+    AdministratorInvitesWidget d(nullptr);
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    auto mSearchLineWidget = d.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
+    QVERIFY(mSearchLineWidget->text().isEmpty());
+    QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
+
+    auto mInviteTreeView = d.findChild<InviteTreeView *>(QStringLiteral("mInviteTreeWidget"));
+    QVERIFY(mInviteTreeView);
 }
