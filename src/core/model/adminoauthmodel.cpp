@@ -39,6 +39,10 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Redirect Url");
         case AdminOauthModel::Active:
             return i18n("Active");
+        case AdminOauthModel::CreatedAt:
+            return i18n("Created At");
+        case AdminOauthModel::CreatedBy:
+            return i18n("Created By");
         }
     }
     return {};
@@ -93,6 +97,10 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
         return info.redirectUri();
     case AdminOauthModel::Active:
         return info.active();
+    case AdminOauthModel::CreatedAt:
+        return {}; // TODO
+    case AdminOauthModel::CreatedBy:
+        return {}; // TODO
     }
     return {};
 }

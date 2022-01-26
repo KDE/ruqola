@@ -20,6 +20,8 @@ public:
         ClientId,
         ClientSecret,
         RedirectUri,
+        CreatedBy,
+        CreatedAt,
         Active,
         LastColumn = Active,
     };

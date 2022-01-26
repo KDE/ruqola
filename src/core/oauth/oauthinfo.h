@@ -36,12 +36,16 @@ public:
     Q_REQUIRED_RESULT const QString &redirectUri() const;
     void setRedirectUri(const QString &newRedirectUri);
 
+    Q_REQUIRED_RESULT const QString &createdBy() const;
+    void setCreatedBy(const QString &newCreatedBy);
+
 private:
     QString mIdentifier;
     QString mName;
     QString mClientId;
     QString mClientSecret;
     QString mRedirectUri;
+    QString mCreatedBy;
     bool mActive = false;
 };
 

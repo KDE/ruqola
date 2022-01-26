@@ -36,6 +36,13 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mAdminInviteFilterProxyModel = new AdministratorOauthFilterProxyModel(mAdminOauthModel, this);
     mAdminInviteFilterProxyModel->setObjectName(QStringLiteral("mAdminInviteFilterProxyModel"));
     mOauthTreeWidget->setModel(mAdminInviteFilterProxyModel);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorOauthWidget::slotTextChanged);
+
+    // Hide not useful columns
+    mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::ClientId, true);
+    mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::ClientSecret, true);
+    mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::RedirectUri, true);
+    mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::RedirectUri, true);
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;
@@ -52,7 +59,6 @@ void AdministratorOauthWidget::initialize()
 
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
 {
-    qDebug() << " obj " << obj;
     QVector<OauthInfo> lstOauth;
     const QJsonArray array = obj[QStringLiteral("oauthApps")].toArray();
     const auto arrayCount{array.count()};
@@ -64,9 +70,14 @@ void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
         lstOauth.append(info);
     }
     mAdminOauthModel->setAdminOauth(lstOauth);
-    // qDebug() << " lstInvite " << lstInvite;
+    // qDebug() << " lstOauth " << lstOauth;
     // qDebug() << " obj " << obj;
-    for (int i : {AdminOauthModel::AdminOauthModel::Identifier}) {
+    for (int i : {AdminOauthModel::AdminOauthRoles::Identifier}) {
         mOauthTreeWidget->resizeColumnToContents(i);
     }
+}
+
+void AdministratorOauthWidget::slotTextChanged(const QString &str)
+{
+    mAdminInviteFilterProxyModel->setFilterString(str);
 }

@@ -26,6 +26,7 @@ public:
 
 private:
     void slotListOauthDone(const QJsonObject &obj);
+    void slotTextChanged(const QString &str);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     OauthTreeView *const mOauthTreeWidget;
