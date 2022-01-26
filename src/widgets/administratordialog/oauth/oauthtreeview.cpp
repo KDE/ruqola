@@ -17,6 +17,7 @@ OauthTreeView::OauthTreeView(QWidget *parent)
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setSelectionBehavior(QAbstractItemView::SelectRows);
+    setRootIsDecorated(false);
     setSortingEnabled(true);
     connect(this, &OauthTreeView::customContextMenuRequested, this, &OauthTreeView::slotCustomContextMenuRequested);
     initialize();

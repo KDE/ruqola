@@ -17,6 +17,7 @@ InviteTreeView::InviteTreeView(QWidget *parent)
     setSelectionMode(SingleSelection);
     setContextMenuPolicy(Qt::CustomContextMenu);
     setSelectionBehavior(QAbstractItemView::SelectRows);
+    setRootIsDecorated(false);
     setSortingEnabled(true);
     connect(this, &InviteTreeView::customContextMenuRequested, this, &InviteTreeView::slotCustomContextMenuRequested);
     initialize();

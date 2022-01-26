@@ -16,5 +16,10 @@ OauthTreeViewTest::OauthTreeViewTest(QObject *parent)
 void OauthTreeViewTest::shouldHaveDefaultValues()
 {
     OauthTreeView treeView;
-    // TODO
+    QVERIFY(treeView.alternatingRowColors());
+    QVERIFY(!treeView.rootIsDecorated());
+    QVERIFY(treeView.isSortingEnabled());
+    QCOMPARE(treeView.contextMenuPolicy(), Qt::CustomContextMenu);
+    QCOMPARE(treeView.selectionBehavior(), QAbstractItemView::SelectRows);
+    QCOMPARE(treeView.selectionMode(), QAbstractItemView::SingleSelection);
 }
