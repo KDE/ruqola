@@ -42,6 +42,5 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminOauthModel)
-    // Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
     QVector<OauthInfo> mAdminOauth;
 };

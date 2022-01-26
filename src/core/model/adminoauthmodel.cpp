@@ -100,21 +100,11 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
     case AdminOauthModel::CreatedAt:
         return {}; // TODO
     case AdminOauthModel::CreatedBy:
-        return {}; // TODO
+        return info.createdBy();
     }
     return {};
 }
 
-#if 0
-QString AdminOauthModel::expireInvitation(const InviteInfo &inviteInfo) const
-{
-    if (inviteInfo.expireDateTime() > QDateTime::currentDateTime()) {
-        return i18n("Expire in %1 days", QDateTime::currentDateTime().daysTo(inviteInfo.expireDateTime()));
-    } else {
-        return i18n("Expired");
-    }
-}
-#endif
 
 void AdminOauthModel::removeOauth(const QString &identifier)
 {

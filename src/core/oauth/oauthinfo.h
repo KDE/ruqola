@@ -39,6 +39,9 @@ public:
     Q_REQUIRED_RESULT const QString &createdBy() const;
     void setCreatedBy(const QString &newCreatedBy);
 
+    Q_REQUIRED_RESULT const QDateTime &createdDateTime() const;
+    void setCreatedDateTime(const QDateTime &newCreatedDateTime);
+
 private:
     QString mIdentifier;
     QString mName;
@@ -46,6 +49,7 @@ private:
     QString mClientSecret;
     QString mRedirectUri;
     QString mCreatedBy;
+    QDateTime mCreatedDateTime;
     bool mActive = false;
 };
 

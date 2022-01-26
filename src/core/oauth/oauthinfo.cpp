@@ -6,6 +6,8 @@
 
 #include "oauthinfo.h"
 
+#include "utils.h"
+
 OauthInfo::OauthInfo() = default;
 
 QDebug operator<<(QDebug d, const OauthInfo &t)
@@ -39,14 +41,9 @@ void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
     const QJsonObject createdBy = replyObject[QLatin1String("_createdBy")].toObject();
     mCreatedBy = createdBy[QLatin1String("username")].toString();
     // {"_id":"system","username":"system"}
-#if 0
-    if (replyObject.contains(QLatin1String("createdAt"))) {
-        setCreateDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject)));
+    if (replyObject.contains(QLatin1String("_createdAt"))) {
+        setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), replyObject)));
     }
-    if (replyObject.contains(QLatin1String("expires"))) {
-        setExpireDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("expires"), replyObject)));
-    }
-#endif
 }
 
 const QString &OauthInfo::identifier() const
@@ -117,4 +114,14 @@ const QString &OauthInfo::createdBy() const
 void OauthInfo::setCreatedBy(const QString &newCreatedBy)
 {
     mCreatedBy = newCreatedBy;
+}
+
+const QDateTime &OauthInfo::createdDateTime() const
+{
+    return mCreatedDateTime;
+}
+
+void OauthInfo::setCreatedDateTime(const QDateTime &newCreatedDateTime)
+{
+    mCreatedDateTime = newCreatedDateTime;
 }
