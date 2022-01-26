@@ -16,7 +16,12 @@ class LIBRUQOLACORE_EXPORT AdminOauthModel : public QAbstractListModel
 public:
     enum AdminOauthRoles {
         Identifier,
-        LastColumn = Identifier,
+        Name,
+        ClientId,
+        ClientSecret,
+        RedirectUri,
+        Active,
+        LastColumn = Active,
     };
     Q_ENUM(AdminOauthRoles)
 

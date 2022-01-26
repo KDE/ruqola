@@ -57,18 +57,16 @@ void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
     const QJsonArray array = obj[QStringLiteral("oauthApps")].toArray();
     const auto arrayCount{array.count()};
     lstOauth.reserve(arrayCount);
-#if 0
     for (auto i = 0; i < arrayCount; ++i) {
         const QJsonObject o = array.at(i).toObject();
         OauthInfo info;
-        invite.parseInviteInfo(o);
+        info.parseOauthInfo(o);
         lstOauth.append(info);
     }
-    mAdminInviteModel->setAdminInvites(lstInvite);
+    mAdminOauthModel->setAdminOauth(lstOauth);
     // qDebug() << " lstInvite " << lstInvite;
     // qDebug() << " obj " << obj;
-    for (int i : {AdminInviteModel::AdminInviteRoles::CreateStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
-        mInviteTreeView->resizeColumnToContents(i);
+    for (int i : {AdminOauthModel::AdminOauthModel::Identifier}) {
+        mOauthTreeWidget->resizeColumnToContents(i);
     }
-#endif
 }

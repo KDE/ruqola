@@ -29,6 +29,16 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
         switch (static_cast<AdminOauthRoles>(section)) {
         case AdminOauthModel::Identifier:
             return i18n("Identifier");
+        case AdminOauthModel::Name:
+            return i18n("Name");
+        case AdminOauthModel::ClientId:
+            return i18n("Client Id");
+        case AdminOauthModel::ClientSecret:
+            return i18n("Client Secret");
+        case AdminOauthModel::RedirectUri:
+            return i18n("Redirect Url");
+        case AdminOauthModel::Active:
+            return i18n("Active");
         }
     }
     return {};
@@ -70,26 +80,20 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
 
     const OauthInfo &info = mAdminOauth.at(index.row());
     const int col = index.column();
-#if 0
-    switch (col) {    
-    case AdminOauthModel::UserIdentifier:
-        return info.userIdentifier();
+    switch (col) {
     case AdminOauthModel::Identifier:
         return info.identifier();
-    case AdminOauthModel::RoomId:
-        return info.roomId();
-    case AdminOauthModel::Create:
-        return info.createDateTime();
-    case AdminOauthModel::CreateStr:
-        return info.createDateTime().toString();
-    case AdminOauthModel::Uses:
-        return info.uses();
-    case AdminOauthModel::MaxUses:
-        return info.maxUses();
-    case AdminOauthModel::Expire:
-        return expireInvitation(info);
+    case AdminOauthModel::Name:
+        return info.name();
+    case AdminOauthModel::ClientId:
+        return info.clientId();
+    case AdminOauthModel::ClientSecret:
+        return info.clientSecret();
+    case AdminOauthModel::RedirectUri:
+        return info.redirectUri();
+    case AdminOauthModel::Active:
+        return info.active();
     }
-#endif
     return {};
 }
 
