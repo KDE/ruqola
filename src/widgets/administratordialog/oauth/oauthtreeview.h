@@ -17,7 +17,7 @@ public:
     ~OauthTreeView() override;
 
 Q_SIGNALS:
-    void removeInvite(const QString &identifier);
+    void removeOauth(const QString &identifier);
 
 private:
     void initialize();
@@ -25,4 +25,5 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addClicked();
     void editClicked();
+    void slotRemoveOauth(const QString &identifier);
 };

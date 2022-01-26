@@ -49,8 +49,8 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void OauthTreeView::removeClicked(const QString &identifier)
 {
-    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
-        Q_EMIT removeInvite(identifier);
+    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this Oauth?"), i18n("Remove OAuth"))) {
+        Q_EMIT removeOauth(identifier);
     }
 }
 
