@@ -34,8 +34,11 @@ void OauthTreeView::initialize()
 void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = indexAt(pos);
+    QMenu menu(this);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &OauthTreeView::addClicked);
     if (index.isValid()) {
-        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &OauthTreeView::editClicked);
+        menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
             removeClicked(modelIndex.data().toString());
@@ -49,4 +52,14 @@ void OauthTreeView::removeClicked(const QString &identifier)
     if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
         Q_EMIT removeInvite(identifier);
     }
+}
+
+void OauthTreeView::addClicked()
+{
+    // TODO
+}
+
+void OauthTreeView::editClicked()
+{
+    // TODO
 }

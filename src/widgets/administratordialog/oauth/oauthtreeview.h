@@ -23,4 +23,6 @@ private:
     void initialize();
     void removeClicked(const QString &identifier);
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void addClicked();
+    void editClicked();
 };
