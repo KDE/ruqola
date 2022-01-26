@@ -5,6 +5,7 @@
 */
 
 #include "channellistdelegate.h"
+#include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
 #include "model/roomlistheadingsproxymodel.h"
@@ -74,14 +75,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::LinkVisited));
         }
         if (index.data(RoomModel::UserOffline).toBool()) {
-            KColorScheme scheme;
-            optionCopy.palette.setBrush(QPalette::Text, scheme.foreground(KColorScheme::InactiveText).color());
+            optionCopy.palette.setBrush(QPalette::Text, Colors::self().scheme().foreground(KColorScheme::InactiveText).color());
         }
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader) {
-        KColorScheme scheme;
-        painter->setPen(scheme.foreground(KColorScheme::NegativeText).color());
+        painter->setPen(Colors::self().scheme().foreground(KColorScheme::NegativeText).color());
         painter->drawText(unreadRect, unreadText);
     }
 }

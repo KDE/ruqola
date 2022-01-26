@@ -176,6 +176,7 @@ target_sources(libruqolacore PRIVATE
     textconverter.cpp
     loadrecenthistorymanager.cpp
     channel.cpp
+    colors.cpp
     inputtextmanager.cpp
     authenticationmanager.cpp
 
@@ -405,6 +406,7 @@ target_sources(libruqolacore PRIVATE
     roles/role.h
     roles/roles.h
     channel.h
+    colors.h
     downloadavartarurlmanager.h
     teams/teaminfo.h
     teams/teamcompleter.h

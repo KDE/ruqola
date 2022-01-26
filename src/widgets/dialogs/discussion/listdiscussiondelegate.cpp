@@ -10,6 +10,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 
+#include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "model/discussionsmodel.h"
 
@@ -40,9 +41,8 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
                                        messageStr,
                                        QPoint(DelegatePaintUtil::margin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
-    KColorScheme scheme;
     const QString discussionsText = i18n("Open Discussion");
-    painter->setPen(scheme.foreground(KColorScheme::LinkText).color());
+    painter->setPen(Colors::self().scheme().foreground(KColorScheme::LinkText).color());
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
     // Note: pen still blue, currently relying on restore()
 

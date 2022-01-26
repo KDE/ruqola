@@ -5,6 +5,7 @@
 */
 
 #include "ruqolaloginwidget.h"
+#include "colors.h"
 #include "common/authenticationcombobox.h"
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
@@ -104,8 +105,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     QPalette pal = mFailedError->palette();
-    const KColorScheme colorScheme{QPalette::Active};
-    pal.setColor(foregroundRole(), colorScheme.foreground(KColorScheme::NegativeText).color());
+    pal.setColor(foregroundRole(), Colors::self().scheme().foreground(KColorScheme::NegativeText).color());
     mFailedError->setPalette(pal);
     QFont font = mFailedError->font();
     font.setBold(true);

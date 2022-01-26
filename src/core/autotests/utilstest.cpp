@@ -6,7 +6,6 @@
 
 #include "utilstest.h"
 #include "utils.h"
-#include <KColorScheme>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>

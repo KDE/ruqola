@@ -5,6 +5,7 @@
 */
 
 #include "messagelistdelegate.h"
+#include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
 #include "messageattachmentdelegatehelperfile.h"
@@ -64,7 +65,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
-    KColorScheme scheme;
+    KColorScheme scheme = Colors::self().scheme();
     mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
     mThreadedMessageBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
