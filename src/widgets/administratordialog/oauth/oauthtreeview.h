@@ -25,5 +25,4 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addClicked();
     void editClicked();
-    void slotRemoveOauth(const QString &identifier);
 };
