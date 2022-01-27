@@ -8,6 +8,7 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
+class AdministratorOauthCreateWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthCreateDialog : public QDialog
 {
     Q_OBJECT
@@ -18,4 +19,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    AdministratorOauthCreateWidget *const mCreateWidget;
 };

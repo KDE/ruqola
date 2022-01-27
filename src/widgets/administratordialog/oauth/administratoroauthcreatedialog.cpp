@@ -5,6 +5,7 @@
 */
 
 #include "administratoroauthcreatedialog.h"
+#include "administratoroauthcreatewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -16,13 +17,14 @@ static const char myConfigAdministratorOauthCreateDialogGroupName[] = "Administr
 }
 AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     : QDialog(parent)
+    , mCreateWidget(new AdministratorOauthCreateWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Add Oauth Apps"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
-    //    mainLayout->addWidget(mCreateWidget);
+    mCreateWidget->setObjectName(QStringLiteral("mCreateWidget"));
+    mainLayout->addWidget(mCreateWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
