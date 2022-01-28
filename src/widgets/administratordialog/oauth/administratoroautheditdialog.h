@@ -14,4 +14,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditDialog : public QDialo
 public:
     explicit AdministratorOauthEditDialog(QWidget *parent = nullptr);
     ~AdministratorOauthEditDialog() override;
+
+private:
+    void writeConfig();
+    void readConfig();
 };
