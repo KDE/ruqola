@@ -22,6 +22,7 @@ public:
         RedirectUri,
         CreatedBy,
         CreatedAt,
+        CreatedAtStr,
         Active,
         LastColumn = Active,
     };

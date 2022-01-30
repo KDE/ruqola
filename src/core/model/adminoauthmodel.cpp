@@ -41,6 +41,7 @@ QVariant AdminOauthModel::headerData(int section, Qt::Orientation orientation, i
             return i18n("Active");
         case AdminOauthModel::CreatedAt:
             return i18n("Created At");
+        case AdminOauthModel::CreatedAtStr:
         case AdminOauthModel::CreatedBy:
             return i18n("Created By");
         }
@@ -98,9 +99,11 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
     case AdminOauthModel::Active:
         return info.active();
     case AdminOauthModel::CreatedAt:
-        return {}; // TODO
+        return info.createdDateTime();
     case AdminOauthModel::CreatedBy:
         return info.createdBy();
+    case AdminOauthModel::CreatedAtStr:
+        return info.createdDateTime().toString();
     }
     return {};
 }
