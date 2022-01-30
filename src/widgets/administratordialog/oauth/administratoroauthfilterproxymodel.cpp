@@ -17,12 +17,10 @@ AdministratorOauthFilterProxyModel::~AdministratorOauthFilterProxyModel() = defa
 bool AdministratorOauthFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     const int leftColumn{left.column()};
-#if 0
-    if (leftColumn == AdminOauthModel::CreateStr) {
-        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminOauthModel::Create);
-        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminOauthModel::Create);
+    if (leftColumn == AdminOauthModel::CreatedAtStr) {
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminOauthModel::CreatedAt);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminOauthModel::CreatedAt);
         return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-#endif
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
 }
