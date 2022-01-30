@@ -11,6 +11,8 @@
 AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget()
