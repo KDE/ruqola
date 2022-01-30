@@ -73,7 +73,7 @@ void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
     mAdminOauthModel->setAdminOauth(lstOauth);
     // qDebug() << " lstOauth " << lstOauth;
     // qDebug() << " obj " << obj;
-    for (int i : {AdminOauthModel::AdminOauthRoles::Identifier}) {
+    for (int i : {AdminOauthModel::AdminOauthRoles::Identifier, AdminOauthModel::AdminOauthRoles::CreatedAtStr}) {
         mOauthTreeWidget->resizeColumnToContents(i);
     }
 }
