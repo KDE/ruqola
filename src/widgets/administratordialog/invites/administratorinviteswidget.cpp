@@ -47,7 +47,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
     // Hide not useful columns
     mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::UserIdentifier, true);
     mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::RoomId, true);
-    mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::Create, true);
+    mInviteTreeView->setColumnHidden(AdminInviteModel::AdminInviteRoles::CreateAt, true);
 }
 
 AdministratorInvitesWidget::~AdministratorInvitesWidget() = default;
@@ -82,7 +82,7 @@ void AdministratorInvitesWidget::slotListInviteDone(const QJsonDocument &obj)
     mAdminInviteModel->setAdminInvites(lstInvite);
     // qDebug() << " lstInvite " << lstInvite;
     // qDebug() << " obj " << obj;
-    for (int i : {AdminInviteModel::AdminInviteRoles::CreateStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
+    for (int i : {AdminInviteModel::AdminInviteRoles::CreateAtStr, AdminInviteModel::AdminInviteRoles::Identifier}) {
         mInviteTreeView->resizeColumnToContents(i);
     }
 }

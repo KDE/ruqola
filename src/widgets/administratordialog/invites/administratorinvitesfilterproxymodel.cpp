@@ -17,9 +17,9 @@ AdministratorInvitesFilterProxyModel::~AdministratorInvitesFilterProxyModel() = 
 bool AdministratorInvitesFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     const int leftColumn{left.column()};
-    if (leftColumn == AdminInviteModel::CreateStr) {
-        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminInviteModel::Create);
-        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminInviteModel::Create);
+    if (leftColumn == AdminInviteModel::CreateAtStr) {
+        const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminInviteModel::CreateAt);
+        const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminInviteModel::CreateAt);
         return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
     return DirectoryBaseFilterProxyModel::lessThan(left, right);
