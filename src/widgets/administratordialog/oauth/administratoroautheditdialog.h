@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class AdministratorOauthEditWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditDialog : public QDialog
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ private:
     void writeConfig();
     void readConfig();
     AdministratorOauthEditWidget *const mOauthEditWidget;
+    QPushButton *mOkButton = nullptr;
 };

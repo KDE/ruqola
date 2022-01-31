@@ -5,11 +5,12 @@
 */
 
 #include "administratoroauthcreatedialog.h"
-#include "administratoroauthcreatewidget.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 namespace
 {
@@ -31,9 +32,9 @@ AdministratorOauthCreateDialog::AdministratorOauthCreateDialog(QWidget *parent)
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorOauthCreateDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorOauthCreateDialog::accept);
-    //    mOkButton = button->button(QDialogButtonBox::Ok);
-    //    mOkButton->setEnabled(false);
-    //    connect(mCreateWidget, &AdministratorCustomUserStatusCreateWidget::updateOkButton, mOkButton, &QPushButton::setEnabled);
+    mOkButton = button->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mCreateWidget, &AdministratorOauthCreateWidget::enableOkButton, mOkButton, &QPushButton::setEnabled);
     readConfig();
 }
 

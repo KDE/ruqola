@@ -11,6 +11,7 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 namespace
 {
@@ -30,6 +31,11 @@ AdministratorOauthEditDialog::AdministratorOauthEditDialog(QWidget *parent)
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
+
+    mOkButton = button->button(QDialogButtonBox::Ok);
+    mOkButton->setEnabled(false);
+    connect(mOauthEditWidget, &AdministratorOauthEditWidget::enableOkButton, mOkButton, &QPushButton::setEnabled);
+
     connect(button, &QDialogButtonBox::rejected, this, &AdministratorOauthEditDialog::reject);
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorOauthEditDialog::accept);
     readConfig();

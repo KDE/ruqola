@@ -9,10 +9,19 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthCreateWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorOauthCreateWidget(QWidget *parent = nullptr);
     ~AdministratorOauthCreateWidget() override;
+Q_SIGNALS:
+    void enableOkButton(bool enabled);
+
+private:
+    QCheckBox *const mActiveCheckBox;
+    QLineEdit *const mApplicationName;
+    QLineEdit *const mRedirectUrl;
 };

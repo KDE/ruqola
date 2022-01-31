@@ -7,8 +7,9 @@
 
 #include <QDialog>
 
+#include "administratoroauthcreatewidget.h"
 #include "libruqolawidgets_private_export.h"
-class AdministratorOauthCreateWidget;
+class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthCreateDialog : public QDialog
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ private:
     void readConfig();
     void writeConfig();
     AdministratorOauthCreateWidget *const mCreateWidget;
+    QPushButton *mOkButton = nullptr;
 };

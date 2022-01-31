@@ -15,4 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditWidget : public QWidge
 public:
     explicit AdministratorOauthEditWidget(QWidget *parent = nullptr);
     ~AdministratorOauthEditWidget() override;
+Q_SIGNALS:
+    void enableOkButton(bool enabled);
 };
