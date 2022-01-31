@@ -5,10 +5,13 @@
 */
 
 #include "oauthtreeview.h"
+#include "administratoroauthcreatedialog.h"
+#include "administratoroautheditdialog.h"
 #include "model/admininvitemodel.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
+#include <QPointer>
 
 OauthTreeView::OauthTreeView(QWidget *parent)
     : QTreeView(parent)
@@ -56,10 +59,18 @@ void OauthTreeView::removeClicked(const QString &identifier)
 
 void OauthTreeView::addClicked()
 {
-    // TODO
+    QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
+    if (dlg) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void OauthTreeView::editClicked()
 {
-    // TODO
+    QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
+    if (dlg) {
+        // TODO
+    }
+    delete dlg;
 }
