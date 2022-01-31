@@ -8,6 +8,7 @@
 #include "administratordialog/oauth/administratoroauthcreatedialog.h"
 
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
@@ -28,5 +29,11 @@ void AdministratorOauthCreateDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
-    // TODO
+    QCOMPARE(buttonBox->standardButtons(), {QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
+
+    auto mCreateWidget = w.findChild<AdministratorOauthCreateWidget *>(QStringLiteral("mCreateWidget"));
+    QVERIFY(mCreateWidget);
+
+    auto mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    QVERIFY(!mOkButton->isEnabled());
 }

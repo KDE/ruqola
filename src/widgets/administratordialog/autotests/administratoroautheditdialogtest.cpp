@@ -5,7 +5,11 @@
 */
 #include "administratoroautheditdialogtest.h"
 #include "administratordialog/oauth/administratoroautheditdialog.h"
+#include "administratordialog/oauth/administratoroautheditwidget.h"
+#include <QDialogButtonBox>
+#include <QPushButton>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(AdministratorOauthEditDialogTest)
 AdministratorOauthEditDialogTest::AdministratorOauthEditDialogTest(QObject *parent)
     : QObject{parent}
@@ -14,6 +18,18 @@ AdministratorOauthEditDialogTest::AdministratorOauthEditDialogTest(QObject *pare
 
 void AdministratorOauthEditDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorOauthEditDialog d;
-    // TODO
+    AdministratorOauthEditDialog w;
+    QVERIFY(!w.windowTitle().isEmpty());
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(buttonBox);
+    QCOMPARE(buttonBox->standardButtons(), {QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
+
+    auto mOauthEditWidget = w.findChild<AdministratorOauthEditWidget *>(QStringLiteral("mOauthEditWidget"));
+    QVERIFY(mOauthEditWidget);
+
+    auto mOkButton = buttonBox->button(QDialogButtonBox::Ok);
+    QVERIFY(!mOkButton->isEnabled());
 }
