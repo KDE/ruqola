@@ -85,5 +85,6 @@ void AdministratorOauthWidget::slotTextChanged(const QString &str)
 
 void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
 {
-    // TODO
+    // TODO remove it
+    mAdminOauthModel->removeOauth(identifier);
 }

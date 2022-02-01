@@ -13,8 +13,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditWidget : public QWidge
 {
     Q_OBJECT
 public:
+    struct OauthEditInfo {
+        QString applicationName;
+        QString redirectUrl;
+        bool active = false;
+    };
     explicit AdministratorOauthEditWidget(QWidget *parent = nullptr);
     ~AdministratorOauthEditWidget() override;
+
+    Q_REQUIRED_RESULT OauthEditInfo oauthInfo() const;
+    void setOauthInfo(const OauthEditInfo &info);
 Q_SIGNALS:
     void enableOkButton(bool enabled);
 };

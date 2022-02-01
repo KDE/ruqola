@@ -18,3 +18,14 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget()
 {
 }
+
+AdministratorOauthEditWidget::OauthEditInfo AdministratorOauthEditWidget::oauthInfo() const
+{
+    // TODO
+    return {};
+}
+
+void AdministratorOauthEditWidget::setOauthInfo(const OauthEditInfo &info)
+{
+    // TODO
+}

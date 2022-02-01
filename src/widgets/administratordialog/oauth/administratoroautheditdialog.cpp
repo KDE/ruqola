@@ -5,7 +5,6 @@
 */
 
 #include "administratoroautheditdialog.h"
-#include "administratoroautheditwidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -44,6 +43,16 @@ AdministratorOauthEditDialog::AdministratorOauthEditDialog(QWidget *parent)
 AdministratorOauthEditDialog::~AdministratorOauthEditDialog()
 {
     writeConfig();
+}
+
+AdministratorOauthEditWidget::OauthEditInfo AdministratorOauthEditDialog::oauthInfo() const
+{
+    return mOauthEditWidget->oauthInfo();
+}
+
+void AdministratorOauthEditDialog::setOauthInfo(const AdministratorOauthEditWidget::OauthEditInfo &info)
+{
+    mOauthEditWidget->setOauthInfo(info);
 }
 
 void AdministratorOauthEditDialog::readConfig()

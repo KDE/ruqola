@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "administratoroautheditwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-class AdministratorOauthEditWidget;
 class QPushButton;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditDialog : public QDialog
 {
@@ -16,6 +16,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditDialog : public QDialo
 public:
     explicit AdministratorOauthEditDialog(QWidget *parent = nullptr);
     ~AdministratorOauthEditDialog() override;
+
+    Q_REQUIRED_RESULT AdministratorOauthEditWidget::OauthEditInfo oauthInfo() const;
+    void setOauthInfo(const AdministratorOauthEditWidget::OauthEditInfo &info);
 
 private:
     void writeConfig();

@@ -61,6 +61,7 @@ void OauthTreeView::addClicked()
 {
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
     if (dlg) {
+        const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
         // TODO
     }
     delete dlg;
@@ -69,7 +70,9 @@ void OauthTreeView::addClicked()
 void OauthTreeView::editClicked()
 {
     QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
+    AdministratorOauthEditWidget::OauthEditInfo info; // TODO
     if (dlg) {
+        info = dlg->oauthInfo();
         // TODO
     }
     delete dlg;

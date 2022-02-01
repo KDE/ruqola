@@ -15,8 +15,17 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthCreateWidget : public QWid
 {
     Q_OBJECT
 public:
+    struct OauthCreateInfo {
+        QString applicationName;
+        QString redirectUrl;
+        bool active = false;
+    };
+
     explicit AdministratorOauthCreateWidget(QWidget *parent = nullptr);
     ~AdministratorOauthCreateWidget() override;
+
+    Q_REQUIRED_RESULT OauthCreateInfo oauthInfo() const;
+    void setOauthInfo(const OauthCreateInfo &info);
 Q_SIGNALS:
     void enableOkButton(bool enabled);
 

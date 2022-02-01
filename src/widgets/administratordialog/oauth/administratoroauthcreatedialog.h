@@ -17,6 +17,9 @@ public:
     explicit AdministratorOauthCreateDialog(QWidget *parent = nullptr);
     ~AdministratorOauthCreateDialog() override;
 
+    Q_REQUIRED_RESULT AdministratorOauthCreateWidget::OauthCreateInfo oauthInfo() const;
+    void setOauthInfo(const AdministratorOauthCreateWidget::OauthCreateInfo &info);
+
 private:
     void readConfig();
     void writeConfig();

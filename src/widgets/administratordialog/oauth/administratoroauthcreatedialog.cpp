@@ -44,6 +44,16 @@ AdministratorOauthCreateDialog::~AdministratorOauthCreateDialog()
     writeConfig();
 }
 
+AdministratorOauthCreateWidget::OauthCreateInfo AdministratorOauthCreateDialog::oauthInfo() const
+{
+    return mCreateWidget->oauthInfo();
+}
+
+void AdministratorOauthCreateDialog::setOauthInfo(const AdministratorOauthCreateWidget::OauthCreateInfo &info)
+{
+    mCreateWidget->setOauthInfo(info);
+}
+
 void AdministratorOauthCreateDialog::readConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthCreateDialogGroupName);
