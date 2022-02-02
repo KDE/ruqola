@@ -106,7 +106,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
-    setMinimumSize(400, 100);
+    setMinimumSize(400, 250);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
@@ -168,4 +168,9 @@ void EmoticonMenuWidget::slotInsertEmoticons(const QString &identifier)
 {
     mRecentUsedFilterProxyModel->addIdentifier(identifier);
     Q_EMIT insertEmoticons(identifier);
+}
+
+QSize EmoticonMenuWidget::sizeHint() const
+{
+    return minimumSize();
 }

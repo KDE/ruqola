@@ -30,6 +30,9 @@ public:
 Q_SIGNALS:
     void insertEmoticons(const QString &emoticon);
 
+protected:
+    QSize sizeHint() const override;
+
 private:
     void slotInsertEmoticons(const QString &identifier);
     void initializeTab(RocketChatAccount *account);
