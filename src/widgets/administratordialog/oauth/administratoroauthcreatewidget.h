@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -30,7 +31,9 @@ Q_SIGNALS:
     void enableOkButton(bool enabled);
 
 private:
+    void slotTextChanged();
     QCheckBox *const mActiveCheckBox;
     QLineEdit *const mApplicationName;
     QLineEdit *const mRedirectUrl;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInfo &t);

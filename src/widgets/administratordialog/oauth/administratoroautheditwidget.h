@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -18,6 +19,10 @@ public:
     struct OauthEditInfo {
         QString applicationName;
         QString redirectUrl;
+        QString clientId;
+        QString clientSecret;
+        QString authorizationUrl;
+        QString accessTokenUrl;
         bool active = false;
     };
     explicit AdministratorOauthEditWidget(QWidget *parent = nullptr);
@@ -29,6 +34,7 @@ Q_SIGNALS:
     void enableOkButton(bool enabled);
 
 private:
+    void slotTextChanged();
     QCheckBox *const mActiveCheckBox;
     QLineEdit *const mApplicationName;
     QLineEdit *const mRedirectUrl;
@@ -37,3 +43,4 @@ private:
     QLineEdit *const mAuthorizationUrl;
     QLineEdit *const mAccessTokenUrl;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &t);

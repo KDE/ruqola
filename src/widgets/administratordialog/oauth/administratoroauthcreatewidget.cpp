@@ -29,10 +29,17 @@ AdministratorOauthCreateWidget::AdministratorOauthCreateWidget(QWidget *parent)
 
     mRedirectUrl->setObjectName(QStringLiteral("mRedirectUrl"));
     mainLayout->addRow(i18n("Redirect Url:"), mRedirectUrl);
+    connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthCreateWidget::slotTextChanged);
+    connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthCreateWidget::slotTextChanged);
 }
 
 AdministratorOauthCreateWidget::~AdministratorOauthCreateWidget()
 {
+}
+
+void AdministratorOauthCreateWidget::slotTextChanged()
+{
+    Q_EMIT enableOkButton(!mRedirectUrl->text().trimmed().isEmpty() && !mApplicationName->text().trimmed().isEmpty());
 }
 
 AdministratorOauthCreateWidget::OauthCreateInfo AdministratorOauthCreateWidget::oauthInfo() const
@@ -49,4 +56,12 @@ void AdministratorOauthCreateWidget::setOauthInfo(const OauthCreateInfo &info)
     mActiveCheckBox->setChecked(info.active);
     mApplicationName->setText(info.applicationName);
     mRedirectUrl->setText(info.redirectUrl);
+}
+
+QDebug operator<<(QDebug d, const AdministratorOauthCreateWidget::OauthCreateInfo &info)
+{
+    d << "active : " << info.active;
+    d << "applicationName : " << info.applicationName;
+    d << "redirectUrl : " << info.redirectUrl;
+    return d;
 }

@@ -45,19 +45,58 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
 
     mAccessTokenUrl->setObjectName(QStringLiteral("mAccessTokenUrl"));
     mainLayout->addRow(i18n("Access Token URL:"), mAccessTokenUrl);
+
+    connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mClientId, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mClientSecret, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mAuthorizationUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
+    connect(mAccessTokenUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
 }
 
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget()
 {
 }
 
+void AdministratorOauthEditWidget::slotTextChanged()
+{
+    Q_EMIT enableOkButton(!mRedirectUrl->text().trimmed().isEmpty() && !mApplicationName->text().trimmed().isEmpty() && !mClientId->text().trimmed().isEmpty()
+                          && !mClientSecret->text().trimmed().isEmpty() && !mAuthorizationUrl->text().trimmed().isEmpty()
+                          && !mAccessTokenUrl->text().trimmed().isEmpty());
+}
+
 AdministratorOauthEditWidget::OauthEditInfo AdministratorOauthEditWidget::oauthInfo() const
 {
-    // TODO
-    return {};
+    AdministratorOauthEditWidget::OauthEditInfo info;
+    info.active = mActiveCheckBox->isChecked();
+    info.applicationName = mApplicationName->text().trimmed();
+    info.redirectUrl = mRedirectUrl->text().trimmed();
+    info.clientId = mClientId->text().trimmed();
+    info.clientSecret = mClientSecret->text().trimmed();
+    info.authorizationUrl = mAuthorizationUrl->text().trimmed();
+    info.accessTokenUrl = mAccessTokenUrl->text().trimmed();
+    return info;
 }
 
 void AdministratorOauthEditWidget::setOauthInfo(const OauthEditInfo &info)
 {
-    // TODO
+    mActiveCheckBox->setChecked(info.active);
+    mApplicationName->setText(info.applicationName);
+    mRedirectUrl->setText(info.redirectUrl);
+    mClientId->setText(info.clientId);
+    mClientSecret->setText(info.clientSecret);
+    mAuthorizationUrl->setText(info.authorizationUrl);
+    mAccessTokenUrl->setText(info.accessTokenUrl);
+}
+
+QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &info)
+{
+    d << "active : " << info.active;
+    d << "applicationName : " << info.applicationName;
+    d << "redirectUrl : " << info.redirectUrl;
+    d << "clientId : " << info.clientId;
+    d << "clientSecret : " << info.clientSecret;
+    d << "authorizationUrl : " << info.authorizationUrl;
+    d << "accessTokenUrl : " << info.accessTokenUrl;
+    return d;
 }
