@@ -538,23 +538,10 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
-static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
+static void positionPopup(QPoint pos, QWidget *popup)
 {
-    const QRect screenRect = parentWindow->screen()->availableGeometry();
-
-    QRect popupRect(pos, popup->sizeHint());
-    if (popupRect.width() > screenRect.width()) {
-        popupRect.setWidth(screenRect.width());
-    }
-    if (popupRect.right() > screenRect.right()) {
-        popupRect.moveRight(screenRect.right());
-    }
-    if (popupRect.top() < screenRect.top()) {
-        popupRect.moveTop(screenRect.top());
-    }
-    if (popupRect.bottom() > screenRect.bottom()) {
-        popupRect.moveBottom(screenRect.bottom());
-    }
+    const QSize popupSize{popup->sizeHint()};
+    const QRect popupRect(QPoint(pos.x() - popupSize.width(), pos.y() - popupSize.height()), popup->sizeHint());
     popup->setGeometry(popupRect);
 }
 
@@ -573,7 +560,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
-            positionPopup(mev->globalPos(), mListView, mEmoticonMenuWidget);
+            positionPopup(mev->globalPos(), mEmoticonMenuWidget);
             mEmoticonMenuWidget->show();
             connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, this, [=](const QString &id) {
                 mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
