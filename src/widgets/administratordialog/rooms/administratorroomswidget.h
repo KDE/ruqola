@@ -14,7 +14,6 @@
 #include "room.h"
 #include "rooms/saveroomsettingsjob.h"
 #include <QWidget>
-class AdministratorRoomsSelectRoomTypeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorRoomsWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
