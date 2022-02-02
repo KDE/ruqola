@@ -25,7 +25,7 @@ void AdministratorOauthCreateWidgetTest::shouldHaveDefaultValues()
     auto mActiveCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mActiveCheckBox"));
     QVERIFY(mActiveCheckBox);
     QVERIFY(!mActiveCheckBox->text().isEmpty());
-    QVERIFY(mActiveCheckBox->isChecked());
+    QVERIFY(!mActiveCheckBox->isChecked());
 
     auto mApplicationName = w.findChild<QLineEdit *>(QStringLiteral("mApplicationName"));
     QVERIFY(mApplicationName);

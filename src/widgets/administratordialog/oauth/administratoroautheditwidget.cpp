@@ -37,7 +37,7 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     mClientId->setObjectName(QStringLiteral("mClientId"));
     mainLayout->addRow(i18n("Client ID:"), mClientId);
 
-    mClientSecret->setObjectName(QStringLiteral("mClientServer"));
+    mClientSecret->setObjectName(QStringLiteral("mClientSecret"));
     mainLayout->addRow(i18n("Client Secret:"), mClientSecret);
 
     mAuthorizationUrl->setObjectName(QStringLiteral("mAuthorizationUrl"));
