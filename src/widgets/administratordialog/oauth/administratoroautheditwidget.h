@@ -9,6 +9,8 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QCheckBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorOauthEditWidget : public QWidget
 {
     Q_OBJECT
@@ -25,4 +27,13 @@ public:
     void setOauthInfo(const OauthEditInfo &info);
 Q_SIGNALS:
     void enableOkButton(bool enabled);
+
+private:
+    QCheckBox *const mActiveCheckBox;
+    QLineEdit *const mApplicationName;
+    QLineEdit *const mRedirectUrl;
+    QLineEdit *const mClientId;
+    QLineEdit *const mClientSecret;
+    QLineEdit *const mAuthorizationUrl;
+    QLineEdit *const mAccessTokenUrl;
 };
