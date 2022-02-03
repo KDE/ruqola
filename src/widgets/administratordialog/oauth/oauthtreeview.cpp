@@ -7,7 +7,10 @@
 #include "oauthtreeview.h"
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
+#include "connection.h"
 #include "model/admininvitemodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
@@ -73,7 +76,9 @@ void OauthTreeView::editClicked()
     AdministratorOauthEditWidget::OauthEditInfo info; // TODO
     if (dlg) {
         info = dlg->oauthInfo();
-        // TODO
+        if (info.isValid()) {
+            // TODO
+        }
     }
     delete dlg;
 }

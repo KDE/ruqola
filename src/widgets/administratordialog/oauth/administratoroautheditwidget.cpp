@@ -100,3 +100,9 @@ QDebug operator<<(QDebug d, const AdministratorOauthEditWidget::OauthEditInfo &i
     d << "accessTokenUrl : " << info.accessTokenUrl;
     return d;
 }
+
+bool AdministratorOauthEditWidget::OauthEditInfo::isValid() const
+{
+    return !applicationName.trimmed().isEmpty() && !redirectUrl.trimmed().isEmpty() && !clientId.trimmed().isEmpty() && !clientSecret.trimmed().isEmpty()
+        && !authorizationUrl.trimmed().isEmpty() && !accessTokenUrl.trimmed().isEmpty();
+}

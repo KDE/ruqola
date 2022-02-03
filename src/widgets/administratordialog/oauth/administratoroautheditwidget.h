@@ -24,6 +24,7 @@ public:
         QString authorizationUrl;
         QString accessTokenUrl;
         bool active = false;
+        Q_REQUIRED_RESULT bool isValid() const;
     };
     explicit AdministratorOauthEditWidget(QWidget *parent = nullptr);
     ~AdministratorOauthEditWidget() override;
