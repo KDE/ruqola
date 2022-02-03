@@ -29,7 +29,7 @@ bool OauthInfo::operator==(const OauthInfo &other) const
         && mClientSecret == other.clientSecret() && mRedirectUri == other.redirectUri() && mCreatedBy == other.createdBy();
 }
 
-void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
+void OauthInfo::parseOauthInfo(const QJsonObject &replyObject, bool restApi)
 {
     mIdentifier = replyObject[QLatin1String("_id")].toString();
     mActive = replyObject[QLatin1String("active")].toBool();
@@ -37,12 +37,16 @@ void OauthInfo::parseOauthInfo(const QJsonObject &replyObject)
     mClientId = replyObject[QLatin1String("clientId")].toString();
     mClientSecret = replyObject[QLatin1String("clientSecret")].toString();
     mRedirectUri = replyObject[QLatin1String("redirectUri")].toString();
-    // TODO _createdAt / _updatedAt / _createdBy
+    // TODO _updatedAt
     const QJsonObject createdBy = replyObject[QLatin1String("_createdBy")].toObject();
     mCreatedBy = createdBy[QLatin1String("username")].toString();
     // {"_id":"system","username":"system"}
     if (replyObject.contains(QLatin1String("_createdAt"))) {
-        setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), replyObject)));
+        if (restApi) {
+            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("_createdAt"), replyObject)));
+        } else {
+            setCreatedDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseDate(QStringLiteral("_createdAt"), replyObject)));
+        }
     }
 }
 

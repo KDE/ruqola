@@ -41,6 +41,8 @@ public:
 
     void removeOauth(const QString &identifier);
 
+    void addMoreOauth(const OauthInfo &info);
+
 private:
     Q_DISABLE_COPY(AdminOauthModel)
     QVector<OauthInfo> mAdminOauth;

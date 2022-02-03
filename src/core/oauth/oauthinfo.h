@@ -16,7 +16,7 @@ public:
     OauthInfo();
     ~OauthInfo() = default;
     Q_REQUIRED_RESULT bool operator==(const OauthInfo &other) const;
-    void parseOauthInfo(const QJsonObject &replyObject);
+    void parseOauthInfo(const QJsonObject &replyObject, bool restapi = true);
 
     Q_REQUIRED_RESULT const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
