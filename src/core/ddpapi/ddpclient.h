@@ -190,6 +190,7 @@ public:
     quint64 disable2fa(const QString &code);
     quint64 validateTempToken2fa(const QString &code);
     quint64 regenerateCodes2fa(const QString &code);
+    quint64 deleteOAuthApp(const QString &appId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

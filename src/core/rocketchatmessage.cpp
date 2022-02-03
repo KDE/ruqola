@@ -31,6 +31,15 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(c
     return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(const QString &appId, quint64 id)
+{
+    // TODO
+    QJsonObject obj{};
+    const QJsonArray params{{obj}};
+
+    return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{

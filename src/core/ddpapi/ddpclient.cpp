@@ -43,6 +43,13 @@ void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
     account->customSoundManager()->parseCustomSounds(obj);
 }
 
+void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Oauth app:") + QJsonDocument(root).toJson());
+    }
+}
+
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -494,6 +501,12 @@ quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);
     return method(result, block_user, DDPClient::Persistent);
+}
+
+quint64 DDPClient::deleteOAuthApp(const QString &appId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, m_uid);
+    return method(result, delete_oauth_app, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
