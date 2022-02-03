@@ -1,0 +1,8 @@
+{
+    "id": "43",
+    "method": "deleteOAuthApp",
+    "msg": "method",
+    "params": [
+        "oauthappid"
+    ]
+}

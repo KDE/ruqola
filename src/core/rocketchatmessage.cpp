@@ -31,12 +31,32 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::setRoomEncrypted(c
     return saveRoomSettings(QStringLiteral("encrypted"), roomId, encrypted, id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
+{
+    QJsonObject obj{
+        {QStringLiteral("name"), name},
+        {QStringLiteral("active"), active},
+        {QStringLiteral("redirectUri"), redirectUrl},
+    };
+    const QJsonArray params{obj};
+    return generateMethod(QStringLiteral("updateOAuthApp"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::addOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id)
+{
+    QJsonObject obj{
+        {QStringLiteral("name"), name},
+        {QStringLiteral("active"), active},
+        {QStringLiteral("redirectUri"), redirectUrl},
+    };
+    const QJsonArray params{obj};
+    return generateMethod(QStringLiteral("addOAuthApp"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(const QString &appId, quint64 id)
 {
-    // TODO
-    QJsonObject obj{};
-    const QJsonArray params{{obj}};
-
+    const QJsonArray params{{appId}};
+    qDebug() << " DELETE " << appId;
     return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
 }
 

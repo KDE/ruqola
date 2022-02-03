@@ -72,6 +72,9 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult deleteOAuthApp(const QString &appId, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult addOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult updateOAuthApp(const QString &name, bool active, const QString &redirectUrl, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

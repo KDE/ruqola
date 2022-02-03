@@ -191,6 +191,8 @@ public:
     quint64 validateTempToken2fa(const QString &code);
     quint64 regenerateCodes2fa(const QString &code);
     quint64 deleteOAuthApp(const QString &appId);
+    quint64 addOAuthApp(const QString &name, bool active, const QString &redirectUrl);
+    quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

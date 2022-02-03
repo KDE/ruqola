@@ -52,6 +52,10 @@ private Q_SLOTS:
     void validateTempToken2fa();
     void regenerateCodes2fa();
 
+    void deleteOAuthApp();
+    void addOAuthApp();
+    void updateOAuthApp();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

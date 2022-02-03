@@ -1,0 +1,12 @@
+{
+    "id": "43",
+    "method": "addOAuthApp",
+    "msg": "method",
+    "params": [
+        {
+            "active": false,
+            "name": "oauthappname",
+            "redirectUri": "url"
+        }
+    ]
+}
