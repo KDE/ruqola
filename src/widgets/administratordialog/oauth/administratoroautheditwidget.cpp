@@ -36,22 +36,22 @@ AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
 
     mClientId->setObjectName(QStringLiteral("mClientId"));
     mainLayout->addRow(i18n("Client ID:"), mClientId);
+    mClientId->setReadOnly(true);
 
     mClientSecret->setObjectName(QStringLiteral("mClientSecret"));
     mainLayout->addRow(i18n("Client Secret:"), mClientSecret);
+    mClientSecret->setReadOnly(true);
 
     mAuthorizationUrl->setObjectName(QStringLiteral("mAuthorizationUrl"));
     mainLayout->addRow(i18n("Authorization Url:"), mAuthorizationUrl);
+    mAuthorizationUrl->setReadOnly(true);
 
     mAccessTokenUrl->setObjectName(QStringLiteral("mAccessTokenUrl"));
     mainLayout->addRow(i18n("Access Token URL:"), mAccessTokenUrl);
+    mAccessTokenUrl->setReadOnly(true);
 
     connect(mApplicationName, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
     connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
-    connect(mClientId, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
-    connect(mClientSecret, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
-    connect(mAuthorizationUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
-    connect(mAccessTokenUrl, &QLineEdit::textEdited, this, &AdministratorOauthEditWidget::slotTextChanged);
 }
 
 AdministratorOauthEditWidget::~AdministratorOauthEditWidget()

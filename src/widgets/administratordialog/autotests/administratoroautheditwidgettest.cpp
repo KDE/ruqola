@@ -37,16 +37,20 @@ void AdministratorOauthEditWidgetTest::shouldHaveDefaultValues()
     auto mClientId = w.findChild<QLineEdit *>(QStringLiteral("mClientId"));
     QVERIFY(mClientId);
     QVERIFY(mClientId->text().isEmpty());
+    QVERIFY(mClientId->isReadOnly());
 
     auto mClientSecret = w.findChild<QLineEdit *>(QStringLiteral("mClientSecret"));
     QVERIFY(mClientSecret);
     QVERIFY(mClientSecret->text().isEmpty());
+    QVERIFY(mClientSecret->isReadOnly());
 
     auto mAuthorizationUrl = w.findChild<QLineEdit *>(QStringLiteral("mAuthorizationUrl"));
     QVERIFY(mAuthorizationUrl);
     QVERIFY(mAuthorizationUrl->text().isEmpty());
+    QVERIFY(mAuthorizationUrl->isReadOnly());
 
     auto mAccessTokenUrl = w.findChild<QLineEdit *>(QStringLiteral("mAccessTokenUrl"));
     QVERIFY(mAccessTokenUrl);
     QVERIFY(mAccessTokenUrl->text().isEmpty());
+    QVERIFY(mAccessTokenUrl->isReadOnly());
 }
