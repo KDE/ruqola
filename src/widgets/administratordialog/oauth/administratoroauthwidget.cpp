@@ -6,6 +6,7 @@
 #include "administratoroauthwidget.h"
 #include "administratoroauthfilterproxymodel.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "misc/listoauthappsjob.h"
 #include "model/adminoauthmodel.h"
 #include "oauth/oauthinfo.h"
@@ -85,6 +86,7 @@ void AdministratorOauthWidget::slotTextChanged(const QString &str)
 
 void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
 {
-    // TODO remove it
+    Ruqola::self()->rocketChatAccount()->ddp()->deleteOAuthApp(identifier);
+    // TODO make sure that identifier removed
     mAdminOauthModel->removeOauth(identifier);
 }

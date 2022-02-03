@@ -7,8 +7,7 @@
 #include "oauthtreeview.h"
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
-#include "connection.h"
-#include "model/admininvitemodel.h"
+#include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include <KLocalizedString>
@@ -46,11 +45,11 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &OauthTreeView::editClicked);
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            const QModelIndex modelIndex = model()->index(index.row(), AdminInviteModel::Identifier);
+            const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
             removeClicked(modelIndex.data().toString());
         });
-        menu.exec(viewport()->mapToGlobal(pos));
     }
+    menu.exec(viewport()->mapToGlobal(pos));
 }
 
 void OauthTreeView::removeClicked(const QString &identifier)
@@ -63,9 +62,9 @@ void OauthTreeView::removeClicked(const QString &identifier)
 void OauthTreeView::addClicked()
 {
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
-    if (dlg) {
+    if (dlg->exec()) {
         const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
-        // TODO
+        Ruqola::self()->rocketChatAccount()->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
     }
     delete dlg;
 }
@@ -74,10 +73,10 @@ void OauthTreeView::editClicked()
 {
     QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
     AdministratorOauthEditWidget::OauthEditInfo info; // TODO
-    if (dlg) {
+    if (dlg->exec()) {
         info = dlg->oauthInfo();
         if (info.isValid()) {
-            // TODO
+            Ruqola::self()->rocketChatAccount()->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
         }
     }
     delete dlg;
