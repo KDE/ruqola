@@ -479,6 +479,9 @@ public:
     Q_REQUIRED_RESULT const QStringList &searchListCompletion() const;
     void setSearchListCompletion(const QStringList &newSearchListCompletion);
 
+    void setOauthAppAdded(const QJsonObject &obj);
+
+    void setOauthAppUpdated(const QJsonObject &obj);
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();
@@ -533,7 +536,11 @@ Q_SIGNALS:
     void rolesUpdated();
     void totpResult(const QString &secret, const QString &url);
 
-    void selectMessage(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType);
+    void
+    selectMessage(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType, ParseMessageUrlUtils::ChannelType channelType);
+
+    void oauthAppAdded(const QJsonObject &obj);
+    void oauthAppUpdated(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

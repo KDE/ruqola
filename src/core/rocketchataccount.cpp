@@ -2774,3 +2774,15 @@ void RocketChatAccount::totpVerify(const QJsonObject &obj)
         Q_EMIT totpValid(lstCodes);
     }
 }
+
+void RocketChatAccount::setOauthAppAdded(const QJsonObject &obj)
+{
+    // TODO return error
+    Q_EMIT oauthAppAdded(obj);
+}
+
+void RocketChatAccount::setOauthAppUpdated(const QJsonObject &obj)
+{
+    // TODO return error
+    Q_EMIT oauthAppUpdated(obj);
+}

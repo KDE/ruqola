@@ -45,6 +45,10 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::ClientSecret, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::RedirectUri, true);
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::CreatedAt, true);
+    mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::Identifier, true);
+
+    connect(mRocketChatAccount, &RocketChatAccount::oauthAppAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
+    connect(mRocketChatAccount, &RocketChatAccount::oauthAppUpdated, this, &AdministratorOauthWidget::slotOauthAppUpdated);
 }
 
 AdministratorOauthWidget::~AdministratorOauthWidget() = default;
@@ -57,6 +61,20 @@ void AdministratorOauthWidget::initialize()
     if (!oauthListJob->start()) {
         qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start ListInviteJob";
     }
+}
+
+void AdministratorOauthWidget::slotOauthAppAdded(const QJsonObject &obj)
+{
+    OauthInfo info;
+    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
+    mAdminOauthModel->addMoreOauth(info);
+}
+
+void AdministratorOauthWidget::slotOauthAppUpdated(const QJsonObject &obj)
+{
+    OauthInfo info;
+    info.parseOauthInfo(std::move(obj), false); // We got it from ddpclient
+    // TODO mAdminOauthModel->addMoreOauth(info);
 }
 
 void AdministratorOauthWidget::slotListOauthDone(const QJsonObject &obj)
