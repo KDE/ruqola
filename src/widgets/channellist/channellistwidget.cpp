@@ -156,8 +156,24 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
             if (roomId == currentRoomId) {
                 return;
             }
-            if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
-                mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
+            switch (channelType) {
+            case ParseMessageUrlUtils::ChannelType::Channel: {
+                if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
+                    mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
+                }
+                break;
+            }
+            case ParseMessageUrlUtils::ChannelType::Direct: {
+                if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
+                    // TODO add support for roomId or roomName
+                    mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
+                }
+                break;
+            }
+            case ParseMessageUrlUtils::ChannelType::Unknown: {
+                qCWarning(RUQOLAWIDGETS_LOG) << "ChannelType undefined!";
+                break;
+            }
             }
         }
         break;
@@ -169,15 +185,29 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
             if (roomId == currentRoomName) {
                 return;
             }
-            if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
-                mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
+            switch (channelType) {
+            case ParseMessageUrlUtils::ChannelType::Channel: {
+                if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
+                    mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
+                }
+                break;
+            }
+            case ParseMessageUrlUtils::ChannelType::Direct: {
+                if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
+                    // TODO add support for roomId or roomName
+                    mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
+                }
+                break;
+            }
+            case ParseMessageUrlUtils::ChannelType::Unknown: {
+                qCWarning(RUQOLAWIDGETS_LOG) << "ChannelType undefined!";
+                break;
+            }
             }
         }
         break;
     }
     }
-
-    // TODO
 }
 
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
