@@ -41,7 +41,10 @@ private:
     void slotOpenTeamRequested(const QString &identifier);
     void selectNextChannel(int direction);
     void applyChannelSelection();
-    void slotSelectMessageRequested(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType);
+    void slotSelectMessageRequested(const QString &messageId,
+                                    const QString &roomId,
+                                    ParseMessageUrlUtils::RoomIdType roomType,
+                                    ParseMessageUrlUtils::ChannelType channelType);
 
     ChannelListView *const mChannelView;
     QLineEdit *const mSearchRoomLineEdit;

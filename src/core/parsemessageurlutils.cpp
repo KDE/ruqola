@@ -5,6 +5,7 @@
 */
 
 #include "parsemessageurlutils.h"
+#include "ruqola_debug.h"
 #include <QUrl>
 #include <QUrlQuery>
 
@@ -32,6 +33,13 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         mMessageId = query.queryItemValue(QStringLiteral("mid"));
         mPath = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
         mRoomIdType = RoomIdType::RoomId;
+        if (mPath.startsWith(QStringLiteral("direct"))) {
+            mChannelType = ChannelType::Direct;
+        } else if (mPath.startsWith(QStringLiteral("direct"))) {
+            mChannelType = ChannelType::Channel;
+        } else {
+            qCWarning(RUQOLA_LOG) << "Unknown channel type " << mPath;
+        }
         return true;
     } else {
         // Example https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
@@ -43,7 +51,16 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         mPath = url.path(QUrl::FullyDecoded);
         mRoomIdType = RoomIdType::RoomName;
         url.setQuery(QUrlQuery());
-        mRoomId = url.path(QUrl::FullyDecoded).remove(QStringLiteral("/channel/"));
+        QString urlPathDecoded{url.path(QUrl::FullyDecoded)};
+        if (urlPathDecoded.contains(QStringLiteral("/channel/"))) {
+            mRoomId = urlPathDecoded.remove(QStringLiteral("/channel/"));
+            mChannelType = ChannelType::Channel;
+        } else if (urlPathDecoded.contains(QStringLiteral("/direct/"))) {
+            mRoomId = urlPathDecoded.remove(QStringLiteral("/direct/"));
+            mChannelType = ChannelType::Direct;
+        } else {
+            qCWarning(RUQOLA_LOG) << "Unknown channel type " << urlPathDecoded;
+        }
         return true;
     }
     return false;
@@ -99,6 +116,16 @@ void ParseMessageUrlUtils::setRoomIdType(ParseMessageUrlUtils::RoomIdType newRoo
     mRoomIdType = newRoomIdType;
 }
 
+ParseMessageUrlUtils::ChannelType ParseMessageUrlUtils::channelType() const
+{
+    return mChannelType;
+}
+
+void ParseMessageUrlUtils::setChannelType(ChannelType newChannelType)
+{
+    mChannelType = newChannelType;
+}
+
 QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
 {
     d << "mServerPath " << t.serverHost();
@@ -106,5 +133,6 @@ QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t)
     d << "mMessageId " << t.messageId();
     d << "mPath " << t.path();
     d << "roomIdType " << t.roomIdType();
+    d << "channelType " << t.channelType();
     return d;
 }

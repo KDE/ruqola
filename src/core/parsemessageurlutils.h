@@ -47,12 +47,16 @@ public:
     Q_REQUIRED_RESULT RoomIdType roomIdType() const;
     void setRoomIdType(RoomIdType newRoomIdType);
 
+    Q_REQUIRED_RESULT ChannelType channelType() const;
+    void setChannelType(ChannelType newChannelType);
+
 private:
     QString mMessageId;
     QString mRoomId;
     QString mServerHost;
     QString mPath;
     RoomIdType mRoomIdType = RoomIdType::Unknown;
+    ChannelType mChannelType = ChannelType::Unknown;
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ParseMessageUrlUtils &t);

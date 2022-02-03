@@ -140,7 +140,10 @@ void ChannelListWidget::slotOpenTeamRequested(const QString &identifier)
     }
 }
 
-void ChannelListWidget::slotSelectMessageRequested(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType)
+void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
+                                                   const QString &roomId,
+                                                   ParseMessageUrlUtils::RoomIdType roomType,
+                                                   ParseMessageUrlUtils::ChannelType channelType)
 {
     switch (roomType) {
     case ParseMessageUrlUtils::RoomIdType::Unknown:

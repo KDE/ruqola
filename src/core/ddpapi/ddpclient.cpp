@@ -48,6 +48,7 @@ void delete_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Delete Oauth app:") + QJsonDocument(root).toJson());
     }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
     qDebug() << "delete_oauth_app root " << root;
 }
 
@@ -56,6 +57,8 @@ void update_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Update Oauth App:") + QJsonDocument(root).toJson());
     }
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    account->setOauthAppUpdated(obj);
     qDebug() << "update_oauth_app root " << root;
 }
 
@@ -64,7 +67,8 @@ void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Add Oauth App:") + QJsonDocument(root).toJson());
     }
-    qDebug() << "add_oauth_app root " << root;
+    const QJsonObject obj = root.value(QLatin1String("result")).toObject();
+    account->setOauthAppAdded(obj);
 }
 
 void block_user(const QJsonObject &root, RocketChatAccount *account)
