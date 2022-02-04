@@ -31,20 +31,28 @@ int AccountManager::accountNumber() const
     return mRocketChatAccountModel->accountNumber();
 }
 
+bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
+{
+    auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
+    if (account) {
+        const QString path{parseUrl.path()};
+        const QString messageId = parseUrl.messageId();
+        // qDebug() << " parseUrl " << parseUrl;
+        // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
+        setCurrentAccount(account->accountName());
+        // qDebug() << " account->accountName() : " << account->accountName();
+        Q_EMIT mCurrentAccount->raiseWindow();
+        Q_EMIT mCurrentAccount->selectMessage(parseUrl.messageId(), parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
+        return true;
+    }
+    return false;
+}
+
 void AccountManager::openMessageUrl(const QString &messageUrl)
 {
     ParseMessageUrlUtils parseUrl;
     if (parseUrl.parseUrl(messageUrl)) {
-        auto account = mRocketChatAccountModel->accountFromServerUrl(parseUrl.serverHost());
-        if (account) {
-            const QString path{parseUrl.path()};
-            const QString messageId = parseUrl.messageId();
-            // qDebug() << " parseUrl " << parseUrl;
-            // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
-            setCurrentAccount(account->accountName());
-            // qDebug() << " account->accountName() : " << account->accountName();
-            Q_EMIT mCurrentAccount->raiseWindow();
-            Q_EMIT mCurrentAccount->selectMessage(parseUrl.messageId(), parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
+        if (showMessage(parseUrl)) {
             return;
         }
     }

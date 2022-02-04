@@ -49,6 +49,7 @@ public:
 
     Q_REQUIRED_RESULT int accountNumber() const;
     void openMessageUrl(const QString &messageUrl);
+    Q_REQUIRED_RESULT bool showMessage(const ParseMessageUrlUtils &parseUrl);
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

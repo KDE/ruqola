@@ -9,6 +9,8 @@
 #include "model/roomfilterproxymodel.h"
 #include "ruqolawidgets_debug.h"
 
+#include "accountmanager.h"
+#include "parsemessageurlutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolautils.h"
@@ -242,7 +244,14 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
         }
     } else {
-        RuqolaUtils::self()->openUrl(link);
+        ParseMessageUrlUtils parseUrl;
+        if (parseUrl.parseUrl(link)) {
+            if (!Ruqola::self()->accountManager()->showMessage(parseUrl)) {
+                RuqolaUtils::self()->openUrl(link);
+            }
+        } else {
+            RuqolaUtils::self()->openUrl(link);
+        }
     }
 }
 
