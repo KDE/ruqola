@@ -20,16 +20,21 @@ void OauthAppsJobTest::shouldHaveDefaultValue()
 {
     OauthAppsJob job;
     verifyDefaultValue(&job);
-    QVERIFY(!job.requireHttpAuthentication());
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
 }
 
 void OauthAppsJobTest::shouldGenerateRequest()
 {
     OauthAppsJob job;
+    const QString clientId = QStringLiteral("cli");
+    job.setClientId(clientId);
+
+    const QString appId = QStringLiteral("appId");
+    job.setAppId(appId);
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/oauth-apps.get?clientId=%1&appId=%2").arg(clientId, appId)));
 }
 
 void OauthAppsJobTest::shouldNotStarting()
