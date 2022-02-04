@@ -7,16 +7,20 @@
 #include "oauthtreeview.h"
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
+#include "connection.h"
+#include "misc/oauthappsjob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
 #include <QPointer>
 
-OauthTreeView::OauthTreeView(QWidget *parent)
+OauthTreeView::OauthTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
+    , mRocketChatAccount(account)
 {
     setAlternatingRowColors(true);
     setSelectionMode(SingleSelection);
@@ -42,7 +46,9 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &OauthTreeView::addClicked);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, &OauthTreeView::editClicked);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
+            editClicked(index);
+        });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
@@ -64,19 +70,28 @@ void OauthTreeView::addClicked()
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
     if (dlg->exec()) {
         const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
-        Ruqola::self()->rocketChatAccount()->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
+        mRocketChatAccount->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
     }
     delete dlg;
 }
 
-void OauthTreeView::editClicked()
+void OauthTreeView::editClicked(const QModelIndex &index)
 {
     QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
-    AdministratorOauthEditWidget::OauthEditInfo info; // TODO
+    AdministratorOauthEditWidget::OauthEditInfo info;
+    info.applicationName = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
+    info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
+    info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
+    info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
+    // TODO
+    // info.authorizationUrl = model()->index(index.row(), AdminOauthModel::AuthorizationUrl).data().toString();
+    // info.accessTokenUrl = model()->index(index.row(), AdminOauthModel::AccessTokenUrl).data().toString();
+    info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
+    dlg->setOauthInfo(info);
     if (dlg->exec()) {
         info = dlg->oauthInfo();
         if (info.isValid()) {
-            Ruqola::self()->rocketChatAccount()->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+            mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
         }
     }
     delete dlg;

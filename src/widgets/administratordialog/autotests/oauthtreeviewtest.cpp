@@ -15,7 +15,7 @@ OauthTreeViewTest::OauthTreeViewTest(QObject *parent)
 
 void OauthTreeViewTest::shouldHaveDefaultValues()
 {
-    OauthTreeView treeView;
+    OauthTreeView treeView(nullptr);
     QVERIFY(treeView.alternatingRowColors());
     QVERIFY(!treeView.rootIsDecorated());
     QVERIFY(treeView.isSortingEnabled());

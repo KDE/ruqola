@@ -22,7 +22,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
-    , mOauthTreeWidget(new OauthTreeView(this))
+    , mOauthTreeWidget(new OauthTreeView(mRocketChatAccount, this))
     , mAdminOauthModel(new AdminOauthModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
