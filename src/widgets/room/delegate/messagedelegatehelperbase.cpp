@@ -40,7 +40,7 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
         break;
     default:
         break;
-    };
+    }
     return false;
 }
 
