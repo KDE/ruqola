@@ -83,9 +83,8 @@ void OauthTreeView::editClicked(const QModelIndex &index)
     info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
     info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
     info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
-    // TODO
-    // info.authorizationUrl = model()->index(index.row(), AdminOauthModel::AuthorizationUrl).data().toString();
-    // info.accessTokenUrl = model()->index(index.row(), AdminOauthModel::AccessTokenUrl).data().toString();
+    info.authorizationUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/authorize");
+    info.accessTokenUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/token");
     info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
     dlg->setOauthInfo(info);
     if (dlg->exec()) {
