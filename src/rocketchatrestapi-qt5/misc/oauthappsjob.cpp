@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 OauthAppsJob::OauthAppsJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -36,7 +37,7 @@ OauthAppsJob::~OauthAppsJob() = default;
 
 bool OauthAppsJob::requireHttpAuthentication() const
 {
-    return false;
+    return true;
 }
 
 bool OauthAppsJob::start()
@@ -87,7 +88,12 @@ void OauthAppsJob::setAppId(const QString &newAppId)
 
 QNetworkRequest OauthAppsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::OauthAppsGet);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("clientId"), mClientId);
+    queryUrl.addQueryItem(QStringLiteral("appId"), mAppId);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
