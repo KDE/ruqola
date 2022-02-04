@@ -246,12 +246,11 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
     } else {
         ParseMessageUrlUtils parseUrl;
         if (parseUrl.parseUrl(link)) {
-            if (!Ruqola::self()->accountManager()->showMessage(parseUrl)) {
-                RuqolaUtils::self()->openUrl(link);
+            if (Ruqola::self()->accountManager()->showMessage(parseUrl)) {
+                return;
             }
-        } else {
-            RuqolaUtils::self()->openUrl(link);
         }
+        RuqolaUtils::self()->openUrl(link);
     }
 }
 
