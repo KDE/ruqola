@@ -29,6 +29,7 @@ OauthTreeView::OauthTreeView(RocketChatAccount *account, QWidget *parent)
     setRootIsDecorated(false);
     setSortingEnabled(true);
     connect(this, &OauthTreeView::customContextMenuRequested, this, &OauthTreeView::slotCustomContextMenuRequested);
+    connect(this, &QTreeView::doubleClicked, this, &OauthTreeView::editClicked);
     initialize();
 }
 
@@ -77,21 +78,23 @@ void OauthTreeView::addClicked()
 
 void OauthTreeView::editClicked(const QModelIndex &index)
 {
-    QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
-    AdministratorOauthEditWidget::OauthEditInfo info;
-    info.applicationName = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
-    info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
-    info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
-    info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
-    info.authorizationUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/authorize");
-    info.accessTokenUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/token");
-    info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
-    dlg->setOauthInfo(info);
-    if (dlg->exec()) {
-        info = dlg->oauthInfo();
-        if (info.isValid()) {
-            mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+    if (index.isValid()) {
+        QPointer<AdministratorOauthEditDialog> dlg = new AdministratorOauthEditDialog(this);
+        AdministratorOauthEditWidget::OauthEditInfo info;
+        info.applicationName = model()->index(index.row(), AdminOauthModel::Identifier).data().toString();
+        info.redirectUrl = model()->index(index.row(), AdminOauthModel::RedirectUri).data().toString();
+        info.clientId = model()->index(index.row(), AdminOauthModel::ClientId).data().toString();
+        info.clientSecret = model()->index(index.row(), AdminOauthModel::ClientSecret).data().toString();
+        info.authorizationUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/authorize");
+        info.accessTokenUrl = mRocketChatAccount->serverUrl() + QStringLiteral("/oauth/token");
+        info.active = model()->index(index.row(), AdminOauthModel::Active).data().toBool();
+        dlg->setOauthInfo(info);
+        if (dlg->exec()) {
+            info = dlg->oauthInfo();
+            if (info.isValid()) {
+                mRocketChatAccount->ddp()->updateOAuthApp(info.applicationName, info.active, info.redirectUrl);
+            }
         }
+        delete dlg;
     }
-    delete dlg;
 }
