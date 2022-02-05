@@ -42,7 +42,7 @@ bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
         setCurrentAccount(account->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         Q_EMIT mCurrentAccount->raiseWindow();
-        Q_EMIT mCurrentAccount->selectMessage(parseUrl.messageId(), parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
+        Q_EMIT mCurrentAccount->selectChannelAndMessage(parseUrl.messageId(), parseUrl.roomId(), parseUrl.roomIdType(), parseUrl.channelType());
         return true;
     }
     return false;

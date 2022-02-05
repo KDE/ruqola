@@ -536,8 +536,10 @@ Q_SIGNALS:
     void rolesUpdated();
     void totpResult(const QString &secret, const QString &url);
 
-    void
-    selectMessage(const QString &messageId, const QString &roomId, ParseMessageUrlUtils::RoomIdType roomType, ParseMessageUrlUtils::ChannelType channelType);
+    void selectChannelAndMessage(const QString &messageId,
+                                 const QString &roomId,
+                                 ParseMessageUrlUtils::RoomIdType roomType,
+                                 ParseMessageUrlUtils::ChannelType channelType);
 
     void oauthAppAdded(const QJsonObject &obj);
     void oauthAppUpdated(const QJsonObject &obj);
