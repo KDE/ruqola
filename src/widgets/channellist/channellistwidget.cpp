@@ -156,6 +156,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
             if (roomId == currentRoomId) {
+                // TODO select messageId
                 return;
             }
             switch (channelType) {
@@ -163,6 +164,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
                 }
+                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Direct: {
@@ -170,6 +172,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
                 }
+                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Unknown: {
@@ -185,6 +188,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
             if (roomId == currentRoomName) {
+                // TODO select message id
                 return;
             }
             switch (channelType) {
@@ -192,6 +196,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
                 }
+                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Direct: {
@@ -199,6 +204,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
                 }
+                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Unknown: {
