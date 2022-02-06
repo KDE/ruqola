@@ -23,7 +23,7 @@ public:
     ~ChannelListView() override;
 
     QAbstractItemModel *model() const;
-    RoomFilterProxyModel *filterModel() const;
+    Q_REQUIRED_RESULT RoomFilterProxyModel *filterModel() const;
     void setFilterModel(RoomFilterProxyModel *model);
 
     void selectChannelRequested(const QString &channelId);
