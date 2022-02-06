@@ -20,7 +20,7 @@ bool CreateChannelTeamInfo::canStart() const
     return isValid();
 }
 
-QJsonDocument CreateChannelTeamInfo::json(bool createTeam) const
+QJsonDocument CreateChannelTeamInfo::json() const
 {
     QJsonObject jsonObj;
     if (!members.isEmpty()) {
@@ -31,7 +31,7 @@ QJsonDocument CreateChannelTeamInfo::json(bool createTeam) const
         jsonObj[QLatin1String("readOnly")] = true;
     } // Default is false
 
-    if (createTeam) {
+    if (infoType == Team) {
         jsonObj[QLatin1String("type")] = privateChannel ? 1 : 0;
     }
 
@@ -64,5 +64,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
     d << "broadcast " << t.broadcast;
     d << "encrypted " << t.encrypted;
     d << "private channel " << t.privateChannel;
+    d << "infoType " << t.infoType;
     return d;
 }

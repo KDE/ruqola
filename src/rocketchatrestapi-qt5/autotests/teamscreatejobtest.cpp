@@ -41,6 +41,7 @@ void TeamsCreateJobTest::shouldGenerateJson()
 {
     TeamsCreateJob job;
     CreateChannelTeamInfo info;
+    info.infoType = CreateChannelTeamInfo::CreateInfoType::Team;
     const QString channelname = QStringLiteral("foo1");
     info.name = channelname;
     job.setTeamsCreateJobInfo(info);

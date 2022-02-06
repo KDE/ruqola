@@ -73,7 +73,7 @@ bool TeamsCreateJob::canStart() const
 
 QJsonDocument TeamsCreateJob::json() const
 {
-    return mTeamsCreateJobInfo.json(true); // Team
+    return mTeamsCreateJobInfo.json();
 }
 
 QNetworkRequest TeamsCreateJob::request() const

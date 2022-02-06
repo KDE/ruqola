@@ -19,9 +19,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateNewChannelDialog : public QDialog
 public:
     explicit CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewChannelDialog() override;
-    struct NewChannelInfo {
-        RocketChatRestApi::CreateChannelTeamInfo info;
-    };
     Q_REQUIRED_RESULT RocketChatRestApi::CreateChannelTeamInfo channelInfo(bool userMemberUserId) const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
