@@ -430,9 +430,8 @@ void RuqolaMainWindow::slotCreateTeam()
     }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
-        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo(true);
+        const RocketChatRestApi::CreateRoomInfo teamInfo = dlg->channelInfo(true);
         auto job = new RocketChatRestApi::TeamsCreateJob(this);
-        RocketChatRestApi::CreateRoomInfo teamInfo = info.info;
         job->setTeamsCreateJobInfo(teamInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamsCreateJob::teamCreateDone, this, []() {
@@ -470,8 +469,8 @@ void RuqolaMainWindow::slotCreateNewChannel()
     }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
-        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo(false);
-        mCurrentRocketChatAccount->createNewChannel(info.info, info.privateChannel);
+        const RocketChatRestApi::CreateRoomInfo info = dlg->channelInfo(false);
+        mCurrentRocketChatAccount->createNewChannel(info);
     }
     delete dlg;
 }

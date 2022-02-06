@@ -21,9 +21,8 @@ public:
     ~CreateNewChannelDialog() override;
     struct NewChannelInfo {
         RocketChatRestApi::CreateRoomInfo info;
-        bool privateChannel = false;
     };
-    Q_REQUIRED_RESULT NewChannelInfo channelInfo(bool userMemberUserId) const;
+    Q_REQUIRED_RESULT RocketChatRestApi::CreateRoomInfo channelInfo(bool userMemberUserId) const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
 

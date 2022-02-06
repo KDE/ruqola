@@ -44,9 +44,8 @@ CreateNewChannelDialog::~CreateNewChannelDialog()
     writeConfig();
 }
 
-CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo(bool userMemberUserId) const
+RocketChatRestApi::CreateRoomInfo CreateNewChannelDialog::channelInfo(bool userMemberUserId) const
 {
-    CreateNewChannelDialog::NewChannelInfo newChannelInfo;
     RocketChatRestApi::CreateRoomInfo info;
     info.members = mCreateNewChannelWidget->members(userMemberUserId);
     info.name = mCreateNewChannelWidget->channelName();
@@ -54,10 +53,8 @@ CreateNewChannelDialog::NewChannelInfo CreateNewChannelDialog::channelInfo(bool 
     info.broadcast = mCreateNewChannelWidget->broadCast();
     info.encrypted = mCreateNewChannelWidget->encryptedRoom();
     info.description = mCreateNewChannelWidget->topic();
-
-    newChannelInfo.info = info;
-    newChannelInfo.privateChannel = mCreateNewChannelWidget->privateChannel();
-    return newChannelInfo;
+    info.privateChannel = mCreateNewChannelWidget->privateChannel();
+    return info;
 }
 
 void CreateNewChannelDialog::readConfig()
