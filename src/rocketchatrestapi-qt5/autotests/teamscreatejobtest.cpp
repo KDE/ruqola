@@ -21,7 +21,7 @@ void TeamsCreateJobTest::shouldHaveDefaultValue()
     TeamsCreateJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateRoomInfo info = job.teamsCreateJobInfo();
+    CreateChannelTeamInfo info = job.teamsCreateJobInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
@@ -40,7 +40,7 @@ void TeamsCreateJobTest::shouldGenerateRequest()
 void TeamsCreateJobTest::shouldGenerateJson()
 {
     TeamsCreateJob job;
-    CreateRoomInfo info;
+    CreateChannelTeamInfo info;
     const QString channelname = QStringLiteral("foo1");
     info.name = channelname;
     job.setTeamsCreateJobInfo(info);
@@ -87,7 +87,7 @@ void TeamsCreateJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    CreateRoomInfo info;
+    CreateChannelTeamInfo info;
     const QString channel = QStringLiteral("foo1");
     info.name = channel;
     job.setTeamsCreateJobInfo(info);

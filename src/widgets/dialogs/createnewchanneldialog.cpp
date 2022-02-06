@@ -44,9 +44,9 @@ CreateNewChannelDialog::~CreateNewChannelDialog()
     writeConfig();
 }
 
-RocketChatRestApi::CreateRoomInfo CreateNewChannelDialog::channelInfo(bool userMemberUserId) const
+RocketChatRestApi::CreateChannelTeamInfo CreateNewChannelDialog::channelInfo(bool userMemberUserId) const
 {
-    RocketChatRestApi::CreateRoomInfo info;
+    RocketChatRestApi::CreateChannelTeamInfo info;
     info.members = mCreateNewChannelWidget->members(userMemberUserId);
     info.name = mCreateNewChannelWidget->channelName();
     info.readOnly = mCreateNewChannelWidget->readOnly();

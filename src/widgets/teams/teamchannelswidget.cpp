@@ -224,7 +224,7 @@ void TeamChannelsWidget::slotCreateRoom()
     }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
-        RocketChatRestApi::CreateRoomInfo createRoominfo = dlg->channelInfo(false);
+        RocketChatRestApi::CreateChannelTeamInfo createRoominfo = dlg->channelInfo(false);
         createRoominfo.teamId = mTeamId;
         if (createRoominfo.privateChannel) {
             createGroups(createRoominfo);
@@ -235,7 +235,7 @@ void TeamChannelsWidget::slotCreateRoom()
     delete dlg;
 }
 
-void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
+void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new RocketChatRestApi::CreateChannelJob(this);
     // TODO connect(job, &RocketChatRestApi::CreateChannelJob::addJoinCodeToChannel, this, &RestApiConnection::slotAddJoinCodeToChannel);
@@ -252,7 +252,7 @@ void TeamChannelsWidget::createChannels(const RocketChatRestApi::CreateRoomInfo 
     }
 }
 
-void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateRoomInfo &info)
+void TeamChannelsWidget::createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new RocketChatRestApi::CreateGroupsJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);

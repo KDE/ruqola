@@ -211,7 +211,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     teams/teamslistjob.cpp
     teams/teamconverttochanneljob.cpp
 
-    createroominfo.cpp
+    createchannelteaminfo.cpp
     createupdateuserinfo.cpp
     channelgroupbasejob.cpp
 
@@ -382,7 +382,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     channellistjob.h
     e2e/fetchmykeysjob.h
     e2e/setuserpublicandprivatekeysjob.h
-    createroominfo.h
+    createchannelteaminfo.h
     abstractlogger.h
     invite/removeinvitejob.h
     invite/findorcreateinvitejob.h

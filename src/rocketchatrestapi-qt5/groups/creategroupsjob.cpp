@@ -44,12 +44,12 @@ void CreateGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
-CreateRoomInfo CreateGroupsJob::createGroupsInfo() const
+CreateChannelTeamInfo CreateGroupsJob::createGroupsInfo() const
 {
     return mCreateGroupInfo;
 }
 
-void CreateGroupsJob::setCreateGroupsInfo(const CreateRoomInfo &createGroupsInfo)
+void CreateGroupsJob::setCreateGroupsInfo(const CreateChannelTeamInfo &createGroupsInfo)
 {
     mCreateGroupInfo = createGroupsInfo;
 }

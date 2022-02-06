@@ -734,7 +734,7 @@ void RocketChatAccount::openDirectChannel(const QString &username)
     //#endif
 }
 
-void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateRoomInfo &info)
+void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     if (!info.name.trimmed().isEmpty()) {
         if (info.privateChannel) {

@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class CreateRoomInfoTest : public QObject
+class CreateChannelTeamInfoTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit CreateRoomInfoTest(QObject *parent = nullptr);
-    ~CreateRoomInfoTest() override = default;
+    explicit CreateChannelTeamInfoTest(QObject *parent = nullptr);
+    ~CreateChannelTeamInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

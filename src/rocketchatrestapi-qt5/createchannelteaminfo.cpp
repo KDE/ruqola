@@ -3,24 +3,24 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
-#include "createroominfo.h"
+#include "createchannelteaminfo.h"
 
 #include <QJsonArray>
 #include <QJsonObject>
 
 using namespace RocketChatRestApi;
 
-bool CreateRoomInfo::isValid() const
+bool CreateChannelTeamInfo::isValid() const
 {
     return !name.isEmpty();
 }
 
-bool CreateRoomInfo::canStart() const
+bool CreateChannelTeamInfo::canStart() const
 {
     return isValid();
 }
 
-QJsonDocument CreateRoomInfo::json(bool createTeam) const
+QJsonDocument CreateChannelTeamInfo::json(bool createTeam) const
 {
     QJsonObject jsonObj;
     if (!members.isEmpty()) {
@@ -54,7 +54,7 @@ QJsonDocument CreateRoomInfo::json(bool createTeam) const
     return postData;
 }
 
-QDebug operator<<(QDebug d, const RocketChatRestApi::CreateRoomInfo &t)
+QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t)
 {
     d << "name " << t.name;
     d << "description " << t.description;

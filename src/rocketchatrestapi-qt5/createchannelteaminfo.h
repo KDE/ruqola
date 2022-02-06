@@ -12,7 +12,7 @@
 #include <QStringList>
 namespace RocketChatRestApi
 {
-struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
+struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateChannelTeamInfo {
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT bool canStart() const;
     QString name;
@@ -29,5 +29,5 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
     Q_REQUIRED_RESULT QJsonDocument json(bool createTeam) const;
 };
 }
-Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateRoomInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateRoomInfo &t);
+Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_MOVABLE_TYPE);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::CreateChannelTeamInfo &t);

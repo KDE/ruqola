@@ -6,8 +6,8 @@
 
 #pragma once
 
+#include "createchannelteaminfo.h"
 #include "createnewchannelwidget.h"
-#include "createroominfo.h"
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class CreateNewChannelWidget;
@@ -20,9 +20,9 @@ public:
     explicit CreateNewChannelDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~CreateNewChannelDialog() override;
     struct NewChannelInfo {
-        RocketChatRestApi::CreateRoomInfo info;
+        RocketChatRestApi::CreateChannelTeamInfo info;
     };
-    Q_REQUIRED_RESULT RocketChatRestApi::CreateRoomInfo channelInfo(bool userMemberUserId) const;
+    Q_REQUIRED_RESULT RocketChatRestApi::CreateChannelTeamInfo channelInfo(bool userMemberUserId) const;
 
     void setFeatures(CreateNewChannelWidget::Features features);
 
