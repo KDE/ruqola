@@ -156,7 +156,7 @@ public:
     void replyOnThread(const QString &roomID, const QString &threadMessageId, const QString &message);
     void openChannel(const QString &identifier, RocketChatAccount::ChannelTypeInfo typeInfo);
     void joinJitsiConfCall(const QString &roomId);
-    void createNewChannel(const RocketChatRestApi::CreateRoomInfo &info, bool privateRoom);
+    void createNewChannel(const RocketChatRestApi::CreateRoomInfo &info);
     void joinRoom(const QString &roomId, const QString &joinCode = QString());
     void openDirectChannel(const QString &username);
     void setDefaultStatus(User::PresenceStatus status, const QString &messageStatus); // Move to private no ?

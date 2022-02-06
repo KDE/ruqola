@@ -59,5 +59,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::CreateRoomInfo &t)
     d << "readOnly " << t.readOnly;
     d << "broadcast " << t.broadcast;
     d << "encrypted " << t.encrypted;
+    d << "private channel " << t.privateChannel;
     return d;
 }

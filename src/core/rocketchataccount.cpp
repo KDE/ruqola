@@ -714,10 +714,10 @@ void RocketChatAccount::openDirectChannel(const QString &username)
     //#endif
 }
 
-void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateRoomInfo &info, bool privateRoom)
+void RocketChatAccount::createNewChannel(const RocketChatRestApi::CreateRoomInfo &info)
 {
     if (!info.name.trimmed().isEmpty()) {
-        if (privateRoom) {
+        if (info.privateChannel) {
             restApi()->createGroups(info);
         } else {
             restApi()->createChannels(info);

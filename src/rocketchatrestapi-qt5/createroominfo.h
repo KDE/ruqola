@@ -24,6 +24,8 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
     bool broadcast = false;
     bool encrypted = false;
 
+    bool privateChannel = false;
+
     Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
