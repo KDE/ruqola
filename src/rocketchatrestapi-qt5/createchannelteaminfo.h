@@ -13,6 +13,15 @@
 namespace RocketChatRestApi
 {
 struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateChannelTeamInfo {
+    Q_GADGET
+public:
+    enum CreateInfoType {
+        Unknown = 0,
+        Channel = 1,
+        Team = 2,
+    };
+    Q_ENUM(CreateInfoType)
+
     Q_REQUIRED_RESULT bool isValid() const;
     Q_REQUIRED_RESULT bool canStart() const;
     QString name;
@@ -25,8 +34,9 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateChannelTeamInfo {
     bool encrypted = false;
 
     bool privateChannel = false;
+    CreateInfoType infoType = CreateInfoType::Unknown;
 
-    Q_REQUIRED_RESULT QJsonDocument json(bool createTeam) const;
+    Q_REQUIRED_RESULT QJsonDocument json() const;
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateChannelTeamInfo, Q_MOVABLE_TYPE);
