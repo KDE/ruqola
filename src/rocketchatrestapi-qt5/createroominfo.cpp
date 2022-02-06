@@ -10,14 +10,14 @@
 
 using namespace RocketChatRestApi;
 
-bool RocketChatRestApi::CreateRoomInfo::isValid() const
+bool CreateRoomInfo::isValid() const
 {
     return !name.isEmpty();
 }
 
 bool CreateRoomInfo::canStart() const
 {
-    return !name.isEmpty();
+    return isValid();
 }
 
 QJsonDocument CreateRoomInfo::json() const
