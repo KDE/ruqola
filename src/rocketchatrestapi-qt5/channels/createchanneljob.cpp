@@ -45,12 +45,12 @@ void CreateChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
-CreateRoomInfo CreateChannelJob::createChannelInfo() const
+CreateChannelTeamInfo CreateChannelJob::createChannelInfo() const
 {
     return mCreateChannelInfo;
 }
 
-void CreateChannelJob::setCreateChannelInfo(const CreateRoomInfo &createChannelInfo)
+void CreateChannelJob::setCreateChannelInfo(const CreateChannelTeamInfo &createChannelInfo)
 {
     mCreateChannelInfo = createChannelInfo;
 }

@@ -44,12 +44,12 @@ void TeamsCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
-CreateRoomInfo TeamsCreateJob::teamsCreateJobInfo() const
+CreateChannelTeamInfo TeamsCreateJob::teamsCreateJobInfo() const
 {
     return mTeamsCreateJobInfo;
 }
 
-void TeamsCreateJob::setTeamsCreateJobInfo(const CreateRoomInfo &teamsCreateJobInfo)
+void TeamsCreateJob::setTeamsCreateJobInfo(const CreateChannelTeamInfo &teamsCreateJobInfo)
 {
     mTeamsCreateJobInfo = teamsCreateJobInfo;
 }

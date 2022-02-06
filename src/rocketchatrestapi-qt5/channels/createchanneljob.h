@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "createroominfo.h"
+#include "createchannelteaminfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
@@ -27,8 +27,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateRoomInfo createChannelInfo() const;
-    void setCreateChannelInfo(const CreateRoomInfo &createChannelInfo);
+    Q_REQUIRED_RESULT CreateChannelTeamInfo createChannelInfo() const;
+    void setCreateChannelInfo(const CreateChannelTeamInfo &createChannelInfo);
 
 Q_SIGNALS:
     void createChannelDone(const QJsonObject &reply);
@@ -40,6 +40,6 @@ protected:
 private:
     Q_DISABLE_COPY(CreateChannelJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
-    CreateRoomInfo mCreateChannelInfo;
+    CreateChannelTeamInfo mCreateChannelInfo;
 };
 }

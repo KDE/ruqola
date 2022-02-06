@@ -21,7 +21,7 @@ void CreateGroupsJobTest::shouldHaveDefaultValue()
     CreateGroupsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
-    CreateRoomInfo info = job.createGroupsInfo();
+    CreateChannelTeamInfo info = job.createGroupsInfo();
     QVERIFY(!info.readOnly);
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.members.isEmpty());
@@ -41,7 +41,7 @@ void CreateGroupsJobTest::shouldGenerateJson()
 {
     CreateGroupsJob job;
     const QString channelname = QStringLiteral("foo1");
-    CreateRoomInfo info;
+    CreateChannelTeamInfo info;
     info.name = channelname;
     job.setCreateGroupsInfo(info);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"extraData":{},"name":"%1"})").arg(channelname).toLatin1());
@@ -89,7 +89,7 @@ void CreateGroupsJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString roomId = QStringLiteral("foo1");
-    CreateRoomInfo info;
+    CreateChannelTeamInfo info;
     info.name = roomId;
     job.setCreateGroupsInfo(info);
     QVERIFY(job.canStart());

@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "createroominfo.h"
+#include "createchannelteaminfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
@@ -26,8 +26,8 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    Q_REQUIRED_RESULT CreateRoomInfo teamsCreateJobInfo() const;
-    void setTeamsCreateJobInfo(const CreateRoomInfo &teamsCreateJobInfo);
+    Q_REQUIRED_RESULT CreateChannelTeamInfo teamsCreateJobInfo() const;
+    void setTeamsCreateJobInfo(const CreateChannelTeamInfo &teamsCreateJobInfo);
 
 Q_SIGNALS:
     void teamCreateDone();
@@ -37,6 +37,6 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(TeamsCreateJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
-    CreateRoomInfo mTeamsCreateJobInfo;
+    CreateChannelTeamInfo mTeamsCreateJobInfo;
 };
 }

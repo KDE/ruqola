@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "createroominfo.h"
+#include "createchannelteaminfo.h"
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -39,8 +39,8 @@ private:
     void removeRoomFromTeam(const QString &roomId);
     void updateAutojoin(const QString &roomId, bool autojoin);
     void slotTeamAddRoomsDone(const QJsonObject &obj);
-    void createChannels(const RocketChatRestApi::CreateRoomInfo &info);
-    void createGroups(const RocketChatRestApi::CreateRoomInfo &info);
+    void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
+    void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
     TeamChannelsComboBox *const mTeamChannelsCombobox;

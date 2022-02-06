@@ -8,7 +8,7 @@
 
 #include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
-#include "createroominfo.h"
+#include "createchannelteaminfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "invite/findorcreateinvitejob.h"
@@ -78,8 +78,8 @@ public:
     void changeGroupsAnnouncement(const QString &roomId, const QString &announcement);
     void postMessage(const QString &roomId, const QString &text);
     void deleteMessage(const QString &roomId, const QString &messageId);
-    void createChannels(const RocketChatRestApi::CreateRoomInfo &info);
-    void createGroups(const RocketChatRestApi::CreateRoomInfo &info);
+    void createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info);
+    void createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info);
     void leaveChannel(const QString &roomId);
     void leaveGroups(const QString &roomId);
     void updateMessage(const QString &roomId, const QString &messageId, const QString &text);

@@ -4,19 +4,19 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "createroominfotest.h"
-#include "createroominfo.h"
+#include "createchannelteaminfotest.h"
+#include "createchannelteaminfo.h"
 #include <QTest>
-QTEST_GUILESS_MAIN(CreateRoomInfoTest)
+QTEST_GUILESS_MAIN(CreateChannelTeamInfoTest)
 
-CreateRoomInfoTest::CreateRoomInfoTest(QObject *parent)
+CreateChannelTeamInfoTest::CreateChannelTeamInfoTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void CreateRoomInfoTest::shouldHaveDefaultValues()
+void CreateChannelTeamInfoTest::shouldHaveDefaultValues()
 {
-    RocketChatRestApi::CreateRoomInfo info;
+    RocketChatRestApi::CreateChannelTeamInfo info;
     QVERIFY(info.members.isEmpty());
     QVERIFY(info.name.isEmpty());
     QVERIFY(info.description.isEmpty());

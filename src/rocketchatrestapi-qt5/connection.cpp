@@ -547,7 +547,7 @@ void Connection::slotAddJoinCodeToChannel(const QString &channelId, const QStrin
     setJoinCodeChannel(channelId, password);
 }
 
-void Connection::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
+void Connection::createChannels(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new CreateChannelJob(this);
     connect(job, &CreateChannelJob::addJoinCodeToChannel, this, &Connection::slotAddJoinCodeToChannel);
@@ -558,7 +558,7 @@ void Connection::createChannels(const RocketChatRestApi::CreateRoomInfo &info)
     }
 }
 
-void Connection::createGroups(const RocketChatRestApi::CreateRoomInfo &info)
+void Connection::createGroups(const RocketChatRestApi::CreateChannelTeamInfo &info)
 {
     auto job = new CreateGroupsJob(this);
     initializeRestApiJob(job);
