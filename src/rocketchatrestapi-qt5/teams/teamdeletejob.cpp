@@ -95,7 +95,9 @@ QNetworkRequest TeamDeleteJob::request() const
 QJsonDocument TeamDeleteJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("roomsToRemove")] = QJsonArray::fromStringList(mRoomToDeleteId);
+    if (!mRoomToDeleteId.isEmpty()) {
+        jsonObj[QLatin1String("roomsToRemove")] = QJsonArray::fromStringList(mRoomToDeleteId);
+    }
     jsonObj[QLatin1String("teamId")] = mTeamId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
