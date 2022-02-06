@@ -32,17 +32,18 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         mRoomId = query.queryItemValue(QStringLiteral("rid"));
         mMessageId = query.queryItemValue(QStringLiteral("mid"));
         mPath = query.queryItemValue(QStringLiteral("path"), QUrl::FullyDecoded);
-        if (mPath.isEmpty()) {
-            mRoomIdType = RoomIdType::Unknown;
-        } else {
+        if (!mPath.isEmpty()) {
             mRoomIdType = RoomIdType::RoomId;
-        }
-        if (mPath.startsWith(QStringLiteral("direct"))) {
-            mChannelType = ChannelType::Direct;
-        } else if (mPath.startsWith(QStringLiteral("channel"))) {
-            mChannelType = ChannelType::Channel;
+            if (mPath.startsWith(QStringLiteral("direct"))) {
+                mChannelType = ChannelType::Direct;
+            } else if (mPath.startsWith(QStringLiteral("channel"))) {
+                mChannelType = ChannelType::Channel;
+            } else {
+                qCWarning(RUQOLA_LOG) << "Unknown channel type " << mPath;
+                return false;
+            }
         } else {
-            qCWarning(RUQOLA_LOG) << "Unknown channel type " << mPath;
+            return false;
         }
         return true;
     } else {
@@ -64,6 +65,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
             mChannelType = ChannelType::Direct;
         } else {
             qCWarning(RUQOLA_LOG) << "Unknown channel type " << urlPathDecoded;
+            return false;
         }
         return true;
     }
