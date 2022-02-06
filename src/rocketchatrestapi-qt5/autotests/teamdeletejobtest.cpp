@@ -40,6 +40,7 @@ void TeamDeleteJobTest::shouldGenerateJson()
     TeamDeleteJob job;
     const QString teamId = QStringLiteral("foo2");
     job.setTeamId(teamId);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"teamId":"%1"})").arg(teamId).toLatin1());
     const QStringList rooms = {QStringLiteral("bla"), QStringLiteral("bla1")};
     job.setRoomsId(rooms);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomsToRemove":["bla","bla1"],"teamId":"%1"})").arg(teamId).toLatin1());
