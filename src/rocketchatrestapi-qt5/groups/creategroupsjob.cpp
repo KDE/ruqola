@@ -73,7 +73,7 @@ bool CreateGroupsJob::canStart() const
 
 QJsonDocument CreateGroupsJob::json() const
 {
-    return mCreateGroupInfo.json();
+    return mCreateGroupInfo.json(false); // Channel
 }
 
 QNetworkRequest CreateGroupsJob::request() const

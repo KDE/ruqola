@@ -26,7 +26,7 @@ struct LIBROCKETCHATRESTAPI_QT5_EXPORT CreateRoomInfo {
 
     bool privateChannel = false;
 
-    Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT QJsonDocument json(bool createTeam) const;
 };
 }
 Q_DECLARE_TYPEINFO(RocketChatRestApi::CreateRoomInfo, Q_MOVABLE_TYPE);

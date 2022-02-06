@@ -82,7 +82,7 @@ bool CreateChannelJob::canStart() const
 
 QJsonDocument CreateChannelJob::json() const
 {
-    return mCreateChannelInfo.json();
+    return mCreateChannelInfo.json(false); // Channel
 }
 
 QNetworkRequest CreateChannelJob::request() const
