@@ -32,7 +32,6 @@ void ParseMessageUrlUtilsTest::shouldParseUrl_data()
     QTest::addColumn<QString>("path");
     QTest::addColumn<ParseMessageUrlUtils::ChannelType>("channelType");
     QTest::addColumn<ParseMessageUrlUtils::RoomIdType>("roomIdType");
-    // TODO add mRoomIdType support
 
     QTest::addRow("empty") << QString() << false << QString() << QString() << QString() << QString() << ParseMessageUrlUtils::ChannelType::Unknown
                            << ParseMessageUrlUtils::RoomIdType::Unknown;
