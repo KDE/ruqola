@@ -20,7 +20,7 @@ bool CreateRoomInfo::canStart() const
     return isValid();
 }
 
-QJsonDocument CreateRoomInfo::json() const
+QJsonDocument CreateRoomInfo::json(bool createTeam) const
 {
     QJsonObject jsonObj;
     if (!members.isEmpty()) {
@@ -30,6 +30,10 @@ QJsonDocument CreateRoomInfo::json() const
     if (readOnly) {
         jsonObj[QLatin1String("readOnly")] = true;
     } // Default is false
+
+    if (createTeam) {
+        jsonObj[QLatin1String("type")] = privateChannel ? 1 : 0;
+    }
 
     QJsonObject extraJsonObj;
 
