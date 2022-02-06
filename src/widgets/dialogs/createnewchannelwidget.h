@@ -31,7 +31,7 @@ public:
     ~CreateNewChannelWidget() override;
 
     Q_REQUIRED_RESULT QString channelName() const;
-    Q_REQUIRED_RESULT QStringList users() const;
+    Q_REQUIRED_RESULT QStringList members(bool userId = true) const;
     Q_REQUIRED_RESULT bool encryptedRoom() const;
     Q_REQUIRED_RESULT bool privateChannel() const;
     Q_REQUIRED_RESULT bool broadCast() const;

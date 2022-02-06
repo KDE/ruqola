@@ -400,7 +400,6 @@ void RuqolaMainWindow::slotCreateNewChannel()
     dlg->setFeatures(flags);
     if (dlg->exec()) {
         const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
-        // TODO adapt createNewChannel api for using QStringList
         mCurrentRocketChatAccount->createNewChannel(info.info, info.privateChannel);
     }
     delete dlg;
