@@ -224,7 +224,7 @@ void TeamChannelsWidget::slotCreateRoom()
     }
     dlg->setFeatures(flags);
     if (dlg->exec()) {
-        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo();
+        const CreateNewChannelDialog::NewChannelInfo info = dlg->channelInfo(false);
         RocketChatRestApi::CreateRoomInfo createRoominfo = info.info;
         createRoominfo.teamId = mTeamId;
         if (info.privateChannel) {
