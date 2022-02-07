@@ -846,6 +846,15 @@ void RocketChatAccount::userAutocomplete(const QString &searchText, const QStrin
 
 void RocketChatAccount::membersInRoom(const QString &roomId, Room::RoomType channelType)
 {
+    // We call it first for initialize all member in rooms.
+    // We need to clear it. It can be initialize by "/rooms-changed" signal
+    UsersForRoomModel *usersModelForRoom = roomModel()->usersModelForRoom(roomId);
+    if (usersModelForRoom) {
+        if (usersModelForRoom->total() != 0) {
+            usersModelForRoom->clear();
+        }
+        usersModelForRoom->setLoadMoreUsersInProgress(true);
+    }
     restApi()->membersInRoom(roomId, Room::roomFromRoomType(channelType));
 }
 
