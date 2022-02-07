@@ -380,6 +380,12 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     return mHelperText->urlAt(index, pos - messageRect.topLeft());
 }
 
+bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
+{
+    // const auto messageRect = doLayout(option, index).textRect;
+    return false;
+}
+
 QString MessageListDelegate::selectedText() const
 {
     return mHelperText->selectedText();

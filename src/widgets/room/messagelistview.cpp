@@ -209,6 +209,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         return;
     }
 
+    auto options = listViewOptions();
+    options.rect = visualRect(index);
+    options.index = index;
+    if (mMessageListDelegate->contextMenu(options, index, viewport()->mapFromGlobal(event->globalPos()))) {
+        return;
+    }
     const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
 
     QMenu menu(this);
