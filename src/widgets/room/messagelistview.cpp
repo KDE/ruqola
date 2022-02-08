@@ -67,6 +67,7 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
         mPluginTextInterface.append(plugin->createInterface(this));
     }
     connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
+    connect(mMessageListDelegate, &MessageListDelegate::startPrivateConversation, this, &MessageListView::slotStartPrivateConversation);
 }
 
 MessageListView::~MessageListView()
@@ -214,7 +215,12 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto options = listViewOptions();
     options.rect = visualRect(index);
     options.index = index;
-    if (mMessageListDelegate->contextMenu(options, index, viewport()->mapFromGlobal(event->globalPos()), event->globalPos())) {
+    MessageListDelegate::MenuInfo info;
+    info.editMode = (mMode == Mode::Editing);
+    info.globalPos = event->globalPos();
+    info.pos = viewport()->mapFromGlobal(event->globalPos());
+    info.roomType = mRoom->channelType();
+    if (mMessageListDelegate->contextMenu(options, index, info)) {
         return;
     }
     const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
@@ -306,14 +312,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }();
 
     if (mMode == Mode::Editing) {
-        // ## Ideally we'd want to show this when the mouse is over the nickname
-        if (mRoom->channelType() != Room::RoomType::Direct) {
-            auto startPrivateConversation = new QAction(i18n("Start a Private Conversation"), &menu);
-            connect(startPrivateConversation, &QAction::triggered, this, [=]() {
-                slotStartPrivateConversation(index);
-            });
-            menu.addAction(startPrivateConversation);
-        }
         auto startDiscussion = new QAction(i18n("Start a Discussion"), &menu);
         connect(startDiscussion, &QAction::triggered, this, [=]() {
             slotStartDiscussion(index);
@@ -664,9 +662,8 @@ void MessageListView::slotSetPinnedMessage(const QModelIndex &index, bool isPinn
     mCurrentRocketChatAccount->pinMessage(messageId, !isPinned);
 }
 
-void MessageListView::slotStartPrivateConversation(const QModelIndex &index)
+void MessageListView::slotStartPrivateConversation(const QString &userName)
 {
-    const QString userName = index.data(MessageModel::Username).toString();
     Q_EMIT createPrivateConversation(userName);
 }
 

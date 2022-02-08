@@ -75,7 +75,7 @@ private:
     void slotSetAsFavorite(const QModelIndex &index, bool isStarred);
     void slotSetPinnedMessage(const QModelIndex &index, bool isPinned);
     void slotStartDiscussion(const QModelIndex &index);
-    void slotStartPrivateConversation(const QModelIndex &index);
+    void slotStartPrivateConversation(const QString &userName);
     void slotTranslateMessage(const QModelIndex &index, bool checked);
     void createSeparator(QMenu &menu);
     void slotVerticalScrollbarChanged(int value);

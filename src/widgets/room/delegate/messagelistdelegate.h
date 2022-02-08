@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "room.h"
 #include "utils.h"
 
 #include "misc/pixmapcache.h"
@@ -33,6 +34,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
     Q_OBJECT
 
 public:
+    struct MenuInfo {
+        Room::RoomType roomType = Room::RoomType::Unknown;
+        QPoint globalPos;
+        QPoint pos;
+        bool editMode = false;
+    };
+
     explicit MessageListDelegate(QListView *view);
     ~MessageListDelegate() override;
 
@@ -59,10 +67,11 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
 
-    Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos, QPoint globalPos);
+    Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info);
 
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
+    void startPrivateConversation(const QString &userName);
 
 private:
     Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;

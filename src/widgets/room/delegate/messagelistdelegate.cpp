@@ -380,7 +380,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     return mHelperText->urlAt(index, pos - messageRect.topLeft());
 }
 
-bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos, QPoint globalPos)
+bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     if (!message) {
@@ -388,15 +388,26 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     }
 
     const Layout layout = doLayout(option, index);
-    if (layout.senderRect.contains(pos)) {
+    if (layout.senderRect.contains(info.pos)) {
         QMenu menu;
         auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
         connect(userInfoAction, &QAction::triggered, this, [message, this]() {
             Q_EMIT showUserInfo(message->username());
         });
+
+        if (info.editMode) {
+            if (info.roomType != Room::RoomType::Direct) {
+                auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
+                connect(startPrivateConversationAction, &QAction::triggered, this, [=]() {
+                    Q_EMIT startPrivateConversation(message->username());
+                });
+                menu.addAction(startPrivateConversationAction);
+            }
+        }
+
         menu.addAction(userInfoAction);
         if (!menu.actions().isEmpty()) {
-            menu.exec(globalPos);
+            menu.exec(info.globalPos);
         }
         return true;
     }
