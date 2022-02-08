@@ -291,23 +291,19 @@ void RuqolaMainWindow::setupActions()
     ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
     ac->addAction(QStringLiteral("next_unread_channel"), mNextUnreadChannel);
 
-    mCreateNewChannel = new QAction(i18n("Create New Channel..."), this);
-    mCreateNewChannel->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    mCreateNewChannel = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create New Channel..."), this);
     connect(mCreateNewChannel, &QAction::triggered, this, &RuqolaMainWindow::slotCreateNewChannel);
     ac->addAction(QStringLiteral("create_new_channel"), mCreateNewChannel);
 
-    mCreateDirectMessages = new QAction(i18n("Create Direct Messages..."), this);
-    mCreateDirectMessages->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    mCreateDirectMessages = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Direct Messages..."), this);
     connect(mCreateDirectMessages, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDirectMessages);
     ac->addAction(QStringLiteral("create_direct_messages"), mCreateDirectMessages);
 
-    mCreateDiscussion = new QAction(i18n("Create Discussion..."), this);
-    mCreateDiscussion->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    mCreateDiscussion = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Discussion..."), this);
     connect(mCreateDiscussion, &QAction::triggered, this, &RuqolaMainWindow::slotCreateDiscussion);
     ac->addAction(QStringLiteral("create_discussion"), mCreateDiscussion);
 
-    mCreateTeam = new QAction(i18n("Create Team..."), this);
-    mCreateTeam->setIcon(QIcon::fromTheme(QStringLiteral("irc-join-channel")));
+    mCreateTeam = new QAction(QIcon::fromTheme(QStringLiteral("irc-join-channel")), i18n("Create Team..."), this);
     connect(mCreateTeam, &QAction::triggered, this, &RuqolaMainWindow::slotCreateTeam);
     ac->addAction(QStringLiteral("create_team"), mCreateTeam);
 
@@ -362,16 +358,12 @@ void RuqolaMainWindow::setupActions()
         prevIcon = QStringLiteral("go-previous-view");
     }
 
-    mNextTab = new QAction(this);
-    mNextTab->setText(i18n("&Next Server"));
-    mNextTab->setIcon(QIcon::fromTheme(nextIcon));
+    mNextTab = new QAction(QIcon::fromTheme(nextIcon), i18n("&Next Server"), this);
     actionCollection()->setDefaultShortcuts(mNextTab, nextShortcut);
     connect(mNextTab, &QAction::triggered, this, &RuqolaMainWindow::showNextView);
     actionCollection()->addAction(QStringLiteral("next_tab"), mNextTab);
 
-    mPreviewTab = new QAction(this);
-    mPreviewTab->setText(i18n("&Previous Server"));
-    mPreviewTab->setIcon(QIcon::fromTheme(prevIcon));
+    mPreviewTab = new QAction(QIcon::fromTheme(prevIcon), i18n("&Previous Server"), this);
     actionCollection()->setDefaultShortcuts(mPreviewTab, prevShortcut);
     connect(mPreviewTab, &QAction::triggered, this, &RuqolaMainWindow::showPreviousView);
     actionCollection()->addAction(QStringLiteral("previous_tab"), mPreviewTab);

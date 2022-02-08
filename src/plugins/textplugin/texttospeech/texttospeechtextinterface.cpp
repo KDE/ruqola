@@ -25,8 +25,7 @@ TextToSpeechTextInterface::~TextToSpeechTextInterface() = default;
 void TextToSpeechTextInterface::addAction(QMenu *menu)
 {
     menu->addSeparator();
-    QAction *speakAction = menu->addAction(i18n("Speak Text"));
-    speakAction->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")));
+    QAction *speakAction = menu->addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
     connect(speakAction, &QAction::triggered, this, &TextToSpeechTextInterface::slotSpeakText);
 }
 
