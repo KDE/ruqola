@@ -49,8 +49,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
-    // https://bugs.kde.org/show_bug.cgi?id=417298 added smiley-add to KF 5.68
-    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add"), QIcon::fromTheme(QStringLiteral("face-smile"))))
+    , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add")))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin"))) // TODO use better icon for following message
