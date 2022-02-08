@@ -106,6 +106,9 @@ target_sources(libruqolacore PRIVATE
     model/adminrolesmodel.cpp
 
     model/usersinrolemodel.cpp
+
+    model/switchchannelhistorymodel.cpp
+    model/switchchannelhistorymodel.h
     
 
     plugins/pluginauthenticationinterface.cpp
