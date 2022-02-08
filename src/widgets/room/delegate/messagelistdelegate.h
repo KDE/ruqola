@@ -59,7 +59,10 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
 
-    Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const;
+    Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos, QPoint globalPos);
+
+Q_SIGNALS:
+    void showUserInfo(const QString &userName);
 
 private:
     Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;

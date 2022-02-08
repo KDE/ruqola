@@ -91,9 +91,10 @@ private:
     void slotCopyLinkToMessage(const QModelIndex &index);
     void slotFollowMessage(const QModelIndex &index, bool messageIsFollowing);
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
+    void slotShowUserInfo(const QString &userName);
+    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
 
 private:
-    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;

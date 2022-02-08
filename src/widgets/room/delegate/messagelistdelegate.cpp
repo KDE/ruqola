@@ -33,6 +33,7 @@
 
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <QMenu>
 
 #include <cmath>
 #include <tuple>
@@ -379,9 +380,26 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     return mHelperText->urlAt(index, pos - messageRect.topLeft());
 }
 
-bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
+bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos, QPoint globalPos)
 {
-    // const auto messageRect = doLayout(option, index).textRect;
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    if (!message) {
+        return false;
+    }
+
+    const Layout layout = doLayout(option, index);
+    if (layout.senderRect.contains(pos)) {
+        QMenu menu;
+        auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
+        connect(userInfoAction, &QAction::triggered, this, [message, this]() {
+            Q_EMIT showUserInfo(message->username());
+        });
+        menu.addAction(userInfoAction);
+        if (!menu.actions().isEmpty()) {
+            menu.exec(globalPos);
+        }
+        return true;
+    }
     return false;
 }
 

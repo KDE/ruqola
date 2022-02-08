@@ -9,6 +9,7 @@
 #include "chat/unfollowmessagejob.h"
 #include "connection.h"
 #include "delegate/messagelistdelegate.h"
+#include "dialogs/directchannelinfodialog.h"
 #include "dialogs/reportmessagedialog.h"
 #include "rocketchataccount.h"
 #include "room.h"
@@ -65,6 +66,7 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     for (PluginText *plugin : plugins) {
         mPluginTextInterface.append(plugin->createInterface(this));
     }
+    connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
 }
 
 MessageListView::~MessageListView()
@@ -212,7 +214,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     auto options = listViewOptions();
     options.rect = visualRect(index);
     options.index = index;
-    if (mMessageListDelegate->contextMenu(options, index, viewport()->mapFromGlobal(event->globalPos()))) {
+    if (mMessageListDelegate->contextMenu(options, index, viewport()->mapFromGlobal(event->globalPos()), event->globalPos())) {
         return;
     }
     const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
@@ -718,4 +720,12 @@ void MessageListView::slotReplyInThread(const QModelIndex &index)
 void MessageListView::updateVerticalPageStep()
 {
     verticalScrollBar()->setPageStep(viewport()->height() * 3 / 4);
+}
+
+void MessageListView::slotShowUserInfo(const QString &userName)
+{
+    DirectChannelInfoDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setUserName(userName);
+    dlg.setRoles(mCurrentRocketChatAccount->roleInfo());
+    dlg.exec();
 }
