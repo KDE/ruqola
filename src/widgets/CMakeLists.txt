@@ -506,6 +506,9 @@ target_sources(libruqolawidgets PRIVATE
 
     ruqolacommandlineoptions.cpp
     ruqolacommandlineoptions.h
+
+    switchchannelhistory/switchchanneltreeview.h
+    switchchannelhistory/switchchanneltreeview.cpp
     )
 
 
@@ -575,6 +578,7 @@ if (BUILD_TESTING)
     add_subdirectory(teams/autotests)
     add_subdirectory(directory/autotests)
     add_subdirectory(otr/autotests)
+    add_subdirectory(switchchannelhistory/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
