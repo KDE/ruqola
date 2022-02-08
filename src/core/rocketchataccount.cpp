@@ -76,13 +76,13 @@
 #include <plugins/pluginauthentication.h>
 #include <plugins/pluginauthenticationinterface.h>
 
+#include "away/awaymanager.h"
 #include "channels/channelopenjob.h"
 #include "customsound/customsoundsmanager.h"
 #include "groups/groupopenjob.h"
+#include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
-#include "away/awaymanager.h"
-#define USE_REASTAPI_JOB 1
 
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
@@ -92,6 +92,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mManageChannels(new ManageChannels(this, this))
     , mCustomSoundManager(new CustomSoundsManager(this))
     , mAwayManager(new AwayManager(this, this))
+    , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -556,6 +557,11 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
 void RocketChatAccount::slotJobFailed(const QString &str)
 {
     Q_EMIT jobFailed(str, accountName());
+}
+
+SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
+{
+    return mSwitchChannelHistoryModel;
 }
 
 const QStringList &RocketChatAccount::searchListCompletion() const

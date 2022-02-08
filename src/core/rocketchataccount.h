@@ -82,6 +82,7 @@ class ManageChannels;
 class EmoticonCustomModel;
 class CustomSoundsManager;
 class AwayManager;
+class SwitchChannelHistoryModel;
 
 namespace RocketChatRestApi
 {
@@ -482,6 +483,9 @@ public:
     void setOauthAppAdded(const QJsonObject &obj);
 
     void setOauthAppUpdated(const QJsonObject &obj);
+
+    Q_REQUIRED_RESULT SwitchChannelHistoryModel *switchChannelHistoryModel() const;
+
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();
@@ -658,6 +662,7 @@ private:
     ManageChannels *const mManageChannels;
     CustomSoundsManager *const mCustomSoundManager;
     AwayManager *const mAwayManager;
+    SwitchChannelHistoryModel *const mSwitchChannelHistoryModel;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
