@@ -47,6 +47,7 @@ void SwitchChannelHistoryModel::addHistory(const QString &name, const QString &i
     if (mSwichChannelsInfo.count() > 10) {
         mSwichChannelsInfo.takeFirst();
     }
+    mSwichChannelsInfo.removeAll(info);
     mSwichChannelsInfo.append(info);
     Q_EMIT dataChanged(createIndex(0, 0), createIndex(mSwichChannelsInfo.size() - 1, 1), {});
 }
