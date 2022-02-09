@@ -10,13 +10,13 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <Prison>
 #include <QGuiApplication>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QScreen>
 #include <QVBoxLayout>
+#include <prison/Prison>
 
 MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
