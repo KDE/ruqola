@@ -14,7 +14,6 @@ SwitchChannelTreeViewManager::SwitchChannelTreeViewManager(QObject *parent)
     : QObject{parent}
     , mSwitcherChannelTreeView(new SwitchChannelTreeView(nullptr)) // TODO use parent ???
 {
-    mSwitcherChannelTreeView->setModel(mChannelSwitcherModel);
     connect(mSwitcherChannelTreeView, &SwitchChannelTreeView::pressed, this, &SwitchChannelTreeViewManager::switchToCollectionClicked);
     connect(mSwitcherChannelTreeView, &SwitchChannelTreeView::channelSelected, this, &SwitchChannelTreeViewManager::activateChannel);
 }
@@ -94,7 +93,10 @@ SwitchChannelHistoryModel *SwitchChannelTreeViewManager::channelSwitcherModel() 
 
 void SwitchChannelTreeViewManager::setChannelSwitcherModel(SwitchChannelHistoryModel *newChannelSwitcherModel)
 {
-    mChannelSwitcherModel = newChannelSwitcherModel;
+    if (mChannelSwitcherModel != newChannelSwitcherModel) {
+        mChannelSwitcherModel = newChannelSwitcherModel;
+        mSwitcherChannelTreeView->setModel(mChannelSwitcherModel);
+    }
 }
 
 SwitchChannelTreeView *SwitchChannelTreeViewManager::switchChannelTreeView() const

@@ -29,17 +29,25 @@ QVariant SwitchChannelHistoryModel::data(const QModelIndex &index, int role) con
         return {};
     }
     const SwitchChannelInfo info = mSwichChannelsInfo.at(index.row());
-    //    switch (role) {
-    //    }
+    switch (role) {
+    case Qt::DisplayRole:
+        return info.mName;
+    }
     return {};
 }
 
 void SwitchChannelHistoryModel::addHistory(const QString &name, const QString &identifier)
 {
+    SwitchChannelInfo info{name, identifier};
+    if (!mSwichChannelsInfo.isEmpty()) {
+        if (mSwichChannelsInfo.at(mSwichChannelsInfo.count() - 1) == info) {
+            return;
+        }
+    }
     if (mSwichChannelsInfo.count() > 10) {
         mSwichChannelsInfo.takeFirst();
     }
-    mSwichChannelsInfo.append({name, identifier});
+    mSwichChannelsInfo.append(info);
     Q_EMIT dataChanged(createIndex(0, 0), createIndex(mSwichChannelsInfo.size() - 1, 1), {});
 }
 
@@ -49,4 +57,9 @@ const QString SwitchChannelHistoryModel::identifier(int index)
         return {};
     }
     return mSwichChannelsInfo.at(index).mIdentifier;
+}
+
+bool SwitchChannelHistoryModel::SwitchChannelInfo::operator==(const SwitchChannelInfo &other) const
+{
+    return other.mIdentifier == mIdentifier && other.mName == mName;
 }

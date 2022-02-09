@@ -21,9 +21,9 @@ public:
             , mIdentifier(identifier)
         {
         }
-
-        const QString mName;
-        const QString mIdentifier;
+        Q_REQUIRED_RESULT bool operator==(const SwitchChannelInfo &other) const;
+        QString mName;
+        QString mIdentifier;
     };
 
     explicit SwitchChannelHistoryModel(QObject *parent = nullptr);

@@ -289,8 +289,9 @@ void ChannelListView::channelSelected(const QModelIndex &index)
 {
     if (!index.data(RoomListHeadingsProxyModel::IsHeading).toBool()) {
         const QString roomId = index.data(RoomModel::RoomId).toString();
+        const QString roomName = index.data(RoomModel::RoomFName).toString();
         const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
-        Q_EMIT roomSelected(roomId, roomType);
+        Q_EMIT roomSelected(roomName, roomId, roomType);
     }
 }
 

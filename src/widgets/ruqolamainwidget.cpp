@@ -7,6 +7,7 @@
 #include "ruqolamainwidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
+#include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
 #include "room/roomwidget.h"
@@ -77,10 +78,11 @@ RuqolaMainWidget::~RuqolaMainWidget()
     }
 }
 
-void RuqolaMainWidget::selectChannelRoom(const QString &roomId, Room::RoomType roomType)
+void RuqolaMainWidget::selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType)
 {
     mRoomWidget->setChannelSelected(roomId, roomType);
     mStackedRoomWidget->setCurrentWidget(mRoomWidget);
+    mCurrentRocketChatAccount->switchChannelHistoryModel()->addHistory(roomName, roomId);
     Q_EMIT channelSelected();
 }
 

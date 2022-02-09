@@ -86,7 +86,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
     readConfig();
     createSystemTray();
-    mSwitchChannelTreeManager->setParentWidget(this);
+    mSwitchChannelTreeManager->setParentWidget(mMainWidget);
     connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
@@ -398,14 +398,14 @@ void RuqolaMainWindow::setupActions()
 
     {
         QList<QAction *> listActions;
-        auto act = new QAction(i18n("Previous Selected Channel"), this); // TODO fix me i18n
+        auto act = new QAction(i18n("Previous Selected Channel"), this);
         ac->setDefaultShortcut(act, QKeySequence(Qt::CTRL | Qt::Key_Tab));
         ac->addAction(QStringLiteral("previous_channel"), act);
         listActions.append(act);
 
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
 
-        act = new QAction(i18n("Next Selected Channel"), this); // TODO fix me i18n
+        act = new QAction(i18n("Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
         ac->setDefaultShortcut(act, QKeySequence(Qt::SHIFT | Qt::Key_Tab | Qt::CTRL));
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
@@ -703,7 +703,7 @@ void RuqolaMainWindow::slotMessageUrlNotFound(const QString &str)
 
 void RuqolaMainWindow::slotHistorySwitchChannel(const QString &identifier)
 {
-    // TODO
+    Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(identifier);
 }
 
 void RuqolaMainWindow::undoSwitchChannel()

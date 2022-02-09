@@ -28,7 +28,7 @@ public:
     void setLayoutSpacing(int spacing);
 
 Q_SIGNALS:
-    void roomSelected(const QString &roomId, Room::RoomType roomType);
+    void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;

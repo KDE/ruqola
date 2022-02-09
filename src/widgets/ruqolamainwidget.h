@@ -27,7 +27,7 @@ public:
     Q_REQUIRED_RESULT Room::RoomType roomType() const;
     Room *room() const;
 
-    void selectChannelRoom(const QString &roomId, Room::RoomType roomType);
+    void selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType);
     void selectNextUnreadChannel();
 Q_SIGNALS:
     void channelSelected();
