@@ -24,14 +24,19 @@ void MyAccount2e2ConfigureWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
+    auto changePasswordLabel = w.findChild<QLabel *>(QStringLiteral("removePasswordlabel"));
+    QVERIFY(changePasswordLabel);
+    QVERIFY(!changePasswordLabel->text().isEmpty());
+    QVERIFY(changePasswordLabel->wordWrap());
+
     auto mResetE2eKey = w.findChild<QPushButton *>(QStringLiteral("mResetE2eKey"));
     QVERIFY(mResetE2eKey);
     QVERIFY(!mResetE2eKey->text().isEmpty());
 
-    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
-    QVERIFY(label);
-    QVERIFY(!label->text().isEmpty());
-    QVERIFY(label->wordWrap());
+    auto removePasswordlabel = w.findChild<QLabel *>(QStringLiteral("removePasswordlabel"));
+    QVERIFY(removePasswordlabel);
+    QVERIFY(!removePasswordlabel->text().isEmpty());
+    QVERIFY(removePasswordlabel->wordWrap());
 
     auto mPasswordConfirmWidget = w.findChild<PasswordConfirmWidget *>(QStringLiteral("mPasswordConfirmWidget"));
     QVERIFY(mPasswordConfirmWidget);
