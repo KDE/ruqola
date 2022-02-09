@@ -42,6 +42,7 @@ public:
     void storeRoomSettings();
 
     void setLayoutSpacing(int spacing);
+    void scrollToMessageId(const QString &messageId);
 
 Q_SIGNALS:
     void selectChannelRequested(const QString &channelId);

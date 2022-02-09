@@ -156,23 +156,27 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
             if (roomId == currentRoomId) {
-                // TODO select messageId
+                Q_EMIT selectMessageIdRequested(messageId);
                 return;
             }
             switch (channelType) {
             case ParseMessageUrlUtils::ChannelType::Channel: {
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
+                    // TODO implement scroll to message
+                } else {
+                    Q_EMIT selectMessageIdRequested(messageId);
                 }
-                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Direct: {
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
+                    // TODO implement scroll to message
+                } else {
+                    Q_EMIT selectMessageIdRequested(messageId);
                 }
-                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Unknown: {
@@ -188,23 +192,26 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
         if (selectedIndex.isValid()) {
             const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
             if (roomId == currentRoomName) {
-                // TODO select message id
+                Q_EMIT selectMessageIdRequested(messageId);
                 return;
             }
             switch (channelType) {
             case ParseMessageUrlUtils::ChannelType::Channel: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomName);
+                    // TODO implement scroll to message
+                } else {
+                    Q_EMIT selectMessageIdRequested(messageId);
                 }
-                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Direct: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
+                } else {
+                    Q_EMIT selectMessageIdRequested(messageId);
                 }
-                // TODO select message id
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Unknown: {

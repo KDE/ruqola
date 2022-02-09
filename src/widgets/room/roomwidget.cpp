@@ -637,6 +637,11 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
     }
 }
 
+void RoomWidget::scrollToMessageId(const QString &messageId)
+{
+    slotGotoMessage(messageId, {});
+}
+
 void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messageDateTimeUtc)
 {
     MessageListView *messageListView = mRoomWidgetBase->messageListView();
@@ -645,7 +650,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
     const QModelIndex index = messageModel->indexForMessage(messageId);
     if (index.isValid()) {
         messageListView->scrollTo(index);
-    } else {
+    } else if (!messageDateTimeUtc.isEmpty()) {
         auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
@@ -668,7 +673,7 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
         info.oldestMessage = messageDateTimeUtc;
         info.inclusive = true;
         info.count = 50000;
-        qDebug() << " info " << info;
+        // qDebug() << " info " << info;
         job->setChannelHistoryInfo(info);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ChannelHistoryJob::channelHistoryDone, this, [messageId, messageModel, messageListView, this](const QJsonObject &obj) {

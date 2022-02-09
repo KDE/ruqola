@@ -29,6 +29,7 @@ public:
 
 Q_SIGNALS:
     void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
+    void selectMessageIdRequested(const QString &messageId);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
