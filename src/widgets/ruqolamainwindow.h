@@ -21,6 +21,7 @@ class AccountsOverviewWidget;
 class Notification;
 class StatusModelFilterProxyModel;
 class QCommandLineParser;
+class SwitchChannelTreeViewManager;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -76,6 +77,9 @@ private:
     void showNextView();
     void showPreviousView();
     void slotMessageUrlNotFound(const QString &str);
+    void slotHistorySwitchChannel(const QString &identifier);
+    void undoSwitchChannel();
+    void redoSwitchChannel();
 
     bool mReallyClose{false};
 
@@ -105,5 +109,6 @@ private:
     Notification *mNotification = nullptr;
     StatusCombobox *mStatusComboBox = nullptr;
     StatusModelFilterProxyModel *mStatusProxyModel = nullptr;
+    SwitchChannelTreeViewManager *const mSwitchChannelTreeManager;
 };
 

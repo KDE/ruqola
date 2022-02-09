@@ -38,6 +38,7 @@
 #include "ruqolacentralwidget.h"
 #include "ruqolacommandlineoptions.h"
 #include "ruqolaserverconfig.h"
+#include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
 #include <KActionCollection>
 #include <KConfigGroup>
@@ -75,6 +76,7 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
     , mMainWidget(new RuqolaCentralWidget(this))
     , mStatusProxyModel(new StatusModelFilterProxyModel(this))
+    , mSwitchChannelTreeManager(new SwitchChannelTreeViewManager(this))
 {
     mMainWidget->setObjectName(QStringLiteral("mMainWidget"));
     connect(mMainWidget, &RuqolaCentralWidget::loginPageActivated, this, &RuqolaMainWindow::slotLoginPageActivated);
@@ -84,6 +86,8 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     setupGUI(/*QStringLiteral(":/kxmlgui5/ruqola/ruqolaui.rc")*/);
     readConfig();
     createSystemTray();
+    mSwitchChannelTreeManager->setParentWidget(this);
+    connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
     connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
     connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
     connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
@@ -209,6 +213,7 @@ void RuqolaMainWindow::slotAccountChanged()
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
     mMainWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
+    mSwitchChannelTreeManager->setChannelSwitcherModel(mCurrentRocketChatAccount->switchChannelHistoryModel());
 
     mStatusComboBox->blockSignals(true);
     mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
@@ -389,6 +394,24 @@ void RuqolaMainWindow::setupActions()
         mStatus = action;
         connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
         ac->addAction(QStringLiteral("status"), mStatus);
+    }
+
+    {
+        QList<QAction *> listActions;
+        auto act = new QAction(i18n("Previous Selected Channel"), this); // TODO fix me i18n
+        ac->setDefaultShortcut(act, QKeySequence(Qt::CTRL | Qt::Key_Tab));
+        ac->addAction(QStringLiteral("previous_channel"), act);
+        listActions.append(act);
+
+        connect(act, &QAction::triggered, this, &RuqolaMainWindow::undoSwitchChannel);
+
+        act = new QAction(i18n("Next Selected Channel"), this); // TODO fix me i18n
+        ac->addAction(QStringLiteral("next_channel"), act);
+        ac->setDefaultShortcut(act, QKeySequence(Qt::SHIFT | Qt::Key_Tab | Qt::CTRL));
+        connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
+        listActions.append(act);
+
+        mSwitchChannelTreeManager->addActions(listActions);
     }
 }
 
@@ -676,4 +699,19 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
 void RuqolaMainWindow::slotMessageUrlNotFound(const QString &str)
 {
     KMessageBox::information(this, str, i18n("Message"));
+}
+
+void RuqolaMainWindow::slotHistorySwitchChannel(const QString &identifier)
+{
+    // TODO
+}
+
+void RuqolaMainWindow::undoSwitchChannel()
+{
+    mSwitchChannelTreeManager->selectForward();
+}
+
+void RuqolaMainWindow::redoSwitchChannel()
+{
+    mSwitchChannelTreeManager->selectBackward();
 }

@@ -4,13 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-#include "libruqolawidgets_private_export.h"
+#include "libruqolawidgets_export.h"
 #include <QList>
 #include <QObject>
 class SwitchChannelTreeView;
 class QAction;
 class SwitchChannelHistoryModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT SwitchChannelTreeViewManager : public QObject
+class LIBRUQOLAWIDGETS_EXPORT SwitchChannelTreeViewManager : public QObject
 {
     Q_OBJECT
 public:

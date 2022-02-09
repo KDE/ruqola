@@ -62,6 +62,9 @@ void SwitchChannelTreeViewManager::setParentWidget(QWidget *newParentWidget)
 
 void SwitchChannelTreeViewManager::selectChannel(const int from, const int to)
 {
+    if (mChannelSwitcherModel->rowCount() == 0) {
+        return;
+    }
     QModelIndex index;
     const int step = from < to ? 1 : -1;
     if (!mSwitcherChannelTreeView->isVisible()) {

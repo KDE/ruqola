@@ -16,5 +16,7 @@ SwitchChannelTreeViewManagerTest::SwitchChannelTreeViewManagerTest(QObject *pare
 void SwitchChannelTreeViewManagerTest::shouldHaveDefaultValues()
 {
     SwitchChannelTreeViewManager m;
-    // TODO
+    QVERIFY(!m.parentWidget());
+    QVERIFY(m.switchChannelTreeView());
+    QVERIFY(!m.channelSwitcherModel());
 }
