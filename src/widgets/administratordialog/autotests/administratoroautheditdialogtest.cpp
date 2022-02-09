@@ -25,7 +25,7 @@ void AdministratorOauthEditDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
-    QCOMPARE(buttonBox->standardButtons(), {QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
+    QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
 
     auto mOauthEditWidget = w.findChild<AdministratorOauthEditWidget *>(QStringLiteral("mOauthEditWidget"));
     QVERIFY(mOauthEditWidget);
