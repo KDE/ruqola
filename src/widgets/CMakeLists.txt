@@ -509,6 +509,8 @@ target_sources(libruqolawidgets PRIVATE
 
     switchchannelhistory/switchchanneltreeview.h
     switchchannelhistory/switchchanneltreeview.cpp
+    switchchannelhistory/switchchanneltreeviewmanager.h
+    switchchannelhistory/switchchanneltreeviewmanager.cpp
     )
 
 

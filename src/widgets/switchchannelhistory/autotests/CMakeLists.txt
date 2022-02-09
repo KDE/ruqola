@@ -11,3 +11,4 @@ macro(add_ruqolaswitchchannelhistory_test _source)
 endmacro()
 
 add_ruqolaswitchchannelhistory_test(switchchanneltreeviewtest.cpp)
+add_ruqolaswitchchannelhistory_test(switchchanneltreeviewmanagertest.cpp)
