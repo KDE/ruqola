@@ -28,6 +28,10 @@ int RoomsInfo::count() const
 
 RoomInfo RoomsInfo::at(int index) const
 {
+    if (index < 0 || index > mRooms.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
     return mRooms.at(index);
 }
 

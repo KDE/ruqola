@@ -68,6 +68,20 @@ void Roles::updateRoles(const QJsonObject &obj)
     }
 }
 
+int Roles::count() const
+{
+    return mRoles.count();
+}
+
+Role Roles::at(int index) const
+{
+    if (index < 0 || index > mRoles.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
+    return mRoles.at(index);
+}
+
 void Roles::parseRole(const QJsonObject &obj)
 {
     mRoles.clear();
@@ -94,4 +108,13 @@ Role Roles::findRoleByUserId(const QString &userId) const
         }
     }
     return {};
+}
+
+QDebug operator<<(QDebug d, const Roles &t)
+{
+    d << " count " << t.count();
+    for (int i = 0; i < t.count(); i++) {
+        d << t.at(i) << "\n";
+    }
+    return d;
 }
