@@ -590,6 +590,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mStatus->setEnabled(!loginPageActivated);
     mCreateDiscussion->setEnabled(!loginPageActivated);
     mCreateTeam->setEnabled(!loginPageActivated);
+    mDirectory->setEnabled(!loginPageActivated);
+    mNextUnreadChannel->setEnabled(!loginPageActivated);
+    mShowLog->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()

@@ -1096,6 +1096,7 @@ QStringList Room::rolesForUserId(const QString &userId)
 {
     QStringList lstRoles;
     const Role r = mRolesForRooms.findRoleByUserId(userId);
+    // qDebug() << " mRolesForRooms" << mRolesForRooms;
     if (r.isValid()) {
         if (r.isOwner()) {
             lstRoles.append(i18n("Owner"));
