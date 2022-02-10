@@ -125,10 +125,9 @@ void RoomWidget::slotChannelInfoRequested()
         return;
     }
     if (mRoomType == Room::RoomType::Direct) {
-        QPointer<DirectChannelInfoDialog> dlg = new DirectChannelInfoDialog(mCurrentRocketChatAccount, this);
-        dlg->setUserName(mRoom->name());
-        dlg->exec();
-        delete dlg;
+        DirectChannelInfoDialog dlg(mCurrentRocketChatAccount, this);
+        dlg.setUserName(mRoom->name());
+        dlg.exec();
     } else {
         QPointer<ChannelInfoDialog> dlg = new ChannelInfoDialog(mCurrentRocketChatAccount, this);
         dlg->setRoom(mRoom);
@@ -366,23 +365,21 @@ void RoomWidget::slotShowThreads()
 
 void RoomWidget::slotShowDiscussions()
 {
-    QPointer<ShowDiscussionsDialog> dlg = new ShowDiscussionsDialog(mCurrentRocketChatAccount, this);
-    dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
-    dlg->setRoomId(mRoomWidgetBase->roomId());
+    ShowDiscussionsDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
+    dlg.setRoomId(mRoomWidgetBase->roomId());
     mCurrentRocketChatAccount->discussionsInRoom(mRoomWidgetBase->roomId());
-    dlg->exec();
-    delete dlg;
+    dlg.exec();
 }
 
 void RoomWidget::slotShowFileAttachments()
 {
-    QPointer<ShowAttachmentDialog> dlg = new ShowAttachmentDialog(mCurrentRocketChatAccount, this);
+    ShowAttachmentDialog dlg(mCurrentRocketChatAccount, this);
     mCurrentRocketChatAccount->roomFiles(mRoomWidgetBase->roomId(), mRoomType);
-    dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-    dlg->setRoomId(mRoomWidgetBase->roomId());
-    dlg->setRoomType(mRoomType);
-    dlg->exec();
-    delete dlg;
+    dlg.setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg.setRoomId(mRoomWidgetBase->roomId());
+    dlg.setRoomType(mRoomType);
+    dlg.exec();
 }
 
 void RoomWidget::slotSearchMessages()
@@ -745,12 +742,12 @@ void RoomWidget::slotGoBackToRoom()
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
 {
-    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
-    dlg->setThreadMessageId(threadMessageId);
-    dlg->setFollowingThread(threadIsFollowing);
-    dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoom(mRoom);
-    dlg->show();
+    ThreadMessageDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.setThreadMessageId(threadMessageId);
+    dlg.setFollowingThread(threadIsFollowing);
+    dlg.setThreadPreview(threadMessagePreview);
+    dlg.setRoom(mRoom);
+    dlg.show();
 }
 
 void RoomWidget::setLayoutSpacing(int spacing)
