@@ -53,7 +53,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mAddReactionIcon(QIcon::fromTheme(QStringLiteral("smiley-add")))
     , mFavoriteIcon(QIcon::fromTheme(QStringLiteral("favorite")))
     , mFollowingIcon(QIcon::fromTheme(QStringLiteral("notifications")))
-    , mPinIcon(QIcon::fromTheme(QStringLiteral("pin"))) // TODO use better icon for following message
+    , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
     , mHelperText(new MessageDelegateHelperText(view))
