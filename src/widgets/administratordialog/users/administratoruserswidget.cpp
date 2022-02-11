@@ -74,7 +74,8 @@ void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 void AdministratorUsersWidget::slotModifyDoubleClickUser(const QModelIndex &index)
 {
     if (index.isValid()) {
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
+        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
         slotModifyUser(modelIndex);
     }
 }
