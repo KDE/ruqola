@@ -20,7 +20,7 @@ AdministratorOauthEditDialog::AdministratorOauthEditDialog(QWidget *parent)
     : QDialog(parent)
     , mOauthEditWidget(new AdministratorOauthEditWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Add Oauth Apps"));
+    setWindowTitle(i18nc("@title:window", "Edit Oauth Apps"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
