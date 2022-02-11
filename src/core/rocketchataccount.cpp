@@ -963,7 +963,7 @@ void RocketChatAccount::slotChannelGroupRolesDone(const QJsonObject &obj, const 
         Roles r;
         r.parseRole(obj);
         room->setRolesForRooms(r);
-        // qDebug() << " r " << r << " room " << room->name();
+        // qDebug() << " r " << r << " room " << room->name() << " obj" << obj;
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfo.identifier;
     }
@@ -1021,7 +1021,7 @@ void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QS
 
 void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
-    const QVector<User> users = User::parseUsersList(obj);
+    const QVector<User> users = User::parseUsersList(obj, roleInfo());
     mUserCompleterModel->insertUsers(users);
 }
 
@@ -2295,7 +2295,7 @@ void RocketChatAccount::slotUsersPresenceDone(const QJsonObject &obj)
     for (const auto &var : lst) {
         const QJsonObject userJson = var.toObject();
         User user;
-        user.parseUserRestApi(userJson);
+        user.parseUserRestApi(userJson, roleInfo());
         if (user.isValid()) {
             userStatusChanged(user);
         }

@@ -182,7 +182,7 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUserId(QStringLiteral("BDFj6E7Z9RYucn8C"));
         expected.setUserName(QStringLiteral("username"));
         expected.setUtcOffset(0);
-        expected.setRoles({QStringLiteral("user")});
+        expected.setRoles({QStringLiteral("user")}, {});
         QDateTime createdTime;
         createdTime.setDate(QDate(2020, 10, 05));
         createdTime.setTime(QTime(00, 48, 01, 903));
@@ -197,7 +197,7 @@ void UserTest::shouldParseRestApiJson_data()
         expected.setUserId(QStringLiteral("XQZAk3998f9hSNwh"));
         expected.setUserName(QStringLiteral("steffen"));
         expected.setUtcOffset(2);
-        expected.setRoles({QStringLiteral("user"), QStringLiteral("admin")});
+        expected.setRoles({QStringLiteral("user"), QStringLiteral("admin")}, {});
         QDateTime createdTime;
         createdTime.setDate(QDate(2018, 01, 18));
         createdTime.setTime(QTime(12, 52, 50, 772));
@@ -221,7 +221,7 @@ void UserTest::shouldParseRestApiJson()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
     const QJsonObject fields = AutoTestHelper::loadJsonObject(originalJsonFile);
     User user;
-    user.parseUserRestApi(fields);
+    user.parseUserRestApi(fields, {});
     const bool equal = (user == expectedUser);
     if (!equal) {
         qDebug() << " current value " << user;

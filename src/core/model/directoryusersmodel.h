@@ -8,6 +8,7 @@
 
 #include "directorybasemodel.h"
 #include "libruqolacore_export.h"
+#include "roles/roleinfo.h"
 #include "users.h"
 
 class LIBRUQOLACORE_EXPORT DirectoryUsersModel : public DirectoryBaseModel
@@ -37,10 +38,13 @@ public:
 
     int columnCount(const QModelIndex &parent = {}) const override;
 
+    void setRoles(const QVector<RoleInfo> &newRoles);
+
 protected:
     Q_REQUIRED_RESULT QList<int> hideColumns() const override;
     Q_REQUIRED_RESULT virtual Users::ParseType parseType() const;
     Users mUsers;
+    QVector<RoleInfo> mRoleInfo;
 
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)

@@ -35,8 +35,8 @@ public:
 
     User takeAt(int index);
 
-    void parseUsers(const QJsonObject &obj, ParseType type);
-    void parseMoreUsers(const QJsonObject &obj, ParseType type);
+    void parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
+    void parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
 
     Q_REQUIRED_RESULT QVector<User> users() const;
     void setUsers(const QVector<User> &rooms);
@@ -45,7 +45,7 @@ public:
     void setRoomsCount(int adminroomsCount);
 
 private:
-    void parseListUsers(const QJsonObject &obj, ParseType type);
+    void parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
     QVector<User> mUsers;
     int mUsersCount = 0;
     int mOffset = 0;

@@ -40,16 +40,16 @@ User &Users::operator[](int i)
     return mUsers[i];
 }
 
-void Users::parseMoreUsers(const QJsonObject &obj, ParseType type)
+void Users::parseMoreUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
 {
     const int usersCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
-    parseListUsers(obj, type);
+    parseListUsers(obj, type, roleInfo);
     mUsersCount += usersCount;
 }
 
-void Users::parseListUsers(const QJsonObject &obj, ParseType type)
+void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
 {
     QString parseTypeStr;
     switch (type) {
@@ -68,7 +68,7 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type)
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User m;
-            m.parseUserRestApi(userObject);
+            m.parseUserRestApi(userObject, roleInfo);
             mUsers.append(m);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Users" << current;
@@ -96,13 +96,13 @@ void Users::setUsers(const QVector<User> &rooms)
     mUsers = rooms;
 }
 
-void Users::parseUsers(const QJsonObject &obj, ParseType type)
+void Users::parseUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo)
 {
     mUsersCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();
     mTotal = obj[QStringLiteral("total")].toInt();
     mUsers.clear();
-    parseListUsers(obj, type);
+    parseListUsers(obj, type, roleInfo);
 }
 
 int Users::offset() const

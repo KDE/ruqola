@@ -36,10 +36,15 @@ Users::ParseType DirectoryUsersModel::parseType() const
     return Users::ParseType::Directory;
 }
 
+void DirectoryUsersModel::setRoles(const QVector<RoleInfo> &newRoles)
+{
+    mRoleInfo = newRoles;
+}
+
 void DirectoryUsersModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mUsers.count();
-    mUsers.parseMoreUsers(obj, parseType());
+    mUsers.parseMoreUsers(obj, parseType(), mRoleInfo);
     beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
     endInsertRows();
     checkFullList();
@@ -52,7 +57,7 @@ void DirectoryUsersModel::parseElements(const QJsonObject &obj)
         mUsers.clear();
         endRemoveRows();
     }
-    mUsers.parseUsers(obj, parseType());
+    mUsers.parseUsers(obj, parseType(), mRoleInfo);
     if (!mUsers.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mUsers.count() - 1);
         endInsertRows();

@@ -29,8 +29,12 @@
 AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
-    mModel = new AdminUsersModel(this);
-    mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
+    AdminUsersModel *adminUsersModel = new AdminUsersModel(this);
+    adminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
+    if (account) {
+        adminUsersModel->setRoles(account->roleInfo());
+    }
+    mModel = adminUsersModel;
 
     mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
@@ -100,7 +104,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
     dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     User user;
-    user.parseUserRestApi(obj[QLatin1String("user")].toObject());
+    user.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());
     dlg->setUser(user);
     if (dlg->exec()) {
         RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
@@ -119,7 +123,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 {
     User newUser;
-    newUser.parseUserRestApi(obj[QLatin1String("user")].toObject());
+    newUser.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());
     // TODO update user;
     qDebug() << " obj " << obj;
 }

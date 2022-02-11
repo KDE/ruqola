@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "roles/roleinfo.h"
 #include <QDateTime>
 #include <QDebug>
 #include <QString>
@@ -66,13 +67,13 @@ public:
     Q_REQUIRED_RESULT QString statusText() const;
     void setStatusText(const QString &statusText);
 
-    void parseUserRestApi(const QJsonObject &object);
+    void parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
 
-    Q_REQUIRED_RESULT static QVector<User> parseUsersList(const QJsonObject &object);
+    Q_REQUIRED_RESULT static QVector<User> parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo);
     void parseUser(const QVariantList &list);
 
     Q_REQUIRED_RESULT QStringList roles() const;
-    void setRoles(const QStringList &roles);
+    void setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo);
 
     Q_REQUIRED_RESULT QDateTime createdAt() const;
     void setCreatedAt(const QDateTime &createdAt);
@@ -93,7 +94,7 @@ public:
     Q_REQUIRED_RESULT bool requirePasswordChange() const;
     void setRequirePasswordChange(bool newRequirePasswordChange);
 
-    Q_REQUIRED_RESULT static QString roleI18n(const QString &roleStr);
+    Q_REQUIRED_RESULT static QString roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo);
 
 private:
     UserEmailsInfo mUserEmailsInfo;

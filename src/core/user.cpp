@@ -119,7 +119,7 @@ QDebug operator<<(QDebug d, const User &t)
 }
 
 // FIXME Add autotest for it!
-void User::parseUserRestApi(const QJsonObject &object)
+void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
 {
     setUserId(object.value(QLatin1String("_id")).toString());
     setName(object.value(QLatin1String("name")).toString());
@@ -135,7 +135,7 @@ void User::parseUserRestApi(const QJsonObject &object)
     for (int i = 0; i < total; ++i) {
         roles.append(rolesArray.at(i).toString());
     }
-    setRoles(roles);
+    setRoles(roles, roleInfo);
     if (object.contains(QLatin1String("createdAt"))) {
         setCreatedAt(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), object)));
     }
@@ -192,7 +192,7 @@ QStringList User::roles() const
     return mRoles;
 }
 
-QString User::roleI18n(const QString &roleStr)
+QString User::roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo)
 {
     QString ri18n;
     if (roleStr == QLatin1String("user")) {
@@ -202,19 +202,26 @@ QString User::roleI18n(const QString &roleStr)
     } else if (roleStr == QLatin1String("bot")) {
         ri18n = i18n("Bot");
     } else {
-        ri18n = roleStr;
+        for (const RoleInfo &info : roleInfo) {
+            if (roleStr == info.identifier()) {
+                ri18n = info.name();
+                break;
+            }
+        }
+        if (ri18n.isEmpty()) {
+            ri18n = roleStr;
+        }
     }
     return ri18n;
 }
 
-void User::setRoles(const QStringList &roles)
+void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)
 {
     QStringList rolesI18n;
     rolesI18n.reserve(roles.count());
     for (const QString &role : roles) {
-        rolesI18n.append(User::roleI18n(role));
+        rolesI18n.append(User::roleI18n(role, roleInfo));
     }
-    // TODO use roleInfo for show correct role description
     mI18nRoles = rolesI18n;
     mRoles = roles;
 }
@@ -297,7 +304,7 @@ QString User::iconFromStatus() const
     return Utils::iconFromPresenceStatus(mStatus);
 }
 
-QVector<User> User::parseUsersList(const QJsonObject &object)
+QVector<User> User::parseUsersList(const QJsonObject &object, const QVector<RoleInfo> &roleInfo)
 {
     const QJsonArray fieldsArray = object.value(QLatin1String("items")).toArray();
     QVector<User> users;
@@ -305,7 +312,7 @@ QVector<User> User::parseUsersList(const QJsonObject &object)
         if (current.type() == QJsonValue::Object) {
             const QJsonObject userObject = current.toObject();
             User user;
-            user.parseUserRestApi(userObject);
+            user.parseUserRestApi(userObject, roleInfo);
             users.append(user);
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing users" << current;

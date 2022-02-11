@@ -105,7 +105,7 @@ void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 {
     const QJsonObject userJson = obj.value(QStringLiteral("user")).toObject();
     User user;
-    user.parseUserRestApi(userJson);
+    user.parseUserRestApi(userJson, mListRoleInfos);
     if (user.isValid()) {
         setUser(user);
     } else {
@@ -144,7 +144,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
         for (const QString &rolestr : roles) {
             for (const RoleInfo &roleInfo : std::as_const(mListRoleInfos)) {
                 if (roleInfo.identifier() == rolestr) {
-                    newRolesList.append(User::roleI18n(roleInfo.name()));
+                    newRolesList.append(User::roleI18n(roleInfo.name(), mListRoleInfos));
                     break;
                 }
             }
