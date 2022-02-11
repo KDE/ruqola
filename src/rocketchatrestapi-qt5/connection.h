@@ -244,7 +244,7 @@ Q_SIGNALS:
     void deleteGroupsDone();
     void pinMessageDone();
     void ignoreUserDone(const QJsonObject &obj, const QString &roomId);
-    void groupRolesDone(const QJsonObject &obj, const QString &roomId);
+    void groupRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void followMessageDone();
     void unFollowMessageDone();
     void startDiscussionDone();

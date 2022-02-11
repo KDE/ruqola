@@ -552,7 +552,7 @@ private:
     Q_DISABLE_COPY(RocketChatAccount)
 
     void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void slotSplotLightDone(const QJsonObject &obj);
     void slotChannelListDone(const QJsonObject &obj);
     void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
