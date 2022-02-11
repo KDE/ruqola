@@ -196,7 +196,13 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
-        // Add support for reset E2E/TOTP etc.
+        menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {});
+        menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {});
+        menu.addAction(i18n("Reset Totp"), this, [this, newModelIndex]() {});
+        menu.addSeparator();
+        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
+            slotActivateUser(newModelIndex, activateUser);
+        });
 
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
             const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
