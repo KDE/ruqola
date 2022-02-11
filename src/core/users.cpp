@@ -28,6 +28,10 @@ int Users::count() const
 
 User Users::at(int index) const
 {
+    if (index < 0 || index > mUsers.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
     return mUsers.at(index);
 }
 

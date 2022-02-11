@@ -28,6 +28,10 @@ int CustomSoundsInfo::count() const
 
 CustomSoundInfo CustomSoundsInfo::at(int index) const
 {
+    if (index < 0 || index > mCustomSoundInfos.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
     return mCustomSoundInfos.at(index);
 }
 

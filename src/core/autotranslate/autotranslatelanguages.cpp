@@ -5,7 +5,7 @@
 */
 
 #include "autotranslatelanguages.h"
-
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -38,6 +38,10 @@ void AutotranslateLanguages::clear()
 
 AutotranslateLanguage AutotranslateLanguages::at(int index) const
 {
+    if (index < 0 || index > mAutotranslateLanguages.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
     return mAutotranslateLanguages.at(index);
 }
 

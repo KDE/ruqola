@@ -55,6 +55,10 @@ int CustomUserStatuses::count() const
 
 CustomUserStatus CustomUserStatuses::at(int index) const
 {
+    if (index < 0 || index > mCustomUserses.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
     return mCustomUserses.at(index);
 }
 
