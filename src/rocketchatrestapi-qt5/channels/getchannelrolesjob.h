@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
 protected:
-    QString jobName() const override;
+    Q_REQUIRED_RESULT QString jobName() const override;
 
 Q_SIGNALS:
     void channelRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

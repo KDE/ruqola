@@ -496,7 +496,8 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::loadEmojiCustomDone, this, &RocketChatAccount::loadEmoji);
         connect(mRestApi, &RocketChatRestApi::Connection::channelMembersDone, this, &RocketChatAccount::parseUsersForRooms);
         connect(mRestApi, &RocketChatRestApi::Connection::channelFilesDone, this, &RocketChatAccount::slotChannelFilesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelRolesDone);
+        connect(mRestApi, &RocketChatRestApi::Connection::channelRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
+        connect(mRestApi, &RocketChatRestApi::Connection::groupRolesDone, this, &RocketChatAccount::slotChannelGroupRolesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::searchMessageDone, this, &RocketChatAccount::slotSearchMessages);
         connect(mRestApi, &RocketChatRestApi::Connection::failed, this, &RocketChatAccount::jobFailed);
         connect(mRestApi, &RocketChatRestApi::Connection::spotlightDone, this, &RocketChatAccount::slotSplotLightDone);
@@ -929,13 +930,14 @@ ReceiveTypingNotificationManager *RocketChatAccount::receiveTypingNotificationMa
     return mReceiveTypingNotificationManager;
 }
 
-void RocketChatAccount::slotChannelRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
+void RocketChatAccount::slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
     Room *room = mRoomModel->findRoom(channelInfo.identifier);
     if (room) {
         Roles r;
         r.parseRole(obj);
         room->setRolesForRooms(r);
+        // qDebug() << " r " << r << " room " << room->name();
     } else {
         qCWarning(RUQOLA_LOG) << " Impossible to find room " << channelInfo.identifier;
     }

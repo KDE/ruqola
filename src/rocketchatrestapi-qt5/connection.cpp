@@ -1169,7 +1169,10 @@ void Connection::getGroupRoles(const QString &roomId)
 {
     auto job = new GetGroupRolesJob(this);
     initializeRestApiJob(job);
-    job->setRoomId(roomId);
+    ChannelGroupBaseJob::ChannelGroupInfo info;
+    info.channelGroupInfoType = ChannelGroupBaseJob::ChannelGroupInfoType::Identifier;
+    info.identifier = roomId;
+    job->setChannelGroupInfo(info);
     connect(job, &GetGroupRolesJob::groupRolesDone, this, &Connection::groupRolesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getGroupRoles job";

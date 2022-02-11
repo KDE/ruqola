@@ -6,12 +6,12 @@
 
 #pragma once
 
+#include "channelgroupbasejob.h"
 #include "librestapi_private_export.h"
-#include "restapiabstractjob.h"
 class QNetworkRequest;
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetGroupRolesJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT GetGroupRolesJob : public ChannelGroupBaseJob
 {
     Q_OBJECT
 public:
@@ -26,15 +26,14 @@ public:
 
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
 
-    Q_REQUIRED_RESULT QString roomId() const;
-    void setRoomId(const QString &roomId);
-
 Q_SIGNALS:
-    void groupRolesDone(const QJsonObject &obj, const QString &roomId);
+    void groupRolesDone(const QJsonObject &obj, const ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+
+protected:
+    Q_REQUIRED_RESULT QString jobName() const override;
 
 private:
     Q_DISABLE_COPY(GetGroupRolesJob)
     void onGetRequestResponse(const QJsonDocument &replyJson) override;
-    QString mRoomId;
 };
 }
