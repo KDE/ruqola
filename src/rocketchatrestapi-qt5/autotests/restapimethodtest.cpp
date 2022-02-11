@@ -67,6 +67,9 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemoveOtherTokens), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removeOtherTokens")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetActiveStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setActiveStatus")));
 
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetTOTP), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetTOTP")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetE2EKey), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetE2EKey")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatDelete), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.delete")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatGetMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.getMessage")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::ChatPinMessage), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.pinMessage")));

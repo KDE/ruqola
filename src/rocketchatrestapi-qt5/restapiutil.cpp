@@ -80,6 +80,11 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.removeOtherTokens");
     case RestApiUtil::RestApiUrlType::UsersSetActiveStatus:
         return QStringLiteral("users.setActiveStatus");
+    case RestApiUtil::RestApiUrlType::UsersResetTOTP:
+        return QStringLiteral("users.resetTOTP");
+    case RestApiUtil::RestApiUrlType::UsersResetE2EKey:
+        return QStringLiteral("users.resetE2EKey");
+
     case RestApiUtil::RestApiUrlType::ChatDelete:
         return QStringLiteral("chat.delete");
     case RestApiUtil::RestApiUrlType::ChatGetMessage:

@@ -41,6 +41,9 @@ enum class RestApiUrlType {
     UsersDeleteOwnAccount,
     UsersSetActiveStatus,
 
+    UsersResetTOTP,
+    UsersResetE2EKey,
+
     ChatDelete,
     ChatGetMessage,
     ChatPinMessage,
@@ -275,6 +278,7 @@ enum class RestApiUrlType {
 
     StdoutQueue,
 
+    // Oauth
     OauthAppsList,
     OauthAppsGet,
 
