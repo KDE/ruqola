@@ -23,6 +23,7 @@ void UsersListJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasUserIdentifier());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void UsersListJobTest::shouldGenerateRequest()

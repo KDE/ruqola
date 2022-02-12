@@ -26,6 +26,7 @@ void CustomUserStatusListJobTest::shouldHaveDefaultValue()
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void CustomUserStatusListJobTest::shouldGenerateRequest()

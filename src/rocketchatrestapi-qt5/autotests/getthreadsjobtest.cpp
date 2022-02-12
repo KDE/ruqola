@@ -25,6 +25,7 @@ void GetThreadsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
     QCOMPARE(job.searchType(), GetThreadsJob::TheadSearchType::All);
 }
 

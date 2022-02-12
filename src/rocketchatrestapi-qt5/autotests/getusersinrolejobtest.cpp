@@ -24,6 +24,7 @@ void GetUsersInRoleJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
     QVERIFY(job.roleId().isEmpty());
 }
 

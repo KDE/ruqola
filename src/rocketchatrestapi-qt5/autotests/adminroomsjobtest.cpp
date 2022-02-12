@@ -24,6 +24,7 @@ void AdminRoomsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void AdminRoomsJobTest::shouldGenerateRequest()

@@ -23,6 +23,7 @@ void ChannelMembersJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.channelType(), ChannelMembersJob::ChannelType::Unknown);
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void ChannelMembersJobTest::shouldGenerateRequest()

@@ -26,6 +26,7 @@ void ChannelGetAllUserMentionsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void ChannelGetAllUserMentionsJobTest::shouldHaveParameterSupport()

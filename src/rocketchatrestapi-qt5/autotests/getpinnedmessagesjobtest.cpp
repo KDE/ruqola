@@ -25,6 +25,7 @@ void GetPinnedMessagesJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void GetPinnedMessagesJobTest::shouldGenerateRequest()
