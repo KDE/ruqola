@@ -72,6 +72,11 @@ bool RestApiAbstractJob::hasAuthenticationValue() const
     return !mAuthToken.isEmpty() && !mUserId.isEmpty();
 }
 
+bool RestApiAbstractJob::requireTwoFactorAuthentication() const
+{
+    return false;
+}
+
 bool RestApiAbstractJob::hasQueryParameterSupport() const
 {
     return false;

@@ -83,6 +83,7 @@ public:
 
     virtual bool start() = 0;
     virtual bool requireHttpAuthentication() const = 0;
+    virtual bool requireTwoFactorAuthentication() const;
 
     virtual bool hasQueryParameterSupport() const;
 
