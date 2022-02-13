@@ -112,6 +112,11 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
 {
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
+    if (requireTwoFactorAuthentication()) {
+        // TODO
+        // request.setRawHeader(QByteArrayLiteral("x-2fa-code"), mAuthToken.toLocal8Bit());
+        // request.setRawHeader(QByteArrayLiteral("x-2fa-method"), mUserId.toLocal8Bit());
+    }
 }
 
 QueryParameters RestApiAbstractJob::queryParameters() const
