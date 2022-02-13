@@ -438,7 +438,8 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "NetworkSessionFailedError. Lost connection? ";
             return;
         }
-        auto json = QJsonDocument::fromJson(mReply->readAll()).object();
+        // TODO add support error 400
+        const auto json = QJsonDocument::fromJson(mReply->readAll()).object();
         Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(json));
     } else {
         (this->*responseHandler)(convertToJsonDocument(mReply));
