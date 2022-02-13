@@ -42,6 +42,16 @@ void ResetTOTPJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
+const QString &ResetTOTPJob::resetUserId() const
+{
+    return mResetUserId;
+}
+
+void ResetTOTPJob::setResetUserId(const QString &newResetUserId)
+{
+    mResetUserId = newResetUserId;
+}
+
 bool ResetTOTPJob::requireHttpAuthentication() const
 {
     return true;
@@ -52,10 +62,10 @@ bool ResetTOTPJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (!hasUserIdentifier()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetTOTPJob: identifier is empty";
-    //        return false;
-    //    }
+    if (mResetUserId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetTOTPJob: mResetUserId is empty";
+        return false;
+    }
     return true;
 }
 
@@ -71,7 +81,7 @@ QNetworkRequest ResetTOTPJob::request() const
 QJsonDocument ResetTOTPJob::json() const
 {
     QJsonObject jsonObj;
-    // generateJson(jsonObj);
+    jsonObj[QStringLiteral("userId")] = mResetUserId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
