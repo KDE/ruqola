@@ -193,4 +193,4 @@ add_rocketchatrestapi_test(adminroomsgetroomjobtest.cpp)
 add_rocketchatrestapi_test(resetowne2ekeyjobtest.cpp)
 add_rocketchatrestapi_test(listoauthappsjobtest.cpp)
 add_rocketchatrestapi_test(oauthappsjobtest.cpp)
-
+add_rocketchatrestapi_test(resettotpjobtest.cpp)
