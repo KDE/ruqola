@@ -418,6 +418,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
 
     users/resettotpjob.cpp
     users/resettotpjob.h
+
+    users/resete2ekeyjob.cpp
+    users/resete2ekeyjob.h
     )
 
 
