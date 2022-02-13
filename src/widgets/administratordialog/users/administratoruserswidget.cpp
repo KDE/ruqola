@@ -14,6 +14,8 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "users/deleteuserjob.h"
+#include "users/resete2ekeyjob.h"
+#include "users/resettotpjob.h"
 #include "users/setuseractivestatusjob.h"
 #include "users/userinfojob.h"
 #include "users/userscreatejob.h"
@@ -185,20 +187,29 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
 
-        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
             slotModifyUser(modelIndex);
         });
         menu.addSeparator();
+        const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
         const bool activateUser = modelIndex.data().toBool();
         menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
             slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
-        menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {});
-        menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {});
-        menu.addAction(i18n("Reset Totp"), this, [this, newModelIndex]() {});
+        menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+            // TODO
+        });
+        menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+            slotResetE2EKey(modelIndex);
+        });
+        menu.addAction(i18n("Reset Totp"), this, [this, newModelIndex]() {
+            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+            slotResetTOTPKey(modelIndex);
+        });
         menu.addSeparator();
         menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
             slotActivateUser(newModelIndex, activateUser);
@@ -250,5 +261,54 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+    }
+}
+
+void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
+{
+    if (KMessageBox::questionYesNo(this,
+                                   i18n("Reset the current E2E key will log out the user. When the user login again, Rocket.Chat "
+                                        "will generate a new key and restore the user access to any encrypted room that has one or more members "
+                                        "online. Due to the nature of the E2E encryption, Rocket.Chat will not be able to restore access to any encrypted "
+                                        "room that has no member online."),
+                                   i18n("Reset E2E key"),
+                                   KStandardGuiItem::reset(),
+                                   KStandardGuiItem::cancel())
+        == KMessageBox::Yes) {
+        auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QString userId = modelIndex.data().toString();
+
+        job->setResetUserId(userId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
+            // slotDeleteUserDone(userId);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
+        }
+    }
+}
+
+void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
+{
+    if (KMessageBox::questionYesNo(this,
+                                   i18n("Reset the current Two Factor TOTP will log out the user. The user will be able to set the Two Factor again later."),
+                                   i18n("Reset TOTP"),
+                                   KStandardGuiItem::reset(),
+                                   KStandardGuiItem::cancel())
+        == KMessageBox::Yes) {
+        auto job = new RocketChatRestApi::ResetTOTPJob(this);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QString userId = modelIndex.data().toString();
+
+        job->setResetUserId(userId);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
+            // slotDeleteUserDone(userId);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
+        }
     }
 }

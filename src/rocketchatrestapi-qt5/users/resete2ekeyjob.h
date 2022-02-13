@@ -29,7 +29,7 @@ public:
     void setResetUserId(const QString &newResetUserId);
 
 Q_SIGNALS:
-    void resetAvatarDone();
+    void resetE2EKeyDone();
 
 private:
     Q_DISABLE_COPY(ResetE2EKeyJob)

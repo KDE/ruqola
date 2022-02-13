@@ -35,7 +35,7 @@ void ResetTOTPJob::onPostRequestResponse(const QJsonDocument &replyJson)
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetTOTPJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetAvatarDone();
+        Q_EMIT resetTOTPDone();
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetTOTPJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

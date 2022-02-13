@@ -35,7 +35,7 @@ void ResetE2EKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetE2EKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT resetAvatarDone();
+        Q_EMIT resetE2EKeyDone();
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetE2EKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
