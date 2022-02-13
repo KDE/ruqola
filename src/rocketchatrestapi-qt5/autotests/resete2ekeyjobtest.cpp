@@ -26,6 +26,7 @@ void ResetE2EKeyJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.requireTwoFactorAuthentication());
+    QVERIFY(job.resetUserId().isEmpty());
 }
 
 void ResetE2EKeyJobTest::shouldGenerateRequest()
@@ -41,7 +42,7 @@ void ResetE2EKeyJobTest::shouldGenerateRequest()
 void ResetE2EKeyJobTest::shouldGenerateJson()
 {
     ResetE2EKeyJob job;
-    //    const QString email = QStringLiteral("foo");
-    //    job.setEmail(email);
+    const QString resetUserId = QStringLiteral("foo");
+    job.setResetUserId(resetUserId);
     //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1"})").arg(email).toLatin1());
 }

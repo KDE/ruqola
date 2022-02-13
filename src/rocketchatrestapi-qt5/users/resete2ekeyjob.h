@@ -25,11 +25,15 @@ public:
     Q_REQUIRED_RESULT QJsonDocument json() const;
     Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
 
+    Q_REQUIRED_RESULT const QString &resetUserId() const;
+    void setResetUserId(const QString &newResetUserId);
+
 Q_SIGNALS:
     void resetAvatarDone();
 
 private:
     Q_DISABLE_COPY(ResetE2EKeyJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    QString mResetUserId;
 };
 }

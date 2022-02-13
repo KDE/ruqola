@@ -42,6 +42,16 @@ void ResetE2EKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
+const QString &ResetE2EKeyJob::resetUserId() const
+{
+    return mResetUserId;
+}
+
+void ResetE2EKeyJob::setResetUserId(const QString &newResetUserId)
+{
+    mResetUserId = newResetUserId;
+}
+
 bool ResetE2EKeyJob::requireHttpAuthentication() const
 {
     return true;
