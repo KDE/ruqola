@@ -62,10 +62,10 @@ bool ResetE2EKeyJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (!hasUserIdentifier()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetE2EKeyJob: identifier is empty";
-    //        return false;
-    //    }
+    if (mResetUserId.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "ResetE2EKeyJob: mResetUserId is empty";
+        return false;
+    }
     return true;
 }
 
@@ -81,7 +81,7 @@ QNetworkRequest ResetE2EKeyJob::request() const
 QJsonDocument ResetE2EKeyJob::json() const
 {
     QJsonObject jsonObj;
-    // generateJson(jsonObj);
+    jsonObj[QStringLiteral("userId")] = mResetUserId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
