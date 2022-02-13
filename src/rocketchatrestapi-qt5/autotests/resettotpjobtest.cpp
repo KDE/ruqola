@@ -6,7 +6,7 @@
 
 #include "resettotpjobtest.h"
 #include "restapimethod.h"
-#include "users/forgotpasswordjob.h"
+#include "users/resettotpjob.h"
 #include <QJsonDocument>
 #include <QTest>
 QTEST_GUILESS_MAIN(ResetTOTPJobTest)
@@ -18,31 +18,30 @@ ResetTOTPJobTest::ResetTOTPJobTest(QObject *parent)
 
 void ResetTOTPJobTest::shouldHaveDefaultValue()
 {
-    ForgotPasswordJob job;
+    ResetTOTPJob job;
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.networkAccessManager());
     QVERIFY(!job.start());
-    QVERIFY(!job.requireHttpAuthentication());
-    QVERIFY(job.email().isEmpty());
+    QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.restApiLogger());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.requireTwoFactorAuthentication());
 }
 
 void ResetTOTPJobTest::shouldGenerateRequest()
 {
-    ForgotPasswordJob job;
+    ResetTOTPJob job;
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    job.setEmail(QStringLiteral("foo"));
     const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.forgotPassword")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetTOTP")));
 }
 
 void ResetTOTPJobTest::shouldGenerateJson()
 {
-    ForgotPasswordJob job;
-    const QString email = QStringLiteral("foo");
-    job.setEmail(email);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1"})").arg(email).toLatin1());
+    ResetTOTPJob job;
+    //    const QString email = QStringLiteral("foo");
+    //    job.setEmail(email);
+    //    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"email":"%1"})").arg(email).toLatin1());
 }
