@@ -8,6 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -89,4 +91,12 @@ QJsonDocument ResetTOTPJob::json() const
 bool ResetTOTPJob::requireTwoFactorAuthentication() const
 {
     return true;
+}
+
+QString ResetTOTPJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("totp-required")) {
+        return i18n("TOTP Required");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
