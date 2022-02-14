@@ -113,9 +113,10 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
     if (requireTwoFactorAuthentication()) {
-        // TODO
-        // request.setRawHeader(QByteArrayLiteral("x-2fa-code"), mAuthToken.toLocal8Bit());
-        // request.setRawHeader(QByteArrayLiteral("x-2fa-method"), mUserId.toLocal8Bit());
+        if (!mAuthMethod.isEmpty() && !mAuthCode.isEmpty()) {
+            request.setRawHeader(QByteArrayLiteral("x-2fa-code"), mAuthCode.toLocal8Bit());
+            request.setRawHeader(QByteArrayLiteral("x-2fa-method"), mAuthMethod.toLocal8Bit());
+        }
     }
 }
 
@@ -452,6 +453,26 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
 
     mReply->deleteLater();
     deleteLater();
+}
+
+const QString &RestApiAbstractJob::authCode() const
+{
+    return mAuthCode;
+}
+
+void RestApiAbstractJob::setAuthCode(const QString &newAuthCode)
+{
+    mAuthCode = newAuthCode;
+}
+
+const QString &RestApiAbstractJob::authMethod() const
+{
+    return mAuthMethod;
+}
+
+void RestApiAbstractJob::setAuthMethod(const QString &newAuthMethod)
+{
+    mAuthMethod = newAuthMethod;
 }
 
 void RestApiAbstractJob::submitDeleteRequest()

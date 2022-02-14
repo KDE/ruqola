@@ -103,6 +103,13 @@ public:
 
     void addQueryParameter(QUrlQuery &urlQuery) const;
     void addRequestAttribute(QNetworkRequest &request, bool addContentTypeHeader = true) const;
+
+    Q_REQUIRED_RESULT const QString &authMethod() const;
+    void setAuthMethod(const QString &newAuthMethod);
+
+    Q_REQUIRED_RESULT const QString &authCode() const;
+    void setAuthCode(const QString &newAuthCode);
+
 Q_SIGNALS:
     void failed(const QString &str);
 
@@ -146,6 +153,8 @@ private:
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;
+    QString mAuthMethod;
+    QString mAuthCode;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 };
