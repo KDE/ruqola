@@ -24,6 +24,8 @@ void StarMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.restApiMethod());
     QVERIFY(!job.start());
     QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.authCode().isEmpty());
+    QVERIFY(job.authMethod().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.restApiLogger());

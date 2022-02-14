@@ -27,6 +27,8 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.uploadFileInfo().filenameUrl.isValid());
     QVERIFY(job.uploadFileInfo().threadMessageId.isEmpty());
     QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.authCode().isEmpty());
+    QVERIFY(job.authMethod().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
 }

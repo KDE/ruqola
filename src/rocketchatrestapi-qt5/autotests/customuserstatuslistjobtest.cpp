@@ -23,6 +23,8 @@ void CustomUserStatusListJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.start());
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.authToken().isEmpty());
+    QVERIFY(job.authCode().isEmpty());
+    QVERIFY(job.authMethod().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.restApiLogger());
     QVERIFY(job.hasQueryParameterSupport());
