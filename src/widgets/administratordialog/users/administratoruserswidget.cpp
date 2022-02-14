@@ -280,6 +280,9 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         const QString userId = modelIndex.data().toString();
 
         job->setResetUserId(userId);
+        //        job->setAuthMethod(<method>);
+        //        job->setAuthCode(<code>);
+
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
             qDebug() << "ResetE2EKeyJob done";
@@ -304,6 +307,8 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         const QString userId = modelIndex.data().toString();
 
         job->setResetUserId(userId);
+        //        job->setAuthMethod(<method>);
+        //        job->setAuthCode(<code>);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
             qDebug() << "resetTOTPDone done";
