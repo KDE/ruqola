@@ -282,6 +282,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         job->setResetUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
+            qDebug() << "ResetE2EKeyJob done";
             // slotDeleteUserDone(userId);
         });
         if (!job->start()) {
@@ -305,6 +306,7 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         job->setResetUserId(userId);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
+            qDebug() << "resetTOTPDone done";
             // slotDeleteUserDone(userId);
         });
         if (!job->start()) {
