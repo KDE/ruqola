@@ -53,6 +53,11 @@ void UsersUpdateJob::setUpdateInfo(const UpdateUserInfo &updateInfo)
     mUpdateInfo = updateInfo;
 }
 
+bool UsersUpdateJob::requireTwoFactorAuthentication() const
+{
+    return true;
+}
+
 QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &details)
 {
     if (str == QLatin1String("totp-required")) {

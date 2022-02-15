@@ -23,6 +23,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
 
 protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;

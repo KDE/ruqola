@@ -28,6 +28,7 @@ public:
 
     Q_REQUIRED_RESULT UpdateUserInfo updateInfo() const;
     void setUpdateInfo(const UpdateUserInfo &updateInfo);
+    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
 
 protected:
     Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
