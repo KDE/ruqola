@@ -16,7 +16,7 @@ public:
     explicit ConfirmPasswordWidget(QWidget *parent = nullptr);
     ~ConfirmPasswordWidget() override;
 
-    Q_REQUIRED_RESULT const QString password() const;
+    Q_REQUIRED_RESULT QString password() const;
 
 private:
     KPasswordLineEdit *const mPasswordLineEdit;

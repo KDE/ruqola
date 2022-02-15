@@ -31,7 +31,7 @@ ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
 
 ConfirmPasswordWidget::~ConfirmPasswordWidget() = default;
 
-const QString ConfirmPasswordWidget::password() const
+QString ConfirmPasswordWidget::password() const
 {
     return mPasswordLineEdit->password();
 }

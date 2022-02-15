@@ -97,6 +97,9 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/searchmessagewithdelaylineedit.h
     dialogs/searchmessagewithdelaylineedit.cpp
 
+    dialogs/confirmpassworddialog.cpp
+    dialogs/confirmpassworddialog.h
+
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp
     configuredialog/accountserverlistwidget.cpp

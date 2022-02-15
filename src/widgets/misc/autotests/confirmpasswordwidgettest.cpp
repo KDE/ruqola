@@ -6,7 +6,10 @@
 
 #include "confirmpasswordwidgettest.h"
 #include "misc/confirmpasswordwidget.h"
+#include <KPasswordLineEdit>
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(ConfirmPasswordWidgetTest)
 
 ConfirmPasswordWidgetTest::ConfirmPasswordWidgetTest(QObject *parent)
@@ -17,5 +20,16 @@ ConfirmPasswordWidgetTest::ConfirmPasswordWidgetTest(QObject *parent)
 void ConfirmPasswordWidgetTest::shouldHaveDefaultValues()
 {
     ConfirmPasswordWidget w;
-    // TODO
+    QVERIFY(w.password().isEmpty());
+    auto mPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mPasswordLineEdit"));
+    QVERIFY(mPasswordLineEdit);
+    QVERIFY(mPasswordLineEdit->password().isEmpty());
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
