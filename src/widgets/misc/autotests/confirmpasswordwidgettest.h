@@ -13,4 +13,6 @@ class ConfirmPasswordWidgetTest : public QObject
 public:
     explicit ConfirmPasswordWidgetTest(QObject *parent = nullptr);
     ~ConfirmPasswordWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
