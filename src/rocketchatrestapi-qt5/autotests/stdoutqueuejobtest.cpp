@@ -22,6 +22,7 @@ void StdoutQueueJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void StdoutQueueJobTest::shouldGenerateRequest()

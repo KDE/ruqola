@@ -25,6 +25,7 @@ void SetStatusJobTest::shouldHaveDefaultValue()
     QVERIFY(job.statusMessage().isEmpty());
     QCOMPARE(job.status(), SetStatusJob::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void SetStatusJobTest::shouldGenerateRequest()

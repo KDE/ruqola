@@ -22,6 +22,7 @@ void User2FAEnableEmailJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void User2FAEnableEmailJobTest::shouldGenerateRequest()

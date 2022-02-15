@@ -34,6 +34,7 @@ void RoomsExportJobTest::shouldHaveDefaultValue()
     QVERIFY(info.messages.isEmpty());
     QVERIFY(!info.dateFrom.isValid());
     QVERIFY(!info.dateTo.isValid());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void RoomsExportJobTest::shouldGenerateRequest()

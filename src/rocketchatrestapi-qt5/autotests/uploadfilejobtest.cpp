@@ -31,6 +31,7 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(job.authMethod().isEmpty());
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void UploadFileJobTest::shouldGenerateRequest()

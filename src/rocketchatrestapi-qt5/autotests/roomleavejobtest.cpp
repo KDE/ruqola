@@ -23,6 +23,7 @@ void RoomLeaveJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void RoomLeaveJobTest::shouldGenerateRequest()

@@ -25,6 +25,7 @@ void SaveRoomSettingsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.saveRoomSettingsInfo().isValid());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void SaveRoomSettingsJobTest::shouldGenerateRequest()

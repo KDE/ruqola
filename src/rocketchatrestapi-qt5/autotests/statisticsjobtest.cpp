@@ -23,6 +23,7 @@ void StatisticsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.refresh());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void StatisticsJobTest::shouldGenerateRequest()

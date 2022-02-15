@@ -25,6 +25,7 @@ void UpdateMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.updatedText().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void UpdateMessageJobTest::shouldGenerateRequest()

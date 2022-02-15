@@ -24,6 +24,7 @@ void ReactOnMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.emoji().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void ReactOnMessageJobTest::shouldGenerateRequest()

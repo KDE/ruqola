@@ -27,6 +27,7 @@ void RoomStartDiscussionJobTest::shouldHaveDefaultValue()
     QVERIFY(job.replyMessage().isEmpty());
     QVERIFY(job.users().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void RoomStartDiscussionJobTest::shouldGenerateRequest()

@@ -23,6 +23,7 @@ void UnFollowMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void UnFollowMessageJobTest::shouldGenerateRequest()

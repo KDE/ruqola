@@ -22,6 +22,7 @@ void RoleCreateJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void RoleCreateJobTest::shouldGenerateRequest()

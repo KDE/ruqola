@@ -26,6 +26,7 @@ void TranslateSaveSettingsJobTest::shouldHaveDefaultValue()
     QCOMPARE(job.type(), TranslateSaveSettingsJob::Underfined);
     QVERIFY(!job.autoTranslate());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void TranslateSaveSettingsJobTest::shouldGenerateRequest()

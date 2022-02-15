@@ -24,6 +24,7 @@ void SetChannelTypeJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.type(), SetChannelTypeJob::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void SetChannelTypeJobTest::shouldGenerateRequest()

@@ -23,6 +23,7 @@ void RunCommandJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.runCommandInfo().isValid());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void RunCommandJobTest::shouldGenerateRequest()

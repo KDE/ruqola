@@ -25,6 +25,7 @@ void TwitterAuthJobTest::shouldHaveDefaultValue()
     QVERIFY(job.accessToken().isEmpty());
     QCOMPARE(job.expireTokenInSeconds(), -1);
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void TwitterAuthJobTest::shouldGenerateRequest()

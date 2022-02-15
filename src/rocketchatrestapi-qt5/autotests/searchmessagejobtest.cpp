@@ -26,6 +26,7 @@ void searchMessageJobTest::shouldHaveDefaultValue()
     QCOMPARE(job.count(), -1);
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.useRegularExpression());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void searchMessageJobTest::shouldGenerateRequest()

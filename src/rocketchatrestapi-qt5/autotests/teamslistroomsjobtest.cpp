@@ -23,6 +23,7 @@ void TeamsListRoomsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(job.teamId().isEmpty());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void TeamsListRoomsJobTest::shouldGenerateRequest()

@@ -24,6 +24,7 @@ void SetGroupTypeJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.hasIdentifier());
     QCOMPARE(job.type(), SetGroupTypeJob::Unknown);
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void SetGroupTypeJobTest::shouldGenerateRequest()

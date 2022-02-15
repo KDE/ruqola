@@ -24,6 +24,7 @@ void TranslateMessageJobTest::shouldHaveDefaultValue()
     QVERIFY(job.messageId().isEmpty());
     QVERIFY(job.targetLanguage().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void TranslateMessageJobTest::shouldGenerateRequest()

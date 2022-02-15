@@ -24,6 +24,7 @@ void TeamAddRoomsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.roomIds().isEmpty());
     QVERIFY(job.teamId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.requireTwoFactorAuthentication());
 }
 
 void TeamAddRoomsJobTest::shouldGenerateRequest()
