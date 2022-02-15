@@ -170,6 +170,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/searchwithdelaylineedit.cpp
     misc/searchtreebasewidget.cpp
     misc/rolescombobox.cpp
+    misc/confirmpasswordwidget.cpp
+    misc/confirmpasswordwidget.h
 
     common/completionlineedit.cpp
     common/completionlistview.cpp
