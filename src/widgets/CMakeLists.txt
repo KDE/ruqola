@@ -99,6 +99,9 @@ target_sources(libruqolawidgets PRIVATE
 
     dialogs/confirmpassworddialog.cpp
     dialogs/confirmpassworddialog.h
+    dialogs/confirmpasswordwidget.cpp
+    dialogs/confirmpasswordwidget.h
+
 
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp
@@ -173,8 +176,6 @@ target_sources(libruqolawidgets PRIVATE
     misc/searchwithdelaylineedit.cpp
     misc/searchtreebasewidget.cpp
     misc/rolescombobox.cpp
-    misc/confirmpasswordwidget.cpp
-    misc/confirmpasswordwidget.h
 
     common/completionlineedit.cpp
     common/completionlistview.cpp

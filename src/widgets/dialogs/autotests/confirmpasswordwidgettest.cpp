@@ -5,7 +5,7 @@
 */
 
 #include "confirmpasswordwidgettest.h"
-#include "misc/confirmpasswordwidget.h"
+#include "dialogs/confirmpasswordwidget.h"
 #include <KPasswordLineEdit>
 #include <QLabel>
 #include <QTest>
