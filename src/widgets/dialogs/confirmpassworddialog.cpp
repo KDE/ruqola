@@ -15,7 +15,7 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     : QDialog(parent)
     , mConfirmPasswordWidget(new ConfirmPasswordWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Configure Notification"));
+    setWindowTitle(i18nc("@title:window", "Confirm Password"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -32,4 +32,9 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
 
 ConfirmPasswordDialog::~ConfirmPasswordDialog()
 {
+}
+
+QString ConfirmPasswordDialog::password() const
+{
+    return mConfirmPasswordWidget->password();
 }

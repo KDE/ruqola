@@ -17,6 +17,8 @@ public:
     explicit ConfirmPasswordDialog(QWidget *parent = nullptr);
     ~ConfirmPasswordDialog() override;
 
+    Q_REQUIRED_RESULT QString password() const;
+
 private:
     ConfirmPasswordWidget *const mConfirmPasswordWidget;
 };
