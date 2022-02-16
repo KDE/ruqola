@@ -8,10 +8,15 @@
 
 #include <QDialog>
 
-class ConfirmPasswordDialog : public QDialog
+#include "libruqolawidgets_private_export.h"
+class ConfirmPasswordWidget;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfirmPasswordDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ConfirmPasswordDialog(QWidget *parent = nullptr);
     ~ConfirmPasswordDialog() override;
+
+private:
+    ConfirmPasswordWidget *const mConfirmPasswordWidget;
 };

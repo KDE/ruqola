@@ -5,10 +5,29 @@
 */
 
 #include "confirmpassworddialog.h"
+#include "confirmpasswordwidget.h"
+
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     : QDialog(parent)
+    , mConfirmPasswordWidget(new ConfirmPasswordWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Configure Notification"));
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mConfirmPasswordWidget->setObjectName(QStringLiteral("mConfirmPasswordWidget"));
+    mainLayout->addWidget(mConfirmPasswordWidget);
+
+    auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    buttonBox->setObjectName(QStringLiteral("buttonBox"));
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfirmPasswordDialog::reject);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfirmPasswordDialog::accept);
+    mainLayout->addWidget(buttonBox);
+    resize(300, 400);
 }
 
 ConfirmPasswordDialog::~ConfirmPasswordDialog()
