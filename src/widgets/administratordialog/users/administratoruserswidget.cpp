@@ -7,6 +7,7 @@
 #include "administratoruserswidget.h"
 #include "administratoradduserdialog.h"
 #include "connection.h"
+#include "dialogs/confirmpassworddialog.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersmodel.h"
 #include "model/directorybasefilterproxymodel.h"
@@ -275,22 +276,27 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
                                    KStandardGuiItem::reset(),
                                    KStandardGuiItem::cancel())
         == KMessageBox::Yes) {
-        auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-        const QString userId = modelIndex.data().toString();
+        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+        if (dialog->exec()) {
+            const QString password = dialog->password();
 
-        job->setResetUserId(userId);
-        //        job->setAuthMethod(<method>);
-        //        job->setAuthCode(<code>);
+            auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
+            const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+            const QString userId = modelIndex.data().toString();
 
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
-            qDebug() << "ResetE2EKeyJob done";
-            // slotDeleteUserDone(userId);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
+            job->setResetUserId(userId);
+            //        job->setAuthMethod(<method>);
+            //        job->setAuthCode(<code>);
+
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
+                qDebug() << "ResetE2EKeyJob done";
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
+            }
         }
+        delete dialog;
     }
 }
 
@@ -302,20 +308,25 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
                                    KStandardGuiItem::reset(),
                                    KStandardGuiItem::cancel())
         == KMessageBox::Yes) {
-        auto job = new RocketChatRestApi::ResetTOTPJob(this);
-        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-        const QString userId = modelIndex.data().toString();
+        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+        if (dialog->exec()) {
+            const QString password = dialog->password();
 
-        job->setResetUserId(userId);
-        //        job->setAuthMethod(<method>);
-        //        job->setAuthCode(<code>);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
-            qDebug() << "resetTOTPDone done";
-            // slotDeleteUserDone(userId);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
+            auto job = new RocketChatRestApi::ResetTOTPJob(this);
+            const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+            const QString userId = modelIndex.data().toString();
+
+            job->setResetUserId(userId);
+            //        job->setAuthMethod(<method>);
+            //        job->setAuthCode(<code>);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
+                qDebug() << "resetTOTPDone done";
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
+            }
         }
+        delete dialog;
     }
 }

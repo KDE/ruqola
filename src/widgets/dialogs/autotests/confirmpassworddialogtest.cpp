@@ -27,4 +27,5 @@ void ConfirmPasswordDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("buttonBox"));
     QVERIFY(buttonBox);
+    QCOMPARE(buttonBox->standardButtons(), QDialogButtonBox::StandardButtons{QDialogButtonBox::Ok | QDialogButtonBox::Cancel});
 }
