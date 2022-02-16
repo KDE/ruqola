@@ -30,9 +30,7 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     resize(300, 400);
 }
 
-ConfirmPasswordDialog::~ConfirmPasswordDialog()
-{
-}
+ConfirmPasswordDialog::~ConfirmPasswordDialog() = default;
 
 QString ConfirmPasswordDialog::password() const
 {

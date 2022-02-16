@@ -57,9 +57,7 @@ MyAccount2FaDisableTotpWidget::MyAccount2FaDisableTotpWidget(RocketChatAccount *
     }
 }
 
-MyAccount2FaDisableTotpWidget::~MyAccount2FaDisableTotpWidget()
-{
-}
+MyAccount2FaDisableTotpWidget::~MyAccount2FaDisableTotpWidget() = default;
 
 void MyAccount2FaDisableTotpWidget::slotTotpInvalid(bool check)
 {

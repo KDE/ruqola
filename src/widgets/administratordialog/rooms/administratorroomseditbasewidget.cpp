@@ -11,9 +11,7 @@ AdministratorRoomsEditBaseWidget::AdministratorRoomsEditBaseWidget(QWidget *pare
 {
 }
 
-AdministratorRoomsEditBaseWidget::~AdministratorRoomsEditBaseWidget()
-{
-}
+AdministratorRoomsEditBaseWidget::~AdministratorRoomsEditBaseWidget() = default;
 
 QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t)
 {

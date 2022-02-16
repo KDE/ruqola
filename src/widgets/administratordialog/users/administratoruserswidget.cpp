@@ -32,7 +32,7 @@
 AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
-    AdminUsersModel *adminUsersModel = new AdminUsersModel(this);
+    auto adminUsersModel = new AdminUsersModel(this);
     adminUsersModel->setObjectName(QStringLiteral("mAdminUsersModel"));
     if (account) {
         adminUsersModel->setRoles(account->roleInfo());

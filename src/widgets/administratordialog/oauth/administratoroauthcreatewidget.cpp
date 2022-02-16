@@ -33,9 +33,7 @@ AdministratorOauthCreateWidget::AdministratorOauthCreateWidget(QWidget *parent)
     connect(mRedirectUrl, &QLineEdit::textEdited, this, &AdministratorOauthCreateWidget::slotTextChanged);
 }
 
-AdministratorOauthCreateWidget::~AdministratorOauthCreateWidget()
-{
-}
+AdministratorOauthCreateWidget::~AdministratorOauthCreateWidget() = default;
 
 void AdministratorOauthCreateWidget::slotTextChanged()
 {

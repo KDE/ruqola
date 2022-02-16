@@ -11,9 +11,7 @@ SwitchChannelHistoryModel::SwitchChannelHistoryModel(QObject *parent)
 {
 }
 
-SwitchChannelHistoryModel::~SwitchChannelHistoryModel()
-{
-}
+SwitchChannelHistoryModel::~SwitchChannelHistoryModel() = default;
 
 int SwitchChannelHistoryModel::rowCount(const QModelIndex &parent) const
 {

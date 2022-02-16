@@ -9,13 +9,9 @@
 #include <QUrl>
 #include <QUrlQuery>
 
-ParseMessageUrlUtils::ParseMessageUrlUtils()
-{
-}
+ParseMessageUrlUtils::ParseMessageUrlUtils() = default;
 
-ParseMessageUrlUtils::~ParseMessageUrlUtils()
-{
-}
+ParseMessageUrlUtils::~ParseMessageUrlUtils() = default;
 
 bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
 {

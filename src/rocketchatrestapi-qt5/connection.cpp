@@ -225,7 +225,7 @@ void Connection::slotResult(QNetworkReply *reply)
 {
     const auto error = reply->error();
     if (error != QNetworkReply::NoError) {
-        const QByteArray jobClassName = reply->property("jobClassName").value<QByteArray>();
+        const auto jobClassName = reply->property("jobClassName").value<QByteArray>();
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << jobClassName << "error reply: " << reply->errorString();
 
         if (error == QNetworkReply::NetworkSessionFailedError && !mSessionFailed) {

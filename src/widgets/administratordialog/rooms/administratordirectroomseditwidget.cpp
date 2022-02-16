@@ -33,9 +33,7 @@ AdministratorDirectRoomsEditWidget::AdministratorDirectRoomsEditWidget(QWidget *
     mainLayout->addWidget(mFeaturedCheckBox);
 }
 
-AdministratorDirectRoomsEditWidget::~AdministratorDirectRoomsEditWidget()
-{
-}
+AdministratorDirectRoomsEditWidget::~AdministratorDirectRoomsEditWidget() = default;
 
 AdministratorRoomsEditBaseWidget::RoomEditInfo AdministratorDirectRoomsEditWidget::roomEditInfo() const
 {
