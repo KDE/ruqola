@@ -199,10 +199,12 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             slotActivateUser(newModelIndex, activateUser);
         });
         menu.addSeparator();
-        menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
-            // TODO
-        });
+        if (mRocketChatAccount->hasPermission(QStringLiteral("assign-admin-role"))) {
+            menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                // TODO
+            });
+        }
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-e2ee"))) {
             menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
