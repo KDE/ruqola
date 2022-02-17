@@ -203,14 +203,18 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
             // TODO
         });
-        menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
-            slotResetE2EKey(modelIndex);
-        });
-        menu.addAction(i18n("Reset Totp"), this, [this, newModelIndex]() {
-            const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
-            slotResetTOTPKey(modelIndex);
-        });
+        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-e2ee"))) {
+            menu.addAction(i18n("Reset E2E Key"), this, [this, newModelIndex]() {
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                slotResetE2EKey(modelIndex);
+            });
+        }
+        if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-totp"))) {
+            menu.addAction(i18n("Reset Totp"), this, [this, newModelIndex]() {
+                const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                slotResetTOTPKey(modelIndex);
+            });
+        }
         menu.addSeparator();
         menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
             slotActivateUser(newModelIndex, activateUser);
