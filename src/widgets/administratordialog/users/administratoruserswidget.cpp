@@ -22,6 +22,7 @@
 #include "users/userscreatejob.h"
 #include "users/userslistjob.h"
 #include "users/usersupdatejob.h"
+#include "utils.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -288,9 +289,8 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
             const QString userId = modelIndex.data().toString();
 
             job->setResetUserId(userId);
-            //        job->setAuthMethod(<method>);
-            //        job->setAuthCode(<code>);
-
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
                 qDebug() << "ResetE2EKeyJob done";
@@ -320,8 +320,8 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             const QString userId = modelIndex.data().toString();
 
             job->setResetUserId(userId);
-            //        job->setAuthMethod(<method>);
-            //        job->setAuthCode(<code>);
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
                 qDebug() << "resetTOTPDone done";
