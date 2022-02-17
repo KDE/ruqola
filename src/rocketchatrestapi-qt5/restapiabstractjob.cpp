@@ -84,6 +84,12 @@ bool RestApiAbstractJob::hasQueryParameterSupport() const
 
 bool RestApiAbstractJob::canStart() const
 {
+    if (requireTwoFactorAuthentication()) {
+        if (mAuthMethod.isEmpty() || mAuthCode.isEmpty()) {
+            qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Job required two factor auth but mAuthMethod or mAuthCode is empty";
+            return false;
+        }
+    }
     if (!mNetworkAccessManager) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Network manager not defined";
         return false;

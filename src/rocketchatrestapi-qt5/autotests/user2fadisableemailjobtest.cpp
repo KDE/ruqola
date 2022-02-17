@@ -56,5 +56,11 @@ void User2FAEnableEmailJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
+    QVERIFY(!job.canStart());
+
+    job.setAuthCode(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+
+    job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }

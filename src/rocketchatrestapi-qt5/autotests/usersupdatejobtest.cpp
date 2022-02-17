@@ -94,5 +94,11 @@ void UsersUpdateJobTest::shouldNotStarting()
 
     info.mEmail = QStringLiteral("emil");
     job.setUpdateInfo(info);
+    QVERIFY(!job.canStart());
+
+    job.setAuthCode(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+
+    job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }
