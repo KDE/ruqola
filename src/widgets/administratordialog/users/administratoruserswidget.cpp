@@ -292,8 +292,11 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
             job->setAuthMethod(QStringLiteral("password"));
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userId]() {
-                qDebug() << "ResetE2EKeyJob done";
+
+            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+            const QString userName = modelIndexUserName.data().toString();
+            connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
+                KMessageBox::information(this, i18n("E2E key for %1 has been reset", userName), i18n("Reset E2E"));
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
@@ -323,8 +326,11 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
             job->setAuthMethod(QStringLiteral("password"));
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userId]() {
-                qDebug() << "resetTOTPDone done";
+            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+            const QString userName = modelIndexUserName.data().toString();
+
+            connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userName]() {
+                KMessageBox::information(this, i18n("TOTP key for %1 has been reset", userName), i18n("Reset TOTP"));
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
