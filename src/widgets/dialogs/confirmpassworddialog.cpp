@@ -27,7 +27,6 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfirmPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfirmPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
-    resize(300, 400);
 }
 
 ConfirmPasswordDialog::~ConfirmPasswordDialog() = default;
