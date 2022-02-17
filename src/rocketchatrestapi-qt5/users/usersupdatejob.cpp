@@ -62,6 +62,8 @@ QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &deta
 {
     if (str == QLatin1String("totp-required")) {
         return i18n("Authentication required");
+    } else if (str == QLatin1String("totp-invalid")) {
+        return i18n("Invalid Password");
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
