@@ -1,0 +1,11 @@
+{
+    "id": "43",
+    "method": "setAdminStatus",
+    "msg": "method",
+    "params": [
+        [
+            "userId",
+            false
+        ]
+    ]
+}

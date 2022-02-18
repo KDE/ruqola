@@ -56,6 +56,8 @@ private Q_SLOTS:
     void addOAuthApp();
     void updateOAuthApp();
 
+    void setAdminStatus();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

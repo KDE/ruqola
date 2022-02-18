@@ -117,6 +117,22 @@ void RocketChatMessageTest::blockUser()
     compareFile(r.result, QStringLiteral("blockUser"));
 }
 
+void RocketChatMessageTest::setAdminStatus()
+{
+    {
+        RocketChatMessage m;
+        m.setJsonFormat(QJsonDocument::Indented);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QStringLiteral("userId"), false, 43);
+        compareFile(r.result, QStringLiteral("setAdminStatusFalse"));
+    }
+    {
+        RocketChatMessage m;
+        m.setJsonFormat(QJsonDocument::Indented);
+        RocketChatMessage::RocketChatMessageResult r = m.setAdminStatus(QStringLiteral("userId"), false, 43);
+        compareFile(r.result, QStringLiteral("setAdminStatusTrue"));
+    }
+}
+
 void RocketChatMessageTest::deleteOAuthApp()
 {
     RocketChatMessage m;
