@@ -111,14 +111,20 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
     user.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());
     dlg->setUser(user);
     if (dlg->exec()) {
-        RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
-        info.mUserId = user.userId();
-        auto job = new RocketChatRestApi::UsersUpdateJob(this);
-        job->setUpdateInfo(info);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::UsersUpdateJob::usersUpdateDone, this, &AdministratorUsersWidget::slotUserUpdateDone);
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersUpdateJob job";
+        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+        if (dialog->exec()) {
+            const QString password = dialog->password();
+            RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
+            info.mUserId = user.userId();
+            auto job = new RocketChatRestApi::UsersUpdateJob(this);
+            job->setUpdateInfo(info);
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::UsersUpdateJob::usersUpdateDone, this, &AdministratorUsersWidget::slotUserUpdateDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UsersUpdateJob job";
+            }
         }
     }
     delete dlg;
