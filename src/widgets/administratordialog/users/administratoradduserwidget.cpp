@@ -84,7 +84,7 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
 
     info.mRequirePasswordChange = mRequirePassword->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
-    // TODO add more
+    info.mRoles = mRolesComboBox->roles();
     return info;
 }
 
@@ -105,6 +105,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mPassword = mPasswordLineEdit->password();
     info.mRequirePasswordChange = mRequirePassword->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
+    info.mRoles = mRolesComboBox->roles();
 
     return info;
 }
