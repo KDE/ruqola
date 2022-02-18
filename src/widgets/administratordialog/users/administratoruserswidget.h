@@ -38,7 +38,8 @@ private:
     void slotUserUpdateDone(const QJsonObject &obj);
     void slotModifyDoubleClickUser(const QModelIndex &index);
     void slotResetE2EKey(const QModelIndex &index);
-    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     void slotResetTOTPKey(const QModelIndex &index);
+    void slotChangeAdmin(const QModelIndex &index);
+    Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
 };
 

@@ -202,6 +202,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (mRocketChatAccount->hasPermission(QStringLiteral("assign-admin-role"))) {
             menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
+                slotChangeAdmin(modelIndex);
                 // TODO
             });
         }
@@ -269,6 +270,13 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
     }
+}
+
+void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index)
+{
+    const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+    const QString userId = modelIndex.data().toString();
+    mRocketChatAccount->ddp()->setAdminStatus(userId, true); // Fix boolean
 }
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
