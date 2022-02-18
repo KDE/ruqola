@@ -73,6 +73,7 @@ void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
 
 void admin_status(const QJsonObject &root, RocketChatAccount *account)
 {
+    qDebug() << " root " << root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Admin Status:") + QJsonDocument(root).toJson());
     }

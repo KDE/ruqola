@@ -24,7 +24,8 @@ public:
         UserId,
         ActiveUserDisplay,
         ActiveUser,
-        LastColumn = ActiveUser,
+        Administrator,
+        LastColumn = Administrator,
     };
     Q_ENUM(AdminUsersRoles)
 

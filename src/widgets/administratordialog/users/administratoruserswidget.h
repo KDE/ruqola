@@ -39,7 +39,7 @@ private:
     void slotModifyDoubleClickUser(const QModelIndex &index);
     void slotResetE2EKey(const QModelIndex &index);
     void slotResetTOTPKey(const QModelIndex &index);
-    void slotChangeAdmin(const QModelIndex &index);
+    void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
 };
 

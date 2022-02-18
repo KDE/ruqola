@@ -3,9 +3,7 @@
     "method": "setAdminStatus",
     "msg": "method",
     "params": [
-        [
-            "userId",
-            false
-        ]
+        "userId",
+        false
     ]
 }

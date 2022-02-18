@@ -200,10 +200,12 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         });
         menu.addSeparator();
         if (mRocketChatAccount->hasPermission(QStringLiteral("assign-admin-role"))) {
-            menu.addAction(i18n("Make Admin"), this, [this, newModelIndex]() {
+            const QModelIndex administratorIndex = mModel->index(newModelIndex.row(), AdminUsersModel::Administrator);
+            const bool isAdministrator = administratorIndex.data().toBool();
+
+            menu.addAction(isAdministrator ? i18n("Remove Admin") : i18n("Make Admin"), this, [this, newModelIndex, isAdministrator]() {
                 const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
-                slotChangeAdmin(modelIndex);
-                // TODO
+                slotChangeAdmin(modelIndex, !isAdministrator);
             });
         }
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-e2ee"))) {
@@ -272,11 +274,11 @@ void AdministratorUsersWidget::slotLoadElements(int offset, int count, const QSt
     }
 }
 
-void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index)
+void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool adminStatus)
 {
     const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
     const QString userId = modelIndex.data().toString();
-    mRocketChatAccount->ddp()->setAdminStatus(userId, true); // Fix boolean
+    mRocketChatAccount->ddp()->setAdminStatus(userId, adminStatus);
 }
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)

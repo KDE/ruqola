@@ -73,12 +73,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(const QString &userId, bool admin, quint64 id)
 {
-    QJsonArray obj{
-        {userId},
-        {admin},
-    };
-    const QJsonArray params{{obj}};
-
+    const QJsonArray params{{userId}, {admin}};
     return generateMethod(QStringLiteral("setAdminStatus"), QJsonDocument(params), id);
 }
 
