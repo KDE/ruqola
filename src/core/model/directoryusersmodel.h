@@ -45,8 +45,8 @@ protected:
     Q_REQUIRED_RESULT virtual Users::ParseType parseType() const;
     Users mUsers;
     QVector<RoleInfo> mRoleInfo;
+    void checkFullList();
 
 private:
     Q_DISABLE_COPY(DirectoryUsersModel)
-    void checkFullList();
 };

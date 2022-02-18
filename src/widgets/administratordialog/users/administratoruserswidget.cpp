@@ -76,7 +76,7 @@ void AdministratorUsersWidget::slotAddUser()
 void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 {
     qDebug() << "obj" << obj;
-    // TODO use obj ? Add it in list
+    mModel->insertElement(obj);
 }
 
 void AdministratorUsersWidget::slotModifyDoubleClickUser(const QModelIndex &index)
@@ -132,10 +132,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 {
-    User newUser;
-    newUser.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());
-    // TODO update user;
-    qDebug() << " obj " << obj;
+    mModel->updateElement(obj);
 }
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)

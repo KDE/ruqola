@@ -21,6 +21,20 @@ Users::ParseType AdminUsersModel::parseType() const
     return Users::ParseType::Administrator;
 }
 
+void AdminUsersModel::insertElement(const QJsonObject &obj)
+{
+    User user;
+    QJsonObject userObj = obj[QLatin1String("user")].toObject();
+    user.parseUserRestApi(userObj, {});
+    if (user.isValid()) {
+        const int numberOfElement = mUsers.count();
+        mUsers.appendUser(user); // TODO usefull ?
+        beginInsertRows(QModelIndex(), numberOfElement, mUsers.count() - 1);
+        endInsertRows();
+        checkFullList(); // TODO verify it
+    }
+}
+
 void AdminUsersModel::removeElement(const QString &identifier)
 {
     const int userCount = mUsers.count();
@@ -31,6 +45,25 @@ void AdminUsersModel::removeElement(const QString &identifier)
             mUsers.setTotal(mUsers.count()); // Update total
             endRemoveRows();
             Q_EMIT totalChanged();
+            break;
+        }
+    }
+}
+
+void AdminUsersModel::updateElement(const QJsonObject &obj)
+{
+    const int roomCount = mUsers.count();
+    const QString identifier{obj.value(QStringLiteral("_id")).toString()};
+    for (int i = 0; i < roomCount; ++i) {
+        if (mUsers.at(i).userId() == identifier) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mUsers.takeAt(i);
+            endRemoveRows();
+            User newUser;
+            newUser.parseUserRestApi(obj[QLatin1String("user")].toObject(), {} /*, mRocketChatAccount->roleInfo()*/); // TODO necessary ?
+            beginInsertRows(QModelIndex(), i, i);
+            mUsers.insertUser(i, newUser);
+            endInsertRows();
             break;
         }
     }

@@ -76,14 +76,24 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QVector
     }
 }
 
-int Users::roomsCount() const
+int Users::usersCount() const
 {
     return mUsersCount;
 }
 
-void Users::setRoomsCount(int count)
+void Users::setUsersCount(int count)
 {
     mUsersCount = count;
+}
+
+void Users::insertUser(int index, const User &user)
+{
+    mUsers.insert(index, user);
+}
+
+void Users::appendUser(const User &user)
+{
+    mUsers.append(user);
 }
 
 QVector<User> Users::users() const
@@ -134,7 +144,7 @@ QDebug operator<<(QDebug d, const Users &t)
 {
     d << "total " << t.total();
     d << "offset " << t.offset();
-    d << "usersCount " << t.roomsCount() << "\n";
+    d << "usersCount " << t.usersCount() << "\n";
     for (int i = 0, total = t.users().count(); i < total; ++i) {
         d << t.users().at(i) << "\n";
     }

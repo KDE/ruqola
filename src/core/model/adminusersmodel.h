@@ -41,5 +41,7 @@ public:
 protected:
     Q_REQUIRED_RESULT Users::ParseType parseType() const override;
     void removeElement(const QString &identifier) override;
+    void updateElement(const QJsonObject &obj) override;
+    void insertElement(const QJsonObject &obj) override;
 };
 

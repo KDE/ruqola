@@ -41,8 +41,11 @@ public:
     Q_REQUIRED_RESULT QVector<User> users() const;
     void setUsers(const QVector<User> &rooms);
 
-    Q_REQUIRED_RESULT int roomsCount() const;
-    void setRoomsCount(int adminroomsCount);
+    Q_REQUIRED_RESULT int usersCount() const;
+    void setUsersCount(int adminroomsCount);
+
+    void insertUser(int index, const User &user);
+    void appendUser(const User &user);
 
 private:
     void parseListUsers(const QJsonObject &obj, ParseType type, const QVector<RoleInfo> &roleInfo);
