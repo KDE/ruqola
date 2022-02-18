@@ -96,6 +96,8 @@ QNetworkRequest UsersUpdateJob::request() const
 
 QJsonDocument UsersUpdateJob::json() const
 {
-    return mUpdateInfo.json();
+    auto t = mUpdateInfo.json();
+    qDebug() << " SSSSSSS " << t;
+    return t;
 }
 

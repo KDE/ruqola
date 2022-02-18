@@ -72,6 +72,7 @@ QJsonDocument CreateUpdateUserInfo::json() const
     if (mTypeInfo == Update) {
         QJsonObject dataObj;
         dataObj[QLatin1String("data")] = userInfoObj;
+        dataObj[QLatin1String("userId")] = mUserId;
         const QJsonDocument postData = QJsonDocument(dataObj);
         return postData;
     }

@@ -40,7 +40,7 @@ void UsersUpdateJobTest::shouldGenerateJson()
     UpdateUserInfo info;
     info.mTypeInfo = CreateUpdateUserInfo::Update;
 
-    QString mUserId = QStringLiteral("foo");
+    const QString mUserId = QStringLiteral("foo");
 
     const QString mEmail = QStringLiteral("bla@kde.org");
     const QString mName = QStringLiteral("name_bla");
@@ -48,10 +48,8 @@ void UsersUpdateJobTest::shouldGenerateJson()
     const QString mPassword = QStringLiteral("password_bla");
 
     job.setUpdateInfo(info);
-    // QVERIFY(!job.canStart());
     info.mUserId = mUserId;
     job.setUpdateInfo(info);
-    // QVERIFY(job.canStart());
 
     info.mEmail = mEmail;
     info.mName = mName;
@@ -61,8 +59,8 @@ void UsersUpdateJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false}})")
-            .arg(mEmail, mName, mUserName, mPassword)
+            R"({"data":{"email":"%1","name":"%2","password":"%4","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"username":"%3","verified":false},"userId":"%5"})")
+            .arg(mEmail, mName, mUserName, mPassword, mUserId)
             .toLatin1());
 }
 
