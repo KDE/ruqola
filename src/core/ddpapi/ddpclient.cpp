@@ -71,6 +71,13 @@ void add_oauth_app(const QJsonObject &root, RocketChatAccount *account)
     account->setOauthAppAdded(obj);
 }
 
+void admin_status(const QJsonObject &root, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Admin Status:") + QJsonDocument(root).toJson());
+    }
+}
+
 void block_user(const QJsonObject &root, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -534,6 +541,12 @@ quint64 DDPClient::blockUser(const QString &rid, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->blockUser(rid, userId, m_uid);
     return method(result, block_user, DDPClient::Persistent);
+}
+
+quint64 DDPClient::setAdminStatus(const QString &userId, bool admin)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->setAdminStatus(userId, admin, m_uid);
+    return method(result, admin_status, DDPClient::Persistent);
 }
 
 quint64 DDPClient::deleteOAuthApp(const QString &appId)

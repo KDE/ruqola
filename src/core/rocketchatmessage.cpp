@@ -71,6 +71,17 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QS
     return generateMethod(QStringLiteral("blockUser"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::setAdminStatus(const QString &userId, bool admin, quint64 id)
+{
+    QJsonArray obj{
+        {userId},
+        {admin},
+    };
+    const QJsonArray params{{obj}};
+
+    return generateMethod(QStringLiteral("setAdminStatus"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::uploadCustomSound(const QByteArray &sound, quint64 id)
 {
     // TODO fix me
