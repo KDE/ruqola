@@ -224,10 +224,6 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
         }
         menu.addSeparator();
-        menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
-            slotActivateUser(newModelIndex, activateUser);
-        });
-
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
             const QModelIndex i = mModel->index(newModelIndex.row(), AdminUsersModel::UserId);
             slotRemoveUser(i);
