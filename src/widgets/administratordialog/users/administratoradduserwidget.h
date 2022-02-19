@@ -38,13 +38,13 @@ private:
     void slotUpdateOkButton();
     QLineEdit *const mName;
     QLineEdit *const mUserName;
-    QLineEdit *const mEmail;
     QLineEdit *const mStatusText;
+    QLineEdit *const mEmail;
+    KPasswordLineEdit *const mPasswordLineEdit;
 
     QCheckBox *const mJoinDefaultChannels;
     QCheckBox *const mSendWelcomeEmails;
     QCheckBox *const mRequirePassword;
     QCheckBox *const mSetRandowPassword;
-    KPasswordLineEdit *const mPasswordLineEdit;
     RolesComboBox *const mRolesComboBox;
 };
