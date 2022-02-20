@@ -66,8 +66,10 @@ AdministratorAddUserWidget::~AdministratorAddUserWidget() = default;
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {
-    const bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty()
-        && !mPasswordLineEdit->password().isEmpty();
+    bool enableOkButton = !mName->text().trimmed().isEmpty() && !mUserName->text().trimmed().isEmpty() && !mEmail->text().trimmed().isEmpty();
+    if (mUserType == UserType::Create) {
+        enableOkButton &= !mPasswordLineEdit->password().isEmpty();
+    }
     Q_EMIT updateButtonOk(enableOkButton);
 }
 
@@ -112,6 +114,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
 
 void AdministratorAddUserWidget::setUser(const User &user)
 {
+    mUserType = UserType::Edit;
     mName->setText(user.name());
     mUserName->setText(user.userName());
     mEmail->setText(user.userEmailsInfo().email);

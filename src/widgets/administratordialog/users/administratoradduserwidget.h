@@ -22,6 +22,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
 public:
+    enum UserType {
+        Unknown = 0,
+        Create,
+        Edit,
+    };
+
     explicit AdministratorAddUserWidget(QWidget *parent = nullptr);
     ~AdministratorAddUserWidget() override;
 
@@ -36,6 +42,7 @@ Q_SIGNALS:
 
 private:
     void slotUpdateOkButton();
+    UserType mUserType = UserType::Create;
     QLineEdit *const mName;
     QLineEdit *const mUserName;
     QLineEdit *const mStatusText;
