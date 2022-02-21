@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QString>
 
-class LIBRUQOLACORE_TESTS_EXPORT ParseMessageUrlUtils
+class LIBRUQOLACORE_EXPORT ParseMessageUrlUtils
 {
     Q_GADGET
 public:
