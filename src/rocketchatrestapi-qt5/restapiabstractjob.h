@@ -158,7 +158,7 @@ private:
     QString mUserId;
     QString mAuthMethod;
     QString mAuthCode;
-    bool mEnforcePasswordFallBack = false;
+    bool mEnforcePasswordFallBack = true;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 };

@@ -94,7 +94,7 @@ void RestApiAbstractJob::setEnforcePasswordFallback(bool enforce)
 
 bool RestApiAbstractJob::canStart() const
 {
-    if (requireTwoFactorAuthentication()) {
+    if (requireTwoFactorAuthentication() && mEnforcePasswordFallBack) {
         if (mAuthMethod.isEmpty() || mAuthCode.isEmpty()) {
             qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Job required two factor auth but mAuthMethod or mAuthCode is empty";
             return false;
@@ -128,7 +128,7 @@ void RestApiAbstractJob::addAuthRawHeader(QNetworkRequest &request) const
 {
     request.setRawHeader(QByteArrayLiteral("X-Auth-Token"), mAuthToken.toLocal8Bit());
     request.setRawHeader(QByteArrayLiteral("X-User-Id"), mUserId.toLocal8Bit());
-    if (requireTwoFactorAuthentication()) {
+    if (requireTwoFactorAuthentication() && mEnforcePasswordFallBack) {
         if (!mAuthMethod.isEmpty() && !mAuthCode.isEmpty()) {
             request.setRawHeader(QByteArrayLiteral("x-2fa-code"), mAuthCode.toLocal8Bit());
             request.setRawHeader(QByteArrayLiteral("x-2fa-method"), mAuthMethod.toLocal8Bit());
