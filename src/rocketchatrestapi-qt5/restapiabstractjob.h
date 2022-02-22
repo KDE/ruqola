@@ -87,6 +87,9 @@ public:
 
     virtual bool hasQueryParameterSupport() const;
 
+    void setEnforcePasswordFallback(bool enforce);
+    Q_REQUIRED_RESULT bool enforcePasswordFallback() const;
+
     RocketChatRestApi::AbstractLogger *restApiLogger() const;
     void setRestApiLogger(RocketChatRestApi::AbstractLogger *restApiLogger);
 
@@ -155,6 +158,7 @@ private:
     QString mUserId;
     QString mAuthMethod;
     QString mAuthCode;
+    bool mEnforcePasswordFallBack = false;
     QNetworkAccessManager *mNetworkAccessManager = nullptr;
     RocketChatRestApi::AbstractLogger *mRestApiLogger = nullptr;
 };

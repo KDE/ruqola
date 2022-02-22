@@ -82,6 +82,16 @@ bool RestApiAbstractJob::hasQueryParameterSupport() const
     return false;
 }
 
+bool RestApiAbstractJob::enforcePasswordFallback() const
+{
+    return mEnforcePasswordFallBack;
+}
+
+void RestApiAbstractJob::setEnforcePasswordFallback(bool enforce)
+{
+    mEnforcePasswordFallBack = enforce;
+}
+
 bool RestApiAbstractJob::canStart() const
 {
     if (requireTwoFactorAuthentication()) {
