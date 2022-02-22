@@ -111,7 +111,7 @@ set_package_properties(Qt5Keychain PROPERTIES
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
 
-find_package(KUserFeedback 1.0.0 CONFIG)
+find_package(KUserFeedback 1.0.0 CONFIG) # TODO increase version to 1.2.0 when we will add qt6 support
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
 
