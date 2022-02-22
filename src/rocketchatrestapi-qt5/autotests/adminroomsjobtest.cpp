@@ -40,4 +40,14 @@ void AdminRoomsJobTest::shouldGenerateRequest()
     job.setRoomsAdminInfo(info);
     request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms?filter=%1").arg(info.filter)));
+
+    info.searchType = AdminRoomsJob::AdminRoomSearchType::Private;
+    job.setRoomsAdminInfo(info);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms?filter=%1&types[]=p").arg(info.filter)));
+
+    info.searchType |= AdminRoomsJob::AdminRoomSearchType::OmniChannel;
+    job.setRoomsAdminInfo(info);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.adminRooms?filter=%1&types[]=p&types[]=l").arg(info.filter)));
 }
