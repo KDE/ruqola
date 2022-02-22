@@ -83,6 +83,9 @@ void AdminRoomsJob::initialUrlParameters(QUrlQuery &urlQuery) const
     if (mRoomsAdminInfo.searchType & AdminRoomSearchType::Team) {
         types << QStringLiteral("teams");
     }
+    if (mRoomsAdminInfo.searchType & AdminRoomSearchType::OmniChannel) {
+        types << QStringLiteral("l");
+    }
     if (!types.isEmpty()) {
         for (const QString &str : std::as_const(types)) {
             urlQuery.addQueryItem(QStringLiteral("types[]"), str);
