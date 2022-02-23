@@ -17,6 +17,7 @@
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolaglobalconfig.h"
 #include "searchwithdelaylineedit.h"
 #include "utils.h"
 #include <KLocalizedString>
@@ -32,9 +33,9 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     , mRecentUsedFilterProxyModel(new EmoticonRecentUsedFilterProxyModel(this))
     , mEmoticonFilterProxyModel(new EmoticonModelFilterProxyModel(this))
     , mEmoticonCustomFilterProxyModel(new EmoticonCustomModelFilterProxyModel(this))
-    , mSearchEmojisView(new QListView(this))
+    , mSearchEmojisView(new EmoticonListViewBase(this))
     , mRecentUsedEmoticonView(new RecentUsedEmoticonView(this))
-    , mCustomEmojiView(new QListView(this))
+    , mCustomEmojiView(new EmoticonListViewBase(this))
 {
     auto layout = new QVBoxLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
@@ -64,6 +65,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // "Search" tab
 
     mSearchEmojisView->setModel(mEmoticonFilterProxyModel);
+    connect(mSearchEmojisView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
     mSearchEmojisView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mSearchEmojisView->setItemDelegate(new EmojiCompletionDelegate(mSearchEmojisView));
 
@@ -78,16 +80,15 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         slotSearchTextChanged({});
     });
 
+    connect(mSearchEmojisView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
     connect(mSearchEmojisView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data(EmoticonModel::Identifier).toString();
         slotInsertEmoticons(identifier);
     });
 
     // Recent
-    mRecentUsedEmoticonView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRecentUsedEmoticonView->setModel(mRecentUsedFilterProxyModel);
-    // mRecentUsedEmoticonView->setViewMode(QListView::IconMode);
-    // mRecentUsedEmoticonView->setIconSize(QSize(16, 16));
+    connect(mRecentUsedEmoticonView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
     connect(mRecentUsedEmoticonView, &RecentUsedEmoticonView::clearAll, this, [this]() {
         mRecentUsedFilterProxyModel->setUsedIdentifier(QStringList());
     });
@@ -102,18 +103,29 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     // Custom
     mCustomEmojiView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mCustomEmojiView->setModel(mEmoticonCustomFilterProxyModel);
-    // mCustomEmojiView->setViewMode(QListView::IconMode);
-    // mCustomEmojiView->setIconSize(QSize(16, 16));
 
     mTabWidget->addTab(mCustomEmojiView, i18n("Custom"));
     connect(mCustomEmojiView, &QListView::activated, this, [this](const QModelIndex &index) {
         const QString identifier = index.data().toString();
         slotInsertEmoticons(identifier);
     });
+    connect(mCustomEmojiView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
     setMinimumSize(400, 250);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
+
+void EmoticonMenuWidget::slotUpdateEmojiListViewFont(int fontSize)
+{
+    mCustomEmojiView->setFontSize(fontSize);
+    mSearchEmojisView->setFontSize(fontSize);
+    mRecentUsedEmoticonView->setFontSize(fontSize);
+    for (auto view : std::as_const(mEmoticonCategoryViews)) {
+        view->setFontSize(fontSize);
+    }
+    RuqolaGlobalConfig::self()->setEmojiMenuFontSize(fontSize);
+    RuqolaGlobalConfig::self()->save();
+}
 
 void EmoticonMenuWidget::slotSearchTextChanged(const QString &text)
 {
@@ -147,14 +159,16 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     // Custom
     mEmoticonCustomFilterProxyModel->setSourceModel(account->emoticonCustomModel());
 
-    if (mEmoticonListViews.isEmpty()) {
+    if (mEmoticonCategoryProxyModels.isEmpty()) {
         // Default Emoji
         EmojiManager *emojiManager = account->emojiManager();
         const QVector<EmoticonCategory> categories = emojiManager->categories();
         for (const EmoticonCategory &category : categories) {
             auto w = new EmoticonListView(this);
             auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(w);
-            mEmoticonListViews.append(categoryProxyModel);
+            connect(w, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
+            mEmoticonCategoryProxyModels.append(categoryProxyModel);
+            mEmoticonCategoryViews.append(w);
             categoryProxyModel->setCategory(category.category());
             w->setModel(categoryProxyModel);
             const int index = mTabWidget->addTab(w, category.name());
@@ -162,7 +176,7 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
             connect(w, &EmoticonListView::emojiItemSelected, this, &EmoticonMenuWidget::slotInsertEmoticons);
         }
     }
-    for (auto list : std::as_const(mEmoticonListViews)) {
+    for (auto list : std::as_const(mEmoticonCategoryProxyModels)) {
         list->setSourceModel(account->emoticonModel());
     }
     mTabWidget->setTabVisible(mAllTabIndex, false);

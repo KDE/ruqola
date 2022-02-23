@@ -39,6 +39,9 @@
     <entry name="GeneralFont" type="Font">
       <default code="true">QFontDatabase::systemFont(QFontDatabase::GeneralFont)</default>
     </entry>
+    <entry name="EmojiMenuFontSize" type="Int">
+      <default>18</default>
+    </entry>
   </group>
 
 </kcfg>

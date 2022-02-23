@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "emoticonlistviewbase.h"
 #include "libruqolawidgets_private_export.h"
-#include <QListView>
-class LIBRUQOLAWIDGETS_TESTS_EXPORT RecentUsedEmoticonView : public QListView
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT RecentUsedEmoticonView : public EmoticonListViewBase
 {
     Q_OBJECT
 public:

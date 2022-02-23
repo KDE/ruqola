@@ -18,6 +18,7 @@ class EmoticonModelFilterProxyModel;
 class EmoticonCustomModelFilterProxyModel;
 class RecentUsedEmoticonView;
 class EmoticonCategoryModelFilterProxyModel;
+class EmoticonListViewBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmoticonMenuWidget : public QWidget
 {
     Q_OBJECT
@@ -37,16 +38,18 @@ private:
     void slotInsertEmoticons(const QString &identifier);
     void initializeTab(RocketChatAccount *account);
     void slotSearchTextChanged(const QString &text);
+    void slotUpdateEmojiListViewFont(int fontSize);
 
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTabWidget *const mTabWidget;
     EmoticonRecentUsedFilterProxyModel *const mRecentUsedFilterProxyModel;
     EmoticonModelFilterProxyModel *const mEmoticonFilterProxyModel;
     EmoticonCustomModelFilterProxyModel *const mEmoticonCustomFilterProxyModel;
-    QListView *const mSearchEmojisView;
+    EmoticonListViewBase *const mSearchEmojisView;
     RecentUsedEmoticonView *const mRecentUsedEmoticonView;
-    QListView *const mCustomEmojiView;
-    QList<EmoticonCategoryModelFilterProxyModel *> mEmoticonListViews;
+    EmoticonListViewBase *const mCustomEmojiView;
+    QList<EmoticonCategoryModelFilterProxyModel *> mEmoticonCategoryProxyModels;
+    QList<EmoticonListViewBase *> mEmoticonCategoryViews;
     int mAllTabIndex = -1;
 };
 

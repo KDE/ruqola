@@ -10,7 +10,7 @@
 #include <QMenu>
 
 RecentUsedEmoticonView::RecentUsedEmoticonView(QWidget *parent)
-    : QListView(parent)
+    : EmoticonListViewBase(parent)
 {
     setContextMenuPolicy(Qt::DefaultContextMenu);
 }
