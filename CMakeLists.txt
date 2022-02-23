@@ -113,7 +113,7 @@ set_package_properties(Qt5Keychain PROPERTIES
 
 find_package(KUserFeedback 1.0.0 CONFIG) # TODO increase version to 1.2.0 when we will add qt6 support
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
-set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional). It can be disable in apps.")
+set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
 find_package(KF5Solid ${KF5_MIN_VERSION} CONFIG)
 if (KF5Solid_FOUND)
