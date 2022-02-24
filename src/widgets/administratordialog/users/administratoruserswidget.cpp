@@ -75,7 +75,6 @@ void AdministratorUsersWidget::slotAddUser()
 
 void AdministratorUsersWidget::slotUserCreateDone(const QJsonObject &obj)
 {
-    qDebug() << "obj" << obj;
     mModel->insertElement(obj);
 }
 
