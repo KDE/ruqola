@@ -64,6 +64,8 @@ QString UsersUpdateJob::errorMessage(const QString &str, const QJsonObject &deta
         return i18n("Authentication required");
     } else if (str == QLatin1String("totp-invalid")) {
         return i18n("Invalid Password");
+    } else if (str == QLatin1String("error-email-send-failed")) {
+        return i18n("Error trying to send email %1", mUpdateInfo.mEmail);
     }
     return RestApiAbstractJob::errorMessage(str, details);
 }
