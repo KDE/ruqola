@@ -486,6 +486,7 @@ public:
 
     Q_REQUIRED_RESULT SwitchChannelHistoryModel *switchChannelHistoryModel() const;
 
+    Q_REQUIRED_RESULT bool twoFactorAuthenticationEnforcePasswordFallback() const;
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();

@@ -48,6 +48,7 @@ public:
         TwoFactorAuthenticationEnabled = 0x8000000,
         TwoFactorAuthenticationByEmailEnabled = 0x10000000,
         TwoFactorAuthenticationByTOTPEnabled = 0x20000000,
+        TwoFactorAuthenticationEnforcePasswordFallback = 0x40000000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
     Q_FLAG(ServerConfigFeatureType)

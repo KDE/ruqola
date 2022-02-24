@@ -470,6 +470,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
             }
+        } else if (id == QLatin1String("Accounts_TwoFactorAuthentication_Enforce_Password_Fallback")) {
+            if (value.toBool()) {
+                mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
+            }
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

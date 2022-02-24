@@ -1835,6 +1835,11 @@ bool RocketChatAccount::twoFactorAuthenticationByEmailEnabled() const
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByEmailEnabled;
 }
 
+bool RocketChatAccount::twoFactorAuthenticationEnforcePasswordFallback() const
+{
+    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback;
+}
+
 bool RocketChatAccount::twoFactorAuthenticationByTOTPEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::TwoFactorAuthenticationByTOTPEnabled;
