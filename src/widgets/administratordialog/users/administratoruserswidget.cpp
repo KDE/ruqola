@@ -139,6 +139,7 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 {
     mModel->updateElement(obj);
+    resizeColumToContents();
 }
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)

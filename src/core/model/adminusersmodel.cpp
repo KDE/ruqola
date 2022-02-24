@@ -24,7 +24,7 @@ Users::ParseType AdminUsersModel::parseType() const
 void AdminUsersModel::insertElement(const QJsonObject &obj)
 {
     User user;
-    QJsonObject userObj = obj[QLatin1String("user")].toObject();
+    const QJsonObject userObj = obj[QLatin1String("user")].toObject();
     user.parseUserRestApi(userObj, {});
     if (user.isValid()) {
         const int numberOfElement = mUsers.count();
@@ -50,9 +50,10 @@ void AdminUsersModel::removeElement(const QString &identifier)
     }
 }
 
-void AdminUsersModel::updateElement(const QJsonObject &obj)
+void AdminUsersModel::updateElement(const QJsonObject &userObj)
 {
     const int roomCount = mUsers.count();
+    const QJsonObject obj = userObj[QStringLiteral("user")].toObject();
     const QString identifier{obj.value(QStringLiteral("_id")).toString()};
     for (int i = 0; i < roomCount; ++i) {
         if (mUsers.at(i).userId() == identifier) {
@@ -60,7 +61,7 @@ void AdminUsersModel::updateElement(const QJsonObject &obj)
             mUsers.takeAt(i);
             endRemoveRows();
             User newUser;
-            newUser.parseUserRestApi(obj[QLatin1String("user")].toObject(), {} /*, mRocketChatAccount->roleInfo()*/); // TODO necessary ?
+            newUser.parseUserRestApi(obj, {} /*, mRocketChatAccount->roleInfo()*/); // TODO necessary ?
             beginInsertRows(QModelIndex(), i, i);
             mUsers.insertUser(i, newUser);
             endInsertRows();

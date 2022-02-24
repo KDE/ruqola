@@ -98,7 +98,11 @@ void SearchTreeBaseWidget::connectModel()
 void SearchTreeBaseWidget::finishSearching()
 {
     mModel->setLoadMoreInProgress(false);
+    resizeColumToContents();
+}
 
+void SearchTreeBaseWidget::resizeColumToContents()
+{
     for (int i = 0; i < mTreeView->header()->count(); i++) {
         if (!mModel->excludeResizeToContentColumns().contains(i)) {
             mTreeView->resizeColumnToContents(i);

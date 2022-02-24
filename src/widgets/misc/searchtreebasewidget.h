@@ -34,6 +34,7 @@ protected:
     void connectModel();
     void hideColumns();
     void finishSearching();
+    void resizeColumToContents();
     QLabel *const mLabelResultSearch;
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
