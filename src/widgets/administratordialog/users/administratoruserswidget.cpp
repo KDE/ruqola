@@ -298,29 +298,35 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
                                    KStandardGuiItem::reset(),
                                    KStandardGuiItem::cancel())
         == KMessageBox::Yes) {
-        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
-        if (dialog->exec()) {
-            const QString password = dialog->password();
+        QString password;
+        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            if (dialog->exec()) {
+                password = dialog->password();
+            }
+            delete dialog;
+        }
 
-            auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
-            const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-            const QString userId = modelIndex.data().toString();
+        auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QString userId = modelIndex.data().toString();
+        job->setResetUserId(userId);
 
-            job->setResetUserId(userId);
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-
-            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
-            const QString userName = modelIndexUserName.data().toString();
-            connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
-                KMessageBox::information(this, i18n("E2E key for %1 has been reset", userName), i18n("Reset E2E"));
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
-            }
         }
-        delete dialog;
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+
+        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+        const QString userName = modelIndexUserName.data().toString();
+        connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
+            KMessageBox::information(this, i18n("E2E key for %1 has been reset", userName), i18n("Reset E2E"));
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
+        }
     }
 }
 
@@ -332,28 +338,33 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
                                    KStandardGuiItem::reset(),
                                    KStandardGuiItem::cancel())
         == KMessageBox::Yes) {
-        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
-        if (dialog->exec()) {
-            const QString password = dialog->password();
+        QString password;
+        const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            if (dialog->exec()) {
+                password = dialog->password();
+            }
+            delete dialog;
+        }
+        auto job = new RocketChatRestApi::ResetTOTPJob(this);
+        const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
+        const QString userId = modelIndex.data().toString();
+        job->setResetUserId(userId);
 
-            auto job = new RocketChatRestApi::ResetTOTPJob(this);
-            const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
-            const QString userId = modelIndex.data().toString();
-
-            job->setResetUserId(userId);
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
             job->setAuthMethod(QStringLiteral("password"));
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
-            const QString userName = modelIndexUserName.data().toString();
-
-            connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userName]() {
-                KMessageBox::information(this, i18n("TOTP key for %1 has been reset", userName), i18n("Reset TOTP"));
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
-            }
         }
-        delete dialog;
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
+        const QString userName = modelIndexUserName.data().toString();
+
+        connect(job, &RocketChatRestApi::ResetTOTPJob::resetTOTPDone, this, [this, userName]() {
+            KMessageBox::information(this, i18n("TOTP key for %1 has been reset", userName), i18n("Reset TOTP"));
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetTOTPJob job";
+        }
     }
 }
