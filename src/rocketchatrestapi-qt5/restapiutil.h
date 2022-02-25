@@ -155,6 +155,7 @@ enum class RestApiUrlType {
     ServerInfo,
     Settings,
     SettingsPublic,
+    UpdateAdminSettings,
     Spotlight,
     LoadEmojiCustom,
     EmojiCustomDelete,
