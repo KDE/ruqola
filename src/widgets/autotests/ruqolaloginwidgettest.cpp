@@ -68,6 +68,7 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
 
     auto twoFactorAuthenticationLayout = w.findChild<QVBoxLayout *>(QStringLiteral("twoFactorAuthenticationLayout"));
     QVERIFY(twoFactorAuthenticationLayout);
+    QCOMPARE(twoFactorAuthenticationLayout->contentsMargins(), QMargins{});
 
     auto twoFactorAuthenticationLabel = w.findChild<QLabel *>(QStringLiteral("twoFactorAuthenticationLabel"));
     QVERIFY(twoFactorAuthenticationLabel);
