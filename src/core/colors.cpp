@@ -11,9 +11,11 @@
 Colors::Colors()
     : QObject()
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(qApp, &QApplication::paletteChanged, this, [this] {
         mScheme = KColorScheme();
     });
+#endif
 }
 
 Colors &Colors::self()
@@ -25,4 +27,14 @@ Colors &Colors::self()
 KColorScheme Colors::scheme() const
 {
     return mScheme;
+}
+
+bool Colors::event(QEvent *e)
+{
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    if (e->type() == QEvent::ApplicationPaletteChange) {
+        mScheme = KColorScheme();
+    }
+#endif
+    return QObject::event(e);
 }

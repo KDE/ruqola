@@ -22,6 +22,9 @@ public:
 
     Q_REQUIRED_RESULT KColorScheme scheme() const;
 
+protected:
+    bool event(QEvent *e) override;
+
 private:
     KColorScheme mScheme;
 };
