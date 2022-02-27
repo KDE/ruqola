@@ -54,6 +54,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     authentication/twitterauthjob.cpp
 
     settings/privateinfojob.cpp
+    settings/updateadminsettingsjob.cpp
+    settings/updateadminsettingsjob.h
 
     channellistjob.cpp
     downloadfilejob.cpp
