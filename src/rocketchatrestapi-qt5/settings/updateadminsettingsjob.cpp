@@ -37,7 +37,7 @@ void UpdateAdminSettingsJob::onPostRequestResponse(const QJsonDocument &replyJso
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateAdminSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT usersCreateDone(replyObject);
+        Q_EMIT updateAdminSettingsDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("UpdateAdminSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
@@ -59,7 +59,7 @@ bool UpdateAdminSettingsJob::canStart() const
 
 QNetworkRequest UpdateAdminSettingsJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UsersCreate);
+    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UpdateAdminSettings);
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

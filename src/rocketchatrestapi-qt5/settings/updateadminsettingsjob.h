@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "createupdateuserinfo.h"
 #include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 
@@ -26,11 +25,10 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 Q_SIGNALS:
-    void usersCreateDone(const QJsonObject &obj);
+    void updateAdminSettingsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UpdateAdminSettingsJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
-    CreateUpdateUserInfo mCreateInfo;
 };
 }
