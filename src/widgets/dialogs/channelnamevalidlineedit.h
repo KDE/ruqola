@@ -15,6 +15,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWith
 {
     Q_OBJECT
 public:
+    enum ChannelNameStatus {
+        Unknown = 0,
+        Valid = 1,
+        AlreadyExistingName = 2,
+        InvalidCharacters = 3,
+    };
     explicit ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelNameValidLineEdit() override;
 Q_SIGNALS:

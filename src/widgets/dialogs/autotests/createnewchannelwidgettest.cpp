@@ -5,7 +5,7 @@
 */
 
 #include "createnewchannelwidgettest.h"
-#include "dialogs/channelnamevalidlineedit.h"
+#include "dialogs/channelnamevalidlinewidget.h"
 #include "dialogs/createnewchannelwidget.h"
 #include "misc/adduserswidget.h"
 #include <QCheckBox>
@@ -20,7 +20,7 @@ CreateNewChannelWidgetTest::CreateNewChannelWidgetTest(QObject *parent)
 void CreateNewChannelWidgetTest::shouldHaveDefaultValues()
 {
     CreateNewChannelWidget w(nullptr);
-    auto mChannelName = w.findChild<ChannelNameValidLineEdit *>(QStringLiteral("mChannelName"));
+    auto mChannelName = w.findChild<ChannelNameValidLineWidget *>(QStringLiteral("mChannelName"));
     QVERIFY(mChannelName);
 
     auto mTopicLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mTopicLineEdit"));

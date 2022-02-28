@@ -6,6 +6,7 @@
 
 #include "createnewchannelwidget.h"
 #include "channelnamevalidlineedit.h"
+#include "channelnamevalidlinewidget.h"
 #include "misc/adduserswidget.h"
 #include <KAuthorized>
 #include <KLocalizedString>
@@ -15,7 +16,7 @@
 
 CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mChannelName(new ChannelNameValidLineEdit(account, this))
+    , mChannelName(new ChannelNameValidLineWidget(account, this))
     , mUsers(new AddUsersWidget(account, this))
     , mReadOnly(new QCheckBox(this))
     , mBroadcast(new QCheckBox(this))
@@ -57,7 +58,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mEncryptedRoom->setChecked(false);
     mMainLayout->addRow(i18n("Encrypted Room:"), mEncryptedRoom);
 
-    connect(mChannelName, &ChannelNameValidLineEdit::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
+    connect(mChannelName, &ChannelNameValidLineWidget::channelIsValid, this, &CreateNewChannelWidget::slotChangeOkButtonEnabled);
 }
 
 CreateNewChannelWidget::~CreateNewChannelWidget() = default;

@@ -102,6 +102,9 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/confirmpasswordwidget.cpp
     dialogs/confirmpasswordwidget.h
 
+    dialogs/channelnamevalidlinewidget.cpp
+    dialogs/channelnamevalidlinewidget.h
+
 
     configuredialog/configuresettingsdialog.cpp
     configuredialog/configureaccountwidget.cpp

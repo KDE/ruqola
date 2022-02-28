@@ -9,7 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class ChannelNameValidLineEdit;
+class ChannelNameValidLineWidget;
 class QCheckBox;
 class AddUsersWidget;
 class QFormLayout;
@@ -44,7 +44,7 @@ Q_SIGNALS:
 
 private:
     void slotChangeOkButtonEnabled(bool state);
-    ChannelNameValidLineEdit *const mChannelName;
+    ChannelNameValidLineWidget *const mChannelName;
     AddUsersWidget *const mUsers;
     QCheckBox *const mReadOnly;
     QCheckBox *const mBroadcast;
