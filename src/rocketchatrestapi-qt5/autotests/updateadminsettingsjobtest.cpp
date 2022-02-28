@@ -6,7 +6,7 @@
 
 #include "updateadminsettingsjobtest.h"
 #include "ruqola_restapi_helper.h"
-#include "users/userscreatejob.h"
+#include "settings/updateadminsettingsjob.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(UpdateAdminSettingsJobTest)
 using namespace RocketChatRestApi;
@@ -17,7 +17,7 @@ UpdateAdminSettingsJobTest::UpdateAdminSettingsJobTest(QObject *parent)
 
 void UpdateAdminSettingsJobTest::shouldHaveDefaultValue()
 {
-    UsersCreateJob job;
+    UpdateAdminSettingsJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
@@ -25,87 +25,22 @@ void UpdateAdminSettingsJobTest::shouldHaveDefaultValue()
 
 void UpdateAdminSettingsJobTest::shouldGenerateRequest()
 {
-    UsersCreateJob job;
+    UpdateAdminSettingsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.create")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings/")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void UpdateAdminSettingsJobTest::shouldGenerateJson()
 {
-    UsersCreateJob job;
-    CreateUpdateUserInfo info;
-    const QString password{QStringLiteral("ccc")};
-    info.mPassword = password;
-    const QString email{QStringLiteral("bla@kde.org")};
-    info.mEmail = email;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(R"({"email":"%1","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
-            .arg(email, password)
-            .toLatin1());
-
-    const QString nickame{QStringLiteral("blu")};
-    info.mNickName = nickame;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
-            .arg(email, password, nickame)
-            .toLatin1());
-
-    const QStringList roles{QStringLiteral("cd"), QStringLiteral("ssc")};
-    info.mRoles = roles;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":false,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
-            .arg(email, password, nickame)
-            .toLatin1());
-    info.mRequirePasswordChange = true;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":false,"setRandomPassword":false,"verified":false})")
-            .arg(email, password, nickame)
-            .toLatin1());
-
-    info.mSendWelcomeEmail = true;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":false})")
-            .arg(email, password, nickame)
-            .toLatin1());
-
-    info.mVerified = true;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":false,"verified":true})")
-            .arg(email, password, nickame)
-            .toLatin1());
-
-    info.mSetRandomPassword = true;
-    job.setCreateInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"email":"%1","nickname":"%3","password":"%2","requirePasswordChange":true,"roles":["cd","ssc"],"sendWelcomeEmail":true,"setRandomPassword":true,"verified":true})")
-            .arg(email, password, nickame)
-            .toLatin1());
+    UpdateAdminSettingsJob job;
+    // TODO
 }
 
 void UpdateAdminSettingsJobTest::shouldNotStarting()
 {
-    UsersCreateJob job;
+    UpdateAdminSettingsJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
@@ -119,18 +54,6 @@ void UpdateAdminSettingsJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
-
-    CreateUpdateUserInfo info;
-    info.mPassword = QStringLiteral("ccc");
-    job.setCreateInfo(info);
-
-    QVERIFY(!job.canStart());
-    info.mEmail = QStringLiteral("ccc");
-    job.setCreateInfo(info);
-
-    QVERIFY(!job.canStart());
-    info.mName = QStringLiteral("777");
-    job.setCreateInfo(info);
 
     QVERIFY(job.canStart());
 }
