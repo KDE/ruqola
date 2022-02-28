@@ -742,12 +742,12 @@ void RoomWidget::slotGoBackToRoom()
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
 {
-    ThreadMessageDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setThreadMessageId(threadMessageId);
-    dlg.setFollowingThread(threadIsFollowing);
-    dlg.setThreadPreview(threadMessagePreview);
-    dlg.setRoom(mRoom);
-    dlg.show();
+    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
+    dlg->setThreadMessageId(threadMessageId);
+    dlg->setFollowingThread(threadIsFollowing);
+    dlg->setThreadPreview(threadMessagePreview);
+    dlg->setRoom(mRoom);
+    dlg->show();
 }
 
 void RoomWidget::setLayoutSpacing(int spacing)
