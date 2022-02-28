@@ -79,6 +79,7 @@ void TextConverterTest::shouldConvertText_data()
     QTest::newRow("word@-6") << QStringLiteral("@foo-bla") << QStringLiteral("<div><a href='ruqola:/user/foo-bla'>@foo-bla</a></div>");
     QTest::newRow("word@-7") << QStringLiteral("@foo_bla") << QStringLiteral("<div><a href='ruqola:/user/foo_bla'>@foo_bla</a></div>");
     QTest::newRow("word@-8") << QStringLiteral("bli@foo_bla") << QStringLiteral("<div>bli@foo_bla</div>");
+    QTest::newRow("word@-9") << QStringLiteral("@réunion") << QStringLiteral("<div><a href='ruqola:/user/réunion'>@réunion</a></div>");
 
     QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>");
     QTest::newRow("word#-2") << QStringLiteral("#foo.bla") << QStringLiteral("<div><a href='ruqola:/room/foo.bla'>#foo.bla</a></div>");
@@ -88,6 +89,7 @@ void TextConverterTest::shouldConvertText_data()
                              << QStringLiteral("<div>bla bla 21 <a href='ruqola:/room/foo.bla.bli'>#foo.bla.bli</a> dd</div>");
     QTest::newRow("word#-6") << QStringLiteral("#foo-bla") << QStringLiteral("<div><a href='ruqola:/room/foo-bla'>#foo-bla</a></div>");
     QTest::newRow("word#-7") << QStringLiteral("#foo_bla") << QStringLiteral("<div><a href='ruqola:/room/foo_bla'>#foo_bla</a></div>");
+    QTest::newRow("word#-8") << QStringLiteral("#réunion") << QStringLiteral("<div><a href='ruqola:/room/réunion'>#réunion</a></div>");
     // Test parsing when it's in an url... don't replace it.
 
     QTest::newRow("url") << QStringLiteral("http://www.kde.org#foo_bla")
