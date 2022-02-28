@@ -23,6 +23,8 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
     mainLayout->addWidget(mChannelNameValidLineEdit);
 
     mChannelNameLabel->setObjectName(QStringLiteral("mChannelNameLabel"));
+    mChannelNameLabel->setTextFormat(Qt::PlainText);
+    // TODO add text color
     mChannelNameLabel->hide();
     mainLayout->addWidget(mChannelNameLabel);
     connect(mChannelNameValidLineEdit, &ChannelNameValidLineEdit::channelIsValid, this, &ChannelNameValidLineWidget::slotChannelIsValid);
