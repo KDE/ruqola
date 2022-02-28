@@ -64,6 +64,9 @@ bool UpdateAdminSettingsJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
+    if (!mInfo.canStart()) {
+        return false;
+    }
     return true;
 }
 
@@ -85,4 +88,9 @@ QJsonDocument UpdateAdminSettingsJob::json() const
 bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::isValid() const
 {
     return !settingName.isEmpty();
+}
+
+bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::canStart() const
+{
+    return isValid();
 }

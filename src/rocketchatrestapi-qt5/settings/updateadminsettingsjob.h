@@ -19,6 +19,7 @@ public:
         QString settingName;
         bool settingsValue = false;
         Q_REQUIRED_RESULT bool isValid() const;
+        Q_REQUIRED_RESULT bool canStart() const;
     };
     explicit UpdateAdminSettingsJob(QObject *parent = nullptr);
     ~UpdateAdminSettingsJob() override;
