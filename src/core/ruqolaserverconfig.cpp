@@ -190,13 +190,11 @@ int RuqolaServerConfig::loginExpiration() const
 
 void RuqolaServerConfig::setChannelNameValidation(const QString &str)
 {
-    qDebug() << "RuqolaServerConfig::setChannelNameValidation " << str;
     mChannelNameValidation = str;
 }
 
 void RuqolaServerConfig::setUserNameValidation(const QString &str)
 {
-    qDebug() << "RuqolaServerConfig::setUserNameValidation " << str;
     mUserNameValidation = str;
 }
 
