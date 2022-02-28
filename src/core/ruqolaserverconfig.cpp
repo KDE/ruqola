@@ -173,9 +173,31 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+const QString &RuqolaServerConfig::userNameValidation() const
+{
+    return mUserNameValidation;
+}
+
+const QString &RuqolaServerConfig::channelNameValidation() const
+{
+    return mChannelNameValidation;
+}
+
 int RuqolaServerConfig::loginExpiration() const
 {
     return mLoginExpiration;
+}
+
+void RuqolaServerConfig::setChannelNameValidation(const QString &str)
+{
+    qDebug() << "RuqolaServerConfig::setChannelNameValidation " << str;
+    mChannelNameValidation = str;
+}
+
+void RuqolaServerConfig::setUserNameValidation(const QString &str)
+{
+    qDebug() << "RuqolaServerConfig::setUserNameValidation " << str;
+    mUserNameValidation = str;
 }
 
 void RuqolaServerConfig::setLoginExpiration(int loginExpiration)
@@ -313,6 +335,8 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mLogoUrl " << t.logoUrl();
     d << "mFaviconUrl " << t.faviconUrl();
     d << "mLoginExpiration " << t.loginExpiration();
+    d << "mChannelNameValidation " << t.channelNameValidation();
+    d << "mUserNameValidation " << t.userNameValidation();
     return d;
 }
 
@@ -474,6 +498,10 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             if (value.toBool()) {
                 mServerConfigFeatureTypes |= ServerConfigFeatureType::TwoFactorAuthenticationEnforcePasswordFallback;
             }
+        } else if (id == QLatin1String("UTF8_Channel_Names_Validation")) {
+            setChannelNameValidation(value.toString());
+        } else if (id == QLatin1String("UTF8_User_Names_Validation")) {
+            setUserNameValidation(value.toString());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

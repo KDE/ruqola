@@ -35,6 +35,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.logoUrl().isEmpty());
     QVERIFY(config.faviconUrl().isEmpty());
     QCOMPARE(config.loginExpiration(), -1);
+    QVERIFY(config.userNameValidation().isEmpty());
+    QVERIFY(config.channelNameValidation().isEmpty());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

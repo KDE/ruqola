@@ -124,6 +124,12 @@ public:
     Q_REQUIRED_RESULT int loginExpiration() const;
     void setLoginExpiration(int loginExpiration);
 
+    void setUserNameValidation(const QString &str);
+    Q_REQUIRED_RESULT const QString &userNameValidation() const;
+
+    void setChannelNameValidation(const QString &str);
+    Q_REQUIRED_RESULT const QString &channelNameValidation() const;
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -135,6 +141,8 @@ private:
     QString mSiteName;
     QString mServerVersionStr;
     QString mAutoTranslateGoogleKey;
+    QString mChannelNameValidation;
+    QString mUserNameValidation;
     AuthenticationManager::OauthTypes mServerOauthTypes = AuthenticationManager::OauthType::Password;
     AuthenticationManager::OauthTypes mRuqolaOauthTypes = AuthenticationManager::OauthType::Password;
     int mBlockEditingMessageInMinutes = 5;
