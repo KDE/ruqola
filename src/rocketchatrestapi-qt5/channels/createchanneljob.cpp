@@ -59,7 +59,10 @@ QString CreateChannelJob::errorMessage(const QString &str, const QJsonObject &de
 {
     if (str == QLatin1String("error-duplicate-channel-name")) {
         return i18n("A channel with name '%1' exists", detail.value(QStringLiteral("channel_name")).toString());
+    } else if (str == QLatin1String("error-invalid-room-name")) {
+        return i18n("'%1' is not a valid room name", detail.value(QStringLiteral("channel_name")).toString());
     }
+
     return RestApiAbstractJob::errorMessage(str, detail);
 }
 
