@@ -177,7 +177,7 @@ QString generateRichText(const QString &str, const QString &username, const QStr
             }
         }
     }
-    static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"));
+    static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
     const auto userMentionForegroundColor = Colors::self().scheme().foreground(KColorScheme::NegativeText).color().name();
