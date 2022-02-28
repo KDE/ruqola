@@ -15,6 +15,11 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateAdminSettingsJob : public RestApiAbs
 {
     Q_OBJECT
 public:
+    struct UpdateAdminSettingsInfo {
+        QString settingName;
+        bool settingsValue = false;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
     explicit UpdateAdminSettingsJob(QObject *parent = nullptr);
     ~UpdateAdminSettingsJob() override;
 
@@ -24,11 +29,15 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
+    Q_REQUIRED_RESULT const UpdateAdminSettingsInfo &info() const;
+    void setInfo(const UpdateAdminSettingsInfo &newInfo);
+
 Q_SIGNALS:
     void updateAdminSettingsDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(UpdateAdminSettingsJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    UpdateAdminSettingsInfo mInfo;
 };
 }

@@ -44,6 +44,16 @@ void UpdateAdminSettingsJob::onPostRequestResponse(const QJsonDocument &replyJso
     }
 }
 
+const UpdateAdminSettingsJob::UpdateAdminSettingsInfo &UpdateAdminSettingsJob::info() const
+{
+    return mInfo;
+}
+
+void UpdateAdminSettingsJob::setInfo(const UpdateAdminSettingsInfo &newInfo)
+{
+    mInfo = newInfo;
+}
+
 bool UpdateAdminSettingsJob::requireHttpAuthentication() const
 {
     return true;
@@ -70,4 +80,9 @@ QJsonDocument UpdateAdminSettingsJob::json() const
 {
     // TODO
     return {};
+}
+
+bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::isValid() const
+{
+    return !settingName.isEmpty();
 }
