@@ -113,7 +113,7 @@ QString generateRichText(const QString &str, const QString &username, const QStr
             lstPos.append(std::move(pos));
         }
 
-        static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"));
+        static const QRegularExpression regularExpressionRoom(QStringLiteral("(^|\\s+)#([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
         QRegularExpressionMatchIterator roomIterator = regularExpressionRoom.globalMatch(newStr);
         while (roomIterator.hasNext()) {
             const QRegularExpressionMatch match = roomIterator.next();
