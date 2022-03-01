@@ -44,12 +44,12 @@ void UpdateAdminSettingsJob::onPostRequestResponse(const QJsonDocument &replyJso
     }
 }
 
-const UpdateAdminSettingsJob::UpdateAdminSettingsInfo &UpdateAdminSettingsJob::info() const
+const UpdateAdminSettingsJob::UpdateAdminSettingsInfo &UpdateAdminSettingsJob::updateAdminSettingsInfo() const
 {
     return mInfo;
 }
 
-void UpdateAdminSettingsJob::setInfo(const UpdateAdminSettingsInfo &newInfo)
+void UpdateAdminSettingsJob::setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo)
 {
     mInfo = newInfo;
 }

@@ -54,6 +54,11 @@ void UpdateAdminSettingsJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
+    UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
+    info.settingName = QStringLiteral("bla");
+    info.settingsValue = false;
+
+    job.setUpdateAdminSettingsInfo(info);
 
     QVERIFY(job.canStart());
 }

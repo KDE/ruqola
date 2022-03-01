@@ -30,8 +30,8 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
-    Q_REQUIRED_RESULT const UpdateAdminSettingsInfo &info() const;
-    void setInfo(const UpdateAdminSettingsInfo &newInfo);
+    Q_REQUIRED_RESULT const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
+    void setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo);
 
 Q_SIGNALS:
     void updateAdminSettingsDone(const QJsonObject &obj);
