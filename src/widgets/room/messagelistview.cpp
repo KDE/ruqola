@@ -608,28 +608,22 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     const QString threadMessageId = message->threadMessageId();
+    QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+    const bool threadIsFollowing = message->replies().contains(mCurrentRocketChatAccount->userId());
+    QString messageId = threadMessageId;
     if (threadMessageId.isEmpty()) {
-        const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
-        const bool threadIsFollowing = message->replies().contains(mCurrentRocketChatAccount->userId());
-        auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
-        dlg->setThreadMessageId(message->messageId());
-        dlg->setThreadPreview(threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString() : threadMessagePreview);
-        dlg->setFollowingThread(threadIsFollowing);
-        dlg->setRoom(mRoom);
-        dlg->show();
-
-    } else {
-        const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
-
-        const bool threadIsFollowing = mCurrentRocketChatAccount && message->replies().contains(mCurrentRocketChatAccount->userId());
-
-        auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
-        dlg->setThreadMessageId(threadMessageId);
-        dlg->setThreadPreview(threadMessagePreview);
-        dlg->setFollowingThread(threadIsFollowing);
-        dlg->setRoom(mRoom);
-        dlg->show();
+        messageId = message->messageId();
+        if (threadMessagePreview.isEmpty()) {
+            threadMessagePreview = index.data(MessageModel::MessageConvertedText).toString();
+        }
     }
+
+    auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
+    dlg->setThreadMessageId(messageId);
+    dlg->setThreadPreview(threadMessagePreview);
+    dlg->setFollowingThread(threadIsFollowing);
+    dlg->setRoom(mRoom);
+    dlg->show();
 }
 
 void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
