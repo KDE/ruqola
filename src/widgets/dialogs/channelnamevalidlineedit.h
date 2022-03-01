@@ -10,7 +10,21 @@
 #include "misc/searchwithdelaylineedit.h"
 
 #include <QJsonDocument>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 class RocketChatAccount;
+
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEditValidator : public QRegularExpressionValidator
+{
+    Q_OBJECT
+public:
+    explicit ChannelNameValidLineEditValidator(const QRegularExpression &re, QObject *parent = nullptr);
+    ~ChannelNameValidLineEditValidator() override;
+    QValidator::State validate(QString &input, int &pos) const override;
+Q_SIGNALS:
+    void textIsValid(bool isValid) const;
+};
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineEdit : public SearchWithDelayLineEdit
 {
     Q_OBJECT
@@ -32,7 +46,9 @@ private:
     void slotSearchChannelRequested(const QString &str);
     void clearLineEdit();
     void emitIsValid(bool state);
+    void slotTextIsValid(bool state);
     QString mNegativeBackground;
     quint64 mDdpIdentifier = 0;
+    QRegularExpression mRegularExpression;
     RocketChatAccount *const mRocketChatAccount;
 };

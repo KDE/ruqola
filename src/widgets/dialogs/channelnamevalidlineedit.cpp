@@ -20,10 +20,19 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, &ChannelNameValidLineEdit::clearLineEdit);
     if (mRocketChatAccount) {
         connect(mRocketChatAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
+        auto mChannelNameValidLineEditValidator =
+            new ChannelNameValidLineEditValidator(QRegularExpression(account->ruqolaServerConfig()->channelNameValidation()), this);
+        connect(mChannelNameValidLineEditValidator, &ChannelNameValidLineEditValidator::textIsValid, this, &ChannelNameValidLineEdit::slotTextIsValid);
+        setValidator(mChannelNameValidLineEditValidator);
     }
 }
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit() = default;
+
+void ChannelNameValidLineEdit::slotTextIsValid(bool state)
+{
+    Q_EMIT channelIsValid(state ? ChannelNameValidLineEdit::ChannelNameStatus::Valid : ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters);
+}
 
 void ChannelNameValidLineEdit::clearLineEdit()
 {
@@ -71,3 +80,17 @@ void ChannelNameValidLineEdit::emitIsValid(bool state)
     updateStyleSheet(state);
     Q_EMIT channelIsValid(state ? ChannelNameValidLineEdit::ChannelNameStatus::Valid : ChannelNameValidLineEdit::ChannelNameStatus::AlreadyExistingName);
 }
+
+ChannelNameValidLineEditValidator::ChannelNameValidLineEditValidator(const QRegularExpression &re, QObject *parent)
+    : QRegularExpressionValidator(re, parent)
+{
+}
+
+QValidator::State ChannelNameValidLineEditValidator::validate(QString &input, int &pos) const
+{
+    const QValidator::State state = QRegularExpressionValidator::validate(input, pos);
+    Q_EMIT textIsValid(state == QValidator::State::Acceptable);
+    return state;
+}
+
+ChannelNameValidLineEditValidator::~ChannelNameValidLineEditValidator() = default;

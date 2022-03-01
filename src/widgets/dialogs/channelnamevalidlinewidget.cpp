@@ -5,10 +5,12 @@
 */
 
 #include "channelnamevalidlinewidget.h"
+#include "rocketchataccount.h"
 
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QLabel>
+#include <QRegularExpressionValidator>
 #include <QVBoxLayout>
 
 ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *account, QWidget *parent)
@@ -60,6 +62,7 @@ void ChannelNameValidLineWidget::slotChannelIsValid(ChannelNameValidLineEdit::Ch
         break;
     case ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters:
         isValid = false;
+        mChannelNameLabel->setText(i18n("Invalid characters found."));
         mChannelNameLabel->setHidden(false);
         break;
     }
