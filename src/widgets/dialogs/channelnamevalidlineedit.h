@@ -30,6 +30,7 @@ private:
     void updateStyleSheet(bool state);
     void slotSearchDone(quint64 id, const QJsonDocument &result);
     void slotSearchChannelRequested(const QString &str);
+    void clearLineEdit();
     void emitIsValid(bool state);
     QString mNegativeBackground;
     quint64 mDdpIdentifier = 0;

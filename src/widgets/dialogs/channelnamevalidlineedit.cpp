@@ -17,9 +17,7 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
     setDelayMs(500);
     setPlaceholderText(QString());
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
-    connect(this, &ChannelNameValidLineEdit::searchCleared, this, [this] {
-        updateStyleSheet(true);
-    });
+    connect(this, &ChannelNameValidLineEdit::searchCleared, this, &ChannelNameValidLineEdit::clearLineEdit);
     if (mRocketChatAccount) {
         connect(mRocketChatAccount->ddp(), &DDPClient::result, this, &ChannelNameValidLineEdit::slotSearchDone);
     }
@@ -27,12 +25,18 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
 
 ChannelNameValidLineEdit::~ChannelNameValidLineEdit() = default;
 
+void ChannelNameValidLineEdit::clearLineEdit()
+{
+    updateStyleSheet(true);
+    Q_EMIT channelIsValid(ChannelNameValidLineEdit::ChannelNameStatus::Unknown);
+}
+
 void ChannelNameValidLineEdit::slotSearchChannelRequested(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
         mDdpIdentifier = mRocketChatAccount->ddp()->roomNameExists(text);
     } else {
-        updateStyleSheet(true);
+        clearLineEdit();
     }
 }
 

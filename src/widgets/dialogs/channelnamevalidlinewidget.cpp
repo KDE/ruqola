@@ -20,7 +20,6 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(QMargins{});
 
-    // TODO fix ok button when it's empty too
     mChannelNameValidLineEdit->setObjectName(QStringLiteral("mChannelNameValidLineEdit"));
     mainLayout->addWidget(mChannelNameValidLineEdit);
 
@@ -48,19 +47,22 @@ void ChannelNameValidLineWidget::slotChannelIsValid(ChannelNameValidLineEdit::Ch
     switch (status) {
     case ChannelNameValidLineEdit::ChannelNameStatus::Unknown:
         isValid = false;
+        mChannelNameLabel->setHidden(true);
         break;
     case ChannelNameValidLineEdit::ChannelNameStatus::Valid:
         isValid = true;
+        mChannelNameLabel->setHidden(true);
         break;
     case ChannelNameValidLineEdit::ChannelNameStatus::AlreadyExistingName:
         mChannelNameLabel->setText(i18n("%1 name is already used.", mChannelNameValidLineEdit->text()));
+        mChannelNameLabel->setHidden(false);
         isValid = false;
         break;
     case ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters:
         isValid = false;
+        mChannelNameLabel->setHidden(false);
         break;
     }
-    mChannelNameLabel->setHidden(isValid);
     Q_EMIT channelIsValid(isValid);
 }
 
