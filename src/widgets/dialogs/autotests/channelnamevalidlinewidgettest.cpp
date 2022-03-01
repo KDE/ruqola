@@ -5,7 +5,9 @@
 */
 
 #include "channelnamevalidlinewidgettest.h"
+#include "dialogs/channelnamevalidlineedit.h"
 #include "dialogs/channelnamevalidlinewidget.h"
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(ChannelNameValidLineWidgetTest)
@@ -21,4 +23,10 @@ void ChannelNameValidLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     QVERIFY(w.text().isEmpty());
+
+    auto mChannelNameValidLineEdit = w.findChild<ChannelNameValidLineEdit *>(QStringLiteral("mChannelNameValidLineEdit"));
+    QVERIFY(mChannelNameValidLineEdit);
+
+    auto mChannelNameLabel = w.findChild<QLabel *>(QStringLiteral("mChannelNameLabel"));
+    QCOMPARE(mChannelNameLabel->textFormat(), Qt::PlainText);
 }
