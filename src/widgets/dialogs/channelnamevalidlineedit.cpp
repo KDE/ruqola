@@ -65,5 +65,5 @@ void ChannelNameValidLineEdit::updateStyleSheet(bool state)
 void ChannelNameValidLineEdit::emitIsValid(bool state)
 {
     updateStyleSheet(state);
-    Q_EMIT channelIsValid(state);
+    Q_EMIT channelIsValid(state ? ChannelNameValidLineEdit::ChannelNameStatus::Valid : ChannelNameValidLineEdit::ChannelNameStatus::AlreadyExistingName);
 }

@@ -24,7 +24,7 @@ public:
     explicit ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ChannelNameValidLineEdit() override;
 Q_SIGNALS:
-    void channelIsValid(bool valid);
+    void channelIsValid(ChannelNameValidLineEdit::ChannelNameStatus status);
 
 private:
     void updateStyleSheet(bool state);

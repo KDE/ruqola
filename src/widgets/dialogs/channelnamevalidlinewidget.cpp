@@ -5,7 +5,7 @@
 */
 
 #include "channelnamevalidlinewidget.h"
-#include "channelnamevalidlineedit.h"
+
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QLabel>
@@ -20,6 +20,7 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins(QMargins{});
 
+    // TODO fix ok button when it's empty too
     mChannelNameValidLineEdit->setObjectName(QStringLiteral("mChannelNameValidLineEdit"));
     mainLayout->addWidget(mChannelNameValidLineEdit);
 
@@ -41,10 +42,25 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
 
 ChannelNameValidLineWidget::~ChannelNameValidLineWidget() = default;
 
-void ChannelNameValidLineWidget::slotChannelIsValid(bool isValid)
+void ChannelNameValidLineWidget::slotChannelIsValid(ChannelNameValidLineEdit::ChannelNameStatus status)
 {
-    mChannelNameLabel->setVisible(!isValid);
-    mChannelNameLabel->setText(i18n("%1 name is already used.", mChannelNameValidLineEdit->text()));
+    bool isValid = false;
+    switch (status) {
+    case ChannelNameValidLineEdit::ChannelNameStatus::Unknown:
+        isValid = false;
+        break;
+    case ChannelNameValidLineEdit::ChannelNameStatus::Valid:
+        isValid = true;
+        break;
+    case ChannelNameValidLineEdit::ChannelNameStatus::AlreadyExistingName:
+        mChannelNameLabel->setText(i18n("%1 name is already used.", mChannelNameValidLineEdit->text()));
+        isValid = false;
+        break;
+    case ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters:
+        isValid = false;
+        break;
+    }
+    mChannelNameLabel->setHidden(isValid);
     Q_EMIT channelIsValid(isValid);
 }
 

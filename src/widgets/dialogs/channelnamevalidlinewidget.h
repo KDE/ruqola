@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "channelnamevalidlineedit.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-class ChannelNameValidLineEdit;
 class RocketChatAccount;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelNameValidLineWidget : public QWidget
@@ -23,7 +23,7 @@ Q_SIGNALS:
     void channelIsValid(bool valid);
 
 private:
-    void slotChannelIsValid(bool isValid);
+    void slotChannelIsValid(ChannelNameValidLineEdit::ChannelNameStatus isValid);
     ChannelNameValidLineEdit *const mChannelNameValidLineEdit;
     QLabel *const mChannelNameLabel;
 };
