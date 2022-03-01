@@ -17,17 +17,18 @@ AdministratorRoomsEditDialog::AdministratorRoomsEditDialog(RoomType roomType, QW
     : QDialog(parent)
     , mRoomType(roomType)
 {
-    setWindowTitle(i18nc("@title:window", "Edit Room"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     switch (mRoomType) {
     case DirectRoom:
+        setWindowTitle(i18nc("@title:window", "Edit Direct Room"));
         mAdministratorRoomEditWidget = new AdministratorDirectRoomsEditWidget(this);
         break;
     case Team:
     case Group:
     case Channel:
+        setWindowTitle(i18nc("@title:window", "Edit Room"));
         mAdministratorRoomEditWidget = new AdministratorRoomsEditWidget(this);
         break;
     case Unknown:
