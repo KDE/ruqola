@@ -6,6 +6,7 @@
 
 #include "channelnamevalidlinewidget.h"
 #include "channelnamevalidlineedit.h"
+#include <KColorScheme>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -24,7 +25,15 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
 
     mChannelNameLabel->setObjectName(QStringLiteral("mChannelNameLabel"));
     mChannelNameLabel->setTextFormat(Qt::PlainText);
-    // TODO add text color
+
+    const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
+    const QColor color = bgBrush.brush(palette()).color();
+
+    QPalette pal = mChannelNameLabel->palette();
+    pal.setColor(QPalette::WindowText, color);
+    mChannelNameLabel->setPalette(pal);
+    mChannelNameLabel->setAutoFillBackground(true);
+
     mChannelNameLabel->hide();
     mainLayout->addWidget(mChannelNameLabel);
     connect(mChannelNameValidLineEdit, &ChannelNameValidLineEdit::channelIsValid, this, &ChannelNameValidLineWidget::slotChannelIsValid);
@@ -35,7 +44,7 @@ ChannelNameValidLineWidget::~ChannelNameValidLineWidget() = default;
 void ChannelNameValidLineWidget::slotChannelIsValid(bool isValid)
 {
     mChannelNameLabel->setVisible(!isValid);
-    mChannelNameLabel->setText(i18n("%1 is already used", mChannelNameValidLineEdit->text()));
+    mChannelNameLabel->setText(i18n("%1 name is already used.", mChannelNameValidLineEdit->text()));
     Q_EMIT channelIsValid(isValid);
 }
 
