@@ -57,6 +57,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
 
     mMessageTextEdit->setAcceptRichText(false);
     mMessageTextEdit->setObjectName(QStringLiteral("mMessageTextEdit"));
+    mMessageTextEdit->setPlaceholderText(i18n("Usually a discussion starts with a question, like \"How do I upload a picture?\""));
     mainLayout->addWidget(mMessageTextEdit);
 }
 

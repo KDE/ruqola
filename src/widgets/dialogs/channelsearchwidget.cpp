@@ -6,6 +6,7 @@
 
 #include "channelsearchwidget.h"
 #include "channelsearchnamelineresultwidget.h"
+#include <KLocalizedString>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *parent)
@@ -21,6 +22,7 @@ ChannelSearchWidget::ChannelSearchWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(mStackedWidget);
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mChannelSearchNameLineEdit->setObjectName(QStringLiteral("mChannelSearchNameLineEdit"));
+    mChannelSearchNameLineEdit->setPlaceholderText(i18n("Select a channel"));
     mStackedWidget->addWidget(mChannelSearchNameLineEdit);
 
     mChannelSearchLineResult->setObjectName(QStringLiteral("mChannelSearchLineResult"));
