@@ -16,7 +16,7 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
-    QCOMPARE(w.rowCount(), 20);
+    QCOMPARE(w.rowCount(), 29);
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;
     const int rowCountNb = w.rowCount();
@@ -47,6 +47,15 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
         QStringLiteral("room_archived"),
         QStringLiteral("room_e2e_enabled"),
         QStringLiteral("room_e2e_disabled"),
+        QStringLiteral("room-removed-read-only"),
+        QStringLiteral("room-set-read-only"),
+        QStringLiteral("room-disallowed-reacting"),
+        QStringLiteral("room-allowed-reacting"),
+        QStringLiteral("user-added-room-to-team"),
+        QStringLiteral("user-converted-to-channel"),
+        QStringLiteral("user-converted-to-team"),
+        QStringLiteral("user-removed-room-from-team"),
+        QStringLiteral("user-deleted-room-from-team"),
     };
 
     for (const QString &r : std::as_const(lst)) {

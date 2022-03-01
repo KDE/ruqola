@@ -489,7 +489,25 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("room-set-read-only")) {
         return i18n("Room set as Read Only by  %1", mUsername);
     } else if (mSystemMessageType == QLatin1String("room-removed-read-only")) {
-        return i18n("Room added writing permission by  %1", mUsername);
+        return i18n("Room added writing permission by %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("added-user-to-team")) {
+        return i18n("Added %1 to this Team", mUsername);
+    } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
+        return i18n("Removed %1 from this Team", mUsername);
+    } else if (mSystemMessageType == QLatin1String("user-converted-to-team")) {
+        return i18n("Converted %1 to a Team", mUsername); // TODO verify it
+    } else if (mSystemMessageType == QLatin1String("user-converted-to-channel")) {
+        return i18n("Converted %1 to a Channel", mUsername); // TODO verify it
+    } else if (mSystemMessageType == QLatin1String("user-removed-room-from-team")) {
+        return i18n("Removed %1 from this Team", mUsername); // TODO verify it
+    } else if (mSystemMessageType == QLatin1String("user-deleted-room-from-team")) {
+        return i18n("Deleted %1", mUsername); // TODO verify it
+    } else if (mSystemMessageType == QLatin1String("user-added-room-to-team")) {
+        return i18n("Added %1 to this Team", mUsername); // TODO verify it
+    } else if (mSystemMessageType == QLatin1String("room-allowed-reacting")) {
+        return i18n("Room allowed reacting by %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("room-disallowed-reacting")) {
+        return i18n("Room disallowed reacting by %1", mUsername);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");

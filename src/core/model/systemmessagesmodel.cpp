@@ -50,6 +50,15 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Room Archived\" messages"), QStringLiteral("room_archived"));
     createItem(i18n("Hide \"Encryption Enabled\" messages"), QStringLiteral("room_e2e_enabled"));
     createItem(i18n("Hide \"Encryption Disabled\" messages"), QStringLiteral("room_e2e_disabled"));
+    createItem(i18n("Hide \"Room added writing permission\" messages"), QStringLiteral("room-removed-read-only"));
+    createItem(i18n("Hide \"Room set Read Only\" messages"), QStringLiteral("room-set-read-only"));
+    createItem(i18n("Hide \"Room disallowed reacting\" messages"), QStringLiteral("room-disallowed-reacting"));
+    createItem(i18n("Hide \"Room allowed reacting\" messages"), QStringLiteral("room-allowed-reacting"));
+    createItem(i18n("Hide \"User Added Room to Team\" messages"), QStringLiteral("user-added-room-to-team"));
+    createItem(i18n("Hide \"User converted team to a Channel\" messages"), QStringLiteral("user-converted-to-channel"));
+    createItem(i18n("Hide \"User converted channel to a Team\" messages"), QStringLiteral("user-converted-to-team"));
+    createItem(i18n("Hide \"User deleted room from Team\" messages"), QStringLiteral("user-deleted-room-from-team"));
+    createItem(i18n("Hide \"User removed room from Team\" messages"), QStringLiteral("user-removed-room-from-team"));
 }
 
 void SystemMessagesModel::setMessagesSystem(const QStringList &lst)
