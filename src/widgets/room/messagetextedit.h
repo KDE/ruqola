@@ -37,14 +37,17 @@ public:
     QMenu *mousePopupMenu() override;
 
 Q_SIGNALS:
+
     void sendMessage(const QString &str);
     void keyPressed(QKeyEvent *ev);
     void textEditing(bool clearNotification);
     void textClicked();
+    void handleMimeData(const QMimeData *mimeData);
 
 protected:
     void keyPressEvent(QKeyEvent *e) override;
     void mousePressEvent(QMouseEvent *ev) override;
+    void dropEvent(QDropEvent *e) override;
 
 private:
     void slotCompletionTypeChanged(InputTextManager::CompletionForType type);

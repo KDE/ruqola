@@ -76,6 +76,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     mEmoticonButton->setMenu(emoticonMenu);
     connect(emoticonMenu, &QMenu::aboutToShow, mEmoticonMenuWidget, &EmoticonMenuWidget::loadRecentUsed);
     connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, mMessageTextEdit, &MessageTextEdit::insertEmoji);
+    connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
     setFocusProxy(mMessageTextEdit);
 }

@@ -19,6 +19,7 @@
 #include <QAbstractTextDocumentLayout>
 #include <QKeyEvent>
 #include <QMenu>
+#include <QMimeData>
 #include <QTextCursor>
 #include <QTextDocument>
 
@@ -240,6 +241,17 @@ void MessageTextEdit::mousePressEvent(QMouseEvent *ev)
         Q_EMIT textClicked();
     }
     KTextEdit::mousePressEvent(ev);
+}
+
+void MessageTextEdit::dropEvent(QDropEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        Q_EMIT handleMimeData(mimeData);
+        event->accept();
+        return;
+    }
+    KTextEdit::dropEvent(event);
 }
 
 void MessageTextEdit::slotCompletionTypeChanged(InputTextManager::CompletionForType type)
