@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QPointer>
 #include <QWidget>
 class RocketChatAccount;
 class Room;
@@ -44,5 +45,6 @@ private:
     RoomWidgetBase *const mRoomWidgetBase;
     RocketChatAccount *const mRocketChatAccount;
     QToolButton *const mFollowButton;
+    QPointer<Room> mRoom;
 };
 

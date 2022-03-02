@@ -1451,6 +1451,11 @@ bool Room::userIsIgnored(const QString &userId)
     return mIgnoredUsers.contains(userId);
 }
 
+bool Room::roomIsBlocked() const
+{
+    return ((mReadOnly && !canChangeRoles()) || mArchived) || mBlocker || mBlocked;
+}
+
 QString Room::roomMessageInfo() const
 {
     if ((mReadOnly && !canChangeRoles()) || mArchived) {

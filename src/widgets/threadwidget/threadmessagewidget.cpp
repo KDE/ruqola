@@ -132,6 +132,7 @@ void ThreadMessageWidget::intialize()
 
 void ThreadMessageWidget::setRoom(Room *room)
 {
+    mRoom = room;
     mRoomWidgetBase->messageLineWidget()->setRoomId(room->roomId());
     mRoomWidgetBase->messageListView()->setRoom(room);
 }
@@ -151,6 +152,10 @@ void ThreadMessageWidget::dragEnterEvent(QDragEnterEvent *event)
 
 void ThreadMessageWidget::dropEvent(QDropEvent *event)
 {
+    // Don't allow to drop element when it's blocked
+    if (mRoom && mRoom->roomIsBlocked()) {
+        return;
+    }
     const QMimeData *mimeData = event->mimeData();
     if (mimeData->hasUrls()) {
         mRoomWidgetBase->messageLineWidget()->handleMimeData(mimeData);

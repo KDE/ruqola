@@ -422,6 +422,10 @@ void RoomWidget::slotCreatePrivateDiscussion(const QString &userName)
 
 void RoomWidget::dragEnterEvent(QDragEnterEvent *event)
 {
+    // Don't allow to drop element when it's blocked
+    if (mRoom && mRoom->roomIsBlocked()) {
+        return;
+    }
     const QMimeData *mimeData = event->mimeData();
     if (mimeData->hasUrls()) {
         event->accept();

@@ -252,6 +252,7 @@ public:
     void setTeamInfo(const TeamInfo &teamInfo);
 
     Q_REQUIRED_RESULT Room::TeamRoomInfo teamRoomInfo() const;
+    Q_REQUIRED_RESULT bool roomIsBlocked() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
