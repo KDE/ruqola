@@ -495,9 +495,9 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
         return i18n("Removed %1 from this Team", mUsername);
     } else if (mSystemMessageType == QLatin1String("user-converted-to-team")) {
-        return i18n("Converted %1 to a Team", mUsername); // TODO verify it
+        return i18n("%1 converted #%2 to a Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-converted-to-channel")) {
-        return i18n("Converted %1 to a Channel", mUsername); // TODO verify it
+        return i18n("%1 converted #%2 to a Channel", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-removed-room-from-team")) {
         return i18n("%1 removed #%2 from this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-deleted-room-from-team")) {
