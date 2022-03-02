@@ -491,7 +491,7 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("room-removed-read-only")) {
         return i18n("Room added writing permission by %1", mUsername);
     } else if (mSystemMessageType == QLatin1String("added-user-to-team")) {
-        return i18n("Added %1 to this Team", mUsername);
+        return i18n("%1 added @%2 to this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
         return i18n("Removed %1 from this Team", mUsername);
     } else if (mSystemMessageType == QLatin1String("user-converted-to-team")) {
