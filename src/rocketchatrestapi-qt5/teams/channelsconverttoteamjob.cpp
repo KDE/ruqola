@@ -11,6 +11,9 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+
+#include <KLocalizedString>
+
 using namespace RocketChatRestApi;
 ChannelsConvertToTeamJob::ChannelsConvertToTeamJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -86,4 +89,12 @@ QJsonDocument ChannelsConvertToTeamJob::json() const
     jsonObj[QLatin1String("channelId")] = mChannelId;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString ChannelsConvertToTeamJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("unauthorized")) {
+        return i18n("Channel can not convert to Team.");
+    }
+    return RestApiAbstractJob::generateErrorMessage(errorStr);
 }

@@ -30,6 +30,9 @@ public:
 Q_SIGNALS:
     void channelConvertToTeamDone(const QJsonObject &obj);
 
+protected:
+    Q_REQUIRED_RESULT QString generateErrorMessage(const QString &errorStr) const override;
+
 private:
     Q_DISABLE_COPY(ChannelsConvertToTeamJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
