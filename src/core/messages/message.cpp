@@ -499,15 +499,17 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("user-converted-to-channel")) {
         return i18n("Converted %1 to a Channel", mUsername); // TODO verify it
     } else if (mSystemMessageType == QLatin1String("user-removed-room-from-team")) {
-        return i18n("Removed %1 from this Team", mUsername); // TODO verify it
+        return i18n("%1 removed #%2 from this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-deleted-room-from-team")) {
-        return i18n("Deleted %1", mUsername); // TODO verify it
+        return i18n("%1 deleted #%2", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-added-room-to-team")) {
-        return i18n("Added %1 to this Team", mUsername); // TODO verify it
+        return i18n("%1 added #%2 to this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("room-allowed-reacting")) {
         return i18n("Room allowed reacting by %1", mUsername);
     } else if (mSystemMessageType == QLatin1String("room-disallowed-reacting")) {
         return i18n("Room disallowed reacting by %1", mUsername);
+    } else if (mSystemMessageType == QLatin1String("ujt")) {
+        return i18n("%1 joined this Team", mUsername);
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");

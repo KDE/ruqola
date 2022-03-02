@@ -59,6 +59,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"User converted channel to a Team\" messages"), QStringLiteral("user-converted-to-team"));
     createItem(i18n("Hide \"User deleted room from Team\" messages"), QStringLiteral("user-deleted-room-from-team"));
     createItem(i18n("Hide \"User removed room from Team\" messages"), QStringLiteral("user-removed-room-from-team"));
+    createItem(i18n("Joined this Team"), QStringLiteral("ujt"));
 }
 
 void SystemMessagesModel::setMessagesSystem(const QStringList &lst)
