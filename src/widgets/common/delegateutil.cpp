@@ -8,6 +8,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KRecentDirs>
 
 #include <QDir>
 #include <QFileDialog>
@@ -15,9 +16,12 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+#include <KFileWidget>
+
 QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, const QUrl &fileToSave)
 {
-    const auto dir = QDir(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
+    QString fileClass;
+    const QUrl startUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///saveattachment")), fileClass);
     const auto info = QFileInfo(fileToSave.path());
     auto fileName = info.fileName();
     if (fileToSave.isLocalFile() && info.exists() && info.suffix().isEmpty()) {
@@ -38,7 +42,14 @@ QString DelegateUtil::querySaveFileName(QWidget *parent, const QString &title, c
             }
         }();
     }
-    return QFileDialog::getSaveFileName(parent, title, dir.absoluteFilePath(fileName));
+    QUrl localUrl;
+    localUrl.setPath(startUrl.path() + QLatin1Char('/') + fileName);
+    const QString fileStr = QFileDialog::getSaveFileName(parent, title, localUrl.toString());
+
+    if (!fileClass.isEmpty() && !fileStr.isEmpty()) {
+        KRecentDirs::add(fileClass, fileStr);
+    }
+    return fileStr;
 }
 
 void DelegateUtil::saveFile(QWidget *parentWidget, const QString &filePath, const QString &title)

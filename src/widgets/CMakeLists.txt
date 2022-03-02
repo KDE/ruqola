@@ -565,6 +565,7 @@ target_link_libraries(libruqolawidgets
     KF5::NotifyConfig
     KF5::ItemViews
     KF5::Prison
+    KF5::KIOFileWidgets
     librocketchatrestapi-qt5
     libruqolacore
 )
