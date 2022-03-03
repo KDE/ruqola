@@ -135,6 +135,7 @@ void ThreadMessageWidget::setRoom(Room *room)
     mRoom = room;
     mRoomWidgetBase->messageLineWidget()->setRoomId(room->roomId());
     mRoomWidgetBase->messageListView()->setRoom(room);
+    mRoomWidgetBase->updateRoomReadOnly(room);
 }
 
 void ThreadMessageWidget::setThreadPreview(const QString &preview)
