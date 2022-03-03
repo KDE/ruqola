@@ -510,6 +510,12 @@ QString Message::systemMessageText() const
         return i18n("Room disallowed reacting by %1", mUsername);
     } else if (mSystemMessageType == QLatin1String("ujt")) {
         return i18n("%1 joined this Team", mUsername);
+    } else if (mSystemMessageType == QLatin1String("user_joined_otr")) {
+        return i18n("Has joined OTR chat."); // Verify
+    } else if (mSystemMessageType == QLatin1String("user_key_refreshed_successfully")) {
+        return i18n("key refreshed successfully"); // Verify
+    } else if (mSystemMessageType == QLatin1String("user_requested_otr_key_refresh")) {
+        return i18n("Has requested key refresh."); // Verify
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
