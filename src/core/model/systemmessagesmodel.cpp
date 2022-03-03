@@ -35,6 +35,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Welcome\" messages"), QStringLiteral("wm"));
     createItem(i18n("Hide \"User Joined Conversation\" messages"), QStringLiteral("ut"));
     createItem(i18n("Hide \"User Leave\" messages"), QStringLiteral("ul"));
+    createItem(i18n("Hide \"User Left Team\" messages"), QStringLiteral("ult"));
     createItem(i18n("Hide \"User Join\" messages"), QStringLiteral("uj"));
     createItem(i18n("Hide \"Role No Longer Defined\" messages"), QStringLiteral("subscription-role-removed"));
     createItem(i18n("Hide \"Was Set Role\" messages"), QStringLiteral("subscription-role-added"));

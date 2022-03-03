@@ -16,7 +16,7 @@ SystemMessagesModelTest::SystemMessagesModelTest(QObject *parent)
 void SystemMessagesModelTest::shouldHaveDefaultValues()
 {
     SystemMessagesModel w;
-    QCOMPARE(w.rowCount(), 30);
+    QCOMPARE(w.rowCount(), 31);
     QVERIFY(w.systemMessagesSelected().isEmpty());
     QStringList lst;
     const int rowCountNb = w.rowCount();
@@ -32,6 +32,7 @@ void SystemMessagesModelTest::shouldHaveDefaultValues()
         QStringLiteral("wm"),
         QStringLiteral("ut"),
         QStringLiteral("ul"),
+        QStringLiteral("ult"),
         QStringLiteral("uj"),
         QStringLiteral("subscription-role-removed"),
         QStringLiteral("subscription-role-added"),

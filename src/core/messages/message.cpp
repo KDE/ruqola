@@ -419,6 +419,8 @@ QString Message::systemMessageText() const
         return i18n("%1 has joined the channel", mUsername);
     } else if (mSystemMessageType == QLatin1String("ul")) {
         return i18n("%1 has left the channel", mUsername);
+    } else if (mSystemMessageType == QLatin1String("ult")) {
+        return i18n("%1 left this Team", mUsername);
     } else if (mSystemMessageType == QLatin1String("room_changed_topic")) {
         if (mText.isEmpty()) {
             return i18n("Topic was cleared by: %1", mUsername);
