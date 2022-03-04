@@ -49,6 +49,7 @@
 #include <KNotifyConfigWidget>
 #include <KSharedConfig>
 #include <KStandardAction>
+#include <KToolBar>
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QDir>
@@ -57,6 +58,7 @@
 #include <QIcon>
 #include <QLabel>
 #include <QMenu>
+#include <QMenuBar>
 #include <QStatusBar>
 #include <QTemporaryFile>
 #include <QWidgetAction>
@@ -99,6 +101,8 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     auto userFeedBackNotificationPopup = new KUserFeedback::NotificationPopup(this);
     userFeedBackNotificationPopup->setFeedbackProvider(UserFeedBackManager::self()->userFeedbackProvider());
 #endif
+    mShowMenuBarAction->setChecked(RuqolaGlobalConfig::self()->showMenuBar());
+    slotToggleMenubar(true);
 }
 
 RuqolaMainWindow::~RuqolaMainWindow()
@@ -270,6 +274,8 @@ void RuqolaMainWindow::setupActions()
 {
     KActionCollection *ac = actionCollection();
 
+    mShowMenuBarAction = KStandardAction::showMenubar(this, &RuqolaMainWindow::slotToggleMenubar, ac);
+
     KStandardAction::quit(this, &RuqolaMainWindow::slotClose, ac);
     KStandardAction::preferences(this, &RuqolaMainWindow::slotConfigure, ac);
     KStandardAction::configureNotifications(this, &RuqolaMainWindow::slotConfigureNotifications, ac);
@@ -412,6 +418,19 @@ void RuqolaMainWindow::setupActions()
         listActions.append(act);
 
         mSwitchChannelTreeManager->addActions(listActions);
+    }
+
+    if (menuBar()) {
+        mHamburgerMenu = KStandardAction::hamburgerMenu(nullptr, nullptr, actionCollection());
+        mHamburgerMenu->setShowMenuBarAction(mShowMenuBarAction);
+        mHamburgerMenu->setMenuBar(menuBar());
+        connect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, [this]() {
+            updateHamburgerMenu();
+            // Immediately disconnect. We only need to run this once, but on demand.
+            // NOTE: The nullptr at the end disconnects all connections between
+            // q and mHamburgerMenu's aboutToShowMenu signal.
+            disconnect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, nullptr);
+        });
     }
 }
 
@@ -717,4 +736,33 @@ void RuqolaMainWindow::undoSwitchChannel()
 void RuqolaMainWindow::redoSwitchChannel()
 {
     mSwitchChannelTreeManager->selectBackward();
+}
+
+void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
+{
+    if (menuBar()) {
+        if (mShowMenuBarAction->isChecked()) {
+            menuBar()->show();
+        } else {
+            if (!dontShowWarning && (!toolBar()->isVisible() || !toolBar()->actions().contains(mHamburgerMenu))) {
+                const QString accel = mShowMenuBarAction->shortcut().toString();
+                KMessageBox::information(this,
+                                         i18n("<qt>This will hide the menu bar completely."
+                                              " You can show it again by typing %1.</qt>",
+                                              accel),
+                                         i18n("Hide menu bar"),
+                                         QStringLiteral("HideMenuBarWarning"));
+            }
+            menuBar()->hide();
+        }
+        RuqolaGlobalConfig::self()->setShowMenuBar(mShowMenuBarAction->isChecked());
+    }
+}
+
+void RuqolaMainWindow::updateHamburgerMenu()
+{
+    auto menu = new QMenu(this);
+    // TODO add actions
+    menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
+    mHamburgerMenu->setMenu(menu);
 }

@@ -22,6 +22,8 @@ class Notification;
 class StatusModelFilterProxyModel;
 class QCommandLineParser;
 class SwitchChannelTreeViewManager;
+class KToggleAction;
+class KHamburgerMenu;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -80,6 +82,8 @@ private:
     void slotHistorySwitchChannel(const QString &identifier);
     void undoSwitchChannel();
     void redoSwitchChannel();
+    void slotToggleMenubar(bool dontShowWarning);
+    void updateHamburgerMenu();
 
     bool mReallyClose{false};
 
@@ -110,5 +114,7 @@ private:
     StatusCombobox *mStatusComboBox = nullptr;
     StatusModelFilterProxyModel *mStatusProxyModel = nullptr;
     SwitchChannelTreeViewManager *const mSwitchChannelTreeManager;
+    KToggleAction *mShowMenuBarAction = nullptr;
+    KHamburgerMenu *mHamburgerMenu = nullptr;
 };
 
