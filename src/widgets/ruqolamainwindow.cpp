@@ -763,7 +763,14 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
 void RuqolaMainWindow::updateHamburgerMenu()
 {
     auto menu = new QMenu(this);
-    // TODO add actions
+    menu->addAction(actionCollection()->action(QStringLiteral("add_server")));
+    menu->addSeparator();
+    menu->addAction(actionCollection()->action(QStringLiteral("configure_my_account")));
+    menu->addSeparator();
+    menu->addAction(actionCollection()->action(QStringLiteral("directory")));
+    menu->addSeparator();
+    menu->addAction(actionCollection()->action(QStringLiteral("logout")));
+    menu->addSeparator();
     menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
     mHamburgerMenu->setMenu(menu);
 }
