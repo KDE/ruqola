@@ -82,10 +82,13 @@
   </provides>
   <releases>
     <release version="1.6.3" date="2022-03-04">
-      <artifact type="binary" platform="win64">
-        <location>https://download.kde.org/stable/ruqola/ruqola-1.6.3.tar.xz</location>
-        <checksum type="sha256">70a422793b186c544139c61ff2ee708ce266e931eacb0cdb9f37f125a531c541</checksum>
-      </artifact>
+      <artifacts>
+        <artifact type="binary" platform="win64">
+          <location>https://download.kde.org/stable/ruqola/ruqola-1.6.3.tar.xz</location>
+          <checksum type="sha256">70a422793b186c544139c61ff2ee708ce266e931eacb0cdb9f37f125a531c541</checksum>
+          <size type="download">54219968</size>
+        </artifact>
+      </artifacts>
     </release>
     <release version="1.6.2" date="2022-02-03"/>
     <release version="1.6.1" date="2021-12-22"/>
