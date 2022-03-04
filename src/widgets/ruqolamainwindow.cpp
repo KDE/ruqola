@@ -756,6 +756,7 @@ void RuqolaMainWindow::slotToggleMenubar(bool dontShowWarning)
             menuBar()->hide();
         }
         RuqolaGlobalConfig::self()->setShowMenuBar(mShowMenuBarAction->isChecked());
+        RuqolaGlobalConfig::self()->save();
     }
 }
 
