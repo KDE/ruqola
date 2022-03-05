@@ -77,6 +77,12 @@
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <project_group>KDE</project_group>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Chat room in Ruqola</caption>
+      <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
+    </screenshot>
+ </screenshots>
   <provides>
     <binary>ruqola</binary>
   </provides>
