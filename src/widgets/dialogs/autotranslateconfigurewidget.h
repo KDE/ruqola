@@ -20,7 +20,7 @@ public:
     explicit AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AutoTranslateConfigureWidget() override;
 
-    Room *room() const;
+    Q_REQUIRED_RESULT Room *room() const;
     void setRoom(Room *room);
 
 private:

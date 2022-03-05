@@ -19,7 +19,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureNotificationWidget : public QWidget
 public:
     explicit ConfigureNotificationWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConfigureNotificationWidget() override;
-    Room *room() const;
+    Q_REQUIRED_RESULT Room *room() const;
     void setRoom(Room *room);
 
 private:
