@@ -82,7 +82,11 @@
       <caption>Chat room in Ruqola</caption>
       <image type="source" width="840" height="669">https://cdn.kde.org/screenshots/ruqola/ruqola.png</image>
     </screenshot>
- </screenshots>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="social-chat">moderate</content_attribute>
+    <content_attribute id="social-audio">moderate</content_attribute>
+  </content_rating>
   <provides>
     <binary>ruqola</binary>
   </provides>
