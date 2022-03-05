@@ -71,7 +71,7 @@ private:
 
     bool mShowThreadContext = true;
     bool mMightStartDrag = false;
-    QListView *mListView;
+    QListView *const mListView;
     TextSelection mSelection;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
