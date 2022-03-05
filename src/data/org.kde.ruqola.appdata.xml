@@ -75,6 +75,7 @@
     <p xml:lang="uk">Ruqola є клієнтом спілкування Rocket.</p>
     <p xml:lang="x-test">xxRuqola is a Rocket Chat client.xx</p>
   </description>
+  <url type="homepage">https://apps.kde.org/ruqola</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
   <project_group>KDE</project_group>
   <screenshots>
