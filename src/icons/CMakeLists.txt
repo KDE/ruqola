@@ -4,6 +4,7 @@ set(icons
     22-apps-ruqola.png
     32-apps-ruqola.png
     48-apps-ruqola.png
+    128-apps-ruqola.png
 )
 
 set(all_icons ${icons})
