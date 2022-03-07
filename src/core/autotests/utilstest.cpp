@@ -134,7 +134,14 @@ void UtilsTest::shouldConvertTextWithUrl_data()
     QTest::newRow("test6") << QStringLiteral("bla bla [blo] bli") << QStringLiteral("bla bla [blo] bli");
 
     // Test <https://www.kde.org|bla>
-    // QTest::newRow("https://www.kde.org|bla") << QStringLiteral("<https://www.kde.org|bla>") << QStringLiteral("<a href='https://www.kde.org'>bla</a>");
+    QTest::newRow("[https://www.kde.org|bla]") << QStringLiteral("[https://www.kde.org|https://www.kde.org/bla]")
+                                               << QStringLiteral("<a href='https://www.kde.org/bla'>https://www.kde.org</a>");
+    QTest::newRow("[https://www.kde.com/pages/viewpage.action?pageId=111111.|https://www.kde.com/pages/viewpage.action?pageId=111111]")
+        << QStringLiteral("[https://www.kde.com//pages/viewpage.action?pageId=111111.|https://www.kde.com//pages/viewpage.action?pageId=111111]")
+        << QStringLiteral("<a href='https://www.kde.com//pages/viewpage.action?pageId=111111'>https://www.kde.com//pages/viewpage.action?pageId=111111.</a>");
+    QTest::newRow("blabla [https://www.kde.org|https://www.kde.org/bla]") << QStringLiteral("blabla [https://www.kde.org|https://www.kde.org/bla]")
+                                                                          << QStringLiteral("blabla <a href='https://www.kde.org/bla'>https://www.kde.org</a>");
+
     // QTest::newRow("https://www.kde.org|bla 2 ") << QStringLiteral("bli <https://www.kde.org|bla> blu") << QStringLiteral("bli <a
     // href='https://www.kde.org'>bla</a> blu");
 }
