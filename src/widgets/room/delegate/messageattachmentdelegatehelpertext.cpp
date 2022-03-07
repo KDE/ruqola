@@ -120,7 +120,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         // Clicks on links
         auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
-            const QPoint mouseClickPos = pos - attachmentsRect.topLeft();
+            // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
+            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 auto *rcAccount = Ruqola::self()->rocketChatAccount();
