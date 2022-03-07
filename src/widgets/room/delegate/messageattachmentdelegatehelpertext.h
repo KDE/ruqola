@@ -10,7 +10,7 @@
 #include <QModelIndex>
 #include <QRect>
 #include <QTextDocument>
-
+class QHelpEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
 {
 public:
@@ -23,6 +23,8 @@ public:
                           QRect attachmentsRect,
                           const QStyleOptionViewItem &option,
                           const QModelIndex &index) override;
+
+    bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index) override;
 
 private:
     struct TextLayout {

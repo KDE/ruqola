@@ -214,3 +214,11 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
         return ret;
     }
 }
+
+bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index)
+{
+    Q_UNUSED(helpEvent);
+    Q_UNUSED(messageRect);
+    Q_UNUSED(index);
+    return false;
+}

@@ -64,6 +64,14 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     return true;
 }
 
+bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index)
+{
+    Q_UNUSED(helpEvent);
+    Q_UNUSED(messageRect);
+    Q_UNUSED(index);
+    return false;
+}
+
 void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect descriptionRect, QPainter *painter, int topPos) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());

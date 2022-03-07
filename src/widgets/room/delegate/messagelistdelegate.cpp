@@ -719,31 +719,46 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
                 return true;
             }
         }
-        if (layout.rolesIconRect.contains(helpEvent->pos())) {
+        const QPoint helpEventPos{helpEvent->pos()};
+        if (layout.rolesIconRect.contains(helpEventPos)) {
             const QString tooltip = index.data(MessageModel::Roles).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
-        if (layout.editedIconRect.contains(helpEvent->pos())) {
+        if (layout.editedIconRect.contains(helpEventPos)) {
             const QString tooltip = index.data(MessageModel::EditedToolTip).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
-        if (layout.followingIconRect.contains(helpEvent->pos())) {
+        if (layout.followingIconRect.contains(helpEventPos)) {
             QToolTip::showText(helpEvent->globalPos(), i18n("Following"), view);
             return true;
         }
-        if (layout.pinIconRect.contains(helpEvent->pos())) {
+        if (layout.pinIconRect.contains(helpEventPos)) {
             QToolTip::showText(helpEvent->globalPos(), i18n("Message has been pinned"), view);
             return true;
         }
-        if (layout.favoriteIconRect.contains(helpEvent->pos())) {
+        if (layout.favoriteIconRect.contains(helpEventPos)) {
             QToolTip::showText(helpEvent->globalPos(), i18n("Message has been starred"), view);
             return true;
         }
         if (layout.textRect.contains(helpEvent->pos()) && mHelperText->handleHelpEvent(helpEvent, layout.textRect, index)) {
             return true;
         }
+        // Attachments
+        const auto attachements = message->attachements();
+        int i = 0;
+        for (const MessageAttachment &att : attachements) {
+            MessageDelegateHelperBase *helper = attachmentsHelper(att);
+            if (helper) {
+                // TODO add support tooltip for attachment too.
+                if (layout.attachmentsRectList.at(i).contains(helpEventPos) && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), index)) {
+                    return true;
+                }
+            }
+            ++i;
+        }
+
         if (layout.timeStampRect.contains(helpEvent->pos())) {
             const QString dateStr = index.data(MessageModel::Date).toString();
             QToolTip::showText(helpEvent->globalPos(), dateStr, view);

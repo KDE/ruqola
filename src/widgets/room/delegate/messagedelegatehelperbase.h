@@ -21,6 +21,7 @@ class QRect;
 class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
+class QHelpEvent;
 
 class Message;
 
@@ -40,6 +41,8 @@ public:
 
     Q_REQUIRED_RESULT bool
     maybeStartDrag(const MessageAttachment &msgAttach, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+
+    virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index);
 
 protected:
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
