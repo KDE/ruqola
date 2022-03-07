@@ -241,7 +241,6 @@ QString Utils::convertTextWithUrl(const QString &str)
             newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
         }
     }
-    // qDebug() << " newStr " << newStr;
     return newStr;
 }
 
