@@ -197,31 +197,15 @@ QString Utils::convertTextWithUrl(const QString &str)
         } else if (isUrl && ref == QLatin1Char(']') && isHasNewRef) {
             isUrl = false;
             isRef = false;
+            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+            references.clear();
+            url.clear();
         } else if (isRef && ref == QLatin1Char(']')) {
             isRef = false;
             if ((i == str.count() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
                 newStr += QLatin1Char('[') + references + QLatin1Char(']');
                 references.clear();
             }
-            //            } else if (ref == QLatin1Char('|')) {
-            //                isUrl = false;
-            //                isRef = true;
-            //                isHasNewRef = true;
-            //                qDebug() << " ||||||" << newStr;
-            //            } else if (ref == QLatin1Char('<')) {
-            //                isUrl = true;
-            //            } else if (ref == QLatin1Char('>') && isHasNewRef) {
-            //                isUrl = false;
-            //                isRef = false;
-            //                isHasNewRef = false;
-            //                if (url.startsWith(QLatin1Char('<'))) {
-            //                    newStr += url.replace(regularExpressionAHref, QStringLiteral("<a href=\"\\1\">%1</a>").arg(references));
-            //                } else {
-            //                    newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
-            //                }
-            //                references.clear();
-            //                url.clear();
-            //            }
         } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
             isUrl = true;
         } else if (isUrl && ref == QLatin1Char(')') && !references.isEmpty()) {
@@ -253,8 +237,11 @@ QString Utils::convertTextWithUrl(const QString &str)
     } else if (isUrl) {
         newStr += QLatin1Char('[') + references + QLatin1String("](") + url;
     } else if (isHasNewRef) {
-        newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+        if (!url.isEmpty() && !references.isEmpty()) {
+            newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
+        }
     }
+    // qDebug() << " newStr " << newStr;
     return newStr;
 }
 
