@@ -177,7 +177,7 @@ qint64 Utils::parseIsoDate(const QString &key, const QJsonObject &o)
 QString Utils::convertTextWithUrl(const QString &str)
 {
     static const QRegularExpression regularExpressionAHref(QStringLiteral("<a href=\"(.*)\">(.*)</a>"));
-
+    static const QRegularExpression regularExpressionCustomAHref(QStringLiteral("<a href=\"(.*)\\|(.*)\">(.*)</a>"));
     QString newStr;
     bool isRef = false;
     bool isUrl = false;
@@ -205,7 +205,11 @@ QString Utils::convertTextWithUrl(const QString &str)
         } else if (isRef && ref == QLatin1Char(']')) {
             isRef = false;
             if ((i == str.count() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
-                newStr += QLatin1Char('[') + references + QLatin1Char(']');
+                if (references.startsWith(QLatin1Char('<'))) {
+                    newStr += references.replace(regularExpressionCustomAHref, QStringLiteral("<a href=\"\\2\">\\1</a>"));
+                } else {
+                    newStr += QLatin1Char('[') + references + QLatin1Char(']');
+                }
                 references.clear();
             }
         } else if (ref == QLatin1Char('(') && !references.isEmpty()) {
