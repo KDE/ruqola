@@ -132,7 +132,7 @@ void UtilsTest::shouldConvertTextWithUrl_data()
                            << QStringLiteral("bla bla <a href='http://www.kde.org'>blo</a> bli <a href='http://www.kdi.org'>blu</a>");
     QTest::newRow("test5") << QStringLiteral("bla bla [blo]") << QStringLiteral("bla bla [blo]");
     QTest::newRow("test6") << QStringLiteral("bla bla [blo] bli") << QStringLiteral("bla bla [blo] bli");
-
+#if 0
     // Test <https://www.kde.org|bla>
     QTest::newRow("[https://www.kde.org|bla]") << QStringLiteral("[https://www.kde.org|https://www.kde.org/bla]")
                                                << QStringLiteral("<a href='https://www.kde.org/bla'>https://www.kde.org</a>");
@@ -148,6 +148,7 @@ void UtilsTest::shouldConvertTextWithUrl_data()
         << QStringLiteral(
                "ideas: <a href='https://www.kde.com/pages/viewpage.action?pageId=11111'>https://www.kde.com/pages/viewpage.action?pageId=11111.</a>\r\n "
                "[~vvvv] can");
+#endif
 }
 
 void UtilsTest::shouldConvertTextWithUrl()

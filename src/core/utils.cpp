@@ -194,12 +194,14 @@ QString Utils::convertTextWithUrl(const QString &str)
             } else {
                 isRef = true;
             }
+#if 0
         } else if (isUrl && ref == QLatin1Char(']') && isHasNewRef) {
             isUrl = false;
             isRef = false;
             newStr += QStringLiteral("<a href=\'%1'>%2</a>").arg(url, references);
             references.clear();
             url.clear();
+#endif
         } else if (isRef && ref == QLatin1Char(']')) {
             isRef = false;
             if ((i == str.count() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
@@ -218,10 +220,12 @@ QString Utils::convertTextWithUrl(const QString &str)
             }
             references.clear();
             url.clear();
+#if 0
         } else if (ref == QLatin1Char('|') && !references.isEmpty()) {
             isUrl = true;
             isRef = false;
             isHasNewRef = true;
+#endif
         } else {
             if (isRef) {
                 references += ref;
