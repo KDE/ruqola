@@ -9,7 +9,7 @@
 #include "emoticons/emojimanager.h"
 #include "messagecache.h"
 #include "messages/message.h"
-#include "ruqola_debug.h"
+#include "ruqola_texttohtml_debug.h"
 #include "utils.h"
 
 #include "ktexttohtmlfork/ruqolaktexttohtml.h"
@@ -82,14 +82,15 @@ QString markdownToRichText(const QString &markDown)
         return {};
     }
 
-    // qCDebug(RUQOLA_LOG) << "BEFORE markdownToRichText "<<markDown;
+    qCDebug(RUQOLA_TEXTTOHTML_LOG) << "BEFORE markdownToRichText " << markDown;
     QString str = markDown;
 
     const RuqolaKTextToHTML::Options convertFlags = RuqolaKTextToHTML::HighlightText | RuqolaKTextToHTML::ConvertPhoneNumbers;
     str = RuqolaKTextToHTML::convertToHtml(str, convertFlags);
-
+    qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertToHtml " << str;
     // substitute "[example.com](<a href="...">...</a>)" style urls
     str = Utils::convertTextWithUrl(str);
+    qCDebug(RUQOLA_TEXTTOHTML_LOG) << " AFTER convertTextWithUrl " << str;
 
     return str;
 }
@@ -212,7 +213,7 @@ QString TextConverter::convertMessageText(const QString &_str,
                                           QString &needUpdateMessageId)
 {
     if (!emojiManager) {
-        qCWarning(RUQOLA_LOG) << "Emojimanager is null";
+        qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
 
     QString quotedMessage;
@@ -225,7 +226,7 @@ QString TextConverter::convertMessageText(const QString &_str,
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
         const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
-        // qCDebug(RUQOLA_LOG) << "Extracted messageId" << messageId;
+        // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
         auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
         });
@@ -249,7 +250,7 @@ QString TextConverter::convertMessageText(const QString &_str,
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
-                    qCDebug(RUQOLA_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
+                    qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
                     needUpdateMessageId = messageId;
                 }
             }
