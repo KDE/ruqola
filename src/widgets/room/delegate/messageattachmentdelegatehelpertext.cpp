@@ -50,7 +50,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         painter->setFont(oldFont);
         const QIcon hideShowIcon = QIcon::fromTheme(layout.isShown ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.hideShowButtonRect.translated(messageRect.topLeft()));
-        nextY += layout.titleSize.height() + DelegatePaintUtil::margin();
+        nextY += layout.titleRect.height() + DelegatePaintUtil::margin();
     }
     if (layout.isShown || layout.title.isEmpty()) {
         auto *doc = documentForIndex(msgAttach, messageRect.width());
@@ -98,11 +98,11 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     Q_UNUSED(index)
     Q_UNUSED(option)
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
-    int height = layout.titleSize.height();
+    int height = layout.titleRect.height();
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {
         height += layout.textSize.height() + DelegatePaintUtil::margin();
     }
-    return {static_cast<int>(qMax(layout.titleSize.width(), static_cast<qreal>(maxWidth))), height};
+    return {static_cast<int>(qMax(layout.titleRect.width(), static_cast<qreal>(maxWidth))), height};
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -136,7 +136,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
             // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
-            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
                 auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -167,10 +167,10 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
         layout.textFont.setBold(true);
         const QFontMetricsF textFontMetrics(layout.textFont);
 
-        layout.titleSize = textFontMetrics.size(Qt::TextSingleLine, layout.title);
+        const auto titleSize = textFontMetrics.size(Qt::TextSingleLine, layout.title);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-        layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
-        layout.titleRect = QRectF(QPoint(DelegatePaintUtil::margin(), 0), layout.titleSize);
+        layout.hideShowButtonRect = QRect(titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.titleRect = QRectF(QPoint(/*DelegatePaintUtil::margin()*/ 0, 0), titleSize);
     }
     layout.isShown = msgAttach.showAttachment();
     auto *doc = documentForIndex(msgAttach, attachmentsWidth);
@@ -247,7 +247,7 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
     }
 
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
-    const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);

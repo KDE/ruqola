@@ -34,7 +34,6 @@ public:
 private:
     struct TextLayout {
         QString title;
-        QSizeF titleSize;
         QRect hideShowButtonRect;
         QRectF titleRect;
         QSize textSize;
