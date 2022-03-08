@@ -234,26 +234,10 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
 
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
     const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
-    const auto format = doc->documentLayout()->formatAt(pos);
-    const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
-    const auto href = format.property(QTextFormat::AnchorHref).toString();
-    if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith(QLatin1String("ruqola:/")))) {
-        return false;
-    }
-
     QString formattedTooltip;
-    QTextStream stream(&formattedTooltip);
-    auto addLine = [&](const QString &line) {
-        if (!line.isEmpty()) {
-            stream << QLatin1String("<p>") << line << QLatin1String("</p>");
-        }
-    };
-
-    stream << QLatin1String("<qt>");
-    addLine(tooltip);
-    addLine(href);
-    stream << QLatin1String("</qt>");
-
-    QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);
+    if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);
+        return true;
+    }
     return true;
 }

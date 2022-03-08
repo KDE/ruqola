@@ -6,9 +6,11 @@
 
 #include "messagedelegateutils.h"
 
+#include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QTextFrame>
 #include <QTextFrameFormat>
+#include <QTextStream>
 
 std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool useItalic, const QString &text, int width)
 {
@@ -23,4 +25,28 @@ std::unique_ptr<QTextDocument> MessageDelegateUtils::createTextDocument(bool use
     frameFormat.setMargin(0);
     frame->setFrameFormat(frameFormat);
     return doc;
+}
+
+bool MessageDelegateUtils::generateToolTip(const QTextDocument *doc, const QPoint &pos, QString &formattedTooltip)
+{
+    const auto format = doc->documentLayout()->formatAt(pos);
+    const auto tooltip = format.property(QTextFormat::TextToolTip).toString();
+    const auto href = format.property(QTextFormat::AnchorHref).toString();
+    if (tooltip.isEmpty() && (href.isEmpty() || href.startsWith(QLatin1String("ruqola:/")))) {
+        return false;
+    }
+
+    QTextStream stream(&formattedTooltip);
+    auto addLine = [&](const QString &line) {
+        if (!line.isEmpty()) {
+            stream << QLatin1String("<p>") << line << QLatin1String("</p>");
+        }
+    };
+
+    stream << QLatin1String("<qt>");
+    addLine(tooltip);
+    addLine(href);
+    stream << QLatin1String("</qt>");
+
+    return true;
 }
