@@ -36,6 +36,12 @@ bool MessageDelegateUtils::generateToolTip(const QTextDocument *doc, const QPoin
         return false;
     }
 
+    generateToolTip(tooltip, href, formattedTooltip);
+    return true;
+}
+
+void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString &href, QString &formattedTooltip)
+{
     QTextStream stream(&formattedTooltip);
     auto addLine = [&](const QString &line) {
         if (!line.isEmpty()) {
@@ -44,9 +50,7 @@ bool MessageDelegateUtils::generateToolTip(const QTextDocument *doc, const QPoin
     };
 
     stream << QLatin1String("<qt>");
-    addLine(tooltip);
+    addLine(toolTip);
     addLine(href);
     stream << QLatin1String("</qt>");
-
-    return true;
 }

@@ -241,12 +241,22 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
+    const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
+    if (layout.titleRect.translated(messageRect.topLeft()).contains(helpEvent->pos())) {
+        const QString msgAttachLink{msgAttach.link()};
+        if (!msgAttachLink.isEmpty()) {
+            QString formattedTooltip;
+            MessageDelegateUtils::generateToolTip(QString(), msgAttachLink, formattedTooltip);
+            QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);
+            return true;
+        }
+    }
+
     const auto *doc = documentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return false;
     }
 
-    const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
     const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {

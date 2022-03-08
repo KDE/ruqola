@@ -14,5 +14,7 @@ namespace MessageDelegateUtils
 std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
 
 Q_REQUIRED_RESULT bool generateToolTip(const QTextDocument *doc, const QPoint &pos, QString &formattedTooltip);
+
+void generateToolTip(const QString &toolTip, const QString &href, QString &formattedTooltip);
 }
 
