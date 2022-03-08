@@ -64,11 +64,17 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     return true;
 }
 
-bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index)
+bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
+                                                QRect messageRect,
+                                                const MessageAttachment &msgAttach,
+                                                const QStyleOptionViewItem &option,
+                                                QListView *listView)
 {
     Q_UNUSED(helpEvent);
     Q_UNUSED(messageRect);
-    Q_UNUSED(index);
+    Q_UNUSED(listView);
+    Q_UNUSED(msgAttach);
+    Q_UNUSED(option);
     return false;
 }
 

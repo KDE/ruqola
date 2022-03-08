@@ -11,6 +11,7 @@
 #include <QRect>
 #include <QTextDocument>
 class QHelpEvent;
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
 {
 public:
@@ -24,7 +25,11 @@ public:
                           const QStyleOptionViewItem &option,
                           const QModelIndex &index) override;
 
-    bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index) override;
+    bool handleHelpEvent(QHelpEvent *helpEvent,
+                         QRect messageRect,
+                         const MessageAttachment &msgAttach,
+                         const QStyleOptionViewItem &option,
+                         QListView *listView) override;
 
 private:
     struct TextLayout {

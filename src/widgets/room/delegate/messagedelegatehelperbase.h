@@ -24,7 +24,7 @@ class QStyleOptionViewItem;
 class QHelpEvent;
 
 class Message;
-
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
 {
 public:
@@ -42,7 +42,8 @@ public:
     Q_REQUIRED_RESULT bool
     maybeStartDrag(const MessageAttachment &msgAttach, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const QModelIndex &index);
+    virtual bool
+    handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, QListView *listView);
 
 protected:
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
