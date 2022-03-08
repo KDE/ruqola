@@ -38,6 +38,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     // painter->drawRect(messageRect);
 
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
+    // painter->drawRect(layout.titleRect.translated(messageRect.topLeft()));
     int nextY = messageRect.y();
     if (!layout.title.isEmpty()) {
         const QFont oldFont = painter->font();
