@@ -36,6 +36,7 @@ private:
         QString title;
         QSizeF titleSize;
         QRect hideShowButtonRect;
+        QRectF titleRect;
         QSize textSize;
         QFont textFont;
         bool isShown = true;

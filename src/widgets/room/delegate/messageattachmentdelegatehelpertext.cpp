@@ -5,6 +5,7 @@
 */
 
 #include "messageattachmentdelegatehelpertext.h"
+#include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/showvideodialog.h"
@@ -14,7 +15,7 @@
 #include "ruqolawidgets_debug.h"
 #include "textconverter.h"
 
-
+#include <KColorScheme>
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
 #include <QListView>
@@ -40,6 +41,9 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     int nextY = messageRect.y();
     if (!layout.title.isEmpty()) {
         const QFont oldFont = painter->font();
+        if (!msgAttach.link().isEmpty()) {
+            painter->setPen(Colors::self().scheme().foreground(KColorScheme::LinkText).color());
+        }
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
         painter->setFont(oldFont);
@@ -119,6 +123,14 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         }
+        if (layout.titleRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+            const QString link{msgAttach.link()};
+            if (!link.isEmpty()) {
+                auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                Q_EMIT rcAccount->openLinkRequested(link);
+                return true;
+            }
+        }
         // Clicks on links
         auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
@@ -157,6 +169,7 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
         layout.titleSize = textFontMetrics.size(Qt::TextSingleLine, layout.title);
         const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
         layout.hideShowButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+        layout.titleRect = QRectF(QPoint(DelegatePaintUtil::margin(), 0), layout.titleSize);
     }
     layout.isShown = msgAttach.showAttachment();
     auto *doc = documentForIndex(msgAttach, attachmentsWidth);
