@@ -53,4 +53,8 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mSoundSlider->value(), 100);
     QCOMPARE(mSoundSlider->minimum(), 0);
     QCOMPARE(mSoundSlider->maximum(), 100);
+
+    auto mLabelDuration = w.findChild<QLabel *>(QStringLiteral("mLabelDuration"));
+    QVERIFY(mLabelDuration);
+    QVERIFY(mLabelDuration->text().isEmpty());
 }
