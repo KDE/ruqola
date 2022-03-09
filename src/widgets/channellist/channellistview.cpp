@@ -185,6 +185,8 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
             }
+        } else {
+            KMessageBox::information(this, i18n("Any team selected."), i18n("Move To Team"));
         }
     }
     delete dlg;
