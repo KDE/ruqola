@@ -106,8 +106,8 @@ void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
 {
     QString tStr;
     if (currentInfo || mDuration) {
-        QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
-        QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
+        const QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
+        const QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
         QString format = QStringLiteral("mm:ss");
         if (mDuration > 3600)
             format = QStringLiteral("hh:mm:ss");
