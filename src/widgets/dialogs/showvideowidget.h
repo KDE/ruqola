@@ -25,10 +25,11 @@ private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
 #endif
-    void positionChanged(qint64 position);
-    void durationChanged(qint64 duration);
+    void slotPositionChanged(qint64 position);
+    void slotDurationChanged(qint64 duration);
     void updateDurationInfo(qint64 currentInfo);
-    void muteChanged(bool state);
+    void slotMuteChanged(bool state);
+    void slotVolumeChanged(int position);
     void setPosition(int position);
     void handleError();
     void play();
@@ -41,5 +42,6 @@ private:
     QToolButton *const mSoundButton;
     QSlider *const mSoundSlider;
     QLabel *const mLabelDuration;
+    QLabel *const mLabelPercentSound;
 };
 

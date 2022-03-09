@@ -8,6 +8,7 @@
 
 #include <KLocalizedString>
 
+#include <QFontMetrics>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -25,6 +26,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
     , mErrorLabel(new QLabel(this))
+    , mLabelPercentSound(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -38,6 +40,11 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 
     mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
+    mLabelPercentSound->setObjectName(QStringLiteral("mLabelPercentSound"));
+
+    mErrorLabel->setTextFormat(Qt::PlainText);
+    mLabelDuration->setTextFormat(Qt::PlainText);
+    mLabelPercentSound->setTextFormat(Qt::PlainText);
 
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
 
@@ -48,13 +55,13 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
-    mSoundSlider->setValue(100);
+    mSoundSlider->setValue(50);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
 
-    connect(mSoundSlider, &QAbstractSlider::sliderMoved, mMediaPlayer, &QMediaPlayer::setVolume);
+    connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &PlaySoundWidget::slotVolumeChanged);
 
-    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &PlaySoundWidget::positionChanged);
-    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &PlaySoundWidget::durationChanged);
+    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &PlaySoundWidget::slotPositionChanged);
+    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &PlaySoundWidget::slotDurationChanged);
 
     // Allow to change volume
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -83,11 +90,16 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &PlaySoundWidget::handleError);
 #endif
     playerLayout->addWidget(mSoundSlider);
+    playerLayout->addWidget(mLabelPercentSound);
+
+    QFontMetrics f(font());
+    mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
+    slotVolumeChanged(mSoundSlider->value());
 }
 
 PlaySoundWidget::~PlaySoundWidget() = default;
 
-void PlaySoundWidget::positionChanged(qint64 progress)
+void PlaySoundWidget::slotPositionChanged(qint64 progress)
 {
     if (!mPositionSlider->isSliderDown())
         mPositionSlider->setValue(progress / 1000);
@@ -109,7 +121,13 @@ void PlaySoundWidget::updateDurationInfo(qint64 currentInfo)
     mLabelDuration->setText(tStr);
 }
 
-void PlaySoundWidget::durationChanged(qint64 duration)
+void PlaySoundWidget::slotVolumeChanged(int position)
+{
+    mMediaPlayer->setVolume(position);
+    mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
+}
+
+void PlaySoundWidget::slotDurationChanged(qint64 duration)
 {
     mDuration = duration / 1000;
     mPositionSlider->setMaximum(mDuration);

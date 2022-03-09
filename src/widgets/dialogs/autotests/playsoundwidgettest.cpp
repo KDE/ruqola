@@ -45,11 +45,22 @@ void PlaySoundWidgetTest::shouldHaveDefaultValues()
 
     auto mSoundSlider = w.findChild<QSlider *>(QStringLiteral("mSoundSlider"));
     QVERIFY(mSoundSlider);
-    QCOMPARE(mSoundSlider->value(), 100);
+    QCOMPARE(mSoundSlider->value(), 50);
     QCOMPARE(mSoundSlider->minimum(), 0);
     QCOMPARE(mSoundSlider->maximum(), 100);
 
     auto mLabelDuration = w.findChild<QLabel *>(QStringLiteral("mLabelDuration"));
     QVERIFY(mLabelDuration);
     QVERIFY(mLabelDuration->text().isEmpty());
+    QCOMPARE(mLabelDuration->textFormat(), Qt::PlainText);
+
+    auto mErrorLabel = w.findChild<QLabel *>(QStringLiteral("mErrorLabel"));
+    QVERIFY(mErrorLabel);
+    QVERIFY(mErrorLabel->text().isEmpty());
+    QCOMPARE(mErrorLabel->textFormat(), Qt::PlainText);
+
+    auto mLabelPercentSound = w.findChild<QLabel *>(QStringLiteral("mLabelPercentSound"));
+    QVERIFY(mLabelPercentSound);
+    QVERIFY(!mLabelPercentSound->text().isEmpty());
+    QCOMPARE(mLabelPercentSound->textFormat(), Qt::PlainText);
 }

@@ -30,6 +30,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     , mSoundButton(new QToolButton(this))
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
+    , mLabelPercentSound(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -52,6 +53,10 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
 
+    mErrorLabel->setTextFormat(Qt::PlainText);
+    mLabelDuration->setTextFormat(Qt::PlainText);
+    mLabelPercentSound->setTextFormat(Qt::PlainText);
+
     controlLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked, this, &ShowVideoWidget::play);
 
@@ -69,8 +74,8 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
 #endif
-    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::positionChanged);
-    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::durationChanged);
+    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::slotPositionChanged);
+    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::slotDurationChanged);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
 #endif
@@ -79,7 +84,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundButton->setIcon(QIcon::fromTheme(QStringLiteral("player-volume")));
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
-    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::muteChanged);
+    connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &ShowVideoWidget::slotMuteChanged);
 #endif
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
@@ -87,19 +92,29 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundSlider->setValue(100);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
+    connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::slotVolumeChanged);
 #endif
     controlLayout->addWidget(mSoundSlider);
+    controlLayout->addWidget(mLabelPercentSound);
+    QFontMetrics f(font());
+    mLabelPercentSound->setFixedWidth(f.horizontalAdvance(QStringLiteral("MMM")));
+    slotVolumeChanged(mSoundSlider->value());
 }
 
 ShowVideoWidget::~ShowVideoWidget() = default;
 
-void ShowVideoWidget::positionChanged(qint64 progress)
+void ShowVideoWidget::slotPositionChanged(qint64 progress)
 {
     if (!mPositionSlider->isSliderDown())
         mPositionSlider->setValue(progress / 1000);
 
     updateDurationInfo(progress / 1000);
+}
+
+void ShowVideoWidget::slotVolumeChanged(int position)
+{
+    mMediaPlayer->setVolume(position);
+    mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
 
 void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
@@ -116,7 +131,7 @@ void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
     mLabelDuration->setText(tStr);
 }
 
-void ShowVideoWidget::muteChanged(bool state)
+void ShowVideoWidget::slotMuteChanged(bool state)
 {
     mSoundButton->setIcon(state ? QIcon::fromTheme(QStringLiteral("player-volume-muted")) : QIcon::fromTheme(QStringLiteral("player-volume")));
 }
@@ -158,7 +173,7 @@ void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
 }
 #endif
 
-void ShowVideoWidget::durationChanged(qint64 duration)
+void ShowVideoWidget::slotDurationChanged(qint64 duration)
 {
     mDuration = duration / 1000;
     mPositionSlider->setMaximum(mDuration);
