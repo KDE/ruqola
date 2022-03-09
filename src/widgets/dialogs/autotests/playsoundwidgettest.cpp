@@ -22,9 +22,14 @@ PlaySoundWidgetTest::PlaySoundWidgetTest(QObject *parent)
 void PlaySoundWidgetTest::shouldHaveDefaultValues()
 {
     PlaySoundWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto playerLayout = w.findChild<QHBoxLayout *>(QStringLiteral("playerLayout"));
+    QVERIFY(playerLayout);
+    QCOMPARE(playerLayout->contentsMargins(), QMargins{});
 
     auto mPlayButton = w.findChild<QPushButton *>(QStringLiteral("mPlayButton"));
     QVERIFY(mPlayButton);

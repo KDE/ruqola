@@ -5,6 +5,9 @@
 */
 
 #include "playsoundwidget.h"
+
+#include <KLocalizedString>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPushButton>
@@ -21,11 +24,19 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mPositionSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
+    , mErrorLabel(new QLabel(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    auto playerLayout = new QHBoxLayout;
+    playerLayout->setObjectName(QStringLiteral("playerLayout"));
+    playerLayout->setContentsMargins({});
+    mainLayout->addLayout(playerLayout);
+    mainLayout->addWidget(mErrorLabel);
+
+    mErrorLabel->setObjectName(QStringLiteral("mErrorLabel"));
     mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
@@ -33,7 +44,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
     mPositionSlider->setRange(0, 100);
     mPositionSlider->setValue(100);
-    mPositionSlider->setTickPosition(QSlider::TicksAbove);
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &PlaySoundWidget::setPosition);
 
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
@@ -53,7 +63,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
     mPlayButton->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-    mainLayout->addWidget(mPlayButton);
+    playerLayout->addWidget(mPlayButton);
     connect(mPlayButton, &QAbstractButton::clicked, this, &PlaySoundWidget::play);
 
     mSoundButton->setCheckable(true);
@@ -63,15 +73,16 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
 #endif
-    mainLayout->addWidget(mPositionSlider);
+    playerLayout->addWidget(mPositionSlider);
 
-    mainLayout->addWidget(mSoundButton);
+    playerLayout->addWidget(mSoundButton);
 
-    mainLayout->addWidget(mLabelDuration);
+    playerLayout->addWidget(mLabelDuration);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
+    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &PlaySoundWidget::handleError);
 #endif
-    mainLayout->addWidget(mSoundSlider);
+    playerLayout->addWidget(mSoundSlider);
 }
 
 PlaySoundWidget::~PlaySoundWidget() = default;
@@ -101,7 +112,7 @@ void PlaySoundWidget::updateDurationInfo(qint64 currentInfo)
 void PlaySoundWidget::durationChanged(qint64 duration)
 {
     mDuration = duration / 1000;
-    mSoundSlider->setMaximum(mDuration);
+    mPositionSlider->setMaximum(mDuration);
 }
 
 void PlaySoundWidget::setPosition(int position)
@@ -149,3 +160,16 @@ void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
     }
 }
 #endif
+
+void PlaySoundWidget::handleError()
+{
+    mPlayButton->setEnabled(false);
+    const QString errorString = mMediaPlayer->errorString();
+    QString message = i18n("Error: "); // i18n ?
+    if (errorString.isEmpty()) {
+        message += QStringLiteral(" #") + QString::number(int(mMediaPlayer->error()));
+    } else {
+        message += errorString;
+    }
+    mErrorLabel->setText(message);
+}
