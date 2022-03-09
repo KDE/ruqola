@@ -24,7 +24,7 @@ void TeamCompleterModel::clear()
     }
 }
 
-void TeamCompleterModel::insertRooms(const QVector<TeamCompleter> &rooms)
+void TeamCompleterModel::insertTeams(const QVector<TeamCompleter> &rooms)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mTeams.count() - 1);
@@ -49,13 +49,13 @@ QVariant TeamCompleterModel::data(const QModelIndex &index, int role) const
     if (index.row() < 0 || index.row() >= mTeams.count()) {
         return {};
     }
-    const TeamCompleter &room = mTeams.at(index.row());
+    const TeamCompleter &team = mTeams.at(index.row());
     switch (role) {
     case Qt::DisplayRole:
     case TeamName:
-        return room.name();
+        return team.fname();
     case TeamId:
-        return room.teamId();
+        return team.teamId();
     case Qt::DecorationRole:
     case TeamIcon:
         return {};

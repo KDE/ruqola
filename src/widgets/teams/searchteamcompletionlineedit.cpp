@@ -85,7 +85,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
         teamCompleter.parse(items.at(i).toObject());
         teams.append(teamCompleter);
     }
-    mTeamCompleterModel->insertRooms(teams);
+    mTeamCompleterModel->insertTeams(teams);
 }
 
 void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)

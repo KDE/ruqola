@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     void clear();
-    void insertRooms(const QVector<TeamCompleter> &rooms);
+    void insertTeams(const QVector<TeamCompleter> &rooms);
 
 private:
     Q_DISABLE_COPY(TeamCompleterModel)
