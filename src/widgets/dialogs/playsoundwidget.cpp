@@ -34,7 +34,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     mPositionSlider->setRange(0, 100);
     mPositionSlider->setValue(100);
     mPositionSlider->setTickPosition(QSlider::TicksAbove);
-    connect(mPositionSlider, &QAbstractSlider::sliderMoved, mMediaPlayer, &QMediaPlayer::positionChanged);
+    connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &PlaySoundWidget::setPosition);
 
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
