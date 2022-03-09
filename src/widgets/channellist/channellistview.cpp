@@ -200,7 +200,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
     job->setTeamId(teamId);
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, rcAccount, index](const QJsonObject &obj) {
-        QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
+        const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
         QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
         const QString teamName = index.data(RoomModel::RoomName).toString();
         dlg->setTeamName(teamName);
