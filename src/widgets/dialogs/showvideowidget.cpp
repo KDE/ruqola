@@ -11,6 +11,7 @@
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
+#include <QTime>
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QVideoWidget>
@@ -28,10 +29,13 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     , mErrorLabel(new QLabel(this))
     , mSoundButton(new QToolButton(this))
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
+    , mLabelDuration(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
 
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
     auto videoWidget = new QVideoWidget(this);
@@ -54,6 +58,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
     mPositionSlider->setRange(0, 0);
     controlLayout->addWidget(mPositionSlider);
+    controlLayout->addWidget(mLabelDuration);
 
     connect(mPositionSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::setPosition);
 
@@ -88,6 +93,28 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
 }
 
 ShowVideoWidget::~ShowVideoWidget() = default;
+
+void ShowVideoWidget::positionChanged(qint64 progress)
+{
+    if (!mPositionSlider->isSliderDown())
+        mPositionSlider->setValue(progress / 1000);
+
+    updateDurationInfo(progress / 1000);
+}
+
+void ShowVideoWidget::updateDurationInfo(qint64 currentInfo)
+{
+    QString tStr;
+    if (currentInfo || mDuration) {
+        QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
+        QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
+        QString format = QStringLiteral("mm:ss");
+        if (mDuration > 3600)
+            format = QStringLiteral("hh:mm:ss");
+        tStr = currentTime.toString(format) + QStringLiteral(" / ") + totalTime.toString(format);
+    }
+    mLabelDuration->setText(tStr);
+}
 
 void ShowVideoWidget::muteChanged(bool state)
 {
@@ -130,19 +157,16 @@ void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
     }
 }
 #endif
-void ShowVideoWidget::positionChanged(qint64 position)
-{
-    mPositionSlider->setValue(position);
-}
 
 void ShowVideoWidget::durationChanged(qint64 duration)
 {
-    mPositionSlider->setRange(0, duration);
+    mDuration = duration / 1000;
+    mPositionSlider->setMaximum(mDuration);
 }
 
 void ShowVideoWidget::setPosition(int position)
 {
-    mMediaPlayer->setPosition(position);
+    mMediaPlayer->setPosition(position * 1000);
 }
 
 void ShowVideoWidget::handleError()

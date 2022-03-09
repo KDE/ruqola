@@ -27,16 +27,19 @@ private:
 #endif
     void positionChanged(qint64 position);
     void durationChanged(qint64 duration);
+    void updateDurationInfo(qint64 currentInfo);
     void muteChanged(bool state);
     void setPosition(int position);
     void handleError();
     void play();
 
+    qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
     QSlider *const mPositionSlider;
     QLabel *const mErrorLabel;
     QToolButton *const mSoundButton;
     QSlider *const mSoundSlider;
+    QLabel *const mLabelDuration;
 };
 
