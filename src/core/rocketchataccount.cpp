@@ -2589,6 +2589,10 @@ void RocketChatAccount::addMessage(const QJsonObject &replyObject, bool useRestA
     const QString roomId = replyObject.value(QLatin1String("rid")).toString();
     if (!roomId.isEmpty()) {
         MessageModel *messageModel = messageModelForRoom(roomId);
+        if (!messageModel) {
+            qCWarning(RUQOLA_LOG) << "Unexpected null message model.";
+            return;
+        }
         Message m(emojiManager());
         m.parseMessage(replyObject, useRestApi);
         m.setMessageType(Message::MessageType::Information);

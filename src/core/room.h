@@ -12,6 +12,7 @@
 #include "roles/roles.h"
 #include <QJsonObject>
 #include <QObject>
+#include <QPointer>
 
 #include "channelcounterinfo.h"
 #include "libruqolacore_export.h"
@@ -402,7 +403,7 @@ private:
     mutable Utils::AvatarInfo mCurrentAvatarInfo;
 
     UsersForRoomModel *const mUsersModelForRoom;
-    MessageModel *mMessageModel = nullptr;
+    QPointer<MessageModel> mMessageModel;
     RocketChatAccount *const mRocketChatAccount;
 };
 
