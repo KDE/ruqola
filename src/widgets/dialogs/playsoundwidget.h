@@ -13,6 +13,7 @@
 class QPushButton;
 class QToolButton;
 class QSlider;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PlaySoundWidget : public QWidget
 {
     Q_OBJECT
@@ -24,12 +25,19 @@ public:
 private:
     void play();
     void muteChanged(bool state);
+    void setPosition(int position);
+    void positionChanged(qint64 progress);
+    void durationChanged(qint64 duration);
+    void updateDurationInfo(qint64 currentInfo);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
 #endif
+    qint64 mDuration;
     QMediaPlayer *const mMediaPlayer;
     QPushButton *const mPlayButton;
     QToolButton *const mSoundButton;
     QSlider *const mSoundSlider;
+    QSlider *const mPositionSlider;
+    QLabel *const mLabelDuration;
 };
 

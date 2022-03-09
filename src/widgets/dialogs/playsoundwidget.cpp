@@ -6,9 +6,11 @@
 
 #include "playsoundwidget.h"
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QPushButton>
 #include <QSlider>
 #include <QStyle>
+#include <QTime>
 #include <QToolButton>
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
@@ -17,13 +19,33 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mPlayButton(new QPushButton(this))
     , mSoundButton(new QToolButton(this))
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
+    , mPositionSlider(new QSlider(Qt::Horizontal, this))
+    , mLabelDuration(new QLabel(this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mLabelDuration->setObjectName(QStringLiteral("mLabelDuration"));
+
     mMediaPlayer->setObjectName(QStringLiteral("mMediaPlayer"));
-    // connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(positionChanged(qint64)));
+
+    mPositionSlider->setObjectName(QStringLiteral("mPositionSlider"));
+    mPositionSlider->setRange(0, 100);
+    mPositionSlider->setValue(100);
+    mPositionSlider->setTickPosition(QSlider::TicksAbove);
+    connect(mPositionSlider, &QAbstractSlider::sliderMoved, mMediaPlayer, &QMediaPlayer::positionChanged);
+
+    mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
+    mSoundSlider->setRange(0, 100);
+    mSoundSlider->setValue(100);
+    mSoundSlider->setTickPosition(QSlider::TicksAbove);
+
+    connect(mSoundSlider, &QAbstractSlider::sliderMoved, mMediaPlayer, &QMediaPlayer::setVolume);
+
+    connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &PlaySoundWidget::positionChanged);
+    connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &PlaySoundWidget::durationChanged);
+
     // mMediaPlayer->setVolume(50);
 
     // Allow to change volume
@@ -43,11 +65,11 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mSoundButton, &QToolButton::clicked, mMediaPlayer, &QMediaPlayer::setMuted);
     connect(mMediaPlayer, &QMediaPlayer::mutedChanged, this, &PlaySoundWidget::muteChanged);
 #endif
+    mainLayout->addWidget(mPositionSlider);
+
     mainLayout->addWidget(mSoundButton);
-    mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
-    mSoundSlider->setRange(0, 100);
-    mSoundSlider->setValue(100);
-    mSoundSlider->setTickPosition(QSlider::TicksAbove);
+
+    mainLayout->addWidget(mLabelDuration);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
 #endif
@@ -55,6 +77,39 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 }
 
 PlaySoundWidget::~PlaySoundWidget() = default;
+
+void PlaySoundWidget::positionChanged(qint64 progress)
+{
+    if (!mPositionSlider->isSliderDown())
+        mPositionSlider->setValue(progress / 1000);
+
+    updateDurationInfo(progress / 1000);
+}
+
+void PlaySoundWidget::updateDurationInfo(qint64 currentInfo)
+{
+    QString tStr;
+    if (currentInfo || mDuration) {
+        const QTime currentTime((currentInfo / 3600) % 60, (currentInfo / 60) % 60, currentInfo % 60, (currentInfo * 1000) % 1000);
+        const QTime totalTime((mDuration / 3600) % 60, (mDuration / 60) % 60, mDuration % 60, (mDuration * 1000) % 1000);
+        QString format = QStringLiteral("mm:ss");
+        if (mDuration > 3600)
+            format = QStringLiteral("hh:mm:ss");
+        tStr = currentTime.toString(format) + QStringLiteral(" / ") + totalTime.toString(format);
+    }
+    mLabelDuration->setText(tStr);
+}
+
+void PlaySoundWidget::durationChanged(qint64 duration)
+{
+    mDuration = duration / 1000;
+    mSoundSlider->setMaximum(mDuration);
+}
+
+void PlaySoundWidget::setPosition(int position)
+{
+    mMediaPlayer->setPosition(position * 1000);
+}
 
 void PlaySoundWidget::muteChanged(bool state)
 {
