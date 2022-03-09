@@ -46,8 +46,6 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &PlaySoundWidget::positionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &PlaySoundWidget::durationChanged);
 
-    // mMediaPlayer->setVolume(50);
-
     // Allow to change volume
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &PlaySoundWidget::mediaStateChanged);

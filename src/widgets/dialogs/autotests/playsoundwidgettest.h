@@ -14,5 +14,7 @@ class PlaySoundWidgetTest : public QObject
 public:
     explicit PlaySoundWidgetTest(QObject *parent = nullptr);
     ~PlaySoundWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
