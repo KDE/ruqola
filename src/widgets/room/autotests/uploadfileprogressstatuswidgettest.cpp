@@ -29,6 +29,7 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mProgressBar);
     QCOMPARE(mProgressBar->minimum(), 0);
     QCOMPARE(mProgressBar->maximum(), 100);
+    QCOMPARE(mProgressBar->value(), -1);
 
     auto mFileName = w.findChild<QLabel *>(QStringLiteral("mFileName"));
     QVERIFY(mFileName);
@@ -36,6 +37,7 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
 
     auto mCancelToolButton = w.findChild<QToolButton *>(QStringLiteral("mCancelToolButton"));
     QVERIFY(mCancelToolButton);
+    QVERIFY(!mCancelToolButton->toolTip().isEmpty());
 }
 
 void UploadFileProgressStatusWidgetTest::shouldChangeText()
