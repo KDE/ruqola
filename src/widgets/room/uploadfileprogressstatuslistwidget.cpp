@@ -11,9 +11,9 @@
 
 UploadFileProgressStatusListWidget::UploadFileProgressStatusListWidget(QWidget *parent)
     : QScrollArea{parent}
+    , mBigBox(new QWidget(this))
 {
     setFrameStyle(NoFrame);
-    mBigBox = new QWidget(this);
     auto mBigBoxVBoxLayout = new QVBoxLayout(mBigBox);
     mBigBoxVBoxLayout->setContentsMargins(0, 0, 0, 0);
     setWidget(mBigBox);

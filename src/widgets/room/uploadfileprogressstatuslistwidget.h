@@ -22,5 +22,5 @@ protected:
 
 private:
     void slotLayoutFirstItem();
-    QWidget *mBigBox = nullptr;
+    QWidget *const mBigBox;
 };
