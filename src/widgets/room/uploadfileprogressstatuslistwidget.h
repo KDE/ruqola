@@ -7,13 +7,15 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QScrollArea>
-
+class UploadFileProgressStatusWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileProgressStatusListWidget : public QScrollArea
 {
     Q_OBJECT
 public:
     explicit UploadFileProgressStatusListWidget(QWidget *parent = nullptr);
     ~UploadFileProgressStatusListWidget() override;
+
+    Q_REQUIRED_RESULT UploadFileProgressStatusWidget *addProgressStatusWidget(bool first);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

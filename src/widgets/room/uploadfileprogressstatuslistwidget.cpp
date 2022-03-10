@@ -82,14 +82,13 @@ void UploadFileProgressStatusListWidget::slotLayoutFirstItem()
     }
 #endif
 }
-#if 0
-TransactionItem *UploadFileProgressStatusListWidget::addProgressStatusWidget(UploadFileProgressStatusWidget *item, bool first)
+
+UploadFileProgressStatusWidget *UploadFileProgressStatusListWidget::addProgressStatusWidget(bool first)
 {
-    auto ti = new TransactionItem(mBigBox, item, first);
+    auto ti = new UploadFileProgressStatusWidget(mBigBox);
     mBigBox->layout()->addWidget(ti);
 
     resize(mBigBox->width(), mBigBox->height());
 
     return ti;
 }
-#endif

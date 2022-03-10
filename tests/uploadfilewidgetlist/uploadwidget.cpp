@@ -21,5 +21,6 @@ UploadWidget::UploadWidget(QWidget *parent)
 
 void UploadWidget::addButton()
 {
+    mUploadFileProgressStatusListWidget->addProgressStatusWidget(false);
     // TODO
 }
