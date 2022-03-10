@@ -41,6 +41,7 @@
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
 #include <KActionCollection>
+#include <KColorSchemeManager>
 #include <KConfigGroup>
 #include <KIO/JobUiDelegate>
 #include <KIO/OpenUrlJob>
@@ -432,6 +433,9 @@ void RuqolaMainWindow::setupActions()
             disconnect(mHamburgerMenu, &KHamburgerMenu::aboutToShowMenu, this, nullptr);
         });
     }
+
+    auto *manager = new KColorSchemeManager(this);
+    ac->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
 }
 
 void RuqolaMainWindow::showNextView()
