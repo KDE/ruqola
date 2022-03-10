@@ -5,6 +5,7 @@
 */
 
 #include "playsoundwidget.h"
+#include "ruqolaglobalconfig.h"
 
 #include <KLocalizedString>
 
@@ -55,7 +56,7 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
 
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
-    mSoundSlider->setValue(50);
+    mSoundSlider->setValue(RuqolaGlobalConfig::self()->soundVolume());
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
 
     connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &PlaySoundWidget::slotVolumeChanged);
@@ -97,7 +98,11 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     slotVolumeChanged(mSoundSlider->value());
 }
 
-PlaySoundWidget::~PlaySoundWidget() = default;
+PlaySoundWidget::~PlaySoundWidget()
+{
+    RuqolaGlobalConfig::self()->setSoundVolume(mSoundSlider->value());
+    RuqolaGlobalConfig::self()->save();
+}
 
 void PlaySoundWidget::slotPositionChanged(qint64 progress)
 {

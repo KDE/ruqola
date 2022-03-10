@@ -9,6 +9,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QSlider>
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -17,6 +18,7 @@ QTEST_MAIN(PlaySoundWidgetTest)
 PlaySoundWidgetTest::PlaySoundWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void PlaySoundWidgetTest::shouldHaveDefaultValues()

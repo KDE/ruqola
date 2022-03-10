@@ -5,6 +5,8 @@
 */
 
 #include "showvideowidget.h"
+#include "ruqolaglobalconfig.h"
+
 #include <KLocalizedString>
 
 #include <QLabel>
@@ -89,7 +91,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
-    mSoundSlider->setValue(50);
+    mSoundSlider->setValue(RuqolaGlobalConfig::self()->soundVolume());
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::slotVolumeChanged);
@@ -101,7 +103,11 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     slotVolumeChanged(mSoundSlider->value());
 }
 
-ShowVideoWidget::~ShowVideoWidget() = default;
+ShowVideoWidget::~ShowVideoWidget()
+{
+    RuqolaGlobalConfig::self()->setSoundVolume(mSoundSlider->value());
+    RuqolaGlobalConfig::self()->save();
+}
 
 void ShowVideoWidget::slotPositionChanged(qint64 progress)
 {

@@ -38,6 +38,12 @@
     </entry>
   </group>
 
+  <group name="Attachment">
+    <entry name="SoundVolume" type="Int">
+      <default>50</default>
+    </entry>
+  </group>
+
   <group name="Font">
     <entry name="UseCustomFont" type="Bool">
       <default>false</default>
