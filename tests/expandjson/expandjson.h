@@ -23,4 +23,3 @@ private:
     QTextEdit *const mOutput;
     QPushButton *const mExpandButton;
 };
-

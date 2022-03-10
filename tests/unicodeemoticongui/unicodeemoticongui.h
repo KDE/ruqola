@@ -61,4 +61,3 @@ private:
     UnicodeEmoticonInfo *mWidgetInfo = nullptr;
     KListWidgetSearchLine *mSearchEmoticon = nullptr;
 };
-

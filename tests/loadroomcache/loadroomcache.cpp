@@ -40,6 +40,7 @@ LoadRoomCache::LoadRoomCache(QWidget *parent)
 void LoadRoomCache::slotOpenFile()
 {
     mCacheTextEdit->clear();
+#if 0 // TODO
     if (mRequester->url().isValid() && mRequester->url().isLocalFile()) {
         QFile f;
         f.setFileName(mRequester->url().path());
@@ -55,6 +56,7 @@ void LoadRoomCache::slotOpenFile()
             }
         }
     }
+#endif
 }
 
 int main(int argc, char *argv[])

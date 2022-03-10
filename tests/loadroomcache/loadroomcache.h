@@ -21,4 +21,3 @@ private:
     QTextEdit *const mCacheTextEdit;
     KUrlRequester *const mRequester;
 };
-
