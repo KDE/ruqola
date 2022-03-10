@@ -37,6 +37,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mUploadFileProgressStatusWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusWidget"));
     mUploadFileProgressStatusWidget->setVisible(false);
     mainLayout->addWidget(mUploadFileProgressStatusWidget);
+    connect(mUploadFileProgressStatusWidget, &UploadFileProgressStatusWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
@@ -93,6 +94,10 @@ void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const
 {
     mRoomReplyThreadWidget->setMessageText(text);
     mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
+}
+
+void RoomWidgetBase::slotCancelUpload()
+{
 }
 
 MessageListView *RoomWidgetBase::messageListView() const
