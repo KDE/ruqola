@@ -89,7 +89,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     controlLayout->addWidget(mSoundButton);
     mSoundSlider->setObjectName(QStringLiteral("mSoundSlider"));
     mSoundSlider->setRange(0, 100);
-    mSoundSlider->setValue(100);
+    mSoundSlider->setValue(50);
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::slotVolumeChanged);

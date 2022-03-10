@@ -50,7 +50,7 @@ void ShowVideoWidgetTest::shouldHaveDefaultValues()
 
     auto mSoundSlider = w.findChild<QSlider *>(QStringLiteral("mSoundSlider"));
     QVERIFY(mSoundSlider);
-    QCOMPARE(mSoundSlider->value(), 100);
+    QCOMPARE(mSoundSlider->value(), 50);
     QCOMPARE(mSoundSlider->minimum(), 0);
     QCOMPARE(mSoundSlider->maximum(), 100);
 
