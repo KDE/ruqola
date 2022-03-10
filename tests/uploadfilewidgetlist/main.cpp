@@ -4,11 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include <QCoreApplication>
+#include "uploadwidget.h"
+#include <QApplication>
 int main(int argc, char **argv)
 {
-    QCoreApplication app(argc, argv);
-    // TODO
+    QApplication app(argc, argv);
+    auto widget = new UploadWidget();
+    widget->resize(600, 400);
+    widget->show();
     app.exec();
     return 0;
 }
