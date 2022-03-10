@@ -43,7 +43,6 @@
 #include "teams/teamchannelsdialog.h"
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
-#include "uploadfileprogressstatuswidget.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
