@@ -5,6 +5,9 @@
 */
 
 #include "uploadfileprogressstatuswidget.h"
+
+#include <KLocalizedString>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QProgressBar>
@@ -28,9 +31,11 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
 
     mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
     mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
+    mCancelToolButton->setToolTip(i18n("Cancel Upload"));
     connect(mCancelToolButton, &QToolButton::clicked, this, &UploadFileProgressStatusWidget::cancelUpload);
 
     hboxLayout->addWidget(mProgressBar);
+    hboxLayout->addWidget(mCancelToolButton);
 }
 
 UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget() = default;
