@@ -3,3 +3,4 @@
 add_subdirectory(expandjson)
 add_subdirectory(loadroomcache)
 add_subdirectory(unicodeemoticongui)
+add_subdirectory(uploadfilewidgetlist)
