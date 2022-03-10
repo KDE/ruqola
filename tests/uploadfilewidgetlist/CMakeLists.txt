@@ -1,2 +1,10 @@
 # SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
+add_executable(uploadfilewidgetlistgui)
+target_sources(uploadfilewidgetlistgui PRIVATE main.cpp)
+
+target_link_libraries(uploadfilewidgetlistgui
+    Qt5::Widgets
+    libruqolawidgets
+    )
+set_target_properties(uploadfilewidgetlistgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
