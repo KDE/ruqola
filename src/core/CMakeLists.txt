@@ -434,6 +434,9 @@ target_sources(libruqolacore PRIVATE
 
     parsemessageurlutils.h
     parsemessageurlutils.cpp
+
+    uploadfilemanager.cpp
+    uploadfilemanager.h
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
