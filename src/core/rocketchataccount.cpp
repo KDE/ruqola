@@ -1315,13 +1315,9 @@ void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
     restApi()->pinMessage(messageId, pinned);
 }
 
-void RocketChatAccount::uploadFile(const QString &roomId,
-                                   const QString &description,
-                                   const QString &messageText,
-                                   const QUrl &fileUrl,
-                                   const QString &threadMessageId)
+void RocketChatAccount::uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
 {
-    restApi()->uploadFile(roomId, description, messageText, fileUrl, threadMessageId);
+    restApi()->uploadFile(info);
 }
 
 void RocketChatAccount::reportMessage(const QString &messageId, const QString &message)

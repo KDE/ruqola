@@ -170,8 +170,7 @@ public:
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
-    void
-    uploadFile(const QString &roomId, const QString &description, const QString &messageText, const QUrl &fileUrl, const QString &threadMessageId = QString());
+    void uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
     void loadHistory(const QString &roomID, bool initial = false, qint64 timeStep = 0);

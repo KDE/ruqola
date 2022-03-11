@@ -399,16 +399,10 @@ void Connection::serverInfo(bool useDeprecatedVersion)
     }
 }
 
-void Connection::uploadFile(const QString &roomId, const QString &description, const QString &text, const QUrl &filename, const QString &threadMessageId)
+void Connection::uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
 {
     auto job = new UploadFileJob(this);
     initializeRestApiJob(job);
-    UploadFileJob::UploadFileInfo info;
-    info.description = description;
-    info.messageText = text;
-    info.filenameUrl = filename;
-    info.roomId = roomId;
-    info.threadMessageId = threadMessageId;
     job->setUploadFileInfo(info);
     connect(job, &UploadFileJob::uploadProgress, this, &Connection::uploadProgress);
     if (!job->start()) {
