@@ -86,6 +86,7 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
     }
 
     painter->save();
+    // painter->drawRect(descriptionRect);
     painter->translate(descriptionRect.left(), topPos);
     const QRect clip(0, 0, descriptionRect.width(), descriptionRect.height());
 
@@ -103,7 +104,8 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
 QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, width);
-    return doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
+    // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
+    return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
 QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
