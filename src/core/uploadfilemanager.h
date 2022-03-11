@@ -18,6 +18,9 @@ public:
 
     void addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
+Q_SIGNALS:
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+
 private:
     RocketChatAccount *const mRocketChatAccount;
 };

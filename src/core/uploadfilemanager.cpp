@@ -25,7 +25,7 @@ void UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::Upload
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     job->setUploadFileInfo(info);
     connect(job, &RocketChatRestApi::UploadFileJob::uploadProgress, this, [this](const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info) {
-        // TODO
+        Q_EMIT uploadProgress(info);
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start UploadFileJob job";
