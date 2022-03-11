@@ -51,7 +51,7 @@ private:
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotShowThreadMessage(const QString &threadMessageId, const QString &text);
     void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
-    void slotCancelUpload();
+    void slotCancelUpload(int identifier);
     QString mRoomId;
     UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;
     MessageListView *const mMessageListView;

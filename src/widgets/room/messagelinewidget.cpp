@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
+#include "uploadfilemanager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -286,7 +287,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.roomId = mRoomId;
     info.threadMessageId = mThreadMessageId;
 
-    mCurrentRocketChatAccount->uploadFile(info);
+    mCurrentRocketChatAccount->uploadFileManager()->addUpload(info);
 }
 
 QString MessageLineWidget::messageIdBeingEdited() const

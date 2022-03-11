@@ -31,7 +31,6 @@
 #include "rooms/roomsexportjob.h"
 #include "ruqolaserverconfig.h"
 #include "serverconfiginfo.h"
-#include "uploadfilejob.h"
 #include "users/registeruserjob.h"
 #include "users/userssetpreferencesjob.h"
 #include "users/usersupdateownbasicinfojob.h"
@@ -83,6 +82,7 @@ class EmoticonCustomModel;
 class CustomSoundsManager;
 class AwayManager;
 class SwitchChannelHistoryModel;
+class UploadFileManager;
 
 namespace RocketChatRestApi
 {
@@ -170,7 +170,6 @@ public:
     void downloadFile(const QString &downloadFileUrl, const QUrl &localFile);
     void starMessage(const QString &messageId, bool starred);
     void pinMessage(const QString &messageId, bool pinned);
-    void uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
     void loadHistory(const QString &roomID, bool initial = false, qint64 timeStep = 0);
@@ -486,6 +485,8 @@ public:
     Q_REQUIRED_RESULT SwitchChannelHistoryModel *switchChannelHistoryModel() const;
 
     Q_REQUIRED_RESULT bool twoFactorAuthenticationEnforcePasswordFallback() const;
+    UploadFileManager *uploadFileManager() const;
+
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();
@@ -526,7 +527,6 @@ Q_SIGNALS:
     void roomNeedAttention();
     void ownInfoChanged();
     void customUserStatusChanged();
-    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void ownUserPreferencesChanged();
     void updateStatusComboBox();
     void permissionChanged();
@@ -598,7 +598,6 @@ private:
     void slotRoomExportDone();
     void slotPermissionListAllDone(const QJsonObject &replyObject);
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
-    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void slotUpdateCustomUserStatus();
     void slotDirectoryDone(const QJsonObject &obj);
     void updateCustomEmojiList();
@@ -663,6 +662,7 @@ private:
     CustomSoundsManager *const mCustomSoundManager;
     AwayManager *const mAwayManager;
     SwitchChannelHistoryModel *const mSwitchChannelHistoryModel;
+    UploadFileManager *const mUploadFileManager;
     OwnUser mOwnUser;
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;

@@ -65,4 +65,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(!w.twoFactorAuthenticationEnforcePasswordFallback());
 
     QVERIFY(w.searchListCompletion().isEmpty());
+    QVERIFY(w.uploadFileManager());
 }

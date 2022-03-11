@@ -22,7 +22,7 @@ public:
     void setUploadFileName(const QString &str);
 
 Q_SIGNALS:
-    void cancelUpload();
+    void cancelUpload(int identifier = 0); // TODO use identifier
 
 private:
     QLabel *const mFileName;

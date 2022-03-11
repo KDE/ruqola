@@ -399,17 +399,6 @@ void Connection::serverInfo(bool useDeprecatedVersion)
     }
 }
 
-void Connection::uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
-{
-    auto job = new UploadFileJob(this);
-    initializeRestApiJob(job);
-    job->setUploadFileInfo(info);
-    connect(job, &UploadFileJob::uploadProgress, this, &Connection::uploadProgress);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start UploadFileJob job";
-    }
-}
-
 void Connection::changeChannelTopic(const QString &roomId, const QString &topic)
 {
     auto job = new ChangeChannelTopicJob(this);

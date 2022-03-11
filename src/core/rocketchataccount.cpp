@@ -58,6 +58,7 @@
 #include "messagecache.h"
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
+#include "uploadfilemanager.h"
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -93,6 +94,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mCustomSoundManager(new CustomSoundsManager(this))
     , mAwayManager(new AwayManager(this, this))
     , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
+    , mUploadFileManager(new UploadFileManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -542,7 +544,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::roomExportDone, this, &RocketChatAccount::slotRoomExportDone);
         connect(mRestApi, &RocketChatRestApi::Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
-        connect(mRestApi, &RocketChatRestApi::Connection::uploadProgress, this, &RocketChatAccount::slotUploadProgress);
         connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
             logOut();
             slotReconnectToServer();
@@ -558,6 +559,11 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
 void RocketChatAccount::slotJobFailed(const QString &str)
 {
     Q_EMIT jobFailed(str, accountName());
+}
+
+UploadFileManager *RocketChatAccount::uploadFileManager() const
+{
+    return mUploadFileManager;
 }
 
 SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
@@ -1313,11 +1319,6 @@ void RocketChatAccount::starMessage(const QString &messageId, bool starred)
 void RocketChatAccount::pinMessage(const QString &messageId, bool pinned)
 {
     restApi()->pinMessage(messageId, pinned);
-}
-
-void RocketChatAccount::uploadFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
-{
-    restApi()->uploadFile(info);
 }
 
 void RocketChatAccount::reportMessage(const QString &messageId, const QString &message)
@@ -2712,11 +2713,6 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
 bool RocketChatAccount::hasAutotranslateSupport() const
 {
     return autoTranslateEnabled() && hasPermission(QStringLiteral("auto-translate"));
-}
-
-void RocketChatAccount::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
-{
-    Q_EMIT uploadProgress(info);
 }
 
 MessageCache *RocketChatAccount::messageCache() const

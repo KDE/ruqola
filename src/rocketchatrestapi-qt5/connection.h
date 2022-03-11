@@ -18,7 +18,6 @@
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "rooms/roomscleanhistoryjob.h"
 #include "rooms/roomsexportjob.h"
-#include "uploadfilejob.h"
 #include "users/registeruserjob.h"
 #include "users/setavatarjob.h"
 #include "users/setstatusjob.h"
@@ -70,7 +69,6 @@ public:
     void getPrivateSettings();
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
-    void uploadFile(const UploadFileJob::UploadFileInfo &info);
     RocketChatRestApi::DownloadFileJob *downloadFile(const QUrl &url, const QUrl &localFileUrl, const QString &mimeType = QStringLiteral("text/plain"));
     void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);
@@ -289,7 +287,6 @@ Q_SIGNALS:
     void resetAvatarDone();
     void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
-    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
     void directoryDone(const QJsonObject &replyObject);
 
 private:

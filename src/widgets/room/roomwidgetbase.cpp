@@ -14,6 +14,7 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomutil.h"
+#include "uploadfilemanager.h"
 #include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>
@@ -96,7 +97,7 @@ void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const
     mRoomReplyThreadWidget->setVisible(!threadMessageId.isEmpty());
 }
 
-void RoomWidgetBase::slotCancelUpload()
+void RoomWidgetBase::slotCancelUpload(int identifier)
 {
 }
 
@@ -175,7 +176,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+        disconnect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
         disconnect(mCurrentRocketChatAccount,
                    &RocketChatAccount::ownUserPreferencesChanged,
                    mMessageLineWidget,
@@ -186,7 +187,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 
     mCurrentRocketChatAccount = account;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, mMessageLineWidget, &MessageLineWidget::slotPublicSettingChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
+    connect(mCurrentRocketChatAccount->uploadFileManager(), &UploadFileManager::uploadProgress, this, &RoomWidgetBase::slotUploadProgress);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, mMessageLineWidget, &MessageLineWidget::slotOwnUserPreferencesChanged);
     mMessageListView->setCurrentRocketChatAccount(account);
     mMessageLineWidget->setCurrentRocketChatAccount(account, false);
