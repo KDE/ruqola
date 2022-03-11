@@ -88,7 +88,7 @@
             "binaryDir": "${sourceDir}/build-coverage",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "USE_UNITY_CMAKE_SUPPORT": "ON",
+                "USE_UNITY_CMAKE_SUPPORT": "OFF",
                 "BUILD_COVERAGE": "ON" 
             },
             "installDir": "$env{KF5}"
@@ -144,6 +144,10 @@
         {
             "name": "unity",
             "configurePreset": "unity"
+        },
+        {
+            "name": "coverage",
+            "configurePreset": "coverage"
         },
 	{
             "name": "asan",
