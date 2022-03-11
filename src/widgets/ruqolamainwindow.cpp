@@ -434,7 +434,7 @@ void RuqolaMainWindow::setupActions()
         });
     }
 
-    auto *manager = new KColorSchemeManager(this);
+    auto manager = new KColorSchemeManager(this);
     ac->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
 }
 
