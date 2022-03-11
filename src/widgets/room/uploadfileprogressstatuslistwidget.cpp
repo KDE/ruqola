@@ -29,16 +29,6 @@ void UploadFileProgressStatusListWidget::resizeEvent(QResizeEvent *event)
 {
     // Tell the layout in the parent (progressdialog) that our size changed
     updateGeometry();
-
-    const QSize sz = parentWidget()->sizeHint();
-    int currentWidth = parentWidget()->width();
-
-    // Don't resize to sz.width() every time when it only reduces a little bit
-    if (currentWidth < sz.width() || currentWidth > sz.width() + 100) {
-        currentWidth = sz.width();
-    }
-    parentWidget()->resize(currentWidth, sz.height());
-
     QScrollArea::resizeEvent(event);
 }
 
