@@ -114,6 +114,14 @@ QNetworkRequest UploadFileJob::request() const
     return request;
 }
 
+void UploadFileJob::abort()
+{
+    if (mReply) {
+        mReply->abort();
+    }
+    deleteLater();
+}
+
 void UploadFileJob::slotUploadFinished()
 {
     auto reply = mReply;

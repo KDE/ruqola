@@ -7,7 +7,9 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include "uploadfilejob.h"
+#include <QMap>
 #include <QObject>
+#include <QPointer>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT UploadFileManager : public QObject
 {
@@ -16,11 +18,14 @@ public:
     explicit UploadFileManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~UploadFileManager() override;
 
-    void addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
+    Q_REQUIRED_RESULT int addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
+    void cancelJob(int identifier);
 Q_SIGNALS:
-    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier);
 
 private:
     RocketChatAccount *const mRocketChatAccount;
+    QMap<int, QPointer<RocketChatRestApi::UploadFileJob>> mUploadMap;
+    static int uploadIdentifier;
 };

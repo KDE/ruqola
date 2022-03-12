@@ -8,6 +8,7 @@
 
 #include "dialogs/uploadfiledialog.h"
 #include "libruqolawidgets_private_export.h"
+#include "uploadfilejob.h"
 #include <QPointer>
 #include <QWidget>
 
@@ -67,16 +68,17 @@ Q_SIGNALS:
     void keyPressed(QKeyEvent *ev);
     void threadMessageIdChanged(const QString &threadMessageId, const QString &text);
     void quoteMessageChanged(const QString &permalink, const QString &text);
+    void createUploadJob(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
 
 private:
     void slotSendMessage(const QString &msg);
     void slotTextEditing(bool clearNotification);
-    void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
     void slotSendFile();
     void keyPressedInLineEdit(QKeyEvent *ev);
     void textEditClicked();
     Q_REQUIRED_RESULT MessageModel *messageModel() const;
     void clearEditingMode();
+    void sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo);
 
     QString mRoomId;
     QString mThreadMessageId;

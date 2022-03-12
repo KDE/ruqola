@@ -44,6 +44,8 @@ public:
     Q_REQUIRED_RESULT UploadFileInfo uploadFileInfo() const;
     void setUploadFileInfo(const UploadFileInfo &uploadFileInfo);
 
+    void abort();
+
 Q_SIGNALS:
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
 

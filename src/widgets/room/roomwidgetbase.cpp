@@ -76,6 +76,7 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
         connect(mMessageLineWidget, &MessageLineWidget::threadMessageIdChanged, this, &RoomWidgetBase::slotShowThreadMessage);
     }
     connect(mMessageLineWidget, &MessageLineWidget::quoteMessageChanged, this, &RoomWidgetBase::slotShowQuoteMessage);
+    connect(mMessageLineWidget, &MessageLineWidget::createUploadJob, this, &RoomWidgetBase::slotSendFile);
 
     connect(mMessageListView, &MessageListView::editMessageRequested, mMessageLineWidget, &MessageLineWidget::setEditMessage);
     connect(mMessageListView, &MessageListView::quoteMessageRequested, mMessageLineWidget, &MessageLineWidget::setQuoteMessage);
@@ -91,6 +92,11 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
 
 RoomWidgetBase::~RoomWidgetBase() = default;
 
+void RoomWidgetBase::slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo)
+{
+    const int identifier = mCurrentRocketChatAccount->uploadFileManager()->addUpload(uploadFileInfo);
+}
+
 void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const QString &text)
 {
     mRoomReplyThreadWidget->setMessageText(text);
@@ -99,6 +105,7 @@ void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const
 
 void RoomWidgetBase::slotCancelUpload(int identifier)
 {
+    mCurrentRocketChatAccount->uploadFileManager()->cancelJob(identifier);
 }
 
 MessageListView *RoomWidgetBase::messageListView() const
@@ -151,7 +158,7 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
     }
 }
 
-void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info)
+void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier)
 {
     if (info.bytesSent > 0 && info.bytesTotal > 0) {
         mUploadFileProgressStatusWidget->setVisible(true);

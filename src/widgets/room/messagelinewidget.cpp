@@ -123,6 +123,18 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
     }
 }
 
+void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
+{
+    RocketChatRestApi::UploadFileJob::UploadFileInfo info;
+    info.description = uploadFileInfo.description;
+    info.messageText = QString();
+    info.filenameUrl = uploadFileInfo.fileUrl;
+    info.roomId = mRoomId;
+    info.threadMessageId = mThreadMessageId;
+
+    Q_EMIT createUploadJob(info);
+}
+
 void MessageLineWidget::setQuoteMessage(const QString &permalink, const QString &text)
 {
     clearMessageIdBeingEdited();
@@ -276,18 +288,6 @@ void MessageLineWidget::slotTextEditing(bool clearNotification)
 {
     mSendMessageButton->setEnabled(!clearNotification);
     mCurrentRocketChatAccount->textEditing(mRoomId, clearNotification);
-}
-
-void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadFileInfo)
-{
-    RocketChatRestApi::UploadFileJob::UploadFileInfo info;
-    info.description = uploadFileInfo.description;
-    info.messageText = QString();
-    info.filenameUrl = uploadFileInfo.fileUrl;
-    info.roomId = mRoomId;
-    info.threadMessageId = mThreadMessageId;
-
-    mCurrentRocketChatAccount->uploadFileManager()->addUpload(info);
 }
 
 QString MessageLineWidget::messageIdBeingEdited() const
