@@ -169,7 +169,7 @@ void ChannelInfoEditableWidget::slotTeamListRoomsDone(const QJsonObject &obj)
         dlg->setTeamRooms(teamRooms);
         if (dlg->exec()) {
             const QStringList roomIds = dlg->roomsId();
-            auto *job = new RocketChatRestApi::TeamDeleteJob(this);
+            auto job = new RocketChatRestApi::TeamDeleteJob(this);
             job->setRoomsId(roomIds);
             job->setTeamId(teamId);
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
