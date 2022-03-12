@@ -11,7 +11,6 @@
 #include "libruqolawidgets_private_export.h"
 class QTabWidget;
 class SearchWithDelayLineEdit;
-class QListView;
 class RocketChatAccount;
 class EmoticonRecentUsedFilterProxyModel;
 class EmoticonModelFilterProxyModel;
