@@ -80,7 +80,7 @@ void AddTeamRoomCompletionLineEdit::slotAutoCompletTeamRoomDone(const QJsonObjec
     for (int i = 0, total = items.count(); i < total; ++i) {
         TeamRoomCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());
-        teams.append(teamCompleter);
+        teams.append(std::move(teamCompleter));
     }
     mTeamRoomCompleterModel->insertRooms(teams);
 }

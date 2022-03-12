@@ -83,7 +83,7 @@ void SearchTeamCompletionLineEdit::slotTeamAutoCompleteDone(const QJsonObject &o
     for (auto i = 0; i < total; ++i) {
         TeamCompleter teamCompleter;
         teamCompleter.parse(items.at(i).toObject());
-        teams.append(teamCompleter);
+        teams.append(std::move(teamCompleter));
     }
     mTeamCompleterModel->insertTeams(teams);
 }

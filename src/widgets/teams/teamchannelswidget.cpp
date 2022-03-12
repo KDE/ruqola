@@ -99,7 +99,7 @@ void TeamChannelsWidget::initializeTeamRoomsList()
 void TeamChannelsWidget::slotTeamListRoomsDone(const QJsonObject &obj)
 {
     const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-    mTeamRoomsModel->setTeamRooms(teamRooms);
+    mTeamRoomsModel->setTeamRooms(std::move(teamRooms));
 }
 
 void TeamChannelsWidget::slotTextChanged(const QString &str)
@@ -155,7 +155,7 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
     const QJsonObject room = replyObject.value(QLatin1String("room")).toObject();
     TeamRoom teamRoom;
     teamRoom.parse(room);
-    mTeamRoomsModel->setRoomChanged(teamRoom);
+    mTeamRoomsModel->setRoomChanged(std::move(teamRoom));
 }
 
 void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
