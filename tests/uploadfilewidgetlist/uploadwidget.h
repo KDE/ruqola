@@ -18,4 +18,5 @@ public:
 private:
     void addButton();
     UploadFileProgressStatusListWidget *const mUploadFileProgressStatusListWidget;
+    static int identifier;
 };

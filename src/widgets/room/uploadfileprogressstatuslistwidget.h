@@ -16,7 +16,7 @@ public:
     explicit UploadFileProgressStatusListWidget(QWidget *parent = nullptr);
     ~UploadFileProgressStatusListWidget() override;
 
-    Q_REQUIRED_RESULT UploadFileProgressStatusWidget *addProgressStatusWidget(bool first);
+    Q_REQUIRED_RESULT UploadFileProgressStatusWidget *addProgressStatusWidget(int identifier, bool first);
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -27,5 +27,5 @@ private:
     void slotLayoutFirstItem();
     void removeUploadFileProgressStatusWidget();
     QWidget *const mBigBox;
-    // QMap<int, UploadFileProgressStatusWidget *> mTransactionsToListviewItems;
+    QMap<int, UploadFileProgressStatusWidget *> mUploadItems;
 };
