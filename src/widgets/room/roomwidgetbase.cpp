@@ -95,6 +95,9 @@ RoomWidgetBase::~RoomWidgetBase() = default;
 void RoomWidgetBase::slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo)
 {
     const int identifier = mCurrentRocketChatAccount->uploadFileManager()->addUpload(uploadFileInfo);
+    if (identifier != -1) {
+        // TODO add widget in uploadlistwidget
+    }
     mUploadFileProgressStatusWidget->setIdentifier(identifier);
 }
 
