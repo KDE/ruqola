@@ -83,3 +83,8 @@ UploadFileProgressStatusWidget *UploadFileProgressStatusListWidget::addProgressS
 
     return ti;
 }
+
+void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget()
+{
+    // TODO
+}

@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include <QMap>
 #include <QScrollArea>
 class UploadFileProgressStatusWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileProgressStatusListWidget : public QScrollArea
@@ -24,5 +25,7 @@ protected:
 
 private:
     void slotLayoutFirstItem();
+    void removeUploadFileProgressStatusWidget();
     QWidget *const mBigBox;
+    // QMap<int, UploadFileProgressStatusWidget *> mTransactionsToListviewItems;
 };
