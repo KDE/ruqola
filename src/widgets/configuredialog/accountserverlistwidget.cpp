@@ -27,15 +27,16 @@ void AccountServerListWidget::load()
     const int accountNumber = model->accountNumber();
     for (int i = 0; i < accountNumber; ++i) {
         auto item = new AccountServerListWidgetItem(this);
+        auto account = model->account(i);
         AccountManager::AccountManagerInfo info;
-        info.displayName = model->account(i)->displayName();
-        info.accountName = model->account(i)->accountName();
-        info.serverUrl = model->account(i)->serverUrl();
-        info.userName = model->account(i)->userName();
-        info.password = model->account(i)->password();
+        info.displayName = account->displayName();
+        info.accountName = account->accountName();
+        info.serverUrl = account->serverUrl();
+        info.userName = account->userName();
+        info.password = account->password();
         item->setAccountInfo(info);
         item->setNewAccount(false);
-        item->setCheckState(model->account(i)->accountEnabled() ? Qt::Checked : Qt::Unchecked);
+        item->setCheckState(account->accountEnabled() ? Qt::Checked : Qt::Unchecked);
     }
 }
 
