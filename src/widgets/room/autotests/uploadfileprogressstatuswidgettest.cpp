@@ -38,6 +38,8 @@ void UploadFileProgressStatusWidgetTest::shouldHaveDefaultValues()
     auto mCancelToolButton = w.findChild<QToolButton *>(QStringLiteral("mCancelToolButton"));
     QVERIFY(mCancelToolButton);
     QVERIFY(!mCancelToolButton->toolTip().isEmpty());
+
+    QCOMPARE(w.identifier(), -1);
 }
 
 void UploadFileProgressStatusWidgetTest::shouldChangeText()

@@ -32,7 +32,9 @@ UploadFileProgressStatusWidget::UploadFileProgressStatusWidget(QWidget *parent)
     mCancelToolButton->setObjectName(QStringLiteral("mCancelToolButton"));
     mCancelToolButton->setIcon(QIcon::fromTheme(QStringLiteral("dialog-cancel")));
     mCancelToolButton->setToolTip(i18n("Cancel Upload"));
-    connect(mCancelToolButton, &QToolButton::clicked, this, &UploadFileProgressStatusWidget::cancelUpload);
+    connect(mCancelToolButton, &QToolButton::clicked, this, [this] {
+        Q_EMIT cancelUpload(mIdentifier);
+    });
 
     hboxLayout->addWidget(mProgressBar);
     hboxLayout->addWidget(mCancelToolButton);
@@ -43,6 +45,16 @@ UploadFileProgressStatusWidget::~UploadFileProgressStatusWidget() = default;
 void UploadFileProgressStatusWidget::setUploadFileName(const QString &str)
 {
     mFileName->setText(str);
+}
+
+int UploadFileProgressStatusWidget::identifier() const
+{
+    return mIdentifier;
+}
+
+void UploadFileProgressStatusWidget::setIdentifier(int newIdentifier)
+{
+    mIdentifier = newIdentifier;
 }
 
 void UploadFileProgressStatusWidget::setValue(int value)

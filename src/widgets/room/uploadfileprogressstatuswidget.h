@@ -21,10 +21,14 @@ public:
     void setValue(int value);
     void setUploadFileName(const QString &str);
 
+    Q_REQUIRED_RESULT int identifier() const;
+    void setIdentifier(int newIdentifier);
+
 Q_SIGNALS:
     void cancelUpload(int identifier = 0); // TODO use identifier
 
 private:
+    int mIdentifier = -1;
     QLabel *const mFileName;
     QProgressBar *const mProgressBar;
     QToolButton *const mCancelToolButton;
