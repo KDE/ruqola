@@ -16,5 +16,6 @@ public:
     ~RuqolaLoginWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldShowLabelError();
 };
 

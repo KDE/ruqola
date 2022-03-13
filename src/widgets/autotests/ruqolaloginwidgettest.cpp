@@ -81,3 +81,14 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(sendNewEmailCode);
     QVERIFY(!sendNewEmailCode->text().isEmpty());
 }
+
+void RuqolaLoginWidgetTest::shouldShowLabelError()
+{
+    RuqolaLoginWidget w;
+    auto mFailedError = w.findChild<QLabel *>(QStringLiteral("mFailedError"));
+    QVERIFY(mFailedError);
+    w.showError(QStringLiteral("bla"));
+
+    QCOMPARE(mFailedError->text(), QStringLiteral("bla"));
+    QVERIFY(!mFailedError->isHidden());
+}
