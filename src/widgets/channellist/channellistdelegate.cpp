@@ -38,7 +38,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const int margin = DelegatePaintUtil::margin();
     int offsetAvatarRoom = 0;
     if (!isHeader && RuqolaGlobalConfig::self()->showRoomAvatar()) {
-        offsetAvatarRoom = margin + iconSize;
+        offsetAvatarRoom = margin + option.rect.height(); // Icon will be draw with option.rect.height() as size.
     }
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y(), iconSize, option.rect.height());
     const QString text = index.data(Qt::DisplayRole).toString();
