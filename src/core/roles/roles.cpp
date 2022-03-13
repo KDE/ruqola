@@ -93,7 +93,7 @@ void Roles::parseRole(const QJsonObject &obj)
         Role r;
         r.parseRole(roleArray.at(i).toObject());
         if (r.isValid()) {
-            mRoles.append(r);
+            mRoles.append(std::move(r));
         } else {
             qCWarning(RUQOLA_LOG) << "Invalid role" << roleArray.at(i).toObject();
         }

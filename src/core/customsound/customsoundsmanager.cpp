@@ -148,7 +148,7 @@ void CustomSoundsManager::updateCustomSounds(const QJsonArray &replyArray)
                 CustomSoundInfo sound;
                 sound.parseCustomSoundInfo(emojiData);
                 if (sound.isValid()) {
-                    mCustomSoundsInfo.append(sound);
+                    mCustomSoundsInfo.append(std::move(sound));
                     Q_EMIT customSoundAdded(identifier);
                 }
             }

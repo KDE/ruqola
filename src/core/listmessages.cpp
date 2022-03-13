@@ -24,7 +24,7 @@ void ListMessages::parseMessages(const QJsonObject &messagesObj, const QString &
             const QJsonObject messageObject = current.toObject();
             Message m;
             m.parseMessage(messageObject, true);
-            mListMessages.append(m);
+            mListMessages.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing thread" << current;
         }

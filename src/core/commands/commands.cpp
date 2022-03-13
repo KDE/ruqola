@@ -78,12 +78,12 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                     }
                 }
                 if (hasAllPermission) {
-                    mCommands.append(m);
+                    mCommands.append(std::move(m));
                 } else {
                     // qCDebug(RUQOLA_COMMANDS_LOG) << " command not added " << m;
                 }
             } else {
-                mCommands.append(m);
+                mCommands.append(std::move(m));
             }
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current;

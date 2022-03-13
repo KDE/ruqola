@@ -105,7 +105,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
         CustomEmoji emoji;
         emoji.parseEmoji(emojiJson);
         if (emoji.isValid()) {
-            mCustomEmojiList.append(emoji);
+            mCustomEmojiList.append(std::move(emoji));
         }
     }
 

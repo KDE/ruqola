@@ -53,7 +53,7 @@ void CustomSoundsInfo::parseListCustomSound(const QJsonObject &obj)
             const QJsonObject adminRoomObject = current.toObject();
             CustomSoundInfo m;
             m.parseCustomSoundInfo(adminRoomObject);
-            mCustomSoundInfos.append(m);
+            mCustomSoundInfos.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Rooms" << current;
         }
