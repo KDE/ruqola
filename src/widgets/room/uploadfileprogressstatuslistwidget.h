@@ -17,7 +17,7 @@ public:
     explicit UploadFileProgressStatusListWidget(QWidget *parent = nullptr);
     ~UploadFileProgressStatusListWidget() override;
 
-    Q_REQUIRED_RESULT UploadFileProgressStatusWidget *addProgressStatusWidget(int identifier, bool first);
+    void addProgressStatusWidget(int identifier);
 
     void removeUploadFileProgressStatusWidget(int identifier);
 

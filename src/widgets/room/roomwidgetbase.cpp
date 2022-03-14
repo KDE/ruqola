@@ -16,7 +16,6 @@
 #include "roomutil.h"
 #include "uploadfilemanager.h"
 #include "uploadfileprogressstatuslistwidget.h"
-#include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>
 #include <QStackedWidget>
@@ -97,7 +96,7 @@ void RoomWidgetBase::slotSendFile(const RocketChatRestApi::UploadFileJob::Upload
 {
     const int identifier = mCurrentRocketChatAccount->uploadFileManager()->addUpload(uploadFileInfo);
     if (identifier != -1) {
-        mUploadFileProgressStatusListWidget->addProgressStatusWidget(identifier, false); // TODO
+        mUploadFileProgressStatusListWidget->addProgressStatusWidget(identifier);
     }
 }
 

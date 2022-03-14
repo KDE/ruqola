@@ -74,7 +74,7 @@ void UploadFileProgressStatusListWidget::slotLayoutFirstItem()
 #endif
 }
 
-UploadFileProgressStatusWidget *UploadFileProgressStatusListWidget::addProgressStatusWidget(int identifier, bool first)
+void UploadFileProgressStatusListWidget::addProgressStatusWidget(int identifier)
 {
     auto ti = new UploadFileProgressStatusWidget(mBigBox);
     ti->setIdentifier(identifier);
@@ -84,7 +84,6 @@ UploadFileProgressStatusWidget *UploadFileProgressStatusListWidget::addProgressS
 
     mUploadItems.insert(identifier, ti);
     connect(ti, &UploadFileProgressStatusWidget::cancelUpload, this, &UploadFileProgressStatusListWidget::cancelUpload);
-    return ti;
 }
 
 void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget(int identifier)
