@@ -5,6 +5,7 @@
 */
 
 #include "uploadfileprogressstatuslistwidget.h"
+#include "ruqolawidgets_debug.h"
 #include "uploadfileprogressstatuswidget.h"
 #include <QScrollBar>
 #include <QVBoxLayout>
@@ -92,7 +93,6 @@ void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget(in
     if (item) {
         item->deleteLater();
     }
-    // TODO
 }
 
 void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier)
@@ -106,7 +106,13 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
             setVisible(true);
         } else {
             item->setVisible(false);
-            setVisible(false);
+            mUploadItems.remove(identifier);
+            item->deleteLater();
+            if (mUploadItems.isEmpty()) {
+                setVisible(false);
+            }
         }
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << "identifier " << identifier << " not found.";
     }
 }
