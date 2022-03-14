@@ -19,14 +19,17 @@ void DirectoryTabWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.count(), 3);
 
     auto *tab = qobject_cast<DirectoryWidget *>(w.widget(0));
+    QCOMPARE(tab->objectName(), QStringLiteral("mRooms"));
     QCOMPARE(tab->type(), DirectoryWidget::Room);
     QVERIFY(tab);
 
     tab = qobject_cast<DirectoryWidget *>(w.widget(1));
+    QCOMPARE(tab->objectName(), QStringLiteral("mUsers"));
     QCOMPARE(tab->type(), DirectoryWidget::User);
     QVERIFY(tab);
 
     tab = qobject_cast<DirectoryWidget *>(w.widget(2));
+    QCOMPARE(tab->objectName(), QStringLiteral("mTeams"));
     QCOMPARE(tab->type(), DirectoryWidget::Team);
     QVERIFY(tab);
 }
