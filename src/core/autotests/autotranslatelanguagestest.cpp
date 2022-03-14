@@ -19,4 +19,5 @@ void AutotranslateLanguagesTest::shouldHaveDefaultValues()
     AutotranslateLanguages w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.count(), 0);
+    QVERIFY(w.autotranslateLanguage().isEmpty());
 }
