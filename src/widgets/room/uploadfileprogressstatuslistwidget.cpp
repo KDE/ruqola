@@ -53,25 +53,7 @@ QSize UploadFileProgressStatusListWidget::minimumSizeHint() const
 
 void UploadFileProgressStatusListWidget::slotLayoutFirstItem()
 {
-    // This slot is called whenever a TransactionItem is deleted, so this is a
-    // good place to call updateGeometry(), so our parent takes the new size
-    // into account and resizes.
     updateGeometry();
-#if 0
-    /*
-     The below relies on some details in Qt's behaviour regarding deleting
-     objects. This slot is called from the destroyed signal of an item just
-     going away. That item is at that point still in the  list of children, but
-     since the vtable is already gone, it will have type QObject. The first
-     one with both the right name and the right class therefore is what will
-     be the first item very shortly. That's the one we want to remove the
-     hline for.
-    */
-    auto *ti = mBigBox->findChild<KPIM::TransactionItem *>(QStringLiteral("TransactionItem"));
-    if (ti) {
-        ti->hideHLine();
-    }
-#endif
 }
 
 void UploadFileProgressStatusListWidget::addProgressStatusWidget(int identifier)
@@ -104,6 +86,7 @@ void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi:
             item->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
             setVisible(true);
         } else {
+            connect(item, &QObject::destroyed, this, &UploadFileProgressStatusListWidget::slotLayoutFirstItem);
             item->setVisible(false);
             mUploadItems.remove(identifier);
             item->deleteLater();
