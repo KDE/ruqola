@@ -16,5 +16,6 @@ public:
     ~ThreadMessageWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldChangeThreadPreview();
 };
 

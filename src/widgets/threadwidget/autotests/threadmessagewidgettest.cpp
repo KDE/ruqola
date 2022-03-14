@@ -46,3 +46,12 @@ void ThreadMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFollowButton->autoRaise());
     QVERIFY(mFollowButton->isCheckable());
 }
+
+void ThreadMessageWidgetTest::shouldChangeThreadPreview()
+{
+    ThreadMessageWidget w(nullptr);
+    auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
+    const QString threadPreview{QStringLiteral("bla")};
+    w.setThreadPreview(threadPreview);
+    QCOMPARE(mThreadPreview->text(), threadPreview);
+}
