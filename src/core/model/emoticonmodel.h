@@ -11,6 +11,7 @@
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
 
+class RocketChatAccount;
 // Model showing all emojis
 class LIBRUQOLACORE_EXPORT EmoticonModel : public QAbstractListModel
 {
@@ -24,7 +25,7 @@ public:
     };
     Q_ENUM(EmoticonsRoles)
 
-    explicit EmoticonModel(QObject *parent = nullptr);
+    explicit EmoticonModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~EmoticonModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -50,5 +51,6 @@ private:
     // second is -1 for the emoticon identifier or otherwise an index into the alias list
     QVector<QPair<int, int>> mUnicodeRows;
     QVector<QPair<int, int>> mCustomRows;
+    RocketChatAccount *const mRocketChatAccount;
 };
 

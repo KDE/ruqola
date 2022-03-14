@@ -7,12 +7,12 @@
 #include "emoticoncustommodel.h"
 #include "emoticons/emojimanager.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <QIcon>
 #include <QUrl>
 
-EmoticonCustomModel::EmoticonCustomModel(QObject *parent)
+EmoticonCustomModel::EmoticonCustomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -53,11 +53,10 @@ QVariant EmoticonCustomModel::data(const QModelIndex &index, int role) const
 
 QIcon EmoticonCustomModel::generateIcon(const QString &name) const
 {
-    auto rcAccount = Ruqola::self()->rocketChatAccount();
-    if (rcAccount) {
-        const QString fileName = rcAccount->emojiManager()->customEmojiFileName(name);
+    if (mRocketChatAccount) {
+        const QString fileName = mRocketChatAccount->emojiManager()->customEmojiFileName(name);
         if (!fileName.isEmpty()) {
-            const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
+            const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
             if (!emojiUrl.isEmpty()) {
                 const QIcon icon(emojiUrl.toLocalFile());
                 return icon;

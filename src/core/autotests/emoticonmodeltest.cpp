@@ -25,7 +25,7 @@ void EmoticonModelTest::shouldHaveDefaultValue()
 void EmoticonModelTest::shouldListEmojis()
 {
     // GIVEN
-    EmoticonModel model;
+    EmoticonModel model(nullptr);
     QCOMPARE(model.rowCount(), 0);
     UnicodeEmoticon icon1;
     icon1.setUnicode(QStringLiteral("D83D-DE42"));
@@ -59,7 +59,7 @@ void EmoticonModelTest::shouldListEmojis()
 void EmoticonModelTest::shouldFilterCategory()
 {
     // GIVEN
-    EmoticonModel model;
+    EmoticonModel model(nullptr);
     EmoticonFilterModel filterModel;
     filterModel.setSourceModel(&model);
     UnicodeEmoticon icon1;

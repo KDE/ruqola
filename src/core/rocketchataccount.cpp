@@ -140,9 +140,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmojiManager->setServerUrl(mSettings->serverUrl());
     connect(mEmojiManager, &EmojiManager::customEmojiChanged, this, &RocketChatAccount::updateCustomEmojiList);
 
-    mEmoticonCustomModel = new EmoticonCustomModel(this);
+    mEmoticonCustomModel = new EmoticonCustomModel(this, this);
 
-    mEmoticonModel = new EmoticonModel(this);
+    mEmoticonModel = new EmoticonModel(this, this);
     mEmoticonModel->setUnicodeEmoticons(mEmojiManager->unicodeEmojiList());
     mInputTextManager->setEmoticonModel(mEmoticonModel);
     mInputThreadMessageTextManager->setEmoticonModel(mEmoticonModel);
