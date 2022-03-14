@@ -17,7 +17,7 @@
 #include "room/roomquotemessagewidget.h"
 #include "room/roomreplythreadwidget.h"
 #include "room/roomwidget.h"
-#include "room/uploadfileprogressstatuswidget.h"
+#include "room/uploadfileprogressstatuslistwidget.h"
 #include "room/usersinroomflowwidget.h"
 
 #include <ruqola.h>
@@ -75,9 +75,9 @@ void RoomWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mRoomQuoteMessageWidget);
     QVERIFY(!mRoomQuoteMessageWidget->isVisible());
 
-    auto mUploadFileProgressStatusWidget = w.findChild<UploadFileProgressStatusWidget *>(QStringLiteral("mUploadFileProgressStatusWidget"));
-    QVERIFY(mUploadFileProgressStatusWidget);
-    QVERIFY(!mUploadFileProgressStatusWidget->isVisible());
+    auto mUploadFileProgressStatusListWidget = w.findChild<UploadFileProgressStatusListWidget *>(QStringLiteral("mUploadFileProgressStatusListWidget"));
+    QVERIFY(mUploadFileProgressStatusListWidget);
+    QVERIFY(!mUploadFileProgressStatusListWidget->isVisible());
 
     auto mOtrWidget = w.findChild<OtrWidget *>(QStringLiteral("mOtrWidget"));
     QVERIFY(mOtrWidget);

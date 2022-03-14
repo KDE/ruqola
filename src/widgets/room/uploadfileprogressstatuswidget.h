@@ -25,7 +25,7 @@ public:
     void setIdentifier(int newIdentifier);
 
 Q_SIGNALS:
-    void cancelUpload(int identifier = 0); // TODO use identifier
+    void cancelUpload(int identifier);
 
 private:
     int mIdentifier = -1;

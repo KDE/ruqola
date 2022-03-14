@@ -12,7 +12,6 @@
 #include <QPointer>
 #include <QWidget>
 
-class UploadFileProgressStatusWidget;
 class RoomReplyThreadWidget;
 class RoomQuoteMessageWidget;
 class QStackedWidget;
@@ -20,6 +19,7 @@ class MessageLineWidget;
 class ReadOnlyLineEditWidget;
 class RocketChatAccount;
 class Room;
+class UploadFileProgressStatusListWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -54,7 +54,7 @@ private:
     void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
     void slotCancelUpload(int identifier);
     QString mRoomId;
-    UploadFileProgressStatusWidget *const mUploadFileProgressStatusWidget;
+    UploadFileProgressStatusListWidget *const mUploadFileProgressStatusListWidget;
     MessageListView *const mMessageListView;
     RoomReplyThreadWidget *const mRoomReplyThreadWidget;
     RoomQuoteMessageWidget *const mRoomQuoteMessageWidget;

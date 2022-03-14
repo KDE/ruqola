@@ -82,10 +82,31 @@ UploadFileProgressStatusWidget *UploadFileProgressStatusListWidget::addProgressS
     resize(mBigBox->width(), mBigBox->height());
 
     mUploadItems.insert(identifier, ti);
+    connect(ti, &UploadFileProgressStatusWidget::cancelUpload, this, &UploadFileProgressStatusListWidget::cancelUpload);
     return ti;
 }
 
-void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget()
+void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget(int identifier)
 {
+    UploadFileProgressStatusWidget *item = mUploadItems.take(identifier);
+    if (item) {
+        item->deleteLater();
+    }
     // TODO
+}
+
+void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier)
+{
+    UploadFileProgressStatusWidget *item = mUploadItems.value(identifier);
+    if (item) {
+        if (info.bytesSent > 0 && info.bytesTotal > 0) {
+            item->setVisible(true);
+            item->setUploadFileName(info.fileName);
+            item->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
+            setVisible(true);
+        } else {
+            item->setVisible(false);
+            setVisible(false);
+        }
+    }
 }

@@ -10,7 +10,7 @@
 #include "room/roomquotemessagewidget.h"
 #include "room/roomreplythreadwidget.h"
 #include "room/roomwidgetbase.h"
-#include "room/uploadfileprogressstatuswidget.h"
+#include "room/uploadfileprogressstatuslistwidget.h"
 #include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -29,8 +29,8 @@ void RoomWidgetBaseTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mUploadFileProgressStatusWidget = w.findChild<UploadFileProgressStatusWidget *>(QStringLiteral("mUploadFileProgressStatusWidget"));
-    QVERIFY(mUploadFileProgressStatusWidget);
+    auto mUploadFileProgressStatusListWidget = w.findChild<UploadFileProgressStatusListWidget *>(QStringLiteral("mUploadFileProgressStatusListWidget"));
+    QVERIFY(mUploadFileProgressStatusListWidget);
 
     auto mMessageListView = w.findChild<MessageListView *>(QStringLiteral("mMessageListView"));
     QVERIFY(mMessageListView);

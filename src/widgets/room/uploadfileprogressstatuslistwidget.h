@@ -6,6 +6,7 @@
 
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "uploadfilejob.h"
 #include <QMap>
 #include <QScrollArea>
 class UploadFileProgressStatusWidget;
@@ -18,6 +19,12 @@ public:
 
     Q_REQUIRED_RESULT UploadFileProgressStatusWidget *addProgressStatusWidget(int identifier, bool first);
 
+    void removeUploadFileProgressStatusWidget(int identifier);
+
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier);
+Q_SIGNALS:
+    void cancelUpload(int identifier);
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
     QSize sizeHint() const override;
@@ -25,7 +32,6 @@ protected:
 
 private:
     void slotLayoutFirstItem();
-    void removeUploadFileProgressStatusWidget();
     QWidget *const mBigBox;
     QMap<int, UploadFileProgressStatusWidget *> mUploadItems;
 };

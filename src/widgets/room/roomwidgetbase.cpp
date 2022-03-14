@@ -15,6 +15,7 @@
 #include "roomreplythreadwidget.h"
 #include "roomutil.h"
 #include "uploadfilemanager.h"
+#include "uploadfileprogressstatuslistwidget.h"
 #include "uploadfileprogressstatuswidget.h"
 
 #include <QKeyEvent>
@@ -23,7 +24,7 @@
 
 RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     : QWidget(parent)
-    , mUploadFileProgressStatusWidget(new UploadFileProgressStatusWidget(this))
+    , mUploadFileProgressStatusListWidget(new UploadFileProgressStatusListWidget(this))
     , mMessageListView(new MessageListView(mode, this))
     , mRoomReplyThreadWidget(new RoomReplyThreadWidget(this))
     , mRoomQuoteMessageWidget(new RoomQuoteMessageWidget(this))
@@ -35,10 +36,10 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    mUploadFileProgressStatusWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusWidget"));
-    mUploadFileProgressStatusWidget->setVisible(false);
-    mainLayout->addWidget(mUploadFileProgressStatusWidget);
-    connect(mUploadFileProgressStatusWidget, &UploadFileProgressStatusWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
+    mUploadFileProgressStatusListWidget->setObjectName(QStringLiteral("mUploadFileProgressStatusListWidget"));
+    mUploadFileProgressStatusListWidget->setVisible(false);
+    mainLayout->addWidget(mUploadFileProgressStatusListWidget);
+    connect(mUploadFileProgressStatusListWidget, &UploadFileProgressStatusListWidget::cancelUpload, this, &RoomWidgetBase::slotCancelUpload);
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     mainLayout->addWidget(mMessageListView, 1);
@@ -96,9 +97,8 @@ void RoomWidgetBase::slotSendFile(const RocketChatRestApi::UploadFileJob::Upload
 {
     const int identifier = mCurrentRocketChatAccount->uploadFileManager()->addUpload(uploadFileInfo);
     if (identifier != -1) {
-        // TODO add widget in uploadlistwidget
+        mUploadFileProgressStatusListWidget->addProgressStatusWidget(identifier, false); // TODO
     }
-    mUploadFileProgressStatusWidget->setIdentifier(identifier);
 }
 
 void RoomWidgetBase::slotShowThreadMessage(const QString &threadMessageId, const QString &text)
@@ -164,13 +164,7 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
 
 void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier)
 {
-    if (info.bytesSent > 0 && info.bytesTotal > 0) {
-        mUploadFileProgressStatusWidget->setVisible(true);
-        mUploadFileProgressStatusWidget->setUploadFileName(info.fileName);
-        mUploadFileProgressStatusWidget->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
-    } else {
-        mUploadFileProgressStatusWidget->setVisible(false);
-    }
+    mUploadFileProgressStatusListWidget->uploadProgress(info, jobIdentifier);
 }
 
 QString RoomWidgetBase::roomId() const
@@ -193,7 +187,7 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
                    mMessageLineWidget,
                    &MessageLineWidget::slotOwnUserPreferencesChanged);
         // hide it when we switch account.
-        mUploadFileProgressStatusWidget->setVisible(false);
+        mUploadFileProgressStatusListWidget->setVisible(false);
     }
 
     mCurrentRocketChatAccount = account;
