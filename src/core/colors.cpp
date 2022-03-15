@@ -12,10 +12,9 @@ Colors::Colors()
     : QObject()
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(qApp, &QApplication::paletteChanged, this, [this] {
-        mScheme = KColorScheme(QPalette::Active, KColorScheme::View);
-    });
+    connect(qApp, &QApplication::paletteChanged, this, &Colors::regenerateColorScheme);
 #endif
+    regenerateColorScheme();
 }
 
 Colors &Colors::self()
@@ -24,16 +23,27 @@ Colors &Colors::self()
     return c;
 }
 
-KColorScheme Colors::scheme() const
+KColorScheme Colors::schemeView() const
 {
-    return mScheme;
+    return mSchemeView;
+}
+
+KColorScheme Colors::schemeWindow() const
+{
+    return mSchemeWindow;
+}
+
+void Colors::regenerateColorScheme()
+{
+    mSchemeView = KColorScheme();
+    mSchemeWindow = KColorScheme(QPalette::Active, KColorScheme::Window);
 }
 
 bool Colors::event(QEvent *e)
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (e->type() == QEvent::ApplicationPaletteChange) {
-        mScheme = KColorScheme();
+        regenerateColorScheme();
     }
 #endif
     return QObject::event(e);

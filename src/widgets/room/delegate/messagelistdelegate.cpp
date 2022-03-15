@@ -65,11 +65,10 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
-    KColorScheme scheme = Colors::self().scheme();
+    KColorScheme scheme = Colors::self().schemeView();
     // Fix color in dark mode
     mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
-    // Fix color in dark mode
-    mThreadedMessageBackgroundColor = scheme.background(KColorScheme::AlternateBackground).color();
+    mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }

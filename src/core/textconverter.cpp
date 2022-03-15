@@ -139,8 +139,8 @@ QString generateRichText(const QString &str, const QString &username, const QStr
         }
     }
 
-    const auto userHighlightForegroundColor = Colors::self().scheme().foreground(KColorScheme::PositiveText).color().name();
-    const auto userHighlightBackgroundColor = Colors::self().scheme().background(KColorScheme::PositiveBackground).color().name();
+    const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
+    const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
     if (!highlightWords.isEmpty()) {
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
@@ -181,8 +181,8 @@ QString generateRichText(const QString &str, const QString &username, const QStr
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
 
-    const auto userMentionForegroundColor = Colors::self().scheme().foreground(KColorScheme::NegativeText).color().name();
-    const auto userMentionBackgroundColor = Colors::self().scheme().background(KColorScheme::NegativeBackground).color().name();
+    const auto userMentionForegroundColor = Colors::self().schemeView().foreground(KColorScheme::NegativeText).color().name();
+    const auto userMentionBackgroundColor = Colors::self().schemeView().background(KColorScheme::NegativeBackground).color().name();
     while (userIterator.hasNext()) {
         const QRegularExpressionMatch match = userIterator.next();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
@@ -259,8 +259,8 @@ QString TextConverter::convertMessageText(const QString &_str,
 
     QString richText;
     QTextStream richTextStream(&richText);
-    const auto codeBackgroundColor = Colors::self().scheme().background(KColorScheme::AlternateBackground).color();
-    const auto codeBorderColor = Colors::self().scheme().foreground(KColorScheme::InactiveText).color().name();
+    const auto codeBackgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color();
+    const auto codeBorderColor = Colors::self().schemeView().foreground(KColorScheme::InactiveText).color().name();
 
     QString highlighted;
     QTextStream stream(&highlighted);

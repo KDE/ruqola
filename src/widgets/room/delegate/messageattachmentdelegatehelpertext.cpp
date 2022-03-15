@@ -43,7 +43,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
     if (!layout.title.isEmpty()) {
         const QFont oldFont = painter->font();
         if (!msgAttach.link().isEmpty()) {
-            painter->setPen(Colors::self().scheme().foreground(KColorScheme::LinkText).color());
+            painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
         }
         painter->setFont(layout.textFont);
         painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);

@@ -106,7 +106,7 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mFailedError->setObjectName(QStringLiteral("mFailedError"));
     QPalette pal = mFailedError->palette();
-    pal.setColor(foregroundRole(), Colors::self().scheme().foreground(KColorScheme::NegativeText).color());
+    pal.setColor(foregroundRole(), Colors::self().schemeView().foreground(KColorScheme::NegativeText).color());
     mFailedError->setPalette(pal);
     QFont font = mFailedError->font();
     font.setBold(true);

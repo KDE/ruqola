@@ -75,12 +75,12 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
             optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::LinkVisited));
         }
         if (index.data(RoomModel::UserOffline).toBool()) {
-            optionCopy.palette.setBrush(QPalette::Text, Colors::self().scheme().foreground(KColorScheme::InactiveText).color());
+            optionCopy.palette.setBrush(QPalette::Text, Colors::self().schemeView().foreground(KColorScheme::InactiveText).color());
         }
     }
     drawDisplay(painter, optionCopy, displayRect, text); // this takes care of eliding if the text is too long
     if (!isHeader) {
-        painter->setPen(Colors::self().scheme().foreground(KColorScheme::NegativeText).color());
+        painter->setPen(Colors::self().schemeView().foreground(KColorScheme::NegativeText).color());
         painter->drawText(unreadRect, unreadText);
     }
 }

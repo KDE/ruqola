@@ -20,11 +20,15 @@ public:
 
     Colors();
 
-    Q_REQUIRED_RESULT KColorScheme scheme() const;
+    Q_REQUIRED_RESULT KColorScheme schemeView() const;
+
+    Q_REQUIRED_RESULT KColorScheme schemeWindow() const;
 
 protected:
     bool event(QEvent *e) override;
 
 private:
-    KColorScheme mScheme;
+    void regenerateColorScheme();
+    KColorScheme mSchemeView;
+    KColorScheme mSchemeWindow;
 };

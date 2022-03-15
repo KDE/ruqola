@@ -41,8 +41,8 @@ QString Utils::extractRoomUserFromUrl(QString url)
 QString Utils::formatQuotedRichText(const QString &richText)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
-    const auto backgroundColor = Colors::self().scheme().background(KColorScheme::AlternateBackground).color().name();
-    const auto borderColor = Colors::self().scheme().foreground(KColorScheme::LinkText).color().name();
+    const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
+    const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText + QStringLiteral("</td></tr></table>");
 }
