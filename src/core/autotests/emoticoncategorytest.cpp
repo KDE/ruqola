@@ -19,3 +19,19 @@ void EmoticonCategoryTest::shouldHaveDefaultValues()
     QVERIFY(cat.category().isEmpty());
     QVERIFY(cat.name().isEmpty());
 }
+
+void EmoticonCategoryTest::shouldAssignValues()
+{
+    EmoticonCategory cat;
+    const QString categoryName{QStringLiteral("cat")};
+    cat.setCategory(categoryName);
+    QCOMPARE(cat.category(), categoryName);
+
+    const QString name{QStringLiteral("name")};
+    cat.setName(name);
+    QCOMPARE(cat.name(), name);
+
+    const QString namei18n{QStringLiteral("i18n")};
+    cat.setI18nName(namei18n);
+    QCOMPARE(cat.i18nName(), namei18n);
+}

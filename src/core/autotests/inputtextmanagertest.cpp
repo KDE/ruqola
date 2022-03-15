@@ -22,7 +22,6 @@ void InputTextManagerTest::shouldHaveDefaultValue()
     InputTextManager manager(nullptr, nullptr);
     QVERIFY(manager.inputCompleterModel());
     QCOMPARE(manager.inputCompleterModel()->rowCount(), 0);
-    // TODO
 }
 
 void InputTextManagerTest::shouldReplaceWord_data()

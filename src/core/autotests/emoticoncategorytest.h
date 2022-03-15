@@ -16,5 +16,6 @@ public:
     ~EmoticonCategoryTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldAssignValues();
 };
 
