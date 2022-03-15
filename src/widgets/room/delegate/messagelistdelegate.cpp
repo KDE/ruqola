@@ -66,8 +66,8 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     KColorScheme scheme = Colors::self().schemeView();
-    // Fix color in dark mode
-    mEditColorMode = scheme.background(KColorScheme::NeutralBackground).color();
+    // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
+    mEditColorMode = QColor(255, 170, 127);
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
