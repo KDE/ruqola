@@ -128,7 +128,9 @@ void PlaySoundWidget::updateDurationInfo(qint64 currentInfo)
 
 void PlaySoundWidget::slotVolumeChanged(int position)
 {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setVolume(position);
+#endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
 
