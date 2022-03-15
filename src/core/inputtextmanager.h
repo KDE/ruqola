@@ -21,7 +21,13 @@ class LIBRUQOLACORE_EXPORT InputTextManager : public QObject
 {
     Q_OBJECT
 public:
-    enum CompletionForType { Channel = 0, User, Emoji, Command, None };
+    enum CompletionForType {
+        Channel = 0,
+        User,
+        Emoji,
+        Command,
+        None,
+    };
     explicit InputTextManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~InputTextManager() override;
 
