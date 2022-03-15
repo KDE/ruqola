@@ -83,6 +83,7 @@
     <screenshot type="default">
       <caption>Chat room in Ruqola</caption>
       <caption xml:lang="ca">Sala de xat en el Ruqola</caption>
+      <caption xml:lang="ca-valencia">Sala de xat en el Ruqola</caption>
       <caption xml:lang="de">Chatraum in Ruqola</caption>
       <caption xml:lang="fr">Salon de discussions dans ruqola</caption>
       <caption xml:lang="nl">Chatroom in Ruqola</caption>
