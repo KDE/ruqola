@@ -17,4 +17,6 @@ ManagerDataPathsTest::ManagerDataPathsTest(QObject *parent)
 
 void ManagerDataPathsTest::shouldHaveDefaultValue()
 {
+    ManagerDataPaths p;
+    // TODO
 }
