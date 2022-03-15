@@ -21,8 +21,8 @@ public:
 
     void addMessage(const QString &accountName, const QString &roomName, const Message &message);
     void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
-    std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &roomName) const;
-    bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
+    Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &roomName) const;
+    Q_REQUIRED_RESULT bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
 
     // only public for the unittest
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
