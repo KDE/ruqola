@@ -165,7 +165,6 @@ target_sources(libruqolacore PRIVATE
     messagequeue.cpp
     rocketchatmessage.cpp
     typingnotification.cpp
-    changetemporarystatus.cpp
     user.cpp
     utils.cpp
     abstractwebsocket.cpp
@@ -355,7 +354,6 @@ target_sources(libruqolacore PRIVATE
     rocketchataccountsettings.h
     inputtextmanager.h
     room.h
-    changetemporarystatus.h
     typingnotification.h
     autotranslate/autotranslatelanguage.h
     autotranslate/autotranslatelanguages.h
