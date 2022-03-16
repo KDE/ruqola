@@ -28,6 +28,9 @@ void NotifierJob::start()
         if (!mInfo.pixmap.isNull()) {
             notification->setPixmap(mInfo.pixmap);
         }
+
+        notification->setHint(QStringLiteral("x-kde-origin-name"), mAccountDisplayName);
+
         notification->setDefaultAction(i18nc("Open channel", "Open Channel"));
         connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
         connect(notification, &KNotification::closed, this, &NotifierJob::deleteLater);
@@ -70,4 +73,14 @@ QString NotifierJob::accountName() const
 void NotifierJob::setAccountName(const QString &accountName)
 {
     mAccountName = accountName;
+}
+
+QString NotifierJob::accountDisplayName() const
+{
+    return mAccountDisplayName;
+}
+
+void NotifierJob::setAccountDisplayName(const QString &accountDisplayName)
+{
+    mAccountDisplayName = accountDisplayName;
 }

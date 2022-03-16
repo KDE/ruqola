@@ -25,6 +25,9 @@ public:
     Q_REQUIRED_RESULT QString accountName() const;
     void setAccountName(const QString &accountName);
 
+    Q_REQUIRED_RESULT QString accountDisplayName() const;
+    void setAccountDisplayName(const QString &accountDisplayName);
+
 Q_SIGNALS:
     void switchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
     void sendReply(const QString &message, const QString &roomId, const QString &tmId);
@@ -33,4 +36,5 @@ private:
     void slotDefaultActionActivated();
     Utils::NotificationInfo mInfo;
     QString mAccountName;
+    QString mAccountDisplayName;
 };
