@@ -57,6 +57,7 @@ private Q_SLOTS:
     void updateOAuthApp();
 
     void setAdminStatus();
+    void openRoom();
 
 private:
     void compareFile(const QString &data, const QString &name);

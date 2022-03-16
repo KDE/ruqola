@@ -214,6 +214,13 @@ void open_direct_channel(const QJsonObject &root, RocketChatAccount *account)
     }
 }
 
+void open_room(const QJsonObject &obj, RocketChatAccount *account)
+{
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Open Room :") + QJsonDocument(obj).toJson());
+    }
+}
+
 void join_room(const QJsonObject &obj, RocketChatAccount *account)
 {
     if (account->ruqolaLogger()) {
@@ -385,6 +392,12 @@ quint64 DDPClient::deleteFileMessage(const QString &roomId, const QString &filei
     };
 
     return method(result, callback, DDPClient::Persistent);
+}
+
+quint64 DDPClient::openRoom(const QString &roomId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->openRoom(roomId, m_uid);
+    return method(result, open_room, DDPClient::Persistent);
 }
 
 quint64 DDPClient::joinRoom(const QString &roomId, const QString &joinCode)

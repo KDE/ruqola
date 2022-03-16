@@ -194,6 +194,7 @@ public:
     quint64 addOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 updateOAuthApp(const QString &name, bool active, const QString &redirectUrl);
     quint64 setAdminStatus(const QString &userId, bool admin);
+    quint64 openRoom(const QString &roomId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();
