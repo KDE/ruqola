@@ -18,7 +18,7 @@ void DirectoryTabWidgetTest::shouldHaveDefaultValues()
     DirectoryTabWidget w(nullptr);
     QCOMPARE(w.count(), 3);
 
-    auto *tab = qobject_cast<DirectoryWidget *>(w.widget(0));
+    auto tab = qobject_cast<DirectoryWidget *>(w.widget(0));
     QCOMPARE(tab->objectName(), QStringLiteral("mRooms"));
     QCOMPARE(tab->type(), DirectoryWidget::Room);
     QVERIFY(tab);
