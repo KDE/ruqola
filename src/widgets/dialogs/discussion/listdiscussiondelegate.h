@@ -19,6 +19,9 @@ public:
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
+Q_SIGNALS:
+    void openDiscussion(const QString &discussionRoomId);
+
 private:
     struct Layout {
         // Attachment name
