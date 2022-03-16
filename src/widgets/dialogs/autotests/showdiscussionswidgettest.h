@@ -14,5 +14,7 @@ class ShowDiscussionsWidgetTest : public QObject
 public:
     explicit ShowDiscussionsWidgetTest(QObject *parent = nullptr);
     ~ShowDiscussionsWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
 
