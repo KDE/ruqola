@@ -44,7 +44,7 @@ void Discussions::parseDiscussionsObj(const QJsonObject &discussionsObj)
             const QJsonObject discussionObject = current.toObject();
             Discussion m;
             m.parseDiscussion(discussionObject);
-            mDiscussion.append(m);
+            mDiscussion.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing discussions" << current;
         }

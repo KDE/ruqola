@@ -39,7 +39,7 @@ void Reactions::parseReactions(const QJsonObject &reacts, EmojiManager *emojiMan
             Reaction r;
             r.setReactionName(str, emojiManager);
             r.setUserNames(users);
-            mReactions.append(r);
+            mReactions.append(std::move(r));
         }
     }
 }
@@ -86,7 +86,7 @@ Reactions Reactions::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
             Reaction r;
             r.setReactionName(str, emojiManager);
             r.setUserNames(users);
-            reacts.append(r);
+            reacts.append(std::move(r));
         }
         users.clear();
     }

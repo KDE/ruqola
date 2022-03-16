@@ -157,7 +157,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                 user.setUtcOffset(utcOffset);
                 user.setStatus(Utils::presenceStatusFromString(status));
                 if (user.isValid()) {
-                    users.append(user);
+                    users.append(std::move(user));
                 } else {
                     qCWarning(RUQOLA_LOG) << "Invalid user" << user;
                     mTotal--;
@@ -191,7 +191,7 @@ void UsersForRoomModel::parseUsersForRooms(const QJsonObject &root, UsersModel *
                     }
                     // Add status!
                     if (user.isValid()) {
-                        users.append(user);
+                        users.append(std::move(user));
                     } else {
                         qCWarning(RUQOLA_LOG) << "Invalid user" << user;
                         mTotal--;

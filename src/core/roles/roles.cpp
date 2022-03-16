@@ -46,7 +46,7 @@ void Roles::updateRoles(const QJsonObject &obj)
             Role r;
             r.setUserId(userId);
             r.updateRole(id, true);
-            mRoles.append(r);
+            mRoles.append(std::move(r));
         }
     } else if (type == QLatin1String("removed")) {
         for (int i = 0, total = mRoles.count(); i < total; ++i) {

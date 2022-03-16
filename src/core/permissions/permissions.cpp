@@ -56,7 +56,7 @@ void Permissions::parsePermissions(const QJsonObject &obj, const QString &str, c
         Permission r;
         if (r.parsePermission(permissionArray.at(i).toObject(), roleInfo)) {
             if (r.isValid()) {
-                mPermissions.append(r);
+                mPermissions.append(std::move(r));
             } else {
                 qCWarning(RUQOLA_LOG) << "Invalid permission: " << permissionArray.at(i).toObject();
             }

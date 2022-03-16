@@ -60,7 +60,7 @@ void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     mChannelCompleterModel->insertChannels(channelList);
 }

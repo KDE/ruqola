@@ -140,8 +140,8 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
 
     QJsonArray fieldArray;
     for (int i = 0; i < message.attachmentFields().count(); ++i) {
-        QJsonObject fields = MessageAttachmentField::serialize(message.attachmentFields().at(i));
-        fieldArray.append(fields);
+        const QJsonObject fields = MessageAttachmentField::serialize(message.attachmentFields().at(i));
+        fieldArray.append(std::move(fields));
     }
     if (!fieldArray.isEmpty()) {
         obj[QStringLiteral("fields")] = fieldArray;

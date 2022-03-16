@@ -72,7 +72,7 @@ QVector<TeamRoom> TeamRoom::parseTeamRooms(const QJsonObject &obj)
         const QJsonObject r = rooms.at(i).toObject();
         TeamRoom teamRoom;
         teamRoom.parse(r);
-        teamRooms.append(teamRoom);
+        teamRooms.append(std::move(teamRoom));
     }
     return teamRooms;
 }

@@ -47,13 +47,13 @@ void NotificationDesktopDurationPreferenceModel::fillModel()
         NotificationDesktopDurationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18n("Default");
         preferenceInfo.preference = QStringLiteral("default");
-        mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
+        mNotificationDestktopDurationPreferenceList.append(std::move(preferenceInfo));
     }
     for (int i = 1; i <= 5; ++i) {
         NotificationDesktopDurationPreferenceInfo preferenceInfo;
         preferenceInfo.displayText = i18np("1 second", "%1 seconds", i);
         preferenceInfo.preference = QString::number(i);
-        mNotificationDestktopDurationPreferenceList.append(preferenceInfo);
+        mNotificationDestktopDurationPreferenceList.append(std::move(preferenceInfo));
     }
 }
 

@@ -757,7 +757,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         MessageAttachment att = MessageAttachment::fromJson(attachment);
         att.setAttachmentId(Message::generateAttachmentId(message.messageId(), i));
         if (att.isValid()) {
-            message.mAttachements.append(att);
+            message.mAttachements.append(std::move(att));
         }
     }
     const QJsonArray urlsArray = o.value(QLatin1String("urls")).toArray();
@@ -765,7 +765,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         const QJsonObject urlObj = urlsArray.at(i).toObject();
         const MessageUrl url = MessageUrl::fromJSon(urlObj);
         if (!url.isEmpty()) {
-            message.mUrls.append(url);
+            message.mUrls.append(std::move(url));
         }
     }
     const QJsonObject reactionsArray = o.value(QLatin1String("reactions")).toObject();

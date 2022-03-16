@@ -45,7 +45,7 @@ void CommandsTest::shouldLoadPermissions()
     {
         Command d;
         d.setCommandName(QStringLiteral("/slackbridge-import"));
-        result.append(d);
+        result.append(std::move(d));
     }
     {
         Command d;
@@ -53,14 +53,14 @@ void CommandsTest::shouldLoadPermissions()
         d.setDescription(QStringLiteral("Archive"));
         d.setPermissions({QStringLiteral("archive-room")});
         d.setParams(QStringLiteral("#channel"));
-        result.append(d);
+        result.append(std::move(d));
     }
     {
         Command d;
         d.setCommandName(QStringLiteral("/leave"));
         d.setDescription(QStringLiteral("Leave_the_current_channel"));
         d.setPermissions({{QStringLiteral("leave-c")}, {QStringLiteral("leave-p")}});
-        result.append(d);
+        result.append(std::move(d));
     }
 
     const bool equalResult = r.commands() == result;

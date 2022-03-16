@@ -43,7 +43,7 @@ void SearchChannelModel::parseAllChannels(const QJsonObject &obj)
         // qDebug() << " o " << o;
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     setChannels(channelList);
 }
@@ -60,22 +60,22 @@ void SearchChannelModel::parseChannels(const QJsonObject &obj)
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     for (int i = 0; i < users.size(); i++) {
         const QJsonObject o = users.at(i).toObject();
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::DirectChannel);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     for (int i = 0; i < roomDirectory.size(); i++) {
         const QJsonObject o = roomDirectory.at(i).toObject();
-        qDebug() << " o " << o;
+        // qDebug() << " o " << o;
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     setChannels(channelList);
 }

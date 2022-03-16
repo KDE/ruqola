@@ -23,7 +23,7 @@ void RolesManager::parseRoles(const QJsonObject &obj)
         const QJsonObject roleObject = current.toObject();
         RoleInfo info;
         info.parseRoleInfo(roleObject);
-        mRoleInfo.append(info);
+        mRoleInfo.append(std::move(info));
     }
 }
 

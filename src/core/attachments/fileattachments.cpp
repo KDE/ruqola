@@ -53,7 +53,7 @@ void FileAttachments::parseFiles(const QJsonObject &fileAttachmentsObj)
             const QJsonObject fileAttachmentObject = current.toObject();
             File m;
             m.parseFile(fileAttachmentObject, true);
-            mFileAttachments.append(m);
+            mFileAttachments.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing file attachment" << current;
         }
