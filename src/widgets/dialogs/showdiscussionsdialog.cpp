@@ -39,6 +39,7 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget
     connect(button, &QDialogButtonBox::rejected, this, &ShowDiscussionsDialog::reject);
     connect(mShowDiscussionsWidget, &ShowDiscussionsWidget::loadMoreDiscussion, this, &ShowDiscussionsDialog::slotLoadMoreDiscussions);
     readConfig();
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 ShowDiscussionsDialog::~ShowDiscussionsDialog()

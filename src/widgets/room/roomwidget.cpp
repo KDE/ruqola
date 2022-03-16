@@ -364,11 +364,11 @@ void RoomWidget::slotShowThreads()
 
 void RoomWidget::slotShowDiscussions()
 {
-    ShowDiscussionsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
-    dlg.setRoomId(mRoomWidgetBase->roomId());
+    auto dlg = new ShowDiscussionsDialog(mCurrentRocketChatAccount, this);
+    dlg->setModel(mCurrentRocketChatAccount->discussionsFilterProxyModel());
+    dlg->setRoomId(mRoomWidgetBase->roomId());
     mCurrentRocketChatAccount->discussionsInRoom(mRoomWidgetBase->roomId());
-    dlg.exec();
+    dlg->show();
 }
 
 void RoomWidget::slotShowFileAttachments()
