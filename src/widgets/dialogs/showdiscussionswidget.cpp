@@ -8,17 +8,19 @@
 #include "discussion/listdiscussiondelegate.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/discussionsfilterproxymodel.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
 
-ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
+ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchDiscussionLineEdit(new QLineEdit(this))
     , mDiscussionInfoLabel(new QLabel(this))
     , mListDiscussions(new QListView(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,7 +43,9 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(QWidget *parent)
 
     mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
     mainLayout->addWidget(mListDiscussions);
-    mListDiscussions->setItemDelegate(new ListDiscussionDelegate(this));
+    auto listDiscussionDelegate = new ListDiscussionDelegate(this);
+    mListDiscussions->setItemDelegate(listDiscussionDelegate);
+    connect(listDiscussionDelegate, &ListDiscussionDelegate::openDiscussion, this, &ShowDiscussionsWidget::slotOpenDiscussion);
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
@@ -78,4 +82,11 @@ QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
+}
+
+void ShowDiscussionsWidget::slotOpenDiscussion(const QString &roomDiscussionId)
+{
+    if (mRocketChatAccount) {
+        mRocketChatAccount->ddp()->openRoom(roomDiscussionId);
+    }
 }

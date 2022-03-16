@@ -23,7 +23,7 @@ static const char myShowDiscussionsDialogGroupName[] = "ShowDiscussionsDialog";
 }
 ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mShowDiscussionsWidget(new ShowDiscussionsWidget(this))
+    , mShowDiscussionsWidget(new ShowDiscussionsWidget(account, this))
     , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Show Discussions"));

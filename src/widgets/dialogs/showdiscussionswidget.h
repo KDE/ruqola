@@ -12,11 +12,12 @@ class QLineEdit;
 class QLabel;
 class QListView;
 class DiscussionsFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ShowDiscussionsWidget(QWidget *parent = nullptr);
+    explicit ShowDiscussionsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowDiscussionsWidget() override;
 
     void setModel(DiscussionsFilterProxyModel *model);
@@ -28,9 +29,11 @@ private:
     void slotSearchMessageTextChanged(const QString &str);
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowDiscussionInRoom() const;
+    void slotOpenDiscussion(const QString &roomDiscussionId);
     QLineEdit *const mSearchDiscussionLineEdit;
     QLabel *const mDiscussionInfoLabel;
     QListView *const mListDiscussions;
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
+    RocketChatAccount *const mRocketChatAccount;
 };
 
