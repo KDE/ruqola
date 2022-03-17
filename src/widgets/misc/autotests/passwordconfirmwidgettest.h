@@ -16,5 +16,6 @@ public:
     ~PasswordConfirmWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldReturnNewPassword();
 };
 

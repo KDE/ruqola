@@ -31,3 +31,21 @@ void PasswordConfirmWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.isNewPasswordConfirmed());
 }
+
+void PasswordConfirmWidgetTest::shouldReturnNewPassword()
+{
+    PasswordConfirmWidget w;
+    auto mNewPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mNewPasswordLineEdit"));
+
+    auto mConfirmPasswordLineEdit = w.findChild<KPasswordLineEdit *>(QStringLiteral("mConfirmPasswordLineEdit"));
+    QVERIFY(!w.isNewPasswordConfirmed());
+    mNewPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    // mConfirmPasswordLineEdit is Empty => not a new password
+    QVERIFY(!w.isNewPasswordConfirmed());
+
+    mConfirmPasswordLineEdit->setPassword(QStringLiteral("bli"));
+    QVERIFY(!w.isNewPasswordConfirmed());
+
+    mConfirmPasswordLineEdit->setPassword(QStringLiteral("bla"));
+    QVERIFY(w.isNewPasswordConfirmed());
+}
