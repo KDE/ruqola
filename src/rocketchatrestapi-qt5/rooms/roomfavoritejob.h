@@ -32,6 +32,7 @@ public:
     Q_REQUIRED_RESULT bool favorite() const;
     void setFavorite(bool favorite);
 
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 Q_SIGNALS:
     void changeFavoriteDone();
 

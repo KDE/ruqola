@@ -8,6 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -52,6 +54,14 @@ bool RoomFavoriteJob::favorite() const
 void RoomFavoriteJob::setFavorite(bool favorite)
 {
     mFavorite = favorite;
+}
+
+QString RoomFavoriteJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("error-invalid-subscription")) {
+        return i18n("Invalid Subscription");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 QString RoomFavoriteJob::roomId() const
