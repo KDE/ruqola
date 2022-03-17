@@ -49,6 +49,9 @@ void MessageLineWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(w.roomId().isEmpty());
     QVERIFY(w.messageIdBeingEdited().isEmpty());
+
+    QVERIFY(w.quoteText().isEmpty());
+    QVERIFY(w.quotePermalink().isEmpty());
 }
 
 // TODO test signal/slot
