@@ -25,8 +25,9 @@ ManageChannels::~ManageChannels() = default;
 ManageChannels::SearchChannelFound ManageChannels::searchOpenChannels(const QString &roomId)
 {
     ManageChannels::SearchChannelFound result = ManageChannels::SearchChannelFound::NoFound;
-    for (int roomIdx = 0, nRooms = mAccount->roomModel()->rowCount(); roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = mAccount->roomModel()->index(roomIdx, 0);
+    const auto roomModel = mAccount->roomModel();
+    for (int roomIdx = 0, nRooms = roomModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
+        const auto roomModelIndex = roomModel->index(roomIdx, 0);
         const auto identifier = roomModelIndex.data(RoomModel::RoomId).toString();
         if (identifier == roomId) {
             if (roomModelIndex.data(RoomModel::RoomOpen).toBool()) {
