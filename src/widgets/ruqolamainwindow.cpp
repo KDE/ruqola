@@ -19,7 +19,6 @@
 #include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/createnewserverdialog.h"
 #include "dialogs/modifystatusdialog.h"
-#include "dialogs/searchchanneldialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "directory/directorydialog.h"
 #include "localmessagelogger.h"
@@ -294,10 +293,6 @@ void RuqolaMainWindow::setupActions()
     connect(mLogout, &QAction::triggered, this, &RuqolaMainWindow::slotLogout);
     ac->addAction(QStringLiteral("logout"), mLogout);
 
-    mSearchChannel = new QAction(i18n("Search Channel..."), this);
-    connect(mSearchChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSearchChannel);
-    ac->addAction(QStringLiteral("search_channel"), mSearchChannel);
-
     mNextUnreadChannel = new QAction(i18n("Jump to Next Unread Channel"), this);
     connect(mNextUnreadChannel, &QAction::triggered, this, &RuqolaMainWindow::slotSelectNextUnreadChannel);
     ac->setDefaultShortcut(mNextUnreadChannel, Qt::Key_Control | Qt::Key_PageDown);
@@ -555,12 +550,6 @@ void RuqolaMainWindow::slotLogout()
     mCurrentRocketChatAccount->logOut();
 }
 
-void RuqolaMainWindow::slotSearchChannel()
-{
-    SearchChannelDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.exec();
-}
-
 void RuqolaMainWindow::slotSelectNextUnreadChannel()
 {
     mMainWidget->selectNextUnreadChannel();
@@ -604,7 +593,6 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
-    mSearchChannel->setEnabled(!loginPageActivated);
     mCreateNewChannel->setEnabled(!loginPageActivated);
     mCreateDirectMessages->setEnabled(!loginPageActivated);
     mLogout->setEnabled(!loginPageActivated);

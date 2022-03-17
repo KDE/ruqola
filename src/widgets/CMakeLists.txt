@@ -30,8 +30,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/uploadfilewidget.cpp
     dialogs/channelinfowidget.cpp
     dialogs/channelinfodialog.cpp
-    dialogs/searchchanneldialog.cpp
-    dialogs/searchchannelwidget.cpp
     dialogs/modifystatusdialog.cpp
     dialogs/modifystatuswidget.cpp
     dialogs/createnewchanneldialog.cpp
@@ -68,7 +66,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/addusersinroomwidget.cpp
     dialogs/adduserscompletionlineedit.cpp
     dialogs/showthreadsdialog.cpp
-    dialogs/searchchannel/searchchanneldelegate.cpp
     dialogs/inviteusersdialog.cpp
     dialogs/inviteuserswidget.cpp
     dialogs/autotranslateconfiguredialog.cpp
@@ -85,7 +82,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/createdirectmessagesdialog.cpp
     dialogs/createdirectmessageswidget.cpp
     dialogs/channelinfoprunewidget.cpp
-    dialogs/searchchannellistview.cpp
     dialogs/channelnamevalidlineedit.cpp
     dialogs/channelsearchnamelineedit.cpp
     dialogs/channelsearchwidget.cpp
@@ -418,12 +414,10 @@ target_sources(libruqolawidgets PRIVATE
     directory/directorytabwidget.h
     directory/directorydialog.h
     dialogs/searchmessagewidget.h
-    dialogs/searchchannellistview.h
     dialogs/showattachmentdialog.h
     dialogs/showdiscussionswidget.h
     dialogs/channelpasswordwidget.h
     dialogs/showimagewidget.h
-    dialogs/searchchanneldialog.h
     dialogs/discussion/listdiscussiondelegate.h
     dialogs/showsnipperedmessagesdialog.h
     dialogs/createnewserverwidget.h
@@ -455,7 +449,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/roomavatarwidget.h
     dialogs/channelinfoeditablewidget.h
     dialogs/uploadfilewidget.h
-    dialogs/searchchannelwidget.h
     dialogs/channelinfowidget.h
     dialogs/adduserscompletionlineedit.h
     dialogs/showstarredmessagesdialog.h
@@ -476,7 +469,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/showattachmentcombobox.h
     dialogs/createvideomessagedialog.h
     dialogs/createvideomessagewidget.h
-    dialogs/searchchannel/searchchanneldelegate.h
     dialogs/autotranslateconfiguredialog.h
     dialogs/createnewchannelwidget.h
     dialogs/reportmessagedialog.h

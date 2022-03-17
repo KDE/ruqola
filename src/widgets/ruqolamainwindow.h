@@ -47,7 +47,6 @@ private:
     void slotServerInfo();
     void slotConfigure();
     void slotLogout();
-    void slotSearchChannel();
     void slotSelectNextUnreadChannel();
     void slotCreateNewChannel();
     void slotTypingNotificationChanged(const QString &roomId, const QString &notificationStr);
@@ -90,7 +89,6 @@ private:
     RuqolaCentralWidget *const mMainWidget;
     QAction *mServerInfo = nullptr;
     QAction *mLogout = nullptr;
-    QAction *mSearchChannel = nullptr;
     QAction *mNextUnreadChannel = nullptr;
     QAction *mCreateNewChannel = nullptr;
     QAction *mCreateDirectMessages = nullptr;
