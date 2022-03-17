@@ -143,6 +143,7 @@ void ManageChannels::openChannel(const QString &roomId, RocketChatAccount::Chann
 
 void ManageChannels::setChannelJoinDone(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo)
 {
+    qCDebug(RUQOLA_LOG) << " setChannelJoinDone type:" << channelInfo.channelGroupInfoType << " channelInfo.identifier " << channelInfo.identifier;
     mAccount->ddp()->subscribeRoomMessage(channelInfo.identifier);
     // FIXME room is not added yet...
     switch (channelInfo.channelGroupInfoType) {
