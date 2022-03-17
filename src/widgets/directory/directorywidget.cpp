@@ -95,9 +95,9 @@ void DirectoryWidget::slotOpen(const QModelIndex &index)
         break;
     }
     case Team: {
-        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::TeamIdentifier);
-        const QString channelId = modelIndex.data().toString();
-        mRocketChatAccount->openChannel(channelId, RocketChatAccount::ChannelTypeInfo::RoomId);
+        const QModelIndex modelIndex = mModel->index(index.row(), DirectoryTeamsModel::RoomIdentifier);
+        const QString roomId = modelIndex.data().toString();
+        mRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
         break;
     }
     case Unknown:

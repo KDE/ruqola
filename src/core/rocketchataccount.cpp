@@ -581,14 +581,14 @@ void RocketChatAccount::setSearchListCompletion(const QStringList &newSearchList
     mSearchListCompletion = newSearchListCompletion;
 }
 
-void RocketChatAccount::leaveRoom(const QString &roomId, Room::RoomType channelType)
+void RocketChatAccount::leaveRoom(const QString &identifier, Room::RoomType channelType)
 {
     switch (channelType) {
     case Room::RoomType::Private:
-        restApi()->leaveGroups(roomId);
+        restApi()->leaveGroups(identifier);
         break;
     case Room::RoomType::Channel:
-        restApi()->leaveChannel(roomId);
+        restApi()->leaveChannel(identifier);
         break;
     case Room::RoomType::Direct:
     case Room::RoomType::Unknown:

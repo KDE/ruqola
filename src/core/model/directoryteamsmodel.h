@@ -20,6 +20,7 @@ public:
         TeamIdentifier,
         CreateTeamDateTime,
         CreateTeam,
+        RoomIdentifier,
         LastColumn = CreateTeam,
     };
     Q_ENUM(DirectoryTeamsRoles)
