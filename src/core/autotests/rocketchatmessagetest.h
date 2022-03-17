@@ -58,6 +58,7 @@ private Q_SLOTS:
 
     void setAdminStatus();
     void openRoom();
+    void getroombyid();
 
 private:
     void compareFile(const QString &data, const QString &name);
