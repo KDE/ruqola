@@ -30,3 +30,16 @@ void ReadOnlyLineEditWidgetTest::shouldHaveDefaultValues()
     QVERIFY(font.bold());
     QVERIFY(font.italic());
 }
+
+void ReadOnlyLineEditWidgetTest::shouldChangeText()
+{
+    ReadOnlyLineEditWidget w;
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QString str{QStringLiteral("text text")};
+    w.setMessage(str);
+    QCOMPARE(label->text(), str);
+
+    str = QStringLiteral("bla");
+    w.setMessage(str);
+    QCOMPARE(label->text(), str);
+}
