@@ -98,7 +98,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                                                                                 rcAccount->highlightWords(),
                                                                                 rcAccount->emojiManager(),
                                                                                 rcAccount->messageCache(),
-                                                                                needUpdateMessageId);
+                                                                                needUpdateMessageId,
+                                                                                contextMessage.mentions(),
+                                                                                contextMessage.channels());
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     QPersistentModelIndex persistentIndex(index);
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {

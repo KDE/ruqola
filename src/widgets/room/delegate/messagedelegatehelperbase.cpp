@@ -134,7 +134,9 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
                                                                     rcAccount->highlightWords(),
                                                                     rcAccount->emojiManager(),
                                                                     rcAccount->messageCache(),
-                                                                    needUpdateMessageId);
+                                                                    needUpdateMessageId,
+                                                                    {},
+                                                                    {});
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));

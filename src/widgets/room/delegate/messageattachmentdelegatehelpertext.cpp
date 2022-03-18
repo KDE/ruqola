@@ -222,7 +222,9 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
                                                                         rcAccount->highlightWords(),
                                                                         rcAccount->emojiManager(),
                                                                         rcAccount->messageCache(),
-                                                                        needUpdateMessageId)
+                                                                        needUpdateMessageId,
+                                                                        {},
+                                                                        {})
             + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();

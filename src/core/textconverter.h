@@ -22,6 +22,8 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   const QStringList &highlightWords,
                                                                   EmojiManager *emojiManager,
                                                                   MessageCache *messageCache,
-                                                                  QString &needUpdateMessageId);
+                                                                  QString &needUpdateMessageId,
+                                                                  const QMap<QString, QString> &mentions,
+                                                                  const QMap<QString, QString> &channels);
 }
 

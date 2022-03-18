@@ -95,7 +95,11 @@ QString markdownToRichText(const QString &markDown)
     return str;
 }
 
-QString generateRichText(const QString &str, const QString &username, const QStringList &highlightWords)
+QString generateRichText(const QString &str,
+                         const QString &username,
+                         const QStringList &highlightWords,
+                         const QMap<QString, QString> &mentions,
+                         const QMap<QString, QString> &channels)
 {
     QString newStr = markdownToRichText(str);
     static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\'.*\'>|<a href=\".*\">)"));
@@ -134,8 +138,13 @@ QString generateRichText(const QString &str, const QString &username, const QStr
             if (inAnUrl) {
                 continue;
             }
+            const QString roomIdentifier = channels.value(word.toString());
+            if (roomIdentifier.isEmpty()) {
+                newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
+            } else {
+                newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
+            }
 
-            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
         }
     }
 
@@ -210,7 +219,9 @@ QString TextConverter::convertMessageText(const QString &_str,
                                           const QStringList &highlightWords,
                                           EmojiManager *emojiManager,
                                           MessageCache *messageCache,
-                                          QString &needUpdateMessageId)
+                                          QString &needUpdateMessageId,
+                                          const QMap<QString, QString> &mentions,
+                                          const QMap<QString, QString> &channels)
 {
     if (!emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -237,7 +248,9 @@ QString TextConverter::convertMessageText(const QString &_str,
                                                     highlightWords,
                                                     emojiManager,
                                                     messageCache,
-                                                    needUpdateMessageId);
+                                                    needUpdateMessageId,
+                                                    (*it).mentions(),
+                                                    (*it).channels());
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
@@ -245,8 +258,15 @@ QString TextConverter::convertMessageText(const QString &_str,
                 // TODO allow to reload index when we loaded message
                 Message *msg = messageCache->messageForId(messageId);
                 if (msg) {
-                    const QString text =
-                        convertMessageText(msg->text(), userName, allMessages, highlightWords, emojiManager, messageCache, needUpdateMessageId);
+                    const QString text = convertMessageText(msg->text(),
+                                                            userName,
+                                                            allMessages,
+                                                            highlightWords,
+                                                            emojiManager,
+                                                            messageCache,
+                                                            needUpdateMessageId,
+                                                            msg->mentions(),
+                                                            msg->channels());
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
@@ -312,7 +332,7 @@ QString TextConverter::convertMessageText(const QString &_str,
     };
 
     auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, userName, highlightWords);
+        auto htmlChunk = generateRichText(chunk, userName, highlightWords, mentions, channels);
         if (emojiManager) {
             emojiManager->replaceEmojis(&htmlChunk);
         }
