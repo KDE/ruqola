@@ -349,6 +349,7 @@ void MessageTest::shouldParseJsonMessage_data()
     QTest::newRow("message-bug-435718") << QStringLiteral("message-bug-435718");
     QTest::newRow("message-bug-435718-2") << QStringLiteral("message-bug-435718-2");
     QTest::newRow("message-bug-435718-3") << QStringLiteral("message-bug-435718-3");
+    QTest::newRow("message-channel-mentions") << QStringLiteral("message-channel-mentions");
 }
 
 void MessageTest::shouldParseJsonMessage()

@@ -1,0 +1,109 @@
+{
+    "_id": "m6RKZrQzwxZ6MJSGA",
+    "_updatedAt": {
+        "$date": 1647583693046
+    },
+    "alias": "",
+    "attachments": [
+    ],
+    "channels": [
+        {
+            "_id": "BZFmWzbBLE2Pf",
+            "name": "ruqola"
+        },
+        {
+            "_id": "syoyFr6RtyeY6",
+            "name": "ruqola5"
+        }
+    ],
+    "groupable": false,
+    "md": [
+        {
+            "type": "PARAGRAPH",
+            "value": [
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": "kki "
+                },
+                {
+                    "type": "MENTION_USER",
+                    "value": {
+                        "type": "PLAIN_TEXT",
+                        "value": "laurent"
+                    }
+                },
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": " "
+                },
+                {
+                    "type": "MENTION_USER",
+                    "value": {
+                        "type": "PLAIN_TEXT",
+                        "value": "bb"
+                    }
+                },
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": " "
+                },
+                {
+                    "type": "MENTION_CHANNEL",
+                    "value": {
+                        "type": "PLAIN_TEXT",
+                        "value": "ruqola"
+                    }
+                },
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": " "
+                },
+                {
+                    "type": "MENTION_USER",
+                    "value": {
+                        "type": "PLAIN_TEXT",
+                        "value": "kevin"
+                    }
+                },
+                {
+                    "type": "PLAIN_TEXT",
+                    "value": " "
+                },
+                {
+                    "type": "MENTION_CHANNEL",
+                    "value": {
+                        "type": "PLAIN_TEXT",
+                        "value": "ruqola5"
+                    }
+                }
+            ]
+        }
+    ],
+    "mentions": [
+        {
+            "_id": "3i5EpaXfeLAWk",
+            "name": "Kévin",
+            "type": "user",
+            "username": "kevin"
+        },
+        {
+            "_id": "uKK39zoewTkdacidH",
+            "name": "Laurent",
+            "type": "user",
+            "username": "laurent"
+        }
+    ],
+    "msg": "kki @laurent @bb #ruqola @kevin #ruqola5",
+    "parseUrls": true,
+    "rid": "A7BegtZRWz4oQmnPy",
+    "ts": {
+        "$date": 1647583692904
+    },
+    "u": {
+        "_id": "uKK39zoekdacidH",
+        "name": "Laurent",
+        "username": "laurent"
+    },
+    "urls": [
+    ]
+}

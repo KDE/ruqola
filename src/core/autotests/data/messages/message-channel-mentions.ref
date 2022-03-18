@@ -1,0 +1,41 @@
+{
+    "alias": "",
+    "avatar": "",
+    "channels": [
+        {
+            "_id": "BZFmWzbBLE2Pf",
+            "channel": "ruqola"
+        },
+        {
+            "_id": "syoyFr6RtyeY6",
+            "channel": "ruqola5"
+        }
+    ],
+    "editedAt": -1,
+    "editedByUserID": "",
+    "editedByUsername": "",
+    "groupable": false,
+    "mentions": [
+        {
+            "_id": "3i5EpaXfeLAWk",
+            "username": "kevin"
+        },
+        {
+            "_id": "uKK39zoewTkdacidH",
+            "username": "laurent"
+        }
+    ],
+    "message": "kki @laurent @bb #ruqola @kevin #ruqola5",
+    "messageID": "m6RKZrQzwxZ6MJSGA",
+    "messageType": "NormalText",
+    "name": "Laurent",
+    "parseUrls": true,
+    "pinned": false,
+    "roomID": "A7BegtZRWz4oQmnPy",
+    "starred": false,
+    "timestamp": 1647583692904,
+    "type": "",
+    "updatedAt": 1647583693046,
+    "userID": "uKK39zoekdacidH",
+    "username": "laurent"
+}
