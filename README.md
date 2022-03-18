@@ -31,11 +31,15 @@ It supports RC feature:
 - Auto-away
 - Two-factor authentication via TOTP
 - Two-factor authentication via email
+- Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth)
+- Export Messages
 
 Extra features:
 - Allow to reply directly to message from notification (kde features)
 - Dnd image from ruqola to website or local folder
 - Store message in local database so we can search in offline
+- Mark All Channels are read
+
 
 
 
