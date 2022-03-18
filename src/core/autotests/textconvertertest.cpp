@@ -117,7 +117,7 @@ void TextConverterTest::shouldConvertText()
     QEXPECT_FAIL("Remove <br/>", "Bug in kf5", Continue);
 
     QString needUpdateMessageId;
-    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr, nullptr, needUpdateMessageId),
+    QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr, nullptr, needUpdateMessageId, {}, {}),
              output); // TODO add autotests for highlightwords
 }
 
@@ -164,7 +164,7 @@ void TextConverterTest::shouldHighlightWords()
     output = prepareExpectedOutput(output);
 
     QString needUpdateMessageId;
-    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr, needUpdateMessageId), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr, needUpdateMessageId, {}, {}), output);
 }
 
 void TextConverterTest::shouldHighlightText_data()
@@ -194,7 +194,7 @@ void TextConverterTest::shouldHighlightText()
 
     output = prepareExpectedOutput(output);
     QString needUpdateMessageId;
-    QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr, nullptr, needUpdateMessageId), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr, nullptr, needUpdateMessageId, {}, {}), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -335,7 +335,7 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     manager.setServerUrl(serverUrl);
 
     QString needUpdateMessageId;
-    auto actualOutput = TextConverter::convertMessageText(input, QString(), {}, {}, &manager, nullptr, needUpdateMessageId);
+    auto actualOutput = TextConverter::convertMessageText(input, QString(), {}, {}, &manager, nullptr, needUpdateMessageId, {}, {});
     if (QLatin1String(QTest::currentDataTag()) == QLatin1String("quotedcode7")) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
@@ -343,4 +343,37 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     }
     QEXPECT_FAIL("url-with-emoji", "Currently it if we have a emoji char in url", Continue);
     QCOMPARE(actualOutput, output); // TODO add autotest for highlightwords
+}
+
+void TextConverterTest::shouldShowChannels_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::addColumn<QMap<QString, QString>>("mentions");
+    QTest::addColumn<QMap<QString, QString>>("channels");
+
+    {
+        QMap<QString, QString> mentions;
+        QMap<QString, QString> channels;
+        QTest::newRow("empty") << QString() << QString() << mentions << channels;
+    }
+    {
+        QMap<QString, QString> mentions;
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
+        QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a></div>") << mentions << channels;
+    }
+}
+
+void TextConverterTest::shouldShowChannels()
+{
+    using map = QMap<QString, QString>;
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QFETCH(map, mentions);
+    QFETCH(map, channels);
+
+    output = prepareExpectedOutput(output);
+    QString needUpdateMessageId;
+    QCOMPARE(TextConverter::convertMessageText(input, {}, {}, {}, nullptr, nullptr, needUpdateMessageId, mentions, channels), output);
 }

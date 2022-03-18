@@ -26,5 +26,8 @@ private Q_SLOTS:
 
     void shouldConvertTextWithEmoji_data();
     void shouldConvertTextWithEmoji();
+
+    void shouldShowChannels_data();
+    void shouldShowChannels();
 };
 
