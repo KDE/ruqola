@@ -5,6 +5,12 @@
     "editedByUserID": "",
     "editedByUsername": "",
     "groupable": false,
+    "mentions": [
+        {
+            "_id": "pcXQwdq5LthgjDLoe",
+            "username": "foo"
+        }
+    ],
     "message": "Now you can come and visit me",
     "messageID": "ME8TT8GcaMsZ5hcsC",
     "messageType": "NormalText",

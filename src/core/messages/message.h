@@ -218,10 +218,10 @@ private:
     // Reactions
     Reactions mReactions;
 
-    // Mentions
+    // Mentions username/identifier
     QMap<QString, QString> mMentions;
 
-    // Channels
+    // Channels Name/identifier
     QMap<QString, QString> mChannels;
 
     // Users which replies to thread

@@ -379,7 +379,6 @@ void MessageTest::shouldParseJsonMessage()
         qDebug() << "loaded message" << r;
         qDebug() << "fromJson " << m;
     }
-    QEXPECT_FAIL("attachmentimage", "Message doesn't save/load mentions", Continue);
     QVERIFY(compareMessage);
 }
 

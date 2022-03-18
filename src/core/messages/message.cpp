@@ -878,19 +878,31 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("attachments")] = array;
     }
-    // FIXME save mentions
-    QMapIterator<QString, QString> i(message.mentions());
-    while (i.hasNext()) {
-        i.next();
-        qWarning() << " mentions not implemented";
-        // TODO
+
+    if (!message.mentions().isEmpty()) {
+        QMapIterator<QString, QString> i(message.mentions());
+        QJsonArray array;
+        while (i.hasNext()) {
+            i.next();
+            QJsonObject mention;
+            mention.insert(QLatin1String("_id"), i.value());
+            mention.insert(QLatin1String("username"), i.key());
+            array.append(mention);
+        }
+        o[QStringLiteral("mentions")] = array;
     }
     // FIXME save channels
-    QMapIterator<QString, QString> j(message.channels());
-    while (j.hasNext()) {
-        j.next();
-        qWarning() << " channels not implemented";
-        // TODO
+    if (!message.channels().isEmpty()) {
+        QMapIterator<QString, QString> j(message.channels());
+        QJsonArray array;
+        while (j.hasNext()) {
+            j.next();
+            QJsonObject channel;
+            channel.insert(QLatin1String("_id"), j.value());
+            channel.insert(QLatin1String("channel"), j.key());
+            array.append(channel);
+        }
+        o[QStringLiteral("channels")] = array;
     }
     // Urls
     if (!message.mUrls.isEmpty()) {
