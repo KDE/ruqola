@@ -804,15 +804,22 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
     }
 
+    QMap<QString, QString> mentions;
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
     for (int i = 0; i < mentionsArray.count(); ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
-        qCDebug(RUQOLA_LOG) << " mention" << mention;
-        //        const MessageAttachment att = MessageAttachment::fromJSon(attachment);
-        //        if (!att.isEmpty()) {
-        //            message.mAttachements.append(att);
-        //        }
+        mentions.insert(mention.value(QLatin1String("username")).toString(), mention.value(QLatin1String("_id")).toString());
     }
+    message.setMentions(mentions);
+
+    QMap<QString, QString> channels;
+    const QJsonArray channelsArray = o.value(QLatin1String("channels")).toArray();
+    for (int i = 0; i < channelsArray.count(); ++i) {
+        const QJsonObject channel = channelsArray.at(i).toObject();
+        channels.insert(channel.value(QLatin1String("name")).toString(), channel.value(QLatin1String("_id")).toString());
+    }
+    message.setChannels(channels);
+
     // TODO add message translation !
 
     return message;
@@ -862,6 +869,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
     // TODO add mentions
+    // TODO add channels
+
     // Attachments
     if (!message.mAttachements.isEmpty()) {
         QJsonArray array;
@@ -876,6 +885,13 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     while (i.hasNext()) {
         i.next();
         qWarning() << " mentions not implemented";
+        // TODO
+    }
+    // FIXME save channels
+    QMapIterator<QString, QString> j(message.mentions());
+    while (j.hasNext()) {
+        j.next();
+        qWarning() << " channels not implemented";
         // TODO
     }
     // Urls
