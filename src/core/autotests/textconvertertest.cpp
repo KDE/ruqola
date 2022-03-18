@@ -363,6 +363,19 @@ void TextConverterTest::shouldShowChannels_data()
         channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
         QTest::newRow("word#") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a></div>") << mentions << channels;
     }
+    {
+        QMap<QString, QString> mentions;
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("bla"), QStringLiteral("idd"));
+        QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>") << mentions << channels;
+    }
+    {
+        QMap<QString, QString> mentions;
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("bli"), QStringLiteral("112"));
+        channels.insert(QStringLiteral("oss"), QStringLiteral("kli"));
+        QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss") << QStringLiteral("<div>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></div>") << mentions << channels;
+    }
 }
 
 void TextConverterTest::shouldShowChannels()
