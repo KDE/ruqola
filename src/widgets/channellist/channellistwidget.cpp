@@ -229,25 +229,25 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
     // qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
     if (link.startsWith(QLatin1String("ruqola:"))) {
-        const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
+        const QString roomOrUserId = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
         if (selectedIndex.isValid()) {
-            const QString currentRoomName = selectedIndex.data(RoomModel::RoomName).toString();
-            if (roomOrUser == currentRoomName) {
+            const QString currentRoomId = selectedIndex.data(RoomModel::RoomId).toString();
+            if (roomOrUserId == currentRoomId) {
                 return;
             }
         }
         if (link.startsWith(QLatin1String("ruqola:/room/"))) {
-            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUser)) {
-                mCurrentRocketChatAccount->openChannel(roomOrUser, RocketChatAccount::ChannelTypeInfo::RoomId);
+            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
+                mCurrentRocketChatAccount->openChannel(roomOrUserId, RocketChatAccount::ChannelTypeInfo::RoomId);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
-            if (roomOrUser == QLatin1String("here") || roomOrUser == QLatin1String("all")) {
+            if (roomOrUserId == QLatin1String("here") || roomOrUserId == QLatin1String("all")) {
                 return;
             }
-            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUser)) {
-                if (roomOrUser != mCurrentRocketChatAccount->userName()) {
-                    mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
+            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
+                if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
+                    mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);
                 }
             }
         } else if (link == QLatin1String("ruqola:/jitsicall/")) {
