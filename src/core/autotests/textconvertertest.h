@@ -29,5 +29,8 @@ private Q_SLOTS:
 
     void shouldShowChannels_data();
     void shouldShowChannels();
+
+    void shouldShowUsers_data();
+    void shouldShowUsers();
 };
 

@@ -378,6 +378,48 @@ void TextConverterTest::shouldShowChannels_data()
     }
 }
 
+void TextConverterTest::shouldShowUsers()
+{
+    using map = QMap<QString, QString>;
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QFETCH(map, mentions);
+    QFETCH(map, channels);
+
+    output = prepareExpectedOutput(output);
+    QString needUpdateMessageId;
+    QCOMPARE(TextConverter::convertMessageText(input, {}, {}, {}, nullptr, nullptr, needUpdateMessageId, mentions, channels), output);
+}
+
+void TextConverterTest::shouldShowUsers_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("output");
+    QTest::addColumn<QMap<QString, QString>>("mentions");
+    QTest::addColumn<QMap<QString, QString>>("channels");
+
+    {
+        QMap<QString, QString> mentions;
+        QMap<QString, QString> channels;
+        QTest::newRow("empty") << QString() << QString() << mentions << channels;
+    }
+    {
+        QMap<QString, QString> mentions;
+        mentions.insert(QStringLiteral("kde"), QStringLiteral("bb"));
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
+        QTest::newRow("channel-user1") << QStringLiteral("#foo @kde") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></div>") << mentions << channels;
+    }
+
+    {
+        QMap<QString, QString> mentions;
+        mentions.insert(QStringLiteral("kde1"), QStringLiteral("bb"));
+        QMap<QString, QString> channels;
+        channels.insert(QStringLiteral("foo2"), QStringLiteral("idd"));
+        QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></div>") << mentions << channels;
+    }
+}
+
 void TextConverterTest::shouldShowChannels()
 {
     using map = QMap<QString, QString>;
