@@ -80,6 +80,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseAttachment(o.value(QLatin1String("attachments")).toArray());
     parseUrls(o.value(QLatin1String("urls")).toArray());
     parseReactions(o.value(QLatin1String("reactions")).toObject());
+    parseChannels(o.value(QLatin1String("channels")).toArray());
     // TODO unread element
 }
 
@@ -285,6 +286,25 @@ void Message::setRole(const QString &role)
     mRole = role;
 }
 
+void Message::parseChannels(const QJsonArray &channels)
+{
+    mChannels.clear();
+    for (int i = 0; i < channels.size(); i++) {
+        const QJsonObject mention = channels.at(i).toObject();
+        mChannels.insert(mention.value(QLatin1String("name")).toString(), mention.value(QLatin1String("_id")).toString());
+    }
+}
+
+const QMap<QString, QString> &Message::channels() const
+{
+    return mChannels;
+}
+
+void Message::setChannels(const QMap<QString, QString> &newChannels)
+{
+    mChannels = newChannels;
+}
+
 void Message::parseMentions(const QJsonArray &mentions)
 {
     mMentions.clear();
@@ -390,7 +410,8 @@ bool Message::operator==(const Message &other) const
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
         && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
-        && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage());
+        && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
+        && (mChannels == other.channels());
 }
 
 bool Message::operator<(const Message &other) const
@@ -942,5 +963,6 @@ QDebug operator<<(QDebug d, const Message &t)
     d << "mEmoji " << t.emoji();
     d << "mPendingMessage " << t.pendingMessage();
     d << "mShowIgnoredMessage " << t.showIgnoredMessage();
+    d << "mChannels " << t.channels();
     return d;
 }

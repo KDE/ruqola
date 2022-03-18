@@ -189,12 +189,16 @@ public:
 
     Q_REQUIRED_RESULT QString editedDisplayTime() const;
 
+    const QMap<QString, QString> &channels() const;
+    void setChannels(const QMap<QString, QString> &newChannels);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
     void parseAttachment(const QJsonArray &attachments);
     void parseUrls(const QJsonArray &urls);
     void parseReactions(const QJsonObject &mentions);
+    void parseChannels(const QJsonArray &channels);
 
     // Message Pinned
     MessagePinned mMessagePinned;
@@ -216,6 +220,9 @@ private:
 
     // Mentions
     QMap<QString, QString> mMentions;
+
+    // Channels
+    QMap<QString, QString> mChannels;
 
     // Users which replies to thread
     QStringList mReplies;
