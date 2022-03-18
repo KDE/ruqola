@@ -138,13 +138,11 @@ QString generateRichText(const QString &str,
             if (inAnUrl) {
                 continue;
             }
-            const QString roomIdentifier = channels.value(word.toString());
+            QString roomIdentifier = channels.value(word.toString());
             if (roomIdentifier.isEmpty()) {
-                newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%1\'>#%1</a>").arg(word));
-            } else {
-                newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
+                roomIdentifier = word.toString();
             }
-
+            newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
         }
     }
 
@@ -200,12 +198,17 @@ QString generateRichText(const QString &str,
         const QStringView word = match.capturedView(2);
 #endif
         // Highlight only if it's yours
+
+        QString userIdentifier = mentions.value(word.toString());
+        if (userIdentifier.isEmpty()) {
+            userIdentifier = word.toString();
+        }
         if (word == username) {
             newStr.replace(QLatin1Char('@') + word,
-                           QStringLiteral("<a href=\'ruqola:/user/%1\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
-                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor));
+                           QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
+                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
         } else {
-            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%1\'>@%1</a>").arg(word));
+            newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
         }
     }
 

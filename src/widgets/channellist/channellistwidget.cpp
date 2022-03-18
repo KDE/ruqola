@@ -245,7 +245,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             if (roomOrUser == QLatin1String("here") || roomOrUser == QLatin1String("all")) {
                 return;
             }
-            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUser)) {
                 if (roomOrUser != mCurrentRocketChatAccount->userName()) {
                     mCurrentRocketChatAccount->openDirectChannel(roomOrUser);
                 }
