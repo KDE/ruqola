@@ -227,7 +227,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
 
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
-    qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
+    // qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
     if (link.startsWith(QLatin1String("ruqola:"))) {
         const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
