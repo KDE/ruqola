@@ -227,6 +227,7 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
 
 void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 {
+    qDebug() << " void ChannelListWidget::slotOpenLinkRequested(const QString &link)" << link;
     if (link.startsWith(QLatin1String("ruqola:"))) {
         const QString roomOrUser = RuqolaUtils::self()->extractRoomUserFromUrl(link);
         const QModelIndex selectedIndex = mChannelView->selectionModel()->currentIndex();
@@ -237,7 +238,7 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
         }
         if (link.startsWith(QLatin1String("ruqola:/room/"))) {
-            if (!mChannelView->selectChannelByRoomNameRequested(roomOrUser)) {
+            if (!mChannelView->selectChannelByRoomIdRequested(roomOrUser)) {
                 mCurrentRocketChatAccount->openChannel(roomOrUser, RocketChatAccount::ChannelTypeInfo::RoomName);
             }
         } else if (link.startsWith(QLatin1String("ruqola:/user/"))) {
