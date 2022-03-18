@@ -868,8 +868,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
 
     o[QStringLiteral("type")] = message.mSystemMessageType;
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
-    // TODO add mentions
-    // TODO add channels
 
     // Attachments
     if (!message.mAttachements.isEmpty()) {
@@ -888,7 +886,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         // TODO
     }
     // FIXME save channels
-    QMapIterator<QString, QString> j(message.mentions());
+    QMapIterator<QString, QString> j(message.channels());
     while (j.hasNext()) {
         j.next();
         qWarning() << " channels not implemented";
