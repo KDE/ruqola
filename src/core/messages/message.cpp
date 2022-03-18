@@ -816,7 +816,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray channelsArray = o.value(QLatin1String("channels")).toArray();
     for (int i = 0; i < channelsArray.count(); ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
-        channels.insert(channel.value(QLatin1String("name")).toString(), channel.value(QLatin1String("_id")).toString());
+        channels.insert(channel.value(QLatin1String("channel")).toString(), channel.value(QLatin1String("_id")).toString());
     }
     message.setChannels(channels);
 
@@ -879,6 +879,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QStringLiteral("attachments")] = array;
     }
 
+    // Mentions
     if (!message.mentions().isEmpty()) {
         QMapIterator<QString, QString> i(message.mentions());
         QJsonArray array;
@@ -891,7 +892,8 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         }
         o[QStringLiteral("mentions")] = array;
     }
-    // FIXME save channels
+
+    // Channels
     if (!message.channels().isEmpty()) {
         QMapIterator<QString, QString> j(message.channels());
         QJsonArray array;
@@ -941,7 +943,6 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         return QCborValue::fromJsonValue(o).toCbor();
     }
     // TODO add message translation
-
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
