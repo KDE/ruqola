@@ -37,4 +37,3 @@ protected:
 private:
     QString mStatusType;
 };
-

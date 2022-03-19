@@ -19,4 +19,3 @@ public:
 private:
     CreateVideoMessageWidget *const mCreateVideoMessageWidget;
 };
-

@@ -43,4 +43,3 @@ private:
     QVector<NotificationDesktopSoundPreferenceInfo> mNotificationDestktopSoundPreferenceList;
     int mCurrentPreference = 0;
 };
-

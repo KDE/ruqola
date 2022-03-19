@@ -15,4 +15,3 @@ public:
     explicit ConfigureSettingsWidgetTest(QObject *parent = nullptr);
     ~ConfigureSettingsWidgetTest() override = default;
 };
-

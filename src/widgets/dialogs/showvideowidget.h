@@ -44,4 +44,3 @@ private:
     QLabel *const mLabelDuration;
     QLabel *const mLabelPercentSound;
 };
-

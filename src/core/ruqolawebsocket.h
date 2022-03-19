@@ -37,4 +37,3 @@ private:
     RuqolaLogger *const mLogger;
     QWebSocket *const mWebSocket;
 };
-

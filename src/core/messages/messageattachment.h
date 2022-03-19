@@ -113,4 +113,3 @@ private:
 };
 Q_DECLARE_TYPEINFO(MessageAttachment, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageAttachment &t);
-

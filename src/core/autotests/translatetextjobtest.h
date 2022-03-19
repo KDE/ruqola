@@ -15,4 +15,3 @@ public:
     explicit TranslateTextJobTest(QObject *parent = nullptr);
     ~TranslateTextJobTest() override = default;
 };
-

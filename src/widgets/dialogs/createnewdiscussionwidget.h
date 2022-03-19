@@ -42,4 +42,3 @@ private:
     AddUsersWidget *const mUsers;
     KTextEdit *const mMessageTextEdit;
 };
-

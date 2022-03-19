@@ -42,4 +42,3 @@ private:
     UsersInRoomComboBox *const mUsersInRoomComboBox;
     RocketChatAccount *const mRocketChatAccount;
 };
-

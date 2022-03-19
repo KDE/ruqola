@@ -15,4 +15,3 @@ public:
     explicit ChannelActionPopupMenuTest(QObject *parent = nullptr);
     ~ChannelActionPopupMenuTest() override = default;
 };
-

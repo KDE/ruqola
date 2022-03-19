@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldLoadServerInfo();
     void shouldLoadServerInfo_data();
 };
-

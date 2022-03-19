@@ -23,4 +23,3 @@ private:
     CustomUserStatusTreeWidget *const mCustomUserStatusTreeWidget;
     KTreeWidgetSearchLineWidget *const mSearchLineWidget;
 };
-

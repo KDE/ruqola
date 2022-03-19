@@ -40,4 +40,3 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AbstractWebSocket)
 };
-

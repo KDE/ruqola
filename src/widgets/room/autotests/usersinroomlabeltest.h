@@ -15,4 +15,3 @@ public:
     explicit UsersInRoomLabelTest(QObject *parent = nullptr);
     ~UsersInRoomLabelTest() override = default;
 };
-

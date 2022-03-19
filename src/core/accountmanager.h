@@ -67,4 +67,3 @@ private:
     RocketChatAccountModel *const mRocketChatAccountModel;
     RocketChatAccountFilterProxyModel *const mRocketChatAccountProxyModel;
 };
-

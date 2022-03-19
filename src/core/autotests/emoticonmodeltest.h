@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldListEmojis();
     void shouldFilterCategory();
 };
-

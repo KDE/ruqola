@@ -26,4 +26,3 @@ private:
     QMenu *const mClipboardMenu;
     QAction *mClipboardImageAction = nullptr;
 };
-

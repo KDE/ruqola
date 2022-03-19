@@ -77,4 +77,3 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(Options)
  */
 QString convertToHtml(const QString &plainText, RuqolaKTextToHTML::Options options, int maxUrlLen = 4096, int maxAddressLen = 255);
 }
-

@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldRestoreSizes();
 };
-

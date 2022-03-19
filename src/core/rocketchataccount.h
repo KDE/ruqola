@@ -673,4 +673,3 @@ private:
     bool mEditingMode = false;
     bool mMarkUnreadThreadsAsReadOnNextReply = false;
 };
-

@@ -25,4 +25,3 @@ private:
     void slotAccept();
     MyAccountConfigureWidget *const mMyAccountConfigWidget;
 };
-

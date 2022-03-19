@@ -101,4 +101,3 @@ private:
     bool mShowUnreadOnTop = false;
     bool mAccountEnabled = true;
 };
-

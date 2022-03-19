@@ -19,4 +19,3 @@ public:
 
     PluginTextInterface *createInterface(QObject *parent) override;
 };
-

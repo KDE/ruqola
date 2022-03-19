@@ -39,4 +39,3 @@ private:
     const QIcon mPlayerVolumeIcon;
     const QIcon mDownloadIcon;
 };
-

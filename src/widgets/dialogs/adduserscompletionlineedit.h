@@ -28,4 +28,3 @@ private:
     void slotComplete(const QModelIndex &index);
     RocketChatAccount *const mRocketChatAccount;
 };
-

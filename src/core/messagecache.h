@@ -48,4 +48,3 @@ private:
     QCache<QString, Message> mMessages;
     RocketChatAccount *const mRocketChatAccount;
 };
-

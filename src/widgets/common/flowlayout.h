@@ -47,4 +47,3 @@ private:
     int mHorizontalSpacing = -1;
     int mVerticalSpacing = -1;
 };
-

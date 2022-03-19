@@ -22,4 +22,3 @@ private:
     AskTwoAuthenticationPasswordWidget *const mAskTwoAuthicationPasswordWidget;
     QPushButton *mOkButton = nullptr;
 };
-

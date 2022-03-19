@@ -48,4 +48,3 @@ private:
     QString m_accessToken;
     bool m_isValidToken = false;
 };
-

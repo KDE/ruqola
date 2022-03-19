@@ -27,4 +27,3 @@ private:
     void readConfig();
     UsersInRoomWidget *const mUsersInRoomWidget;
 };
-

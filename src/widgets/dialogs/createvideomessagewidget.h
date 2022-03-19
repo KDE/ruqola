@@ -23,4 +23,3 @@ private:
     QLabel *const mErrorLabel;
     QCamera *const mCamera;
 };
-

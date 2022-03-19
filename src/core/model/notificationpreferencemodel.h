@@ -44,4 +44,3 @@ private:
     QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
     int mCurrentPreference = 0;
 };
-

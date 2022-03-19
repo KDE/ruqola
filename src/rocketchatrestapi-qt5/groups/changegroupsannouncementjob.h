@@ -27,7 +27,6 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-
 Q_SIGNALS:
     void changeGroupsAnnouncement();
 

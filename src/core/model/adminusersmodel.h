@@ -44,4 +44,3 @@ protected:
     void updateElement(const QJsonObject &obj) override;
     void insertElement(const QJsonObject &obj) override;
 };
-

@@ -33,4 +33,3 @@ private Q_SLOTS:
     void shouldParseRoomAndUpdateSubscription_data();
     void shouldParseRoomAndUpdateSubscription();
 };
-

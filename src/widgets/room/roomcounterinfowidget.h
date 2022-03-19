@@ -29,4 +29,3 @@ private:
     void slotLinkActivated(const QString &contents);
     ChannelCounterInfo mChannelCounterInfo;
 };
-

@@ -27,4 +27,3 @@ inline QString rowSpyToText(const QSignalSpy &spy)
     return str;
 }
 }
-

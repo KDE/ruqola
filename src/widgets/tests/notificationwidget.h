@@ -19,4 +19,3 @@ private:
     void slotSendNotification();
     QLineEdit *mLineEdit = nullptr;
 };
-

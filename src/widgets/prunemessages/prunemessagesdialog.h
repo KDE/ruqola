@@ -28,4 +28,3 @@ private:
     void writeConfig();
     PruneMessagesWidget *const mPruneMessageWidget;
 };
-

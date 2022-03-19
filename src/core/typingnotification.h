@@ -27,4 +27,3 @@ private:
     bool mTypingInprogress = false;
     QTimer *const mTimer;
 };
-

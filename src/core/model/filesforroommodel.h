@@ -70,4 +70,3 @@ private:
     FileAttachments *const mFileAttachments;
     RocketChatAccount *const mRochetChantAccount;
 };
-

@@ -104,4 +104,3 @@ private:
     bool mAtBottom = true;
     bool mDebug = false;
 };
-

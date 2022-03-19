@@ -22,4 +22,3 @@ Q_SIGNALS:
 private:
     TwoAuthenticationPasswordWidget *const mTwoFactorAuthenticationPasswordLineEdit;
 };
-

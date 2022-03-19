@@ -15,4 +15,3 @@ public:
     explicit UnicodeEmoticonParserTest(QObject *parent = nullptr);
     ~UnicodeEmoticonParserTest() override = default;
 };
-

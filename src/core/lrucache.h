@@ -9,7 +9,8 @@
 #include <algorithm>
 #include <array>
 
-template<typename Key, typename Value, size_t N> class LRUCache
+template<typename Key, typename Value, size_t N>
+class LRUCache
 {
 public:
     struct Entry {
@@ -100,4 +101,3 @@ private:
     Entries mEntries;
     std::size_t mNumEntries = 0;
 };
-

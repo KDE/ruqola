@@ -42,4 +42,3 @@ private:
     SearchMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;
 };
-

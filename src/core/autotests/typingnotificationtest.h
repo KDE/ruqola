@@ -21,4 +21,3 @@ private Q_SLOTS:
     void shouldDontEmitSignalWhenTypingSeveralTextBeforeTimeOut();
     void shouldEmitTwoSignalWhenChangeRoom();
 };
-

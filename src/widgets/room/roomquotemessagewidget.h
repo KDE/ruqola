@@ -21,4 +21,3 @@ public:
 Q_SIGNALS:
     void cancelQuoteMessage();
 };
-

@@ -16,4 +16,3 @@
 #else /* not compiling tests */
 #define LIBRUQOLACORE_TESTS_EXPORT
 #endif
-

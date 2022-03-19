@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldLoadDiscussions_data();
     void shouldLoadDiscussions();
 };
-

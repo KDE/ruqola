@@ -67,7 +67,6 @@ Room::RoomType RuqolaCentralWidget::roomType() const
     return mRuqolaMainWidget->roomType();
 }
 
-
 void RuqolaCentralWidget::selectNextUnreadChannel()
 {
     mRuqolaMainWidget->selectNextUnreadChannel();

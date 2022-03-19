@@ -24,4 +24,3 @@ private:
     QString mSelectedText;
     QTextToSpeech *const mTextToSpeech;
 };
-

@@ -84,4 +84,3 @@ QJsonArray loadJsonArrayObject(const QString &originalJsonFile)
     return loadJsonDocument(originalJsonFile).array();
 }
 }
-

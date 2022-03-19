@@ -32,4 +32,3 @@ private:
     QString mAuthToken;
     RocketChatRestApi::Connection *const mRestApiConnection;
 };
-

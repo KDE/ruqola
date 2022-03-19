@@ -26,4 +26,3 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   const QMap<QString, QString> &mentions,
                                                                   const QMap<QString, QString> &channels);
 }
-

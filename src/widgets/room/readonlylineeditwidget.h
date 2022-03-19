@@ -20,4 +20,3 @@ public:
 private:
     QLabel *const mLabel;
 };
-

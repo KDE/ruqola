@@ -22,4 +22,3 @@ struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage {
     QPersistentModelIndex index;
     QMovie *movie;
 };
-

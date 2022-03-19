@@ -31,4 +31,3 @@ private:
     QString mCurrentCategory;
     EmoticonCategoriesModel *const mEmoticonCategoriesModel;
 };
-

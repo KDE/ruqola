@@ -30,4 +30,3 @@ private:
     QDateEdit *const mToDate;
     QComboBox *const mFormat;
 };
-

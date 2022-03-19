@@ -24,7 +24,6 @@ public:
     Q_REQUIRED_RESULT QString threadMessageId() const;
     void setThreadMessageId(const QString &threadMessageId);
 
-
     void setThreadPreview(const QString &preview);
 
     void setRoom(Room *room);
@@ -47,4 +46,3 @@ private:
     QToolButton *const mFollowButton;
     QPointer<Room> mRoom;
 };
-

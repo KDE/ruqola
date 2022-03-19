@@ -15,4 +15,3 @@ public:
     explicit RESTAuthenticationManagerTest(QObject *parent = nullptr);
     ~RESTAuthenticationManagerTest() override = default;
 };
-

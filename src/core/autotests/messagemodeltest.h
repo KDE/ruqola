@@ -27,4 +27,3 @@ private Q_SLOTS:
     void shouldAllowEditing();
     void shouldFindPrevNextMessage();
 };
-

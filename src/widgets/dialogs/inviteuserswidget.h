@@ -37,4 +37,3 @@ private:
     QComboBox *const mMaxUses;
     RocketChatAccount *const mRocketChatAccount;
 };
-

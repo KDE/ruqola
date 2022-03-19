@@ -36,4 +36,3 @@ private:
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
-

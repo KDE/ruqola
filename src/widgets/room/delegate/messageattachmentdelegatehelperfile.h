@@ -45,4 +45,3 @@ private:
     friend class MessageDelegateHelperFileTest;
     const QIcon mDownloadIcon;
 };
-

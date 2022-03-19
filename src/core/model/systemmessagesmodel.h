@@ -27,4 +27,3 @@ private:
     void fillModel();
     void createItem(const QString &displayStr, const QString &systemStr);
 };
-

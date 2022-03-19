@@ -25,4 +25,3 @@ Q_SIGNALS:
 private:
     SearchMessageModel *const mSearchMessageModel;
 };
-

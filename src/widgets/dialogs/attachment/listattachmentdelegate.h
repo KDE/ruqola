@@ -54,4 +54,3 @@ private:
     const QIcon mDeleteIcon;
     RocketChatAccount *const mRocketChatAccount;
 };
-

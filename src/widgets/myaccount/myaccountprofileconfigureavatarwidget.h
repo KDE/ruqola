@@ -42,4 +42,3 @@ public:
 private:
     AvatarImage *const mAvatarImage;
 };
-

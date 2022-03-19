@@ -69,4 +69,3 @@ private:
 Q_DECLARE_METATYPE(Channel)
 Q_DECLARE_TYPEINFO(Channel, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Channel &t);
-

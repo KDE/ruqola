@@ -27,4 +27,3 @@ private:
     CreateDirectMessagesWidget *const mCreateDirectMessagesWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
 };
-

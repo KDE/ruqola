@@ -42,4 +42,3 @@ private:
     void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
 };
-

@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldLoadPermission_data();
     void shouldLoadPermission();
 };
-

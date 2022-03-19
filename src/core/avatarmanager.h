@@ -34,4 +34,3 @@ private:
     RocketChatAccount *const mAccount;
     QTimer *const mTimer;
 };
-

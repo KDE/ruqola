@@ -70,4 +70,3 @@ private:
 Q_DECLARE_METATYPE(ServerInfo)
 Q_DECLARE_TYPEINFO(ServerInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServerInfo &t);
-

@@ -31,4 +31,3 @@ private:
     QCheckBox *const mTeamRooms;
     QCheckBox *const mOmniChannel;
 };
-

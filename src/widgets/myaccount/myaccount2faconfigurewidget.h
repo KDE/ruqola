@@ -40,4 +40,3 @@ private:
     QWidget *const mMyAccount2FaEmpty;
     QStackedWidget *const mStackedWidget;
 };
-

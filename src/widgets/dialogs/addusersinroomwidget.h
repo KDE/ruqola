@@ -26,4 +26,3 @@ Q_SIGNALS:
 private:
     AddUsersWidget *const mAddUsersWidget;
 };
-

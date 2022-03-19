@@ -27,4 +27,3 @@ public:
     virtual void dataSent(DataType type, const QByteArray &label, const QByteArray &data) = 0;
 };
 }
-

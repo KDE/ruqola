@@ -228,7 +228,7 @@ private:
 
     void pong();
     void executeSubsCallBack(const QJsonObject &root);
-    
+
     QString mUrl;
     AbstractWebSocket *mWebSocket = nullptr;
 
@@ -281,4 +281,3 @@ private:
 
     bool mLoginEnqueued = false;
 };
-

@@ -72,4 +72,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(InputTextManager::CompletionForType)
-

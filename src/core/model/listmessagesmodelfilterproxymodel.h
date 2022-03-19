@@ -35,4 +35,3 @@ private:
     Q_REQUIRED_RESULT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *const mModel;
 };
-

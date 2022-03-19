@@ -21,4 +21,3 @@ public:
 private:
     PlaySoundWidget *const mSoundWidget;
 };
-

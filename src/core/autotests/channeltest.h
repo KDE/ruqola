@@ -23,4 +23,3 @@ private Q_SLOTS:
     void shouldParseChannel_data();
     void shouldParseChannel();
 };
-

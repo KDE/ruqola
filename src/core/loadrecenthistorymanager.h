@@ -24,4 +24,3 @@ private:
     Q_DISABLE_COPY(LoadRecentHistoryManager)
     qint64 mLastLoadingTimeStamp = QDateTime::currentDateTime().toMSecsSinceEpoch();
 };
-

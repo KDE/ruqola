@@ -45,4 +45,3 @@ private:
     void onLoginStatusChanged();
     RocketChatAccount *const mRocketChatAccount;
 };
-

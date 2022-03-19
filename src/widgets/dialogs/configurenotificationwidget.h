@@ -33,4 +33,3 @@ private:
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;
 };
-

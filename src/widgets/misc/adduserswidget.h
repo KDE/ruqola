@@ -38,4 +38,3 @@ private:
     FlowLayout *const mFlowLayout;
     QMap<QString, ClickableWidget *> mMap;
 };
-

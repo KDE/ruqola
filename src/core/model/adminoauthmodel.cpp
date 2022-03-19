@@ -108,7 +108,6 @@ QVariant AdminOauthModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-
 void AdminOauthModel::removeOauth(const QString &identifier)
 {
     const int roomCount = mAdminOauth.count();

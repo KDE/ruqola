@@ -56,4 +56,3 @@ private:
     Room *mRoom = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

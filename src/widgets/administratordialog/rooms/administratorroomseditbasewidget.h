@@ -32,7 +32,6 @@ public:
 
     Q_REQUIRED_RESULT virtual RoomEditInfo roomEditInfo() const = 0;
     virtual void setRoomEditInfo(const RoomEditInfo &newRoomEditInfo) = 0;
-
 };
 
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorRoomsEditBaseWidget::RoomEditInfo &t);

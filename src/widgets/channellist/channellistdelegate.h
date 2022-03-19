@@ -27,4 +27,3 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     AvatarCacheManager *const mAvatarCacheManager;
 };
-

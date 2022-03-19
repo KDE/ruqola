@@ -34,4 +34,3 @@ private:
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
     RocketChatAccount *const mRocketchatAccount;
 };
-

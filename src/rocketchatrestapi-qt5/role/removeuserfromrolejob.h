@@ -41,6 +41,5 @@ private:
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoleName;
     QString mUsername;
-
 };
 }

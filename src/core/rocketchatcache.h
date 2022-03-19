@@ -57,4 +57,3 @@ private:
     RocketChatAccount *const mAccount;
     AvatarManager *mAvatarManager = nullptr;
 };
-

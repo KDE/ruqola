@@ -31,4 +31,3 @@ private:
     KPasswordLineEdit *const mTwoFactorAuthenticationPasswordLineEdit;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
-

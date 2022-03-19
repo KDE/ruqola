@@ -22,4 +22,3 @@ Q_SIGNALS:
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 };
-

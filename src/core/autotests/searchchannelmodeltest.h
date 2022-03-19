@@ -22,4 +22,3 @@ private Q_SLOTS:
 
     void shouldClearModel();
 };
-

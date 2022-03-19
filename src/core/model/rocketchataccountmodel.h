@@ -48,4 +48,3 @@ private:
     Q_DISABLE_COPY(RocketChatAccountModel)
     QVector<RocketChatAccount *> mRocketChatAccount;
 };
-

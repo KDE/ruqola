@@ -1113,10 +1113,10 @@ void RocketChatAccount::getMentionsMessages(const QString &roomId)
 
 void RocketChatAccount::getPinnedMessages(const QString &roomId)
 {
-        mListMessageModel->clear();
-        mListMessageModel->setLoadMoreListMessagesInProgress(true);
-        mListMessageModel->setRoomId(roomId);
-        restApi()->getPinnedMessages(roomId);
+    mListMessageModel->clear();
+    mListMessageModel->setLoadMoreListMessagesInProgress(true);
+    mListMessageModel->setRoomId(roomId);
+    restApi()->getPinnedMessages(roomId);
 }
 
 void RocketChatAccount::getStarredMessages(const QString &roomId)

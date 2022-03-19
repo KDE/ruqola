@@ -43,4 +43,3 @@ private:
     QMap<QString, DownloadAppsLanguagesInfo> mLanguageMap;
     bool mFileParsed = false;
 };
-

@@ -43,4 +43,3 @@ private:
     const QIcon mDownloadIcon;
     const QIcon mVisibilityIcon;
 };
-

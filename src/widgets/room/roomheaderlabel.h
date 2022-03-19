@@ -21,6 +21,7 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
+
 private:
     void slotMoreInfo(const QString &content);
     void updateSqueezedText();

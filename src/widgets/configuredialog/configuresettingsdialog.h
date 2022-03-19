@@ -44,4 +44,3 @@ private:
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
 };
-

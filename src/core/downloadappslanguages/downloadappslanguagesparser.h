@@ -23,4 +23,3 @@ private:
     QMap<QString, DownloadAppsLanguagesInfo> mMap;
     QString mFileName;
 };
-

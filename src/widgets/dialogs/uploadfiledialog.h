@@ -39,4 +39,3 @@ private:
     UploadFileWidget *const mUploadFileWidget;
     QPushButton *mOkButton = nullptr;
 };
-

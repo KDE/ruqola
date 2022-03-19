@@ -29,4 +29,3 @@ private:
     CreateNewChannelWidget *const mCreateNewChannelWidget;
     QPushButton *mOkButton = nullptr;
 };
-

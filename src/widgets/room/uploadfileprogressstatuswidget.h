@@ -33,4 +33,3 @@ private:
     QProgressBar *const mProgressBar;
     QToolButton *const mCancelToolButton;
 };
-

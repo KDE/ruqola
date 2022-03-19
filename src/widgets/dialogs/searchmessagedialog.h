@@ -33,4 +33,3 @@ private:
 
     SearchMessageWidget *const mSearchMessageWidget;
 };
-

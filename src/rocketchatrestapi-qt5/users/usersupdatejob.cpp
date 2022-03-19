@@ -101,4 +101,3 @@ QJsonDocument UsersUpdateJob::json() const
     auto t = mUpdateInfo.json();
     return t;
 }
-

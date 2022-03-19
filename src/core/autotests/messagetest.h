@@ -28,4 +28,3 @@ private Q_SLOTS:
     void shouldUpdateJsonMessage_data();
     void shouldUpdateJsonMessage();
 };
-

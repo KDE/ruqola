@@ -24,4 +24,3 @@ private:
     void slotPasswordChanged(const QString &str);
     KPasswordLineEdit *const mPasswordLineEdit;
 };
-

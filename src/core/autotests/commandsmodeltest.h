@@ -15,4 +15,3 @@ public:
     explicit CommandsModelTest(QObject *parent = nullptr);
     ~CommandsModelTest() override = default;
 };
-

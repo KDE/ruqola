@@ -17,4 +17,3 @@ public:
     ~AuthenticationComboBox() override;
     void switchRocketChatAccount(RocketChatAccount *account);
 };
-

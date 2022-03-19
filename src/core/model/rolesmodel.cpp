@@ -23,7 +23,6 @@ void RolesModel::createItem(const QString &displayStr, const QString &identifier
     appendRow(item);
 }
 
-
 void RolesModel::setRoles(const QVector<RoleInfo> &newRoles)
 {
     for (const RoleInfo &info : newRoles) {

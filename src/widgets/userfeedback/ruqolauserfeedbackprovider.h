@@ -16,4 +16,3 @@ public:
     explicit RuqolaUserFeedbackProvider(QObject *parent = nullptr);
     ~RuqolaUserFeedbackProvider() override;
 };
-

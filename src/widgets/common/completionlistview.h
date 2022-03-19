@@ -36,4 +36,3 @@ protected:
 private:
     QWidget *mTextWidget = nullptr;
 };
-

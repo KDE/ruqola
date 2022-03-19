@@ -42,4 +42,3 @@ private:
 
     AdministratorRoomsSelectRoomTypeWidget *const mSelectRoomType;
 };
-

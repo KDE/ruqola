@@ -31,4 +31,3 @@ private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
     QString mFilterString;
 };
-

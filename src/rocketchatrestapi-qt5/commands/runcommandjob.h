@@ -49,4 +49,3 @@ private:
 Q_DECLARE_METATYPE(RocketChatRestApi::RunCommandJob::RunCommandInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RunCommandJob::RunCommandInfo, Q_MOVABLE_TYPE);
 LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RunCommandJob::RunCommandInfo &t);
-

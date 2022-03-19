@@ -40,4 +40,3 @@ private:
     const QFont mEmojiFont;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
-

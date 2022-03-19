@@ -37,4 +37,3 @@ private:
 Q_DECLARE_METATYPE(ServicePassword)
 Q_DECLARE_TYPEINFO(ServicePassword, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const ServicePassword &t);
-

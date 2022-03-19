@@ -38,4 +38,3 @@ private:
     ChannelInfoEditableWidget *const mChannelInfoEditableWidget;
     ChannelInfoReadOnlyWidget *const mChannelInfoReadOnlyWidget;
 };
-

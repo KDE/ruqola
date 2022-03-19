@@ -51,4 +51,3 @@ private:
     QLineEdit *const mSearchRoomLineEdit;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

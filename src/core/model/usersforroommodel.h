@@ -63,4 +63,3 @@ private:
     bool mHasFullList = false;
     bool mLoadingInProgress = false;
 };
-

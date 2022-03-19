@@ -18,4 +18,3 @@ public:
     Q_REQUIRED_RESULT QString description() const override;
     Q_REQUIRED_RESULT QVariant data() override;
 };
-

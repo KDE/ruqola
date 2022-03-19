@@ -19,4 +19,3 @@ private Q_SLOTS:
     void shouldParseReactions_data();
     void shouldParseReactions();
 };
-

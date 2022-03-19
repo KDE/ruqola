@@ -26,4 +26,3 @@ public:
     int mMaxAddressLen;
     int mPos;
 };
-

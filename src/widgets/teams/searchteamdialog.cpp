@@ -39,4 +39,3 @@ const QString &SearchTeamDialog::teamId() const
 {
     return mSearchTeamWidget->teamId();
 }
-

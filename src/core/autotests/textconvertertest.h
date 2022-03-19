@@ -33,4 +33,3 @@ private Q_SLOTS:
     void shouldShowUsers_data();
     void shouldShowUsers();
 };
-

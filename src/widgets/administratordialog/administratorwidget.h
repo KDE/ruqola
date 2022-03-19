@@ -50,4 +50,3 @@ private:
     int mServerInfoTabIndex = -1;
     int mViewLogTagIndex = -1;
 };
-

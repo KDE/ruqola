@@ -30,4 +30,3 @@ private:
     Q_REQUIRED_RESULT QString generateNotification(const QStringList &userNames) const;
     QMap<QString, QStringList> mMapTypingNotifications;
 };
-

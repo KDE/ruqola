@@ -51,4 +51,3 @@ private:
     QList<EmoticonListViewBase *> mEmoticonCategoryViews;
     int mAllTabIndex = -1;
 };
-

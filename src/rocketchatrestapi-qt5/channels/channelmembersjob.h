@@ -48,4 +48,3 @@ private:
     ChannelType mChannelType = Unknown;
 };
 }
-

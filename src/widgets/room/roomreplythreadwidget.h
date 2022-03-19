@@ -18,4 +18,3 @@ public:
 Q_SIGNALS:
     void cancelReplyingInThread();
 };
-

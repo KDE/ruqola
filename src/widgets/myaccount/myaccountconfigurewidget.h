@@ -32,4 +32,3 @@ private:
     MyAccount2e2ConfigureWidget *const mMyAccount2e2ConfigureWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
-

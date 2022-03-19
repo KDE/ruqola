@@ -35,4 +35,3 @@ private:
     Q_DISABLE_COPY(UserCompleterModel)
     QVector<User> mUsers;
 };
-

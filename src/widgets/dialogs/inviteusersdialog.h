@@ -25,4 +25,3 @@ private:
     void writeConfig();
     InviteUsersWidget *const mInviteUsersWidget;
 };
-

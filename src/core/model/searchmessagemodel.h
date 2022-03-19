@@ -39,4 +39,3 @@ private:
     bool mStringNotFound = true;
     bool mLoadSearchMessageInProgress = false;
 };
-

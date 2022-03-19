@@ -27,4 +27,3 @@ private:
     void writeConfig();
     DirectChannelInfoWidget *const mDirectChannelInfoWidget;
 };
-

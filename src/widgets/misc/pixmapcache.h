@@ -26,4 +26,3 @@ private:
     friend class PixmapCacheTest;
     LRUCache<QString, QPixmap, 5> mCachedImages;
 };
-

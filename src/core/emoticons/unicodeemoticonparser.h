@@ -18,4 +18,3 @@ public:
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
 };
-

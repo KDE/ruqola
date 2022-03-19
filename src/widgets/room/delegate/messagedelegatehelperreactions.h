@@ -49,4 +49,3 @@ private:
     const QFont mEmojiFont;
     mutable PixmapCache mPixmapCache;
 };
-

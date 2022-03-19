@@ -41,4 +41,3 @@ private:
     MessageListView *const mMessageListView;
     ListMessagesModelFilterProxyModel *mModel = nullptr;
 };
-

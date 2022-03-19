@@ -31,4 +31,3 @@ private:
     void writeRecentUsed();
     QStringList mUsedIdentifier;
 };
-

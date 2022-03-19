@@ -27,4 +27,3 @@ private:
     CreateNewServerWidget *const mNewAccountWidget;
     QPushButton *mOkButton = nullptr;
 };
-

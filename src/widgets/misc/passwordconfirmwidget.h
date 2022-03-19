@@ -22,4 +22,3 @@ private:
     KPasswordLineEdit *const mNewPasswordLineEdit;
     KPasswordLineEdit *const mConfirmPasswordLineEdit;
 };
-

@@ -20,4 +20,3 @@ public:
     void setStatus(User::PresenceStatus status, const QString &customText = {});
     void setUseOnlyStandardStatus();
 };
-

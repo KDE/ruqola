@@ -17,4 +17,3 @@ Q_REQUIRED_RESULT bool generateToolTip(const QTextDocument *doc, const QPoint &p
 
 void generateToolTip(const QString &toolTip, const QString &href, QString &formattedTooltip);
 }
-

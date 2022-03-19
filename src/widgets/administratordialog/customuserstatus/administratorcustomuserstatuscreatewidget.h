@@ -39,4 +39,3 @@ private:
     QLineEdit *const mName;
     StatusCombobox *const mStatusCombobox;
 };
-

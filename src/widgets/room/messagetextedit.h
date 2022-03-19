@@ -68,4 +68,3 @@ private:
     CompletionListView *const mEmojiCompletionListView;
     CompletionListView *const mCommandCompletionListView;
 };
-

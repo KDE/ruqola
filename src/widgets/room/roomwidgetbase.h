@@ -63,4 +63,3 @@ private:
     ReadOnlyLineEditWidget *const mReadOnlyLineEditWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

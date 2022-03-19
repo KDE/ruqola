@@ -36,4 +36,3 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };
-

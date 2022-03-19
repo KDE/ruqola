@@ -45,4 +45,3 @@ private:
     QFormLayout *const mMainLayout;
     RocketChatAccount *const mRocketChatAccount;
 };
-

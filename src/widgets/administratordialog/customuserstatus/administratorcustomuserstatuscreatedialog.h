@@ -25,4 +25,3 @@ private:
     AdministratorCustomUserStatusCreateWidget *const mCreateWidget;
     QPushButton *mOkButton = nullptr;
 };
-

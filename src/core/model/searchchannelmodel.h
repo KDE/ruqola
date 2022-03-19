@@ -42,4 +42,3 @@ private:
     Q_REQUIRED_RESULT QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };
-

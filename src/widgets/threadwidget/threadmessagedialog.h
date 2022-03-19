@@ -31,4 +31,3 @@ private:
     void readConfig();
     ThreadMessageWidget *const mThreadMessageWidget;
 };
-

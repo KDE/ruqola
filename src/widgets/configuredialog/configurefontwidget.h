@@ -23,4 +23,3 @@ private:
     QCheckBox *const mCustomFontCheck;
     KFontChooser *const mFontChooser;
 };
-

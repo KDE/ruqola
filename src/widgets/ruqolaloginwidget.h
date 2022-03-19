@@ -49,4 +49,3 @@ private:
     AuthenticationComboBox *const mAuthenticationCombobox;
     RocketChatAccount *mRocketChatAccount = nullptr;
 };
-

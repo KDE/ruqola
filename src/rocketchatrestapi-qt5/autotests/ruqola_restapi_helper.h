@@ -37,4 +37,3 @@ void verifyDefaultValue(RestApiAbstractJob *job)
     QVERIFY(job->userId().isEmpty());
     QVERIFY(!job->restApiLogger());
 }
-

@@ -33,4 +33,3 @@ private:
     QString mServerUrl;
     QNetworkAccessManager *const mNetworkAccessManager;
 };
-

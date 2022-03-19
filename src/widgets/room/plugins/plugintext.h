@@ -18,4 +18,3 @@ public:
 
     virtual PluginTextInterface *createInterface(QObject *parent) = 0;
 };
-

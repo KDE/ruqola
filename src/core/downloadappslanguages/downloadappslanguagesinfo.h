@@ -20,4 +20,3 @@ private:
     // QMap<lang, <id, value>>
     QMap<QString, QMap<QString, QString>> mLanguageMap;
 };
-

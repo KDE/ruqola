@@ -53,4 +53,3 @@ private:
     QVector<QPair<int, int>> mCustomRows;
     RocketChatAccount *const mRocketChatAccount;
 };
-

@@ -15,4 +15,3 @@ namespace DelegatePaintUtil
 void drawLighterText(QPainter *painter, const QString &text, QPoint pos);
 Q_REQUIRED_RESULT int margin();
 }
-

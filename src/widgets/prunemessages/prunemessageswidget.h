@@ -41,4 +41,3 @@ private:
     AddUsersWidget *const mUsers;
     QLabel *const mInfoLabel;
 };
-

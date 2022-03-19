@@ -29,4 +29,3 @@ Q_SIGNALS:
 private:
     DiscussionsModel *const mDiscussionsModel;
 };
-

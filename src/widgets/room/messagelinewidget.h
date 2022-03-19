@@ -94,4 +94,3 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mReplyInThreadDialogBox = false;
 };
-

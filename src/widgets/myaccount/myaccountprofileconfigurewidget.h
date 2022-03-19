@@ -39,4 +39,3 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     OwnUser mOwnUser;
 };
-

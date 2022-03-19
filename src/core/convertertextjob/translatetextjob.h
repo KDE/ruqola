@@ -17,4 +17,3 @@ public:
 
     void start() override;
 };
-

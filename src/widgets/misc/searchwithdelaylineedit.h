@@ -29,4 +29,3 @@ private:
     QTimer *const mSearchTimer;
     int mMilliseconds = 1000;
 };
-

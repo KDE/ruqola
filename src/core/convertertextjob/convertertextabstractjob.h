@@ -24,4 +24,3 @@ public:
 private:
     QString mMessageId;
 };
-

@@ -42,4 +42,3 @@ private:
     QWidget *const mEmptyRoomWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

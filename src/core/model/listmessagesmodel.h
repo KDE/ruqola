@@ -59,4 +59,3 @@ private:
     bool mHasFullList = false;
     ListMessageType mListMessageType = Unknown;
 };
-

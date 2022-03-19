@@ -116,4 +116,3 @@ Q_DECLARE_METATYPE(User)
 Q_DECLARE_TYPEINFO(User, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const User::UserEmailsInfo &t);
-

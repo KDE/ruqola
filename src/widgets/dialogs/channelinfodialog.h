@@ -30,4 +30,3 @@ private:
     QDialogButtonBox *const mButtonBox;
     bool mIsATeam = false;
 };
-

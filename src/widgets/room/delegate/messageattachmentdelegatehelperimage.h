@@ -59,4 +59,3 @@ private:
     mutable PixmapCache mPixmapCache;
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
 };
-

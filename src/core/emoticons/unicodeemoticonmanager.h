@@ -32,4 +32,3 @@ private:
     void loadUnicodeEmoji();
     QVector<UnicodeEmoticon> mUnicodeEmojiList;
 };
-

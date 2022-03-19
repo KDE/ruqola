@@ -27,4 +27,3 @@ private:
     QCheckBox *const mEnableSystemTray;
     QCheckBox *const mEnableLogging;
 };
-

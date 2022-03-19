@@ -22,4 +22,3 @@ private Q_SLOTS:
     void shouldParseFile_data();
     void shouldParseFile();
 };
-

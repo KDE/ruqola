@@ -46,4 +46,3 @@ private:
                                             int attachmentsHeight) const;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
 };
-

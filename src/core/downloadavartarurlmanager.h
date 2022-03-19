@@ -32,4 +32,3 @@ private:
     QString mAvatarUrl;
     QNetworkAccessManager *const mNetworkAccessManager;
 };
-

@@ -44,13 +44,13 @@ void CustomSoundsManagerTest::shouldDeleteCustomSounds()
     QSignalSpy spyDeleteSignal(&w, &CustomSoundsManager::customSoundRemoved);
     w.parseCustomSounds(customSoundsArray);
 
-//    CustomEmoji originalEmoji;
-//    originalEmoji.parseEmoji(obj);
-//    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
-//    if (!emojiIsEqual) {
-//        qDebug() << "originalEmoji " << originalEmoji;
-//        qDebug() << "ExpectedEmoji " << expectedEmoji;
-//    }
+    //    CustomEmoji originalEmoji;
+    //    originalEmoji.parseEmoji(obj);
+    //    const bool emojiIsEqual = (originalEmoji == expectedEmoji);
+    //    if (!emojiIsEqual) {
+    //        qDebug() << "originalEmoji " << originalEmoji;
+    //        qDebug() << "ExpectedEmoji " << expectedEmoji;
+    //    }
     QCOMPARE(w.customSoundsInfo().count(), initialNumberOfSounds);
 
     QString deleteJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/customsounds/") + deleteFileName + QLatin1String(".json");

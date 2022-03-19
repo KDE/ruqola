@@ -16,4 +16,3 @@ public:
     explicit MessageDownloadManager(QObject *parent = nullptr);
     ~MessageDownloadManager() override;
 };
-

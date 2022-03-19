@@ -27,4 +27,3 @@ private:
     KTextEdit *const mMessageLineEdit;
     QLabel *const mMessagePreview;
 };
-

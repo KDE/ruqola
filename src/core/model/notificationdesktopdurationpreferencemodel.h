@@ -43,4 +43,3 @@ private:
     QVector<NotificationDesktopDurationPreferenceInfo> mNotificationDestktopDurationPreferenceList;
     int mCurrentPreference = 0;
 };
-

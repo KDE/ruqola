@@ -25,4 +25,3 @@ private Q_SLOTS:
     void shouldDeleteUserCustomStatuses();
     void shouldDeleteUserCustomStatuses_data();
 };
-

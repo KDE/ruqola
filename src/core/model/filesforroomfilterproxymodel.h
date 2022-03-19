@@ -38,4 +38,3 @@ private:
     QString mTypeGroup;
     FilesForRoomModel *const mFilesForRoomModel;
 };
-

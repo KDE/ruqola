@@ -20,4 +20,3 @@ public:
     QString name() const override;
     QString iconName() const override;
 };
-

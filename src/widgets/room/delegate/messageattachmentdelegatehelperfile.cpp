@@ -153,10 +153,7 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     QMimeDatabase db;
     const QMimeType mimeType = db.mimeTypeForUrl(url);
     const bool valid = mimeType.isValid() && !mimeType.isDefault();
-    const KService::Ptr offer = valid ?
-                                      KApplicationTrader::preferredService(mimeType.name())
-                                      :
-                                      KService::Ptr{};
+    const KService::Ptr offer = valid ? KApplicationTrader::preferredService(mimeType.name()) : KService::Ptr{};
     const UserChoice choice = askUser(url, offer, widget);
     switch (choice) {
     case UserChoice::Save: {

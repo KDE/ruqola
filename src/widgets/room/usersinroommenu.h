@@ -34,4 +34,3 @@ private:
     Room *mRoom = nullptr;
     QWidget *mParentWidget = nullptr;
 };
-

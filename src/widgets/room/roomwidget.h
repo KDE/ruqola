@@ -105,4 +105,3 @@ private:
     OtrWidget *const mOtrWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

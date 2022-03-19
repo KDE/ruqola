@@ -39,4 +39,3 @@ private:
     Q_DISABLE_COPY(CommandsModel)
     Commands mCommands;
 };
-

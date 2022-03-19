@@ -15,4 +15,3 @@ public:
     explicit TextPluginManagerTest(QObject *parent = nullptr);
     ~TextPluginManagerTest() override = default;
 };
-

@@ -16,4 +16,3 @@
 #else /* not compiling tests */
 #define LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT
 #endif
-

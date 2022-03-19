@@ -30,4 +30,3 @@ private:
     void slotCustomSoundAdded();
     void slotCustomSoundUpdated();
 };
-

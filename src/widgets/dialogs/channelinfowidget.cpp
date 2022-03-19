@@ -70,5 +70,3 @@ void ChannelInfoWidget::setRoom(Room *room)
         mStackedWidget->setCurrentWidget(mChannelInfoReadOnlyWidget);
     }
 }
-
-

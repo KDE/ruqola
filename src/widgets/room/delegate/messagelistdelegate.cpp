@@ -437,7 +437,6 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-
     if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {

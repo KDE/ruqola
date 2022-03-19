@@ -34,4 +34,3 @@ private:
     QVector<QString> mDefinitions;
     bool mSyntaxHighlightingInitialized = false;
 };
-

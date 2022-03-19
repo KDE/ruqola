@@ -20,4 +20,3 @@ public:
 private:
     void slotLoginProvider(const QString &credentialToken, const QString &credentialSecret);
 };
-

@@ -70,4 +70,3 @@ private:
     QString mCustomText;
     int mCurrentStatus = 0;
 };
-

@@ -20,4 +20,3 @@ public:
 
     virtual void setSelectedText(const QString &str);
 };
-

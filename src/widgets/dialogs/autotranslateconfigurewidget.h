@@ -33,4 +33,3 @@ private:
     Room *mRoom = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
-

@@ -31,4 +31,3 @@ private:
     void onGetRequestResponse(const QJsonDocument &replyJson) override;
 };
 }
-

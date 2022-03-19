@@ -63,4 +63,3 @@ private Q_SLOTS:
 private:
     void compareFile(const QString &data, const QString &name);
 };
-

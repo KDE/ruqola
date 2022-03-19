@@ -22,4 +22,3 @@ private:
     void slotUpdateAccountMenu();
     KActionCollection *mActionCollection = nullptr;
 };
-

@@ -43,4 +43,3 @@ private:
     RuqolaLoginWidget *const mRuqolaLoginWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
-

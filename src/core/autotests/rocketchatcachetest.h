@@ -15,4 +15,3 @@ public:
     explicit RocketChatCacheTest(QObject *parent = nullptr);
     ~RocketChatCacheTest() override = default;
 };
-

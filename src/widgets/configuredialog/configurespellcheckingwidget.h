@@ -25,4 +25,3 @@ public:
 private:
     Sonnet::ConfigWidget *const mConfigWidget;
 };
-

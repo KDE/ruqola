@@ -26,4 +26,3 @@ private:
     KPasswordLineEdit *const mPasswordLineEdit;
     QPushButton *const mResetPasswordButton;
 };
-

@@ -51,4 +51,3 @@ private:
     QTreeWidgetItem *mRuntimeInfoItem = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };
-

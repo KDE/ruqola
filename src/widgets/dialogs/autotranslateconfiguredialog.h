@@ -22,4 +22,3 @@ public:
 private:
     AutoTranslateConfigureWidget *const mAutoTranslateConfigureWidget;
 };
-

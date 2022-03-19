@@ -26,4 +26,3 @@ private:
     Q_DISABLE_COPY(ServerConfigInfo)
     RocketChatAccount *const mAccount;
 };
-

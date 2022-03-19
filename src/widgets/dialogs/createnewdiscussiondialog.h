@@ -41,4 +41,3 @@ private:
     CreateNewDiscussionWidget *const mCreateNewDiscussionWidget;
     RocketChatAccount *const mCurrentRocketChatAccount;
 };
-

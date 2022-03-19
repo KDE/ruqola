@@ -55,4 +55,3 @@ private:
     bool mMightStartDrag = false;
     QPersistentModelIndex mCurrentIndex;
 };
-

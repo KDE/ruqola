@@ -56,4 +56,3 @@ private:
     RocketChatAccount *mRocketChatAccount = nullptr;
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
 };
-

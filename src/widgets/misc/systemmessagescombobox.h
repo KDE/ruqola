@@ -25,4 +25,3 @@ Q_SIGNALS:
 private:
     SystemMessagesModel *const mSystemMessagesModel;
 };
-

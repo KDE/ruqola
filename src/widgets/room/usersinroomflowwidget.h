@@ -35,4 +35,3 @@ private:
     QMap<QString, UsersInRoomLabel *> mListUsersWidget;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxyModel;
 };
-

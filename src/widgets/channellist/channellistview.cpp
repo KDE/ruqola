@@ -376,9 +376,9 @@ void ChannelListView::selectNextUnreadChannel()
     Q_ASSERT(filterModel);
     const int nRooms = filterModel->rowCount();
     if (nRooms == 0) {
-        return; 
+        return;
     }
-    int roomIdx = 0; 
+    int roomIdx = 0;
     // if we have a selection, start searching for the next unread channel there, otherwise start at the top
     const auto currentlySelectedIndex = selectionModel()->currentIndex();
     if (currentlySelectedIndex.isValid()) {

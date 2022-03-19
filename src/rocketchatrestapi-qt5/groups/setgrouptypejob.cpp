@@ -54,7 +54,6 @@ void SetGroupTypeJob::setType(GroupType type)
     mType = type;
 }
 
-
 bool SetGroupTypeJob::requireHttpAuthentication() const
 {
     return true;

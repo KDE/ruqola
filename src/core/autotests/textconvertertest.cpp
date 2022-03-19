@@ -367,14 +367,17 @@ void TextConverterTest::shouldShowChannels_data()
         QMap<QString, QString> mentions;
         QMap<QString, QString> channels;
         channels.insert(QStringLiteral("bla"), QStringLiteral("idd"));
-        QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>") << mentions << channels;
+        QTest::newRow("not existing room") << QStringLiteral("#foo") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a></div>") << mentions
+                                           << channels;
     }
     {
         QMap<QString, QString> mentions;
         QMap<QString, QString> channels;
         channels.insert(QStringLiteral("bli"), QStringLiteral("112"));
         channels.insert(QStringLiteral("oss"), QStringLiteral("kli"));
-        QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss") << QStringLiteral("<div>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></div>") << mentions << channels;
+        QTest::newRow("multi channel") << QStringLiteral("foo #bli blass #oss")
+                                       << QStringLiteral("<div>foo <a href='ruqola:/room/112'>#bli</a> blass <a href='ruqola:/room/kli'>#oss</a></div>")
+                                       << mentions << channels;
     }
 }
 
@@ -408,7 +411,9 @@ void TextConverterTest::shouldShowUsers_data()
         mentions.insert(QStringLiteral("kde"), QStringLiteral("bb"));
         QMap<QString, QString> channels;
         channels.insert(QStringLiteral("foo"), QStringLiteral("idd"));
-        QTest::newRow("channel-user1") << QStringLiteral("#foo @kde") << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></div>") << mentions << channels;
+        QTest::newRow("channel-user1") << QStringLiteral("#foo @kde")
+                                       << QStringLiteral("<div><a href='ruqola:/room/idd'>#foo</a> <a href='ruqola:/user/bb'>@kde</a></div>") << mentions
+                                       << channels;
     }
 
     {
@@ -416,7 +421,9 @@ void TextConverterTest::shouldShowUsers_data()
         mentions.insert(QStringLiteral("kde1"), QStringLiteral("bb"));
         QMap<QString, QString> channels;
         channels.insert(QStringLiteral("foo2"), QStringLiteral("idd"));
-        QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde") << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></div>") << mentions << channels;
+        QTest::newRow("channel-user-unknown") << QStringLiteral("#foo @kde")
+                                              << QStringLiteral("<div><a href='ruqola:/room/foo'>#foo</a> <a href='ruqola:/user/kde'>@kde</a></div>")
+                                              << mentions << channels;
     }
 }
 

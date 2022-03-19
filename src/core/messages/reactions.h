@@ -32,4 +32,3 @@ private:
 };
 Q_DECLARE_METATYPE(Reactions)
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Reactions &t);
-

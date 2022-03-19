@@ -36,4 +36,3 @@ private:
     ShowListMessageBaseWidget *const mShowListMessage;
     RocketChatAccount *const mRocketChatAccount;
 };
-

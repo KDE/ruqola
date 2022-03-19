@@ -35,4 +35,3 @@ private:
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const MessageUrl &t);
 Q_DECLARE_TYPEINFO(MessageUrl, Q_MOVABLE_TYPE);
-

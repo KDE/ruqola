@@ -62,4 +62,3 @@ private:
     bool mHasFullList = false;
     Discussions *const mDiscussions;
 };
-

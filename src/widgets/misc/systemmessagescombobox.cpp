@@ -7,7 +7,6 @@
 #include "systemmessagescombobox.h"
 #include "model/systemmessagesmodel.h"
 
-
 SystemMessagesComboBox::SystemMessagesComboBox(QWidget *parent)
     : QComboBox(parent)
     , mSystemMessagesModel(new SystemMessagesModel(this))

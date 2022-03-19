@@ -28,4 +28,3 @@ Q_SIGNALS:
 protected:
     RocketChatAccount *mAccount = nullptr;
 };
-

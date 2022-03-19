@@ -25,4 +25,3 @@ private:
     RegisterUserWidget *const mRegisterUserWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
-

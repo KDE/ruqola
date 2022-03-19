@@ -53,4 +53,3 @@ private:
     QLineEdit *const mTopicLineEdit;
     QFormLayout *const mMainLayout;
 };
-

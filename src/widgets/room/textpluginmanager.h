@@ -53,4 +53,3 @@ private:
     QVector<TextPluginManagerInfo> mPluginList;
     QVector<PluginTextUtilData> mPluginDataList;
 };
-

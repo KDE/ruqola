@@ -24,4 +24,3 @@ private:
     QFile mRestApiLogFile;
     quint64 mIdentifier = 0;
 };
-

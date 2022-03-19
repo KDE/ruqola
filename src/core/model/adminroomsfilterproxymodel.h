@@ -29,7 +29,6 @@ public:
     explicit AdminRoomsFilterProxyModel(DirectoryBaseModel *model = nullptr, QObject *parent = nullptr);
     ~AdminRoomsFilterProxyModel() override;
 
-
     void setFilterRooms(AdminRoomsFilterProxyModel::FilterRooms filters);
 
 protected:
@@ -38,4 +37,3 @@ protected:
 private:
     AdminRoomsFilterProxyModel::FilterRooms mFilters = FilterRoom::All;
 };
-

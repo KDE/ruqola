@@ -59,4 +59,3 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     bool mReplacePatternDirty = true;
 };
-

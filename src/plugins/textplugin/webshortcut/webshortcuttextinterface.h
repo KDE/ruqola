@@ -25,4 +25,3 @@ public:
 private:
     KIO::KUriFilterSearchProviderActions *const mWebShortcutMenuManager;
 };
-

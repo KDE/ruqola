@@ -131,20 +131,19 @@ void RuqolaMainWidget::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 
     // HACK: beautify the GUI by aligning a couple of items
-    auto searchRoom = mChannelList->findChild<QWidget*>(QStringLiteral("mSearchRoom"));
+    auto searchRoom = mChannelList->findChild<QWidget *>(QStringLiteral("mSearchRoom"));
     if (!searchRoom) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mSearchRoom" << searchRoom;
         return;
     }
 
-    auto messageLine = mRoomWidget->findChild<QWidget*>(QStringLiteral("mMessageLineWidget"));
+    auto messageLine = mRoomWidget->findChild<QWidget *>(QStringLiteral("mMessageLineWidget"));
     if (!messageLine) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Failed to find mMessageLineWidget" << messageLine;
         return;
     }
 
-    auto align = [](QWidget *left, QWidget *right)
-    {
+    auto align = [](QWidget *left, QWidget *right) {
         // the widgets on the right can be much taller, but usually are
         // just a few pixels shorter than the corresponding row on the left
         // so we just want to grow the right widget to the minimum height

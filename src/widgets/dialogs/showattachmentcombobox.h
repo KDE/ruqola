@@ -18,4 +18,3 @@ public:
 private:
     void fillCombobox();
 };
-

@@ -36,4 +36,3 @@ private:
     ShowAttachmentWidget *const mShowAttachmentWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
-

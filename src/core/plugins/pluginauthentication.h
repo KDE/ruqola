@@ -26,4 +26,3 @@ public:
     Q_REQUIRED_RESULT virtual QString name() const = 0;
     Q_REQUIRED_RESULT virtual QString iconName() const = 0;
 };
-

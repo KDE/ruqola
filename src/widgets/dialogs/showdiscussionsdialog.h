@@ -28,4 +28,3 @@ private:
     ShowDiscussionsWidget *const mShowDiscussionsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
-

@@ -16,4 +16,3 @@
 #else /* not compiling tests */
 #define LIBRUQOLAWIDGETS_TESTS_EXPORT
 #endif
-

@@ -28,4 +28,3 @@ private:
     QLineEdit *const mDescription;
     KUrlRequester *const mSelectFile;
 };
-

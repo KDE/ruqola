@@ -37,4 +37,3 @@ private:
     QListView *const mListAttachment;
     FilesForRoomFilterProxyModel *mModel = nullptr;
 };
-

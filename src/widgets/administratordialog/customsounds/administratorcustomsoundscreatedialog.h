@@ -26,4 +26,3 @@ private:
     void writeConfig();
     AdministratorCustomSoundsCreateWidget *const mCreateWidget;
 };
-

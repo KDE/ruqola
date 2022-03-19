@@ -83,4 +83,3 @@ private:
     QToolButton *const mTeamChannelsButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };
-

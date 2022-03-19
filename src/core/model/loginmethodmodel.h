@@ -44,4 +44,3 @@ private:
     QVector<AuthenticationInfo> mAuthentications;
     int mCurrentLoginMethod = 0;
 };
-
