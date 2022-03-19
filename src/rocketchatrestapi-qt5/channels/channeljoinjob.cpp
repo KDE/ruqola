@@ -103,7 +103,6 @@ QNetworkRequest ChannelJoinJob::request() const
 
 QString ChannelJoinJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    // TODO use details
     if (str == QLatin1String("error-room-not-found")) {
         return i18n("The required \'%1\' param provided does not match any channel", channelGroupInfo().identifier);
     } else if (str == QLatin1String("error-code-invalid")) {
