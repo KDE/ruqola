@@ -566,6 +566,16 @@ UploadFileManager *RocketChatAccount::uploadFileManager() const
     return mUploadFileManager;
 }
 
+int RocketChatAccount::messageMaximumAllowedSize() const
+{
+    return mRuqolaServerConfig->messageMaximumAllowedSize();
+}
+
+bool RocketChatAccount::messageAllowConvertLongMessagesToAttachment() const
+{
+    return mRuqolaServerConfig->messageAllowConvertLongMessagesToAttachment();
+}
+
 SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
 {
     return mSwitchChannelHistoryModel;

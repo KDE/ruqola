@@ -95,7 +95,12 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     return;
                 }
             }
-            // TODO check message size
+            if (msg.size() > mCurrentRocketChatAccount->messageMaximumAllowedSize()) {
+                // TODO add info about message too big
+                if (mCurrentRocketChatAccount->messageAllowConvertLongMessagesToAttachment()) {
+                    // TODO
+                }
+            }
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {
