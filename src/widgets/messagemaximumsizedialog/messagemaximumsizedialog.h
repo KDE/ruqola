@@ -7,11 +7,15 @@
 
 #include <QDialog>
 #include "libruqolawidgets_private_export.h"
+class MessageMaximumSizeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageMaximumSizeDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit MessageMaximumSizeDialog(QWidget *parent = nullptr);
     ~MessageMaximumSizeDialog() override;
+
+private:
+    MessageMaximumSizeWidget *const mMessageMaximumSizeWidget;
 };
 

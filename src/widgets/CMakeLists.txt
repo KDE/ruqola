@@ -593,6 +593,7 @@ if (BUILD_TESTING)
     add_subdirectory(directory/autotests)
     add_subdirectory(otr/autotests)
     add_subdirectory(switchchannelhistory/autotests)
+    add_subdirectory(messagemaximumsizedialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

@@ -5,6 +5,7 @@
 */
 
 #include "messagemaximumsizedialog.h"
+#include "messagemaximumsizewidget.h"
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -12,13 +13,14 @@
 
 MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
     : QDialog(parent)
+    , mMessageMaximumSizeWidget(new MessageMaximumSizeWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Prune Messages"));
+    setWindowTitle(i18nc("@title:window", "Convert Message As Attachment"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-//    mPruneMessageWidget->setObjectName(QStringLiteral("mPruneMessageWidget"));
-//    mainLayout->addWidget(mPruneMessageWidget);
+    mMessageMaximumSizeWidget->setObjectName(QStringLiteral("mMessageMaximumSizeWidget"));
+    mainLayout->addWidget(mMessageMaximumSizeWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
@@ -28,7 +30,7 @@ MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    // TODO connect(mPruneMessageWidget, &PruneMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    connect(mMessageMaximumSizeWidget, &MessageMaximumSizeWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
 MessageMaximumSizeDialog::~MessageMaximumSizeDialog()
