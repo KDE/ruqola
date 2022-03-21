@@ -98,7 +98,13 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             if (msg.size() > mCurrentRocketChatAccount->messageMaximumAllowedSize()) {
                 // TODO add info about message too big
                 if (mCurrentRocketChatAccount->messageAllowConvertLongMessagesToAttachment()) {
-                    // TODO
+                    if (KMessageBox::Yes
+                        == KMessageBox::questionYesNo(this, i18n("Do you want to convert this big text as attachment?"), i18n("Message Too Big"))) {
+                    } else {
+                        return;
+                    }
+                } else {
+                    return;
                 }
             }
             if (mThreadMessageId.isEmpty()) {
