@@ -173,6 +173,21 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+bool RuqolaServerConfig::messageAllowConvertLongMessagesToAttachment() const
+{
+    return mMessageAllowConvertLongMessagesToAttachment;
+}
+
+void RuqolaServerConfig::setMessageAllowConvertLongMessagesToAttachment(bool newMessageAllowConvertLongMessagesToAttachment)
+{
+    mMessageAllowConvertLongMessagesToAttachment = newMessageAllowConvertLongMessagesToAttachment;
+}
+
+void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &replyArray)
+{
+    qWarning() << " privateSettingsUpdated not implemented " << replyArray;
+}
+
 int RuqolaServerConfig::messageMaximumAllowedSize() const
 {
     return mMessageMaximumAllowedSize;
@@ -345,6 +360,8 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mLoginExpiration " << t.loginExpiration();
     d << "mChannelNameValidation " << t.channelNameValidation();
     d << "mUserNameValidation " << t.userNameValidation();
+    d << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
+    d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
     return d;
 }
 
@@ -512,6 +529,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setUserNameValidation(value.toString());
         } else if (id == QLatin1String("Message_MaxAllowedSize")) {
             setMessageMaximumAllowedSize(value.toInt());
+        } else if (id == QLatin1String("Message_AllowConvertLongMessagesToAttachment")) {
+            setMessageAllowConvertLongMessagesToAttachment(value.toBool());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

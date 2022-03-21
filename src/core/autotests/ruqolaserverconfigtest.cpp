@@ -38,6 +38,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.userNameValidation().isEmpty());
     QVERIFY(config.channelNameValidation().isEmpty());
     QCOMPARE(config.messageMaximumAllowedSize(), -1);
+    QVERIFY(!config.messageAllowConvertLongMessagesToAttachment());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

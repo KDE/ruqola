@@ -133,6 +133,11 @@ public:
     Q_REQUIRED_RESULT int messageMaximumAllowedSize() const;
     void setMessageMaximumAllowedSize(int newMessageMaximumAllowedSize);
 
+    Q_REQUIRED_RESULT bool messageAllowConvertLongMessagesToAttachment() const;
+    void setMessageAllowConvertLongMessagesToAttachment(bool newMessageAllowConvertLongMessagesToAttachment);
+
+    void privateSettingsUpdated(const QJsonArray &replyArray);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -156,6 +161,7 @@ private:
     qint64 mFileMaxFileSize = -1;
 
     bool mNeedAdaptNewSubscriptionRC60 = false;
+    bool mMessageAllowConvertLongMessagesToAttachment = false;
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
