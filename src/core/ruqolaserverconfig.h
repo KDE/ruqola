@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT RuqolaServerConfig
 public:
     RuqolaServerConfig();
 
-    enum class ServerConfigFeatureType {
+    enum ServerConfigFeatureType {
         None = 0,
         AllowEditingMessage = 1,
         OtrEnabled = 2,
@@ -51,7 +51,7 @@ public:
         TwoFactorAuthenticationEnforcePasswordFallback = 0x40000000,
     };
     Q_DECLARE_FLAGS(ServerConfigFeatureTypes, ServerConfigFeatureType)
-    Q_FLAG(ServerConfigFeatureType)
+    Q_FLAG(ServerConfigFeatureTypes)
 
     Q_REQUIRED_RESULT QString uniqueId() const;
     void setUniqueId(const QString &uniqueId);
@@ -141,7 +141,8 @@ public:
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
-    void loadSettings(QJsonValueRef currentConfig);
+    void assignSettingValue(bool value, ServerConfigFeatureType type);
+    void loadSettings(const QJsonObject &currentConfObject);
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
