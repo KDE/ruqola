@@ -519,6 +519,9 @@ target_sources(libruqolawidgets PRIVATE
 
     messagemaximumsizedialog/messagemaximumsizedialog.cpp
     messagemaximumsizedialog/messagemaximumsizedialog.h
+
+    messagemaximumsizedialog/messagemaximumsizewidget.cpp
+    messagemaximumsizedialog/messagemaximumsizewidget.h
     )
 
 
