@@ -141,6 +141,7 @@ public:
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
+    void loadSettings(QJsonValueRef currentConfig);
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;
