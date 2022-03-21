@@ -333,6 +333,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
             sendFile(uploadFileInfo);
         }
+        delete dlg;
     };
     if (mimeData->hasUrls()) {
         const QList<QUrl> urls = mimeData->urls();
