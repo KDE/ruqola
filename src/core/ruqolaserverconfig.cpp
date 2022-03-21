@@ -183,9 +183,14 @@ void RuqolaServerConfig::setMessageAllowConvertLongMessagesToAttachment(bool new
     mMessageAllowConvertLongMessagesToAttachment = newMessageAllowConvertLongMessagesToAttachment;
 }
 
-void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &replyArray)
+void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &updateArray)
 {
-    qWarning() << " privateSettingsUpdated not implemented " << replyArray;
+    qWarning() << " privateSettingsUpdated not implemented " << updateArray;
+    if (updateArray.count() == 2) {
+        if (updateArray.at(0).toString() == QLatin1String("updated")) {
+            // TODO loadSettings(updateArray.at(1).toObject());
+        }
+    }
 }
 
 int RuqolaServerConfig::messageMaximumAllowedSize() const
