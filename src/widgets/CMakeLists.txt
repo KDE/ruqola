@@ -516,6 +516,9 @@ target_sources(libruqolawidgets PRIVATE
     switchchannelhistory/switchchanneltreeview.cpp
     switchchannelhistory/switchchanneltreeviewmanager.h
     switchchannelhistory/switchchanneltreeviewmanager.cpp
+
+    messagemaximumsizedialog/messagemaximumsizedialog.cpp
+    messagemaximumsizedialog/messagemaximumsizedialog.h
     )
 
 
