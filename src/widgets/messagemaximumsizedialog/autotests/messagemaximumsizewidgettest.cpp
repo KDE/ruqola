@@ -6,7 +6,9 @@
 
 #include "messagemaximumsizewidgettest.h"
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(MessageMaximumSizeWidgetTest)
 MessageMaximumSizeWidgetTest::MessageMaximumSizeWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +18,19 @@ MessageMaximumSizeWidgetTest::MessageMaximumSizeWidgetTest(QObject *parent)
 void MessageMaximumSizeWidgetTest::shouldHaveDefaultValues()
 {
     MessageMaximumSizeWidget d;
-    // TODO
+
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mFileName = d.findChild<QLineEdit *>(QStringLiteral("mFileName"));
+    QVERIFY(mFileName);
+    QVERIFY(mFileName->text().isEmpty());
+
+    auto mDescription = d.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    QVERIFY(mDescription);
+    QVERIFY(mDescription->text().isEmpty());
+
+    QVERIFY(d.description().isEmpty());
+    QVERIFY(d.fileName().isEmpty());
 }

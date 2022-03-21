@@ -16,10 +16,15 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageMaximumSizeWidget : public QWidget
 public:
     explicit MessageMaximumSizeWidget(QWidget *parent = nullptr);
     ~MessageMaximumSizeWidget() override;
+
+    Q_REQUIRED_RESULT QString description() const;
+
+    Q_REQUIRED_RESULT QString fileName() const;
 Q_SIGNALS:
     void updateOkButton(bool enabled);
 
 private:
+    void slotTextChanged();
     QLineEdit *const mFileName;
     QLineEdit *const mDescription;
 };
