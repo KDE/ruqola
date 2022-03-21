@@ -251,6 +251,7 @@ void MessageLineWidget::slotSendFile()
             const QFileInfo info(result.fileUrl.toLocalFile());
             if (info.size() > maximumFileSize) {
                 KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KFormat().formatByteSize(maximumFileSize)), i18n("File upload"));
+                delete dlg;
                 return;
             }
         }
