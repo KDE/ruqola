@@ -37,6 +37,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.loginExpiration(), -1);
     QVERIFY(config.userNameValidation().isEmpty());
     QVERIFY(config.channelNameValidation().isEmpty());
+    QCOMPARE(config.messageMaximumAllowedSize(), -1);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

@@ -173,6 +173,16 @@ void RuqolaServerConfig::adaptToServerVersion()
     mNeedAdaptNewSubscriptionRC60 = (mServerVersionMajor >= 1) || ((mServerVersionMajor == 0) && (mServerVersionMinor >= 60));
 }
 
+int RuqolaServerConfig::messageMaximumAllowedSize() const
+{
+    return mMessageMaximumAllowedSize;
+}
+
+void RuqolaServerConfig::setMessageMaximumAllowedSize(int newMessageMaximumAllowedSize)
+{
+    mMessageMaximumAllowedSize = newMessageMaximumAllowedSize;
+}
+
 const QString &RuqolaServerConfig::userNameValidation() const
 {
     return mUserNameValidation;
@@ -500,6 +510,8 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
             setChannelNameValidation(value.toString());
         } else if (id == QLatin1String("UTF8_User_Names_Validation")) {
             setUserNameValidation(value.toString());
+        } else if (id == QLatin1String("Message_MaxAllowedSize")) {
+            setMessageMaximumAllowedSize(value.toInt());
         } else {
             qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
         }

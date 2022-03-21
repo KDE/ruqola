@@ -130,6 +130,9 @@ public:
     void setChannelNameValidation(const QString &str);
     Q_REQUIRED_RESULT const QString &channelNameValidation() const;
 
+    Q_REQUIRED_RESULT int messageMaximumAllowedSize() const;
+    void setMessageMaximumAllowedSize(int newMessageMaximumAllowedSize);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -159,5 +162,6 @@ private:
     QString mLogoUrl;
     QString mFaviconUrl;
     int mLoginExpiration = -1;
+    int mMessageMaximumAllowedSize = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
