@@ -95,6 +95,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     return;
                 }
             }
+            // TODO check message size
             if (mThreadMessageId.isEmpty()) {
                 mCurrentRocketChatAccount->sendMessage(mRoomId, msg);
             } else {
@@ -104,6 +105,7 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                 }
             }
         } else if (!mMessageIdBeingEdited.isEmpty()) {
+            // TODO check message size
             mCurrentRocketChatAccount->updateMessage(mRoomId, mMessageIdBeingEdited, msg);
             clearMessageIdBeingEdited();
         } else if (!mQuotePermalink.isEmpty()) {
