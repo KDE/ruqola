@@ -39,7 +39,7 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(info.description.isEmpty());
     QVERIFY(info.messageText.isEmpty());
     QVERIFY(info.threadMessageId.isEmpty());
-    QVERIFY(!info.needToDeleteTemporaryFile);
+    QVERIFY(!info.deleteTemporaryFile);
 }
 
 void UploadFileJobTest::shouldGenerateRequest()

@@ -23,7 +23,7 @@ public:
         QString messageText;
         QString threadMessageId;
         QUrl filenameUrl;
-        bool needToDeleteTemporaryFile = false;
+        bool deleteTemporaryFile = false;
         Q_REQUIRED_RESULT bool isValid() const;
     };
 

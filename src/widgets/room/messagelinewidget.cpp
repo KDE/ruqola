@@ -12,6 +12,7 @@
 #include "rocketchataccount.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
+#include "ruqolawidgets_debug.h"
 #include "uploadfilemanager.h"
 
 #include <KLocalizedString>
@@ -104,23 +105,24 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                         if (dlg->exec()) {
                             QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.txt"));
                             tempFile.setAutoRemove(false);
-
-                            QTextStream stream(&tempFile);
+                            if (tempFile.open()) {
+                                QTextStream stream(&tempFile);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-                            stream.setCodec("UTF-8");
+                                stream.setCodec("UTF-8");
 #endif
-                            stream << msg;
-                            tempFile.close();
+                                stream << msg;
+                                tempFile.close();
 
-                            QFile f(tempFile.fileName());
-                            if (!f.rename(dlg->fileName())) {
-                                qDebug() << "Rename file failed" << tempFile.fileName() << " dlg->fileName()" << dlg->fileName();
+                                QFile f(tempFile.fileName());
+                                if (!f.rename(dlg->fileName())) {
+                                    qCWarning(RUQOLAWIDGETS_LOG) << "Rename file failed" << tempFile.fileName() << " dlg->fileName()" << dlg->fileName();
+                                }
+                                UploadFileDialog::UploadFileInfo uploadFileInfo;
+                                uploadFileInfo.description = dlg->description();
+                                uploadFileInfo.fileUrl = QUrl::fromLocalFile(f.fileName());
+                                uploadFileInfo.deleteTemporaryFile = true;
+                                sendFile(uploadFileInfo);
                             }
-                            UploadFileDialog::UploadFileInfo uploadFileInfo;
-                            uploadFileInfo.description = dlg->description();
-                            uploadFileInfo.fileUrl = QUrl::fromLocalFile(tempFile.fileName());
-                            // uploadFileInfo.delete temp file
-                            sendFile(uploadFileInfo);
                         }
                         delete dlg;
                         // We need to send as file here.
@@ -169,6 +171,7 @@ void MessageLineWidget::sendFile(const UploadFileDialog::UploadFileInfo &uploadF
     info.filenameUrl = uploadFileInfo.fileUrl;
     info.roomId = mRoomId;
     info.threadMessageId = mThreadMessageId;
+    info.deleteTemporaryFile = uploadFileInfo.deleteTemporaryFile;
 
     Q_EMIT createUploadJob(info);
 }

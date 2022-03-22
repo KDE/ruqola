@@ -20,6 +20,7 @@ public:
         QString description;
         QString message;
         QUrl fileUrl;
+        bool deleteTemporaryFile = false;
         Q_REQUIRED_RESULT bool isValid() const
         {
             return fileUrl.isValid() && fileUrl.isLocalFile();
