@@ -102,9 +102,20 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                         == KMessageBox::questionYesNo(this, i18n("Do you want to convert this big text as attachment?"), i18n("Message Too Big"))) {
                         QPointer<MessageMaximumSizeDialog> dlg = new MessageMaximumSizeDialog(this);
                         if (dlg->exec()) {
-                            const QString description = dlg->description();
-                            const QString fileName = dlg->fileName();
-                            // TODO
+                            QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.txt"));
+                            tempFile.setAutoRemove(false);
+
+                            QTextStream stream(&tempFile);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+                            stream.setCodec("UTF-8");
+#endif
+                            stream << msg;
+                            tempFile.close();
+
+                            UploadFileDialog::UploadFileInfo uploadFileInfo;
+                            uploadFileInfo.description = dlg->description();
+                            uploadFileInfo.fileUrl = QUrl::fromLocalFile(dlg->fileName());
+                            sendFile(uploadFileInfo);
                         }
                         delete dlg;
                         // We need to send as file here.
