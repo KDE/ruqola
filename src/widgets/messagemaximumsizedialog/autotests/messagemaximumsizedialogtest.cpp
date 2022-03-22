@@ -33,4 +33,7 @@ void MessageMaximumSizeDialogTest::shouldHaveDefaultValues()
     QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);
     QVERIFY(buttonOk);
     QVERIFY(!buttonOk->isEnabled());
+
+    QVERIFY(d.description().isEmpty());
+    QVERIFY(d.fileName().isEmpty());
 }

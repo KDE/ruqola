@@ -37,3 +37,13 @@ MessageMaximumSizeDialog::~MessageMaximumSizeDialog()
 {
 
 }
+
+QString MessageMaximumSizeDialog::description() const
+{
+    return mMessageMaximumSizeWidget->description();
+}
+
+QString MessageMaximumSizeDialog::fileName() const
+{
+    return mMessageMaximumSizeWidget->fileName();
+}

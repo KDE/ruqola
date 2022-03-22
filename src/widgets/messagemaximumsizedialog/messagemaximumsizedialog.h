@@ -15,6 +15,9 @@ public:
     explicit MessageMaximumSizeDialog(QWidget *parent = nullptr);
     ~MessageMaximumSizeDialog() override;
 
+    Q_REQUIRED_RESULT QString description() const;
+    Q_REQUIRED_RESULT QString fileName() const;
+
 private:
     MessageMaximumSizeWidget *const mMessageMaximumSizeWidget;
 };
