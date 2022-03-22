@@ -101,7 +101,11 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                     if (KMessageBox::Yes
                         == KMessageBox::questionYesNo(this, i18n("Do you want to convert this big text as attachment?"), i18n("Message Too Big"))) {
                         QPointer<MessageMaximumSizeDialog> dlg = new MessageMaximumSizeDialog(this);
-                        if (dlg->exec()) { }
+                        if (dlg->exec()) {
+                            const QString description = dlg->description();
+                            const QString fileName = dlg->fileName();
+                            // TODO
+                        }
                         delete dlg;
                         // We need to send as file here.
                         return;
