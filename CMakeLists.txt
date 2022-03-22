@@ -11,7 +11,7 @@ set(KF5_MIN_VERSION "5.85.0")
 set(REQUIRED_QT_VERSION "5.15.0")
 
 # Do NOT add quote
-set(RUQOLA_DEV_VERSION beta1)
+set(RUQOLA_DEV_VERSION beta2)
 
 # add an extra space
 if(DEFINED RUQOLA_DEV_VERSION)
