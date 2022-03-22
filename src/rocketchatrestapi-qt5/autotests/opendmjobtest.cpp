@@ -39,7 +39,7 @@ void OpenDmJobTest::shouldGenerateJson()
     OpenDmJob job;
     const QString channelname = QStringLiteral("foo1");
     job.setDirectUserId(channelname);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"userId":"%1"})").arg(channelname).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(channelname).toLatin1());
 }
 
 void OpenDmJobTest::shouldNotStarting()
