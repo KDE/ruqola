@@ -6,9 +6,9 @@
 
 #include "messagemaximumsizewidgettest.h"
 #include "messagemaximumsizedialog/messagemaximumsizewidget.h"
+#include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
-#include <QVBoxLayout>
 QTEST_MAIN(MessageMaximumSizeWidgetTest)
 MessageMaximumSizeWidgetTest::MessageMaximumSizeWidgetTest(QObject *parent)
     : QObject{parent}
@@ -19,7 +19,7 @@ void MessageMaximumSizeWidgetTest::shouldHaveDefaultValues()
 {
     MessageMaximumSizeWidget d;
 
-    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = d.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
