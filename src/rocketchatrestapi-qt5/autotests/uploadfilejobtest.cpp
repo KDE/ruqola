@@ -32,6 +32,14 @@ void UploadFileJobTest::shouldHaveDefaultValue()
     QVERIFY(job.userId().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());
+
+    UploadFileJob::UploadFileInfo info;
+    QVERIFY(info.filenameUrl.isEmpty());
+    QVERIFY(info.roomId.isEmpty());
+    QVERIFY(info.description.isEmpty());
+    QVERIFY(info.messageText.isEmpty());
+    QVERIFY(info.threadMessageId.isEmpty());
+    QVERIFY(!info.needToDeleteTemporaryFile);
 }
 
 void UploadFileJobTest::shouldGenerateRequest()

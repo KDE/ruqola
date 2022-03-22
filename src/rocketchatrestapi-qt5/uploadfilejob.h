@@ -23,6 +23,7 @@ public:
         QString messageText;
         QString threadMessageId;
         QUrl filenameUrl;
+        bool needToDeleteTemporaryFile = false;
         Q_REQUIRED_RESULT bool isValid() const;
     };
 
@@ -48,6 +49,7 @@ public:
 
 Q_SIGNALS:
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info);
+    void uploadFinished();
 
 private:
     Q_DISABLE_COPY(UploadFileJob)
