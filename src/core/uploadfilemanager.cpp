@@ -9,6 +9,8 @@
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 
+#include <QFile>
+
 int UploadFileManager::uploadIdentifier = 0;
 UploadFileManager::UploadFileManager(RocketChatAccount *account, QObject *parent)
     : QObject{parent}
@@ -33,6 +35,15 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
             [this, jobIdentifier](const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info) {
                 Q_EMIT uploadProgress(info, jobIdentifier);
             });
+    // Need to delete temporary file.
+    if (info.needToDeleteTemporaryFile) {
+        connect(job, &RocketChatRestApi::UploadFileJob::uploadFinished, this, [info]() {
+            QFile f(info.filenameUrl.toLocalFile());
+            if (f.remove()) {
+                qCWarning(RUQOLA_LOG) << "Impossible to delete file" << f.fileName();
+            }
+        });
+    }
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start UploadFileJob job";
         return -1;
@@ -42,11 +53,22 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
     }
 }
 
+void UploadFileManager::removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
+{
+    if (info.needToDeleteTemporaryFile) {
+        QFile f(info.filenameUrl.toLocalFile());
+        if (f.remove()) {
+            qCWarning(RUQOLA_LOG) << "Impossible to delete file" << f.fileName();
+        }
+    }
+}
+
 void UploadFileManager::cancelJob(int identifier)
 {
     auto job = mUploadMap.take(identifier);
     // Abort will remove job too.
     if (job) {
+        removeFile(job->uploadFileInfo());
         job->abort();
     }
 }

@@ -112,9 +112,14 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
                             stream << msg;
                             tempFile.close();
 
+                            QFile f(tempFile.fileName());
+                            if (!f.rename(dlg->fileName())) {
+                                qDebug() << "Rename file failed" << tempFile.fileName() << " dlg->fileName()" << dlg->fileName();
+                            }
                             UploadFileDialog::UploadFileInfo uploadFileInfo;
                             uploadFileInfo.description = dlg->description();
-                            uploadFileInfo.fileUrl = QUrl::fromLocalFile(dlg->fileName());
+                            uploadFileInfo.fileUrl = QUrl::fromLocalFile(tempFile.fileName());
+                            // uploadFileInfo.delete temp file
                             sendFile(uploadFileInfo);
                         }
                         delete dlg;
