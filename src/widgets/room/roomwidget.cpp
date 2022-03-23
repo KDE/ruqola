@@ -740,7 +740,9 @@ void RoomWidget::slotLoginStatusChanged()
 
 void RoomWidget::slotGoBackToRoom()
 {
-    Q_EMIT selectChannelRequested(mRoom->parentRid());
+    if (mRoom) {
+        Q_EMIT selectChannelRequested(mRoom->parentRid());
+    }
 }
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
