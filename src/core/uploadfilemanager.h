@@ -22,7 +22,7 @@ public:
 
     void cancelJob(int identifier);
 Q_SIGNALS:
-    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier, const QString &accountName);
 
 private:
     void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);

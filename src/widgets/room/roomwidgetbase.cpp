@@ -161,9 +161,9 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
     }
 }
 
-void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier)
+void RoomWidgetBase::slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName)
 {
-    mUploadFileProgressStatusListWidget->uploadProgress(info, jobIdentifier);
+    mUploadFileProgressStatusListWidget->uploadProgress(info, jobIdentifier, accountName);
 }
 
 QString RoomWidgetBase::roomId() const

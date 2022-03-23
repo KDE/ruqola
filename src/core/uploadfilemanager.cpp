@@ -33,7 +33,7 @@ int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadF
             &RocketChatRestApi::UploadFileJob::uploadProgress,
             this,
             [this, jobIdentifier](const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info) {
-                Q_EMIT uploadProgress(info, jobIdentifier);
+                Q_EMIT uploadProgress(info, jobIdentifier, mRocketChatAccount->accountName());
             });
     // Need to delete temporary file.
     if (info.deleteTemporaryFile) {

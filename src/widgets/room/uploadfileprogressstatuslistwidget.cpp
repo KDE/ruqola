@@ -76,13 +76,15 @@ void UploadFileProgressStatusListWidget::removeUploadFileProgressStatusWidget(in
     }
 }
 
-void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier)
+void UploadFileProgressStatusListWidget::uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info,
+                                                        int identifier,
+                                                        const QString &accountName)
 {
     UploadFileProgressStatusWidget *item = mUploadItems.value(identifier);
     if (item) {
         if (info.bytesSent > 0 && info.bytesTotal > 0) {
             item->setVisible(true);
-            item->setUploadFileName(info.fileName);
+            item->setUploadFileName(info.fileName + QStringLiteral(" (%1)").arg(accountName));
             item->setValue(static_cast<int>((info.bytesSent * 100) / info.bytesTotal));
             setVisible(true);
         } else {

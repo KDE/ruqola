@@ -50,7 +50,7 @@ private:
     void slotCreatePrivateDiscussion(const QString &userName);
     void keyPressedInLineEdit(QKeyEvent *ev);
     void slotShowThreadMessage(const QString &threadMessageId, const QString &text);
-    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier);
+    void slotUploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
     void slotSendFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &uploadFileInfo);
     void slotCancelUpload(int identifier);
     QString mRoomId;

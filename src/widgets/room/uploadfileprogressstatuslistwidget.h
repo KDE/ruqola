@@ -21,7 +21,7 @@ public:
 
     void removeUploadFileProgressStatusWidget(int identifier);
 
-    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier);
+    void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int jobIdentifier, const QString &accountName);
 Q_SIGNALS:
     void cancelUpload(int identifier);
 
