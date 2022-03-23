@@ -16,4 +16,5 @@ public:
     ~MessageMaximumSizeWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitSignal();
 };
