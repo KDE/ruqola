@@ -201,24 +201,27 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
     rcAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, rcAccount, index](const QJsonObject &obj) {
         const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
-        QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
-        const QString teamName = index.data(RoomModel::RoomName).toString();
-        dlg->setTeamName(teamName);
-        dlg->setTeamRooms(teamRooms);
-        if (dlg->exec()) {
-            const QStringList lst = dlg->roomIdsToDelete();
-            auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
-            job->setTeamId(teamId);
-            job->setRoomsToRemove(lst);
-            rcAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
-                // TODO ?
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
+        QStringList listRoomIdToDelete;
+        if (!teamRooms.isEmpty()) {
+            QPointer<TeamConvertToChannelDialog> dlg = new TeamConvertToChannelDialog(this);
+            const QString teamName = index.data(RoomModel::RoomName).toString();
+            dlg->setTeamName(teamName);
+            dlg->setTeamRooms(teamRooms);
+            if (dlg->exec()) {
+                listRoomIdToDelete = dlg->roomIdsToDelete();
             }
+            delete dlg;
         }
-        delete dlg;
+        auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
+        job->setTeamId(teamId);
+        job->setRoomsToRemove(listRoomIdToDelete);
+        rcAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
+            // TODO ?
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamConvertToChannelJob job";
+        }
     });
 
     if (!job->start()) {
