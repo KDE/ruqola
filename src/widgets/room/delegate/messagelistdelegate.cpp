@@ -407,6 +407,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
             }
         }
 
+        menu.addSeparator();
         menu.addAction(userInfoAction);
         if (!menu.actions().isEmpty()) {
             menu.exec(info.globalPos);
