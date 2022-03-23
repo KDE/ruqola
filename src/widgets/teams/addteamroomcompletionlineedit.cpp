@@ -14,6 +14,8 @@
 #include "teams/roomsautocompleteavailableforteamsjob.h"
 #include "teams/teamroomcompleter.h"
 
+#include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QTimer>
 #include <chrono>
@@ -26,6 +28,7 @@ AddTeamRoomCompletionLineEdit::AddTeamRoomCompletionLineEdit(RocketChatAccount *
     , mSearchTimer(new QTimer(this))
     , mRocketChatAccount(account)
 {
+    setPlaceholderText(i18n("Search Rooms..."));
     setCompletionModel(mTeamRoomCompleterModel);
     connect(this, &AddTeamRoomCompletionLineEdit::complete, this, &AddTeamRoomCompletionLineEdit::slotComplete);
 
