@@ -53,6 +53,6 @@ private:
     QAction *mOffTheRecordMessages = nullptr;
     QAction *mEncryptMessages = nullptr;
 
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };
