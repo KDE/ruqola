@@ -18,8 +18,11 @@ TeamConvertToChannelWidget::TeamConvertToChannelWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
-    auto deleteLabel = new QLabel(i18n("Select Room To Delete:"), this);
+    auto deleteLabel = new QLabel(i18n("Select the Team’s Channels you would like to delete, the ones you do not select will be moved to the Workspace. Notice "
+                                       "that public Channels will be public and visible to everyone."),
+                                  this);
     deleteLabel->setObjectName(QStringLiteral("deleteLabel"));
+    deleteLabel->setWordWrap(true);
     mainLayout->addWidget(deleteLabel);
 
     mTeamSelectDeletedRoomWidget->setObjectName(QStringLiteral("mTeamSelectDeletedRoomWidget"));

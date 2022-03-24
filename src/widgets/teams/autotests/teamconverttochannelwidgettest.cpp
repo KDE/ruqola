@@ -26,4 +26,5 @@ void TeamConvertToChannelWidgetTest::shouldHaveDefaultValues()
     auto deleteLabel = w.findChild<QLabel *>(QStringLiteral("deleteLabel"));
     QVERIFY(deleteLabel);
     QVERIFY(!deleteLabel->text().isEmpty());
+    QVERIFY(deleteLabel->wordWrap());
 }
