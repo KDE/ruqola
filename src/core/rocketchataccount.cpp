@@ -64,6 +64,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <QDesktopServices>
+#include <QJsonArray>
 #include <QTimer>
 #include <channelgroupbasejob.h>
 
@@ -2585,6 +2586,22 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 void RocketChatAccount::updateUserData(const QJsonArray &contents)
 {
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
+    for (auto array : contents) {
+        const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
+        qDebug() << " updateJson" << updateJson;
+        if (updateJson.contains(QStringLiteral("settings.preferences.highlights"))) {
+            QJsonArray highlightsArray = updateJson.value(QStringLiteral("settings.preferences.highlights")).toArray();
+            QStringList lstHighlightsWord;
+            const int highlightsWordArrayCount = highlightsArray.count();
+            lstHighlightsWord.reserve(highlightsWordArrayCount);
+            for (int i = 0; i < highlightsWordArrayCount; ++i) {
+                lstHighlightsWord << highlightsArray.at(i).toString();
+            }
+            qDebug() << " lstHighlightsWord " << lstHighlightsWord;
+            mOwnUser.ownUserPreferences().setHighlightWords(lstHighlightsWord);
+            Q_EMIT needUpdateView();
+        }
+    }
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552237550}},"type":"updated","unset":{"avatarETag":1,"avatarOrigin":1}}])
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552298748},"nickname":"ss"},"type":"updated","unset":{}}])
