@@ -209,6 +209,9 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
             dlg->setTeamRooms(teamRooms);
             if (dlg->exec()) {
                 listRoomIdToDelete = dlg->roomIdsToDelete();
+            } else {
+                delete dlg;
+                return;
             }
             delete dlg;
         }
