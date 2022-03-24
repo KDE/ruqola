@@ -20,6 +20,9 @@ public:
 
     Q_REQUIRED_RESULT const QString &teamId() const;
 
+Q_SIGNALS:
+    void teamIdChanged(bool isEmpty);
+
 private:
     void slotSearchTimerFired();
     void slotSearchTextEdited();

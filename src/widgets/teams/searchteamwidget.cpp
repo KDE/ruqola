@@ -25,8 +25,8 @@ SearchTeamWidget::SearchTeamWidget(RocketChatAccount *account, QWidget *parent)
     mSearchLine->setObjectName(QStringLiteral("mSearchLine"));
     mainLayout->addWidget(mSearchLine);
     mainLayout->addStretch(1);
-    connect(mSearchLine, &QLineEdit::textChanged, this, [this](const QString &str) {
-        Q_EMIT updateOkButton(!str.trimmed().isEmpty());
+    connect(mSearchLine, &SearchTeamCompletionLineEdit::teamIdChanged, this, [this](bool isEmpty) {
+        Q_EMIT updateOkButton(!isEmpty);
     });
 }
 

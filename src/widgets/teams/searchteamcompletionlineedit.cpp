@@ -61,6 +61,7 @@ void SearchTeamCompletionLineEdit::slotTextChanged(const QString &text)
     if (text.trimmed().isEmpty()) {
         mTeamCompleterModel->clear();
         mTeamId.clear();
+        Q_EMIT teamIdChanged(true);
     } else {
         auto job = new RocketChatRestApi::TeamsAutoCompleteJob(this);
 
@@ -97,4 +98,5 @@ void SearchTeamCompletionLineEdit::slotComplete(const QModelIndex &index)
     setText(completerName);
     mTeamId = teamIdentifier;
     connect(this, &QLineEdit::textChanged, this, &SearchTeamCompletionLineEdit::slotSearchTextEdited);
+    Q_EMIT teamIdChanged(mTeamId.isEmpty());
 }
