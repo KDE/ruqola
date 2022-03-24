@@ -397,7 +397,7 @@ QString MessageModel::convertedText(const Message &message) const
     } else {
         QStringList highlightWords;
         if (mRoom) {
-            if (mRoom && (mRoom->channelType() != Room::RoomType::Direct)) { // We can't ignore message but we can block user in direct message
+            if (mRoom->channelType() != Room::RoomType::Direct) { // We can't ignore message but we can block user in direct message
                 if (mRoom->userIsIgnored(message.userId()) && !message.showIgnoredMessage()) {
                     return QString(QStringLiteral("<i>") + i18n("Ignored Message") + QStringLiteral("</i>"));
                 }
