@@ -2588,7 +2588,6 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
     for (auto array : contents) {
         const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
-        qDebug() << " updateJson" << updateJson;
         if (updateJson.contains(QStringLiteral("settings.preferences.highlights"))) {
             QJsonArray highlightsArray = updateJson.value(QStringLiteral("settings.preferences.highlights")).toArray();
             QStringList lstHighlightsWord;
