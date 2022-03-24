@@ -47,6 +47,18 @@ QStringList OwnUserPreferences::highlightWords() const
     return mHighlightWords;
 }
 
+void OwnUserPreferences::updateHighlightWords(const QJsonArray &highlightsArray)
+{
+    QStringList lstHighlightsWord;
+    const int highlightsWordArrayCount = highlightsArray.count();
+    lstHighlightsWord.reserve(highlightsWordArrayCount);
+    for (int i = 0; i < highlightsWordArrayCount; ++i) {
+        lstHighlightsWord << highlightsArray.at(i).toString();
+    }
+    qDebug() << " lstHighlightsWord " << lstHighlightsWord;
+    setHighlightWords(lstHighlightsWord);
+}
+
 void OwnUserPreferences::setHighlightWords(const QStringList &highlightWords)
 {
     mHighlightWords = highlightWords;

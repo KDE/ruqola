@@ -2589,16 +2589,12 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
     for (auto array : contents) {
         const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
         if (updateJson.contains(QStringLiteral("settings.preferences.highlights"))) {
-            QJsonArray highlightsArray = updateJson.value(QStringLiteral("settings.preferences.highlights")).toArray();
-            QStringList lstHighlightsWord;
-            const int highlightsWordArrayCount = highlightsArray.count();
-            lstHighlightsWord.reserve(highlightsWordArrayCount);
-            for (int i = 0; i < highlightsWordArrayCount; ++i) {
-                lstHighlightsWord << highlightsArray.at(i).toString();
-            }
-            qDebug() << " lstHighlightsWord " << lstHighlightsWord;
-            mOwnUser.ownUserPreferences().setHighlightWords(lstHighlightsWord);
+            const QJsonArray highlightsArray = updateJson.value(QStringLiteral("settings.preferences.highlights")).toArray();
+            mOwnUser.ownUserPreferences().updateHighlightWords(highlightsArray);
             Q_EMIT needUpdateView();
+        }
+        if (updateJson.contains(QStringLiteral("settings.preferences.enableAutoAway"))) {
+            mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(QStringLiteral("settings.preferences.enableAutoAway")).toBool());
         }
     }
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])

@@ -48,6 +48,8 @@ public:
     Q_REQUIRED_RESULT bool enableAutoAway() const;
     void setEnableAutoAway(bool newEnableAutoAway);
 
+    void updateHighlightWords(const QJsonArray &highlightsArray);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
