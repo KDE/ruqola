@@ -2596,6 +2596,10 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
         if (updateJson.contains(QStringLiteral("settings.preferences.enableAutoAway"))) {
             mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(QStringLiteral("settings.preferences.enableAutoAway")).toBool());
         }
+        if (updateJson.contains(QStringLiteral("settings.preferences.convertAsciiEmoji"))) {
+            mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(QStringLiteral("settings.preferences.convertAsciiEmoji")).toBool());
+            Q_EMIT needUpdateView();
+        }
     }
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552237550}},"type":"updated","unset":{"avatarETag":1,"avatarOrigin":1}}])
