@@ -368,6 +368,11 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
 void MessageListDelegate::clearTextDocumentCache()
 {
     mHelperText->clearTextDocumentCache();
+    mHelperAttachmentImage->clearTextDocumentCache();
+    mHelperAttachmentFile->clearTextDocumentCache();
+    mHelperAttachmentVideo->clearTextDocumentCache();
+    mHelperAttachmentSound->clearTextDocumentCache();
+    mHelperAttachmentText->clearTextDocumentCache();
 }
 
 void MessageListDelegate::clearSelection()

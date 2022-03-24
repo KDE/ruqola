@@ -81,6 +81,11 @@ bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
     return false;
 }
 
+void MessageDelegateHelperBase::clearTextDocumentCache()
+{
+    mDocumentCache.clear();
+}
+
 void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect descriptionRect, QPainter *painter, int topPos) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());
