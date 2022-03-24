@@ -28,6 +28,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
 {
 public:
+    explicit MessageDelegateHelperBase(QListView *view);
     virtual ~MessageDelegateHelperBase();
 
     virtual void
@@ -42,14 +43,15 @@ public:
     Q_REQUIRED_RESULT bool
     maybeStartDrag(const MessageAttachment &msgAttach, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    virtual bool
-    handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, QListView *listView);
+    virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option);
 
 protected:
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
     Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
     void drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const;
+
+    QListView *const mListView;
 
 private:
     bool mMightStartDrag = false;

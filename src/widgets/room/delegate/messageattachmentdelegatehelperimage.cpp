@@ -23,6 +23,11 @@
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
+MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(QListView *view)
+    : MessageDelegateHelperBase(view)
+{
+}
+
 void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAttach,
                                                 QPainter *painter,
                                                 QRect messageRect,

@@ -21,8 +21,9 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo()
-    : mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
+MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(QListView *view)
+    : MessageDelegateHelperBase(view)
+    , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
     , mVisibilityIcon(QIcon::fromTheme(QStringLiteral("visibility")))
 {
 }

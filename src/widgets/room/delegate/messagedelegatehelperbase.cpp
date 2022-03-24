@@ -19,6 +19,11 @@
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
+MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view)
+    : mListView(view)
+{
+}
+
 bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
                                                  QMouseEvent *mouseEvent,
                                                  QRect attachmentsRect,
@@ -67,12 +72,10 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
 bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
                                                 QRect messageRect,
                                                 const MessageAttachment &msgAttach,
-                                                const QStyleOptionViewItem &option,
-                                                QListView *listView)
+                                                const QStyleOptionViewItem &option)
 {
     Q_UNUSED(helpEvent);
     Q_UNUSED(messageRect);
-    Q_UNUSED(listView);
     Q_UNUSED(msgAttach);
     Q_UNUSED(option);
     return false;

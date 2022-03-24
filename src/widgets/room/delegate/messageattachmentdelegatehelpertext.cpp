@@ -24,6 +24,11 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
+MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view)
+    : MessageDelegateHelperBase(view)
+{
+}
+
 MessageAttachmentDelegateHelperText::~MessageAttachmentDelegateHelperText() = default;
 
 void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttach,
@@ -59,17 +64,18 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         }
 #if 0
         QVector<QAbstractTextDocumentLayout::Selection> selections;
-        if (index == mCurrentIndex) {
+        const QTextCursor selectionTextCursor = mSelection.selectionForIndex(index, doc);
+        if (!selectionTextCursor.isNull()) {
             QTextCharFormat selectionFormat;
             selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
             selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
-            selections.append({mCurrentTextCursor, selectionFormat});
+            selections.append({selectionTextCursor, selectionFormat});
         }
-        if (useItalicsForMessage(index)) {
+        if (useItalicsForMessage(index) || pendingMessage(index)) {
             QTextCursor cursor(doc);
             cursor.select(QTextCursor::Document);
             QTextCharFormat format;
-            format.setForeground(Qt::gray); //TODO use color from theme.
+            format.setForeground(Qt::gray); // TODO use color from theme.
             cursor.mergeCharFormat(format);
         }
 #endif
@@ -236,8 +242,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const Messa
 bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
                                                           QRect messageRect,
                                                           const MessageAttachment &msgAttach,
-                                                          const QStyleOptionViewItem &option,
-                                                          QListView *listView)
+                                                          const QStyleOptionViewItem &option)
 {
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
@@ -249,7 +254,7 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
         if (!msgAttachLink.isEmpty()) {
             QString formattedTooltip;
             MessageDelegateUtils::generateToolTip(QString(), msgAttachLink, formattedTooltip);
-            QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);
+            QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
             return true;
         }
     }
@@ -262,7 +267,7 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
     const QPoint pos = helpEvent->pos() - messageRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
-        QToolTip::showText(helpEvent->globalPos(), formattedTooltip, listView);
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip);
         return true;
     }
     return true;

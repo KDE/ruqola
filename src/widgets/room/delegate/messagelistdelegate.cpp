@@ -57,12 +57,12 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
     , mHelperText(new MessageDelegateHelperText(view))
-    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage)
-    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile)
+    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view))
+    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view))
     , mHelperReactions(new MessageDelegateHelperReactions)
-    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo)
-    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound)
-    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText)
+    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view))
+    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view))
+    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     KColorScheme scheme = Colors::self().schemeView();
@@ -754,7 +754,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             if (helper) {
                 // TODO add support tooltip for attachment too.
                 if (layout.attachmentsRectList.at(i).contains(helpEventPos)
-                    && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option, mListView)) {
+                    && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
                     return true;
                 }
             }

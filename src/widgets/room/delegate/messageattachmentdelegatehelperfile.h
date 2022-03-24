@@ -15,19 +15,22 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
-    MessageAttachmentDelegateHelperFile();
+    explicit MessageAttachmentDelegateHelperFile(QListView *view);
     ~MessageAttachmentDelegateHelperFile() override;
     void draw(const MessageAttachment &msgAttach,
               QPainter *painter,
               QRect attachmentsRect,
               const QModelIndex &index,
               const QStyleOptionViewItem &option) const override;
-    QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
-    bool handleMouseEvent(const MessageAttachment &msgAttach,
-                          QMouseEvent *mouseEvent,
-                          QRect attachmentsRect,
-                          const QStyleOptionViewItem &option,
-                          const QModelIndex &index) override;
+    Q_REQUIRED_RESULT QSize sizeHint(const MessageAttachment &msgAttach,
+                                     const QModelIndex &index,
+                                     int maxWidth,
+                                     const QStyleOptionViewItem &option) const override;
+    Q_REQUIRED_RESULT bool handleMouseEvent(const MessageAttachment &msgAttach,
+                                            QMouseEvent *mouseEvent,
+                                            QRect attachmentsRect,
+                                            const QStyleOptionViewItem &option,
+                                            const QModelIndex &index) override;
 
 private:
     struct FileLayout {
