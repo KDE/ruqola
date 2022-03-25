@@ -757,7 +757,6 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         for (const MessageAttachment &att : attachements) {
             MessageDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
-                // TODO add support tooltip for attachment too.
                 if (layout.attachmentsRectList.at(i).contains(helpEventPos)
                     && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
                     return true;
