@@ -119,8 +119,8 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
 
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
-    // TODO fix me
-    return {};
+    // TODO we need info about msgAttach
+    return nullptr; // documentForIndex(index, -1, false);
 }
 
 QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const

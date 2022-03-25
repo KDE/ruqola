@@ -156,6 +156,9 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos)
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
 {
     QTextDocument *doc = mDocumentFactory->documentForIndex(index);
+    if (!doc) { // TODO remove this check when msgAttach was supported.
+        return;
+    }
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
@@ -174,6 +177,9 @@ void TextSelection::selectMessage(const QModelIndex &index)
     mEndIndex = index;
     mStartPos = 0;
     QTextDocument *doc = mDocumentFactory->documentForIndex(index);
+    if (!doc) {
+        return;
+    }
     mEndPos = doc->characterCount();
 }
 
