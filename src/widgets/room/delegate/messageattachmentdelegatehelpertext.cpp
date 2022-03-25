@@ -13,6 +13,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 #include <KColorScheme>
@@ -62,7 +63,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-#if 0
         QVector<QAbstractTextDocumentLayout::Selection> selections;
         const QTextCursor selectionTextCursor = mSelection.selectionForIndex(index, doc);
         if (!selectionTextCursor.isNull()) {
@@ -71,14 +71,13 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
             selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
             selections.append({selectionTextCursor, selectionFormat});
         }
-        if (useItalicsForMessage(index) || pendingMessage(index)) {
+        if (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index)) {
             QTextCursor cursor(doc);
             cursor.select(QTextCursor::Document);
             QTextCharFormat format;
             format.setForeground(Qt::gray); // TODO use color from theme.
             cursor.mergeCharFormat(format);
         }
-#endif
 
         painter->save();
         painter->translate(messageRect.left(), nextY);
@@ -151,6 +150,21 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             }
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
+        break;
+    }
+    case QEvent::MouseButtonDblClick: {
+        if (!mSelection.hasSelection()) {
+            if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const QPoint pos = mouseEvent->pos();
+                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mSelection.selectWordUnderCursor(index, charPos);
+                return true;
+            }
+        }
         break;
     }
     default:

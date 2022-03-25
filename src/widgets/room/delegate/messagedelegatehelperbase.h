@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include "messages/messageattachment.h"
+#include "textselection.h"
 
 #include <QPersistentModelIndex>
 #include <QSize>
@@ -25,7 +26,7 @@ class QHelpEvent;
 
 class Message;
 class QListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
     explicit MessageDelegateHelperBase(QListView *view);
@@ -54,8 +55,18 @@ protected:
     void drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const;
 
     QListView *const mListView;
+    TextSelection mSelection;
+
+    /**
+     * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
+     * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
+     * @param widget The view to update when fetching thread context on demand. nullptr if this isn't needed (e.g. from SelectionManager)
+     * @return the QTextDocument. Ownership remains with the cache, don't delete it.
+     */
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
 
 private:
     bool mMightStartDrag = false;
     QPersistentModelIndex mCurrentIndex;
+    void updateView(const QModelIndex &index);
 };

@@ -12,6 +12,7 @@
 
 #include <QAbstractTextDocumentLayout>
 #include <QDrag>
+#include <QListView>
 #include <QMimeData>
 #include <QPainter>
 #include <QRect>
@@ -21,7 +22,14 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
 MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view)
     : mListView(view)
+    , mSelection(this)
 {
+    connect(&mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
+}
+
+void MessageDelegateHelperBase::updateView(const QModelIndex &index)
+{
+    mListView->update(index);
 }
 
 bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -107,6 +115,12 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
     }
     doc->documentLayout()->draw(painter, ctx);
     painter->restore();
+}
+
+QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
+{
+    // TODO fix me
+    return {};
 }
 
 QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
