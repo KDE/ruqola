@@ -206,11 +206,6 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
-    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System)
-        || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
-    if (isSystemMessage) {
-        return;
-    }
 
     auto options = listViewOptions();
     options.rect = visualRect(index);
@@ -221,6 +216,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     info.pos = viewport()->mapFromGlobal(event->globalPos());
     info.roomType = mRoom->channelType();
     if (mMessageListDelegate->contextMenu(options, index, info)) {
+        return;
+    }
+    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System)
+        || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
+    if (isSystemMessage) {
         return;
     }
     const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
