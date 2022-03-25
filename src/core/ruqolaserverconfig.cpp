@@ -384,7 +384,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
 {
     const QString id = currentConfObject[QStringLiteral("_id")].toString();
     const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
-
+    static const QRegularExpression regExp(QStringLiteral("^Accounts_OAuth_\\w+"));
     if (id == QLatin1String("uniqueID")) {
         setUniqueId(value.toString());
     } else if (id == QLatin1String("Jitsi_Enabled")) {
@@ -407,7 +407,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setBlockDeletingMessageInMinutes(value.toInt());
     } else if (id == QLatin1String("OTR_Enable")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::OtrEnabled);
-    } else if (id.contains(QRegularExpression(QStringLiteral("^Accounts_OAuth_\\w+")))) {
+    } else if (id.contains(regExp)) {
         if (value.toBool()) {
             addOauthService(id);
         }
