@@ -512,7 +512,14 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 mRocketChatAccount->receiveTypingNotificationManager()->insertTypingNotification(roomId, typingUserName, status);
             }
         } else if (eventname.endsWith(QLatin1String("/deleteMessageBulk"))) {
-            qDebug() << " DELETE MESSAGE TO IMPLEMENT";
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("deleteMessageBulk: DeleteMessage:") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "Delete message" << object;
+            }
+            qDebug() << " DELETE MESSAGE Bulk not IMPLEMENTED yet";
             QString roomId = eventname;
             roomId.remove(QStringLiteral("/deleteMessageBulk"));
             qDebug() << " deleteMessageBulk " << collection << " object " << object;
