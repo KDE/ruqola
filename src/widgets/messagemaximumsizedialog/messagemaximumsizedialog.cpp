@@ -35,7 +35,6 @@ MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
 
 MessageMaximumSizeDialog::~MessageMaximumSizeDialog()
 {
-
 }
 
 QString MessageMaximumSizeDialog::description() const

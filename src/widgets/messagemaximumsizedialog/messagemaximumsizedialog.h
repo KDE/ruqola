@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <QDialog>
 #include "libruqolawidgets_private_export.h"
+#include <QDialog>
 class MessageMaximumSizeWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageMaximumSizeDialog : public QDialog
 {
@@ -21,4 +21,3 @@ public:
 private:
     MessageMaximumSizeWidget *const mMessageMaximumSizeWidget;
 };
-
