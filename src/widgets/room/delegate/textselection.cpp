@@ -15,6 +15,8 @@ TextSelection::TextSelection(DocumentFactoryInterface *factory)
 {
 }
 
+DocumentFactoryInterface::~DocumentFactoryInterface() = default;
+
 bool TextSelection::hasSelection() const
 {
     return mStartIndex.isValid() && mEndIndex.isValid() && mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos;
@@ -175,4 +177,3 @@ void TextSelection::selectMessage(const QModelIndex &index)
     mEndPos = doc->characterCount();
 }
 
-DocumentFactoryInterface::~DocumentFactoryInterface() = default;
