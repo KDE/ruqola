@@ -2600,6 +2600,10 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(QStringLiteral("settings.preferences.convertAsciiEmoji")).toBool());
             Q_EMIT needUpdateView();
         }
+        if (updateJson.contains(QStringLiteral("settings.preferences.hideRoles"))) {
+            mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(QStringLiteral("settings.preferences.hideRoles")).toBool());
+            Q_EMIT needUpdateView();
+        }
     }
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552237550}},"type":"updated","unset":{"avatarETag":1,"avatarOrigin":1}}])
