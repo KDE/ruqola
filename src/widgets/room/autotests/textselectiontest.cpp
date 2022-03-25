@@ -45,6 +45,13 @@ public:
         }
         return mTextDocs[row].get();
     }
+    QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override
+    {
+        // Unused here
+        Q_UNUSED(msgAttach);
+        Q_ASSERT(true);
+        return nullptr;
+    }
 
 private:
     mutable std::vector<std::unique_ptr<QTextDocument>> mTextDocs;

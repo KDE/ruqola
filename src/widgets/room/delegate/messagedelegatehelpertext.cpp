@@ -172,6 +172,7 @@ void MessageDelegateHelperText::setClipboardSelection()
 
 void MessageDelegateHelperText::updateView(const QModelIndex &index)
 {
+    qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
 
@@ -371,6 +372,12 @@ void MessageDelegateHelperText::setShowThreadContext(bool b)
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index) const
 {
     return documentForIndex(index, -1, false);
+}
+
+QTextDocument *MessageDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    // Unused here
+    return nullptr;
 }
 
 QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const

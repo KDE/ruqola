@@ -29,6 +29,7 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view)
 
 void MessageDelegateHelperBase::updateView(const QModelIndex &index)
 {
+    qDebug() << " void MessageDelegateHelperBase::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
 
@@ -117,10 +118,15 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
     painter->restore();
 }
 
+QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    return documentDescriptionForIndex(msgAttach, -1);
+}
+
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
-    // TODO we need info about msgAttach
-    return nullptr; // documentForIndex(index, -1, false);
+    // Unused here
+    return nullptr;
 }
 
 QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const

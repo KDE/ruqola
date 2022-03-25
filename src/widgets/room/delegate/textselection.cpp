@@ -5,6 +5,7 @@
 */
 
 #include "textselection.h"
+#include "messages/messageattachment.h"
 
 #include <QTextCursor>
 #include <QTextDocument>
@@ -156,9 +157,6 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos)
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
 {
     QTextDocument *doc = mDocumentFactory->documentForIndex(index);
-    if (!doc) { // TODO remove this check when msgAttach was supported.
-        return;
-    }
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
@@ -167,6 +165,20 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
+}
+
+void TextSelection::selectWordUnderCursor(const MessageAttachment &msgAttach, int charPos)
+{
+    QTextDocument *doc = mDocumentFactory->documentForIndex(msgAttach);
+    QTextCursor cursor(doc);
+    cursor.setPosition(charPos);
+    clear();
+    cursor.select(QTextCursor::WordUnderCursor);
+    // mStartIndex = index; // TODO fix me
+    // mEndIndex = index;
+    mStartPos = cursor.selectionStart();
+    mEndPos = cursor.selectionEnd();
+    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
 }
 
 void TextSelection::selectMessage(const QModelIndex &index)

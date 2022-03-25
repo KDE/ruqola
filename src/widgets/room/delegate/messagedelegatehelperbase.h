@@ -64,6 +64,7 @@ protected:
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
 
 private:
     bool mMightStartDrag = false;

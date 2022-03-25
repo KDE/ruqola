@@ -156,12 +156,14 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         if (!mSelection.hasSelection()) {
             if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
-                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection.selectWordUnderCursor(index, charPos);
+                mSelection.selectWordUnderCursor(msgAttach, charPos);
                 return true;
             }
         }

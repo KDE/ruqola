@@ -13,6 +13,7 @@
 
 class QTextCursor;
 class QTextDocument;
+class MessageAttachment;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DocumentFactoryInterface
 {
@@ -24,6 +25,7 @@ public:
      * @return the QTextDocument. Ownership remains with the cache, don't delete it.
      */
     Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
+    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const = 0;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
@@ -44,6 +46,7 @@ public:
     void setStart(const QModelIndex &index, int charPos);
     void setEnd(const QModelIndex &index, int charPos);
     void selectWordUnderCursor(const QModelIndex &index, int charPos);
+    void selectWordUnderCursor(const MessageAttachment &msgAttach, int charPos);
     void selectMessage(const QModelIndex &index);
 
 Q_SIGNALS:
