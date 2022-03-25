@@ -76,11 +76,11 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
 
         VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.videoPath, i18n("Save Image"));
             return true;
         } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto parentWidget = const_cast<QWidget *>(option.widget);
             ShowVideoDialog dlg(parentWidget);
             dlg.setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
             dlg.exec();

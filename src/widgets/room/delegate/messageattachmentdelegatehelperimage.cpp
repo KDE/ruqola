@@ -124,14 +124,14 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.imagePreviewPath, i18n("Save Image"));
             return true;
         } else if (!layout.pixmap.isNull()) {
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
-                auto *parentWidget = const_cast<QWidget *>(option.widget);
+                auto parentWidget = const_cast<QWidget *>(option.widget);
                 auto dlg = new ShowImageDialog(Ruqola::self()->rocketChatAccount(), parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;

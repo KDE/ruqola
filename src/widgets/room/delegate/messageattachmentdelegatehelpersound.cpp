@@ -76,11 +76,11 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
 
         const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.audioPath, i18n("Save Sound"));
             return true;
         } else if (attachmentsRect.contains(pos) || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto *parentWidget = const_cast<QWidget *>(option.widget);
+            auto parentWidget = const_cast<QWidget *>(option.widget);
             PlaySoundDialog dlg(parentWidget);
             dlg.setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
             dlg.exec();
