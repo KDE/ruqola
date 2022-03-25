@@ -175,19 +175,6 @@ void MessageDelegateHelperText::updateView(const QModelIndex &index)
     mListView->update(index);
 }
 
-static bool useItalicsForMessage(const QModelIndex &index)
-{
-    const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
-    const bool isSystemMessage =
-        messageType == Message::System && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
-    return isSystemMessage;
-}
-
-static bool pendingMessage(const QModelIndex &index)
-{
-    return index.data(MessageModel::PendingMessage).toBool();
-}
-
 MessageDelegateHelperText::MessageDelegateHelperText(QListView *view)
     : QObject(view)
     , mListView(view)
@@ -213,7 +200,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
         selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
         selections.append({selectionTextCursor, selectionFormat});
     }
-    if (useItalicsForMessage(index) || pendingMessage(index)) {
+    if (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index)) {
         QTextCursor cursor(doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
@@ -408,7 +395,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
         return nullptr;
     }
 
-    auto doc = MessageDelegateUtils::createTextDocument(useItalicsForMessage(index), text, width);
+    auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
