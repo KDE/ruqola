@@ -5,9 +5,12 @@
 */
 
 #include "messagedelegateutils.h"
+#include "model/messagemodel.h"
 
+#include <QAbstractItemModel>
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
+#include <QModelIndex>
 #include <QTextFrame>
 #include <QTextFrameFormat>
 #include <QTextStream>
@@ -53,4 +56,17 @@ void MessageDelegateUtils::generateToolTip(const QString &toolTip, const QString
     addLine(toolTip);
     addLine(href);
     stream << QLatin1String("</qt>");
+}
+
+bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
+{
+    const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const bool isSystemMessage =
+        messageType == Message::System && index.data(MessageModel::SystemMessageType).toString() != QStringLiteral("jitsi_call_started");
+    return isSystemMessage;
+}
+
+bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
+{
+    return index.data(MessageModel::PendingMessage).toBool();
 }
