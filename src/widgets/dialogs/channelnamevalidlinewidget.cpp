@@ -10,7 +10,6 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QLabel>
-#include <QRegularExpressionValidator>
 #include <QVBoxLayout>
 
 ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *account, QWidget *parent)
