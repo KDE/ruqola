@@ -167,15 +167,15 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
     mEndPos = cursor.selectionEnd();
 }
 
-void TextSelection::selectWordUnderCursor(const MessageAttachment &msgAttach, int charPos)
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos)
 {
     QTextDocument *doc = mDocumentFactory->documentForIndex(msgAttach);
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
     cursor.select(QTextCursor::WordUnderCursor);
-    // mStartIndex = index; // TODO fix me
-    // mEndIndex = index;
+    mStartIndex = index;
+    mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
     qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();

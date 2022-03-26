@@ -85,7 +85,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
 
         // Same as pDoc->drawContents(painter, clip) but we also set selections
         QAbstractTextDocumentLayout::PaintContext ctx;
-        // FIXME ctx.selections = selections;
+        ctx.selections = selections;
         if (clip.isValid()) {
             painter->setClipRect(clip);
             ctx.clip = clip;
@@ -163,7 +163,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection.selectWordUnderCursor(msgAttach, charPos);
+                mSelection.selectWordUnderCursor(index, msgAttach, charPos);
                 return true;
             }
         }

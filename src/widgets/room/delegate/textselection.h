@@ -46,7 +46,7 @@ public:
     void setStart(const QModelIndex &index, int charPos);
     void setEnd(const QModelIndex &index, int charPos);
     void selectWordUnderCursor(const QModelIndex &index, int charPos);
-    void selectWordUnderCursor(const MessageAttachment &msgAttach, int charPos);
+    void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos);
     void selectMessage(const QModelIndex &index);
 
 Q_SIGNALS:
