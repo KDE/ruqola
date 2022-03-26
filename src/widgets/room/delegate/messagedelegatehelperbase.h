@@ -56,6 +56,7 @@ protected:
 
     QListView *const mListView;
     TextSelection mSelection;
+    bool mMightStartDrag = false;
 
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
@@ -67,7 +68,6 @@ protected:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
 
 private:
-    bool mMightStartDrag = false;
     QPersistentModelIndex mCurrentIndex;
     void updateView(const QModelIndex &index);
 };

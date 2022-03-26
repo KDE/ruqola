@@ -118,6 +118,32 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 {
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
+    case QEvent::MouseButtonPress:
+        mMightStartDrag = false;
+        if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+            const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+            const QPoint pos = mouseEvent->pos();
+            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+            const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
+            if (charPos == -1) {
+                return false;
+            }
+            if (mSelection.contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mMightStartDrag = true;
+                return true;
+            }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            // (look there if you want to add these things)
+
+            mSelection.setStart(index, charPos);
+            return true;
+        } else {
+            mSelection.clear();
+        }
+        break;
+
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
@@ -155,8 +181,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     case QEvent::MouseButtonDblClick: {
         if (!mSelection.hasSelection()) {
             if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-                const QPoint pos = mouseEvent->pos();
                 const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+                const QPoint pos = mouseEvent->pos();
                 const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
                 const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
