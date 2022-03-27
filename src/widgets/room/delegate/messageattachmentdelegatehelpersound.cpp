@@ -11,11 +11,13 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "ruqolawidgets_selection_debug.h"
 
 #include <KLocalizedString>
 
 #include <KMessageBox>
 #include <QAbstractItemView>
+#include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QPointer>
@@ -65,6 +67,18 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
     return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
+int MessageAttachmentDelegateHelperSound::charPosition(const QTextDocument *doc,
+                                                       const MessageAttachment &msgAttach,
+                                                       QRect attachmentsRect,
+                                                       const QPoint &pos,
+                                                       const QStyleOptionViewItem &option)
+{
+    const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    return charPos;
+}
+
 bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach,
                                                             QMouseEvent *mouseEvent,
                                                             QRect attachmentsRect,
@@ -87,6 +101,59 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             dlg.setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
             dlg.exec();
             return true;
+        }
+        break;
+    }
+    case QEvent::MouseMove: {
+        if (!mMightStartDrag) {
+            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const QPoint pos = mouseEvent->pos();
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mSelection->setEnd(index, charPos);
+                    return true;
+                }
+            }
+        }
+        break;
+    }
+    case QEvent::MouseButtonDblClick: {
+        if (!mSelection->hasSelection()) {
+            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const QPoint pos = mouseEvent->pos();
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mSelection->selectWordUnderCursor(index, msgAttach, charPos, this);
+                return true;
+            }
+        }
+        break;
+    }
+    case QEvent::MouseButtonPress: {
+        mMightStartDrag = false;
+        if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+            const QPoint pos = mouseEvent->pos();
+            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
+            if (charPos == -1) {
+                return false;
+            }
+            if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mMightStartDrag = true;
+                return true;
+            }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            // (look there if you want to add these things)
+
+            mSelection->setStart(index, charPos);
+            return true;
+        } else {
+            mSelection->clear();
         }
         break;
     }
