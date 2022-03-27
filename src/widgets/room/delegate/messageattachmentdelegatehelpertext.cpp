@@ -195,6 +195,22 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         }
         break;
     }
+    case QEvent::MouseMove: {
+        if (!mMightStartDrag) {
+            if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const QPoint pos = mouseEvent->pos();
+                const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mSelection->setEnd(index, charPos);
+                    return true;
+                }
+            }
+        }
+        break;
+    }
     default:
         break;
     }
