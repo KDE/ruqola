@@ -6,9 +6,13 @@
 
 #pragma once
 
+#include <QAbstractTextDocumentLayout>
 #include <QString>
 #include <QTextDocument>
+#include <QVector>
 #include <memory>
+class TextSelection;
+class QStyleOptionViewItem;
 namespace MessageDelegateUtils
 {
 Q_REQUIRED_RESULT std::unique_ptr<QTextDocument> createTextDocument(bool useItalic, const QString &text, int width);
@@ -20,4 +24,6 @@ void generateToolTip(const QString &toolTip, const QString &href, QString &forma
 Q_REQUIRED_RESULT bool useItalicsForMessage(const QModelIndex &index);
 
 Q_REQUIRED_RESULT bool pendingMessage(const QModelIndex &index);
+Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection>
+selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option);
 }

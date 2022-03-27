@@ -63,21 +63,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-        QVector<QAbstractTextDocumentLayout::Selection> selections;
-        const QTextCursor selectionTextCursor = mSelection->selectionForIndex(index, doc);
-        if (!selectionTextCursor.isNull()) {
-            QTextCharFormat selectionFormat;
-            selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
-            selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
-            selections.append({selectionTextCursor, selectionFormat});
-        }
-        if (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index)) {
-            QTextCursor cursor(doc);
-            cursor.select(QTextCursor::Document);
-            QTextCharFormat format;
-            format.setForeground(Qt::gray); // TODO use color from theme.
-            cursor.mergeCharFormat(format);
-        }
+        const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(mSelection, doc, index, option);
 
         painter->save();
         painter->translate(messageRect.left(), nextY);

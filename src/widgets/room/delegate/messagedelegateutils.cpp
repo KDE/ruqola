@@ -6,11 +6,13 @@
 
 #include "messagedelegateutils.h"
 #include "model/messagemodel.h"
+#include "textselection.h"
 
 #include <QAbstractItemModel>
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QModelIndex>
+#include <QStyleOptionViewItem>
 #include <QTextFrame>
 #include <QTextFrameFormat>
 #include <QTextStream>
@@ -69,4 +71,25 @@ bool MessageDelegateUtils::useItalicsForMessage(const QModelIndex &index)
 bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
 {
     return index.data(MessageModel::PendingMessage).toBool();
+}
+
+QVector<QAbstractTextDocumentLayout::Selection>
+MessageDelegateUtils::selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option)
+{
+    QVector<QAbstractTextDocumentLayout::Selection> selections;
+    const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc);
+    if (!selectionTextCursor.isNull()) {
+        QTextCharFormat selectionFormat;
+        selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
+        selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
+        selections.append({selectionTextCursor, selectionFormat});
+    }
+    if (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index)) {
+        QTextCursor cursor(doc);
+        cursor.select(QTextCursor::Document);
+        QTextCharFormat format;
+        format.setForeground(Qt::gray); // TODO use color from theme.
+        cursor.mergeCharFormat(format);
+    }
+    return selections;
 }
