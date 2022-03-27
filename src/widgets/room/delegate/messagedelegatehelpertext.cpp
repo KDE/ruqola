@@ -124,7 +124,7 @@ bool MessageDelegateHelperText::hasSelection() const
 
 void MessageDelegateHelperText::selectAll(const QModelIndex &index)
 {
-    mSelection.selectMessage(index);
+    mSelection.selectMessage(index, this);
     updateView(index);
     setClipboardSelection();
 }
@@ -139,9 +139,9 @@ void MessageDelegateHelperText::clearTextDocumentCache()
     mDocumentCache.clear();
 }
 
-QString MessageDelegateHelperText::selectedText() const
+QString MessageDelegateHelperText::selectedText()
 {
-    const QString text = mSelection.selectedText(TextSelection::Text);
+    const QString text = mSelection.selectedText(TextSelection::Text, this);
     qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "selected text : " << text;
     return text;
 }
@@ -165,7 +165,7 @@ void MessageDelegateHelperText::setClipboardSelection()
 {
     QClipboard *clipboard = QGuiApplication::clipboard();
     if (mSelection.hasSelection() && clipboard->supportsSelection()) {
-        const QString text = mSelection.selectedText(TextSelection::Text);
+        const QString text = mSelection.selectedText(TextSelection::Text, this);
         clipboard->setText(text, QClipboard::Selection);
     }
 }
@@ -179,7 +179,6 @@ void MessageDelegateHelperText::updateView(const QModelIndex &index)
 MessageDelegateHelperText::MessageDelegateHelperText(QListView *view)
     : QObject(view)
     , mListView(view)
-    , mSelection(this)
 {
     connect(&mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
 }
@@ -310,7 +309,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection.selectWordUnderCursor(index, charPos);
+                mSelection.selectWordUnderCursor(index, charPos, this);
                 return true;
             }
         }
@@ -352,8 +351,8 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mSelection.contains(index, charPos)) {
             auto mimeData = new QMimeData;
-            mimeData->setHtml(mSelection.selectedText(TextSelection::Html));
-            mimeData->setText(mSelection.selectedText(TextSelection::Text));
+            mimeData->setHtml(mSelection.selectedText(TextSelection::Html, this));
+            mimeData->setText(mSelection.selectedText(TextSelection::Text, this));
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);

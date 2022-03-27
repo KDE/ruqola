@@ -11,8 +11,7 @@
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 
-TextSelection::TextSelection(DocumentFactoryInterface *factory)
-    : mDocumentFactory(factory)
+TextSelection::TextSelection()
 {
 }
 
@@ -34,7 +33,7 @@ TextSelection::OrderedPositions TextSelection::orderedPositions() const
     return ret;
 }
 
-QString TextSelection::selectedText(Format format) const
+QString TextSelection::selectedText(Format format, DocumentFactoryInterface *factory) const
 {
     if (!hasSelection()) {
         return {};
@@ -43,7 +42,7 @@ QString TextSelection::selectedText(Format format) const
     QString str;
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
-        QTextDocument *doc = mDocumentFactory->documentForIndex(index);
+        QTextDocument *doc = factory->documentForIndex(index);
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();
@@ -154,9 +153,9 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos)
     mEndPos = charPos;
 }
 
-void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
 {
-    QTextDocument *doc = mDocumentFactory->documentForIndex(index);
+    QTextDocument *doc = factory->documentForIndex(index);
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
@@ -167,9 +166,9 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos)
     mEndPos = cursor.selectionEnd();
 }
 
-void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos)
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
 {
-    QTextDocument *doc = mDocumentFactory->documentForIndex(msgAttach);
+    QTextDocument *doc = factory->documentForIndex(msgAttach);
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
@@ -181,14 +180,14 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
 }
 
-void TextSelection::selectMessage(const QModelIndex &index)
+void TextSelection::selectMessage(const QModelIndex &index, DocumentFactoryInterface *factory)
 {
     Q_ASSERT(index.isValid());
     clear();
     mStartIndex = index;
     mEndIndex = index;
     mStartPos = 0;
-    QTextDocument *doc = mDocumentFactory->documentForIndex(index);
+    QTextDocument *doc = factory->documentForIndex(index);
     if (!doc) {
         return;
     }

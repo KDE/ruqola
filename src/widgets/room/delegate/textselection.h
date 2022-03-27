@@ -32,22 +32,22 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject
 {
     Q_OBJECT
 public:
-    explicit TextSelection(DocumentFactoryInterface *factory);
+    TextSelection();
     Q_REQUIRED_RESULT bool hasSelection() const;
     enum Format {
         Text,
         Html,
     };
-    Q_REQUIRED_RESULT QString selectedText(Format format) const;
+    Q_REQUIRED_RESULT QString selectedText(Format format, DocumentFactoryInterface *factory) const;
     Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos) const;
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc) const;
 
     void clear();
     void setStart(const QModelIndex &index, int charPos);
     void setEnd(const QModelIndex &index, int charPos);
-    void selectWordUnderCursor(const QModelIndex &index, int charPos);
-    void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos);
-    void selectMessage(const QModelIndex &index);
+    void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory);
+    void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory);
+    void selectMessage(const QModelIndex &index, DocumentFactoryInterface *factory);
 
 Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
@@ -65,5 +65,4 @@ private:
     QPersistentModelIndex mEndIndex;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
-    DocumentFactoryInterface *const mDocumentFactory;
 };

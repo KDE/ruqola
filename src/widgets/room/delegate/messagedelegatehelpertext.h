@@ -44,7 +44,7 @@ public:
     }
 
     Q_REQUIRED_RESULT bool hasSelection() const;
-    Q_REQUIRED_RESULT QString selectedText() const;
+    Q_REQUIRED_RESULT QString selectedText();
     void clearSelection();
 
     void selectAll(const QModelIndex &index);

@@ -22,7 +22,6 @@ MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
 MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view)
     : mListView(view)
-    , mSelection(this)
 {
     connect(&mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
 }

@@ -189,7 +189,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection.selectWordUnderCursor(index, msgAttach, charPos);
+                mSelection.selectWordUnderCursor(index, msgAttach, charPos, this);
                 return true;
             }
         }
