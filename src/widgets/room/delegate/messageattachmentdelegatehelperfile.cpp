@@ -31,8 +31,8 @@
 //  Name <download icon>
 //  Description
 
-MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(QListView *view)
-    : MessageDelegateHelperBase(view)
+MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(QListView *view, TextSelection *textSelection)
+    : MessageDelegateHelperBase(view, textSelection)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {
 }

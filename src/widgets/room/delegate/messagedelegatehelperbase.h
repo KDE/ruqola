@@ -29,7 +29,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
-    explicit MessageDelegateHelperBase(QListView *view);
+    explicit MessageDelegateHelperBase(QListView *view, TextSelection *textSelection);
     virtual ~MessageDelegateHelperBase();
 
     virtual void
@@ -55,7 +55,7 @@ protected:
     void drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const;
 
     QListView *const mListView;
-    TextSelection mSelection;
+    TextSelection *const mSelection;
     bool mMightStartDrag = false;
 
     /**

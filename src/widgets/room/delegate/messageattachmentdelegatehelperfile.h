@@ -15,7 +15,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperFile : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperFile(QListView *view);
+    explicit MessageAttachmentDelegateHelperFile(QListView *view, TextSelection *textSelection);
     ~MessageAttachmentDelegateHelperFile() override;
     void draw(const MessageAttachment &msgAttach,
               QPainter *painter,

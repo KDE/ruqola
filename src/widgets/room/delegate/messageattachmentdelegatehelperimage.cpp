@@ -23,8 +23,8 @@
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(QListView *view)
-    : MessageDelegateHelperBase(view)
+MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(QListView *view, TextSelection *textSelection)
+    : MessageDelegateHelperBase(view, textSelection)
 {
 }
 

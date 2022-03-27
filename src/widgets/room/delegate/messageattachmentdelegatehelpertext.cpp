@@ -25,8 +25,8 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
-MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view)
-    : MessageDelegateHelperBase(view)
+MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view, TextSelection *textSelection)
+    : MessageDelegateHelperBase(view, textSelection)
 {
 }
 
@@ -64,7 +64,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
             return;
         }
         QVector<QAbstractTextDocumentLayout::Selection> selections;
-        const QTextCursor selectionTextCursor = mSelection.selectionForIndex(index, doc);
+        const QTextCursor selectionTextCursor = mSelection->selectionForIndex(index, doc);
         if (!selectionTextCursor.isNull()) {
             QTextCharFormat selectionFormat;
             selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
@@ -129,7 +129,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             if (charPos == -1) {
                 return false;
             }
-            if (mSelection.contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
                 return true;
             }
@@ -137,10 +137,10 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mSelection.setStart(index, charPos);
+            mSelection->setStart(index, charPos);
             return true;
         } else {
-            mSelection.clear();
+            mSelection->clear();
         }
         break;
 
@@ -179,7 +179,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         break;
     }
     case QEvent::MouseButtonDblClick: {
-        if (!mSelection.hasSelection()) {
+        if (!mSelection->hasSelection()) {
             if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
                 const QPoint pos = mouseEvent->pos();
@@ -189,7 +189,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection.selectWordUnderCursor(index, msgAttach, charPos, this);
+                mSelection->selectWordUnderCursor(index, msgAttach, charPos, this);
                 return true;
             }
         }

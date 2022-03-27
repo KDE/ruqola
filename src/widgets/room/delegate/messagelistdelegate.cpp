@@ -22,6 +22,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "textselection.h"
 
 #include <QAbstractItemView>
 #include <QApplication>
@@ -56,13 +57,14 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
-    , mHelperText(new MessageDelegateHelperText(view))
-    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view))
-    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view))
+    , mTextSelection(new TextSelection)
+    , mHelperText(new MessageDelegateHelperText(view, mTextSelection))
+    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view, mTextSelection))
+    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view, mTextSelection))
     , mHelperReactions(new MessageDelegateHelperReactions)
-    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view))
-    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view))
-    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view))
+    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view, mTextSelection))
+    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view, mTextSelection))
+    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelection))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     KColorScheme scheme = Colors::self().schemeView();
@@ -73,7 +75,10 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
 }
 
-MessageListDelegate::~MessageListDelegate() = default;
+MessageListDelegate::~MessageListDelegate()
+{
+    delete mTextSelection;
+}
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {

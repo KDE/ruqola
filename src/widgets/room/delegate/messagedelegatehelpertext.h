@@ -29,7 +29,7 @@ class MessageDelegateHelperText : public QObject, public DocumentFactoryInterfac
 {
     Q_OBJECT
 public:
-    explicit MessageDelegateHelperText(QListView *view);
+    explicit MessageDelegateHelperText(QListView *view, TextSelection *textSelection);
     ~MessageDelegateHelperText() override;
     void draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
@@ -73,6 +73,6 @@ private:
     bool mShowThreadContext = true;
     bool mMightStartDrag = false;
     QListView *const mListView;
-    TextSelection mSelection;
+    TextSelection *const mSelection;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

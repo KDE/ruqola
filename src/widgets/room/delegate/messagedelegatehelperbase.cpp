@@ -20,10 +20,11 @@
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
-MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view)
+MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view, TextSelection *textSelection)
     : mListView(view)
+    , mSelection(textSelection)
 {
-    connect(&mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
+    connect(mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
 }
 
 void MessageDelegateHelperBase::updateView(const QModelIndex &index)
