@@ -11,6 +11,7 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "ruqolawidgets_selection_debug.h"
 
 #include <KLocalizedString>
 
@@ -112,7 +113,9 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                                                             const QStyleOptionViewItem &option,
                                                             const QModelIndex &index)
 {
-    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+    const QEvent::Type eventType = mouseEvent->type();
+    switch (eventType) {
+    case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
 
         const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
@@ -145,6 +148,71 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             }
             return true;
         }
+        break;
+    }
+#if 1
+    case QEvent::MouseMove: {
+        if (!mMightStartDrag) {
+            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const QPoint pos = mouseEvent->pos();
+                const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mSelection->setEnd(index, charPos);
+                    return true;
+                }
+            }
+        }
+        break;
+    }
+    case QEvent::MouseButtonDblClick: {
+        if (!mSelection->hasSelection()) {
+            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+                const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+                const QPoint pos = mouseEvent->pos();
+                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mSelection->selectWordUnderCursor(index, msgAttach, charPos, this);
+                return true;
+            }
+        }
+        break;
+    }
+    case QEvent::MouseButtonPress: {
+        mMightStartDrag = false;
+        if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
+            const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+            const QPoint pos = mouseEvent->pos();
+            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+            const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
+            if (charPos == -1) {
+                return false;
+            }
+            if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mMightStartDrag = true;
+                return true;
+            }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            // (look there if you want to add these things)
+
+            mSelection->setStart(index, charPos);
+            return true;
+        } else {
+            mSelection->clear();
+        }
+        break;
+    }
+#endif
+    default:
+        break;
     }
 
     return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
