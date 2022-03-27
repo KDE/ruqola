@@ -182,9 +182,11 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
                                                            const QStyleOptionViewItem &option,
                                                            const QModelIndex &index)
 {
-    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
-        const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
+    const QEvent::Type eventType = mouseEvent->type();
+    switch (eventType) {
+    case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
+        const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
 
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             handleDownloadClicked(layout.link, const_cast<QWidget *>(option.widget));
@@ -203,6 +205,10 @@ bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachme
                 return true;
             }
         }
+        break;
+    }
+    default:
+        break;
     }
 
     return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);

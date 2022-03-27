@@ -71,7 +71,9 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
                                                             const QStyleOptionViewItem &option,
                                                             const QModelIndex &index)
 {
-    if (mouseEvent->type() == QEvent::MouseButtonRelease) {
+    const QEvent::Type eventType = mouseEvent->type();
+    switch (eventType) {
+    case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
 
         VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
@@ -86,6 +88,10 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
             dlg.exec();
             return true;
         }
+        break;
+    }
+    default:
+        break;
     }
 
     return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
