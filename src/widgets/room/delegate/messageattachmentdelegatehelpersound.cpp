@@ -44,7 +44,7 @@ void MessageAttachmentDelegateHelperSound::draw(const MessageAttachment &msgAtta
     mDownloadIcon.paint(painter, layout.downloadButtonRect.translated(messageRect.topLeft()));
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    drawDescription(msgAttach, messageRect, painter, nextY);
+    drawDescription(msgAttach, messageRect, painter, nextY, index, option);
 }
 
 QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &msgAttach,

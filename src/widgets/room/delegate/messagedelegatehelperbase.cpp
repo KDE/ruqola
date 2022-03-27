@@ -95,13 +95,19 @@ void MessageDelegateHelperBase::clearTextDocumentCache()
     mDocumentCache.clear();
 }
 
-void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach, QRect descriptionRect, QPainter *painter, int topPos) const
+void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
+                                                QRect descriptionRect,
+                                                QPainter *painter,
+                                                int topPos,
+                                                const QModelIndex &index,
+                                                const QStyleOptionViewItem &option) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());
     if (!doc) {
         return;
     }
 
+    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(mSelection, doc, index, option);
     painter->save();
     // painter->drawRect(descriptionRect);
     painter->translate(descriptionRect.left(), topPos);
@@ -109,7 +115,7 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
 
     // Same as pDoc->drawContents(painter, clip) but we also set selections
     QAbstractTextDocumentLayout::PaintContext ctx;
-    // FIXME ctx.selections = selections;
+    ctx.selections = selections;
     if (clip.isValid()) {
         painter->setClipRect(clip);
         ctx.clip = clip;

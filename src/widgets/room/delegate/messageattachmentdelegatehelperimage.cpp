@@ -82,7 +82,7 @@ void MessageAttachmentDelegateHelperImage::draw(const MessageAttachment &msgAtta
         }
     }
 
-    drawDescription(msgAttach, messageRect, painter, nextY);
+    drawDescription(msgAttach, messageRect, painter, nextY, index, option);
 }
 
 QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &msgAttach,

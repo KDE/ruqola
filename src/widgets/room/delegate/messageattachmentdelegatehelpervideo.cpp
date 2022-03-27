@@ -46,7 +46,7 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
 
-    drawDescription(msgAttach, messageRect, painter, nextY);
+    drawDescription(msgAttach, messageRect, painter, nextY, index, option);
 }
 
 QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &msgAttach,

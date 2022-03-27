@@ -52,7 +52,12 @@ protected:
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
     Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
-    void drawDescription(const MessageAttachment &msgAttach, QRect messageRect, QPainter *painter, int topPos) const;
+    void drawDescription(const MessageAttachment &msgAttach,
+                         QRect messageRect,
+                         QPainter *painter,
+                         int topPos,
+                         const QModelIndex &index,
+                         const QStyleOptionViewItem &option) const;
 
     QListView *const mListView;
     TextSelection *const mSelection;

@@ -67,7 +67,7 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
         painter->setFont(oldFont);
     }
     const int descriptionY = y + layout.titleSize.height() + DelegatePaintUtil::margin();
-    drawDescription(msgAttach, attachmentsRect, painter, descriptionY);
+    drawDescription(msgAttach, attachmentsRect, painter, descriptionY, index, option);
 }
 
 QSize MessageAttachmentDelegateHelperFile::sizeHint(const MessageAttachment &msgAttach,
