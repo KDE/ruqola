@@ -107,6 +107,18 @@ QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &ms
     return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
+int MessageAttachmentDelegateHelperImage::charPosition(const QTextDocument *doc,
+                                                       const MessageAttachment &msgAttach,
+                                                       QRect attachmentsRect,
+                                                       const QPoint &pos,
+                                                       const QStyleOptionViewItem &option)
+{
+    const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    return charPos;
+}
+
 bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachment &msgAttach,
                                                             QMouseEvent *mouseEvent,
                                                             QRect attachmentsRect,
@@ -150,14 +162,11 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
         }
         break;
     }
-#if 1
     case QEvent::MouseMove: {
         if (!mMightStartDrag) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
-                const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
-                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
                     mSelection->setEnd(index, charPos);
@@ -170,10 +179,8 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     case QEvent::MouseButtonDblClick: {
         if (!mSelection->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-                const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
                 const QPoint pos = mouseEvent->pos();
-                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
-                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
                     return false;
@@ -187,10 +194,8 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     case QEvent::MouseButtonPress: {
         mMightStartDrag = false;
         if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-            const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
             const QPoint pos = mouseEvent->pos();
-            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
-            const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
                 return false;
@@ -210,7 +215,6 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
         }
         break;
     }
-#endif
     default:
         break;
     }

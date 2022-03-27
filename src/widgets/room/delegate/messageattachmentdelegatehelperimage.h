@@ -59,6 +59,8 @@ private:
     void removeRunningAnimatedImage(const QModelIndex &index) const;
 
 private:
+    Q_REQUIRED_RESULT int
+    charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
     mutable PixmapCache mPixmapCache;
     mutable std::vector<RunningAnimatedImage> mRunningAnimatedImages; // not a hash or map, since QPersistentModelIndex changes value
 };
