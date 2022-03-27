@@ -142,6 +142,7 @@ void MessageDelegateHelperText::clearTextDocumentCache()
 QString MessageDelegateHelperText::selectedText()
 {
     const QString text = mSelection->selectedText(TextSelection::Text, this);
+    // TODO fix selectedText when we are attachment
     qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "selected text : " << text;
     return text;
 }
