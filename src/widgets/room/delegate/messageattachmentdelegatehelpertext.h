@@ -46,4 +46,6 @@ private:
                                             int attachmentsWidth,
                                             int attachmentsHeight) const;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach, int width) const;
+    Q_REQUIRED_RESULT int
+    charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
 };

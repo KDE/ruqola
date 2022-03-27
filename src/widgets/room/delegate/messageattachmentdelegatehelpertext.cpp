@@ -96,6 +96,18 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     return {static_cast<int>(qMax(layout.titleRect.width(), static_cast<qreal>(maxWidth))), height};
 }
 
+int MessageAttachmentDelegateHelperText::charPosition(const QTextDocument *doc,
+                                                      const MessageAttachment &msgAttach,
+                                                      QRect attachmentsRect,
+                                                      const QPoint &pos,
+                                                      const QStyleOptionViewItem &option)
+{
+    const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    return charPos;
+}
+
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
                                                            QMouseEvent *mouseEvent,
                                                            QRect attachmentsRect,
@@ -107,10 +119,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     case QEvent::MouseButtonPress:
         mMightStartDrag = false;
         if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-            const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
             const QPoint pos = mouseEvent->pos();
-            const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-            const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
                 return false;
@@ -167,10 +177,8 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
     case QEvent::MouseButtonDblClick: {
         if (!mSelection->hasSelection()) {
             if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-                const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
                 const QPoint pos = mouseEvent->pos();
-                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
                     return false;
@@ -185,9 +193,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         if (!mMightStartDrag) {
             if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
-                const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-                const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
                     mSelection->setEnd(index, charPos);
