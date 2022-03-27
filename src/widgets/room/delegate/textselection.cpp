@@ -42,6 +42,7 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
     QString str;
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
+        // TODO fix documentForIndex with attachment
         QTextDocument *doc = factory->documentForIndex(index);
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);

@@ -29,7 +29,7 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view, TextSelect
 
 void MessageDelegateHelperBase::updateView(const QModelIndex &index)
 {
-    qDebug() << " void MessageDelegateHelperBase::updateView(const QModelIndex &index)" << index;
+    // qDebug() << " void MessageDelegateHelperBase::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
 
