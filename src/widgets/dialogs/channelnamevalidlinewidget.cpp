@@ -9,6 +9,7 @@
 
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <KStatefulBrush>
 #include <QLabel>
 #include <QVBoxLayout>
 
