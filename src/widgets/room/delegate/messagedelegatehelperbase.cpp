@@ -183,6 +183,7 @@ QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachme
 
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     // Unused here
     return nullptr;
 }
@@ -200,7 +201,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
-        if (!qFuzzyCompare(ret->textWidth(), width)) {
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
             ret->setTextWidth(width);
         }
         return ret;
