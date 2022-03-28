@@ -49,6 +49,7 @@
 #include <KNotifyConfigWidget>
 #include <KSharedConfig>
 #include <KStandardAction>
+#include <KToggleFullScreenAction>
 #include <KToolBar>
 #include <QApplication>
 #include <QCommandLineParser>
@@ -431,6 +432,10 @@ void RuqolaMainWindow::setupActions()
 
     auto manager = new KColorSchemeManager(this);
     ac->addAction(QStringLiteral("colorscheme_menu"), manager->createSchemeSelectionMenu(this));
+
+    mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);
+    ac->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
+    connect(mShowFullScreenAction, &QAction::toggled, this, &RuqolaMainWindow::slotFullScreen);
 }
 
 void RuqolaMainWindow::showNextView()
@@ -765,4 +770,24 @@ void RuqolaMainWindow::updateHamburgerMenu()
     menu->addSeparator();
     menu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Quit))));
     mHamburgerMenu->setMenu(menu);
+}
+
+void RuqolaMainWindow::slotFullScreen(bool t)
+{
+    KToggleFullScreenAction::setFullScreen(this, t);
+    QMenuBar *mb = menuBar();
+    if (t) {
+        auto b = new QToolButton(mb);
+        b->setDefaultAction(mShowFullScreenAction);
+        b->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Ignored));
+        b->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
+        mb->setCornerWidget(b, Qt::TopRightCorner);
+        b->setVisible(true);
+        b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    } else {
+        QWidget *w = mb->cornerWidget(Qt::TopRightCorner);
+        if (w) {
+            w->deleteLater();
+        }
+    }
 }

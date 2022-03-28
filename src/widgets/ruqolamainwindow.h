@@ -24,6 +24,7 @@ class QCommandLineParser;
 class SwitchChannelTreeViewManager;
 class KToggleAction;
 class KHamburgerMenu;
+class KToggleFullScreenAction;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -83,6 +84,7 @@ private:
     void redoSwitchChannel();
     void slotToggleMenubar(bool dontShowWarning);
     void updateHamburgerMenu();
+    void slotFullScreen(bool t);
 
     bool mReallyClose{false};
 
@@ -114,4 +116,5 @@ private:
     SwitchChannelTreeViewManager *const mSwitchChannelTreeManager;
     KToggleAction *mShowMenuBarAction = nullptr;
     KHamburgerMenu *mHamburgerMenu = nullptr;
+    KToggleFullScreenAction *mShowFullScreenAction = nullptr;
 };

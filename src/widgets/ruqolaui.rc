@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="31">
+<gui name="ruqola" version="33">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -43,9 +43,11 @@
     <text>&amp;Settings</text>
     <Action name="colorscheme_menu" />
   </Menu>
-  <Menu name="display" >
-   <text>Display</text>
+  <Menu name="view" >
+   <text>View</text>
    <Action name="unread_on_top" />
+   <Separator/>
+   <Action name="fullscreen"/>
   </Menu>
  </MenuBar>
  <ToolBar noMerge="1" name="mainToolBar" fullWidth="true" ><text>Main Toolbar</text>
