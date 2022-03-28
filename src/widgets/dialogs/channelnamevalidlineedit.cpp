@@ -8,8 +8,12 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 
+#include <kconfigwidgets_version.h>
+
 #include <KColorScheme>
-#include <KStatefulBrush>
+#if KCONFIGWIDGETS_VERSION >= QT_VERSION_CHECK(5, 93, 0)
+#include <KStatefulBrush> // was moved to own header in 5.93.0
+#endif
 
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
