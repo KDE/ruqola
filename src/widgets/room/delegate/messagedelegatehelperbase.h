@@ -66,6 +66,7 @@ protected:
 
     QListView *const mListView;
     TextSelection *const mSelection;
+    // TODO use unique mMightStartDrag see messageDelegateHelperText
     bool mMightStartDrag = false;
 
     /**
