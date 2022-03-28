@@ -173,7 +173,7 @@ void MessageDelegateHelperText::setClipboardSelection()
 
 void MessageDelegateHelperText::updateView(const QModelIndex &index)
 {
-    qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
+    // qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
 
