@@ -43,11 +43,16 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
         QTextDocument *doc = nullptr;
+#ifdef ATTACHMENT_SUPPORT_ACTIVATED // Bug at the moment as we call it with     DocumentFactoryInterface *factory == messagedelegatehelpertext all the time and
+                                    // not with attachment
         if (mStartMsgAttach.isValid()) {
             doc = factory->documentForIndex(mStartMsgAttach);
         } else {
             doc = factory->documentForIndex(index);
         }
+#else
+        doc = factory->documentForIndex(index);
+#endif
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();
