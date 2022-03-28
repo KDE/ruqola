@@ -522,6 +522,9 @@ target_sources(libruqolawidgets PRIVATE
 
     messagemaximumsizedialog/messagemaximumsizewidget.cpp
     messagemaximumsizedialog/messagemaximumsizewidget.h
+
+    notificationhistory/notificationhistorydialog.h
+    notificationhistory/notificationhistorydialog.cpp
     )
 
 
