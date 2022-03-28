@@ -51,7 +51,7 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mSelection->setEnd(index, charPos);
+                    mSelection->setEnd(index, charPos, msgAttach);
                     return true;
                 }
             }
@@ -97,7 +97,7 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mSelection->setStart(index, charPos);
+            mSelection->setStart(index, charPos, msgAttach);
             return true;
         } else {
             mSelection->clear();

@@ -42,8 +42,12 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
     QString str;
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
-        // TODO fix documentForIndex with attachment
-        QTextDocument *doc = factory->documentForIndex(index);
+        QTextDocument *doc = nullptr;
+        if (mStartMsgAttach.isValid()) {
+            doc = factory->documentForIndex(mStartMsgAttach);
+        } else {
+            doc = factory->documentForIndex(index);
+        }
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();
@@ -107,6 +111,8 @@ void TextSelection::clear()
     mEndIndex = QPersistentModelIndex{};
     mStartPos = -1;
     mEndPos = -1;
+    mStartMsgAttach = {};
+    mEndMsgAttach = {};
 
     // Repaint indexes that are no longer selected
     if (ordered.fromRow > -1) {
@@ -120,15 +126,16 @@ void TextSelection::clear()
     }
 }
 
-void TextSelection::setStart(const QModelIndex &index, int charPos)
+void TextSelection::setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
 {
     clear();
     Q_ASSERT(index.isValid());
     mStartIndex = index;
     mStartPos = charPos;
+    mStartMsgAttach = msgAttach;
 }
 
-void TextSelection::setEnd(const QModelIndex &index, int charPos)
+void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
 {
     int from = mEndIndex.row();
     int to = index.row();
@@ -152,6 +159,7 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos)
     Q_ASSERT(index.isValid());
     mEndIndex = index;
     mEndPos = charPos;
+    mEndMsgAttach = msgAttach;
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
@@ -178,6 +186,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
+    mStartMsgAttach = msgAttach;
+    mEndMsgAttach = msgAttach;
     qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
 }
 

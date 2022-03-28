@@ -7,13 +7,13 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "messages/messageattachment.h"
 
 #include <QObject>
 #include <QPersistentModelIndex>
 
 class QTextCursor;
 class QTextDocument;
-class MessageAttachment;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DocumentFactoryInterface
 {
@@ -43,8 +43,8 @@ public:
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc) const;
 
     void clear();
-    void setStart(const QModelIndex &index, int charPos);
-    void setEnd(const QModelIndex &index, int charPos);
+    void setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
+    void setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
     void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory);
     void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory);
     void selectMessage(const QModelIndex &index, DocumentFactoryInterface *factory);
@@ -63,6 +63,8 @@ private:
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
+    MessageAttachment mStartMsgAttach;
+    MessageAttachment mEndMsgAttach;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
 };
