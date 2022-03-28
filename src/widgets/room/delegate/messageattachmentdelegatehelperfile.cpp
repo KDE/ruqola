@@ -20,6 +20,7 @@
 #include <KLocalizedString>
 #include <KService>
 
+#include <QAbstractTextDocumentLayout>
 #include <QMessageBox>
 #include <QMimeDatabase>
 #include <QMouseEvent>
@@ -174,6 +175,18 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     case UserChoice::Cancel:
         break;
     }
+}
+
+int MessageAttachmentDelegateHelperFile::charPosition(const QTextDocument *doc,
+                                                      const MessageAttachment &msgAttach,
+                                                      QRect attachmentsRect,
+                                                      const QPoint &pos,
+                                                      const QStyleOptionViewItem &option)
+{
+    const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    return charPos;
 }
 
 bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach,

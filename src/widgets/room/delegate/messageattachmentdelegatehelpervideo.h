@@ -39,8 +39,11 @@ private:
         QRect downloadButtonRect;
         QRect showButtonRect;
     };
-    Q_REQUIRED_RESULT int
-    charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
+    Q_REQUIRED_RESULT int charPosition(const QTextDocument *doc,
+                                       const MessageAttachment &msgAttach,
+                                       QRect attachmentsRect,
+                                       const QPoint &pos,
+                                       const QStyleOptionViewItem &option) override;
     Q_REQUIRED_RESULT VideoLayout layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     const QIcon mDownloadIcon;
     const QIcon mVisibilityIcon;

@@ -45,6 +45,11 @@ private:
     };
     Q_REQUIRED_RESULT FileLayout doLayout(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const;
     void handleDownloadClicked(const QString &link, QWidget *widget);
+    Q_REQUIRED_RESULT int charPosition(const QTextDocument *doc,
+                                       const MessageAttachment &msgAttach,
+                                       QRect attachmentsRect,
+                                       const QPoint &pos,
+                                       const QStyleOptionViewItem &option) override;
     friend class MessageDelegateHelperFileTest;
     const QIcon mDownloadIcon;
 };
