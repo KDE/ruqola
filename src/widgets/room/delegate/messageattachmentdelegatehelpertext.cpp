@@ -59,7 +59,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         nextY += layout.titleRect.height() + DelegatePaintUtil::margin();
     }
     if (layout.isShown || layout.title.isEmpty()) {
-        auto *doc = documentForIndex(msgAttach, messageRect.width());
+        auto *doc = documentAttachmentForIndex(msgAttach, messageRect.width());
         if (!doc) {
             return;
         }
@@ -136,7 +136,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             }
         }
         // Clicks on links
-        auto *doc = documentForIndex(msgAttach, attachmentsRect.width());
+        auto *doc = documentAttachmentForIndex(msgAttach, attachmentsRect.width());
         if (doc) {
             // Fix mouse position (we have layout.titleSize.height() + DelegatePaintUtil::margin() too)
             const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
@@ -176,12 +176,12 @@ MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperT
         layout.titleRect = QRectF(QPoint(/*DelegatePaintUtil::margin()*/ 0, 0), titleSize);
     }
     layout.isShown = msgAttach.showAttachment();
-    auto *doc = documentForIndex(msgAttach, attachmentsWidth);
+    auto *doc = documentAttachmentForIndex(msgAttach, attachmentsWidth);
     layout.textSize = doc ? QSize(doc->idealWidth(), doc->size().height()) : QSize();
     return layout;
 }
 
-QTextDocument *MessageAttachmentDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach, int width) const
+QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(const MessageAttachment &msgAttach, int width) const
 {
     const QString attachmentId = msgAttach.attachmentId();
     auto it = mDocumentCache.find(attachmentId);
@@ -256,7 +256,7 @@ bool MessageAttachmentDelegateHelperText::handleHelpEvent(QHelpEvent *helpEvent,
         }
     }
 
-    const auto *doc = documentForIndex(msgAttach, messageRect.width());
+    const auto *doc = documentAttachmentForIndex(msgAttach, messageRect.width());
     if (!doc) {
         return false;
     }

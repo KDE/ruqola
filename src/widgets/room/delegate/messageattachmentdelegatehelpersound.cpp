@@ -74,7 +74,7 @@ int MessageAttachmentDelegateHelperSound::charPosition(const QTextDocument *doc,
                                                        const QStyleOptionViewItem &option)
 {
     const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
     const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
     return charPos;
 }

@@ -114,7 +114,7 @@ int MessageAttachmentDelegateHelperImage::charPosition(const QTextDocument *doc,
                                                        const QStyleOptionViewItem &option)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, /*layout.titleRect.height() +*/ DelegatePaintUtil::margin());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
     const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
     return charPos;
 }
