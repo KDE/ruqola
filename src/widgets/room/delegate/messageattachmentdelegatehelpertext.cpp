@@ -116,30 +116,6 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
 {
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
-    case QEvent::MouseButtonPress:
-        mMightStartDrag = false;
-        if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-            const QPoint pos = mouseEvent->pos();
-            const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
-            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
-            if (charPos == -1) {
-                return false;
-            }
-            if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
-                mMightStartDrag = true;
-                return true;
-            }
-
-            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
-            // (look there if you want to add these things)
-
-            mSelection->setStart(index, charPos);
-            return true;
-        } else {
-            mSelection->clear();
-        }
-        break;
-
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
         const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
@@ -172,35 +148,6 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             }
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
-        break;
-    }
-    case QEvent::MouseButtonDblClick: {
-        if (!mSelection->hasSelection()) {
-            if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-                const QPoint pos = mouseEvent->pos();
-                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
-                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
-                if (charPos == -1) {
-                    return false;
-                }
-                mSelection->selectWordUnderCursor(index, msgAttach, charPos, this);
-                return true;
-            }
-        }
-        break;
-    }
-    case QEvent::MouseMove: {
-        if (!mMightStartDrag) {
-            if (const auto *doc = documentForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
-                const QPoint pos = mouseEvent->pos();
-                const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
-                if (charPos != -1) {
-                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mSelection->setEnd(index, charPos);
-                    return true;
-                }
-            }
-        }
         break;
     }
     default:
