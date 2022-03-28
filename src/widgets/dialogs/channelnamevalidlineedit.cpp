@@ -9,6 +9,7 @@
 #include "ruqolawidgets_debug.h"
 
 #include <KColorScheme>
+#include <KStatefulBrush>
 
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
