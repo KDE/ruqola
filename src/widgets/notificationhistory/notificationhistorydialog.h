@@ -7,11 +7,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class NotificationHistoryWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit NotificationHistoryDialog(QWidget *parent = nullptr);
     ~NotificationHistoryDialog() override;
+
+private:
+    NotificationHistoryWidget *const mNotificationHistoryWidget;
 };

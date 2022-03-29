@@ -5,9 +5,11 @@
 */
 
 #include "notificationhistorydialog.h"
+#include "notificationhistorywidget.h"
 
 NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
     : QDialog(parent)
+    , mNotificationHistoryWidget(new NotificationHistoryWidget(this))
 {
 }
 
