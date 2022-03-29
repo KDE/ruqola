@@ -10,6 +10,7 @@
     "fname": "foo",
     "jitsiTimeout": -1,
     "lastSeenAt": 1521094705114,
+    "msgs": 0,
     "name": "foo",
     "notifications": {
         "audioNotificationValue": "",

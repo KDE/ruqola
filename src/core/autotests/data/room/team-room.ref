@@ -9,6 +9,7 @@
     "fname": "ruqola-team",
     "jitsiTimeout": -1,
     "lastSeenAt": -1,
+    "msgs": 0,
     "name": "ruqola-team",
     "notifications": {
         "audioNotificationValue": "",

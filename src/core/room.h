@@ -254,6 +254,10 @@ public:
 
     Q_REQUIRED_RESULT Room::TeamRoomInfo teamRoomInfo() const;
     Q_REQUIRED_RESULT bool roomIsBlocked() const;
+
+    Q_REQUIRED_RESULT int messageCount() const;
+    void setMessageCount(int newMessageCount);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -302,6 +306,7 @@ Q_SIGNALS:
 
     void retentionInfoChanged();
     void teamInfoChanged();
+    void messageCountChanged();
 
 private:
     Q_DISABLE_COPY(Room)
@@ -377,6 +382,8 @@ private:
     int mUserMentions = 0;
 
     int mThreadCount = 0;
+
+    int mMessageCount = 0;
 
     // ro - read-only chat or not
     bool mReadOnly = false;
