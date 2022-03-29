@@ -525,6 +525,8 @@ target_sources(libruqolawidgets PRIVATE
 
     notificationhistory/notificationhistorydialog.h
     notificationhistory/notificationhistorydialog.cpp
+    notificationhistory/notificationhistorywidget.h
+    notificationhistory/notificationhistorywidget.cpp
     )
 
 

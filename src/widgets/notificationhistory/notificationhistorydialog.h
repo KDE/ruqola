@@ -5,9 +5,10 @@
 */
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QDialog>
 
-class NotificationHistoryDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDialog : public QDialog
 {
     Q_OBJECT
 public:
