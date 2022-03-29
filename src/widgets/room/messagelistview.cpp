@@ -78,22 +78,25 @@ MessageListView::~MessageListView()
 
 void MessageListView::paintEvent(QPaintEvent *e)
 {
+#if 0
     if (mRoom) {
-        qDebug() << " mRoom->messageCount()" << mRoom->messageCount();
-        if (mRoom->messageCount() == 0) {
+        if (mRoom->roomIsEmpty()) {
             QPainter p(viewport());
 
             QFont font = p.font();
             font.setItalic(true);
             p.setFont(font);
 
-            p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, i18n("No result found"));
+            p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, i18n("Room is Empty."));
         } else {
             QListView::paintEvent(e);
         }
     } else {
         QListView::paintEvent(e);
     }
+#else
+    QListView::paintEvent(e);
+#endif
 }
 
 void MessageListView::slotUpdateLastSeen()
