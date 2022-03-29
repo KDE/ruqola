@@ -26,4 +26,12 @@ Q_REQUIRED_RESULT bool useItalicsForMessage(const QModelIndex &index);
 Q_REQUIRED_RESULT bool pendingMessage(const QModelIndex &index);
 Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection>
 selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option);
+
+void drawSelection(QTextDocument *doc,
+                   QRect rect,
+                   int top,
+                   QPainter *painter,
+                   const QModelIndex &index,
+                   const QStyleOptionViewItem &option,
+                   TextSelection *selection);
 }

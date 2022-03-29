@@ -12,6 +12,7 @@
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QModelIndex>
+#include <QPainter>
 #include <QStyleOptionViewItem>
 #include <QTextFrame>
 #include <QTextFrameFormat>
@@ -92,4 +93,28 @@ MessageDelegateUtils::selection(TextSelection *selection, QTextDocument *doc, co
         cursor.mergeCharFormat(format);
     }
     return selections;
+}
+
+void MessageDelegateUtils::drawSelection(QTextDocument *doc,
+                                         QRect rect,
+                                         int top,
+                                         QPainter *painter,
+                                         const QModelIndex &index,
+                                         const QStyleOptionViewItem &option,
+                                         TextSelection *selection)
+{
+    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option);
+    painter->save();
+    painter->translate(rect.left(), top);
+    const QRect clip(0, 0, rect.width(), rect.height());
+
+    // Same as pDoc->drawContents(painter, clip) but we also set selections
+    QAbstractTextDocumentLayout::PaintContext ctx;
+    ctx.selections = selections;
+    if (clip.isValid()) {
+        painter->setClipRect(clip);
+        ctx.clip = clip;
+    }
+    doc->documentLayout()->draw(painter, ctx);
+    painter->restore();
 }
