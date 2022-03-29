@@ -63,21 +63,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-        const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(mSelection, doc, index, option);
-
-        painter->save();
-        painter->translate(messageRect.left(), nextY);
-        const QRect clip(0, 0, messageRect.width(), messageRect.height());
-
-        // Same as pDoc->drawContents(painter, clip) but we also set selections
-        QAbstractTextDocumentLayout::PaintContext ctx;
-        ctx.selections = selections;
-        if (clip.isValid()) {
-            painter->setClipRect(clip);
-            ctx.clip = clip;
-        }
-        doc->documentLayout()->draw(painter, ctx);
-        painter->restore();
+        MessageDelegateUtils::drawSelection(doc, messageRect, nextY, painter, index, option, mSelection);
     }
 }
 

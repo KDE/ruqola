@@ -194,20 +194,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
         return;
     }
 
-    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(mSelection, doc, index, option);
-    painter->save();
-    painter->translate(rect.left(), rect.top());
-    const QRect clip(0, 0, rect.width(), rect.height());
-
-    // Same as pDoc->drawContents(painter, clip) but we also set selections
-    QAbstractTextDocumentLayout::PaintContext ctx;
-    ctx.selections = selections;
-    if (clip.isValid()) {
-        painter->setClipRect(clip);
-        ctx.clip = clip;
-    }
-    doc->documentLayout()->draw(painter, ctx);
-    painter->restore();
+    MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mSelection);
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
