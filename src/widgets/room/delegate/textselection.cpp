@@ -203,7 +203,17 @@ void TextSelection::selectMessage(const QModelIndex &index, DocumentFactoryInter
     mStartIndex = index;
     mEndIndex = index;
     mStartPos = 0;
-    QTextDocument *doc = factory->documentForIndex(index);
+    QTextDocument *doc = nullptr;
+#ifdef ATTACHMENT_SUPPORT_ACTIVATED // Bug at the moment as we call it with     DocumentFactoryInterface *factory == messagedelegatehelpertext all the time and
+    // not with attachment
+    if (mStartMsgAttach.isValid()) {
+        doc = factory->documentForIndex(mStartMsgAttach);
+    } else {
+        doc = factory->documentForIndex(index);
+    }
+#else
+    doc = factory->documentForIndex(index);
+#endif
     if (!doc) {
         return;
     }
