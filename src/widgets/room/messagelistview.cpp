@@ -29,6 +29,7 @@
 #include <QIcon>
 #include <QKeyEvent>
 #include <QMenu>
+#include <QPainter>
 #include <QScrollBar>
 #include <QUrl>
 
@@ -73,6 +74,26 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
 MessageListView::~MessageListView()
 {
     qDeleteAll(mPluginTextInterface);
+}
+
+void MessageListView::paintEvent(QPaintEvent *e)
+{
+    if (mRoom) {
+        qDebug() << " mRoom->messageCount()" << mRoom->messageCount();
+        if (mRoom->messageCount() == 0) {
+            QPainter p(viewport());
+
+            QFont font = p.font();
+            font.setItalic(true);
+            p.setFont(font);
+
+            p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, i18n("No result found"));
+        } else {
+            QListView::paintEvent(e);
+        }
+    } else {
+        QListView::paintEvent(e);
+    }
 }
 
 void MessageListView::slotUpdateLastSeen()
