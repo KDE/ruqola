@@ -173,7 +173,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
     auto it = mDocumentCache.find(attachmentId);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
-        if (!qFuzzyCompare(ret->textWidth(), width)) {
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
             ret->setTextWidth(width);
         }
         return ret;
