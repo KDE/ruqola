@@ -5,7 +5,6 @@
 */
 
 #include "authenticationmanager.h"
-#include "kcoreaddons_version.h"
 #include "ruqola_debug.h"
 #include <KPluginFactory>
 #include <KPluginLoader>
@@ -30,11 +29,7 @@ AuthenticationManager *AuthenticationManager::self()
 
 void AuthenticationManager::initializePluginList()
 {
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
-    const QVector<KPluginMetaData> plugins = KPluginLoader::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
-#else
     const QVector<KPluginMetaData> plugins = KPluginMetaData::findPlugins(QStringLiteral("ruqolaplugins/authentication"));
-#endif
 
     QVectorIterator<KPluginMetaData> i(plugins);
     i.toBack();
@@ -65,18 +60,10 @@ void AuthenticationManager::initializePluginList()
 
 void AuthenticationManager::loadPlugin(AuthenticationManagerInfo *item)
 {
-#if KCOREADDONS_VERSION < QT_VERSION_CHECK(5, 86, 0)
-    KPluginLoader pluginLoader(item->metaDataFileName);
-    if (pluginLoader.factory()) {
-        item->plugin = pluginLoader.factory()->create<PluginAuthentication>(this, QVariantList() << item->metaDataFileNameBaseName);
-        mPluginDataList.append(item->pluginData);
-    }
-#else
     if (auto plugin = KPluginFactory::instantiatePlugin<PluginAuthentication>(item->data, this, QVariantList() << item->metaDataFileNameBaseName).plugin) {
         item->plugin = plugin;
         mPluginDataList.append(item->pluginData);
     }
-#endif
 }
 
 QVector<PluginAuthentication *> AuthenticationManager::pluginsList() const

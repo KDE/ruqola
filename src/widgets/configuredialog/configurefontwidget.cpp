@@ -8,7 +8,6 @@
 #include "ruqolaglobalconfig.h"
 #include <KFontChooser>
 #include <KLocalizedString>
-#include <kwidgetsaddons_version.h>
 
 #include <QCheckBox>
 #include <QVBoxLayout>
@@ -16,15 +15,9 @@
 ConfigureFontWidget::ConfigureFontWidget(QWidget *parent)
     : QWidget(parent)
     , mCustomFontCheck(new QCheckBox(i18n("&Use custom fonts"), this))
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 86, 0)
     , mFontChooser(new KFontChooser(KFontChooser::DisplayFrame, this))
-#else
-    , mFontChooser(new KFontChooser(this, KFontChooser::DisplayFrame, QStringList(), 4))
-#endif
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 86, 0)
     mFontChooser->setMinVisibleItems(4);
-#endif
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
