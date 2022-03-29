@@ -86,11 +86,7 @@ void StarMessageJobTest::shouldGenerateUnStarMessageRequest()
     const QNetworkRequest request = job.request();
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/chat.unStarMessage")));
     QCOMPARE(request.attribute(QNetworkRequest::HttpPipeliningAllowedAttribute).toBool(), true);
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-    QCOMPARE(request.attribute(QNetworkRequest::HTTP2AllowedAttribute).toBool(), true);
-#else
     QCOMPARE(request.attribute(QNetworkRequest::Http2AllowedAttribute).toBool(), true);
-#endif
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
