@@ -79,7 +79,7 @@ bool Room::isEqual(const Room &other) const
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
         && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (mTeamInfo == other.teamInfo()) && (mMessageCount == other.messageCount());
+        && (mTeamInfo == other.teamInfo());
 }
 
 QString Room::displayRoomName() const
@@ -140,7 +140,6 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "highlightsWord " << t.highlightsWord();
     d << "RetentionInfo " << t.retentionInfo();
     d << "TeamInfo " << t.teamInfo();
-    d << "MessageCount " << t.messageCount();
     return d;
 }
 
@@ -300,7 +299,6 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     // TODO muted ????
     // TODO E2EKey
     setE2eKeyId(json[QStringLiteral("e2eKeyId")].toString());
-    setMessageCount(json[QStringLiteral("msgs")].toInt());
 
     const QJsonValue ownerValue = json.value(QLatin1String("u"));
     if (!ownerValue.isUndefined()) {
@@ -350,19 +348,6 @@ void Room::parseTeamInfo(const QJsonObject &json)
     TeamInfo info;
     info.parseTeamInfo(json);
     setTeamInfo(std::move(info));
-}
-
-int Room::messageCount() const
-{
-    return mMessageCount;
-}
-
-void Room::setMessageCount(int newMessageCount)
-{
-    if (mMessageCount != newMessageCount) {
-        mMessageCount = newMessageCount;
-        Q_EMIT messageCountChanged();
-    }
 }
 
 bool Room::selected() const
@@ -596,7 +581,6 @@ void Room::parseInsertRoom(const QJsonObject &json)
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
-    setMessageCount(json[QStringLiteral("msgs")].toInt());
     setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setAutoTranslate(json[QStringLiteral("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
@@ -726,7 +710,6 @@ void Room::parseSubscriptionRoom(const QJsonObject &json)
     setRoomId(roomID);
     setName(json[QStringLiteral("name")].toString());
     setFName(json[QStringLiteral("fname")].toString());
-    setMessageCount(json[QStringLiteral("msgs")].toInt());
     setAutoTranslateLanguage(json[QStringLiteral("autoTranslateLanguage")].toString());
     setAutoTranslate(json[QStringLiteral("autoTranslate")].toBool());
     setJitsiTimeout(Utils::parseDate(QStringLiteral("jitsiTimeout"), json));
@@ -1199,7 +1182,6 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     r->setChannelType(Room::roomTypeFromString(o[QStringLiteral("t")].toString()));
     r->setName(o[QStringLiteral("name")].toString());
     r->setFName(o[QStringLiteral("fname")].toString());
-    r->setMessageCount(o[QStringLiteral("msgs")].toInt());
     r->setAutoTranslateLanguage(o[QStringLiteral("autoTranslateLanguage")].toString());
     r->setAutoTranslate(o[QStringLiteral("autoTranslate")].toBool());
     r->setRoomCreatorUserName(o[QStringLiteral("roomCreatorUserName")].toString());
@@ -1304,8 +1286,6 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("t")] = Room::roomFromRoomType(r->channelType());
     o[QStringLiteral("name")] = r->name();
     o[QStringLiteral("fname")] = r->fName();
-    o[QStringLiteral("msgs")] = r->messageCount();
-
     o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
     o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
     if (!r->topic().isEmpty()) {
