@@ -366,7 +366,7 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 
 void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    const Layout layout = doLayout(option, index);
+    Q_UNUSED(option);
     mHelperText->selectAll(index);
 }
 
