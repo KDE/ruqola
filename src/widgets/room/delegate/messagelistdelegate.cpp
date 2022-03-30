@@ -434,7 +434,7 @@ QString MessageListDelegate::selectedText() const
 
 bool MessageListDelegate::hasSelection() const
 {
-    return mHelperText->hasSelection();
+    return mTextSelection->hasSelection();
 }
 
 void MessageListDelegate::setShowThreadContext(bool b)
