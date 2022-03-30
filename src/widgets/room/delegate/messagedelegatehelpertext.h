@@ -44,7 +44,6 @@ public:
     }
 
     Q_REQUIRED_RESULT QString selectedText();
-    void clearSelection();
 
     void selectAll(const QModelIndex &index);
     void removeMessageCache(const QString &messageId);

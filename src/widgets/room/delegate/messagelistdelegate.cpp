@@ -382,7 +382,7 @@ void MessageListDelegate::clearTextDocumentCache()
 
 void MessageListDelegate::clearSelection()
 {
-    mHelperText->clearSelection();
+    mTextSelection->clear();
 }
 
 QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
