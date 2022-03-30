@@ -107,18 +107,6 @@ QSize MessageAttachmentDelegateHelperImage::sizeHint(const MessageAttachment &ms
     return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
-int MessageAttachmentDelegateHelperImage::charPosition(const QTextDocument *doc,
-                                                       const MessageAttachment &msgAttach,
-                                                       QRect attachmentsRect,
-                                                       const QPoint &pos,
-                                                       const QStyleOptionViewItem &option)
-{
-    const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
-    return charPos;
-}
-
 bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachment &msgAttach,
                                                             QMouseEvent *mouseEvent,
                                                             QRect attachmentsRect,
@@ -220,4 +208,14 @@ void MessageAttachmentDelegateHelperImage::removeRunningAnimatedImage(const QMod
     if (it != mRunningAnimatedImages.end()) {
         mRunningAnimatedImages.erase(it);
     }
+}
+
+QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &pos,
+                                                                const MessageAttachment &msgAttach,
+                                                                QRect attachmentsRect,
+                                                                const QStyleOptionViewItem &option)
+{
+    const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
+    return mouseClickPos;
 }
