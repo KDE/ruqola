@@ -20,6 +20,7 @@
 #include <QPainter>
 #include <QRect>
 #include <QStyleOptionViewItem>
+#include <QToolTip>
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
@@ -67,9 +68,8 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
         if (!mSelection->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME
                 const QPoint pos = mouseEvent->pos();
-                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, attachmentsRect.height() /* + DelegatePaintUtil::margin()*/);
+                const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
                 const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
-                qDebug() << " link " << link << doc->toPlainText();
                 if (!link.isEmpty()) {
                     auto *rcAccount = Ruqola::self()->rocketChatAccount();
                     Q_EMIT rcAccount->openLinkRequested(link);
@@ -155,21 +155,20 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     return true;
 }
 
-bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
-                                                QRect messageRect,
-                                                const MessageAttachment &msgAttach,
-                                                const QStyleOptionViewItem &option)
-{
-    Q_UNUSED(helpEvent);
-    Q_UNUSED(messageRect);
-    Q_UNUSED(msgAttach);
-    Q_UNUSED(option);
-    return false;
-}
-
 void MessageDelegateHelperBase::clearTextDocumentCache()
 {
     mDocumentCache.clear();
+}
+
+int MessageDelegateHelperBase::charPosition(const QTextDocument *doc,
+                                            const MessageAttachment &msgAttach,
+                                            QRect attachmentsRect,
+                                            const QPoint &pos,
+                                            const QStyleOptionViewItem &option)
+{
+    const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
+    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    return charPos;
 }
 
 void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
@@ -248,4 +247,28 @@ void MessageDelegateHelperBase::setClipboardSelection()
         const QString text = mSelection->selectedText(TextSelection::Text, this);
         clipboard->setText(text, QClipboard::Selection);
     }
+}
+
+bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
+                                                QRect messageRect,
+                                                const MessageAttachment &msgAttach,
+                                                const QStyleOptionViewItem &option)
+{
+    Q_UNUSED(option);
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
+
+    const auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    if (!doc) {
+        return false;
+    }
+
+    const QPoint pos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
+    QString formattedTooltip;
+    if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
+        return true;
+    }
+    return true;
 }

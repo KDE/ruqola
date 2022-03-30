@@ -82,16 +82,14 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
     return {static_cast<int>(qMax(layout.titleRect.width(), static_cast<qreal>(maxWidth))), height};
 }
 
-int MessageAttachmentDelegateHelperText::charPosition(const QTextDocument *doc,
-                                                      const MessageAttachment &msgAttach,
-                                                      QRect attachmentsRect,
-                                                      const QPoint &pos,
-                                                      const QStyleOptionViewItem &option)
+QPoint MessageAttachmentDelegateHelperText::adaptMousePosition(const QPoint &pos,
+                                                               const MessageAttachment &msgAttach,
+                                                               QRect attachmentsRect,
+                                                               const QStyleOptionViewItem &option)
 {
     const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
     const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
-    return charPos;
+    return mouseClickPos;
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,

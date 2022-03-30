@@ -67,18 +67,6 @@ QSize MessageAttachmentDelegateHelperVideo::sizeHint(const MessageAttachment &ms
     return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
 }
 
-int MessageAttachmentDelegateHelperVideo::charPosition(const QTextDocument *doc,
-                                                       const MessageAttachment &msgAttach,
-                                                       QRect attachmentsRect,
-                                                       const QPoint &pos,
-                                                       const QStyleOptionViewItem &option)
-{
-    const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
-    return charPos;
-}
-
 bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachment &msgAttach,
                                                             QMouseEvent *mouseEvent,
                                                             QRect attachmentsRect,
@@ -95,7 +83,8 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
             auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.videoPath, i18n("Save Image"));
             return true;
-        } else if (attachmentsRect.contains(pos) || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+        } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
+                   || layout.showButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             ShowVideoDialog dlg(parentWidget);
             dlg.setVideoUrl(QUrl::fromLocalFile(layout.videoPath));
@@ -128,4 +117,14 @@ MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAt
         layout.videoPath = url.toLocalFile();
     }
     return layout;
+}
+
+QPoint MessageAttachmentDelegateHelperVideo::adaptMousePosition(const QPoint &pos,
+                                                                const MessageAttachment &msgAttach,
+                                                                QRect attachmentsRect,
+                                                                const QStyleOptionViewItem &option)
+{
+    const VideoLayout layout = layoutVideo(msgAttach, option, attachmentsRect.width());
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    return mouseClickPos;
 }

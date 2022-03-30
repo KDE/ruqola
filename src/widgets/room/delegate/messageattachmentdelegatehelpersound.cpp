@@ -67,16 +67,14 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
     return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
 }
 
-int MessageAttachmentDelegateHelperSound::charPosition(const QTextDocument *doc,
-                                                       const MessageAttachment &msgAttach,
-                                                       QRect attachmentsRect,
-                                                       const QPoint &pos,
-                                                       const QStyleOptionViewItem &option)
+QPoint MessageAttachmentDelegateHelperSound::adaptMousePosition(const QPoint &pos,
+                                                                const MessageAttachment &msgAttach,
+                                                                QRect attachmentsRect,
+                                                                const QStyleOptionViewItem &option)
 {
     const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
-    return charPos;
+    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    return mouseClickPos;
 }
 
 bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach,
@@ -95,7 +93,8 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
             auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.audioPath, i18n("Save Sound"));
             return true;
-        } else if (attachmentsRect.contains(pos) || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
+        } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
+                   || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             PlaySoundDialog dlg(parentWidget);
             dlg.setAudioUrl(QUrl::fromLocalFile(layout.audioPath));

@@ -177,16 +177,14 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
     }
 }
 
-int MessageAttachmentDelegateHelperFile::charPosition(const QTextDocument *doc,
-                                                      const MessageAttachment &msgAttach,
-                                                      QRect attachmentsRect,
-                                                      const QPoint &pos,
-                                                      const QStyleOptionViewItem &option)
+QPoint MessageAttachmentDelegateHelperFile::adaptMousePosition(const QPoint &pos,
+                                                               const MessageAttachment &msgAttach,
+                                                               QRect attachmentsRect,
+                                                               const QStyleOptionViewItem &option)
 {
     const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
     const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
-    return charPos;
+    return mouseClickPos;
 }
 
 bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach,

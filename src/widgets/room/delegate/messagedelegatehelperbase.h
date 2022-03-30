@@ -49,11 +49,11 @@ public:
     void clearTextDocumentCache();
 
 protected:
-    Q_REQUIRED_RESULT virtual int charPosition(const QTextDocument *doc,
-                                               const MessageAttachment &msgAttach,
-                                               QRect attachmentsRect,
-                                               const QPoint &pos,
-                                               const QStyleOptionViewItem &option) = 0;
+    Q_REQUIRED_RESULT virtual QPoint
+    adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) = 0;
+
+    Q_REQUIRED_RESULT int
+    charPosition(const QTextDocument *doc, const MessageAttachment &msgAttach, QRect attachmentsRect, const QPoint &pos, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const;
     Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
