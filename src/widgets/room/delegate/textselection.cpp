@@ -217,6 +217,6 @@ void TextSelection::selectMessage(const QModelIndex &index, DocumentFactoryInter
     if (!doc) {
         return;
     }
-    mEndPos = doc->characterCount();
+    mEndPos = doc->characterCount() - 1;
 }
 
