@@ -142,11 +142,6 @@ QString MessageDelegateHelperText::selectedText()
     return text;
 }
 
-void MessageDelegateHelperText::clearSelection()
-{
-    mSelection->clear();
-}
-
 QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const
 {
     auto document = documentForIndex(index);
