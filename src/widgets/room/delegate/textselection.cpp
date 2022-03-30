@@ -178,6 +178,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
+    mStartMsgAttach = {};
+    mEndMsgAttach = {};
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
