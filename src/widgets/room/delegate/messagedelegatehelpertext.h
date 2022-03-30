@@ -43,7 +43,6 @@ public:
         return mShowThreadContext;
     }
 
-    Q_REQUIRED_RESULT bool hasSelection() const;
     Q_REQUIRED_RESULT QString selectedText();
     void clearSelection();
 

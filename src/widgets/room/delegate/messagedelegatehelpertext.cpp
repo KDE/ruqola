@@ -117,11 +117,6 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
     return text;
 }
 
-bool MessageDelegateHelperText::hasSelection() const
-{
-    return mSelection->hasSelection();
-}
-
 void MessageDelegateHelperText::selectAll(const QModelIndex &index)
 {
     mSelection->selectMessage(index, this);
