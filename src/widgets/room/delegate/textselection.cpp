@@ -53,6 +53,9 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
 #else
         doc = factory->documentForIndex(index);
 #endif
+        if (!doc) {
+            return {};
+        }
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();

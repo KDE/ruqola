@@ -129,7 +129,6 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
-
         const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         if (layout.hideShowButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             MessageModel::AttachmentVisibility attachmentVisibility;
@@ -157,15 +156,14 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(info);
                 dlg->show();
+                return true;
             }
-            return true;
         }
         break;
     }
     default:
         break;
     }
-
     return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 

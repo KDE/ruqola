@@ -12,7 +12,9 @@
 #include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
+#include <QClipboard>
 #include <QDrag>
+#include <QGuiApplication>
 #include <QListView>
 #include <QMimeData>
 #include <QPainter>
@@ -56,6 +58,29 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                 }
             }
         }
+        break;
+    }
+    case QEvent::MouseButtonRelease: {
+        qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
+        setClipboardSelection();
+        // Clicks on links
+        if (!mSelection->hasSelection()) {
+            if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME
+                const QPoint pos = mouseEvent->pos();
+                const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, attachmentsRect.height() /* + DelegatePaintUtil::margin()*/);
+                const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
+                qDebug() << " link " << link << doc->toPlainText();
+                if (!link.isEmpty()) {
+                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                    Q_EMIT rcAccount->openLinkRequested(link);
+                    return true;
+                }
+            }
+        } else if (mMightStartDrag) {
+            // clicked into selection, didn't start drag, clear it (like kwrite and QTextEdit)
+            mSelection->clear();
+        }
+        // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
     }
     case QEvent::MouseButtonDblClick: {
@@ -214,4 +239,13 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
     return ret;
+}
+
+void MessageDelegateHelperBase::setClipboardSelection()
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (mSelection->hasSelection() && clipboard->supportsSelection()) {
+        const QString text = mSelection->selectedText(TextSelection::Text, this);
+        clipboard->setText(text, QClipboard::Selection);
+    }
 }
