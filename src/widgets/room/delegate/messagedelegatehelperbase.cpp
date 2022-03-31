@@ -43,9 +43,6 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                                                  const QStyleOptionViewItem &option,
                                                  const QModelIndex &index)
 {
-    Q_UNUSED(msgAttach)
-    Q_UNUSED(option)
-
     switch (mouseEvent->type()) {
     case QEvent::MouseMove: {
         if (!mMightStartDrag) {
