@@ -216,6 +216,7 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
                                                                 const QStyleOptionViewItem &option)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, DelegatePaintUtil::margin());
+    const QPoint mouseClickPos =
+        pos - attachmentsRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.titleSize.height() + DelegatePaintUtil::margin());
     return mouseClickPos;
 }
