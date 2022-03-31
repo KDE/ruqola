@@ -153,7 +153,10 @@ QModelIndex MessageModel::indexForMessage(const QString &messageId) const
 
 QString MessageModel::messageIdFromIndex(int rowIndex)
 {
-    return mAllMessages.at(rowIndex).messageId();
+    if (rowIndex >= 0 && rowIndex < mAllMessages.count()) {
+        return mAllMessages.at(rowIndex).messageId();
+    }
+    return {};
 }
 
 void MessageModel::refresh()
