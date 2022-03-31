@@ -22,9 +22,10 @@ public:
     Q_REQUIRED_RESULT bool isValid() const override;
     void flush() override;
     void close() override;
-    QAbstractSocket::SocketError error() const override;
+    Q_REQUIRED_RESULT QAbstractSocket::SocketError error() const override;
+    Q_REQUIRED_RESULT QString errorString() const override;
     Q_REQUIRED_RESULT QUrl requestUrl() const override;
-    QWebSocketProtocol::CloseCode closeCode() const override;
+    Q_REQUIRED_RESULT QWebSocketProtocol::CloseCode closeCode() const override;
     Q_REQUIRED_RESULT QString closeReason() const override;
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
