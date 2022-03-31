@@ -99,14 +99,8 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
         break;
     }
     case QEvent::MouseButtonPress: {
-        if (attachmentsRect.contains(mouseEvent->pos())) {
-            mCurrentIndex = index;
-            mMightStartDrag = true;
-        } else {
-            mMightStartDrag = false;
-            mCurrentIndex = QModelIndex();
-        }
         mMightStartDrag = false;
+        mCurrentIndex = QModelIndex();
         if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
             const QPoint pos = mouseEvent->pos();
             const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
@@ -114,8 +108,10 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
             if (charPos == -1) {
                 return false;
             }
+            // TODO fix mSelection->contains with attachment
             if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
+                mCurrentIndex = index;
                 return true;
             }
 
