@@ -905,13 +905,11 @@ void DDPClient::onSslErrors(const QList<QSslError> &errors)
 void DDPClient::onWSclosed()
 {
     const bool normalClose = mWebSocket->closeCode() == QWebSocketProtocol::CloseCodeNormal;
-    if (!normalClose) {
-        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
-                                     << " close code : " << mWebSocket->closeCode();
-    }
-
     if (normalClose) {
         Q_EMIT disconnectedByServer();
+    } else {
+        qCWarning(RUQOLA_DDPAPI_LOG) << "WebSocket CLOSED reason:" << mWebSocket->closeReason() << " error: " << mWebSocket->error()
+                                     << " close code : " << mWebSocket->closeCode() << " error string " << mWebSocket->errorString();
     }
 
     m_connected = false;

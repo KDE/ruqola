@@ -61,6 +61,11 @@ QAbstractSocket::SocketError RuqolaWebSocket::error() const
     return mWebSocket->error();
 }
 
+QString RuqolaWebSocket::errorString() const
+{
+    return mWebSocket->errorString();
+}
+
 QUrl RuqolaWebSocket::requestUrl() const
 {
     return mWebSocket->requestUrl();
