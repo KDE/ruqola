@@ -5,7 +5,9 @@
 */
 
 #include "textselection.h"
+#include "messages/message.h"
 #include "messages/messageattachment.h"
+#include "model/messagemodel.h"
 
 #include <QTextCursor>
 #include <QTextDocument>
@@ -42,25 +44,48 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
     QString str;
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
-        QTextDocument *doc = nullptr;
-#ifdef ATTACHMENT_SUPPORT_ACTIVATED // Bug at the moment as we call it with     DocumentFactoryInterface *factory == messagedelegatehelpertext all the time and
-                                    // not with attachment
-        if (mStartMsgAttach.isValid()) {
-            doc = factory->documentForIndex(mStartMsgAttach);
-        } else {
-            doc = factory->documentForIndex(index);
-        }
-#else
-        doc = factory->documentForIndex(index);
-#endif
-        if (!doc) {
-            return {};
-        }
+        QTextDocument *doc = factory->documentForIndex(index);
+        selectionText(ordered, format, row, index, doc, str);
+    }
+    return str;
+}
+
+void TextSelection::selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const
+{
+    if (doc) {
         const QTextCursor cursor = selectionForIndex(index, doc);
         const QTextDocumentFragment fragment(cursor);
         str += format == Text ? fragment.toPlainText() : fragment.toHtml();
         if (row < ordered.toRow) {
             str += QLatin1Char('\n');
+        }
+    }
+}
+
+QString TextSelection::selectedText(Format format, DocumentFactoryInterface *textHelperFactory, const QVector<DocumentFactoryInterface *> &factories) const
+{
+    if (!hasSelection()) {
+        return {};
+    }
+    const OrderedPositions ordered = orderedPositions();
+    QString str;
+    for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
+        const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
+        QTextDocument *doc = textHelperFactory->documentForIndex(index);
+        selectionText(ordered, format, row, index, doc, str);
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        if (message) {
+            const auto attachements = message->attachements();
+            for (const auto &att : attachements) {
+                for (auto factory : factories) {
+                    // TODO verify if it's startattach/
+                    doc = factory->documentForIndex(att);
+                    if (doc) {
+                        selectionText(ordered, format, row, index, doc, str);
+                        break;
+                    }
+                }
+            }
         }
     }
     return str;

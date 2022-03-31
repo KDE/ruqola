@@ -429,7 +429,15 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
 QString MessageListDelegate::selectedText() const
 {
-    return mHelperText->selectedText();
+    const QString str = mTextSelection->selectedText(TextSelection::Format::Text,
+                                                     mHelperText.data(),
+                                                     {mHelperAttachmentImage.data(),
+                                                      mHelperAttachmentFile.data(),
+                                                      mHelperAttachmentVideo.data(),
+                                                      mHelperAttachmentSound.data(),
+                                                      mHelperAttachmentText.data()});
+
+    return str;
 }
 
 bool MessageListDelegate::hasSelection() const

@@ -14,6 +14,7 @@
 
 class QTextCursor;
 class QTextDocument;
+class Message;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DocumentFactoryInterface
 {
@@ -39,6 +40,9 @@ public:
         Html,
     };
     Q_REQUIRED_RESULT QString selectedText(Format format, DocumentFactoryInterface *factory) const;
+    Q_REQUIRED_RESULT QString selectedText(Format format,
+                                           DocumentFactoryInterface *textHelperFactory,
+                                           const QVector<DocumentFactoryInterface *> &factory) const;
     Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos) const;
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc) const;
 
@@ -59,7 +63,8 @@ private:
         int toRow;
         int toCharPos;
     };
-    OrderedPositions orderedPositions() const;
+    Q_REQUIRED_RESULT OrderedPositions orderedPositions() const;
+    void selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const;
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
