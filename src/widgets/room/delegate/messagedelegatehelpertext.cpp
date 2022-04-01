@@ -134,14 +134,6 @@ void MessageDelegateHelperText::clearTextDocumentCache()
     mDocumentCache.clear();
 }
 
-QString MessageDelegateHelperText::selectedText()
-{
-    const QString text = mSelection->selectedText(TextSelection::Text, this);
-    // TODO fix selectedText when we are attachment
-    qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "selected text : " << text;
-    return text;
-}
-
 QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const
 {
     auto document = documentForIndex(index);

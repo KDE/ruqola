@@ -71,6 +71,7 @@ public:
 
     Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info);
 
+    void setClipboardSelection();
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
