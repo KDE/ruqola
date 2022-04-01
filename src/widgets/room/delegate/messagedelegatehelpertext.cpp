@@ -120,8 +120,6 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
 void MessageDelegateHelperText::selectAll(const QModelIndex &index)
 {
     mSelection->selectMessage(index, this);
-    updateView(index);
-    MessageDelegateUtils::setClipboardSelection(mSelection);
 }
 
 void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
