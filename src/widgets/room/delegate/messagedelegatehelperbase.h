@@ -81,5 +81,4 @@ protected:
 private:
     QPersistentModelIndex mCurrentIndex;
     void updateView(const QModelIndex &index);
-    void setClipboardSelection();
 };

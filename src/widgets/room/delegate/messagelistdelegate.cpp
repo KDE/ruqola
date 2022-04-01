@@ -377,18 +377,9 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
 #if 0
     mTextSelection->selectMessage(index);
     mListView->update(index);
-    setClipboardSelection();
+    MessageDelegateUtils::setClipboardSelection();
 #endif
     mHelperText->selectAll(index);
-}
-
-void MessageListDelegate::setClipboardSelection()
-{
-    QClipboard *clipboard = QGuiApplication::clipboard();
-    if (mTextSelection->hasSelection() && clipboard->supportsSelection()) {
-        const QString text = mTextSelection->selectedText(TextSelection::Text);
-        clipboard->setText(text, QClipboard::Selection);
-    }
 }
 
 void MessageListDelegate::clearTextDocumentCache()

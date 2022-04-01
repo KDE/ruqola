@@ -11,6 +11,7 @@
 #include <QAbstractItemModel>
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
+#include <QClipboard>
 #include <QModelIndex>
 #include <QPainter>
 #include <QStyleOptionViewItem>
@@ -117,4 +118,13 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
     }
     doc->documentLayout()->draw(painter, ctx);
     painter->restore();
+}
+
+void MessageDelegateUtils::setClipboardSelection(TextSelection *selection)
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (selection->hasSelection() && clipboard->supportsSelection()) {
+        const QString text = selection->selectedText(TextSelection::Text);
+        clipboard->setText(text, QClipboard::Selection);
+    }
 }

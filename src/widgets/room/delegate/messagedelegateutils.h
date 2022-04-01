@@ -34,4 +34,6 @@ void drawSelection(QTextDocument *doc,
                    const QModelIndex &index,
                    const QStyleOptionViewItem &option,
                    TextSelection *selection);
+
+void setClipboardSelection(TextSelection *selection);
 }
