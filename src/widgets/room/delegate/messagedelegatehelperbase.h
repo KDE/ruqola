@@ -77,6 +77,7 @@ protected:
      */
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
 private:
     QPersistentModelIndex mCurrentIndex;

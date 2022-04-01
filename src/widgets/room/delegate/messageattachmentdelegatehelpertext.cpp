@@ -84,8 +84,8 @@ QPoint MessageAttachmentDelegateHelperText::adaptMousePosition(const QPoint &pos
                                                                const QStyleOptionViewItem &option)
 {
     const TextLayout layout = layoutText(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
-    return mouseClickPos;
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
+    return relativePos;
 }
 
 bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachment &msgAttach,
