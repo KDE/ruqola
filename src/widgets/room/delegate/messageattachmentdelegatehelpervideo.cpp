@@ -37,7 +37,6 @@ void MessageAttachmentDelegateHelperVideo::draw(const MessageAttachment &msgAtta
                                                 const QModelIndex &index,
                                                 const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const VideoLayout layout = layoutVideo(msgAttach, option, messageRect.width());
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
