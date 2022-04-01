@@ -182,8 +182,8 @@ QPoint MessageAttachmentDelegateHelperFile::adaptMousePosition(const QPoint &pos
                                                                const QStyleOptionViewItem &option)
 {
     const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
-    return mouseClickPos;
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    return relativePos;
 }
 
 bool MessageAttachmentDelegateHelperFile::handleMouseEvent(const MessageAttachment &msgAttach,

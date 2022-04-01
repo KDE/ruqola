@@ -69,8 +69,8 @@ QPoint MessageAttachmentDelegateHelperSound::adaptMousePosition(const QPoint &po
                                                                 const QStyleOptionViewItem &option)
 {
     const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
-    const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
-    return mouseClickPos;
+    const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    return relativePos;
 }
 
 bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachment &msgAttach,

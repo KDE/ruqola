@@ -159,8 +159,8 @@ int MessageDelegateHelperBase::charPosition(const QTextDocument *doc,
                                             const QPoint &pos,
                                             const QStyleOptionViewItem &option)
 {
-    const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
-    const int charPos = doc->documentLayout()->hitTest(mouseClickPos, Qt::FuzzyHit);
+    const QPoint relativePos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
+    const int charPos = doc->documentLayout()->hitTest(relativePos, Qt::FuzzyHit);
     return charPos;
 }
 
@@ -247,11 +247,21 @@ bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
         return false;
     }
 
-    const QPoint pos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
+    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
     QString formattedTooltip;
-    if (MessageDelegateUtils::generateToolTip(doc, pos, formattedTooltip)) {
+    if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
         return true;
     }
     return true;
+}
+
+QString MessageDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
+{
+    auto document = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/);
+    if (!document) {
+        return {};
+    }
+    const QPoint relativePos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
+    return document->documentLayout()->anchorAt(relativePos);
 }
