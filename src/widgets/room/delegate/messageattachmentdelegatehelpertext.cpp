@@ -38,9 +38,6 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
                                                const QModelIndex &index,
                                                const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
-    Q_UNUSED(option)
-
     // painter->drawRect(messageRect);
 
     const TextLayout layout = layoutText(msgAttach, option, messageRect.width(), messageRect.height());
@@ -73,7 +70,6 @@ QSize MessageAttachmentDelegateHelperText::sizeHint(const MessageAttachment &msg
                                                     const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    Q_UNUSED(option)
     const TextLayout layout = layoutText(msgAttach, option, maxWidth, -1);
     int height = layout.titleRect.height();
     if ((layout.isShown && !layout.title.isEmpty()) || layout.title.isEmpty()) {

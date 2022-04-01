@@ -34,18 +34,18 @@ QList<int> DirectoryBaseModel::excludeResizeToContentColumns() const
 
 void DirectoryBaseModel::insertElement(const QJsonObject &obj)
 {
-    Q_UNUSED(obj);
+    Q_UNUSED(obj)
     // Nothing
 }
 
 void DirectoryBaseModel::removeElement(const QString &identifier)
 {
-    Q_UNUSED(identifier);
+    Q_UNUSED(identifier)
 }
 
 void DirectoryBaseModel::updateElement(const QJsonObject &obj)
 {
-    Q_UNUSED(obj);
+    Q_UNUSED(obj)
     // Nothing
 }
 

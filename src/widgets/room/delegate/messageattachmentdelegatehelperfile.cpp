@@ -46,7 +46,6 @@ void MessageAttachmentDelegateHelperFile::draw(const MessageAttachment &msgAttac
                                                const QModelIndex &index,
                                                const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(index)
     const FileLayout layout = doLayout(msgAttach, option, attachmentsRect.width());
     const QPen oldPen = painter->pen();
     const QFont oldFont = painter->font();

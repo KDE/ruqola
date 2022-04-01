@@ -186,7 +186,7 @@ QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachme
 
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     // Unused here
     return nullptr;
 }
@@ -238,7 +238,6 @@ bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
                                                 const MessageAttachment &msgAttach,
                                                 const QStyleOptionViewItem &option)
 {
-    Q_UNUSED(option);
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
