@@ -67,6 +67,12 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelection))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
+    mTextSelection->setTextHelperFactory(mHelperText.data());
+    mTextSelection->setAttachmentFactories({mHelperAttachmentImage.data(),
+                                            mHelperAttachmentFile.data(),
+                                            mHelperAttachmentVideo.data(),
+                                            mHelperAttachmentSound.data(),
+                                            mHelperAttachmentText.data()});
     KColorScheme scheme = Colors::self().schemeView();
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
@@ -429,14 +435,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
 QString MessageListDelegate::selectedText() const
 {
-    const QString str = mTextSelection->selectedText(TextSelection::Format::Text,
-                                                     mHelperText.data(),
-                                                     {mHelperAttachmentImage.data(),
-                                                      mHelperAttachmentFile.data(),
-                                                      mHelperAttachmentVideo.data(),
-                                                      mHelperAttachmentSound.data(),
-                                                      mHelperAttachmentText.data()});
-
+    const QString str = mTextSelection->selectedText(TextSelection::Format::Text);
     return str;
 }
 

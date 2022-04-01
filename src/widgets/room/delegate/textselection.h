@@ -40,9 +40,7 @@ public:
         Html,
     };
     Q_REQUIRED_RESULT QString selectedText(Format format, DocumentFactoryInterface *factory) const;
-    Q_REQUIRED_RESULT QString selectedText(Format format,
-                                           DocumentFactoryInterface *textHelperFactory,
-                                           const QVector<DocumentFactoryInterface *> &factory) const;
+    Q_REQUIRED_RESULT QString selectedText(Format format) const;
     Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos) const;
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc) const;
 
@@ -52,6 +50,13 @@ public:
     void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory);
     void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory);
     void selectMessage(const QModelIndex &index, DocumentFactoryInterface *factory);
+
+    void setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory);
+    Q_REQUIRED_RESULT DocumentFactoryInterface *textHelperFactory() const;
+
+    void setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories);
+
+    Q_REQUIRED_RESULT const QVector<DocumentFactoryInterface *> &attachmentFactories() const;
 
 Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
@@ -72,4 +77,7 @@ private:
     MessageAttachment mEndMsgAttach;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
+
+    DocumentFactoryInterface *mTextHelperFactory = nullptr;
+    QVector<DocumentFactoryInterface *> mAttachmentFactories;
 };
