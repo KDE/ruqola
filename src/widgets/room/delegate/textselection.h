@@ -69,13 +69,19 @@ private:
         int toRow;
         int toCharPos;
     };
+
+    struct AttachmentSelection {
+        MessageAttachment attachment;
+        int fromCharPos = 0;
+        int toCharPos = 0;
+    };
+
     Q_REQUIRED_RESULT OrderedPositions orderedPositions() const;
     void selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const;
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
-    MessageAttachment mStartMsgAttach;
-    MessageAttachment mEndMsgAttach;
+    QVector<AttachmentSelection> mAttachmentSelection;
     int mStartPos = -1; // first selected character in start row
     int mEndPos = -1; // last selected character in end row
 
