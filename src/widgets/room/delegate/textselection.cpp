@@ -62,7 +62,27 @@ void TextSelection::selectionText(const OrderedPositions ordered, Format format,
     }
 }
 
-QString TextSelection::selectedText(Format format, DocumentFactoryInterface *textHelperFactory, const QVector<DocumentFactoryInterface *> &factories) const
+DocumentFactoryInterface *TextSelection::textHelperFactory() const
+{
+    return mTextHelperFactory;
+}
+
+const QVector<DocumentFactoryInterface *> &TextSelection::attachmentFactories() const
+{
+    return mAttachmentFactories;
+}
+
+void TextSelection::setAttachmentFactories(const QVector<DocumentFactoryInterface *> &newAttachmentFactories)
+{
+    mAttachmentFactories = newAttachmentFactories;
+}
+
+void TextSelection::setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory)
+{
+    mTextHelperFactory = newTextHelperFactory;
+}
+
+QString TextSelection::selectedText(Format format) const
 {
     if (!hasSelection()) {
         return {};
@@ -71,13 +91,13 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *tex
     QString str;
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
-        QTextDocument *doc = textHelperFactory->documentForIndex(index);
+        QTextDocument *doc = mTextHelperFactory ? mTextHelperFactory->documentForIndex(index) : nullptr;
         selectionText(ordered, format, row, index, doc, str);
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         if (message) {
             const auto attachements = message->attachements();
             for (const auto &att : attachements) {
-                for (auto factory : factories) {
+                for (auto factory : std::as_const(mAttachmentFactories)) {
                     // TODO verify if it's startattach/
                     doc = factory->documentForIndex(att);
                     if (doc) {
