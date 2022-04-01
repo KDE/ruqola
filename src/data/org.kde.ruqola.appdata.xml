@@ -107,6 +107,8 @@
     <binary>ruqola</binary>
   </provides>
   <releases>
+    <release version="1.7.0" date="2022-04-01">
+    </release>
     <release version="1.6.3" date="2022-03-04">
       <artifacts>
         <artifact type="binary" platform="win64">
