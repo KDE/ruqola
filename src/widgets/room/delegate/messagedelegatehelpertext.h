@@ -43,8 +43,6 @@ public:
         return mShowThreadContext;
     }
 
-    Q_REQUIRED_RESULT QString selectedText();
-
     void selectAll(const QModelIndex &index);
     void removeMessageCache(const QString &messageId);
     void clearTextDocumentCache();

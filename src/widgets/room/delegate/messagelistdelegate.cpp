@@ -26,6 +26,7 @@
 
 #include <QAbstractItemView>
 #include <QApplication>
+#include <QClipboard>
 #include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
@@ -373,7 +374,21 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(option);
+#if 0
+    mTextSelection->selectMessage(index);
+    mListView->update(index);
+    setClipboardSelection();
+#endif
     mHelperText->selectAll(index);
+}
+
+void MessageListDelegate::setClipboardSelection()
+{
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    if (mTextSelection->hasSelection() && clipboard->supportsSelection()) {
+        const QString text = mTextSelection->selectedText(TextSelection::Text);
+        clipboard->setText(text, QClipboard::Selection);
+    }
 }
 
 void MessageListDelegate::clearTextDocumentCache()
