@@ -48,7 +48,7 @@ public:
     QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override
     {
         // Unused here
-        Q_UNUSED(msgAttach);
+        Q_UNUSED(msgAttach)
         Q_ASSERT(true);
         return nullptr;
     }

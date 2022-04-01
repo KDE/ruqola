@@ -186,7 +186,7 @@ QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachme
 
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
-    Q_UNUSED(index);
+    Q_UNUSED(index)
     // Unused here
     return nullptr;
 }

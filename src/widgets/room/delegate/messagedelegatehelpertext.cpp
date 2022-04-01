@@ -321,7 +321,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
 
 QTextDocument *MessageDelegateHelperText::documentForIndex(const MessageAttachment &msgAttach) const
 {
-    Q_UNUSED(msgAttach);
+    Q_UNUSED(msgAttach)
     Q_ASSERT(false);
     // Unused here
     return nullptr;

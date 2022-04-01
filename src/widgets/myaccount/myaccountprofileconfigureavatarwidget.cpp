@@ -50,7 +50,7 @@ AvatarImage::~AvatarImage() = default;
 
 void AvatarImage::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
-    Q_UNUSED(filePath);
+    Q_UNUSED(filePath)
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
     info.identifier = mRocketChatAccount->ownUser().userName();
