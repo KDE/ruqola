@@ -52,17 +52,15 @@ QSize MessageAttachmentDelegateHelperSound::sizeHint(const MessageAttachment &ms
                                                      int maxWidth,
                                                      const QStyleOptionViewItem &option) const
 {
-    Q_UNUSED(maxWidth)
     Q_UNUSED(index)
     const SoundLayout layout = layoutSound(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-    const int pixmapWidth = 0;
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
-    return {qMax(qMax(pixmapWidth, layout.titleSize.width()), descriptionWidth), height};
+    return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
 }
 
 QPoint MessageAttachmentDelegateHelperSound::adaptMousePosition(const QPoint &pos,
