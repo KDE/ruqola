@@ -299,15 +299,12 @@ qint64 DDPAuthenticationManager::tokenExpires() const
 
 void DDPAuthenticationManager::clientConnectedChangedSlot()
 {
-    qDebug() << " void DDPAuthenticationManager::clientConnectedChangedSlot()";
     if (mLoginStatus == DDPAuthenticationManager::FailedToLoginPluginProblem) {
         return;
     }
-    qDebug() << " void DDPAuthenticationManager::clientConnectedChangedSlot()11111111111";
     if (checkGenericError()) {
         return;
     }
-    qDebug() << " void DDPAuthenticationManager::clientConnectedChangedSlot()222222222222";
     // Just connected -> not logged in yet -> state = LoggedOut
     // Just disconnected -> whatever state we're in, need to change to LoggedOut
     setLoginStatus(LoginStatus::LoggedOut);
