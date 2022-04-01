@@ -60,7 +60,7 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     }
     case QEvent::MouseButtonRelease: {
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
-        setClipboardSelection();
+        MessageDelegateUtils::setClipboardSelection(mSelection);
         // Clicks on links
         if (!mSelection->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME
@@ -231,15 +231,6 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
     return ret;
-}
-
-void MessageDelegateHelperBase::setClipboardSelection()
-{
-    QClipboard *clipboard = QGuiApplication::clipboard();
-    if (mSelection->hasSelection() && clipboard->supportsSelection()) {
-        const QString text = mSelection->selectedText(TextSelection::Text, this);
-        clipboard->setText(text, QClipboard::Selection);
-    }
 }
 
 bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,

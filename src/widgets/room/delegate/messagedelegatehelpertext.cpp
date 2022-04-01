@@ -121,7 +121,7 @@ void MessageDelegateHelperText::selectAll(const QModelIndex &index)
 {
     mSelection->selectMessage(index, this);
     updateView(index);
-    setClipboardSelection();
+    MessageDelegateUtils::setClipboardSelection(mSelection);
 }
 
 void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
@@ -142,15 +142,6 @@ QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relati
     }
 
     return document->documentLayout()->anchorAt(relativePos);
-}
-
-void MessageDelegateHelperText::setClipboardSelection()
-{
-    QClipboard *clipboard = QGuiApplication::clipboard();
-    if (mSelection->hasSelection() && clipboard->supportsSelection()) {
-        const QString text = mSelection->selectedText(TextSelection::Text, this);
-        clipboard->setText(text, QClipboard::Selection);
-    }
 }
 
 void MessageDelegateHelperText::updateView(const QModelIndex &index)
@@ -241,7 +232,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
         break;
     case QEvent::MouseButtonRelease:
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
-        setClipboardSelection();
+        MessageDelegateUtils::setClipboardSelection(mSelection);
         // Clicks on links
         if (!mSelection->hasSelection()) {
             if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
