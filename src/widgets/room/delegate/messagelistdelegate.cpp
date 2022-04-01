@@ -16,6 +16,7 @@
 #include "messagedelegatehelperbase.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpertext.h"
+#include "messagedelegateutils.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
 #include "model/messagemodel.h"
@@ -376,10 +377,10 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
     Q_UNUSED(option);
 #if 0
     mTextSelection->selectMessage(index);
-    mListView->update(index);
-    MessageDelegateUtils::setClipboardSelection();
 #endif
     mHelperText->selectAll(index);
+    mListView->update(index);
+    MessageDelegateUtils::setClipboardSelection(mTextSelection);
 }
 
 void MessageListDelegate::clearTextDocumentCache()
