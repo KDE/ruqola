@@ -164,8 +164,7 @@ void TextSelection::clear()
     mEndIndex = QPersistentModelIndex{};
     mStartPos = -1;
     mEndPos = -1;
-    mStartMsgAttach = {};
-    mEndMsgAttach = {};
+    mAttachmentSelection.clear();
 
     // Repaint indexes that are no longer selected
     if (ordered.fromRow > -1) {
@@ -185,7 +184,10 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
     Q_ASSERT(index.isValid());
     mStartIndex = index;
     mStartPos = charPos;
-    mStartMsgAttach = msgAttach;
+    AttachmentSelection selection;
+    selection.fromCharPos = charPos;
+    selection.attachment = msgAttach;
+    mAttachmentSelection.append(selection);
 }
 
 void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
@@ -212,7 +214,11 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
     Q_ASSERT(index.isValid());
     mEndIndex = index;
     mEndPos = charPos;
-    mEndMsgAttach = msgAttach;
+
+    AttachmentSelection selection;
+    selection.fromCharPos = charPos;
+    selection.attachment = msgAttach;
+    mAttachmentSelection.append(selection);
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
@@ -226,8 +232,6 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
-    mStartMsgAttach = {};
-    mEndMsgAttach = {};
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
@@ -241,8 +245,12 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
-    mStartMsgAttach = msgAttach;
-    mEndMsgAttach = msgAttach;
+
+    AttachmentSelection selection;
+    selection.fromCharPos = mStartPos;
+    selection.toCharPos = mEndPos;
+    selection.attachment = msgAttach;
+    mAttachmentSelection.append(selection);
     qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
 }
 
@@ -253,17 +261,7 @@ void TextSelection::selectMessage(const QModelIndex &index, DocumentFactoryInter
     mStartIndex = index;
     mEndIndex = index;
     mStartPos = 0;
-    QTextDocument *doc = nullptr;
-#ifdef ATTACHMENT_SUPPORT_ACTIVATED // Bug at the moment as we call it with     DocumentFactoryInterface *factory == messagedelegatehelpertext all the time and
-    // not with attachment
-    if (mStartMsgAttach.isValid()) {
-        doc = factory->documentForIndex(mStartMsgAttach);
-    } else {
-        doc = factory->documentForIndex(index);
-    }
-#else
-    doc = factory->documentForIndex(index);
-#endif
+    QTextDocument *doc = factory->documentForIndex(index);
     if (!doc) {
         return;
     }
@@ -277,18 +275,24 @@ void TextSelection::selectMessage(const QModelIndex &index)
     mStartIndex = index;
     mEndIndex = index;
     mStartPos = 0;
-#ifdef ATTACHMENT_SUPPORT_ACTIVATED // Bug at the moment as we call it with     DocumentFactoryInterface *factory == messagedelegatehelpertext all the time and
-    QTextDocument *doc = nullptr;
-    // not with attachment
-    if (mStartMsgAttach.isValid()) {
-        doc = factory->documentForIndex(mStartMsgAttach);
-    } else {
-        doc = factory->documentForIndex(index);
+    QTextDocument *doc = mTextHelperFactory ? mTextHelperFactory->documentForIndex(index) : nullptr;
+    if (doc) {
+        mEndPos = doc->characterCount() - 1;
     }
-    doc = factory->documentForIndex(index);
-    if (!doc) {
-        return;
+    const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+    if (message) {
+        const auto attachements = message->attachements();
+        for (const auto &att : attachements) {
+            for (auto factory : std::as_const(mAttachmentFactories)) {
+                doc = factory->documentForIndex(att);
+                if (doc) {
+                    AttachmentSelection selection;
+                    selection.attachment = att;
+                    selection.fromCharPos = 0;
+                    selection.toCharPos = doc->characterCount() - 1;
+                    mAttachmentSelection.append(selection);
+                }
+            }
+        }
     }
-    mEndPos = doc->characterCount() - 1;
-#endif
 }
