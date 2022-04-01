@@ -200,3 +200,11 @@ void TextSelectionTest::testSelectWordUnderCursor()
     QVERIFY(selection.contains(index2, 7));
     QVERIFY(selection.contains(index2, 9));
 }
+
+void TextSelectionTest::shouldHaveDefaultValues()
+{
+    TextSelection selection;
+    QVERIFY(!selection.hasSelection());
+    QVERIFY(!selection.textHelperFactory());
+    QVERIFY(selection.attachmentFactories().isEmpty());
+}
