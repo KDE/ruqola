@@ -400,8 +400,24 @@ void MessageListDelegate::clearSelection()
 
 QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
 {
-    const auto messageRect = doLayout(option, index).textRect;
-    return mHelperText->urlAt(index, pos - messageRect.topLeft());
+    const Layout layout = doLayout(option, index);
+    const auto messageRect = layout.textRect;
+    QString url = mHelperText->urlAt(index, pos - messageRect.topLeft());
+    if (url.isEmpty()) {
+        const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
+        Q_ASSERT(message);
+        const auto attachements = message->attachements();
+        int i = 0;
+        for (const MessageAttachment &msgAttach : attachements) {
+            MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+            url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(i), pos);
+            if (!url.isEmpty()) {
+                return url;
+            }
+            i++;
+        }
+    }
+    return url;
 }
 
 bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info)
