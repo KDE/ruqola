@@ -3,444 +3,374 @@
 add_library(libruqolacore)
 
 target_sources(libruqolacore PRIVATE
-    ddpapi/ddpauthenticationmanager.cpp
-    ddpapi/ddpclient.cpp
-    ddpapi/ddpmanager.cpp
-    ktexttohtmlfork/ruqolaktexttohtml.cpp
-    model/messagemodel.cpp
-    model/roommodel.cpp
-    model/roomfilterproxymodel.cpp
-    model/roomlistheadingsproxymodel.cpp
-
-    model/usersforroommodel.cpp
-    model/usersforroomfilterproxymodel.cpp
-
-    model/usersmodel.cpp
-
-    model/usercompleterfilterproxymodel.cpp
-    model/usercompletermodel.cpp
-
-    model/statusmodel.cpp
-    model/statusmodelfilterproxymodel.cpp
-
-    model/filesforroommodel.cpp
-    model/filesforroomfilterproxymodel.cpp
-
-    model/searchchannelmodel.cpp
-    model/searchchannelfilterproxymodel.cpp
-
-    model/inputcompletermodel.cpp
-
-    model/loginmethodmodel.cpp
-
-    model/searchmessagemodel.cpp
-    model/searchmessagefilterproxymodel.cpp
-
-    model/rocketchataccountmodel.cpp
-    model/rocketchataccountfilterproxymodel.cpp
-
-    model/emoticonfiltermodel.cpp
-    model/emoticonmodel.cpp
-    model/emoticonmodelfilterproxymodel.cpp
-    model/notificationpreferencemodel.cpp
-
-    model/emoticoncustommodel.cpp
-    model/emoticoncustommodelfilterproxymodel.cpp
-    model/emoticoncategorymodelfilterproxymodel.cpp
-
-    model/notificationdesktopdurationpreferencemodel.cpp
-    model/notificationdesktopsoundpreferencemodel.cpp
-
-    model/discussionsmodel.cpp
-    model/discussionsfilterproxymodel.cpp
-
-    model/emoticoncategoriesmodel.cpp
-
-    model/threadmessagemodel.cpp
-
-    model/listmessagesmodel.cpp
-    model/listmessagesmodelfilterproxymodel.cpp
-
-    model/autotranslatelanguagesmodel.cpp
-
-    model/commandsmodel.cpp
-    model/commandsmodelfilterproxymodel.cpp
-
-    model/accountschannelsmodel.cpp
-
-    model/adminroomsmodel.cpp
-    model/adminroomsfilterproxymodel.cpp
-
-    model/adminusersmodel.cpp
-
-    model/systemmessagesmodel.cpp
-    model/channelcompletermodel.cpp
-    model/channelcompleterfilterproxymodel.cpp
-
-    model/teamroomsmodel.cpp
-    model/teamroomsfilterproxymodel.cpp
-
-    model/teamroomcompletermodel.cpp
-
-    model/teamcompletermodel.cpp
-
-    model/admininvitemodel.cpp
-
-    model/adminoauthmodel.cpp
-    model/adminoauthmodel.h
-
-    model/directoryroomsmodel.cpp
-    model/directoryteamsmodel.cpp
-    model/directoryusersmodel.cpp
-    model/directorybasemodel.cpp
-    model/directorybasefilterproxymodel.cpp
-    model/directoryroomsproxymodel.cpp
-    model/directoryteamsproxymodel.cpp
-    model/directoryusersproxymodel.cpp
-
-    model/rolesmodel.cpp
-    model/admincustomsoundmodel.cpp
-    model/admincustomemojimodel.cpp
-    model/adminpermissionsmodel.cpp
-
-    model/adminrolesmodel.cpp
-
-    model/usersinrolemodel.cpp
-
-    model/switchchannelhistorymodel.cpp
-    model/switchchannelhistorymodel.h
-    
-
-    plugins/pluginauthenticationinterface.cpp
-    plugins/pluginauthentication.cpp
-    emoticons/customemoji.cpp
-    emoticons/customemojisinfo.cpp
-    emoticons/emojimanager.cpp
-    emoticons/unicodeemoticon.cpp
-    emoticons/unicodeemoticonparser.cpp
-    emoticons/unicodeemoticonmanager.cpp
-    messages/message.cpp
-    messages/messageattachment.cpp
-    messages/messageurl.cpp
-    messages/messagestarred.cpp
-    messages/reactions.cpp
-    messages/reaction.cpp
-    messages/messagepinned.cpp
-    messages/messagetranslation.cpp
-    messages/messageattachmentfield.cpp
-
-    convertertextjob/convertertextabstractjob.cpp
-    convertertextjob/translatetextjob.cpp
-
-    otr/otr.cpp
-    otr/otrmanager.cpp
-    otr/otrnotificationjob.cpp
-
-    autotranslate/autotranslatelanguage.cpp
-    autotranslate/autotranslatelanguages.cpp
-
-    commands/command.cpp
-    commands/commands.cpp
-
-    downloadappslanguages/downloadappslanguagesjob.cpp
-    downloadappslanguages/downloadappslanguagesparser.cpp
-    downloadappslanguages/downloadappslanguagesmanager.cpp
-    downloadappslanguages/downloadappslanguagesinfo.cpp
-
-    roominfo/roominfo.cpp
-    roominfo/roomsinfo.cpp
-
-    customsound/customsoundsinfo.cpp
-    customsound/customsoundinfo.cpp
-    customsound/customsoundsmanager.cpp
-
-    users.cpp
-
-    authenticationinfo.cpp
-    room.cpp
-    ruqola.cpp
-    ruqolautils.cpp
-    rocketchatbackend.cpp
-    localmessagelogger.cpp
-    messagequeue.cpp
-    rocketchatmessage.cpp
-    typingnotification.cpp
-    user.cpp
-    utils.cpp
     abstractwebsocket.cpp
-    ruqolawebsocket.cpp
-    rocketchataccount.cpp
-    rocketchataccountsettings.cpp
-    ruqolalogger.cpp
-    ruqolaserverconfig.cpp
-    rocketchatcache.cpp
-    texthighlighter.cpp
-    textconverter.cpp
-    loadrecenthistorymanager.cpp
-    channel.cpp
-    colors.cpp
-    inputtextmanager.cpp
-    authenticationmanager.cpp
-
+    abstractwebsocket.h
     accountmanager.cpp
-    managerdatapaths.cpp
-    messagecache.cpp
-
-    notifications/notificationoptions.cpp
-
-    syntaxhighlightingmanager.cpp
-
-    receivetypingnotificationmanager.cpp
-
-    serverconfiginfo.cpp
-    notifications/notificationpreferences.cpp
-
-    roles/roles.cpp
-    roles/role.cpp
-    roles/roleinfo.cpp
-    roles/rolesmanager.cpp
-
-    avatarmanager.cpp
-
-    discussions/discussion.cpp
-    discussions/discussions.cpp
-
-    emoticons/emoticoncategory.cpp
-
-    listmessages.cpp
-
-    messagedownloadmanager.cpp
-
-    attachments/fileattachments.cpp
-    attachments/file.cpp
-
-    accountroomsettings.cpp
-
-    notifications/notifierjob.cpp
-    restauthenticationmanager.cpp
-
-    ownuser/ownuser.cpp
-    servicepassword.cpp
-
-    downloadavartarurlmanager.cpp
-
-    channelcounterinfo.cpp
-
-    customusers/customuserstatuses.cpp
-    customusers/customuserstatus.cpp
-
-    ownuser/ownuserpreferences.cpp
-
-    permissions/permissions.cpp
-    permissions/permission.cpp
-    permissions/permissionmanager.cpp
-
-    serverinfo.cpp
-    retentioninfo.cpp
-    teams/teaminfo.cpp
-    teams/teamroom.cpp
-    teams/teamroomcompleter.cpp
-    teams/teamcompleter.cpp
-
-    invite/inviteinfo.cpp
-
-    oauth/oauthinfo.h
-    oauth/oauthinfo.cpp
-
-    ruqolacore.qrc
-    managechannels.cpp
-    texthighlighter.h
-    avatarmanager.h
-    utils.h
-    listmessages.h
-    authenticationinfo.h
-    ddpapi/ddpclient.h
-    ddpapi/ddpauthenticationmanager.h
-    ddpapi/ddpmanager.h
-    model/usersinrolemodel.h
-    model/emoticoncategorymodelfilterproxymodel.h
-    model/admincustomemojimodel.h
-    model/emoticonfiltermodel.h
-    model/statusmodel.h
-    model/directoryroomsmodel.h
-    model/directoryroomsproxymodel.h
-    model/adminrolesmodel.h
-    model/admininvitemodel.h
-    model/notificationpreferencemodel.h
-    model/notificationdesktopsoundpreferencemodel.h
-    model/usercompleterfilterproxymodel.h
-    model/usersforroommodel.h
-    model/emoticoncustommodel.h
-    model/usersmodel.h
-    model/loginmethodmodel.h
-    model/admincustomsoundmodel.h
-    model/filesforroomfilterproxymodel.h
-    model/adminroomsmodel.h
-    model/searchchannelmodel.h
-    model/emoticoncategoriesmodel.h
-    model/channelcompleterfilterproxymodel.h
-    model/adminroomsfilterproxymodel.h
-    model/filesforroommodel.h
-    model/usersforroomfilterproxymodel.h
-    model/adminusersmodel.h
-    model/directoryteamsmodel.h
-    model/teamcompletermodel.h
-    model/roomlistheadingsproxymodel.h
-    model/notificationdesktopdurationpreferencemodel.h
-    model/accountschannelsmodel.h
-    model/directoryteamsproxymodel.h
-    model/directoryusersproxymodel.h
-    model/searchchannelfilterproxymodel.h
-    model/rocketchataccountmodel.h
-    model/autotranslatelanguagesmodel.h
-    model/commandsmodelfilterproxymodel.h
-    model/adminpermissionsmodel.h
-    model/channelcompletermodel.h
-    model/roomfilterproxymodel.h
-    model/threadmessagemodel.h
-    model/teamroomcompletermodel.h
-    model/listmessagesmodelfilterproxymodel.h
-    model/directoryusersmodel.h
-    model/listmessagesmodel.h
-    model/searchmessagefilterproxymodel.h
-    model/rolesmodel.h
-    model/commandsmodel.h
-    model/searchmessagemodel.h
-    model/emoticoncustommodelfilterproxymodel.h
-    model/messagemodel.h
-    model/directorybasefilterproxymodel.h
-    model/usercompletermodel.h
-    model/directorybasemodel.h
-    model/systemmessagesmodel.h
-    model/discussionsfilterproxymodel.h
-    model/inputcompletermodel.h
-    model/rocketchataccountfilterproxymodel.h
-    model/discussionsmodel.h
-    model/statusmodelfilterproxymodel.h
-    model/roommodel.h
-    model/emoticonmodelfilterproxymodel.h
-    model/teamroomsmodel.h
-    model/teamroomsfilterproxymodel.h
-    model/emoticonmodel.h
-    messages/reactions.h
-    messages/messageattachment.h
-    messages/reaction.h
-    messages/messageurl.h
-    messages/messagestarred.h
-    messages/messagetranslation.h
-    messages/message.h
-    messages/messagepinned.h
-    messages/messageattachmentfield.h
-    ruqolautils.h
-    libruqola_private_export.h
-    serverconfiginfo.h
-    managerdatapaths.h
-    ruqolawebsocket.h
-    rocketchataccount.h
-    roominfo/roominfo.h
-    roominfo/roomsinfo.h
-    commands/commands.h
-    commands/command.h
-    ownuser/ownuserpreferences.h
-    ownuser/ownuser.h
-    convertertextjob/convertertextabstractjob.h
-    convertertextjob/translatetextjob.h
-    managechannels.h
-    notifications/notification.h
-    notifications/notifierjob.h
-    notifications/notificationoptions.h
-    notifications/notificationpreferences.h
-    ruqolaserverconfig.h
-    rocketchataccountsettings.h
-    inputtextmanager.h
-    room.h
-    typingnotification.h
-    autotranslate/autotranslatelanguage.h
-    autotranslate/autotranslatelanguages.h
-    rocketchatcache.h
-    attachments/file.h
-    attachments/fileattachments.h
-    messagedownloadmanager.h
     accountmanager.h
+    accountroomsettings.cpp
+    accountroomsettings.h
+    attachments/fileattachments.cpp
+    attachments/fileattachments.h
+    attachments/file.cpp
+    attachments/file.h
+    authenticationinfo.cpp
+    authenticationinfo.h
+    authenticationmanager.cpp
+    authenticationmanager.h
+    autotranslate/autotranslatelanguage.cpp
+    autotranslate/autotranslatelanguage.h
+    autotranslate/autotranslatelanguages.cpp
+    autotranslate/autotranslatelanguages.h
+    avatarmanager.cpp
+    avatarmanager.h
+    away/awaymanager.cpp
+    away/awaymanager.h
+    channelcounterinfo.cpp
+    channelcounterinfo.h
+    channel.cpp
+    channel.h
+    colors.cpp
+    colors.h
+    commands/command.cpp
+    commands/command.h
+    commands/commands.cpp
+    commands/commands.h
+    convertertextjob/convertertextabstractjob.cpp
+    convertertextjob/convertertextabstractjob.h
+    convertertextjob/translatetextjob.cpp
+    convertertextjob/translatetextjob.h
+    customsound/customsoundinfo.cpp
+    customsound/customsoundinfo.h
+    customsound/customsoundsinfo.cpp
+    customsound/customsoundsinfo.h
+    customsound/customsoundsmanager.cpp
+    customsound/customsoundsmanager.h
+    customusers/customuserstatus.cpp
+    customusers/customuserstatuses.cpp
     customusers/customuserstatuses.h
     customusers/customuserstatus.h
-    ktexttohtmlfork/ruqolaktexttohtml_p.h
-    ktexttohtmlfork/ruqolaktexttohtml.h
-    ruqolalogger.h
-    permissions/permissions.h
-    permissions/permissionmanager.h
-    permissions/permission.h
-    otr/otrmanager.h
-    otr/otr.h
-    otr/otrnotificationjob.h
-    loadrecenthistorymanager.h
-    syntaxhighlightingmanager.h
-    python/ruqolacore/ruqolacore_global.h
-    serverinfo.h
-    channelcounterinfo.h
-    accountroomsettings.h
-    customsound/customsoundinfo.h
-    customsound/customsoundsinfo.h
-    customsound/customsoundsmanager.h
-    abstractwebsocket.h
-    users.h
-    ruqola.h
-    downloadappslanguages/downloadappslanguagesinfo.h
-    downloadappslanguages/downloadappslanguagesmanager.h
-    downloadappslanguages/downloadappslanguagesjob.h
-    downloadappslanguages/downloadappslanguagesparser.h
+    ddpapi/ddpauthenticationmanager.cpp
+    ddpapi/ddpauthenticationmanager.h
+    ddpapi/ddpclient.cpp
+    ddpapi/ddpclient.h
+    ddpapi/ddpmanager.cpp
+    ddpapi/ddpmanager.h
+    discussions/discussion.cpp
     discussions/discussion.h
+    discussions/discussions.cpp
     discussions/discussions.h
-    plugins/pluginauthenticationinterface.h
-    plugins/pluginauthentication.h
-    receivetypingnotificationmanager.h
-    servicepassword.h
-    localmessagelogger.h
-    user.h
-    lrucache.h
-    textconverter.h
-    invite/inviteinfo.h
-    retentioninfo.h
-    restauthenticationmanager.h
-    roles/roleinfo.h
-    roles/rolesmanager.h
-    roles/role.h
-    roles/roles.h
-    channel.h
-    colors.h
+    downloadappslanguages/downloadappslanguagesinfo.cpp
+    downloadappslanguages/downloadappslanguagesinfo.h
+    downloadappslanguages/downloadappslanguagesjob.cpp
+    downloadappslanguages/downloadappslanguagesjob.h
+    downloadappslanguages/downloadappslanguagesmanager.cpp
+    downloadappslanguages/downloadappslanguagesmanager.h
+    downloadappslanguages/downloadappslanguagesparser.cpp
+    downloadappslanguages/downloadappslanguagesparser.h
+    downloadavartarurlmanager.cpp
     downloadavartarurlmanager.h
-    teams/teaminfo.h
-    teams/teamcompleter.h
-    teams/teamroom.h
-    teams/teamroomcompleter.h
-    rocketchatmessage.h
-    rocketchatbackend.h
-    messagequeue.h
-    authenticationmanager.h
-    emoticons/unicodeemoticonmanager.h
-    emoticons/emojimanager.h
+    emoticons/customemoji.cpp
     emoticons/customemoji.h
-    emoticons/unicodeemoticon.h
-    emoticons/emoticoncategory.h
-    emoticons/unicodeemoticonparser.h
+    emoticons/customemojisinfo.cpp
     emoticons/customemojisinfo.h
+    emoticons/emojimanager.cpp
+    emoticons/emojimanager.h
+    emoticons/emoticoncategory.cpp
+    emoticons/emoticoncategory.h
+    emoticons/unicodeemoticon.cpp
+    emoticons/unicodeemoticon.h
+    emoticons/unicodeemoticonmanager.cpp
+    emoticons/unicodeemoticonmanager.h
+    emoticons/unicodeemoticonparser.cpp
+    emoticons/unicodeemoticonparser.h
+    inputtextmanager.cpp
+    inputtextmanager.h
+    invite/inviteinfo.cpp
+    invite/inviteinfo.h
+    ktexttohtmlfork/ruqolaktexttohtml.cpp
+    ktexttohtmlfork/ruqolaktexttohtml.h
+    ktexttohtmlfork/ruqolaktexttohtml_p.h
+    libruqola_private_export.h
+    listmessages.cpp
+    listmessages.h
+    loadrecenthistorymanager.cpp
+    loadrecenthistorymanager.h
+    localmessagelogger.cpp
+    localmessagelogger.h
+    lrucache.h
+    managechannels.cpp
+    managechannels.h
+    managerdatapaths.cpp
+    managerdatapaths.h
+    messagecache.cpp
     messagecache.h
-    away/awaymanager.h
-    away/awaymanager.cpp
+    messagedownloadmanager.cpp
+    messagedownloadmanager.h
+    messagequeue.cpp
+    messagequeue.h
+    messages/messageattachment.cpp
+    messages/messageattachmentfield.cpp
+    messages/messageattachmentfield.h
+    messages/messageattachment.h
+    messages/message.cpp
+    messages/message.h
+    messages/messagepinned.cpp
+    messages/messagepinned.h
+    messages/messagestarred.cpp
+    messages/messagestarred.h
+    messages/messagetranslation.cpp
+    messages/messagetranslation.h
+    messages/messageurl.cpp
+    messages/messageurl.h
+    messages/reaction.cpp
+    messages/reaction.h
+    messages/reactions.cpp
+    messages/reactions.h
+    model/accountschannelsmodel.cpp
+    model/accountschannelsmodel.h
+    model/admincustomemojimodel.cpp
+    model/admincustomemojimodel.h
+    model/admincustomsoundmodel.cpp
+    model/admincustomsoundmodel.h
+    model/admininvitemodel.cpp
+    model/admininvitemodel.h
+    model/adminoauthmodel.cpp
+    model/adminoauthmodel.h
+    model/adminpermissionsmodel.cpp
+    model/adminpermissionsmodel.h
+    model/adminrolesmodel.cpp
+    model/adminrolesmodel.h
+    model/adminroomsfilterproxymodel.cpp
+    model/adminroomsfilterproxymodel.h
+    model/adminroomsmodel.cpp
+    model/adminroomsmodel.h
+    model/adminusersmodel.cpp
+    model/adminusersmodel.h
+    model/autotranslatelanguagesmodel.cpp
+    model/autotranslatelanguagesmodel.h
+    model/channelcompleterfilterproxymodel.cpp
+    model/channelcompleterfilterproxymodel.h
+    model/channelcompletermodel.cpp
+    model/channelcompletermodel.h
+    model/commandsmodel.cpp
+    model/commandsmodelfilterproxymodel.cpp
+    model/commandsmodelfilterproxymodel.h
+    model/commandsmodel.h
+    model/directorybasefilterproxymodel.cpp
+    model/directorybasefilterproxymodel.h
+    model/directorybasemodel.cpp
+    model/directorybasemodel.h
+    model/directoryroomsmodel.cpp
+    model/directoryroomsmodel.h
+    model/directoryroomsproxymodel.cpp
+    model/directoryroomsproxymodel.h
+    model/directoryteamsmodel.cpp
+    model/directoryteamsmodel.h
+    model/directoryteamsproxymodel.cpp
+    model/directoryteamsproxymodel.h
+    model/directoryusersmodel.cpp
+    model/directoryusersmodel.h
+    model/directoryusersproxymodel.cpp
+    model/directoryusersproxymodel.h
+    model/discussionsfilterproxymodel.cpp
+    model/discussionsfilterproxymodel.h
+    model/discussionsmodel.cpp
+    model/discussionsmodel.h
+    model/emoticoncategoriesmodel.cpp
+    model/emoticoncategoriesmodel.h
+    model/emoticoncategorymodelfilterproxymodel.cpp
+    model/emoticoncategorymodelfilterproxymodel.h
+    model/emoticoncustommodel.cpp
+    model/emoticoncustommodelfilterproxymodel.cpp
+    model/emoticoncustommodelfilterproxymodel.h
+    model/emoticoncustommodel.h
+    model/emoticonfiltermodel.cpp
+    model/emoticonfiltermodel.h
+    model/emoticonmodel.cpp
+    model/emoticonmodelfilterproxymodel.cpp
+    model/emoticonmodelfilterproxymodel.h
+    model/emoticonmodel.h
+    model/filesforroomfilterproxymodel.cpp
+    model/filesforroomfilterproxymodel.h
+    model/filesforroommodel.cpp
+    model/filesforroommodel.h
+    model/inputcompletermodel.cpp
+    model/inputcompletermodel.h
+    model/listmessagesmodel.cpp
+    model/listmessagesmodelfilterproxymodel.cpp
+    model/listmessagesmodelfilterproxymodel.h
+    model/listmessagesmodel.h
+    model/loginmethodmodel.cpp
+    model/loginmethodmodel.h
+    model/messagemodel.cpp
+    model/messagemodel.h
+    model/notificationdesktopdurationpreferencemodel.cpp
+    model/notificationdesktopdurationpreferencemodel.h
+    model/notificationdesktopsoundpreferencemodel.cpp
+    model/notificationdesktopsoundpreferencemodel.h
+    model/notificationhistorymodel.cpp
+    model/notificationhistorymodel.h
+    model/notificationpreferencemodel.cpp
+    model/notificationpreferencemodel.h
+    model/rocketchataccountfilterproxymodel.cpp
+    model/rocketchataccountfilterproxymodel.h
+    model/rocketchataccountmodel.cpp
+    model/rocketchataccountmodel.h
+    model/rolesmodel.cpp
+    model/rolesmodel.h
+    model/roomfilterproxymodel.cpp
+    model/roomfilterproxymodel.h
+    model/roomlistheadingsproxymodel.cpp
+    model/roomlistheadingsproxymodel.h
+    model/roommodel.cpp
+    model/roommodel.h
+    model/searchchannelfilterproxymodel.cpp
+    model/searchchannelfilterproxymodel.h
+    model/searchchannelmodel.cpp
+    model/searchchannelmodel.h
+    model/searchmessagefilterproxymodel.cpp
+    model/searchmessagefilterproxymodel.h
+    model/searchmessagemodel.cpp
+    model/searchmessagemodel.h
+    model/statusmodel.cpp
+    model/statusmodelfilterproxymodel.cpp
+    model/statusmodelfilterproxymodel.h
+    model/statusmodel.h
+    model/switchchannelhistorymodel.cpp
+    model/switchchannelhistorymodel.h
+    model/systemmessagesmodel.cpp
+    model/systemmessagesmodel.h
+    model/teamcompletermodel.cpp
+    model/teamcompletermodel.h
+    model/teamroomcompletermodel.cpp
+    model/teamroomcompletermodel.h
+    model/teamroomsfilterproxymodel.cpp
+    model/teamroomsfilterproxymodel.h
+    model/teamroomsmodel.cpp
+    model/teamroomsmodel.h
+    model/threadmessagemodel.cpp
+    model/threadmessagemodel.h
+    model/usercompleterfilterproxymodel.cpp
+    model/usercompleterfilterproxymodel.h
+    model/usercompletermodel.cpp
+    model/usercompletermodel.h
+    model/usersforroomfilterproxymodel.cpp
+    model/usersforroomfilterproxymodel.h
+    model/usersforroommodel.cpp
+    model/usersforroommodel.h
+    model/usersinrolemodel.cpp
+    model/usersinrolemodel.h
+    model/usersmodel.cpp
+    model/usersmodel.h
+    notificationinfo.cpp
+    notificationinfo.h
     notifications/notification.cpp
     notifications/notification.h
-
-    parsemessageurlutils.h
+    notifications/notificationoptions.cpp
+    notifications/notificationoptions.h
+    notifications/notificationpreferences.cpp
+    notifications/notificationpreferences.h
+    notifications/notifierjob.cpp
+    notifications/notifierjob.h
+    oauth/oauthinfo.cpp
+    oauth/oauthinfo.h
+    otr/otr.cpp
+    otr/otr.h
+    otr/otrmanager.cpp
+    otr/otrmanager.h
+    otr/otrnotificationjob.cpp
+    otr/otrnotificationjob.h
+    ownuser/ownuser.cpp
+    ownuser/ownuser.h
+    ownuser/ownuserpreferences.cpp
+    ownuser/ownuserpreferences.h
     parsemessageurlutils.cpp
-
+    parsemessageurlutils.h
+    permissions/permission.cpp
+    permissions/permission.h
+    permissions/permissionmanager.cpp
+    permissions/permissionmanager.h
+    permissions/permissions.cpp
+    permissions/permissions.h
+    plugins/pluginauthentication.cpp
+    plugins/pluginauthentication.h
+    plugins/pluginauthenticationinterface.cpp
+    plugins/pluginauthenticationinterface.h
+    python/ruqolacore/ruqolacore_global.h
+    receivetypingnotificationmanager.cpp
+    receivetypingnotificationmanager.h
+    restauthenticationmanager.cpp
+    restauthenticationmanager.h
+    retentioninfo.cpp
+    retentioninfo.h
+    rocketchataccount.cpp
+    rocketchataccount.h
+    rocketchataccountsettings.cpp
+    rocketchataccountsettings.h
+    rocketchatbackend.cpp
+    rocketchatbackend.h
+    rocketchatcache.cpp
+    rocketchatcache.h
+    rocketchatmessage.cpp
+    rocketchatmessage.h
+    roles/role.cpp
+    roles/role.h
+    roles/roleinfo.cpp
+    roles/roleinfo.h
+    roles/roles.cpp
+    roles/roles.h
+    roles/rolesmanager.cpp
+    roles/rolesmanager.h
+    room.cpp
+    room.h
+    roominfo/roominfo.cpp
+    roominfo/roominfo.h
+    roominfo/roomsinfo.cpp
+    roominfo/roomsinfo.h
+    ruqola.cpp
+    ruqola.h
+    ruqolalogger.cpp
+    ruqolalogger.h
+    ruqolaserverconfig.cpp
+    ruqolaserverconfig.h
+    ruqolautils.cpp
+    ruqolautils.h
+    ruqolawebsocket.cpp
+    ruqolawebsocket.h
+    serverconfiginfo.cpp
+    serverconfiginfo.h
+    serverinfo.cpp
+    serverinfo.h
+    servicepassword.cpp
+    servicepassword.h
+    syntaxhighlightingmanager.cpp
+    syntaxhighlightingmanager.h
+    teams/teamcompleter.cpp
+    teams/teamcompleter.h
+    teams/teaminfo.cpp
+    teams/teaminfo.h
+    teams/teamroomcompleter.cpp
+    teams/teamroomcompleter.h
+    teams/teamroom.cpp
+    teams/teamroom.h
+    textconverter.cpp
+    textconverter.h
+    texthighlighter.cpp
+    texthighlighter.h
+    typingnotification.cpp
+    typingnotification.h
+    unityservicemanager.cpp
+    unityservicemanager.h
     uploadfilemanager.cpp
     uploadfilemanager.h
+    user.cpp
+    user.h
+    users.cpp
+    users.h
+    utils.cpp
+    utils.h
 
-    model/notificationhistorymodel.h
-    model/notificationhistorymodel.cpp
-
-    notificationinfo.h
-    notificationinfo.cpp
+    ruqolacore.qrc
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
