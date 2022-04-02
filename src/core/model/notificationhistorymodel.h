@@ -15,4 +15,7 @@ class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractItemModel
 public:
     explicit NotificationHistoryModel(QObject *parent = nullptr);
     ~NotificationHistoryModel() override;
+
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 };

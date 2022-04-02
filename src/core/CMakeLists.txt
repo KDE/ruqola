@@ -438,6 +438,9 @@ target_sources(libruqolacore PRIVATE
 
     model/notificationhistorymodel.h
     model/notificationhistorymodel.cpp
+
+    notificationinfo.h
+    notificationinfo.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
