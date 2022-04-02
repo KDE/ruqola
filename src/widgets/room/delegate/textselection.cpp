@@ -21,7 +21,7 @@ DocumentFactoryInterface::~DocumentFactoryInterface() = default;
 
 bool TextSelection::hasSelection() const
 {
-    return mStartIndex.isValid() && mEndIndex.isValid() && mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos;
+    return mStartIndex.isValid() && mEndIndex.isValid() && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos) || !mAttachmentFactories.isEmpty());
 }
 
 TextSelection::OrderedPositions TextSelection::orderedPositions() const
