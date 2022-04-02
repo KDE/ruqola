@@ -435,6 +435,9 @@ target_sources(libruqolacore PRIVATE
 
     uploadfilemanager.cpp
     uploadfilemanager.h
+
+    model/notificationhistorymodel.h
+    model/notificationhistorymodel.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
