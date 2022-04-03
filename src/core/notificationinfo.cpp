@@ -10,6 +10,16 @@ NotificationInfo::NotificationInfo() = default;
 
 QDebug operator<<(QDebug d, const NotificationInfo &t)
 {
-    // TODO
+    d << " accountName " << t.accountName();
     return d;
+}
+
+const QString &NotificationInfo::accountName() const
+{
+    return mAccountName;
+}
+
+void NotificationInfo::setAccountName(const QString &newAccountName)
+{
+    mAccountName = newAccountName;
 }

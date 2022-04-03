@@ -14,6 +14,11 @@ class LIBRUQOLACORE_EXPORT NotificationInfo
 public:
     NotificationInfo();
     ~NotificationInfo() = default;
+    Q_REQUIRED_RESULT const QString &accountName() const;
+    void setAccountName(const QString &newAccountName);
+
+private:
+    QString mAccountName;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);
