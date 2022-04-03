@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QDebug>
 
 class LIBRUQOLACORE_EXPORT NotificationInfo
 {
@@ -14,3 +15,5 @@ public:
     NotificationInfo();
     ~NotificationInfo() = default;
 };
+Q_DECLARE_TYPEINFO(NotificationInfo, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);

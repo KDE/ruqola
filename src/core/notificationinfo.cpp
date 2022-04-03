@@ -7,3 +7,9 @@
 #include "notificationinfo.h"
 
 NotificationInfo::NotificationInfo() = default;
+
+QDebug operator<<(QDebug d, const NotificationInfo &t)
+{
+    // TODO
+    return d;
+}

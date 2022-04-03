@@ -9,6 +9,8 @@
 #include <QAbstractItemModel>
 
 #include "libruqolacore_export.h"
+#include "notificationinfo.h"
+#include <QVector>
 
 class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractItemModel
 {
@@ -18,4 +20,7 @@ public:
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+
+private:
+    QVector<NotificationInfo> mNotificationInfo;
 };
