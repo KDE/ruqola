@@ -27,10 +27,11 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return {};
     }
     const auto info = mNotificationInfo.at(index.row());
-    //    switch (role) {
-    //    case Qt::DisplayRole:
-    //        return info.mName;
-    //    }
+    switch (role) {
+    case Qt::DisplayRole:
+    case AccountName:
+        return info.accountName();
+    }
     return {};
 }
 
