@@ -14,6 +14,7 @@ class LIBRUQOLACORE_EXPORT NotificationInfo
 public:
     NotificationInfo();
     ~NotificationInfo() = default;
+
     Q_REQUIRED_RESULT const QString &accountName() const;
     void setAccountName(const QString &newAccountName);
 
