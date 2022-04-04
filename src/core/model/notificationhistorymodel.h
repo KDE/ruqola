@@ -14,7 +14,13 @@
 
 class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractItemModel
 {
+    Q_OBJECT
 public:
+    enum NotificationHistoryRoles {
+        AccountName = Qt::UserRole + 1,
+    };
+    Q_ENUM(NotificationHistoryRoles)
+
     explicit NotificationHistoryModel(QObject *parent = nullptr);
     ~NotificationHistoryModel() override;
 

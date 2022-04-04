@@ -17,7 +17,8 @@ NotificationHistoryModel::~NotificationHistoryModel()
 
 int NotificationHistoryModel::rowCount(const QModelIndex &parent) const
 {
-    return -1;
+    Q_UNUSED(parent)
+    return mNotificationInfo.count();
 }
 
 QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) const
