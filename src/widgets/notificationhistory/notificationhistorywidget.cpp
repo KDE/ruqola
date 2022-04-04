@@ -5,15 +5,24 @@
 */
 
 #include "notificationhistorywidget.h"
+#include "notificationhistorydelegate.h"
 #include <KLocalizedString>
+#include <QListView>
 #include <QVBoxLayout>
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
+    , mListNotifications(new QListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
+    mainLayout->addWidget(mListNotifications);
+
+    auto listNotificationsDelegate = new NotificationHistoryDelegate(this);
+    mListNotifications->setItemDelegate(listNotificationsDelegate);
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()

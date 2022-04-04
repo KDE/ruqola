@@ -6,7 +6,9 @@
 
 #include "notificationhistorywidgettest.h"
 #include "notificationhistory/notificationhistorywidget.h"
+#include <QListView>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(NotificationHistoryWidgetTest)
 
 NotificationHistoryWidgetTest::NotificationHistoryWidgetTest(QObject *parent)
@@ -17,5 +19,11 @@ NotificationHistoryWidgetTest::NotificationHistoryWidgetTest(QObject *parent)
 void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
 {
     NotificationHistoryWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListNotifications"));
+    QVERIFY(mListNotifications);
 }

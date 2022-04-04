@@ -9,6 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QListView;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 {
@@ -16,4 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 public:
     explicit NotificationHistoryWidget(QWidget *parent = nullptr);
     ~NotificationHistoryWidget() override;
+
+private:
+    QListView *const mListNotifications;
 };
