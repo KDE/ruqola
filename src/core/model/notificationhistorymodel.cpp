@@ -33,3 +33,26 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     //    }
     return {};
 }
+
+void NotificationHistoryModel::clear()
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
+        mNotificationInfo.clear();
+        endRemoveRows();
+    }
+}
+
+void NotificationHistoryModel::insertNotifications(const QVector<NotificationInfo> &infos)
+{
+    if (rowCount() != 0) {
+        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
+        mNotificationInfo.clear();
+        endRemoveRows();
+    }
+    if (!infos.isEmpty()) {
+        beginInsertRows(QModelIndex(), 0, infos.count() - 1);
+        mNotificationInfo = infos;
+        endInsertRows();
+    }
+}
