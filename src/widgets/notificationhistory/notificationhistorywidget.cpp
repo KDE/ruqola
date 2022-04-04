@@ -22,6 +22,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mainLayout->addWidget(mListNotifications);
 
     auto listNotificationsDelegate = new NotificationHistoryDelegate(this);
+    listNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     mListNotifications->setItemDelegate(listNotificationsDelegate);
 }
 
