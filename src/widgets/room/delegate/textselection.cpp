@@ -12,7 +12,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <QTextDocumentFragment>
-
+//#define ADD_ATTACHMENT_SELECTION_SUPPORT
 TextSelection::TextSelection()
 {
 }
@@ -21,7 +21,11 @@ DocumentFactoryInterface::~DocumentFactoryInterface() = default;
 
 bool TextSelection::hasSelection() const
 {
-    return mStartIndex.isValid() && mEndIndex.isValid() && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos) || !mAttachmentFactories.isEmpty());
+#ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    return mStartIndex.isValid() && mEndIndex.isValid() && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos) || !mAttachmentSelection.isEmpty());
+#else
+    return mStartIndex.isValid() && mEndIndex.isValid() && ((mStartPos > -1 && mEndPos > -1 && mStartPos != mEndPos));
+#endif
 }
 
 TextSelection::OrderedPositions TextSelection::orderedPositions() const
@@ -182,12 +186,24 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
 {
     clear();
     Q_ASSERT(index.isValid());
-    mStartIndex = index;
-    mStartPos = charPos;
+#ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    if (msgAttach.isValid()) {
+        AttachmentSelection selection;
+        selection.fromCharPos = charPos;
+        selection.attachment = msgAttach;
+        mAttachmentSelection.append(selection);
+    } else {
+        mStartIndex = index;
+        mStartPos = charPos;
+    }
+#else
     AttachmentSelection selection;
     selection.fromCharPos = charPos;
     selection.attachment = msgAttach;
     mAttachmentSelection.append(selection);
+    mStartIndex = index;
+    mStartPos = charPos;
+#endif
 }
 
 void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach)
@@ -212,13 +228,24 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
     }
 
     Q_ASSERT(index.isValid());
-    mEndIndex = index;
-    mEndPos = charPos;
-
+#ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    if (msgAttach.isValid()) {
+        AttachmentSelection selection;
+        selection.fromCharPos = charPos;
+        selection.attachment = msgAttach;
+        mAttachmentSelection.append(selection);
+    } else {
+        mEndIndex = index;
+        mEndPos = charPos;
+    }
+#else
     AttachmentSelection selection;
     selection.fromCharPos = charPos;
     selection.attachment = msgAttach;
     mAttachmentSelection.append(selection);
+    mEndIndex = index;
+    mEndPos = charPos;
+#endif
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
