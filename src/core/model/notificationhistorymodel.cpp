@@ -23,10 +23,10 @@ int NotificationHistoryModel::rowCount(const QModelIndex &parent) const
 
 QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) const
 {
-    //    if (index.row() < 0 || index.row() >= mSwichChannelsInfo.count()) {
-    //        return {};
-    //    }
-    //    const SwitchChannelInfo info = mSwichChannelsInfo.at(index.row());
+    if (index.row() < 0 || index.row() >= mNotificationInfo.count()) {
+        return {};
+    }
+    const auto info = mNotificationInfo.at(index.row());
     //    switch (role) {
     //    case Qt::DisplayRole:
     //        return info.mName;
