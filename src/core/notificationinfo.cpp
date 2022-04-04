@@ -138,7 +138,7 @@ void NotificationInfo::setPixmap(const QPixmap &newPixmap)
 
 void NotificationInfo::parseNotification(const QJsonArray &contents)
 {
-    // qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
+    // qDebug() << " NotificationInfo::parseNotification(const QJsonArray &contents)" << contents;
     const QJsonObject obj = contents.at(0).toObject();
     setTitle(obj[QStringLiteral("title")].toString());
     const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
