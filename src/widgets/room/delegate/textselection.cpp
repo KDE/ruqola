@@ -56,13 +56,11 @@ QString TextSelection::selectedText(Format format, DocumentFactoryInterface *fac
 
 void TextSelection::selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const
 {
-    if (doc) {
-        const QTextCursor cursor = selectionForIndex(index, doc);
-        const QTextDocumentFragment fragment(cursor);
-        str += format == Text ? fragment.toPlainText() : fragment.toHtml();
-        if (row < ordered.toRow) {
-            str += QLatin1Char('\n');
-        }
+    const QTextCursor cursor = selectionForIndex(index, doc);
+    const QTextDocumentFragment fragment(cursor);
+    str += format == Text ? fragment.toPlainText() : fragment.toHtml();
+    if (row < ordered.toRow) {
+        str += QLatin1Char('\n');
     }
 }
 
@@ -96,7 +94,9 @@ QString TextSelection::selectedText(Format format) const
     for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
         const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
         QTextDocument *doc = mTextHelperFactory ? mTextHelperFactory->documentForIndex(index) : nullptr;
-        selectionText(ordered, format, row, index, doc, str);
+        if (doc) {
+            selectionText(ordered, format, row, index, doc, str);
+        }
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         if (message) {
             const auto attachements = message->attachements();
