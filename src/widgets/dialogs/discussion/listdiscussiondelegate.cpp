@@ -44,9 +44,6 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     const QString discussionsText = i18n("Open Discussion");
     painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
-    // Note: pen still blue, currently relying on restore()
-
-    // TODO add open discussion text.
 
     painter->restore();
 }
