@@ -2081,9 +2081,11 @@ void RocketChatAccount::parseOtr(const QJsonArray &contents)
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
-    Utils::NotificationInfo info = Utils::parseNotification(contents);
+    NotificationInfo info;
+    info.setAccountName(accountName());
+    info.parseNotification(contents);
 
-    const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderId);
+    const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderId());
     // qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
     QPixmap pix;
     if (!iconFileName.isEmpty()) {
@@ -2093,7 +2095,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
         // qDebug() << " load pixmap : "<< loaded;
         // qDebug() << " pix " << pix.isNull();
         Q_UNUSED(loaded)
-        info.pixmap = pix;
+        info.setPixmap(pix);
     }
     if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;

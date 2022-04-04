@@ -63,10 +63,9 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
 
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
-    connect(account, &RocketChatAccount::notification, this, [this, account](const Utils::NotificationInfo &info) {
+    connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {
         auto job = new NotifierJob;
         job->setInfo(info);
-        job->setAccountName(account->accountName());
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
         connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
             if (tmId.isEmpty()) {

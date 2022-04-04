@@ -21,6 +21,7 @@
 #include "messages/message.h"
 #include "model/listmessagesmodel.h"
 #include "model/roommodel.h"
+#include "notificationinfo.h"
 #include "ownuser/ownuser.h"
 #include "parsemessageurlutils.h"
 #include "permissions/permissionmanager.h"
@@ -509,7 +510,7 @@ Q_SIGNALS:
     void added(const QJsonObject &item);
     void changed(const QJsonObject &item);
     void removed(const QJsonObject &item);
-    void notification(const Utils::NotificationInfo &info);
+    void notification(const NotificationInfo &info);
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);

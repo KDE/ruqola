@@ -18,5 +18,4 @@ void NotifierJobTest::shouldHaveDefaultValues()
 {
     NotifierJob notifier;
     QVERIFY(!notifier.info().isValid());
-    QVERIFY(notifier.accountName().isEmpty());
 }

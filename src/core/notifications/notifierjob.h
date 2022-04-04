@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "utils.h"
+#include "notificationinfo.h"
 #include <QObject>
 
 class LIBRUQOLACORE_EXPORT NotifierJob : public QObject
@@ -19,11 +19,8 @@ public:
 
     void start();
 
-    Q_REQUIRED_RESULT Utils::NotificationInfo info() const;
-    void setInfo(const Utils::NotificationInfo &info);
-
-    Q_REQUIRED_RESULT QString accountName() const;
-    void setAccountName(const QString &accountName);
+    Q_REQUIRED_RESULT NotificationInfo info() const;
+    void setInfo(const NotificationInfo &info);
 
 Q_SIGNALS:
     void switchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);
@@ -31,6 +28,5 @@ Q_SIGNALS:
 
 private:
     void slotDefaultActionActivated();
-    Utils::NotificationInfo mInfo;
-    QString mAccountName;
+    NotificationInfo mInfo;
 };

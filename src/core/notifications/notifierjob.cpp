@@ -22,11 +22,11 @@ void NotifierJob::start()
 {
     if (mInfo.isValid()) {
         auto notification = new KNotification(QStringLiteral("new-notification"), KNotification::CloseOnTimeout);
-        notification->setTitle(mInfo.title);
-        const QString userName = mInfo.senderName.isEmpty() ? mInfo.senderUserName : mInfo.senderName;
-        notification->setText(i18n("%1: %2", userName, mInfo.message.toHtmlEscaped()));
-        if (!mInfo.pixmap.isNull()) {
-            notification->setPixmap(mInfo.pixmap);
+        notification->setTitle(mInfo.title());
+        const QString userName = mInfo.senderName().isEmpty() ? mInfo.senderUserName() : mInfo.senderName();
+        notification->setText(i18n("%1: %2", userName, mInfo.message().toHtmlEscaped()));
+        if (!mInfo.pixmap().isNull()) {
+            notification->setPixmap(mInfo.pixmap());
         }
         notification->setDefaultAction(i18nc("Open channel", "Open Channel"));
         connect(notification, &KNotification::defaultActivated, this, &NotifierJob::slotDefaultActionActivated);
@@ -36,7 +36,7 @@ void NotifierJob::start()
         replyAction->setPlaceholderText(i18n("Reply..."));
         QObject::connect(replyAction.get(), &KNotificationReplyAction::replied, this, [this](const QString &text) {
             // qDebug() << " mInfo " << mInfo;
-            Q_EMIT sendReply(text, mInfo.roomId, mInfo.tmId);
+            Q_EMIT sendReply(text, mInfo.roomId(), mInfo.tmId());
             // qDebug() << " reply " << text;
         });
         notification->setReplyAction(std::move(replyAction));
@@ -47,27 +47,17 @@ void NotifierJob::start()
     }
 }
 
-Utils::NotificationInfo NotifierJob::info() const
+NotificationInfo NotifierJob::info() const
 {
     return mInfo;
 }
 
-void NotifierJob::setInfo(const Utils::NotificationInfo &info)
+void NotifierJob::setInfo(const NotificationInfo &info)
 {
     mInfo = info;
 }
 
 void NotifierJob::slotDefaultActionActivated()
 {
-    Q_EMIT switchToAccountAndRoomName(mAccountName, mInfo.roomId, mInfo.channelType);
-}
-
-QString NotifierJob::accountName() const
-{
-    return mAccountName;
-}
-
-void NotifierJob::setAccountName(const QString &accountName)
-{
-    mAccountName = accountName;
+    Q_EMIT switchToAccountAndRoomName(mInfo.accountName(), mInfo.roomId(), mInfo.channelType());
 }

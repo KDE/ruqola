@@ -171,3 +171,8 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
     }
     qCDebug(RUQOLA_LOG) << "info " << *this;
 }
+
+bool NotificationInfo::isValid() const
+{
+    return !mSenderId.isEmpty() && !mMessage.isEmpty() && !mChannelType.isEmpty();
+}

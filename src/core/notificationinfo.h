@@ -52,6 +52,9 @@ public:
 
     void parseNotification(const QJsonArray &contents);
 
+    // Pixmap can be null.
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     QString mAccountName;
     QString mMessage;
