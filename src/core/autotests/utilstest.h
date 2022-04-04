@@ -21,9 +21,6 @@ private Q_SLOTS:
     void shouldExtractRoomUserFromUrl_data();
     void shouldExtractRoomUserFromUrl();
 
-    void shouldParseNotification_data();
-    void shouldParseNotification();
-
     void shouldConvertTextWithUrl_data();
     void shouldConvertTextWithUrl();
 

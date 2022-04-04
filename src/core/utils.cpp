@@ -115,44 +115,6 @@ User::PresenceStatus Utils::presenceStatusFromString(const QString &status)
     }
 }
 
-Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)
-{
-    // qDebug() << " Utils::NotificationInfo Utils::parseNotification(const QJsonArray &contents)" << contents;
-    Utils::NotificationInfo info;
-    const QJsonObject obj = contents.at(0).toObject();
-    info.title = obj[QStringLiteral("title")].toString();
-    const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
-    if (!payloadObj.isEmpty()) {
-        info.roomId = payloadObj[QStringLiteral("rid")].toString();
-        info.roomName = payloadObj[QStringLiteral("name")].toString();
-        info.channelType = payloadObj[QStringLiteral("type")].toString();
-        info.tmId = payloadObj[QStringLiteral("tmid")].toString();
-        const QJsonObject senderObj = payloadObj.value(QLatin1String("sender")).toObject();
-        if (!senderObj.isEmpty()) {
-            info.senderId = senderObj.value(QLatin1String("_id")).toString();
-            info.senderName = senderObj.value(QLatin1String("name")).toString();
-            info.senderUserName = senderObj.value(QLatin1String("username")).toString();
-        } else {
-            qCDebug(RUQOLA_LOG) << "Problem with notification json: missing sender";
-        }
-        const QJsonObject messageObj = payloadObj.value(QLatin1String("message")).toObject();
-        if (messageObj.isEmpty()) {
-            qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
-            info.message = obj[QStringLiteral("text")].toString();
-        } else {
-            info.message = messageObj[QStringLiteral("msg")].toString();
-            if (info.message.isEmpty()) {
-                // Fallback to text
-                info.message = obj[QStringLiteral("text")].toString();
-            }
-        }
-    } else {
-        qCDebug(RUQOLA_LOG) << "Problem with notification json: missing payload";
-    }
-    qCDebug(RUQOLA_LOG) << "info " << info;
-    return info;
-}
-
 QString Utils::userIdFromDirectChannel(const QString &rid, const QString &userId)
 {
     QString newUserId = rid;
@@ -250,18 +212,6 @@ QString Utils::convertTextWithUrl(const QString &str)
         }
     }
     return newStr;
-}
-
-QDebug operator<<(QDebug d, const Utils::NotificationInfo &t)
-{
-    d << " message " << t.message;
-    d << " title " << t.title;
-    d << " sender " << t.senderId;
-    d << " roomName " << t.roomName;
-    d << " roomId " << t.roomId;
-    d << " type " << t.channelType;
-    d << " pixmap is null ? " << t.pixmap.isNull();
-    return d;
 }
 
 QJsonObject Utils::strToJsonObject(const QString &jsonString)

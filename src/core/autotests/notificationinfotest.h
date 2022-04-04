@@ -16,4 +16,6 @@ public:
     ~NotificationInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldParseNotification();
+    void shouldParseNotification_data();
 };

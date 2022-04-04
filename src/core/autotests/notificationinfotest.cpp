@@ -5,6 +5,8 @@
 */
 #include "notificationinfotest.h"
 #include "notificationinfo.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(NotificationInfoTest)
 
@@ -27,4 +29,71 @@ void NotificationInfoTest::shouldHaveDefaultValues()
     QVERIFY(t.channelType().isEmpty());
     QVERIFY(t.tmId().isEmpty());
     QVERIFY(t.pixmap().isNull());
+}
+
+void NotificationInfoTest::shouldParseNotification_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<QString>("title");
+    QTest::addColumn<QString>("message");
+    QTest::addColumn<QString>("sender");
+    QTest::addColumn<QString>("roomName");
+    QTest::addColumn<QString>("channelType");
+    QTest::addColumn<QString>("senderName");
+    QTest::addColumn<QString>("senderUserName");
+    QTest::addColumn<QString>("roomId");
+    QTest::addColumn<QString>("tmId");
+    QTest::newRow("notification1") << QStringLiteral("notification") << QStringLiteral("title") << QStringLiteral("pong") << QStringLiteral("tgrk5CZKgYGiSSqXp")
+                                   << QString() << QStringLiteral("d") << QStringLiteral("Laurent") << QStringLiteral("laurent")
+                                   << QStringLiteral("tgrk5CZKgYGiSSqXpuKK39zoewTkdacidH") << QString();
+    // TODO
+    QTest::newRow("notificationencrypted") << QStringLiteral("notificationencrypted") << QStringLiteral("title") << QStringLiteral("pong")
+                                           << QStringLiteral("tgrk5CZKgYGiSSqXp") << QString() << QStringLiteral("d") << QStringLiteral("foo")
+                                           << QStringLiteral("bla") << QStringLiteral("XQv6u7Kyb4pfDhS4wuKK39zoewTkdacidH") << QString();
+
+    QTest::newRow("notification2") << QStringLiteral("notification1") << QStringLiteral("my title") << QStringLiteral("@here")
+                                   << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c") << QStringLiteral("foo")
+                                   << QStringLiteral("foo.bla") << QStringLiteral("Fc4EWcQXCkJkJ7QEQ") << QString();
+
+    QTest::newRow("notification-tmid1") << QStringLiteral("notification-tmid1") << QStringLiteral("my title") << QStringLiteral("@here")
+                                        << QStringLiteral("Gsvg6BGoBfmPLoFie") << QStringLiteral("roomname example") << QStringLiteral("c")
+                                        << QStringLiteral("foo") << QStringLiteral("foo.bla") << QStringLiteral("Fc4EWcQXCkJkJ7QEQ")
+                                        << QStringLiteral("QLNcu8TnRi8Ld57Pk");
+}
+
+void NotificationInfoTest::shouldParseNotification()
+{
+    QFETCH(QString, fileName);
+    QFETCH(QString, title);
+    QFETCH(QString, message);
+    QFETCH(QString, sender);
+    QFETCH(QString, roomName);
+    QFETCH(QString, channelType);
+    QFETCH(QString, senderName);
+    QFETCH(QString, senderUserName);
+    QFETCH(QString, roomId);
+    QFETCH(QString, tmId);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/") + fileName + QLatin1String(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject fields = doc.object().value(QLatin1String("fields")).toObject();
+    const QJsonArray contents = fields.value(QLatin1String("args")).toArray();
+
+    NotificationInfo info;
+    info.parseNotification(contents);
+    QEXPECT_FAIL("notificationencrypted", "Encrypted message not supported yet", Continue);
+    QCOMPARE(info.message(), message);
+    QCOMPARE(info.title(), title);
+    QEXPECT_FAIL("notificationencrypted", "Encrypted message not supported yet", Continue);
+    QCOMPARE(info.senderId(), sender);
+    QCOMPARE(info.roomName(), roomName);
+    QCOMPARE(info.roomId(), roomId);
+    QCOMPARE(info.channelType(), channelType);
+    QCOMPARE(info.senderUserName(), senderUserName);
+    QCOMPARE(info.senderName(), senderName);
+    QCOMPARE(info.tmId(), tmId);
+    QVERIFY(info.isValid());
 }
