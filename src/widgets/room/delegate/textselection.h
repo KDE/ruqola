@@ -75,7 +75,13 @@ private:
     };
 
     Q_REQUIRED_RESULT OrderedPositions orderedPositions() const;
-    void selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const;
+    void selectionText(const OrderedPositions ordered,
+                       Format format,
+                       int row,
+                       const QModelIndex &index,
+                       QTextDocument *doc,
+                       QString &str,
+                       const MessageAttachment &att = {}) const;
 
     QPersistentModelIndex mStartIndex;
     QPersistentModelIndex mEndIndex;
