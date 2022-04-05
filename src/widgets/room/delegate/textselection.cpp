@@ -47,7 +47,7 @@ void TextSelection::selectionText(const OrderedPositions ordered,
                                   QString &str,
                                   const MessageAttachment &att) const
 {
-    const QTextCursor cursor = selectionForIndex(index, doc);
+    const QTextCursor cursor = selectionForIndex(index, doc, att);
     const QTextDocumentFragment fragment(cursor);
     str += format == Text ? fragment.toPlainText() : fragment.toHtml();
     if (row < ordered.toRow) {
@@ -124,7 +124,7 @@ bool TextSelection::contains(const QModelIndex &index, int charPos) const
     }
 }
 
-QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocument *doc) const
+QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att) const
 {
     if (!hasSelection())
         return {};
