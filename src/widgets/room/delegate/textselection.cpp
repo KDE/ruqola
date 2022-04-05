@@ -39,7 +39,13 @@ TextSelection::OrderedPositions TextSelection::orderedPositions() const
     return ret;
 }
 
-void TextSelection::selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const
+void TextSelection::selectionText(const OrderedPositions ordered,
+                                  Format format,
+                                  int row,
+                                  const QModelIndex &index,
+                                  QTextDocument *doc,
+                                  QString &str,
+                                  const MessageAttachment &att) const
 {
     const QTextCursor cursor = selectionForIndex(index, doc);
     const QTextDocumentFragment fragment(cursor);
@@ -90,7 +96,7 @@ QString TextSelection::selectedText(Format format) const
                     // TODO verify if it's startattach/
                     doc = factory->documentForIndex(att);
                     if (doc) {
-                        selectionText(ordered, format, row, index, doc, str);
+                        selectionText(ordered, format, row, index, doc, str, att);
                         break;
                     }
                 }
