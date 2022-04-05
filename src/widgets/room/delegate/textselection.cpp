@@ -172,13 +172,13 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
     clear();
     Q_ASSERT(index.isValid());
 #ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    mStartIndex = index;
     if (msgAttach.isValid()) {
         AttachmentSelection selection;
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(selection);
     } else {
-        mStartIndex = index;
         mStartPos = charPos;
     }
 #else
@@ -214,13 +214,13 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
 
     Q_ASSERT(index.isValid());
 #ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    mEndIndex = index;
     if (msgAttach.isValid()) {
         AttachmentSelection selection;
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(selection);
     } else {
-        mEndIndex = index;
         mEndPos = charPos;
     }
 #else
