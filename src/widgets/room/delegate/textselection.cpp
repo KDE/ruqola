@@ -266,20 +266,6 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
 }
 
-void TextSelection::selectMessage(const QModelIndex &index, DocumentFactoryInterface *factory)
-{
-    Q_ASSERT(index.isValid());
-    clear();
-    mStartIndex = index;
-    mEndIndex = index;
-    mStartPos = 0;
-    QTextDocument *doc = factory->documentForIndex(index);
-    if (!doc) {
-        return;
-    }
-    mEndPos = doc->characterCount() - 1;
-}
-
 void TextSelection::selectMessage(const QModelIndex &index)
 {
     Q_ASSERT(index.isValid());
