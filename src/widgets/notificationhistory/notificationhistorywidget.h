@@ -18,6 +18,9 @@ public:
     explicit NotificationHistoryWidget(QWidget *parent = nullptr);
     ~NotificationHistoryWidget() override;
 
+Q_SIGNALS:
+    void openMessage(); // TODO add arguments
+
 private:
     QListView *const mListNotifications;
 };
