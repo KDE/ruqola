@@ -39,21 +39,6 @@ TextSelection::OrderedPositions TextSelection::orderedPositions() const
     return ret;
 }
 
-QString TextSelection::selectedText(Format format, DocumentFactoryInterface *factory) const
-{
-    if (!hasSelection()) {
-        return {};
-    }
-    const OrderedPositions ordered = orderedPositions();
-    QString str;
-    for (int row = ordered.fromRow; row <= ordered.toRow; ++row) {
-        const QModelIndex index = QModelIndex(mStartIndex).siblingAtRow(row);
-        QTextDocument *doc = factory->documentForIndex(index);
-        selectionText(ordered, format, row, index, doc, str);
-    }
-    return str;
-}
-
 void TextSelection::selectionText(const OrderedPositions ordered, Format format, int row, const QModelIndex &index, QTextDocument *doc, QString &str) const
 {
     const QTextCursor cursor = selectionForIndex(index, doc);
