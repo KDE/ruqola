@@ -43,7 +43,6 @@ public:
         return mShowThreadContext;
     }
 
-    void selectAll(const QModelIndex &index);
     void removeMessageCache(const QString &messageId);
     void clearTextDocumentCache();
 

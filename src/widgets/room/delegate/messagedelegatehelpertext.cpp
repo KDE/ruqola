@@ -117,11 +117,6 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
     return text;
 }
 
-void MessageDelegateHelperText::selectAll(const QModelIndex &index)
-{
-    mSelection->selectMessage(index, this);
-}
-
 void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
 {
     mDocumentCache.remove(messageId);
