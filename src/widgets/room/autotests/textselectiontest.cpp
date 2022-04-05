@@ -84,32 +84,33 @@ void TextSelectionTest::testChangingSelection()
 
     TestFactory factory(model.rowCount());
     TextSelection selection;
+    selection.setTextHelperFactory(&factory);
     QSignalSpy spy(&selection, &TextSelection::repaintNeeded);
 
     // WHEN/THEN
 
     selection.setStart(index1, 3);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QString());
+    QCOMPARE(selection.selectedText(TextSelection::Text), QString());
     QVERIFY(!selection.hasSelection());
     selection.setEnd(index1, 4);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("e"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e"));
     QCOMPARE(spy.count(), 0);
     QVERIFY(selection.hasSelection());
 
     selection.setEnd(index1, 9);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("e 1 bo"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bo"));
     QCOMPARE(spy.count(), 0);
 
     spy.clear();
     selection.setEnd(index3, 2);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("e 1 bold\nLine 2 bold\nLi"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bold\nLine 2 bold\nLi"));
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1 is now fully selected, needs repaint
     QCOMPARE(spy.at(1).at(0).value<QModelIndex>().row(), 2); // line 2 was selected too, needs repaint
 
     spy.clear();
     selection.setEnd(index2, 2);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("e 1 bold\nLi"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("e 1 bold\nLi"));
     QCOMPARE(spy.count(), 1);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 3); // line 3 is no longer selected
 
@@ -134,7 +135,7 @@ void TextSelectionTest::testChangingSelection()
     // Now move up and reverse selection
     spy.clear();
     selection.setEnd(index0, 1);
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("ine 0\nLin"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("ine 0\nLin"));
     QCOMPARE(spy.count(), 2);
     QCOMPARE(spy.at(0).at(0).value<QModelIndex>().row(), 1); // line 1's selection is different
     QCOMPARE(spy.at(1).at(0).value<QModelIndex>().row(), 2); // line 2 is no longer selected
@@ -158,13 +159,14 @@ void TextSelectionTest::testSingleLineReverseSelection()
     const QModelIndex index1 = model.index(1, 0);
     TestFactory factory(model.rowCount());
     TextSelection selection;
+    selection.setTextHelperFactory(&factory);
 
     // WHEN
     selection.setStart(index1, 4);
     selection.setEnd(index1, 1);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("ine"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("ine"));
 }
 
 void TextSelectionTest::testSelectWordUnderCursor()
@@ -174,12 +176,13 @@ void TextSelectionTest::testSelectWordUnderCursor()
     const QModelIndex index2 = model.index(2, 0);
     TestFactory factory(model.rowCount());
     TextSelection selection;
+    selection.setTextHelperFactory(&factory);
 
     // WHEN
     selection.selectWordUnderCursor(index1, 2, &factory);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("Line"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("Line"));
     QVERIFY(selection.contains(index1, 0));
     QVERIFY(selection.contains(index1, 2));
     QVERIFY(selection.contains(index1, 4));
@@ -194,7 +197,7 @@ void TextSelectionTest::testSelectWordUnderCursor()
     selection.selectWordUnderCursor(index2, 8, &factory);
 
     // THEN
-    QCOMPARE(selection.selectedText(TextSelection::Text, &factory), QStringLiteral("bold"));
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("bold"));
     QVERIFY(!selection.contains(index2, 0));
     QVERIFY(!selection.contains(index2, 6));
     QVERIFY(selection.contains(index2, 7));

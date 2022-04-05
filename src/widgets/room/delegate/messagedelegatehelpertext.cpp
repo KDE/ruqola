@@ -297,8 +297,8 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mSelection->contains(index, charPos)) {
             auto mimeData = new QMimeData;
-            mimeData->setHtml(mSelection->selectedText(TextSelection::Html, this));
-            mimeData->setText(mSelection->selectedText(TextSelection::Text, this));
+            mimeData->setHtml(mSelection->selectedText(TextSelection::Html));
+            mimeData->setText(mSelection->selectedText(TextSelection::Text));
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);
