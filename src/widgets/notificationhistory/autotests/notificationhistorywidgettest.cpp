@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorywidgettest.h"
+#include "notificationhistory/notificationhistorydelegate.h"
 #include "notificationhistory/notificationhistorywidget.h"
 #include <QListView>
 #include <QTest>
@@ -26,4 +27,8 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
 
     auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListNotifications"));
     QVERIFY(mListNotifications);
+
+    auto listNotificationsDelegate = w.findChild<NotificationHistoryDelegate *>(QStringLiteral("listNotificationsDelegate"));
+    QVERIFY(listNotificationsDelegate);
+    QCOMPARE(mListNotifications->itemDelegate(), listNotificationsDelegate);
 }
