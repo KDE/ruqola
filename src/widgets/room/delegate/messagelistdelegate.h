@@ -74,10 +74,15 @@ public:
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
+    void updateView();
+
+protected:
+    Q_REQUIRED_RESULT bool event(QEvent *e) override;
 
 private:
     Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    void updateColors();
 
     struct Layout {
         // Sender

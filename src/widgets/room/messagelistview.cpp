@@ -69,6 +69,7 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     }
     connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
     connect(mMessageListDelegate, &MessageListDelegate::startPrivateConversation, this, &MessageListView::slotStartPrivateConversation);
+    connect(mMessageListDelegate, &MessageListDelegate::updateView, this, &MessageListView::slotUpdateView);
 }
 
 MessageListView::~MessageListView()
@@ -97,6 +98,11 @@ void MessageListView::paintEvent(QPaintEvent *e)
 #else
     QListView::paintEvent(e);
 #endif
+}
+
+void MessageListView::slotUpdateView()
+{
+    viewport()->update();
 }
 
 void MessageListView::slotUpdateLastSeen()
