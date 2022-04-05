@@ -15,4 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public QItemDe
 public:
     explicit NotificationHistoryDelegate(QObject *parent = nullptr);
     ~NotificationHistoryDelegate() override;
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };

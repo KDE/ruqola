@@ -6,6 +6,8 @@
 
 #include "notificationhistorydelegate.h"
 
+#include <QPainter>
+
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
     : QItemDelegate{parent}
 {
@@ -13,4 +15,11 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
 
 NotificationHistoryDelegate::~NotificationHistoryDelegate()
 {
+}
+
+void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    painter->save();
+    // TODO
+    painter->restore();
 }
