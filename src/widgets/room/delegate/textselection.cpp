@@ -263,7 +263,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     selection.toCharPos = mEndPos;
     selection.attachment = msgAttach;
     mAttachmentSelection.append(selection);
-    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText();
+    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText()
+             << "mAttachmentSelection.count" << mAttachmentSelection.count();
 }
 
 void TextSelection::selectMessage(const QModelIndex &index)
