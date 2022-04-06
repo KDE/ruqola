@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include <QAbstractItemModel>
+#include <QAbstractListModel>
 
 #include "libruqolacore_export.h"
 #include "notificationinfo.h"
 #include <QVector>
 
-class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractItemModel
+class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractListModel
 {
     Q_OBJECT
 public:

@@ -7,7 +7,7 @@
 #include "notificationhistorymodel.h"
 
 NotificationHistoryModel::NotificationHistoryModel(QObject *parent)
-    : QAbstractItemModel{parent}
+    : QAbstractListModel{parent}
 {
 }
 

@@ -6,10 +6,13 @@
 
 #include "notificationhistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
+#include "notificationhistorymanager.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
+#include <QMenu>
 #include <QVBoxLayout>
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
@@ -37,8 +40,19 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     auto listNotificationsDelegate = new NotificationHistoryDelegate(this);
     listNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     mListNotifications->setItemDelegate(listNotificationsDelegate);
+
+    mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
+    mListNotifications->setModel(NotificationHistoryManager::self()->notificationHistoryModel());
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()
 {
+}
+
+void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    // TODO
+    menu.exec(mListNotifications->viewport()->mapToGlobal(pos));
 }

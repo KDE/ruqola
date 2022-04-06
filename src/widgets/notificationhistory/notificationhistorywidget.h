@@ -23,6 +23,7 @@ Q_SIGNALS:
     void openMessage(); // TODO add arguments
 
 private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
     QListView *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
 };
