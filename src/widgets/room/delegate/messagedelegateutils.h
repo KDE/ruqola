@@ -5,12 +5,14 @@
 */
 
 #pragma once
+#include "messages/messageattachment.h"
 
 #include <QAbstractTextDocumentLayout>
 #include <QString>
 #include <QTextDocument>
 #include <QVector>
 #include <memory>
+
 class TextSelection;
 class QStyleOptionViewItem;
 namespace MessageDelegateUtils
@@ -25,7 +27,7 @@ Q_REQUIRED_RESULT bool useItalicsForMessage(const QModelIndex &index);
 
 Q_REQUIRED_RESULT bool pendingMessage(const QModelIndex &index);
 Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection>
-selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option);
+selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option, const MessageAttachment &msgAttach = {});
 
 void drawSelection(QTextDocument *doc,
                    QRect rect,
@@ -33,7 +35,8 @@ void drawSelection(QTextDocument *doc,
                    QPainter *painter,
                    const QModelIndex &index,
                    const QStyleOptionViewItem &option,
-                   TextSelection *selection);
+                   TextSelection *selection,
+                   const MessageAttachment &msgAttach);
 
 void setClipboardSelection(TextSelection *selection);
 }

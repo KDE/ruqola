@@ -160,7 +160,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
         return;
     }
 
-    MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mSelection);
+    MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mSelection, {});
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const

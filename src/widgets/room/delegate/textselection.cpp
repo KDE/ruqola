@@ -12,7 +12,7 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <QTextDocumentFragment>
-//#define ADD_ATTACHMENT_SELECTION_SUPPORT
+#define ADD_ATTACHMENT_SELECTION_SUPPORT
 TextSelection::TextSelection()
 {
 }
@@ -131,6 +131,42 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     Q_ASSERT(index.model() == mStartIndex.model());
     Q_ASSERT(index.model() == mEndIndex.model());
 
+#ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
+    if (att.isValid() && mAttachmentSelection.isEmpty()) {
+        return {};
+    }
+    const OrderedPositions ordered = orderedPositions();
+    int fromCharPos = ordered.fromCharPos;
+    int toCharPos = ordered.toCharPos;
+    // qDebug() << "BEFORE toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
+    QTextCursor cursor(doc);
+
+    if (att.isValid()) {
+        for (const AttachmentSelection &attSelection : std::as_const(mAttachmentSelection)) {
+            if (attSelection.attachment == att) {
+                fromCharPos = attSelection.fromCharPos;
+                toCharPos = attSelection.toCharPos;
+                // qDebug() << "ATTACHNMENT toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
+                break;
+            }
+        }
+    }
+    // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
+    const int row = index.row();
+    if (row == ordered.fromRow)
+        cursor.setPosition(qMax(fromCharPos, 0));
+    else if (row > ordered.fromRow)
+        cursor.setPosition(0);
+    else
+        return {};
+    if (row == ordered.toRow)
+        cursor.setPosition(qMax(toCharPos, 0), QTextCursor::KeepAnchor);
+    else if (row < ordered.toRow)
+        cursor.movePosition(QTextCursor::End, QTextCursor::KeepAnchor);
+    else
+        return {};
+    return cursor;
+#else
     const OrderedPositions ordered = orderedPositions();
 
     QTextCursor cursor(doc);
@@ -148,6 +184,7 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
     else
         return {};
     return cursor;
+#endif
 }
 
 void TextSelection::clear()
@@ -184,6 +221,7 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(selection);
+        qDebug() << " statt is in attachment ";
     } else {
         mStartPos = charPos;
     }
@@ -222,8 +260,17 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
 #ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
     mEndIndex = index;
     if (msgAttach.isValid()) {
+        for (int i = 0; i < mAttachmentSelection.count(); ++i) {
+            if (mAttachmentSelection.at(i).attachment == msgAttach) {
+                AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
+                attachmentSelectFound.toCharPos = charPos;
+                mAttachmentSelection.append(attachmentSelectFound);
+                return;
+            }
+        }
+
         AttachmentSelection selection;
-        selection.fromCharPos = charPos;
+        selection.toCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(selection);
     } else {
@@ -269,8 +316,8 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, const Messag
     selection.toCharPos = mEndPos;
     selection.attachment = msgAttach;
     mAttachmentSelection.append(selection);
-    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText()
-             << "mAttachmentSelection.count" << mAttachmentSelection.count();
+    //    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText()
+    //             << "mAttachmentSelection.count" << mAttachmentSelection.count();
 }
 
 void TextSelection::selectMessage(const QModelIndex &index)
