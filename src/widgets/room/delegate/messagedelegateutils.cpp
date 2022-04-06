@@ -75,11 +75,14 @@ bool MessageDelegateUtils::pendingMessage(const QModelIndex &index)
     return index.data(MessageModel::PendingMessage).toBool();
 }
 
-QVector<QAbstractTextDocumentLayout::Selection>
-MessageDelegateUtils::selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option)
+QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(TextSelection *selection,
+                                                                                QTextDocument *doc,
+                                                                                const QModelIndex &index,
+                                                                                const QStyleOptionViewItem &option,
+                                                                                const MessageAttachment &msgAttach)
 {
     QVector<QAbstractTextDocumentLayout::Selection> selections;
-    const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc);
+    const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc, msgAttach);
     if (!selectionTextCursor.isNull()) {
         QTextCharFormat selectionFormat;
         selectionFormat.setBackground(option.palette.brush(QPalette::Highlight));
@@ -102,9 +105,10 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
                                          QPainter *painter,
                                          const QModelIndex &index,
                                          const QStyleOptionViewItem &option,
-                                         TextSelection *selection)
+                                         TextSelection *selection,
+                                         const MessageAttachment &msgAttach)
 {
-    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option);
+    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach);
     painter->save();
     painter->translate(rect.left(), top);
     const QRect clip(0, 0, rect.width(), rect.height());
