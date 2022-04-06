@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorywidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "notificationhistorydelegate.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -26,6 +27,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     searchLayout->addWidget(mSearchLineEdit);
+    new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mainLayout->addLayout(searchLayout);
 
