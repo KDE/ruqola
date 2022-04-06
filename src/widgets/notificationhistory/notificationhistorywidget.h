@@ -10,6 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QListView;
+class QLineEdit;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 {
@@ -23,4 +24,5 @@ Q_SIGNALS:
 
 private:
     QListView *const mListNotifications;
+    QLineEdit *const mSearchLineEdit;
 };

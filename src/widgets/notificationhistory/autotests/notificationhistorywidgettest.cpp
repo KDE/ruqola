@@ -7,9 +7,12 @@
 #include "notificationhistorywidgettest.h"
 #include "notificationhistory/notificationhistorydelegate.h"
 #include "notificationhistory/notificationhistorywidget.h"
+#include <QHBoxLayout>
+#include <QLineEdit>
 #include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
+
 QTEST_MAIN(NotificationHistoryWidgetTest)
 
 NotificationHistoryWidgetTest::NotificationHistoryWidgetTest(QObject *parent)
@@ -31,4 +34,11 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
     auto listNotificationsDelegate = w.findChild<NotificationHistoryDelegate *>(QStringLiteral("listNotificationsDelegate"));
     QVERIFY(listNotificationsDelegate);
     QCOMPARE(mListNotifications->itemDelegate(), listNotificationsDelegate);
+
+    auto searchLayout = w.findChild<QHBoxLayout *>(QStringLiteral("searchLayout"));
+    QVERIFY(searchLayout);
+    QCOMPARE(searchLayout->contentsMargins(), QMargins{});
+
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
 }
