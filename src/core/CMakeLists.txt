@@ -359,8 +359,6 @@ target_sources(libruqolacore PRIVATE
     texthighlighter.h
     typingnotification.cpp
     typingnotification.h
-    unityservicemanager.cpp
-    unityservicemanager.h
     uploadfilemanager.cpp
     uploadfilemanager.h
     user.cpp
