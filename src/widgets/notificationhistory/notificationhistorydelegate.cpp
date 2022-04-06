@@ -5,7 +5,7 @@
 */
 
 #include "notificationhistorydelegate.h"
-
+#include "model/notificationhistorymodel.h"
 #include <QPainter>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
