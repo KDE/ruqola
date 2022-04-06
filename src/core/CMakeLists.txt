@@ -272,6 +272,8 @@ target_sources(libruqolacore PRIVATE
     notifications/notificationpreferences.h
     notifications/notifierjob.cpp
     notifications/notifierjob.h
+    notificationhistorymanager.cpp
+    notificationhistorymanager.h
     oauth/oauthinfo.cpp
     oauth/oauthinfo.h
     otr/otr.cpp
