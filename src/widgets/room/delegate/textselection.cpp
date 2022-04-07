@@ -224,7 +224,7 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(selection);
-        qDebug() << " statt is in attachment ";
+        // qDebug() << " start selection is in attachment ";
     } else {
         mStartPos = charPos;
     }
