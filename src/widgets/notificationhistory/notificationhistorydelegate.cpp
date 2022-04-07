@@ -23,3 +23,8 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // TODO
     painter->restore();
 }
+
+NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    return {};
+}

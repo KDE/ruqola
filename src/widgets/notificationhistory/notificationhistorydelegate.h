@@ -17,4 +17,11 @@ public:
     ~NotificationHistoryDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+
+private:
+    // TODO
+    struct Layout {
+        QRect usableRect;
+    };
+    Q_REQUIRED_RESULT NotificationHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
