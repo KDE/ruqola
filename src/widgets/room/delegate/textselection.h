@@ -40,7 +40,7 @@ public:
         Html,
     };
     Q_REQUIRED_RESULT QString selectedText(Format format) const;
-    Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos) const;
+    Q_REQUIRED_RESULT bool contains(const QModelIndex &index, int charPos, const MessageAttachment &att = {}) const;
     Q_REQUIRED_RESULT QTextCursor selectionForIndex(const QModelIndex &index, QTextDocument *doc, const MessageAttachment &att = {}) const;
 
     void clear();
@@ -61,6 +61,7 @@ Q_SIGNALS:
     void repaintNeeded(const QModelIndex &index);
 
 private:
+    void selectWord(const QModelIndex &index, int charPos, QTextDocument *doc);
     struct OrderedPositions {
         int fromRow;
         int fromCharPos;

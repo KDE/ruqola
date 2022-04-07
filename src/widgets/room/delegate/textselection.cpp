@@ -108,11 +108,12 @@ QString TextSelection::selectedText(Format format) const
     return str;
 }
 
-bool TextSelection::contains(const QModelIndex &index, int charPos) const
+bool TextSelection::contains(const QModelIndex &index, int charPos, const MessageAttachment &att) const
 {
     if (!hasSelection())
         return false;
     Q_ASSERT(index.model() == mStartIndex.model());
+    // TODO implement check attachment
     const int row = index.row();
     const OrderedPositions ordered = orderedPositions();
     if (row == ordered.fromRow) {
@@ -291,6 +292,11 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
 {
     QTextDocument *doc = factory->documentForIndex(index);
+    selectWord(index, charPos, doc);
+}
+
+void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocument *doc)
+{
     QTextCursor cursor(doc);
     cursor.setPosition(charPos);
     clear();
@@ -304,14 +310,7 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
 {
     QTextDocument *doc = factory->documentForIndex(msgAttach);
-    QTextCursor cursor(doc);
-    cursor.setPosition(charPos);
-    clear();
-    cursor.select(QTextCursor::WordUnderCursor);
-    mStartIndex = index;
-    mEndIndex = index;
-    mStartPos = cursor.selectionStart();
-    mEndPos = cursor.selectionEnd();
+    selectWord(index, charPos, doc);
 
     AttachmentSelection selection;
     selection.fromCharPos = mStartPos;
