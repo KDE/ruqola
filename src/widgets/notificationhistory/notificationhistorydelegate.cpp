@@ -17,6 +17,13 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate()
 {
 }
 
+static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
+{
+    // This gives incorrect results (too small bounding rect), no idea why!
+    // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
+}
+
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -30,5 +37,11 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    return {};
+    NotificationHistoryDelegate::Layout layout;
+    const QString userName = index.data(NotificationHistoryModel::SenderName).toString();
+    layout.senderText = QLatin1Char('@') + userName;
+    layout.senderFont = option.font;
+    layout.senderFont.setBold(true);
+    // TODO
+    return layout;
 }
