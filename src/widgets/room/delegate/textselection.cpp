@@ -93,7 +93,6 @@ QString TextSelection::selectedText(Format format) const
             const auto attachements = message->attachements();
             for (const auto &att : attachements) {
                 for (auto factory : std::as_const(mAttachmentFactories)) {
-                    // TODO verify if it's startattach/
                     doc = factory->documentForIndex(att);
                     if (doc) {
                         if (!str.isEmpty()) {
