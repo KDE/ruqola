@@ -23,6 +23,7 @@ QDebug operator<<(QDebug d, const NotificationInfo &t)
     d << " type " << t.channelType();
     d << " tmId " << t.tmId();
     d << " pixmap is null ? " << t.pixmap().isNull();
+    d << " date time " << t.dateTime().toString();
     return d;
 }
 
@@ -175,4 +176,14 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 bool NotificationInfo::isValid() const
 {
     return !mSenderId.isEmpty() && !mMessage.isEmpty() && !mChannelType.isEmpty();
+}
+
+const QDateTime &NotificationInfo::dateTime() const
+{
+    return mDateTime;
+}
+
+void NotificationInfo::setDateTime(const QDateTime &newDateTime)
+{
+    mDateTime = newDateTime;
 }

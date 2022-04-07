@@ -55,6 +55,9 @@ public:
     // Pixmap can be null.
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT const QDateTime &dateTime() const;
+    void setDateTime(const QDateTime &newDateTime);
+
 private:
     QString mAccountName;
     QString mMessage;
@@ -67,6 +70,7 @@ private:
     QString mChannelType;
     QString mTmId;
     QPixmap mPixmap;
+    QDateTime mDateTime;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);
