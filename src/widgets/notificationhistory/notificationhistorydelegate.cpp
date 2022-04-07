@@ -20,6 +20,10 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate()
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
+    drawBackground(painter, option, index);
+
+    const Layout layout = doLayout(option, index);
+
     // TODO
     painter->restore();
 }

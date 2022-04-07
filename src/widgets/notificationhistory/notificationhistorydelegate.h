@@ -19,9 +19,19 @@ public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
-    // TODO
     struct Layout {
-        QRect usableRect;
+        // Sender
+        QString senderText;
+        QFont senderFont;
+        QRectF senderRect;
+
+        // Avatar pixmap
+        QPixmap avatarPixmap;
+        QPointF avatarPos;
+
+        // Text message
+        QRect textRect;
+        qreal baseLine; // used to draw sender/timestamp
     };
     Q_REQUIRED_RESULT NotificationHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
