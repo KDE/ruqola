@@ -22,6 +22,8 @@ private Q_SLOTS:
     void testSingleLineReverseSelection();
     void testSelectWordUnderCursor();
     void shouldHaveDefaultValues();
+    void testSelectAll();
+    void textClear();
 
 private:
     QStandardItemModel model;

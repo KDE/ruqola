@@ -211,3 +211,34 @@ void TextSelectionTest::shouldHaveDefaultValues()
     QVERIFY(!selection.textHelperFactory());
     QVERIFY(selection.attachmentFactories().isEmpty());
 }
+
+void TextSelectionTest::testSelectAll()
+{
+    // GIVEN
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    // WHEN
+    QVERIFY(!selection.hasSelection());
+    selection.selectMessage(index1);
+    QVERIFY(selection.hasSelection());
+    QCOMPARE(selection.selectedText(TextSelection::Text), QStringLiteral("Line 1 bold"));
+}
+
+void TextSelectionTest::textClear()
+{
+    // GIVEN
+    const QModelIndex index1 = model.index(1, 0);
+    TestFactory factory(model.rowCount());
+    TextSelection selection;
+    selection.setTextHelperFactory(&factory);
+
+    // WHEN
+    QVERIFY(!selection.hasSelection());
+    selection.selectMessage(index1);
+    QVERIFY(selection.hasSelection());
+    selection.clear();
+    QVERIFY(!selection.hasSelection());
+}
