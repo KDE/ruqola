@@ -18,6 +18,12 @@ class LIBRUQOLACORE_EXPORT NotificationHistoryModel : public QAbstractListModel
 public:
     enum NotificationHistoryRoles {
         AccountName = Qt::UserRole + 1,
+        Date,
+        Message,
+        RoomId,
+        ChannelType,
+        Pixmap,
+        SenderName,
     };
     Q_ENUM(NotificationHistoryRoles)
 
@@ -30,6 +36,8 @@ public:
     void clear();
 
     void insertNotifications(const QVector<NotificationInfo> &infos);
+
+    void addNotification(const NotificationInfo &info);
 
 private:
     QVector<NotificationInfo> mNotificationInfo;

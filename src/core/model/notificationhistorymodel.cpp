@@ -31,6 +31,18 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     case Qt::DisplayRole:
     case AccountName:
         return info.accountName();
+    case Date:
+        return info.dateTime();
+    case Message:
+        return info.message();
+    case RoomId:
+        return info.roomId();
+    case ChannelType:
+        return info.channelType();
+    case Pixmap:
+        return info.pixmap();
+    case SenderName:
+        return info.senderName();
     }
     return {};
 }
@@ -56,4 +68,12 @@ void NotificationHistoryModel::insertNotifications(const QVector<NotificationInf
         mNotificationInfo = infos;
         endInsertRows();
     }
+}
+
+void NotificationHistoryModel::addNotification(const NotificationInfo &info)
+{
+    const int numberOfElement = mNotificationInfo.count();
+    mNotificationInfo.append(info);
+    beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
+    endInsertRows();
 }
