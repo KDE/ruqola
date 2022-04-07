@@ -24,6 +24,7 @@ Q_SIGNALS:
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotClearList();
     QListView *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
 };

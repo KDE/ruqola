@@ -53,6 +53,12 @@ NotificationHistoryWidget::~NotificationHistoryWidget()
 void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    // TODO
+    menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
+    // TODO go to message
     menu.exec(mListNotifications->viewport()->mapToGlobal(pos));
+}
+
+void NotificationHistoryWidget::slotClearList()
+{
+    NotificationHistoryManager::self()->notificationHistoryModel()->clear();
 }
