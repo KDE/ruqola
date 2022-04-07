@@ -96,6 +96,9 @@ QString TextSelection::selectedText(Format format) const
                     // TODO verify if it's startattach/
                     doc = factory->documentForIndex(att);
                     if (doc) {
+                        if (!str.isEmpty()) {
+                            str += QLatin1Char('\n');
+                        }
                         selectionText(ordered, format, row, index, doc, str, att);
                         break;
                     }
