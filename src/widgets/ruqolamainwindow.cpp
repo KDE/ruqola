@@ -802,7 +802,6 @@ void RuqolaMainWindow::slotFullScreen(bool t)
 
 void RuqolaMainWindow::slotOpenNotificationHistory()
 {
-    QPointer<NotificationHistoryDialog> dlg = new NotificationHistoryDialog(this);
-    dlg->exec();
-    delete dlg;
+    NotificationHistoryDialog dlg(this);
+    dlg.exec();
 }
