@@ -178,6 +178,9 @@ void RuqolaMainWindow::setupStatusBar()
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
     mNotificationToolButton = new QToolButton(this);
     mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
+    // TODO add icons.
+    // TODO add tooltips
+    // Show/hide icons when we have a new notification
     mNotificationToolButton->hide(); // TODO
     connect(mNotificationToolButton, &QToolButton::clicked, this, &RuqolaMainWindow::slotOpenNotificationHistory);
     statusBar()->addPermanentWidget(mNotificationToolButton);
