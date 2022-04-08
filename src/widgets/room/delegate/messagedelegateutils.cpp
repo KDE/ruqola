@@ -132,3 +132,16 @@ void MessageDelegateUtils::setClipboardSelection(TextSelection *selection)
         clipboard->setText(text, QClipboard::Selection);
     }
 }
+
+QSizeF MessageDelegateUtils::dprAwareSize(const QPixmap &pixmap)
+{
+    if (pixmap.isNull()) {
+        return {0, 0}; // prevent division-by-zero
+    }
+    return pixmap.size() / pixmap.devicePixelRatioF();
+}
+
+qreal MessageDelegateUtils::basicMargin()
+{
+    return 8;
+}

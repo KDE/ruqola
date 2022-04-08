@@ -39,4 +39,8 @@ void drawSelection(QTextDocument *doc,
                    const MessageAttachment &msgAttach);
 
 void setClipboardSelection(TextSelection *selection);
+
+Q_REQUIRED_RESULT QSizeF dprAwareSize(const QPixmap &pixmap);
+
+Q_REQUIRED_RESULT qreal basicMargin();
 }

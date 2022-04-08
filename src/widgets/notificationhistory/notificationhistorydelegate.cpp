@@ -6,6 +6,7 @@
 
 #include "notificationhistorydelegate.h"
 #include "model/notificationhistorymodel.h"
+#include "room/delegate/messagedelegateutils.h"
 #include <QPainter>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
@@ -35,6 +36,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     painter->restore();
 }
 
+// [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <add reaction> [margin]
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     NotificationHistoryDelegate::Layout layout;
@@ -42,6 +44,22 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
+
+    // Timestamp
+    layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
+    const QSize timeSize = timeStampSize(layout.timeStampText, option);
+
+    // Message (using the rest of the available width)
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    const int margin = MessageDelegateUtils::basicMargin();
+    const QFontMetricsF senderFontMetrics(layout.senderFont);
+    const qreal senderAscent = senderFontMetrics.ascent();
+    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
+    int textLeft = senderX + senderTextSize.width() + margin;
+    const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
+    const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+
     // TODO
     return layout;
 }

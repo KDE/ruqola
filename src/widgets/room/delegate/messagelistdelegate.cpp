@@ -41,14 +41,6 @@
 #include <cmath>
 #include <tuple>
 
-static QSizeF dprAwareSize(const QPixmap &pixmap)
-{
-    if (pixmap.isNull()) {
-        return {0, 0}; // prevent division-by-zero
-    }
-    return pixmap.size() / pixmap.devicePixelRatioF();
-}
-
 MessageListDelegate::MessageListDelegate(QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
@@ -115,11 +107,6 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mRocketChatAccount = rcAccount;
 }
 
-static qreal basicMargin()
-{
-    return 8;
-}
-
 static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
 {
     // This gives incorrect results (too small bounding rect), no idea why!
@@ -153,7 +140,8 @@ bool MessageListDelegate::showIgnoreMessages(const QModelIndex &index) const
 }
 
 // [Optional date header]
-// [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
+// [margin] <pixmap> [margin] <sender> [margin] <roles> [margin] <editicon> [margin] <favoriteicon> [margin] <text message> [margin] <add reaction> [margin]
+// <timestamp> [margin/2]
 //                                                                  <attachments>
 //                                                                  <reactions>
 //                                                                  <N replies>
@@ -201,8 +189,8 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
-    const qreal margin = basicMargin();
-    const int senderX = option.rect.x() + dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
+    const qreal margin = MessageDelegateUtils::basicMargin();
+    const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
     int textLeft = senderX + senderTextSize.width() + margin;
 
     // Roles icon
@@ -374,7 +362,7 @@ void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLast
 void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const
 {
     const QPen origPen = painter->pen();
-    const qreal margin = basicMargin();
+    const qreal margin = MessageDelegateUtils::basicMargin();
     const QString dateStr = index.data(MessageModel::Date).toString();
     const QSize dateSize = option.fontMetrics.size(Qt::TextSingleLine, dateStr);
     const QRect dateAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), dateSize.height()); // the whole row
@@ -623,7 +611,7 @@ QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QM
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
     const int contentsHeight = layout.repliesY + layout.repliesHeight + layout.discussionsHeight - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
-                                                layout.avatarPos.y() + dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
+                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
     // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
     //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
