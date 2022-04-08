@@ -44,10 +44,16 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
     mListNotifications->setModel(NotificationHistoryManager::self()->notificationHistoryModel());
+    connect(mListNotifications, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()
 {
+}
+
+void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
+{
+    if (index.isValid()) { }
 }
 
 void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
