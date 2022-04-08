@@ -6,6 +6,7 @@
 
 #include "accountmanager.h"
 #include "managerdatapaths.h"
+#include "notificationhistorymanager.h"
 #include "notifications/notifierjob.h"
 #include "parsemessageurlutils.h"
 #include "ruqola_debug.h"
@@ -66,6 +67,7 @@ void AccountManager::connectToAccount(RocketChatAccount *account)
     connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {
         auto job = new NotifierJob;
         job->setInfo(info);
+        NotificationHistoryManager::self()->addNotification(info);
         connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
         connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
             if (tmId.isEmpty()) {

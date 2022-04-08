@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "notificationinfo.h"
 #include <QObject>
 class NotificationHistoryModel;
 
@@ -20,6 +21,11 @@ public:
     static NotificationHistoryManager *self();
 
     Q_REQUIRED_RESULT NotificationHistoryModel *notificationHistoryModel() const;
+
+    void addNotification(const NotificationInfo &info);
+
+Q_SIGNALS:
+    void newNotification();
 
 private:
     NotificationHistoryModel *const mNotificationHistoryModel;
