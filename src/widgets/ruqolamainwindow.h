@@ -25,6 +25,7 @@ class SwitchChannelTreeViewManager;
 class KToggleAction;
 class KHamburgerMenu;
 class KToggleFullScreenAction;
+class QToolButton;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -85,6 +86,7 @@ private:
     void slotToggleMenubar(bool dontShowWarning);
     void updateHamburgerMenu();
     void slotFullScreen(bool t);
+    void slotOpenNotificationHistory();
 
     bool mReallyClose{false};
 
@@ -117,4 +119,5 @@ private:
     KToggleAction *mShowMenuBarAction = nullptr;
     KHamburgerMenu *mHamburgerMenu = nullptr;
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
+    QToolButton *mNotificationToolButton = nullptr;
 };

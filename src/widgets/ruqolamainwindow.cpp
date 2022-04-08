@@ -28,6 +28,7 @@
 #include "model/statusmodel.h"
 #include "model/statusmodelfilterproxymodel.h"
 #include "myaccount/myaccountconfiguredialog.h"
+#include "notificationhistory/notificationhistorydialog.h"
 #include "notifications/notification.h"
 #include "receivetypingnotificationmanager.h"
 #include "registeruser/registeruserdialog.h"
@@ -62,6 +63,7 @@
 #include <QMenuBar>
 #include <QStatusBar>
 #include <QTemporaryFile>
+#include <QToolButton>
 #include <QWidgetAction>
 
 #if HAVE_KUSERFEEDBACK
@@ -172,7 +174,13 @@ void RuqolaMainWindow::setupStatusBar()
     mStatusBarTypingMessage->setObjectName(QStringLiteral("mStatusBarTypingMessage"));
     statusBar()->addPermanentWidget(mStatusBarTypingMessage);
     mAccountOverviewWidget = new AccountsOverviewWidget(this);
+    mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
+    mNotificationToolButton = new QToolButton(this);
+    mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
+    mNotificationToolButton->hide(); // TODO
+    connect(mNotificationToolButton, &QToolButton::clicked, this, &RuqolaMainWindow::slotOpenNotificationHistory);
+    statusBar()->addPermanentWidget(mNotificationToolButton);
 }
 
 void RuqolaMainWindow::slotAccountChanged()
@@ -790,4 +798,11 @@ void RuqolaMainWindow::slotFullScreen(bool t)
             w->deleteLater();
         }
     }
+}
+
+void RuqolaMainWindow::slotOpenNotificationHistory()
+{
+    QPointer<NotificationHistoryDialog> dlg = new NotificationHistoryDialog(this);
+    dlg->exec();
+    delete dlg;
 }
