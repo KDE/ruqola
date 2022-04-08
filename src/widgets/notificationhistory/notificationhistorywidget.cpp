@@ -53,7 +53,9 @@ NotificationHistoryWidget::~NotificationHistoryWidget()
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
 {
-    if (index.isValid()) { }
+    if (index.isValid()) {
+        // TODO Q_EMIT openMessage();
+    }
 }
 
 void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
