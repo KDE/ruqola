@@ -2083,7 +2083,7 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
     NotificationInfo info;
     info.setAccountName(accountName());
-    info.setDateTime(QDateTime::currentDateTime());
+    info.setDateTime(QDateTime::currentDateTime().toString());
     info.parseNotification(contents);
 
     const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderId());
