@@ -31,7 +31,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     case Qt::DisplayRole:
     case AccountName:
         return info.accountName();
-    case Date:
+    case DateTime:
         return info.dateTime();
     case Message:
         return info.message();
