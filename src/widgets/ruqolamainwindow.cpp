@@ -5,6 +5,7 @@
 */
 
 #include "ruqolamainwindow.h"
+#include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 
@@ -177,13 +178,18 @@ void RuqolaMainWindow::setupStatusBar()
     mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
     mNotificationToolButton = new QToolButton(this);
+    mNotificationToolButton->setIcon(QIcon::fromTheme(QStringLiteral("visibility")));
     mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
-    // TODO add icons.
-    // TODO add tooltips
-    // Show/hide icons when we have a new notification
-    mNotificationToolButton->hide(); // TODO
+    mNotificationToolButton->setToolTip(i18n("Show New Notifications"));
+    mNotificationToolButton->hide(); // Hide at begin
     connect(mNotificationToolButton, &QToolButton::clicked, this, &RuqolaMainWindow::slotOpenNotificationHistory);
     statusBar()->addPermanentWidget(mNotificationToolButton);
+    connect(NotificationHistoryManager::self(), &NotificationHistoryManager::newNotification, this, &RuqolaMainWindow::slotNewNotification);
+}
+
+void RuqolaMainWindow::slotNewNotification()
+{
+    mNotificationToolButton->show();
 }
 
 void RuqolaMainWindow::slotAccountChanged()
@@ -805,6 +811,7 @@ void RuqolaMainWindow::slotFullScreen(bool t)
 
 void RuqolaMainWindow::slotOpenNotificationHistory()
 {
+    mNotificationToolButton->hide();
     NotificationHistoryDialog dlg(this);
     dlg.exec();
 }

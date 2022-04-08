@@ -87,6 +87,7 @@ private:
     void updateHamburgerMenu();
     void slotFullScreen(bool t);
     void slotOpenNotificationHistory();
+    void slotNewNotification();
 
     bool mReallyClose{false};
 
