@@ -62,7 +62,13 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
-    // TODO go to message
+    const QModelIndex index = mListNotifications->indexAt(pos);
+    if (index.isValid()) {
+        menu.addSeparator();
+        menu.addAction(i18n("Go to Message"), this, [this, index]() {
+            slotShowMessage(index);
+        });
+    }
     menu.exec(mListNotifications->viewport()->mapToGlobal(pos));
 }
 
