@@ -17,4 +17,6 @@ public:
 
 private:
     NotificationHistoryWidget *const mNotificationHistoryWidget;
+    void readConfig();
+    void writeConfig();
 };
