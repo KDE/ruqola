@@ -16,4 +16,5 @@ public:
     ~AddUsersWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldChangePlaceHolderText();
 };

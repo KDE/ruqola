@@ -32,4 +32,18 @@ void AddUsersWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFlowLayout);
 
     QVERIFY(w.userIds().isEmpty());
+
+    QVERIFY(w.placeHolderText().isEmpty());
+}
+
+void AddUsersWidgetTest::shouldChangePlaceHolderText()
+{
+    AddUsersWidget w(nullptr);
+    const QString str = QStringLiteral("goo");
+    QVERIFY(w.placeHolderText().isEmpty());
+    w.setPlaceholderText(str);
+    QCOMPARE(w.placeHolderText(), str);
+
+    auto mSearchUserLineEdit = w.findChild<AddUsersCompletionLineEdit *>(QStringLiteral("mSearchUserLineEdit"));
+    QCOMPARE(mSearchUserLineEdit->placeholderText(), str);
 }
