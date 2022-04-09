@@ -12,6 +12,7 @@
 #include <QSplitter>
 #include <QStackedWidget>
 #include <QTest>
+#include <QToolButton>
 #include <QWidgetAction>
 
 QTEST_MAIN(RuqolaMainWindowTest)
@@ -52,6 +53,15 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     auto label = status->findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
+
+    auto mStatusBarTypingMessage = w.findChild<QLabel *>(QStringLiteral("mStatusBarTypingMessage"));
+    QVERIFY(mStatusBarTypingMessage);
+    QCOMPARE(mStatusBarTypingMessage->textFormat(), Qt::RichText);
+
+    auto mNotificationToolButton = w.findChild<QToolButton *>(QStringLiteral("mNotificationToolButton"));
+    QVERIFY(mNotificationToolButton);
+    QVERIFY(!mNotificationToolButton->toolTip().isEmpty());
+    QVERIFY(mNotificationToolButton->isHidden());
 }
 
 void RuqolaMainWindowTest::shouldRestoreSizes()
