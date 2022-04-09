@@ -263,7 +263,8 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
 #ifdef ADD_ATTACHMENT_SELECTION_SUPPORT
     mEndIndex = index;
     if (msgAttach.isValid()) {
-        for (int i = 0; i < mAttachmentSelection.count(); ++i) {
+        const int countAtt{mAttachmentSelection.count()};
+        for (int i = 0; i < countAtt; ++i) {
             if (mAttachmentSelection.at(i).attachment == msgAttach) {
                 AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
                 attachmentSelectFound.toCharPos = charPos;
@@ -289,12 +290,6 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
 #endif
 }
 
-void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
-{
-    QTextDocument *doc = factory->documentForIndex(index);
-    selectWord(index, charPos, doc);
-}
-
 void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocument *doc)
 {
     QTextCursor cursor(doc);
@@ -305,6 +300,12 @@ void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocum
     mEndIndex = index;
     mStartPos = cursor.selectionStart();
     mEndPos = cursor.selectionEnd();
+}
+
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
+{
+    QTextDocument *doc = factory->documentForIndex(index);
+    selectWord(index, charPos, doc);
 }
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
