@@ -55,3 +55,4 @@ Terminal=false
 StartupNotify=true
 Categories=Qt;KDE;Network;InstantMessaging;
 SingleMainWindow=true
+Version=1.5
