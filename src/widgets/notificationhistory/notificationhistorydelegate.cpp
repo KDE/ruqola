@@ -31,6 +31,7 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    qDebug() << "HHHHHHHHHHHHHHHHHHHHHHHHHHHH";
     painter->save();
     drawBackground(painter, option, index);
 
@@ -42,10 +43,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     if (layout.textRect.isValid()) {
         auto *doc = documentForIndex(index, layout.textRect.width());
         if (!doc) {
+            qDebug() << " SSSSSSSSSSSSS";
             return;
         }
+        qDebug() << " 555" << doc->toPlainText();
         // TODO
-        // MessageDelegateUtils::drawSelection(doc, rect, layout.textRect.top(), painter, index, option, mSelection, {});
+        MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
 
         // mHelperText->draw(painter, layout.textRect, index, option);
     }
@@ -86,6 +89,8 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     int textLeft = senderX + senderTextSize.width() + margin;
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+
+    // TODO layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
 
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
