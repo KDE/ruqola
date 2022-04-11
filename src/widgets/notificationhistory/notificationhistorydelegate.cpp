@@ -39,6 +39,9 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     if (layout.textRect.isValid()) {
         // mHelperText->draw(painter, layout.textRect, index, option);
     }
+
+    // Draw the pixmap
+    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
     // TODO
     painter->restore();
 }
