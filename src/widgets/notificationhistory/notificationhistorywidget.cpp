@@ -38,9 +38,9 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotifications);
 
-    auto listNotificationsDelegate = new NotificationHistoryDelegate(this);
-    listNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
-    mListNotifications->setItemDelegate(listNotificationsDelegate);
+    mListNotificationsDelegate = new NotificationHistoryDelegate(this);
+    mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
+    mListNotifications->setItemDelegate(mListNotificationsDelegate);
 
     mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
@@ -75,5 +75,6 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
 
 void NotificationHistoryWidget::slotClearList()
 {
+    mListNotificationsDelegate->clearCache();
     NotificationHistoryManager::self()->notificationHistoryModel()->clear();
 }

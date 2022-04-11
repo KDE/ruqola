@@ -11,6 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class QListView;
 class QLineEdit;
+class NotificationHistoryDelegate;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 {
@@ -28,4 +29,5 @@ private:
     void slotClearList();
     QListView *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
+    NotificationHistoryDelegate *mListNotificationsDelegate = nullptr;
 };

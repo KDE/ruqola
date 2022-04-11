@@ -41,10 +41,9 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
     if (layout.textRect.isValid()) {
         auto *doc = documentForIndex(index, layout.textRect.width());
-        if (!doc) {
-            return;
+        if (doc) {
+            MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
         }
-        MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
     }
 
     // Draw the pixmap
@@ -53,8 +52,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // debug
     painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
 
-    // TODO
     painter->restore();
+}
+
+void NotificationHistoryDelegate::clearCache()
+{
+    mDocumentCache.clear();
 }
 
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
