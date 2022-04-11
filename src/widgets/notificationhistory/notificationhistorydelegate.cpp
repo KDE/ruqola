@@ -117,6 +117,7 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QString needUpdateMessageId; // TODO use it ?
+    // TODO search rcAccount from account name!
     const QString contextString = TextConverter::convertMessageText(messageStr,
                                                                     rcAccount->userName(),
                                                                     {},
