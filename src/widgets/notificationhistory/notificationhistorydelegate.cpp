@@ -7,7 +7,10 @@
 #include "notificationhistorydelegate.h"
 #include "common/delegatepaintutil.h"
 #include "model/notificationhistorymodel.h"
+#include "rocketchataccount.h"
 #include "room/delegate/messagedelegateutils.h"
+#include "ruqola.h"
+#include "textconverter.h"
 #include <QPainter>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
@@ -37,11 +40,22 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
 
     if (layout.textRect.isValid()) {
+        auto *doc = documentForIndex(index, layout.textRect.width());
+        if (!doc) {
+            return;
+        }
+        // TODO
+        // MessageDelegateUtils::drawSelection(doc, rect, layout.textRect.top(), painter, index, option, mSelection, {});
+
         // mHelperText->draw(painter, layout.textRect, index, option);
     }
 
     // Draw the pixmap
     painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+
+    // debug
+    painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+
     // TODO
     painter->restore();
 }
@@ -55,6 +69,8 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
+
+    layout.avatarPixmap = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
@@ -71,6 +87,47 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
 
+    // Align top of avatar with top of sender rect
+    layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
+
     // TODO
     return layout;
+}
+
+QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &index, int width) const
+{
+    Q_ASSERT(index.isValid());
+    const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
+    Q_ASSERT(!messageId.isEmpty());
+
+    auto it = mDocumentCache.find(messageId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+
+    const QString messageStr = index.data(NotificationHistoryModel::Message).toString();
+
+    if (messageStr.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QString needUpdateMessageId; // TODO use it ?
+    const QString contextString = TextConverter::convertMessageText(messageStr,
+                                                                    rcAccount->userName(),
+                                                                    {},
+                                                                    rcAccount->highlightWords(),
+                                                                    rcAccount->emojiManager(),
+                                                                    rcAccount->messageCache(),
+                                                                    needUpdateMessageId,
+                                                                    {},
+                                                                    {});
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(messageId, std::move(doc));
+    return ret;
 }

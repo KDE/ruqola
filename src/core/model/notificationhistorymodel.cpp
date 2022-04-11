@@ -43,6 +43,8 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return info.pixmap();
     case SenderName:
         return info.senderName();
+    case MessageId:
+        return info.messageId();
     }
     return {};
 }

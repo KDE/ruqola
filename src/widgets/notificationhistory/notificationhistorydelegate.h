@@ -20,6 +20,8 @@ public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width) const;
+
     struct Layout {
         // Sender
         QString senderText;
