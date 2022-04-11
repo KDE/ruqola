@@ -63,7 +63,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // TODO
     painter->restore();
 }
-#if 0
+
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -76,17 +76,16 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     }
 
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
-    const int contentsHeight = option.rect.y();
+    const int contentsHeight = layout.textRect.y() + layout.textRect.height();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
-    // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
-    //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
-    // qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
+    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
+    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
-#endif
+
 QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
@@ -127,6 +126,9 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     int textLeft = senderX + senderTextSize.width() + margin;
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+
+    // Align top of sender rect so it matches the baseline of the richtext
+    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
 
     const int textVMargin = 3; // adjust this for "compactness"
     layout.baseLine = 0;

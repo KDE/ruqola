@@ -18,10 +18,8 @@ public:
     ~NotificationHistoryDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-#if 0
 protected:
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-#endif
 private:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width) const;
 
