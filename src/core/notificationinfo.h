@@ -58,7 +58,11 @@ public:
     Q_REQUIRED_RESULT const QString &dateTime() const;
     void setDateTime(const QString &newDateTime);
 
+    Q_REQUIRED_RESULT const QString &messageId() const;
+    void setMessageId(const QString &newMessageId);
+
 private:
+    QString mMessageId;
     QString mAccountName;
     QString mMessage;
     QString mTitle;

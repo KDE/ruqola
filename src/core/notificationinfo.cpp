@@ -24,6 +24,7 @@ QDebug operator<<(QDebug d, const NotificationInfo &t)
     d << " tmId " << t.tmId();
     d << " pixmap is null ? " << t.pixmap().isNull();
     d << " date time " << t.dateTime();
+    d << " messageId " << t.messageId();
     return d;
 }
 
@@ -139,11 +140,12 @@ void NotificationInfo::setPixmap(const QPixmap &newPixmap)
 
 void NotificationInfo::parseNotification(const QJsonArray &contents)
 {
-    qDebug() << " NotificationInfo::parseNotification(const QJsonArray &contents)" << contents;
+    // qDebug() << " NotificationInfo::parseNotification(const QJsonArray &contents)" << contents;
     const QJsonObject obj = contents.at(0).toObject();
     setTitle(obj[QStringLiteral("title")].toString());
     const QJsonObject payloadObj = obj.value(QLatin1String("payload")).toObject();
     if (!payloadObj.isEmpty()) {
+        setMessageId(payloadObj[QStringLiteral("_id")].toString());
         setRoomId(payloadObj[QStringLiteral("rid")].toString());
         setRoomName(payloadObj[QStringLiteral("name")].toString());
         setChannelType(payloadObj[QStringLiteral("type")].toString());
@@ -186,4 +188,14 @@ const QString &NotificationInfo::dateTime() const
 void NotificationInfo::setDateTime(const QString &newDateTime)
 {
     mDateTime = newDateTime;
+}
+
+const QString &NotificationInfo::messageId() const
+{
+    return mMessageId;
+}
+
+void NotificationInfo::setMessageId(const QString &newMessageId)
+{
+    mMessageId = newMessageId;
 }
