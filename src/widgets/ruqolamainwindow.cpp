@@ -178,10 +178,10 @@ void RuqolaMainWindow::setupStatusBar()
     mAccountOverviewWidget->setObjectName(QStringLiteral("mAccountOverviewWidget"));
     statusBar()->addPermanentWidget(mAccountOverviewWidget);
     mNotificationToolButton = new QToolButton(this);
-    mNotificationToolButton->setIcon(QIcon::fromTheme(QStringLiteral("visibility")));
+    mNotificationToolButton->setIcon(QIcon::fromTheme(QStringLiteral("notifications")));
     mNotificationToolButton->setObjectName(QStringLiteral("mNotificationToolButton"));
     mNotificationToolButton->setToolTip(i18n("Show New Notifications"));
-    mNotificationToolButton->hide(); // Hide at begin
+    mNotificationToolButton->hide(); // Hide at start
     connect(mNotificationToolButton, &QToolButton::clicked, this, &RuqolaMainWindow::slotOpenNotificationHistory);
     statusBar()->addPermanentWidget(mNotificationToolButton);
     connect(NotificationHistoryManager::self(), &NotificationHistoryManager::newNotification, this, &RuqolaMainWindow::slotNewNotification);
