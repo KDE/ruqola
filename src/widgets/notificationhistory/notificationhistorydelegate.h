@@ -34,6 +34,7 @@ private:
         qreal baseLine; // used to draw sender/timestamp
 
         QString timeStampText;
+        QPoint timeStampPos;
     };
     Q_REQUIRED_RESULT NotificationHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };

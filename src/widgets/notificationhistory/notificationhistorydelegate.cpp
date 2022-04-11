@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorydelegate.h"
+#include "common/delegatepaintutil.h"
 #include "model/notificationhistorymodel.h"
 #include "room/delegate/messagedelegateutils.h"
 #include <QPainter>
@@ -32,6 +33,9 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     const Layout layout = doLayout(option, index);
 
+    // Timestamp
+    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
+
     // TODO
     painter->restore();
 }
@@ -41,6 +45,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 {
     NotificationHistoryDelegate::Layout layout;
     const QString userName = index.data(NotificationHistoryModel::SenderName).toString();
+    const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
@@ -48,10 +53,10 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
+    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-    const int margin = MessageDelegateUtils::basicMargin();
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
