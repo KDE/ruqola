@@ -30,6 +30,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     searchLayout->addWidget(mSearchLineEdit);
+    mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mainLayout->addLayout(searchLayout);
