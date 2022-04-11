@@ -114,6 +114,7 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
     if (messageStr.isEmpty()) {
         return nullptr;
     }
+    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QString needUpdateMessageId; // TODO use it ?
