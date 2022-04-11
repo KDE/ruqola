@@ -32,7 +32,6 @@ static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewI
 
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    qDebug() << "HHHHHHHHHHHHHHHHHHHHHHHHHHHH";
     painter->save();
     drawBackground(painter, option, index);
 
@@ -40,18 +39,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-
     if (layout.textRect.isValid()) {
         auto *doc = documentForIndex(index, layout.textRect.width());
         if (!doc) {
-            qDebug() << " SSSSSSSSSSSSS";
             return;
         }
-        qDebug() << " 555" << doc->toPlainText();
-        // TODO
         MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
-
-        // mHelperText->draw(painter, layout.textRect, index, option);
     }
 
     // Draw the pixmap
@@ -80,8 +73,8 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
-    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
-    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
+    //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
+    //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
@@ -114,8 +107,6 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
-    const QSize timeSize = timeStampSize(layout.timeStampText, option);
-    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
@@ -124,17 +115,21 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
     int textLeft = senderX + senderTextSize.width() + margin;
+    const QSize timeSize = timeStampSize(layout.timeStampText, option);
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+    layout.baseLine = 0;
+    const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
     // Align top of sender rect so it matches the baseline of the richtext
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
 
     const int textVMargin = 3; // adjust this for "compactness"
-    layout.baseLine = 0;
-    const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
     QRect usableRect = option.rect;
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+    layout.baseLine += layout.textRect.top();
+
+    layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
