@@ -6,9 +6,10 @@
 
 #pragma once
 
-#include <QItemDelegate>
-
 #include "libruqolawidgets_private_export.h"
+#include "lrucache.h"
+#include <QItemDelegate>
+#include <QTextDocument>
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public QItemDelegate
 {
@@ -37,4 +38,5 @@ private:
         QPoint timeStampPos;
     };
     Q_REQUIRED_RESULT NotificationHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

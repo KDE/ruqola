@@ -36,6 +36,9 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
 
+    if (layout.textRect.isValid()) {
+        // mHelperText->draw(painter, layout.textRect, index, option);
+    }
     // TODO
     painter->restore();
 }
