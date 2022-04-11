@@ -108,17 +108,19 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
                                          TextSelection *selection,
                                          const MessageAttachment &msgAttach)
 {
-    const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach);
     painter->save();
     painter->translate(rect.left(), top);
     const QRect clip(0, 0, rect.width(), rect.height());
 
-    // Same as pDoc->drawContents(painter, clip) but we also set selections
     QAbstractTextDocumentLayout::PaintContext ctx;
-    ctx.selections = selections;
-    if (clip.isValid()) {
-        painter->setClipRect(clip);
-        ctx.clip = clip;
+    if (selection) {
+        const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach);
+        // Same as pDoc->drawContents(painter, clip) but we also set selections
+        ctx.selections = selections;
+        if (clip.isValid()) {
+            painter->setClipRect(clip);
+            ctx.clip = clip;
+        }
     }
     doc->documentLayout()->draw(painter, ctx);
     painter->restore();
