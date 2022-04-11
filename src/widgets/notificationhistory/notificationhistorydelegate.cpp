@@ -12,6 +12,7 @@
 #include "ruqola.h"
 #include "textconverter.h"
 #include <QPainter>
+#include <QTextBlock>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
     : QItemDelegate{parent}
@@ -62,7 +63,44 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     // TODO
     painter->restore();
 }
+#if 0
+QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    // Note: option.rect in this method is huge (as big as the viewport)
+    const Layout layout = doLayout(option, index);
 
+    int additionalHeight = 0;
+    // A little bit of margin below the very last item, it just looks better
+    if (index.row() == index.model()->rowCount() - 1) {
+        additionalHeight += 4;
+    }
+
+    // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
+    const int contentsHeight = option.rect.y();
+    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
+                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
+
+    // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
+    //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
+    // qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
+
+    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+}
+#endif
+QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+{
+    Q_UNUSED(option)
+    auto *doc = documentForIndex(index, maxWidth);
+    if (!doc) {
+        return {};
+    }
+    const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
+
+    const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
+    *pBaseLine = line.y() + line.ascent(); // relative
+
+    return size;
+}
 // [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <add reaction> [margin]
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
@@ -90,7 +128,11 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
 
-    // TODO layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+    const int textVMargin = 3; // adjust this for "compactness"
+    layout.baseLine = 0;
+    const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
+    QRect usableRect = option.rect;
+    layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
 
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
