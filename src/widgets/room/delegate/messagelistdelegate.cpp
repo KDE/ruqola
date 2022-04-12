@@ -107,13 +107,6 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mRocketChatAccount = rcAccount;
 }
 
-static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
-{
-    // This gives incorrect results (too small bounding rect), no idea why!
-    // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
-}
-
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
 {
     const QString emojiStr = index.data(MessageModel::Emoji).toString();
@@ -239,7 +232,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     // Timestamp
     layout.timeStampText = index.data(MessageModel::Timestamp).toString();
-    const QSize timeSize = timeStampSize(layout.timeStampText, option);
+    const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;

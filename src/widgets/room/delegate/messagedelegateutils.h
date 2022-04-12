@@ -43,4 +43,5 @@ void setClipboardSelection(TextSelection *selection);
 Q_REQUIRED_RESULT QSizeF dprAwareSize(const QPixmap &pixmap);
 
 Q_REQUIRED_RESULT qreal basicMargin();
+Q_REQUIRED_RESULT QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option);
 }

@@ -147,3 +147,10 @@ qreal MessageDelegateUtils::basicMargin()
 {
     return 8;
 }
+
+QSize MessageDelegateUtils::timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
+{
+    // This gives incorrect results (too small bounding rect), no idea why!
+    // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
+    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
+}

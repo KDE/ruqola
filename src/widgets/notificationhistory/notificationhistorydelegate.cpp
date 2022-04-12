@@ -23,13 +23,6 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate()
 {
 }
 
-static QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option)
-{
-    // This gives incorrect results (too small bounding rect), no idea why!
-    // const QSize timeSize = painter->fontMetrics().boundingRect(timeStampText).size();
-    return {option.fontMetrics.horizontalAdvance(timeStampText), option.fontMetrics.height()};
-}
-
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -127,12 +120,10 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
     int textLeft = senderX + senderTextSize.width() + margin;
-    const QSize timeSize = timeStampSize(layout.timeStampText, option);
+    const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
-    if (option.rect.width() == 0) {
-        qDebug() << " option.rect.width() " << option.rect.width() << " textLeft " << textLeft << " widthAfterMessage " << widthAfterMessage;
-    }
+
     layout.baseLine = 0;
     const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
