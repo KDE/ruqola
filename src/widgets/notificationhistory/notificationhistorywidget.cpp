@@ -37,6 +37,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotifications);
+    mListNotifications->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     mListNotificationsDelegate = new NotificationHistoryDelegate(this);
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));

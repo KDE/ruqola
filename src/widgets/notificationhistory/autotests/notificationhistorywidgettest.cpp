@@ -30,6 +30,7 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
 
     auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListNotifications"));
     QVERIFY(mListNotifications);
+    QCOMPARE(mListNotifications->horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
 
     auto listNotificationsDelegate = w.findChild<NotificationHistoryDelegate *>(QStringLiteral("listNotificationsDelegate"));
     QVERIFY(listNotificationsDelegate);
