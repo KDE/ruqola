@@ -37,14 +37,8 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     const Layout layout = doLayout(option, index);
 
-    // Timestamp
-    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    if (layout.textRect.isValid()) {
-        auto *doc = documentForIndex(index, layout.textRect.width());
-        if (doc) {
-            MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
-        }
-    }
+    // Draw the pixmap
+    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 
     // Draw the sender
     const QFont oldFont = painter->font();
@@ -52,8 +46,16 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
     painter->setFont(oldFont);
 
-    // Draw the pixmap
-    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    // Draw Text
+    if (layout.textRect.isValid()) {
+        auto *doc = documentForIndex(index, layout.textRect.width());
+        if (doc) {
+            MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
+        }
+    }
+
+    // Timestamp
+    DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
 
     // debug
     painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
@@ -77,7 +79,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
         additionalHeight += 4;
     }
 
-    // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
+    // contents is date + text
     const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
@@ -102,6 +104,7 @@ QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int ma
 
     return size;
 }
+
 // [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <add reaction> [margin]
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
@@ -143,7 +146,6 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
 
-    // TODO
     return layout;
 }
 
