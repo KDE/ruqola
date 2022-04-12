@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorydelegate.h"
+#include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
@@ -165,15 +166,15 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
     }
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     // Use TextConverter in case it starts with a [](URL) reply marker
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    auto *rcAccount = Ruqola::self()->accountManager()->accountFromName(accountName);
     QString needUpdateMessageId; // TODO use it ?
     // TODO search rcAccount from account name!
     const QString contextString = TextConverter::convertMessageText(messageStr,
-                                                                    rcAccount->userName(),
+                                                                    rcAccount ? rcAccount->userName() : QString(),
                                                                     {},
-                                                                    rcAccount->highlightWords(),
-                                                                    rcAccount->emojiManager(),
-                                                                    rcAccount->messageCache(),
+                                                                    rcAccount ? rcAccount->highlightWords() : QStringList(),
+                                                                    rcAccount ? rcAccount->emojiManager() : nullptr,
+                                                                    rcAccount ? rcAccount->messageCache() : nullptr,
                                                                     needUpdateMessageId,
                                                                     {},
                                                                     {});
