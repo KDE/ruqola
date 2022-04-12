@@ -130,6 +130,9 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const QSize timeSize = timeStampSize(layout.timeStampText, option);
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+    if (option.rect.width() == 0) {
+        qDebug() << " option.rect.width() " << option.rect.width() << " textLeft " << textLeft << " widthAfterMessage " << widthAfterMessage;
+    }
     layout.baseLine = 0;
     const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
