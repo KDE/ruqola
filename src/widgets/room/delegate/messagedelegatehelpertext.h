@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "textselection.h"
+#include "delegateutils/textselection.h"
 
 #include <QItemSelection>
 #include <QModelIndex>

@@ -7,9 +7,9 @@
 #include "notificationhistorydelegate.h"
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
+#include "delegateutils/messagedelegateutils.h"
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
-#include "room/delegate/messagedelegateutils.h"
 #include "ruqola.h"
 #include "textconverter.h"
 #include <QPainter>
@@ -88,15 +88,7 @@ QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int ma
 {
     Q_UNUSED(option)
     auto *doc = documentForIndex(index, maxWidth);
-    if (!doc) {
-        return {};
-    }
-    const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
-
-    const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
-    *pBaseLine = line.y() + line.ascent(); // relative
-
-    return size;
+    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
 // [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <add reaction> [margin]
@@ -168,7 +160,6 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
     // Use TextConverter in case it starts with a [](URL) reply marker
     auto *rcAccount = Ruqola::self()->accountManager()->accountFromName(accountName);
     QString needUpdateMessageId; // TODO use it ?
-    // TODO search rcAccount from account name!
     const QString contextString = TextConverter::convertMessageText(messageStr,
                                                                     rcAccount ? rcAccount->userName() : QString(),
                                                                     {},

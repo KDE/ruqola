@@ -141,6 +141,10 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configurespellcheckingwidget.h
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configureuserfeedbackwidget.h
+    delegateutils/messagedelegateutils.cpp
+    delegateutils/messagedelegateutils.h
+    delegateutils/textselection.cpp
+    delegateutils/textselection.h
     dialogs/adduserscompletionlineedit.cpp
     dialogs/adduserscompletionlineedit.h
     dialogs/addusersinroomdialog.cpp
@@ -388,14 +392,10 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagedelegatehelperreactions.h
     room/delegate/messagedelegatehelpertext.cpp
     room/delegate/messagedelegatehelpertext.h
-    room/delegate/messagedelegateutils.cpp
-    room/delegate/messagedelegateutils.h
     room/delegate/messagelistdelegate.cpp
     room/delegate/messagelistdelegate.h
     room/delegate/runninganimatedimage.cpp
     room/delegate/runninganimatedimage.h
-    room/delegate/textselection.cpp
-    room/delegate/textselection.h
     room/messagelinewidget.cpp
     room/messagelinewidget.h
     room/messagelistview.cpp

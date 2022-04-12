@@ -21,13 +21,16 @@ public:
     ~NotificationHistoryWidget() override;
 
 Q_SIGNALS:
-    void openMessage(const QString &accountName, const QString &messageId, const QString &roomId);
+    void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
     void slotClearList();
+    void checkIfAtBottom();
+    void maybeScrollToBottom();
     QListView *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryDelegate *mListNotificationsDelegate = nullptr;
+    bool mAtBottom = true;
 };

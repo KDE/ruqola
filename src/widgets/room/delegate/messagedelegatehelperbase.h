@@ -6,10 +6,10 @@
 
 #pragma once
 
+#include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include "messages/messageattachment.h"
-#include "textselection.h"
 
 #include <QPersistentModelIndex>
 #include <QSize>

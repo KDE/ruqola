@@ -5,7 +5,7 @@
 */
 
 #include "messagedelegatehelpertext.h"
-#include "messagedelegateutils.h"
+#include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -167,15 +167,7 @@ QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth
 {
     Q_UNUSED(option)
     auto *doc = documentForIndex(index, maxWidth, true);
-    if (!doc) {
-        return {};
-    }
-    const QSize size(doc->idealWidth(), doc->size().height()); // do the layouting, required by lineAt(0) below
-
-    const QTextLine &line = doc->firstBlock().layout()->lineAt(0);
-    *pBaseLine = line.y() + line.ascent(); // relative
-
-    return size;
+    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
 bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)

@@ -62,6 +62,7 @@ void RuqolaMainWindowTest::shouldHaveDefaultValues()
     QVERIFY(mNotificationToolButton);
     QVERIFY(!mNotificationToolButton->toolTip().isEmpty());
     QVERIFY(mNotificationToolButton->isHidden());
+    QVERIFY(mNotificationToolButton->autoRaise());
 }
 
 void RuqolaMainWindowTest::shouldRestoreSizes()

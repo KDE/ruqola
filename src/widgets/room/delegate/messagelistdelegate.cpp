@@ -7,6 +7,8 @@
 #include "messagelistdelegate.h"
 #include "colors.h"
 #include "common/delegatepaintutil.h"
+#include "delegateutils/messagedelegateutils.h"
+#include "delegateutils/textselection.h"
 #include "emoticons/emojimanager.h"
 #include "messageattachmentdelegatehelperfile.h"
 #include "messageattachmentdelegatehelperimage.h"
@@ -16,14 +18,12 @@
 #include "messagedelegatehelperbase.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpertext.h"
-#include "messagedelegateutils.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "textselection.h"
 
 #include <QAbstractItemView>
 #include <QApplication>

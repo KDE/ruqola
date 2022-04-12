@@ -5,8 +5,8 @@
 */
 
 #include "textselectiontest.h"
+#include "delegateutils/textselection.h"
 #include "model/messagemodel.h"
-#include "room/delegate/textselection.h"
 
 #include <QSignalSpy>
 #include <QTest>

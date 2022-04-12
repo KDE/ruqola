@@ -14,6 +14,7 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QMenu>
+#include <QScrollBar>
 #include <QVBoxLayout>
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
@@ -48,12 +49,32 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
-    mListNotifications->setModel(NotificationHistoryManager::self()->notificationHistoryModel());
+    auto model = NotificationHistoryManager::self()->notificationHistoryModel();
+    mListNotifications->setModel(model);
     connect(mListNotifications, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
+
+    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, this, &NotificationHistoryWidget::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &NotificationHistoryWidget::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::modelAboutToBeReset, this, &NotificationHistoryWidget::checkIfAtBottom);
+
+    mListNotifications->scrollToBottom();
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()
 {
+}
+
+void NotificationHistoryWidget::checkIfAtBottom()
+{
+    auto *vbar = mListNotifications->verticalScrollBar();
+    mAtBottom = vbar->value() == vbar->maximum();
+}
+
+void NotificationHistoryWidget::maybeScrollToBottom()
+{
+    if (mAtBottom) {
+        mListNotifications->scrollToBottom();
+    }
 }
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
@@ -63,7 +84,7 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
         const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
         const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
         if (!accountName.isEmpty() && !roomId.isEmpty() && !messageId.isEmpty()) {
-            Q_EMIT openMessage(accountName, messageId, roomId);
+            Q_EMIT showNotifyMessage(accountName, messageId, roomId);
         } else {
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with index. AccountName " << accountName << " roomId : " << roomId << "messageId " << messageId;
         }
