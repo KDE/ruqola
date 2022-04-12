@@ -809,9 +809,17 @@ void RuqolaMainWindow::slotFullScreen(bool t)
     }
 }
 
+void RuqolaMainWindow::slotOpenMessage(const QString &accountName, const QString &messageId, const QString &roomId)
+{
+    Ruqola::self()->setCurrentAccount(accountName);
+    Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId);
+    // TODO use messageId too
+}
+
 void RuqolaMainWindow::slotOpenNotificationHistory()
 {
     mNotificationToolButton->hide();
     NotificationHistoryDialog dlg(this);
+    connect(&dlg, &NotificationHistoryDialog::openMessage, this, &RuqolaMainWindow::slotOpenMessage);
     dlg.exec();
 }

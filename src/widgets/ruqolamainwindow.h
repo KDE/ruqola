@@ -88,6 +88,7 @@ private:
     void slotFullScreen(bool t);
     void slotOpenNotificationHistory();
     void slotNewNotification();
+    void slotOpenMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
     bool mReallyClose{false};
 
