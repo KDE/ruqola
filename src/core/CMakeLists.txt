@@ -210,6 +210,8 @@ target_sources(libruqolacore PRIVATE
     model/notificationdesktopsoundpreferencemodel.h
     model/notificationhistorymodel.cpp
     model/notificationhistorymodel.h
+    model/notificationhistorymodelfilterproxymodel.h
+    model/notificationhistorymodelfilterproxymodel.cpp
     model/notificationpreferencemodel.cpp
     model/notificationpreferencemodel.h
     model/rocketchataccountfilterproxymodel.cpp
