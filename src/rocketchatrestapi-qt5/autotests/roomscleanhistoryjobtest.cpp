@@ -74,7 +74,7 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})")
+            R"({"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1","users":["bla","bli"]})")
             .arg(roomId)
             .toLatin1());
     info.ignoreDiscussion = true;
@@ -82,7 +82,7 @@ void RoomsCleanHistoryJobTest::shouldGenerateJson()
     QCOMPARE(
         job.json().toJson(QJsonDocument::Compact),
         QStringLiteral(
-            R"({"ignoreDiscussion":true,"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"room1","users":["bla","bli"]})")
+            R"({"ignoreDiscussion":true,"ignoreThreads":true,"inclusive":true,"latest":"2020-12-03T04:07:50.000Z","oldest":"2020-03-03T04:07:50.000Z","roomId":"%1","users":["bla","bli"]})")
             .arg(roomId)
             .toLatin1());
 }
