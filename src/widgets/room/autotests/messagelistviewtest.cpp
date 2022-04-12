@@ -5,6 +5,7 @@
 */
 
 #include "messagelistviewtest.h"
+#include "room/messagelistview.h"
 #include <QTest>
 QTEST_MAIN(MessageListViewTest)
 
@@ -15,5 +16,11 @@ MessageListViewTest::MessageListViewTest(QObject *parent)
 
 void MessageListViewTest::shouldHaveDefaultValues()
 {
-    // Qt::Key_ToDoList
+    MessageListView w(MessageListView::Mode::Editing);
+    QCOMPARE(w.mode(), MessageListView::Mode::Editing);
+    QCOMPARE(w.selectionMode(), QAbstractItemView::NoSelection);
+    QCOMPARE(w.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
+    QCOMPARE(w.verticalScrollMode(), QAbstractItemView::ScrollPerPixel);
+    QVERIFY(w.wordWrap());
+    QCOMPARE(w.focusPolicy(), Qt::NoFocus);
 }
