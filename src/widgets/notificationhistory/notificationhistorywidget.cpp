@@ -39,6 +39,8 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotifications);
     mListNotifications->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    mListNotifications->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
+    mListNotifications->setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
 
     mListNotificationsDelegate = new NotificationHistoryDelegate(this);
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
