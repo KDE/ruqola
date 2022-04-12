@@ -15,6 +15,9 @@ public:
     explicit NotificationHistoryDialog(QWidget *parent = nullptr);
     ~NotificationHistoryDialog() override;
 
+Q_SIGNALS:
+    void openMessage(const QString &accountName, const QString &messageId, const QString &roomId);
+
 private:
     NotificationHistoryWidget *const mNotificationHistoryWidget;
     void readConfig();

@@ -21,7 +21,7 @@ public:
     ~NotificationHistoryWidget() override;
 
 Q_SIGNALS:
-    void openMessage(); // TODO add arguments
+    void openMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);

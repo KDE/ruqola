@@ -9,6 +9,7 @@
 #include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
 #include "notificationhistorymanager.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -56,7 +57,14 @@ NotificationHistoryWidget::~NotificationHistoryWidget()
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
 {
     if (index.isValid()) {
-        // TODO Q_EMIT openMessage();
+        const QString roomId = index.data(NotificationHistoryModel::RoomId).toString();
+        const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
+        const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+        if (!accountName.isEmpty() && !roomId.isEmpty() && !messageId.isEmpty()) {
+            Q_EMIT openMessage(accountName, messageId, roomId);
+        } else {
+            qCWarning(RUQOLAWIDGETS_LOG) << " Problem with index. AccountName " << accountName << " roomId : " << roomId << "messageId " << messageId;
+        }
     }
 }
 

@@ -29,6 +29,7 @@ NotificationHistoryDialog::NotificationHistoryDialog(QWidget *parent)
 
     mNotificationHistoryWidget->setObjectName(QStringLiteral("mNotificationHistoryWidget"));
     mainLayout->addWidget(mNotificationHistoryWidget);
+    connect(mNotificationHistoryWidget, &NotificationHistoryWidget::openMessage, this, &NotificationHistoryDialog::openMessage);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
