@@ -46,6 +46,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
         }
     }
 
+    // Draw the sender
+    const QFont oldFont = painter->font();
+    painter->setFont(layout.senderFont);
+    painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+    painter->setFont(oldFont);
+
     // Draw the pixmap
     painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
 
@@ -72,7 +78,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     }
 
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
-    const int contentsHeight = layout.textRect.y() + layout.textRect.height();
+    const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
