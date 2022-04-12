@@ -181,6 +181,11 @@ void AccountManager::modifyAccount(const AccountManagerInfo &info)
     }
 }
 
+RocketChatAccount *AccountManager::accountFromName(const QString &accountName)
+{
+    return mRocketChatAccountModel->account(accountName);
+}
+
 QStringList AccountManager::accountsName() const
 {
     return mRocketChatAccountModel->accountsName();

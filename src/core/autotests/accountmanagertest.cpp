@@ -37,3 +37,25 @@ void AccountManagerTest::shouldAddAccount()
     // We have a default account when we load account
     QCOMPARE(w.rocketChatAccountModel()->rowCount(), 11);
 }
+
+void AccountManagerTest::shouldReturnAccountFromAccountName()
+{
+    AccountManager w;
+    QVERIFY(!w.accountFromName(QStringLiteral("DDDD")));
+
+    auto c = new RocketChatAccount();
+    QString accountName = QStringLiteral("bla");
+    c->setAccountName(accountName);
+    w.addAccount(c);
+    QVERIFY(w.accountFromName(accountName));
+
+    QVERIFY(!w.accountFromName(QStringLiteral("DDDD")));
+
+    accountName = QStringLiteral("bli");
+    c = new RocketChatAccount();
+    c->setAccountName(accountName);
+    w.addAccount(c);
+    QVERIFY(w.accountFromName(accountName));
+    w.removeAccount(QStringLiteral("bla"));
+    w.removeAccount(QStringLiteral("bli"));
+}
