@@ -58,7 +58,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
 
     // debug (TODO remove it for release)
-    painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    // painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
 
     painter->restore();
 }
