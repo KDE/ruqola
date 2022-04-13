@@ -114,8 +114,8 @@ QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int ma
     auto *doc = documentForIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
-
-// [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <add reaction> [margin]
+// text AccountName/room
+// [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <date/time> [margin]
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     NotificationHistoryDelegate::Layout layout;
