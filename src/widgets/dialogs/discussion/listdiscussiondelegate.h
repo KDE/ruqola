@@ -26,9 +26,10 @@ Q_SIGNALS:
 
 private:
     struct Layout {
-        // Attachment name
-        QString text;
-        qreal textY = 0;
+        // Sender
+        QString senderText;
+        QFont senderFont;
+        QRectF senderRect;
 
         // TimeStamp
         QString lastMessageTimeText;
@@ -42,6 +43,14 @@ private:
         qreal openDiscussionTextY = 0;
         //
         QRect usableRect;
+
+        // Avatar pixmap
+        QPixmap avatarPixmap;
+        QPointF avatarPos;
+
+        // Text message
+        QRect textRect;
+        qreal baseLine; // used to draw sender/timestamp
     };
     Q_REQUIRED_RESULT ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;

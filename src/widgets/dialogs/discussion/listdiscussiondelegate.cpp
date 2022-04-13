@@ -36,7 +36,17 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const Layout layout = doLayout(option, index);
 
-#if 0
+    // Draw the pixmap
+    if (!layout.avatarPixmap.isNull()) {
+        painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    }
+
+    // Draw the sender
+    const QFont oldFont = painter->font();
+    painter->setFont(layout.senderFont);
+    painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
+    painter->setFont(oldFont);
+
     // Draw Text
     if (layout.textRect.isValid()) {
         auto *doc = documentForIndex(index, layout.textRect.width());
@@ -44,10 +54,6 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
             MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
         }
     }
-#endif
-
-    // Draw the sender (below the filename)
-    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.textY + painter->fontMetrics().ascent(), layout.text);
 
     // Draw the number of message + timestamp (below the sender)
     const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + QLatin1Char(' ') + layout.lastMessageTimeText;
@@ -59,6 +65,8 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
+    // debug (TODO remove it for release)
+    painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
     painter->restore();
 }
 
@@ -78,13 +86,27 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
-    const int contentsHeight = layout.openDiscussionTextY + option.fontMetrics.height() - option.rect.y();
-    return {option.rect.width(), contentsHeight};
+    int additionalHeight = 0;
+    // A little bit of margin below the very last item, it just looks better
+    if (index.row() == index.model()->rowCount() - 1) {
+        additionalHeight += 4;
+    }
+
+    // contents is date + text
+    const int contentsHeight = layout.openDiscussionTextY + option.fontMetrics.height() + layout.textRect.y() + layout.textRect.height() - option.rect.y();
+    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
+                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
+
+    //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
+    //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
+
+    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Layout layout;
+#if 0
     QRect usableRect = option.rect;
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
 
@@ -97,6 +119,54 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
 
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
+#else
+    const QString userName = index.data(DiscussionsModel::UserName).toString();
+    const int margin = MessageDelegateUtils::basicMargin();
+    layout.senderText = QLatin1Char('@') + userName;
+    layout.senderFont = option.font;
+    layout.senderFont.setBold(true);
+
+    // Message (using the rest of the available width)
+    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+    const QFontMetricsF senderFontMetrics(layout.senderFont);
+    const qreal senderAscent = senderFontMetrics.ascent();
+    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    // Resize pixmap TODO cache ?
+    const QPixmap pix; // TODO = index.data(DiscussionsModel::Pixmap).value<QPixmap>();
+    if (!pix.isNull()) {
+        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        layout.avatarPixmap = scaledPixmap;
+    }
+
+    const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
+
+    const int textLeft = senderX + senderTextSize.width() + margin;
+    const int widthAfterMessage = iconSize + margin + margin / 2;
+    const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
+
+    layout.baseLine = 0;
+    const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
+
+    const int textVMargin = 3; // adjust this for "compactness"
+    QRect usableRect = option.rect;
+    // Add area for account/room info
+    usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+
+    layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+    layout.baseLine += layout.textRect.top(); // make it absolute
+
+    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
+    // Align top of avatar with top of sender rect
+    layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
+
+    layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();
+    layout.lastMessageTimeY = layout.senderRect.bottom();
+
+    layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
+
+    layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
+
+#endif
     return layout;
 }
 
