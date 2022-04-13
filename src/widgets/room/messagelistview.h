@@ -99,6 +99,5 @@ private:
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVector<PluginTextInterface *> mPluginTextInterface;
     QPoint mPressedPosition;
-    bool mAtBottom = true;
     bool mDebug = false;
 };
