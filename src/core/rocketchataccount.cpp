@@ -2086,15 +2086,15 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     info.setDateTime(QDateTime::currentDateTime().toString());
     info.parseNotification(contents);
 
-    const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderId());
-    // qDebug() << " iconFileName"<<iconFileName << " sender " << sender;
+    const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
+    qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
     QPixmap pix;
     if (!iconFileName.isEmpty()) {
         const QUrl url = QUrl::fromLocalFile(iconFileName);
-        // qDebug() << "url.toLocalFile()"<<url.toLocalFile();
+        qDebug() << "url.toLocalFile()" << url.toLocalFile();
         const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
-        // qDebug() << " load pixmap : "<< loaded;
-        // qDebug() << " pix " << pix.isNull();
+        qDebug() << " load pixmap : " << loaded;
+        qDebug() << " pix " << pix.isNull();
         Q_UNUSED(loaded)
         info.setPixmap(pix);
     }
