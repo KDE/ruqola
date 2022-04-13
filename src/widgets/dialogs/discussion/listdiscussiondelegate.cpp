@@ -36,6 +36,16 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const Layout layout = doLayout(option, index);
 
+#if 0
+    // Draw Text
+    if (layout.textRect.isValid()) {
+        auto *doc = documentForIndex(index, layout.textRect.width());
+        if (doc) {
+            MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
+        }
+    }
+#endif
+
     // Draw the sender (below the filename)
     painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.textY + painter->fontMetrics().ascent(), layout.text);
 
