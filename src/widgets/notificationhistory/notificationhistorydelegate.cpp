@@ -24,6 +24,26 @@ NotificationHistoryDelegate::~NotificationHistoryDelegate()
 {
 }
 
+void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+{
+    const QPen origPen = painter->pen();
+    const qreal margin = MessageDelegateUtils::basicMargin();
+    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+    const QString roomName = index.data(NotificationHistoryModel::RoomName).toString();
+    const QString infoStr = QStringLiteral("%1 - %2").arg(accountName, roomName);
+    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
+    const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
+    const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
+    painter->drawText(infoTextRect, infoStr);
+    const int lineY = (infoAreaRect.top() + infoAreaRect.bottom()) / 2;
+    QColor lightColor(painter->pen().color());
+    lightColor.setAlpha(60);
+    painter->setPen(lightColor);
+    painter->drawLine(infoAreaRect.left(), lineY, infoTextRect.left() - margin, lineY);
+    painter->drawLine(infoTextRect.right() + margin, lineY, infoAreaRect.right(), lineY);
+    painter->setPen(origPen);
+}
+
 void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -31,8 +51,12 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     const Layout layout = doLayout(option, index);
 
+    drawAccountRoomInfo(painter, index, option);
+
     // Draw the pixmap
-    painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    if (!layout.avatarPixmap.isNull()) {
+        painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
+    }
 
     // Draw the sender
     const QFont oldFont = painter->font();
@@ -101,8 +125,6 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
-    layout.avatarPixmap = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
-    qDebug() << " layout.avatarPixmap is Null ?" << layout.avatarPixmap.isNull();
 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
@@ -112,8 +134,16 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    // Resize pixmap TODO cache ?
+    const QPixmap pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
+    if (!pix.isNull()) {
+        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        layout.avatarPixmap = scaledPixmap;
+    }
+
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
-    int textLeft = senderX + senderTextSize.width() + margin;
+
+    const int textLeft = senderX + senderTextSize.width() + margin;
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
     const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
@@ -121,16 +151,17 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.baseLine = 0;
     const QSize textSize = textSizeHint(index, maxWidth, option, &layout.baseLine);
 
-    // Align top of sender rect so it matches the baseline of the richtext
-    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
-
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
+    // Add area for account/room info
+    usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
-    layout.baseLine += layout.textRect.top();
+    layout.baseLine += layout.textRect.top(); // make it absolute
 
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
+    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
 
@@ -152,7 +183,7 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
         return ret;
     }
 
-    const QString messageStr = index.data(NotificationHistoryModel::Message).toString();
+    const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
 
     if (messageStr.isEmpty()) {
         return nullptr;
