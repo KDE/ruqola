@@ -119,6 +119,8 @@ QVariant DiscussionsModel::data(const QModelIndex &index, int role) const
         return discussion.timeStampDisplay();
     case SortByTimeStamp:
         return discussion.timeStamp();
+    case UserName:
+        return discussion.userName();
     }
     return {};
 }

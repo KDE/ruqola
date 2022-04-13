@@ -21,6 +21,7 @@ public:
         DiscussionRoomId,
         TimeStamp,
         SortByTimeStamp,
+        UserName,
     };
     Q_ENUM(DiscussionRoles)
 
