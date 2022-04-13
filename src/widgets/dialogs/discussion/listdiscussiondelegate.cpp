@@ -12,7 +12,11 @@
 
 #include "colors.h"
 #include "common/delegatepaintutil.h"
+#include "delegateutils/messagedelegateutils.h"
 #include "model/discussionsmodel.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
+#include "textconverter.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
     : QItemDelegate(parent)
@@ -84,4 +88,49 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
     return layout;
+}
+
+QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index, int width) const
+{
+    Q_ASSERT(index.isValid());
+    const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
+    Q_ASSERT(!discussionRoomId.isEmpty());
+
+    auto it = mDocumentCache.find(discussionRoomId);
+    if (it != mDocumentCache.end()) {
+        auto ret = it->value.get();
+        if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
+            ret->setTextWidth(width);
+        }
+        return ret;
+    }
+
+    const QString messageStr = index.data(DiscussionsModel::Description).toString();
+
+    if (messageStr.isEmpty()) {
+        return nullptr;
+    }
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    QString needUpdateMessageId; // TODO use it ?
+    const QString contextString = TextConverter::convertMessageText(messageStr,
+                                                                    rcAccount ? rcAccount->userName() : QString(),
+                                                                    {},
+                                                                    rcAccount ? rcAccount->highlightWords() : QStringList(),
+                                                                    rcAccount ? rcAccount->emojiManager() : nullptr,
+                                                                    rcAccount ? rcAccount->messageCache() : nullptr,
+                                                                    needUpdateMessageId,
+                                                                    {},
+                                                                    {});
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
+    auto ret = doc.get();
+    mDocumentCache.insert(discussionRoomId, std::move(doc));
+    return ret;
+}
+
+QSize ListDiscussionDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+{
+    Q_UNUSED(option)
+    auto *doc = documentForIndex(index, maxWidth);
+    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
