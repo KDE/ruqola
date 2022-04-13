@@ -44,7 +44,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
 
     mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
     mainLayout->addWidget(mListDiscussions);
-    auto listDiscussionDelegate = new ListDiscussionDelegate(this);
+    auto listDiscussionDelegate = new ListDiscussionDelegate(mRocketChatAccount, this);
     mListDiscussions->setItemDelegate(listDiscussionDelegate);
     connect(listDiscussionDelegate, &ListDiscussionDelegate::openDiscussion, this, &ShowDiscussionsWidget::slotOpenDiscussion);
 }

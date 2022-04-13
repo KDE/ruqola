@@ -18,8 +18,9 @@
 #include "ruqola.h"
 #include "textconverter.h"
 
-ListDiscussionDelegate::ListDiscussionDelegate(QObject *parent)
+ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -191,14 +192,13 @@ QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QString needUpdateMessageId; // TODO use it ?
     const QString contextString = TextConverter::convertMessageText(messageStr,
-                                                                    rcAccount ? rcAccount->userName() : QString(),
+                                                                    mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
                                                                     {},
-                                                                    rcAccount ? rcAccount->highlightWords() : QStringList(),
-                                                                    rcAccount ? rcAccount->emojiManager() : nullptr,
-                                                                    rcAccount ? rcAccount->messageCache() : nullptr,
+                                                                    mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                                                    mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
+                                                                    mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
                                                                     needUpdateMessageId,
                                                                     {},
                                                                     {});
