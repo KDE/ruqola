@@ -318,6 +318,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/emoticonrecentusedfilterproxymodel.h
     misc/lineeditcatchreturnkey.cpp
     misc/lineeditcatchreturnkey.h
+    misc/messagelistviewbase.h
+    misc/messagelistviewbase.cpp
     misc/passwordconfirmwidget.cpp
     misc/passwordconfirmwidget.h
     misc/passwordlineeditwidget.cpp
