@@ -17,6 +17,11 @@ public:
     explicit NotificationHistoryModelFilterProxyModel(QObject *parent = nullptr);
     ~NotificationHistoryModelFilterProxyModel() override;
 
+    void setFilterString(const QString &string);
+
 protected:
     Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    QString mFilterString;
 };

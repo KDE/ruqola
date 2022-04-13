@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorymodelfilterproxymodel.h"
+#include "notificationhistorymodel.h"
 
 NotificationHistoryModelFilterProxyModel::NotificationHistoryModelFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel{parent}
@@ -13,12 +14,22 @@ NotificationHistoryModelFilterProxyModel::NotificationHistoryModelFilterProxyMod
 
 NotificationHistoryModelFilterProxyModel::~NotificationHistoryModelFilterProxyModel() = default;
 
+void NotificationHistoryModelFilterProxyModel::setFilterString(const QString &string)
+{
+    mFilterString = string;
+    invalidate();
+}
+
 bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    //    if (!mCurrentCategory.isEmpty()) {
-    //        const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    //        const QString category = sourceIndex.data(EmoticonModel::Category).toString();
-    //        return mCurrentCategory == category;
-    //    }
+    const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+
+    auto match = [&](int role) {
+        return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
+    };
+    if (!match(NotificationHistoryModel::RoomName) && !match(NotificationHistoryModel::AccountName) && !match(NotificationHistoryModel::SenderName)
+        && !match(NotificationHistoryModel::MessageStr)) {
+        return false;
+    }
     return true;
 }
