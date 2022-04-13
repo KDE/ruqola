@@ -8,6 +8,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/messagelistviewbase.h"
 #include "model/notificationhistorymodel.h"
+#include "model/notificationhistorymodelfilterproxymodel.h"
 #include "notificationhistorydelegate.h"
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
@@ -22,6 +23,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mListNotifications(new MessageListViewBase(this))
     , mSearchLineEdit(new QLineEdit(this))
+    , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -32,6 +34,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     searchLayout->setContentsMargins({});
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search..."));
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
@@ -48,16 +51,27 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
     auto model = NotificationHistoryManager::self()->notificationHistoryModel();
-    mListNotifications->setModel(model);
+
+    mNotificationFilterProxyModel->setObjectName(QStringLiteral("mNotificationFilterProxyModel"));
+    mNotificationFilterProxyModel->setSourceModel(model);
+    mListNotifications->setModel(mNotificationFilterProxyModel);
+
     connect(mListNotifications, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotifications, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotifications, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotifications, &MessageListViewBase::checkIfAtBottom);
+
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()
 {
+}
+
+void NotificationHistoryWidget::slotTextChanged(const QString &str)
+{
+    mNotificationFilterProxyModel->setFilterString(str);
 }
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)

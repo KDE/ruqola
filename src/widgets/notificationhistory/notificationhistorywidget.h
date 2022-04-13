@@ -12,6 +12,7 @@
 class MessageListViewBase;
 class QLineEdit;
 class NotificationHistoryDelegate;
+class NotificationHistoryModelFilterProxyModel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 {
@@ -27,7 +28,9 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
     void slotClearList();
+    void slotTextChanged(const QString &str);
     MessageListViewBase *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryDelegate *mListNotificationsDelegate = nullptr;
+    NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;
 };
