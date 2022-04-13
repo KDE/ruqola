@@ -17,12 +17,12 @@ public:
     ~MessageListViewBase() override;
 
     void checkIfAtBottom();
+    void updateVerticalPageStep();
+    void maybeScrollToBottom();
 
 protected:
     void resizeEvent(QResizeEvent *ev) override;
 
 private:
-    void maybeScrollToBottom();
-    void updateVerticalPageStep();
     bool mAtBottom = true;
 };

@@ -7,14 +7,14 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QListView>
+#include "misc/messagelistviewbase.h"
 #include <QPointer>
 #include <QVector>
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
 class PluginTextInterface;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
@@ -49,7 +49,6 @@ public:
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
 
 protected:
-    void resizeEvent(QResizeEvent *ev) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
@@ -68,8 +67,6 @@ Q_SIGNALS:
     void replyInThreadRequested(const QString &messageId, const QString &text);
 
 private:
-    void checkIfAtBottom();
-    void maybeScrollToBottom();
     void slotEditMessage(const QModelIndex &index);
     void slotDeleteMessage(const QModelIndex &index);
     void slotReportMessage(const QModelIndex &index);
@@ -81,7 +78,6 @@ private:
     void createSeparator(QMenu &menu);
     void slotVerticalScrollbarChanged(int value);
     void slotReplyInThread(const QModelIndex &index);
-    void updateVerticalPageStep();
     void slotDebugMessage(const QModelIndex &index);
     void slotUpdateLastSeen();
     void slotMarkMessageAsUnread(const QModelIndex &index);

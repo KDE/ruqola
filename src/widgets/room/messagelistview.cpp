@@ -36,7 +36,7 @@
 #include <KIO/KUriFilterSearchProviderActions>
 
 MessageListView::MessageListView(Mode mode, QWidget *parent)
-    : QListView(parent)
+    : MessageListViewBase(parent)
     , mMode(mode)
     , mMessageListDelegate(new MessageListDelegate(this))
 {
@@ -44,14 +44,6 @@ MessageListView::MessageListView(Mode mode, QWidget *parent)
     mMessageListDelegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     setItemDelegate(mMessageListDelegate);
-
-    setSelectionMode(QAbstractItemView::NoSelection);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
-    setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
-
-    // only the lineedit takes focus
-    setFocusPolicy(Qt::NoFocus);
 
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
 
@@ -178,16 +170,6 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     scrollToBottom();
 }
 
-void MessageListView::resizeEvent(QResizeEvent *ev)
-{
-    QListView::resizeEvent(ev);
-
-    // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
-    checkIfAtBottom();
-    maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
-    updateVerticalPageStep();
-}
-
 void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
 {
     const int key = ev->key();
@@ -203,19 +185,6 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
     } else if (key == Qt::Key_End && ev->modifiers() & Qt::ControlModifier) {
         scrollToBottom();
         ev->accept();
-    }
-}
-
-void MessageListView::checkIfAtBottom()
-{
-    auto *vbar = verticalScrollBar();
-    mAtBottom = vbar->value() == vbar->maximum();
-}
-
-void MessageListView::maybeScrollToBottom()
-{
-    if (mAtBottom) {
-        scrollToBottom();
     }
 }
 
@@ -749,11 +718,6 @@ void MessageListView::slotReplyInThread(const QModelIndex &index)
     const QString messageId = index.data(MessageModel::MessageId).toString();
     const QString threadPreview = index.data(MessageModel::OriginalMessage).toString();
     Q_EMIT replyInThreadRequested(messageId, threadPreview);
-}
-
-void MessageListView::updateVerticalPageStep()
-{
-    verticalScrollBar()->setPageStep(viewport()->height() * 3 / 4);
 }
 
 void MessageListView::slotShowUserInfo(const QString &userName)
