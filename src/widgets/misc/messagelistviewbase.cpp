@@ -16,6 +16,7 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
     // only the lineedit takes focus
     setFocusPolicy(Qt::NoFocus);
+    scrollToBottom();
 }
 
 MessageListViewBase::~MessageListViewBase()

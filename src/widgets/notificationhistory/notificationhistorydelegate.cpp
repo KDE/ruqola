@@ -102,6 +102,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderFont.setBold(true);
 
     layout.avatarPixmap = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
+    qDebug() << " layout.avatarPixmap is Null ?" << layout.avatarPixmap.isNull();
 
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();

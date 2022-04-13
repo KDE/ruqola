@@ -16,11 +16,12 @@ public:
     explicit MessageListViewBase(QWidget *parent = nullptr);
     ~MessageListViewBase() override;
 
+    void checkIfAtBottom();
+
 protected:
     void resizeEvent(QResizeEvent *ev) override;
 
 private:
-    void checkIfAtBottom();
     void maybeScrollToBottom();
     void updateVerticalPageStep();
     bool mAtBottom = true;

@@ -6,6 +6,7 @@
 
 #include "notificationhistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/messagelistviewbase.h"
 #include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
 #include "notificationhistorymanager.h"
@@ -19,7 +20,7 @@
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
-    , mListNotifications(new QListView(this))
+    , mListNotifications(new MessageListViewBase(this))
     , mSearchLineEdit(new QLineEdit(this))
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -39,9 +40,6 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotifications);
-    mListNotifications->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    mListNotifications->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
-    mListNotifications->setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
 
     mListNotificationsDelegate = new NotificationHistoryDelegate(this);
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
@@ -53,43 +51,13 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotifications->setModel(model);
     connect(mListNotifications, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
 
-    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, this, &NotificationHistoryWidget::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, &NotificationHistoryWidget::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::modelAboutToBeReset, this, &NotificationHistoryWidget::checkIfAtBottom);
-
-    mListNotifications->scrollToBottom();
+    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotifications, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotifications, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotifications, &MessageListViewBase::checkIfAtBottom);
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget()
 {
-}
-
-void NotificationHistoryWidget::resizeEvent(QResizeEvent *ev)
-{
-    QWidget::resizeEvent(ev);
-
-    // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
-    checkIfAtBottom();
-    maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
-    updateVerticalPageStep();
-}
-
-void NotificationHistoryWidget::updateVerticalPageStep()
-{
-    mListNotifications->verticalScrollBar()->setPageStep(mListNotifications->viewport()->height() * 3 / 4);
-}
-
-void NotificationHistoryWidget::checkIfAtBottom()
-{
-    auto *vbar = mListNotifications->verticalScrollBar();
-    mAtBottom = vbar->value() == vbar->maximum();
-}
-
-void NotificationHistoryWidget::maybeScrollToBottom()
-{
-    if (mAtBottom) {
-        mListNotifications->scrollToBottom();
-    }
 }
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)

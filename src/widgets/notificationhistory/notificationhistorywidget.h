@@ -9,7 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class QListView;
+class MessageListViewBase;
 class QLineEdit;
 class NotificationHistoryDelegate;
 
@@ -23,18 +23,11 @@ public:
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
-protected:
-    void resizeEvent(QResizeEvent *ev) override;
-
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
     void slotClearList();
-    void checkIfAtBottom();
-    void maybeScrollToBottom();
-    void updateVerticalPageStep();
-    QListView *const mListNotifications;
+    MessageListViewBase *const mListNotifications;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryDelegate *mListNotificationsDelegate = nullptr;
-    bool mAtBottom = true;
 };
