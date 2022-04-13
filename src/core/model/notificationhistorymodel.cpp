@@ -33,7 +33,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return info.accountName();
     case DateTime:
         return info.dateTime();
-    case Message:
+    case MessageStr:
         return info.message();
     case RoomId:
         return info.roomId();
@@ -45,6 +45,8 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return info.senderName();
     case MessageId:
         return info.messageId();
+    case RoomName:
+        return info.roomName();
     }
     return {};
 }

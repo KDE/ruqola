@@ -19,8 +19,9 @@ public:
     enum NotificationHistoryRoles {
         AccountName = Qt::UserRole + 1,
         DateTime,
-        Message,
+        MessageStr,
         RoomId,
+        RoomName,
         ChannelType,
         Pixmap,
         SenderName,
