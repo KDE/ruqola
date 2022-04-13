@@ -64,6 +64,21 @@ NotificationHistoryWidget::~NotificationHistoryWidget()
 {
 }
 
+void NotificationHistoryWidget::resizeEvent(QResizeEvent *ev)
+{
+    QWidget::resizeEvent(ev);
+
+    // Fix not being really at bottom when the view gets reduced by the header widget becoming taller
+    checkIfAtBottom();
+    maybeScrollToBottom(); // this forces a layout in QAIV, which then changes the vbar max value
+    updateVerticalPageStep();
+}
+
+void NotificationHistoryWidget::updateVerticalPageStep()
+{
+    mListNotifications->verticalScrollBar()->setPageStep(mListNotifications->viewport()->height() * 3 / 4);
+}
+
 void NotificationHistoryWidget::checkIfAtBottom()
 {
     auto *vbar = mListNotifications->verticalScrollBar();
