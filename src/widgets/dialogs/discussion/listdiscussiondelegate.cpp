@@ -13,6 +13,7 @@
 #include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "misc/avatarcachemanager.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -21,7 +22,9 @@
 ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
     , mRocketChatAccount(account)
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
+    mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
 }
 
 ListDiscussionDelegate::~ListDiscussionDelegate() = default;

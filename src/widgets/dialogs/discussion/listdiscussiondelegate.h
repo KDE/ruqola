@@ -11,6 +11,7 @@
 #include <QItemDelegate>
 #include <QTextDocument>
 class RocketChatAccount;
+class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -58,4 +59,5 @@ private:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width) const;
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     RocketChatAccount *const mRocketChatAccount;
+    AvatarCacheManager *const mAvatarCacheManager;
 };
