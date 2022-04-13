@@ -69,6 +69,16 @@ void Discussion::setFname(const QString &fname)
     mFname = fname;
 }
 
+const QString &Discussion::userName() const
+{
+    return mUserName;
+}
+
+void Discussion::setUserName(const QString &newUserName)
+{
+    mUserName = newUserName;
+}
+
 QString Discussion::lastMessageDisplay() const
 {
     return i18n("(Last Message: %1)", mLastMessageDateTimeStr);
@@ -95,6 +105,7 @@ QDebug operator<<(QDebug d, const Discussion &t)
     d << "Discussion Room Id " << t.discussionRoomId();
     d << "timestamp " << t.timeStamp();
     d << "fname " << t.fname();
+    d << "mUserName " << t.userName();
     return d;
 }
 
@@ -102,7 +113,7 @@ bool Discussion::operator==(const Discussion &other) const
 {
     return (description() == other.description()) && (parentRoomId() == other.parentRoomId()) && (numberMessages() == other.numberMessages())
         && (lastMessage() == other.lastMessage()) && (discussionRoomId() == other.discussionRoomId()) && (timeStamp() == other.timeStamp())
-        && (fname() == other.fname());
+        && (fname() == other.fname()) && (userName() == other.userName());
 }
 
 void Discussion::parseDiscussion(const QJsonObject &o)
@@ -114,7 +125,11 @@ void Discussion::parseDiscussion(const QJsonObject &o)
     mDiscussionRoomId = o.value(QLatin1String("_id")).toString();
     setLastMessage(Utils::parseIsoDate(QStringLiteral("lm"), o));
     setTimeStamp(Utils::parseIsoDate(QStringLiteral("ts"), o));
-    // TODO autotranslate ??
+    const QJsonValue ownerValue = o.value(QLatin1String("u"));
+    if (!ownerValue.isUndefined()) {
+        const QJsonObject objOwner = ownerValue.toObject();
+        mUserName = objOwner.value(QLatin1String("username")).toString();
+    }
 }
 
 QString Discussion::discussionRoomId() const

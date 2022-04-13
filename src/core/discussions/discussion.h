@@ -45,6 +45,9 @@ public:
     Q_REQUIRED_RESULT QString fname() const;
     void setFname(const QString &fname);
 
+    Q_REQUIRED_RESULT const QString &userName() const;
+    void setUserName(const QString &newUserName);
+
 private:
     QString mDescription;
     QString mParentRoomId;
@@ -52,6 +55,7 @@ private:
     QString mLastMessageDateTimeStr;
     QString mTimeStampDateTimeStr;
     QString mFname;
+    QString mUserName;
     int mNumberMessages = 0;
     qint64 mLastMessage = -1;
     qint64 mTimeStamp = -1;
