@@ -10,7 +10,7 @@
 #include <QWidget>
 class QLineEdit;
 class QLabel;
-class QListView;
+class MessageListViewBase;
 class DiscussionsFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
@@ -32,7 +32,7 @@ private:
     void slotOpenDiscussion(const QString &roomDiscussionId);
     QLineEdit *const mSearchDiscussionLineEdit;
     QLabel *const mDiscussionInfoLabel;
-    QListView *const mListDiscussions;
+    MessageListViewBase *const mListDiscussions;
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };

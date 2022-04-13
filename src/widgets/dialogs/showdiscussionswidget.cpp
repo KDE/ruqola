@@ -7,6 +7,7 @@
 #include "showdiscussionswidget.h"
 #include "discussion/listdiscussiondelegate.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/messagelistviewbase.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -19,7 +20,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     : QWidget(parent)
     , mSearchDiscussionLineEdit(new QLineEdit(this))
     , mDiscussionInfoLabel(new QLabel(this))
-    , mListDiscussions(new QListView(this))
+    , mListDiscussions(new MessageListViewBase(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
