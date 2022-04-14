@@ -10,7 +10,7 @@ if (TARGET KUserFeedbackWidgets)
         userfeedback/ruqolauserfeedbackprovider.h
         userfeedback/accountinfosource.h
         userfeedback/userfeedbackmanager.h
-        )
+    )
 endif()
 
 
@@ -496,12 +496,12 @@ target_sources(libruqolawidgets PRIVATE
     threadwidget/threadmessagewidget.h
 
     ruqolawidget.qrc
-    )
+)
 
 
 ki18n_wrap_ui(libruqolawidgets
     configuredialog/configureaccountserverwidget.ui
-    )
+)
 
 
 
@@ -521,7 +521,7 @@ endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
 if (TARGET KUserFeedbackWidgets)
-        target_link_libraries(libruqolawidgets KUserFeedbackWidgets)
+    target_link_libraries(libruqolawidgets KUserFeedbackWidgets)
 endif()
 
 
@@ -546,7 +546,7 @@ target_link_libraries(libruqolawidgets
 
 set_target_properties(libruqolawidgets
     PROPERTIES OUTPUT_NAME ruqolawidgets VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
-    )
+)
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)

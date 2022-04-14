@@ -391,7 +391,7 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     users/usersupdateownbasicinfojob.h
     video-conference/videoconfupdatejitsitimeoutjob.cpp
     video-conference/videoconfupdatejitsitimeoutjob.h
-    )
+)
 
 
 ecm_qt_declare_logging_category(librocketchatrestapi_qt5_debug_SRCS HEADER rocketchatqtrestapi_debug.h
@@ -415,7 +415,7 @@ if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
 endif()
 set_target_properties(librocketchatrestapi-qt5
     PROPERTIES OUTPUT_NAME rocketchatrestapi-qt5 VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
-    )
+)
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)

@@ -407,11 +407,11 @@ endif()
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
 if (HAVE_SOLID)
-  target_link_libraries(libruqolacore KF5::Solid)
+    target_link_libraries(libruqolacore KF5::Solid)
 endif()
 
 if (HAVE_NETWORKMANAGER)
-  target_link_libraries(libruqolacore KF5::NetworkManagerQt)
+    target_link_libraries(libruqolacore KF5::NetworkManagerQt)
 endif()
 
 target_link_libraries(libruqolacore
@@ -443,7 +443,7 @@ target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
 
 set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
-    )
+)
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)

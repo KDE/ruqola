@@ -6,5 +6,5 @@ target_sources(uploadfilewidgetlistgui PRIVATE main.cpp uploadwidget.h uploadwid
 target_link_libraries(uploadfilewidgetlistgui
     Qt::Widgets
     libruqolawidgets
-    )
+)
 set_target_properties(uploadfilewidgetlistgui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

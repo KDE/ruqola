@@ -8,10 +8,10 @@ target_sources(ruqola_webshortcuttextplugin PRIVATE
     webshortcuttextplugin.cpp
     webshortcuttextinterface.h
     webshortcuttextplugin.h
-    )
+)
 target_link_libraries(ruqola_webshortcuttextplugin
     libruqolacore libruqolawidgets
-    )
+)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
