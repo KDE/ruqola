@@ -13,6 +13,9 @@ class QPushButton;
 class QSlider;
 class QLabel;
 class QToolButton;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+class QAudioOutput;
+#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowVideoWidget : public QWidget
 {
     Q_OBJECT
@@ -24,6 +27,8 @@ public:
 private:
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     void mediaStateChanged(QMediaPlayer::State state);
+#else
+    void mediaStateChanged(QMediaPlayer::PlaybackState state);
 #endif
     void slotPositionChanged(qint64 position);
     void slotDurationChanged(qint64 duration);
@@ -43,4 +48,7 @@ private:
     QSlider *const mSoundSlider;
     QLabel *const mLabelDuration;
     QLabel *const mLabelPercentSound;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QAudioOutput *const mAudioOutput;
+#endif
 };

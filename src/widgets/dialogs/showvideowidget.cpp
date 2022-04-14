@@ -17,6 +17,9 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QVideoWidget>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QAudioOutput>
+#endif
 
 ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     : QWidget(parent)
@@ -33,7 +36,14 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     , mSoundSlider(new QSlider(Qt::Horizontal, this))
     , mLabelDuration(new QLabel(this))
     , mLabelPercentSound(new QLabel(this))
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    , mAudioOutput(new QAudioOutput(this))
+#endif
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mMediaPlayer->setAudioOutput(mAudioOutput);
+#endif
+
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -75,11 +85,15 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mMediaPlayer->setVideoOutput(videoWidget);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &ShowVideoWidget::mediaStateChanged);
+#else
+    connect(mMediaPlayer, &QMediaPlayer::playbackStateChanged, this, &ShowVideoWidget::mediaStateChanged);
 #endif
     connect(mMediaPlayer, &QMediaPlayer::positionChanged, this, &ShowVideoWidget::slotPositionChanged);
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &ShowVideoWidget::slotDurationChanged);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &ShowVideoWidget::handleError);
+#else
+    connect(mMediaPlayer, &QMediaPlayer::errorChanged, this, &ShowVideoWidget::handleError);
 #endif
     mSoundButton->setCheckable(true);
     mSoundButton->setObjectName(QStringLiteral("mSoundButton"));
@@ -93,9 +107,7 @@ ShowVideoWidget::ShowVideoWidget(QWidget *parent)
     mSoundSlider->setRange(0, 100);
     mSoundSlider->setValue(RuqolaGlobalConfig::self()->soundVolume());
     mSoundSlider->setTickPosition(QSlider::TicksAbove);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::sliderMoved, this, &ShowVideoWidget::slotVolumeChanged);
-#endif
     controlLayout->addWidget(mSoundSlider);
     controlLayout->addWidget(mLabelPercentSound);
     QFontMetrics f(font());
@@ -121,6 +133,8 @@ void ShowVideoWidget::slotVolumeChanged(int position)
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setVolume(position);
+#else
+    mAudioOutput->setVolume(position);
 #endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
@@ -146,12 +160,14 @@ void ShowVideoWidget::slotMuteChanged(bool state)
 
 void ShowVideoWidget::setVideoUrl(const QUrl &url)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mErrorLabel->setText(QString());
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setMedia(url);
-    mPlayButton->setEnabled(true);
+#else
+    mMediaPlayer->setSource(url);
 #endif
+    mPlayButton->setEnabled(true);
 }
 
 void ShowVideoWidget::play()
@@ -165,10 +181,22 @@ void ShowVideoWidget::play()
         mMediaPlayer->play();
         break;
     }
+#else
+    switch (mMediaPlayer->playbackState()) {
+    case QMediaPlayer::PlayingState:
+        mMediaPlayer->pause();
+        break;
+    default:
+        mMediaPlayer->play();
+        break;
+    }
 #endif
 }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
+#else
+void ShowVideoWidget::mediaStateChanged(QMediaPlayer::PlaybackState state)
+#endif
 {
     switch (state) {
     case QMediaPlayer::PlayingState:
@@ -179,7 +207,6 @@ void ShowVideoWidget::mediaStateChanged(QMediaPlayer::State state)
         break;
     }
 }
-#endif
 
 void ShowVideoWidget::slotDurationChanged(qint64 duration)
 {

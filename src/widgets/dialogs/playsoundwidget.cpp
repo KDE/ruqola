@@ -17,6 +17,9 @@
 #include <QStyle>
 #include <QTime>
 #include <QToolButton>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QAudioOutput>
+#endif
 
 PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     : QWidget(parent)
@@ -28,7 +31,13 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     , mLabelDuration(new QLabel(this))
     , mErrorLabel(new QLabel(this))
     , mLabelPercentSound(new QLabel(this))
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    , mAudioOutput(new QAudioOutput(this))
+#endif
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    mMediaPlayer->setAudioOutput(mAudioOutput);
+#endif
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -65,8 +74,11 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     connect(mMediaPlayer, &QMediaPlayer::durationChanged, this, &PlaySoundWidget::slotDurationChanged);
 
     // Allow to change volume
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mMediaPlayer, &QMediaPlayer::stateChanged, this, &PlaySoundWidget::mediaStateChanged);
+#else
+    connect(mMediaPlayer, &QMediaPlayer::playbackStateChanged, this, &PlaySoundWidget::mediaStateChanged);
 #endif
     mPlayButton->setObjectName(QStringLiteral("mPlayButton"));
     mPlayButton->setEnabled(false);
@@ -88,8 +100,14 @@ PlaySoundWidget::PlaySoundWidget(QWidget *parent)
     playerLayout->addWidget(mLabelDuration);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     connect(mSoundSlider, &QAbstractSlider::valueChanged, mMediaPlayer, &QMediaPlayer::setVolume);
-    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &PlaySoundWidget::handleError);
 #endif
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    connect(mMediaPlayer, qOverload<QMediaPlayer::Error>(&QMediaPlayer::error), this, &PlaySoundWidget::handleError);
+#else
+    connect(mMediaPlayer, &QMediaPlayer::errorChanged, this, &PlaySoundWidget::handleError);
+#endif
+
     playerLayout->addWidget(mSoundSlider);
     playerLayout->addWidget(mLabelPercentSound);
 
@@ -130,6 +148,8 @@ void PlaySoundWidget::slotVolumeChanged(int position)
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setVolume(position);
+#else
+    mAudioOutput->setVolume(position);
 #endif
     mLabelPercentSound->setText(QStringLiteral("%1%").arg(position));
 }
@@ -152,11 +172,13 @@ void PlaySoundWidget::muteChanged(bool state)
 
 void PlaySoundWidget::setAudioUrl(const QUrl &url)
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     setWindowFilePath(url.isLocalFile() ? url.toLocalFile() : QString());
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     mMediaPlayer->setMedia(url);
-    mPlayButton->setEnabled(true);
+#else
+    mMediaPlayer->setSource(url);
 #endif
+    mPlayButton->setEnabled(true);
 }
 
 void PlaySoundWidget::play()
@@ -170,10 +192,22 @@ void PlaySoundWidget::play()
         mMediaPlayer->play();
         break;
     }
+#else
+    switch (mMediaPlayer->playbackState()) {
+    case QMediaPlayer::PlayingState:
+        mMediaPlayer->pause();
+        break;
+    default:
+        mMediaPlayer->play();
+        break;
+    }
 #endif
 }
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
+#else
+void PlaySoundWidget::mediaStateChanged(QMediaPlayer::PlaybackState state)
+#endif
 {
     switch (state) {
     case QMediaPlayer::PlayingState:
@@ -184,7 +218,6 @@ void PlaySoundWidget::mediaStateChanged(QMediaPlayer::State state)
         break;
     }
 }
-#endif
 
 void PlaySoundWidget::handleError()
 {
