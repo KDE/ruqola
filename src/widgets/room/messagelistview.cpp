@@ -301,7 +301,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         options.rect = visualRect(index);
         options.index = index;
         const QString url = mMessageListDelegate->urlAt(options, index, viewport()->mapFromGlobal(event->globalPos()));
-        if (url.isEmpty())
+        if (url.isEmpty() || url.startsWith(QStringLiteral("ruqola:/")))
             return nullptr;
         auto action = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy URL"), &menu);
         connect(action, &QAction::triggered, this, [url]() {
