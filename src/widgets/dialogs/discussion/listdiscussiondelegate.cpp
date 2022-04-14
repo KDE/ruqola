@@ -33,7 +33,6 @@ ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 // text
 // number of discussion + last date
 // add text for opening dicussion.
-
 void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
@@ -108,20 +107,6 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Layout layout;
-#if 0
-    QRect usableRect = option.rect;
-    layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-
-    layout.text = index.data(DiscussionsModel::Description).toString();
-    layout.textY = usableRect.top();
-
-    layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();
-    layout.lastMessageTimeY = layout.textY + option.fontMetrics.height();
-
-    layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
-
-    layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
-#else
     const QString userName = index.data(DiscussionsModel::UserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
@@ -168,7 +153,6 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
 
-#endif
     return layout;
 }
 
