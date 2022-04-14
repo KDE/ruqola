@@ -61,13 +61,11 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     // Draw the number of message + timestamp (below the sender)
     const QString messageStr = i18np("%1 message", "%1 messages", layout.numberOfMessages) + QLatin1Char(' ') + layout.lastMessageTimeText;
-    DelegatePaintUtil::drawLighterText(painter,
-                                       messageStr,
-                                       QPoint(DelegatePaintUtil::margin() + option.rect.x(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
+    DelegatePaintUtil::drawLighterText(painter, messageStr, QPoint(layout.textRect.left(), layout.lastMessageTimeY + painter->fontMetrics().ascent()));
 
     const QString discussionsText = i18n("Open Discussion");
     painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
-    painter->drawText(DelegatePaintUtil::margin() + option.rect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    painter->drawText(layout.senderRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
     // debug (TODO remove it for release)
     painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
@@ -164,7 +162,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
 
     layout.lastMessageTimeText = index.data(DiscussionsModel::LastMessage).toString();
-    layout.lastMessageTimeY = layout.senderRect.bottom();
+    layout.lastMessageTimeY = layout.textRect.bottom();
 
     layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
 
