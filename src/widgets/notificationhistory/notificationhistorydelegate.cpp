@@ -20,9 +20,7 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
 {
 }
 
-NotificationHistoryDelegate::~NotificationHistoryDelegate()
-{
-}
+NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 
 void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {

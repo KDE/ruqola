@@ -65,9 +65,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 }
 
-NotificationHistoryWidget::~NotificationHistoryWidget()
-{
-}
+NotificationHistoryWidget::~NotificationHistoryWidget() = default;
 
 void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {
