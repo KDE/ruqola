@@ -64,10 +64,10 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     const QString discussionsText = i18n("Open Discussion");
     painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
-    painter->drawText(layout.senderRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
+    painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
     // debug (TODO remove it for release)
-    painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
+    // painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
     painter->restore();
 }
 
@@ -94,7 +94,7 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     }
 
     // contents is date + text
-    const int contentsHeight = layout.openDiscussionTextY + option.fontMetrics.height() + layout.textRect.y() + layout.textRect.height() - option.rect.y();
+    const int contentsHeight = layout.openDiscussionTextY + layout.textRect.height() - option.rect.y();
     const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
                                                 layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
 
@@ -102,6 +102,15 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+}
+
+QPixmap ListDiscussionDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
+{
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = index.data(DiscussionsModel::UserName).toString();
+
+    return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
 }
 
 ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -118,8 +127,8 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
-    // Resize pixmap TODO cache ?
-    const QPixmap pix; // TODO = index.data(DiscussionsModel::Pixmap).value<QPixmap>();
+
+    const QPixmap pix = makeAvatarPixmap(option.widget, index, senderTextSize.height());
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.avatarPixmap = scaledPixmap;
@@ -136,9 +145,6 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
 
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
-    // Add area for account/room info
-    usableRect.setTop(usableRect.top() + option.fontMetrics.height());
-
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
 

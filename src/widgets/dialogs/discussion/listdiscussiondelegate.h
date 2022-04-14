@@ -43,8 +43,6 @@ private:
         // OpenDiscussionText
         QString openDiscussionText;
         qreal openDiscussionTextY = 0;
-        //
-        QRect usableRect;
 
         // Avatar pixmap
         QPixmap avatarPixmap;
@@ -60,4 +58,5 @@ private:
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
+    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 };
