@@ -40,7 +40,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Role No Longer Defined\" messages"), QStringLiteral("subscription-role-removed"));
     createItem(i18n("Hide \"Was Set Role\" messages"), QStringLiteral("subscription-role-added"));
     createItem(i18n("Hide \"User Removed\" messages"), QStringLiteral("ru"));
-    createItem(i18n("Hide \"Room Unarchived\" messages"), QStringLiteral("room_unarchived"));
+    createItem(i18n("Hide \"Room Unarchived\" messages"), QStringLiteral("room-unarchived"));
     createItem(i18n("Hide \"Room encryption disabled\" messages"), QStringLiteral("room_disabled_encryption"));
     createItem(i18n("Hide \"Room encryption enabled\" messages"), QStringLiteral("enabled_encryption"));
     createItem(i18n("Hide \"Room type changed\" messages"), QStringLiteral("room_changed_privacy"));
@@ -48,7 +48,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"User Muted / Unmuted\" messages"), QStringLiteral("mute_unmute"));
     createItem(i18n("Hide \"Room Name Changed\" messages"), QStringLiteral("r"));
     createItem(i18n("Hide \"Message Removed\" messages"), QStringLiteral("rm"));
-    createItem(i18n("Hide \"Room Archived\" messages"), QStringLiteral("room_archived"));
+    createItem(i18n("Hide \"Room Archived\" messages"), QStringLiteral("room-archived"));
     createItem(i18n("Hide \"Encryption Enabled\" messages"), QStringLiteral("room_e2e_enabled"));
     createItem(i18n("Hide \"Encryption Disabled\" messages"), QStringLiteral("room_e2e_disabled"));
     createItem(i18n("Hide \"Room added writing permission\" messages"), QStringLiteral("room-removed-read-only"));
