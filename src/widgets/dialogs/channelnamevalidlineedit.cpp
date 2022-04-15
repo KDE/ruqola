@@ -36,7 +36,11 @@ ChannelNameValidLineEdit::~ChannelNameValidLineEdit() = default;
 
 void ChannelNameValidLineEdit::slotTextIsValid(bool state)
 {
-    Q_EMIT channelIsValid(state ? ChannelNameValidLineEdit::ChannelNameStatus::Valid : ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters);
+    if (text().isEmpty()) {
+        Q_EMIT channelIsValid(ChannelNameValidLineEdit::ChannelNameStatus::Unknown);
+    } else {
+        Q_EMIT channelIsValid(state ? ChannelNameValidLineEdit::ChannelNameStatus::Valid : ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters);
+    }
 }
 
 void ChannelNameValidLineEdit::clearLineEdit()
