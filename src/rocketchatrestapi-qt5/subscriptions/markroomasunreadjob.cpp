@@ -59,6 +59,8 @@ QString MarkRoomAsUnReadJob::errorMessage(const QString &str, const QJsonObject 
 {
     if (str == QLatin1String("error-action-not-allowed")) {
         return i18n("Unread message not authorized.");
+    } else if (str == QLatin1String("error-no-message-for-unread")) {
+        return i18n("There are no messages to mark unread.");
     }
     return RestApiAbstractJob::errorMessage(str, detail);
 }
