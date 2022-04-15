@@ -100,7 +100,7 @@ bool TranslateSaveSettingsJob::canStart() const
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mLanguage is empty";
         return false;
     }
-    if (mType == Underfined) {
+    if (mType == Undefined) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "TranslateSaveSettingsJob: mType is not defined";
         return false;
     }
@@ -129,7 +129,7 @@ QJsonDocument TranslateSaveSettingsJob::json() const
         jsonObj[QLatin1String("field")] = QStringLiteral("autoTranslateLanguage");
         jsonObj[QLatin1String("value")] = mLanguage;
         break;
-    case Underfined:
+    case Undefined:
         break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);

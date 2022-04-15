@@ -108,8 +108,8 @@ public:
     Q_REQUIRED_RESULT MessageType messageType() const;
     void setMessageType(Message::MessageType messageType);
 
-    Q_REQUIRED_RESULT QVector<MessageAttachment> attachements() const;
-    void setAttachements(const QVector<MessageAttachment> &attachements);
+    Q_REQUIRED_RESULT QVector<MessageAttachment> attachments() const;
+    void setAttachements(const QVector<MessageAttachment> &attachments);
 
     Q_REQUIRED_RESULT QVector<MessageUrl> urls() const;
     void setUrls(const QVector<MessageUrl> &urls);

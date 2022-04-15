@@ -90,8 +90,8 @@ QString TextSelection::selectedText(Format format) const
         }
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         if (message) {
-            const auto attachements = message->attachements();
-            for (const auto &att : attachements) {
+            const auto attachments = message->attachments();
+            for (const auto &att : attachments) {
                 for (auto factory : std::as_const(mAttachmentFactories)) {
                     doc = factory->documentForIndex(att);
                     if (doc) {
@@ -335,8 +335,8 @@ void TextSelection::selectMessage(const QModelIndex &index)
     }
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     if (message) {
-        const auto attachements = message->attachements();
-        for (const auto &att : attachements) {
+        const auto attachments = message->attachments();
+        for (const auto &att : attachments) {
             for (auto factory : std::as_const(mAttachmentFactories)) {
                 doc = factory->documentForIndex(att);
                 if (doc) {
