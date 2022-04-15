@@ -61,7 +61,7 @@ QNetworkRequest RoomsAutocompleteChannelAndPrivateJob::request() const
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);
-    qDebug() << " url " << url;
+    // qDebug() << " url " << url;
     return request;
 }
 
