@@ -38,3 +38,13 @@ QString AskTwoAuthenticationPasswordDialog::code() const
 {
     return mAskTwoAuthicationPasswordWidget->code();
 }
+
+RocketChatAccount *AskTwoAuthenticationPasswordDialog::rocketChatAccount() const
+{
+    return mAskTwoAuthicationPasswordWidget->rocketChatAccount();
+}
+
+void AskTwoAuthenticationPasswordDialog::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mAskTwoAuthicationPasswordWidget->setRocketChatAccount(newRocketChatAccount);
+}

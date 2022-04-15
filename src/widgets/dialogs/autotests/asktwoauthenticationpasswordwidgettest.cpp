@@ -28,4 +28,5 @@ void AskTwoAuthenticationPasswordWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit);
     QVERIFY(mTwoFactorAuthenticationPasswordLineEdit->code().isEmpty());
     QVERIFY(!mTwoFactorAuthenticationPasswordLineEdit->rocketChatAccount());
+    QVERIFY(!w.rocketChatAccount());
 }
