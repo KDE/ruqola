@@ -435,7 +435,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
                 break;
             }
         }
-        message.setAttachements(attachments);
+        message.setAttachments(attachments);
         Q_EMIT dataChanged(index, index);
         return true;
     }

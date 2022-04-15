@@ -52,7 +52,7 @@ void MessageTest::shouldParseMessage_data()
         att.setLink(QStringLiteral("/file-upload/3zfLR3Cjr8YnvD6cS/dd.pdf"));
         att.setTitle(QStringLiteral("dd.pdf"));
         att.setAttachmentType(MessageAttachment::File);
-        firstMessageRef.setAttachements({att});
+        firstMessageRef.setAttachments({att});
         QTest::addRow("first") << QStringLiteral("first") << firstMessageRef;
     }
     {
@@ -101,7 +101,7 @@ void MessageTest::shouldParseMessage_data()
         attImage.setImageWidth(120);
         attImage.setImageHeight(120);
         attImage.setAttachmentType(MessageAttachment::Image);
-        imageMessageRef.setAttachements({attImage});
+        imageMessageRef.setAttachments({attImage});
 
         QTest::addRow("image") << QStringLiteral("image") << imageMessageRef;
         // TODO add Mentions
@@ -129,7 +129,7 @@ void MessageTest::shouldParseMessage_data()
         attVideo.setDescription(QStringLiteral("test"));
         attVideo.setAttachmentType(MessageAttachment::Video);
         // Add video size/video type etc.
-        videoMessageRef.setAttachements({attVideo});
+        videoMessageRef.setAttachments({attVideo});
 
         QTest::addRow("video") << QStringLiteral("video") << videoMessageRef;
     }
@@ -155,7 +155,7 @@ void MessageTest::shouldParseMessage_data()
         attAudio.setDescription(QStringLiteral("dfgsdfgsdfg sdfgd dfsg sfd g"));
         attAudio.setAttachmentType(MessageAttachment::Audio);
         // Add video size/video type etc.
-        audioMessageRef.setAttachements({attAudio});
+        audioMessageRef.setAttachments({attAudio});
 
         QTest::addRow("audio") << QStringLiteral("audio") << audioMessageRef;
     }
@@ -246,7 +246,7 @@ void MessageTest::shouldParseMessage_data()
         fileAttachment.setDescription(QStringLiteral("description"));
         fileAttachment.setAttachmentType(MessageAttachment::File);
         // Add video size/video type etc.
-        messageAttachmentFileRef.setAttachements({fileAttachment});
+        messageAttachmentFileRef.setAttachments({fileAttachment});
 
         QTest::addRow("messageattachmentfile") << QStringLiteral("messageattachmentfile") << messageAttachmentFileRef;
     }
@@ -308,7 +308,7 @@ void MessageTest::shouldSerializeData()
     attachment2.setTitle(QStringLiteral("foo6"));
     attachment2.setLink(QStringLiteral("foo7"));
     lstAttachement.append(attachment2);
-    input.setAttachements(lstAttachement);
+    input.setAttachments(lstAttachement);
 
     QVector<MessageUrl> lstUrls;
     MessageUrl url1;

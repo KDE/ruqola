@@ -109,7 +109,7 @@ public:
     void setMessageType(Message::MessageType messageType);
 
     Q_REQUIRED_RESULT QVector<MessageAttachment> attachments() const;
-    void setAttachements(const QVector<MessageAttachment> &attachments);
+    void setAttachments(const QVector<MessageAttachment> &attachments);
 
     Q_REQUIRED_RESULT QVector<MessageUrl> urls() const;
     void setUrls(const QVector<MessageUrl> &urls);
@@ -210,7 +210,7 @@ private:
     MessageTranslation mMessageTranslation;
 
     // Message Object Fields
-    QVector<MessageAttachment> mAttachements;
+    QVector<MessageAttachment> mAttachments;
 
     // Message urls object
     QVector<MessageUrl> mUrls;

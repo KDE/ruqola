@@ -47,7 +47,7 @@ void MessageListDelegateTest::layoutChecks_data()
     message.setMessageType(Message::NormalText);
     MessageAttachment msgAttach = testAttachment();
     msgAttach.setAttachmentType(MessageAttachment::Image);
-    message.setAttachements({msgAttach});
+    message.setAttachments({msgAttach});
 
     QTest::newRow("attachment_no_text_no_date") << message << false;
     QTest::newRow("attachment_no_text_with_date") << message << true;

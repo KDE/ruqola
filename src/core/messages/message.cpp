@@ -383,7 +383,7 @@ void Message::setMentions(const QMap<QString, QString> &mentions)
 
 void Message::parseAttachment(const QJsonArray &attachments)
 {
-    mAttachements.clear();
+    mAttachments.clear();
     if (!attachments.isEmpty()) {
         // qDebug() << " void Message::parseAttachment(const QJsonObject &attachments)"<<attachments;
         for (int i = 0; i < attachments.size(); i++) {
@@ -392,7 +392,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
             messageAttachement.parseAttachment(attachment);
             messageAttachement.setAttachmentId(Message::generateAttachmentId(messageId(), i));
             if (messageAttachement.isValid()) {
-                mAttachements.append(messageAttachement);
+                mAttachments.append(messageAttachement);
             }
         }
     }
@@ -404,7 +404,7 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
         && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (mGroupable == other.groupable())
-        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachements == other.attachments()) && (mMentions == other.mentions())
+        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
         && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
@@ -552,12 +552,12 @@ void Message::setMessageType(MessageType messageType)
 
 QVector<MessageAttachment> Message::attachments() const
 {
-    return mAttachements;
+    return mAttachments;
 }
 
-void Message::setAttachements(const QVector<MessageAttachment> &attachments)
+void Message::setAttachments(const QVector<MessageAttachment> &attachments)
 {
-    mAttachements = attachments;
+    mAttachments = attachments;
 }
 
 QVector<MessageUrl> Message::urls() const
@@ -778,7 +778,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         MessageAttachment att = MessageAttachment::fromJson(attachment);
         att.setAttachmentId(Message::generateAttachmentId(message.messageId(), i));
         if (att.isValid()) {
-            message.mAttachements.append(std::move(att));
+            message.mAttachments.append(std::move(att));
         }
     }
     const QJsonArray urlsArray = o.value(QLatin1String("urls")).toArray();
@@ -870,11 +870,11 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     o[QStringLiteral("messageType")] = QJsonValue::fromVariant(QVariant::fromValue<Message::MessageType>(message.mMessageType));
 
     // Attachments
-    if (!message.mAttachements.isEmpty()) {
+    if (!message.mAttachments.isEmpty()) {
         QJsonArray array;
-        const int nbAttachment = message.mAttachements.count();
+        const int nbAttachment = message.mAttachments.count();
         for (int i = 0; i < nbAttachment; ++i) {
-            array.append(MessageAttachment::serialize(message.mAttachements.at(i)));
+            array.append(MessageAttachment::serialize(message.mAttachments.at(i)));
         }
         o[QStringLiteral("attachments")] = array;
     }
