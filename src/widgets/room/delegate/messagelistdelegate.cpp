@@ -457,8 +457,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
 QString MessageListDelegate::selectedText() const
 {
-    const QString str = mTextSelection->selectedText(TextSelection::Format::Text);
-    return str;
+    return mTextSelection->selectedText(TextSelection::Format::Text);
 }
 
 bool MessageListDelegate::hasSelection() const
