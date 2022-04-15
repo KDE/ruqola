@@ -7,6 +7,7 @@
 #include "asktwoauthenticationpassworddialogtest.h"
 #include "dialogs/asktwoauthenticationpassworddialog.h"
 #include "dialogs/asktwoauthenticationpasswordwidget.h"
+#include "rocketchataccount.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -28,4 +29,11 @@ void AskTwoAuthenticationPasswordDialogTest::shouldHaveDefaultValues()
 
     auto buttonBox = w.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(buttonBox);
+
+    QVERIFY(!w.rocketChatAccount());
+    RocketChatAccount account;
+    account.setAccountName(QStringLiteral("bla"));
+    w.setRocketChatAccount(&account);
+    QVERIFY(w.rocketChatAccount());
+    QCOMPARE(w.rocketChatAccount()->accountName(), QStringLiteral("bla"));
 }

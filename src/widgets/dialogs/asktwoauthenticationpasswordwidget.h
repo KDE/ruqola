@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class TwoAuthenticationPasswordWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordWidget : public QWidget
 {
     Q_OBJECT
@@ -16,6 +17,8 @@ public:
     explicit AskTwoAuthenticationPasswordWidget(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordWidget() override;
     Q_REQUIRED_RESULT QString code() const;
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 Q_SIGNALS:
     void updateButtonOk(bool state);
 

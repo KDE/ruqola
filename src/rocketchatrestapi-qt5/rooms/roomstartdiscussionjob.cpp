@@ -142,8 +142,9 @@ QJsonDocument RoomStartDiscussionJob::json() const
         const QJsonArray usersJson = QJsonArray::fromStringList(mUsers);
         jsonObj[QLatin1String("users")] = usersJson;
     }
+    // TODO add encrypted
     const QJsonDocument postData = QJsonDocument(jsonObj);
-    qDebug() << " postData " << postData;
+    // qDebug() << " postData " << postData;
     return postData;
 }
 

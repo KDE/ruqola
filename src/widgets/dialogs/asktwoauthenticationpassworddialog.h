@@ -10,6 +10,7 @@
 #include <QDialog>
 class QPushButton;
 class AskTwoAuthenticationPasswordWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AskTwoAuthenticationPasswordDialog : public QDialog
 {
     Q_OBJECT
@@ -17,6 +18,9 @@ public:
     explicit AskTwoAuthenticationPasswordDialog(QWidget *parent = nullptr);
     ~AskTwoAuthenticationPasswordDialog() override;
     Q_REQUIRED_RESULT QString code() const;
+
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:
     AskTwoAuthenticationPasswordWidget *const mAskTwoAuthicationPasswordWidget;

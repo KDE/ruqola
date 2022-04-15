@@ -29,3 +29,13 @@ QString AskTwoAuthenticationPasswordWidget::code() const
 {
     return mTwoFactorAuthenticationPasswordLineEdit->code();
 }
+
+RocketChatAccount *AskTwoAuthenticationPasswordWidget::rocketChatAccount() const
+{
+    return mTwoFactorAuthenticationPasswordLineEdit->rocketChatAccount();
+}
+
+void AskTwoAuthenticationPasswordWidget::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(newRocketChatAccount);
+}
