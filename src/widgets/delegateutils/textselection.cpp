@@ -95,7 +95,7 @@ QString TextSelection::selectedText(Format format) const
                 for (auto factory : std::as_const(mAttachmentFactories)) {
                     doc = factory->documentForIndex(att);
                     if (doc) {
-                        if (!str.isEmpty()) {
+                        if (!str.endsWith(QLatin1Char('\n'))) {
                             str += QLatin1Char('\n');
                         }
                         selectionText(ordered, format, row, index, doc, str, att);
