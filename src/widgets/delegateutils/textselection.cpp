@@ -302,24 +302,21 @@ void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocum
     mEndPos = cursor.selectionEnd();
 }
 
-void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageAttachment &msgAttach)
 {
-    QTextDocument *doc = factory->documentForIndex(index);
-    selectWord(index, charPos, doc);
-}
+    if (msgAttach.isValid()) {
+        QTextDocument *doc = factory->documentForIndex(msgAttach);
+        selectWord(index, charPos, doc);
 
-void TextSelection::selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory)
-{
-    QTextDocument *doc = factory->documentForIndex(msgAttach);
-    selectWord(index, charPos, doc);
-
-    AttachmentSelection selection;
-    selection.fromCharPos = mStartPos;
-    selection.toCharPos = mEndPos;
-    selection.attachment = msgAttach;
-    mAttachmentSelection.append(selection);
-    //    qDebug() << " mEndPos " << mEndPos << "mStartPos  " << mStartPos << "doc" << doc->toPlainText() << " cusor" << cursor.selectedText()
-    //             << "mAttachmentSelection.count" << mAttachmentSelection.count();
+        AttachmentSelection selection;
+        selection.fromCharPos = mStartPos;
+        selection.toCharPos = mEndPos;
+        selection.attachment = msgAttach;
+        mAttachmentSelection.append(selection);
+    } else {
+        QTextDocument *doc = factory->documentForIndex(index);
+        selectWord(index, charPos, doc);
+    }
 }
 
 void TextSelection::selectMessage(const QModelIndex &index)

@@ -46,8 +46,7 @@ public:
     void clear();
     void setStart(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
     void setEnd(const QModelIndex &index, int charPos, const MessageAttachment &msgAttach = {});
-    void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory);
-    void selectWordUnderCursor(const QModelIndex &index, const MessageAttachment &msgAttach, int charPos, DocumentFactoryInterface *factory);
+    void selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageAttachment &msgAttach = {});
     void selectMessage(const QModelIndex &index);
 
     void setTextHelperFactory(DocumentFactoryInterface *newTextHelperFactory);
