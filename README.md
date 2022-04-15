@@ -39,7 +39,7 @@ Extra features:
 - Dnd image from ruqola to website or local folder
 - Store message in local database so we can search in offline
 - Mark All Channels are read
-
+- Add notification history.
 
 
 
@@ -69,10 +69,25 @@ or using CMakePresets support (need cmake > 3.20)
 cmake --preset dev && cmake --build --preset dev
 ````
 
+
+Build against qt6
+````
+cmake --preset dev && cmake --build --preset dev-qt6
+````
+
+
 ## ASAN
 
 We can use sanitizers.supp file
 example: LSAN_OPTIONS=suppressions=../sanitizers.supp ./bin/ruqolaserverconfigtest
+
+
+## UNITY
+
+We can build with cmake unity support
+````
+cmake --preset unity && cmake --build --preset unity
+````
 
 ## Maintainer
 
