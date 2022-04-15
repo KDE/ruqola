@@ -23,7 +23,7 @@ UserInRoleEditDialog::UserInRoleEditDialog(RocketChatAccount *account, QWidget *
     : QDialog(parent)
     , mUserInRoleEditWidget(new UsersInRoleWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Add User in Role"));
+    setWindowTitle(i18nc("@title:window", "Users in Role"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mUserInRoleEditWidget->setObjectName(QStringLiteral("mUserInRoleEditWidget"));
