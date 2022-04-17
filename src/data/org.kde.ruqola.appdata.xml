@@ -68,6 +68,7 @@
     <p xml:lang="fr">Rugola est un client de discussions « Rocket »</p>
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rocchetta).</p>
     <p xml:lang="it">Ruqola è un client Rocket Chat.</p>
+    <p xml:lang="ko">Ruqola는 Rocket Chat 클라이언트입니다.</p>
     <p xml:lang="nl">Ruqola is client van Rocket Chat.</p>
     <p xml:lang="pl">Ruqola to program do rozmów na Rocket</p>
     <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat.</p>
@@ -90,6 +91,7 @@
       <caption xml:lang="fr">Salon de discussions dans ruqola</caption>
       <caption xml:lang="ia">Sala de conversation in Ruqola</caption>
       <caption xml:lang="it">Stanza di chat in Ruqola</caption>
+      <caption xml:lang="ko">Ruqola 대화방</caption>
       <caption xml:lang="nl">Chatroom in Ruqola</caption>
       <caption xml:lang="pl">Pokój rozmów w Ruqola</caption>
       <caption xml:lang="pt-BR">Sala de bate-papo no Ruqola</caption>
