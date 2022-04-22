@@ -71,6 +71,7 @@
     <p xml:lang="ko">Ruqola는 Rocket Chat 클라이언트입니다.</p>
     <p xml:lang="nl">Ruqola is client van Rocket Chat.</p>
     <p xml:lang="pl">Ruqola to program do rozmów na Rocket</p>
+    <p xml:lang="pt">O Ruqola é um cliente de Rocket Chat.</p>
     <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat.</p>
     <p xml:lang="sl">Odjemalec za Rocket chat.</p>
     <p xml:lang="sv">Ruqola är en Rocket Chat klient</p>
@@ -94,6 +95,7 @@
       <caption xml:lang="ko">Ruqola 대화방</caption>
       <caption xml:lang="nl">Chatroom in Ruqola</caption>
       <caption xml:lang="pl">Pokój rozmów w Ruqola</caption>
+      <caption xml:lang="pt">Sala de conversação no Ruqola</caption>
       <caption xml:lang="pt-BR">Sala de bate-papo no Ruqola</caption>
       <caption xml:lang="sl">Klepetalnica v Ruqoli</caption>
       <caption xml:lang="sv">Chattrum i Ruqola</caption>
