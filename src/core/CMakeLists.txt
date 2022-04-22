@@ -380,7 +380,7 @@ kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
 if (UNITY_SUPPORT)
     target_sources(libruqolacore PRIVATE unityservicemanager.cpp unityservicemanager.h)
-    target_link_libraries(libruqolacore Qt${QT_MAJOR_VERSION}::DBus)
+    target_link_libraries(libruqolacore Qt::DBus)
 endif()
 
 
@@ -415,12 +415,12 @@ if (HAVE_NETWORKMANAGER)
 endif()
 
 target_link_libraries(libruqolacore
-    Qt${QT_MAJOR_VERSION}::Core
-    Qt${QT_MAJOR_VERSION}::Gui
-    Qt${QT_MAJOR_VERSION}::Sql
-    Qt${QT_MAJOR_VERSION}::WebSockets
-    Qt${QT_MAJOR_VERSION}::Network
-    Qt${QT_MAJOR_VERSION}::NetworkAuth
+    Qt::Core
+    Qt::Gui
+    Qt::Sql
+    Qt::WebSockets
+    Qt::Network
+    Qt::NetworkAuth
     KF5::CoreAddons
     KF5::I18n
     KF5::Notifications
