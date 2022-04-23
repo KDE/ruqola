@@ -13,6 +13,9 @@ TeamNameLabel::TeamNameLabel(QWidget *parent)
     setContextMenuPolicy(Qt::NoContextMenu);
     setTextInteractionFlags(Qt::TextBrowserInteraction);
     connect(this, &QLabel::linkActivated, this, &TeamNameLabel::slotGoToRoomTeam);
+    QMargins margs(contentsMargins());
+    margs.setLeft(5);
+    setContentsMargins(margs);
 }
 
 TeamNameLabel::~TeamNameLabel() = default;
