@@ -32,6 +32,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchMessageWidget::slotSearchMessages);
+    connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchCleared, this, &SearchMessageWidget::slotClearedMessages);
 
     mSearchLabel->setObjectName(QStringLiteral("mSearchLabel"));
     QFont labFont = mSearchLabel->font();
@@ -53,6 +54,12 @@ SearchMessageWidget::~SearchMessageWidget()
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->clearSearchModel();
     }
+}
+
+void SearchMessageWidget::slotClearedMessages()
+{
+    mModel->clearModel();
+    updateLabel();
 }
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)

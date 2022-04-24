@@ -18,6 +18,7 @@ public:
     Q_REQUIRED_RESULT bool stringNotFound() const;
     Q_REQUIRED_RESULT bool loadSearchMessageInProgress() const;
 
+    void clearModel();
 Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();

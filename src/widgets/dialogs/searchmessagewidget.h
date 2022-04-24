@@ -32,6 +32,7 @@ Q_SIGNALS:
 
 private:
     void slotSearchLineMessagesEnterPressed();
+    void slotClearedMessages();
     void updateLabel();
     void slotSearchMessages(const QString &str);
     Q_REQUIRED_RESULT QString displayShowSearch() const;
