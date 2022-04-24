@@ -31,3 +31,8 @@ bool SearchMessageFilterProxyModel::loadSearchMessageInProgress() const
 {
     return mSearchMessageModel->loadSearchMessageInProgress();
 }
+
+void SearchMessageFilterProxyModel::clearModel()
+{
+    mSearchMessageModel->clearModel();
+}
