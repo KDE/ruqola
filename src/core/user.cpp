@@ -164,7 +164,6 @@ void User::parseUser(const QVariantList &list)
 {
     if (list.count() != 4) {
         qCWarning(RUQOLA_LOG) << " List argument different of 4! It's a bug";
-        return;
     }
     setUserId(list.at(0).toString());
     setUserName(list.at(1).toString());
