@@ -29,7 +29,7 @@ MessageDelegateHelperImageTest::MessageDelegateHelperImageTest(QObject *parent)
 void MessageDelegateHelperImageTest::shouldExtractMessageData()
 {
     auto listView = new QListView();
-    TextSelection textSelection;
+    TextSelectionImpl textSelection;
     MessageAttachmentDelegateHelperImage helper(listView, &textSelection);
     QStyleOptionViewItem option;
     QWidget fakeWidget;

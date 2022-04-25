@@ -51,7 +51,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
-    , mTextSelectionImpl(new TextSelection)
+    , mTextSelectionImpl(new TextSelectionImpl)
     , mHelperText(new MessageDelegateHelperText(view, mTextSelectionImpl))
     , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view, mTextSelectionImpl))
     , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view, mTextSelectionImpl))
@@ -61,12 +61,12 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
-    mTextSelectionImpl->setTextHelperFactory(mHelperText.data());
-    mTextSelectionImpl->setAttachmentFactories({mHelperAttachmentImage.data(),
-                                                mHelperAttachmentFile.data(),
-                                                mHelperAttachmentVideo.data(),
-                                                mHelperAttachmentSound.data(),
-                                                mHelperAttachmentText.data()});
+    mTextSelectionImpl->textSelection()->setTextHelperFactory(mHelperText.data());
+    mTextSelectionImpl->textSelection()->setAttachmentFactories({mHelperAttachmentImage.data(),
+                                                                 mHelperAttachmentFile.data(),
+                                                                 mHelperAttachmentVideo.data(),
+                                                                 mHelperAttachmentSound.data(),
+                                                                 mHelperAttachmentText.data()});
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
     connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
@@ -362,9 +362,9 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(option);
-    mTextSelectionImpl->selectMessage(index);
+    mTextSelectionImpl->textSelection()->selectMessage(index);
     mListView->update(index);
-    MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl);
+    MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }
 
 void MessageListDelegate::clearTextDocumentCache()
@@ -379,7 +379,7 @@ void MessageListDelegate::clearTextDocumentCache()
 
 void MessageListDelegate::clearSelection()
 {
-    mTextSelectionImpl->clear();
+    mTextSelectionImpl->textSelection()->clear();
 }
 
 QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
@@ -442,12 +442,12 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
 QString MessageListDelegate::selectedText() const
 {
-    return mTextSelectionImpl->selectedText(TextSelection::Format::Text);
+    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
 }
 
 bool MessageListDelegate::hasSelection() const
 {
-    return mTextSelectionImpl->hasSelection();
+    return mTextSelectionImpl->textSelection()->hasSelection();
 }
 
 void MessageListDelegate::setShowThreadContext(bool b)

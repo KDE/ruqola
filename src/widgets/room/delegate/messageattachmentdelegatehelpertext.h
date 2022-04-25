@@ -15,7 +15,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperText(QListView *view, TextSelection *textSelection);
+    explicit MessageAttachmentDelegateHelperText(QListView *view, TextSelectionImpl *textSelection);
     ~MessageAttachmentDelegateHelperText() override;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;

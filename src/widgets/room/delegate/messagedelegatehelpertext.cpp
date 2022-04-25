@@ -6,6 +6,7 @@
 
 #include "messagedelegatehelpertext.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "delegateutils/textselection.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
@@ -143,12 +144,12 @@ void MessageDelegateHelperText::updateView(const QModelIndex &index)
     mListView->update(index);
 }
 
-MessageDelegateHelperText::MessageDelegateHelperText(QListView *view, TextSelection *textSelection)
+MessageDelegateHelperText::MessageDelegateHelperText(QListView *view, TextSelectionImpl *textSelection)
     : QObject(view)
     , mListView(view)
     , mSelection(textSelection)
 {
-    connect(mSelection, &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
+    connect(mSelection->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
 }
 
 MessageDelegateHelperText::~MessageDelegateHelperText() = default;
@@ -160,7 +161,7 @@ void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModel
         return;
     }
 
-    MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mSelection, {});
+    MessageDelegateUtils::drawSelection(doc, rect, rect.top(), painter, index, option, mSelection->textSelection(), {});
 }
 
 QSize MessageDelegateHelperText::sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
@@ -189,7 +190,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             if (charPos == -1) {
                 return false;
             }
-            if (mSelection->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+            if (mSelection->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
                 mMightStartDrag = true;
                 return true;
             }
@@ -197,10 +198,10 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mSelection->setStart(index, charPos);
+            mSelection->textSelection()->setStart(index, charPos);
             return true;
         } else {
-            mSelection->clear();
+            mSelection->textSelection()->clear();
         }
         break;
     case QEvent::MouseMove:
@@ -209,7 +210,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mSelection->setEnd(index, charPos);
+                    mSelection->textSelection()->setEnd(index, charPos);
                     return true;
                 }
             }
@@ -217,9 +218,9 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
         break;
     case QEvent::MouseButtonRelease:
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
-        MessageDelegateUtils::setClipboardSelection(mSelection);
+        MessageDelegateUtils::setClipboardSelection(mSelection->textSelection());
         // Clicks on links
-        if (!mSelection->hasSelection()) {
+        if (!mSelection->textSelection()->hasSelection()) {
             if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
@@ -230,19 +231,19 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             }
         } else if (mMightStartDrag) {
             // clicked into selection, didn't start drag, clear it (like kwrite and QTextEdit)
-            mSelection->clear();
+            mSelection->textSelection()->clear();
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
     case QEvent::MouseButtonDblClick:
-        if (!mSelection->hasSelection()) {
+        if (!mSelection->textSelection()->hasSelection()) {
             if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection->selectWordUnderCursor(index, charPos, this);
+                mSelection->textSelection()->selectWordUnderCursor(index, charPos, this);
                 return true;
             }
         }
@@ -279,13 +280,13 @@ bool MessageDelegateHelperText::maybeStartDrag(QMouseEvent *mouseEvent, QRect me
         return false;
     }
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
-    if (mSelection->hasSelection()) {
+    if (mSelection->textSelection()->hasSelection()) {
         const auto *doc = documentForIndex(index, messageRect.width(), false);
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
-        if (charPos != -1 && mSelection->contains(index, charPos)) {
+        if (charPos != -1 && mSelection->textSelection()->contains(index, charPos)) {
             auto mimeData = new QMimeData;
-            mimeData->setHtml(mSelection->selectedText(TextSelection::Html));
-            mimeData->setText(mSelection->selectedText(TextSelection::Text));
+            mimeData->setHtml(mSelection->textSelection()->selectedText(TextSelection::Html));
+            mimeData->setText(mSelection->textSelection()->selectedText(TextSelection::Text));
             auto drag = new QDrag(const_cast<QWidget *>(option.widget));
             drag->setMimeData(mimeData);
             drag->exec(Qt::CopyAction);

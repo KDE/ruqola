@@ -7,6 +7,7 @@
 #pragma once
 
 #include "delegateutils/textselection.h"
+#include "delegateutils/textselectionimpl.h"
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include "messages/messageattachment.h"
@@ -29,7 +30,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
-    explicit MessageDelegateHelperBase(QListView *view, TextSelection *textSelection);
+    explicit MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelection);
     virtual ~MessageDelegateHelperBase();
 
     virtual void
@@ -66,7 +67,7 @@ protected:
                          const QStyleOptionViewItem &option) const;
 
     QListView *const mListView;
-    TextSelection *const mSelection;
+    TextSelectionImpl *const mSelection;
     // TODO use unique mMightStartDrag see messageDelegateHelperText
     bool mMightStartDrag = false;
 

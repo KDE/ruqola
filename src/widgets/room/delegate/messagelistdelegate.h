@@ -29,7 +29,7 @@ class MessageAttachmentDelegateHelperSound;
 class MessageAttachmentDelegateHelperText;
 class MessageAttachment;
 class AvatarCacheManager;
-class TextSelection;
+class TextSelectionImpl;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -168,7 +168,7 @@ private:
     QColor mReplyThreadColorMode;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QListView *const mListView;
-    TextSelection *const mTextSelectionImpl;
+    TextSelectionImpl *const mTextSelectionImpl;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
     QScopedPointer<MessageAttachmentDelegateHelperImage> mHelperAttachmentImage;
