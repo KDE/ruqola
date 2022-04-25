@@ -145,6 +145,8 @@ target_sources(libruqolawidgets PRIVATE
     delegateutils/messagedelegateutils.h
     delegateutils/textselection.cpp
     delegateutils/textselection.h
+    delegateutils/textselectionimpl.h
+    delegateutils/textselectionimpl.cpp
     dialogs/adduserscompletionlineedit.cpp
     dialogs/adduserscompletionlineedit.h
     dialogs/addusersinroomdialog.cpp
