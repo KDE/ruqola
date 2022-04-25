@@ -25,11 +25,11 @@
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
-MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelection)
+MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelectionImpl)
     : mListView(view)
-    , mSelection(textSelection)
+    , mSelectionImpl(textSelectionImpl)
 {
-    connect(mSelection->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
+    connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
 }
 
 void MessageDelegateHelperBase::updateView(const QModelIndex &index)
@@ -46,13 +46,13 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
 {
     switch (mouseEvent->type()) {
     case QEvent::MouseMove: {
-        if (!mMightStartDrag) {
+        if (!mSelectionImpl->mightStartDrag()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
-                    mSelection->textSelection()->setEnd(index, charPos, msgAttach);
+                    mSelectionImpl->textSelection()->setEnd(index, charPos, msgAttach);
                     return true;
                 }
             }
@@ -61,9 +61,9 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     }
     case QEvent::MouseButtonRelease: {
         qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
-        MessageDelegateUtils::setClipboardSelection(mSelection->textSelection());
+        MessageDelegateUtils::setClipboardSelection(mSelectionImpl->textSelection());
         // Clicks on links
-        if (!mSelection->textSelection()->hasSelection()) {
+        if (!mSelectionImpl->textSelection()->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME
                 const QPoint pos = mouseEvent->pos();
                 const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
@@ -74,15 +74,15 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                     return true;
                 }
             }
-        } else if (mMightStartDrag) {
+        } else if (mSelectionImpl->mightStartDrag()) {
             // clicked into selection, didn't start drag, clear it (like kwrite and QTextEdit)
-            mSelection->textSelection()->clear();
+            mSelectionImpl->textSelection()->clear();
         }
         // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
         break;
     }
     case QEvent::MouseButtonDblClick: {
-        if (!mSelection->textSelection()->hasSelection()) {
+        if (!mSelectionImpl->textSelection()->hasSelection()) {
             if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
                 const QPoint pos = mouseEvent->pos();
                 const int charPos = charPosition(doc, msgAttach, attachmentsRect, pos, option);
@@ -90,14 +90,14 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                 if (charPos == -1) {
                     return false;
                 }
-                mSelection->textSelection()->selectWordUnderCursor(index, charPos, this, msgAttach);
+                mSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this, msgAttach);
                 return true;
             }
         }
         break;
     }
     case QEvent::MouseButtonPress: {
-        mMightStartDrag = false;
+        mSelectionImpl->setMightStartDrag(false);
         mCurrentIndex = QModelIndex();
         if (const auto *doc = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/)) { // FIXME ME!
             const QPoint pos = mouseEvent->pos();
@@ -106,9 +106,9 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
             if (charPos == -1) {
                 return false;
             }
-            // TODO fix mSelection->contains with attachment
-            if (mSelection->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
-                mMightStartDrag = true;
+            // TODO fix mSelectionImpl->contains with attachment
+            if (mSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mSelectionImpl->setMightStartDrag(true);
                 mCurrentIndex = index;
                 return true;
             }
@@ -116,10 +116,10 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
-            mSelection->textSelection()->setStart(index, charPos, msgAttach);
+            mSelectionImpl->textSelection()->setStart(index, charPos, msgAttach);
             return true;
         } else {
-            mSelection->textSelection()->clear();
+            mSelectionImpl->textSelection()->clear();
         }
         break;
     }
@@ -135,7 +135,7 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
                                                const QStyleOptionViewItem &option,
                                                const QModelIndex &index)
 {
-    if (!mMightStartDrag || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
+    if (!mSelectionImpl->mightStartDrag() || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
         return false;
     }
 
@@ -177,7 +177,7 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
         return;
     }
 
-    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelection->textSelection(), msgAttach);
+    MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
 }
 
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const

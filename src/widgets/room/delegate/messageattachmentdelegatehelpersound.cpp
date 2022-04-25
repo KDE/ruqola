@@ -22,8 +22,8 @@
 #include <QPointer>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(QListView *view, TextSelectionImpl *textSelection)
-    : MessageDelegateHelperBase(view, textSelection)
+MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(view, textSelectionImpl)
     , mPlayerVolumeIcon(QIcon::fromTheme(QStringLiteral("player-volume")))
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {

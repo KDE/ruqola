@@ -15,7 +15,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperVideo : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperVideo(QListView *view, TextSelectionImpl *textSelection);
+    explicit MessageAttachmentDelegateHelperVideo(QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperVideo() override;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;

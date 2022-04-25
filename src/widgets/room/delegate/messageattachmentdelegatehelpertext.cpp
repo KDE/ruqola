@@ -25,8 +25,8 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
-MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view, TextSelectionImpl *textSelection)
-    : MessageDelegateHelperBase(view, textSelection)
+MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(view, textSelectionImpl)
 {
 }
 
@@ -60,7 +60,7 @@ void MessageAttachmentDelegateHelperText::draw(const MessageAttachment &msgAttac
         if (!doc) {
             return;
         }
-        MessageDelegateUtils::drawSelection(doc, messageRect, nextY, painter, index, option, mSelection->textSelection(), msgAttach);
+        MessageDelegateUtils::drawSelection(doc, messageRect, nextY, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
     }
 }
 

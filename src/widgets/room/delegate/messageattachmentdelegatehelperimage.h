@@ -17,7 +17,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperImage(QListView *view, TextSelectionImpl *textSelection);
+    explicit MessageAttachmentDelegateHelperImage(QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperImage() override = default;
     MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
     MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;

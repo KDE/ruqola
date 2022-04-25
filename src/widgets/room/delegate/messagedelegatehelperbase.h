@@ -30,7 +30,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
-    explicit MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelection);
+    explicit MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelectionImpl);
     virtual ~MessageDelegateHelperBase();
 
     virtual void
@@ -67,9 +67,7 @@ protected:
                          const QStyleOptionViewItem &option) const;
 
     QListView *const mListView;
-    TextSelectionImpl *const mSelection;
-    // TODO use unique mMightStartDrag see messageDelegateHelperText
-    bool mMightStartDrag = false;
+    TextSelectionImpl *const mSelectionImpl;
 
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.

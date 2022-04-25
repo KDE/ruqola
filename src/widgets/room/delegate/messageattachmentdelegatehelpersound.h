@@ -14,7 +14,7 @@
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperSound(QListView *view, TextSelectionImpl *textSelection);
+    explicit MessageAttachmentDelegateHelperSound(QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperSound() override;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
