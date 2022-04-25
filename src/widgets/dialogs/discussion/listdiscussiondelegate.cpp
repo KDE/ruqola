@@ -118,16 +118,19 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
         return false;
     }
 
-#if 0
-    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
+    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
         return true;
     }
     return true;
-#endif
-    return false;
+}
+
+QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+{
+    // const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
+    return pos;
 }
 
 QPixmap ListDiscussionDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const

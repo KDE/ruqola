@@ -61,4 +61,5 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
 };
