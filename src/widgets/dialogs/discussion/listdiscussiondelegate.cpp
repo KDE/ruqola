@@ -108,6 +108,10 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
 
 bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    if (!helpEvent || !view || !index.isValid()) {
+        return QItemDelegate::helpEvent(helpEvent, view, option, index);
+    }
+
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
@@ -129,8 +133,9 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
 
 QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
 {
-    // const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
-    return pos;
+    Q_UNUSED(option);
+    const QPoint relativePos = pos - textRect.topLeft();
+    return relativePos;
 }
 
 QPixmap ListDiscussionDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
