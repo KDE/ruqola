@@ -168,7 +168,7 @@ private:
     QColor mReplyThreadColorMode;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QListView *const mListView;
-    TextSelection *const mTextSelection;
+    TextSelection *const mTextSelectionImpl;
 
     QScopedPointer<MessageDelegateHelperText> mHelperText;
     QScopedPointer<MessageAttachmentDelegateHelperImage> mHelperAttachmentImage;

@@ -51,22 +51,22 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mPinIcon(QIcon::fromTheme(QStringLiteral("pin")))
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
-    , mTextSelection(new TextSelection)
-    , mHelperText(new MessageDelegateHelperText(view, mTextSelection))
-    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view, mTextSelection))
-    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view, mTextSelection))
+    , mTextSelectionImpl(new TextSelection)
+    , mHelperText(new MessageDelegateHelperText(view, mTextSelectionImpl))
+    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view, mTextSelectionImpl))
+    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view, mTextSelectionImpl))
     , mHelperReactions(new MessageDelegateHelperReactions)
-    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view, mTextSelection))
-    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view, mTextSelection))
-    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelection))
+    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view, mTextSelectionImpl))
+    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view, mTextSelectionImpl))
+    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
-    mTextSelection->setTextHelperFactory(mHelperText.data());
-    mTextSelection->setAttachmentFactories({mHelperAttachmentImage.data(),
-                                            mHelperAttachmentFile.data(),
-                                            mHelperAttachmentVideo.data(),
-                                            mHelperAttachmentSound.data(),
-                                            mHelperAttachmentText.data()});
+    mTextSelectionImpl->setTextHelperFactory(mHelperText.data());
+    mTextSelectionImpl->setAttachmentFactories({mHelperAttachmentImage.data(),
+                                                mHelperAttachmentFile.data(),
+                                                mHelperAttachmentVideo.data(),
+                                                mHelperAttachmentSound.data(),
+                                                mHelperAttachmentText.data()});
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
     connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
@@ -74,7 +74,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
 
 MessageListDelegate::~MessageListDelegate()
 {
-    delete mTextSelection;
+    delete mTextSelectionImpl;
 }
 
 void MessageListDelegate::slotUpdateColors()
@@ -362,9 +362,9 @@ void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, 
 void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(option);
-    mTextSelection->selectMessage(index);
+    mTextSelectionImpl->selectMessage(index);
     mListView->update(index);
-    MessageDelegateUtils::setClipboardSelection(mTextSelection);
+    MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl);
 }
 
 void MessageListDelegate::clearTextDocumentCache()
@@ -379,7 +379,7 @@ void MessageListDelegate::clearTextDocumentCache()
 
 void MessageListDelegate::clearSelection()
 {
-    mTextSelection->clear();
+    mTextSelectionImpl->clear();
 }
 
 QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QModelIndex &index, QPoint pos) const
@@ -442,12 +442,12 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
 QString MessageListDelegate::selectedText() const
 {
-    return mTextSelection->selectedText(TextSelection::Format::Text);
+    return mTextSelectionImpl->selectedText(TextSelection::Format::Text);
 }
 
 bool MessageListDelegate::hasSelection() const
 {
-    return mTextSelection->hasSelection();
+    return mTextSelectionImpl->hasSelection();
 }
 
 void MessageListDelegate::setShowThreadContext(bool b)
