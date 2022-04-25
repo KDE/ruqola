@@ -24,6 +24,9 @@ public:
 
     Q_REQUIRED_RESULT KColorScheme schemeWindow() const;
 
+Q_SIGNALS:
+    void needToUpdateColors();
+
 protected:
     bool event(QEvent *e) override;
 

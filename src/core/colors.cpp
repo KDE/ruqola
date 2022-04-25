@@ -37,6 +37,7 @@ void Colors::regenerateColorScheme()
 {
     mSchemeView = KColorScheme();
     mSchemeWindow = KColorScheme(QPalette::Active, KColorScheme::Window);
+    Q_EMIT needToUpdateColors();
 }
 
 bool Colors::event(QEvent *e)

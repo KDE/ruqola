@@ -69,12 +69,7 @@ MessageListDelegate::MessageListDelegate(QListView *view)
                                             mHelperAttachmentText.data()});
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    connect(qApp, &QApplication::paletteChanged, this, [this]() {
-        updateColors();
-        Q_EMIT updateView();
-    });
-#endif
+    connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
 }
 
 MessageListDelegate::~MessageListDelegate()
@@ -82,23 +77,13 @@ MessageListDelegate::~MessageListDelegate()
     delete mTextSelection;
 }
 
-void MessageListDelegate::updateColors()
+void MessageListDelegate::slotUpdateColors()
 {
     KColorScheme scheme = Colors::self().schemeView();
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
-}
-
-bool MessageListDelegate::event(QEvent *e)
-{
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    if (e->type() == QEvent::ApplicationPaletteChange) {
-        updateColors();
-        Q_EMIT updateView();
-    }
-#endif
-    return QObject::event(e);
+    updateView();
 }
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)

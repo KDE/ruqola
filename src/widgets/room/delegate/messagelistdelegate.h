@@ -76,13 +76,10 @@ Q_SIGNALS:
     void startPrivateConversation(const QString &userName);
     void updateView();
 
-protected:
-    Q_REQUIRED_RESULT bool event(QEvent *e) override;
-
 private:
     Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
-    void updateColors();
+    void slotUpdateColors();
 
     struct Layout {
         // Sender
