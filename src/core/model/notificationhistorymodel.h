@@ -25,6 +25,7 @@ public:
         ChannelType,
         Pixmap,
         SenderName,
+        SenderUserName,
         MessageId,
     };
     Q_ENUM(NotificationHistoryRoles)

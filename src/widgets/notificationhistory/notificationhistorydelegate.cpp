@@ -117,7 +117,7 @@ QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int ma
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     NotificationHistoryDelegate::Layout layout;
-    const QString userName = index.data(NotificationHistoryModel::SenderName).toString();
+    const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
     layout.senderFont = option.font;
