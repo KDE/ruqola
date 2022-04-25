@@ -6,9 +6,11 @@
 #include "listdiscussiondelegate.h"
 #include <KColorScheme>
 #include <KLocalizedString>
+#include <QAbstractItemView>
 #include <QDebug>
 #include <QMouseEvent>
 #include <QPainter>
+#include <QToolTip>
 
 #include "colors.h"
 #include "common/delegatepaintutil.h"
@@ -102,6 +104,30 @@ QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+}
+
+bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
+
+    const Layout layout = doLayout(option, index);
+    const auto *doc = documentForIndex(index, layout.textRect.width());
+    if (!doc) {
+        return false;
+    }
+
+#if 0
+    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
+    QString formattedTooltip;
+    if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
+        return true;
+    }
+    return true;
+#endif
+    return false;
 }
 
 QPixmap ListDiscussionDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
