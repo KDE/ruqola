@@ -10,7 +10,6 @@
 #include <QCameraImageCapture>
 #include <QCameraViewfinder>
 #else
-#include <QImageCapture>
 #endif
 #include <QLabel>
 #include <QVBoxLayout>

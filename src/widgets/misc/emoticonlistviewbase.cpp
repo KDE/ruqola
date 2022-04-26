@@ -6,7 +6,6 @@
 #include "emoticonlistviewbase.h"
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
-#include <QDebug>
 #include <QKeyEvent>
 #include <QShortcut>
 

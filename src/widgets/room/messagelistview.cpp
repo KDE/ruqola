@@ -31,7 +31,6 @@
 #include <QMenu>
 #include <QPainter>
 #include <QScrollBar>
-#include <QUrl>
 
 #include <KIO/KUriFilterSearchProviderActions>
 

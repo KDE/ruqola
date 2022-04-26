@@ -16,7 +16,6 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QMenu>
-#include <QScrollBar>
 #include <QVBoxLayout>
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)

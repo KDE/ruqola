@@ -19,7 +19,6 @@
 #include <QAbstractTextDocumentLayout>
 #include <QMouseEvent>
 #include <QPainter>
-#include <QPointer>
 #include <QStyleOptionViewItem>
 
 MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(QListView *view, TextSelectionImpl *textSelectionImpl)

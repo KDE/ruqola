@@ -7,7 +7,6 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
-#include <QMouseEvent>
 #include <QPainter>
 #include <QToolTip>
 
@@ -67,7 +66,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->setPen(Colors::self().schemeView().foreground(KColorScheme::LinkText).color());
     painter->drawText(layout.textRect.x(), layout.openDiscussionTextY + painter->fontMetrics().ascent(), discussionsText);
 
-    // debug (TODO remove it for release)
+    // debug
     // painter->drawRect(option.rect.adjusted(0, 0, -1, -1));
     painter->restore();
 }

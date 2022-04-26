@@ -9,7 +9,6 @@
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
-#include <QVBoxLayout>
 
 AdministratorOauthEditWidget::AdministratorOauthEditWidget(QWidget *parent)
     : QWidget{parent}

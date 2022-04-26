@@ -17,7 +17,6 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
-#include <QHeaderView>
 #include <QLineEdit>
 #include <QVBoxLayout>
 

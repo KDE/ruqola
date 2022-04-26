@@ -20,17 +20,11 @@
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
-#include <QClipboard>
 #include <QDrag>
-#include <QGuiApplication>
 #include <QListView>
 #include <QMimeData>
 #include <QPainter>
-#include <QScreen>
 #include <QStyleOptionViewItem>
-#include <QTextBlock>
-#include <QTextDocumentFragment>
-#include <QTextStream>
 #include <QToolTip>
 
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, bool connectToUpdates) const

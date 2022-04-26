@@ -9,7 +9,6 @@
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
-#include <QDebug>
 #include <QFileDialog>
 #include <QHBoxLayout>
 #include <QImageReader>

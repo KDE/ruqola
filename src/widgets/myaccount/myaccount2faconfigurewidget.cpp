@@ -11,7 +11,6 @@
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QCheckBox>
-#include <QLabel>
 #include <QStackedWidget>
 #include <QVBoxLayout>
 

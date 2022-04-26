@@ -13,7 +13,6 @@
 #include <KLocalizedString>
 #include <QLabel>
 #include <QLineEdit>
-#include <QListView>
 #include <QVBoxLayout>
 
 ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget *parent)

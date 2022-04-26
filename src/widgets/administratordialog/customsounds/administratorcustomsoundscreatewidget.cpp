@@ -9,7 +9,6 @@
 #include <KLocalizedString>
 #include <KUrlRequester>
 #include <QFormLayout>
-#include <QLabel>
 #include <QLineEdit>
 
 AdministratorCustomSoundsCreateWidget::AdministratorCustomSoundsCreateWidget(QWidget *parent)

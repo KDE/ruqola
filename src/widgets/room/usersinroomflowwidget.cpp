@@ -15,7 +15,6 @@
 #include "usersinroomlabel.h"
 #include <KLocalizedString>
 #include <QLabel>
-#include <QPointer>
 #define MAX_NUMBER_USER 120
 UsersInRoomFlowWidget::UsersInRoomFlowWidget(QWidget *parent)
     : QWidget(parent)

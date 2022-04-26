@@ -13,9 +13,7 @@
 #include "textconverter.h"
 
 #include <QAbstractTextDocumentLayout>
-#include <QClipboard>
 #include <QDrag>
-#include <QGuiApplication>
 #include <QListView>
 #include <QMimeData>
 #include <QPainter>

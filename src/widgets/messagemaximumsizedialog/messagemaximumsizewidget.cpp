@@ -8,7 +8,6 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <QFormLayout>
-#include <QLabel>
 #include <QLineEdit>
 
 MessageMaximumSizeWidget::MessageMaximumSizeWidget(QWidget *parent)

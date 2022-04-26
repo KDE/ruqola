@@ -10,7 +10,6 @@
 #include <KMessageBox>
 #include <KRecentDirs>
 
-#include <QDir>
 #include <QFileDialog>
 #include <QMimeDatabase>
 #include <QStandardPaths>

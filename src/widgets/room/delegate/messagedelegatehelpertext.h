@@ -9,11 +9,8 @@
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 
-#include <QItemSelection>
 #include <QModelIndex>
-#include <QPointer>
 #include <QSize>
-#include <QTextCursor>
 #include <QTextDocument>
 #include <lrucache.h>
 

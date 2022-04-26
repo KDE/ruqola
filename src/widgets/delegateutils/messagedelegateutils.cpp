@@ -8,7 +8,6 @@
 #include "delegateutils/textselection.h"
 #include "model/messagemodel.h"
 
-#include <QAbstractItemModel>
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QClipboard>

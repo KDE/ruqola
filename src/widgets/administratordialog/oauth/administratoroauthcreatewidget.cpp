@@ -8,7 +8,6 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
-#include <QLabel>
 #include <QLineEdit>
 
 AdministratorOauthCreateWidget::AdministratorOauthCreateWidget(QWidget *parent)
