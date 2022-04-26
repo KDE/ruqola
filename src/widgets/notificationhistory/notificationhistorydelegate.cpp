@@ -12,8 +12,10 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textconverter.h"
+#include <QAbstractItemView>
 #include <QPainter>
 #include <QTextBlock>
+#include <QToolTip>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
     : QItemDelegate{parent}
@@ -203,4 +205,36 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
+}
+
+bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (!helpEvent || !view || !index.isValid()) {
+        return QItemDelegate::helpEvent(helpEvent, view, option, index);
+    }
+
+    if (helpEvent->type() != QEvent::ToolTip) {
+        return false;
+    }
+
+    const Layout layout = doLayout(option, index);
+    const auto *doc = documentForIndex(index, layout.textRect.width());
+    if (!doc) {
+        return false;
+    }
+
+    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
+    QString formattedTooltip;
+    if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
+        QToolTip::showText(helpEvent->globalPos(), formattedTooltip, view);
+        return true;
+    }
+    return true;
+}
+
+QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
+{
+    Q_UNUSED(option);
+    const QPoint relativePos = pos - textRect.topLeft();
+    return relativePos;
 }
