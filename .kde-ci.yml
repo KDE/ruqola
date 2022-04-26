@@ -28,3 +28,6 @@ Dependencies:
     'frameworks/kidletime': '@stable' 
     'frameworks/knotifyconfig': '@stable'
     'frameworks/breeze-icons': '@stable'
+
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD', 'Windows' ]      
