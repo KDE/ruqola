@@ -7,7 +7,6 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
-#include <QDebug>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QToolTip>
