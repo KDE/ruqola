@@ -27,3 +27,4 @@ Dependencies:
     'frameworks/prison' : '@stable'
     'frameworks/kidletime': '@stable' 
     'frameworks/knotifyconfig': '@stable'
+    'frameworks/breeze-icons': '@stable'
