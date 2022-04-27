@@ -219,8 +219,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/directchannelinfodialog.h
     dialogs/directchannelinfowidget.cpp
     dialogs/directchannelinfowidget.h
-    dialogs/discussion/listdiscussiondelegate.cpp
-    dialogs/discussion/listdiscussiondelegate.h
     dialogs/inviteusersdialog.cpp
     dialogs/inviteusersdialog.h
     dialogs/inviteuserswidget.cpp
@@ -287,6 +285,8 @@ target_sources(libruqolawidgets PRIVATE
     discussions/showdiscussionsdialog.h
     discussions/showdiscussionswidget.cpp
     discussions/showdiscussionswidget.h
+    discussions/discussion/listdiscussiondelegate.cpp
+    discussions/discussion/listdiscussiondelegate.h
     directory/directorydialog.cpp
     directory/directorydialog.h
     directory/directorytabwidget.cpp
