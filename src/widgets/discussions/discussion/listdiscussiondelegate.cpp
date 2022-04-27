@@ -7,6 +7,8 @@
 #include <KColorScheme>
 #include <KLocalizedString>
 #include <QAbstractItemView>
+#include <QDrag>
+#include <QMimeData>
 #include <QPainter>
 #include <QToolTip>
 
@@ -18,6 +20,7 @@
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObject *parent)
@@ -26,7 +29,9 @@ ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObje
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mTextSelectionImpl(new TextSelectionImpl)
 {
+    mTextSelectionImpl->textSelection()->setTextHelperFactory(this);
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
+    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &ListDiscussionDelegate::updateView);
 }
 
 ListDiscussionDelegate::~ListDiscussionDelegate()
@@ -59,7 +64,15 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     if (layout.textRect.isValid()) {
         auto *doc = documentForIndex(index, layout.textRect.width());
         if (doc) {
-            MessageDelegateUtils::drawSelection(doc, layout.textRect, layout.textRect.top(), painter, index, option, nullptr, {});
+            MessageDelegateUtils::drawSelection(doc,
+                                                layout.textRect,
+                                                layout.textRect.top(),
+                                                painter,
+                                                index,
+                                                option,
+                                                mTextSelectionImpl->textSelection(),
+                                                {},
+                                                false);
         }
     }
 
@@ -139,10 +152,18 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
     const QEvent::Type eventType = event->type();
     if (eventType == QEvent::MouseButtonRelease) {
         auto mev = static_cast<QMouseEvent *>(event);
-        // TODO
+        const Layout layout = doLayout(option, index);
+        if (handleMouseEvent(mev, layout.textRect, option, index)) {
+            return true;
+        }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto mev = static_cast<QMouseEvent *>(event);
-        if (mev->buttons() & Qt::LeftButton) { }
+        if (mev->buttons() & Qt::LeftButton) {
+            const Layout layout = doLayout(option, index);
+            if (handleMouseEvent(mev, layout.textRect, option, index)) {
+                return true;
+            }
+        }
     }
     return false;
 }
@@ -258,6 +279,128 @@ QSize ListDiscussionDelegate::textSizeHint(const QModelIndex &index, int maxWidt
 
 bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // TODO
+    const Layout layout = doLayout(option, index);
+    if (maybeStartDrag(event, layout.textRect, option, index)) {
+        return true;
+    }
     return false;
+}
+
+bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(option)
+    if (!messageRect.contains(mouseEvent->pos())) {
+        return false;
+    }
+
+    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+    const QEvent::Type eventType = mouseEvent->type();
+    // Text selection
+    switch (eventType) {
+    case QEvent::MouseButtonPress:
+        mTextSelectionImpl->setMightStartDrag(false);
+        if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+            qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
+            if (charPos == -1) {
+                return false;
+            }
+            if (mTextSelectionImpl->textSelection()->contains(index, charPos) && doc->documentLayout()->hitTest(pos, Qt::ExactHit) != -1) {
+                mTextSelectionImpl->setMightStartDrag(true);
+                return true;
+            }
+
+            // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
+            // (look there if you want to add these things)
+
+            mTextSelectionImpl->textSelection()->setStart(index, charPos);
+            return true;
+        } else {
+            mTextSelectionImpl->textSelection()->clear();
+        }
+        break;
+    case QEvent::MouseMove:
+        if (!mTextSelectionImpl->mightStartDrag()) {
+            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                if (charPos != -1) {
+                    // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
+                    mTextSelectionImpl->textSelection()->setEnd(index, charPos);
+                    return true;
+                }
+            }
+        }
+        break;
+    case QEvent::MouseButtonRelease:
+        qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "released";
+        MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
+        // Clicks on links
+        if (!mTextSelectionImpl->textSelection()->hasSelection()) {
+            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+                const QString link = doc->documentLayout()->anchorAt(pos);
+                if (!link.isEmpty()) {
+                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+                    Q_EMIT rcAccount->openLinkRequested(link);
+                    return true;
+                }
+            }
+        } else if (mTextSelectionImpl->mightStartDrag()) {
+            // clicked into selection, didn't start drag, clear it (like kwrite and QTextEdit)
+            mTextSelectionImpl->textSelection()->clear();
+        }
+        // don't return true here, we need to send mouse release events to other helpers (ex: click on image)
+        break;
+    case QEvent::MouseButtonDblClick:
+        if (!mTextSelectionImpl->textSelection()->hasSelection()) {
+            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+                const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+                qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
+                if (charPos == -1) {
+                    return false;
+                }
+                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this, {});
+                return true;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+    return false;
+}
+
+bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    if (!mTextSelectionImpl->mightStartDrag()) {
+        return false;
+    }
+    const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
+    if (mTextSelectionImpl->textSelection()->hasSelection()) {
+        const auto *doc = documentForIndex(index, messageRect.width());
+        const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
+        if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
+            auto mimeData = new QMimeData;
+            mimeData->setHtml(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Html));
+            mimeData->setText(mTextSelectionImpl->textSelection()->selectedText(TextSelection::Text));
+            auto drag = new QDrag(const_cast<QWidget *>(option.widget));
+            drag->setMimeData(mimeData);
+            drag->exec(Qt::CopyAction);
+            mTextSelectionImpl->setMightStartDrag(false); // don't clear selection on release
+            return true;
+        }
+    }
+    return false;
+}
+
+QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index) const
+{
+    return documentForIndex(index, -1);
+}
+
+QTextDocument *ListDiscussionDelegate::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    Q_UNUSED(msgAttach)
+    Q_ASSERT(false);
+    // Unused here
+    return nullptr;
 }

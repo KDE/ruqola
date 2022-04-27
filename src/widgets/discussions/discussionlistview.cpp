@@ -18,6 +18,9 @@ DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *pare
 {
     setItemDelegate(mListDiscussionDelegate);
     connect(mListDiscussionDelegate, &ListDiscussionDelegate::openDiscussion, this, &DiscussionListView::slotOpenDiscussion);
+    connect(mListDiscussionDelegate, &ListDiscussionDelegate::updateView, this, [this](const QModelIndex &index) {
+        update(index);
+    });
 }
 
 DiscussionListView::~DiscussionListView()

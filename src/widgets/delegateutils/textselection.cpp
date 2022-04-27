@@ -8,6 +8,7 @@
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "model/messagemodel.h"
+#include "ruqolawidgets_selection_debug.h"
 
 #include <QTextCursor>
 #include <QTextDocument>
@@ -262,6 +263,10 @@ void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocum
 
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageAttachment &msgAttach)
 {
+    if (!factory) {
+        qCWarning(RUQOLAWIDGETS_SELECTION_LOG) << " Factory is null. It's a bug";
+        return;
+    }
     if (msgAttach.isValid()) {
         QTextDocument *doc = factory->documentForIndex(msgAttach);
         selectWord(index, charPos, doc);

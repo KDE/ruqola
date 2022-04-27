@@ -26,8 +26,12 @@ void generateToolTip(const QString &toolTip, const QString &href, QString &forma
 Q_REQUIRED_RESULT bool useItalicsForMessage(const QModelIndex &index);
 
 Q_REQUIRED_RESULT bool pendingMessage(const QModelIndex &index);
-Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection>
-selection(TextSelection *selection, QTextDocument *doc, const QModelIndex &index, const QStyleOptionViewItem &option, const MessageAttachment &msgAttach = {});
+Q_REQUIRED_RESULT QVector<QAbstractTextDocumentLayout::Selection> selection(TextSelection *selection,
+                                                                            QTextDocument *doc,
+                                                                            const QModelIndex &index,
+                                                                            const QStyleOptionViewItem &option,
+                                                                            const MessageAttachment &msgAttach = {},
+                                                                            bool isAMessage = true);
 
 void drawSelection(QTextDocument *doc,
                    QRect rect,
@@ -36,7 +40,8 @@ void drawSelection(QTextDocument *doc,
                    const QModelIndex &index,
                    const QStyleOptionViewItem &option,
                    TextSelection *selection,
-                   const MessageAttachment &msgAttach);
+                   const MessageAttachment &msgAttach,
+                   bool isAMessage = true);
 
 void setClipboardSelection(TextSelection *selection);
 

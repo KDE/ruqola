@@ -15,6 +15,9 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
 {
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     setItemDelegate(mListNotificationsDelegate);
+    connect(mListNotificationsDelegate, &NotificationHistoryDelegate::updateView, this, [this](const QModelIndex &index) {
+        update(index);
+    });
 }
 
 NotificationHistoryListView::~NotificationHistoryListView()

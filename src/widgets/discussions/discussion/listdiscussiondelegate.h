@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include <QItemDelegate>
@@ -13,7 +14,7 @@
 class RocketChatAccount;
 class AvatarCacheManager;
 class TextSelectionImpl;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate, public DocumentFactoryInterface
 {
     Q_OBJECT
 public:
@@ -31,6 +32,7 @@ public:
 
 Q_SIGNALS:
     void openDiscussion(const QString &discussionRoomId);
+    void updateView(const QModelIndex &index);
 
 private:
     struct Layout {
@@ -59,10 +61,14 @@ private:
         qreal baseLine; // used to draw sender/timestamp
     };
     Q_REQUIRED_RESULT ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width) const;
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;

@@ -78,7 +78,8 @@ QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(
                                                                                 QTextDocument *doc,
                                                                                 const QModelIndex &index,
                                                                                 const QStyleOptionViewItem &option,
-                                                                                const MessageAttachment &msgAttach)
+                                                                                const MessageAttachment &msgAttach,
+                                                                                bool isAMessage)
 {
     QVector<QAbstractTextDocumentLayout::Selection> selections;
     const QTextCursor selectionTextCursor = selection->selectionForIndex(index, doc, msgAttach);
@@ -88,7 +89,7 @@ QVector<QAbstractTextDocumentLayout::Selection> MessageDelegateUtils::selection(
         selectionFormat.setForeground(option.palette.brush(QPalette::HighlightedText));
         selections.append({selectionTextCursor, selectionFormat});
     }
-    if (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index)) {
+    if (isAMessage && (MessageDelegateUtils::useItalicsForMessage(index) || MessageDelegateUtils::pendingMessage(index))) {
         QTextCursor cursor(doc);
         cursor.select(QTextCursor::Document);
         QTextCharFormat format;
@@ -105,7 +106,8 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
                                          const QModelIndex &index,
                                          const QStyleOptionViewItem &option,
                                          TextSelection *selection,
-                                         const MessageAttachment &msgAttach)
+                                         const MessageAttachment &msgAttach,
+                                         bool isAMessage)
 {
     painter->save();
     painter->translate(rect.left(), top);
@@ -113,7 +115,8 @@ void MessageDelegateUtils::drawSelection(QTextDocument *doc,
 
     QAbstractTextDocumentLayout::PaintContext ctx;
     if (selection) {
-        const QVector<QAbstractTextDocumentLayout::Selection> selections = MessageDelegateUtils::selection(selection, doc, index, option, msgAttach);
+        const QVector<QAbstractTextDocumentLayout::Selection> selections =
+            MessageDelegateUtils::selection(selection, doc, index, option, msgAttach, isAMessage);
         // Same as pDoc->drawContents(painter, clip) but we also set selections
         ctx.selections = selections;
         if (clip.isValid()) {
