@@ -285,6 +285,8 @@ target_sources(libruqolawidgets PRIVATE
     discussions/showdiscussionsdialog.h
     discussions/showdiscussionswidget.cpp
     discussions/showdiscussionswidget.h
+    discussions/discussionlistview.h
+    discussions/discussionlistview.cpp
     discussions/discussion/listdiscussiondelegate.cpp
     discussions/discussion/listdiscussiondelegate.h
     directory/directorydialog.cpp
