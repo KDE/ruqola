@@ -370,6 +370,8 @@ target_sources(libruqolawidgets PRIVATE
     notificationhistory/notificationhistorywidget.h
     notificationhistory/notificationhistorydelegate.h
     notificationhistory/notificationhistorydelegate.cpp
+    notificationhistory/notificationhistorylistview.h
+    notificationhistory/notificationhistorylistview.cpp
     otr/otrwidget.cpp
     otr/otrwidget.h
     prunemessages/prunemessagesdialog.cpp
