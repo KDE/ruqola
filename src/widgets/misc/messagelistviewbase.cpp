@@ -59,11 +59,9 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
     if (index.isValid()) {
         QStyleOptionViewItem options = listViewOptions();
         options.rect = visualRect(index);
-#if 0
-        if (mMessageListDelegate->mouseEvent(event, options, index)) {
+        if (mouseEvent(event, options, index)) {
             update(index);
         }
-#endif
     }
 }
 
@@ -93,11 +91,9 @@ void MessageListViewBase::mouseMoveEvent(QMouseEvent *event)
         if (index.isValid()) {
             QStyleOptionViewItem options = listViewOptions();
             options.rect = visualRect(index);
-#if 0
-            if (mMessageListDelegate->maybeStartDrag(event, options, index)) {
+            if (maybeStartDrag(event, options, index)) {
                 return;
             }
-#endif
         }
     }
     handleMouseEvent(event);
@@ -112,4 +108,20 @@ QStyleOptionViewItem MessageListViewBase::listViewOptions() const
     initViewItemOption(&option);
     return option;
 #endif
+}
+
+bool MessageListViewBase::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(event);
+    Q_UNUSED(option);
+    Q_UNUSED(index);
+    return false;
+}
+
+bool MessageListViewBase::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(event);
+    Q_UNUSED(option);
+    Q_UNUSED(index);
+    return false;
 }

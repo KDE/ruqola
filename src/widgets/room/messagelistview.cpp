@@ -467,38 +467,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
 }
 
-void MessageListView::mousePressEvent(QMouseEvent *event)
+bool MessageListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    mPressedPosition = event->pos();
-    handleMouseEvent(event);
+    return mMessageListDelegate->maybeStartDrag(event, option, index);
 }
 
-void MessageListView::mouseMoveEvent(QMouseEvent *event)
+bool MessageListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // Drag support
-    const int distance = (event->pos() - mPressedPosition).manhattanLength();
-    if (distance > QApplication::startDragDistance()) {
-        mPressedPosition = {};
-        const QPersistentModelIndex index = indexAt(event->pos());
-        if (index.isValid()) {
-            QStyleOptionViewItem options = listViewOptions();
-            options.rect = visualRect(index);
-            if (mMessageListDelegate->maybeStartDrag(event, options, index)) {
-                return;
-            }
-        }
-    }
-    handleMouseEvent(event);
-}
-
-void MessageListView::mouseReleaseEvent(QMouseEvent *event)
-{
-    handleMouseEvent(event);
-}
-
-void MessageListView::mouseDoubleClickEvent(QMouseEvent *event)
-{
-    handleMouseEvent(event);
+    return mMessageListDelegate->mouseEvent(event, option, index);
 }
 
 void MessageListView::createSeparator(QMenu &menu)
@@ -511,18 +487,6 @@ void MessageListView::createSeparator(QMenu &menu)
 void MessageListView::slotSelectAll(const QModelIndex &index)
 {
     mMessageListDelegate->selectAll(listViewOptions(), index);
-}
-
-void MessageListView::handleMouseEvent(QMouseEvent *event)
-{
-    const QPersistentModelIndex index = indexAt(event->pos());
-    if (index.isValid()) {
-        QStyleOptionViewItem options = listViewOptions();
-        options.rect = visualRect(index);
-        if (mMessageListDelegate->mouseEvent(event, options, index)) {
-            update(index);
-        }
-    }
 }
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)

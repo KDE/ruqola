@@ -49,13 +49,11 @@ public:
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
 
 protected:
-    void contextMenuEvent(QContextMenuEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
-    void mouseMoveEvent(QMouseEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *event) override;
-    void mouseDoubleClickEvent(QMouseEvent *event) override;
     void paintEvent(QPaintEvent *e) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
 
+    bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 Q_SIGNALS:
     void modelChanged();
     void editMessageRequested(const QString &messageId, const QString &text);
@@ -82,7 +80,6 @@ private:
     void slotUpdateLastSeen();
     void slotMarkMessageAsUnread(const QModelIndex &index);
     void slotSelectAll(const QModelIndex &index);
-    void handleMouseEvent(QMouseEvent *event);
     void slotShowFullThread(const QModelIndex &index);
     void slotQuoteMessage(const QModelIndex &index);
     void slotCopyLinkToMessage(const QModelIndex &index);
@@ -98,6 +95,5 @@ private:
     MessageListDelegate *const mMessageListDelegate;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QVector<PluginTextInterface *> mPluginTextInterface;
-    QPoint mPressedPosition;
     bool mDebug = false;
 };

@@ -29,6 +29,9 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
 
+    virtual bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
+    virtual bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
+
 private:
     void handleMouseEvent(QMouseEvent *event);
     Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
