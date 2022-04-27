@@ -251,3 +251,9 @@ bool NotificationHistoryDelegate::mouseEvent(QEvent *event, const QStyleOptionVi
     }
     return false;
 }
+
+bool NotificationHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    // TODO
+    return false;
+}

@@ -250,3 +250,9 @@ QSize ListDiscussionDelegate::textSizeHint(const QModelIndex &index, int maxWidt
     auto *doc = documentForIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
+
+bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    // TODO
+    return false;
+}

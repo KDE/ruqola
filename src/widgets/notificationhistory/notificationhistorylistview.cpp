@@ -23,8 +23,7 @@ NotificationHistoryListView::~NotificationHistoryListView()
 
 bool NotificationHistoryListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // TODO
-    return MessageListViewBase::maybeStartDrag(event, option, index);
+    return mListNotificationsDelegate->maybeStartDrag(event, option, index);
 }
 
 bool NotificationHistoryListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

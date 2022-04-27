@@ -26,8 +26,7 @@ DiscussionListView::~DiscussionListView()
 
 bool DiscussionListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // TODO
-    return MessageListViewBase::maybeStartDrag(event, option, index);
+    return mListDiscussionDelegate->maybeStartDrag(event, option, index);
 }
 
 bool DiscussionListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
