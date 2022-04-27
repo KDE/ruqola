@@ -5,7 +5,7 @@
 */
 
 #include "showdiscussionswidgettest.h"
-#include "dialogs/showdiscussionswidget.h"
+#include "discussions/showdiscussionswidget.h"
 #include <QLabel>
 #include <QLineEdit>
 #include <QListView>

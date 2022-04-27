@@ -5,7 +5,7 @@
 */
 
 #include "showdiscussionswidget.h"
-#include "discussion/listdiscussiondelegate.h"
+#include "dialogs/discussion/listdiscussiondelegate.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/messagelistviewbase.h"
 #include "model/discussionsfilterproxymodel.h"

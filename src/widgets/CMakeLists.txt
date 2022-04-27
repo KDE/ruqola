@@ -257,10 +257,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/showattachmentdialog.h
     dialogs/showattachmentwidget.cpp
     dialogs/showattachmentwidget.h
-    dialogs/showdiscussionsdialog.cpp
-    dialogs/showdiscussionsdialog.h
-    dialogs/showdiscussionswidget.cpp
-    dialogs/showdiscussionswidget.h
     dialogs/showimagedialog.cpp
     dialogs/showimagedialog.h
     dialogs/showimagewidget.cpp
@@ -287,6 +283,10 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/uploadfiledialog.h
     dialogs/uploadfilewidget.cpp
     dialogs/uploadfilewidget.h
+    discussions/showdiscussionsdialog.cpp
+    discussions/showdiscussionsdialog.h
+    discussions/showdiscussionswidget.cpp
+    discussions/showdiscussionswidget.h
     directory/directorydialog.cpp
     directory/directorydialog.h
     directory/directorytabwidget.cpp

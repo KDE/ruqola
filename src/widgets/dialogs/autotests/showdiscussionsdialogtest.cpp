@@ -5,7 +5,7 @@
 */
 
 #include "showdiscussionsdialogtest.h"
-#include "dialogs/showdiscussionsdialog.h"
+#include "discussions/showdiscussionsdialog.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
