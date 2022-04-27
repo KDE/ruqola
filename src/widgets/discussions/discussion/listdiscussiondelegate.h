@@ -12,6 +12,7 @@
 #include <QTextDocument>
 class RocketChatAccount;
 class AvatarCacheManager;
+class TextSelectionImpl;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate
 {
     Q_OBJECT
@@ -58,11 +59,13 @@ private:
         qreal baseLine; // used to draw sender/timestamp
     };
     Q_REQUIRED_RESULT ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width) const;
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
-    RocketChatAccount *const mRocketChatAccount;
-    AvatarCacheManager *const mAvatarCacheManager;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
+
+    RocketChatAccount *const mRocketChatAccount;
+    AvatarCacheManager *const mAvatarCacheManager;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
+    TextSelectionImpl *const mTextSelectionImpl;
 };

@@ -8,6 +8,7 @@
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "delegateutils/textselectionimpl.h"
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -19,10 +20,14 @@
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
     : QItemDelegate{parent}
+    , mTextSelectionImpl(new TextSelectionImpl)
 {
 }
 
-NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
+NotificationHistoryDelegate::~NotificationHistoryDelegate()
+{
+    delete mTextSelectionImpl;
+}
 
 void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {

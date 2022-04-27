@@ -13,6 +13,7 @@
 #include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "delegateutils/textselectionimpl.h"
 #include "misc/avatarcachemanager.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
@@ -23,11 +24,15 @@ ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObje
     : QItemDelegate(parent)
     , mRocketChatAccount(account)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
+    , mTextSelectionImpl(new TextSelectionImpl)
 {
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
 }
 
-ListDiscussionDelegate::~ListDiscussionDelegate() = default;
+ListDiscussionDelegate::~ListDiscussionDelegate()
+{
+    delete mTextSelectionImpl;
+}
 
 // [date]
 // text
