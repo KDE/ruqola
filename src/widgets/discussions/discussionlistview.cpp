@@ -9,6 +9,8 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
+#include <QMouseEvent>
+
 DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
     , mListDiscussionDelegate(new ListDiscussionDelegate(account, this))
@@ -30,8 +32,7 @@ bool DiscussionListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionVi
 
 bool DiscussionListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // TODO
-    return MessageListViewBase::maybeStartDrag(event, option, index);
+    return mListDiscussionDelegate->mouseEvent(event, option, index);
 }
 
 void DiscussionListView::slotOpenDiscussion(const QString &roomDiscussionId)

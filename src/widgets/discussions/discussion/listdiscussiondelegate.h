@@ -25,6 +25,8 @@ public:
 
     bool helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
+    Q_REQUIRED_RESULT bool mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
+
 Q_SIGNALS:
     void openDiscussion(const QString &discussionRoomId);
 

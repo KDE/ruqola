@@ -238,3 +238,16 @@ QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect 
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
 }
+
+bool NotificationHistoryDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        // TODO
+    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        if (mev->buttons() & Qt::LeftButton) { }
+    }
+    return false;
+}

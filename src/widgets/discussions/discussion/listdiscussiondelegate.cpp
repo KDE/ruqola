@@ -129,6 +129,19 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
     return true;
 }
 
+bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    const QEvent::Type eventType = event->type();
+    if (eventType == QEvent::MouseButtonRelease) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        // TODO
+    } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
+        auto mev = static_cast<QMouseEvent *>(event);
+        if (mev->buttons() & Qt::LeftButton) { }
+    }
+    return false;
+}
+
 QPoint ListDiscussionDelegate::adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option)
 {
     Q_UNUSED(option);

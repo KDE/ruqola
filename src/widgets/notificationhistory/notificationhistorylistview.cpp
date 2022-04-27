@@ -7,6 +7,8 @@
 #include "notificationhistorylistview.h"
 #include "notificationhistorydelegate.h"
 
+#include <QMouseEvent>
+
 NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListNotificationsDelegate(new NotificationHistoryDelegate(this))
@@ -27,8 +29,7 @@ bool NotificationHistoryListView::maybeStartDrag(QMouseEvent *event, const QStyl
 
 bool NotificationHistoryListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
-    // TODO
-    return MessageListViewBase::maybeStartDrag(event, option, index);
+    return mListNotificationsDelegate->mouseEvent(event, option, index);
 }
 
 void NotificationHistoryListView::clearCache()
