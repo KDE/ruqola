@@ -9,7 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
-class MessageListViewBase;
+class NotificationHistoryListView;
 class QLineEdit;
 class NotificationHistoryDelegate;
 class NotificationHistoryModelFilterProxyModel;
@@ -29,8 +29,7 @@ private:
     void slotShowMessage(const QModelIndex &index);
     void slotClearList();
     void slotTextChanged(const QString &str);
-    MessageListViewBase *const mListNotifications;
+    NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
-    NotificationHistoryDelegate *mListNotificationsDelegate = nullptr;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;
 };

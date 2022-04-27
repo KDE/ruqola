@@ -6,10 +6,10 @@
 
 #include "notificationhistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "misc/messagelistviewbase.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
 #include "notificationhistorydelegate.h"
+#include "notificationhistorylistview.h"
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
@@ -20,7 +20,7 @@
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
-    , mListNotifications(new MessageListViewBase(this))
+    , mListNotificationsListView(new NotificationHistoryListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
 {
@@ -40,26 +40,22 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mainLayout->addLayout(searchLayout);
 
-    mListNotifications->setObjectName(QStringLiteral("mListNotifications"));
-    mainLayout->addWidget(mListNotifications);
+    mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
+    mainLayout->addWidget(mListNotificationsListView);
 
-    mListNotificationsDelegate = new NotificationHistoryDelegate(this);
-    mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
-    mListNotifications->setItemDelegate(mListNotificationsDelegate);
-
-    mListNotifications->setContextMenuPolicy(Qt::CustomContextMenu);
-    connect(mListNotifications, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
+    mListNotificationsListView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(mListNotificationsListView, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
     auto model = NotificationHistoryManager::self()->notificationHistoryModel();
 
     mNotificationFilterProxyModel->setObjectName(QStringLiteral("mNotificationFilterProxyModel"));
     mNotificationFilterProxyModel->setSourceModel(model);
-    mListNotifications->setModel(mNotificationFilterProxyModel);
+    mListNotificationsListView->setModel(mNotificationFilterProxyModel);
 
-    connect(mListNotifications, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
+    connect(mListNotificationsListView, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
 
-    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotifications, &MessageListViewBase::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotifications, &MessageListViewBase::checkIfAtBottom);
-    connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotifications, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 }
@@ -89,18 +85,18 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
 {
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
-    const QModelIndex index = mListNotifications->indexAt(pos);
+    const QModelIndex index = mListNotificationsListView->indexAt(pos);
     if (index.isValid()) {
         menu.addSeparator();
         menu.addAction(i18n("Go to Message"), this, [this, index]() {
             slotShowMessage(index);
         });
     }
-    menu.exec(mListNotifications->viewport()->mapToGlobal(pos));
+    menu.exec(mListNotificationsListView->viewport()->mapToGlobal(pos));
 }
 
 void NotificationHistoryWidget::slotClearList()
 {
-    mListNotificationsDelegate->clearCache();
+    mListNotificationsListView->clearCache();
     NotificationHistoryManager::self()->notificationHistoryModel()->clear();
 }

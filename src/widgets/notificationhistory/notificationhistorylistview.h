@@ -7,6 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
+class NotificationHistoryDelegate;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryListView : public MessageListViewBase
 {
@@ -15,7 +16,12 @@ public:
     explicit NotificationHistoryListView(QWidget *parent = nullptr);
     ~NotificationHistoryListView() override;
 
+    void clearCache();
+
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+private:
+    NotificationHistoryDelegate *const mListNotificationsDelegate;
 };
