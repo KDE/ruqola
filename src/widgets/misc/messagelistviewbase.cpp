@@ -5,6 +5,8 @@
 */
 
 #include "messagelistviewbase.h"
+#include <QApplication>
+#include <QMouseEvent>
 #include <QScrollBar>
 
 MessageListViewBase::MessageListViewBase(QWidget *parent)
@@ -49,4 +51,65 @@ void MessageListViewBase::maybeScrollToBottom()
 void MessageListViewBase::updateVerticalPageStep()
 {
     verticalScrollBar()->setPageStep(viewport()->height() * 3 / 4);
+}
+
+void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
+{
+    const QPersistentModelIndex index = indexAt(event->pos());
+    if (index.isValid()) {
+        QStyleOptionViewItem options = listViewOptions();
+        options.rect = visualRect(index);
+#if 0
+        if (mMessageListDelegate->mouseEvent(event, options, index)) {
+            update(index);
+        }
+#endif
+    }
+}
+
+void MessageListViewBase::mouseReleaseEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
+void MessageListViewBase::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    handleMouseEvent(event);
+}
+
+void MessageListViewBase::mousePressEvent(QMouseEvent *event)
+{
+    mPressedPosition = event->pos();
+    handleMouseEvent(event);
+}
+
+void MessageListViewBase::mouseMoveEvent(QMouseEvent *event)
+{
+    // Drag support
+    const int distance = (event->pos() - mPressedPosition).manhattanLength();
+    if (distance > QApplication::startDragDistance()) {
+        mPressedPosition = {};
+        const QPersistentModelIndex index = indexAt(event->pos());
+        if (index.isValid()) {
+            QStyleOptionViewItem options = listViewOptions();
+            options.rect = visualRect(index);
+#if 0
+            if (mMessageListDelegate->maybeStartDrag(event, options, index)) {
+                return;
+            }
+#endif
+        }
+    }
+    handleMouseEvent(event);
+}
+
+QStyleOptionViewItem MessageListViewBase::listViewOptions() const
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return QListView::viewOptions();
+#else
+    QStyleOptionViewItem option;
+    initViewItemOption(&option);
+    return option;
+#endif
 }

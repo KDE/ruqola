@@ -23,6 +23,15 @@ public:
 protected:
     void resizeEvent(QResizeEvent *ev) override;
 
+    void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
+
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
 private:
+    void handleMouseEvent(QMouseEvent *event);
+    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
     bool mAtBottom = true;
+    QPoint mPressedPosition;
 };
