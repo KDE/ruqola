@@ -339,8 +339,7 @@ bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect mes
             if (const auto *doc = documentForIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
-                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                    Q_EMIT rcAccount->openLinkRequested(link);
+                    Q_EMIT mRocketChatAccount->openLinkRequested(link);
                     return true;
                 }
             }
