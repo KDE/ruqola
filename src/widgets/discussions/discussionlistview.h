@@ -7,15 +7,21 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
-
+class RocketChatAccount;
+class ListDiscussionDelegate;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DiscussionListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    explicit DiscussionListView(QWidget *parent = nullptr);
+    explicit DiscussionListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DiscussionListView() override;
 
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+private:
+    void slotOpenDiscussion(const QString &roomDiscussionId);
+    ListDiscussionDelegate *const mListDiscussionDelegate;
+    RocketChatAccount *const mRocketChatAccount;
 };

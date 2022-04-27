@@ -5,10 +5,17 @@
 */
 
 #include "discussionlistview.h"
+#include "discussion/listdiscussiondelegate.h"
+#include "rocketchataccount.h"
+#include "ruqola.h"
 
-DiscussionListView::DiscussionListView(QWidget *parent)
+DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
+    , mListDiscussionDelegate(new ListDiscussionDelegate(account, this))
+    , mRocketChatAccount(account)
 {
+    setItemDelegate(mListDiscussionDelegate);
+    connect(mListDiscussionDelegate, &ListDiscussionDelegate::openDiscussion, this, &DiscussionListView::slotOpenDiscussion);
 }
 
 DiscussionListView::~DiscussionListView()
@@ -25,4 +32,11 @@ bool DiscussionListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewIt
 {
     // TODO
     return MessageListViewBase::maybeStartDrag(event, option, index);
+}
+
+void DiscussionListView::slotOpenDiscussion(const QString &roomDiscussionId)
+{
+    if (mRocketChatAccount) {
+        mRocketChatAccount->ddp()->openRoom(roomDiscussionId);
+    }
 }

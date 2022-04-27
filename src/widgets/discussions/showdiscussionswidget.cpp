@@ -5,9 +5,9 @@
 */
 
 #include "showdiscussionswidget.h"
+#include "discussionlistview.h"
 #include "discussions/discussion/listdiscussiondelegate.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "misc/messagelistviewbase.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
@@ -19,8 +19,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     : QWidget(parent)
     , mSearchDiscussionLineEdit(new QLineEdit(this))
     , mDiscussionInfoLabel(new QLabel(this))
-    , mListDiscussions(new MessageListViewBase(this))
-    , mRocketChatAccount(account)
+    , mListDiscussionsListView(new DiscussionListView(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,11 +40,8 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     mDiscussionInfoLabel->setFont(labFont);
     connect(mDiscussionInfoLabel, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
 
-    mListDiscussions->setObjectName(QStringLiteral("mListDiscussions"));
-    mainLayout->addWidget(mListDiscussions);
-    auto listDiscussionDelegate = new ListDiscussionDelegate(mRocketChatAccount, this);
-    mListDiscussions->setItemDelegate(listDiscussionDelegate);
-    connect(listDiscussionDelegate, &ListDiscussionDelegate::openDiscussion, this, &ShowDiscussionsWidget::slotOpenDiscussion);
+    mListDiscussionsListView->setObjectName(QStringLiteral("mListDiscussions"));
+    mainLayout->addWidget(mListDiscussionsListView);
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
@@ -58,7 +54,7 @@ void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 
 void ShowDiscussionsWidget::setModel(DiscussionsFilterProxyModel *model)
 {
-    mListDiscussions->setModel(model);
+    mListDiscussionsListView->setModel(model);
     mDiscussionModel = model;
     connect(mDiscussionModel, &DiscussionsFilterProxyModel::hasFullListChanged, this, &ShowDiscussionsWidget::updateLabel);
     connect(mDiscussionModel, &DiscussionsFilterProxyModel::loadingInProgressChanged, this, &ShowDiscussionsWidget::updateLabel);
@@ -82,11 +78,4 @@ QString ShowDiscussionsWidget::displayShowDiscussionInRoom() const
         displayMessageStr += QStringLiteral(" <a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)"));
     }
     return displayMessageStr;
-}
-
-void ShowDiscussionsWidget::slotOpenDiscussion(const QString &roomDiscussionId)
-{
-    if (mRocketChatAccount) {
-        mRocketChatAccount->ddp()->openRoom(roomDiscussionId);
-    }
 }
