@@ -19,7 +19,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
