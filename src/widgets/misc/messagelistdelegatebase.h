@@ -10,13 +10,16 @@
 #include "libruqolawidgets_private_export.h"
 #include <QItemDelegate>
 class TextSelectionImpl;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface
 {
     Q_OBJECT
 public:
     explicit MessageListDelegateBase(QObject *parent = nullptr);
     ~MessageListDelegateBase() override;
 
-private:
+Q_SIGNALS:
+    void updateView(const QModelIndex &index);
+
+protected:
     TextSelectionImpl *const mTextSelectionImpl;
 };

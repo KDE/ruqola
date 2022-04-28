@@ -5,12 +5,16 @@
 */
 
 #include "messagelistdelegatebase.h"
+#include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 
 MessageListDelegateBase::MessageListDelegateBase(QObject *parent)
     : QItemDelegate{parent}
     , mTextSelectionImpl(new TextSelectionImpl)
 {
+    auto textSelection = mTextSelectionImpl->textSelection();
+    textSelection->setTextHelperFactory(this);
+    connect(textSelection, &TextSelection::repaintNeeded, this, &MessageListDelegateBase::updateView);
 }
 
 MessageListDelegateBase::~MessageListDelegateBase()

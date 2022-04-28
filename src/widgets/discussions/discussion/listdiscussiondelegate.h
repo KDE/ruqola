@@ -6,15 +6,14 @@
 
 #pragma once
 
-#include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
+#include "misc/messagelistdelegatebase.h"
 #include <QItemDelegate>
 #include <QTextDocument>
 class RocketChatAccount;
 class AvatarCacheManager;
-class TextSelectionImpl;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public QItemDelegate, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
@@ -73,5 +72,4 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
-    TextSelectionImpl *const mTextSelectionImpl;
 };

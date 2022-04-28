@@ -23,20 +23,15 @@
 #include "textconverter.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObject *parent)
-    : QItemDelegate(parent)
+    : MessageListDelegateBase(parent)
     , mRocketChatAccount(account)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
-    , mTextSelectionImpl(new TextSelectionImpl)
 {
-    auto textSelection = mTextSelectionImpl->textSelection();
-    textSelection->setTextHelperFactory(this);
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
-    connect(textSelection, &TextSelection::repaintNeeded, this, &ListDiscussionDelegate::updateView);
 }
 
 ListDiscussionDelegate::~ListDiscussionDelegate()
 {
-    delete mTextSelectionImpl;
 }
 
 // [date]
