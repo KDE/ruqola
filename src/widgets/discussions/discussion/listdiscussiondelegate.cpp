@@ -28,9 +28,10 @@ ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObje
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mTextSelectionImpl(new TextSelectionImpl)
 {
-    mTextSelectionImpl->textSelection()->setTextHelperFactory(this);
+    auto textSelection = mTextSelectionImpl->textSelection();
+    textSelection->setTextHelperFactory(this);
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
-    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &ListDiscussionDelegate::updateView);
+    connect(textSelection, &TextSelection::repaintNeeded, this, &ListDiscussionDelegate::updateView);
 }
 
 ListDiscussionDelegate::~ListDiscussionDelegate()

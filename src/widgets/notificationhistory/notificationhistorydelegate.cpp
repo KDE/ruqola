@@ -25,8 +25,9 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
     : QItemDelegate{parent}
     , mTextSelectionImpl(new TextSelectionImpl)
 {
-    mTextSelectionImpl->textSelection()->setTextHelperFactory(this);
-    connect(mTextSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &NotificationHistoryDelegate::updateView);
+    auto textSelection = mTextSelectionImpl->textSelection();
+    textSelection->setTextHelperFactory(this);
+    connect(textSelection, &TextSelection::repaintNeeded, this, &NotificationHistoryDelegate::updateView);
 }
 
 NotificationHistoryDelegate::~NotificationHistoryDelegate()
