@@ -8,10 +8,8 @@
 
 #include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
-#include "lrucache.h"
 #include "misc/messagelistdelegatebase.h"
 #include <QItemDelegate>
-#include <QTextDocument>
 class TextSelectionImpl;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public MessageListDelegateBase
@@ -29,9 +27,6 @@ public:
     Q_REQUIRED_RESULT bool mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
-
-Q_SIGNALS:
-    void updateView(const QModelIndex &index);
 
 protected:
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
@@ -64,6 +59,4 @@ private:
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
-
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

@@ -8,7 +8,9 @@
 
 #include "delegateutils/textselection.h"
 #include "libruqolawidgets_private_export.h"
+#include "lrucache.h"
 #include <QItemDelegate>
+#include <QTextDocument>
 class TextSelectionImpl;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface
 {
@@ -22,4 +24,5 @@ Q_SIGNALS:
 
 protected:
     TextSelectionImpl *const mTextSelectionImpl;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

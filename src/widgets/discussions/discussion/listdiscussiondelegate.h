@@ -31,7 +31,6 @@ public:
 
 Q_SIGNALS:
     void openDiscussion(const QString &discussionRoomId);
-    void updateView(const QModelIndex &index);
 
 private:
     struct Layout {
@@ -71,5 +70,4 @@ private:
 
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
