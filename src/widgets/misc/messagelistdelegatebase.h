@@ -20,6 +20,7 @@ public:
     ~MessageListDelegateBase() override;
 
     void clearCache();
+    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
