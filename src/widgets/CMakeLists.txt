@@ -346,6 +346,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/systemmessagescombobox.h
     misc/twoauthenticationpasswordwidget.cpp
     misc/twoauthenticationpasswordwidget.h
+    misc/messagelistdelegatebase.cpp
+    misc/messagelistdelegatebase.h
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
