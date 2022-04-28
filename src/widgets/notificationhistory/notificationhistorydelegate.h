@@ -20,7 +20,6 @@ public:
     ~NotificationHistoryDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    void clearCache();
 
     Q_REQUIRED_RESULT bool helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 

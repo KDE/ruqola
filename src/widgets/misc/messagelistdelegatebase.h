@@ -19,6 +19,8 @@ public:
     explicit MessageListDelegateBase(QObject *parent = nullptr);
     ~MessageListDelegateBase() override;
 
+    void clearCache();
+
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 

@@ -96,11 +96,6 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
     painter->restore();
 }
 
-void NotificationHistoryDelegate::clearCache()
-{
-    mDocumentCache.clear();
-}
-
 QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // Note: option.rect in this method is huge (as big as the viewport)

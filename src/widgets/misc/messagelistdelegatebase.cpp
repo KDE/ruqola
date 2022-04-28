@@ -21,3 +21,8 @@ MessageListDelegateBase::~MessageListDelegateBase()
 {
     delete mTextSelectionImpl;
 }
+
+void MessageListDelegateBase::clearCache()
+{
+    mDocumentCache.clear();
+}
