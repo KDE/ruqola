@@ -25,6 +25,8 @@ Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
 protected:
+    virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
+
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

@@ -73,7 +73,7 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     // Draw Text
     if (layout.textRect.isValid()) {
-        auto *doc = documentForIndex(index, layout.textRect.width());
+        auto *doc = documentForModelIndex(index, layout.textRect.width());
         if (doc) {
             MessageDelegateUtils::drawSelection(doc,
                                                 layout.textRect,
@@ -120,7 +120,7 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 
 QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &index) const
 {
-    return documentForIndex(index, -1);
+    return documentForModelIndex(index, -1);
 }
 
 QTextDocument *NotificationHistoryDelegate::documentForIndex(const MessageAttachment &msgAttach) const
@@ -134,7 +134,7 @@ QTextDocument *NotificationHistoryDelegate::documentForIndex(const MessageAttach
 QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    auto *doc = documentForIndex(index, maxWidth);
+    auto *doc = documentForModelIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 // text AccountName/room
@@ -191,7 +191,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     return layout;
 }
 
-QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &index, int width) const
+QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
     const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
@@ -241,7 +241,7 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
     }
 
     const Layout layout = doLayout(option, index);
-    const auto *doc = documentForIndex(index, layout.textRect.width());
+    const auto *doc = documentForModelIndex(index, layout.textRect.width());
     if (!doc) {
         return false;
     }
@@ -305,7 +305,7 @@ bool NotificationHistoryDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRec
     switch (eventType) {
     case QEvent::MouseButtonPress:
         mTextSelectionImpl->setMightStartDrag(false);
-        if (const auto *doc = documentForIndex(index, messageRect.width())) {
+        if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
             const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
@@ -327,7 +327,7 @@ bool NotificationHistoryDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRec
         break;
     case QEvent::MouseMove:
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
@@ -342,7 +342,7 @@ bool NotificationHistoryDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRec
         MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
         // Clicks on links
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
                     auto *rcAccount = Ruqola::self()->rocketChatAccount();
@@ -358,7 +358,7 @@ bool NotificationHistoryDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRec
         break;
     case QEvent::MouseButtonDblClick:
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
@@ -382,7 +382,7 @@ bool NotificationHistoryDelegate::maybeStartDrag(QMouseEvent *mouseEvent, QRect 
     }
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
-        const auto *doc = documentForIndex(index, messageRect.width());
+        const auto *doc = documentForModelIndex(index, messageRect.width());
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
             auto mimeData = new QMimeData;

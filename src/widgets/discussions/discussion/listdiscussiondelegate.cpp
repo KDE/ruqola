@@ -57,7 +57,7 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
 
     // Draw Text
     if (layout.textRect.isValid()) {
-        auto *doc = documentForIndex(index, layout.textRect.width());
+        auto *doc = documentForModelIndex(index, layout.textRect.width());
         if (doc) {
             MessageDelegateUtils::drawSelection(doc,
                                                 layout.textRect,
@@ -128,7 +128,7 @@ bool ListDiscussionDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView 
     }
 
     const Layout layout = doLayout(option, index);
-    const auto *doc = documentForIndex(index, layout.textRect.width());
+    const auto *doc = documentForModelIndex(index, layout.textRect.width());
     if (!doc) {
         return false;
     }
@@ -228,7 +228,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     return layout;
 }
 
-QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index, int width) const
+QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
     const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
@@ -268,7 +268,7 @@ QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index
 QSize ListDiscussionDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
-    auto *doc = documentForIndex(index, maxWidth);
+    auto *doc = documentForModelIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
 }
 
@@ -294,7 +294,7 @@ bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect mes
     switch (eventType) {
     case QEvent::MouseButtonPress:
         mTextSelectionImpl->setMightStartDrag(false);
-        if (const auto *doc = documentForIndex(index, messageRect.width())) {
+        if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
             const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
             qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "pressed at pos" << charPos;
             if (charPos == -1) {
@@ -316,7 +316,7 @@ bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect mes
         break;
     case QEvent::MouseMove:
         if (!mTextSelectionImpl->mightStartDrag()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 if (charPos != -1) {
                     // QWidgetTextControl also has code to support isPreediting()/commitPreedit(), selectBlockOnTripleClick
@@ -331,7 +331,7 @@ bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect mes
         MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
         // Clicks on links
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
                     Q_EMIT mRocketChatAccount->openLinkRequested(link);
@@ -346,7 +346,7 @@ bool ListDiscussionDelegate::handleMouseEvent(QMouseEvent *mouseEvent, QRect mes
         break;
     case QEvent::MouseButtonDblClick:
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
-            if (const auto *doc = documentForIndex(index, messageRect.width())) {
+            if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
                 qCDebug(RUQOLAWIDGETS_SELECTION_LOG) << "double-clicked at pos" << charPos;
                 if (charPos == -1) {
@@ -370,7 +370,7 @@ bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *mouseEvent, QRect messa
     }
     const QPoint pos = mouseEvent->pos() - messageRect.topLeft();
     if (mTextSelectionImpl->textSelection()->hasSelection()) {
-        const auto *doc = documentForIndex(index, messageRect.width());
+        const auto *doc = documentForModelIndex(index, messageRect.width());
         const int charPos = doc->documentLayout()->hitTest(pos, Qt::FuzzyHit);
         if (charPos != -1 && mTextSelectionImpl->textSelection()->contains(index, charPos)) {
             auto mimeData = new QMimeData;
@@ -388,7 +388,7 @@ bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *mouseEvent, QRect messa
 
 QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index) const
 {
-    return documentForIndex(index, -1);
+    return documentForModelIndex(index, -1);
 }
 
 QTextDocument *ListDiscussionDelegate::documentForIndex(const MessageAttachment &msgAttach) const
