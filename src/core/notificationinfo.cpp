@@ -136,7 +136,6 @@ const QPixmap &NotificationInfo::pixmap() const
 void NotificationInfo::setPixmap(const QPixmap &newPixmap)
 {
     mPixmap = newPixmap;
-    qDebug() << " NotificationInfo::setPixmap isNull ? " << mPixmap.isNull();
 }
 
 void NotificationInfo::parseNotification(const QJsonArray &contents)
