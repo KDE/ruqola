@@ -187,7 +187,41 @@ QString generateRichText(const QString &str,
         }
     }
     if (!searchedText.isEmpty()) {
-        // TODO
+        const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
+        const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::NeutralBackground).color().name();
+        lstPos.clear();
+        QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
+        while (userIteratorHref.hasNext()) {
+            const QRegularExpressionMatch match = userIteratorHref.next();
+            HrefPos pos;
+            pos.start = match.capturedStart(1);
+            pos.end = match.capturedEnd(1);
+            lstPos.append(std::move(pos));
+        }
+
+        const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(searchedText), QRegularExpression::CaseInsensitiveOption);
+        QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
+        int offset = 0;
+        while (userIterator.hasNext()) {
+            const QRegularExpressionMatch match = userIterator.next();
+            const QString word = match.captured(1);
+            bool inAnUrl = false;
+            const int matchCapturedStart = match.capturedStart(1);
+            for (const HrefPos &hrefPos : lstPos) {
+                if ((matchCapturedStart > hrefPos.start) && (matchCapturedStart < hrefPos.end)) {
+                    inAnUrl = true;
+                    break;
+                }
+            }
+            if (inAnUrl) {
+                continue;
+            }
+            const QString replaceStr =
+                QStringLiteral("<a style=\"color:%2;background-color:%3;\">%1</a>").arg(word, userHighlightForegroundColor, userHighlightBackgroundColor);
+            newStr.replace(matchCapturedStart + offset, word.length(), replaceStr);
+            // We added a new string => increase offset
+            offset += replaceStr.length() - word.length();
+        }
     }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
