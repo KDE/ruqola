@@ -265,13 +265,6 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
     return ret;
 }
 
-QSize ListDiscussionDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
-{
-    Q_UNUSED(option)
-    auto *doc = documentForModelIndex(index, maxWidth);
-    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
-}
-
 bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const Layout layout = doLayout(option, index);

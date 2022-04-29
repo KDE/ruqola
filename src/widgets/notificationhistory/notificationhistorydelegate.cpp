@@ -118,12 +118,6 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
-QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
-{
-    Q_UNUSED(option)
-    auto *doc = documentForModelIndex(index, maxWidth);
-    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
-}
 // text AccountName/room
 // [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <date/time> [margin]
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const

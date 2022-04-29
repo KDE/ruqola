@@ -30,6 +30,7 @@ Q_SIGNALS:
 protected:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
     virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;

@@ -153,3 +153,10 @@ QTextDocument *MessageListDelegateBase::documentForIndex(const MessageAttachment
     // Unused here
     return nullptr;
 }
+
+QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
+{
+    Q_UNUSED(option)
+    auto *doc = documentForModelIndex(index, maxWidth);
+    return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
+}
