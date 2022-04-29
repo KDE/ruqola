@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="33">
+<gui name="ruqola" version="34">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -38,6 +38,8 @@
   <Menu name="Tools" >
    <text>Tools</text>
    <Action name="show_log" />
+   <Separator/>
+   <Action name="show_notify_history" />
   </Menu>
   <Menu name="settings" append="settings_merge">
     <text>&amp;Settings</text>

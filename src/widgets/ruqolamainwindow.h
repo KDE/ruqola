@@ -122,4 +122,5 @@ private:
     KHamburgerMenu *mHamburgerMenu = nullptr;
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
     QToolButton *mNotificationToolButton = nullptr;
+    QAction *mShowNotifyHistory = nullptr;
 };

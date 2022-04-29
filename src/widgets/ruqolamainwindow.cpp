@@ -454,6 +454,10 @@ void RuqolaMainWindow::setupActions()
     mShowFullScreenAction = KStandardAction::fullScreen(nullptr, nullptr, this, ac);
     ac->setDefaultShortcut(mShowFullScreenAction, Qt::Key_F11);
     connect(mShowFullScreenAction, &QAction::toggled, this, &RuqolaMainWindow::slotFullScreen);
+
+    mShowNotifyHistory = new QAction(QIcon::fromTheme(QStringLiteral("notifications")), i18n("Show Notify History"), this);
+    connect(mShowNotifyHistory, &QAction::triggered, this, &RuqolaMainWindow::slotOpenNotificationHistory);
+    ac->addAction(QStringLiteral("show_notify_history"), mShowNotifyHistory);
 }
 
 void RuqolaMainWindow::showNextView()
