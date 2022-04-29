@@ -140,3 +140,16 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
     }
     return false;
 }
+
+QTextDocument *MessageListDelegateBase::documentForIndex(const QModelIndex &index) const
+{
+    return documentForModelIndex(index, -1);
+}
+
+QTextDocument *MessageListDelegateBase::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    Q_UNUSED(msgAttach)
+    Q_ASSERT(false);
+    // Unused here
+    return nullptr;
+}

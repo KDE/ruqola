@@ -63,8 +63,6 @@ private:
         qreal baseLine; // used to draw sender/timestamp
     };
     Q_REQUIRED_RESULT ListDiscussionDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;

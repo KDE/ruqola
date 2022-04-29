@@ -28,6 +28,9 @@ Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
 protected:
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
     virtual RocketChatAccount *rocketChatAccount() const = 0;
 

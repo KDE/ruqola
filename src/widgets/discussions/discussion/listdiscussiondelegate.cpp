@@ -285,16 +285,3 @@ RocketChatAccount *ListDiscussionDelegate::rocketChatAccount() const
 {
     return mRocketChatAccount;
 }
-
-QTextDocument *ListDiscussionDelegate::documentForIndex(const QModelIndex &index) const
-{
-    return documentForModelIndex(index, -1);
-}
-
-QTextDocument *ListDiscussionDelegate::documentForIndex(const MessageAttachment &msgAttach) const
-{
-    Q_UNUSED(msgAttach)
-    Q_ASSERT(false);
-    // Unused here
-    return nullptr;
-}

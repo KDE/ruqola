@@ -33,9 +33,6 @@ protected:
     RocketChatAccount *rocketChatAccount() const override;
 
 private:
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
-
     Q_REQUIRED_RESULT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
 
     struct Layout {

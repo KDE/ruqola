@@ -118,19 +118,6 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
 }
 
-QTextDocument *NotificationHistoryDelegate::documentForIndex(const QModelIndex &index) const
-{
-    return documentForModelIndex(index, -1);
-}
-
-QTextDocument *NotificationHistoryDelegate::documentForIndex(const MessageAttachment &msgAttach) const
-{
-    Q_UNUSED(msgAttach)
-    Q_ASSERT(false);
-    // Unused here
-    return nullptr;
-}
-
 QSize NotificationHistoryDelegate::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)
