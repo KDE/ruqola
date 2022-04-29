@@ -10,6 +10,7 @@
 #include "room/roomwidgetbase.h"
 #include "threadwidget/threadmessagewidget.h"
 #include <QLabel>
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QVBoxLayout>
@@ -18,6 +19,7 @@ QTEST_MAIN(ThreadMessageWidgetTest)
 ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void ThreadMessageWidgetTest::shouldHaveDefaultValues()

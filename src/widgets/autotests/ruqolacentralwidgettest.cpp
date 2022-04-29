@@ -9,12 +9,14 @@
 
 #include <QHBoxLayout>
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(RuqolaCentralWidgetTest)
 RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()

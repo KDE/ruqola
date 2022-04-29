@@ -11,6 +11,7 @@
 #include <QLabel>
 #include <QSplitter>
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
 #include <QWidgetAction>
@@ -20,6 +21,7 @@ QTEST_MAIN(RuqolaMainWindowTest)
 RuqolaMainWindowTest::RuqolaMainWindowTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 static void switchToMainWidget(RuqolaMainWindow &w)

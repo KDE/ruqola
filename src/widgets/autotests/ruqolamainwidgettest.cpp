@@ -11,6 +11,7 @@
 
 #include <QHBoxLayout>
 #include <QSplitter>
+#include <QStandardPaths>
 #include <QTest>
 
 QTEST_MAIN(RuqolaMainWidgetTest)
@@ -18,6 +19,7 @@ QTEST_MAIN(RuqolaMainWidgetTest)
 RuqolaMainWidgetTest::RuqolaMainWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RuqolaMainWidgetTest::shouldHaveDefaultValues()
