@@ -21,7 +21,6 @@ public:
     ~ListDiscussionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    Q_REQUIRED_RESULT bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
     bool helpEvent(QHelpEvent *helpEvent, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
@@ -53,6 +52,7 @@ private:
         // OpenDiscussionText
         QString openDiscussionText;
         qreal openDiscussionTextY = 0;
+        qreal openDiscussionTextHeight = 0;
 
         // Avatar pixmap
         QPixmap avatarPixmap;

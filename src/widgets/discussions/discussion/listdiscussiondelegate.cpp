@@ -82,17 +82,6 @@ void ListDiscussionDelegate::paint(QPainter *painter, const QStyleOptionViewItem
     painter->restore();
 }
 
-bool ListDiscussionDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
-{
-    const QEvent::Type eventType = event->type();
-    if (eventType == QEvent::MouseButtonRelease) {
-        const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
-        Q_EMIT openDiscussion(discussionRoomId);
-        return true;
-    }
-    return QItemDelegate::editorEvent(event, model, option, index);
-}
-
 QSize ListDiscussionDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // Note: option.rect in this method is huge (as big as the viewport)
@@ -146,6 +135,13 @@ bool ListDiscussionDelegate::mouseEvent(QEvent *event, const QStyleOptionViewIte
     if (eventType == QEvent::MouseButtonRelease) {
         auto mev = static_cast<QMouseEvent *>(event);
         const Layout layout = doLayout(option, index);
+
+        const QRect discussionRect(layout.textRect.x(), layout.openDiscussionTextY, layout.textRect.width(), layout.openDiscussionTextHeight);
+        if (discussionRect.contains(mev->pos())) {
+            const QString discussionRoomId = index.data(DiscussionsModel::DiscussionRoomId).toString();
+            Q_EMIT openDiscussion(discussionRoomId);
+            return true;
+        }
         if (handleMouseEvent(mev, layout.textRect, option, index)) {
             return true;
         }
@@ -222,6 +218,7 @@ ListDiscussionDelegate::Layout ListDiscussionDelegate::doLayout(const QStyleOpti
     layout.numberOfMessages = index.data(DiscussionsModel::NumberOfMessages).toInt();
 
     layout.openDiscussionTextY = layout.lastMessageTimeY + option.fontMetrics.height();
+    layout.openDiscussionTextHeight = option.fontMetrics.height();
 
     return layout;
 }
