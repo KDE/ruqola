@@ -16,8 +16,6 @@
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include <QAbstractItemView>
-#include <QDrag>
-#include <QMimeData>
 #include <QPainter>
 #include <QTextBlock>
 #include <QToolTip>
