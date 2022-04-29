@@ -12,6 +12,7 @@
 #include <QItemDelegate>
 #include <QTextDocument>
 class TextSelectionImpl;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface
 {
     Q_OBJECT
@@ -22,12 +23,13 @@ public:
     void clearCache();
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    // TODO Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
 protected:
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
+    virtual RocketChatAccount *rocketChatAccount() const = 0;
 
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;

@@ -9,6 +9,7 @@
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 
+#include "rocketchataccount.h"
 #include "ruqolawidgets_selection_debug.h"
 
 #include <QAbstractTextDocumentLayout>
@@ -57,7 +58,7 @@ bool MessageListDelegateBase::maybeStartDrag(QMouseEvent *mouseEvent, QRect mess
     }
     return false;
 }
-#if 0
+
 bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     Q_UNUSED(option)
@@ -111,7 +112,7 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
             if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
-                    Q_EMIT mRocketChatAccount->openLinkRequested(link);
+                    Q_EMIT rocketChatAccount()->openLinkRequested(link);
                     return true;
                 }
             }
@@ -139,4 +140,3 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
     }
     return false;
 }
-#endif

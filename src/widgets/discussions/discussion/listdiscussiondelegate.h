@@ -33,6 +33,9 @@ public:
 Q_SIGNALS:
     void openDiscussion(const QString &discussionRoomId);
 
+protected:
+    RocketChatAccount *rocketChatAccount() const override;
+
 private:
     struct Layout {
         // Sender
@@ -66,7 +69,6 @@ private:
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
-    Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     RocketChatAccount *const mRocketChatAccount;
     AvatarCacheManager *const mAvatarCacheManager;
