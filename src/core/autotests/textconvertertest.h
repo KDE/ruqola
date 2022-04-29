@@ -32,4 +32,7 @@ private Q_SLOTS:
 
     void shouldShowUsers_data();
     void shouldShowUsers();
+
+    void shouldShowSearchedText_data();
+    void shouldShowSearchedText();
 };

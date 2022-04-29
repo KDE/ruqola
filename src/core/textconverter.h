@@ -24,5 +24,6 @@ LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString 
                                                                   MessageCache *messageCache,
                                                                   QString &needUpdateMessageId,
                                                                   const QMap<QString, QString> &mentions,
-                                                                  const QMap<QString, QString> &channels);
+                                                                  const QMap<QString, QString> &channels,
+                                                                  const QString &searchedText = {});
 }

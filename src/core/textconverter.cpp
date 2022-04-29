@@ -99,7 +99,8 @@ QString generateRichText(const QString &str,
                          const QString &username,
                          const QStringList &highlightWords,
                          const QMap<QString, QString> &mentions,
-                         const QMap<QString, QString> &channels)
+                         const QMap<QString, QString> &channels,
+                         const QString &searchedText)
 {
     QString newStr = markdownToRichText(str);
     static const QRegularExpression regularExpressionAHref(QStringLiteral("(<a href=\'.*\'>|<a href=\".*\">)"));
@@ -146,9 +147,9 @@ QString generateRichText(const QString &str,
         }
     }
 
-    const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
-    const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
     if (!highlightWords.isEmpty()) {
+        const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::PositiveText).color().name();
+        const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::PositiveBackground).color().name();
         lstPos.clear();
         QRegularExpressionMatchIterator userIteratorHref = regularExpressionAHref.globalMatch(newStr);
         while (userIteratorHref.hasNext()) {
@@ -184,6 +185,9 @@ QString generateRichText(const QString &str,
                 offset += replaceStr.length() - word.length();
             }
         }
+    }
+    if (!searchedText.isEmpty()) {
+        // TODO
     }
     static const QRegularExpression regularExpressionUser(QStringLiteral("(^|\\s+)@([\\w._-]+)"), QRegularExpression::UseUnicodePropertiesOption);
     QRegularExpressionMatchIterator userIterator = regularExpressionUser.globalMatch(newStr);
@@ -224,7 +228,8 @@ QString TextConverter::convertMessageText(const QString &_str,
                                           MessageCache *messageCache,
                                           QString &needUpdateMessageId,
                                           const QMap<QString, QString> &mentions,
-                                          const QMap<QString, QString> &channels)
+                                          const QMap<QString, QString> &channels,
+                                          const QString &searchedText)
 {
     if (!emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -253,7 +258,8 @@ QString TextConverter::convertMessageText(const QString &_str,
                                                     messageCache,
                                                     needUpdateMessageId,
                                                     (*it).mentions(),
-                                                    (*it).channels());
+                                                    (*it).channels(),
+                                                    searchedText);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
@@ -269,7 +275,8 @@ QString TextConverter::convertMessageText(const QString &_str,
                                                             messageCache,
                                                             needUpdateMessageId,
                                                             msg->mentions(),
-                                                            msg->channels());
+                                                            msg->channels(),
+                                                            searchedText);
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
@@ -335,7 +342,7 @@ QString TextConverter::convertMessageText(const QString &_str,
     };
 
     auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, userName, highlightWords, mentions, channels);
+        auto htmlChunk = generateRichText(chunk, userName, highlightWords, mentions, channels, searchedText);
         if (emojiManager) {
             emojiManager->replaceEmojis(&htmlChunk);
         }

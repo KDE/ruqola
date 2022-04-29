@@ -381,6 +381,19 @@ void TextConverterTest::shouldShowChannels_data()
     }
 }
 
+void TextConverterTest::shouldShowChannels()
+{
+    using map = QMap<QString, QString>;
+    QFETCH(QString, input);
+    QFETCH(QString, output);
+    QFETCH(map, mentions);
+    QFETCH(map, channels);
+
+    output = prepareExpectedOutput(output);
+    QString needUpdateMessageId;
+    QCOMPARE(TextConverter::convertMessageText(input, {}, {}, {}, nullptr, nullptr, needUpdateMessageId, mentions, channels), output);
+}
+
 void TextConverterTest::shouldShowUsers()
 {
     using map = QMap<QString, QString>;
@@ -427,15 +440,50 @@ void TextConverterTest::shouldShowUsers_data()
     }
 }
 
-void TextConverterTest::shouldShowChannels()
+void TextConverterTest::shouldShowSearchedText_data()
 {
-    using map = QMap<QString, QString>;
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QString>("username");
+    QTest::addColumn<QStringList>("highlightWords");
+    QTest::addColumn<QString>("searchedText");
+    QTest::addColumn<QString>("output");
+    QTest::newRow("empty") << QString() << QString() << QStringList{} << QString() << QString();
+    const QStringList highlightWords{QStringLiteral("ruqola"), QStringLiteral("kde")};
+    QTest::newRow("lowercase") << QStringLiteral("Ruqola") << QStringLiteral("foo") << highlightWords << QString()
+                               << QStringLiteral("<div><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a></div>");
+    QTest::newRow("two-word") << QStringLiteral("Ruqola kde") << QStringLiteral("foo") << highlightWords << QString()
+                              << QStringLiteral(
+                                     "<div><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> <a "
+                                     "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a></div>");
+
+    QTest::newRow("words") << QStringLiteral("Ruqola bla kde KDE.") << QStringLiteral("foo") << highlightWords << QString()
+                           << QStringLiteral(
+                                  "<div><a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">Ruqola</a> bla <a "
+                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+                                  "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</div>");
+
+    QTest::newRow("wordinurl") << QStringLiteral("https://www.kde.org/~/bla/bli.txt") << QStringLiteral("bla") << highlightWords << QString()
+                               << QStringLiteral(
+                                      "<div><a href=\"https://www.kde.org/~/bla/bli.txt\">https://www.<a "
+                                      "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a>.org/~/bla/bli.txt</a></div>");
+    QTest::newRow("channelruqola")
+        << QStringLiteral("#ruqola-bla bla kde KDE.") << QStringLiteral("foo") << highlightWords << QString()
+        << QStringLiteral(
+               "<div><a href='ruqola:/room/ruqola-bla'>#<a style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">ruqola</a>-bla</a> bla <a "
+               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">kde</a> <a "
+               "style=\"color:$USERCOLOR$;background-color:$USERBGCOLOR$;\">KDE</a>.</div>");
+}
+
+void TextConverterTest::shouldShowSearchedText()
+{
     QFETCH(QString, input);
+    QFETCH(QString, username);
+    QFETCH(QStringList, highlightWords);
+    QFETCH(QString, searchedText);
     QFETCH(QString, output);
-    QFETCH(map, mentions);
-    QFETCH(map, channels);
 
     output = prepareExpectedOutput(output);
+
     QString needUpdateMessageId;
-    QCOMPARE(TextConverter::convertMessageText(input, {}, {}, {}, nullptr, nullptr, needUpdateMessageId, mentions, channels), output);
+    QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr, needUpdateMessageId, {}, {}, searchedText), output);
 }
