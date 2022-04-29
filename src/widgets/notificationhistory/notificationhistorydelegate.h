@@ -30,7 +30,7 @@ public:
 protected:
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    RocketChatAccount *rocketChatAccount() const override;
+    RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 
 private:
     Q_REQUIRED_RESULT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;

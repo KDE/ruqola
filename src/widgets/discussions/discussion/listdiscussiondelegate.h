@@ -34,7 +34,7 @@ Q_SIGNALS:
     void openDiscussion(const QString &discussionRoomId);
 
 protected:
-    RocketChatAccount *rocketChatAccount() const override;
+    RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 
 private:
     struct Layout {

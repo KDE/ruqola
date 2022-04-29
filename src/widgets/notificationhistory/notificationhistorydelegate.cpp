@@ -198,9 +198,8 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
     if (messageStr.isEmpty()) {
         return nullptr;
     }
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+    auto *rcAccount = rocketChatAccount(index);
     // Use TextConverter in case it starts with a [](URL) reply marker
-    auto *rcAccount = Ruqola::self()->accountManager()->accountFromName(accountName);
     QString needUpdateMessageId; // TODO use it ?
     const QString contextString = TextConverter::convertMessageText(messageStr,
                                                                     rcAccount ? rcAccount->userName() : QString(),
@@ -279,8 +278,9 @@ bool NotificationHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QStyl
     return false;
 }
 
-RocketChatAccount *NotificationHistoryDelegate::rocketChatAccount() const
+RocketChatAccount *NotificationHistoryDelegate::rocketChatAccount(const QModelIndex &index) const
 {
-    // FIXME !
-    return Ruqola::self()->rocketChatAccount();
+    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
+    auto *rcAccount = Ruqola::self()->accountManager()->accountFromName(accountName);
+    return rcAccount;
 }

@@ -112,7 +112,7 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
             if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
-                    Q_EMIT rocketChatAccount()->openLinkRequested(link);
+                    Q_EMIT rocketChatAccount(index)->openLinkRequested(link);
                     return true;
                 }
             }

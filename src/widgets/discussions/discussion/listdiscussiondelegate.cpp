@@ -281,7 +281,8 @@ bool ListDiscussionDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOpti
     return false;
 }
 
-RocketChatAccount *ListDiscussionDelegate::rocketChatAccount() const
+RocketChatAccount *ListDiscussionDelegate::rocketChatAccount(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return mRocketChatAccount;
 }
