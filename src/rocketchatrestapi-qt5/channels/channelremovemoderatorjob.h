@@ -31,6 +31,9 @@ public:
 Q_SIGNALS:
     void removeModeratorDone();
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 private:
     Q_DISABLE_COPY(ChannelRemoveModeratorJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;

@@ -8,6 +8,7 @@
 
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -92,4 +93,13 @@ QNetworkRequest ChannelRemoveOwnerJob::request() const
     addAuthRawHeader(request);
     addRequestAttribute(request);
     return request;
+}
+
+QString ChannelRemoveOwnerJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-user-not-owner")) {
+        return i18n("User is not an owner.");
+    }
+
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
