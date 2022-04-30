@@ -83,6 +83,8 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
                 return true;
             }
 
+            // TODO add triple click
+
             // QWidgetTextControl also has code to support selectBlockOnTripleClick, shift to extend selection
             // (look there if you want to add these things)
 
