@@ -20,7 +20,7 @@ class AccountInfo:
     def accountName(self, val):
         self.__accountName = val
 
-    """ serverName """
+    """ userName """
     @property
     def userName(self)->str:
         return self.__userName

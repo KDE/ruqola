@@ -36,7 +36,7 @@ private:
     void slotUpdateLoginButton();
 
     QLineEdit *const mAccountName;
-    QLineEdit *const mServerName;
+    QLineEdit *const mServerUrl;
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
     // QCheckBox *const mLdapCheckBox;

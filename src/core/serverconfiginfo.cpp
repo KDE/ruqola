@@ -24,7 +24,7 @@ QString ServerConfigInfo::serverVersionStr() const
     return {};
 }
 
-QString ServerConfigInfo::serverName() const
+QString ServerConfigInfo::accountName() const
 {
     if (mAccount) {
         return mAccount->settings()->accountName();

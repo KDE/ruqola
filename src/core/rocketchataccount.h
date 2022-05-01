@@ -275,7 +275,7 @@ public:
     void setUserName(const QString &username);
     Q_REQUIRED_RESULT QString userName() const;
 
-    void setAccountName(const QString &servername);
+    void setAccountName(const QString &accountname);
     Q_REQUIRED_RESULT QString accountName() const;
 
     void setUserId(const QString &userID);

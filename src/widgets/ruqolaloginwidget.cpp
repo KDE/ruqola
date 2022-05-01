@@ -25,7 +25,7 @@
 RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     : QWidget(parent)
     , mAccountName(new QLineEdit(this))
-    , mServerName(new QLineEdit(this))
+    , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
     // , mLdapCheckBox(new QCheckBox(i18n("Use LDAP"), this))
@@ -45,8 +45,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mAccountName->setPlaceholderText(i18n("Account Name"));
     connect(mAccountName, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotUpdateLoginButton);
 
-    mServerName->setObjectName(QStringLiteral("mServerName"));
-    mainLayout->addRow(i18n("Server Name:"), mServerName);
+    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mainLayout->addRow(i18n("Server Url:"), mServerUrl);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mainLayout->addRow(i18n("User Name:"), mUserName);
@@ -129,7 +129,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mRocketChatAccount = rocketChatAccount;
     mAccountName->setText(mRocketChatAccount->displayName());
     mAccountName->setReadOnly(!mRocketChatAccount->displayName().isEmpty());
-    mServerName->setText(mRocketChatAccount->serverUrl());
+    mServerUrl->setText(mRocketChatAccount->serverUrl());
     mUserName->setText(mRocketChatAccount->userName());
     // mLdapCheckBox->setChecked(mRocketChatAccount->useLdap());
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
@@ -142,7 +142,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
 void RuqolaLoginWidget::slotLogin()
 {
     mRocketChatAccount->setAccountName(mAccountName->isEnabled() ? mAccountName->text() : mRocketChatAccount->accountName());
-    mRocketChatAccount->setServerUrl(mServerName->text());
+    mRocketChatAccount->setServerUrl(mServerUrl->text());
     mRocketChatAccount->setUserName(mUserName->text());
     mRocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
     // mRocketChatAccount->setUseLdap(mLdapCheckBox->isChecked());
@@ -156,7 +156,7 @@ void RuqolaLoginWidget::slotLogin()
 
 void RuqolaLoginWidget::changeWidgetStatus(bool enabled)
 {
-    mServerName->setEnabled(enabled);
+    mServerUrl->setEnabled(enabled);
     mUserName->setEnabled(enabled);
     mPasswordLineEditWidget->setEnabled(enabled);
     mLoginButton->setEnabled(enabled && !mAccountName->text().isEmpty());

@@ -16,7 +16,7 @@
 CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     : QWidget(parent)
     , mAccountName(new QLineEdit(this))
-    , mServerName(new QLineEdit(this))
+    , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEdit(new KPasswordLineEdit(this))
 {
@@ -29,10 +29,10 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     new LineEditCatchReturnKey(mAccountName, this);
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
 
-    mServerName->setObjectName(QStringLiteral("mServerName"));
-    mServerName->setClearButtonEnabled(true);
-    new LineEditCatchReturnKey(mServerName, this);
-    mainLayout->addRow(i18n("Server Name:"), mServerName);
+    mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mServerUrl, this);
+    mainLayout->addRow(i18n("Server Url:"), mServerUrl);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
@@ -44,7 +44,7 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mainLayout->addRow(i18n("Password:"), mPasswordLineEdit);
 
     connect(mUserName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
-    connect(mServerName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
+    connect(mServerUrl, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
     connect(mAccountName, &QLineEdit::textChanged, this, &CreateNewServerWidget::slotChangeOkButtonEnabled);
 
     // TODO add support for two factor ?
@@ -59,7 +59,7 @@ AccountManager::AccountManagerInfo CreateNewServerWidget::accountInfo()
         mAccountInfo.accountName = accountName;
     }
     mAccountInfo.displayName = accountName;
-    mAccountInfo.serverUrl = mServerName->text().trimmed();
+    mAccountInfo.serverUrl = mServerUrl->text().trimmed();
     if (mAccountInfo.serverUrl.endsWith(QLatin1Char('/'))) {
         mAccountInfo.serverUrl.chop(1);
     }
@@ -73,7 +73,7 @@ void CreateNewServerWidget::setAccountInfo(const AccountManager::AccountManagerI
     mAccountInfo = info;
     mAccountName->setText(info.displayName.isEmpty() ? info.accountName : info.displayName);
     mUserName->setText(info.userName);
-    mServerName->setText(info.serverUrl);
+    mServerUrl->setText(info.serverUrl);
     mPasswordLineEdit->setPassword(info.password);
 }
 
@@ -85,6 +85,6 @@ void CreateNewServerWidget::setExistingAccountName(const QStringList &lst)
 void CreateNewServerWidget::slotChangeOkButtonEnabled()
 {
     const QString accountName = mAccountName->text().trimmed();
-    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerName->text().trimmed().isEmpty()
+    Q_EMIT updateOkButton(!accountName.isEmpty() && !mNames.contains(accountName) && !mServerUrl->text().trimmed().isEmpty()
                           && !mUserName->text().trimmed().isEmpty());
 }
