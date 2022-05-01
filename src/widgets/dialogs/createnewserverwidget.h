@@ -32,7 +32,7 @@ private:
     QStringList mNames;
 
     QLineEdit *const mAccountName;
-    QLineEdit *const mServerName;
+    QLineEdit *const mServerUrl;
     QLineEdit *const mUserName;
     KPasswordLineEdit *const mPasswordLineEdit;
     AccountManager::AccountManagerInfo mAccountInfo;

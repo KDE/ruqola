@@ -38,7 +38,7 @@ bool AccountManager::showMessage(const ParseMessageUrlUtils &parseUrl)
         const QString path{parseUrl.path()};
         const QString messageId = parseUrl.messageId();
         // qDebug() << " parseUrl " << parseUrl;
-        // https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
+        // https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         setCurrentAccount(account->accountName());
         // qDebug() << " account->accountName() : " << account->accountName();
         Q_EMIT mCurrentAccount->raiseWindow();

@@ -43,7 +43,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         }
         return true;
     } else {
-        // Example https://<server name>/channel/python?msg=sn3gEQom7NcLxTg5h
+        // Example https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         mMessageId = query.queryItemValue(QStringLiteral("msg"));
         if (mMessageId.isEmpty()) {
             return false;

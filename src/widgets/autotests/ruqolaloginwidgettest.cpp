@@ -33,9 +33,9 @@ void RuqolaLoginWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAccountName);
     QVERIFY(mAccountName->text().isEmpty());
 
-    auto mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
-    QVERIFY(mServerName);
-    QVERIFY(mServerName->text().isEmpty());
+    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    QVERIFY(mServerUrl);
+    QVERIFY(mServerUrl->text().isEmpty());
 
     auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);

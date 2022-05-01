@@ -16,7 +16,7 @@ public:
     explicit ServerConfigInfo(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~ServerConfigInfo() override;
     Q_REQUIRED_RESULT QString serverVersionStr() const;
-    Q_REQUIRED_RESULT QString serverName() const;
+    Q_REQUIRED_RESULT QString accountName() const;
     Q_REQUIRED_RESULT QString userName() const;
     Q_REQUIRED_RESULT QString serverUrl() const;
     Q_REQUIRED_RESULT QString logoUrl() const;

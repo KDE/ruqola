@@ -29,10 +29,10 @@ void CreateNewServerWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAccountName->text().isEmpty());
     QVERIFY(mAccountName->isClearButtonEnabled());
 
-    auto mServerName = w.findChild<QLineEdit *>(QStringLiteral("mServerName"));
-    QVERIFY(mServerName);
-    QVERIFY(mServerName->text().isEmpty());
-    QVERIFY(mServerName->isClearButtonEnabled());
+    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    QVERIFY(mServerUrl);
+    QVERIFY(mServerUrl->text().isEmpty());
+    QVERIFY(mServerUrl->isClearButtonEnabled());
 
     auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
     QVERIFY(mUserName);

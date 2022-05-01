@@ -48,7 +48,7 @@ ServerInfoWidget::~ServerInfoWidget() = default;
 void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
 {
     if (info) {
-        mAccountName->setText(info->serverName());
+        mAccountName->setText(info->accountName());
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
         mServerUrl->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(info->serverUrl()));

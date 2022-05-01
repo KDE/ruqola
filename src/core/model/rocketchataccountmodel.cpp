@@ -45,7 +45,7 @@ void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &acc
     Q_EMIT accountNumberChanged();
 }
 
-RocketChatAccount *RocketChatAccountModel::accountFromServerUrl(const QString &serverName) const
+RocketChatAccount *RocketChatAccountModel::accountFromServerUrl(const QString &serverUrl) const
 {
     if (mRocketChatAccount.isEmpty()) {
         qCWarning(RUQOLA_LOG) << " Empty account";
@@ -53,7 +53,7 @@ RocketChatAccount *RocketChatAccountModel::accountFromServerUrl(const QString &s
     }
     for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
         RocketChatAccount *model = mRocketChatAccount.at(i);
-        if (model->serverUrl().contains(serverName)) {
+        if (model->serverUrl().contains(serverUrl)) {
             return model;
         }
     }
