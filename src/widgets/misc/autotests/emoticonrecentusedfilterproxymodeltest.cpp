@@ -6,11 +6,13 @@
 
 #include "emoticonrecentusedfilterproxymodeltest.h"
 #include "misc/emoticonrecentusedfilterproxymodel.h"
+#include <QStandardPaths>
 #include <QTest>
 QTEST_MAIN(EmoticonRecentUsedFilterProxyModelTest)
 EmoticonRecentUsedFilterProxyModelTest::EmoticonRecentUsedFilterProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void EmoticonRecentUsedFilterProxyModelTest::shouldHaveDefaultValues()
