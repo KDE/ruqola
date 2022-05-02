@@ -18,6 +18,8 @@ public:
 
     void clearCache();
 
+    void slotSelectAll(const QModelIndex &index);
+
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

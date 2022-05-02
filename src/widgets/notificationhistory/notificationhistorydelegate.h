@@ -11,12 +11,13 @@
 #include "misc/messagelistdelegatebase.h"
 #include <QItemDelegate>
 class TextSelectionImpl;
+class QListView;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public MessageListDelegateBase
 {
     Q_OBJECT
 public:
-    explicit NotificationHistoryDelegate(QObject *parent = nullptr);
+    explicit NotificationHistoryDelegate(QListView *view, QObject *parent = nullptr);
     ~NotificationHistoryDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;

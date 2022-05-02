@@ -22,6 +22,8 @@ protected:
 
 private:
     void slotOpenDiscussion(const QString &roomDiscussionId);
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotSelectAll(const QModelIndex &index);
     ListDiscussionDelegate *const mListDiscussionDelegate;
     RocketChatAccount *const mRocketChatAccount;
 };

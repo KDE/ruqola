@@ -13,17 +13,19 @@
 #include <QTextDocument>
 class TextSelectionImpl;
 class RocketChatAccount;
+class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegateBase : public QItemDelegate, public DocumentFactoryInterface
 {
     Q_OBJECT
 public:
-    explicit MessageListDelegateBase(QObject *parent = nullptr);
+    explicit MessageListDelegateBase(QListView *view, QObject *parent = nullptr);
     ~MessageListDelegateBase() override;
 
     void clearCache();
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
     Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
@@ -37,4 +39,6 @@ protected:
 
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
+
+    QListView *mListView = nullptr;
 };

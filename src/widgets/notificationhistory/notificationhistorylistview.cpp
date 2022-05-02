@@ -11,7 +11,7 @@
 
 NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
-    , mListNotificationsDelegate(new NotificationHistoryDelegate(this))
+    , mListNotificationsDelegate(new NotificationHistoryDelegate(this, this))
 {
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     setItemDelegate(mListNotificationsDelegate);
@@ -37,4 +37,9 @@ bool NotificationHistoryListView::mouseEvent(QMouseEvent *event, const QStyleOpt
 void NotificationHistoryListView::clearCache()
 {
     mListNotificationsDelegate->clearCache();
+}
+
+void NotificationHistoryListView::slotSelectAll(const QModelIndex &index)
+{
+    mListNotificationsDelegate->selectAll(listViewOptions(), index);
 }

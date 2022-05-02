@@ -9,11 +9,14 @@
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
+#include <KLocalizedString>
+
+#include <QMenu>
 #include <QMouseEvent>
 
 DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
-    , mListDiscussionDelegate(new ListDiscussionDelegate(account, this))
+    , mListDiscussionDelegate(new ListDiscussionDelegate(this, account, this))
     , mRocketChatAccount(account)
 {
     setItemDelegate(mListDiscussionDelegate);
@@ -21,6 +24,8 @@ DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *pare
     connect(mListDiscussionDelegate, &ListDiscussionDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
+    setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(this, &QListView::customContextMenuRequested, this, &DiscussionListView::slotCustomContextMenuRequested);
 }
 
 DiscussionListView::~DiscussionListView()
@@ -42,4 +47,23 @@ void DiscussionListView::slotOpenDiscussion(const QString &roomDiscussionId)
     if (mRocketChatAccount) {
         mRocketChatAccount->ddp()->openRoom(roomDiscussionId);
     }
+}
+
+void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    QMenu menu(this);
+    const QModelIndex index = indexAt(pos);
+    if (index.isValid()) {
+        menu.addAction(i18n("Select All"), this, [this, index]() {
+            slotSelectAll(index);
+        });
+    }
+    if (!menu.isEmpty()) {
+        menu.exec(viewport()->mapToGlobal(pos));
+    }
+}
+
+void DiscussionListView::slotSelectAll(const QModelIndex &index)
+{
+    mListDiscussionDelegate->selectAll(listViewOptions(), index);
 }

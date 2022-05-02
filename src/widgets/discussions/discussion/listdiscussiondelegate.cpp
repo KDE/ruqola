@@ -20,8 +20,8 @@
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
-ListDiscussionDelegate::ListDiscussionDelegate(RocketChatAccount *account, QObject *parent)
-    : MessageListDelegateBase(parent)
+ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent)
+    : MessageListDelegateBase(view, parent)
     , mRocketChatAccount(account)
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {

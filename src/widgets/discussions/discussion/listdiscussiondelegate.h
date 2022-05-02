@@ -17,7 +17,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ListDiscussionDelegate : public MessageListD
 {
     Q_OBJECT
 public:
-    explicit ListDiscussionDelegate(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent = nullptr);
     ~ListDiscussionDelegate() override;
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;

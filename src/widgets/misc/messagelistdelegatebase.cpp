@@ -14,12 +14,14 @@
 
 #include <QAbstractTextDocumentLayout>
 #include <QDrag>
+#include <QListView>
 #include <QMimeData>
 #include <QMouseEvent>
 
-MessageListDelegateBase::MessageListDelegateBase(QObject *parent)
+MessageListDelegateBase::MessageListDelegateBase(QListView *view, QObject *parent)
     : QItemDelegate{parent}
     , mTextSelectionImpl(new TextSelectionImpl)
+    , mListView(view)
 {
     auto textSelection = mTextSelectionImpl->textSelection();
     textSelection->setTextHelperFactory(this);
@@ -161,4 +163,12 @@ QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWid
     Q_UNUSED(option)
     auto *doc = documentForModelIndex(index, maxWidth);
     return MessageDelegateUtils::textSizeHint(doc, pBaseLine);
+}
+
+void MessageListDelegateBase::selectAll(const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    Q_UNUSED(option);
+    mTextSelectionImpl->textSelection()->selectMessage(index);
+    mListView->update(index);
+    MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }

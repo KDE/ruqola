@@ -20,8 +20,8 @@
 #include <QTextBlock>
 #include <QToolTip>
 
-NotificationHistoryDelegate::NotificationHistoryDelegate(QObject *parent)
-    : MessageListDelegateBase{parent}
+NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObject *parent)
+    : MessageListDelegateBase{view, parent}
 {
 }
 

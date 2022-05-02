@@ -91,6 +91,10 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
         menu.addAction(i18n("Go to Message"), this, [this, index]() {
             slotShowMessage(index);
         });
+        menu.addSeparator();
+        menu.addAction(i18n("Select All"), this, [this, index]() {
+            mListNotificationsListView->slotSelectAll(index);
+        });
     }
     menu.exec(mListNotificationsListView->viewport()->mapToGlobal(pos));
 }

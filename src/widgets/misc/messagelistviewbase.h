@@ -31,10 +31,10 @@ protected:
 
     virtual bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
     virtual bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
+    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
 
 private:
     void handleMouseEvent(QMouseEvent *event);
-    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
     bool mAtBottom = true;
     QPoint mPressedPosition;
 };
