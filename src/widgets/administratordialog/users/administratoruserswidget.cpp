@@ -208,7 +208,7 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
         if (mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-active-status"))) {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), AdminUsersModel::ActiveUser);
             const bool activateUser = modelIndex.data().toBool();
-            menu.addAction(activateUser ? i18n("Disable") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
+            menu.addAction(activateUser ? i18n("Deactivate") : i18n("Active"), this, [this, newModelIndex, activateUser]() {
                 slotActivateUser(newModelIndex, activateUser);
             });
             menu.addSeparator();
@@ -328,7 +328,7 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         const QModelIndex modelIndexUserName = mModel->index(index.row(), AdminUsersModel::UserName);
         const QString userName = modelIndexUserName.data().toString();
         connect(job, &RocketChatRestApi::ResetE2EKeyJob::resetE2EKeyDone, this, [this, userName]() {
-            KMessageBox::information(this, i18n("E2E key for %1 has been reset", userName), i18n("Reset E2E"));
+            KMessageBox::information(this, i18n("E2E key for %1 has been reset.", userName), i18n("Reset E2E"));
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ResetE2EKeyJob job";
