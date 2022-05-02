@@ -12,6 +12,7 @@
 #include "room/roomwidgetbase.h"
 #include "room/uploadfileprogressstatuslistwidget.h"
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(RoomWidgetBaseTest)
@@ -19,6 +20,7 @@ QTEST_MAIN(RoomWidgetBaseTest)
 RoomWidgetBaseTest::RoomWidgetBaseTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RoomWidgetBaseTest::shouldHaveDefaultValues()

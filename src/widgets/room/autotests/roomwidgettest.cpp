@@ -23,6 +23,7 @@
 #include <ruqola.h>
 
 #include <QStackedWidget>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
@@ -30,6 +31,7 @@ QTEST_MAIN(RoomWidgetTest)
 RoomWidgetTest::RoomWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RoomWidgetTest::shouldHaveDefaultValues()
