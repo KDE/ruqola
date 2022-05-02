@@ -86,7 +86,6 @@ private:
     void slotFollowMessage(const QModelIndex &index, bool messageIsFollowing);
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
     void slotShowUserInfo(const QString &userName);
-    Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
     void slotUpdateView();
 
 private:

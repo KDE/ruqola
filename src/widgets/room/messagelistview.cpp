@@ -187,17 +187,6 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
     }
 }
 
-QStyleOptionViewItem MessageListView::listViewOptions() const
-{
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return QListView::viewOptions();
-#else
-    QStyleOptionViewItem option;
-    initViewItemOption(&option);
-    return option;
-#endif
-}
-
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
