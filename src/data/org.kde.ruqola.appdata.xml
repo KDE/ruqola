@@ -110,6 +110,7 @@
     <binary>ruqola</binary>
   </provides>
   <releases>
+    <release version="1.7.1" date="2022-05-02">
     <release version="1.7.0" date="2022-04-01">
     </release>
     <release version="1.6.3" date="2022-03-04">
