@@ -8,13 +8,16 @@
 #include "room/messagelinewidget.h"
 #include "room/messagetextedit.h"
 #include <QHBoxLayout>
+#include <QStandardPaths>
 #include <QTest>
 #include <QToolButton>
+
 QTEST_MAIN(MessageLineWidgetTest)
 
 MessageLineWidgetTest::MessageLineWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void MessageLineWidgetTest::shouldHaveDefaultValues()
