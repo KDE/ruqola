@@ -106,6 +106,8 @@ target_sources(libruqolawidgets PRIVATE
 
     administratorsettingsdialog/administratorsettingsdialog.cpp
     administratorsettingsdialog/administratorsettingsdialog.h
+    administratorsettingsdialog/administratorsettingswidget.h
+    administratorsettingsdialog/administratorsettingswidget.cpp
 
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
@@ -582,6 +584,7 @@ if (BUILD_TESTING)
     add_subdirectory(messagemaximumsizedialog/autotests)
     add_subdirectory(notificationhistory/autotests)
     add_subdirectory(discussions/autotests/)
+    add_subdirectory(administratorsettingsdialog/autotests/)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
