@@ -43,7 +43,6 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotificationsListView);
 
-    mListNotificationsListView->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(mListNotificationsListView, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
     auto model = NotificationHistoryManager::self()->notificationHistoryModel();
 

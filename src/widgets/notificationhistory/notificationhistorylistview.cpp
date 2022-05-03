@@ -15,6 +15,8 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
 {
     mListNotificationsDelegate->setObjectName(QStringLiteral("listNotificationsDelegate"));
     setItemDelegate(mListNotificationsDelegate);
+    setContextMenuPolicy(Qt::CustomContextMenu);
+
     connect(mListNotificationsDelegate, &NotificationHistoryDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
