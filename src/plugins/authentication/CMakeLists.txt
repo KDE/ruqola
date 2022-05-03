@@ -10,4 +10,5 @@ endif()
 #Experimental
 add_subdirectory(twitter)
 add_subdirectory(facebook)
-
+add_subdirectory(github)
+add_subdirectory(gitlab)
