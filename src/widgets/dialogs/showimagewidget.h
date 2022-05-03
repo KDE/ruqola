@@ -53,10 +53,6 @@ private:
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ImageGraphicsView : public QGraphicsView
 {
     Q_OBJECT
-    Q_PROPERTY(qreal zoom READ zoom WRITE setZoom NOTIFY zoomChanged)
-    Q_PROPERTY(qreal minimumZoom READ minimumZoom NOTIFY minimumZoomChanged)
-    Q_PROPERTY(qreal maximumZoom READ maximumZoom NOTIFY maximumZoomChanged)
-
 public:
     explicit ImageGraphicsView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ImageGraphicsView() override;
