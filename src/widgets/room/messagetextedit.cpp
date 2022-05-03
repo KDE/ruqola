@@ -142,7 +142,18 @@ QMenu *MessageTextEdit::mousePopupMenu()
     formatMenu->addAction(QIcon::fromTheme(QStringLiteral("format-text-strikethrough")), i18n("Strike-out"), this, &MessageTextEdit::slotSetAsStrikeOut);
     formatMenu->addSeparator();
     formatMenu->addAction(i18n("Code Block"), this, &MessageTextEdit::slotInsertCodeBlock);
+    formatMenu->addSeparator();
+    formatMenu->addAction(i18n("Markdown Url"), this, &MessageTextEdit::slotInsertMarkdownUrl);
     return menu;
+}
+
+void MessageTextEdit::slotInsertMarkdownUrl()
+{
+    QTextCursor cursor = textCursor();
+    const QString mardownUrlStr{QStringLiteral("[text](url)")};
+    cursor.insertText(mardownUrlStr);
+    cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
+    setTextCursor(cursor);
 }
 
 void MessageTextEdit::slotInsertCodeBlock()
