@@ -103,6 +103,10 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/users/administratoradduserwidget.h
     administratordialog/users/administratoruserswidget.cpp
     administratordialog/users/administratoruserswidget.h
+
+    administratorsettingsdialog/administratorsettingsdialog.cpp
+    administratorsettingsdialog/administratorsettingsdialog.h
+
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
     channellist/channellistview.cpp
