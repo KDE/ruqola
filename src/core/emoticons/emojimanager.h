@@ -47,7 +47,7 @@ public:
     void deleteEmojiCustom(const QJsonArray &obj);
 
 Q_SIGNALS:
-    void customEmojiChanged();
+    void customEmojiChanged(bool fetchListCustom);
 
 private:
     Q_DISABLE_COPY(EmojiManager)

@@ -831,14 +831,18 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);
-    updateCustomEmojiList();
+    updateCustomEmojiList(false);
 }
 
-void RocketChatAccount::updateCustomEmojiList()
+void RocketChatAccount::updateCustomEmojiList(bool fetchListCustom)
 {
-    const auto customEmojiList = mEmojiManager->customEmojiList();
-    mEmoticonModel->setCustomEmojiList(customEmojiList);
-    mEmoticonCustomModel->setCustomEmojiList(customEmojiList);
+    if (fetchListCustom) {
+        listEmojiCustom();
+    } else {
+        const auto customEmojiList = mEmojiManager->customEmojiList();
+        mEmoticonModel->setCustomEmojiList(customEmojiList);
+        mEmoticonCustomModel->setCustomEmojiList(customEmojiList);
+    }
 }
 
 OtrManager *RocketChatAccount::otrManager() const

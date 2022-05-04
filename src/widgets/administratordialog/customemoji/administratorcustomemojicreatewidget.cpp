@@ -7,9 +7,11 @@
 #include "administratorcustomemojicreatewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 
 #include <KLocalizedString>
+#include <KStatefulBrush>
 #include <KUrlRequester>
 
 AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidget *parent)
@@ -17,7 +19,17 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     , mName(new QLineEdit(this))
     , mAlias(new QLineEdit(this))
     , mSelectFile(new KUrlRequester(this))
+    , mWarningLabel(new QLabel(i18n("The custom emoji name and their aliases should be different."), this))
 {
+    mWarningLabel->setObjectName(QStringLiteral("mWarningLabel"));
+    const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
+    const QColor color = bgBrush.brush(palette()).color();
+
+    QPalette pal = mWarningLabel->palette();
+    pal.setColor(QPalette::WindowText, color);
+    mWarningLabel->setPalette(pal);
+    mWarningLabel->hide();
+
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -32,8 +44,11 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Alias:"), mAlias);
     mainLayout->addRow(i18n("File:"), mSelectFile);
+    mainLayout->addWidget(mWarningLabel);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
     connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
+    connect(mSelectFile, &KUrlRequester::urlSelected, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
+    connect(mSelectFile, &KUrlRequester::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
 }
 
 AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget() = default;
@@ -44,6 +59,7 @@ void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiC
     mAlias->setText(info.alias);
 
     // TODO url ???
+    slotUpdateOkButton();
 }
 
 AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateWidget::info() const
@@ -57,7 +73,13 @@ AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomE
 
 void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
 {
-    Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && !mAlias->text().trimmed().isEmpty());
+    if (mName->text().trimmed() != mAlias->text().trimmed()) {
+        mWarningLabel->hide();
+        Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && mSelectFile->url().isValid());
+    } else {
+        mWarningLabel->show();
+        Q_EMIT updateOkButton(false);
+    }
 }
 
 QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &t)

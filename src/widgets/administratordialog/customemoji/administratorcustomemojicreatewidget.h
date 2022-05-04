@@ -12,6 +12,7 @@
 #include <QWidget>
 class QLineEdit;
 class KUrlRequester;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorCustomEmojiCreateWidget : public QWidget
 {
     Q_OBJECT
@@ -36,5 +37,6 @@ private:
     QLineEdit *const mName;
     QLineEdit *const mAlias;
     KUrlRequester *const mSelectFile;
+    QLabel *const mWarningLabel;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &t);

@@ -40,38 +40,40 @@ QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category
 
 void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomArray)
 {
+    bool newEmoji = true;
     for (int i = 0; i < arrayEmojiCustomArray.count(); ++i) {
         const QJsonObject obj = arrayEmojiCustomArray.at(i).toObject();
         const QJsonObject customEmojiObj = obj.value(QLatin1String("emojiData")).toObject();
         if (!customEmojiObj.isEmpty()) {
             if (customEmojiObj.contains(QLatin1String("_id"))) {
-                bool found = false;
                 const QString identifier = customEmojiObj.value(QLatin1String("_id")).toString();
                 for (auto emoji : std::as_const(mCustomEmojiList)) {
                     if (emoji.identifier() == identifier) {
+                        mCustomEmojiList.removeAll(emoji);
                         emoji.parseEmoji(customEmojiObj, true);
-                        found = true;
+                        mCustomEmojiList.append(emoji);
+                        newEmoji = false;
                         break;
                     }
                 }
-                if (!found) {
-                    // Parse
-                    CustomEmoji newStatus;
-                    newStatus.parseEmoji(customEmojiObj, true);
-                    if (newStatus.isValid()) {
-                        mCustomEmojiList.append(newStatus);
-                    }
-                }
-            } else {
-                qCWarning(RUQOLA_LOG) << "addUpdateEmojiCustomList invalid QJsonObject" << customEmojiObj;
             }
+            //            if (!found) {
+            //                // Parse
+            //                CustomEmoji newEmoji;
+            //                newEmoji.parseEmoji(customEmojiObj, true);
+            //                if (newEmoji.isValid()) {
+            //                    mCustomEmojiList.append(newEmoji);
+            //                }
+            //            }
+        } else {
+            qCWarning(RUQOLA_LOG) << "addUpdateEmojiCustomList invalid QJsonObject" << customEmojiObj;
         }
     }
 
     // New QJsonArray([{"emojiData":{"_id":"HdN28k4PQ6J9xLkZ8","_updatedAt":{"$date":1631885946222},"aliases":["roo"],"extension":"png","name":"ruqola"}}])
     // Update
     // QJsonArray([{"emojiData":{"_id":"vxE6eG5FrZCvbgM3t","aliases":["rooss"],"extension":"png","name":"xxx","newFile":true,"previousExtension":"png","previousName":"ruqolas"}}
-    Q_EMIT customEmojiChanged();
+    Q_EMIT customEmojiChanged(newEmoji);
 }
 
 void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
@@ -91,7 +93,7 @@ void EmojiManager::deleteEmojiCustom(const QJsonArray &arrayEmojiCustomArray)
             }
         }
     }
-    Q_EMIT customEmojiChanged();
+    Q_EMIT customEmojiChanged(false);
 }
 
 void EmojiManager::loadCustomEmoji(const QJsonObject &obj)

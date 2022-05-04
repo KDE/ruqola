@@ -605,7 +605,7 @@ private:
     void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
     void slotUpdateCustomUserStatus();
     void slotDirectoryDone(const QJsonObject &obj);
-    void updateCustomEmojiList();
+    void updateCustomEmojiList(bool fetchListCustom);
     void slotLoadRoles();
     void slotAwayStatusChanged(bool away);
     void slotJobFailed(const QString &str);
