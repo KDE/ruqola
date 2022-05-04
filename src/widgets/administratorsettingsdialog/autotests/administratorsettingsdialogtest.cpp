@@ -6,6 +6,7 @@
 
 #include "administratorsettingsdialogtest.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
+#include "administratorsettingsdialog/administratorsettingswidget.h"
 #include <QDialogButtonBox>
 #include <QTest>
 #include <QVBoxLayout>
@@ -24,8 +25,8 @@ void AdministratorSettingsDialogTest::shouldHaveDefaultValues()
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    //    auto mAdministratorWidget = d.findChild<AdministratorWidget *>(QStringLiteral("mAdministratorWidget"));
-    //    QVERIFY(mAdministratorWidget);
+    auto mAdministratorSettingsWidget = d.findChild<AdministratorSettingsWidget *>(QStringLiteral("mAdministratorSettingsWidget"));
+    QVERIFY(mAdministratorSettingsWidget);
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);

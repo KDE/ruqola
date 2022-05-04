@@ -10,10 +10,14 @@
 #include <QWidget>
 
 class RocketChatAccount;
+class QTabWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorSettingsWidget() override;
+
+private:
+    QTabWidget *const mTabWidget;
 };

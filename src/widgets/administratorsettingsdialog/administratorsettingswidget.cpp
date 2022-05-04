@@ -7,9 +7,19 @@
 #include "administratorsettingswidget.h"
 #include "rocketchataccount.h"
 
+#include <QTabWidget>
+#include <QVBoxLayout>
+
 AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mTabWidget(new QTabWidget(this))
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+
+    mTabWidget->setObjectName(QStringLiteral("mTabWidget"));
+    mainLayout->addWidget(mTabWidget);
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget()

@@ -11,3 +11,4 @@ macro(add_administratorsettings_test _source)
 endmacro()
 
 add_administratorsettings_test(administratorsettingsdialogtest.cpp)
+add_administratorsettings_test(administratorsettingswidgettest.cpp)
