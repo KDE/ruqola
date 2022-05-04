@@ -5,14 +5,20 @@
 */
 
 #include "accountsettingswidget.h"
-#include <QVBoxLayout>
+#include <KLocalizedString>
+#include <QCheckBox>
+#include <QFormLayout>
 
 AccountSettingsWidget::AccountSettingsWidget(QWidget *parent)
     : QWidget{parent}
+    , mAllowChangeName(new QCheckBox(i18n("Allow Name Change"), this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
+    mainLayout->addWidget(mAllowChangeName);
 }
 
 AccountSettingsWidget::~AccountSettingsWidget()

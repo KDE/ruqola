@@ -11,6 +11,7 @@
 
 class RocketChatAccount;
 class QTabWidget;
+class AccountSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ public:
 
 private:
     QTabWidget *const mTabWidget;
+    AccountSettingsWidget *const mAccountSettingsWidget;
 };
