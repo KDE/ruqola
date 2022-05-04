@@ -5,6 +5,7 @@
 */
 
 #include "administratorsettingswidgettest.h"
+#include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
@@ -26,4 +27,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mTabWidget = w.findChild<QTabWidget *>(QStringLiteral("mTabWidget"));
     QVERIFY(mTabWidget);
+
+    auto mAccountSettingsWidget = w.findChild<AccountSettingsWidget *>(QStringLiteral("mAccountSettingsWidget"));
+    QVERIFY(mAccountSettingsWidget);
 }
