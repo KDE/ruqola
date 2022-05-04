@@ -10,8 +10,6 @@
 #include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QNetworkReply>
-#include <QPointer>
 #include <QUrlQuery>
 
 using namespace RocketChatRestApi;

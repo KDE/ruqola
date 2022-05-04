@@ -6,7 +6,6 @@
 
 #include "messagedelegatehelperbase.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "delegateutils/textselection.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"

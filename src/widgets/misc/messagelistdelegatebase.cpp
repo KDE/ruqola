@@ -6,7 +6,6 @@
 
 #include "messagelistdelegatebase.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 
 #include "rocketchataccount.h"

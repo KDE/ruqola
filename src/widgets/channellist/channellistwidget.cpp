@@ -10,7 +10,6 @@
 #include "ruqolawidgets_debug.h"
 
 #include "accountmanager.h"
-#include "parsemessageurlutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolautils.h"

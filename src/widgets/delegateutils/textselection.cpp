@@ -6,7 +6,6 @@
 
 #include "textselection.h"
 #include "messages/message.h"
-#include "messages/messageattachment.h"
 #include "model/messagemodel.h"
 #include "ruqolawidgets_selection_debug.h"
 

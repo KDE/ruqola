@@ -8,7 +8,6 @@
 #include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
