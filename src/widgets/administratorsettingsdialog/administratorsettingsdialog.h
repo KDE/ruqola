@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-// class AdministratorWidget;
+class AdministratorSettingsWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsDialog : public QDialog
 {
@@ -22,5 +22,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
-    // AdministratorWidget *const mAdministratorWidget;
+    AdministratorSettingsWidget *const mAdministratorSettingsWidget;
 };

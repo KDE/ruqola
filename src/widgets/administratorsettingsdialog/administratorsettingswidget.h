@@ -9,10 +9,11 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AdministratorSettingsWidget(QWidget *parent = nullptr);
+    explicit AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorSettingsWidget() override;
 };

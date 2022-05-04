@@ -5,8 +5,9 @@
 */
 
 #include "administratorsettingswidget.h"
+#include "rocketchataccount.h"
 
-AdministratorSettingsWidget::AdministratorSettingsWidget(QWidget *parent)
+AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
 {
 }

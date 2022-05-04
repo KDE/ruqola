@@ -5,7 +5,7 @@
 */
 
 #include "administratorsettingsdialog.h"
-// #include "administratorwidget.h"
+#include "administratorsettingswidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -20,14 +20,14 @@ const char myAdministratorSettingsDialogGroupName[] = "AdministratorSettingsDial
 
 AdministratorSettingsDialog::AdministratorSettingsDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-// , mAdministratorWidget(new AdministratorWidget(account, this))
+    , mAdministratorSettingsWidget(new AdministratorSettingsWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Administrator"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    // mAdministratorWidget->setObjectName(QStringLiteral("mAdministratorWidget"));
-    // mainLayout->addWidget(mAdministratorWidget);
+    mAdministratorSettingsWidget->setObjectName(QStringLiteral("mAdministratorSettingsWidget"));
+    mainLayout->addWidget(mAdministratorSettingsWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
