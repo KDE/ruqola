@@ -21,6 +21,4 @@ AccountSettingsWidget::AccountSettingsWidget(QWidget *parent)
     mainLayout->addWidget(mAllowChangeName);
 }
 
-AccountSettingsWidget::~AccountSettingsWidget()
-{
-}
+AccountSettingsWidget::~AccountSettingsWidget() = default;
