@@ -12,7 +12,7 @@
 #include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
-"
+
 #include "config-ruqola.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "connection.h"
