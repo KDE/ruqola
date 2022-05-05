@@ -11,6 +11,8 @@
 
 #include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
+#include "administratorsettingsdialog/administratorsettingsdialog.h"
+"
 #include "config-ruqola.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "connection.h"
@@ -73,7 +75,7 @@
 #include <KUserFeedback/Provider>
 #endif
 
-namespace
+    namespace
 {
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 }
@@ -263,8 +265,11 @@ void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
     mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
-    mAdministrator->setEnabled(mCurrentRocketChatAccount->isAdministrator());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
+    const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
+    mAdministrator->setEnabled(isAdministrator);
+    mAdministratorServerSettings->setEnabled(isAdministrator);
+    mAdministratorMenu->setEnabled(isAdministrator);
 }
 
 void RuqolaMainWindow::readConfig()
@@ -359,9 +364,17 @@ void RuqolaMainWindow::setupActions()
     connect(mMyAccount, &QAction::triggered, this, &RuqolaMainWindow::slotConfigureMyAccount);
     ac->addAction(QStringLiteral("configure_my_account"), mMyAccount);
 
+    mAdministratorMenu = new KActionMenu(i18n("Administrator"), this);
     mAdministrator = new QAction(i18n("Administrator..."), this);
+    ac->addAction(QStringLiteral("administrator_account_settings"), mAdministrator);
     connect(mAdministrator, &QAction::triggered, this, &RuqolaMainWindow::slotAdministrator);
-    ac->addAction(QStringLiteral("administrator"), mAdministrator);
+    mAdministratorMenu->addAction(mAdministrator);
+    ac->addAction(QStringLiteral("administrator"), mAdministratorMenu);
+
+    mAdministratorServerSettings = new QAction(i18n("Server Settings..."), this);
+    connect(mAdministratorServerSettings, &QAction::triggered, this, &RuqolaMainWindow::slotAdministratorServerSettings);
+    ac->addAction(QStringLiteral("administrator_server_settings"), mAdministratorServerSettings);
+    mAdministratorMenu->addAction(mAdministratorServerSettings);
 
     mDirectory = new QAction(i18n("Directory..."), this);
     connect(mDirectory, &QAction::triggered, this, &RuqolaMainWindow::slotDirectory);
@@ -662,6 +675,13 @@ void RuqolaMainWindow::slotConfigureMyAccount()
 void RuqolaMainWindow::slotAdministrator()
 {
     AdministratorDialog dlg(mCurrentRocketChatAccount, this);
+    dlg.initialize();
+    dlg.exec();
+}
+
+void RuqolaMainWindow::slotAdministratorServerSettings()
+{
+    AdministratorSettingsDialog dlg(mCurrentRocketChatAccount, this);
     dlg.initialize();
     dlg.exec();
 }

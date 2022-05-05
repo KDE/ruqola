@@ -26,6 +26,7 @@ class KToggleAction;
 class KHamburgerMenu;
 class KToggleFullScreenAction;
 class QToolButton;
+class KActionMenu;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -89,6 +90,7 @@ private:
     void slotOpenNotificationHistory();
     void slotNewNotification();
     void slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
+    void slotAdministratorServerSettings();
 
     bool mReallyClose{false};
 
@@ -104,6 +106,7 @@ private:
     QAction *mRegisterNewUser = nullptr;
     QAction *mMyAccount = nullptr;
     QAction *mAdministrator = nullptr;
+    QAction *mAdministratorServerSettings = nullptr;
     QAction *mCreateDiscussion = nullptr;
     QAction *mCreateTeam = nullptr;
     QAction *mDirectory = nullptr;
@@ -123,4 +126,5 @@ private:
     KToggleFullScreenAction *mShowFullScreenAction = nullptr;
     QToolButton *mNotificationToolButton = nullptr;
     QAction *mShowNotifyHistory = nullptr;
+    KActionMenu *mAdministratorMenu = nullptr;
 };
