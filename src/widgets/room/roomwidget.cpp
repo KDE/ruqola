@@ -698,8 +698,16 @@ void RoomWidget::slotClearNotification()
 
 void RoomWidget::slotEncryptedChanged(bool b)
 {
-    qCWarning(RUQOLAWIDGETS_LOG) << "change encrypted not supported yet";
-    // TODO mCurrentRocketChatAccount->slot
+    RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo info;
+    info.encrypted = b;
+    info.roomId = mRoomWidgetBase->roomId();
+    info.mSettingsWillBeChanged |= RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo::Encrypted;
+    auto saveRoomSettingsJob = new RocketChatRestApi::SaveRoomSettingsJob(this);
+    saveRoomSettingsJob->setSaveRoomSettingsInfo(info);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(saveRoomSettingsJob);
+    if (!saveRoomSettingsJob->start()) {
+        qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start saveRoomSettingsJob";
+    }
 }
 
 void RoomWidget::slotChangeFavorite(bool b)
