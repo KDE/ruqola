@@ -22,7 +22,7 @@ AdministratorSettingsDialog::AdministratorSettingsDialog(RocketChatAccount *acco
     : QDialog(parent)
     , mAdministratorSettingsWidget(new AdministratorSettingsWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Administrator"));
+    setWindowTitle(i18nc("@title:window", "Administrator Server Settings"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -45,8 +45,7 @@ AdministratorSettingsDialog::~AdministratorSettingsDialog()
 
 void AdministratorSettingsDialog::initialize()
 {
-    //    mAdministratorWidget->updateUiFromPermission();
-    //    mAdministratorWidget->initialize();
+    // TODO ?
 }
 
 void AdministratorSettingsDialog::readConfig()
