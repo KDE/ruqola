@@ -487,7 +487,8 @@ QString Message::systemMessageText() const
         return i18n("Role \'%3\' was removed to %1 by %2", mText, mUsername, mRole);
     } else if (mSystemMessageType == QLatin1String("e2e")) {
         // TODO need to unencrypt it
-        return i18n("Encrypted message: %1", mText);
+        // return i18n("Encrypted message: %1", mText);
+        return i18n("This message is end-to-end encrypted. To view it, you must enter your encryption key in your account settings.");
     } else if (mSystemMessageType == QLatin1String("discussion-created")) {
         return i18n("Discussion created about \"%1\"", mText);
     } else if (mSystemMessageType == QLatin1String("ut")) {
