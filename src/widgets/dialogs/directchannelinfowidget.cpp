@@ -72,6 +72,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
 
     mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
     mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mEmailsInfo->setTextFormat(Qt::RichText);
     mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
 }
 
