@@ -16,7 +16,7 @@ public:
     ~PasswordPluginAuthentication() override;
 
     PluginAuthenticationInterface *createInterface(QObject *parent) override;
-    AuthenticationManager::OauthType type() const override;
-    QString name() const override;
-    QString iconName() const override;
+    Q_REQUIRED_RESULT AuthenticationManager::OauthType type() const override;
+    Q_REQUIRED_RESULT QString name() const override;
+    Q_REQUIRED_RESULT QString iconName() const override;
 };
