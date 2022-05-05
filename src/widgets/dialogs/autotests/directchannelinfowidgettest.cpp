@@ -66,4 +66,10 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLastLogin);
     QVERIFY(mLastLogin->text().isEmpty());
     QCOMPARE(mLastLogin->textInteractionFlags(), Qt::TextBrowserInteraction);
+
+    auto mEmailsInfo = w.findChild<QLabel *>(QStringLiteral("mEmailsInfo"));
+    QVERIFY(mEmailsInfo);
+    QVERIFY(mEmailsInfo->text().isEmpty());
+    QCOMPARE(mEmailsInfo->textInteractionFlags(), Qt::TextBrowserInteraction);
+    QCOMPARE(mEmailsInfo->textFormat(), Qt::RichText);
 }
