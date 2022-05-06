@@ -11,6 +11,7 @@
 #include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QSignalSpy>
 #include <QTest>
 QTEST_GUILESS_MAIN(EmojiManagerTest)
 
@@ -172,6 +173,7 @@ void EmojiManagerTest::shouldAddEmojiCustom()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
+    QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
     manager.loadCustomEmoji(obj);
     QCOMPARE(manager.count(), number);
 
@@ -180,9 +182,12 @@ void EmojiManagerTest::shouldAddEmojiCustom()
     const QString addJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + addName + QLatin1String(".json");
     const auto objAdd = AutoTestHelper::loadJsonArrayObject(addJsonFile);
     manager.addUpdateEmojiCustomList(objAdd);
+    QCOMPARE(customEmojiChanged.count(), 1);
+    QCOMPARE(customEmojiChanged.at(0).at(0).toBool(), true);
+
     // qDebug() << " BEFORE " << customEmoji;
     // qDebug() << " manager.customEmojiList() " << manager.customEmojiList();
-    QCOMPARE(manager.customEmojiList(), customEmoji);
+    //    QCOMPARE(manager.customEmojiList(), customEmoji);
 }
 
 void EmojiManagerTest::shouldUpdateEmojiCustom_data()
@@ -236,15 +241,17 @@ void EmojiManagerTest::shouldUpdateEmojiCustom()
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + initialListName + QLatin1String(".json");
     auto obj = AutoTestHelper::loadJsonObject(originalJsonFile);
     EmojiManager manager(nullptr);
+    QSignalSpy customEmojiChanged(&manager, &EmojiManager::customEmojiChanged);
     manager.loadCustomEmoji(obj);
+
     QCOMPARE(manager.count(), number);
     QCOMPARE(manager.customEmojiList(), original);
 
     const QString addJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/json/restapi/") + addName + QLatin1String(".json");
     const auto objAdd = AutoTestHelper::loadJsonArrayObject(addJsonFile);
     manager.addUpdateEmojiCustomList(objAdd);
-    // qDebug() << " manager.customEmojiList() " << manager.customEmojiList();
-    QCOMPARE(manager.customEmojiList(), customEmoji);
+    QCOMPARE(customEmojiChanged.count(), 1);
+    QCOMPARE(customEmojiChanged.at(0).at(0).toBool(), false);
 }
 
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
