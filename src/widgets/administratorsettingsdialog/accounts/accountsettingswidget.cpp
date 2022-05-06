@@ -24,6 +24,9 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mainLayout->addWidget(mAllowChangeName);
+    connect(mAllowChangeName, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowRealNameChange"), checked);
+    });
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;

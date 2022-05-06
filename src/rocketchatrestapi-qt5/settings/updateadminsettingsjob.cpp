@@ -81,8 +81,10 @@ QNetworkRequest UpdateAdminSettingsJob::request() const
 
 QJsonDocument UpdateAdminSettingsJob::json() const
 {
-    // TODO
-    return {};
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("value")] = mInfo.settingsValue;
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }
 
 bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::isValid() const
