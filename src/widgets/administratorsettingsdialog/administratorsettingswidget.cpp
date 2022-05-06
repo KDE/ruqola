@@ -16,7 +16,7 @@
 AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mTabWidget(new QTabWidget(this))
-    , mAccountSettingsWidget(new AccountSettingsWidget(this))
+    , mAccountSettingsWidget(new AccountSettingsWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

@@ -18,7 +18,7 @@ AccountSettingsWidgetTest::AccountSettingsWidgetTest(QObject *parent)
 
 void AccountSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    AccountSettingsWidget w;
+    AccountSettingsWidget w(nullptr);
     auto mAllowChangeName = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeName"));
     QVERIFY(mAllowChangeName);
     QVERIFY(!mAllowChangeName->text().isEmpty());

@@ -9,13 +9,17 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QCheckBox;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountSettingsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AccountSettingsWidget(QWidget *parent = nullptr);
+    explicit AccountSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AccountSettingsWidget() override;
 
 private:
+    void updateSettings(const QString &settingName, bool value);
+    void slotAdminSettingsDone(const QJsonObject &obj);
     QCheckBox *const mAllowChangeName;
+    RocketChatAccount *const mAccount;
 };
