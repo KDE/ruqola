@@ -73,6 +73,7 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
     mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
     mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
     mEmailsInfo->setTextFormat(Qt::RichText);
+    mEmailsInfo->setOpenExternalLinks(true);
     mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
 }
 
@@ -166,7 +167,8 @@ void DirectChannelInfoWidget::setUser(const User &user)
     }
 
     if (user.userEmailsInfo().isValid()) {
-        const QString infoStr = i18n("%1 [%2]", user.userEmailsInfo().email, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
+        const QString generateEmail = QStringLiteral("<a href=\'mailto:%1\'>%1</a>").arg(user.userEmailsInfo().email);
+        const QString infoStr = i18n("%1 [%2]", generateEmail, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
         mEmailsInfo->setText(infoStr);
     } else {
         hideWidget(mEmailsInfo);

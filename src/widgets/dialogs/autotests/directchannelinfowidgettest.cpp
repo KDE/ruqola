@@ -72,4 +72,5 @@ void DirectChannelInfoWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmailsInfo->text().isEmpty());
     QCOMPARE(mEmailsInfo->textInteractionFlags(), Qt::TextBrowserInteraction);
     QCOMPARE(mEmailsInfo->textFormat(), Qt::RichText);
+    QVERIFY(mEmailsInfo->openExternalLinks());
 }
