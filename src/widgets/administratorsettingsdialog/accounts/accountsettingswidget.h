@@ -21,5 +21,8 @@ private:
     void updateSettings(const QString &settingName, bool value);
     void slotAdminSettingsDone(const QJsonObject &obj);
     QCheckBox *const mAllowChangeName;
+    QCheckBox *const mAllowChangeUserProfile;
+    QCheckBox *const mAllowChangeUserAvatar;
+    QCheckBox *const mAllowChangeEmail;
     RocketChatAccount *const mAccount;
 };

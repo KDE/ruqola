@@ -17,6 +17,9 @@
 AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mAllowChangeName(new QCheckBox(i18n("Allow Name Change"), this))
+    , mAllowChangeUserProfile(new QCheckBox(i18n("Allow User Profile Change"), this))
+    , mAllowChangeUserAvatar(new QCheckBox(i18n("Allow User Avatar Change"), this))
+    , mAllowChangeEmail(new QCheckBox(i18n("Allow Email Change"), this))
     , mAccount(account)
 {
     auto mainLayout = new QFormLayout(this);
@@ -27,6 +30,24 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mainLayout->addWidget(mAllowChangeName);
     connect(mAllowChangeName, &QCheckBox::clicked, this, [this](bool checked) {
         updateSettings(QStringLiteral("Accounts_AllowRealNameChange"), checked);
+    });
+
+    mAllowChangeUserProfile->setObjectName(QStringLiteral("mAllowChangeUserProfile"));
+    mainLayout->addWidget(mAllowChangeUserProfile);
+    connect(mAllowChangeUserProfile, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowUserProfileChange"), checked);
+    });
+
+    mAllowChangeUserAvatar->setObjectName(QStringLiteral("mAllowChangeUserAvatar"));
+    mainLayout->addWidget(mAllowChangeUserAvatar);
+    connect(mAllowChangeUserAvatar, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowUserAvatarChange"), checked);
+    });
+
+    mAllowChangeEmail->setObjectName(QStringLiteral("mAllowChangeEmail"));
+    mainLayout->addWidget(mAllowChangeEmail);
+    connect(mAllowChangeEmail, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowEmailChange"), checked);
     });
 }
 

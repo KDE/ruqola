@@ -21,5 +21,21 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     AccountSettingsWidget w(nullptr);
     auto mAllowChangeName = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeName"));
     QVERIFY(mAllowChangeName);
+    QVERIFY(!mAllowChangeName->isChecked());
     QVERIFY(!mAllowChangeName->text().isEmpty());
+
+    auto mAllowChangeUserProfile = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeUserProfile"));
+    QVERIFY(mAllowChangeUserProfile);
+    QVERIFY(!mAllowChangeUserProfile->isChecked());
+    QVERIFY(!mAllowChangeUserProfile->text().isEmpty());
+
+    auto mAllowChangeUserAvatar = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeUserAvatar"));
+    QVERIFY(mAllowChangeUserAvatar);
+    QVERIFY(!mAllowChangeUserAvatar->isChecked());
+    QVERIFY(!mAllowChangeUserAvatar->text().isEmpty());
+
+    auto mAllowChangeEmail = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeEmail"));
+    QVERIFY(mAllowChangeEmail);
+    QVERIFY(!mAllowChangeEmail->isChecked());
+    QVERIFY(!mAllowChangeEmail->text().isEmpty());
 }
