@@ -12,3 +12,4 @@ endmacro()
 
 add_ruqola_notificationhistory_test(notificationhistorywidgettest.cpp)
 add_ruqola_notificationhistory_test(notificationhistorydialogtest.cpp)
+add_ruqola_notificationhistory_test(notificationhistorylistviewtest.cpp)
