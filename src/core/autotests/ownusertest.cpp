@@ -59,7 +59,6 @@ void OwnUserTest::shouldLoadOwnUser_data()
 
     OwnUserPreferences ownUser;
     ownUser.setDesktopNotifications(QStringLiteral("all"));
-    ownUser.setMobileNotifications(QStringLiteral("all"));
     ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
     ownUser.setIdleTimeLimit(300);
     ownUser.setEnableAutoAway(true);

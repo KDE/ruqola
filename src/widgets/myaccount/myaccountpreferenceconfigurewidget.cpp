@@ -20,7 +20,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mHighlightWords(new QLineEdit(this))
     , mDesktopNotification(new QComboBox(this))
     , mEmailNotification(new QComboBox(this))
-    , mMobileNotification(new QComboBox(this))
+    , mPushNotification(new QComboBox(this))
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
@@ -48,7 +48,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
-    mMobileNotification->setObjectName(QStringLiteral("mMobileNotification"));
+    mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
 
     auto desktopNotificationLabel = new QLabel(i18n("Desktop Notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
@@ -64,12 +64,12 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(mEmailNotification);
 
-    auto mobileNotificationLabel = new QLabel(i18n("Mobile Notification:"), this);
-    mobileNotificationLabel->setObjectName(QStringLiteral("mobileNotificationLabel"));
-    mobileNotificationLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(mobileNotificationLabel);
+    auto pushNotificationLabel = new QLabel(i18n("Push Notification:"), this);
+    pushNotificationLabel->setObjectName(QStringLiteral("pushNotificationLabel"));
+    pushNotificationLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(pushNotificationLabel);
 
-    mainLayout->addWidget(mMobileNotification);
+    mainLayout->addWidget(mPushNotification);
     mainLayout->addWidget(mUseEmoji);
     connect(mUseEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mConvertAsciiEmoji);
@@ -92,16 +92,16 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mDesktopNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
     // Default ?
-    mMobileNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
-    mMobileNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
-    mMobileNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
+    mPushNotification->addItem(i18n("All Messages"), QStringLiteral("all"));
+    mPushNotification->addItem(i18n("Mentions"), QStringLiteral("mentions"));
+    mPushNotification->addItem(i18n("Nothing"), QStringLiteral("nothing"));
 
     // Default ?
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mMobileNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
@@ -119,7 +119,7 @@ void MyAccountPreferenceConfigureWidget::save()
 
         RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
         info.highlights = listWords;
-        info.mobileNotifications = mMobileNotification->currentData().toString();
+        info.pushNotifications = mPushNotification->currentData().toString();
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = mRocketChatAccount->userId();
@@ -135,7 +135,7 @@ void MyAccountPreferenceConfigureWidget::load()
 {
     const OwnUserPreferences ownUserPreferences = mRocketChatAccount->ownUserPreferences();
     mHighlightWords->setText(ownUserPreferences.highlightWords().join(QLatin1Char(',')));
-    mMobileNotification->setCurrentIndex(mMobileNotification->findData(ownUserPreferences.mobileNotifications()));
+    mPushNotification->setCurrentIndex(mPushNotification->findData(ownUserPreferences.pushNotifications()));
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
     mUseEmoji->setChecked(ownUserPreferences.useEmojis());

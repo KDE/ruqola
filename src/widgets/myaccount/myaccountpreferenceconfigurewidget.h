@@ -28,7 +28,7 @@ private:
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
-    QComboBox *const mMobileNotification;
+    QComboBox *const mPushNotification;
     QCheckBox *const mUseEmoji;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;

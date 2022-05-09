@@ -20,7 +20,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.highlightWords().isEmpty());
     QVERIFY(p.emailNotificationMode().isEmpty());
     QVERIFY(p.desktopNotifications().isEmpty());
-    QVERIFY(p.mobileNotifications().isEmpty());
+    QVERIFY(p.pushNotifications().isEmpty());
     QVERIFY(p.convertAsciiEmoji());
     QVERIFY(p.useEmojis());
     QVERIFY(!p.hideRoles());
@@ -38,7 +38,6 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
     {
         OwnUserPreferences preferences;
         preferences.setEmailNotificationMode(QStringLiteral("mentions"));
-        preferences.setMobileNotifications(QStringLiteral("nothing"));
         preferences.setDesktopNotifications(QStringLiteral("mentions"));
         preferences.setConvertAsciiEmoji(false);
         preferences.setUseEmojis(false);
