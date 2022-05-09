@@ -328,6 +328,16 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageA
     return nullptr;
 }
 
+const QString &MessageListDelegate::searchText() const
+{
+    return mSearchText;
+}
+
+void MessageListDelegate::setSearchText(const QString &newSearchText)
+{
+    mSearchText = newSearchText;
+}
+
 void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const
 {
     const QPen origPen = painter->pen();
