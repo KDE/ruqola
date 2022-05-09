@@ -57,7 +57,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(mDesktopNotification);
 
-    auto emailNotificationLabel = new QLabel(i18n("Email Notification:"), this);
+    auto emailNotificationLabel = new QLabel(i18n("Offline Email Notification:"), this);
     emailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
     emailNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(emailNotificationLabel);
