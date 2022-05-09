@@ -11,6 +11,7 @@
 #include "misc/searchwithdelaylineedit.h"
 #include "model/emoticoncustommodelfilterproxymodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
+#include <QStandardPaths>
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -18,6 +19,7 @@ QTEST_MAIN(EmoticonMenuWidgetTest)
 EmoticonMenuWidgetTest::EmoticonMenuWidgetTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void EmoticonMenuWidgetTest::shouldHaveDefaultValues()
