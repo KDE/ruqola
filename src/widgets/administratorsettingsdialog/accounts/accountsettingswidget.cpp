@@ -20,6 +20,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowChangeUserProfile(new QCheckBox(i18n("Allow User Profile Change"), this))
     , mAllowChangeUserAvatar(new QCheckBox(i18n("Allow User Avatar Change"), this))
     , mAllowChangeEmail(new QCheckBox(i18n("Allow Email Change"), this))
+    , mAllowChangePassword(new QCheckBox(i18n("Allow Password Change"), this))
     , mAccount(account)
 {
     auto mainLayout = new QFormLayout(this);
@@ -49,6 +50,17 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     connect(mAllowChangeEmail, &QCheckBox::clicked, this, [this](bool checked) {
         updateSettings(QStringLiteral("Accounts_AllowEmailChange"), checked);
     });
+
+    mAllowChangePassword->setObjectName(QStringLiteral("mAllowChangePassword"));
+    mainLayout->addWidget(mAllowChangePassword);
+    connect(mAllowChangePassword, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowPasswordChange"), checked);
+    });
+}
+
+void AccountSettingsWidget::initialize()
+{
+    // TODO
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;

@@ -17,6 +17,8 @@ public:
     explicit AccountSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AccountSettingsWidget() override;
 
+    void initialize();
+
 private:
     void updateSettings(const QString &settingName, bool value);
     void slotAdminSettingsDone(const QJsonObject &obj);
@@ -24,5 +26,6 @@ private:
     QCheckBox *const mAllowChangeUserProfile;
     QCheckBox *const mAllowChangeUserAvatar;
     QCheckBox *const mAllowChangeEmail;
+    QCheckBox *const mAllowChangePassword;
     RocketChatAccount *const mAccount;
 };

@@ -33,3 +33,8 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
 AdministratorSettingsWidget::~AdministratorSettingsWidget()
 {
 }
+
+void AdministratorSettingsWidget::initialize()
+{
+    mAccountSettingsWidget->initialize();
+}

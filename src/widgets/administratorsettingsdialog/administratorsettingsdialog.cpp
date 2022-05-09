@@ -45,7 +45,7 @@ AdministratorSettingsDialog::~AdministratorSettingsDialog()
 
 void AdministratorSettingsDialog::initialize()
 {
-    // TODO ?
+    mAdministratorSettingsWidget->initialize();
 }
 
 void AdministratorSettingsDialog::readConfig()
