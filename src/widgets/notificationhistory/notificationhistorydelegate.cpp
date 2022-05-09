@@ -200,7 +200,8 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
                                                                     rcAccount ? rcAccount->messageCache() : nullptr,
                                                                     needUpdateMessageId,
                                                                     {},
-                                                                    {});
+                                                                    {},
+                                                                    mSearchText);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
@@ -237,6 +238,16 @@ QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect 
     Q_UNUSED(option);
     const QPoint relativePos = pos - textRect.topLeft();
     return relativePos;
+}
+
+const QString &NotificationHistoryDelegate::searchText() const
+{
+    return mSearchText;
+}
+
+void NotificationHistoryDelegate::setSearchText(const QString &newSearchText)
+{
+    mSearchText = newSearchText;
 }
 
 bool NotificationHistoryDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)

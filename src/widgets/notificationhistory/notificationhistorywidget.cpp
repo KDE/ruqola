@@ -64,6 +64,7 @@ NotificationHistoryWidget::~NotificationHistoryWidget() = default;
 void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {
     mNotificationFilterProxyModel->setFilterString(str);
+    mListNotificationsListView->setSearchText(str);
 }
 
 void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)

@@ -45,3 +45,13 @@ void NotificationHistoryListView::slotSelectAll(const QModelIndex &index)
 {
     mListNotificationsDelegate->selectAll(listViewOptions(), index);
 }
+
+const QString &NotificationHistoryListView::searchText() const
+{
+    return mListNotificationsDelegate->searchText();
+}
+
+void NotificationHistoryListView::setSearchText(const QString &newSearchText)
+{
+    mListNotificationsDelegate->setSearchText(newSearchText);
+}
