@@ -21,6 +21,7 @@ void UpdateAdminSettingsJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.requireTwoFactorAuthentication());
 }
 
 void UpdateAdminSettingsJobTest::shouldGenerateRequest()
@@ -28,7 +29,7 @@ void UpdateAdminSettingsJobTest::shouldGenerateRequest()
     UpdateAdminSettingsJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings/")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/settings")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
@@ -60,5 +61,11 @@ void UpdateAdminSettingsJobTest::shouldNotStarting()
 
     job.setUpdateAdminSettingsInfo(info);
 
+    QVERIFY(!job.canStart());
+
+    job.setAuthCode(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+
+    job.setAuthMethod(QStringLiteral("method"));
     QVERIFY(job.canStart());
 }

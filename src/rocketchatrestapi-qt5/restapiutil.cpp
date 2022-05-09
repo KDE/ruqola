@@ -282,7 +282,7 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
     case RestApiUtil::RestApiUrlType::SettingsPublic:
         return QStringLiteral("settings.public");
     case RestApiUtil::RestApiUrlType::UpdateAdminSettings:
-        return QStringLiteral("settings/");
+        return QStringLiteral("settings");
     case RestApiUtil::RestApiUrlType::RoomsUpload:
         return QStringLiteral("rooms.upload");
     case RestApiUtil::RestApiUrlType::RoomsSaveNotification:
