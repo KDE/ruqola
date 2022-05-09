@@ -33,6 +33,8 @@ public:
     Q_REQUIRED_RESULT const UpdateAdminSettingsInfo &updateAdminSettingsInfo() const;
     void setUpdateAdminSettingsInfo(const UpdateAdminSettingsInfo &newInfo);
 
+    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
+
 Q_SIGNALS:
     void updateAdminSettingsDone(const QJsonObject &obj);
 

@@ -6,6 +6,7 @@
 
 #include "accountsettingswidget.h"
 #include "connection.h"
+#include "dialogs/confirmpassworddialog.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "settings/updateadminsettingsjob.h"
@@ -34,11 +35,20 @@ AccountSettingsWidget::~AccountSettingsWidget() = default;
 void AccountSettingsWidget::updateSettings(const QString &settingName, bool value)
 {
     if (mAccount) {
+        QString password;
+        QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+        if (dialog->exec()) {
+            password = dialog->password();
+        }
+        delete dialog;
+
         auto job = new RocketChatRestApi::UpdateAdminSettingsJob(this);
         RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
         info.settingsValue = value;
         info.settingName = settingName;
         job->setUpdateAdminSettingsInfo(info);
+        job->setAuthMethod(QStringLiteral("password"));
+        job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
         mAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, &AccountSettingsWidget::slotAdminSettingsDone);
         if (!job->start()) {

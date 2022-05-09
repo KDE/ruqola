@@ -96,3 +96,8 @@ bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::canStart() const
 {
     return isValid();
 }
+
+bool UpdateAdminSettingsJob::requireTwoFactorAuthentication() const
+{
+    return true;
+}
