@@ -93,8 +93,8 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.desktopNotifications.isEmpty()) {
         dataObj[QLatin1String("desktopNotifications")] = mUsersSetPreferencesInfo.desktopNotifications;
     }
-    if (!mUsersSetPreferencesInfo.mobileNotifications.isEmpty()) {
-        dataObj[QLatin1String("mobileNotifications")] = mUsersSetPreferencesInfo.mobileNotifications;
+    if (!mUsersSetPreferencesInfo.pushNotifications.isEmpty()) {
+        dataObj[QLatin1String("pushNotifications")] = mUsersSetPreferencesInfo.pushNotifications;
     }
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
         dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
@@ -116,7 +116,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "newRoomNotification : " << t.newRoomNotification;
     d << "newMessageNotification : " << t.newMessageNotification;
     d << "desktopNotifications : " << t.desktopNotifications;
-    d << "mobileNotifications : " << t.mobileNotifications;
+    d << "pushNotifications : " << t.pushNotifications;
     d << "emailNotificationMode: " << t.emailNotificationMode;
     d << "userId : " << t.userId;
     d << " highlights : " << t.highlights;

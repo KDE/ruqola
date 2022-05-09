@@ -25,7 +25,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setHighlightWords(lstHighlightsWord);
     setEmailNotificationMode(replyObject.value(QLatin1String("emailNotificationMode")).toString());
     setDesktopNotifications(replyObject.value(QLatin1String("desktopNotifications")).toString());
-    setMobileNotifications(replyObject.value(QLatin1String("mobileNotifications")).toString());
+    setPushNotifications(replyObject.value(QLatin1String("pushNotifications")).toString());
     setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool(true));
     setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool(true));
     setHideRoles(replyObject.value(QLatin1String("hideRoles")).toBool(false));
@@ -37,9 +37,9 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
-        && mDesktopNotifications == other.desktopNotifications() && mMobileNotifications == other.mobileNotifications() && mUseEmojis == other.useEmojis()
-        && mConvertAsciiEmoji == other.convertAsciiEmoji() && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars()
-        && mIdleTimeLimit == other.idleTimeLimit() && mEnableAutoAway == other.enableAutoAway();
+        && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
+        && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars() && mIdleTimeLimit == other.idleTimeLimit()
+        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -55,7 +55,6 @@ void OwnUserPreferences::updateHighlightWords(const QJsonArray &highlightsArray)
     for (int i = 0; i < highlightsWordArrayCount; ++i) {
         lstHighlightsWord << highlightsArray.at(i).toString();
     }
-    qDebug() << " lstHighlightsWord " << lstHighlightsWord;
     setHighlightWords(lstHighlightsWord);
 }
 
@@ -84,14 +83,14 @@ void OwnUserPreferences::setDesktopNotifications(const QString &desktopNotificat
     mDesktopNotifications = desktopNotifications;
 }
 
-QString OwnUserPreferences::mobileNotifications() const
+void OwnUserPreferences::setPushNotifications(const QString &pushNotifications)
 {
-    return mMobileNotifications;
+    mPushNotifications = pushNotifications;
 }
 
-void OwnUserPreferences::setMobileNotifications(const QString &mobileNotifications)
+QString OwnUserPreferences::pushNotifications() const
 {
-    mMobileNotifications = mobileNotifications;
+    return mPushNotifications;
 }
 
 bool OwnUserPreferences::convertAsciiEmoji() const
@@ -159,12 +158,12 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mHighlightWords " << t.highlightWords();
     d << "mEmailNotificationMode " << t.emailNotificationMode();
     d << "mDesktopNotifications " << t.desktopNotifications();
-    d << "mMobileNotifications " << t.mobileNotifications();
     d << "mUseEmojis " << t.useEmojis();
     d << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
     d << "mHideRoles " << t.hideRoles();
     d << "mHideAvatars " << t.hideAvatars();
     d << "mIdleTimeLimit " << t.idleTimeLimit();
     d << "mEnableAutoAway " << t.enableAutoAway();
+    d << "mPushNotifications " << t.pushNotifications();
     return d;
 }

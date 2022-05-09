@@ -22,7 +22,7 @@ public:
         QString newRoomNotification;
         QString newMessageNotification;
         QString desktopNotifications;
-        QString mobileNotifications;
+        QString pushNotifications;
         QString emailNotificationMode;
         QStringList highlights;
         bool useEmoji = true;

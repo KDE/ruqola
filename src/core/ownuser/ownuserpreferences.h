@@ -27,9 +27,6 @@ public:
     Q_REQUIRED_RESULT QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
-    Q_REQUIRED_RESULT QString mobileNotifications() const;
-    void setMobileNotifications(const QString &mobileNotifications);
-
     Q_REQUIRED_RESULT bool convertAsciiEmoji() const;
     void setConvertAsciiEmoji(bool convertAsciiEmoji);
 
@@ -50,11 +47,14 @@ public:
 
     void updateHighlightWords(const QJsonArray &highlightsArray);
 
+    void setPushNotifications(const QString &pushNotifications);
+    Q_REQUIRED_RESULT QString pushNotifications() const;
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
-    QString mMobileNotifications;
+    QString mPushNotifications;
     int mIdleTimeLimit = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;

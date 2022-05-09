@@ -38,8 +38,8 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDesktopNotification);
     auto mEmailNotification = w.findChild<QComboBox *>(QStringLiteral("mEmailNotification"));
     QVERIFY(mEmailNotification);
-    auto mMobileNotification = w.findChild<QComboBox *>(QStringLiteral("mMobileNotification"));
-    QVERIFY(mMobileNotification);
+    auto mPushNotification = w.findChild<QComboBox *>(QStringLiteral("mPushNotification"));
+    QVERIFY(mPushNotification);
 
     auto desktopNotificationLabel = w.findChild<QLabel *>(QStringLiteral("desktopNotificationLabel"));
     QVERIFY(desktopNotificationLabel);
@@ -51,10 +51,10 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(emailNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!emailNotificationLabel->text().isEmpty());
 
-    auto mobileNotificationLabel = w.findChild<QLabel *>(QStringLiteral("mobileNotificationLabel"));
-    QVERIFY(mobileNotificationLabel);
-    QCOMPARE(mobileNotificationLabel->textFormat(), Qt::PlainText);
-    QVERIFY(!mobileNotificationLabel->text().isEmpty());
+    auto pushNotificationLabel = w.findChild<QLabel *>(QStringLiteral("pushNotificationLabel"));
+    QVERIFY(pushNotificationLabel);
+    QCOMPARE(pushNotificationLabel->textFormat(), Qt::PlainText);
+    QVERIFY(!pushNotificationLabel->text().isEmpty());
 
     auto mUseEmoji = w.findChild<QCheckBox *>(QStringLiteral("mUseEmoji"));
     QVERIFY(mUseEmoji);
