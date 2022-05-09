@@ -32,6 +32,11 @@ DiscussionListView::~DiscussionListView()
 {
 }
 
+void DiscussionListView::setSearchText(const QString &str)
+{
+    mListDiscussionDelegate->setSearchText(str);
+}
+
 bool DiscussionListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     return mListDiscussionDelegate->maybeStartDrag(event, option, index);

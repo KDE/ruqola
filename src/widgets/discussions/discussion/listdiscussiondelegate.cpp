@@ -253,7 +253,8 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
                                                                     mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
                                                                     needUpdateMessageId,
                                                                     {},
-                                                                    {});
+                                                                    {},
+                                                                    mSearchText);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(discussionRoomId, std::move(doc));

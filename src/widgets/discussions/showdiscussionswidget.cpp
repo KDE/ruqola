@@ -48,6 +48,7 @@ ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {
+    mListDiscussionsListView->setSearchText(str);
     mDiscussionModel->setFilterString(str);
     updateLabel();
 }

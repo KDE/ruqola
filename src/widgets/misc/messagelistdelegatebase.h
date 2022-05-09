@@ -26,6 +26,10 @@ public:
 
     Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect messageRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     void selectAll(const QStyleOptionViewItem &option, const QModelIndex &index);
+
+    Q_REQUIRED_RESULT const QString &searchText() const;
+    void setSearchText(const QString &newSearchText);
+
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 
@@ -40,5 +44,6 @@ protected:
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 
+    QString mSearchText;
     QListView *mListView = nullptr;
 };

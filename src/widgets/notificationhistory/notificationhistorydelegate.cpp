@@ -240,16 +240,6 @@ QPoint NotificationHistoryDelegate::adaptMousePosition(const QPoint &pos, QRect 
     return relativePos;
 }
 
-const QString &NotificationHistoryDelegate::searchText() const
-{
-    return mSearchText;
-}
-
-void NotificationHistoryDelegate::setSearchText(const QString &newSearchText)
-{
-    mSearchText = newSearchText;
-}
-
 bool NotificationHistoryDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();

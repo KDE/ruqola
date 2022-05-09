@@ -171,3 +171,16 @@ void MessageListDelegateBase::selectAll(const QStyleOptionViewItem &option, cons
     mListView->update(index);
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }
+
+const QString &MessageListDelegateBase::searchText() const
+{
+    return mSearchText;
+}
+
+void MessageListDelegateBase::setSearchText(const QString &newSearchText)
+{
+    if (mSearchText != newSearchText) {
+        mSearchText = newSearchText;
+        clearCache();
+    }
+}

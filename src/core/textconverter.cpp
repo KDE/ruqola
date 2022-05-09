@@ -186,6 +186,7 @@ QString generateRichText(const QString &str,
             }
         }
     }
+
     if (!searchedText.isEmpty()) {
         const auto userHighlightForegroundColor = Colors::self().schemeView().foreground(KColorScheme::NeutralText).color().name();
         const auto userHighlightBackgroundColor = Colors::self().schemeView().background(KColorScheme::NeutralBackground).color().name();

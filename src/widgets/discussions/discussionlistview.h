@@ -16,6 +16,8 @@ public:
     explicit DiscussionListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~DiscussionListView() override;
 
+    void setSearchText(const QString &str);
+
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
