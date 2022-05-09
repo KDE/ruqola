@@ -6,6 +6,7 @@
 
 #include "user.h"
 #include "ruqola_debug.h"
+#include "ruqola_specialwarning_debug.h"
 #include "utils.h"
 
 #include <KLocalizedString>
@@ -163,7 +164,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &
 void User::parseUser(const QVariantList &list)
 {
     if (list.count() != 4) {
-        qCWarning(RUQOLA_LOG) << " List argument different of 4! It's a bug: " << list;
+        qCDebug(RUQOLA_SPECIALWARNING_LOG) << " List argument different of 4! It's a bug: " << list;
     }
     setUserId(list.at(0).toString());
     setUserName(list.at(1).toString());
