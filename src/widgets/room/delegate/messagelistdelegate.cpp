@@ -335,7 +335,10 @@ const QString &MessageListDelegate::searchText() const
 
 void MessageListDelegate::setSearchText(const QString &newSearchText)
 {
-    mSearchText = newSearchText;
+    if (mSearchText != newSearchText) {
+        mSearchText = newSearchText;
+        clearTextDocumentCache();
+    }
 }
 
 void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const
