@@ -486,7 +486,8 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
                                              messageCache,
                                              needUpdateMessageId,
                                              message.mentions(),
-                                             message.channels());
+                                             message.channels()
+                                             /* TODO add searched text*/);
 }
 
 void MessageModel::setRoomId(const QString &roomId)

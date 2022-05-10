@@ -28,10 +28,9 @@
 
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, bool connectToUpdates) const
 {
-    // TODO: move MessageConvertedText implementation to Message?
-    QString text = index.data(MessageModel::MessageConvertedText).toString();
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
+    QString text = index.data(MessageModel::MessageConvertedText).toString();
     const QString threadMessageId = message->threadMessageId();
 
     if (mShowThreadContext && !threadMessageId.isEmpty()) {
