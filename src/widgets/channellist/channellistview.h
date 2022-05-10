@@ -54,6 +54,7 @@ private:
     void slotGroupConvertToTeamDone(const QJsonObject &obj);
     void slotMoveToTeam(const QModelIndex &index);
     void slotConvertToChannel(const QModelIndex &index);
+    void slotConfigureNotification(Room *room);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
 
     ChannelListDelegate *const mChannelListDelegate;

@@ -7,6 +7,7 @@
 #include "channellistview.h"
 #include "channellistdelegate.h"
 #include "connection.h"
+#include "dialogs/configurenotificationdialog.h"
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 #include "rocketchataccount.h"
@@ -108,9 +109,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
         auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        const QString roomId = index.data(RoomModel::RoomId).toString();
+        Room *room = rcAccount->room(roomId);
         if (rcAccount->teamEnabled()) {
-            const QString roomId = index.data(RoomModel::RoomId).toString();
-            Room *room = rcAccount->room(roomId);
             if (room) {
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
                 if (!mainTeam) {
@@ -148,6 +149,15 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(hideChannel);
 
+        if (room) {
+            menu.addSeparator();
+            auto configureNotificationChannel =
+                new QAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-notification")), i18n("Configure Notification..."), &menu);
+            connect(configureNotificationChannel, &QAction::triggered, this, [=]() {
+                slotConfigureNotification(room);
+            });
+            menu.addAction(configureNotificationChannel);
+        }
         menu.addSeparator();
         auto quitChannel = new QAction(QIcon::fromTheme(QStringLiteral("dialog-close")), i18n("Quit Channel"), &menu);
         connect(quitChannel, &QAction::triggered, this, [=]() {
@@ -166,6 +176,17 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
 void ChannelListView::setModel(QAbstractItemModel *model)
 {
     QListView::setModel(model);
+}
+
+void ChannelListView::slotConfigureNotification(Room *room)
+{
+    if (!room) {
+        return;
+    }
+    auto *rcAccount = Ruqola::self()->rocketChatAccount();
+    ConfigureNotificationDialog dlg(rcAccount, this);
+    dlg.setRoom(room);
+    dlg.exec();
 }
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)
