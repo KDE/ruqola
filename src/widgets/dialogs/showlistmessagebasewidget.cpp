@@ -93,5 +93,6 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
 
 void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
 {
+    mMessageListView->setSearchText(str);
     mModel->setFilterString(str);
 }

@@ -660,6 +660,11 @@ void MessageListView::scrollTo(const QModelIndex &index, QAbstractItemView::Scro
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
 }
 
+void MessageListView::setSearchText(const QString &str)
+{
+    mMessageListDelegate->setSearchText(str);
+}
+
 MessageListView::Mode MessageListView::mode() const
 {
     return mMode;

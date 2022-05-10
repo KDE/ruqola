@@ -94,7 +94,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                                                                                 rcAccount->messageCache(),
                                                                                 needUpdateMessageId,
                                                                                 contextMessage.mentions(),
-                                                                                contextMessage.channels());
+                                                                                contextMessage.channels(),
+                                                                                mSearchText);
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     QPersistentModelIndex persistentIndex(index);
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
@@ -119,6 +120,11 @@ void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
 void MessageDelegateHelperText::clearTextDocumentCache()
 {
     mDocumentCache.clear();
+}
+
+void MessageDelegateHelperText::setSearchText(const QString &newSearchText)
+{
+    mSearchText = newSearchText;
 }
 
 QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relativePos) const

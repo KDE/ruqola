@@ -48,6 +48,8 @@ public:
 
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
 
+    void setSearchText(const QString &str);
+
 protected:
     void paintEvent(QPaintEvent *e) override;
     void contextMenuEvent(QContextMenuEvent *event) override;

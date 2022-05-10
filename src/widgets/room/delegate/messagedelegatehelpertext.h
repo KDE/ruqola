@@ -43,6 +43,7 @@ public:
 
     void removeMessageCache(const QString &messageId);
     void clearTextDocumentCache();
+    void setSearchText(const QString &newSearchText);
 
     Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
@@ -62,6 +63,7 @@ private:
 
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
+    QString mSearchText;
     bool mShowThreadContext = true;
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;

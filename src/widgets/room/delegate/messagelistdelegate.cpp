@@ -337,6 +337,7 @@ void MessageListDelegate::setSearchText(const QString &newSearchText)
 {
     if (mSearchText != newSearchText) {
         mSearchText = newSearchText;
+        mHelperText->setSearchText(mSearchText);
         clearTextDocumentCache();
     }
 }
