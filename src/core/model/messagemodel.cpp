@@ -466,17 +466,21 @@ QStringList MessageModel::roomRoles(const QString &userId) const
 QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords) const
 {
     QString messageStr = message.text();
-    if (mRocketChatAccount && mRocketChatAccount->hasAutotranslateSupport()) {
-        if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
-            const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
-            if (!messageTranslation.isEmpty()) {
-                messageStr = messageTranslation;
+    EmojiManager *emojiManager = nullptr;
+    MessageCache *messageCache = nullptr;
+    if (mRocketChatAccount) {
+        emojiManager = mRocketChatAccount->emojiManager();
+        messageCache = mRocketChatAccount->messageCache();
+        if (mRocketChatAccount->hasAutotranslateSupport()) {
+            if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+                const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+                if (!messageTranslation.isEmpty()) {
+                    messageStr = messageTranslation;
+                }
             }
         }
     }
 
-    auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
-    auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
     QString needUpdateMessageId;
     return TextConverter::convertMessageText(messageStr,
                                              userName,
