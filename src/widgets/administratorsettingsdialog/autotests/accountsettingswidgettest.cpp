@@ -58,4 +58,9 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowAnonymousWrite);
     QVERIFY(!mAllowAnonymousWrite->isChecked());
     QVERIFY(!mAllowAnonymousWrite->text().isEmpty());
+
+    auto mAllowUsersDeleteOwnAccount = w.findChild<QCheckBox *>(QStringLiteral("mAllowUsersDeleteOwnAccount"));
+    QVERIFY(mAllowUsersDeleteOwnAccount);
+    QVERIFY(!mAllowUsersDeleteOwnAccount->isChecked());
+    QVERIFY(!mAllowUsersDeleteOwnAccount->text().isEmpty());
 }
