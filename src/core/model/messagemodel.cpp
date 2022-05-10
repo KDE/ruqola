@@ -409,7 +409,7 @@ QString MessageModel::convertedText(const Message &message) const
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
-        return convertMessageText(message, userName, highlightWordsLst);
+        return convertMessageText(message, userName, highlightWordsLst, QString() /*TODO add it*/);
     }
 }
 
@@ -463,7 +463,7 @@ QStringList MessageModel::roomRoles(const QString &userId) const
     return {};
 }
 
-QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords) const
+QString MessageModel::convertMessageText(const Message &message, const QString &userName, const QStringList &highlightWords, const QString &searchedText) const
 {
     QString messageStr = message.text();
     EmojiManager *emojiManager = nullptr;
@@ -490,8 +490,8 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
                                              messageCache,
                                              needUpdateMessageId,
                                              message.mentions(),
-                                             message.channels()
-                                             /* TODO add searched text*/);
+                                             message.channels(),
+                                             searchedText);
 }
 
 void MessageModel::setRoomId(const QString &roomId)
@@ -584,7 +584,7 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
         auto it = findMessage(threadMessageId);
         if (it != mAllMessages.cend()) {
             const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
-            QString str = convertMessageText((*it), userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList());
+            QString str = convertMessageText((*it), userName, mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(), QString());
             if (str.length() > 80) {
                 str = str.left(80) + QStringLiteral("...");
             }
