@@ -31,6 +31,7 @@ void MessageModelTest::shouldHaveDefaultValue()
 {
     MessageModel w(QStringLiteral("roomId"), Ruqola::self()->rocketChatAccount());
     QCOMPARE(w.rowCount(), 0);
+    QVERIFY(w.searchText().isEmpty());
 }
 
 static void fillTestMessage(Message &input)
