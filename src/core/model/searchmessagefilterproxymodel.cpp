@@ -36,3 +36,8 @@ void SearchMessageFilterProxyModel::clearModel()
 {
     mSearchMessageModel->clearModel();
 }
+
+void SearchMessageFilterProxyModel::setSearchText(const QString &str)
+{
+    mSearchMessageModel->setSearchText(str);
+}

@@ -64,6 +64,7 @@ void SearchMessageWidget::slotClearedMessages()
 
 void SearchMessageWidget::slotSearchMessages(const QString &str)
 {
+    mModel->setSearchText(str);
     mSearchLineEdit->addCompletionItem(str);
     mCurrentRocketChatAccount->messageSearch(str, mRoomId, true);
 }

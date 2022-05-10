@@ -259,7 +259,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case MessageModel::DateTimeUtc:
         return QDateTime::fromMSecsSinceEpoch(message.timeStamp()).toUTC().toString(Qt::ISODateWithMs);
     case MessageModel::MessageConvertedText:
-        return convertedText(message);
+        return convertedText(message, mSearchText);
     case MessageModel::Timestamp:
         return message.displayTime();
     case MessageModel::UserId:
@@ -393,7 +393,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QString MessageModel::convertedText(const Message &message) const
+QString MessageModel::convertedText(const Message &message, const QString &searchedText) const
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
@@ -409,7 +409,7 @@ QString MessageModel::convertedText(const Message &message) const
         }
         const QString userName = mRocketChatAccount ? mRocketChatAccount->userName() : QString();
         const QStringList highlightWordsLst = mRocketChatAccount ? mRocketChatAccount->highlightWords() : highlightWords;
-        return convertMessageText(message, userName, highlightWordsLst, QString() /*TODO add it*/);
+        return convertMessageText(message, userName, highlightWordsLst, searchedText);
     }
 }
 
@@ -613,4 +613,14 @@ QVector<Message>::const_iterator MessageModel::findMessage(const QString &messag
 QString MessageModel::roomId() const
 {
     return mRoomId;
+}
+
+QString MessageModel::searchText() const
+{
+    return mSearchText;
+}
+
+void MessageModel::setSearchText(const QString &searchText)
+{
+    mSearchText = searchText;
 }

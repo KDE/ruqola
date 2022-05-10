@@ -19,6 +19,7 @@ public:
     Q_REQUIRED_RESULT bool loadSearchMessageInProgress() const;
 
     void clearModel();
+    void setSearchText(const QString &str);
 Q_SIGNALS:
     void stringNotFoundChanged();
     void loadingInProgressChanged();

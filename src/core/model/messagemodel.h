@@ -130,6 +130,9 @@ public:
 
     Q_REQUIRED_RESULT QString messageIdFromIndex(int rowIndex);
 
+    Q_REQUIRED_RESULT QString searchText() const;
+    void setSearchText(const QString &searchText);
+
 private Q_SLOTS:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 
@@ -151,8 +154,9 @@ private:
     Q_REQUIRED_RESULT QString threadMessagePreview(const QString &threadMessageId) const;
     Q_REQUIRED_RESULT QVector<Message>::iterator findMessage(const QString &messageId);
     Q_REQUIRED_RESULT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
-    Q_REQUIRED_RESULT QString convertedText(const Message &message) const;
+    Q_REQUIRED_RESULT QString convertedText(const Message &message, const QString &searchedText) const;
 
+    QString mSearchText;
     QString mRoomId;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
