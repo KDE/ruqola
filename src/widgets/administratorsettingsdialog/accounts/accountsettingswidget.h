@@ -27,5 +27,6 @@ private:
     QCheckBox *const mAllowChangeUserAvatar;
     QCheckBox *const mAllowChangeEmail;
     QCheckBox *const mAllowChangePassword;
+    QCheckBox *const mAllowChangeEmailNotifications;
     RocketChatAccount *const mAccount;
 };

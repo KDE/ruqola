@@ -43,4 +43,9 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowChangePassword);
     QVERIFY(!mAllowChangePassword->isChecked());
     QVERIFY(!mAllowChangePassword->text().isEmpty());
+
+    auto mAllowChangeEmailNotifications = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeEmailNotifications"));
+    QVERIFY(mAllowChangeEmailNotifications);
+    QVERIFY(!mAllowChangeEmailNotifications->isChecked());
+    QVERIFY(!mAllowChangeEmailNotifications->text().isEmpty());
 }
