@@ -48,4 +48,14 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowChangeEmailNotifications);
     QVERIFY(!mAllowChangeEmailNotifications->isChecked());
     QVERIFY(!mAllowChangeEmailNotifications->text().isEmpty());
+
+    auto mAllowUsersToDeleteOwnAccount = w.findChild<QCheckBox *>(QStringLiteral("mAllowUsersToDeleteOwnAccount"));
+    QVERIFY(mAllowUsersToDeleteOwnAccount);
+    QVERIFY(!mAllowUsersToDeleteOwnAccount->isChecked());
+    QVERIFY(!mAllowUsersToDeleteOwnAccount->text().isEmpty());
+
+    auto mAllowAnonymousWrite = w.findChild<QCheckBox *>(QStringLiteral("mAllowAnonymousWrite"));
+    QVERIFY(mAllowAnonymousWrite);
+    QVERIFY(!mAllowAnonymousWrite->isChecked());
+    QVERIFY(!mAllowAnonymousWrite->text().isEmpty());
 }

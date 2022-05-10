@@ -22,6 +22,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowChangeEmail(new QCheckBox(i18n("Allow Email Change"), this))
     , mAllowChangePassword(new QCheckBox(i18n("Allow Password Change"), this))
     , mAllowChangeEmailNotifications(new QCheckBox(i18n("Allow Email Notifications"), this))
+    , mAllowUsersToDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
+    , mAllowAnonymousWrite(new QCheckBox(i18n("Allow Anonymous Write"), this))
     , mAccount(account)
 {
     auto mainLayout = new QFormLayout(this);
@@ -62,6 +64,18 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mainLayout->addWidget(mAllowChangeEmailNotifications);
     connect(mAllowChangeEmailNotifications, &QCheckBox::clicked, this, [this](bool checked) {
         updateSettings(QStringLiteral("Accounts_AllowEmailNotifications"), checked);
+    });
+
+    mAllowUsersToDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersToDeleteOwnAccount"));
+    mainLayout->addWidget(mAllowUsersToDeleteOwnAccount);
+    connect(mAllowUsersToDeleteOwnAccount, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowDeleteOwnAccount"), checked);
+    });
+
+    mAllowAnonymousWrite->setObjectName(QStringLiteral("mAllowAnonymousWrite"));
+    mainLayout->addWidget(mAllowAnonymousWrite);
+    connect(mAllowAnonymousWrite, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("Accounts_AllowAnonymousWrite"), checked);
     });
 }
 
