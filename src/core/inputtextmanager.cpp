@@ -93,6 +93,7 @@ QString InputTextManager::searchWord(const QString &text, int position, int &sta
     }
     // Cursor position can be at the end of word => text.length
     if ((position > text.length()) || (position < 0)) {
+        qCWarning(RUQOLA_COMPLETION_LOG) << "Invalid position" << position << " text " << text;
         return {};
     }
 
