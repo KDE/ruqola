@@ -91,6 +91,11 @@ QString InputTextManager::searchWord(const QString &text, int position, int &sta
     if (text.isEmpty()) {
         return {};
     }
+    // Cursor position can be at the end of word => text.length
+    if ((position > text.length()) || (position < 0)) {
+        return {};
+    }
+
     start = 0;
     for (int i = position; i > 0; i--) {
         if (text.at(i - 1).isSpace()) {
