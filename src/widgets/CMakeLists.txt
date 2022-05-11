@@ -110,6 +110,8 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/administratorsettingswidget.cpp
     administratorsettingsdialog/accounts/accountsettingswidget.h
     administratorsettingsdialog/accounts/accountsettingswidget.cpp
+    administratorsettingsdialog/encryption/encryptionsettingswidget.h
+    administratorsettingsdialog/encryption/encryptionsettingswidget.cpp
 
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
