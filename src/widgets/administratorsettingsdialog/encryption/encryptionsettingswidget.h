@@ -15,4 +15,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT EncryptionSettingsWidget : public QWidget
 public:
     explicit EncryptionSettingsWidget(QWidget *parent = nullptr);
     ~EncryptionSettingsWidget() override;
+
+    void initialize();
 };
