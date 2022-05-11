@@ -28,4 +28,14 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnableEncryptionDirectRoomsByDefault);
     QVERIFY(!mEnableEncryptionDirectRoomsByDefault->isChecked());
     QVERIFY(!mEnableEncryptionDirectRoomsByDefault->text().isEmpty());
+
+    auto mEnableEncryptionPrivateRoomsByDefault = w.findChild<QCheckBox *>(QStringLiteral("mEnableEncryptionPrivateRoomsByDefault"));
+    QVERIFY(mEnableEncryptionPrivateRoomsByDefault);
+    QVERIFY(!mEnableEncryptionPrivateRoomsByDefault->isChecked());
+    QVERIFY(!mEnableEncryptionPrivateRoomsByDefault->text().isEmpty());
+
+    auto mEnableOtr = w.findChild<QCheckBox *>(QStringLiteral("mEnableOtr"));
+    QVERIFY(mEnableOtr);
+    QVERIFY(!mEnableOtr->isChecked());
+    QVERIFY(!mEnableOtr->text().isEmpty());
 }

@@ -13,6 +13,7 @@ class RocketChatAccount;
 class QTabWidget;
 class AccountSettingsWidget;
 class EncryptionSettingsWidget;
+class MessageSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -26,4 +27,5 @@ private:
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;
+    MessageSettingsWidget *const mMessageSettingsWidget;
 };

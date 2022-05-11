@@ -8,7 +8,6 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-#include <QWidget>
 class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EncryptionSettingsWidget : public SettingsWidgetBase
 {
@@ -22,4 +21,6 @@ public:
 private:
     QCheckBox *const mEnableE2E;
     QCheckBox *const mEnableEncryptionDirectRoomsByDefault;
+    QCheckBox *const mEnableEncryptionPrivateRoomsByDefault;
+    QCheckBox *const mEnableOtr;
 };

@@ -7,6 +7,7 @@
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
+#include "message/messagesettingswidget.h"
 #include "rocketchataccount.h"
 
 #include <QTabWidget>
@@ -19,6 +20,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mTabWidget(new QTabWidget(this))
     , mAccountSettingsWidget(new AccountSettingsWidget(account, this))
     , mEncryptionSettingsWidget(new EncryptionSettingsWidget(account, this))
+    , mMessageSettingsWidget(new MessageSettingsWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -29,8 +31,10 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
 
     mAccountSettingsWidget->setObjectName(QStringLiteral("mAccountSettingsWidget"));
     mEncryptionSettingsWidget->setObjectName(QStringLiteral("mEncryptionSettingsWidget"));
+    mMessageSettingsWidget->setObjectName(QStringLiteral("mMessageSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
-    // TODO load settings
+    mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
+    mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget()
@@ -40,4 +44,5 @@ AdministratorSettingsWidget::~AdministratorSettingsWidget()
 void AdministratorSettingsWidget::initialize()
 {
     mAccountSettingsWidget->initialize();
+    // TODO
 }

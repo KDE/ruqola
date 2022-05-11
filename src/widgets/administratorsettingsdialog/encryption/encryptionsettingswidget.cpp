@@ -15,6 +15,8 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     : SettingsWidgetBase{account, parent}
     , mEnableE2E(new QCheckBox(i18n("Enabled E2E encryption"), this))
     , mEnableEncryptionDirectRoomsByDefault(new QCheckBox(i18n("Enable encryption for Direct Rooms by default"), this))
+    , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18n("Enable encryption for Private Rooms by default"), this))
+    , mEnableOtr(new QCheckBox(i18n("Enable OTR"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -31,6 +33,18 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     mainLayout->addWidget(mEnableEncryptionDirectRoomsByDefault);
     connect(mEnableEncryptionDirectRoomsByDefault, &QCheckBox::clicked, this, [this](bool checked) {
         updateSettings(QStringLiteral("E2E_Enabled_Default_DirectRooms"), checked);
+    });
+
+    mEnableEncryptionPrivateRoomsByDefault->setObjectName(QStringLiteral("mEnableEncryptionPrivateRoomsByDefault"));
+    mainLayout->addWidget(mEnableEncryptionPrivateRoomsByDefault);
+    connect(mEnableEncryptionPrivateRoomsByDefault, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("E2E_Enabled_Default_PrivateRooms"), checked);
+    });
+
+    mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
+    mainLayout->addWidget(mEnableOtr);
+    connect(mEnableOtr, &QCheckBox::clicked, this, [this](bool checked) {
+        updateSettings(QStringLiteral("OTR_Enabled"), checked);
     });
 }
 
