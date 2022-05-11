@@ -21,4 +21,5 @@ public:
 
 private:
     QCheckBox *const mEnableE2E;
+    QCheckBox *const mEnableEncryptionDirectRoomsByDefault;
 };

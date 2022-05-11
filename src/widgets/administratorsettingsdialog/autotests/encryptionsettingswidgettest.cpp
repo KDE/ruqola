@@ -23,4 +23,9 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableE2E->isChecked());
     QVERIFY(!mEnableE2E->text().isEmpty());
     QVERIFY(!mEnableE2E->toolTip().isEmpty());
+
+    auto mEnableEncryptionDirectRoomsByDefault = w.findChild<QCheckBox *>(QStringLiteral("mEnableEncryptionDirectRoomsByDefault"));
+    QVERIFY(mEnableEncryptionDirectRoomsByDefault);
+    QVERIFY(!mEnableEncryptionDirectRoomsByDefault->isChecked());
+    QVERIFY(!mEnableEncryptionDirectRoomsByDefault->text().isEmpty());
 }
