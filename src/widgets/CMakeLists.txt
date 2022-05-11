@@ -112,6 +112,8 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/accounts/accountsettingswidget.cpp
     administratorsettingsdialog/encryption/encryptionsettingswidget.h
     administratorsettingsdialog/encryption/encryptionsettingswidget.cpp
+    administratorsettingsdialog/message/messagesettingswidget.cpp
+    administratorsettingsdialog/message/messagesettingswidget.h
     administratorsettingsdialog/settingswidgetbase.h
     administratorsettingsdialog/settingswidgetbase.cpp
 
