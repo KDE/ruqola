@@ -18,7 +18,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     : QWidget{parent}
     , mTabWidget(new QTabWidget(this))
     , mAccountSettingsWidget(new AccountSettingsWidget(account, this))
-    , mEncryptionSettingsWidget(new EncryptionSettingsWidget(this))
+    , mEncryptionSettingsWidget(new EncryptionSettingsWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -30,6 +30,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mAccountSettingsWidget->setObjectName(QStringLiteral("mAccountSettingsWidget"));
     mEncryptionSettingsWidget->setObjectName(QStringLiteral("mEncryptionSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
+    // TODO load settings
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget()

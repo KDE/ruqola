@@ -6,15 +6,19 @@
 
 #pragma once
 
+#include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QCheckBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT EncryptionSettingsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT EncryptionSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
 public:
-    explicit EncryptionSettingsWidget(QWidget *parent = nullptr);
+    explicit EncryptionSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~EncryptionSettingsWidget() override;
 
     void initialize();
+
+private:
+    QCheckBox *const mEnableE2E;
 };

@@ -6,11 +6,11 @@
 
 #pragma once
 
+#include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-#include <QWidget>
 class QCheckBox;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountSettingsWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
 public:
@@ -20,8 +20,6 @@ public:
     void initialize();
 
 private:
-    void updateSettings(const QString &settingName, bool value);
-    void slotAdminSettingsDone(const QJsonObject &obj);
     QCheckBox *const mAllowChangeName;
     QCheckBox *const mAllowChangeUserProfile;
     QCheckBox *const mAllowChangeUserAvatar;
@@ -31,5 +29,4 @@ private:
     QCheckBox *const mAllowUsersToDeleteOwnAccount;
     QCheckBox *const mAllowAnonymousWrite;
     QCheckBox *const mAllowUsersDeleteOwnAccount;
-    RocketChatAccount *const mAccount;
 };

@@ -7,6 +7,9 @@
 #include "administratorsettingsdialog.h"
 #include "administratorsettingswidget.h"
 
+#include "connection.h"
+#include "rocketchataccount.h"
+
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>

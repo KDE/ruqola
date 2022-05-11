@@ -6,6 +6,7 @@
 
 #include "encryptionsettingswidgettest.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
+#include <QCheckBox>
 #include <QTest>
 
 QTEST_MAIN(EncryptionSettingsWidgetTest)
@@ -16,6 +17,10 @@ EncryptionSettingsWidgetTest::EncryptionSettingsWidgetTest(QObject *parent)
 
 void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
 {
-    EncryptionSettingsWidget w;
-    // TODO
+    EncryptionSettingsWidget w(nullptr);
+    auto mEnableE2E = w.findChild<QCheckBox *>(QStringLiteral("mEnableE2E"));
+    QVERIFY(mEnableE2E);
+    QVERIFY(!mEnableE2E->isChecked());
+    QVERIFY(!mEnableE2E->text().isEmpty());
+    QVERIFY(!mEnableE2E->toolTip().isEmpty());
 }
