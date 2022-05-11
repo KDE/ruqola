@@ -7,6 +7,7 @@
 #include "administratorsettingswidgettest.h"
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
+#include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -30,4 +31,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mAccountSettingsWidget = w.findChild<AccountSettingsWidget *>(QStringLiteral("mAccountSettingsWidget"));
     QVERIFY(mAccountSettingsWidget);
+
+    auto mEncryptionSettingsWidget = w.findChild<EncryptionSettingsWidget *>(QStringLiteral("mEncryptionSettingsWidget"));
+    QVERIFY(mEncryptionSettingsWidget);
 }
