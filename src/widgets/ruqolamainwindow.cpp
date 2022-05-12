@@ -69,6 +69,10 @@
 #include <QToolButton>
 #include <QWidgetAction>
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+#include <KWindowSystem>
+#endif
+
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
 #include <KUserFeedback/NotificationPopup>
@@ -138,6 +142,7 @@ void RuqolaMainWindow::parseCommandLine(QCommandLineParser *parser)
     }
 }
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const QString &workingDirectory)
 {
     Q_UNUSED(workingDirectory)
@@ -147,7 +152,11 @@ void RuqolaMainWindow::slotActivateRequested(const QStringList &arguments, const
         parser.parse(arguments);
         parseCommandLine(&parser);
     }
+
+    KWindowSystem::updateStartupId(windowHandle());
+    KWindowSystem::activateWindow(windowHandle());
 }
+#endif
 
 void RuqolaMainWindow::slotRoomNeedAttention()
 {

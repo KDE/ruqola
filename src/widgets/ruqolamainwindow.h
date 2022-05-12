@@ -34,7 +34,9 @@ public:
     explicit RuqolaMainWindow(QWidget *parent = nullptr);
     ~RuqolaMainWindow() override;
 
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
     void slotActivateRequested(const QStringList &arguments, const QString &workingDirectory);
+#endif
 
     void parseCommandLine(QCommandLineParser *parser);
 
