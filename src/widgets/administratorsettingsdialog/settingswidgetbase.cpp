@@ -11,6 +11,8 @@
 #include "ruqolawidgets_debug.h"
 #include "settings/updateadminsettingsjob.h"
 
+#include <QCheckBox>
+
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mAccount(account)
@@ -19,6 +21,14 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
 
 SettingsWidgetBase::~SettingsWidgetBase()
 {
+}
+
+void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
+{
+    checkBox->setProperty("settings_name", variable);
+    connect(checkBox, &QCheckBox::clicked, this, [this, variable](bool checked) {
+        updateSettings(variable, checked);
+    });
 }
 
 void SettingsWidgetBase::updateSettings(const QString &settingName, bool value)

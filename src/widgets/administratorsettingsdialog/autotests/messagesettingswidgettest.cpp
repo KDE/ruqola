@@ -32,4 +32,24 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowMessageDeleting);
     QVERIFY(!mAllowMessageDeleting->isChecked());
     QVERIFY(!mAllowMessageDeleting->text().isEmpty());
+
+    auto mShowEditedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowEditedStatus"));
+    QVERIFY(mShowEditedStatus);
+    QVERIFY(!mShowEditedStatus->isChecked());
+    QVERIFY(!mShowEditedStatus->text().isEmpty());
+
+    auto mShowDeletedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowDeletedStatus"));
+    QVERIFY(mShowDeletedStatus);
+    QVERIFY(!mShowDeletedStatus->isChecked());
+    QVERIFY(!mShowDeletedStatus->text().isEmpty());
+
+    auto mAllowMessagePinning = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessagePinning"));
+    QVERIFY(mAllowMessagePinning);
+    QVERIFY(!mAllowMessagePinning->isChecked());
+    QVERIFY(!mAllowMessagePinning->text().isEmpty());
+
+    auto mAllowMessageSnippeting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageSnippeting"));
+    QVERIFY(mAllowMessageSnippeting);
+    QVERIFY(!mAllowMessageSnippeting->isChecked());
+    QVERIFY(!mAllowMessageSnippeting->text().isEmpty());
 }

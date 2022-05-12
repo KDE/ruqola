@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QWidget
 {
     Q_OBJECT
@@ -18,6 +19,8 @@ public:
 
 protected:
     void updateSettings(const QString &settingName, bool value);
+
+    void connectCheckBox(QCheckBox *checkBox, const QString &variable);
 
 private:
     void slotAdminSettingsDone(const QJsonObject &obj);

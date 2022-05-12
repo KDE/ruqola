@@ -16,7 +16,13 @@ public:
     explicit MessageSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MessageSettingsWidget() override;
 
+    void initialize();
+
 private:
     QCheckBox *const mAllowMessageEditing;
     QCheckBox *const mAllowMessageDeleting;
+    QCheckBox *const mShowEditedStatus;
+    QCheckBox *const mShowDeletedStatus;
+    QCheckBox *const mAllowMessagePinning;
+    QCheckBox *const mAllowMessageSnippeting;
 };
