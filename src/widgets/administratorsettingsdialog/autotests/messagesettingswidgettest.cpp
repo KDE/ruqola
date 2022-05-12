@@ -5,6 +5,7 @@
 */
 #include "messagesettingswidgettest.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
+#include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(MessageSettingsWidgetTest)
 
@@ -16,5 +17,9 @@ MessageSettingsWidgetTest::MessageSettingsWidgetTest(QObject *parent)
 void MessageSettingsWidgetTest::shouldHaveDefaultValues()
 {
     MessageSettingsWidget w(nullptr);
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
     // TODO
 }

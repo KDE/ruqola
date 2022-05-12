@@ -7,6 +7,7 @@
 #include "accountsettingswidgettest.h"
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include <QCheckBox>
+#include <QFormLayout>
 #include <QTest>
 
 QTEST_MAIN(AccountSettingsWidgetTest)
@@ -19,6 +20,11 @@ AccountSettingsWidgetTest::AccountSettingsWidgetTest(QObject *parent)
 void AccountSettingsWidgetTest::shouldHaveDefaultValues()
 {
     AccountSettingsWidget w(nullptr);
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
     auto mAllowChangeName = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeName"));
     QVERIFY(mAllowChangeName);
     QVERIFY(!mAllowChangeName->isChecked());
