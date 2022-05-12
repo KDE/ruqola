@@ -46,3 +46,10 @@ void AdministratorSettingsWidget::initialize()
     mAccountSettingsWidget->initialize();
     // TODO
 }
+
+void AdministratorSettingsWidget::updatePage()
+{
+    mAccountSettingsWidget->setEnabled(true);
+    mEncryptionSettingsWidget->setEnabled(true);
+    mMessageSettingsWidget->setEnabled(true);
+}

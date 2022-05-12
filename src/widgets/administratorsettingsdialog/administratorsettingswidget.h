@@ -24,6 +24,7 @@ public:
     void initialize();
 
 private:
+    void updatePage();
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;

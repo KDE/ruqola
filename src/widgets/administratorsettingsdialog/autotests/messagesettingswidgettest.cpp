@@ -27,5 +27,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowMessageEditing);
     QVERIFY(!mAllowMessageEditing->isChecked());
     QVERIFY(!mAllowMessageEditing->text().isEmpty());
-    // TODO
+
+    auto mAllowMessageDeleting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageDeleting"));
+    QVERIFY(mAllowMessageDeleting);
+    QVERIFY(!mAllowMessageDeleting->isChecked());
+    QVERIFY(!mAllowMessageDeleting->text().isEmpty());
 }

@@ -18,4 +18,5 @@ public:
 
 private:
     QCheckBox *const mAllowMessageEditing;
+    QCheckBox *const mAllowMessageDeleting;
 };
