@@ -25,27 +25,19 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
     mEnableE2E->setToolTip(i18n("Enable option to create encrypted groups and be able to change groups and direct messages to be encrypted."));
     mainLayout->addWidget(mEnableE2E);
-    connect(mEnableE2E, &QCheckBox::clicked, this, [this](bool checked) {
-        updateSettings(QStringLiteral("E2E_Enable"), checked);
-    });
+    connectCheckBox(mEnableE2E, QStringLiteral("E2E_Enable"));
 
     mEnableEncryptionDirectRoomsByDefault->setObjectName(QStringLiteral("mEnableEncryptionDirectRoomsByDefault"));
     mainLayout->addWidget(mEnableEncryptionDirectRoomsByDefault);
-    connect(mEnableEncryptionDirectRoomsByDefault, &QCheckBox::clicked, this, [this](bool checked) {
-        updateSettings(QStringLiteral("E2E_Enabled_Default_DirectRooms"), checked);
-    });
+    connectCheckBox(mEnableEncryptionDirectRoomsByDefault, QStringLiteral("E2E_Enabled_Default_DirectRooms"));
 
     mEnableEncryptionPrivateRoomsByDefault->setObjectName(QStringLiteral("mEnableEncryptionPrivateRoomsByDefault"));
     mainLayout->addWidget(mEnableEncryptionPrivateRoomsByDefault);
-    connect(mEnableEncryptionPrivateRoomsByDefault, &QCheckBox::clicked, this, [this](bool checked) {
-        updateSettings(QStringLiteral("E2E_Enabled_Default_PrivateRooms"), checked);
-    });
+    connectCheckBox(mEnableEncryptionPrivateRoomsByDefault, QStringLiteral("E2E_Enabled_Default_PrivateRooms"));
 
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
     mainLayout->addWidget(mEnableOtr);
-    connect(mEnableOtr, &QCheckBox::clicked, this, [this](bool checked) {
-        updateSettings(QStringLiteral("OTR_Enabled"), checked);
-    });
+    connectCheckBox(mEnableOtr, QStringLiteral("OTR_Enabled"));
 }
 
 EncryptionSettingsWidget::~EncryptionSettingsWidget() = default;
