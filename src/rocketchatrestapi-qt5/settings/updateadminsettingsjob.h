@@ -17,7 +17,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateAdminSettingsJob : public RestApiAbs
 public:
     struct UpdateAdminSettingsInfo {
         QString settingName;
-        bool settingsValue = false;
+        QVariant settingsValue;
         Q_REQUIRED_RESULT bool isValid() const;
         Q_REQUIRED_RESULT bool canStart() const;
     };

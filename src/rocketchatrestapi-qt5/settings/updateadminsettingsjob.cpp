@@ -82,7 +82,11 @@ QNetworkRequest UpdateAdminSettingsJob::request() const
 QJsonDocument UpdateAdminSettingsJob::json() const
 {
     QJsonObject jsonObj;
-    jsonObj[QLatin1String("value")] = mInfo.settingsValue;
+    if (mInfo.settingsValue.canConvert(QMetaType::Bool)) {
+        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toBool();
+    } else if (mInfo.settingsValue.canConvert(QMetaType::Int)) {
+        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toInt();
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
