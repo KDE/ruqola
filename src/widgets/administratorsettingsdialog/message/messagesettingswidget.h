@@ -15,4 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageSettingsWidget : public SettingsWidge
 public:
     explicit MessageSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MessageSettingsWidget() override;
+
+private:
+    QCheckBox *const mAllowMessageEditing;
 };
