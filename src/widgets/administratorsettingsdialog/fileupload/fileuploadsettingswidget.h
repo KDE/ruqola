@@ -15,4 +15,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT FileUploadSettingsWidget : public SettingsWi
 public:
     explicit FileUploadSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~FileUploadSettingsWidget() override;
+
+public:
+    void initialize();
+
+private:
+    QCheckBox *const mFileUploadsEnabled;
+    QCheckBox *const mProtectUploadedFiles;
 };

@@ -48,5 +48,6 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnableOtr);
     QVERIFY(!mEnableOtr->isChecked());
     QVERIFY(!mEnableOtr->text().isEmpty());
+    QVERIFY(!mEnableOtr->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mEnableOtr), QStringLiteral("OTR_Enabled"));
 }

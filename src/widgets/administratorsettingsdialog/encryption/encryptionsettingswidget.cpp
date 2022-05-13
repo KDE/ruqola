@@ -36,6 +36,9 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     connectCheckBox(mEnableEncryptionPrivateRoomsByDefault, QStringLiteral("E2E_Enabled_Default_PrivateRooms"));
 
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
+    mEnableOtr->setToolTip(
+        i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
+             "directly and encrypted between the 2 users."));
     mainLayout->addWidget(mEnableOtr);
     connectCheckBox(mEnableOtr, QStringLiteral("OTR_Enabled"));
 }
