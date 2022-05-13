@@ -116,6 +116,8 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/message/messagesettingswidget.h
     administratorsettingsdialog/settingswidgetbase.h
     administratorsettingsdialog/settingswidgetbase.cpp
+    administratorsettingsdialog/fileupload/fileuploadsettingswidget.h
+    administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp
 
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h

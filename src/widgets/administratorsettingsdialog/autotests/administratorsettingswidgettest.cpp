@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
+#include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
@@ -38,4 +39,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mMessageSettingsWidget = w.findChild<MessageSettingsWidget *>(QStringLiteral("mMessageSettingsWidget"));
     QVERIFY(mMessageSettingsWidget);
+
+    auto mUploadFileSettingsWidget = w.findChild<FileUploadSettingsWidget *>(QStringLiteral("mUploadFileSettingsWidget"));
+    QVERIFY(mUploadFileSettingsWidget);
 }

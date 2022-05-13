@@ -7,6 +7,7 @@
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
+#include "fileupload/fileuploadsettingswidget.h"
 #include "message/messagesettingswidget.h"
 #include "rocketchataccount.h"
 
@@ -21,6 +22,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mAccountSettingsWidget(new AccountSettingsWidget(account, this))
     , mEncryptionSettingsWidget(new EncryptionSettingsWidget(account, this))
     , mMessageSettingsWidget(new MessageSettingsWidget(account, this))
+    , mUploadFileSettingsWidget(new FileUploadSettingsWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -32,9 +34,11 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mAccountSettingsWidget->setObjectName(QStringLiteral("mAccountSettingsWidget"));
     mEncryptionSettingsWidget->setObjectName(QStringLiteral("mEncryptionSettingsWidget"));
     mMessageSettingsWidget->setObjectName(QStringLiteral("mMessageSettingsWidget"));
+    mUploadFileSettingsWidget->setObjectName(QStringLiteral("mUploadFileSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
+    mTabWidget->addTab(mUploadFileSettingsWidget, i18n("File Upload"));
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget()
