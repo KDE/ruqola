@@ -59,4 +59,10 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowMessageSnippeting->isChecked());
     QVERIFY(!mAllowMessageSnippeting->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessageSnippeting), QStringLiteral("Message_AllowSnippeting"));
+
+    auto mAllowConvertingLongMessageAttachment = w.findChild<QCheckBox *>(QStringLiteral("mAllowConvertingLongMessageAttachment"));
+    QVERIFY(mAllowConvertingLongMessageAttachment);
+    QVERIFY(!mAllowConvertingLongMessageAttachment->isChecked());
+    QVERIFY(!mAllowConvertingLongMessageAttachment->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowConvertingLongMessageAttachment), QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 }

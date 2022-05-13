@@ -17,6 +17,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mShowDeletedStatus(new QCheckBox(i18n("Show Deleted Status"), this))
     , mAllowMessagePinning(new QCheckBox(i18n("Allow Message Pinning"), this))
     , mAllowMessageSnippeting(new QCheckBox(i18n("Allow Message Snippeting"), this))
+    , mAllowConvertingLongMessageAttachment(new QCheckBox(i18n("Allow converting long messages to attachment"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -45,6 +46,10 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mAllowMessageSnippeting->setObjectName(QStringLiteral("mAllowMessageSnippeting"));
     mainLayout->addWidget(mAllowMessageSnippeting);
     connectCheckBox(mAllowMessageSnippeting, QStringLiteral("Message_AllowSnippeting"));
+
+    mAllowConvertingLongMessageAttachment->setObjectName(QStringLiteral("mAllowConvertingLongMessageAttachment"));
+    mainLayout->addWidget(mAllowConvertingLongMessageAttachment);
+    connectCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;

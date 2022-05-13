@@ -25,4 +25,5 @@ private:
     QCheckBox *const mShowDeletedStatus;
     QCheckBox *const mAllowMessagePinning;
     QCheckBox *const mAllowMessageSnippeting;
+    QCheckBox *const mAllowConvertingLongMessageAttachment;
 };
