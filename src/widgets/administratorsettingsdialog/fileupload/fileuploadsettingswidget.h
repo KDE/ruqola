@@ -22,4 +22,5 @@ public:
 private:
     QCheckBox *const mFileUploadsEnabled;
     QCheckBox *const mProtectUploadedFiles;
+    QCheckBox *const mRotateImagesUpload;
 };

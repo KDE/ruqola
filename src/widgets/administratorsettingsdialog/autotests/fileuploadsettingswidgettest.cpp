@@ -35,4 +35,11 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mProtectUploadedFiles->text().isEmpty());
     QVERIFY(!mProtectUploadedFiles->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mProtectUploadedFiles), QStringLiteral("FileUpload_ProtectFiles"));
+
+    auto mRotateImagesUpload = w.findChild<QCheckBox *>(QStringLiteral("mRotateImagesUpload"));
+    QVERIFY(mRotateImagesUpload);
+    QVERIFY(!mRotateImagesUpload->isChecked());
+    QVERIFY(!mRotateImagesUpload->text().isEmpty());
+    QVERIFY(!mRotateImagesUpload->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mRotateImagesUpload), QStringLiteral("FileUpload_RotateImages"));
 }

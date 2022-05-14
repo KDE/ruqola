@@ -15,6 +15,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     : SettingsWidgetBase{account, parent}
     , mFileUploadsEnabled(new QCheckBox(i18n("Enabled File Upload"), this))
     , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
+    , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -28,6 +29,11 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mProtectUploadedFiles->setToolTip(i18n("Only authenticated users will have access"));
     mainLayout->addWidget(mProtectUploadedFiles);
     connectCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
+
+    mRotateImagesUpload->setObjectName(QStringLiteral("mProtectUploadedFiles"));
+    mRotateImagesUpload->setToolTip(i18n("Enabling this setting may cause image quality loss"));
+    mainLayout->addWidget(mRotateImagesUpload);
+    connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
 }
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
