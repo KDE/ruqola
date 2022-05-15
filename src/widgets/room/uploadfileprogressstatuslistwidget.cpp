@@ -22,9 +22,7 @@ UploadFileProgressStatusListWidget::UploadFileProgressStatusListWidget(QWidget *
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
-UploadFileProgressStatusListWidget::~UploadFileProgressStatusListWidget()
-{
-}
+UploadFileProgressStatusListWidget::~UploadFileProgressStatusListWidget() = default;
 
 void UploadFileProgressStatusListWidget::resizeEvent(QResizeEvent *event)
 {

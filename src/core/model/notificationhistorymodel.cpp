@@ -11,9 +11,7 @@ NotificationHistoryModel::NotificationHistoryModel(QObject *parent)
 {
 }
 
-NotificationHistoryModel::~NotificationHistoryModel()
-{
-}
+NotificationHistoryModel::~NotificationHistoryModel() = default;
 
 int NotificationHistoryModel::rowCount(const QModelIndex &parent) const
 {

@@ -28,9 +28,7 @@ DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *pare
     connect(this, &QListView::customContextMenuRequested, this, &DiscussionListView::slotCustomContextMenuRequested);
 }
 
-DiscussionListView::~DiscussionListView()
-{
-}
+DiscussionListView::~DiscussionListView() = default;
 
 void DiscussionListView::setSearchText(const QString &str)
 {

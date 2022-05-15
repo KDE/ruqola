@@ -33,9 +33,7 @@ MessageMaximumSizeDialog::MessageMaximumSizeDialog(QWidget *parent)
     connect(mMessageMaximumSizeWidget, &MessageMaximumSizeWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-MessageMaximumSizeDialog::~MessageMaximumSizeDialog()
-{
-}
+MessageMaximumSizeDialog::~MessageMaximumSizeDialog() = default;
 
 QString MessageMaximumSizeDialog::description() const
 {

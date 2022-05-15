@@ -21,9 +21,7 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     scrollToBottom();
 }
 
-MessageListViewBase::~MessageListViewBase()
-{
-}
+MessageListViewBase::~MessageListViewBase() = default;
 
 void MessageListViewBase::resizeEvent(QResizeEvent *ev)
 {

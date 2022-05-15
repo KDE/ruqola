@@ -24,9 +24,7 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObjec
 {
 }
 
-NotificationHistoryDelegate::~NotificationHistoryDelegate()
-{
-}
+NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 
 void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
@@ -136,7 +134,7 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
     // Resize pixmap TODO cache ?
-    const QPixmap pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
+    const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
     if (!pix.isNull()) {
         const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
         layout.avatarPixmap = scaledPixmap;

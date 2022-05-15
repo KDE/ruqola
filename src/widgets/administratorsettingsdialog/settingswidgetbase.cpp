@@ -19,9 +19,7 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
 {
 }
 
-SettingsWidgetBase::~SettingsWidgetBase()
-{
-}
+SettingsWidgetBase::~SettingsWidgetBase() = default;
 
 void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
 {

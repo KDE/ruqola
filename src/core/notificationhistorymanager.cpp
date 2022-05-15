@@ -13,9 +13,7 @@ NotificationHistoryManager::NotificationHistoryManager(QObject *parent)
 {
 }
 
-NotificationHistoryManager::~NotificationHistoryManager()
-{
-}
+NotificationHistoryManager::~NotificationHistoryManager() = default;
 
 NotificationHistoryManager *NotificationHistoryManager::self()
 {

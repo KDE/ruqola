@@ -28,9 +28,7 @@ ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccoun
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
 }
 
-ListDiscussionDelegate::~ListDiscussionDelegate()
-{
-}
+ListDiscussionDelegate::~ListDiscussionDelegate() = default;
 
 // [date]
 // text

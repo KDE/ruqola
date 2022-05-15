@@ -13,9 +13,7 @@
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 
-TextSelection::TextSelection()
-{
-}
+TextSelection::TextSelection() = default;
 
 DocumentFactoryInterface::~DocumentFactoryInterface() = default;
 

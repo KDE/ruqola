@@ -18,9 +18,7 @@ UploadFileManager::UploadFileManager(RocketChatAccount *account, QObject *parent
 {
 }
 
-UploadFileManager::~UploadFileManager()
-{
-}
+UploadFileManager::~UploadFileManager() = default;
 
 int UploadFileManager::addUpload(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info)
 {

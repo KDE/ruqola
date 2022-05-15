@@ -31,9 +31,7 @@ MessageMaximumSizeWidget::MessageMaximumSizeWidget(QWidget *parent)
     connect(mDescription, &QLineEdit::textChanged, this, &MessageMaximumSizeWidget::slotTextChanged);
 }
 
-MessageMaximumSizeWidget::~MessageMaximumSizeWidget()
-{
-}
+MessageMaximumSizeWidget::~MessageMaximumSizeWidget() = default;
 
 void MessageMaximumSizeWidget::slotTextChanged()
 {

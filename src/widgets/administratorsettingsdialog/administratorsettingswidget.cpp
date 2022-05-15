@@ -41,9 +41,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mUploadFileSettingsWidget, i18n("File Upload"));
 }
 
-AdministratorSettingsWidget::~AdministratorSettingsWidget()
-{
-}
+AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 
 void AdministratorSettingsWidget::initialize()
 {

@@ -22,9 +22,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     });
 }
 
-NotificationHistoryListView::~NotificationHistoryListView()
-{
-}
+NotificationHistoryListView::~NotificationHistoryListView() = default;
 
 bool NotificationHistoryListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
