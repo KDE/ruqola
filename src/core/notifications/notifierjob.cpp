@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <KNotification>
 #include <KNotificationReplyAction>
+#include <KWindowSystem>
 
 NotifierJob::NotifierJob(QObject *parent)
     : QObject(parent)
@@ -59,5 +60,7 @@ void NotifierJob::setInfo(const NotificationInfo &info)
 
 void NotifierJob::slotDefaultActionActivated()
 {
+    KNotification *noti = qobject_cast<KNotification *>(sender());
+    KWindowSystem::setCurrentXdgActivationToken(noti->xdgActivationToken());
     Q_EMIT switchToAccountAndRoomName(mInfo.accountName(), mInfo.roomId(), mInfo.channelType());
 }

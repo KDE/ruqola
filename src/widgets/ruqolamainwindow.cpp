@@ -272,7 +272,11 @@ void RuqolaMainWindow::slotRaiseWindow()
 {
     show();
     raise();
+#if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
+    KWindowSystem::activateWindow(windowHandle());
+#else
     activateWindow();
+#endif
 }
 
 void RuqolaMainWindow::slotPermissionChanged()
