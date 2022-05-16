@@ -30,7 +30,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mainLayout->addWidget(mProtectUploadedFiles);
     connectCheckBox(mProtectUploadedFiles, QStringLiteral("FileUpload_ProtectFiles"));
 
-    mRotateImagesUpload->setObjectName(QStringLiteral("mProtectUploadedFiles"));
+    mRotateImagesUpload->setObjectName(QStringLiteral("mRotateImagesUpload"));
     mRotateImagesUpload->setToolTip(i18n("Enabling this setting may cause image quality loss"));
     mainLayout->addWidget(mRotateImagesUpload);
     connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
