@@ -15,6 +15,7 @@ class AccountSettingsWidget;
 class EncryptionSettingsWidget;
 class MessageSettingsWidget;
 class FileUploadSettingsWidget;
+class RetentionPolicySettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;
     MessageSettingsWidget *const mMessageSettingsWidget;
     FileUploadSettingsWidget *const mUploadFileSettingsWidget;
+    RetentionPolicySettingsWidget *const mRetentionPolicySettingsWidget;
 };
