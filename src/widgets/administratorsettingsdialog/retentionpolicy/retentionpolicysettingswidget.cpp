@@ -8,14 +8,20 @@
 
 #include <KLocalizedString>
 
+#include <QCheckBox>
 #include <QFormLayout>
 
 RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
+    , mEnabled(new QCheckBox(i18n("Enabled"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mEnabled->setObjectName(QStringLiteral("mEnabled"));
+    mainLayout->addWidget(mEnabled);
+    connectCheckBox(mEnabled, QStringLiteral("RetentionPolicy_Enabled"));
 }
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;

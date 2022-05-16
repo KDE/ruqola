@@ -17,4 +17,7 @@ public:
     ~RetentionPolicySettingsWidget() override;
 
     void initialize();
+
+private:
+    QCheckBox *const mEnabled;
 };
