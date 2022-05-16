@@ -118,6 +118,8 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/settingswidgetbase.cpp
     administratorsettingsdialog/fileupload/fileuploadsettingswidget.h
     administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp
+    administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h
+    administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp
 
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
