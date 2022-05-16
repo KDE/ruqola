@@ -26,4 +26,5 @@ private:
     QCheckBox *const mAllowMessagePinning;
     QCheckBox *const mAllowMessageSnippeting;
     QCheckBox *const mAllowConvertingLongMessageAttachment;
+    QCheckBox *const mVideoRecorderEnabled;
 };

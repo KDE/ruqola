@@ -18,6 +18,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowMessagePinning(new QCheckBox(i18n("Allow Message Pinning"), this))
     , mAllowMessageSnippeting(new QCheckBox(i18n("Allow Message Snippeting"), this))
     , mAllowConvertingLongMessageAttachment(new QCheckBox(i18n("Allow converting long messages to attachment"), this))
+    , mVideoRecorderEnabled(new QCheckBox(i18n("Video Recorder Enabled"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -40,6 +41,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
 
     mAllowMessagePinning->setObjectName(QStringLiteral("mAllowMessagePinning"));
+    mAllowMessagePinning->setToolTip(i18n("Allow Message Pinning"));
     mainLayout->addWidget(mAllowMessagePinning);
     connectCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
 
@@ -50,6 +52,11 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mAllowConvertingLongMessageAttachment->setObjectName(QStringLiteral("mAllowConvertingLongMessageAttachment"));
     mainLayout->addWidget(mAllowConvertingLongMessageAttachment);
     connectCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+
+    mVideoRecorderEnabled->setObjectName(QStringLiteral("mVideoRecorderEnabled"));
+    mVideoRecorderEnabled->setToolTip(i18n("Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
+    mainLayout->addWidget(mVideoRecorderEnabled);
+    connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;

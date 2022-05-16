@@ -52,6 +52,7 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowMessagePinning);
     QVERIFY(!mAllowMessagePinning->isChecked());
     QVERIFY(!mAllowMessagePinning->text().isEmpty());
+    QVERIFY(!mAllowMessagePinning->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessagePinning), QStringLiteral("Message_AllowPinning"));
 
     auto mAllowMessageSnippeting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageSnippeting"));
@@ -65,4 +66,11 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowConvertingLongMessageAttachment->isChecked());
     QVERIFY(!mAllowConvertingLongMessageAttachment->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowConvertingLongMessageAttachment), QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+
+    auto mVideoRecorderEnabled = w.findChild<QCheckBox *>(QStringLiteral("mVideoRecorderEnabled"));
+    QVERIFY(mVideoRecorderEnabled);
+    QVERIFY(!mVideoRecorderEnabled->isChecked());
+    QVERIFY(!mVideoRecorderEnabled->text().isEmpty());
+    QVERIFY(!mVideoRecorderEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mVideoRecorderEnabled), QStringLiteral("Message_VideoRecorderEnabled"));
 }
