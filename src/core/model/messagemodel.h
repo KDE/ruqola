@@ -64,6 +64,7 @@ public:
         ThreadLastMessage,
         ThreadMessageId,
         ThreadMessagePreview,
+        ThreadMessageFollowed,
         ShowTranslatedMessage,
         DisplayAttachment,
         DisplayLastSeenMessage,
@@ -146,6 +147,7 @@ private:
     void addMessage(const Message &message);
 
     void refresh();
+    Q_REQUIRED_RESULT bool threadMessageFollowed(const QString &threadMessageId) const;
     Q_REQUIRED_RESULT QStringList roomRoles(const QString &userId) const;
     Q_REQUIRED_RESULT QString convertMessageText(const Message &message,
                                                  const QString &userName,

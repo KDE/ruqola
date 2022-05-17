@@ -357,6 +357,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.threadMessageId();
     case MessageModel::ThreadMessagePreview:
         return threadMessagePreview(message.threadMessageId());
+    case MessageModel::ThreadMessageFollowed:
+        return threadMessageFollowed(message.threadMessageId());
     case MessageModel::Groupable:
         return message.groupable();
     case MessageModel::ShowTranslatedMessage:
@@ -594,6 +596,22 @@ QString MessageModel::threadMessagePreview(const QString &threadMessageId) const
         }
     }
     return {};
+}
+
+bool MessageModel::threadMessageFollowed(const QString &threadMessageId) const
+{
+    if (!threadMessageId.isEmpty()) {
+        auto it = findMessage(threadMessageId);
+        if (it != mAllMessages.cend()) {
+            const QString userId = mRocketChatAccount ? mRocketChatAccount->userId() : QString();
+            if (!userId.isEmpty()) {
+                return (*it).replies().contains(userId);
+            }
+        } else {
+            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+        }
+    }
+    return false;
 }
 
 QVector<Message>::iterator MessageModel::findMessage(const QString &messageId)
