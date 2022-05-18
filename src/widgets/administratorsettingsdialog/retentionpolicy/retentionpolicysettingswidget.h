@@ -20,4 +20,5 @@ public:
 
 private:
     QCheckBox *const mEnabled;
+    QCheckBox *const mUseAdvancedRetentionPolicyConfiguration;
 };

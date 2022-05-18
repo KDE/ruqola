@@ -24,4 +24,10 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnabled->isChecked());
     QVERIFY(!mEnabled->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mEnabled), QStringLiteral("RetentionPolicy_Enabled"));
+
+    auto mUseAdvancedRetentionPolicyConfiguration = w.findChild<QCheckBox *>(QStringLiteral("mUseAdvancedRetentionPolicyConfiguration"));
+    QVERIFY(mUseAdvancedRetentionPolicyConfiguration);
+    QVERIFY(!mUseAdvancedRetentionPolicyConfiguration->isChecked());
+    QVERIFY(!mUseAdvancedRetentionPolicyConfiguration->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mUseAdvancedRetentionPolicyConfiguration), QStringLiteral("RetentionPolicy_Advanced_Precision"));
 }
