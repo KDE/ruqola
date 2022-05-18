@@ -21,4 +21,6 @@ public:
 private:
     QCheckBox *const mEnabled;
     QCheckBox *const mUseAdvancedRetentionPolicyConfiguration;
+    QCheckBox *const mDontPruneThreads;
+    QCheckBox *const mDontPruneDiscussion;
 };

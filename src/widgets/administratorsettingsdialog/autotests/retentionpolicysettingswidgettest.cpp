@@ -30,4 +30,16 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseAdvancedRetentionPolicyConfiguration->isChecked());
     QVERIFY(!mUseAdvancedRetentionPolicyConfiguration->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mUseAdvancedRetentionPolicyConfiguration), QStringLiteral("RetentionPolicy_Advanced_Precision"));
+
+    auto mDontPruneThreads = w.findChild<QCheckBox *>(QStringLiteral("mDontPruneThreads"));
+    QVERIFY(mDontPruneThreads);
+    QVERIFY(!mDontPruneThreads->isChecked());
+    QVERIFY(!mDontPruneThreads->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mDontPruneThreads), QStringLiteral("RetentionPolicy_DoNotPruneThreads"));
+
+    auto mDontPruneDiscussion = w.findChild<QCheckBox *>(QStringLiteral("mDontPruneDiscussion"));
+    QVERIFY(mDontPruneDiscussion);
+    QVERIFY(!mDontPruneDiscussion->isChecked());
+    QVERIFY(!mDontPruneDiscussion->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mDontPruneDiscussion), QStringLiteral("RetentionPolicy_DoNotPruneDiscussion"));
 }
