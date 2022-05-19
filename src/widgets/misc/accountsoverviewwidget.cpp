@@ -95,16 +95,16 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabBar);
 
-    auto accountManager = Ruqola::self()->accountManager();
-    const auto model = accountManager->rocketChatAccountModel();
+    mAccountManager = Ruqola::self()->accountManager();
+    const auto model = mAccountManager->rocketChatAccountModel();
     connect(model, &RocketChatAccountModel::accountNumberChanged, this, &AccountsOverviewWidget::updateButtons);
     updateButtons();
 
-    connect(accountManager, &AccountManager::currentAccountChanged, this, &AccountsOverviewWidget::updateCurrentTab);
+    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &AccountsOverviewWidget::updateCurrentTab);
 
     connect(mTabBar, &QTabBar::currentChanged, this, [this](int i) {
         auto account = mTabBar->tabData(i).value<RocketChatAccount *>();
-        Ruqola::self()->accountManager()->setCurrentAccount(account ? account->accountName() : QString());
+        mAccountManager->setCurrentAccount(account ? account->accountName() : QString());
     });
 }
 
@@ -112,7 +112,7 @@ AccountsOverviewWidget::~AccountsOverviewWidget() = default;
 
 void AccountsOverviewWidget::updateButtons()
 {
-    const auto model = Ruqola::self()->accountManager()->rocketChatAccountModel();
+    const auto model = mAccountManager->rocketChatAccountModel();
     const auto count = model->rowCount();
 
     for (int i = 0; i < count; ++i) {
@@ -159,7 +159,7 @@ void AccountsOverviewWidget::updateButtons()
 
 void AccountsOverviewWidget::updateCurrentTab()
 {
-    auto account = Ruqola::self()->accountManager()->account();
+    auto account = mAccountManager->account();
     auto tabIndex = [this, account]() {
         for (int i = 0, c = mTabBar->count(); i < c; ++i) {
             if (mTabBar->tabData(i).value<RocketChatAccount *>() == account) {
@@ -186,7 +186,7 @@ void AccountsOverviewWidget::goToView(int index)
     if (index >= 0 && index < mTabBar->count()) {
         auto rocketChatAccount = mTabBar->tabData(index).value<RocketChatAccount *>();
         if (rocketChatAccount) {
-            Ruqola::self()->accountManager()->setCurrentAccount(rocketChatAccount->accountName());
+            mAccountManager->setCurrentAccount(rocketChatAccount->accountName());
         }
     }
 }

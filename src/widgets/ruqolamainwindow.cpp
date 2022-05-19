@@ -100,11 +100,12 @@ RuqolaMainWindow::RuqolaMainWindow(QWidget *parent)
     createSystemTray();
     mSwitchChannelTreeManager->setParentWidget(mMainWidget);
     connect(mSwitchChannelTreeManager, &SwitchChannelTreeViewManager::switchToChannel, this, &RuqolaMainWindow::slotHistorySwitchChannel);
-    connect(Ruqola::self()->accountManager(), &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
-    connect(Ruqola::self()->accountManager(), &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
-    connect(Ruqola::self()->accountManager(), &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
-    connect(Ruqola::self()->accountManager(), &AccountManager::messageUrlNotFound, this, &RuqolaMainWindow::slotMessageUrlNotFound);
-    connect(Ruqola::self()->accountManager(), &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
+    mAccountManager = Ruqola::self()->accountManager();
+    connect(mAccountManager, &AccountManager::currentAccountChanged, this, &RuqolaMainWindow::slotAccountChanged);
+    connect(mAccountManager, &AccountManager::updateNotification, this, &RuqolaMainWindow::updateNotification);
+    connect(mAccountManager, &AccountManager::roomNeedAttention, this, &RuqolaMainWindow::slotRoomNeedAttention);
+    connect(mAccountManager, &AccountManager::messageUrlNotFound, this, &RuqolaMainWindow::slotMessageUrlNotFound);
+    connect(mAccountManager, &AccountManager::logoutAccountDone, this, &RuqolaMainWindow::logout);
 
     slotAccountChanged();
 #if HAVE_KUSERFEEDBACK
@@ -494,7 +495,7 @@ void RuqolaMainWindow::showPreviousView()
 
 void RuqolaMainWindow::slotClearAccountAlerts()
 {
-    if (auto acct = Ruqola::self()->accountManager()->account()) {
+    if (auto acct = mAccountManager->account()) {
         acct->clearAllUnreadMessages();
     }
 }
@@ -578,11 +579,11 @@ void RuqolaMainWindow::slotConfigure()
 void RuqolaMainWindow::slotAddServer()
 {
     QPointer<CreateNewServerDialog> dlg = new CreateNewServerDialog(this);
-    const QStringList lst = Ruqola::self()->accountManager()->accountsName();
+    const QStringList lst = mAccountManager->accountsName();
     dlg->setExistingAccountName(lst);
     if (dlg->exec()) {
         const AccountManager::AccountManagerInfo info = dlg->accountInfo();
-        Ruqola::self()->accountManager()->addAccount(info);
+        mAccountManager->addAccount(info);
     }
     delete dlg;
 }

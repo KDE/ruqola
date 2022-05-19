@@ -31,8 +31,9 @@ void ServerMenu::setActionCollection(KActionCollection *ac)
 void ServerMenu::slotUpdateAccountMenu()
 {
     menu()->clear();
-    RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();
-    const QString currentAccountName = Ruqola::self()->accountManager()->currentAccount();
+    auto accountManager = Ruqola::self()->accountManager();
+    RocketChatAccountModel *model = accountManager->rocketChatAccountModel();
+    const QString currentAccountName = accountManager->currentAccount();
     const int accountNumber = model->accountNumber();
     if (accountNumber == 0) {
         // Nothing
@@ -58,8 +59,8 @@ void ServerMenu::slotUpdateAccountMenu()
                 if (mActionCollection) {
                     mActionCollection->setDefaultShortcut(action, QKeySequence(QStringLiteral("CTRL+%1").arg(i)));
                 }
-                connect(action, &QAction::triggered, this, [accountName]() {
-                    Ruqola::self()->accountManager()->setCurrentAccount(accountName);
+                connect(action, &QAction::triggered, this, [accountName, accountManager]() {
+                    accountManager->setCurrentAccount(accountName);
                 });
             }
         }

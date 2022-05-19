@@ -11,6 +11,7 @@
 #include <QWidget>
 
 class QTabBar;
+class AccountManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountsOverviewWidget : public QWidget
 {
     Q_OBJECT
@@ -27,4 +28,5 @@ private:
     void goToView(int index);
 
     QTabBar *const mTabBar;
+    AccountManager *mAccountManager = nullptr;
 };

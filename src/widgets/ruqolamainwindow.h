@@ -27,6 +27,7 @@ class KHamburgerMenu;
 class KToggleFullScreenAction;
 class QToolButton;
 class KActionMenu;
+class AccountManager;
 class LIBRUQOLAWIDGETS_EXPORT RuqolaMainWindow : public KXmlGuiWindow
 {
     Q_OBJECT
@@ -129,4 +130,5 @@ private:
     QToolButton *mNotificationToolButton = nullptr;
     QAction *mShowNotifyHistory = nullptr;
     KActionMenu *mAdministratorMenu = nullptr;
+    AccountManager *mAccountManager = nullptr;
 };
