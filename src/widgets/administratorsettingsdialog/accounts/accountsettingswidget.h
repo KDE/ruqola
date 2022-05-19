@@ -29,4 +29,5 @@ private:
     QCheckBox *const mAllowUsersToDeleteOwnAccount;
     QCheckBox *const mAllowAnonymousWrite;
     QCheckBox *const mAllowUsersDeleteOwnAccount;
+    QCheckBox *const mAllowPasswordChangeOauthUsers;
 };

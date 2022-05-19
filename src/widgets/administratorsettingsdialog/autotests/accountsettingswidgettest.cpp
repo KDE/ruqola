@@ -79,4 +79,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowUsersDeleteOwnAccount->isChecked());
     QVERIFY(!mAllowUsersDeleteOwnAccount->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowUsersDeleteOwnAccount), QStringLiteral("Accounts_AllowDeleteOwnAccount"));
+
+    auto mAllowPasswordChangeOauthUsers = w.findChild<QCheckBox *>(QStringLiteral("mAllowPasswordChangeOauthUsers"));
+    QVERIFY(mAllowPasswordChangeOauthUsers);
+    QVERIFY(!mAllowPasswordChangeOauthUsers->isChecked());
+    QVERIFY(!mAllowPasswordChangeOauthUsers->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowPasswordChangeOauthUsers), QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
 }

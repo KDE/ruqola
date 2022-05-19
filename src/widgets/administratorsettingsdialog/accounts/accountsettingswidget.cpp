@@ -20,6 +20,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowUsersToDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowAnonymousWrite(new QCheckBox(i18n("Allow Anonymous Write"), this))
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
+    , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -60,6 +61,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mAllowUsersDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersDeleteOwnAccount"));
     mainLayout->addWidget(mAllowUsersDeleteOwnAccount);
     connectCheckBox(mAllowUsersDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
+
+    mAllowPasswordChangeOauthUsers->setObjectName(QStringLiteral("mAllowPasswordChangeOauthUsers"));
+    mainLayout->addWidget(mAllowPasswordChangeOauthUsers);
+    connectCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
 }
 
 void AccountSettingsWidget::initialize()
