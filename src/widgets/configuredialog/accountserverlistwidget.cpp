@@ -43,8 +43,9 @@ void AccountServerListWidget::load()
 void AccountServerListWidget::save()
 {
     // First remove account
+    auto accountManager = Ruqola::self()->accountManager();
     for (const QString &accountName : std::as_const(mListRemovedAccount)) {
-        Ruqola::self()->accountManager()->removeAccount(accountName);
+        accountManager->removeAccount(accountName);
     }
 
     // Add account or modify it
@@ -55,9 +56,9 @@ void AccountServerListWidget::save()
 
         info.enabled = serverListItem->checkState() == Qt::Checked;
         if (serverListItem->newAccount()) {
-            Ruqola::self()->accountManager()->addAccount(info);
+            accountManager->addAccount(info);
         } else {
-            Ruqola::self()->accountManager()->modifyAccount(info);
+            accountManager->modifyAccount(info);
         }
     }
 }
