@@ -104,7 +104,7 @@ void AdministratorOauthWidget::slotTextChanged(const QString &str)
 
 void AdministratorOauthWidget::slotRemoveOauth(const QString &identifier)
 {
-    Ruqola::self()->rocketChatAccount()->ddp()->deleteOAuthApp(identifier);
+    mRocketChatAccount->ddp()->deleteOAuthApp(identifier);
     // TODO make sure that identifier removed
     mAdminOauthModel->removeOauth(identifier);
 }
