@@ -16,8 +16,9 @@
 AccountsChannelsModel::AccountsChannelsModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-    const auto src = Ruqola::self()->accountManager()->rocketChatAccountModel();
-    const auto acctsProxy = Ruqola::self()->accountManager()->rocketChatAccountProxyModel();
+    auto accountManager = Ruqola::self()->accountManager();
+    const auto src = accountManager->rocketChatAccountModel();
+    const auto acctsProxy = accountManager->rocketChatAccountProxyModel();
 
     auto roomsModel = [src, acctsProxy](int i) {
         const auto acctIndex = acctsProxy->mapToSource(acctsProxy->index(i, 0)).row();
