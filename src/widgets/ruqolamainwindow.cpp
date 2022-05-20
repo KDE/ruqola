@@ -698,9 +698,9 @@ void RuqolaMainWindow::slotAdministratorServerSettings()
 
 void RuqolaMainWindow::slotDirectory()
 {
-    DirectoryDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.fillTabs();
-    dlg.exec();
+    auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, this);
+    dlg->fillTabs();
+    dlg->show();
 }
 
 bool RuqolaMainWindow::queryClose()

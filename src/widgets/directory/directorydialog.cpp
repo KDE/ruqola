@@ -6,6 +6,7 @@
 
 #include "directorydialog.h"
 #include "directorytabwidget.h"
+#include "rocketchataccount.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -21,7 +22,7 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mDirectoryTabWidget(new DirectoryTabWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Directory"));
+    setWindowTitle(i18nc("@title:window", "Directory - %1", account->accountName()));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -35,6 +36,7 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &DirectoryDialog::accept);
 
     readConfig();
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 DirectoryDialog::~DirectoryDialog()
