@@ -373,12 +373,12 @@ void RoomWidget::slotShowDiscussions()
 
 void RoomWidget::slotShowFileAttachments()
 {
-    ShowAttachmentDialog dlg(mCurrentRocketChatAccount, this);
+    auto dlg = new ShowAttachmentDialog(mCurrentRocketChatAccount, this);
     mCurrentRocketChatAccount->roomFiles(mRoomWidgetBase->roomId(), mRoomType);
-    dlg.setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
-    dlg.setRoomId(mRoomWidgetBase->roomId());
-    dlg.setRoomType(mRoomType);
-    dlg.exec();
+    dlg->setModel(mCurrentRocketChatAccount->filesForRoomFilterProxyModel());
+    dlg->setRoomId(mRoomWidgetBase->roomId());
+    dlg->setRoomType(mRoomType);
+    dlg->show();
 }
 
 void RoomWidget::slotSearchMessages()

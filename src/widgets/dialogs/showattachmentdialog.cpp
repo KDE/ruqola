@@ -25,7 +25,7 @@ ShowAttachmentDialog::ShowAttachmentDialog(RocketChatAccount *account, QWidget *
     , mShowAttachmentWidget(new ShowAttachmentWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Show Attachments"));
+    setWindowTitle(i18nc("@title:window", "Show Attachments - %1", account->accountName()));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
