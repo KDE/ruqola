@@ -88,8 +88,8 @@ void MessageListDelegate::slotUpdateColors()
 
 void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
-    mAvatarCacheManager->setCurrentRocketChatAccount(rcAccount);
     mRocketChatAccount = rcAccount;
+    mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const

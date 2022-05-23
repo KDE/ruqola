@@ -133,12 +133,13 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
                 auto parentWidget = const_cast<QWidget *>(option.widget);
-                auto dlg = new ShowImageDialog(Ruqola::self()->rocketChatAccount(), parentWidget);
+                auto account = Ruqola::self()->rocketChatAccount();
+                auto dlg = new ShowImageDialog(account, parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
                 info.bigImagePath = layout.imageBigPath;
                 info.previewImagePath = layout.imagePreviewPath;
-                info.needToDownloadBigImage = !Ruqola::self()->rocketChatAccount()->attachmentIsInLocalCache(layout.imageBigPath);
+                info.needToDownloadBigImage = !account->attachmentIsInLocalCache(layout.imageBigPath);
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(info);

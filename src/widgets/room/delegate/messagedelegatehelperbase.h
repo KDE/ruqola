@@ -68,6 +68,7 @@ protected:
 
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;
+    // TODO add rocketchataccount
 
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
