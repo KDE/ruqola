@@ -22,7 +22,7 @@ DirectoryDialog::DirectoryDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mDirectoryTabWidget(new DirectoryTabWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Directory - %1", account->accountName()));
+    setWindowTitle(i18nc("@title:window", "Directory - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

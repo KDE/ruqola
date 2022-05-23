@@ -26,7 +26,7 @@ ShowDiscussionsDialog::ShowDiscussionsDialog(RocketChatAccount *account, QWidget
     , mShowDiscussionsWidget(new ShowDiscussionsWidget(account, this))
     , mRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Show Discussions - %1", account->accountName()));
+    setWindowTitle(i18nc("@title:window", "Show Discussions - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
