@@ -18,7 +18,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
-#include <KFormat>
+#include <KIO/Global>
 #include <QClipboard>
 #include <QDir>
 #include <QGuiApplication>
@@ -278,7 +278,7 @@ void MessageLineWidget::slotSendFile()
         if (result.fileUrl.isLocalFile()) {
             const QFileInfo info(result.fileUrl.toLocalFile());
             if (info.size() > maximumFileSize) {
-                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KFormat().formatByteSize(maximumFileSize)), i18n("File upload"));
+                KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)), i18n("File upload"));
                 delete dlg;
                 return;
             }

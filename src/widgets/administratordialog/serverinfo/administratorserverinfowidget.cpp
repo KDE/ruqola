@@ -13,7 +13,7 @@
 #include "ruqolawidgets_debug.h"
 #include "serverinfojob.h"
 
-#include <KFormat>
+#include <KIO/Global>
 #include <KLocalizedString>
 #include <KTreeWidgetSearchLineWidget>
 #include <QApplication>
@@ -218,7 +218,7 @@ void AdministratorServerInfoWidget::createItemDisplayFormat(QTreeWidgetItem *par
     if (!objValue.isUndefined()) {
         auto item = new QTreeWidgetItem(parentItem);
         item->setText(0, label);
-        item->setText(1, KFormat().formatByteSize(objValue.toDouble()));
+        item->setText(1, KIO::convertSize(objValue.toDouble()));
         item->addChild(item);
     }
 }
