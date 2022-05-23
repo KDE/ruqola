@@ -24,7 +24,7 @@
 RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
     : QWidget(parent)
     , mUploadFileProgressStatusListWidget(new UploadFileProgressStatusListWidget(this))
-    , mMessageListView(new MessageListView(mode, this))
+    , mMessageListView(new MessageListView(nullptr, mode, this))
     , mRoomReplyThreadWidget(new RoomReplyThreadWidget(this))
     , mRoomQuoteMessageWidget(new RoomQuoteMessageWidget(this))
     , mStackedWidget(new QStackedWidget(this))

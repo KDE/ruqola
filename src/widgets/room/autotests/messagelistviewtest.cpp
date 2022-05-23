@@ -16,7 +16,7 @@ MessageListViewTest::MessageListViewTest(QObject *parent)
 
 void MessageListViewTest::shouldHaveDefaultValues()
 {
-    MessageListView w(MessageListView::Mode::Editing);
+    MessageListView w(nullptr, MessageListView::Mode::Editing);
     QCOMPARE(w.mode(), MessageListView::Mode::Editing);
     QCOMPARE(w.selectionMode(), QAbstractItemView::NoSelection);
     QCOMPARE(w.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);

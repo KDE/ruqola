@@ -20,7 +20,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     : QWidget(parent)
     , mSearchLabel(new QLabel(this))
     , mSearchLineEdit(new SearchMessageWithDelayLineEdit(account, this))
-    , mResultListWidget(new MessageListView(MessageListView::Mode::Viewing, this))
+    , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mCurrentRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -44,9 +44,6 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
-    if (mCurrentRocketChatAccount) {
-        mResultListWidget->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
-    }
 }
 
 SearchMessageWidget::~SearchMessageWidget()

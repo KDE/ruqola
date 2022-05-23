@@ -34,13 +34,16 @@
 
 #include <KIO/KUriFilterSearchProviderActions>
 
-MessageListView::MessageListView(Mode mode, QWidget *parent)
+MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget *parent)
     : MessageListViewBase(parent)
     , mMode(mode)
     , mMessageListDelegate(new MessageListDelegate(this))
+    , mCurrentRocketChatAccount(account)
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
-    mMessageListDelegate->setRocketChatAccount(Ruqola::self()->rocketChatAccount());
+    if (mCurrentRocketChatAccount) {
+        mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
+    }
     mMessageListDelegate->setShowThreadContext(mMode != Mode::ThreadEditing);
     setItemDelegate(mMessageListDelegate);
 

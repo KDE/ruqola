@@ -24,7 +24,7 @@ public:
         Viewing, /*when we show list of message as mentions, search etc.*/
     };
 
-    explicit MessageListView(MessageListView::Mode mode, QWidget *parent = nullptr);
+    explicit MessageListView(RocketChatAccount *account, MessageListView::Mode mode, QWidget *parent = nullptr);
     ~MessageListView() override;
 
     void setRoom(Room *room);

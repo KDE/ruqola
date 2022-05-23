@@ -18,9 +18,8 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     : QWidget(parent)
     , mSearchMessageLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
-    , mMessageListView(new MessageListView(MessageListView::Mode::Viewing, this))
+    , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
 {
-    mMessageListView->setCurrentRocketChatAccount(account);
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
