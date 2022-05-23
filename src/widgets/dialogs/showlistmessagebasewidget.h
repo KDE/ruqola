@@ -19,15 +19,13 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ShowListMessageBaseWidget(QWidget *parent = nullptr);
+    explicit ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ShowListMessageBaseWidget() override;
 
     void setModel(ListMessagesModelFilterProxyModel *model);
     Q_REQUIRED_RESULT MessageListView *messageListView() const;
 
     void setRoom(Room *room);
-
-    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
 Q_SIGNALS:
     void loadMoreElements();

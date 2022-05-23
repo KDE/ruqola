@@ -24,7 +24,6 @@ public:
 
     void setRoomId(const QString &roomId);
     Q_REQUIRED_RESULT QString roomId() const;
-    void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
     void setRoom(Room *room);
 
 Q_SIGNALS:

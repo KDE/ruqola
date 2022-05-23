@@ -14,12 +14,13 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-ShowListMessageBaseWidget::ShowListMessageBaseWidget(QWidget *parent)
+ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mSearchMessageLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
     , mMessageListView(new MessageListView(MessageListView::Mode::Viewing, this))
 {
+    mMessageListView->setCurrentRocketChatAccount(account);
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
@@ -66,11 +67,6 @@ MessageListView *ShowListMessageBaseWidget::messageListView() const
 void ShowListMessageBaseWidget::setRoom(Room *room)
 {
     mMessageListView->setRoom(room);
-}
-
-void ShowListMessageBaseWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
-{
-    mMessageListView->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
 void ShowListMessageBaseWidget::updateLabel()

@@ -20,7 +20,7 @@ ShowListMessageBaseWidgetTest::ShowListMessageBaseWidgetTest(QObject *parent)
 
 void ShowListMessageBaseWidgetTest::shouldHaveDefaultValues()
 {
-    ShowListMessageBaseWidget w;
+    ShowListMessageBaseWidget w(nullptr);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

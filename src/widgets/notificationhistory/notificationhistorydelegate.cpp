@@ -271,6 +271,5 @@ bool NotificationHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QStyl
 RocketChatAccount *NotificationHistoryDelegate::rocketChatAccount(const QModelIndex &index) const
 {
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    auto *rcAccount = Ruqola::self()->accountManager()->accountFromName(accountName);
-    return rcAccount;
+    return Ruqola::self()->accountManager()->accountFromName(accountName);
 }

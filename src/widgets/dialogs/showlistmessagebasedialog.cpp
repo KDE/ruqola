@@ -16,7 +16,7 @@
 
 ShowListMessageBaseDialog::ShowListMessageBaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mShowListMessage(new ShowListMessageBaseWidget(this))
+    , mShowListMessage(new ShowListMessageBaseWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -58,11 +58,6 @@ void ShowListMessageBaseDialog::setRoomId(const QString &roomId)
 QString ShowListMessageBaseDialog::roomId() const
 {
     return mRoomId;
-}
-
-void ShowListMessageBaseDialog::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
-{
-    mShowListMessage->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
 void ShowListMessageBaseDialog::setRoom(Room *room)

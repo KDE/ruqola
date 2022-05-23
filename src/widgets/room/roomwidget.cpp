@@ -290,7 +290,6 @@ void RoomWidget::slotStarredMessages()
     QPointer<ShowStarredMessagesDialog> dlg = new ShowStarredMessagesDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::StarredMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
@@ -305,7 +304,6 @@ void RoomWidget::slotPinnedMessages()
     }
     QPointer<ShowPinnedMessagesDialog> dlg = new ShowPinnedMessagesDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::PinnedMessages);
@@ -322,7 +320,6 @@ void RoomWidget::slotShowMentions()
     QPointer<ShowMentionsMessagesDialog> dlg = new ShowMentionsMessagesDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::MentionsMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
@@ -338,7 +335,6 @@ void RoomWidget::slotSnipperedMessages()
     QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(mCurrentRocketChatAccount, this);
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::SnipperedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
@@ -352,7 +348,6 @@ void RoomWidget::slotShowThreads()
         return;
     }
     QPointer<ShowThreadsDialog> dlg = new ShowThreadsDialog(mCurrentRocketChatAccount, this);
-    dlg->setCurrentRocketChatAccount(mCurrentRocketChatAccount);
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setRoomId(mRoomWidgetBase->roomId());
     dlg->setRoom(mRoom);
