@@ -11,7 +11,7 @@ ecm_qt_declare_logging_category(ruqola_passwordauthenticationplugin_SRCS HEADER 
     IDENTIFIER RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_passwordauthenticationplugin
     DESCRIPTION "ruqola (password authentication plugin)" EXPORT RUQOLA)
 
-kcoreaddons_add_plugin(ruqola_passwordauthenticationplugin JSON ruqola_passwordauthenticationplugin.json SOURCES
+kcoreaddons_add_plugin(ruqola_passwordauthenticationplugin SOURCES
     ${ruqola_passwordauthenticationplugin_SRCS} INSTALL_NAMESPACE ruqolaplugins/authentication)
 
 target_link_libraries(ruqola_passwordauthenticationplugin
