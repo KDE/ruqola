@@ -26,6 +26,17 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
+MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : QObject(view)
+    , mRocketChatAccount(account)
+    , mListView(view)
+    , mSelectionImpl(textSelectionImpl)
+{
+    connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
+}
+
+MessageDelegateHelperText::~MessageDelegateHelperText() = default;
+
 QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, bool connectToUpdates) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -44,8 +55,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
             return threadMessageId == previousMessage->threadMessageId();
         }();
         if (!sameAsPreviousMessageThread) {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
-            const MessageModel *model = rcAccount->messageModelForRoom(message->roomId());
+            const MessageModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
             if (model) {
                 auto *that = const_cast<MessageDelegateHelperText *>(this);
                 // Find the previous message in the same thread, to use it as context
@@ -53,7 +63,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                     return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
                 };
                 Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
-                auto messageCache = rcAccount->messageCache();
+                auto messageCache = mRocketChatAccount->messageCache();
                 if (contextMessage.messageId().isEmpty()) {
                     ThreadMessageModel *cachedModel = messageCache->threadMessageModel(threadMessageId);
                     if (cachedModel) {
@@ -86,11 +96,11 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
 
                 QString needUpdateMessageId;
                 const QString contextString = TextConverter::convertMessageText(contextText,
-                                                                                rcAccount->userName(),
+                                                                                mRocketChatAccount->userName(),
                                                                                 {},
-                                                                                rcAccount->highlightWords(),
-                                                                                rcAccount->emojiManager(),
-                                                                                rcAccount->messageCache(),
+                                                                                mRocketChatAccount->highlightWords(),
+                                                                                mRocketChatAccount->emojiManager(),
+                                                                                mRocketChatAccount->messageCache(),
                                                                                 needUpdateMessageId,
                                                                                 contextMessage.mentions(),
                                                                                 contextMessage.channels(),
@@ -141,16 +151,6 @@ void MessageDelegateHelperText::updateView(const QModelIndex &index)
     // qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
-
-MessageDelegateHelperText::MessageDelegateHelperText(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : QObject(view)
-    , mListView(view)
-    , mSelectionImpl(textSelectionImpl)
-{
-    connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
-}
-
-MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
 void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option)
 {
@@ -222,8 +222,7 @@ bool MessageDelegateHelperText::handleMouseEvent(QMouseEvent *mouseEvent, QRect 
             if (const auto *doc = documentForIndex(index, messageRect.width(), true)) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
                 if (!link.isEmpty()) {
-                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                    Q_EMIT rcAccount->openLinkRequested(link);
+                    Q_EMIT mRocketChatAccount->openLinkRequested(link);
                     return true;
                 }
             }
@@ -339,4 +338,9 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
+}
+
+void MessageDelegateHelperText::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
 }

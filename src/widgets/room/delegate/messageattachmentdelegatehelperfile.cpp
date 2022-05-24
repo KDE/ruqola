@@ -32,8 +32,8 @@
 //  Name <download icon>
 //  Description
 
-MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(view, textSelectionImpl)
+MessageAttachmentDelegateHelperFile::MessageAttachmentDelegateHelperFile(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {
 }
@@ -126,7 +126,7 @@ static UserChoice askUser(const QUrl &url, const KService::Ptr &offer, QWidget *
     return msgBox.clickedButton()->property(prop).value<UserChoice>();
 }
 
-static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget)
+static void runApplication(const KService::Ptr &offer, const QString &link, QWidget *widget, RocketChatAccount *account)
 {
     std::unique_ptr<QTemporaryDir> tempDir(new QTemporaryDir(QDir::tempPath() + QLatin1String("/ruqola_attachment_XXXXXX")));
     if (!tempDir->isValid()) {
@@ -136,9 +136,8 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
     const QString tempFile = tempDir->filePath(QUrl(link).fileName());
     const QUrl fileUrl = QUrl::fromLocalFile(tempFile);
 
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    const QUrl downloadUrl = rcAccount->urlForLink(link);
-    auto *job = rcAccount->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
+    const QUrl downloadUrl = account->urlForLink(link);
+    auto *job = account->restApi()->downloadFile(downloadUrl, fileUrl, QStringLiteral("text/plain"));
     QObject::connect(job, &RocketChatRestApi::DownloadFileJob::downloadFileDone, widget, [=](const QUrl &, const QUrl &localFileUrl) {
         auto job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
@@ -161,15 +160,15 @@ void MessageAttachmentDelegateHelperFile::handleDownloadClicked(const QString &l
         const QString file = DelegateUtil::querySaveFileName(widget, i18n("Save File"), url);
         if (!file.isEmpty()) {
             const QUrl fileUrl = QUrl::fromLocalFile(file);
-            Ruqola::self()->rocketChatAccount()->downloadFile(link, fileUrl);
+            mRocketChatAccount->downloadFile(link, fileUrl);
         }
         break;
     }
     case UserChoice::Open:
-        runApplication(offer, link, widget);
+        runApplication(offer, link, widget, mRocketChatAccount);
         break;
     case UserChoice::OpenWith:
-        runApplication({}, link, widget);
+        runApplication({}, link, widget, mRocketChatAccount);
         break;
     case UserChoice::Cancel:
         break;

@@ -27,10 +27,11 @@ class QHelpEvent;
 
 class Message;
 class QListView;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
-    explicit MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelectionImpl);
+    explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     virtual ~MessageDelegateHelperBase();
 
     virtual void
@@ -50,6 +51,8 @@ public:
     void clearTextDocumentCache();
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
 protected:
     Q_REQUIRED_RESULT virtual QPoint
     adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) = 0;
@@ -68,7 +71,7 @@ protected:
 
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;
-    // TODO add rocketchataccount
+    RocketChatAccount *mRocketChatAccount = nullptr;
 
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.

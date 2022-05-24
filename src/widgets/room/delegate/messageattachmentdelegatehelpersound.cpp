@@ -21,8 +21,8 @@
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(view, textSelectionImpl)
+MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
     , mPlayerVolumeIcon(QIcon::fromTheme(QStringLiteral("player-volume")))
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {
@@ -109,7 +109,7 @@ MessageAttachmentDelegateHelperSound::SoundLayout
 MessageAttachmentDelegateHelperSound::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     SoundLayout layout;
-    const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link());
+    const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();

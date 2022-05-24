@@ -43,7 +43,7 @@ public:
         bool editMode = false;
     };
 
-    explicit MessageListDelegate(QListView *view);
+    explicit MessageListDelegate(RocketChatAccount *account, QListView *view);
     ~MessageListDelegate() override;
 
     void setRocketChatAccount(RocketChatAccount *rcAccount);

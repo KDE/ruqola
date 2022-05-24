@@ -13,11 +13,11 @@
 #include <QModelIndex>
 #include <QPixmap>
 #include <vector>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperImage(QListView *view, TextSelectionImpl *textSelectionImpl);
+    explicit MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperImage() override = default;
     MessageAttachmentDelegateHelperImage(const MessageAttachmentDelegateHelperImage &) = delete;
     MessageAttachmentDelegateHelperImage &operator=(const MessageAttachmentDelegateHelperImage &) = delete;

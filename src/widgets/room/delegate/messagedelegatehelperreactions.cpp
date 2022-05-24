@@ -20,8 +20,9 @@
 #include <QToolTip>
 #include <ruqola.h>
 
-MessageDelegateHelperReactions::MessageDelegateHelperReactions()
+MessageDelegateHelperReactions::MessageDelegateHelperReactions(RocketChatAccount *account)
     : mEmojiFont(Utils::emojiFontName())
+    , mRocketChatAccount(account)
 {
 }
 
@@ -30,8 +31,7 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
 {
     QVector<ReactionLayout> layouts;
     layouts.reserve(reactions.count());
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    auto *emojiManager = rcAccount->emojiManager();
+    auto *emojiManager = mRocketChatAccount->emojiManager();
     const QFontMetricsF emojiFontMetrics(mEmojiFont);
     const qreal smallMargin = DelegatePaintUtil::margin() / 2.0;
     qreal x = reactionsRect.x();
@@ -46,7 +46,7 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
         } else {
             const QString fileName = emojiManager->customEmojiFileName(reaction.reactionName());
             if (!fileName.isEmpty()) {
-                const QUrl emojiUrl = rcAccount->attachmentUrlFromLocalCache(fileName);
+                const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
                 if (emojiUrl.isEmpty()) {
                     // The download is happening, this will all be updated again later
                 } else {
@@ -75,6 +75,11 @@ MessageDelegateHelperReactions::layoutReactions(const QVector<Reaction> &reactio
         x += layout.reactionRect.width() + DelegatePaintUtil::margin();
     }
     return layouts;
+}
+
+void MessageDelegateHelperReactions::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
 }
 
 void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
@@ -146,9 +151,8 @@ bool MessageDelegateHelperReactions::handleMouseEvent(QMouseEvent *mouseEvent, Q
         for (const ReactionLayout &reactionLayout : reactions) {
             if (reactionLayout.reactionRect.contains(pos)) {
                 const Reaction &reaction = reactionLayout.reaction;
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                const bool doAdd = !reaction.userNames().contains(rcAccount->userName());
-                rcAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
+                const bool doAdd = !reaction.userNames().contains(mRocketChatAccount->userName());
+                mRocketChatAccount->reactOnMessage(message->messageId(), reaction.reactionName(), doAdd);
                 return true;
             }
         }

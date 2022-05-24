@@ -25,8 +25,8 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
-MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(view, textSelectionImpl)
+MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 
@@ -110,8 +110,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         if (layout.titleRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             const QString link{msgAttach.link()};
             if (!link.isEmpty()) {
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                Q_EMIT rcAccount->openLinkRequested(link);
+                Q_EMIT mRocketChatAccount->openLinkRequested(link);
                 return true;
             }
         }
@@ -122,8 +121,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             const QPoint mouseClickPos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleRect.height() + DelegatePaintUtil::margin());
             const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
             if (!link.isEmpty()) {
-                auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                Q_EMIT rcAccount->openLinkRequested(link);
+                Q_EMIT mRocketChatAccount->openLinkRequested(link);
                 return true;
             }
         }
@@ -196,7 +194,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         }
     } else {
         // Use TextConverter in case it starts with a [](URL) reply marker
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
+        auto *rcAccount = mRocketChatAccount;
         QString needUpdateMessageId;
         // TODO use needUpdateIndex ?
         const QString contextString = TextConverter::convertMessageText(text,

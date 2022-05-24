@@ -22,9 +22,10 @@
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
 
-MessageDelegateHelperBase::MessageDelegateHelperBase(QListView *view, TextSelectionImpl *textSelectionImpl)
+MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : mListView(view)
     , mSelectionImpl(textSelectionImpl)
+    , mRocketChatAccount(account)
 {
     connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
 }
@@ -66,8 +67,7 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
                 const QPoint mouseClickPos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
                 const QString link = doc->documentLayout()->anchorAt(mouseClickPos);
                 if (!link.isEmpty()) {
-                    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-                    Q_EMIT rcAccount->openLinkRequested(link);
+                    Q_EMIT mRocketChatAccount->openLinkRequested(link);
                     return true;
                 }
             }
@@ -137,7 +137,7 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     }
 
     auto mimeData = new QMimeData;
-    mimeData->setUrls({Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link())});
+    mimeData->setUrls({mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link())});
 
     auto drag = new QDrag(const_cast<QWidget *>(option.widget));
     drag->setMimeData(mimeData);
@@ -177,6 +177,11 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
     MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
 }
 
+void MessageDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
+}
+
 QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
 {
     return documentDescriptionForIndex(msgAttach, -1);
@@ -214,14 +219,14 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
         return nullptr;
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     QString needUpdateMessageId; // TODO use it ?
+    auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
     const QString contextString = TextConverter::convertMessageText(description,
-                                                                    rcAccount->userName(),
+                                                                    account->userName(),
                                                                     {},
-                                                                    rcAccount->highlightWords(),
-                                                                    rcAccount->emojiManager(),
-                                                                    rcAccount->messageCache(),
+                                                                    account->highlightWords(),
+                                                                    account->emojiManager(),
+                                                                    account->messageCache(),
                                                                     needUpdateMessageId,
                                                                     {},
                                                                     {});

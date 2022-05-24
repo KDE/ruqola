@@ -22,12 +22,13 @@ class QRect;
 class QMouseEvent;
 class QHelpEvent;
 class QStyleOptionViewItem;
+class RocketChatAccount;
 
 class MessageDelegateHelperText : public QObject, public DocumentFactoryInterface
 {
     Q_OBJECT
 public:
-    explicit MessageDelegateHelperText(QListView *view, TextSelectionImpl *textSelectionImpl);
+    explicit MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageDelegateHelperText() override;
     void draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
@@ -47,6 +48,8 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
 private:
     friend class TextSelection; // for documentForIndex
     Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, bool connectToUpdates) const;
@@ -63,6 +66,7 @@ private:
 
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
+    RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;
     bool mShowThreadContext = true;
     QListView *const mListView;

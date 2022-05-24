@@ -21,8 +21,8 @@
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(view, textSelectionImpl)
+MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
     , mVisibilityIcon(QIcon::fromTheme(QStringLiteral("visibility")))
 {
@@ -101,7 +101,7 @@ MessageAttachmentDelegateHelperVideo::VideoLayout
 MessageAttachmentDelegateHelperVideo::layoutVideo(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     VideoLayout layout;
-    const QUrl url = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.link());
+    const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();

@@ -41,7 +41,7 @@
 #include <cmath>
 #include <tuple>
 
-MessageListDelegate::MessageListDelegate(QListView *view)
+MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *view)
     : QItemDelegate(view)
     , mEditedIcon(QIcon::fromTheme(QStringLiteral("document-edit")))
     , mRolesIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
@@ -52,13 +52,13 @@ MessageListDelegate::MessageListDelegate(QListView *view)
     , mTranslatedIcon(QIcon::fromTheme(QStringLiteral("languages"))) // TODO use another icon for it. But kde doesn't correct icon perhaps flags ?
     , mListView(view)
     , mTextSelectionImpl(new TextSelectionImpl)
-    , mHelperText(new MessageDelegateHelperText(view, mTextSelectionImpl))
-    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(view, mTextSelectionImpl))
-    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(view, mTextSelectionImpl))
-    , mHelperReactions(new MessageDelegateHelperReactions)
-    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(view, mTextSelectionImpl))
-    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(view, mTextSelectionImpl))
-    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(view, mTextSelectionImpl))
+    , mHelperText(new MessageDelegateHelperText(account, view, mTextSelectionImpl))
+    , mHelperAttachmentImage(new MessageAttachmentDelegateHelperImage(account, view, mTextSelectionImpl))
+    , mHelperAttachmentFile(new MessageAttachmentDelegateHelperFile(account, view, mTextSelectionImpl))
+    , mHelperReactions(new MessageDelegateHelperReactions(account))
+    , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(account, view, mTextSelectionImpl))
+    , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(account, view, mTextSelectionImpl))
+    , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
     mTextSelectionImpl->textSelection()->setTextHelperFactory(mHelperText.data());
@@ -90,6 +90,14 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
     mRocketChatAccount = rcAccount;
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
+
+    mHelperText->setRocketChatAccount(mRocketChatAccount);
+    mHelperAttachmentImage->setRocketChatAccount(mRocketChatAccount);
+    mHelperAttachmentFile->setRocketChatAccount(mRocketChatAccount);
+    mHelperReactions->setRocketChatAccount(mRocketChatAccount);
+    mHelperAttachmentVideo->setRocketChatAccount(mRocketChatAccount);
+    mHelperAttachmentSound->setRocketChatAccount(mRocketChatAccount);
+    mHelperAttachmentText->setRocketChatAccount(mRocketChatAccount);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const

@@ -15,7 +15,7 @@ class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
 {
 public:
-    explicit MessageAttachmentDelegateHelperText(QListView *view, TextSelectionImpl *textSelectionImpl);
+    explicit MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageAttachmentDelegateHelperText() override;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;

@@ -37,7 +37,7 @@
 MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget *parent)
     : MessageListViewBase(parent)
     , mMode(mode)
-    , mMessageListDelegate(new MessageListDelegate(this))
+    , mMessageListDelegate(new MessageListDelegate(account, this))
     , mCurrentRocketChatAccount(account)
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");

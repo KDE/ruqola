@@ -21,16 +21,19 @@ class QModelIndex;
 class QMouseEvent;
 class QStyleOptionViewItem;
 class Message;
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperReactions
 {
 public:
-    MessageDelegateHelperReactions();
+    explicit MessageDelegateHelperReactions(RocketChatAccount *account);
     void draw(QPainter *painter, QRect reactionsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT QSize sizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT bool handleMouseEvent(QMouseEvent *mouseEvent, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);
     Q_REQUIRED_RESULT bool
     handleHelpEvent(QHelpEvent *helpEvent, QWidget *view, QRect reactionsRect, const QStyleOptionViewItem &option, const Message *message);
+
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
 private:
     struct ReactionLayout {
@@ -48,4 +51,5 @@ private:
     layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;
     const QFont mEmojiFont;
     mutable PixmapCache mPixmapCache;
+    RocketChatAccount *mRocketChatAccount = nullptr;
 };

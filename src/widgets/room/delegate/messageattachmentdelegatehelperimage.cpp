@@ -23,8 +23,8 @@
 #include <QPixmapCache>
 #include <QStyleOptionViewItem>
 
-MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(view, textSelectionImpl)
+MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 
@@ -133,13 +133,12 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             const QRect imageRect(attachmentsRect.x(), imageY, layout.imageSize.width(), layout.imageSize.height());
             if (imageRect.contains(pos)) {
                 auto parentWidget = const_cast<QWidget *>(option.widget);
-                auto account = Ruqola::self()->rocketChatAccount();
-                auto dlg = new ShowImageDialog(account, parentWidget);
+                auto dlg = new ShowImageDialog(mRocketChatAccount, parentWidget);
                 dlg->setAttribute(Qt::WA_DeleteOnClose);
                 ShowImageWidget::ImageInfo info;
                 info.bigImagePath = layout.imageBigPath;
                 info.previewImagePath = layout.imagePreviewPath;
-                info.needToDownloadBigImage = !account->attachmentIsInLocalCache(layout.imageBigPath);
+                info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
                 info.pixmap = layout.pixmap;
                 info.isAnimatedImage = layout.isAnimatedImage;
                 dlg->setImageInfo(info);
@@ -161,7 +160,8 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
                                                                                                     int attachmentsHeight) const
 {
     ImageLayout layout;
-    const QUrl previewImageUrl = Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
+    const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview())
+                                                    : Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
     layout.title = msgAttach.title();
     layout.description = msgAttach.description();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
