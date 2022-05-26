@@ -72,6 +72,10 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 // qCDebug(RUQOLA_COMMANDS_LOG) << " permissionRoles " << permissionRoles;
                 bool hasAllPermission = true;
                 for (const QString &role : permissionRoles) {
+                    if (role.isEmpty()) {
+                        hasAllPermission = false;
+                        break;
+                    }
                     if (!account->hasPermission(role)) {
                         hasAllPermission = false;
                         break;
@@ -86,7 +90,7 @@ void Commands::parseListCommands(const QJsonObject &commandsObj, RocketChatAccou
                 mCommands.append(std::move(m));
             }
         } else {
-            qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current;
+            qCWarning(RUQOLA_LOG) << "Problem when parsing commands" << current.type();
         }
     }
 }
