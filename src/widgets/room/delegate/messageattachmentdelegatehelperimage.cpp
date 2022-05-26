@@ -160,6 +160,7 @@ MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelpe
                                                                                                     int attachmentsHeight) const
 {
     ImageLayout layout;
+    // Laurent keep Ruqola::self()->rocketChatAccount() for autotest
     const QUrl previewImageUrl = mRocketChatAccount ? mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview())
                                                     : Ruqola::self()->rocketChatAccount()->attachmentUrlFromLocalCache(msgAttach.imageUrlPreview());
     layout.title = msgAttach.title();
