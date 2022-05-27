@@ -8,6 +8,7 @@
 #include "accounts/accountsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
+#include "general/generalsettingswidget.h"
 #include "message/messagesettingswidget.h"
 #include "retentionpolicy/retentionpolicysettingswidget.h"
 #include "rocketchataccount.h"
@@ -25,6 +26,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mMessageSettingsWidget(new MessageSettingsWidget(account, this))
     , mUploadFileSettingsWidget(new FileUploadSettingsWidget(account, this))
     , mRetentionPolicySettingsWidget(new RetentionPolicySettingsWidget(account, this))
+    , mGeneralSettingsWidget(new GeneralSettingsWidget(account, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -38,11 +40,13 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mMessageSettingsWidget->setObjectName(QStringLiteral("mMessageSettingsWidget"));
     mUploadFileSettingsWidget->setObjectName(QStringLiteral("mUploadFileSettingsWidget"));
     mRetentionPolicySettingsWidget->setObjectName(QStringLiteral("mRetentionPolicySettingsWidget"));
+    mGeneralSettingsWidget->setObjectName(QStringLiteral("mGeneralSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
     mTabWidget->addTab(mUploadFileSettingsWidget, i18n("File Upload"));
     mTabWidget->addTab(mRetentionPolicySettingsWidget, i18n("Retention Policy"));
+    mTabWidget->addTab(mGeneralSettingsWidget, i18n("General"));
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;

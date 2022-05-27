@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
+#include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include <QTabWidget>
@@ -46,4 +47,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mRetentionPolicySettingsWidget = w.findChild<RetentionPolicySettingsWidget *>(QStringLiteral("mRetentionPolicySettingsWidget"));
     QVERIFY(mRetentionPolicySettingsWidget);
+
+    auto mGeneralSettingsWidget = w.findChild<GeneralSettingsWidget *>(QStringLiteral("mGeneralSettingsWidget"));
+    QVERIFY(mGeneralSettingsWidget);
 }
