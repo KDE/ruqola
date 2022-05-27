@@ -132,7 +132,11 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mServerUrl->setText(mRocketChatAccount->serverUrl());
     mUserName->setText(mRocketChatAccount->userName());
     // mLdapCheckBox->setChecked(mRocketChatAccount->useLdap());
+    disconnect(mUpdatePasswordConnection);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
+    mUpdatePasswordConnection = connect(mRocketChatAccount, &RocketChatAccount::passwordChanged, mPasswordLineEditWidget, [this]() {
+        mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
+    });
     mAuthenticationCombobox->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
     // mLdapCheckBox->setVisible(rocketChatAccount->ldapEnabled());

@@ -30,6 +30,10 @@ void PasswordAuthenticationInterface::login()
         return;
     }
 
+    if (mAccount->settings()->password().isEmpty()) {
+        return;
+    }
+
     if (mAccount->settings()->useLdap()) {
         mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
     } else {
