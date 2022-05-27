@@ -67,9 +67,9 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
 }
 
+AccountSettingsWidget::~AccountSettingsWidget() = default;
+
 void AccountSettingsWidget::initialize()
 {
     // TODO
 }
-
-AccountSettingsWidget::~AccountSettingsWidget() = default;
