@@ -6,11 +6,27 @@
 
 #include "generalsettingswidget.h"
 
+#include <KLocalizedString>
+
+#include <QCheckBox>
+#include <QFormLayout>
+
 GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
+    , mEnableFavoriteRooms(new QCheckBox(i18n("Enable Favorite Rooms"), this))
 {
+    auto mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+
+    mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
+    mainLayout->addWidget(mEnableFavoriteRooms);
+    connectCheckBox(mEnableFavoriteRooms, QStringLiteral("Favorite_Rooms"));
 }
 
-GeneralSettingsWidget::~GeneralSettingsWidget()
+GeneralSettingsWidget::~GeneralSettingsWidget() = default;
+
+void GeneralSettingsWidget::initialize()
 {
+    // TODO
 }

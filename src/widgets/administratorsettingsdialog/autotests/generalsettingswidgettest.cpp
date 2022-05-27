@@ -6,6 +6,9 @@
 
 #include "generalsettingswidgettest.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
+#include "settingswidgetshelper.h"
+#include <QCheckBox>
+#include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(GeneralSettingsWidgetTest)
 GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)
@@ -16,5 +19,14 @@ GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)
 void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
 {
     GeneralSettingsWidget w(nullptr);
-    // TODO
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mEnableFavoriteRooms = w.findChild<QCheckBox *>(QStringLiteral("mEnableFavoriteRooms"));
+    QVERIFY(mEnableFavoriteRooms);
+    QVERIFY(!mEnableFavoriteRooms->isChecked());
+    QVERIFY(!mEnableFavoriteRooms->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mEnableFavoriteRooms), QStringLiteral("Favorite_Rooms"));
 }

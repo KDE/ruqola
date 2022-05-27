@@ -15,4 +15,9 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT GeneralSettingsWidget : public SettingsWidge
 public:
     explicit GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~GeneralSettingsWidget() override;
+
+    void initialize();
+
+private:
+    QCheckBox *const mEnableFavoriteRooms;
 };
