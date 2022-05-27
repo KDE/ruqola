@@ -220,6 +220,7 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
+    // Laurent Ruqola::self()->rocketChatAccount() only for test.
     auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
     const QString contextString = TextConverter::convertMessageText(description,
                                                                     account->userName(),
