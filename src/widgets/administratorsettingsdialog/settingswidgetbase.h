@@ -17,6 +17,8 @@ public:
     explicit SettingsWidgetBase(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SettingsWidgetBase() override;
 
+    virtual void initialize() = 0;
+
 protected:
     void updateSettings(const QString &settingName, bool value);
 

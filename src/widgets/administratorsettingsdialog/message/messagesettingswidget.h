@@ -16,7 +16,7 @@ public:
     explicit MessageSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MessageSettingsWidget() override;
 
-    void initialize();
+    void initialize() override;
 
 private:
     QCheckBox *const mAllowMessageEditing;
