@@ -19,6 +19,7 @@ GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)
 void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
 {
     GeneralSettingsWidget w(nullptr);
+    QVERIFY(w.widgetResizable());
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

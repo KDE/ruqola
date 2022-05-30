@@ -17,7 +17,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
 {
-    auto mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(mCurrentWidget);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

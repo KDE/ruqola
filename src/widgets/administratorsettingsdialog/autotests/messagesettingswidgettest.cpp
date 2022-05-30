@@ -19,6 +19,7 @@ MessageSettingsWidgetTest::MessageSettingsWidgetTest(QObject *parent)
 void MessageSettingsWidgetTest::shouldHaveDefaultValues()
 {
     MessageSettingsWidget w(nullptr);
+    QVERIFY(w.widgetResizable());
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

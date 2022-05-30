@@ -20,7 +20,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowConvertingLongMessageAttachment(new QCheckBox(i18n("Allow converting long messages to attachment"), this))
     , mVideoRecorderEnabled(new QCheckBox(i18n("Video Recorder Enabled"), this))
 {
-    auto mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(mCurrentWidget);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

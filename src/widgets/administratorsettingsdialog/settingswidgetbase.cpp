@@ -14,9 +14,13 @@
 #include <QCheckBox>
 
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
-    : QWidget{parent}
+    : QScrollArea{parent}
+    , mCurrentWidget(new QWidget(parent))
     , mAccount(account)
 {
+    mCurrentWidget->setObjectName(QStringLiteral("mCurrentWidget"));
+    setWidgetResizable(true);
+    setWidget(mCurrentWidget);
 }
 
 SettingsWidgetBase::~SettingsWidgetBase() = default;

@@ -18,7 +18,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mDontPruneThreads(new QCheckBox(i18n("Do not prune Threads"), this))
     , mDontPruneDiscussion(new QCheckBox(i18n("Do not prune Discussion message"), this))
 {
-    auto mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(mCurrentWidget);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

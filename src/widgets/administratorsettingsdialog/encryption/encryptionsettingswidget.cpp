@@ -18,7 +18,7 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18n("Enable encryption for Private Rooms by default"), this))
     , mEnableOtr(new QCheckBox(i18n("Enable OTR"), this))
 {
-    auto mainLayout = new QFormLayout(this);
+    auto mainLayout = new QFormLayout(mCurrentWidget);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 

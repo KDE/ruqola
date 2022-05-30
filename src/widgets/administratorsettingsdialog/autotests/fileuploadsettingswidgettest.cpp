@@ -19,6 +19,8 @@ FileUploadSettingsWidgetTest::FileUploadSettingsWidgetTest(QObject *parent)
 void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
 {
     FileUploadSettingsWidget w(nullptr);
+    QVERIFY(w.widgetResizable());
+
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});

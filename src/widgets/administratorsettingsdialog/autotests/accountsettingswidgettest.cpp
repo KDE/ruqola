@@ -21,6 +21,7 @@ AccountSettingsWidgetTest::AccountSettingsWidgetTest(QObject *parent)
 void AccountSettingsWidgetTest::shouldHaveDefaultValues()
 {
     AccountSettingsWidget w(nullptr);
+    QVERIFY(w.widgetResizable());
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

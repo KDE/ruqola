@@ -19,6 +19,8 @@ RetentionPolicySettingsWidgetTest::RetentionPolicySettingsWidgetTest(QObject *pa
 void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
 {
     RetentionPolicySettingsWidget w(nullptr);
+    QVERIFY(w.widgetResizable());
+
     auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
     QVERIFY(mEnabled);
     QVERIFY(!mEnabled->isChecked());

@@ -7,10 +7,10 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include <QWidget>
+#include <QScrollArea>
 class RocketChatAccount;
 class QCheckBox;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QScrollArea
 {
     Q_OBJECT
 public:
@@ -23,6 +23,7 @@ protected:
     void updateSettings(const QString &settingName, bool value);
 
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
+    QWidget *const mCurrentWidget;
 
 private:
     void slotAdminSettingsDone(const QJsonObject &obj);
