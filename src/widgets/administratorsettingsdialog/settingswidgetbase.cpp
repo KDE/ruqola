@@ -11,10 +11,13 @@
 #include "ruqolawidgets_debug.h"
 #include "settings/updateadminsettingsjob.h"
 
+#include <KLocalizedString>
+
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
 #include <QSpinBox>
 
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
@@ -73,5 +76,12 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     auto label = new QLabel(labelStr, this);
     layout->addWidget(label);
     layout->addWidget(spinBox);
+    auto pushButton = new QPushButton(i18n("Apply"));
+    pushButton->setProperty("settings_name", variable);
+    layout->addWidget(pushButton);
+    connect(pushButton, &QPushButton::clicked, this, [this, variable](bool checked) {
+        updateSettings(variable, checked);
+    });
+
     mMainLayout->addRow(layout);
 }

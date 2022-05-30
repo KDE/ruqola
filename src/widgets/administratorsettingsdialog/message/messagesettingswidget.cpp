@@ -67,15 +67,6 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
 
-void MessageSettingsWidget::addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable)
-{
-    auto layout = new QHBoxLayout;
-    auto label = new QLabel(labelStr, this);
-    layout->addWidget(label);
-    layout->addWidget(spinBox);
-    mMainLayout->addRow(layout);
-}
-
 void MessageSettingsWidget::initialize()
 {
     // TODO

@@ -21,7 +21,6 @@ public:
     void initialize() override;
 
 private:
-    void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
     QCheckBox *const mAllowMessageEditing;
     QCheckBox *const mAllowMessageDeleting;
     QCheckBox *const mShowEditedStatus;
