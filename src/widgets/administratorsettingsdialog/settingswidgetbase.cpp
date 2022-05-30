@@ -19,6 +19,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QSpinBox>
+#include <QToolButton>
 
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
     : QScrollArea{parent}
@@ -76,12 +77,17 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     auto label = new QLabel(labelStr, this);
     layout->addWidget(label);
     layout->addWidget(spinBox);
-    auto pushButton = new QPushButton(i18n("Apply"), this);
-    pushButton->setProperty("settings_name", variable);
+    auto toolButton = new QToolButton(this);
+    toolButton->setText(i18n("Apply"));
+    toolButton->setProperty("settings_name", variable);
     spinBox->setProperty("settings_name", variable);
-    layout->addWidget(pushButton);
-    connect(pushButton, &QPushButton::clicked, this, [this, variable](bool checked) {
+    layout->addWidget(toolButton);
+    toolButton->setEnabled(false);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable](bool checked) {
         updateSettings(variable, checked);
+    });
+    connect(spinBox, &QSpinBox::valueChanged, this, [this, toolButton]() {
+        toolButton->setEnabled(true);
     });
 
     mMainLayout->addRow(layout);
