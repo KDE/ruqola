@@ -62,6 +62,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
 
     mBlockMessageEditingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageEditingAfterMinutes"));
+    mBlockMessageEditingAfterMinutes->setToolTip(i18n("Enter 0 to disable blocking."));
     addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 }
 

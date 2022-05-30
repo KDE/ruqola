@@ -29,5 +29,5 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnableFavoriteRooms);
     QVERIFY(!mEnableFavoriteRooms->isChecked());
     QVERIFY(!mEnableFavoriteRooms->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mEnableFavoriteRooms), QStringLiteral("Favorite_Rooms"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableFavoriteRooms), QStringLiteral("Favorite_Rooms"));
 }

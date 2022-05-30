@@ -8,6 +8,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(MessageSettingsWidgetTest)
 
@@ -29,49 +30,54 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAllowMessageEditing);
     QVERIFY(!mAllowMessageEditing->isChecked());
     QVERIFY(!mAllowMessageEditing->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessageEditing), QStringLiteral("Message_AllowEditing"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageEditing), QStringLiteral("Message_AllowEditing"));
 
     auto mAllowMessageDeleting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageDeleting"));
     QVERIFY(mAllowMessageDeleting);
     QVERIFY(!mAllowMessageDeleting->isChecked());
     QVERIFY(!mAllowMessageDeleting->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessageDeleting), QStringLiteral("Message_AllowDeleting"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageDeleting), QStringLiteral("Message_AllowDeleting"));
 
     auto mShowEditedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowEditedStatus"));
     QVERIFY(mShowEditedStatus);
     QVERIFY(!mShowEditedStatus->isChecked());
     QVERIFY(!mShowEditedStatus->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mShowEditedStatus), QStringLiteral("Message_ShowEditedStatus"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowEditedStatus), QStringLiteral("Message_ShowEditedStatus"));
 
     auto mShowDeletedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowDeletedStatus"));
     QVERIFY(mShowDeletedStatus);
     QVERIFY(!mShowDeletedStatus->isChecked());
     QVERIFY(!mShowDeletedStatus->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mShowDeletedStatus), QStringLiteral("Message_ShowDeletedStatus"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowDeletedStatus), QStringLiteral("Message_ShowDeletedStatus"));
 
     auto mAllowMessagePinning = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessagePinning"));
     QVERIFY(mAllowMessagePinning);
     QVERIFY(!mAllowMessagePinning->isChecked());
     QVERIFY(!mAllowMessagePinning->text().isEmpty());
     QVERIFY(!mAllowMessagePinning->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessagePinning), QStringLiteral("Message_AllowPinning"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessagePinning), QStringLiteral("Message_AllowPinning"));
 
     auto mAllowMessageSnippeting = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageSnippeting"));
     QVERIFY(mAllowMessageSnippeting);
     QVERIFY(!mAllowMessageSnippeting->isChecked());
     QVERIFY(!mAllowMessageSnippeting->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowMessageSnippeting), QStringLiteral("Message_AllowSnippeting"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowMessageSnippeting), QStringLiteral("Message_AllowSnippeting"));
 
     auto mAllowConvertingLongMessageAttachment = w.findChild<QCheckBox *>(QStringLiteral("mAllowConvertingLongMessageAttachment"));
     QVERIFY(mAllowConvertingLongMessageAttachment);
     QVERIFY(!mAllowConvertingLongMessageAttachment->isChecked());
     QVERIFY(!mAllowConvertingLongMessageAttachment->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mAllowConvertingLongMessageAttachment), QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowConvertingLongMessageAttachment), QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 
     auto mVideoRecorderEnabled = w.findChild<QCheckBox *>(QStringLiteral("mVideoRecorderEnabled"));
     QVERIFY(mVideoRecorderEnabled);
     QVERIFY(!mVideoRecorderEnabled->isChecked());
     QVERIFY(!mVideoRecorderEnabled->text().isEmpty());
     QVERIFY(!mVideoRecorderEnabled->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::checkBoxSettingsName(mVideoRecorderEnabled), QStringLiteral("Message_VideoRecorderEnabled"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mVideoRecorderEnabled), QStringLiteral("Message_VideoRecorderEnabled"));
+
+    auto mBlockMessageEditingAfterMinutes = w.findChild<QSpinBox *>(QStringLiteral("mBlockMessageEditingAfterMinutes"));
+    QVERIFY(mBlockMessageEditingAfterMinutes);
+    QVERIFY(!mBlockMessageEditingAfterMinutes->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageEditingAfterMinutes), QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 }

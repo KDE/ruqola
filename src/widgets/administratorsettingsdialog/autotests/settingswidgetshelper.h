@@ -11,11 +11,11 @@
 
 namespace SettingsWidgetHelper
 {
-QString checkBoxSettingsName(QCheckBox *checkbox)
+QString widgetSettingsName(QWidget *widget)
 {
-    if (!checkbox) {
+    if (!widget) {
         return {};
     }
-    return checkbox->property("settings_name").toString();
+    return widget->property("settings_name").toString();
 }
 }

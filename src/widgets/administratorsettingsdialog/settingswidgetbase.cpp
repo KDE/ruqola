@@ -76,8 +76,9 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     auto label = new QLabel(labelStr, this);
     layout->addWidget(label);
     layout->addWidget(spinBox);
-    auto pushButton = new QPushButton(i18n("Apply"));
+    auto pushButton = new QPushButton(i18n("Apply"), this);
     pushButton->setProperty("settings_name", variable);
+    spinBox->setProperty("settings_name", variable);
     layout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, [this, variable](bool checked) {
         updateSettings(variable, checked);
