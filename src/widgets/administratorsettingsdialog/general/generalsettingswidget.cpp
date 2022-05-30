@@ -15,12 +15,12 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     : SettingsWidgetBase(account, parent)
     , mEnableFavoriteRooms(new QCheckBox(i18n("Enable Favorite Rooms"), this))
 {
-    auto mainLayout = new QFormLayout(mCurrentWidget);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(mCurrentWidget);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
-    mainLayout->addWidget(mEnableFavoriteRooms);
+    mMainLayout->addWidget(mEnableFavoriteRooms);
     connectCheckBox(mEnableFavoriteRooms, QStringLiteral("Favorite_Rooms"));
 }
 

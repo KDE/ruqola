@@ -12,6 +12,10 @@
 #include "settings/updateadminsettingsjob.h"
 
 #include <QCheckBox>
+#include <QFormLayout>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QSpinBox>
 
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
     : QScrollArea{parent}
@@ -61,4 +65,13 @@ void SettingsWidgetBase::updateSettings(const QString &settingName, bool value)
 void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj)
 {
     qDebug() << "AccountSettingsWidget::slotAdminSettingsDone " << obj;
+}
+
+void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    layout->addWidget(label);
+    layout->addWidget(spinBox);
+    mMainLayout->addRow(layout);
 }

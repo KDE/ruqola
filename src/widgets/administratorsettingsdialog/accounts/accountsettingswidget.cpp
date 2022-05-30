@@ -22,48 +22,48 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
 {
-    auto mainLayout = new QFormLayout(mCurrentWidget);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(mCurrentWidget);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
-    mainLayout->addWidget(mAllowChangeName);
+    mMainLayout->addWidget(mAllowChangeName);
     connectCheckBox(mAllowChangeName, QStringLiteral("Accounts_AllowRealNameChange"));
 
     mAllowChangeUserProfile->setObjectName(QStringLiteral("mAllowChangeUserProfile"));
-    mainLayout->addWidget(mAllowChangeUserProfile);
+    mMainLayout->addWidget(mAllowChangeUserProfile);
     connectCheckBox(mAllowChangeUserProfile, QStringLiteral("Accounts_AllowUserProfileChange"));
 
     mAllowChangeUserAvatar->setObjectName(QStringLiteral("mAllowChangeUserAvatar"));
-    mainLayout->addWidget(mAllowChangeUserAvatar);
+    mMainLayout->addWidget(mAllowChangeUserAvatar);
     connectCheckBox(mAllowChangeUserAvatar, QStringLiteral("Accounts_AllowUserAvatarChange"));
 
     mAllowChangeEmail->setObjectName(QStringLiteral("mAllowChangeEmail"));
-    mainLayout->addWidget(mAllowChangeEmail);
+    mMainLayout->addWidget(mAllowChangeEmail);
     connectCheckBox(mAllowChangeEmail, QStringLiteral("Accounts_AllowEmailChange"));
 
     mAllowChangePassword->setObjectName(QStringLiteral("mAllowChangePassword"));
-    mainLayout->addWidget(mAllowChangePassword);
+    mMainLayout->addWidget(mAllowChangePassword);
     connectCheckBox(mAllowChangePassword, QStringLiteral("Accounts_AllowPasswordChange"));
 
     mAllowChangeEmailNotifications->setObjectName(QStringLiteral("mAllowChangeEmailNotifications"));
-    mainLayout->addWidget(mAllowChangeEmailNotifications);
+    mMainLayout->addWidget(mAllowChangeEmailNotifications);
     connectCheckBox(mAllowChangeEmailNotifications, QStringLiteral("Accounts_AllowEmailNotifications"));
 
     mAllowUsersToDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersToDeleteOwnAccount"));
-    mainLayout->addWidget(mAllowUsersToDeleteOwnAccount);
+    mMainLayout->addWidget(mAllowUsersToDeleteOwnAccount);
     connectCheckBox(mAllowUsersToDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
 
     mAllowAnonymousWrite->setObjectName(QStringLiteral("mAllowAnonymousWrite"));
-    mainLayout->addWidget(mAllowAnonymousWrite);
+    mMainLayout->addWidget(mAllowAnonymousWrite);
     connectCheckBox(mAllowAnonymousWrite, QStringLiteral("Accounts_AllowAnonymousWrite"));
 
     mAllowUsersDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersDeleteOwnAccount"));
-    mainLayout->addWidget(mAllowUsersDeleteOwnAccount);
+    mMainLayout->addWidget(mAllowUsersDeleteOwnAccount);
     connectCheckBox(mAllowUsersDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
 
     mAllowPasswordChangeOauthUsers->setObjectName(QStringLiteral("mAllowPasswordChangeOauthUsers"));
-    mainLayout->addWidget(mAllowPasswordChangeOauthUsers);
+    mMainLayout->addWidget(mAllowPasswordChangeOauthUsers);
     connectCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
 }
 

@@ -18,24 +18,24 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mDontPruneThreads(new QCheckBox(i18n("Do not prune Threads"), this))
     , mDontPruneDiscussion(new QCheckBox(i18n("Do not prune Discussion message"), this))
 {
-    auto mainLayout = new QFormLayout(mCurrentWidget);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(mCurrentWidget);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
-    mainLayout->addWidget(mEnabled);
+    mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("RetentionPolicy_Enabled"));
 
     mUseAdvancedRetentionPolicyConfiguration->setObjectName(QStringLiteral("mUseAdvancedRetentionPolicyConfiguration"));
-    mainLayout->addWidget(mUseAdvancedRetentionPolicyConfiguration);
+    mMainLayout->addWidget(mUseAdvancedRetentionPolicyConfiguration);
     connectCheckBox(mUseAdvancedRetentionPolicyConfiguration, QStringLiteral("RetentionPolicy_Advanced_Precision"));
 
     mDontPruneThreads->setObjectName(QStringLiteral("mDontPruneThreads"));
-    mainLayout->addWidget(mDontPruneThreads);
+    mMainLayout->addWidget(mDontPruneThreads);
     connectCheckBox(mDontPruneThreads, QStringLiteral("RetentionPolicy_DoNotPruneThreads"));
 
     mDontPruneDiscussion->setObjectName(QStringLiteral("mDontPruneDiscussion"));
-    mainLayout->addWidget(mDontPruneDiscussion);
+    mMainLayout->addWidget(mDontPruneDiscussion);
     connectCheckBox(mDontPruneDiscussion, QStringLiteral("RetentionPolicy_DoNotPruneDiscussion"));
 }
 

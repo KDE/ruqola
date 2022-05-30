@@ -8,6 +8,8 @@
 #include <QFormLayout>
 
 #include <KLocalizedString>
+#include <QLabel>
+#include <QSpinBox>
 
 MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
@@ -19,47 +21,60 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowMessageSnippeting(new QCheckBox(i18n("Allow Message Snippeting"), this))
     , mAllowConvertingLongMessageAttachment(new QCheckBox(i18n("Allow converting long messages to attachment"), this))
     , mVideoRecorderEnabled(new QCheckBox(i18n("Video Recorder Enabled"), this))
+    , mBlockMessageEditingAfterMinutes(new QSpinBox(this))
 {
-    auto mainLayout = new QFormLayout(mCurrentWidget);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(mCurrentWidget);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
-    mainLayout->addWidget(mAllowMessageEditing);
+    mMainLayout->addWidget(mAllowMessageEditing);
     connectCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
 
     mAllowMessageDeleting->setObjectName(QStringLiteral("mAllowMessageDeleting"));
-    mainLayout->addWidget(mAllowMessageDeleting);
+    mMainLayout->addWidget(mAllowMessageDeleting);
     connectCheckBox(mAllowMessageDeleting, QStringLiteral("Message_AllowDeleting"));
 
     mShowEditedStatus->setObjectName(QStringLiteral("mShowEditedStatus"));
-    mainLayout->addWidget(mShowEditedStatus);
+    mMainLayout->addWidget(mShowEditedStatus);
     connectCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
 
     mShowDeletedStatus->setObjectName(QStringLiteral("mShowDeletedStatus"));
-    mainLayout->addWidget(mShowDeletedStatus);
+    mMainLayout->addWidget(mShowDeletedStatus);
     connectCheckBox(mShowDeletedStatus, QStringLiteral("Message_ShowDeletedStatus"));
 
     mAllowMessagePinning->setObjectName(QStringLiteral("mAllowMessagePinning"));
     mAllowMessagePinning->setToolTip(i18n("Allow Message Pinning"));
-    mainLayout->addWidget(mAllowMessagePinning);
+    mMainLayout->addWidget(mAllowMessagePinning);
     connectCheckBox(mAllowMessagePinning, QStringLiteral("Message_AllowPinning"));
 
     mAllowMessageSnippeting->setObjectName(QStringLiteral("mAllowMessageSnippeting"));
-    mainLayout->addWidget(mAllowMessageSnippeting);
+    mMainLayout->addWidget(mAllowMessageSnippeting);
     connectCheckBox(mAllowMessageSnippeting, QStringLiteral("Message_AllowSnippeting"));
 
     mAllowConvertingLongMessageAttachment->setObjectName(QStringLiteral("mAllowConvertingLongMessageAttachment"));
-    mainLayout->addWidget(mAllowConvertingLongMessageAttachment);
+    mMainLayout->addWidget(mAllowConvertingLongMessageAttachment);
     connectCheckBox(mAllowConvertingLongMessageAttachment, QStringLiteral("Message_AllowConvertLongMessagesToAttachment"));
 
     mVideoRecorderEnabled->setObjectName(QStringLiteral("mVideoRecorderEnabled"));
     mVideoRecorderEnabled->setToolTip(i18n("Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
-    mainLayout->addWidget(mVideoRecorderEnabled);
+    mMainLayout->addWidget(mVideoRecorderEnabled);
     connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
+
+    mBlockMessageEditingAfterMinutes->setObjectName(QStringLiteral("mBlockMessageEditingAfterMinutes"));
+    addSpinbox(i18n("Block Message Editing After (n) Minutes"), mBlockMessageEditingAfterMinutes, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
+
+void MessageSettingsWidget::addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    layout->addWidget(label);
+    layout->addWidget(spinBox);
+    mMainLayout->addRow(layout);
+}
 
 void MessageSettingsWidget::initialize()
 {

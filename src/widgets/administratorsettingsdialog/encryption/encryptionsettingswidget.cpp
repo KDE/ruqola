@@ -18,28 +18,28 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18n("Enable encryption for Private Rooms by default"), this))
     , mEnableOtr(new QCheckBox(i18n("Enable OTR"), this))
 {
-    auto mainLayout = new QFormLayout(mCurrentWidget);
-    mainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mainLayout->setContentsMargins({});
+    mMainLayout = new QFormLayout(mCurrentWidget);
+    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mMainLayout->setContentsMargins({});
 
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
     mEnableE2E->setToolTip(i18n("Enable option to create encrypted groups and be able to change groups and direct messages to be encrypted."));
-    mainLayout->addWidget(mEnableE2E);
+    mMainLayout->addWidget(mEnableE2E);
     connectCheckBox(mEnableE2E, QStringLiteral("E2E_Enable"));
 
     mEnableEncryptionDirectRoomsByDefault->setObjectName(QStringLiteral("mEnableEncryptionDirectRoomsByDefault"));
-    mainLayout->addWidget(mEnableEncryptionDirectRoomsByDefault);
+    mMainLayout->addWidget(mEnableEncryptionDirectRoomsByDefault);
     connectCheckBox(mEnableEncryptionDirectRoomsByDefault, QStringLiteral("E2E_Enabled_Default_DirectRooms"));
 
     mEnableEncryptionPrivateRoomsByDefault->setObjectName(QStringLiteral("mEnableEncryptionPrivateRoomsByDefault"));
-    mainLayout->addWidget(mEnableEncryptionPrivateRoomsByDefault);
+    mMainLayout->addWidget(mEnableEncryptionPrivateRoomsByDefault);
     connectCheckBox(mEnableEncryptionPrivateRoomsByDefault, QStringLiteral("E2E_Enabled_Default_PrivateRooms"));
 
     mEnableOtr->setObjectName(QStringLiteral("mEnableOtr"));
     mEnableOtr->setToolTip(
         i18n("Enable option to use off-the-record (OTR) messages in direct messages between 2 users. OTR messages are not recorded on the server and exchanged "
              "directly and encrypted between the 2 users."));
-    mainLayout->addWidget(mEnableOtr);
+    mMainLayout->addWidget(mEnableOtr);
     connectCheckBox(mEnableOtr, QStringLiteral("OTR_Enabled"));
 }
 

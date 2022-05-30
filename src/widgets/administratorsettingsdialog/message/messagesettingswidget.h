@@ -9,6 +9,8 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -19,6 +21,7 @@ public:
     void initialize() override;
 
 private:
+    void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
     QCheckBox *const mAllowMessageEditing;
     QCheckBox *const mAllowMessageDeleting;
     QCheckBox *const mShowEditedStatus;
@@ -27,4 +30,5 @@ private:
     QCheckBox *const mAllowMessageSnippeting;
     QCheckBox *const mAllowConvertingLongMessageAttachment;
     QCheckBox *const mVideoRecorderEnabled;
+    QSpinBox *const mBlockMessageEditingAfterMinutes;
 };
