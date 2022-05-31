@@ -16,7 +16,7 @@ class MessageCache;
 
 namespace TextConverter
 {
-LIBRUQOLACORE_EXPORT Q_REQUIRED_RESULT QString convertMessageText(const QString &str,
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString convertMessageText(const QString &str,
                                                                   const QString &userName,
                                                                   const QVector<Message> &allMessages,
                                                                   const QStringList &highlightWords,
