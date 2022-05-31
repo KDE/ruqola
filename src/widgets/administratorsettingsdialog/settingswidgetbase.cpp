@@ -9,7 +9,6 @@
 #include "dialogs/confirmpassworddialog.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
-#include "settings/updateadminsettingsjob.h"
 
 #include <KLocalizedString>
 
@@ -37,11 +36,13 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
 {
     checkBox->setProperty("settings_name", variable);
     connect(checkBox, &QCheckBox::clicked, this, [this, variable](bool checked) {
-        updateSettings(variable, checked);
+        updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean);
     });
 }
 
-void SettingsWidgetBase::updateSettings(const QString &settingName, const QVariant &value)
+void SettingsWidgetBase::updateSettings(const QString &settingName,
+                                        const QVariant &value,
+                                        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue)
 {
     if (mAccount) {
         QString password;
@@ -55,6 +56,7 @@ void SettingsWidgetBase::updateSettings(const QString &settingName, const QVaria
         RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
         info.settingsValue = value;
         info.settingName = settingName;
+        info.valueType = typeValue;
         job->setUpdateAdminSettingsInfo(info);
         job->setAuthMethod(QStringLiteral("password"));
         job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
@@ -84,7 +86,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox]() {
-        updateSettings(variable, spinBox->value());
+        updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer);
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [this, toolButton]() {
         toolButton->setEnabled(true);

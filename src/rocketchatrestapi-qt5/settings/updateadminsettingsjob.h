@@ -16,8 +16,15 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateAdminSettingsJob : public RestApiAbs
     Q_OBJECT
 public:
     struct UpdateAdminSettingsInfo {
+        enum ValueType {
+            Unknown,
+            Boolean,
+            Integer,
+        };
+
         QString settingName;
         QVariant settingsValue;
+        UpdateAdminSettingsInfo::ValueType valueType = UpdateAdminSettingsInfo::ValueType::Unknown;
         Q_REQUIRED_RESULT bool isValid() const;
         Q_REQUIRED_RESULT bool canStart() const;
     };

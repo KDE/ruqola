@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "settings/updateadminsettingsjob.h"
 #include <QScrollArea>
 class RocketChatAccount;
 class QCheckBox;
@@ -29,7 +30,8 @@ protected:
     QFormLayout *mMainLayout = nullptr;
 
 private:
-    void updateSettings(const QString &settingName, const QVariant &value);
+    void
+    updateSettings(const QString &settingName, const QVariant &value, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue);
     void slotAdminSettingsDone(const QJsonObject &obj);
     RocketChatAccount *const mAccount;
 };

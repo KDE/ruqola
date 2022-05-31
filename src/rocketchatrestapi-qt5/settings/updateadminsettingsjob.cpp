@@ -82,10 +82,15 @@ QNetworkRequest UpdateAdminSettingsJob::request() const
 QJsonDocument UpdateAdminSettingsJob::json() const
 {
     QJsonObject jsonObj;
-    if (mInfo.settingsValue.canConvert(QMetaType::Bool)) {
+    switch (mInfo.valueType) {
+    case UpdateAdminSettingsInfo::ValueType::Unknown:
+        break;
+    case UpdateAdminSettingsInfo::ValueType::Boolean:
         jsonObj[QLatin1String("value")] = mInfo.settingsValue.toBool();
-    } else if (mInfo.settingsValue.canConvert(QMetaType::Int)) {
+        break;
+    case UpdateAdminSettingsInfo::ValueType::Integer:
         jsonObj[QLatin1String("value")] = mInfo.settingsValue.toInt();
+        break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -93,7 +98,7 @@ QJsonDocument UpdateAdminSettingsJob::json() const
 
 bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::isValid() const
 {
-    return !settingName.isEmpty();
+    return !settingName.isEmpty() && valueType != UpdateAdminSettingsInfo::ValueType::Unknown;
 }
 
 bool UpdateAdminSettingsJob::UpdateAdminSettingsInfo::canStart() const
