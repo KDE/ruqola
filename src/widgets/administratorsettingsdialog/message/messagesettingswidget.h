@@ -30,4 +30,5 @@ private:
     QCheckBox *const mAllowConvertingLongMessageAttachment;
     QCheckBox *const mVideoRecorderEnabled;
     QSpinBox *const mBlockMessageEditingAfterMinutes;
+    QSpinBox *const mBlockMessageDeletingAfterMinutes;
 };

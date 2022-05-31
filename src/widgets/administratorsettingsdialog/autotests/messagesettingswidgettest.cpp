@@ -80,4 +80,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mBlockMessageEditingAfterMinutes);
     QVERIFY(!mBlockMessageEditingAfterMinutes->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageEditingAfterMinutes), QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
+
+    auto mBlockMessageDeletingAfterMinutes = w.findChild<QSpinBox *>(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
+    QVERIFY(mBlockMessageDeletingAfterMinutes);
+    QVERIFY(!mBlockMessageDeletingAfterMinutes->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageDeletingAfterMinutes), QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
 }
