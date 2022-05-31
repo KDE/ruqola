@@ -10,12 +10,14 @@
 
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QSpinBox>
 
 FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mFileUploadsEnabled(new QCheckBox(i18n("Enabled File Upload"), this))
     , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
+    , mMaximumFileUploadSize(new QSpinBox(this))
 {
     mMainLayout = new QFormLayout(mCurrentWidget);
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -24,6 +26,10 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
     mMainLayout->addWidget(mFileUploadsEnabled);
     connectCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));
+
+    mMaximumFileUploadSize->setObjectName(QStringLiteral("mMaximumFileUploadSize"));
+    mMaximumFileUploadSize->setToolTip(i18n("Set it to -1 to remove the file size limitation."));
+    addSpinbox(i18n("Maximum File Upload Size (in bytes)"), mMaximumFileUploadSize, QStringLiteral("FileUpload_MaxFileSize"));
 
     mProtectUploadedFiles->setObjectName(QStringLiteral("mProtectUploadedFiles"));
     mProtectUploadedFiles->setToolTip(i18n("Only authenticated users will have access"));

@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QFormLayout>
+#include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(FileUploadSettingsWidgetTest)
 
@@ -44,4 +45,9 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mRotateImagesUpload->text().isEmpty());
     QVERIFY(!mRotateImagesUpload->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRotateImagesUpload), QStringLiteral("FileUpload_RotateImages"));
+
+    auto mMaximumFileUploadSize = w.findChild<QSpinBox *>(QStringLiteral("mMaximumFileUploadSize"));
+    QVERIFY(mMaximumFileUploadSize);
+    QVERIFY(!mMaximumFileUploadSize->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumFileUploadSize), QStringLiteral("FileUpload_MaxFileSize"));
 }
