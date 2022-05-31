@@ -58,6 +58,7 @@ void UpdateAdminSettingsJobTest::shouldNotStarting()
     UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
     info.settingName = QStringLiteral("bla");
     info.settingsValue = false;
+    info.valueType = UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType::Boolean;
 
     job.setUpdateAdminSettingsInfo(info);
 
