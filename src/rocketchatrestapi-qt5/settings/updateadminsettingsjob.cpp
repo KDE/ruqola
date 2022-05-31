@@ -91,6 +91,9 @@ QJsonDocument UpdateAdminSettingsJob::json() const
     case UpdateAdminSettingsInfo::ValueType::Integer:
         jsonObj[QLatin1String("value")] = mInfo.settingsValue.toInt();
         break;
+    case UpdateAdminSettingsInfo::ValueType::String:
+        jsonObj[QLatin1String("value")] = mInfo.settingsValue.toString();
+        break;
     }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;

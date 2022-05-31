@@ -20,6 +20,7 @@ public:
             Unknown,
             Boolean,
             Integer,
+            String,
         };
 
         QString settingName;
