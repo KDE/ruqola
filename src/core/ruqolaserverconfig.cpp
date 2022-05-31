@@ -185,12 +185,13 @@ void RuqolaServerConfig::setMessageAllowConvertLongMessagesToAttachment(bool new
 
 void RuqolaServerConfig::privateSettingsUpdated(const QJsonArray &updateArray)
 {
-    qWarning() << " privateSettingsUpdated not implemented " << updateArray;
     if (updateArray.count() == 2) {
         if (updateArray.at(0).toString() == QLatin1String("updated")) {
             loadSettings(updateArray.at(1).toObject());
             qDebug() << "Update settings " << *this;
         }
+    } else {
+        qCWarning(RUQOLA_LOG) << "Error in privateSettingsUpdated " << updateArray;
     }
 }
 
