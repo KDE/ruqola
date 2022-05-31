@@ -41,7 +41,7 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
     });
 }
 
-void SettingsWidgetBase::updateSettings(const QString &settingName, bool value)
+void SettingsWidgetBase::updateSettings(const QString &settingName, const QVariant &value)
 {
     if (mAccount) {
         QString password;
@@ -83,8 +83,8 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     spinBox->setProperty("settings_name", variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable](bool checked) {
-        updateSettings(variable, checked);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox]() {
+        updateSettings(variable, spinBox->value());
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [this, toolButton]() {
         toolButton->setEnabled(true);

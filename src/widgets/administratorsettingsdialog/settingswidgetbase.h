@@ -22,8 +22,6 @@ public:
     virtual void initialize() = 0;
 
 protected:
-    void updateSettings(const QString &settingName, bool value);
-
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
     QWidget *const mCurrentWidget;
 
@@ -31,6 +29,7 @@ protected:
     QFormLayout *mMainLayout = nullptr;
 
 private:
+    void updateSettings(const QString &settingName, const QVariant &value);
     void slotAdminSettingsDone(const QJsonObject &obj);
     RocketChatAccount *const mAccount;
 };
