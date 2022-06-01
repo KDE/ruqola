@@ -84,4 +84,8 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mBlockMessageDeletingAfterMinutes);
     QVERIFY(!mBlockMessageDeletingAfterMinutes->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageDeletingAfterMinutes), QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
+
+    auto mMaximumAllowedCharactersPerMessage = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
+    QVERIFY(mMaximumAllowedCharactersPerMessage);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), QStringLiteral("Message_MaxAllowedSize"));
 }

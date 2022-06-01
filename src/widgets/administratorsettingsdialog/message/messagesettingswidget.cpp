@@ -23,6 +23,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mVideoRecorderEnabled(new QCheckBox(i18n("Video Recorder Enabled"), this))
     , mBlockMessageEditingAfterMinutes(new QSpinBox(this))
     , mBlockMessageDeletingAfterMinutes(new QSpinBox(this))
+    , mMaximumAllowedCharactersPerMessage(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -67,6 +68,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mVideoRecorderEnabled->setToolTip(i18n("Requires 'video/webm' files to be an accepted media type within 'File Upload' settings."));
     mMainLayout->addWidget(mVideoRecorderEnabled);
     connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
+
+    mMaximumAllowedCharactersPerMessage->setObjectName(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
+    addSpinbox(i18n("Maximum Allowed Characters Per Message"), mMaximumAllowedCharactersPerMessage, QStringLiteral("Message_MaxAllowedSize"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;

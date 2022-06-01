@@ -31,4 +31,5 @@ private:
     QCheckBox *const mVideoRecorderEnabled;
     QSpinBox *const mBlockMessageEditingAfterMinutes;
     QSpinBox *const mBlockMessageDeletingAfterMinutes;
+    QSpinBox *const mMaximumAllowedCharactersPerMessage;
 };
