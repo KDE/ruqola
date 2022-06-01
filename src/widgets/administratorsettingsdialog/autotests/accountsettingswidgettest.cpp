@@ -26,7 +26,6 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mAllowChangeName = w.findChild<QCheckBox *>(QStringLiteral("mAllowChangeName"));
     QVERIFY(mAllowChangeName);

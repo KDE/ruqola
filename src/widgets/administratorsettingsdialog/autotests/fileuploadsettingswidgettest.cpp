@@ -24,7 +24,6 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mFileUploadsEnabled = w.findChild<QCheckBox *>(QStringLiteral("mFileUploadsEnabled"));
     QVERIFY(mFileUploadsEnabled);

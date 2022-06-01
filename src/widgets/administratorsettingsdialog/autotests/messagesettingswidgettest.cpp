@@ -24,7 +24,6 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mAllowMessageEditing = w.findChild<QCheckBox *>(QStringLiteral("mAllowMessageEditing"));
     QVERIFY(mAllowMessageEditing);

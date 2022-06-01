@@ -24,7 +24,6 @@ void EncryptionSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
-    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mEnableE2E = w.findChild<QCheckBox *>(QStringLiteral("mEnableE2E"));
     QVERIFY(mEnableE2E);

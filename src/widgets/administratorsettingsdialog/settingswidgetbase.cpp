@@ -31,7 +31,6 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
 
     mMainLayout = new QFormLayout(mCurrentWidget);
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mMainLayout->setContentsMargins({});
 }
 
 SettingsWidgetBase::~SettingsWidgetBase() = default;
