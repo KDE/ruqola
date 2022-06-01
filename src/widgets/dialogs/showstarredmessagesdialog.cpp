@@ -5,6 +5,7 @@
 */
 
 #include "showstarredmessagesdialog.h"
+#include "rocketchataccount.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -17,7 +18,7 @@ static const char myShowStarredMessagesDialogGroupName[] = "ShowStarredMessagesD
 ShowStarredMessagesDialog::ShowStarredMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
 {
-    setWindowTitle(i18nc("@title:window", "Show Starred Messages"));
+    setWindowTitle(i18nc("@title:window", "Show Starred Messages - %1", account ? account->accountName() : QStringLiteral("AccountName")));
     readConfig();
 }
 

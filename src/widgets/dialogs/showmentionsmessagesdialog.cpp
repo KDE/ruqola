@@ -5,6 +5,7 @@
 */
 
 #include "showmentionsmessagesdialog.h"
+#include "rocketchataccount.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -17,7 +18,7 @@ static const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessage
 ShowMentionsMessagesDialog::ShowMentionsMessagesDialog(RocketChatAccount *account, QWidget *parent)
     : ShowListMessageBaseDialog(account, parent)
 {
-    setWindowTitle(i18nc("@title:window", "Show Mentions Messages"));
+    setWindowTitle(i18nc("@title:window", "Show Mentions Messages - %1", account ? account->accountName() : QStringLiteral("AccountName")));
     readConfig();
 }
 
