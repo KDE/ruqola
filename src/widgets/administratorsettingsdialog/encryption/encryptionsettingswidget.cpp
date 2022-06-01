@@ -18,10 +18,6 @@ EncryptionSettingsWidget::EncryptionSettingsWidget(RocketChatAccount *account, Q
     , mEnableEncryptionPrivateRoomsByDefault(new QCheckBox(i18n("Enable encryption for Private Rooms by default"), this))
     , mEnableOtr(new QCheckBox(i18n("Enable OTR"), this))
 {
-    mMainLayout = new QFormLayout(mCurrentWidget);
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mMainLayout->setContentsMargins({});
-
     mEnableE2E->setObjectName(QStringLiteral("mEnableE2E"));
     mEnableE2E->setToolTip(i18n("Enable option to create encrypted groups and be able to change groups and direct messages to be encrypted."));
     mMainLayout->addWidget(mEnableE2E);

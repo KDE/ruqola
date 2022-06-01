@@ -24,10 +24,6 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
     , mLoginExpirationInDays(new QSpinBox(this))
 {
-    mMainLayout = new QFormLayout(mCurrentWidget);
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mMainLayout->setContentsMargins({});
-
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
     connectCheckBox(mAllowChangeName, QStringLiteral("Accounts_AllowRealNameChange"));

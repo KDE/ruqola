@@ -19,10 +19,6 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
     , mMaximumFileUploadSize(new QSpinBox(this))
 {
-    mMainLayout = new QFormLayout(mCurrentWidget);
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mMainLayout->setContentsMargins({});
-
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
     mMainLayout->addWidget(mFileUploadsEnabled);
     connectCheckBox(mFileUploadsEnabled, QStringLiteral("FileUpload_Enabled"));

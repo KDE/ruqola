@@ -24,10 +24,6 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockMessageEditingAfterMinutes(new QSpinBox(this))
     , mBlockMessageDeletingAfterMinutes(new QSpinBox(this))
 {
-    mMainLayout = new QFormLayout(mCurrentWidget);
-    mMainLayout->setObjectName(QStringLiteral("mainLayout"));
-    mMainLayout->setContentsMargins({});
-
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
     connectCheckBox(mAllowMessageEditing, QStringLiteral("Message_AllowEditing"));
