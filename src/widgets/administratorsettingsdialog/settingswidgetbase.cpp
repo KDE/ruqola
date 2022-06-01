@@ -16,6 +16,7 @@
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QSpinBox>
 #include <QToolButton>
@@ -92,6 +93,28 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
         updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer);
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [this, toolButton]() {
+        toolButton->setEnabled(true);
+    });
+
+    mMainLayout->addRow(layout);
+}
+
+void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    layout->addWidget(label);
+    layout->addWidget(lineEdit);
+    auto toolButton = new QToolButton(this);
+    toolButton->setText(i18n("Apply"));
+    toolButton->setProperty("settings_name", variable);
+    lineEdit->setProperty("settings_name", variable);
+    layout->addWidget(toolButton);
+    toolButton->setEnabled(false);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
+        updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    });
+    connect(lineEdit, &QLineEdit::textChanged, this, [this, toolButton]() {
         toolButton->setEnabled(true);
     });
 

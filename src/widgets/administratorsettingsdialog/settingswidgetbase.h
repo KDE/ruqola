@@ -13,6 +13,7 @@ class RocketChatAccount;
 class QCheckBox;
 class QSpinBox;
 class QFormLayout;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QScrollArea
 {
     Q_OBJECT
@@ -24,9 +25,10 @@ public:
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
-    QWidget *const mCurrentWidget;
-
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
+    void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable);
+
+    QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
 
 private:
