@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 
 AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
@@ -21,6 +22,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowAnonymousWrite(new QCheckBox(i18n("Allow Anonymous Write"), this))
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
+    , mLoginExpirationInDays(new QSpinBox(this))
 {
     mMainLayout = new QFormLayout(mCurrentWidget);
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -65,6 +67,9 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mAllowPasswordChangeOauthUsers->setObjectName(QStringLiteral("mAllowPasswordChangeOauthUsers"));
     mMainLayout->addWidget(mAllowPasswordChangeOauthUsers);
     connectCheckBox(mAllowPasswordChangeOauthUsers, QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
+
+    mLoginExpirationInDays->setObjectName(QStringLiteral("mLoginExpirationInDays"));
+    addSpinbox(i18n("Login Expiration in Days"), mLoginExpirationInDays, QStringLiteral("Accounts_LoginExpiration"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;

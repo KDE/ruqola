@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AccountSettingsWidget : public SettingsWidgetBase
 {
@@ -30,4 +31,5 @@ private:
     QCheckBox *const mAllowAnonymousWrite;
     QCheckBox *const mAllowUsersDeleteOwnAccount;
     QCheckBox *const mAllowPasswordChangeOauthUsers;
+    QSpinBox *const mLoginExpirationInDays;
 };

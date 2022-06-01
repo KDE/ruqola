@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 #include <QTest>
 
 QTEST_MAIN(AccountSettingsWidgetTest)
@@ -86,4 +87,8 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowPasswordChangeOauthUsers->isChecked());
     QVERIFY(!mAllowPasswordChangeOauthUsers->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowPasswordChangeOauthUsers), QStringLiteral("Accounts_AllowPasswordChangeForOAuthUsers"));
+
+    auto mLoginExpirationInDays = w.findChild<QSpinBox *>(QStringLiteral("mLoginExpirationInDays"));
+    QVERIFY(mLoginExpirationInDays);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginExpirationInDays), QStringLiteral("Accounts_LoginExpiration"));
 }
