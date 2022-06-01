@@ -25,7 +25,8 @@ AdministratorSettingsDialog::AdministratorSettingsDialog(RocketChatAccount *acco
     : QDialog(parent)
     , mAdministratorSettingsWidget(new AdministratorSettingsWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Administrator Server Settings"));
+    // Use "account-name" for autotest only when account is empty
+    setWindowTitle(i18nc("@title:window", "Administrator Server Settings - %1", account ? account->accountName() : QStringLiteral("account-name")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
