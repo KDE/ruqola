@@ -18,6 +18,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mProtectUploadedFiles(new QCheckBox(i18n("Protect Uploaded Files"), this))
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
     , mMaximumFileUploadSize(new QSpinBox(this))
+    , mFileUploadsEnabledDirectMessages(new QCheckBox(i18n("File Uploads Enabled in Direct Messages"), this))
 {
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
     mMainLayout->addWidget(mFileUploadsEnabled);
@@ -36,6 +37,10 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mRotateImagesUpload->setToolTip(i18n("Enabling this setting may cause image quality loss"));
     mMainLayout->addWidget(mRotateImagesUpload);
     connectCheckBox(mRotateImagesUpload, QStringLiteral("FileUpload_RotateImages"));
+
+    mFileUploadsEnabledDirectMessages->setObjectName(QStringLiteral("mFileUploadsEnabledDirectMessages"));
+    mMainLayout->addWidget(mFileUploadsEnabledDirectMessages);
+    connectCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
 }
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
