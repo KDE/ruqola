@@ -23,7 +23,7 @@ CreateNewDiscussionDialog::CreateNewDiscussionDialog(RocketChatAccount *account,
     , mCreateNewDiscussionWidget(new CreateNewDiscussionWidget(account, this))
     , mCurrentRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Create Discussion"));
+    setWindowTitle(i18nc("@title:window", "Create Discussion - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

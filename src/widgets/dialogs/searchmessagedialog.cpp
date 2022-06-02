@@ -5,6 +5,7 @@
 */
 
 #include "searchmessagedialog.h"
+#include "rocketchataccount.h"
 #include "room.h"
 #include "searchmessagewidget.h"
 
@@ -21,6 +22,7 @@ static const char mySearchMessageDialogGroupName[] = "SearchMessageDialog";
 SearchMessageDialog::SearchMessageDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mSearchMessageWidget(new SearchMessageWidget(account, this))
+    , mRocketChatAccount(account)
 {
     setWindowTitle(i18nc("@title:window", "Search Messages"));
     auto mainLayout = new QVBoxLayout(this);
@@ -70,5 +72,8 @@ void SearchMessageDialog::setModel(SearchMessageFilterProxyModel *model)
 void SearchMessageDialog::setRoom(Room *room)
 {
     mSearchMessageWidget->setRoom(room);
-    setWindowTitle(i18nc("@title:window", "Search Messages in '%1'", room->displayRoomName()));
+    setWindowTitle(i18nc("@title:window",
+                         "Search Messages in '%1' (%2)",
+                         room->displayRoomName(),
+                         mRocketChatAccount ? mRocketChatAccount->accountName() : QStringLiteral("account")));
 }

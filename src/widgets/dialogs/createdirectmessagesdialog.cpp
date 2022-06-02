@@ -25,7 +25,7 @@ CreateDirectMessagesDialog::CreateDirectMessagesDialog(RocketChatAccount *accoun
     , mCreateDirectMessagesWidget(new CreateDirectMessagesWidget(account, this))
     , mCurrentRocketChatAccount(account)
 {
-    setWindowTitle(i18nc("@title:window", "Create Direct Messages"));
+    setWindowTitle(i18nc("@title:window", "Create Direct Messages - %1", account ? account->accountName() : QStringLiteral("account")));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
