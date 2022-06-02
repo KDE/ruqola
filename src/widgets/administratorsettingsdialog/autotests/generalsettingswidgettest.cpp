@@ -35,4 +35,9 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSiteUrl);
     QVERIFY(mSiteUrl->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSiteUrl), QStringLiteral("Site_Url"));
+
+    auto mSiteName = w.findChild<QLineEdit *>(QStringLiteral("mSiteName"));
+    QVERIFY(mSiteName);
+    QVERIFY(mSiteName->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSiteName), QStringLiteral("Site_Name"));
 }

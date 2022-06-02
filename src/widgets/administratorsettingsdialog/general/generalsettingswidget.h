@@ -22,4 +22,5 @@ public:
 private:
     QCheckBox *const mEnableFavoriteRooms;
     QLineEdit *const mSiteUrl;
+    QLineEdit *const mSiteName;
 };

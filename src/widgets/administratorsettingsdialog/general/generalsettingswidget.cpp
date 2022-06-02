@@ -16,6 +16,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     : SettingsWidgetBase(account, parent)
     , mEnableFavoriteRooms(new QCheckBox(i18n("Enable Favorite Rooms"), this))
     , mSiteUrl(new QLineEdit(this))
+    , mSiteName(new QLineEdit(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -23,6 +24,9 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
     mSiteUrl->setObjectName(QStringLiteral("mSiteUrl"));
     addLineEdit(i18n("Site URL"), mSiteUrl, QStringLiteral("Site_Url"));
+
+    mSiteName->setObjectName(QStringLiteral("mSiteUrl"));
+    addLineEdit(i18n("Site Name"), mSiteName, QStringLiteral("Site_Name"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
