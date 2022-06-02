@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(GeneralSettingsWidgetTest)
 GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)
@@ -29,4 +30,9 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableFavoriteRooms->isChecked());
     QVERIFY(!mEnableFavoriteRooms->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableFavoriteRooms), QStringLiteral("Favorite_Rooms"));
+
+    auto mSiteUrl = w.findChild<QLineEdit *>(QStringLiteral("mSiteUrl"));
+    QVERIFY(mSiteUrl);
+    QVERIFY(mSiteUrl->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSiteUrl), QStringLiteral("Site_Url"));
 }
