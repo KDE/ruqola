@@ -44,4 +44,17 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDontPruneDiscussion->isChecked());
     QVERIFY(!mDontPruneDiscussion->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDontPruneDiscussion), QStringLiteral("RetentionPolicy_DoNotPruneDiscussion"));
+
+    auto mDontPrunePinnedMessages = w.findChild<QCheckBox *>(QStringLiteral("mDontPrunePinnedMessages"));
+    QVERIFY(mDontPrunePinnedMessages);
+    QVERIFY(!mDontPrunePinnedMessages->isChecked());
+    QVERIFY(!mDontPrunePinnedMessages->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDontPrunePinnedMessages), QStringLiteral("RetentionPolicy_DoNotPrunePinned"));
+
+    auto mOnlyDeleteFiles = w.findChild<QCheckBox *>(QStringLiteral("mOnlyDeleteFiles"));
+    QVERIFY(mOnlyDeleteFiles);
+    QVERIFY(!mOnlyDeleteFiles->isChecked());
+    QVERIFY(!mOnlyDeleteFiles->text().isEmpty());
+    QVERIFY(!mOnlyDeleteFiles->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mOnlyDeleteFiles), QStringLiteral("RetentionPolicy_FilesOnly"));
 }

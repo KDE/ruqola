@@ -23,4 +23,6 @@ private:
     QCheckBox *const mUseAdvancedRetentionPolicyConfiguration;
     QCheckBox *const mDontPruneThreads;
     QCheckBox *const mDontPruneDiscussion;
+    QCheckBox *const mDontPrunePinnedMessages;
+    QCheckBox *const mOnlyDeleteFiles;
 };

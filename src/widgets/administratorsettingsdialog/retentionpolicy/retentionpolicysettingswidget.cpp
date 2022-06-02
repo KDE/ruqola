@@ -17,6 +17,8 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mUseAdvancedRetentionPolicyConfiguration(new QCheckBox(i18n("Use Advanced Retention Policy configuration"), this))
     , mDontPruneThreads(new QCheckBox(i18n("Do not prune Threads"), this))
     , mDontPruneDiscussion(new QCheckBox(i18n("Do not prune Discussion message"), this))
+    , mDontPrunePinnedMessages(new QCheckBox(i18n("Do not prune pinned messages"), this))
+    , mOnlyDeleteFiles(new QCheckBox(i18n("Only delete files"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -33,6 +35,15 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mDontPruneDiscussion->setObjectName(QStringLiteral("mDontPruneDiscussion"));
     mMainLayout->addWidget(mDontPruneDiscussion);
     connectCheckBox(mDontPruneDiscussion, QStringLiteral("RetentionPolicy_DoNotPruneDiscussion"));
+
+    mDontPrunePinnedMessages->setObjectName(QStringLiteral("mDontPrunePinnedMessages"));
+    mMainLayout->addWidget(mDontPrunePinnedMessages);
+    connectCheckBox(mDontPrunePinnedMessages, QStringLiteral("RetentionPolicy_DoNotPrunePinned"));
+
+    mOnlyDeleteFiles->setObjectName(QStringLiteral("mOnlyDeleteFiles"));
+    mOnlyDeleteFiles->setToolTip(i18n("Only files will be deleted, the messages themselves will stay in place."));
+    mMainLayout->addWidget(mOnlyDeleteFiles);
+    connectCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
 }
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;
