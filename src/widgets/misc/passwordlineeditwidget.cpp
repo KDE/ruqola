@@ -40,8 +40,9 @@ KPasswordLineEdit *PasswordLineEditWidget::passwordLineEdit() const
 
 void PasswordLineEditWidget::slotResetPasswordButton()
 {
-    const QString email = QInputDialog::getText(this, i18n("Reset Password"), i18n("Email:"));
-    if (!email.trimmed().isEmpty()) {
+    bool ok = false;
+    const QString email = QInputDialog::getText(this, i18n("Reset Password"), i18n("Email:"), QLineEdit::Normal, {}, &ok);
+    if (ok && !email.trimmed().isEmpty()) {
         // Validate email ?
         Q_EMIT resetPasswordRequested(email);
     }
