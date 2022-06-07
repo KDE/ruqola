@@ -40,4 +40,16 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSiteName);
     QVERIFY(mSiteName->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSiteName), QStringLiteral("Site_Name"));
+
+    auto mUTF8UsernamesValidation = w.findChild<QLineEdit *>(QStringLiteral("mUTF8UsernamesValidation"));
+    QVERIFY(mUTF8UsernamesValidation);
+    QVERIFY(mUTF8UsernamesValidation->text().isEmpty());
+    QVERIFY(mUTF8UsernamesValidation->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUTF8UsernamesValidation), QStringLiteral("UTF8_User_Names_Validation"));
+
+    auto mUTF8ChannelNamesValidation = w.findChild<QLineEdit *>(QStringLiteral("mUTF8ChannelNamesValidation"));
+    QVERIFY(mUTF8ChannelNamesValidation);
+    QVERIFY(mUTF8UsernamesValidation->text().isEmpty());
+    QVERIFY(mUTF8ChannelNamesValidation->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUTF8ChannelNamesValidation), QStringLiteral("UTF8_Channel_Names_Validation"));
 }

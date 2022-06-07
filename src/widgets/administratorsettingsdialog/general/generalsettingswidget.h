@@ -23,4 +23,6 @@ private:
     QCheckBox *const mEnableFavoriteRooms;
     QLineEdit *const mSiteUrl;
     QLineEdit *const mSiteName;
+    QLineEdit *const mUTF8UsernamesValidation;
+    QLineEdit *const mUTF8ChannelNamesValidation;
 };
