@@ -28,5 +28,6 @@ private:
     void slotFnameChanged(const QString &fname);
     ChannelInfoWidget *const mChannelInfoWidget;
     QDialogButtonBox *const mButtonBox;
+    QPushButton *mOkButton = nullptr;
     bool mIsATeam = false;
 };

@@ -45,6 +45,7 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::
 void ChannelInfoDialog::setRoom(Room *room)
 {
     mButtonBox->setStandardButtons(room->canBeModify() ? QDialogButtonBox::Ok | QDialogButtonBox::Cancel : QDialogButtonBox::Close);
+    mOkButton = mButtonBox->button(QDialogButtonBox::Ok);
     mIsATeam = room->teamInfo().mainTeam();
     slotFnameChanged(room->displayFName());
     mChannelInfoWidget->setRoom(room);
@@ -57,7 +58,6 @@ void ChannelInfoDialog::slotFnameChanged(const QString &fname)
 
 void ChannelInfoDialog::slotRoomNameValid(bool state)
 {
-    if (auto button = mButtonBox->button(QDialogButtonBox::Ok)) {
-        button->setEnabled(state);
-    }
+    Q_ASSERT(mOkButton);
+    mOkButton->setEnabled(state);
 }
