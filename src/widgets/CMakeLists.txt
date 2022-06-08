@@ -259,6 +259,8 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/reportmessagewidget.h
     dialogs/roomavatarwidget.cpp
     dialogs/roomavatarwidget.h
+    dialogs/roomavatarreadonlywidget.h
+    dialogs/roomavatarreadonlywidget.cpp
     dialogs/searchmessagedialog.cpp
     dialogs/searchmessagedialog.h
     dialogs/searchmessagewidget.cpp
