@@ -33,9 +33,8 @@ ChannelInfoWidget::ChannelInfoWidget(RocketChatAccount *account, QWidget *parent
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);
-
-    mStackedWidget->addWidget(mChannelInfoReadOnlyWidget);
-    mStackedWidget->addWidget(mChannelInfoEditableWidget);
+    mChannelInfoEditableWidget->setVisible(false);
+    mChannelInfoReadOnlyWidget->setVisible(false);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::channelDeleted, this, &ChannelInfoWidget::channelDeleted);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::fnameChanged, this, &ChannelInfoWidget::fnameChanged);
     connect(mChannelInfoEditableWidget, &ChannelInfoEditableWidget::roomNameValid, this, &ChannelInfoWidget::roomNameValid);
@@ -61,11 +60,25 @@ void ChannelInfoWidget::setRoom(Room *room)
     mRoom = room;
     if (mRoom->canBeModify()) {
         mChannelInfoEditableWidget->setRoom(mRoom);
+
+        if (mStackedWidget->currentWidget() != mChannelInfoEditableWidget) {
+            mStackedWidget->removeWidget(mStackedWidget->currentWidget());
+            mChannelInfoEditableWidget->setVisible(true);
+            mChannelInfoReadOnlyWidget->setVisible(false);
+            mStackedWidget->addWidget(mChannelInfoEditableWidget);
+        }
+
         mStackedWidget->setCurrentWidget(mChannelInfoEditableWidget);
         mChannelInfoEditableWidget->updateEditableChannelInfo();
         mChannelInfoEditableWidget->updateRetentionValue();
         mChannelInfoEditableWidget->connectEditableWidget();
     } else {
+        if (mStackedWidget->currentWidget() != mChannelInfoReadOnlyWidget) {
+            mStackedWidget->removeWidget(mStackedWidget->currentWidget());
+            mChannelInfoEditableWidget->setVisible(false);
+            mChannelInfoReadOnlyWidget->setVisible(true);
+            mStackedWidget->addWidget(mChannelInfoReadOnlyWidget);
+        }
         mChannelInfoReadOnlyWidget->setRoom(mRoom);
         mStackedWidget->setCurrentWidget(mChannelInfoReadOnlyWidget);
     }
