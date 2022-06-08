@@ -134,6 +134,7 @@ RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent
     connect(mRocketChatAccount, &RocketChatAccount::added, this, &RocketChatBackend::slotAdded);
     connect(mRocketChatAccount, &RocketChatAccount::removed, this, &RocketChatBackend::slotRemoved);
     connect(mRocketChatAccount, &RocketChatAccount::connectedChanged, this, &RocketChatBackend::slotConnectedChanged);
+    connect(mRocketChatAccount, &RocketChatAccount::passwordChanged, this, &RocketChatBackend::tryAutoLogin);
 }
 
 RocketChatBackend::~RocketChatBackend() = default;
@@ -252,6 +253,14 @@ void RocketChatBackend::parseServerVersionDone(const QString &version)
 {
     // qCDebug(RUQOLA_LOG) << " void RocketChatBackend::parseServerVersionDone(const QString &version)******************" << version;
     mRocketChatAccount->setServerVersion(version);
+    tryAutoLogin();
+}
+
+void RocketChatBackend::tryAutoLogin()
+{
+    if (mRocketChatAccount->serverVersion().isEmpty() || mRocketChatAccount->password().isEmpty()) {
+        return;
+    }
     mRocketChatAccount->ddp()->login();
 }
 

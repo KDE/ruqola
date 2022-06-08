@@ -297,7 +297,9 @@ public:
 
     void sendNotification(const QJsonArray &contents);
     void parseOtr(const QJsonArray &contents);
+
     void setServerVersion(const QString &version);
+    Q_REQUIRED_RESULT QString serverVersion() const;
 
     Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
     Q_REQUIRED_RESULT EmojiManager *emojiManager() const;

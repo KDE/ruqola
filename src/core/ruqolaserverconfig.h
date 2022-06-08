@@ -74,6 +74,7 @@ public:
     Q_REQUIRED_RESULT bool needAdaptNewSubscriptionRC60() const;
 
     void setServerVersion(const QString &version);
+    Q_REQUIRED_RESULT QString serverVersion() const;
 
     void addOauthService(const QString &service);
 

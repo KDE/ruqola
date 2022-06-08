@@ -1783,6 +1783,11 @@ void RocketChatAccount::setServerVersion(const QString &version)
     Q_EMIT serverVersionChanged();
 }
 
+QString RocketChatAccount::serverVersion() const
+{
+    return mRuqolaServerConfig->serverVersion();
+}
+
 bool RocketChatAccount::needAdaptNewSubscriptionRC60() const
 {
     return mRuqolaServerConfig->needAdaptNewSubscriptionRC60();

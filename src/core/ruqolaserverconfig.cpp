@@ -121,6 +121,11 @@ void RuqolaServerConfig::setServerVersion(const QString &version)
     adaptToServerVersion();
 }
 
+QString RuqolaServerConfig::serverVersion() const
+{
+    return mServerVersionStr;
+}
+
 bool RuqolaServerConfig::ruqolaHasSupportForOauthType(AuthenticationManager::OauthType type) const
 {
     return mRuqolaOauthTypes & type;
