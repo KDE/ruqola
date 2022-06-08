@@ -9,7 +9,7 @@
 #include <QWidget>
 class QLabel;
 class Room;
-class RoomAvatarWidget;
+class RoomAvatarReadOnlyWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelInfoReadOnlyWidget : public QWidget
 {
@@ -27,7 +27,7 @@ private:
     QLabel *const mCommentReadOnly;
     QLabel *const mAnnouncementReadOnly;
     QLabel *const mDescriptionReadOnly;
-    RoomAvatarWidget *const mRoomAvatarWidget;
+    RoomAvatarReadOnlyWidget *const mRoomAvatarWidget;
     Room *mRoom = nullptr;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -6,6 +6,7 @@
 
 #include "roomavatarreadonlywidget.h"
 #include <QIcon>
+#include <QUrl>
 
 RoomAvatarReadOnlyWidget::RoomAvatarReadOnlyWidget(QWidget *parent)
     : QLabel{parent}
@@ -15,8 +16,10 @@ RoomAvatarReadOnlyWidget::RoomAvatarReadOnlyWidget(QWidget *parent)
 
 RoomAvatarReadOnlyWidget::~RoomAvatarReadOnlyWidget() = default;
 
-void RoomAvatarReadOnlyWidget::setCurrentIconPath(const QString &currentPath)
+void RoomAvatarReadOnlyWidget::setCurrentIconPath(const QString &iconUrlStr)
 {
-    // TODO verify it
-    setPixmap(QPixmap(currentPath));
+    if (!iconUrlStr.isEmpty()) {
+        const QIcon icon(QUrl(iconUrlStr).toLocalFile());
+        setPixmap(icon.pixmap(100, 100));
+    }
 }

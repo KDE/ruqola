@@ -19,5 +19,5 @@ RoomAvatarReadOnlyWidgetTest::RoomAvatarReadOnlyWidgetTest(QObject *parent)
 void RoomAvatarReadOnlyWidgetTest::shouldHaveDefaultValues()
 {
     RoomAvatarReadOnlyWidget w;
-    //TODO
+    QCOMPARE(w.sizeHint(), QSize(120, 120));
 }
