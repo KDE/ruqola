@@ -57,7 +57,43 @@
   <summary xml:lang="zh-TW">Rocket Chat 用戶端</summary>
   <description>
     <p>
-       Ruqola is a Rocket Chat client.
+       Ruqola is a client for Rocket.Chat.
+
+       It supports RC feature:
+        - Direct Message
+        - group channel
+        - channel
+        - Support autotranslate (when RC has it)
+        - Configuring room notification
+        - Configuring room
+        - Thread message support
+        - Discussion room
+        - Teams room support
+        - Configuring own account
+        - Registering new account
+        - Support multi account
+        - Search message in room.
+        - Show mention/attachment/Pinned message/start message
+        - Support emoji
+        - Video support
+        - Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)
+        - Support OTR (in progress)
+        - support gif image
+        - Add support for uploading attachment files.
+        - Show unread message information
+        - Allow to block/unblock users
+        - Auto-away
+        - Two-factor authentication via TOTP
+        - Two-factor authentication via email
+        - Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Adminitrator settings (Message, Account, Retention Policy, File Upload, Encryption)
+        - Export Messages
+
+        Extra features:
+        - Allow to reply directly to message from notification (kde features)
+        - Dnd image from ruqola to website or local folder
+        - Store message in local database so we can search in offline
+        - Mark All Channels are read
+        - Add notification history.
     </p>
     <p xml:lang="ca">El Ruqola és client de xat del Rocket.</p>
     <p xml:lang="ca-valencia">Ruqola és client de chat del Rocket.</p>
