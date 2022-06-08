@@ -14,10 +14,13 @@
 #include "ruqola.h"
 #include "ruqolautils.h"
 
+#include "directory/directorydialog.h"
+
 #include <KLocalizedString>
 #include <QAction>
 #include <QKeyEvent>
 #include <QLineEdit>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 ChannelListWidget::ChannelListWidget(QWidget *parent)
@@ -33,14 +36,36 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     mainLayout->addWidget(mChannelView);
     connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
 
+    auto actionsContainer = new QWidget(this);
+    actionsContainer->setLayout(new QHBoxLayout);
+    actionsContainer->layout()->setSpacing(0);
+    actionsContainer->layout()->setContentsMargins({});
+
+    auto showDirectoryButton = new QToolButton(actionsContainer);
+    showDirectoryButton->setText(i18n("Show Directory"));
+    showDirectoryButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    showDirectoryButton->setIcon(QIcon::fromTheme(QStringLiteral("list-add")));
+    showDirectoryButton->setAutoRaise(true);
+    showDirectoryButton->setToolTip(
+        i18n("Show an overview of all available chat rooms and users on the server. "
+             "You can join the rooms from the dialog or start a new direct message chat from that dialog."));
+    connect(showDirectoryButton, &QToolButton::clicked, this, [this]() {
+        auto dlg = new DirectoryDialog(mCurrentRocketChatAccount, this);
+        dlg->fillTabs();
+        dlg->show();
+    });
+    actionsContainer->layout()->addWidget(showDirectoryButton);
+
     // dummy action just for getting the icon)
     mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
     mSearchRoomLineEdit->setObjectName(QStringLiteral("mSearchRoom"));
     mSearchRoomLineEdit->setPlaceholderText(i18n("Filter Channels (CTRL + K)"));
     mSearchRoomLineEdit->setClearButtonEnabled(true);
     mSearchRoomLineEdit->installEventFilter(this);
-    mainLayout->addWidget(mSearchRoomLineEdit);
+    actionsContainer->layout()->addWidget(mSearchRoomLineEdit);
     connect(mSearchRoomLineEdit, &QLineEdit::textChanged, this, &ChannelListWidget::slotSearchRoomTextChanged);
+
+    mainLayout->addWidget(actionsContainer);
 
     // BEGIN: Actions
     auto searchRoomAction = new QAction(i18n("Search Channels"), this);
