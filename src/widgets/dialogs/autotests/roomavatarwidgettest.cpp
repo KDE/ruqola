@@ -18,4 +18,6 @@ void RoomAvatarWidgetTest::shouldHaveDefaultValues()
     RoomAvatarWidget w;
     QVERIFY(w.roomAvatar().isEmpty());
     QVERIFY(!w.wasChanged());
+    QCOMPARE(w.size(), QSize(120, 120));
+    QCOMPARE(w.iconSize(), QSize(100, 100));
 }
