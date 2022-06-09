@@ -15,5 +15,4 @@ public:
     ~RoomAvatarReadOnlyWidget() override;
 
     void setCurrentIconPath(const QString &currentPath);
-
 };

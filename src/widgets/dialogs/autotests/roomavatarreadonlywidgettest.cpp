@@ -13,7 +13,6 @@ QTEST_MAIN(RoomAvatarReadOnlyWidgetTest)
 RoomAvatarReadOnlyWidgetTest::RoomAvatarReadOnlyWidgetTest(QObject *parent)
     : QObject{parent}
 {
-
 }
 
 void RoomAvatarReadOnlyWidgetTest::shouldHaveDefaultValues()

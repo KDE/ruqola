@@ -124,7 +124,6 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
 
-
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
 

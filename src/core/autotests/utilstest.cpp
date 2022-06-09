@@ -54,7 +54,6 @@ void UtilsTest::shouldExtractRoomUserFromUrl()
     QCOMPARE(Utils::extractRoomUserFromUrl(input), output);
 }
 
-
 void UtilsTest::shouldConvertTextWithUrl_data()
 {
     QTest::addColumn<QString>("text");

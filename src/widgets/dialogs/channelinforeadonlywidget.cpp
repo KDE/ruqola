@@ -11,8 +11,8 @@
 #include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
-#include <QLabel>
 #include <QIcon>
+#include <QLabel>
 
 ChannelInfoReadOnlyWidget::ChannelInfoReadOnlyWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

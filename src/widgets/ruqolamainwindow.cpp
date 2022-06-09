@@ -79,7 +79,7 @@
 #include <KUserFeedback/Provider>
 #endif
 
-    namespace
+namespace
 {
 static const char myRuqolaMainWindowGroupName[] = "RuqolaMainWindow";
 }
