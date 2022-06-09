@@ -18,10 +18,6 @@ public:
 
     Q_REQUIRED_RESULT bool wasChanged() const;
 
-    void setReadOnly(bool state);
-
-    Q_REQUIRED_RESULT bool readOnly() const;
-
     void setCurrentIconPath(const QString &currentPath);
 
 protected:
@@ -34,5 +30,4 @@ private:
     QString mCurrentIconPath;
     QString mRoomAvatarPath;
     bool mWasChanged = false;
-    bool mReadOnly = false;
 };

@@ -25,9 +25,6 @@ RoomAvatarWidget::~RoomAvatarWidget() = default;
 
 void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 {
-    if (mReadOnly) {
-        return;
-    }
     QMenu menu;
     menu.addAction(i18n("Change Picture..."), this, &RoomAvatarWidget::slotChangeImage);
     menu.addSeparator();
@@ -39,9 +36,6 @@ void RoomAvatarWidget::contextMenuEvent(QContextMenuEvent *event)
 
 void RoomAvatarWidget::slotChangeImage()
 {
-    if (mReadOnly) {
-        return;
-    }
     QString filter;
     const QList<QByteArray> supportedImage = QImageReader::supportedImageFormats();
     for (const QByteArray &ba : supportedImage) {
@@ -74,11 +68,6 @@ void RoomAvatarWidget::slotResetAvatar()
     mWasChanged = true;
 }
 
-bool RoomAvatarWidget::readOnly() const
-{
-    return mReadOnly;
-}
-
 void RoomAvatarWidget::setCurrentIconPath(const QString &currentPath)
 {
     mCurrentIconPath = currentPath;
@@ -88,11 +77,6 @@ void RoomAvatarWidget::setCurrentIconPath(const QString &currentPath)
 bool RoomAvatarWidget::wasChanged() const
 {
     return mWasChanged;
-}
-
-void RoomAvatarWidget::setReadOnly(bool state)
-{
-    mReadOnly = state;
 }
 
 QString RoomAvatarWidget::roomAvatar() const
