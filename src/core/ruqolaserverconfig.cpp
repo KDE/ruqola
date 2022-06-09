@@ -246,9 +246,11 @@ void RuqolaServerConfig::setServerConfigFeatureTypes(ServerConfigFeatureTypes se
 
 void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFromValue)
 {
-    // TODO using enum here ?
-    if (registrationFromValue != QStringLiteral("Disabled")) {
+    if (registrationFromValue == QStringLiteral("Public")) {
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
+    } else if (registrationFromValue == QStringLiteral("Disabled")) {
+    } else if (registrationFromValue == QStringLiteral("Secret URL")) {
+        // TODO implement it.
     }
 }
 
