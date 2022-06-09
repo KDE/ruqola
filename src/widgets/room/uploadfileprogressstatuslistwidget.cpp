@@ -16,7 +16,7 @@ UploadFileProgressStatusListWidget::UploadFileProgressStatusListWidget(QWidget *
 {
     setFrameStyle(NoFrame);
     auto mBigBoxVBoxLayout = new QVBoxLayout(mBigBox);
-    mBigBoxVBoxLayout->setContentsMargins(0, 0, 0, 0);
+    mBigBoxVBoxLayout->setContentsMargins({});
     setWidget(mBigBox);
     setWidgetResizable(true);
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
