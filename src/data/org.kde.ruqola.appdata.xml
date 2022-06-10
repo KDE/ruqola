@@ -57,44 +57,50 @@
   <summary xml:lang="zh-TW">Rocket Chat 用戶端</summary>
   <description>
     <p>
-       Ruqola is a client for Rocket.Chat.
-
-       It supports RC feature:
-        - Direct Message
-        - group channel
-        - channel
-        - Support autotranslate (when RC has it)
-        - Configuring room notification
-        - Configuring room
-        - Thread message support
-        - Discussion room
-        - Teams room support
-        - Configuring own account
-        - Registering new account
-        - Support multi account
-        - Search message in room.
-        - Show mention/attachment/Pinned message/start message
-        - Support emoji
-        - Video support
-        - Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)
-        - Support OTR (in progress)
-        - support gif image
-        - Add support for uploading attachment files.
-        - Show unread message information
-        - Allow to block/unblock users
-        - Auto-away
-        - Two-factor authentication via TOTP
-        - Two-factor authentication via email
-        - Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Adminitrator settings (Message, Account, Retention Policy, File Upload, Encryption)
-        - Export Messages
-
-        Extra features:
-        - Allow to reply directly to message from notification (kde features)
-        - Dnd image from ruqola to website or local folder
-        - Store message in local database so we can search in offline
-        - Mark All Channels are read
-        - Add notification history.
+      Ruqola is a client for Rocket.Chat.
     </p>
+    <p>
+      It supports RC features:
+    </p>
+    <ul>
+      <li>Direct Message</li>
+      <li>group channel</li>
+      <li>channel</li>
+      <li>Support autotranslate (when RC has it)</li>
+      <li>Configuring room notification</li>
+      <li>Configuring room</li>
+      <li>Thread message support</li>
+      <li>Discussion room</li>
+      <li>Teams room support</li>
+      <li>Configuring own account</li>
+      <li>Registering new account</li>
+      <li>Support multi account</li>
+      <li>Search message in room</li>
+      <li>Show mention/attachment/Pinned message/start message</li>
+      <li>Support emoji</li>
+      <li>Video support</li>
+      <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
+      <li>Support OTR (in progress)</li>
+      <li>support gif image</li>
+      <li>Add support for uploading attachment files</li>
+      <li>Show unread message information</li>
+      <li>Allow to block/unblock users</li>
+      <li>Auto-away</li>
+      <li>Two-factor authentication via TOTP</li>
+      <li>Two-factor authentication via email</li>
+      <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
+      <li>Export Messages</li>
+    </ul>
+    <p>
+      Extra features:
+    </p>
+    <ul>
+      <li>Allow to reply directly to message from notification (kde features)</li>
+      <li>Dnd image from ruqola to website or local folder</li>
+      <li>Store message in local database so we can search in offline</li>
+      <li>Mark All Channels are read</li>
+      <li>Add notification history</li>
+    </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
