@@ -141,7 +141,7 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
     // mLdapCheckBox->setVisible(rocketChatAccount->ldapEnabled());
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
-    mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset());
+    mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
 }
 
 void RuqolaLoginWidget::slotLogin()
