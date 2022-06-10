@@ -593,7 +593,6 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
         const QString messageId = roomMessageModel->messageIdFromIndex(roomMessageModel->rowCount() - numberOfMessage);
         mRoomWidgetBase->messageListView()->goToMessage(messageId);
     } else {
-        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
@@ -609,6 +608,10 @@ void RoomWidget::slotJumpToUnreadMessage(qint64 numberOfMessage)
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";
             break;
         }
+        if (mRoomType == Room::RoomType::Unknown) {
+            return;
+        }
+        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         info.count = numberOfMessage - roomMessageModel->rowCount() + 1;
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = roomMessageModel->lastTimestamp();
@@ -646,7 +649,6 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
     if (index.isValid()) {
         messageListView->scrollTo(index);
     } else if (!messageDateTimeUtc.isEmpty()) {
-        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo info;
         switch (mRoomType) {
         case Room::RoomType::Channel:
@@ -662,6 +664,10 @@ void RoomWidget::slotGotoMessage(const QString &messageId, const QString &messag
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with room type ";
             break;
         }
+        if (mRoomType == Room::RoomType::Unknown) {
+            return;
+        }
+        auto job = new RocketChatRestApi::ChannelHistoryJob(this);
         info.roomId = mRoomWidgetBase->roomId();
         const qint64 endDateTime = messageModel->lastTimestamp();
         info.latestMessage = QDateTime::fromMSecsSinceEpoch(endDateTime).toUTC().toString(Qt::ISODateWithMs);
