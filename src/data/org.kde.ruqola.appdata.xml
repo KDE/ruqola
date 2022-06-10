@@ -95,24 +95,6 @@
         - Mark All Channels are read
         - Add notification history.
     </p>
-    <p xml:lang="ca">El Ruqola és client de xat del Rocket.</p>
-    <p xml:lang="ca-valencia">Ruqola és client de chat del Rocket.</p>
-    <p xml:lang="cs">Ruqola je klient pro Rocket Chat.</p>
-    <p xml:lang="de">Ruqola ist ein Rocket-Chat-Programm.</p>
-    <p xml:lang="en-GB">Ruqola is a Rocket Chat client.</p>
-    <p xml:lang="es">Ruqola es un cliente de chat Rocket.</p>
-    <p xml:lang="fr">Rugola est un client de discussions « Rocket »</p>
-    <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rocchetta).</p>
-    <p xml:lang="it">Ruqola è un client Rocket Chat.</p>
-    <p xml:lang="ko">Ruqola는 Rocket Chat 클라이언트입니다.</p>
-    <p xml:lang="nl">Ruqola is client van Rocket Chat.</p>
-    <p xml:lang="pl">Ruqola to program do rozmów na Rocket</p>
-    <p xml:lang="pt">O Ruqola é um cliente de Rocket Chat.</p>
-    <p xml:lang="pt-BR">Ruqola é um cliente Rocket Chat.</p>
-    <p xml:lang="sl">Odjemalec za Rocket chat.</p>
-    <p xml:lang="sv">Ruqola är en Rocket Chat klient</p>
-    <p xml:lang="uk">Ruqola є клієнтом спілкування Rocket.</p>
-    <p xml:lang="x-test">xxRuqola is a Rocket Chat client.xx</p>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=ruqola</url>
