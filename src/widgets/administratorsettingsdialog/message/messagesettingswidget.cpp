@@ -77,5 +77,15 @@ MessageSettingsWidget::~MessageSettingsWidget() = default;
 
 void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    // TODO
+    initializeWidget(mAllowMessageEditing, mapSettings);
+    initializeWidget(mAllowMessageDeleting, mapSettings);
+    initializeWidget(mShowEditedStatus, mapSettings);
+    initializeWidget(mShowDeletedStatus, mapSettings);
+    initializeWidget(mAllowMessagePinning, mapSettings);
+    initializeWidget(mAllowMessageSnippeting, mapSettings);
+    initializeWidget(mAllowConvertingLongMessageAttachment, mapSettings);
+    initializeWidget(mVideoRecorderEnabled, mapSettings);
+    initializeWidget(mBlockMessageEditingAfterMinutes, mapSettings);
+    initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings);
+    initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings);
 }

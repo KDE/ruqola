@@ -72,5 +72,15 @@ AccountSettingsWidget::~AccountSettingsWidget() = default;
 
 void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    // TODO
+    initializeWidget(mAllowChangeName, mapSettings);
+    initializeWidget(mAllowChangeUserProfile, mapSettings);
+    initializeWidget(mAllowChangeUserAvatar, mapSettings);
+    initializeWidget(mAllowChangeEmail, mapSettings);
+    initializeWidget(mAllowChangePassword, mapSettings);
+    initializeWidget(mAllowChangeEmailNotifications, mapSettings);
+    initializeWidget(mAllowUsersToDeleteOwnAccount, mapSettings);
+    initializeWidget(mAllowAnonymousWrite, mapSettings);
+    initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings);
+    initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings);
+    initializeWidget(mLoginExpirationInDays, mapSettings);
 }

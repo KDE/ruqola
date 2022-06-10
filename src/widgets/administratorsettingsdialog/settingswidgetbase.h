@@ -32,6 +32,10 @@ protected:
     QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
 
+    void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings);
+
 private:
     void
     updateSettings(const QString &settingName, const QVariant &value, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue);

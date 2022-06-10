@@ -21,6 +21,11 @@
 #include <QSpinBox>
 #include <QToolButton>
 
+namespace
+{
+const char s_property[] = "settings_name";
+}
+
 SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *parent)
     : QScrollArea{parent}
     , mCurrentWidget(new QWidget(parent))
@@ -38,7 +43,7 @@ SettingsWidgetBase::~SettingsWidgetBase() = default;
 
 void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
 {
-    checkBox->setProperty("settings_name", variable);
+    checkBox->setProperty(s_property, variable);
     connect(checkBox, &QCheckBox::clicked, this, [this, variable](bool checked) {
         updateSettings(variable, checked, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Boolean);
     });
@@ -85,8 +90,8 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     layout->addWidget(spinBox);
     auto toolButton = new QToolButton(this);
     toolButton->setText(i18n("Apply"));
-    toolButton->setProperty("settings_name", variable);
-    spinBox->setProperty("settings_name", variable);
+    toolButton->setProperty(s_property, variable);
+    spinBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox]() {
@@ -107,8 +112,8 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(lineEdit);
     auto toolButton = new QToolButton(this);
     toolButton->setText(i18n("Apply"));
-    toolButton->setProperty("settings_name", variable);
-    lineEdit->setProperty("settings_name", variable);
+    toolButton->setProperty(s_property, variable);
+    lineEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
@@ -119,4 +124,31 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     });
 
     mMainLayout->addRow(layout);
+}
+
+void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = lineEdit->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        lineEdit->setText(value.toString());
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = checkbox->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        checkbox->setChecked(value.toBool());
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = spinbox->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        spinbox->setValue(value.toInt());
+    }
 }

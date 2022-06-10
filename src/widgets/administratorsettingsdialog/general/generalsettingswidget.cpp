@@ -43,5 +43,9 @@ GeneralSettingsWidget::~GeneralSettingsWidget() = default;
 
 void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    // TODO
+    initializeWidget(mEnableFavoriteRooms, mapSettings);
+    initializeWidget(mSiteUrl, mapSettings);
+    initializeWidget(mSiteName, mapSettings);
+    initializeWidget(mUTF8UsernamesValidation, mapSettings);
+    initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
 }

@@ -47,5 +47,9 @@ FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
 
 void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    // TODO
+    initializeWidget(mFileUploadsEnabled, mapSettings);
+    initializeWidget(mProtectUploadedFiles, mapSettings);
+    initializeWidget(mRotateImagesUpload, mapSettings);
+    initializeWidget(mMaximumFileUploadSize, mapSettings);
+    initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings);
 }
