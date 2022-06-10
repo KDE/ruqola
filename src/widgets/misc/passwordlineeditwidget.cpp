@@ -38,6 +38,11 @@ KPasswordLineEdit *PasswordLineEditWidget::passwordLineEdit() const
     return mPasswordLineEdit;
 }
 
+void PasswordLineEditWidget::setAllowPasswordReset(bool allowPassword)
+{
+    mResetPasswordButton->setVisible(allowPassword);
+}
+
 void PasswordLineEditWidget::slotResetPasswordButton()
 {
     bool ok = false;

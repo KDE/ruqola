@@ -66,4 +66,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
 
     QVERIFY(w.searchListCompletion().isEmpty());
     QVERIFY(w.uploadFileManager());
+    QVERIFY(!w.allowPasswordReset());
 }

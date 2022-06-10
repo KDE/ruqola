@@ -2484,6 +2484,11 @@ bool RocketChatAccount::allowPasswordChange() const
     return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordChange;
 }
 
+bool RocketChatAccount::allowPasswordReset() const
+{
+    return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowPasswordReset;
+}
+
 bool RocketChatAccount::allowUsernameChange() const
 {
     return serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowUsernameChange;

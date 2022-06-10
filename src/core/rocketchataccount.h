@@ -491,6 +491,7 @@ public:
     Q_REQUIRED_RESULT int messageMaximumAllowedSize() const;
     Q_REQUIRED_RESULT bool messageAllowConvertLongMessagesToAttachment() const;
 
+    Q_REQUIRED_RESULT bool allowPasswordReset() const;
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();

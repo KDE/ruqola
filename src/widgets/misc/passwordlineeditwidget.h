@@ -18,6 +18,8 @@ public:
     ~PasswordLineEditWidget() override;
     Q_REQUIRED_RESULT KPasswordLineEdit *passwordLineEdit() const;
 
+    void setAllowPasswordReset(bool allowPassword);
+
 Q_SIGNALS:
     void resetPasswordRequested(const QString &email);
 
