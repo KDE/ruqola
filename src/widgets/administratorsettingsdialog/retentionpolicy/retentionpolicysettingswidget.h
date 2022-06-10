@@ -16,7 +16,7 @@ public:
     explicit RetentionPolicySettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~RetentionPolicySettingsWidget() override;
 
-    void initialize() override;
+    void initialize(const QMap<QString, QVariant> &mapSettings) override;
 
 private:
     QCheckBox *const mEnabled;

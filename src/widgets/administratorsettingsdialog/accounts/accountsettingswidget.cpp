@@ -70,7 +70,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
 
-void AccountSettingsWidget::initialize()
+void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     // TODO
 }

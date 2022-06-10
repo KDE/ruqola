@@ -53,8 +53,9 @@ AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 
 void AdministratorSettingsWidget::initialize()
 {
-    mAccountSettingsWidget->initialize();
     // TODO
+    const QMap<QString, QVariant> mapSettings;
+    mAccountSettingsWidget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updatePage()

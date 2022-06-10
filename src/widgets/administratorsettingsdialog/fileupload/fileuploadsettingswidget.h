@@ -18,7 +18,7 @@ public:
     ~FileUploadSettingsWidget() override;
 
 public:
-    void initialize() override;
+    void initialize(const QMap<QString, QVariant> &mapSettings) override;
 
 private:
     QCheckBox *const mFileUploadsEnabled;

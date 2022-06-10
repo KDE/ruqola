@@ -75,7 +75,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
 
-void MessageSettingsWidget::initialize()
+void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     // TODO
 }

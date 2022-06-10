@@ -45,7 +45,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
 
-void FileUploadSettingsWidget::initialize()
+void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     // TODO
 }

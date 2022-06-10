@@ -17,7 +17,7 @@ public:
     explicit GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~GeneralSettingsWidget() override;
 
-    void initialize() override;
+    void initialize(const QMap<QString, QVariant> &mapSettings) override;
 
 private:
     QCheckBox *const mEnableFavoriteRooms;

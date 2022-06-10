@@ -48,7 +48,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;
 
-void RetentionPolicySettingsWidget::initialize()
+void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     // TODO
 }

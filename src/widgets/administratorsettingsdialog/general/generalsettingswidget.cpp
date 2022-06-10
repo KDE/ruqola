@@ -41,7 +41,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
 
-void GeneralSettingsWidget::initialize()
+void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     // TODO
 }

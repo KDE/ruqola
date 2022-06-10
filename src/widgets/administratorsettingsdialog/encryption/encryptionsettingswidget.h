@@ -16,7 +16,7 @@ public:
     explicit EncryptionSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~EncryptionSettingsWidget() override;
 
-    void initialize() override;
+    void initialize(const QMap<QString, QVariant> &mapSettings) override;
 
 private:
     QCheckBox *const mEnableE2E;

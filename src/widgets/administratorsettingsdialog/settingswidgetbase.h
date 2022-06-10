@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "settings/updateadminsettingsjob.h"
 #include <QScrollArea>
+#include <QVariant>
 class RocketChatAccount;
 class QCheckBox;
 class QSpinBox;
@@ -21,7 +22,7 @@ public:
     explicit SettingsWidgetBase(RocketChatAccount *account, QWidget *parent = nullptr);
     ~SettingsWidgetBase() override;
 
-    virtual void initialize() = 0;
+    virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
