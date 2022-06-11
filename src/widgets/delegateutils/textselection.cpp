@@ -227,7 +227,7 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
     Q_ASSERT(index.isValid());
     mEndIndex = index;
     if (msgAttach.isValid()) {
-        const int countAtt{mAttachmentSelection.count()};
+        const auto countAtt{mAttachmentSelection.count()};
         for (int i = 0; i < countAtt; ++i) {
             if (mAttachmentSelection.at(i).attachment == msgAttach) {
                 AttachmentSelection attachmentSelectFound = mAttachmentSelection.takeAt(i);
