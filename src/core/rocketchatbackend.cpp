@@ -26,6 +26,7 @@
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
+    qDebug() << " obj " << obj;
     account->parsePublicSettings(obj);
 
     // qCDebug(RUQOLA_LOG) << " configs"<<configs;
@@ -143,6 +144,11 @@ void RocketChatBackend::slotConnectedChanged()
     connect(restApi, &RocketChatRestApi::Connection::privateInfoDone, this, &RocketChatBackend::slotPrivateInfoDone, Qt::UniqueConnection);
 
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
+}
+
+void RocketChatBackend::loadPublicSettings()
+{
+    // TODO
 }
 
 void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)

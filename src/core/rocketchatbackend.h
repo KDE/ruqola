@@ -39,6 +39,8 @@ public:
     void clearFilesList();
     Q_REQUIRED_RESULT QVector<File> files() const;
 
+    void loadPublicSettings();
+
 private:
     Q_DISABLE_COPY(RocketChatBackend)
     void slotRemoved(const QJsonObject &object);
