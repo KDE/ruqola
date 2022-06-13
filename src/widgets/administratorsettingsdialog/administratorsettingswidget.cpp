@@ -12,6 +12,7 @@
 #include "message/messagesettingswidget.h"
 #include "retentionpolicy/retentionpolicysettingswidget.h"
 #include "rocketchataccount.h"
+#include "rocketchatbackend.h"
 
 #include <QTabWidget>
 #include <QVBoxLayout>
@@ -27,6 +28,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mUploadFileSettingsWidget(new FileUploadSettingsWidget(account, this))
     , mRetentionPolicySettingsWidget(new RetentionPolicySettingsWidget(account, this))
     , mGeneralSettingsWidget(new GeneralSettingsWidget(account, this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -47,15 +49,35 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mUploadFileSettingsWidget, i18n("File Upload"));
     mTabWidget->addTab(mRetentionPolicySettingsWidget, i18n("Retention Policy"));
     mTabWidget->addTab(mGeneralSettingsWidget, i18n("General"));
+    if (mRocketChatAccount) {
+        connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
+    }
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 
-void AdministratorSettingsWidget::initialize()
+void AdministratorSettingsWidget::loadSettings()
 {
-    // TODO
-    const QMap<QString, QVariant> mapSettings;
+    mRocketChatAccount->rocketChatBackend()->loadPublicSettings();
+}
+
+void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
+{
+    QJsonArray configs = obj.value(QLatin1String("result")).toArray();
+    QMap<QString, QVariant> mapSettings;
+    for (QJsonValueRef currentConfig : configs) {
+        const QJsonObject currentConfObject = currentConfig.toObject();
+        const QString id = currentConfObject[QStringLiteral("_id")].toString();
+        const QVariant value = currentConfObject[QStringLiteral("value")].toVariant();
+        mapSettings.insert(id, value);
+    }
+
     mAccountSettingsWidget->initialize(mapSettings);
+    mEncryptionSettingsWidget->initialize(mapSettings);
+    mMessageSettingsWidget->initialize(mapSettings);
+    mUploadFileSettingsWidget->initialize(mapSettings);
+    mRetentionPolicySettingsWidget->initialize(mapSettings);
+    mGeneralSettingsWidget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updatePage()

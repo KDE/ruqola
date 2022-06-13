@@ -47,9 +47,9 @@ AdministratorSettingsDialog::~AdministratorSettingsDialog()
     writeConfig();
 }
 
-void AdministratorSettingsDialog::initialize()
+void AdministratorSettingsDialog::loadSettings()
 {
-    mAdministratorSettingsWidget->initialize();
+    mAdministratorSettingsWidget->loadSettings();
 }
 
 void AdministratorSettingsDialog::readConfig()

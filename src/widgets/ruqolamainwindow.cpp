@@ -692,7 +692,7 @@ void RuqolaMainWindow::slotAdministrator()
 void RuqolaMainWindow::slotAdministratorServerSettings()
 {
     AdministratorSettingsDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.initialize();
+    dlg.loadSettings();
     dlg.exec();
 }
 

@@ -17,7 +17,7 @@ public:
     explicit AdministratorSettingsDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorSettingsDialog() override;
 
-    void initialize();
+    void loadSettings();
 
 private:
     void readConfig();

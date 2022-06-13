@@ -19,7 +19,6 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mSiteName(new QLineEdit(this))
     , mUTF8UsernamesValidation(new QLineEdit(this))
     , mUTF8ChannelNamesValidation(new QLineEdit(this))
-    , mRochetChatAccount(account)
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -38,9 +37,6 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mUTF8ChannelNamesValidation->setObjectName(QStringLiteral("mUTF8ChannelNamesValidation"));
     mUTF8ChannelNamesValidation->setToolTip(i18n("RegExp that will be used to validate channel names"));
     addLineEdit(i18n("UTF8 Channel Names Validation"), mUTF8ChannelNamesValidation, QStringLiteral("UTF8_Channel_Names_Validation"));
-    if (mRochetChatAccount) {
-        // TODO
-    }
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -52,9 +48,4 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mSiteName, mapSettings);
     initializeWidget(mUTF8UsernamesValidation, mapSettings);
     initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
-}
-
-void GeneralSettingsWidget::loadSettings()
-{
-    // TODO
 }

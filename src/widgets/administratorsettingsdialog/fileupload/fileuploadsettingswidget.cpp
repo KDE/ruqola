@@ -26,6 +26,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
 
     mMaximumFileUploadSize->setObjectName(QStringLiteral("mMaximumFileUploadSize"));
     mMaximumFileUploadSize->setToolTip(i18n("Set it to -1 to remove the file size limitation."));
+    mMaximumFileUploadSize->setMaximum(1215752191);
     addSpinbox(i18n("Maximum File Upload Size (in bytes)"), mMaximumFileUploadSize, QStringLiteral("FileUpload_MaxFileSize"));
 
     mProtectUploadedFiles->setObjectName(QStringLiteral("mProtectUploadedFiles"));

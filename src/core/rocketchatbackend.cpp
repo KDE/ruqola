@@ -26,12 +26,22 @@
 
 void process_publicsettings(const QJsonObject &obj, RocketChatAccount *account)
 {
-    qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     account->parsePublicSettings(obj);
 
     // qCDebug(RUQOLA_LOG) << " configs"<<configs;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Public Settings:") + QJsonDocument(obj).toJson());
+    }
+}
+
+void process_publicsettings_administrator(const QJsonObject &obj, RocketChatAccount *account)
+{
+    Q_EMIT account->publicSettingLoaded(obj);
+
+    // qCDebug(RUQOLA_LOG) << " configs"<<configs;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Administrator Public Settings:") + QJsonDocument(obj).toJson());
     }
 }
 
@@ -148,7 +158,11 @@ void RocketChatBackend::slotConnectedChanged()
 
 void RocketChatBackend::loadPublicSettings()
 {
-    // TODO
+    auto ddp = mRocketChatAccount->ddp();
+    if (!ddp->isConnected()) {
+        return;
+    }
+    ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings_administrator);
 }
 
 void RocketChatBackend::slotGetServerInfoFailed(bool useDeprecatedVersion)

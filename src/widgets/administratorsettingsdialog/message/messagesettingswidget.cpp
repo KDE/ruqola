@@ -70,6 +70,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mVideoRecorderEnabled, QStringLiteral("Message_VideoRecorderEnabled"));
 
     mMaximumAllowedCharactersPerMessage->setObjectName(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
+    mMaximumAllowedCharactersPerMessage->setMaximum(99999);
     addSpinbox(i18n("Maximum Allowed Characters Per Message"), mMaximumAllowedCharactersPerMessage, QStringLiteral("Message_MaxAllowedSize"));
 }
 

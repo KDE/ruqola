@@ -24,9 +24,10 @@ public:
     explicit AdministratorSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorSettingsWidget() override;
 
-    void initialize();
+    void loadSettings();
 
 private:
+    void initialize(const QJsonObject &obj);
     void updatePage();
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
@@ -35,4 +36,5 @@ private:
     FileUploadSettingsWidget *const mUploadFileSettingsWidget;
     RetentionPolicySettingsWidget *const mRetentionPolicySettingsWidget;
     GeneralSettingsWidget *const mGeneralSettingsWidget;
+    RocketChatAccount *const mRocketChatAccount;
 };

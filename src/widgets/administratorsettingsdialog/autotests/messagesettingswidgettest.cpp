@@ -88,4 +88,5 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     auto mMaximumAllowedCharactersPerMessage = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
     QVERIFY(mMaximumAllowedCharactersPerMessage);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), QStringLiteral("Message_MaxAllowedSize"));
+    QCOMPARE(mMaximumAllowedCharactersPerMessage->maximum(), 99999);
 }
