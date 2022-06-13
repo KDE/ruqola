@@ -19,6 +19,8 @@ public:
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
 
+    void loadSettings();
+
 private:
     QCheckBox *const mEnableFavoriteRooms;
     QLineEdit *const mSiteUrl;

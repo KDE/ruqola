@@ -53,3 +53,8 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUTF8UsernamesValidation, mapSettings);
     initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
 }
+
+void GeneralSettingsWidget::loadSettings()
+{
+    // TODO
+}
