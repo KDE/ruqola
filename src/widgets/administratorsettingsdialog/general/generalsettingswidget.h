@@ -25,4 +25,5 @@ private:
     QLineEdit *const mSiteName;
     QLineEdit *const mUTF8UsernamesValidation;
     QLineEdit *const mUTF8ChannelNamesValidation;
+    RocketChatAccount *const mRochetChatAccount;
 };
