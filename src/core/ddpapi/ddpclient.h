@@ -27,7 +27,10 @@ class LIBRUQOLACORE_EXPORT DDPClient : public QObject
 {
     Q_OBJECT
 public:
-    enum MessageType { Persistent, Ephemeral };
+    enum MessageType {
+        Persistent,
+        Ephemeral,
+    };
 
     explicit DDPClient(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~DDPClient() override;
