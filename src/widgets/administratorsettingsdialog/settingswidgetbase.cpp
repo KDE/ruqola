@@ -89,6 +89,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     layout->addWidget(label);
     layout->addWidget(spinBox);
     auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
     spinBox->setProperty(s_property, variable);
@@ -111,6 +112,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
     lineEdit->setProperty(s_property, variable);
@@ -132,6 +134,10 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         lineEdit->setText(value.toString());
+        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+        if (toolButton) {
+            toolButton->setEnabled(false);
+        }
     }
 }
 
@@ -150,5 +156,9 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         spinbox->setValue(value.toInt());
+        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+        if (toolButton) {
+            toolButton->setEnabled(false);
+        }
     }
 }
