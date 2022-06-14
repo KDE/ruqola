@@ -79,14 +79,17 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mBlockMessageEditingAfterMinutes);
     QVERIFY(!mBlockMessageEditingAfterMinutes->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageEditingAfterMinutes), QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_AllowEditing_BlockEditInMinutes"));
 
     auto mBlockMessageDeletingAfterMinutes = w.findChild<QSpinBox *>(QStringLiteral("mBlockMessageDeletingAfterMinutes"));
     QVERIFY(mBlockMessageDeletingAfterMinutes);
     QVERIFY(!mBlockMessageDeletingAfterMinutes->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockMessageDeletingAfterMinutes), QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
 
     auto mMaximumAllowedCharactersPerMessage = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
     QVERIFY(mMaximumAllowedCharactersPerMessage);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), QStringLiteral("Message_MaxAllowedSize"));
     QCOMPARE(mMaximumAllowedCharactersPerMessage->maximum(), 99999);
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_MaxAllowedSize"));
 }

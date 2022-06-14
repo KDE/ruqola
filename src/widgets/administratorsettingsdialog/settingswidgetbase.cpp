@@ -86,6 +86,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(spinBox);
     auto toolButton = new QToolButton(this);
@@ -109,6 +110,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(lineEdit);
     auto toolButton = new QToolButton(this);

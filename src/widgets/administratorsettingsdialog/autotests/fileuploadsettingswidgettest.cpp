@@ -50,6 +50,7 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMaximumFileUploadSize->toolTip().isEmpty());
     QCOMPARE(mMaximumFileUploadSize->maximum(), 1215752191);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumFileUploadSize), QStringLiteral("FileUpload_MaxFileSize"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("FileUpload_MaxFileSize"));
 
     auto mFileUploadsEnabledDirectMessages = w.findChild<QCheckBox *>(QStringLiteral("mFileUploadsEnabledDirectMessages"));
     QVERIFY(mFileUploadsEnabledDirectMessages);
