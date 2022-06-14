@@ -19,6 +19,9 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mDontPruneDiscussion(new QCheckBox(i18n("Do not prune Discussion message"), this))
     , mDontPrunePinnedMessages(new QCheckBox(i18n("Do not prune pinned messages"), this))
     , mOnlyDeleteFiles(new QCheckBox(i18n("Only delete files"), this))
+    , mAppliesChannels(new QCheckBox(i18n("Applies to channels"), this))
+    , mAppliesGroups(new QCheckBox(i18n("Applies to private groups"), this))
+    , mAppliesMessages(new QCheckBox(i18n("Applies to direct messages"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -44,6 +47,18 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mOnlyDeleteFiles->setToolTip(i18n("Only files will be deleted, the messages themselves will stay in place."));
     mMainLayout->addWidget(mOnlyDeleteFiles);
     connectCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
+
+    mAppliesChannels->setObjectName(QStringLiteral("mAppliesChannels"));
+    mMainLayout->addWidget(mAppliesChannels);
+    connectCheckBox(mAppliesChannels, QStringLiteral("RetentionPolicy_AppliesToChannels"));
+
+    mAppliesGroups->setObjectName(QStringLiteral("mAppliesGroups"));
+    mMainLayout->addWidget(mAppliesGroups);
+    connectCheckBox(mAppliesGroups, QStringLiteral("RetentionPolicy_AppliesToGroups"));
+
+    mAppliesMessages->setObjectName(QStringLiteral("mAppliesMessages"));
+    mMainLayout->addWidget(mAppliesMessages);
+    connectCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
 }
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;

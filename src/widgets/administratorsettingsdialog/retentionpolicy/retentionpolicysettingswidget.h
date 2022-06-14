@@ -25,4 +25,7 @@ private:
     QCheckBox *const mDontPruneDiscussion;
     QCheckBox *const mDontPrunePinnedMessages;
     QCheckBox *const mOnlyDeleteFiles;
+    QCheckBox *const mAppliesChannels;
+    QCheckBox *const mAppliesGroups;
+    QCheckBox *const mAppliesMessages;
 };

@@ -57,4 +57,22 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mOnlyDeleteFiles->text().isEmpty());
     QVERIFY(!mOnlyDeleteFiles->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mOnlyDeleteFiles), QStringLiteral("RetentionPolicy_FilesOnly"));
+
+    auto mAppliesChannels = w.findChild<QCheckBox *>(QStringLiteral("mAppliesChannels"));
+    QVERIFY(mAppliesChannels);
+    QVERIFY(!mAppliesChannels->isChecked());
+    QVERIFY(!mAppliesChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAppliesChannels), QStringLiteral("RetentionPolicy_AppliesToChannels"));
+
+    auto mAppliesGroups = w.findChild<QCheckBox *>(QStringLiteral("mAppliesGroups"));
+    QVERIFY(mAppliesGroups);
+    QVERIFY(!mAppliesGroups->isChecked());
+    QVERIFY(!mAppliesGroups->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAppliesGroups), QStringLiteral("RetentionPolicy_AppliesToGroups"));
+
+    auto mAppliesMessages = w.findChild<QCheckBox *>(QStringLiteral("mAppliesMessages"));
+    QVERIFY(mAppliesMessages);
+    QVERIFY(!mAppliesMessages->isChecked());
+    QVERIFY(!mAppliesMessages->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAppliesMessages), QStringLiteral("RetentionPolicy_AppliesToDMs"));
 }

@@ -56,4 +56,10 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUTF8ChannelNamesValidation->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUTF8ChannelNamesValidation), QStringLiteral("UTF8_Channel_Names_Validation"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("UTF8_Channel_Names_Validation"));
+
+    auto mFirstChannelAfterLogin = w.findChild<QLineEdit *>(QStringLiteral("mFirstChannelAfterLogin"));
+    QVERIFY(mFirstChannelAfterLogin);
+    QVERIFY(mFirstChannelAfterLogin->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFirstChannelAfterLogin), QStringLiteral("First_Channel_After_Login"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("First_Channel_After_Login"));
 }
