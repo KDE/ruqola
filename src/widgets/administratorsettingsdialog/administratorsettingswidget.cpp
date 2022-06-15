@@ -6,6 +6,7 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
+#include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
 #include "general/generalsettingswidget.h"
@@ -28,6 +29,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mUploadFileSettingsWidget(new FileUploadSettingsWidget(account, this))
     , mRetentionPolicySettingsWidget(new RetentionPolicySettingsWidget(account, this))
     , mGeneralSettingsWidget(new GeneralSettingsWidget(account, this))
+    , mRateLimiterWidget(new RateLimiterWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -43,12 +45,14 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mUploadFileSettingsWidget->setObjectName(QStringLiteral("mUploadFileSettingsWidget"));
     mRetentionPolicySettingsWidget->setObjectName(QStringLiteral("mRetentionPolicySettingsWidget"));
     mGeneralSettingsWidget->setObjectName(QStringLiteral("mGeneralSettingsWidget"));
+    mRateLimiterWidget->setObjectName(QStringLiteral("mRateLimiterWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
     mTabWidget->addTab(mUploadFileSettingsWidget, i18n("File Upload"));
     mTabWidget->addTab(mRetentionPolicySettingsWidget, i18n("Retention Policy"));
     mTabWidget->addTab(mGeneralSettingsWidget, i18n("General"));
+    mTabWidget->addTab(mRateLimiterWidget, i18n("Rate Limiter"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -78,6 +82,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     mUploadFileSettingsWidget->initialize(mapSettings);
     mRetentionPolicySettingsWidget->initialize(mapSettings);
     mGeneralSettingsWidget->initialize(mapSettings);
+    mRateLimiterWidget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updatePage()
@@ -87,4 +92,5 @@ void AdministratorSettingsWidget::updatePage()
     mMessageSettingsWidget->setEnabled(true);
     mUploadFileSettingsWidget->setEnabled(true);
     mRetentionPolicySettingsWidget->setEnabled(true);
+    mRateLimiterWidget->setEnabled(true);
 }

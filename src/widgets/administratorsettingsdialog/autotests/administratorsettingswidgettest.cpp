@@ -11,6 +11,7 @@
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
+#include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
@@ -50,4 +51,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mGeneralSettingsWidget = w.findChild<GeneralSettingsWidget *>(QStringLiteral("mGeneralSettingsWidget"));
     QVERIFY(mGeneralSettingsWidget);
+
+    auto mRateLimiterWidget = w.findChild<RateLimiterWidget *>(QStringLiteral("mRateLimiterWidget"));
+    QVERIFY(mRateLimiterWidget);
 }

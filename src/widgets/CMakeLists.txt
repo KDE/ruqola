@@ -123,6 +123,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/general/generalsettingswidget.h
     administratorsettingsdialog/general/generalsettingswidget.cpp
 
+    administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp
+    administratorsettingsdialog/ratelimiter/ratelimiterwidget.h
+
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
     channellist/channellistview.cpp
