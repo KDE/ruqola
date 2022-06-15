@@ -83,20 +83,22 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
 
 void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
-    const QModelIndex index = mListNotificationsListView->indexAt(pos);
-    if (index.isValid()) {
-        menu.addSeparator();
-        menu.addAction(i18n("Go to Message"), this, [this, index]() {
-            slotShowMessage(index);
-        });
-        menu.addSeparator();
-        menu.addAction(i18n("Select All"), this, [this, index]() {
-            mListNotificationsListView->slotSelectAll(index);
-        });
+    if (mListNotificationsListView->model()->rowCount() > 0) {
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
+        const QModelIndex index = mListNotificationsListView->indexAt(pos);
+        if (index.isValid()) {
+            menu.addSeparator();
+            menu.addAction(i18n("Go to Message"), this, [this, index]() {
+                slotShowMessage(index);
+            });
+            menu.addSeparator();
+            menu.addAction(i18n("Select All"), this, [this, index]() {
+                mListNotificationsListView->slotSelectAll(index);
+            });
+        }
+        menu.exec(mListNotificationsListView->viewport()->mapToGlobal(pos));
     }
-    menu.exec(mListNotificationsListView->viewport()->mapToGlobal(pos));
 }
 
 void NotificationHistoryWidget::slotClearList()
