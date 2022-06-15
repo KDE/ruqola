@@ -10,6 +10,7 @@
 
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 
 RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -22,6 +23,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mAppliesChannels(new QCheckBox(i18n("Applies to channels"), this))
     , mAppliesGroups(new QCheckBox(i18n("Applies to private groups"), this))
     , mAppliesMessages(new QCheckBox(i18n("Applies to direct messages"), this))
+    , mMaximumMessageDirectMessages(new QSpinBox(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -59,6 +61,11 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mAppliesMessages->setObjectName(QStringLiteral("mAppliesMessages"));
     mMainLayout->addWidget(mAppliesMessages);
     connectCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
+
+    mMaximumMessageDirectMessages->setObjectName(QStringLiteral("mMaximumMessageDirectMessages"));
+    mMaximumMessageDirectMessages->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessageDirectMessages->setMaximum(9999);
+    addSpinbox(i18n("Maximum message age in direct messages"), mMaximumMessageDirectMessages, QStringLiteral("RetentionPolicy_MaxAge_DMs"));
 }
 
 RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;

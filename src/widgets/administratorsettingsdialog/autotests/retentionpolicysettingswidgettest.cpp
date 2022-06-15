@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QSpinBox>
 #include <QTest>
 
 QTEST_MAIN(RetentionPolicySettingsWidgetTest)
@@ -75,4 +76,11 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAppliesMessages->isChecked());
     QVERIFY(!mAppliesMessages->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAppliesMessages), QStringLiteral("RetentionPolicy_AppliesToDMs"));
+
+    auto mMaximumMessageDirectMessages = w.findChild<QSpinBox *>(QStringLiteral("mMaximumMessageDirectMessages"));
+    QVERIFY(mMaximumMessageDirectMessages);
+    QVERIFY(!mMaximumMessageDirectMessages->toolTip().isEmpty());
+    QCOMPARE(mMaximumMessageDirectMessages->maximum(), 9999);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumMessageDirectMessages), QStringLiteral("RetentionPolicy_MaxAge_DMs"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("RetentionPolicy_MaxAge_DMs"));
 }

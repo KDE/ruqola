@@ -28,4 +28,5 @@ private:
     QCheckBox *const mAppliesChannels;
     QCheckBox *const mAppliesGroups;
     QCheckBox *const mAppliesMessages;
+    QSpinBox *const mMaximumMessageDirectMessages;
 };
