@@ -24,6 +24,8 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mAppliesGroups(new QCheckBox(i18n("Applies to private groups"), this))
     , mAppliesMessages(new QCheckBox(i18n("Applies to direct messages"), this))
     , mMaximumMessageDirectMessages(new QSpinBox(this))
+    , mMaximumMessagePrivateGroups(new QSpinBox(this))
+    , mMaximumMessageChannels(new QSpinBox(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -50,14 +52,27 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     mMainLayout->addWidget(mOnlyDeleteFiles);
     connectCheckBox(mOnlyDeleteFiles, QStringLiteral("RetentionPolicy_FilesOnly"));
 
+    // Rentention Channels
     mAppliesChannels->setObjectName(QStringLiteral("mAppliesChannels"));
     mMainLayout->addWidget(mAppliesChannels);
     connectCheckBox(mAppliesChannels, QStringLiteral("RetentionPolicy_AppliesToChannels"));
 
+    mMaximumMessageChannels->setObjectName(QStringLiteral("mMaximumMessageChannels"));
+    mMaximumMessageChannels->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessageChannels->setMaximum(9999);
+    addSpinbox(i18n("Maximum message age in channels"), mMaximumMessageChannels, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
+
+    // Rentention Groups
     mAppliesGroups->setObjectName(QStringLiteral("mAppliesGroups"));
     mMainLayout->addWidget(mAppliesGroups);
     connectCheckBox(mAppliesGroups, QStringLiteral("RetentionPolicy_AppliesToGroups"));
 
+    mMaximumMessagePrivateGroups->setObjectName(QStringLiteral("mMaximumMessagePrivateGroups"));
+    mMaximumMessagePrivateGroups->setToolTip(i18n("Prune all messages older than this value, in days."));
+    mMaximumMessagePrivateGroups->setMaximum(9999);
+    addSpinbox(i18n("Maximum message age in private groups"), mMaximumMessagePrivateGroups, QStringLiteral("RetentionPolicy_MaxAge_Groups"));
+
+    // Rentention DM
     mAppliesMessages->setObjectName(QStringLiteral("mAppliesMessages"));
     mMainLayout->addWidget(mAppliesMessages);
     connectCheckBox(mAppliesMessages, QStringLiteral("RetentionPolicy_AppliesToDMs"));
@@ -82,4 +97,6 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &ma
     initializeWidget(mAppliesGroups, mapSettings);
     initializeWidget(mAppliesMessages, mapSettings);
     initializeWidget(mMaximumMessageDirectMessages, mapSettings);
+    initializeWidget(mMaximumMessagePrivateGroups, mapSettings);
+    initializeWidget(mMaximumMessageChannels, mapSettings);
 }

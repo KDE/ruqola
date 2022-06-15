@@ -83,4 +83,18 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mMaximumMessageDirectMessages->maximum(), 9999);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumMessageDirectMessages), QStringLiteral("RetentionPolicy_MaxAge_DMs"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("RetentionPolicy_MaxAge_DMs"));
+
+    auto mMaximumMessagePrivateGroups = w.findChild<QSpinBox *>(QStringLiteral("mMaximumMessagePrivateGroups"));
+    QVERIFY(mMaximumMessagePrivateGroups);
+    QVERIFY(!mMaximumMessagePrivateGroups->toolTip().isEmpty());
+    QCOMPARE(mMaximumMessagePrivateGroups->maximum(), 9999);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumMessagePrivateGroups), QStringLiteral("RetentionPolicy_MaxAge_Groups"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("RetentionPolicy_MaxAge_Groups"));
+
+    auto mMaximumMessageChannels = w.findChild<QSpinBox *>(QStringLiteral("mMaximumMessageChannels"));
+    QVERIFY(mMaximumMessageChannels);
+    QVERIFY(!mMaximumMessageChannels->toolTip().isEmpty());
+    QCOMPARE(mMaximumMessageChannels->maximum(), 9999);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumMessageChannels), QStringLiteral("RetentionPolicy_MaxAge_Channels"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
 }
