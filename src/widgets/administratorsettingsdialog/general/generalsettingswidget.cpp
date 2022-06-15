@@ -52,4 +52,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mSiteName, mapSettings);
     initializeWidget(mUTF8UsernamesValidation, mapSettings);
     initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
+    initializeWidget(mFirstChannelAfterLogin, mapSettings);
 }

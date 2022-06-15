@@ -78,4 +78,8 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &ma
     initializeWidget(mDontPruneDiscussion, mapSettings);
     initializeWidget(mDontPrunePinnedMessages, mapSettings);
     initializeWidget(mOnlyDeleteFiles, mapSettings);
+    initializeWidget(mAppliesChannels, mapSettings);
+    initializeWidget(mAppliesGroups, mapSettings);
+    initializeWidget(mAppliesMessages, mapSettings);
+    initializeWidget(mMaximumMessageDirectMessages, mapSettings);
 }
