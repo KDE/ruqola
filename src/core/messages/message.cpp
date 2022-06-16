@@ -540,6 +540,12 @@ QString Message::systemMessageText() const
         return i18n("key refreshed successfully"); // Verify
     } else if (mSystemMessageType == QLatin1String("user_requested_otr_key_refresh")) {
         return i18n("Has requested key refresh."); // Verify
+    } else if (mSystemMessageType == QLatin1String("room_changed_topic")) {
+        return i18n("Room topic changed to: %1 by %2", mUsername, mText); // TODO verify
+    } else if (mSystemMessageType == QLatin1String("added-user-to-team")) {
+        return i18n("User added to team: %1 by %2"); // TODO verify
+    } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
+        return i18n("User rempved to team: %1 by %2"); // TODO verify
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");

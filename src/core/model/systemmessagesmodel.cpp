@@ -60,6 +60,11 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"User converted channel to a Team\" messages"), QStringLiteral("user-converted-to-team"));
     createItem(i18n("Hide \"User deleted room from Team\" messages"), QStringLiteral("user-deleted-room-from-team"));
     createItem(i18n("Hide \"User removed room from Team\" messages"), QStringLiteral("user-removed-room-from-team"));
+
+    createItem(i18n("Hide \"Removed user from Team\" messages"), QStringLiteral("removed-user-from-team"));
+    createItem(i18n("Hide \"Added user to Team\" messages"), QStringLiteral("added-user-to-team"));
+    createItem(i18n("Hide \"Room topic changed\" messages"), QStringLiteral("room_changed_topic"));
+
     createItem(i18n("Joined this Team"), QStringLiteral("ujt"));
 }
 
