@@ -6,6 +6,7 @@
 #include "ratelimiterwidgettest.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "settingswidgetshelper.h"
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(RateLimiterWidgetTest)
 RateLimiterWidgetTest::RateLimiterWidgetTest(QObject *parent)
@@ -16,5 +17,8 @@ RateLimiterWidgetTest::RateLimiterWidgetTest(QObject *parent)
 void RateLimiterWidgetTest::shouldHaveDefaultValues()
 {
     RateLimiterWidget w(nullptr);
-    // TODO
+
+    auto apiRateLimiterLabel = w.findChild<QLabel *>(QStringLiteral("apiRateLimiterLabel"));
+    QVERIFY(apiRateLimiterLabel);
+    QVERIFY(!apiRateLimiterLabel->text().isEmpty());
 }
