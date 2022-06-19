@@ -101,6 +101,7 @@
       <li xml:lang="ca">Canal de grup</li>
       <li xml:lang="ca-valencia">Canal de grup</li>
       <li xml:lang="es">canal de grupo</li>
+      <li xml:lang="fr">canal de groupe</li>
       <li xml:lang="it">canale di gruppo</li>
       <li xml:lang="nl">groepskanaal</li>
       <li xml:lang="pt">canal em grupo</li>
@@ -244,6 +245,7 @@
       <li xml:lang="ca">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="ca-valencia">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="es">Mostrar mención/adjuntos/mensajes fijados/iniciar mensaje</li>
+      <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="it">Mostra menzione/allegato/messaggio appuntato/messaggio iniziale</li>
       <li xml:lang="nl">Noemen tonen/bijlage/vastgezet bericht/startbericht</li>
       <li xml:lang="pt">Mostrar as menções/anexos/mensagens fixas/mensagens iniciais</li>
@@ -267,6 +269,7 @@
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
       <li xml:lang="es">Soporte de vídeo</li>
+      <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="it">Supporto video</li>
       <li xml:lang="nl">Ondersteuning video</li>
       <li xml:lang="pt">Suporte para vídeo</li>
@@ -278,6 +281,7 @@
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="es">Configurar soporte de administrador (añadir/eliminar roles, usuarios, permisos, configurar salas, etc).</li>
+      <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="it">Configurazione del supporto dell'amministratore (aggiungi/rimuovi ruoli, aggiungi/rimuovi utenti, aggiungi/rimuovi permessi, configura stanze ecc.)</li>
       <li xml:lang="nl">Ondersteuning van configuratie door beheerder (toevoegen/verwijderen van rollen, toevoegen/verwijderen van gebruikers, toevoegen/verwijderen van rechten, rooms configureren etc.)</li>
       <li xml:lang="pt">Suporte para a configuração do administrador (adição/remoção de perfis, adição/remoção de utilizadores, adição/remoção de permissões, configuração das salas, etc.)</li>
@@ -349,6 +353,7 @@
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
       <li xml:lang="es">Estado ausente automático</li>
+      <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="it">Assenza automatica</li>
       <li xml:lang="nl">Automatisch afwezig</li>
       <li xml:lang="pt">Ausência automática</li>
@@ -384,6 +389,7 @@
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="es">Soporte de administrador (Información del servidor, salas, estado personalizado de los usuarios, sonidos personalizados, emojis personalizados, usuarios, invitaciones, ver registros, permisos, roles y autenticación), preferencias de administrador (mensajes, cuentas, política de retención, subida de archivos, cifrado)</li>
+      <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, Statut personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d’affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="it">Supporto amministratore (informazioni server, stanze, stato utente personalizzato, suoni personalizzati, emoji personalizzati, utenti, inviti, visualizza registro, permessi, ruoli, Oauth), Impostazioni amministratore (messaggio, account, criteri di conservazione, caricamento file, cifratura)</li>
       <li xml:lang="nl">Ondersteuning van beheerder (Serverinformatie, Rooms, Aangepaste status van gebruiker, Aangepaste geluiden, Aangepaste emoji, Gebruikers, Uitnodigingen, Log bekijken, Rechten, Rollen, Oauth), Instellingen van beheerder (Bericht, Account, Bewaarbeleid, Uploaden van bestanden, Versleuteling)</li>
       <li xml:lang="pt">Suporte para a administração (Informação do Servidor, Salas, Estados Personalizados do Utilizador, Sons Personalizados, Ícones Emotivos Personalizados, Utilizadores, Convites, Visualização do Registo, Permissões, Perfis, OAuth) e configuração do administrador (Mensagem, Conta, Política de Retenção, Envio de Ficheiros, Encriptação)</li>
@@ -423,6 +429,7 @@
       <li xml:lang="ca">Permet respondre directament al missatge des d'una notificació (característiques del KDE)</li>
       <li xml:lang="ca-valencia">Permet respondre directament al missatge des d'una notificació (característiques de KDE)</li>
       <li xml:lang="es">Permitir contestar directamente a un mensaje desde las notificaciones (funcionalidad de KDE)</li>
+      <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de Kde)</li>
       <li xml:lang="it">Consente di rispondere direttamente al messaggio dalla notifica (funzionalità di kde)</li>
       <li xml:lang="nl">Toestaan om directe op een bericht uit een melding te antwoorden (kde functies)</li>
       <li xml:lang="pt">Possibilidade de responder directamente à mensagem a partir da notificação (no KDE)</li>
@@ -434,6 +441,7 @@
       <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
       <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
       <li xml:lang="es">Descargar imagen desde ruqola a la web o a una carpeta local</li>
+      <li xml:lang="fr">Image « dnd » à partir de ruqola vers le site Internet ou vers un dossier locale</li>
       <li xml:lang="it">Immagine Non disturbare da ruqola al sito web o alla cartella locale</li>
       <li xml:lang="nl">Download afbeelding uit ruqola naar website of lokale map</li>
       <li xml:lang="pt">Arrastamento de imagens do Ruqola para uma página Web ou pasta local</li>
@@ -445,6 +453,7 @@
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge a la base de dades local perquè es puga buscar fora de línia</li>
       <li xml:lang="es">Almacenar mensaje en la base de datos local para que pueda ser buscado sin conexión</li>
+      <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="it">Memorizza il messaggio nella banca dati locale in modo da poter eseguire ricerche quando non si è in linea</li>
       <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
       <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa ser pesquisada mesmo sem rede</li>
