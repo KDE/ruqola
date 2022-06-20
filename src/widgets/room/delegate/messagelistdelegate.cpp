@@ -70,6 +70,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     // Hardcode color otherwise in dark mode otherwise scheme.background(KColorScheme::NeutralBackground).color(); is not correct for text color.
     mEditColorMode = QColor(255, 170, 127);
     connect(&Colors::self(), &Colors::needToUpdateColors, this, &MessageListDelegate::slotUpdateColors);
+    slotUpdateColors();
 }
 
 MessageListDelegate::~MessageListDelegate()
