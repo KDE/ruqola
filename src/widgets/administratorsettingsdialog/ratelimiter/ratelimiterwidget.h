@@ -8,7 +8,7 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RateLimiterWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -16,4 +16,7 @@ public:
     explicit RateLimiterWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~RateLimiterWidget() override;
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mEnableRateLimiter;
 };

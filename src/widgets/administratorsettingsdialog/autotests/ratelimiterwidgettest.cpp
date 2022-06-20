@@ -21,4 +21,10 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
     auto apiRateLimiterLabel = w.findChild<QLabel *>(QStringLiteral("apiRateLimiterLabel"));
     QVERIFY(apiRateLimiterLabel);
     QVERIFY(!apiRateLimiterLabel->text().isEmpty());
+
+    auto mEnableRateLimiter = w.findChild<QCheckBox *>(QStringLiteral("mEnableRateLimiter"));
+    QVERIFY(mEnableRateLimiter);
+    QVERIFY(!mEnableRateLimiter->isChecked());
+    QVERIFY(!mEnableRateLimiter->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableRateLimiter), QStringLiteral("API_Enable_Rate_Limiter"));
 }
