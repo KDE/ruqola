@@ -45,9 +45,6 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     } else {
         // Example https://<server url>/channel/python?msg=sn3gEQom7NcLxTg5h
         mMessageId = query.queryItemValue(QStringLiteral("msg"));
-        if (mMessageId.isEmpty()) {
-            return false;
-        }
         mServerHost = url.host();
         mPath = url.path(QUrl::FullyDecoded);
         mRoomIdType = RoomIdType::RoomName;
@@ -61,6 +58,9 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
             mChannelType = ChannelType::Direct;
         } else {
             qCWarning(RUQOLA_LOG) << "Unknown channel type " << urlPathDecoded;
+            mServerHost.clear();
+            mPath.clear();
+            mRoomIdType = RoomIdType::Unknown;
             return false;
         }
         return true;
