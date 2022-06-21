@@ -521,6 +521,15 @@
     <binary>ruqola</binary>
   </provides>
   <releases>
+    <release version="1.7.2" date="2022-06-20">
+      <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/ruqola/ruqola-1.7.2-windows-msvc2019_64-cl.exe</location>
+          <checksum type="sha256">8d24b2ed15a09e613ca2d5eb414139ca487507807e4505c709811d9f3b3df79d</checksum>
+          <size type="download">61879096</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="1.7.1" date="2022-05-02"/>
     <release version="1.7.0" date="2022-04-01">
     </release>
