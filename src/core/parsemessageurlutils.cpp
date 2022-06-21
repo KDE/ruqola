@@ -20,7 +20,7 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
     }
     QUrl url(messageUrl);
     const QUrlQuery query(url);
-    const QList<QPair<QString, QString>> queryItems = query.queryItems();
+    // const QList<QPair<QString, QString>> queryItems = query.queryItems();
     if (messageUrl.startsWith(QStringLiteral("https://go.rocket.chat/"))) {
         // qDebug() << "queryItems " << queryItems;
 
