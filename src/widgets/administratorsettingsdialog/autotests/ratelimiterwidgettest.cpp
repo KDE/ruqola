@@ -31,4 +31,16 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
     auto ddpRateLimiterLabel = w.findChild<QLabel *>(QStringLiteral("ddpRateLimiterLabel"));
     QVERIFY(ddpRateLimiterLabel);
     QVERIFY(!ddpRateLimiterLabel->text().isEmpty());
+
+    auto mLimitByIP = w.findChild<QCheckBox *>(QStringLiteral("mLimitByIP"));
+    QVERIFY(mLimitByIP);
+    QVERIFY(!mLimitByIP->isChecked());
+    QVERIFY(!mLimitByIP->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByIP), QStringLiteral("DDP_Rate_Limit_IP_Enabled"));
+
+    auto mLimitByUser = w.findChild<QCheckBox *>(QStringLiteral("mLimitByUser"));
+    QVERIFY(mLimitByUser);
+    QVERIFY(!mLimitByUser->isChecked());
+    QVERIFY(!mLimitByUser->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUser), QStringLiteral("DDP_Rate_Limit_User_Enabled"));
 }

@@ -19,4 +19,6 @@ public:
 
 private:
     QCheckBox *const mEnableRateLimiter;
+    QCheckBox *const mLimitByIP;
+    QCheckBox *const mLimitByUser;
 };
