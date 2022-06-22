@@ -14,7 +14,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateGroupKeyJob : public RestApiAbstract
 {
     Q_OBJECT
 public:
-    struct UpdateGroupKeyInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT UpdateGroupKeyInfo {
         Q_REQUIRED_RESULT bool isValid() const;
         QString uid;
         QString roomId;
