@@ -15,6 +15,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     , mEnableRateLimiter(new QCheckBox(i18n("Enable Rate Limiter"), this))
     , mLimitByIP(new QCheckBox(i18n("Limit by IP"), this))
     , mLimitByUser(new QCheckBox(i18n("Limit by User"), this))
+    , mLimitByConnection(new QCheckBox(i18n("Limit by Connection"), this))
 {
     auto apiRateLimiterLabel = new QLabel(i18n("API Rate Limiter"), this);
     QFont apiRateLimiterLabelFont = apiRateLimiterLabel->font();
@@ -41,6 +42,10 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     mLimitByUser->setObjectName(QStringLiteral("mLimitByUser"));
     mMainLayout->addWidget(mLimitByUser);
     connectCheckBox(mLimitByUser, QStringLiteral("DDP_Rate_Limit_User_Enabled"));
+
+    mLimitByConnection->setObjectName(QStringLiteral("mLimitByConnection"));
+    mMainLayout->addWidget(mLimitByConnection);
+    connectCheckBox(mLimitByConnection, QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
 }
 
 RateLimiterWidget::~RateLimiterWidget() = default;
@@ -49,4 +54,6 @@ void RateLimiterWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnableRateLimiter, mapSettings);
     initializeWidget(mLimitByIP, mapSettings);
+    initializeWidget(mLimitByUser, mapSettings);
+    initializeWidget(mLimitByConnection, mapSettings);
 }

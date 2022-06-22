@@ -43,4 +43,10 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLimitByUser->isChecked());
     QVERIFY(!mLimitByUser->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByUser), QStringLiteral("DDP_Rate_Limit_User_Enabled"));
+
+    auto mLimitByConnection = w.findChild<QCheckBox *>(QStringLiteral("mLimitByConnection"));
+    QVERIFY(mLimitByConnection);
+    QVERIFY(!mLimitByConnection->isChecked());
+    QVERIFY(!mLimitByConnection->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnection), QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
 }

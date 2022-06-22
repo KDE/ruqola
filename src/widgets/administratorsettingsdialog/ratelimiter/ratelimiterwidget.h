@@ -21,4 +21,5 @@ private:
     QCheckBox *const mEnableRateLimiter;
     QCheckBox *const mLimitByIP;
     QCheckBox *const mLimitByUser;
+    QCheckBox *const mLimitByConnection;
 };
