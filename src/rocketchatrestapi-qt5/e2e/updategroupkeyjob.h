@@ -36,7 +36,7 @@ public:
     void setUpdateGroupInfo(const UpdateGroupKeyInfo &newUpdateGroupInfo);
 
 Q_SIGNALS:
-    void addKeyToChainDone();
+    void updateGroupKeyDone();
 
 private:
     Q_DISABLE_COPY(UpdateGroupKeyJob)

@@ -37,7 +37,7 @@ void UpdateGroupKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT addKeyToChainDone();
+        Q_EMIT updateGroupKeyDone();
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("UpdateGroupKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
