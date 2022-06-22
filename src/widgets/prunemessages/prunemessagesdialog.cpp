@@ -37,6 +37,7 @@ PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *pa
     connect(button, &QDialogButtonBox::accepted, this, &PruneMessagesDialog::accept);
 
     QPushButton *okButton = button->button(QDialogButtonBox::Ok);
+    okButton->setText(i18n("Prune"));
     okButton->setEnabled(false);
     connect(mPruneMessageWidget, &PruneMessagesWidget::updateOkButton, okButton, &QPushButton::setEnabled);
     readConfig();
