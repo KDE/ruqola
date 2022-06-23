@@ -48,6 +48,7 @@ ChannelListView::~ChannelListView() = default;
 
 void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
+    mCurrentRocketChatAccount = currentRocketChatAccount;
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
@@ -108,10 +109,9 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     });
 
     if (roomType == Room::RoomType::Channel || roomType == Room::RoomType::Private) { // Not direct channel
-        auto *rcAccount = Ruqola::self()->rocketChatAccount();
         const QString roomId = index.data(RoomModel::RoomId).toString();
-        Room *room = rcAccount->room(roomId);
-        if (rcAccount->teamEnabled()) {
+        Room *room = mCurrentRocketChatAccount->room(roomId);
+        if (mCurrentRocketChatAccount->teamEnabled()) {
             if (room) {
                 const bool mainTeam = index.data(RoomModel::RoomTeamIsMain).toBool();
                 if (!mainTeam) {
@@ -183,16 +183,14 @@ void ChannelListView::slotConfigureNotification(Room *room)
     if (!room) {
         return;
     }
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    ConfigureNotificationDialog dlg(rcAccount, this);
+    ConfigureNotificationDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setRoom(room);
     dlg.exec();
 }
 
 void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
-    QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(rcAccount, this);
+    QPointer<SearchTeamDialog> dlg = new SearchTeamDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
         const QString teamId = dlg->teamId();
         if (!teamId.isEmpty()) {
@@ -201,7 +199,7 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
             const QString roomId = index.data(RoomModel::RoomId).toString();
             job->setRoomIds({roomId});
 
-            rcAccount->restApi()->initializeRestApiJob(job);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             // connect(job, &RocketChatRestApi::TeamAddRoomsJob::teamAddRoomsDone, this, &ChannelListView::slotChannelConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start TeamAddRoomsJob job";
@@ -216,11 +214,10 @@ void ChannelListView::slotMoveToTeam(const QModelIndex &index)
 void ChannelListView::slotConvertToChannel(const QModelIndex &index)
 {
     const QString teamId = index.data(RoomModel::RoomTeamId).toString();
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     auto job = new RocketChatRestApi::TeamsListRoomsJob(this);
     job->setTeamId(teamId);
-    rcAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, rcAccount, index](const QJsonObject &obj) {
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::TeamsListRoomsJob::teamListRoomsDone, this, [this, teamId, index](const QJsonObject &obj) {
         const QVector<TeamRoom> teamRooms = TeamRoom::parseTeamRooms(obj);
         QStringList listRoomIdToDelete;
         if (!teamRooms.isEmpty()) {
@@ -239,7 +236,7 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
         auto job = new RocketChatRestApi::TeamConvertToChannelJob(this);
         job->setTeamId(teamId);
         job->setRoomsToRemove(listRoomIdToDelete);
-        rcAccount->restApi()->initializeRestApiJob(job);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::TeamConvertToChannelJob::teamConvertToChannelDone, this, []() {
             // TODO ?
         });
@@ -265,10 +262,9 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             qCWarning(RUQOLAWIDGETS_LOG) << "We can't convert Direct to Team. It's a bug";
             break;
         case Room::RoomType::Channel: {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
             auto job = new RocketChatRestApi::ChannelsConvertToTeamJob(this);
             job->setChannelId(roomId);
-            rcAccount->restApi()->initializeRestApiJob(job);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::ChannelsConvertToTeamJob::channelConvertToTeamDone, this, &ChannelListView::slotChannelConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
@@ -276,10 +272,9 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
             break;
         }
         case Room::RoomType::Private: {
-            auto *rcAccount = Ruqola::self()->rocketChatAccount();
             auto job = new RocketChatRestApi::GroupsConvertToTeamJob(this);
             job->setRoomId(roomId);
-            rcAccount->restApi()->initializeRestApiJob(job);
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::GroupsConvertToTeamJob::groupConvertToTeamDone, this, &ChannelListView::slotGroupConvertToTeamDone);
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start ChannelsConvertToTeamJob job";
@@ -306,12 +301,11 @@ void ChannelListView::slotGroupConvertToTeamDone(const QJsonObject &obj)
 
 void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRead)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
     if (markAsRead) {
-        rcAccount->markRoomAsRead(roomId);
+        mCurrentRocketChatAccount->markRoomAsRead(roomId);
     } else {
-        rcAccount->markRoomAsUnRead(roomId);
+        mCurrentRocketChatAccount->markRoomAsUnRead(roomId);
     }
 }
 
@@ -327,23 +321,20 @@ void ChannelListView::channelSelected(const QModelIndex &index)
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    rcAccount->hideRoom(roomId, roomType);
+    mCurrentRocketChatAccount->hideRoom(roomId, roomType);
 }
 
 void ChannelListView::slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    rcAccount->leaveRoom(roomId, roomType);
+    mCurrentRocketChatAccount->leaveRoom(roomId, roomType);
 }
 
 void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavorite)
 {
-    auto *rcAccount = Ruqola::self()->rocketChatAccount();
     const QString roomId = index.data(RoomModel::RoomId).toString();
-    rcAccount->changeFavorite(roomId, !isFavorite);
+    mCurrentRocketChatAccount->changeFavorite(roomId, !isFavorite);
 }
 
 void ChannelListView::selectChannelRequested(const QString &channelId)
