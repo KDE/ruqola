@@ -738,6 +738,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateView, this, &RoomWidget::updateListView);
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
+    mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
 }
 
 void RoomWidget::slotLoginStatusChanged()

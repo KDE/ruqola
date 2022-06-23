@@ -49,7 +49,7 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
                        mUsersForRoomFilterProxyModel,
                        &UsersForRoomFilterProxyModel::loadingInProgressChanged);
         }
-        UsersForRoomModel *model = Ruqola::self()->rocketChatAccount()->usersModelForRoom(mRoom->roomId());
+        UsersForRoomModel *model = mCurrentRocketChatAccount->usersModelForRoom(mRoom->roomId());
         mUsersForRoomFilterProxyModel->setSourceModel(model);
 
         connect(model, &UsersForRoomModel::hasFullListChanged, mUsersForRoomFilterProxyModel, &UsersForRoomFilterProxyModel::hasFullListChanged);
@@ -58,6 +58,11 @@ void UsersInRoomFlowWidget::setRoom(Room *room)
     } else {
         mFlowLayout->clearAndDeleteWidgets();
     }
+}
+
+void UsersInRoomFlowWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
+{
+    mCurrentRocketChatAccount = account;
 }
 
 void UsersInRoomFlowWidget::showEvent(QShowEvent *event)
@@ -134,12 +139,12 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
 
 void UsersInRoomFlowWidget::loadExternalDialog()
 {
-    UsersInRoomDialog dlg(Ruqola::self()->rocketChatAccount(), this);
+    UsersInRoomDialog dlg(mCurrentRocketChatAccount, this);
     dlg.setRoom(mRoom);
     dlg.exec();
 }
 
 void UsersInRoomFlowWidget::loadMoreUsersAttachment()
 {
-    Ruqola::self()->rocketChatAccount()->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
+    mCurrentRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }
