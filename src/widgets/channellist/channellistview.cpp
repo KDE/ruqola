@@ -40,7 +40,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     QListView::setModel(mRoomListHeadingsProxyModel);
 
-    connect(this, &ChannelListView::clicked, this, &ChannelListView::slotClicked);
+    connect(this, &ChannelListView::pressed, this, &ChannelListView::slotClicked);
 }
 
 ChannelListView::~ChannelListView() = default;
