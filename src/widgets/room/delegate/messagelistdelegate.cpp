@@ -688,7 +688,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         if (showIgnoreMessages(index)) {
             if (layout.showIgnoredMessageIconRect.contains(mev->pos())) {
                 mHelperText->removeMessageCache(message->messageId());
-                auto *model = const_cast<QAbstractItemModel *>(index.model());
+                auto model = const_cast<QAbstractItemModel *>(index.model());
                 model->setData(index, !layout.showIgnoreMessage, MessageModel::ShowIgnoredMessage);
                 return true;
             }

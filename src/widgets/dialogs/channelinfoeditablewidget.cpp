@@ -148,7 +148,7 @@ void ChannelInfoEditableWidget::selectRoomToDelete(const QString &teamId)
 
 void ChannelInfoEditableWidget::deleteTeam(const QString &teamId, const QStringList &roomIds)
 {
-    auto *job = new RocketChatRestApi::TeamDeleteJob(this);
+    auto job = new RocketChatRestApi::TeamDeleteJob(this);
     job->setTeamId(teamId);
     job->setRoomsId(roomIds);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);

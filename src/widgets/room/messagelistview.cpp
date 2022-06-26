@@ -486,7 +486,7 @@ void MessageListView::slotSelectAll(const QModelIndex &index)
 
 void MessageListView::slotTranslateMessage(const QModelIndex &index, bool checked)
 {
-    auto *model = const_cast<QAbstractItemModel *>(index.model());
+    auto model = const_cast<QAbstractItemModel *>(index.model());
     model->setData(index, checked, MessageModel::ShowTranslatedMessage);
 }
 
