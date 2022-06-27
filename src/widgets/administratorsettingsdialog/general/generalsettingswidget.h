@@ -32,4 +32,5 @@ private:
     QLineEdit *const mDeepLinkUrl;
     QLineEdit *const mCDNPrefix;
     QComboBox *const mUnreadCount;
+    QComboBox *const mUnreadCountDirectMessages;
 };

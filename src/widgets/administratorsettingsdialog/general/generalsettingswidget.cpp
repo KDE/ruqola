@@ -24,6 +24,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mDeepLinkUrl(new QLineEdit(this))
     , mCDNPrefix(new QLineEdit(this))
     , mUnreadCount(new QComboBox(this))
+    , mUnreadCountDirectMessages(new QComboBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -61,6 +62,13 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
         {QStringLiteral("user_and_group_mentions_only"), i18n("User and group mentions only")},
     };
     addComboBox(i18n("Unread Count"), maps, mUnreadCount, QStringLiteral("Unread_Count"));
+
+    mUnreadCountDirectMessages->setObjectName(QStringLiteral("mUnreadCountDirectMessages"));
+    maps = {
+        {QStringLiteral("all_messages"), i18n("All messages")},
+        {QStringLiteral("mentions_only"), i18n("Mentions only")},
+    };
+    addComboBox(i18n("Unread Count for Direct Messages"), maps, mUnreadCountDirectMessages, QStringLiteral("Unread_Count_DM"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -76,4 +84,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mDeepLinkUrl, mapSettings);
     initializeWidget(mCDNPrefix, mapSettings);
     initializeWidget(mUnreadCount, mapSettings);
+    initializeWidget(mUnreadCountDirectMessages, mapSettings);
 }
