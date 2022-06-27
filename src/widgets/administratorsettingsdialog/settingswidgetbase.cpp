@@ -201,5 +201,9 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         comboBox->setCurrentIndex(comboBox->findData(value.toString()));
+        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+        if (toolButton) {
+            toolButton->setEnabled(false);
+        }
     }
 }
