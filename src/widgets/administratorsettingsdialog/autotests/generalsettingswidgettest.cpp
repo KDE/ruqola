@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
@@ -72,4 +73,14 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mCDNPrefix);
     QVERIFY(mCDNPrefix->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeepLinkUrl), QStringLiteral("CDN_PREFIX"));
+
+    auto mUnreadCount = w.findChild<QComboBox *>(QStringLiteral("mUnreadCount"));
+    QVERIFY(mUnreadCount);
+    QCOMPARE(mUnreadCount->count(), 4);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUnreadCount), QStringLiteral("Unread_Count"));
+
+    auto mUnreadCountDirectMessages = w.findChild<QComboBox *>(QStringLiteral("mUnreadCountDirectMessages"));
+    QVERIFY(mUnreadCountDirectMessages);
+    QCOMPARE(mUnreadCountDirectMessages->count(), 2);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUnreadCountDirectMessages), QStringLiteral("Unread_Count_DM"));
 }
