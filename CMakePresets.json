@@ -2,44 +2,51 @@
     "version": 3,
     "configurePresets": [
         {
+            "name": "base",
+            "displayName": "base preset",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build-${presetName}",
+            "installDir": "$env{KF5}",
+            "hidden": true
+        },
+        {
             "name": "dev",
             "displayName": "Build as debug",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "dev-qt6",
             "displayName": "Build against qt6",
-            "generator": "Ninja",
             "binaryDir": "${sourceDir}/build-qt6",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "BUILD_WITH_QT6": "ON",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             },
-            "installDir": "$env{KF6}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "asan",
             "displayName": "Build with Asan support.",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-asan",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "ECM_ENABLE_SANITIZERS" : "'address;undefined'"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "dev-clang",
             "displayName": "dev-clang",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-clang",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -48,56 +55,56 @@
                 "CXX": "clang++",
                 "CCACHE_DISABLE": "ON"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "unity",
             "displayName": "Build with CMake unity support.",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-unity",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_UNITY_CMAKE_SUPPORT": "ON"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "release",
             "displayName": "Build as release mode.",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "profile",
             "displayName": "profile",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-profile",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
 	},
 	{
             "name": "coverage",
             "displayName": "coverage",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-coverage",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_UNITY_CMAKE_SUPPORT": "OFF",
                 "BUILD_COVERAGE": "ON" 
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "clazy",
             "displayName": "clazy",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-clazy",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             },
@@ -105,19 +112,21 @@
                 "CXX": "clazy",
                 "CCACHE_DISABLE": "ON"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "pch",
             "displayName": "pch",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build-pch",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "USE_PRECOMPILED_HEADERS": "ON",
                 "BUILD_COVERAGE": "ON"
             },
-            "installDir": "$env{KF5}"
+            "inherits": [
+                "base"
+            ]
         }
     ],
     "buildPresets": [
