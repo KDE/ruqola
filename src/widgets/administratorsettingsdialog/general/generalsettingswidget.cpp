@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QLineEdit>
 
@@ -22,6 +23,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mFirstChannelAfterLogin(new QLineEdit(this))
     , mDeepLinkUrl(new QLineEdit(this))
     , mCDNPrefix(new QLineEdit(this))
+    , mUnreadCount(new QComboBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -49,6 +51,16 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
     mCDNPrefix->setObjectName(QStringLiteral("mCDNPrefix"));
     addLineEdit(i18n("CDN Prefix"), mCDNPrefix, QStringLiteral("CDN_PREFIX"));
+
+    mUnreadCount->setObjectName(QStringLiteral("mUnreadCount"));
+    QMap<QString, QString> maps;
+    maps = {
+        {QStringLiteral("all_messages"), i18n("All messages")},
+        {QStringLiteral("user_mentions_only"), i18n("User mentions only")},
+        {QStringLiteral("group_mentions_only"), i18n("Group mentions only")},
+        {QStringLiteral("user_and_group_mentions_only"), i18n("User and group mentions only")},
+    };
+    addComboBox(i18n("Unread Count"), maps, mUnreadCount, QStringLiteral("Unread_Count"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -63,4 +75,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mFirstChannelAfterLogin, mapSettings);
     initializeWidget(mDeepLinkUrl, mapSettings);
     initializeWidget(mCDNPrefix, mapSettings);
+    initializeWidget(mUnreadCount, mapSettings);
 }

@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT GeneralSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -30,4 +31,5 @@ private:
     QLineEdit *const mFirstChannelAfterLogin;
     QLineEdit *const mDeepLinkUrl;
     QLineEdit *const mCDNPrefix;
+    QComboBox *const mUnreadCount;
 };
