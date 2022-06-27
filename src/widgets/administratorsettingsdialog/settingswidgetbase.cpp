@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -130,6 +131,35 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     mMainLayout->addRow(layout);
 }
 
+void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    layout->addWidget(label);
+    layout->addWidget(comboBox);
+    QMapIterator<QString, QString> i(items);
+    while (i.hasNext()) {
+        i.next();
+        comboBox->addItem(i.value(), i.key());
+    }
+    auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setText(i18n("Apply"));
+    toolButton->setProperty(s_property, variable);
+    comboBox->setProperty(s_property, variable);
+    layout->addWidget(toolButton);
+    toolButton->setEnabled(false);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox]() {
+        updateSettings(variable, comboBox->currentData().toString(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    });
+    connect(comboBox, &QComboBox::currentIndexChanged, this, [this, toolButton]() {
+        toolButton->setEnabled(true);
+    });
+
+    mMainLayout->addRow(layout);
+}
+
 void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
 {
     const QString variableName = lineEdit->property(s_property).toString();
@@ -162,5 +192,14 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
         if (toolButton) {
             toolButton->setEnabled(false);
         }
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = comboBox->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        comboBox->setCurrentIndex(comboBox->findData(value.toString()));
     }
 }
