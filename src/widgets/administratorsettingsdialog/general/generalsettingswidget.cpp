@@ -20,6 +20,8 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mUTF8UsernamesValidation(new QLineEdit(this))
     , mUTF8ChannelNamesValidation(new QLineEdit(this))
     , mFirstChannelAfterLogin(new QLineEdit(this))
+    , mDeepLinkUrl(new QLineEdit(this))
+    , mCDNPrefix(new QLineEdit(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -41,6 +43,12 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
 
     mFirstChannelAfterLogin->setObjectName(QStringLiteral("mFirstChannelAfterLogin"));
     addLineEdit(i18n("First Channel After Login"), mFirstChannelAfterLogin, QStringLiteral("First_Channel_After_Login"));
+
+    mDeepLinkUrl->setObjectName(QStringLiteral("mDeepLinkUrl"));
+    addLineEdit(i18n("Deep Link Url"), mDeepLinkUrl, QStringLiteral("DeepLink_Url"));
+
+    mCDNPrefix->setObjectName(QStringLiteral("mCDNPrefix"));
+    addLineEdit(i18n("CDN Prefix"), mCDNPrefix, QStringLiteral("CDN_PREFIX"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -53,4 +61,6 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUTF8UsernamesValidation, mapSettings);
     initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
     initializeWidget(mFirstChannelAfterLogin, mapSettings);
+    initializeWidget(mDeepLinkUrl, mapSettings);
+    initializeWidget(mCDNPrefix, mapSettings);
 }

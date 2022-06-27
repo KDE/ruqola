@@ -62,4 +62,14 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFirstChannelAfterLogin->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFirstChannelAfterLogin), QStringLiteral("First_Channel_After_Login"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("First_Channel_After_Login"));
+
+    auto mDeepLinkUrl = w.findChild<QLineEdit *>(QStringLiteral("mDeepLinkUrl"));
+    QVERIFY(mDeepLinkUrl);
+    QVERIFY(mDeepLinkUrl->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeepLinkUrl), QStringLiteral("DeepLink_Url"));
+
+    auto mCDNPrefix = w.findChild<QLineEdit *>(QStringLiteral("mCDNPrefix"));
+    QVERIFY(mCDNPrefix);
+    QVERIFY(mCDNPrefix->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeepLinkUrl), QStringLiteral("CDN_PREFIX"));
 }
