@@ -13,7 +13,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PasswordSettingsWidget : public SettingsWidg
 {
     Q_OBJECT
 public:
-    explicit PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent);
+    explicit PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PasswordSettingsWidget() override;
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mEnablePasswordHistory;
 };
