@@ -6,11 +6,12 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
-#include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
 #include "general/generalsettingswidget.h"
 #include "message/messagesettingswidget.h"
+#include "password/passwordsettingswidget.h"
+#include "ratelimiter/ratelimiterwidget.h"
 #include "retentionpolicy/retentionpolicysettingswidget.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
@@ -30,6 +31,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mRetentionPolicySettingsWidget(new RetentionPolicySettingsWidget(account, this))
     , mGeneralSettingsWidget(new GeneralSettingsWidget(account, this))
     , mRateLimiterWidget(new RateLimiterWidget(account, this))
+    , mPasswordSettingsWidget(new PasswordSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -46,6 +48,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mRetentionPolicySettingsWidget->setObjectName(QStringLiteral("mRetentionPolicySettingsWidget"));
     mGeneralSettingsWidget->setObjectName(QStringLiteral("mGeneralSettingsWidget"));
     mRateLimiterWidget->setObjectName(QStringLiteral("mRateLimiterWidget"));
+    mPasswordSettingsWidget->setObjectName(QStringLiteral("mPasswordSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -53,6 +56,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mRetentionPolicySettingsWidget, i18n("Retention Policy"));
     mTabWidget->addTab(mGeneralSettingsWidget, i18n("General"));
     mTabWidget->addTab(mRateLimiterWidget, i18n("Rate Limiter"));
+    mTabWidget->addTab(mPasswordSettingsWidget, i18n("Password"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -83,6 +87,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     mRetentionPolicySettingsWidget->initialize(mapSettings);
     mGeneralSettingsWidget->initialize(mapSettings);
     mRateLimiterWidget->initialize(mapSettings);
+    mPasswordSettingsWidget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updatePage()
@@ -93,4 +98,5 @@ void AdministratorSettingsWidget::updatePage()
     mUploadFileSettingsWidget->setEnabled(true);
     mRetentionPolicySettingsWidget->setEnabled(true);
     mRateLimiterWidget->setEnabled(true);
+    mPasswordSettingsWidget->setEnabled(true);
 }
