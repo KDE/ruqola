@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(PasswordSettingsWidgetTest)
 PasswordSettingsWidgetTest::PasswordSettingsWidgetTest(QObject *parent)
@@ -30,4 +31,17 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnablePasswordHistory->text().isEmpty());
     QVERIFY(!mEnablePasswordHistory->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePasswordHistory), QStringLiteral("Accounts_Password_History_Enabled"));
+
+    auto mPasswordHistoryLength = w.findChild<QSpinBox *>(QStringLiteral("mPasswordHistoryLength"));
+    QVERIFY(mPasswordHistoryLength);
+    QVERIFY(!mPasswordHistoryLength->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPasswordHistoryLength), QStringLiteral("Accounts_Password_History_Amount"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_History_Amount"));
+
+    auto mEnablePasswordPolicy = w.findChild<QCheckBox *>(QStringLiteral("mEnablePasswordPolicy"));
+    QVERIFY(mEnablePasswordPolicy);
+    QVERIFY(!mEnablePasswordPolicy->isChecked());
+    QVERIFY(!mEnablePasswordPolicy->text().isEmpty());
+    QVERIFY(!mEnablePasswordPolicy->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePasswordPolicy), QStringLiteral("Accounts_Password_Policy_Enabled"));
 }

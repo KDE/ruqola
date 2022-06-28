@@ -19,4 +19,6 @@ public:
 
 private:
     QCheckBox *const mEnablePasswordHistory;
+    QSpinBox *const mPasswordHistoryLength;
+    QCheckBox *const mEnablePasswordPolicy;
 };
