@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RetentionPolicySettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     QSpinBox *const mMaximumMessageDirectMessages;
     QSpinBox *const mMaximumMessagePrivateGroups;
     QSpinBox *const mMaximumMessageChannels;
+    QComboBox *const mTimerPrecision;
 };

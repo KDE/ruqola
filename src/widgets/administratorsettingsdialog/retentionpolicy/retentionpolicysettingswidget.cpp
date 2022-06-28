@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QSpinBox>
 
@@ -26,10 +27,20 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     , mMaximumMessageDirectMessages(new QSpinBox(this))
     , mMaximumMessagePrivateGroups(new QSpinBox(this))
     , mMaximumMessageChannels(new QSpinBox(this))
+    , mTimerPrecision(new QComboBox(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("RetentionPolicy_Enabled"));
+
+    mTimerPrecision->setObjectName(QStringLiteral("mTimerPrecision"));
+    QMap<QString, QString> maps = {
+        {QStringLiteral("0"), i18n("Once every 30 minutes")},
+        {QStringLiteral("1"), i18n("Once every hour")},
+        {QStringLiteral("2"), i18n("Once every six hours")},
+        {QStringLiteral("3"), i18n("Once every day")},
+    };
+    addComboBox(i18n("Timer Precision"), maps, mTimerPrecision, QStringLiteral("RetentionPolicy_Precision"));
 
     mUseAdvancedRetentionPolicyConfiguration->setObjectName(QStringLiteral("mUseAdvancedRetentionPolicyConfiguration"));
     mMainLayout->addWidget(mUseAdvancedRetentionPolicyConfiguration);
@@ -99,4 +110,5 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &ma
     initializeWidget(mMaximumMessageDirectMessages, mapSettings);
     initializeWidget(mMaximumMessagePrivateGroups, mapSettings);
     initializeWidget(mMaximumMessageChannels, mapSettings);
+    initializeWidget(mTimerPrecision, mapSettings);
 }
