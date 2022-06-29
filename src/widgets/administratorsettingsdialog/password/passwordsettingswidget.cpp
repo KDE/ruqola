@@ -19,6 +19,11 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mMaximumLength(new QSpinBox(this))
     , mForbidRepeatingCharacters(new QCheckBox(i18n("Forbid Repeating Characters"), this))
     , mMaxRepeatingCharacters(new QSpinBox(this))
+    , mAtLeastOneLowercase(new QCheckBox(i18n("At Least One Lowercase"), this))
+    , mAtLeastOneUppercase(new QCheckBox(i18n("At Least One Uppercase"), this))
+    , mAtLeastOneNumber(new QCheckBox(i18n("At Least One Number"), this))
+    , mAtLeastOneSymbol(new QCheckBox(i18n("At Least One Symbol"), this))
+
 {
     // TODO add label
     mEnablePasswordHistory->setObjectName(QStringLiteral("mEnablePasswordHistory"));
@@ -52,6 +57,22 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     mMaxRepeatingCharacters->setObjectName(QStringLiteral("mMaxRepeatingCharacters"));
     mMaxRepeatingCharacters->setToolTip(i18n("The amount of times a character can be repeating before it is not allowed."));
     addSpinbox(i18n("Max Repeating Characters"), mMaxRepeatingCharacters, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
+
+    mAtLeastOneLowercase->setObjectName(QStringLiteral("mAtLeastOneLowercase"));
+    mAtLeastOneLowercase->setToolTip(i18n("Enforce that a password contain at least one lowercase character."));
+    connectCheckBox(mAtLeastOneLowercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"));
+
+    mAtLeastOneUppercase->setObjectName(QStringLiteral("mAtLeastOneUppercase"));
+    mAtLeastOneUppercase->setToolTip(i18n("Enforce that a password contain at least one uppercase character."));
+    connectCheckBox(mAtLeastOneUppercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"));
+
+    mAtLeastOneNumber->setObjectName(QStringLiteral("mAtLeastOneNumber"));
+    mAtLeastOneNumber->setToolTip(i18n("Enforce that a password contain at least one numerical character."));
+    connectCheckBox(mAtLeastOneNumber, QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"));
+
+    mAtLeastOneSymbol->setObjectName(QStringLiteral("mAtLeastOneSymbol"));
+    mAtLeastOneSymbol->setToolTip(i18n("Enforce that a password contain at least one special character."));
+    connectCheckBox(mAtLeastOneSymbol, QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
 }
 
 PasswordSettingsWidget::~PasswordSettingsWidget() = default;
@@ -65,4 +86,8 @@ void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettin
     initializeWidget(mMaximumLength, mapSettings);
     initializeWidget(mForbidRepeatingCharacters, mapSettings);
     initializeWidget(mMaxRepeatingCharacters, mapSettings);
+    initializeWidget(mAtLeastOneLowercase, mapSettings);
+    initializeWidget(mAtLeastOneUppercase, mapSettings);
+    initializeWidget(mAtLeastOneNumber, mapSettings);
+    initializeWidget(mAtLeastOneSymbol, mapSettings);
 }

@@ -69,4 +69,24 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMaxRepeatingCharacters->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaxRepeatingCharacters), QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
+
+    auto mAtLeastOneLowercase = w.findChild<QCheckBox *>(QStringLiteral("mAtLeastOneLowercase"));
+    QVERIFY(mAtLeastOneLowercase);
+    QVERIFY(!mAtLeastOneLowercase->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneLowercase), QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"));
+
+    auto mAtLeastOneUppercase = w.findChild<QCheckBox *>(QStringLiteral("mAtLeastOneUppercase"));
+    QVERIFY(mAtLeastOneUppercase);
+    QVERIFY(!mAtLeastOneUppercase->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneUppercase), QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"));
+
+    auto mAtLeastOneNumber = w.findChild<QCheckBox *>(QStringLiteral("mMaxRepeatingCharacters"));
+    QVERIFY(mAtLeastOneNumber);
+    QVERIFY(!mAtLeastOneNumber->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneNumber), QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"));
+
+    auto mAtLeastOneSymbol = w.findChild<QCheckBox *>(QStringLiteral("mMaxRepeatingCharacters"));
+    QVERIFY(mAtLeastOneSymbol);
+    QVERIFY(!mAtLeastOneSymbol->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneSymbol), QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
 }

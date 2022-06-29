@@ -25,4 +25,8 @@ private:
     QSpinBox *const mMaximumLength;
     QCheckBox *const mForbidRepeatingCharacters;
     QSpinBox *const mMaxRepeatingCharacters;
+    QCheckBox *const mAtLeastOneLowercase;
+    QCheckBox *const mAtLeastOneUppercase;
+    QCheckBox *const mAtLeastOneNumber;
+    QCheckBox *const mAtLeastOneSymbol;
 };
