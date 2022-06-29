@@ -72,7 +72,7 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     auto mCDNPrefix = w.findChild<QLineEdit *>(QStringLiteral("mCDNPrefix"));
     QVERIFY(mCDNPrefix);
     QVERIFY(mCDNPrefix->text().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeepLinkUrl), QStringLiteral("CDN_PREFIX"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCDNPrefix), QStringLiteral("CDN_PREFIX"));
 
     auto mUnreadCount = w.findChild<QComboBox *>(QStringLiteral("mUnreadCount"));
     QVERIFY(mUnreadCount);
