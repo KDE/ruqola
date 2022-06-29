@@ -15,6 +15,10 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mEnablePasswordHistory(new QCheckBox(i18n("Enable Password History"), this))
     , mPasswordHistoryLength(new QSpinBox(this))
     , mEnablePasswordPolicy(new QCheckBox(i18n("Enable Password Policy"), this))
+    , mMinimumLength(new QSpinBox(this))
+    , mMaximumLength(new QSpinBox(this))
+    , mForbidRepeatingCharacters(new QCheckBox(i18n("Forbid Repeating Characters"), this))
+    , mMaxRepeatingCharacters(new QSpinBox(this))
 {
     // TODO add label
     mEnablePasswordHistory->setObjectName(QStringLiteral("mEnablePasswordHistory"));
@@ -31,6 +35,23 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     mEnablePasswordPolicy->setToolTip(i18n("When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
     mMainLayout->addWidget(mEnablePasswordPolicy);
     connectCheckBox(mEnablePasswordPolicy, QStringLiteral("Accounts_Password_Policy_Enabled"));
+
+    mMinimumLength->setObjectName(QStringLiteral("mMinimumLength"));
+    mMinimumLength->setToolTip(i18n("Ensures that passwords must have at least this amount of characters. Use -1 to disable."));
+    addSpinbox(i18n("Minimum Length"), mMinimumLength, QStringLiteral("Accounts_Password_Policy_MinLength"));
+
+    mMaximumLength->setObjectName(QStringLiteral("mMaximumLength"));
+    mMaximumLength->setToolTip(i18n("Ensures that passwords do not have more than this amount of characters. Use -1 to disable."));
+    addSpinbox(i18n("Maximum Length"), mMaximumLength, QStringLiteral("Accounts_Password_Policy_MaxLength"));
+
+    mForbidRepeatingCharacters->setObjectName(QStringLiteral("mForbidRepeatingCharacters"));
+    mForbidRepeatingCharacters->setToolTip(i18n("Ensures passwords do not contain the same character repeating next to each other."));
+    mMainLayout->addWidget(mForbidRepeatingCharacters);
+    connectCheckBox(mForbidRepeatingCharacters, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharacters"));
+
+    mMaxRepeatingCharacters->setObjectName(QStringLiteral("mMaxRepeatingCharacters"));
+    mMaxRepeatingCharacters->setToolTip(i18n("The amount of times a character can be repeating before it is not allowed."));
+    addSpinbox(i18n("Max Repeating Characters"), mMaxRepeatingCharacters, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
 }
 
 PasswordSettingsWidget::~PasswordSettingsWidget() = default;
@@ -40,4 +61,8 @@ void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettin
     initializeWidget(mEnablePasswordHistory, mapSettings);
     initializeWidget(mPasswordHistoryLength, mapSettings);
     initializeWidget(mEnablePasswordPolicy, mapSettings);
+    initializeWidget(mMinimumLength, mapSettings);
+    initializeWidget(mMaximumLength, mapSettings);
+    initializeWidget(mForbidRepeatingCharacters, mapSettings);
+    initializeWidget(mMaxRepeatingCharacters, mapSettings);
 }

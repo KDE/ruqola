@@ -21,4 +21,8 @@ private:
     QCheckBox *const mEnablePasswordHistory;
     QSpinBox *const mPasswordHistoryLength;
     QCheckBox *const mEnablePasswordPolicy;
+    QSpinBox *const mMinimumLength;
+    QSpinBox *const mMaximumLength;
+    QCheckBox *const mForbidRepeatingCharacters;
+    QSpinBox *const mMaxRepeatingCharacters;
 };

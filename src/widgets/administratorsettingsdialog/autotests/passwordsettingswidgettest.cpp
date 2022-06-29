@@ -44,4 +44,29 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnablePasswordPolicy->text().isEmpty());
     QVERIFY(!mEnablePasswordPolicy->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePasswordPolicy), QStringLiteral("Accounts_Password_Policy_Enabled"));
+
+    auto mMinimumLength = w.findChild<QSpinBox *>(QStringLiteral("mMinimumLength"));
+    QVERIFY(mMinimumLength);
+    QVERIFY(!mMinimumLength->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMinimumLength), QStringLiteral("Accounts_Password_Policy_MinLength"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_MinLength"));
+
+    auto mMaximumLength = w.findChild<QSpinBox *>(QStringLiteral("mMaximumLength"));
+    QVERIFY(mMaximumLength);
+    QVERIFY(!mMaximumLength->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumLength), QStringLiteral("Accounts_Password_Policy_MaxLength"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_MaxLength"));
+
+    auto mForbidRepeatingCharacters = w.findChild<QCheckBox *>(QStringLiteral("mForbidRepeatingCharacters"));
+    QVERIFY(mForbidRepeatingCharacters);
+    QVERIFY(!mForbidRepeatingCharacters->isChecked());
+    QVERIFY(!mForbidRepeatingCharacters->text().isEmpty());
+    QVERIFY(!mForbidRepeatingCharacters->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForbidRepeatingCharacters), QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharacters"));
+
+    auto mMaxRepeatingCharacters = w.findChild<QSpinBox *>(QStringLiteral("mMaxRepeatingCharacters"));
+    QVERIFY(mMaxRepeatingCharacters);
+    QVERIFY(!mMaxRepeatingCharacters->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaxRepeatingCharacters), QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_ForbidRepeatingCharactersCount"));
 }
