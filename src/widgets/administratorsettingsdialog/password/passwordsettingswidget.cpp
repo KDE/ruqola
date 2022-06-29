@@ -7,7 +7,9 @@
 #include "passwordsettingswidget.h"
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QFont>
 #include <QFormLayout>
+#include <QLabel>
 #include <QSpinBox>
 
 PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -25,7 +27,13 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mAtLeastOneSymbol(new QCheckBox(i18n("At Least One Symbol"), this))
 
 {
-    // TODO add label
+    auto historyLabel = new QLabel(i18n("Password History"), this);
+    QFont historyLabelFont = historyLabel->font();
+    historyLabelFont.setBold(true);
+    historyLabel->setFont(historyLabelFont);
+    historyLabel->setObjectName(QStringLiteral("historyLabel"));
+    mMainLayout->addWidget(historyLabel);
+
     mEnablePasswordHistory->setObjectName(QStringLiteral("mEnablePasswordHistory"));
     mEnablePasswordHistory->setToolTip(i18n("When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
     mMainLayout->addWidget(mEnablePasswordHistory);
@@ -35,7 +43,13 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     mPasswordHistoryLength->setToolTip(i18n("Amount of most recently used passwords to prevent users from reusing."));
     addSpinbox(i18n("Password History Length"), mPasswordHistoryLength, QStringLiteral("Accounts_Password_History_Amount"));
 
-    // TODO add label
+    auto passwordPolicyLabel = new QLabel(i18n("Password Policy"), this);
+    QFont passwordPolicyLabelFont = passwordPolicyLabel->font();
+    passwordPolicyLabelFont.setBold(true);
+    passwordPolicyLabel->setFont(passwordPolicyLabelFont);
+    passwordPolicyLabel->setObjectName(QStringLiteral("passwordPolicyLabel"));
+    mMainLayout->addWidget(passwordPolicyLabel);
+
     mEnablePasswordPolicy->setObjectName(QStringLiteral("mEnablePasswordPolicy"));
     mEnablePasswordPolicy->setToolTip(i18n("When enabled, users won't be able to update their passwords to some of their most recently used passwords."));
     mMainLayout->addWidget(mEnablePasswordPolicy);

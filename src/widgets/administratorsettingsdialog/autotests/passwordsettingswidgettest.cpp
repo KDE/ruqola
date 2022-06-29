@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(PasswordSettingsWidgetTest)
@@ -21,6 +22,10 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
 {
     PasswordSettingsWidget w(nullptr);
     QVERIFY(w.widgetResizable());
+
+    auto historyLabel = w.findChild<QLabel *>(QStringLiteral("historyLabel"));
+    QVERIFY(historyLabel);
+    QVERIFY(!historyLabel->text().isEmpty());
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -89,4 +94,8 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAtLeastOneSymbol);
     QVERIFY(!mAtLeastOneSymbol->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneSymbol), QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
+
+    auto passwordPolicyLabel = w.findChild<QLabel *>(QStringLiteral("passwordPolicyLabel"));
+    QVERIFY(passwordPolicyLabel);
+    QVERIFY(!passwordPolicyLabel->text().isEmpty());
 }
