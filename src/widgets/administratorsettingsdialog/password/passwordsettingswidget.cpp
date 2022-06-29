@@ -57,10 +57,12 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
 
     mMinimumLength->setObjectName(QStringLiteral("mMinimumLength"));
     mMinimumLength->setToolTip(i18n("Ensures that passwords must have at least this amount of characters. Use -1 to disable."));
+    mMinimumLength->setMinimum(-1);
     addSpinbox(i18n("Minimum Length"), mMinimumLength, QStringLiteral("Accounts_Password_Policy_MinLength"));
 
     mMaximumLength->setObjectName(QStringLiteral("mMaximumLength"));
     mMaximumLength->setToolTip(i18n("Ensures that passwords do not have more than this amount of characters. Use -1 to disable."));
+    mMaximumLength->setMinimum(-1);
     addSpinbox(i18n("Maximum Length"), mMaximumLength, QStringLiteral("Accounts_Password_Policy_MaxLength"));
 
     mForbidRepeatingCharacters->setObjectName(QStringLiteral("mForbidRepeatingCharacters"));

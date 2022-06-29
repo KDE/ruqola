@@ -53,12 +53,14 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     auto mMinimumLength = w.findChild<QSpinBox *>(QStringLiteral("mMinimumLength"));
     QVERIFY(mMinimumLength);
     QVERIFY(!mMinimumLength->toolTip().isEmpty());
+    QCOMPARE(mMinimumLength->minimum(), -1);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMinimumLength), QStringLiteral("Accounts_Password_Policy_MinLength"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_MinLength"));
 
     auto mMaximumLength = w.findChild<QSpinBox *>(QStringLiteral("mMaximumLength"));
     QVERIFY(mMaximumLength);
     QVERIFY(!mMaximumLength->toolTip().isEmpty());
+    QCOMPARE(mMaximumLength->minimum(), -1);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumLength), QStringLiteral("Accounts_Password_Policy_MaxLength"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_Password_Policy_MaxLength"));
 
