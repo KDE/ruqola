@@ -60,18 +60,22 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
 
     mAtLeastOneLowercase->setObjectName(QStringLiteral("mAtLeastOneLowercase"));
     mAtLeastOneLowercase->setToolTip(i18n("Enforce that a password contain at least one lowercase character."));
+    mMainLayout->addWidget(mAtLeastOneLowercase);
     connectCheckBox(mAtLeastOneLowercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneLowercase"));
 
     mAtLeastOneUppercase->setObjectName(QStringLiteral("mAtLeastOneUppercase"));
     mAtLeastOneUppercase->setToolTip(i18n("Enforce that a password contain at least one uppercase character."));
+    mMainLayout->addWidget(mAtLeastOneUppercase);
     connectCheckBox(mAtLeastOneUppercase, QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"));
 
     mAtLeastOneNumber->setObjectName(QStringLiteral("mAtLeastOneNumber"));
     mAtLeastOneNumber->setToolTip(i18n("Enforce that a password contain at least one numerical character."));
+    mMainLayout->addWidget(mAtLeastOneNumber);
     connectCheckBox(mAtLeastOneNumber, QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"));
 
     mAtLeastOneSymbol->setObjectName(QStringLiteral("mAtLeastOneSymbol"));
     mAtLeastOneSymbol->setToolTip(i18n("Enforce that a password contain at least one special character."));
+    mMainLayout->addWidget(mAtLeastOneSymbol);
     connectCheckBox(mAtLeastOneSymbol, QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
 }
 

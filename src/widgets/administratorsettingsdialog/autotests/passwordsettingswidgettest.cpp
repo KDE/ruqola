@@ -80,12 +80,12 @@ void PasswordSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAtLeastOneUppercase->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneUppercase), QStringLiteral("Accounts_Password_Policy_AtLeastOneUppercase"));
 
-    auto mAtLeastOneNumber = w.findChild<QCheckBox *>(QStringLiteral("mMaxRepeatingCharacters"));
+    auto mAtLeastOneNumber = w.findChild<QCheckBox *>(QStringLiteral("mAtLeastOneNumber"));
     QVERIFY(mAtLeastOneNumber);
     QVERIFY(!mAtLeastOneNumber->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneNumber), QStringLiteral("Accounts_Password_Policy_AtLeastOneNumber"));
 
-    auto mAtLeastOneSymbol = w.findChild<QCheckBox *>(QStringLiteral("mMaxRepeatingCharacters"));
+    auto mAtLeastOneSymbol = w.findChild<QCheckBox *>(QStringLiteral("mAtLeastOneSymbol"));
     QVERIFY(mAtLeastOneSymbol);
     QVERIFY(!mAtLeastOneSymbol->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAtLeastOneSymbol), QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
