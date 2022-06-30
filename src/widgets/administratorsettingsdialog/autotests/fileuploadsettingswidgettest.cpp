@@ -7,6 +7,7 @@
 #include "fileuploadsettingswidgettest.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <QComboBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QSpinBox>
@@ -70,4 +71,15 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mBlockedMediaTypes->text().isEmpty());
     QVERIFY(!mBlockedMediaTypes->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedMediaTypes), QStringLiteral("FileUpload_MediaTypeBlackList"));
+
+    auto mFileUploadJsonWebTokenSecret = w.findChild<QLineEdit *>(QStringLiteral("mFileUploadJsonWebTokenSecret"));
+    QVERIFY(mFileUploadJsonWebTokenSecret);
+    QVERIFY(mFileUploadJsonWebTokenSecret->text().isEmpty());
+    QVERIFY(!mFileUploadJsonWebTokenSecret->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadJsonWebTokenSecret), QStringLiteral("FileUpload_json_web_token_secret_for_files"));
+
+    auto mStorageType = w.findChild<QComboBox *>(QStringLiteral("mStorageType"));
+    QVERIFY(mStorageType);
+    QCOMPARE(mStorageType->count(), 5);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStorageType), QStringLiteral("FileUpload_Storage_Type"));
 }

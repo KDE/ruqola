@@ -28,4 +28,6 @@ private:
     QCheckBox *const mFileUploadsEnabledDirectMessages;
     QLineEdit *const mAcceptedMediaTypes;
     QLineEdit *const mBlockedMediaTypes;
+    QLineEdit *const mFileUploadJsonWebTokenSecret;
+    QComboBox *const mStorageType;
 };

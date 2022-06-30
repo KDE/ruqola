@@ -10,6 +10,7 @@
 
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
 
@@ -22,6 +23,8 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mFileUploadsEnabledDirectMessages(new QCheckBox(i18n("File Uploads Enabled in Direct Messages"), this))
     , mAcceptedMediaTypes(new QLineEdit(this))
     , mBlockedMediaTypes(new QLineEdit(this))
+    , mFileUploadJsonWebTokenSecret(new QLineEdit(this))
+    , mStorageType(new QComboBox(this))
 {
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
     mMainLayout->addWidget(mFileUploadsEnabled);
@@ -53,6 +56,20 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mBlockedMediaTypes->setObjectName(QStringLiteral("mBlockedMediaTypes"));
     mBlockedMediaTypes->setToolTip(i18n("Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
     addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, QStringLiteral("FileUpload_MediaTypeBlackList"));
+
+    mFileUploadJsonWebTokenSecret->setObjectName(QStringLiteral("mFileUploadJsonWebTokenSecret"));
+    mFileUploadJsonWebTokenSecret->setToolTip(i18n("File Upload Json Web Token Secret (Used to be able to access uploaded files without authentication)."));
+    addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, QStringLiteral("FileUpload_json_web_token_secret_for_files"));
+
+    mStorageType->setObjectName(QStringLiteral("mStorageType"));
+    QMap<QString, QString> maps = {
+        {QStringLiteral("GridFS"), i18n("GridFS")},
+        {QStringLiteral("AmazonS3"), i18n("AmazonS3")},
+        {QStringLiteral("GoogleCloudStorage"), i18n("GoogleCloudStorage")},
+        {QStringLiteral("Webdav"), i18n("WebDAV")},
+        {QStringLiteral("FileSystem"), i18n("FileSystem")},
+    };
+    addComboBox(i18n("Storage Type"), maps, mStorageType, QStringLiteral("FileUpload_Storage_Type"));
 }
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
@@ -66,4 +83,5 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings);
     initializeWidget(mAcceptedMediaTypes, mapSettings);
     initializeWidget(mBlockedMediaTypes, mapSettings);
+    initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings);
 }
