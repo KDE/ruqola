@@ -59,22 +59,21 @@ void SettingsWidgetBase::updateSettings(const QString &settingName,
         QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
         if (dialog->exec()) {
             password = dialog->password();
+            auto job = new RocketChatRestApi::UpdateAdminSettingsJob(this);
+            RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
+            info.settingsValue = value;
+            info.settingName = settingName;
+            info.valueType = typeValue;
+            job->setUpdateAdminSettingsInfo(info);
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+            mAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, &SettingsWidgetBase::slotAdminSettingsDone);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UpdateAdminSettingsJob job";
+            }
         }
         delete dialog;
-
-        auto job = new RocketChatRestApi::UpdateAdminSettingsJob(this);
-        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo info;
-        info.settingsValue = value;
-        info.settingName = settingName;
-        info.valueType = typeValue;
-        job->setUpdateAdminSettingsInfo(info);
-        job->setAuthMethod(QStringLiteral("password"));
-        job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-        mAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, &SettingsWidgetBase::slotAdminSettingsDone);
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UpdateAdminSettingsJob job";
-        }
     }
 }
 
