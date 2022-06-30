@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QComboBox>
 #include <QSpinBox>
 #include <QTest>
 
@@ -97,4 +98,9 @@ void RetentionPolicySettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mMaximumMessageChannels->maximum(), 9999);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumMessageChannels), QStringLiteral("RetentionPolicy_MaxAge_Channels"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("RetentionPolicy_MaxAge_Channels"));
+
+    auto mTimerPrecision = w.findChild<QComboBox *>(QStringLiteral("mTimerPrecision"));
+    QVERIFY(mTimerPrecision);
+    QCOMPARE(mTimerPrecision->count(), 4);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimerPrecision), QStringLiteral("RetentionPolicy_Precision"));
 }
