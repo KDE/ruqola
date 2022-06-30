@@ -19,6 +19,7 @@ class RetentionPolicySettingsWidget;
 class GeneralSettingsWidget;
 class RateLimiterWidget;
 class PasswordSettingsWidget;
+class VideoConferenceWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -40,5 +41,6 @@ private:
     GeneralSettingsWidget *const mGeneralSettingsWidget;
     RateLimiterWidget *const mRateLimiterWidget;
     PasswordSettingsWidget *const mPasswordSettingsWidget;
+    VideoConferenceWidget *const mVideoConferenceWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

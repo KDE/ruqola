@@ -129,6 +129,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/password/passwordsettingswidget.h
     administratorsettingsdialog/password/passwordsettingswidget.cpp
 
+    administratorsettingsdialog/videoconference/videoconferencewidget.cpp
+    administratorsettingsdialog/videoconference/videoconferencewidget.h
+
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
     channellist/channellistview.cpp

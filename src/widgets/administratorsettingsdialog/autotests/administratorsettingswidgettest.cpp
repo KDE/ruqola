@@ -14,6 +14,7 @@
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
+#include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -58,4 +59,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mPasswordSettingsWidget = w.findChild<PasswordSettingsWidget *>(QStringLiteral("mPasswordSettingsWidget"));
     QVERIFY(mPasswordSettingsWidget);
+
+    auto mVideoConferenceWidget = w.findChild<VideoConferenceWidget *>(QStringLiteral("mVideoConferenceWidget"));
+    QVERIFY(mVideoConferenceWidget);
 }

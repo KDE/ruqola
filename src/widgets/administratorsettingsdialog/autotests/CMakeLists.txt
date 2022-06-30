@@ -20,3 +20,5 @@ add_administratorsettings_test(retentionpolicysettingswidgettest.cpp)
 add_administratorsettings_test(generalsettingswidgettest.cpp)
 add_administratorsettings_test(ratelimiterwidgettest.cpp)
 add_administratorsettings_test(passwordsettingswidgettest.cpp)
+add_administratorsettings_test(videoconferencewidgettest.cpp)
+
