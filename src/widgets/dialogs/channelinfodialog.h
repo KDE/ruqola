@@ -26,6 +26,8 @@ public:
 private:
     void slotRoomNameValid(bool state);
     void slotFnameChanged(const QString &fname);
+    void readConfig();
+    void writeConfig();
     ChannelInfoWidget *const mChannelInfoWidget;
     QDialogButtonBox *const mButtonBox;
     QPushButton *mOkButton = nullptr;

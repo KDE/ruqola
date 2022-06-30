@@ -8,10 +8,17 @@
 #include "channelinfowidget.h"
 #include "room.h"
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+namespace
+{
+static const char myConfigChannelInfoDialogGroupName[] = "ChannelInfoDialog";
+}
 
 ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
@@ -29,13 +36,16 @@ ChannelInfoDialog::ChannelInfoDialog(RocketChatAccount *account, QWidget *parent
     connect(mButtonBox, &QDialogButtonBox::rejected, this, &ChannelInfoDialog::reject);
     connect(mButtonBox, &QDialogButtonBox::accepted, this, &ChannelInfoDialog::accept);
     mainLayout->addWidget(mButtonBox);
-    resize(600, 400);
     connect(mChannelInfoWidget, &ChannelInfoWidget::channelDeleted, this, &ChannelInfoDialog::close);
     connect(mChannelInfoWidget, &ChannelInfoWidget::fnameChanged, this, &ChannelInfoDialog::slotFnameChanged);
     connect(mChannelInfoWidget, &ChannelInfoWidget::roomNameValid, this, &ChannelInfoDialog::slotRoomNameValid);
+    readConfig();
 }
 
-ChannelInfoDialog::~ChannelInfoDialog() = default;
+ChannelInfoDialog::~ChannelInfoDialog()
+{
+    writeConfig();
+}
 
 RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoDialog::saveRoomSettingsInfo() const
 {
@@ -60,4 +70,19 @@ void ChannelInfoDialog::slotRoomNameValid(bool state)
 {
     Q_ASSERT(mOkButton);
     mOkButton->setEnabled(state);
+}
+
+void ChannelInfoDialog::readConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigChannelInfoDialogGroupName);
+    const QSize sizeDialog = group.readEntry("Size", QSize(600, 400));
+    if (sizeDialog.isValid()) {
+        resize(sizeDialog);
+    }
+}
+
+void ChannelInfoDialog::writeConfig()
+{
+    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigChannelInfoDialogGroupName);
+    group.writeEntry("Size", size());
 }
