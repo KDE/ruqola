@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(FileUploadSettingsWidgetTest)
@@ -57,4 +58,16 @@ void FileUploadSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mFileUploadsEnabledDirectMessages->isChecked());
     QVERIFY(!mFileUploadsEnabledDirectMessages->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUploadsEnabledDirectMessages), QStringLiteral("FileUpload_Enabled_Direct"));
+
+    auto mAcceptedMediaTypes = w.findChild<QLineEdit *>(QStringLiteral("mAcceptedMediaTypes"));
+    QVERIFY(mAcceptedMediaTypes);
+    QVERIFY(mAcceptedMediaTypes->text().isEmpty());
+    QVERIFY(!mAcceptedMediaTypes->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAcceptedMediaTypes), QStringLiteral("FileUpload_MediaTypeWhiteList"));
+
+    auto mBlockedMediaTypes = w.findChild<QLineEdit *>(QStringLiteral("mBlockedMediaTypes"));
+    QVERIFY(mBlockedMediaTypes);
+    QVERIFY(mBlockedMediaTypes->text().isEmpty());
+    QVERIFY(!mBlockedMediaTypes->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedMediaTypes), QStringLiteral("FileUpload_MediaTypeBlackList"));
 }

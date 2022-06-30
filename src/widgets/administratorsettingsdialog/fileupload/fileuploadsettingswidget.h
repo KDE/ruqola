@@ -26,4 +26,6 @@ private:
     QCheckBox *const mRotateImagesUpload;
     QSpinBox *const mMaximumFileUploadSize;
     QCheckBox *const mFileUploadsEnabledDirectMessages;
+    QLineEdit *const mAcceptedMediaTypes;
+    QLineEdit *const mBlockedMediaTypes;
 };

@@ -10,6 +10,7 @@
 
 #include <KLocalizedString>
 #include <QCheckBox>
+#include <QLineEdit>
 #include <QSpinBox>
 
 FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -19,6 +20,8 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     , mRotateImagesUpload(new QCheckBox(i18n("Rotate images on upload"), this))
     , mMaximumFileUploadSize(new QSpinBox(this))
     , mFileUploadsEnabledDirectMessages(new QCheckBox(i18n("File Uploads Enabled in Direct Messages"), this))
+    , mAcceptedMediaTypes(new QLineEdit(this))
+    , mBlockedMediaTypes(new QLineEdit(this))
 {
     mFileUploadsEnabled->setObjectName(QStringLiteral("mFileUploadsEnabled"));
     mMainLayout->addWidget(mFileUploadsEnabled);
@@ -42,6 +45,14 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     mFileUploadsEnabledDirectMessages->setObjectName(QStringLiteral("mFileUploadsEnabledDirectMessages"));
     mMainLayout->addWidget(mFileUploadsEnabledDirectMessages);
     connectCheckBox(mFileUploadsEnabledDirectMessages, QStringLiteral("FileUpload_Enabled_Direct"));
+
+    mAcceptedMediaTypes->setObjectName(QStringLiteral("mAcceptedMediaTypes"));
+    mAcceptedMediaTypes->setToolTip(i18n("Comma-separated list of media types. Leave it blank for accepting all media types."));
+    addLineEdit(i18n("Accepted Media Types"), mAcceptedMediaTypes, QStringLiteral("FileUpload_MediaTypeWhiteList"));
+
+    mBlockedMediaTypes->setObjectName(QStringLiteral("mBlockedMediaTypes"));
+    mBlockedMediaTypes->setToolTip(i18n("Comma-separated list of media types. This setting has priority over the Accepted Media Types."));
+    addLineEdit(i18n("Accepted Media Types"), mBlockedMediaTypes, QStringLiteral("FileUpload_MediaTypeBlackList"));
 }
 
 FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
@@ -53,4 +64,6 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mRotateImagesUpload, mapSettings);
     initializeWidget(mMaximumFileUploadSize, mapSettings);
     initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings);
+    initializeWidget(mAcceptedMediaTypes, mapSettings);
+    initializeWidget(mBlockedMediaTypes, mapSettings);
 }
