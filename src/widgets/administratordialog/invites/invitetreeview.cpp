@@ -46,7 +46,8 @@ void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void InviteTreeView::removeClicked(const QString &identifier)
 {
-    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"))) {
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"), KStandardGuiItem::del())) {
         Q_EMIT removeInvite(identifier);
     }
 }
