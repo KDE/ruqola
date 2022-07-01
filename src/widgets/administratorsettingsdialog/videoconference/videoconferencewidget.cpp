@@ -18,11 +18,15 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     , mServer(new QLineEdit(this))
     , mSharedSecret(new QLineEdit(this))
     , mAlwaysOpenNewWindow(new QCheckBox(i18n("Always Open in New Window"), this))
+    , mJitsiEnabled(new QCheckBox(i18n("Enabled"), this))
+    , mJitsiDomain(new QLineEdit(this))
+    , mJitsiRoomPrefix(new QLineEdit(this))
+    , mJitsiRoomSuffix(new QLineEdit(this))
 {
     auto bigBlueButtonLabel = new QLabel(i18n("BigBlueButton"), this);
-    QFont apiRateLimiterLabelFont = bigBlueButtonLabel->font();
-    apiRateLimiterLabelFont.setBold(true);
-    bigBlueButtonLabel->setFont(apiRateLimiterLabelFont);
+    QFont bigBlueButtonLabelFont = bigBlueButtonLabel->font();
+    bigBlueButtonLabelFont.setBold(true);
+    bigBlueButtonLabel->setFont(bigBlueButtonLabelFont);
     bigBlueButtonLabel->setObjectName(QStringLiteral("bigBlueButtonLabel"));
     mMainLayout->addWidget(bigBlueButtonLabel);
 
@@ -39,6 +43,26 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     mAlwaysOpenNewWindow->setObjectName(QStringLiteral("mAlwaysOpenNewWindow"));
     mMainLayout->addWidget(mAlwaysOpenNewWindow);
     connectCheckBox(mAlwaysOpenNewWindow, QStringLiteral("bigbluebutton_Open_New_Window"));
+
+    auto jitsiButtonLabel = new QLabel(i18n("Jitsi"), this);
+    QFont jitsiButtonLabelFont = jitsiButtonLabel->font();
+    jitsiButtonLabelFont.setBold(true);
+    jitsiButtonLabel->setFont(jitsiButtonLabelFont);
+    jitsiButtonLabel->setObjectName(QStringLiteral("jitsiButtonLabel"));
+    mMainLayout->addWidget(jitsiButtonLabel);
+
+    mJitsiEnabled->setObjectName(QStringLiteral("mJitsiEnabled"));
+    mMainLayout->addWidget(mJitsiEnabled);
+    connectCheckBox(mJitsiEnabled, QStringLiteral("Jitsi_Enabled"));
+
+    mJitsiDomain->setObjectName(QStringLiteral("mJitsiDomain"));
+    addLineEdit(i18n("Domain"), mJitsiDomain, QStringLiteral("Jitsi_Domain"));
+
+    mJitsiRoomPrefix->setObjectName(QStringLiteral("mJitsiRoomPrefix"));
+    addLineEdit(i18n("URL room prefix"), mJitsiRoomPrefix, QStringLiteral("Jitsi_URL_Room_Prefix"));
+
+    mJitsiRoomSuffix->setObjectName(QStringLiteral("mJitsiRoomSuffix"));
+    addLineEdit(i18n("URL room suffix"), mJitsiRoomSuffix, QStringLiteral("Jitsi_URL_Room_Suffix"));
 }
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;
@@ -49,4 +73,8 @@ void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mServer, mapSettings);
     initializeWidget(mSharedSecret, mapSettings);
     initializeWidget(mAlwaysOpenNewWindow, mapSettings);
+
+    initializeWidget(mJitsiEnabled, mapSettings);
+    initializeWidget(mJitsiRoomPrefix, mapSettings);
+    initializeWidget(mJitsiRoomSuffix, mapSettings);
 }

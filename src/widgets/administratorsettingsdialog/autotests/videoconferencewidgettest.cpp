@@ -47,4 +47,28 @@ void VideoConferenceWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAlwaysOpenNewWindow->isChecked());
     QVERIFY(!mAlwaysOpenNewWindow->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAlwaysOpenNewWindow), QStringLiteral("bigbluebutton_Open_New_Window"));
+
+    auto mJitsiEnabled = w.findChild<QCheckBox *>(QStringLiteral("mJitsiEnabled"));
+    QVERIFY(mJitsiEnabled);
+    QVERIFY(!mJitsiEnabled->isChecked());
+    QVERIFY(!mJitsiEnabled->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiEnabled), QStringLiteral("Jitsi_Enabled"));
+
+    auto mJitsiDomain = w.findChild<QLineEdit *>(QStringLiteral("mJitsiDomain"));
+    QVERIFY(mJitsiDomain);
+    QVERIFY(mJitsiDomain->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiDomain), QStringLiteral("Jitsi_Domain"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_Domain"));
+
+    auto mJitsiRoomPrefix = w.findChild<QLineEdit *>(QStringLiteral("mJitsiRoomPrefix"));
+    QVERIFY(mJitsiRoomPrefix);
+    QVERIFY(mJitsiRoomPrefix->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiRoomPrefix), QStringLiteral("Jitsi_URL_Room_Prefix"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_URL_Room_Prefix"));
+
+    auto mJitsiRoomSuffix = w.findChild<QLineEdit *>(QStringLiteral("mJitsiRoomSuffix"));
+    QVERIFY(mJitsiRoomSuffix);
+    QVERIFY(mJitsiRoomSuffix->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiRoomSuffix), QStringLiteral("Jitsi_URL_Room_Suffix"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_URL_Room_Suffix"));
 }

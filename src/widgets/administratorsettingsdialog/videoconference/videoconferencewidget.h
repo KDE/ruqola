@@ -22,4 +22,9 @@ private:
     QLineEdit *const mServer;
     QLineEdit *const mSharedSecret;
     QCheckBox *const mAlwaysOpenNewWindow;
+
+    QCheckBox *const mJitsiEnabled;
+    QLineEdit *const mJitsiDomain;
+    QLineEdit *const mJitsiRoomPrefix;
+    QLineEdit *const mJitsiRoomSuffix;
 };
