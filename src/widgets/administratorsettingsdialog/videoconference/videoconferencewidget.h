@@ -27,5 +27,9 @@ private:
     QLineEdit *const mJitsiDomain;
     QLineEdit *const mJitsiRoomPrefix;
     QLineEdit *const mJitsiRoomSuffix;
-    QCheckBox *const mEnableRoomNameHash;
+    QCheckBox *const mJitsiEnableRoomNameHash;
+    QCheckBox *const mJitsiUseSSL;
+    QCheckBox *const mJitsiAlwaysOpenNewWindow;
+    QCheckBox *const mJitsiEnableInChannels;
+    QCheckBox *const mJitsiEnableTeams;
 };

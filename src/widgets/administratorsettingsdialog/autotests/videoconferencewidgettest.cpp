@@ -72,10 +72,34 @@ void VideoConferenceWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiRoomSuffix), QStringLiteral("Jitsi_URL_Room_Suffix"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_URL_Room_Suffix"));
 
-    auto mEnableRoomNameHash = w.findChild<QCheckBox *>(QStringLiteral("mEnableRoomNameHash"));
+    auto mEnableRoomNameHash = w.findChild<QCheckBox *>(QStringLiteral("mJitsiEnableRoomNameHash"));
     QVERIFY(mEnableRoomNameHash);
     QVERIFY(!mEnableRoomNameHash->isChecked());
     QVERIFY(!mEnableRoomNameHash->text().isEmpty());
     QVERIFY(!mEnableRoomNameHash->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableRoomNameHash), QStringLiteral("Jitsi_URL_Room_Hash"));
+
+    auto mJitsiUseSSL = w.findChild<QCheckBox *>(QStringLiteral("mJitsiUseSSL"));
+    QVERIFY(mJitsiUseSSL);
+    QVERIFY(!mJitsiUseSSL->isChecked());
+    QVERIFY(!mJitsiUseSSL->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiUseSSL), QStringLiteral("Jitsi_SSL"));
+
+    auto mJitsiAlwaysOpenNewWindow = w.findChild<QCheckBox *>(QStringLiteral("mJitsiAlwaysOpenNewWindow"));
+    QVERIFY(mJitsiAlwaysOpenNewWindow);
+    QVERIFY(!mJitsiAlwaysOpenNewWindow->isChecked());
+    QVERIFY(!mJitsiAlwaysOpenNewWindow->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiAlwaysOpenNewWindow), QStringLiteral("Jitsi_Open_New_Window"));
+
+    auto mJitsiEnableInChannels = w.findChild<QCheckBox *>(QStringLiteral("mJitsiEnableInChannels"));
+    QVERIFY(mJitsiEnableInChannels);
+    QVERIFY(!mJitsiEnableInChannels->isChecked());
+    QVERIFY(!mJitsiEnableInChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiEnableInChannels), QStringLiteral("Jitsi_Enable_Channels"));
+
+    auto mJitsiEnableTeams = w.findChild<QCheckBox *>(QStringLiteral("mJitsiEnableTeams"));
+    QVERIFY(mJitsiEnableTeams);
+    QVERIFY(!mJitsiEnableTeams->isChecked());
+    QVERIFY(!mJitsiEnableTeams->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiEnableTeams), QStringLiteral("Jitsi_Enable_Teams"));
 }

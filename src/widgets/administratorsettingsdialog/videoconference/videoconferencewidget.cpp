@@ -22,7 +22,11 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     , mJitsiDomain(new QLineEdit(this))
     , mJitsiRoomPrefix(new QLineEdit(this))
     , mJitsiRoomSuffix(new QLineEdit(this))
-    , mEnableRoomNameHash(new QCheckBox(i18n("Enable room name hash"), this))
+    , mJitsiEnableRoomNameHash(new QCheckBox(i18n("Enable room name hash"), this))
+    , mJitsiUseSSL(new QCheckBox(i18n("Use SSL"), this))
+    , mJitsiAlwaysOpenNewWindow(new QCheckBox(i18n("Always Open in New Window"), this))
+    , mJitsiEnableInChannels(new QCheckBox(i18n("Enable in Channels"), this))
+    , mJitsiEnableTeams(new QCheckBox(i18n("Enable for Teams"), this))
 {
     auto bigBlueButtonLabel = new QLabel(i18n("BigBlueButton"), this);
     QFont bigBlueButtonLabelFont = bigBlueButtonLabel->font();
@@ -65,10 +69,26 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     mJitsiRoomSuffix->setObjectName(QStringLiteral("mJitsiRoomSuffix"));
     addLineEdit(i18n("URL room suffix"), mJitsiRoomSuffix, QStringLiteral("Jitsi_URL_Room_Suffix"));
 
-    mEnableRoomNameHash->setObjectName(QStringLiteral("mEnableRoomNameHash"));
-    mEnableRoomNameHash->setToolTip(i18n("Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
-    mMainLayout->addWidget(mEnableRoomNameHash);
-    connectCheckBox(mEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
+    mJitsiEnableRoomNameHash->setObjectName(QStringLiteral("mJitsiEnableRoomNameHash"));
+    mJitsiEnableRoomNameHash->setToolTip(i18n("Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
+    mMainLayout->addWidget(mJitsiEnableRoomNameHash);
+    connectCheckBox(mJitsiEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
+
+    mJitsiUseSSL->setObjectName(QStringLiteral("mJitsiUseSSL"));
+    mMainLayout->addWidget(mJitsiUseSSL);
+    connectCheckBox(mJitsiUseSSL, QStringLiteral("Jitsi_SSL"));
+
+    mJitsiAlwaysOpenNewWindow->setObjectName(QStringLiteral("mJitsiAlwaysOpenNewWindow"));
+    mMainLayout->addWidget(mJitsiAlwaysOpenNewWindow);
+    connectCheckBox(mJitsiAlwaysOpenNewWindow, QStringLiteral("Jitsi_Open_New_Window"));
+
+    mJitsiEnableInChannels->setObjectName(QStringLiteral("mJitsiEnableInChannels"));
+    mMainLayout->addWidget(mJitsiEnableInChannels);
+    connectCheckBox(mJitsiEnableInChannels, QStringLiteral("Jitsi_Enable_Channels"));
+
+    mJitsiEnableTeams->setObjectName(QStringLiteral("mJitsiEnableTeams"));
+    mMainLayout->addWidget(mJitsiEnableTeams);
+    connectCheckBox(mJitsiEnableTeams, QStringLiteral("Jitsi_Enable_Teams"));
 }
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;
@@ -84,5 +104,9 @@ void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mJitsiDomain, mapSettings);
     initializeWidget(mJitsiRoomPrefix, mapSettings);
     initializeWidget(mJitsiRoomSuffix, mapSettings);
-    initializeWidget(mEnableRoomNameHash, mapSettings);
+    initializeWidget(mJitsiEnableRoomNameHash, mapSettings);
+    initializeWidget(mJitsiUseSSL, mapSettings);
+    initializeWidget(mJitsiAlwaysOpenNewWindow, mapSettings);
+    initializeWidget(mJitsiEnableInChannels, mapSettings);
+    initializeWidget(mJitsiEnableTeams, mapSettings);
 }
