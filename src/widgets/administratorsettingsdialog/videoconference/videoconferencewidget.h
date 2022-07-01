@@ -16,4 +16,10 @@ public:
     ~VideoConferenceWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mBigBlueEnabled;
+    QLineEdit *const mServer;
+    QLineEdit *const mSharedSecret;
+    QCheckBox *const mAlwaysOpenNewWindow;
 };
