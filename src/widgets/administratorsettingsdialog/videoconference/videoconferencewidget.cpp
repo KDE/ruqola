@@ -22,6 +22,7 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     , mJitsiDomain(new QLineEdit(this))
     , mJitsiRoomPrefix(new QLineEdit(this))
     , mJitsiRoomSuffix(new QLineEdit(this))
+    , mEnableRoomNameHash(new QCheckBox(i18n("Enable room name hash"), this))
 {
     auto bigBlueButtonLabel = new QLabel(i18n("BigBlueButton"), this);
     QFont bigBlueButtonLabelFont = bigBlueButtonLabel->font();
@@ -63,6 +64,11 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
 
     mJitsiRoomSuffix->setObjectName(QStringLiteral("mJitsiRoomSuffix"));
     addLineEdit(i18n("URL room suffix"), mJitsiRoomSuffix, QStringLiteral("Jitsi_URL_Room_Suffix"));
+
+    mEnableRoomNameHash->setObjectName(QStringLiteral("mEnableRoomNameHash"));
+    mEnableRoomNameHash->setToolTip(i18n("Recommended to enable if the Jitsi instance doesn't use any authentication mechanism."));
+    mMainLayout->addWidget(mEnableRoomNameHash);
+    connectCheckBox(mEnableRoomNameHash, QStringLiteral("Jitsi_URL_Room_Hash"));
 }
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;
@@ -75,6 +81,8 @@ void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAlwaysOpenNewWindow, mapSettings);
 
     initializeWidget(mJitsiEnabled, mapSettings);
+    initializeWidget(mJitsiDomain, mapSettings);
     initializeWidget(mJitsiRoomPrefix, mapSettings);
     initializeWidget(mJitsiRoomSuffix, mapSettings);
+    initializeWidget(mEnableRoomNameHash, mapSettings);
 }

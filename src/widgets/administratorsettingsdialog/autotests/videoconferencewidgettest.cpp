@@ -71,4 +71,11 @@ void VideoConferenceWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mJitsiRoomSuffix->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiRoomSuffix), QStringLiteral("Jitsi_URL_Room_Suffix"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_URL_Room_Suffix"));
+
+    auto mEnableRoomNameHash = w.findChild<QCheckBox *>(QStringLiteral("mEnableRoomNameHash"));
+    QVERIFY(mEnableRoomNameHash);
+    QVERIFY(!mEnableRoomNameHash->isChecked());
+    QVERIFY(!mEnableRoomNameHash->text().isEmpty());
+    QVERIFY(!mEnableRoomNameHash->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableRoomNameHash), QStringLiteral("Jitsi_URL_Room_Hash"));
 }
