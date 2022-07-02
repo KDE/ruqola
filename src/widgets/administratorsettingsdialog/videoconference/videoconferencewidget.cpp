@@ -27,6 +27,11 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     , mJitsiAlwaysOpenNewWindow(new QCheckBox(i18n("Always Open in New Window"), this))
     , mJitsiEnableInChannels(new QCheckBox(i18n("Enable in Channels"), this))
     , mJitsiEnableTeams(new QCheckBox(i18n("Enable for Teams"), this))
+    , mJitsiChromeExtensionId(new QLineEdit(this))
+    , mJitsiEnableJWTAuth(new QCheckBox(i18n("Enable JWT auth"), this))
+    , mJitsiApplicationID(new QLineEdit(this))
+    , mJitsiApplicationSecret(new QLineEdit(this))
+    , mJitsiLimitTokenJitsiRoom(new QCheckBox(i18n("Limit token to Jitsi Room"), this))
 {
     auto bigBlueButtonLabel = new QLabel(i18n("BigBlueButton"), this);
     QFont bigBlueButtonLabelFont = bigBlueButtonLabel->font();
@@ -89,6 +94,23 @@ VideoConferenceWidget::VideoConferenceWidget(RocketChatAccount *account, QWidget
     mJitsiEnableTeams->setObjectName(QStringLiteral("mJitsiEnableTeams"));
     mMainLayout->addWidget(mJitsiEnableTeams);
     connectCheckBox(mJitsiEnableTeams, QStringLiteral("Jitsi_Enable_Teams"));
+
+    mJitsiChromeExtensionId->setObjectName(QStringLiteral("mJitsiChromeExtensionId"));
+    addLineEdit(i18n("Chrome Extension Id"), mJitsiChromeExtensionId, QStringLiteral("Jitsi_Chrome_Extension"));
+
+    mJitsiEnableJWTAuth->setObjectName(QStringLiteral("mJitsiEnableJWTAuth"));
+    mMainLayout->addWidget(mJitsiEnableJWTAuth);
+    connectCheckBox(mJitsiEnableJWTAuth, QStringLiteral("Jitsi_Enabled_TokenAuth"));
+
+    mJitsiApplicationID->setObjectName(QStringLiteral("mJitsiApplicationID"));
+    addLineEdit(i18n("Application ID (iss)"), mJitsiApplicationID, QStringLiteral("Jitsi_Application_ID"));
+
+    mJitsiApplicationSecret->setObjectName(QStringLiteral("mJitsiApplicationSecret"));
+    addLineEdit(i18n("Application Secret"), mJitsiApplicationSecret, QStringLiteral("Jitsi_Application_Secret"));
+
+    mJitsiLimitTokenJitsiRoom->setObjectName(QStringLiteral("mJitsiLimitTokenJitsiRoom"));
+    mMainLayout->addWidget(mJitsiLimitTokenJitsiRoom);
+    connectCheckBox(mJitsiLimitTokenJitsiRoom, QStringLiteral("Jitsi_Limit_Token_To_Room"));
 }
 
 VideoConferenceWidget::~VideoConferenceWidget() = default;
@@ -109,4 +131,9 @@ void VideoConferenceWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mJitsiAlwaysOpenNewWindow, mapSettings);
     initializeWidget(mJitsiEnableInChannels, mapSettings);
     initializeWidget(mJitsiEnableTeams, mapSettings);
+    initializeWidget(mJitsiChromeExtensionId, mapSettings);
+    initializeWidget(mJitsiEnableJWTAuth, mapSettings);
+    initializeWidget(mJitsiApplicationID, mapSettings);
+    initializeWidget(mJitsiApplicationSecret, mapSettings);
+    initializeWidget(mJitsiLimitTokenJitsiRoom, mapSettings);
 }

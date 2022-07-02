@@ -32,4 +32,9 @@ private:
     QCheckBox *const mJitsiAlwaysOpenNewWindow;
     QCheckBox *const mJitsiEnableInChannels;
     QCheckBox *const mJitsiEnableTeams;
+    QLineEdit *const mJitsiChromeExtensionId;
+    QCheckBox *const mJitsiEnableJWTAuth;
+    QLineEdit *const mJitsiApplicationID;
+    QLineEdit *const mJitsiApplicationSecret;
+    QCheckBox *const mJitsiLimitTokenJitsiRoom;
 };

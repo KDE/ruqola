@@ -102,4 +102,34 @@ void VideoConferenceWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mJitsiEnableTeams->isChecked());
     QVERIFY(!mJitsiEnableTeams->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiEnableTeams), QStringLiteral("Jitsi_Enable_Teams"));
+
+    auto mJitsiChromeExtensionId = w.findChild<QLineEdit *>(QStringLiteral("mJitsiChromeExtensionId"));
+    QVERIFY(mJitsiChromeExtensionId);
+    QVERIFY(mJitsiChromeExtensionId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiChromeExtensionId), QStringLiteral("Jitsi_Chrome_Extension"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_Chrome_Extension"));
+
+    auto mJitsiEnableJWTAuth = w.findChild<QCheckBox *>(QStringLiteral("mJitsiEnableJWTAuth"));
+    QVERIFY(mJitsiEnableJWTAuth);
+    QVERIFY(!mJitsiEnableJWTAuth->isChecked());
+    QVERIFY(!mJitsiEnableJWTAuth->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiEnableJWTAuth), QStringLiteral("Jitsi_Enabled_TokenAuth"));
+
+    auto mJitsiApplicationID = w.findChild<QLineEdit *>(QStringLiteral("mJitsiApplicationID"));
+    QVERIFY(mJitsiApplicationID);
+    QVERIFY(mJitsiApplicationID->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiApplicationID), QStringLiteral("Jitsi_Application_ID"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_Application_ID"));
+
+    auto mJitsiApplicationSecret = w.findChild<QLineEdit *>(QStringLiteral("mJitsiApplicationSecret"));
+    QVERIFY(mJitsiApplicationSecret);
+    QVERIFY(mJitsiApplicationSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiApplicationSecret), QStringLiteral("Jitsi_Application_Secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Jitsi_Application_Secret"));
+
+    auto mJitsiLimitTokenJitsiRoom = w.findChild<QCheckBox *>(QStringLiteral("mJitsiLimitTokenJitsiRoom"));
+    QVERIFY(mJitsiLimitTokenJitsiRoom);
+    QVERIFY(!mJitsiLimitTokenJitsiRoom->isChecked());
+    QVERIFY(!mJitsiLimitTokenJitsiRoom->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mJitsiLimitTokenJitsiRoom), QStringLiteral("Jitsi_Limit_Token_To_Room"));
 }
