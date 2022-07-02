@@ -10,6 +10,7 @@
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
+#include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
@@ -62,4 +63,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mVideoConferenceWidget = w.findChild<VideoConferenceWidget *>(QStringLiteral("mVideoConferenceWidget"));
     QVERIFY(mVideoConferenceWidget);
+
+    auto mIrcFederationWidget = w.findChild<IrcFederationWidget *>(QStringLiteral("mIrcFederationWidget"));
+    QVERIFY(mIrcFederationWidget);
 }

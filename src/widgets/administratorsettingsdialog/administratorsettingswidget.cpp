@@ -9,6 +9,7 @@
 #include "encryption/encryptionsettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
 #include "general/generalsettingswidget.h"
+#include "ircfederation/ircfederationwidget.h"
 #include "message/messagesettingswidget.h"
 #include "password/passwordsettingswidget.h"
 #include "ratelimiter/ratelimiterwidget.h"
@@ -33,6 +34,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mRateLimiterWidget(new RateLimiterWidget(account, this))
     , mPasswordSettingsWidget(new PasswordSettingsWidget(account, this))
     , mVideoConferenceWidget(new VideoConferenceWidget(account, this))
+    , mIrcFederationWidget(new IrcFederationWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -51,6 +53,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mRateLimiterWidget->setObjectName(QStringLiteral("mRateLimiterWidget"));
     mPasswordSettingsWidget->setObjectName(QStringLiteral("mPasswordSettingsWidget"));
     mVideoConferenceWidget->setObjectName(QStringLiteral("mVideoConferenceWidget"));
+    mIrcFederationWidget->setObjectName(QStringLiteral("mIrcFederationWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -60,6 +63,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mRateLimiterWidget, i18n("Rate Limiter"));
     mTabWidget->addTab(mPasswordSettingsWidget, i18n("Password"));
     mTabWidget->addTab(mVideoConferenceWidget, i18n("Video Conference"));
+    mTabWidget->addTab(mIrcFederationWidget, i18n("IRC Federation"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -92,6 +96,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     mRateLimiterWidget->initialize(mapSettings);
     mPasswordSettingsWidget->initialize(mapSettings);
     mVideoConferenceWidget->initialize(mapSettings);
+    mIrcFederationWidget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updatePage()
@@ -104,4 +109,5 @@ void AdministratorSettingsWidget::updatePage()
     mRateLimiterWidget->setEnabled(true);
     mPasswordSettingsWidget->setEnabled(true);
     mVideoConferenceWidget->setEnabled(true);
+    mIrcFederationWidget->setEnabled(true);
 }

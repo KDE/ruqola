@@ -132,6 +132,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/videoconference/videoconferencewidget.cpp
     administratorsettingsdialog/videoconference/videoconferencewidget.h
 
+    administratorsettingsdialog/ircfederation/ircfederationwidget.h
+    administratorsettingsdialog/ircfederation/ircfederationwidget.cpp
+
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
     channellist/channellistview.cpp
