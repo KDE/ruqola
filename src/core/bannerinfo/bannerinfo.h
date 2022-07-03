@@ -20,6 +20,24 @@ public:
     void parseBannerInfo(const QJsonObject &object);
 
     Q_REQUIRED_RESULT bool operator==(const BannerInfo &other) const;
+
+    Q_REQUIRED_RESULT const QString &text() const;
+    void setText(const QString &newText);
+
+    Q_REQUIRED_RESULT const QString &title() const;
+    void setTitle(const QString &newTitle);
+
+    Q_REQUIRED_RESULT const QString &link() const;
+    void setLink(const QString &newLink);
+
+    Q_REQUIRED_RESULT bool read() const;
+    void setRead(bool newRead);
+
+private:
+    QString mText;
+    QString mTitle;
+    QString mLink;
+    bool mRead = false;
 };
 
 Q_DECLARE_METATYPE(BannerInfo)

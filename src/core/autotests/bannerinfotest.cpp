@@ -15,5 +15,8 @@ BannerInfoTest::BannerInfoTest(QObject *parent)
 void BannerInfoTest::shouldHaveDefaultValues()
 {
     BannerInfo w;
-    // TODO
+    QVERIFY(!w.read());
+    QVERIFY(w.text().isEmpty());
+    QVERIFY(w.title().isEmpty());
+    QVERIFY(w.link().isEmpty());
 }
