@@ -7,7 +7,6 @@
 #include "authenticationmanager.h"
 #include "ruqola_debug.h"
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KPluginMetaData>
 #include <QFileInfo>
 

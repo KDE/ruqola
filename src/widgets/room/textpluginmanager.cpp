@@ -8,7 +8,6 @@
 #include "plugins/plugintext.h"
 
 #include <KPluginFactory>
-#include <KPluginLoader>
 #include <KPluginMetaData>
 #include <QFileInfo>
 #include <QSet>
