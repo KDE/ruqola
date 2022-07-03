@@ -25,6 +25,10 @@ target_sources(libruqolacore PRIVATE
     avatarmanager.h
     away/awaymanager.cpp
     away/awaymanager.h
+
+    bannerinfo/bannerinfo.h
+    bannerinfo/bannerinfo.cpp
+
     channelcounterinfo.cpp
     channelcounterinfo.h
     channel.cpp
