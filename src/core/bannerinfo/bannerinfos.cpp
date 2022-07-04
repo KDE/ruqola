@@ -6,18 +6,22 @@
 
 #include "bannerinfos.h"
 
+#include <QJsonObject>
+
 BannerInfos::BannerInfos() = default;
 
 BannerInfos::~BannerInfos() = default;
 
+void BannerInfos::parseBannerInfos(const QJsonObject &object)
+{
+    // TODO
+}
+
 QDebug operator<<(QDebug d, const BannerInfos &t)
 {
-    //    d << "total " << t.total();
-    //    d << "offset " << t.offset();
-    //    d << "roomsCount " << t.roomsCount() << "\n";
-    //    for (int i = 0, total = t.rooms().count(); i < total; ++i) {
-    //        d << t.rooms().at(i) << "\n";
-    //    }
+    for (int i = 0, total = t.banners().count(); i < total; ++i) {
+        d << t.banners().at(i) << "\n";
+    }
     return d;
 }
 const QVector<BannerInfo> &BannerInfos::banners() const

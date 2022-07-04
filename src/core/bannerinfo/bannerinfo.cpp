@@ -12,12 +12,17 @@ BannerInfo::~BannerInfo() = default;
 
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
-    // TODO
+    // TODO mTextArguments = object[QStringLiteral("")].toString();
+    mText = object[QStringLiteral("text")].toString();
+    mTitle = object[QStringLiteral("title")].toString();
+    mLink = object[QStringLiteral("link")].toString();
+    mIdentifier = object[QStringLiteral("id")].toString();
+    mPriority = object[QStringLiteral("link")].toInt();
+    mRead = object[QStringLiteral("read")].toBool(false);
 }
 
 bool BannerInfo::operator==(const BannerInfo &other) const
 {
-    // TODO
     return mText == other.text() && mTitle == other.title() && mLink == other.link() && mRead == other.read() && mRead == other.read()
         && mTextArguments == other.textArguments() && mIdentifier == other.identifier() && mPriority == other.priority();
 }

@@ -20,6 +20,8 @@ public:
     Q_REQUIRED_RESULT const QVector<BannerInfo> &banners() const;
     void setBanners(const QVector<BannerInfo> &newBanners);
 
+    void parseBannerInfos(const QJsonObject &object);
+
 private:
     QVector<BannerInfo> mBanners;
 };
