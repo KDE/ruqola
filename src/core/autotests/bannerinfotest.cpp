@@ -19,4 +19,7 @@ void BannerInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.text().isEmpty());
     QVERIFY(w.title().isEmpty());
     QVERIFY(w.link().isEmpty());
+    QVERIFY(w.textArguments().isEmpty());
+    QVERIFY(w.identifier().isEmpty());
+    QCOMPARE(w.priority(), -1);
 }

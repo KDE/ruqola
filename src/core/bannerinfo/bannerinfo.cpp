@@ -18,7 +18,8 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
 bool BannerInfo::operator==(const BannerInfo &other) const
 {
     // TODO
-    return mText == other.text() && mTitle == other.title() && mLink == other.link() && mRead == other.read() && mRead == other.read();
+    return mText == other.text() && mTitle == other.title() && mLink == other.link() && mRead == other.read() && mRead == other.read()
+        && mTextArguments == other.textArguments() && mIdentifier == other.identifier() && mPriority == other.priority();
 }
 
 const QString &BannerInfo::text() const
@@ -61,11 +62,44 @@ void BannerInfo::setRead(bool newRead)
     mRead = newRead;
 }
 
+const QStringList &BannerInfo::textArguments() const
+{
+    return mTextArguments;
+}
+
+void BannerInfo::setTextArguments(const QStringList &newTextArguments)
+{
+    mTextArguments = newTextArguments;
+}
+
+const QString &BannerInfo::identifier() const
+{
+    return mIdentifier;
+}
+
+void BannerInfo::setIdentifier(const QString &newIdentifier)
+{
+    mIdentifier = newIdentifier;
+}
+
+int BannerInfo::priority() const
+{
+    return mPriority;
+}
+
+void BannerInfo::setPriority(int newPriority)
+{
+    mPriority = newPriority;
+}
+
 QDebug operator<<(QDebug d, const BannerInfo &t)
 {
     d << "mText " << t.text();
     d << "mTitle " << t.title();
     d << "mLink " << t.link();
     d << "mRead " << t.read();
+    d << "mTextArguments " << t.textArguments();
+    d << "mIdentifier " << t.identifier();
+    d << "mPriority " << t.priority();
     return d;
 }

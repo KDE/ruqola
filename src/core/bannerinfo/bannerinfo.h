@@ -33,10 +33,22 @@ public:
     Q_REQUIRED_RESULT bool read() const;
     void setRead(bool newRead);
 
+    Q_REQUIRED_RESULT const QStringList &textArguments() const;
+    void setTextArguments(const QStringList &newTextArguments);
+
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+    Q_REQUIRED_RESULT int priority() const;
+    void setPriority(int newPriority);
+
 private:
+    QStringList mTextArguments;
     QString mText;
     QString mTitle;
     QString mLink;
+    QString mIdentifier;
+    int mPriority = -1;
     bool mRead = false;
 };
 
