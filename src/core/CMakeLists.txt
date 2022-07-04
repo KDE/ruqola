@@ -28,6 +28,8 @@ target_sources(libruqolacore PRIVATE
 
     bannerinfo/bannerinfo.h
     bannerinfo/bannerinfo.cpp
+    bannerinfo/bannerinfos.h
+    bannerinfo/bannerinfos.cpp
 
     channelcounterinfo.cpp
     channelcounterinfo.h
