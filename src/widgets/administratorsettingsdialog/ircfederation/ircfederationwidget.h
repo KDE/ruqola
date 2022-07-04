@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT IrcFederationWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -17,4 +18,8 @@ public:
     ~IrcFederationWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mEnabled;
+    QComboBox *const mProtocol;
 };

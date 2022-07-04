@@ -8,7 +8,7 @@
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
-#include <QLabel>
+#include <QComboBox>
 #include <QLineEdit>
 #include <QTest>
 
@@ -21,5 +21,16 @@ IrcFederationWidgetTest::IrcFederationWidgetTest(QObject *parent)
 void IrcFederationWidgetTest::shouldHaveDefaultValues()
 {
     IrcFederationWidget w(nullptr);
-    // TODO
+
+    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    QVERIFY(mEnabled);
+    QVERIFY(!mEnabled->isChecked());
+    QVERIFY(!mEnabled->text().isEmpty());
+    QVERIFY(!mEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("IRC_Enabled"));
+
+    auto mProtocol = w.findChild<QComboBox *>(QStringLiteral("mProtocol"));
+    QVERIFY(mProtocol);
+    QCOMPARE(mProtocol->count(), 1);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mProtocol), QStringLiteral("IRC_Protocol"));
 }
