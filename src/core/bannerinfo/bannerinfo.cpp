@@ -6,6 +6,8 @@
 
 #include "bannerinfo.h"
 
+#include <QJsonArray>
+
 BannerInfo::BannerInfo() = default;
 
 BannerInfo::~BannerInfo() = default;
@@ -17,7 +19,13 @@ bool BannerInfo::isValid() const
 
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
-    // TODO mTextArguments = object[QStringLiteral("")].toString();
+    QStringList lst;
+    const QJsonArray array = object[QStringLiteral("textArguments")].toArray();
+    lst.reserve(array.count());
+    for (const QJsonValue &current : array) {
+        lst.append(current.toString());
+    }
+    mTextArguments = lst;
     mText = object[QStringLiteral("text")].toString();
     mTitle = object[QStringLiteral("title")].toString();
     mLink = object[QStringLiteral("link")].toString();
