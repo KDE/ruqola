@@ -14,7 +14,17 @@ BannerInfos::~BannerInfos() = default;
 
 void BannerInfos::parseBannerInfos(const QJsonObject &object)
 {
-    // TODO
+    mBanners.clear();
+    const QJsonObject obj = object[QStringLiteral("banners")].toObject();
+    const QStringList keys = obj.keys();
+    for (const auto &key : keys) {
+        const QJsonObject currentObj = obj[key].toObject();
+        BannerInfo info;
+        info.parseBannerInfo(currentObj);
+        if (info.isValid()) {
+            mBanners.append(info);
+        }
+    }
 }
 
 QDebug operator<<(QDebug d, const BannerInfos &t)

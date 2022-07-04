@@ -10,6 +10,11 @@ BannerInfo::BannerInfo() = default;
 
 BannerInfo::~BannerInfo() = default;
 
+bool BannerInfo::isValid() const
+{
+    return !mText.isEmpty() && !mIdentifier.isEmpty() && !mTitle.isEmpty();
+}
+
 void BannerInfo::parseBannerInfo(const QJsonObject &object)
 {
     // TODO mTextArguments = object[QStringLiteral("")].toString();

@@ -17,6 +17,8 @@ public:
     BannerInfo();
     ~BannerInfo();
 
+    Q_REQUIRED_RESULT bool isValid() const;
+
     void parseBannerInfo(const QJsonObject &object);
 
     Q_REQUIRED_RESULT bool operator==(const BannerInfo &other) const;
