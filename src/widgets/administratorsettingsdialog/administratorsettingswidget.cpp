@@ -67,6 +67,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
+    updateState(false);
 }
 
 AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
@@ -97,17 +98,18 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     mPasswordSettingsWidget->initialize(mapSettings);
     mVideoConferenceWidget->initialize(mapSettings);
     mIrcFederationWidget->initialize(mapSettings);
+    updateState(true);
 }
 
-void AdministratorSettingsWidget::updatePage()
+void AdministratorSettingsWidget::updateState(bool state)
 {
-    mAccountSettingsWidget->setEnabled(true);
-    mEncryptionSettingsWidget->setEnabled(true);
-    mMessageSettingsWidget->setEnabled(true);
-    mUploadFileSettingsWidget->setEnabled(true);
-    mRetentionPolicySettingsWidget->setEnabled(true);
-    mRateLimiterWidget->setEnabled(true);
-    mPasswordSettingsWidget->setEnabled(true);
-    mVideoConferenceWidget->setEnabled(true);
-    mIrcFederationWidget->setEnabled(true);
+    mAccountSettingsWidget->setEnabled(state);
+    mEncryptionSettingsWidget->setEnabled(state);
+    mMessageSettingsWidget->setEnabled(state);
+    mUploadFileSettingsWidget->setEnabled(state);
+    mRetentionPolicySettingsWidget->setEnabled(state);
+    mRateLimiterWidget->setEnabled(state);
+    mPasswordSettingsWidget->setEnabled(state);
+    mVideoConferenceWidget->setEnabled(state);
+    mIrcFederationWidget->setEnabled(state);
 }

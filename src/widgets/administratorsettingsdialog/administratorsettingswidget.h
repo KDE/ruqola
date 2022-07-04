@@ -32,7 +32,7 @@ public:
 
 private:
     void initialize(const QJsonObject &obj);
-    void updatePage();
+    void updateState(bool state);
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;
