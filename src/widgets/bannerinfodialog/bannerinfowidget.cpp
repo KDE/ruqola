@@ -6,9 +6,14 @@
 
 #include "bannerinfowidget.h"
 
+#include <QVBoxLayout>
+
 BannerInfoWidget::BannerInfoWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 BannerInfoWidget::~BannerInfoWidget() = default;
