@@ -1,0 +1,10 @@
+{
+            "id": "versionUpdate-4_4_1",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1",
+            "priority": 10,
+            "text": "New_version_available_(s)",
+            "textArguments": [
+                "4.4.1"
+            ],
+            "title": "Update_your_RocketChat"
+}

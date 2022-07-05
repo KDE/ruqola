@@ -57,4 +57,14 @@ void BannerInfoTest::shouldBannerInfo_data()
         info.setTitle(QStringLiteral("Attn: Important Security fix"));
         QTest::addRow("bannerinfo1") << QStringLiteral("bannerinfo1") << info;
     }
+    {
+        BannerInfo info;
+        info.setIdentifier(QStringLiteral("versionUpdate-4_4_1"));
+        info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1"));
+        info.setPriority(10);
+        info.setText(QStringLiteral("New_version_available_(s)"));
+        info.setTextArguments(QStringList({QStringLiteral("4.4.1")}));
+        info.setTitle(QStringLiteral("Update_your_RocketChat"));
+        QTest::addRow("bannerinfo2") << QStringLiteral("bannerinfo2") << info;
+    }
 }
