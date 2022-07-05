@@ -55,4 +55,14 @@ void IrcFederationWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDescription);
     QVERIFY(mDescription->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDescription), QStringLiteral("IRC_Description"));
+
+    auto mLocalPassword = w.findChild<QLineEdit *>(QStringLiteral("mLocalPassword"));
+    QVERIFY(mLocalPassword);
+    QVERIFY(mLocalPassword->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLocalPassword), QStringLiteral("IRC_Local_Password"));
+
+    auto mPeerPassword = w.findChild<QLineEdit *>(QStringLiteral("mPeerPassword"));
+    QVERIFY(mPeerPassword);
+    QVERIFY(mPeerPassword->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPeerPassword), QStringLiteral("IRC_Peer_Password"));
 }

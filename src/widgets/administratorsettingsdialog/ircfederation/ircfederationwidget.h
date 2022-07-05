@@ -26,4 +26,6 @@ private:
     QSpinBox *const mPort;
     QLineEdit *const mName;
     QLineEdit *const mDescription;
+    QLineEdit *const mLocalPassword;
+    QLineEdit *const mPeerPassword;
 };

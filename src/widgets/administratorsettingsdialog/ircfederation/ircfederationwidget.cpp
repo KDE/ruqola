@@ -20,6 +20,9 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
     , mPort(new QSpinBox(this))
     , mName(new QLineEdit(this))
     , mDescription(new QLineEdit(this))
+    , mLocalPassword(new QLineEdit(this))
+    , mPeerPassword(new QLineEdit(this))
+
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
@@ -44,6 +47,12 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
 
     mDescription->setObjectName(QStringLiteral("mDescription"));
     addLineEdit(i18n("Description"), mDescription, QStringLiteral("IRC_Description"));
+
+    mLocalPassword->setObjectName(QStringLiteral("mLocalPassword"));
+    addLineEdit(i18n("Local Password"), mLocalPassword, QStringLiteral("IRC_Local_Password"));
+
+    mPeerPassword->setObjectName(QStringLiteral("mPeerPassword"));
+    addLineEdit(i18n("Peer Password"), mPeerPassword, QStringLiteral("IRC_Peer_Password"));
 }
 
 IrcFederationWidget::~IrcFederationWidget() = default;
@@ -56,4 +65,6 @@ void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mPort, mapSettings);
     initializeWidget(mName, mapSettings);
     initializeWidget(mDescription, mapSettings);
+    initializeWidget(mLocalPassword, mapSettings);
+    initializeWidget(mPeerPassword, mapSettings);
 }
