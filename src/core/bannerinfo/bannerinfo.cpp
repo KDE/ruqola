@@ -30,7 +30,7 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
     mTitle = object[QStringLiteral("title")].toString();
     mLink = object[QStringLiteral("link")].toString();
     mIdentifier = object[QStringLiteral("id")].toString();
-    mPriority = object[QStringLiteral("link")].toInt();
+    mPriority = object[QStringLiteral("link")].toInt(-1);
     mRead = object[QStringLiteral("read")].toBool(false);
 }
 

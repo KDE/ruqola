@@ -5,6 +5,7 @@
 */
 #include "bannerinfotest.h"
 #include "bannerinfo/bannerinfo.h"
+#include "ruqola_autotest_helper.h"
 #include <QTest>
 QTEST_GUILESS_MAIN(BannerInfoTest)
 BannerInfoTest::BannerInfoTest(QObject *parent)
@@ -22,4 +23,28 @@ void BannerInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.textArguments().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QCOMPARE(w.priority(), -1);
+}
+
+void BannerInfoTest::shouldBannerInfo()
+{
+    QFETCH(QString, name);
+    QFETCH(BannerInfo, bannerInfo);
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/bannerinfo/") + name + QLatin1String(".json");
+    const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
+
+    BannerInfo result;
+    result.parseBannerInfo(obj);
+    const bool equal = result == bannerInfo;
+    if (!equal) {
+        qDebug() << " result " << result;
+        qDebug() << " bannerInfo " << bannerInfo;
+    }
+    QVERIFY(equal);
+}
+
+void BannerInfoTest::shouldBannerInfo_data()
+{
+    QTest::addColumn<QString>("name");
+    QTest::addColumn<BannerInfo>("bannerInfo");
+    QTest::addRow("bannerinfoempty") << QStringLiteral("bannerinfoempty") << BannerInfo();
 }
