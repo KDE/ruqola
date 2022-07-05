@@ -135,6 +135,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/ircfederation/ircfederationwidget.h
     administratorsettingsdialog/ircfederation/ircfederationwidget.cpp
 
+    bannerinfodialog/bannerinfodialog.h
+    bannerinfodialog/bannerinfodialog.cpp
+
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h
     channellist/channellistview.cpp
@@ -617,6 +620,7 @@ if (BUILD_TESTING)
     add_subdirectory(notificationhistory/autotests)
     add_subdirectory(discussions/autotests/)
     add_subdirectory(administratorsettingsdialog/autotests/)
+    add_subdirectory(bannerinfodialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
