@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfodialog.h"
+#include "bannerinfowidget.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -19,10 +20,14 @@ const char myConfigGroupName[] = "BannerInfoDialog";
 
 BannerInfoDialog::BannerInfoDialog(QWidget *parent)
     : QDialog(parent)
+    , mBannerInfoWidget(new BannerInfoWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Export Messages"));
+    setWindowTitle(i18nc("@title:window", "Banner Informations"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mBannerInfoWidget->setObjectName(QStringLiteral("mBannerInfoWidget"));
+    mainLayout->addWidget(mBannerInfoWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));

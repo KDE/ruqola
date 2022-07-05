@@ -9,6 +9,7 @@
 #include <QDialog>
 
 #include "libruqolawidgets_private_export.h"
+class BannerInfoWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoDialog : public QDialog
 {
     Q_OBJECT
@@ -19,4 +20,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    BannerInfoWidget *const mBannerInfoWidget;
 };
