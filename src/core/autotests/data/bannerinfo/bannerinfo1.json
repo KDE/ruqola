@@ -1,0 +1,12 @@
+{
+            "id": "alert-5fcc1f02f5204d09050943d2",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1",
+            "modifiers": [
+            ],
+            "priority": 10,
+            "read": true,
+            "text": "For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4",
+            "textArguments": [
+            ],
+            "title": "Attn: Important Security fix"
+} 

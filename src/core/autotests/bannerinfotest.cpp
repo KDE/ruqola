@@ -47,4 +47,14 @@ void BannerInfoTest::shouldBannerInfo_data()
     QTest::addColumn<QString>("name");
     QTest::addColumn<BannerInfo>("bannerInfo");
     QTest::addRow("bannerinfoempty") << QStringLiteral("bannerinfoempty") << BannerInfo();
+    {
+        BannerInfo info;
+        info.setIdentifier(QStringLiteral("alert-5fcc1f02f5204d09050943d2"));
+        info.setLink(QStringLiteral("https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1"));
+        info.setPriority(10);
+        info.setRead(true);
+        info.setText(QStringLiteral("For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4"));
+        info.setTitle(QStringLiteral("Attn: Important Security fix"));
+        QTest::addRow("bannerinfo1") << QStringLiteral("bannerinfo1") << info;
+    }
 }
