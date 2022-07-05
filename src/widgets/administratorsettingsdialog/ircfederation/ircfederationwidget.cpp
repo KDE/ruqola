@@ -9,11 +9,17 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
+#include <QLineEdit>
+#include <QSpinBox>
 
 IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
     , mProtocol(new QComboBox(this))
+    , mHost(new QLineEdit(this))
+    , mPort(new QSpinBox(this))
+    , mName(new QLineEdit(this))
+    , mDescription(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Attempt to integrate IRC support. Changing this value requires restarting Rocket.Chat."));
@@ -25,6 +31,19 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
         {QStringLiteral("RFC2813"), i18n("RFC2813")},
     };
     addComboBox(i18n("Protocol"), maps, mProtocol, QStringLiteral("IRC_Protocol"));
+
+    mHost->setObjectName(QStringLiteral("mHost"));
+    addLineEdit(i18n("Host"), mHost, QStringLiteral("IRC_Host"));
+
+    mPort->setObjectName(QStringLiteral("mPort"));
+    mPort->setToolTip(i18n("The port to bind to on the IRC host server."));
+    addSpinbox(i18n("Port"), mPort, QStringLiteral("IRC_Port"));
+
+    mName->setObjectName(QStringLiteral("mName"));
+    addLineEdit(i18n("Name"), mName, QStringLiteral("IRC_Name"));
+
+    mDescription->setObjectName(QStringLiteral("mDescription"));
+    addLineEdit(i18n("Description"), mDescription, QStringLiteral("IRC_Description"));
 }
 
 IrcFederationWidget::~IrcFederationWidget() = default;
@@ -32,4 +51,9 @@ IrcFederationWidget::~IrcFederationWidget() = default;
 void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings);
+    initializeWidget(mProtocol, mapSettings);
+    initializeWidget(mHost, mapSettings);
+    initializeWidget(mPort, mapSettings);
+    initializeWidget(mName, mapSettings);
+    initializeWidget(mDescription, mapSettings);
 }

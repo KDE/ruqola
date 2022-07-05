@@ -22,4 +22,8 @@ public:
 private:
     QCheckBox *const mEnabled;
     QComboBox *const mProtocol;
+    QLineEdit *const mHost;
+    QSpinBox *const mPort;
+    QLineEdit *const mName;
+    QLineEdit *const mDescription;
 };
