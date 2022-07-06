@@ -9,10 +9,14 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListSearchLineWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit BannerInfoListSearchLineWidget(QWidget *parent = nullptr);
     ~BannerInfoListSearchLineWidget() override;
+
+private:
+    QLineEdit *const mSearchLineEdit;
 };
