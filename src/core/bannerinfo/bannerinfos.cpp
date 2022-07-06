@@ -27,6 +27,21 @@ void BannerInfos::parseBannerInfos(const QJsonObject &object)
     }
 }
 
+bool BannerInfos::isEmpty() const
+{
+    return mBanners.isEmpty();
+}
+
+void BannerInfos::clear()
+{
+    mBanners.clear();
+}
+
+int BannerInfos::count() const
+{
+    return mBanners.count();
+}
+
 QDebug operator<<(QDebug d, const BannerInfos &t)
 {
     for (int i = 0, total = t.banners().count(); i < total; ++i) {

@@ -22,6 +22,12 @@ public:
 
     void parseBannerInfos(const QJsonObject &object);
 
+    void clear();
+
+    Q_REQUIRED_RESULT int count() const;
+
+    Q_REQUIRED_RESULT bool isEmpty() const;
+
 private:
     QVector<BannerInfo> mBanners;
 };
