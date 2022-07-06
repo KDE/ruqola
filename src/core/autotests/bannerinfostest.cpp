@@ -27,6 +27,7 @@ void BannerInfosTest::shouldLoadRoles_data()
     QTest::addColumn<int>("bannersCount");
 
     QTest::addRow("bannerinfos-empty") << QStringLiteral("bannerinfos-empty") << 0;
+    QTest::addRow("bannerinfos1") << QStringLiteral("bannerinfos1") << 3;
 }
 
 void BannerInfosTest::shouldLoadRoles()
