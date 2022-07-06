@@ -139,6 +139,10 @@ target_sources(libruqolawidgets PRIVATE
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
     bannerinfodialog/bannerinfowidget.cpp
+    bannerinfodialog/bannerinfolistview.h
+    bannerinfodialog/bannerinfolistview.cpp
+    bannerinfodialog/bannerinfolistsearchlinewidget.h
+    bannerinfodialog/bannerinfolistsearchlinewidget.cpp
 
     channellist/channellistdelegate.cpp
     channellist/channellistdelegate.h

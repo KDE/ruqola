@@ -7,6 +7,7 @@
 #include "bannerinfowidgettest.h"
 #include "bannerinfodialog/bannerinfowidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(BannerInfoWidgetTest)
 BannerInfoWidgetTest::BannerInfoWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +17,8 @@ BannerInfoWidgetTest::BannerInfoWidgetTest(QObject *parent)
 void BannerInfoWidgetTest::shouldHaveDefaultValues()
 {
     BannerInfoWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }

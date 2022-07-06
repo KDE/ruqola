@@ -9,10 +9,14 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class BannerInfoListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit BannerInfoWidget(QWidget *parent = nullptr);
     ~BannerInfoWidget() override;
+
+private:
+    BannerInfoListView *const mBannerInfoListView;
 };

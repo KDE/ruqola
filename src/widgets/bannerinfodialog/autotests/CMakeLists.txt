@@ -12,3 +12,5 @@ endmacro()
 
 add_ruqola_bannerinfodialog_test(bannerinfodialogtest.cpp)
 add_ruqola_bannerinfodialog_test(bannerinfowidgettest.cpp)
+add_ruqola_bannerinfodialog_test(bannerinfolistviewtest.cpp)
+add_ruqola_bannerinfodialog_test(bannerinfolistsearchlinewidgettest.cpp)
