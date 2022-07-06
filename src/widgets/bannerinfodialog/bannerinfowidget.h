@@ -10,6 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class BannerInfoListView;
+class BannerInfoListSearchLineWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -18,5 +19,6 @@ public:
     ~BannerInfoWidget() override;
 
 private:
+    BannerInfoListSearchLineWidget *const mBannerInfoListSearchLineWidget;
     BannerInfoListView *const mBannerInfoListView;
 };
