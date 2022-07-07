@@ -156,6 +156,8 @@ target_sources(libruqolacore PRIVATE
     model/autotranslatelanguagesmodel.h
     model/bannerinfosmodel.cpp
     model/bannerinfosmodel.h
+    model/bannerinfosfilterproxymodel.h
+    model/bannerinfosfilterproxymodel.cpp
     model/channelcompleterfilterproxymodel.cpp
     model/channelcompleterfilterproxymodel.h
     model/channelcompletermodel.cpp
