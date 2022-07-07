@@ -6,6 +6,8 @@
 
 #include "bannerinfolistsearchlinewidgettest.h"
 #include "bannerinfodialog/bannerinfolistsearchlinewidget.h"
+#include <QHBoxLayout>
+#include <QLineEdit>
 #include <QTest>
 
 QTEST_MAIN(BannerInfoListSearchLineWidgetTest)
@@ -17,5 +19,12 @@ BannerInfoListSearchLineWidgetTest::BannerInfoListSearchLineWidgetTest(QObject *
 void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
 {
     BannerInfoListSearchLineWidget w;
-    // TODO
+
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
+    QVERIFY(mSearchLineEdit);
+    QVERIFY(mSearchLineEdit->text().isEmpty());
 }
