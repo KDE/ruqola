@@ -5,7 +5,7 @@
 */
 
 #include "bannerinfos.h"
-
+#include "ruqola_debug.h"
 #include <QJsonObject>
 
 BannerInfos::BannerInfos() = default;
@@ -30,6 +30,15 @@ void BannerInfos::parseBannerInfos(const QJsonObject &object)
 bool BannerInfos::isEmpty() const
 {
     return mBanners.isEmpty();
+}
+
+BannerInfo BannerInfos::at(int index) const
+{
+    if (index < 0 || index > mBanners.count()) {
+        qCWarning(RUQOLA_LOG) << "Invalid index " << index;
+        return {};
+    }
+    return mBanners.at(index);
 }
 
 void BannerInfos::clear()

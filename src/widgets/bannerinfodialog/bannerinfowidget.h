@@ -11,6 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class BannerInfoListView;
 class BannerInfoListSearchLineWidget;
+class BannerInfosFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -21,4 +22,5 @@ public:
 private:
     BannerInfoListSearchLineWidget *const mBannerInfoListSearchLineWidget;
     BannerInfoListView *const mBannerInfoListView;
+    BannerInfosFilterProxyModel *const mBannerInfosFilterProxyModel;
 };

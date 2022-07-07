@@ -21,6 +21,7 @@ public:
         Text,
         Link,
         Read,
+        Identifier,
     };
 
     Q_ENUM(BannerInfosRoles)

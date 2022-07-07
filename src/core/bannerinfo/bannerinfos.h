@@ -28,6 +28,8 @@ public:
 
     Q_REQUIRED_RESULT bool isEmpty() const;
 
+    Q_REQUIRED_RESULT BannerInfo at(int index) const;
+
 private:
     QVector<BannerInfo> mBanners;
 };
