@@ -17,8 +17,12 @@ class LIBRUQOLACORE_EXPORT BannerInfosModel : public QAbstractListModel
     Q_OBJECT
 public:
     enum BannerInfosRoles {
-        AccountName = Qt::UserRole + 1,
+        Title = Qt::UserRole + 1,
+        Text,
+        Link,
+        Read,
     };
+
     Q_ENUM(BannerInfosRoles)
 
     explicit BannerInfosModel(QObject *parent = nullptr);
