@@ -659,6 +659,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mDirectory->setEnabled(!loginPageActivated);
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);
+    mShowRocketChatServerInfo->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
