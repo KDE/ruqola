@@ -94,6 +94,7 @@ private:
     void slotNewNotification();
     void slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
     void slotAdministratorServerSettings();
+    void slotRocketChatInformation();
 
     bool mReallyClose{false};
 
@@ -131,4 +132,5 @@ private:
     QAction *mShowNotifyHistory = nullptr;
     KActionMenu *mAdministratorMenu = nullptr;
     AccountManager *mAccountManager = nullptr;
+    QAction *mShowRocketChatServerInfo = nullptr;
 };

@@ -13,6 +13,7 @@
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
 
+#include "bannerinfodialog/bannerinfodialog.h"
 #include "config-ruqola.h"
 #include "configuredialog/configuresettingsdialog.h"
 #include "connection.h"
@@ -481,6 +482,10 @@ void RuqolaMainWindow::setupActions()
     mShowNotifyHistory = new QAction(QIcon::fromTheme(QStringLiteral("notifications")), i18n("Show Notify History"), this);
     connect(mShowNotifyHistory, &QAction::triggered, this, &RuqolaMainWindow::slotOpenNotificationHistory);
     ac->addAction(QStringLiteral("show_notify_history"), mShowNotifyHistory);
+
+    mShowRocketChatServerInfo = new QAction(i18n("Show RocketChat Information"), this);
+    connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
+    ac->addAction(QStringLiteral("show_rocketchat_information"), mShowRocketChatServerInfo);
 }
 
 void RuqolaMainWindow::showNextView()
@@ -856,5 +861,11 @@ void RuqolaMainWindow::slotOpenNotificationHistory()
     mNotificationToolButton->hide();
     NotificationHistoryDialog dlg(this);
     connect(&dlg, &NotificationHistoryDialog::showNotifyMessage, this, &RuqolaMainWindow::slotShowNotifyMessage);
+    dlg.exec();
+}
+
+void RuqolaMainWindow::slotRocketChatInformation()
+{
+    BannerInfoDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
