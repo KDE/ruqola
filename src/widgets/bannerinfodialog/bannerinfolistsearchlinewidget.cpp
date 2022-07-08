@@ -5,12 +5,15 @@
 */
 
 #include "bannerinfolistsearchlinewidget.h"
+#include <KLocalizedString>
+#include <QCheckBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
 
 BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
+    , mUnrealCheckBox(new QCheckBox(i18n("Show Unread"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -18,6 +21,10 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mainLayout->addWidget(mSearchLineEdit);
+
+    mUnrealCheckBox->setObjectName(QStringLiteral("mUnrealCheckBox"));
+    mainLayout->addWidget(mUnrealCheckBox);
+
     // TODO add combobox or checkbox
 }
 

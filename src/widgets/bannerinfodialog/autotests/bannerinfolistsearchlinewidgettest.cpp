@@ -6,6 +6,7 @@
 
 #include "bannerinfolistsearchlinewidgettest.h"
 #include "bannerinfodialog/bannerinfolistsearchlinewidget.h"
+#include <QCheckBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QTest>
@@ -27,4 +28,8 @@ void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
     auto mSearchLineEdit = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineEdit"));
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
+
+    auto mUnrealCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mUnrealCheckBox"));
+    QVERIFY(mUnrealCheckBox);
+    QVERIFY(!mUnrealCheckBox->isChecked());
 }

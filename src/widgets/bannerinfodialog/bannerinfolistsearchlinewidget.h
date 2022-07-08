@@ -10,6 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListSearchLineWidget : public QWidget
 {
     Q_OBJECT
@@ -19,4 +20,5 @@ public:
 
 private:
     QLineEdit *const mSearchLineEdit;
+    QCheckBox *const mUnrealCheckBox;
 };
