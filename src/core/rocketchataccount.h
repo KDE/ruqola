@@ -9,6 +9,7 @@
 #include "accountroomsettings.h"
 #include "attachments/file.h"
 #include "authenticationinfo.h"
+#include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"
 #include "commands/runcommandjob.h"
 #include "createchannelteaminfo.h"
@@ -494,6 +495,8 @@ public:
     Q_REQUIRED_RESULT bool messageAllowConvertLongMessagesToAttachment() const;
 
     Q_REQUIRED_RESULT bool allowPasswordReset() const;
+    Q_REQUIRED_RESULT const BannerInfos &bannerInfos() const;
+
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();
@@ -677,6 +680,7 @@ private:
     PermissionManager mPermissionManager;
     RolesManager mRolesManager;
     QStringList mSearchListCompletion;
+    BannerInfos mBannerInfos;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

@@ -563,6 +563,11 @@ void RocketChatAccount::slotJobFailed(const QString &str)
     Q_EMIT jobFailed(str, accountName());
 }
 
+const BannerInfos &RocketChatAccount::bannerInfos() const
+{
+    return mBannerInfos;
+}
+
 UploadFileManager *RocketChatAccount::uploadFileManager() const
 {
     return mUploadFileManager;
@@ -2518,6 +2523,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
 {
     mOwnUser.parseOwnUserInfo(replyObject);
     mAwayManager->updateSettings();
+    mBannerInfos.parseBannerInfos(replyObject);
     const User user = mOwnUser.user();
     // qDebug() << " USER  " << user;
     if (user.isValid()) {
