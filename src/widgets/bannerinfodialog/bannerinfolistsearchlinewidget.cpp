@@ -24,8 +24,11 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
 
     mUnrealCheckBox->setObjectName(QStringLiteral("mUnrealCheckBox"));
     mainLayout->addWidget(mUnrealCheckBox);
-
-    // TODO add combobox or checkbox
 }
 
 BannerInfoListSearchLineWidget::~BannerInfoListSearchLineWidget() = default;
+
+QString BannerInfoListSearchLineWidget::searchText() const
+{
+    return mSearchLineEdit->text();
+}

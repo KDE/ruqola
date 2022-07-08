@@ -10,11 +10,12 @@
 
 #include "libruqolawidgets_private_export.h"
 class BannerInfoWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit BannerInfoDialog(QWidget *parent = nullptr);
+    explicit BannerInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~BannerInfoDialog() override;
 
 private:

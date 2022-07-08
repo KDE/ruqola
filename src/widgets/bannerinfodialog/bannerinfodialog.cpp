@@ -18,9 +18,9 @@ namespace
 const char myConfigGroupName[] = "BannerInfoDialog";
 }
 
-BannerInfoDialog::BannerInfoDialog(QWidget *parent)
+BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mBannerInfoWidget(new BannerInfoWidget(this))
+    , mBannerInfoWidget(new BannerInfoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Banner Informations"));
     auto mainLayout = new QVBoxLayout(this);

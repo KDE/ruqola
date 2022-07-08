@@ -8,21 +8,29 @@
 #include "bannerinfolistsearchlinewidget.h"
 #include "bannerinfolistview.h"
 #include "model/bannerinfosfilterproxymodel.h"
+#include "model/bannerinfosmodel.h"
+#include "rocketchataccount.h"
 
 #include <QVBoxLayout>
 
-BannerInfoWidget::BannerInfoWidget(QWidget *parent)
+BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mBannerInfoListSearchLineWidget(new BannerInfoListSearchLineWidget(this))
     , mBannerInfoListView(new BannerInfoListView(this))
     , mBannerInfosFilterProxyModel(new BannerInfosFilterProxyModel(this))
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mBannerInfosFilterProxyModel->setObjectName(QStringLiteral("mBannerInfosFilterProxyModel"));
-    // TODO mBannerInfosFilterProxyModel->setSourceModel(model);
+    auto model = new BannerInfosModel(this);
+    if (mRocketChatAccount) {
+        model->insertBannerInfos(mRocketChatAccount->bannerInfos());
+    }
+
+    mBannerInfosFilterProxyModel->setSourceModel(model);
     mBannerInfoListView->setModel(mBannerInfosFilterProxyModel);
 
     mBannerInfoListSearchLineWidget->setObjectName(QStringLiteral("mBannerInfoListSearchLineWidget"));

@@ -18,6 +18,8 @@ public:
     explicit BannerInfoListSearchLineWidget(QWidget *parent = nullptr);
     ~BannerInfoListSearchLineWidget() override;
 
+    Q_REQUIRED_RESULT QString searchText() const;
+
 private:
     QLineEdit *const mSearchLineEdit;
     QCheckBox *const mUnrealCheckBox;

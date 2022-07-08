@@ -32,4 +32,6 @@ void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
     auto mUnrealCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mUnrealCheckBox"));
     QVERIFY(mUnrealCheckBox);
     QVERIFY(!mUnrealCheckBox->isChecked());
+
+    QVERIFY(w.searchText().isEmpty());
 }

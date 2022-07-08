@@ -12,15 +12,17 @@
 class BannerInfoListView;
 class BannerInfoListSearchLineWidget;
 class BannerInfosFilterProxyModel;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit BannerInfoWidget(QWidget *parent = nullptr);
+    explicit BannerInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~BannerInfoWidget() override;
 
 private:
     BannerInfoListSearchLineWidget *const mBannerInfoListSearchLineWidget;
     BannerInfoListView *const mBannerInfoListView;
     BannerInfosFilterProxyModel *const mBannerInfosFilterProxyModel;
+    RocketChatAccount *const mRocketChatAccount;
 };
