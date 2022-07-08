@@ -14,7 +14,6 @@ NotificationPreferences::NotificationPreferences(QObject *parent)
     , mEmailNotificationModel(new NotificationPreferenceModel(this))
     , mMobileNotificationModel(new NotificationPreferenceModel(this))
     , mDesktopNotificationModel(new NotificationPreferenceModel(this))
-    , mDesktopAudioNotificationModel(new NotificationPreferenceModel(this))
     , mDesktopDurationNotificationModel(new NotificationDesktopDurationPreferenceModel(this))
     , mDesktopSoundNotificationModel(new NotificationDesktopSoundPreferenceModel(this))
 {
@@ -35,11 +34,6 @@ NotificationPreferenceModel *NotificationPreferences::mobileNotificationModel() 
 NotificationPreferenceModel *NotificationPreferences::desktopNotificationModel() const
 {
     return mDesktopNotificationModel;
-}
-
-NotificationPreferenceModel *NotificationPreferences::desktopAudioNotificationModel() const
-{
-    return mDesktopAudioNotificationModel;
 }
 
 NotificationDesktopDurationPreferenceModel *NotificationPreferences::desktopDurationNotificationModel() const

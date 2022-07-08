@@ -25,7 +25,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mHideUnreadRoomStatus(new QCheckBox(i18n("Hide Unread Room Status"), this))
     , mMuteGroupMentions(new QCheckBox(i18n("Mute Group Mentions"), this))
     , mDesktopAlertCombobox(new QComboBox(this))
-    , mDesktopAudioCombobox(new QComboBox(this))
     , mDesktopSoundCombobox(new QComboBox(this))
     , mMobileAlertCombobox(new QComboBox(this))
     , mEmailAlertCombobox(new QComboBox(this))
@@ -66,15 +65,6 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
         account->changeNotificationsSettings(mRoom->roomId(),
                                              RocketChatAccount::DesktopNotifications,
                                              NotificationPreferences::self()->desktopNotificationModel()->currentPreference(index));
-    });
-
-    mDesktopAudioCombobox->setObjectName(QStringLiteral("mDesktopAudioCombobox"));
-    desktopGroupBoxLayout->addRow(i18n("Audio:"), mDesktopAudioCombobox);
-    mDesktopAudioCombobox->setModel(NotificationPreferences::self()->desktopAudioNotificationModel());
-    connect(mDesktopAudioCombobox, &QComboBox::activated, this, [this, account](int index) {
-        account->changeNotificationsSettings(mRoom->roomId(),
-                                             RocketChatAccount::AudioNotifications,
-                                             NotificationPreferences::self()->desktopAudioNotificationModel()->currentPreference(index));
     });
 
     mDesktopSoundCombobox->setObjectName(QStringLiteral("mDesktopSoundCombobox"));
@@ -135,8 +125,6 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
     mDesktopAlertCombobox->setCurrentIndex(
         NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(notificationOptions.desktopNotifications()));
-    mDesktopAudioCombobox->setCurrentIndex(
-        NotificationPreferences::self()->desktopAudioNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotifications()));
     mDesktopSoundCombobox->setCurrentIndex(
         NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotificationValue()));
     mMobileAlertCombobox->setCurrentIndex(
