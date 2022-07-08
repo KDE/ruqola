@@ -28,7 +28,6 @@ private:
     QCheckBox *const mMuteGroupMentions;
     Room *mRoom = nullptr;
     QComboBox *const mDesktopAlertCombobox;
-    QComboBox *const mDesktopAudioCombobox;
     QComboBox *const mDesktopSoundCombobox;
     QComboBox *const mMobileAlertCombobox;
     QComboBox *const mEmailAlertCombobox;

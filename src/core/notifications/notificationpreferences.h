@@ -25,8 +25,6 @@ public:
 
     Q_REQUIRED_RESULT NotificationPreferenceModel *desktopNotificationModel() const;
 
-    Q_REQUIRED_RESULT NotificationPreferenceModel *desktopAudioNotificationModel() const;
-
     Q_REQUIRED_RESULT NotificationDesktopDurationPreferenceModel *desktopDurationNotificationModel() const;
 
     Q_REQUIRED_RESULT NotificationDesktopSoundPreferenceModel *desktopSoundNotificationModel() const;
@@ -36,7 +34,6 @@ private:
     NotificationPreferenceModel *const mEmailNotificationModel;
     NotificationPreferenceModel *const mMobileNotificationModel;
     NotificationPreferenceModel *const mDesktopNotificationModel;
-    NotificationPreferenceModel *const mDesktopAudioNotificationModel;
     NotificationDesktopDurationPreferenceModel *const mDesktopDurationNotificationModel;
     NotificationDesktopSoundPreferenceModel *const mDesktopSoundNotificationModel;
 };

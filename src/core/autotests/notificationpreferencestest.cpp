@@ -20,7 +20,6 @@ void NotificationPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(w.emailNotificationModel());
     QVERIFY(w.mobileNotificationModel());
     QVERIFY(w.desktopNotificationModel());
-    QVERIFY(w.desktopAudioNotificationModel());
     QVERIFY(w.desktopDurationNotificationModel());
     QVERIFY(w.desktopSoundNotificationModel());
 }
