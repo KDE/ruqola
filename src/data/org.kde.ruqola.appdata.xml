@@ -115,6 +115,7 @@
       <li>channel</li>
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
+      <li xml:lang="cs">kanál</li>
       <li xml:lang="es">canal</li>
       <li xml:lang="fr">canal</li>
       <li xml:lang="ia">Canal</li>
@@ -273,6 +274,7 @@
       <li>Video support</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
+      <li xml:lang="cs">Podpora videa</li>
       <li xml:lang="es">Soporte de vídeo</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="it">Supporto video</li>
@@ -357,6 +359,7 @@
       <li>Auto-away</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
+      <li xml:lang="cs">Automaticky pryč</li>
       <li xml:lang="es">Estado ausente automático</li>
       <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="ia">Absente automatic</li>
@@ -406,6 +409,7 @@
       <li>Export Messages</li>
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
+      <li xml:lang="cs">Exportovat zprávy</li>
       <li xml:lang="es">Exportar mensajes</li>
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="ia">Exporta Messages </li>
