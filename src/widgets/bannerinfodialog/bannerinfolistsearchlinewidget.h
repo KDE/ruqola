@@ -20,7 +20,12 @@ public:
 
     Q_REQUIRED_RESULT QString searchText() const;
 
+    Q_REQUIRED_RESULT bool showOnlyUnread() const;
+
+Q_SIGNALS:
+    void filterChanged();
+
 private:
     QLineEdit *const mSearchLineEdit;
-    QCheckBox *const mUnrealCheckBox;
+    QCheckBox *const mOnlyUnReadCheckBox;
 };

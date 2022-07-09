@@ -13,7 +13,7 @@
 BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
-    , mUnrealCheckBox(new QCheckBox(i18n("Show Unread"), this))
+    , mOnlyUnReadCheckBox(new QCheckBox(i18n("Show Unread"), this))
 {
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -21,9 +21,11 @@ BannerInfoListSearchLineWidget::BannerInfoListSearchLineWidget(QWidget *parent)
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mainLayout->addWidget(mSearchLineEdit);
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &BannerInfoListSearchLineWidget::filterChanged);
 
-    mUnrealCheckBox->setObjectName(QStringLiteral("mUnrealCheckBox"));
-    mainLayout->addWidget(mUnrealCheckBox);
+    mOnlyUnReadCheckBox->setObjectName(QStringLiteral("mOnlyUnReadCheckBox"));
+    mainLayout->addWidget(mOnlyUnReadCheckBox);
+    connect(mOnlyUnReadCheckBox, &QCheckBox::clicked, this, &BannerInfoListSearchLineWidget::filterChanged);
 }
 
 BannerInfoListSearchLineWidget::~BannerInfoListSearchLineWidget() = default;
@@ -31,4 +33,9 @@ BannerInfoListSearchLineWidget::~BannerInfoListSearchLineWidget() = default;
 QString BannerInfoListSearchLineWidget::searchText() const
 {
     return mSearchLineEdit->text();
+}
+
+bool BannerInfoListSearchLineWidget::showOnlyUnread() const
+{
+    return mOnlyUnReadCheckBox->isChecked();
 }

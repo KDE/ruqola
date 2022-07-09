@@ -38,6 +38,11 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mBannerInfoListView->setObjectName(QStringLiteral("mBannerInfoListView"));
     mainLayout->addWidget(mBannerInfoListView);
+
+    connect(mBannerInfoListSearchLineWidget, &BannerInfoListSearchLineWidget::filterChanged, this, [this] {
+        mBannerInfosFilterProxyModel->setFilterFixedString(mBannerInfoListSearchLineWidget->searchText());
+        mBannerInfosFilterProxyModel->setShowUnread(mBannerInfoListSearchLineWidget->showOnlyUnread());
+    });
 }
 
 BannerInfoWidget::~BannerInfoWidget() = default;

@@ -16,4 +16,5 @@ public:
     ~BannerInfoListSearchLineWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldEmitFilterChanged();
 };
