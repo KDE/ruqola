@@ -32,6 +32,13 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     case BannerInfosRoles::Identifier: {
         return info.identifier();
     }
+    case BannerInfosRoles::Title: {
+        return info.title();
+    }
+    case Qt::DisplayRole:
+    case BannerInfosRoles::Text: {
+        return info.text();
+    }
     }
     return {};
 }
