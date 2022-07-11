@@ -281,6 +281,7 @@ void RuqolaMainWindow::updateActions()
     mAdministrator->setEnabled(isAdministrator);
     mAdministratorServerSettings->setEnabled(isAdministrator);
     mAdministratorMenu->setEnabled(isAdministrator);
+    mShowRocketChatServerInfo->setVisible(mCurrentRocketChatAccount && !mCurrentRocketChatAccount->bannerInfos().isEmpty());
 }
 
 void RuqolaMainWindow::readConfig()
@@ -659,7 +660,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mDirectory->setEnabled(!loginPageActivated);
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);
-    mShowRocketChatServerInfo->setEnabled(!loginPageActivated);
+    mShowRocketChatServerInfo->setVisible(!loginPageActivated && mCurrentRocketChatAccount && !mCurrentRocketChatAccount->bannerInfos().isEmpty());
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
