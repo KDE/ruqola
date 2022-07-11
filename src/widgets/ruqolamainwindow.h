@@ -95,6 +95,7 @@ private:
     void slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
     void slotAdministratorServerSettings();
     void slotRocketChatInformation();
+    Q_REQUIRED_RESULT bool hasBannerInfo() const;
 
     bool mReallyClose{false};
 
