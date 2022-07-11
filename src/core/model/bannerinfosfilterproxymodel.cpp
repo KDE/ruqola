@@ -33,5 +33,8 @@ bool BannerInfosFilterProxyModel::showUnread() const
 
 void BannerInfosFilterProxyModel::setShowUnread(bool newShowUnread)
 {
-    mShowUnread = newShowUnread;
+    if (mShowUnread != newShowUnread) {
+        mShowUnread = newShowUnread;
+        invalidateFilter();
+    }
 }
