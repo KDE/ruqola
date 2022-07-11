@@ -5,6 +5,7 @@
 */
 
 #include "bannerinfosmodel.h"
+#include <KLocalizedString>
 
 BannerInfosModel::BannerInfosModel(QObject *parent)
     : QAbstractListModel{parent}
@@ -37,10 +38,19 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
     }
     case Qt::DisplayRole:
     case BannerInfosRoles::Text: {
-        return info.text();
+        return text(info);
     }
     }
     return {};
+}
+
+QString BannerInfosModel::text(const BannerInfo &info) const
+{
+    const QString str{info.text()};
+    if (str == QLatin1String("New_version_available_(s)")) {
+        return i18n("New version available %1", info.textArguments().at(0));
+    }
+    return str;
 }
 
 void BannerInfosModel::clear()

@@ -37,5 +37,6 @@ public:
     void insertBannerInfos(const BannerInfos &infos);
 
 private:
+    Q_REQUIRED_RESULT QString text(const BannerInfo &info) const;
     BannerInfos mBannerInfos;
 };
