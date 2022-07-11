@@ -7,6 +7,7 @@
 #include "bannerinfowidget.h"
 #include "bannerinfolistsearchlinewidget.h"
 #include "bannerinfolistview.h"
+#include "bannerinfolistviewdelegate.h"
 #include "model/bannerinfosfilterproxymodel.h"
 #include "model/bannerinfosmodel.h"
 #include "rocketchataccount.h"
@@ -32,6 +33,7 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mBannerInfosFilterProxyModel->setSourceModel(model);
     mBannerInfoListView->setModel(mBannerInfosFilterProxyModel);
+    // TODO mBannerInfoListView->setItemDelegate(new BannerInfoListViewDelegate(this));
 
     mBannerInfoListSearchLineWidget->setObjectName(QStringLiteral("mBannerInfoListSearchLineWidget"));
     mainLayout->addWidget(mBannerInfoListSearchLineWidget);
