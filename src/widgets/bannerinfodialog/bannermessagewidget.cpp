@@ -8,6 +8,10 @@
 BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
+    setVisible(false);
+    setCloseButtonVisible(true);
+    setMessageType(Information);
+    setWordWrap(true);
 }
 
 BannerMessageWidget::~BannerMessageWidget() = default;
