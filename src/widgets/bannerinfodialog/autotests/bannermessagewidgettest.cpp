@@ -16,5 +16,8 @@ BannerMessageWidgetTest::BannerMessageWidgetTest(QObject *parent)
 void BannerMessageWidgetTest::shouldHaveDefaultValues()
 {
     BannerMessageWidget w;
-    // TODO
+    w.show();
+    QVERIFY(w.wordWrap());
+    QVERIFY(w.isCloseButtonVisible());
+    QCOMPARE(w.messageType(), KMessageWidget::Information);
 }
