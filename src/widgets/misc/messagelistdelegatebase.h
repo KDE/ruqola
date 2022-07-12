@@ -45,5 +45,5 @@ protected:
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 
     QString mSearchText;
-    QListView *mListView = nullptr;
+    QListView *const mListView;
 };
