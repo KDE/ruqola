@@ -5,7 +5,7 @@
 */
 
 #include "bannerinfolistviewdelegate.h"
-
+#include "model/bannerinfosmodel.h"
 #include <QAbstractTextDocumentLayout>
 #include <QApplication>
 #include <QDebug>
@@ -22,10 +22,11 @@ BannerInfoListViewDelegate::~BannerInfoListViewDelegate() = default;
 void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     painter->save();
-    drawBackground(painter, option, index);
+    // drawBackground(painter, option, index);
+    const auto text = index.data(BannerInfosModel::Text).toString();
     QTextDocument doc;
-    doc.setHtml(option.text);
-    qDebug() << " option.text" << option.text;
+    doc.setHtml(text);
+    qDebug() << " ttext" << text;
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
 
     QAbstractTextDocumentLayout::PaintContext ctx;
@@ -42,8 +43,9 @@ void BannerInfoListViewDelegate::paint(QPainter *painter, const QStyleOptionView
 
 QSize BannerInfoListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    const auto text = index.data(BannerInfosModel::Text).toString();
     QTextDocument doc;
-    doc.setHtml(option.text);
+    doc.setHtml(text);
     doc.setTextWidth(option.rect.width());
     return QSize(doc.idealWidth(), doc.size().height());
 }
