@@ -46,9 +46,13 @@ QVariant BannerInfosModel::data(const QModelIndex &index, int role) const
 
 QString BannerInfosModel::text(const BannerInfo &info) const
 {
-    const QString str{info.text()};
+    QString str{info.text()};
     if (str == QLatin1String("New_version_available_(s)")) {
-        return i18n("New version available %1", info.textArguments().at(0));
+        str = i18n("New version available %1", info.textArguments().at(0));
+    }
+    if (!info.link().isEmpty()) {
+        // Use markdown url
+        str += QStringLiteral(" [%1](%2)").arg(i18n("link"), info.link());
     }
     return str;
 }
