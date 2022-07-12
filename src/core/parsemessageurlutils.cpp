@@ -57,7 +57,6 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
             mRoomId = urlPathDecoded.remove(QStringLiteral("/direct/"));
             mChannelType = ChannelType::Direct;
         } else {
-            qCWarning(RUQOLA_LOG) << "Unknown channel type " << urlPathDecoded;
             mServerHost.clear();
             mPath.clear();
             mRoomIdType = RoomIdType::Unknown;
