@@ -6,11 +6,6 @@
 
 #include "bannerinfolistviewdelegate.h"
 #include "model/bannerinfosmodel.h"
-#include <QAbstractTextDocumentLayout>
-#include <QApplication>
-#include <QDebug>
-#include <QPainter>
-#include <QTextDocument>
 
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -19,7 +14,6 @@
 #include <QToolTip>
 
 #include "colors.h"
-#include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "rocketchataccount.h"
