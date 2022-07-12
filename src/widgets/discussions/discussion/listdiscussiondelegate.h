@@ -9,7 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include "misc/messagelistdelegatebase.h"
-#include <QItemDelegate>
 #include <QTextDocument>
 class RocketChatAccount;
 class AvatarCacheManager;
