@@ -5,13 +5,22 @@
 */
 #pragma once
 
-#include <QListView>
-
 #include "libruqolawidgets_private_export.h"
-class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListView : public QListView
+#include "misc/messagelistviewbase.h"
+class RocketChatAccount;
+class BannerInfoListViewDelegate;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListView : public MessageListViewBase
 {
     Q_OBJECT
 public:
-    explicit BannerInfoListView(QWidget *parent = nullptr);
+    explicit BannerInfoListView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~BannerInfoListView() override;
+
+protected:
+    Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+private:
+    BannerInfoListViewDelegate *const mBannerInfoListViewDelegate;
+    RocketChatAccount *const mRocketChatAccount;
 };

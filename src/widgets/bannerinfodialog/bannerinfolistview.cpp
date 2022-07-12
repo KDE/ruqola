@@ -5,18 +5,29 @@
 */
 
 #include "bannerinfolistview.h"
+#include "bannerinfolistviewdelegate.h"
 
-BannerInfoListView::BannerInfoListView(QWidget *parent)
-    : QListView(parent)
+#include <QMouseEvent>
+
+BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *parent)
+    : MessageListViewBase(parent)
+    , mBannerInfoListViewDelegate(new BannerInfoListViewDelegate(this, account, this))
+    , mRocketChatAccount(account)
 {
-    setSelectionMode(QAbstractItemView::NoSelection);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // nicer in case of huge messages
-    setWordWrap(true); // so that the delegate sizeHint is called again when the width changes
-    // only the lineedit takes focus
-    setFocusPolicy(Qt::NoFocus);
+    setItemDelegate(mBannerInfoListViewDelegate);
+    connect(mBannerInfoListViewDelegate, &BannerInfoListViewDelegate::updateView, this, [this](const QModelIndex &index) {
+        update(index);
+    });
 }
 
-BannerInfoListView::~BannerInfoListView()
+BannerInfoListView::~BannerInfoListView() = default;
+
+bool BannerInfoListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
+    return mBannerInfoListViewDelegate->maybeStartDrag(event, option, index);
+}
+
+bool BannerInfoListView::mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    return mBannerInfoListViewDelegate->mouseEvent(event, option, index);
 }
