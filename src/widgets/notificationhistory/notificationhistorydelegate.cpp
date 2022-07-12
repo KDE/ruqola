@@ -31,8 +31,11 @@ void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const Q
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    const QString roomName = index.data(NotificationHistoryModel::RoomName).toString();
-    const QString infoStr = QStringLiteral("%1 - %2").arg(accountName, roomName);
+    QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
+    if (channelName.isEmpty()) {
+        channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
+    }
+    const QString infoStr = QStringLiteral("%1 - %2").arg(accountName, channelName);
     const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
