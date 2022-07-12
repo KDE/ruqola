@@ -30,6 +30,7 @@ void BannerInfoListSearchLineWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->text().isEmpty());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
+    QVERIFY(mSearchLineEdit->isClearButtonEnabled());
 
     auto mOnlyUnReadCheckBox = w.findChild<QCheckBox *>(QStringLiteral("mOnlyUnReadCheckBox"));
     QVERIFY(mOnlyUnReadCheckBox);
