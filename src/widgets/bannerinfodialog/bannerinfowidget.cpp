@@ -33,7 +33,7 @@ BannerInfoWidget::BannerInfoWidget(RocketChatAccount *account, QWidget *parent)
 
     mBannerInfosFilterProxyModel->setSourceModel(model);
     mBannerInfoListView->setModel(mBannerInfosFilterProxyModel);
-    // TODO mBannerInfoListView->setItemDelegate(new BannerInfoListViewDelegate(this));
+    mBannerInfoListView->setItemDelegate(new BannerInfoListViewDelegate(mBannerInfoListView, mRocketChatAccount, this));
 
     mBannerInfoListSearchLineWidget->setObjectName(QStringLiteral("mBannerInfoListSearchLineWidget"));
     mainLayout->addWidget(mBannerInfoListSearchLineWidget);
