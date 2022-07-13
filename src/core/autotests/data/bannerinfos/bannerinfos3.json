@@ -1,0 +1,36 @@
+{
+"banners": {
+        "alert-5fcc1f02f5204d09050943d2": {
+            "id": "alert-5fcc1f02f5204d09050943d2",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/3.9.1",
+            "modifiers": [
+            ],
+            "priority": 10,
+            "text": "For all installations using SAML Please upgrade as soon as possible.  3.9.1 / 3.8.3 / 3.7.3 / 2.4.13 / 1.3.4 / 0.74.4",
+            "textArguments": [
+            ],
+            "title": "Attn: Important Security fix"
+        },
+        "alert-5fd28c50f5204d0905439c78": {
+            "id": "alert-5fd28c50f5204d0905439c78",
+            "link": "https://docs.rocket.chat/rocket.chat-saas/faq#cloud-accounts",
+            "modifiers": [
+            ],
+            "priority": 10,
+            "text": "Please note that mobile push limit took place on December 1st 2020. See mobile push limit and usage [here], and check our forum for more details.",
+            "textArguments": [
+            ],
+            "title": "Warning"
+        },
+        "versionUpdate-4_4_1": {
+            "id": "versionUpdate-4_4_1",
+            "link": "https://github.com/RocketChat/Rocket.Chat/releases/tag/4.4.1",
+            "priority": 10,
+            "text": "New_version_available_(s)",
+            "textArguments": [
+                "4.4.1"
+            ],
+            "title": "Update_your_RocketChat"
+        }
+}
+}

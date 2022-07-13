@@ -26,19 +26,24 @@ void BannerInfosTest::shouldLoadRoles_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("bannersCount");
+    QTest::addColumn<bool>("hasUnreadBanner");
 
-    QTest::addRow("bannerinfos-empty") << QStringLiteral("bannerinfos-empty") << 0;
-    QTest::addRow("bannerinfos1") << QStringLiteral("bannerinfos1") << 3;
+    QTest::addRow("bannerinfos-empty") << QStringLiteral("bannerinfos-empty") << 0 << false;
+    QTest::addRow("bannerinfos1") << QStringLiteral("bannerinfos1") << 3 << false;
+    QTest::addRow("bannerinfos2") << QStringLiteral("bannerinfos2") << 3 << true;
+    QTest::addRow("bannerinfos3") << QStringLiteral("bannerinfos3") << 3 << true;
 }
 
 void BannerInfosTest::shouldLoadRoles()
 {
     QFETCH(QString, name);
     QFETCH(int, bannersCount);
+    QFETCH(bool, hasUnreadBanner);
     const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/bannerinfos/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     BannerInfos r;
     r.parseBannerInfos(obj);
     QCOMPARE(r.count(), bannersCount);
+    QCOMPARE(r.hasUnreadBanner(), hasUnreadBanner);
 }
