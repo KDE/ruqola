@@ -16,6 +16,7 @@ class RoomWidget;
 class QSplitter;
 class RocketChatAccount;
 class Room;
+class BannerMessageWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaMainWidget : public QWidget
 {
     Q_OBJECT
@@ -40,5 +41,6 @@ private:
     QStackedWidget *const mStackedRoomWidget;
     RoomWidget *const mRoomWidget;
     QWidget *const mEmptyRoomWidget;
+    BannerMessageWidget *const mBannerMessageWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

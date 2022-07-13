@@ -5,6 +5,7 @@
 */
 
 #include "ruqolamainwidgettest.h"
+#include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistwidget.h"
 #include "room/roomwidget.h"
 #include "ruqolamainwidget.h"
@@ -27,6 +28,11 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     RuqolaMainWidget w;
     auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto topLayout = w.findChild<QVBoxLayout *>(QStringLiteral("topLayout"));
+    QVERIFY(topLayout);
+    QCOMPARE(topLayout->contentsMargins(), QMargins{});
 
     auto mSplitter = w.findChild<QSplitter *>(QStringLiteral("mSplitter"));
     QVERIFY(mSplitter);
@@ -46,4 +52,7 @@ void RuqolaMainWidgetTest::shouldHaveDefaultValues()
     auto mEmptyRoomWidget = w.findChild<QWidget *>(QStringLiteral("mEmptyRoomWidget"));
     QVERIFY(mEmptyRoomWidget);
     QCOMPARE(mStackedRoomWidget->currentWidget(), mEmptyRoomWidget);
+
+    auto mBannerMessageWidget = w.findChild<BannerMessageWidget *>(QStringLiteral("mBannerMessageWidget"));
+    QVERIFY(mBannerMessageWidget);
 }

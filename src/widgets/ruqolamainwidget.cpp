@@ -5,6 +5,7 @@
 */
 
 #include "ruqolamainwidget.h"
+#include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
 #include "model/switchchannelhistorymodel.h"
@@ -35,11 +36,19 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     , mStackedRoomWidget(new QStackedWidget(this))
     , mRoomWidget(new RoomWidget(this))
     , mEmptyRoomWidget(new QWidget(this))
+    , mBannerMessageWidget(new BannerMessageWidget(this))
 {
-    // TODO add BannerMessageWidget here.
-    auto mainLayout = new QHBoxLayout(this);
+    auto topLayout = new QVBoxLayout(this);
+    topLayout->setContentsMargins({});
+    topLayout->setObjectName(QStringLiteral("topLayout"));
+
+    auto mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
+
+    mBannerMessageWidget->setObjectName(QStringLiteral("mBannerMessageWidget"));
+    topLayout->addWidget(mBannerMessageWidget);
+    topLayout->addLayout(mainLayout);
 
     mSplitter->setObjectName(QStringLiteral("mSplitter"));
     mSplitter->setChildrenCollapsible(false);
