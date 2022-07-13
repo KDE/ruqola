@@ -36,6 +36,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     , mRoomWidget(new RoomWidget(this))
     , mEmptyRoomWidget(new QWidget(this))
 {
+    // TODO add BannerMessageWidget here.
     auto mainLayout = new QHBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
