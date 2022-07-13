@@ -134,6 +134,8 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // This is for switching between already-loaded accounts
     // On startup it's too early
     mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+
+    // TODO show bannerinfo if necessary
 }
 
 void RuqolaMainWidget::showEvent(QShowEvent *event)
