@@ -39,5 +39,7 @@ void BannerMessageWidget::slotReadInfo()
     if (mIdentifier.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << " identifier is empty. It's a bug";
     } else {
+        // TODO emit signal for inform server that we read identifier
+        animatedHide();
     }
 }
