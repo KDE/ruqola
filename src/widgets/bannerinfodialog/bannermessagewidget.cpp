@@ -32,6 +32,7 @@ const QString &BannerMessageWidget::identifier() const
 void BannerMessageWidget::setIdentifier(const QString &newIdentifier)
 {
     mIdentifier = newIdentifier;
+    animatedHide();
 }
 
 void BannerMessageWidget::slotReadInfo()
