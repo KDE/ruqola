@@ -19,6 +19,7 @@ void BannerInfosTest::shouldHaveDefaultValues()
     BannerInfos w;
     QVERIFY(w.isEmpty());
     QCOMPARE(w.count(), 0);
+    QVERIFY(!w.hasUnreadBanner());
 }
 
 void BannerInfosTest::shouldLoadRoles_data()

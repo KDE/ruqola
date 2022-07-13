@@ -30,6 +30,8 @@ public:
 
     Q_REQUIRED_RESULT BannerInfo at(int index) const;
 
+    Q_REQUIRED_RESULT bool hasUnreadBanner() const;
+
 private:
     QVector<BannerInfo> mBanners;
 };
