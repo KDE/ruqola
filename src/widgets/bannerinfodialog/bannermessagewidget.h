@@ -15,4 +15,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerMessageWidget : public KMessageWidget
 public:
     explicit BannerMessageWidget(QWidget *parent = nullptr);
     ~BannerMessageWidget() override;
+
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+private:
+    void slotReadInfo();
+    QString mIdentifier;
 };
