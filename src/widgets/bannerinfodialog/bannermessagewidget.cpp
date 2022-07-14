@@ -16,8 +16,8 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     setMessageType(Information);
     setWordWrap(true);
 
-    auto readAction = new QAction(i18n("Refresh Keys"), this);
-    readAction->setObjectName(QStringLiteral("refreshKeysAction"));
+    auto readAction = new QAction(i18n("Read"), this);
+    readAction->setObjectName(QStringLiteral("read_action"));
     connect(readAction, &QAction::triggered, this, &BannerMessageWidget::slotReadInfo);
     addAction(readAction);
 }
