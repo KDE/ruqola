@@ -52,7 +52,7 @@ public:
 
 private:
     friend class TextSelection; // for documentForIndex
-    Q_REQUIRED_RESULT QString makeMessageText(const QModelIndex &index, bool connectToUpdates) const;
+    Q_REQUIRED_RESULT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;
     void updateView(const QModelIndex &index);
 
     /**

@@ -5,6 +5,7 @@
 */
 
 #include "messagedelegatehelpertext.h"
+#include "colors.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -37,7 +38,7 @@ MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account,
 
 MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
-QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, bool connectToUpdates) const
+QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -49,7 +50,7 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
             if (index.row() < 1) {
                 return false;
             }
-            const auto previousIndex = index.siblingAtRow(index.row() - 1);
+            const auto previousIndex = index.sibling(index.row() - 1, index.column());
             const auto *previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
             Q_ASSERT(previousMessage);
             return threadMessageId == previousMessage->threadMessageId();
@@ -73,10 +74,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                             if (msg) {
                                 contextMessage = *msg;
                             } else if (connectToUpdates) {
-                                QPersistentModelIndex persistentIndex(index);
                                 connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                                     if (msgId == threadMessageId) {
-                                        that->updateView(persistentIndex);
+                                        that->updateView(index);
                                     }
                                 });
                             }
@@ -84,9 +84,8 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                             // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                         }
                     } else if (connectToUpdates) {
-                        QPersistentModelIndex persistentIndex(index);
                         connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
-                            that->updateView(persistentIndex);
+                            that->updateView(index);
                         });
                     }
                 }
@@ -106,10 +105,9 @@ QString MessageDelegateHelperText::makeMessageText(const QModelIndex &index, boo
                                                                                 contextMessage.channels(),
                                                                                 mSearchText);
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
-                    QPersistentModelIndex persistentIndex(index);
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                         if (msgId == needUpdateMessageId) {
-                            that->updateView(persistentIndex);
+                            that->updateView(index);
                         }
                     });
                 }
@@ -329,13 +327,19 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
         return ret;
     }
 
-    const QString text = makeMessageText(index, connectToUpdates);
+    const auto persistentIndex = QPersistentModelIndex(index);
+    const QString text = makeMessageText(persistentIndex, connectToUpdates);
     if (text.isEmpty()) {
         return nullptr;
     }
 
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
     auto ret = doc.get();
+    connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
+        ret->setHtml(makeMessageText(persistentIndex, false));
+        auto *that = const_cast<MessageDelegateHelperText *>(this);
+        that->updateView(persistentIndex);
+    });
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
 }
