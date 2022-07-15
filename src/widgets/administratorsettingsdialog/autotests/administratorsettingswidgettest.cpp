@@ -16,6 +16,7 @@
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
+#include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -66,4 +67,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mIrcFederationWidget = w.findChild<IrcFederationWidget *>(QStringLiteral("mIrcFederationWidget"));
     QVERIFY(mIrcFederationWidget);
+
+    auto mWebDavSettingsWidget = w.findChild<WebDavSettingsWidget *>(QStringLiteral("mWebDavSettingsWidget"));
+    QVERIFY(mWebDavSettingsWidget);
 }

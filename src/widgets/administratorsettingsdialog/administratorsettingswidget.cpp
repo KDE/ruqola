@@ -6,6 +6,7 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
+#include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
 #include "general/generalsettingswidget.h"
@@ -35,6 +36,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mPasswordSettingsWidget(new PasswordSettingsWidget(account, this))
     , mVideoConferenceWidget(new VideoConferenceWidget(account, this))
     , mIrcFederationWidget(new IrcFederationWidget(account, this))
+    , mWebDavSettingsWidget(new WebDavSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -54,6 +56,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mPasswordSettingsWidget->setObjectName(QStringLiteral("mPasswordSettingsWidget"));
     mVideoConferenceWidget->setObjectName(QStringLiteral("mVideoConferenceWidget"));
     mIrcFederationWidget->setObjectName(QStringLiteral("mIrcFederationWidget"));
+    mWebDavSettingsWidget->setObjectName(QStringLiteral("mWebDavSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -64,6 +67,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mPasswordSettingsWidget, i18n("Password"));
     mTabWidget->addTab(mVideoConferenceWidget, i18n("Video Conference"));
     mTabWidget->addTab(mIrcFederationWidget, i18n("IRC Federation"));
+    mTabWidget->addTab(mWebDavSettingsWidget, i18n("Webdav"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -98,6 +102,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     mPasswordSettingsWidget->initialize(mapSettings);
     mVideoConferenceWidget->initialize(mapSettings);
     mIrcFederationWidget->initialize(mapSettings);
+    mWebDavSettingsWidget->initialize(mapSettings);
     updateState(true);
 }
 
@@ -112,4 +117,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mPasswordSettingsWidget->setEnabled(state);
     mVideoConferenceWidget->setEnabled(state);
     mIrcFederationWidget->setEnabled(state);
+    mWebDavSettingsWidget->setEnabled(state);
 }

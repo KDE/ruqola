@@ -135,6 +135,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/ircfederation/ircfederationwidget.h
     administratorsettingsdialog/ircfederation/ircfederationwidget.cpp
 
+    administratorsettingsdialog/webdav/webdavsettingswidget.h
+    administratorsettingsdialog/webdav/webdavsettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h

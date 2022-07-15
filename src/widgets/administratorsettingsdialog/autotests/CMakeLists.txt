@@ -22,4 +22,5 @@ add_administratorsettings_test(ratelimiterwidgettest.cpp)
 add_administratorsettings_test(passwordsettingswidgettest.cpp)
 add_administratorsettings_test(videoconferencewidgettest.cpp)
 add_administratorsettings_test(ircfederationwidgettest.cpp)
+add_administratorsettings_test(webdavsettingswidgettest.cpp)
 
