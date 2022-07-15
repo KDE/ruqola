@@ -20,5 +20,10 @@ LDapSettingsWidgetTest::LDapSettingsWidgetTest(QObject *parent)
 void LDapSettingsWidgetTest::shouldHaveDefaultValues()
 {
     LDapSettingsWidget w(nullptr);
-    // TODO
+    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    QVERIFY(mEnabled);
+    QVERIFY(!mEnabled->isChecked());
+    QVERIFY(!mEnabled->text().isEmpty());
+    QVERIFY(!mEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("LDAP_Enable"));
 }
