@@ -22,6 +22,7 @@ class PasswordSettingsWidget;
 class VideoConferenceWidget;
 class IrcFederationWidget;
 class WebDavSettingsWidget;
+class LDapSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -46,5 +47,6 @@ private:
     VideoConferenceWidget *const mVideoConferenceWidget;
     IrcFederationWidget *const mIrcFederationWidget;
     WebDavSettingsWidget *const mWebDavSettingsWidget;
+    LDapSettingsWidget *const mLDapSettingsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

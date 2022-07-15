@@ -138,6 +138,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/webdav/webdavsettingswidget.h
     administratorsettingsdialog/webdav/webdavsettingswidget.cpp
 
+    administratorsettingsdialog/ldap/ldapsettingswidget.h
+    administratorsettingsdialog/ldap/ldapsettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
