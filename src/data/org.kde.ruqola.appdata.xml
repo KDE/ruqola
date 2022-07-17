@@ -31,7 +31,7 @@
   <name xml:lang="zh-TW">Ruqola</name>
   <summary>Rocket Chat Client</summary>
   <summary xml:lang="ca">Client de xat del Rocket</summary>
-  <summary xml:lang="ca-valencia">Client de xat del Rocket</summary>
+  <summary xml:lang="ca-valencia">Client de xat de Rocket</summary>
   <summary xml:lang="cs">Klient pro Rocket Chat</summary>
   <summary xml:lang="de">Rocket-Chat-Programm</summary>
   <summary xml:lang="en-GB">Rocket Chat Client</summary>
@@ -60,7 +60,7 @@
       Ruqola is a client for Rocket.Chat.
     </p>
     <p xml:lang="ca">El Ruqola és un client per al Rocket.Chat.</p>
-    <p xml:lang="ca-valencia">Ruqola és un client per al Rocket.Chat.</p>
+    <p xml:lang="ca-valencia">Ruqola és un client per a Rocket.Chat.</p>
     <p xml:lang="es">Ruqola es un cliente de chat Rocket.Chat.</p>
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rochet.Chat).</p>
