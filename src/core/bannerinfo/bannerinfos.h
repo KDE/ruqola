@@ -33,6 +33,8 @@ public:
     Q_REQUIRED_RESULT const QVector<BannerInfo> &banners() const;
     void setBanners(const QVector<BannerInfo> &newBanners);
 
+    Q_REQUIRED_RESULT UnreadInformation unreadInformation() const;
+
     void parseBannerInfos(const QJsonObject &object);
 
     void clear();

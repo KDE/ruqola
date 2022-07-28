@@ -77,3 +77,9 @@ void BannerInfos::setBanners(const QVector<BannerInfo> &newBanners)
 {
     mBanners = newBanners;
 }
+
+BannerInfos::UnreadInformation BannerInfos::unreadInformation() const
+{
+    // TODO
+    return {};
+}
