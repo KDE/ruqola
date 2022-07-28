@@ -24,23 +24,26 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
 
 BannerMessageWidget::~BannerMessageWidget() = default;
 
-const QString &BannerMessageWidget::identifier() const
-{
-    return mIdentifier;
-}
-
-void BannerMessageWidget::setIdentifier(const QString &newIdentifier)
-{
-    mIdentifier = newIdentifier;
-    animatedHide();
-}
-
 void BannerMessageWidget::slotReadInfo()
 {
-    if (mIdentifier.isEmpty()) {
+    if (mBannerInfo.identifier.isEmpty()) {
         qCWarning(RUQOLAWIDGETS_LOG) << " identifier is empty. It's a bug";
     } else {
+        Q_EMIT infoWasRead(mBannerInfo.identifier);
         // TODO emit signal for inform server that we read identifier
         animatedHide();
+    }
+}
+
+const BannerMessageWidget::BannerInfo &BannerMessageWidget::bannerInfo() const
+{
+    return mBannerInfo;
+}
+
+void BannerMessageWidget::setBannerInfo(const BannerInfo &newBannerInfo)
+{
+    if (mBannerInfo != newBannerInfo) {
+        mBannerInfo = newBannerInfo;
+        animatedShow();
     }
 }

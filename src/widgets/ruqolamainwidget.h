@@ -35,6 +35,7 @@ Q_SIGNALS:
 
 private:
     void showEvent(QShowEvent *event) override;
+    void updateBannerInfo();
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;

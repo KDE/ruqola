@@ -13,13 +13,29 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerMessageWidget : public KMessageWidget
 {
     Q_OBJECT
 public:
+    struct BannerInfo {
+        QString identifier;
+        QString i18nMessage;
+        Q_REQUIRED_RESULT bool operator==(const BannerInfo &other) const
+        {
+            return identifier == other.identifier && i18nMessage == other.i18nMessage;
+        }
+        Q_REQUIRED_RESULT bool operator!=(const BannerInfo &other) const
+        {
+            return !operator==(other);
+        }
+    };
+
     explicit BannerMessageWidget(QWidget *parent = nullptr);
     ~BannerMessageWidget() override;
 
-    Q_REQUIRED_RESULT const QString &identifier() const;
-    void setIdentifier(const QString &newIdentifier);
+    Q_REQUIRED_RESULT const BannerInfo &bannerInfo() const;
+    void setBannerInfo(const BannerInfo &newBannerInfo);
+
+Q_SIGNALS:
+    void infoWasRead(const QString &identifier);
 
 private:
     void slotReadInfo();
-    QString mIdentifier;
+    BannerInfo mBannerInfo;
 };

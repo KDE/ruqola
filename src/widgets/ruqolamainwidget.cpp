@@ -134,11 +134,15 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // This is for switching between already-loaded accounts
     // On startup it's too early
     mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+    updateBannerInfo();
+}
 
+void RuqolaMainWidget::updateBannerInfo()
+{
     if (mCurrentRocketChatAccount->bannerInfos().hasUnreadBanner()) {
         mBannerMessageWidget->animatedShow();
     } else {
-        mBannerMessageWidget->animatedHide();
+        mBannerMessageWidget->hide();
     }
 }
 
