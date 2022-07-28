@@ -35,12 +35,12 @@ void BannerMessageWidget::slotReadInfo()
     }
 }
 
-const BannerMessageWidget::BannerInfo &BannerMessageWidget::bannerInfo() const
+const BannerInfos::UnreadInformation &BannerMessageWidget::bannerInfo() const
 {
     return mBannerInfo;
 }
 
-void BannerMessageWidget::setBannerInfo(const BannerInfo &newBannerInfo)
+void BannerMessageWidget::setBannerInfo(const BannerInfos::UnreadInformation &newBannerInfo)
 {
     if (mBannerInfo != newBannerInfo) {
         mBannerInfo = newBannerInfo;

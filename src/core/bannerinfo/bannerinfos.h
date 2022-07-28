@@ -14,6 +14,19 @@
 class LIBRUQOLACORE_EXPORT BannerInfos
 {
 public:
+    struct UnreadInformation {
+        QString identifier;
+        QString i18nMessage;
+        Q_REQUIRED_RESULT bool operator==(const UnreadInformation &other) const
+        {
+            return identifier == other.identifier && i18nMessage == other.i18nMessage;
+        }
+        Q_REQUIRED_RESULT bool operator!=(const UnreadInformation &other) const
+        {
+            return !operator==(other);
+        }
+    };
+
     BannerInfos();
     ~BannerInfos();
 
