@@ -531,6 +531,7 @@
       <li xml:lang="sv">Lägg till underrättelsehistorik</li>
       <li xml:lang="uk">Журнал сповіщень</li>
       <li xml:lang="x-test">xxAdd notification historyxx</li>
+      <li>New RocketChat Server Information Support</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
