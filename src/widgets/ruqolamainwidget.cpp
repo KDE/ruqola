@@ -135,7 +135,11 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // On startup it's too early
     mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
 
-    // TODO show bannerinfo if necessary
+    if (mCurrentRocketChatAccount->bannerInfos().hasUnreadBanner()) {
+        mBannerMessageWidget->animatedShow();
+    } else {
+        mBannerMessageWidget->animatedHide();
+    }
 }
 
 void RuqolaMainWidget::showEvent(QShowEvent *event)
