@@ -26,5 +26,6 @@ Q_SIGNALS:
 private:
     void slotReadInfo();
     void updateInfo();
+    void slotOpenUrl(const QString &contents);
     QVector<BannerInfos::UnreadInformation> mBannerInfos;
 };

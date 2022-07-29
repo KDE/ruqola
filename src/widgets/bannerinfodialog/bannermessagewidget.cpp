@@ -20,6 +20,7 @@ BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     readAction->setObjectName(QStringLiteral("read_action"));
     connect(readAction, &QAction::triggered, this, &BannerMessageWidget::slotReadInfo);
     addAction(readAction);
+    connect(this, &BannerMessageWidget::linkActivated, this, &BannerMessageWidget::slotOpenUrl);
 }
 
 BannerMessageWidget::~BannerMessageWidget() = default;
@@ -59,4 +60,9 @@ void BannerMessageWidget::updateInfo()
         setText(info.i18nMessage);
         animatedShow();
     }
+}
+
+void BannerMessageWidget::slotOpenUrl(const QString &contents)
+{
+    // TODO
 }
