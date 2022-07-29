@@ -26,15 +26,15 @@ BannerMessageWidget::~BannerMessageWidget() = default;
 
 void BannerMessageWidget::slotReadInfo()
 {
-#if 0
-    if (mBannerInfo.identifier.isEmpty()) {
-        qCWarning(RUQOLAWIDGETS_LOG) << " identifier is empty. It's a bug";
+    if (mBannerInfos.isEmpty()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "banner info is empty! It's a bug";
     } else {
-        Q_EMIT infoWasRead(mBannerInfo.identifier);
+        const auto info = mBannerInfos.takeFirst();
+
+        Q_EMIT infoWasRead(info.identifier);
         // TODO emit signal for inform server that we read identifier
-        animatedHide();
+        updateInfo();
     }
-#endif
 }
 
 const QVector<BannerInfos::UnreadInformation> &BannerMessageWidget::bannerInfos() const
@@ -46,6 +46,17 @@ void BannerMessageWidget::setBannerInfos(const QVector<BannerInfos::UnreadInform
 {
     if (mBannerInfos != newBannerInfo) {
         mBannerInfos = newBannerInfo;
+        updateInfo();
+    }
+}
+
+void BannerMessageWidget::updateInfo()
+{
+    if (mBannerInfos.isEmpty()) {
+        hide();
+    } else {
+        const auto info = mBannerInfos.first();
+        setText(info.i18nMessage);
         animatedShow();
     }
 }

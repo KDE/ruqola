@@ -25,5 +25,6 @@ Q_SIGNALS:
 
 private:
     void slotReadInfo();
+    void updateInfo();
     QVector<BannerInfos::UnreadInformation> mBannerInfos;
 };
