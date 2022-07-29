@@ -20,6 +20,5 @@ void BannerMessageWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.wordWrap());
     QVERIFY(w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Information);
-    QVERIFY(w.bannerInfo().i18nMessage.isEmpty());
-    QVERIFY(w.bannerInfo().identifier.isEmpty());
+    QVERIFY(w.bannerInfos().isEmpty());
 }

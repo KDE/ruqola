@@ -17,13 +17,13 @@ public:
     explicit BannerMessageWidget(QWidget *parent = nullptr);
     ~BannerMessageWidget() override;
 
-    Q_REQUIRED_RESULT const BannerInfos::UnreadInformation &bannerInfo() const;
-    void setBannerInfo(const BannerInfos::UnreadInformation &newBannerInfo);
+    Q_REQUIRED_RESULT const QVector<BannerInfos::UnreadInformation> &bannerInfos() const;
+    void setBannerInfos(const QVector<BannerInfos::UnreadInformation> &newBannerInfo);
 
 Q_SIGNALS:
     void infoWasRead(const QString &identifier);
 
 private:
     void slotReadInfo();
-    BannerInfos::UnreadInformation mBannerInfo;
+    QVector<BannerInfos::UnreadInformation> mBannerInfos;
 };

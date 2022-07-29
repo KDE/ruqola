@@ -140,11 +140,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RuqolaMainWidget::updateBannerInfo()
 {
     const auto bannerUnreadInformations = mCurrentRocketChatAccount->bannerInfos().bannerUnreadInformations();
-    if (bannerUnreadInformations.isEmpty()) {
-        mBannerMessageWidget->hide();
-    } else {
-        mBannerMessageWidget->animatedShow();
-    }
+    mBannerMessageWidget->setBannerInfos(std::move(bannerUnreadInformations));
 }
 
 void RuqolaMainWidget::showEvent(QShowEvent *event)
