@@ -44,6 +44,8 @@ public:
     Q_REQUIRED_RESULT int priority() const;
     void setPriority(int newPriority);
 
+    Q_REQUIRED_RESULT static QString defaultText(const BannerInfo &info);
+
 private:
     QStringList mTextArguments;
     QString mText;

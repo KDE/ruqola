@@ -6,6 +6,7 @@
 
 #include "bannerinfo.h"
 
+#include <KLocalizedString>
 #include <QJsonArray>
 
 BannerInfo::BannerInfo() = default;
@@ -32,6 +33,15 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
     mIdentifier = object[QStringLiteral("id")].toString();
     mPriority = object[QStringLiteral("priority")].toInt(-1);
     mRead = object[QStringLiteral("read")].toBool(false);
+}
+
+QString BannerInfo::defaultText(const BannerInfo &info)
+{
+    QString str{info.text()};
+    if (str == QLatin1String("New_version_available_(s)")) {
+        str = i18n("New version available %1", info.textArguments().at(0));
+    }
+    return str;
 }
 
 bool BannerInfo::operator==(const BannerInfo &other) const

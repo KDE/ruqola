@@ -59,10 +59,7 @@ QVector<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() 
 
 QString BannerInfos::generateText(const BannerInfo &info) const
 {
-    QString str{info.text()};
-    if (str == QLatin1String("New_version_available_(s)")) {
-        str = i18n("New version available %1", info.textArguments().at(0));
-    }
+    QString str = BannerInfo::defaultText(info);
     // FIXME
     if (!info.link().isEmpty()) {
         // Use markdown url
