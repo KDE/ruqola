@@ -6,6 +6,7 @@
 
 #include "bannerinfos.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
 #include <QJsonObject>
 
 BannerInfos::BannerInfos() = default;
@@ -49,6 +50,35 @@ bool BannerInfos::hasUnreadBanner() const
         }
     }
     return false;
+}
+
+QVector<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
+{
+    QVector<BannerInfos::UnreadInformation> infos;
+    for (int i = 0; i < mBanners.size(); ++i) {
+        const auto banner = mBanners.at(i);
+        if (!banner.read()) {
+            BannerInfos::UnreadInformation info;
+            info.i18nMessage = generateText(banner);
+            info.identifier = banner.identifier();
+            infos.append(info);
+        }
+    }
+    return infos;
+}
+
+QString BannerInfos::generateText(const BannerInfo &info) const
+{
+    QString str{info.text()};
+    if (str == QLatin1String("New_version_available_(s)")) {
+        str = i18n("New version available %1", info.textArguments().at(0));
+    }
+    // FIXME
+    if (!info.link().isEmpty()) {
+        // Use markdown url
+        str += QStringLiteral(" [%1](%2)").arg(i18n("link"), info.link());
+    }
+    return str;
 }
 
 void BannerInfos::clear()

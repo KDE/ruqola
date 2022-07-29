@@ -47,7 +47,10 @@ public:
 
     Q_REQUIRED_RESULT bool hasUnreadBanner() const;
 
+    Q_REQUIRED_RESULT QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
+
 private:
+    Q_REQUIRED_RESULT QString generateText(const BannerInfo &info) const;
     QVector<BannerInfo> mBanners;
 };
 
