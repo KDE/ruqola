@@ -42,16 +42,6 @@ BannerInfo BannerInfos::at(int index) const
     return mBanners.at(index);
 }
 
-bool BannerInfos::hasUnreadBanner() const
-{
-    for (int i = 0; i < mBanners.size(); ++i) {
-        if (!mBanners.at(i).read()) {
-            return true;
-        }
-    }
-    return false;
-}
-
 QVector<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() const
 {
     QVector<BannerInfos::UnreadInformation> infos;

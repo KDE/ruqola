@@ -45,8 +45,6 @@ public:
 
     Q_REQUIRED_RESULT BannerInfo at(int index) const;
 
-    Q_REQUIRED_RESULT bool hasUnreadBanner() const;
-
     Q_REQUIRED_RESULT QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
 
 private:

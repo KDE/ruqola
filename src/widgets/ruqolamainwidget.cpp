@@ -139,10 +139,11 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RuqolaMainWidget::updateBannerInfo()
 {
-    if (mCurrentRocketChatAccount->bannerInfos().hasUnreadBanner()) {
-        mBannerMessageWidget->animatedShow();
-    } else {
+    const auto bannerUnreadInformations = mCurrentRocketChatAccount->bannerInfos().bannerUnreadInformations();
+    if (bannerUnreadInformations.isEmpty()) {
         mBannerMessageWidget->hide();
+    } else {
+        mBannerMessageWidget->animatedShow();
     }
 }
 
