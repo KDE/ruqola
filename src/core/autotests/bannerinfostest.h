@@ -17,5 +17,5 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldLoadRoles_data();
-    void shouldLoadRoles();
+    void shouldLoadBannerInfos();
 };

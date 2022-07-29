@@ -34,7 +34,7 @@ void BannerInfosTest::shouldLoadRoles_data()
     QTest::addRow("bannerinfos3") << QStringLiteral("bannerinfos3") << 3 << true;
 }
 
-void BannerInfosTest::shouldLoadRoles()
+void BannerInfosTest::shouldLoadBannerInfos()
 {
     QFETCH(QString, name);
     QFETCH(int, bannersCount);
