@@ -2536,6 +2536,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
         qCWarning(RUQOLA_LOG) << " Error during parsing user" << replyObject;
     }
     downloadAppsLanguages();
+    Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
 }
 

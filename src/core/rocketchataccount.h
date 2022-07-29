@@ -559,6 +559,7 @@ Q_SIGNALS:
     void oauthAppUpdated(const QJsonObject &obj);
     void needUpdateView();
     void publicSettingLoaded(const QJsonObject &obj);
+    void bannerInfoChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)
