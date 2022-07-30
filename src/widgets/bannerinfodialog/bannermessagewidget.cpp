@@ -7,6 +7,7 @@
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QAction>
+#include <QDesktopServices>
 
 BannerMessageWidget::BannerMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
@@ -62,7 +63,7 @@ void BannerMessageWidget::updateInfo()
     }
 }
 
-void BannerMessageWidget::slotOpenUrl(const QString &contents)
+void BannerMessageWidget::slotOpenUrl(const QString &url)
 {
-    // TODO
+    QDesktopServices::openUrl(QUrl(url));
 }
