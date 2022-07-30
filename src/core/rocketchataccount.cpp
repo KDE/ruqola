@@ -1218,8 +1218,14 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
 void RocketChatAccount::setNameChanged(const QJsonArray &array)
 {
     qCWarning(RUQOLA_LOG) << "Need to implement: Users:NameChanged :" << array << " account name " << accountName();
-
-    // TODO
+    // QJsonArray([{"_id":"Z5TPBsWrmjAWCKGBC","name":"LifeLine","username":"LifeLine-GM"}])
+    for (int i = 0; i < array.count(); ++i) {
+        const QJsonObject obj = array.at(i).toObject();
+        const QString id = obj[QStringLiteral("_id")].toString();
+        const QString name = obj[QStringLiteral("name")].toString();
+        const QString username = obj[QStringLiteral("username")].toString();
+        // TODO
+    }
 }
 
 void RocketChatAccount::setOwnStatus(const User &user)
