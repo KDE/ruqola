@@ -532,6 +532,12 @@
       <li xml:lang="uk">Журнал сповіщень</li>
       <li xml:lang="x-test">xxAdd notification historyxx</li>
       <li>New RocketChat Server Information Support</li>
+      <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
+      <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
+      <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
+      <li xml:lang="pt">Nova Informação de Suporte do Servidor RocketChat</li>
+      <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
+      <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
