@@ -1210,7 +1210,8 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         threadsInRoom(roomId, false);
         break;
     case ListMessagesModel::UnreadThreadsMessages:
-        threadsInRoom(roomId, true);
+        // FIXME in RC 5.0
+        // FIXME threadsInRoom(roomId, true);
         break;
     }
 }
