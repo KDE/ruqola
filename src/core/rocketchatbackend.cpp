@@ -199,7 +199,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         if (messageModel) {
             if (!m.threadMessageId().isEmpty()) {
                 mRocketChatAccount->updateThreadMessageList(m);
-                qDebug() << " Update thread message";
+                // qDebug() << " Update thread message";
             }
             if (room) {
                 mMessageLogger->addMessage(mRocketChatAccount->accountName(), room->displayFName(), m);
