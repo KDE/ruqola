@@ -62,7 +62,7 @@ void RoomModelTest::shouldReturnRowCount()
     sampleModel.addRoom(QStringLiteral("myRoomID1"), QStringLiteral("bla bla"));
     QCOMPARE(sampleModel.rowCount(), 1);
 
-    // Fix it. We remove + readd after that ! it's not optimal
+    // Fix it. We remove + re-add after that ! it's not optimal
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);

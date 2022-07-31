@@ -156,7 +156,7 @@ void RuqolaServerConfigTest::shouldVerifyOauthType_data()
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable")};
         AuthenticationManager::OauthTypes types = AuthenticationManager::OauthType::Password;
         types |= AuthenticationManager::OauthType::Unknown;
-        QTest::newRow("unknow") << lst << types;
+        QTest::newRow("unknown") << lst << types;
     }
     {
         const QStringList lst = {QStringLiteral("Accounts_OAuth_Blable"), QStringLiteral("Accounts_OAuth_Twitter")};

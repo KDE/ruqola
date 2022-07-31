@@ -106,7 +106,7 @@ void MessageListDelegateTest::layoutChecks()
     QCOMPARE(layout.timeStampText, QStringLiteral("04:07"));
     QVERIFY(option.rect.contains(layout.usableRect));
     QVERIFY(option.rect.contains(layout.senderRect.toRect()));
-    if (message.attachements().isEmpty()) {
+    if (message.attachments().isEmpty()) {
         QVERIFY(layout.attachmentsRect.isNull());
     } else {
         QVERIFY(sizeHint.height() > layout.senderRect.height() + 1);
@@ -121,7 +121,7 @@ void MessageListDelegateTest::layoutChecks()
         QCOMPARE(layout.usableRect.left(), layout.textRect.left());
         QVERIFY(layout.textRect.top() >= layout.usableRect.top());
         QVERIFY(!layout.senderRect.intersects(layout.textRect));
-        if (!message.attachements().isEmpty()) {
+        if (!message.attachments().isEmpty()) {
             QCOMPARE(layout.attachmentsRect.top(), layout.textRect.y() + layout.textRect.height());
         }
     }

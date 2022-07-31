@@ -57,7 +57,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
     setAcceptDrops(true);
     if (mRocketChatAccount) {
-        intialize();
+        initialize();
     }
 }
 
@@ -120,7 +120,7 @@ void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
     }
 }
 
-void ThreadMessageWidget::intialize()
+void ThreadMessageWidget::initialize()
 {
     mRoomWidgetBase->setCurrentRocketChatAccount(mRocketChatAccount);
     mRoomWidgetBase->messageLineWidget()->setCurrentRocketChatAccount(mRocketChatAccount, true);

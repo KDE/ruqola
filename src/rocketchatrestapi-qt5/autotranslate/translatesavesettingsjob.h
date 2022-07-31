@@ -17,7 +17,7 @@ public:
     explicit TranslateSaveSettingsJob(QObject *parent = nullptr);
     ~TranslateSaveSettingsJob() override;
 
-    enum SettingType { AutoTranslateSetting, LanguageSetting, Underfined };
+    enum SettingType { AutoTranslateSetting, LanguageSetting, Undefined };
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -46,7 +46,7 @@ private:
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mRoomId;
     QString mLanguage;
-    TranslateSaveSettingsJob::SettingType mType = Underfined;
+    TranslateSaveSettingsJob::SettingType mType = Undefined;
     bool mAutoTranslate = false;
 };
 }

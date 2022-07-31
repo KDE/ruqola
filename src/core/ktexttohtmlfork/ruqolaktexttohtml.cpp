@@ -320,7 +320,7 @@ QString KTextToHTMLHelper::getUrl(bool *badurl)
 
 QString KTextToHTMLHelper::highlightedText()
 {
-    // formating symbols must be prepended with a whitespace
+    // formatting symbols must be prepended with a whitespace
     if ((mPos > 0) && !mText.at(mPos - 1).isSpace()) {
         return {};
     }
@@ -337,7 +337,7 @@ QString KTextToHTMLHelper::highlightedText()
     if (match.hasMatch()) {
         if (match.capturedStart() == mPos) {
             int length = match.capturedLength();
-            // there must be a whitespace after the closing formating symbol
+            // there must be a whitespace after the closing formatting symbol
             if (mPos + length < mText.length() && !mText.at(mPos + length).isSpace()) {
                 return {};
             }

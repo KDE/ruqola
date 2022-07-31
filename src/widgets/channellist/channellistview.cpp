@@ -238,7 +238,7 @@ void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType
         const QString roomId = index.data(RoomModel::RoomId).toString();
         switch (roomType) {
         case Room::RoomType::Unknown:
-            qCWarning(RUQOLAWIDGETS_LOG) << "Unknow type used it's a bug";
+            qCWarning(RUQOLAWIDGETS_LOG) << "Unknown type used it's a bug";
             break;
         case Room::RoomType::Direct:
             qCWarning(RUQOLAWIDGETS_LOG) << "We can't convert Direct to Team. It's a bug";

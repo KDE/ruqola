@@ -23,7 +23,7 @@ void TranslateSaveSettingsJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
     QVERIFY(job.language().isEmpty());
-    QCOMPARE(job.type(), TranslateSaveSettingsJob::Underfined);
+    QCOMPARE(job.type(), TranslateSaveSettingsJob::Undefined);
     QVERIFY(!job.autoTranslate());
     QVERIFY(!job.hasQueryParameterSupport());
     QVERIFY(!job.requireTwoFactorAuthentication());

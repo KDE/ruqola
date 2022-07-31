@@ -604,7 +604,7 @@ void RocketChatAccount::leaveRoom(const QString &identifier, Room::RoomType chan
         break;
     case Room::RoomType::Direct:
     case Room::RoomType::Unknown:
-        qCWarning(RUQOLA_LOG) << " unsupport leave room for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupported leave room for type " << channelType;
         break;
     }
 }
@@ -740,7 +740,7 @@ void RocketChatAccount::eraseRoom(const QString &roomId, Room::RoomType channelT
         break;
     case Room::RoomType::Direct:
     case Room::RoomType::Unknown:
-        qCWarning(RUQOLA_LOG) << " unsupport delete for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupported delete for type " << channelType;
         break;
     }
 }
@@ -1942,7 +1942,7 @@ void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, R
     case Room::RoomType::Direct:
         break;
     case Room::RoomType::Unknown:
-        qCWarning(RUQOLA_LOG) << " unsupport kickUser room for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupported kickUser room for type " << channelType;
         break;
     }
 }
@@ -1959,7 +1959,7 @@ void RocketChatAccount::rolesInRoom(const QString &roomId, Room::RoomType channe
     case Room::RoomType::Direct:
         break;
     case Room::RoomType::Unknown:
-        qCWarning(RUQOLA_LOG) << " unsupport get roles room for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupported get roles room for type " << channelType;
         break;
     }
 }
@@ -2021,7 +2021,7 @@ void RocketChatAccount::changeRoles(const QString &roomId, const QString &userId
         break;
     case Room::RoomType::Direct:
     case Room::RoomType::Unknown:
-        qCWarning(RUQOLA_LOG) << " unsupport changeRoles room for type " << channelType;
+        qCWarning(RUQOLA_LOG) << " unsupported changeRoles room for type " << channelType;
         break;
     }
 }
@@ -2233,7 +2233,7 @@ void RocketChatAccount::avatarChanged(const QJsonArray &contents)
 
 void RocketChatAccount::rolesChanged(const QJsonArray &contents)
 {
-    // TODO verify this code when role change. It seems wierd.
+    // TODO verify this code when role change. It seems weird.
     for (int i = 0; i < contents.count(); ++i) {
         const QJsonObject obj = contents.at(i).toObject();
         const QString scope = obj[QLatin1String("scope")].toString();

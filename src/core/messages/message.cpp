@@ -318,7 +318,7 @@ void Message::parseUrls(const QJsonArray &urls)
 {
     mUrls.clear();
     if (!urls.isEmpty()) {
-        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachements)" << urls;
+        qCDebug(RUQOLA_LOG) << " void Message::urls(const QJsonObject &attachments)" << urls;
         for (int i = 0; i < urls.size(); i++) {
             const QJsonObject url = urls.at(i).toObject();
             MessageUrl messageUrl;
@@ -385,7 +385,7 @@ void Message::parseAttachment(const QJsonArray &attachments)
 {
     mAttachements.clear();
     if (!attachments.isEmpty()) {
-        // qDebug() << " void Message::parseAttachment(const QJsonObject &attachements)"<<attachments;
+        // qDebug() << " void Message::parseAttachment(const QJsonObject &attachments)"<<attachments;
         for (int i = 0; i < attachments.size(); i++) {
             const QJsonObject attachment = attachments.at(i).toObject();
             MessageAttachment messageAttachement;
@@ -404,7 +404,7 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
         && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (mGroupable == other.groupable())
-        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachements == other.attachements()) && (mMentions == other.mentions())
+        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachements == other.attachments()) && (mMentions == other.mentions())
         && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
@@ -550,14 +550,14 @@ void Message::setMessageType(MessageType messageType)
     mMessageType = messageType;
 }
 
-QVector<MessageAttachment> Message::attachements() const
+QVector<MessageAttachment> Message::attachments() const
 {
     return mAttachements;
 }
 
-void Message::setAttachements(const QVector<MessageAttachment> &attachements)
+void Message::setAttachements(const QVector<MessageAttachment> &attachments)
 {
-    mAttachements = attachements;
+    mAttachements = attachments;
 }
 
 QVector<MessageUrl> Message::urls() const
@@ -965,8 +965,8 @@ QDebug operator<<(QDebug d, const Message &t)
     d << "mAvatar: " << t.avatar();
     d << "mGroupable: " << t.groupable();
     d << "mParseUrls: " << t.parseUrls();
-    for (int i = 0, total = t.attachements().count(); i < total; ++i) {
-        d << "Attachment :" << t.attachements().at(i);
+    for (int i = 0, total = t.attachments().count(); i < total; ++i) {
+        d << "Attachment :" << t.attachments().at(i);
     }
     for (int i = 0, total = t.urls().count(); i < total; ++i) {
         d << "Urls :" << t.urls().at(i);

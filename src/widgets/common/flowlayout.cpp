@@ -157,7 +157,7 @@ int FlowLayout::doFlow(QRect rect, bool effective) const
     const QRect effectiveRect = rect.adjusted(margins.left(), margins.top(), -margins.right(), -margins.bottom());
     int x = effectiveRect.x();
     int y = effectiveRect.y();
-    int heighest = 0;
+    int highest = 0;
 
     for (QLayoutItem *item : mItems) {
         const QWidget *widget = item->widget();
@@ -179,11 +179,11 @@ int FlowLayout::doFlow(QRect rect, bool effective) const
 
         int widgetXPos = x + item->sizeHint().width() + hSpacing;
 
-        if (widgetXPos - hSpacing > effectiveRect.right() && heighest > 0) {
+        if (widgetXPos - hSpacing > effectiveRect.right() && highest > 0) {
             x = effectiveRect.x();
-            y += heighest + vSpacing;
+            y += highest + vSpacing;
             widgetXPos = x + item->sizeHint().width() + hSpacing;
-            heighest = 0;
+            highest = 0;
         }
 
         if (effective) {
@@ -191,8 +191,8 @@ int FlowLayout::doFlow(QRect rect, bool effective) const
         }
 
         x = widgetXPos;
-        heighest = qMax(heighest, item->sizeHint().height());
+        highest = qMax(highest, item->sizeHint().height());
     }
 
-    return y + heighest - rect.y() + margins.bottom();
+    return y + highest - rect.y() + margins.bottom();
 }

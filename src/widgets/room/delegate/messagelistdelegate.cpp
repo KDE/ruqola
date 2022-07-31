@@ -284,14 +284,14 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 
-    if (message->attachements().isEmpty()) {
+    if (message->attachments().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
-        const auto attachements = message->attachements();
+        const auto attachments = message->attachments();
         QSize attachmentsSize;
         int topAttachment = attachmentsY;
         // TODO add spacing between attachment
-        for (const MessageAttachment &msgAttach : attachements) {
+        for (const MessageAttachment &msgAttach : attachments) {
             const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
@@ -403,9 +403,9 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
     if (url.isEmpty()) {
         const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
         Q_ASSERT(message);
-        const auto attachements = message->attachements();
+        const auto attachments = message->attachments();
         int i = 0;
-        for (const MessageAttachment &msgAttach : attachements) {
+        for (const MessageAttachment &msgAttach : attachments) {
             MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(i), pos);
             if (!url.isEmpty()) {
@@ -551,9 +551,9 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Attachments
-    const auto attachements = message->attachements();
+    const auto attachments = message->attachments();
     int i = 0;
-    for (const MessageAttachment &att : attachements) {
+    for (const MessageAttachment &att : attachments) {
         const MessageDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
             helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
@@ -689,9 +689,9 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             return true;
         }
 
-        const auto attachements = message->attachements();
+        const auto attachments = message->attachments();
         int i = 0;
-        for (const MessageAttachment &att : attachements) {
+        for (const MessageAttachment &att : attachments) {
             MessageDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
                 return true;
@@ -707,9 +707,9 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
 
             const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-            const auto attachements = message->attachements();
+            const auto attachments = message->attachments();
             int i = 0;
-            for (const MessageAttachment &att : attachements) {
+            for (const MessageAttachment &att : attachments) {
                 MessageDelegateHelperBase *helper = attachmentsHelper(att);
                 if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
                     return true;
@@ -729,9 +729,9 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     }
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
-    const auto attachements = message->attachements();
+    const auto attachments = message->attachments();
     int i = 0;
-    for (const MessageAttachment &att : attachements) {
+    for (const MessageAttachment &att : attachments) {
         MessageDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
             return true;
@@ -784,9 +784,9 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             return true;
         }
         // Attachments
-        const auto attachements = message->attachements();
+        const auto attachments = message->attachments();
         int i = 0;
-        for (const MessageAttachment &att : attachements) {
+        for (const MessageAttachment &att : attachments) {
             MessageDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
                 if (layout.attachmentsRectList.at(i).contains(helpEventPos)

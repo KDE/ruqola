@@ -282,9 +282,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return i18n("Edited at %1 by %2", message.editedDisplayTime(), message.editedByUsername());
     case MessageModel::Attachments: {
         QVariantList lst;
-        lst.reserve(message.attachements().count());
-        const auto attachs = message.attachements();
-        for (const MessageAttachment &att : attachs) {
+        lst.reserve(message.attachments().count());
+        const auto attachments = message.attachments();
+        for (const MessageAttachment &att : attachments) {
             lst.append(QVariant::fromValue(att));
         }
         return lst;
@@ -425,7 +425,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     switch (role) {
     case MessageModel::DisplayAttachment: {
         const auto visibility = value.value<AttachmentVisibility>();
-        auto attachments = message.attachements();
+        auto attachments = message.attachments();
         for (int i = 0, total = attachments.count(); i < total; ++i) {
             const MessageAttachment att = attachments.at(i);
             if (att.attachmentId() == visibility.attachmentId) {
@@ -529,8 +529,8 @@ void MessageModel::slotFileDownloaded(const QString &filePath, const QUrl &cache
             != msgAttachments.end();
     };
     auto it = std::find_if(mAllMessages.begin(), mAllMessages.end(), [&](const Message &msg) {
-        if (!msg.attachements().isEmpty()) {
-            return matchesFilePath(msg.attachements());
+        if (!msg.attachments().isEmpty()) {
+            return matchesFilePath(msg.attachments());
         }
         auto *emojiManager = mRocketChatAccount->emojiManager();
         const auto reactions = msg.reactions().reactions();

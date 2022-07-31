@@ -115,9 +115,9 @@ public:
      *   to deregister manager from method responses, but the other parameters are added
      *   for debugging purposes.
      *
-     * @param methodId the id of the method generated at invokation
+     * @param methodId the id of the method generated at invocation
      * @param manager the current manager subscribed to method responses
-     * @param operationId the manager specific operation bound to the method invokation
+     * @param operationId the manager specific operation bound to the method invocation
      */
     void deregisterFromMethodResponse(quint64 methodId, DDPManager *ddpManager, int operationId);
 

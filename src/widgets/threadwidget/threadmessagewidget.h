@@ -35,7 +35,7 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-    void intialize();
+    void initialize();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     void updateFollowThreadIcon(bool followThread);
     void slotFollowThreadChanged(bool clicked);
