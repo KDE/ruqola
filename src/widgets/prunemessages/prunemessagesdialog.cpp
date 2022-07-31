@@ -16,7 +16,7 @@
 
 namespace
 {
-const char myConfigGroupName[] = "PruneMessagesDialog";
+const char myPruneMessagesDialogConfigGroupName[] = "PruneMessagesDialog";
 }
 
 PruneMessagesDialog::PruneMessagesDialog(RocketChatAccount *account, QWidget *parent)
@@ -60,7 +60,7 @@ void PruneMessagesDialog::setRoomName(const QString &roomName)
 
 void PruneMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myPruneMessagesDialogConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -69,6 +69,6 @@ void PruneMessagesDialog::readConfig()
 
 void PruneMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myPruneMessagesDialogConfigGroupName);
     group.writeEntry("Size", size());
 }

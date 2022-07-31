@@ -15,7 +15,7 @@
 
 namespace
 {
-const char myConfigGroupName[] = "RegisterUserDialog";
+const char myRegisterUserDialogConfigGroupName[] = "RegisterUserDialog";
 }
 
 RegisterUserDialog::RegisterUserDialog(RocketChatAccount *account, QWidget *parent)
@@ -44,7 +44,7 @@ RegisterUserDialog::~RegisterUserDialog()
 
 void RegisterUserDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myRegisterUserDialogConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -53,7 +53,7 @@ void RegisterUserDialog::readConfig()
 
 void RegisterUserDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myRegisterUserDialogConfigGroupName);
     group.writeEntry("Size", size());
 }
 
