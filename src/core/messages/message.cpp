@@ -404,7 +404,7 @@ bool Message::operator==(const Message &other) const
         && (mUsername == other.username()) && (mName == other.name()) && (mUserId == other.userId()) && (mUpdatedAt == other.updatedAt())
         && (mEditedAt == other.editedAt()) && (mEditedByUsername == other.editedByUsername()) && (mEditedByUserId == other.editedByUserId())
         && (mAlias == other.alias()) && (mAvatar == other.avatar()) && (mSystemMessageType == other.systemMessageType()) && (mGroupable == other.groupable())
-        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachements == other.attachments()) && (mMentions == other.mentions())
+        && (mParseUrls == other.parseUrls()) && (mUrls == other.urls()) && (mAttachments == other.attachments()) && (mMentions == other.mentions())
         && (mRole == other.role()) && (mReactions == other.reactions()) && (mUnread == other.unread()) && (mMessagePinned == other.messagePinned())
         && (mMessageStarred == other.messageStarred()) && (mThreadCount == other.threadCount()) && (mThreadLastMessage == other.threadLastMessage())
         && (mDiscussionCount == other.discussionCount()) && (mDiscussionLastMessage == other.discussionLastMessage())
@@ -564,7 +564,7 @@ QVector<MessageAttachment> Message::attachments() const
 
 void Message::setAttachments(const QVector<MessageAttachment> &attachments)
 {
-    mAttachements = attachments;
+    mAttachments = attachments;
 }
 
 QVector<MessageUrl> Message::urls() const
