@@ -22,7 +22,7 @@ void BannerInfosTest::shouldHaveDefaultValues()
     QVERIFY(w.bannerUnreadInformations().isEmpty());
 }
 
-void BannerInfosTest::shouldLoadRoles_data()
+void BannerInfosTest::shouldLoadBannerInfos_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("bannersCount");
