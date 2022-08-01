@@ -33,4 +33,17 @@ void LDapSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mHost->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHost), QStringLiteral("LDAP_Host"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Host"));
+
+    auto mPort = w.findChild<QSpinBox *>(QStringLiteral("mPort"));
+    QVERIFY(mPort);
+    QVERIFY(!mPort->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPort), QStringLiteral("LDAP_Port"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Port"));
+
+    auto mReconnect = w.findChild<QCheckBox *>(QStringLiteral("mReconnect"));
+    QVERIFY(mReconnect);
+    QVERIFY(!mReconnect->isChecked());
+    QVERIFY(!mReconnect->text().isEmpty());
+    QVERIFY(!mReconnect->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mReconnect), QStringLiteral("LDAP_Reconnect"));
 }
