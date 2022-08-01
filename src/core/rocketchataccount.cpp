@@ -583,6 +583,11 @@ bool RocketChatAccount::messageAllowConvertLongMessagesToAttachment() const
     return mRuqolaServerConfig->messageAllowConvertLongMessagesToAttachment();
 }
 
+bool RocketChatAccount::useRealName() const
+{
+    return mRuqolaServerConfig->useRealName();
+}
+
 SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
 {
     return mSwitchChannelHistoryModel;

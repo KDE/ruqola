@@ -497,6 +497,7 @@ public:
     Q_REQUIRED_RESULT bool allowPasswordReset() const;
     Q_REQUIRED_RESULT const BannerInfos &bannerInfos() const;
 
+    Q_REQUIRED_RESULT bool useRealName() const;
 Q_SIGNALS:
     void disabledTotpValid(bool checked);
     void totpInvalid();

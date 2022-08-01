@@ -491,9 +491,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageMaximumAllowedSize(value.toInt());
     } else if (id == QLatin1String("Message_AllowConvertLongMessagesToAttachment")) {
         setMessageAllowConvertLongMessagesToAttachment(value.toBool());
+    } else if (id == QLatin1String("setUseRealName")) {
+        setUseRealName(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+bool RuqolaServerConfig::useRealName() const
+{
+    return mUIUseRealName;
+}
+
+void RuqolaServerConfig::setUseRealName(bool newUIUseRealName)
+{
+    mUIUseRealName = newUIUseRealName;
 }
 
 void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)

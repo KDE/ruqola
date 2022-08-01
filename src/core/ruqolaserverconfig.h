@@ -139,6 +139,9 @@ public:
 
     void privateSettingsUpdated(const QJsonArray &replyArray);
 
+    Q_REQUIRED_RESULT bool useRealName() const;
+    void setUseRealName(bool newUIUseRealName);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -165,6 +168,7 @@ private:
 
     bool mNeedAdaptNewSubscriptionRC60 = false;
     bool mMessageAllowConvertLongMessagesToAttachment = false;
+    bool mUIUseRealName = false;
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
