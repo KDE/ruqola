@@ -15,7 +15,7 @@
 
 namespace
 {
-const char myConfigGroupName[] = "BannerInfoDialog";
+const char myBannerInfoDialogConfigGroupName[] = "BannerInfoDialog";
 }
 
 BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
@@ -45,7 +45,7 @@ BannerInfoDialog::~BannerInfoDialog()
 
 void BannerInfoDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myBannerInfoDialogConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -54,6 +54,6 @@ void BannerInfoDialog::readConfig()
 
 void BannerInfoDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myBannerInfoDialogConfigGroupName);
     group.writeEntry("Size", size());
 }

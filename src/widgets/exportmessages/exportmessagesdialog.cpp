@@ -14,7 +14,7 @@
 #include <QVBoxLayout>
 namespace
 {
-const char myConfigGroupName[] = "ExportMessagesDialog";
+const char myExportMessagesDialogConfigGroupName[] = "ExportMessagesDialog";
 }
 ExportMessagesDialog::ExportMessagesDialog(QWidget *parent)
     : QDialog(parent)
@@ -47,7 +47,7 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExp
 
 void ExportMessagesDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myExportMessagesDialogConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -56,6 +56,6 @@ void ExportMessagesDialog::readConfig()
 
 void ExportMessagesDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myExportMessagesDialogConfigGroupName);
     group.writeEntry("Size", size());
 }

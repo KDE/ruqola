@@ -14,7 +14,7 @@
 #include <QVBoxLayout>
 namespace
 {
-const char myConfigGroupName[] = "RegisterUserDialog";
+const char myMyAccountConfigureDialogConfigGroupName[] = "RegisterUserDialog";
 }
 
 MyAccountConfigureDialog::MyAccountConfigureDialog(RocketChatAccount *account, QWidget *parent)
@@ -56,7 +56,7 @@ void MyAccountConfigureDialog::slotAccept()
 
 void MyAccountConfigureDialog::readConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myMyAccountConfigureDialogConfigGroupName);
     const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
     if (sizeDialog.isValid()) {
         resize(sizeDialog);
@@ -65,6 +65,6 @@ void MyAccountConfigureDialog::readConfig()
 
 void MyAccountConfigureDialog::writeConfig()
 {
-    KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
+    KConfigGroup group(KSharedConfig::openStateConfig(), myMyAccountConfigureDialogConfigGroupName);
     group.writeEntry("Size", size());
 }
