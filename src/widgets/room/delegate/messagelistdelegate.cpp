@@ -154,7 +154,11 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
     }();
 
     Layout layout;
-    layout.senderText = QLatin1Char('@') + message->username();
+    if (mRocketChatAccount) {
+        layout.senderText = QLatin1Char('@') + (mRocketChatAccount->useRealName() ? message->name() : message->username());
+    } else {
+        layout.senderText = QLatin1Char('@') + message->username();
+    }
     layout.senderFont = option.font;
     layout.senderFont.setBold(true);
     layout.sameSenderAsPreviousMessage = sameSenderAsPreviousMessage;
