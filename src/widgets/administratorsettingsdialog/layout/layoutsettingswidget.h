@@ -12,8 +12,12 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT LayoutSettingsWidget : public SettingsWidget
 {
     Q_OBJECT
 public:
-    explicit LayoutSettingsWidget(RocketChatAccount *account, QWidget *parent);
+    explicit LayoutSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~LayoutSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mDisplayRoles;
+    QCheckBox *const mUseRealName;
 };

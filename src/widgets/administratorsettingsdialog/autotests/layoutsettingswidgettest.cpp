@@ -17,4 +17,16 @@ LayoutSettingsWidgetTest::LayoutSettingsWidgetTest(QObject *parent)
 
 void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
 {
+    LayoutSettingsWidget w(nullptr);
+    auto mDisplayRoles = w.findChild<QCheckBox *>(QStringLiteral("mDisplayRoles"));
+    QVERIFY(mDisplayRoles);
+    QVERIFY(!mDisplayRoles->isChecked());
+    QVERIFY(!mDisplayRoles->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisplayRoles), QStringLiteral("UI_DisplayRoles"));
+
+    auto mUseRealName = w.findChild<QCheckBox *>(QStringLiteral("mDisplayRoles"));
+    QVERIFY(mUseRealName);
+    QVERIFY(!mUseRealName->isChecked());
+    QVERIFY(!mUseRealName->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseRealName), QStringLiteral("UI_Use_Real_Name"));
 }
