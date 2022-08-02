@@ -17,8 +17,8 @@ int main(int argc, char **argv)
     parser.addVersionOption();
     parser.addHelpOption();
     parser.addPositionalArgument({QStringLiteral("file")}, QStringLiteral("Image file"));
-    QCommandLineOption isAnimatedImageOption({QStringLiteral("isAnimatedImage")},
-                                             QStringLiteral("Whether the image file contains animation (e.g. for GIF files)"));
+    const QCommandLineOption isAnimatedImageOption({QStringLiteral("isAnimatedImage")},
+                                                   QStringLiteral("Whether the image file contains animation (e.g. for GIF files)"));
     parser.addOption(isAnimatedImageOption);
     parser.process(app);
 
