@@ -141,6 +141,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/ldap/ldapsettingswidget.h
     administratorsettingsdialog/ldap/ldapsettingswidget.cpp
 
+    administratorsettingsdialog/layout/layoutsettingswidget.cpp
+    administratorsettingsdialog/layout/layoutsettingswidget.h
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h

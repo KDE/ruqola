@@ -11,6 +11,7 @@
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
+#include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
@@ -74,4 +75,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mLDapSettingsWidget = w.findChild<LDapSettingsWidget *>(QStringLiteral("mLDapSettingsWidget"));
     QVERIFY(mLDapSettingsWidget);
+
+    auto mLayoutSettingsWidget = w.findChild<LayoutSettingsWidget *>(QStringLiteral("mLayoutSettingsWidget"));
+    QVERIFY(mLayoutSettingsWidget);
 }
