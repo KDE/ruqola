@@ -29,4 +29,10 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseRealName->isChecked());
     QVERIFY(!mUseRealName->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseRealName), QStringLiteral("UI_Use_Real_Name"));
+
+    auto mUseFullNameGenerateDefaultAvatar = w.findChild<QCheckBox *>(QStringLiteral("mUseFullNameGenerateDefaultAvatar"));
+    QVERIFY(mUseFullNameGenerateDefaultAvatar);
+    QVERIFY(!mUseFullNameGenerateDefaultAvatar->isChecked());
+    QVERIFY(!mUseFullNameGenerateDefaultAvatar->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseFullNameGenerateDefaultAvatar), QStringLiteral("UI_Use_Name_Avatar"));
 }

@@ -20,4 +20,5 @@ public:
 private:
     QCheckBox *const mDisplayRoles;
     QCheckBox *const mUseRealName;
+    QCheckBox *const mUseFullNameGenerateDefaultAvatar;
 };
