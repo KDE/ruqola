@@ -58,11 +58,14 @@ RocketChatRestApi::SaveRoomSettingsJob::SaveRoomSettingsInfo ChannelInfoWidget::
 void ChannelInfoWidget::setRoom(Room *room)
 {
     mRoom = room;
+    auto *currentWidget = mStackedWidget->currentWidget();
     if (mRoom->canBeModify()) {
         mChannelInfoEditableWidget->setRoom(mRoom);
 
-        if (mStackedWidget->currentWidget() != mChannelInfoEditableWidget) {
-            mStackedWidget->removeWidget(mStackedWidget->currentWidget());
+        if (currentWidget != mChannelInfoEditableWidget) {
+            if (currentWidget) {
+                mStackedWidget->removeWidget(currentWidget);
+            }
             mChannelInfoEditableWidget->setVisible(true);
             mChannelInfoReadOnlyWidget->setVisible(false);
             mStackedWidget->addWidget(mChannelInfoEditableWidget);
@@ -73,8 +76,10 @@ void ChannelInfoWidget::setRoom(Room *room)
         mChannelInfoEditableWidget->updateRetentionValue();
         mChannelInfoEditableWidget->connectEditableWidget();
     } else {
-        if (mStackedWidget->currentWidget() != mChannelInfoReadOnlyWidget) {
-            mStackedWidget->removeWidget(mStackedWidget->currentWidget());
+        if (currentWidget != mChannelInfoReadOnlyWidget) {
+            if (currentWidget) {
+                mStackedWidget->removeWidget(currentWidget);
+            }
             mChannelInfoEditableWidget->setVisible(false);
             mChannelInfoReadOnlyWidget->setVisible(true);
             mStackedWidget->addWidget(mChannelInfoReadOnlyWidget);
