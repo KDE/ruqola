@@ -122,12 +122,12 @@ void BannerInfo::setPriority(int newPriority)
 
 QDebug operator<<(QDebug d, const BannerInfo &t)
 {
-    d << "mText " << t.text();
-    d << "mTitle " << t.title();
-    d << "mLink " << t.link();
-    d << "mRead " << t.read();
-    d << "mTextArguments " << t.textArguments();
-    d << "mIdentifier " << t.identifier();
-    d << "mPriority " << t.priority();
+    d << " mText " << t.text();
+    d << " mTitle " << t.title();
+    d << " mLink " << t.link();
+    d << " mRead " << t.read();
+    d << " mTextArguments " << t.textArguments();
+    d << " mIdentifier " << t.identifier();
+    d << " mPriority " << t.priority();
     return d;
 }
