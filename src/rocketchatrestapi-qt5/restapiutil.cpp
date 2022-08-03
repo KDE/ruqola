@@ -504,6 +504,11 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("licenses.maxActiveUsers");
     case RestApiUtil::RestApiUrlType::LicensesAdd:
         return QStringLiteral("licenses.add");
+
+    case RestApiUtil::RestApiUrlType::BannersDismiss:
+        return QStringLiteral("banners.dismiss");
+    case RestApiUtil::RestApiUrlType::Banners:
+        return QStringLiteral("banners");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
