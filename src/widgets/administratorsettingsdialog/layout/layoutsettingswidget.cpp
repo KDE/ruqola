@@ -14,6 +14,7 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     , mDisplayRoles(new QCheckBox(i18n("Display Roles"), this))
     , mUseRealName(new QCheckBox(i18n("Use Real Name"), this))
     , mUseFullNameGenerateDefaultAvatar(new QCheckBox(i18n("Use Full Name Initials to Generate Default Avatar"), this))
+    , mAllowSpecialCharactersRoomNames(new QCheckBox(i18n("Allow Special Characters in Room Names"), this))
 {
     mDisplayRoles->setObjectName(QStringLiteral("mDisplayRoles"));
     mMainLayout->addWidget(mDisplayRoles);
@@ -26,6 +27,10 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     mUseFullNameGenerateDefaultAvatar->setObjectName(QStringLiteral("mUseFullNameGenerateDefaultAvatar"));
     mMainLayout->addWidget(mUseFullNameGenerateDefaultAvatar);
     connectCheckBox(mUseFullNameGenerateDefaultAvatar, QStringLiteral("UI_Use_Name_Avatar"));
+
+    mAllowSpecialCharactersRoomNames->setObjectName(QStringLiteral("mAllowSpecialCharactersRoomNames"));
+    mMainLayout->addWidget(mAllowSpecialCharactersRoomNames);
+    connectCheckBox(mAllowSpecialCharactersRoomNames, QStringLiteral("UI_Allow_room_names_with_special_chars"));
 }
 
 LayoutSettingsWidget::~LayoutSettingsWidget() = default;
@@ -35,4 +40,5 @@ void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mDisplayRoles, mapSettings);
     initializeWidget(mUseRealName, mapSettings);
     initializeWidget(mUseFullNameGenerateDefaultAvatar, mapSettings);
+    initializeWidget(mAllowSpecialCharactersRoomNames, mapSettings);
 }

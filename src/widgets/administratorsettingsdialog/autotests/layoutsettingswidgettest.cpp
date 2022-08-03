@@ -24,7 +24,7 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDisplayRoles->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisplayRoles), QStringLiteral("UI_DisplayRoles"));
 
-    auto mUseRealName = w.findChild<QCheckBox *>(QStringLiteral("mDisplayRoles"));
+    auto mUseRealName = w.findChild<QCheckBox *>(QStringLiteral("mUseRealName"));
     QVERIFY(mUseRealName);
     QVERIFY(!mUseRealName->isChecked());
     QVERIFY(!mUseRealName->text().isEmpty());
@@ -35,4 +35,10 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseFullNameGenerateDefaultAvatar->isChecked());
     QVERIFY(!mUseFullNameGenerateDefaultAvatar->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseFullNameGenerateDefaultAvatar), QStringLiteral("UI_Use_Name_Avatar"));
+
+    auto mAllowSpecialCharactersRoomNames = w.findChild<QCheckBox *>(QStringLiteral("mAllowSpecialCharactersRoomNames"));
+    QVERIFY(mAllowSpecialCharactersRoomNames);
+    QVERIFY(!mAllowSpecialCharactersRoomNames->isChecked());
+    QVERIFY(!mAllowSpecialCharactersRoomNames->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowSpecialCharactersRoomNames), QStringLiteral("UI_Allow_room_names_with_special_chars"));
 }

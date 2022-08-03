@@ -21,4 +21,5 @@ private:
     QCheckBox *const mDisplayRoles;
     QCheckBox *const mUseRealName;
     QCheckBox *const mUseFullNameGenerateDefaultAvatar;
+    QCheckBox *const mAllowSpecialCharactersRoomNames;
 };
