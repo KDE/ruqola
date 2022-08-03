@@ -10,6 +10,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 
 using namespace RocketChatRestApi;
 GetBannersJob::GetBannersJob(QObject *parent)
@@ -63,7 +64,13 @@ bool GetBannersJob::hasQueryParameterSupport() const
 
 QNetworkRequest GetBannersJob::request() const
 {
-    const QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Banners);
+    QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::Banners);
+
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("platform"), QStringLiteral("web"));
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request);

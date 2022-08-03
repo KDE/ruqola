@@ -34,7 +34,7 @@ void GetBannersJobTest::shouldGenerateRequest()
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
     QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners?platform=web")));
 }
 
 void GetBannersJobTest::shouldNotStarting()
