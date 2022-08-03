@@ -16,6 +16,7 @@ class QSpinBox;
 class QFormLayout;
 class QLineEdit;
 class QComboBox;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QScrollArea
 {
     Q_OBJECT
@@ -38,6 +39,8 @@ protected:
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings);
+
+    Q_REQUIRED_RESULT QLabel *createBoldLabel(const QString &text);
 
 private:
     void

@@ -27,10 +27,7 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mAtLeastOneSymbol(new QCheckBox(i18n("At Least One Symbol"), this))
 
 {
-    auto historyLabel = new QLabel(i18n("Password History"), this);
-    QFont historyLabelFont = historyLabel->font();
-    historyLabelFont.setBold(true);
-    historyLabel->setFont(historyLabelFont);
+    auto historyLabel = createBoldLabel(i18n("Password History"));
     historyLabel->setObjectName(QStringLiteral("historyLabel"));
     mMainLayout->addWidget(historyLabel);
 
@@ -43,10 +40,7 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     mPasswordHistoryLength->setToolTip(i18n("Amount of most recently used passwords to prevent users from reusing."));
     addSpinbox(i18n("Password History Length"), mPasswordHistoryLength, QStringLiteral("Accounts_Password_History_Amount"));
 
-    auto passwordPolicyLabel = new QLabel(i18n("Password Policy"), this);
-    QFont passwordPolicyLabelFont = passwordPolicyLabel->font();
-    passwordPolicyLabelFont.setBold(true);
-    passwordPolicyLabel->setFont(passwordPolicyLabelFont);
+    auto passwordPolicyLabel = createBoldLabel(i18n("Password Policy"));
     passwordPolicyLabel->setObjectName(QStringLiteral("passwordPolicyLabel"));
     mMainLayout->addWidget(passwordPolicyLabel);
 

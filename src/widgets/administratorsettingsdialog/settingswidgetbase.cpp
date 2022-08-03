@@ -206,3 +206,12 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
         }
     }
 }
+
+QLabel *SettingsWidgetBase::createBoldLabel(const QString &text)
+{
+    auto label = new QLabel(text, this);
+    QFont apiRateLimiterLabelFont = label->font();
+    apiRateLimiterLabelFont.setBold(true);
+    label->setFont(apiRateLimiterLabelFont);
+    return label;
+}

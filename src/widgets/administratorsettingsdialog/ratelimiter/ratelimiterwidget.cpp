@@ -17,10 +17,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     , mLimitByUser(new QCheckBox(i18n("Limit by User"), this))
     , mLimitByConnection(new QCheckBox(i18n("Limit by Connection"), this))
 {
-    auto apiRateLimiterLabel = new QLabel(i18n("API Rate Limiter"), this);
-    QFont apiRateLimiterLabelFont = apiRateLimiterLabel->font();
-    apiRateLimiterLabelFont.setBold(true);
-    apiRateLimiterLabel->setFont(apiRateLimiterLabelFont);
+    auto apiRateLimiterLabel = createBoldLabel(i18n("API Rate Limiter"));
     apiRateLimiterLabel->setObjectName(QStringLiteral("apiRateLimiterLabel"));
     mMainLayout->addWidget(apiRateLimiterLabel);
 
@@ -28,10 +25,7 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     mMainLayout->addWidget(mEnableRateLimiter);
     connectCheckBox(mEnableRateLimiter, QStringLiteral("API_Enable_Rate_Limiter"));
 
-    auto ddpRateLimiterLabel = new QLabel(i18n("DDP Rate Limit"), this);
-    QFont ddpRateLimiterLabelFont = ddpRateLimiterLabel->font();
-    ddpRateLimiterLabelFont.setBold(true);
-    ddpRateLimiterLabel->setFont(ddpRateLimiterLabelFont);
+    auto ddpRateLimiterLabel = createBoldLabel(i18n("DDP Rate Limit"));
     ddpRateLimiterLabel->setObjectName(QStringLiteral("ddpRateLimiterLabel"));
     mMainLayout->addWidget(ddpRateLimiterLabel);
 
