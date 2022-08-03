@@ -30,6 +30,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
 
     banner/bannersdismissjob.cpp
     banner/bannersdismissjob.h
+    banner/getbannersjob.h
+    banner/getbannersjob.cpp
 
     channelgroupbasejob.cpp
     channelgroupbasejob.h
