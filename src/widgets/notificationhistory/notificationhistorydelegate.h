@@ -10,7 +10,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistdelegatebase.h"
 #include <QItemDelegate>
-class TextSelectionImpl;
 class QListView;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public MessageListDelegateBase

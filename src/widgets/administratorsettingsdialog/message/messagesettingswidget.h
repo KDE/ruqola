@@ -10,7 +10,6 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QSpinBox;
-class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT

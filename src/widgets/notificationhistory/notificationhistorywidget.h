@@ -11,7 +11,6 @@
 #include "libruqolawidgets_private_export.h"
 class NotificationHistoryListView;
 class QLineEdit;
-class NotificationHistoryDelegate;
 class NotificationHistoryModelFilterProxyModel;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
