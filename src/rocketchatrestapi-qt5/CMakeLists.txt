@@ -27,6 +27,10 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     autotranslate/translatemessagejob.h
     autotranslate/translatesavesettingsjob.cpp
     autotranslate/translatesavesettingsjob.h
+
+    banner/bannersdismissjob.cpp
+    banner/bannersdismissjob.h
+
     channelgroupbasejob.cpp
     channelgroupbasejob.h
     channellistjob.cpp
