@@ -30,12 +30,15 @@ public:
 
     void selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType);
     void selectNextUnreadChannel();
+
 Q_SIGNALS:
     void channelSelected();
 
 private:
     void showEvent(QShowEvent *event) override;
     void updateBannerInfo();
+    void slotBannerDismissDone();
+    void slotMarkBannerAsRead(const QString &identifier);
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;

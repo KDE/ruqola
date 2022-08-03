@@ -5,9 +5,11 @@
 */
 
 #include "ruqolamainwidget.h"
+#include "banner/bannersdismissjob.h"
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
+#include "connection.h"
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
@@ -78,6 +80,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
 
     KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
     mSplitter->restoreState(group.readEntry("SplitterSizes", QByteArray()));
+    connect(mBannerMessageWidget, &BannerMessageWidget::infoWasRead, this, &RuqolaMainWidget::slotMarkBannerAsRead);
 }
 
 RuqolaMainWidget::~RuqolaMainWidget()
@@ -137,6 +140,23 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     // On startup it's too early
     mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
     updateBannerInfo();
+}
+
+void RuqolaMainWidget::slotMarkBannerAsRead(const QString &identifier)
+{
+    auto job = new RocketChatRestApi::BannersDismissJob(this);
+    qDebug() << " identifier " << identifier;
+    job->setBannerId(identifier);
+    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::BannersDismissJob::dimissBannerDone, this, &RuqolaMainWidget::slotBannerDismissDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start BannersDismissJob job";
+    }
+}
+
+void RuqolaMainWidget::slotBannerDismissDone()
+{
+    qDebug() << "void RuqolaMainWidget::slotBannerDismissDone()";
 }
 
 void RuqolaMainWidget::updateBannerInfo()
