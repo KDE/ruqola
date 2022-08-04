@@ -21,6 +21,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mDesktopNotification(new QComboBox(this))
     , mEmailNotification(new QComboBox(this))
     , mPushNotification(new QComboBox(this))
+    , mViewMode(new QComboBox(this))
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
@@ -49,6 +50,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
     mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
+    mViewMode->setObjectName(QStringLiteral("mViewMode"));
 
     auto desktopNotificationLabel = new QLabel(i18n("Desktop Notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
@@ -70,6 +72,14 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(pushNotificationLabel);
 
     mainLayout->addWidget(mPushNotification);
+
+    auto viewModeLabel = new QLabel(i18n("View Mode:"), this);
+    viewModeLabel->setObjectName(QStringLiteral("viewModeLabel"));
+    viewModeLabel->setTextFormat(Qt::PlainText);
+    mainLayout->addWidget(viewModeLabel);
+
+    mainLayout->addWidget(mViewMode);
+
     mainLayout->addWidget(mUseEmoji);
     connect(mUseEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mConvertAsciiEmoji);
