@@ -275,12 +275,12 @@ void RuqolaMainWindow::slotPermissionChanged()
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
-    mRegisterNewUser->setEnabled(mCurrentRocketChatAccount->registrationFromEnabled());
+    mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFromEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setEnabled(isAdministrator);
     mAdministratorServerSettings->setEnabled(isAdministrator);
-    mAdministratorMenu->setEnabled(isAdministrator);
+    mAdministratorMenu->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
 }
 
