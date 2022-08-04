@@ -142,6 +142,9 @@ public:
     Q_REQUIRED_RESULT bool useRealName() const;
     void setUseRealName(bool newUIUseRealName);
 
+    Q_REQUIRED_RESULT int viewMode() const;
+    void setViewMode(int newViewMode);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -176,5 +179,6 @@ private:
     QString mFaviconUrl;
     int mLoginExpiration = -1;
     int mMessageMaximumAllowedSize = -1;
+    int mViewMode = -1;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
