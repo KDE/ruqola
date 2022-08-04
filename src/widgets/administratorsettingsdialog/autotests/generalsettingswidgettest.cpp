@@ -10,8 +10,10 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+
 QTEST_MAIN(GeneralSettingsWidgetTest)
 GeneralSettingsWidgetTest::GeneralSettingsWidgetTest(QObject *parent)
     : QObject{parent}
@@ -83,4 +85,15 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mUnreadCountDirectMessages);
     QCOMPARE(mUnreadCountDirectMessages->count(), 2);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUnreadCountDirectMessages), QStringLiteral("Unread_Count_DM"));
+
+    auto mEnableUpdateChecker = w.findChild<QCheckBox *>(QStringLiteral("mEnableUpdateChecker"));
+    QVERIFY(mEnableUpdateChecker);
+    QVERIFY(!mEnableUpdateChecker->isChecked());
+    QVERIFY(!mEnableUpdateChecker->text().isEmpty());
+    QVERIFY(!mEnableUpdateChecker->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableUpdateChecker), QStringLiteral("Update_EnableChecker"));
+
+    auto updateLabel = w.findChild<QLabel *>(QStringLiteral("updateLabel"));
+    QVERIFY(updateLabel);
+    QVERIFY(!updateLabel->text().isEmpty());
 }

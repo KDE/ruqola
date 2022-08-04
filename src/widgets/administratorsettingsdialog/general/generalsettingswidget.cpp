@@ -11,6 +11,7 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 
 GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -25,6 +26,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mCDNPrefix(new QLineEdit(this))
     , mUnreadCount(new QComboBox(this))
     , mUnreadCountDirectMessages(new QComboBox(this))
+    , mEnableUpdateChecker(new QCheckBox(i18n("Enable the Update Checker"), this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -69,6 +71,17 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
         {QStringLiteral("mentions_only"), i18n("Mentions only")},
     };
     addComboBox(i18n("Unread Count for Direct Messages"), maps, mUnreadCountDirectMessages, QStringLiteral("Unread_Count_DM"));
+
+    auto updateLabel = createBoldLabel(i18n("Update"));
+    updateLabel->setObjectName(QStringLiteral("updateLabel"));
+    mMainLayout->addWidget(updateLabel);
+
+    mEnableUpdateChecker->setObjectName(QStringLiteral("mEnableUpdateChecker"));
+    mMainLayout->addWidget(mEnableUpdateChecker);
+    connectCheckBox(mEnableUpdateChecker, QStringLiteral("Update_EnableChecker"));
+    mEnableUpdateChecker->setToolTip(i18n(
+        "Checks automatically for new updates / important messages from the Rocket.Chat developers and receives notifications when available. The notification "
+        "appears once per new version as a clickable banner and as a message from the Rocket.Cat bot, both visible only for administrators."));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -85,4 +98,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mCDNPrefix, mapSettings);
     initializeWidget(mUnreadCount, mapSettings);
     initializeWidget(mUnreadCountDirectMessages, mapSettings);
+    initializeWidget(mEnableUpdateChecker, mapSettings);
 }

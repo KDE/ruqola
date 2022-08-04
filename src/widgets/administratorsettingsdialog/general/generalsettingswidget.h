@@ -33,4 +33,5 @@ private:
     QLineEdit *const mCDNPrefix;
     QComboBox *const mUnreadCount;
     QComboBox *const mUnreadCountDirectMessages;
+    QCheckBox *const mEnableUpdateChecker;
 };
