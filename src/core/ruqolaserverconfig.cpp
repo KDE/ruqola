@@ -376,6 +376,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mUserNameValidation " << t.userNameValidation();
     d << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
     d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
+    d << "mUIUseRealName " << t.useRealName();
     return d;
 }
 
