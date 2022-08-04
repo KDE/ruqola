@@ -561,6 +561,9 @@ target_sources(libruqolawidgets PRIVATE
     threadwidget/threadmessagewidget.h
 
     ruqolawidget.qrc
+
+    room/delegate/messagelistlayoutbase.h
+    room/delegate/messagelistlayoutbase.cpp
 )
 
 
