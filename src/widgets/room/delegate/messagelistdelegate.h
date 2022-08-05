@@ -80,7 +80,6 @@ Q_SIGNALS:
     void updateView();
 
 private:
-    Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     void slotUpdateColors();
 

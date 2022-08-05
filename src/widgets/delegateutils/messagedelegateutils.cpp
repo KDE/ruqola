@@ -168,3 +168,10 @@ QSize MessageDelegateUtils::textSizeHint(QTextDocument *doc, qreal *pBaseLine)
 
     return size;
 }
+
+bool MessageDelegateUtils::showIgnoreMessages(const QModelIndex &index)
+{
+    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
+    const bool isDirectMessage = index.data(MessageModel::DirectChannels).toBool();
+    return isIgnoredMessage && !isDirectMessage;
+}

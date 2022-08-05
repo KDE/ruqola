@@ -119,13 +119,6 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     }
 }
 
-bool MessageListDelegate::showIgnoreMessages(const QModelIndex &index) const
-{
-    const bool isIgnoredMessage = index.data(MessageModel::Ignored).toBool();
-    const bool isDirectMessage = index.data(MessageModel::DirectChannels).toBool();
-    return isIgnoredMessage && !isDirectMessage;
-}
-
 // [Optional date header]
 // [margin] <pixmap> [margin] <sender> [margin] <roles> [margin] <editicon> [margin] <favoriteicon> [margin] <text message> [margin] <add reaction> [margin]
 // <timestamp> [margin/2]
@@ -223,7 +216,7 @@ MessageListDelegate::Layout MessageListDelegate::doLayout(const QStyleOptionView
 
     const int showIgnoreMessageIconX = textLeft;
     // showIgnoreMessage icon
-    const bool ignoreMessage = showIgnoreMessages(index);
+    const bool ignoreMessage = MessageDelegateUtils::showIgnoreMessages(index);
     if (ignoreMessage) {
         textLeft += iconSize + margin;
     }
@@ -558,7 +551,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         mTranslatedIcon.paint(painter, layout.translatedIconRect);
     }
 
-    if (showIgnoreMessages(index)) {
+    if (MessageDelegateUtils::showIgnoreMessages(index)) {
         const QIcon hideShowIcon = QIcon::fromTheme(layout.showIgnoreMessage ? QStringLiteral("visibility") : QStringLiteral("hint"));
         hideShowIcon.paint(painter, layout.showIgnoredMessageIconRect);
     }
@@ -689,7 +682,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 return true;
             }
         }
-        if (showIgnoreMessages(index)) {
+        if (MessageDelegateUtils::showIgnoreMessages(index)) {
             if (layout.showIgnoredMessageIconRect.contains(mev->pos())) {
                 mHelperText->removeMessageCache(message->messageId());
                 auto model = const_cast<QAbstractItemModel *>(index.model());

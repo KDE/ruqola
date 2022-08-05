@@ -50,4 +50,5 @@ Q_REQUIRED_RESULT QSizeF dprAwareSize(const QPixmap &pixmap);
 Q_REQUIRED_RESULT qreal basicMargin();
 Q_REQUIRED_RESULT QSize timeStampSize(const QString &timeStampText, const QStyleOptionViewItem &option);
 Q_REQUIRED_RESULT QSize textSizeHint(QTextDocument *doc, qreal *pBaseLine);
+Q_REQUIRED_RESULT bool showIgnoreMessages(const QModelIndex &index);
 }
