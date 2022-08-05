@@ -157,6 +157,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mHideRoles->setChecked(ownUserPreferences.hideRoles());
     mhideAvatars->setChecked(ownUserPreferences.hideAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
+    mViewMode->setCurrentIndex(mViewMode->findData(mRocketChatAccount->viewMode()));
     mChanged = false;
 }
 
