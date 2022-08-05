@@ -19,6 +19,7 @@ class MessageListLayoutBase
 {
 public:
     explicit MessageListLayoutBase(MessageListDelegate *delegate);
+    virtual ~MessageListLayoutBase();
 
     struct Layout {
         // Sender
@@ -87,12 +88,12 @@ public:
         bool messageIsFollowing = false;
     };
 
-    Q_REQUIRED_RESULT MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    Q_REQUIRED_RESULT virtual MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const = 0;
 
     Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
-private:
+protected:
     RocketChatAccount *mRocketChatAccount = nullptr;
     MessageListDelegate *mDelegate = nullptr;
 };

@@ -79,6 +79,10 @@ public:
     /// @note Ownership is not transferred
     Q_REQUIRED_RESULT MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
 
+    Q_REQUIRED_RESULT MessageDelegateHelperText *helperText() const;
+
+    Q_REQUIRED_RESULT MessageDelegateHelperReactions *helperReactions() const;
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);

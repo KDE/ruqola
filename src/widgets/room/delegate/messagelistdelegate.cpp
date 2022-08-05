@@ -358,6 +358,16 @@ void MessageListDelegate::drawLastSeenLine(QPainter *painter, qint64 displayLast
     painter->setPen(origPen);
 }
 
+MessageDelegateHelperReactions *MessageListDelegate::helperReactions() const
+{
+    return mHelperReactions.data();
+}
+
+MessageDelegateHelperText *MessageListDelegate::helperText() const
+{
+    return mHelperText.data();
+}
+
 void MessageListDelegate::drawDate(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option, bool drawLastSeenLine) const
 {
     const QPen origPen = painter->pen();
