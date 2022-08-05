@@ -99,7 +99,7 @@ void MessageListDelegateTest::layoutChecks()
     option.rect.setSize(sizeHint);
 
     // ... and redoing layout while painting
-    const MessageListDelegate::Layout layout = delegate.doLayout(option, index);
+    const MessageListLayoutBase::Layout layout = delegate.doLayout(option, index);
 
     // THEN
     QCOMPARE(layout.senderText, QStringLiteral("@dfaure"));
