@@ -14,10 +14,11 @@
 #include <QVector>
 
 class RocketChatAccount;
+class MessageListDelegate;
 class MessageListLayoutBase
 {
 public:
-    MessageListLayoutBase();
+    explicit MessageListLayoutBase(MessageListDelegate *delegate);
 
     struct Layout {
         // Sender
@@ -93,4 +94,5 @@ public:
 
 private:
     RocketChatAccount *mRocketChatAccount = nullptr;
+    MessageListDelegate *mDelegate = nullptr;
 };

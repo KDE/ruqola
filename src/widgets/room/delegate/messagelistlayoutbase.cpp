@@ -6,10 +6,15 @@
 
 #include "messagelistlayoutbase.h"
 #include "delegateutils/messagedelegateutils.h"
+#include "messagedelegatehelperbase.h"
+#include "messagelistdelegate.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 
-MessageListLayoutBase::MessageListLayoutBase() = default;
+MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
+    : mDelegate(delegate)
+{
+}
 
 MessageListLayoutBase::Layout MessageListLayoutBase::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
@@ -47,7 +52,7 @@ MessageListLayoutBase::Layout MessageListLayoutBase::doLayout(const QStyleOption
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
     if (mRocketChatAccount && !mRocketChatAccount->hideAvatars()) {
-        layout.avatarPixmap = makeAvatarPixmap(option.widget, index, senderTextSize.height());
+        layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height());
     }
 
     QRect usableRect = option.rect;
@@ -172,7 +177,7 @@ MessageListLayoutBase::Layout MessageListLayoutBase::doLayout(const QStyleOption
         int topAttachment = attachmentsY;
         // TODO add spacing between attachment
         for (const MessageAttachment &msgAttach : attachments) {
-            const MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+            const MessageDelegateHelperBase *helper = mDelegate->attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
                 layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attachmentsSize.width(), attachmentsSize.height()));

@@ -74,13 +74,17 @@ public:
     Q_REQUIRED_RESULT const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
+    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
+
+    /// @note Ownership is not transferred
+    Q_REQUIRED_RESULT MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);
     void updateView();
 
 private:
-    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
     void slotUpdateColors();
 
     struct Layout {
@@ -151,9 +155,6 @@ private:
     };
     Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
-
-    /// @note Ownership is not transferred
-    MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
 
     friend class MessageListDelegateTest;
 
