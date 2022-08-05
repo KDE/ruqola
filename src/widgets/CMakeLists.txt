@@ -567,6 +567,9 @@ target_sources(libruqolawidgets PRIVATE
 
     room/delegate/messagelistcompactlayout.h
     room/delegate/messagelistcompactlayout.cpp
+
+    room/delegate/messagelistnormallayout.h
+    room/delegate/messagelistnormallayout.cpp
 )
 
 
