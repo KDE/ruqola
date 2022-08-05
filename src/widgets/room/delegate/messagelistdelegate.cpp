@@ -18,11 +18,11 @@
 #include "messagedelegatehelperbase.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpertext.h"
-#include "messagelistcompactlayout.h"
 #include "misc/avatarcachemanager.h"
 #include "misc/emoticonmenuwidget.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
@@ -82,7 +82,7 @@ MessageListDelegate::~MessageListDelegate()
 
 void MessageListDelegate::slotUpdateColors()
 {
-    KColorScheme scheme = Colors::self().schemeView();
+    const KColorScheme scheme = Colors::self().schemeView();
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
@@ -419,25 +419,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QSize MessageListDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    // Note: option.rect in this method is huge (as big as the viewport)
-    const MessageListLayoutBase::Layout layout = doLayout(option, index);
-
-    int additionalHeight = 0;
-    // A little bit of margin below the very last item, it just looks better
-    if (index.row() == index.model()->rowCount() - 1) {
-        additionalHeight += 4;
-    }
-
-    // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
-    const int contentsHeight = layout.repliesY + layout.repliesHeight + layout.discussionsHeight - option.rect.y();
-    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
-                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
-
-    // qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height()
-    //         << "attachments" << layout.attachmentsRect.height() << "reactions" << layout.reactionsHeight << "total contents" << contentsHeight;
-    // qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
-
-    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+    return mMessageListLayoutBase->sizeHint(option, index);
 }
 
 static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)

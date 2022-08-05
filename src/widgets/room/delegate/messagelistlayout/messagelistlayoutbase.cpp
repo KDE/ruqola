@@ -5,7 +5,7 @@
 */
 
 #include "messagelistlayoutbase.h"
-#include "messagelistdelegate.h"
+#include "room/delegate/messagelistdelegate.h"
 
 MessageListLayoutBase::MessageListLayoutBase(MessageListDelegate *delegate)
     : mDelegate(delegate)

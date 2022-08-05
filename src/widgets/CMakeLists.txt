@@ -562,14 +562,17 @@ target_sources(libruqolawidgets PRIVATE
 
     ruqolawidget.qrc
 
-    room/delegate/messagelistlayoutbase.h
-    room/delegate/messagelistlayoutbase.cpp
+    room/delegate/messagelistlayout/messagelistlayoutbase.h
+    room/delegate/messagelistlayout/messagelistlayoutbase.cpp
 
-    room/delegate/messagelistcompactlayout.h
-    room/delegate/messagelistcompactlayout.cpp
+    room/delegate/messagelistlayout/messagelistcompactlayout.h
+    room/delegate/messagelistlayout/messagelistcompactlayout.cpp
 
-    room/delegate/messagelistnormallayout.h
-    room/delegate/messagelistnormallayout.cpp
+    room/delegate/messagelistlayout/messagelistnormallayout.h
+    room/delegate/messagelistlayout/messagelistnormallayout.cpp
+
+    room/delegate/messagelistlayout/messagelistcozylayout.h
+    room/delegate/messagelistlayout/messagelistcozylayout.cpp
 )
 
 

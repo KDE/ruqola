@@ -6,12 +6,12 @@
 
 #include "messagelistnormallayout.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "messagedelegatehelperbase.h"
-#include "messagedelegatehelperreactions.h"
-#include "messagedelegatehelpertext.h"
-#include "messagelistdelegate.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
+#include "room/delegate/messagedelegatehelperbase.h"
+#include "room/delegate/messagedelegatehelperreactions.h"
+#include "room/delegate/messagedelegatehelpertext.h"
+#include "room/delegate/messagelistdelegate.h"
 
 MessageListNormalLayout::MessageListNormalLayout(MessageListDelegate *delegate)
     : MessageListLayoutBase(delegate)
@@ -21,6 +21,11 @@ MessageListNormalLayout::MessageListNormalLayout(MessageListDelegate *delegate)
 MessageListNormalLayout::~MessageListNormalLayout() = default;
 
 MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    return {};
+}
+
+QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     return {};
 }

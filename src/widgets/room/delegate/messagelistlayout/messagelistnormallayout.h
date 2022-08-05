@@ -8,7 +8,6 @@
 
 #include "messagelistlayoutbase.h"
 
-#include "messagelistlayoutbase.h"
 class MessageListDelegate;
 class MessageListNormalLayout : public MessageListLayoutBase
 {
@@ -17,4 +16,5 @@ public:
     ~MessageListNormalLayout() override;
 
     Q_REQUIRED_RESULT MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };

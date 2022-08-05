@@ -7,12 +7,14 @@
 #pragma once
 
 #include "messagelistlayoutbase.h"
+
 class MessageListDelegate;
-class MessageListCompactLayout : public MessageListLayoutBase
+class MessageListCozyLayout : public MessageListLayoutBase
 {
 public:
-    explicit MessageListCompactLayout(MessageListDelegate *delegate);
-    ~MessageListCompactLayout() override;
+    explicit MessageListCozyLayout(MessageListDelegate *delegate);
+    ~MessageListCozyLayout() override;
 
     Q_REQUIRED_RESULT MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };

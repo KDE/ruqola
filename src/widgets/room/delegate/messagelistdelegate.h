@@ -7,7 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "messagelistlayoutbase.h"
+#include "messagelistlayout/messagelistlayoutbase.h"
 #include "room.h"
 #include "utils.h"
 
