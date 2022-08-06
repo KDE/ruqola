@@ -92,6 +92,7 @@ Q_SIGNALS:
 
 private:
     void slotUpdateColors();
+    void switchMessageLayout();
 
     MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;

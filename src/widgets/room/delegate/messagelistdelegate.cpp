@@ -617,3 +617,24 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
     }
     return false;
 }
+
+void MessageListDelegate::switchMessageLayout()
+{
+    delete mMessageListLayoutBase;
+    int i = 0; // Customize it
+    switch (i) {
+    case 0:
+        mMessageListLayoutBase = new MessageListCompactLayout(this);
+        break;
+    case 1:
+        mMessageListLayoutBase = new MessageListCozyLayout(this);
+        break;
+    case 2:
+        mMessageListLayoutBase = new MessageListNormalLayout(this);
+        break;
+    default:
+        qCWarning(RUQOLAWIDGETS_LOG) << "Invalid Message Layout type " << i;
+        mMessageListLayoutBase = new MessageListCompactLayout(this);
+        break;
+    }
+}
