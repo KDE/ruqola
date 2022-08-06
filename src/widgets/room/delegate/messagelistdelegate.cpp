@@ -23,6 +23,8 @@
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
+#include "room/delegate/messagelistlayout/messagelistcozylayout.h"
+#include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
