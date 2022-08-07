@@ -637,4 +637,5 @@ void MessageListDelegate::switchMessageLayout()
         mMessageListLayoutBase = new MessageListCompactLayout(this);
         break;
     }
+    updateView();
 }
