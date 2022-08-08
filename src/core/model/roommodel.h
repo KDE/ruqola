@@ -107,6 +107,7 @@ public:
 Q_SIGNALS:
     void needToUpdateNotification();
     void roomNeedAttention();
+    void roomRemoved(const QString &roomId);
 
 private:
     Q_DISABLE_COPY(RoomModel)

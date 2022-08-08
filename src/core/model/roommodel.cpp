@@ -315,8 +315,9 @@ void RoomModel::removeRoom(const QString &roomId)
     const int roomCount = mRoomsList.count();
     for (int i = 0; i < roomCount; ++i) {
         if (mRoomsList.at(i)->roomId() == roomId) {
+            Q_EMIT roomRemoved(roomId);
             beginRemoveRows(QModelIndex(), i, i);
-            delete mRoomsList.takeAt(i);
+            mRoomsList.takeAt(i)->deleteLater();
             endRemoveRows();
             break;
         }

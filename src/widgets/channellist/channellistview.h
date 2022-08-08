@@ -55,7 +55,10 @@ private:
     void slotMoveToTeam(const QModelIndex &index);
     void slotConvertToChannel(const QModelIndex &index);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
+    void slotRoomRemoved(const QString &roomId);
+    void switchToChannel(bool switchToNextUnreadChannel = false);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;
+    QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

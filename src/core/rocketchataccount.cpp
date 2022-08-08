@@ -195,6 +195,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
+    connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
+
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);

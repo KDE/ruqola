@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QMap>
+#include <QPointer>
 #include <QWidget>
 class FlowLayout;
 class Room;
