@@ -48,7 +48,11 @@ ChannelListView::~ChannelListView() = default;
 
 void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
+    if (mCurrentRocketChatAccount) {
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
+    }
     mCurrentRocketChatAccount = currentRocketChatAccount;
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
 
@@ -390,6 +394,11 @@ bool ChannelListView::selectChannelByRoomIdRequested(const QString &identifier)
 
 void ChannelListView::selectNextUnreadChannel()
 {
+    switchToChannel(true);
+}
+
+void ChannelListView::switchToChannel(bool switchToNextUnreadChannel)
+{
     QAbstractItemModel *filterModel = model();
     Q_ASSERT(filterModel);
     const int nRooms = filterModel->rowCount();
@@ -407,12 +416,24 @@ void ChannelListView::selectNextUnreadChannel()
     // iterate through to the end, and then wrap around to the starting point
     while (roomIdx < nRooms || (roomIdx % nRooms < startIndex)) {
         const auto roomModelIndex = filterModel->index(roomIdx % nRooms, 0);
-        const bool isUnRead = roomModelIndex.data(RoomModel::RoomAlert).toBool();
+        bool isUnRead = true;
+        if (switchToNextUnreadChannel) {
+            isUnRead = roomModelIndex.data(RoomModel::RoomAlert).toBool();
+        }
         if (isUnRead && roomModelIndex != currentlySelectedIndex) {
             channelSelected(roomModelIndex);
             selectionModel()->setCurrentIndex(filterModel->index(roomIdx % nRooms, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
             return;
         }
         roomIdx++;
+    }
+}
+
+void ChannelListView::slotRoomRemoved(const QString &roomId)
+{
+    const auto currentlySelectedIndex = selectionModel()->currentIndex();
+    const QString currentRoomId = currentlySelectedIndex.data(RoomModel::RoomId).toString();
+    if (currentRoomId == roomId) {
+        switchToChannel();
     }
 }

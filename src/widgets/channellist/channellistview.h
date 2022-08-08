@@ -56,6 +56,8 @@ private:
     void slotConvertToChannel(const QModelIndex &index);
     void slotConfigureNotification(Room *room);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
+    void slotRoomRemoved(const QString &roomId);
+    void switchToChannel(bool switchToNextUnreadChannel = false);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

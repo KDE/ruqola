@@ -502,6 +502,7 @@ public:
     Q_REQUIRED_RESULT int viewMode() const;
 
 Q_SIGNALS:
+    void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
     void totpInvalid();
     void totpValid(const QStringList &code);
