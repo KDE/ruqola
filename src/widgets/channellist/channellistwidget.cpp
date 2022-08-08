@@ -171,7 +171,9 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
             case ParseMessageUrlUtils::ChannelType::Direct: {
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     // TODO add support for roomId or roomName
-                    mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
+                    // mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomId*/);
+                    // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
+                    mCurrentRocketChatAccount->ddp()->openDirectChannel(roomId);
                     // TODO implement scroll to message
                 } else {
                     Q_EMIT selectMessageIdRequested(messageId);
@@ -246,7 +248,10 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
             }
             if (!mChannelView->selectChannelByRoomIdRequested(roomOrUserId)) {
                 if (roomOrUserId != mCurrentRocketChatAccount->userName()) {
-                    mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);
+                    // Workaround RC 4.7.x where openDirectChannel doesn't accept userId as direct open channel REST API
+                    mCurrentRocketChatAccount->ddp()->openDirectChannel(roomOrUserId);
+
+                    // mCurrentRocketChatAccount->openDirectChannel(roomOrUserId);
                 }
             }
         } else if (link == QLatin1String("ruqola:/jitsicall/")) {
