@@ -34,7 +34,7 @@ Q_SIGNALS:
 
 private:
     QStackedWidget *const mStackedWidget;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     ChannelInfoEditableWidget *const mChannelInfoEditableWidget;
     ChannelInfoReadOnlyWidget *const mChannelInfoReadOnlyWidget;
 };

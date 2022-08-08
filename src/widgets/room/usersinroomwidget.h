@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QPointer>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -35,7 +36,7 @@ private:
     void slotShowUserInfo(const QModelIndex &index);
     QListView *const mListView;
     QLineEdit *const mSearchLineEdit;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     UsersInRoomMenu *mMenu = nullptr;
     QLabel *const mMessageListInfo;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxy;

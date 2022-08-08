@@ -6,6 +6,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QPointer>
 #include <QWidget>
 class QLabel;
 class Room;
@@ -28,6 +29,6 @@ private:
     QLabel *const mAnnouncementReadOnly;
     QLabel *const mDescriptionReadOnly;
     RoomAvatarReadOnlyWidget *const mRoomAvatarWidget;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
 };

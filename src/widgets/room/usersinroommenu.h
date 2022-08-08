@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QPointer>
 
 #include "libruqolawidgets_private_export.h"
 class Room;
@@ -31,6 +32,6 @@ private:
     void slotUserInfo();
     QString mUserId;
     QString mUserName;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     QWidget *mParentWidget = nullptr;
 };

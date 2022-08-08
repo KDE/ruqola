@@ -7,6 +7,7 @@
 #pragma once
 
 #include "createchannelteaminfo.h"
+#include <QPointer>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -46,7 +47,7 @@ private:
     TeamChannelsComboBox *const mTeamChannelsCombobox;
     TeamRoomsModel *const mTeamRoomsModel;
     TeamRoomsFilterProxyModel *const mTeamRoomFilterProxyModel;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
     QString mTeamId;
 };

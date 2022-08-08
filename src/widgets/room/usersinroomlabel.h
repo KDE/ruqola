@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QLabel>
+#include <QPointer>
 #include <QWidget>
 class Room;
 class UsersInRoomMenu;
@@ -26,7 +27,7 @@ private:
     void slotOpenConversation();
     QString mUserId;
     QString mUserName;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     UsersInRoomMenu *mMenu = nullptr;
 };
 

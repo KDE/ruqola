@@ -45,7 +45,7 @@ private:
     void selectRoomToDelete(const QString &teamId);
     void deleteTeam(const QString &teamId, const QStringList &roomdId);
     Q_REQUIRED_RESULT bool hasRetentionPermission() const;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
 
     QLineEdit *const mName;
     MessageTextEditor *const mComment;
