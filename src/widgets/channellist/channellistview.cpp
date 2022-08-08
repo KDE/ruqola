@@ -48,10 +48,10 @@ ChannelListView::~ChannelListView() = default;
 
 void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
+    mCurrentRocketChatAccount = currentRocketChatAccount;
     if (mCurrentRocketChatAccount) {
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
     }
-    mCurrentRocketChatAccount = currentRocketChatAccount;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
 }
