@@ -1,5 +1,5 @@
 Name:           ruqola
-Version:        1.7.3
+Version:        1.7.4
 Release:        0
 Summary:        Rocket.Chat client for the KDE desktop
 Source0:        %{name}-%{version}.tar.gz
