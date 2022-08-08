@@ -25,6 +25,7 @@ public:
         QString pushNotifications;
         QString emailNotificationMode;
         QStringList highlights;
+        int messageViewMode = -1;
         bool useEmoji = true;
         bool convertAsciiToEmoji = true;
         bool hideRoles = false;
@@ -47,6 +48,9 @@ public:
 
 Q_SIGNALS:
     void usersSetPreferencesDone(const QJsonObject &replyObject);
+
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(UsersSetPreferencesJob)

@@ -36,22 +36,44 @@ void UsersSetPreferencesJobTest::shouldGenerateRequest()
 
 void UsersSetPreferencesJobTest::shouldGenerateJson()
 {
-    UsersSetPreferencesJob job;
-    UsersSetPreferencesJob::UsersSetPreferencesInfo info;
-    const QString desktopNotifications = QStringLiteral("Bla");
-    info.desktopNotifications = desktopNotifications;
-    job.setUsersSetPreferencesInfo(info);
-    QVERIFY(!job.canStart());
+    {
+        UsersSetPreferencesJob job;
+        UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+        const QString desktopNotifications = QStringLiteral("Bla");
+        info.desktopNotifications = desktopNotifications;
+        job.setUsersSetPreferencesInfo(info);
+        QVERIFY(!job.canStart());
 
-    const QString userId = QStringLiteral("foo");
-    info.userId = userId;
-    job.setUsersSetPreferencesInfo(info);
-    QCOMPARE(
-        job.json().toJson(QJsonDocument::Compact),
-        QStringLiteral(
-            R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
-            .arg(userId, desktopNotifications)
-            .toLatin1());
+        const QString userId = QStringLiteral("foo");
+        info.userId = userId;
+        job.setUsersSetPreferencesInfo(info);
+        QCOMPARE(
+            job.json().toJson(QJsonDocument::Compact),
+            QStringLiteral(
+                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
+                .arg(userId, desktopNotifications)
+                .toLatin1());
+    }
+    {
+        UsersSetPreferencesJob job;
+        UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+        const QString desktopNotifications = QStringLiteral("Bla");
+        info.desktopNotifications = desktopNotifications;
+        job.setUsersSetPreferencesInfo(info);
+        QVERIFY(!job.canStart());
+
+        const QString userId = QStringLiteral("foo");
+        info.userId = userId;
+        const int viewMode = 2;
+        info.messageViewMode = viewMode;
+        job.setUsersSetPreferencesInfo(info);
+        QCOMPARE(
+            job.json().toJson(QJsonDocument::Compact),
+            QStringLiteral(
+                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"messageViewMode":%3,"useEmojis":true},"userId":"%1"})")
+                .arg(userId, desktopNotifications, QString::number(viewMode))
+                .toLatin1());
+    }
 }
 
 void UsersSetPreferencesJobTest::shouldNotStarting()

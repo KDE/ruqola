@@ -8,6 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -99,6 +101,9 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
         dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
+    if (mUsersSetPreferencesInfo.messageViewMode != -1) {
+        dataObj[QLatin1String("messageViewMode")] = mUsersSetPreferencesInfo.messageViewMode;
+    }
 
     dataObj[QLatin1String("useEmojis")] = mUsersSetPreferencesInfo.useEmoji;
     dataObj[QLatin1String("convertAsciiEmoji")] = mUsersSetPreferencesInfo.convertAsciiToEmoji;
@@ -108,6 +113,14 @@ QJsonDocument UsersSetPreferencesJob::json() const
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString UsersSetPreferencesJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("invalid-params")) {
+        return i18n("Invalid parameters");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
 }
 
 QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo &t)
@@ -124,6 +137,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "convertAsciiToEmoji: " << t.convertAsciiToEmoji;
     d << "hideRoles: " << t.hideRoles;
     d << "hideAvatars: " << t.hideAvatars;
+    d << "messageViewMode: " << t.messageViewMode;
     return d;
 }
 

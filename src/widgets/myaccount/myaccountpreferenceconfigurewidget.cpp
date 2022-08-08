@@ -110,9 +110,9 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
-    mViewMode->addItem(i18n("Normal"), QStringLiteral("0"));
-    mViewMode->addItem(i18n("Cozy"), QStringLiteral("1"));
-    mViewMode->addItem(i18n("Compact"), QStringLiteral("2"));
+    mViewMode->addItem(i18n("Normal"), 0);
+    mViewMode->addItem(i18n("Cozy"), 1);
+    mViewMode->addItem(i18n("Compact"), 2);
 
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
@@ -142,6 +142,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.hideRoles = mHideRoles->isChecked();
         info.hideAvatars = mhideAvatars->isChecked();
         info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
+        info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
     }
 }
