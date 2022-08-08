@@ -12,6 +12,7 @@
 #include "messages/message.h"
 #include <QAbstractListModel>
 #include <QObject>
+#include <QPointer>
 
 class RocketChatAccount;
 class LoadRecentHistoryManager;
@@ -153,7 +154,7 @@ private:
     QString mRoomId;
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
 };
 Q_DECLARE_METATYPE(MessageModel::AttachmentVisibility)

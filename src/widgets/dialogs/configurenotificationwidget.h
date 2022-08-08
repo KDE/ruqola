@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QPointer>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -26,7 +27,7 @@ private:
     QCheckBox *const mDisableNotification;
     QCheckBox *const mHideUnreadRoomStatus;
     QCheckBox *const mMuteGroupMentions;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     QComboBox *const mDesktopAlertCombobox;
     QComboBox *const mDesktopSoundCombobox;
     QComboBox *const mMobileAlertCombobox;

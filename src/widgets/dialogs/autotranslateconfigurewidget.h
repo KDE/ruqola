@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QPointer>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -30,6 +31,6 @@ private:
     void slotAutoTranslateLanguageChanged();
     QCheckBox *const mAutoTranslate;
     QComboBox *const mLanguage;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
 };

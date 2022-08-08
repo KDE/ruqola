@@ -30,7 +30,7 @@ private:
     void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void loadExternalDialog();
     FlowLayout *const mFlowLayout;
-    Room *mRoom = nullptr;
+    QPointer<Room> mRoom;
     // userId, UsersInRoomLabel
     QMap<QString, UsersInRoomLabel *> mListUsersWidget;
     UsersForRoomFilterProxyModel *const mUsersForRoomFilterProxyModel;
