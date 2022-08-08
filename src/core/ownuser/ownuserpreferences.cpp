@@ -32,6 +32,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setHideAvatars(replyObject.value(QLatin1String("hideAvatars")).toBool(false));
     setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
+    setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -39,7 +40,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars() && mIdleTimeLimit == other.idleTimeLimit()
-        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications();
+        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -91,6 +92,16 @@ void OwnUserPreferences::setPushNotifications(const QString &pushNotifications)
 QString OwnUserPreferences::pushNotifications() const
 {
     return mPushNotifications;
+}
+
+int OwnUserPreferences::messageViewMode() const
+{
+    return mMessageViewMode;
+}
+
+void OwnUserPreferences::setMessageViewMode(int newMessageViewMode)
+{
+    mMessageViewMode = newMessageViewMode;
 }
 
 bool OwnUserPreferences::convertAsciiEmoji() const
@@ -165,5 +176,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mIdleTimeLimit " << t.idleTimeLimit();
     d << "mEnableAutoAway " << t.enableAutoAway();
     d << "mPushNotifications " << t.pushNotifications();
+    d << "mMessageViewMode " << t.messageViewMode();
     return d;
 }

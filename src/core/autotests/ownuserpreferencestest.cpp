@@ -25,6 +25,8 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(p.useEmojis());
     QVERIFY(!p.hideRoles());
     QVERIFY(!p.hideAvatars());
+    QCOMPARE(p.messageViewMode(), -1);
+    QCOMPARE(p.idleTimeLimit(), -1);
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
@@ -42,6 +44,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setConvertAsciiEmoji(false);
         preferences.setUseEmojis(false);
         preferences.setIdleTimeLimit(300);
+        preferences.setMessageViewMode(0);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }

@@ -377,7 +377,6 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
     d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
     d << "mUIUseRealName " << t.useRealName();
-    d << "mViewMode " << t.viewMode();
     return d;
 }
 
@@ -495,21 +494,9 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageAllowConvertLongMessagesToAttachment(value.toBool());
     } else if (id == QLatin1String("UI_Use_Real_Name")) {
         setUseRealName(value.toBool());
-    } else if (id == QLatin1String("Accounts_Default_User_Preferences_viewMode")) {
-        setViewMode(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
-}
-
-int RuqolaServerConfig::viewMode() const
-{
-    return mViewMode;
-}
-
-void RuqolaServerConfig::setViewMode(int newViewMode)
-{
-    mViewMode = newViewMode;
 }
 
 bool RuqolaServerConfig::useRealName() const

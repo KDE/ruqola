@@ -50,12 +50,16 @@ public:
     void setPushNotifications(const QString &pushNotifications);
     Q_REQUIRED_RESULT QString pushNotifications() const;
 
+    Q_REQUIRED_RESULT int messageViewMode() const;
+    void setMessageViewMode(int newMessageViewMode);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
     QString mDesktopNotifications;
     QString mPushNotifications;
     int mIdleTimeLimit = -1;
+    int mMessageViewMode = -1;
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;

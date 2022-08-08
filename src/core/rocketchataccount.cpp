@@ -590,11 +590,6 @@ bool RocketChatAccount::useRealName() const
     return mRuqolaServerConfig->useRealName();
 }
 
-int RocketChatAccount::viewMode() const
-{
-    return mRuqolaServerConfig->viewMode();
-}
-
 SwitchChannelHistoryModel *RocketChatAccount::switchChannelHistoryModel() const
 {
     return mSwitchChannelHistoryModel;
@@ -2648,7 +2643,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             Q_EMIT needUpdateView();
         }
         if (updateJson.contains(QStringLiteral("settings.preferences.messageViewMode"))) {
-            mRuqolaServerConfig->setViewMode(updateJson.value(QStringLiteral("settings.preferences.messageViewMode")).toInt());
+            // TODO mRuqolaServerConfig->setViewMode(updateJson.value(QStringLiteral("settings.preferences.messageViewMode")).toInt());
             Q_EMIT needUpdateView();
         }
     }
@@ -2812,6 +2807,11 @@ bool RocketChatAccount::hideRoles() const
 bool RocketChatAccount::hideAvatars() const
 {
     return ownUser().ownUserPreferences().hideAvatars();
+}
+
+int RocketChatAccount::messageViewMode() const
+{
+    return ownUser().ownUserPreferences().messageViewMode();
 }
 
 void RocketChatAccount::slotLoadRoles()

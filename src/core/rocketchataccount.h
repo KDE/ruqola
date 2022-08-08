@@ -499,8 +499,7 @@ public:
 
     Q_REQUIRED_RESULT bool useRealName() const;
 
-    Q_REQUIRED_RESULT int viewMode() const;
-
+    Q_REQUIRED_RESULT int messageViewMode() const;
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

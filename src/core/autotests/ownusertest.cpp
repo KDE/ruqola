@@ -62,6 +62,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setEmailNotificationMode(QStringLiteral("mentions"));
     ownUser.setIdleTimeLimit(300);
     ownUser.setEnableAutoAway(true);
+    ownUser.setMessageViewMode(0);
     result.setOwnUserPreferences(ownUser);
 
     QTest::addRow("example1") << QStringLiteral("example1") << result;
