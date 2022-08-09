@@ -99,7 +99,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox]() {
         updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer);
     });
-    connect(spinBox, &QSpinBox::valueChanged, this, [this, toolButton]() {
+    connect(spinBox, &QSpinBox::valueChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
     });
 
@@ -123,7 +123,7 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
         updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
     });
-    connect(lineEdit, &QLineEdit::textChanged, this, [this, toolButton]() {
+    connect(lineEdit, &QLineEdit::textChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
     });
 
@@ -152,7 +152,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox]() {
         updateSettings(variable, comboBox->currentData().toString(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
     });
-    connect(comboBox, &QComboBox::currentIndexChanged, this, [this, toolButton]() {
+    connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
     });
 
