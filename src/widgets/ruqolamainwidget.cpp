@@ -144,14 +144,18 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
 void RuqolaMainWidget::slotMarkBannerAsRead(const QString &identifier)
 {
-    auto job = new RocketChatRestApi::BannersDismissJob(this);
+#if 1
+    mCurrentRocketChatAccount->ddp()->bannerDismiss(identifier);
     qDebug() << " identifier " << identifier;
+#else
+    auto job = new RocketChatRestApi::BannersDismissJob(this);
     job->setBannerId(identifier);
     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::BannersDismissJob::dimissBannerDone, this, &RuqolaMainWidget::slotBannerDismissDone);
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start BannersDismissJob job";
     }
+#endif
 }
 
 void RuqolaMainWidget::slotBannerDismissDone()

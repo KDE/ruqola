@@ -60,6 +60,16 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
     return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::bannerDismiss(const QString &bannerId, quint64 id)
+{
+    QJsonObject obj{
+        {QStringLiteral("id"), bannerId},
+    };
+
+    const QJsonArray params{obj};
+    return generateMethod(QStringLiteral("banner/dismiss"), QJsonDocument(params), id);
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::blockUser(const QString &rid, const QString &userId, quint64 id)
 {
     QJsonObject obj{

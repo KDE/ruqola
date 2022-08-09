@@ -199,6 +199,7 @@ public:
     quint64 setAdminStatus(const QString &userId, bool admin);
     quint64 openRoom(const QString &roomId);
     quint64 getRoomById(const QString &roomId);
+    quint64 bannerDismiss(const QString &bannerId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

@@ -1,0 +1,10 @@
+{
+    "id": "43",
+    "method": "banner/dismiss",
+    "msg": "method",
+    "params": [
+        {
+            "id": "banner_read"
+        }
+    ]
+}

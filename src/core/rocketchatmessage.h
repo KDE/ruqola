@@ -81,6 +81,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult getRoomById(const QString &roomId, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult bannerDismiss(const QString &bannerId, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

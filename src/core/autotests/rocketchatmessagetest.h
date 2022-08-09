@@ -60,6 +60,8 @@ private Q_SLOTS:
     void openRoom();
     void getroombyid();
 
+    void bannerDismiss();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

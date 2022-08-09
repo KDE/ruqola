@@ -273,3 +273,11 @@ void RocketChatMessageTest::getroombyid()
     RocketChatMessage::RocketChatMessageResult r = m.getRoomById(QStringLiteral("bla"), 43);
     compareFile(r.result, QStringLiteral("getroombyid"));
 }
+
+void RocketChatMessageTest::bannerDismiss()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss(QStringLiteral("banner_read"), 43);
+    compareFile(r.result, QStringLiteral("bannerDismiss"));
+}

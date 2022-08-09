@@ -33,6 +33,14 @@ namespace RuqolaTestWebSocket
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void banner_dismiss(const QJsonObject &root, RocketChatAccount *account)
+{
+    // qDebug() << " root " << root;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Banner Dismiss:") + QJsonDocument(root).toJson());
+    }
+}
+
 void list_custom_sounds(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << " root " << root;
@@ -580,6 +588,12 @@ quint64 DDPClient::deleteOAuthApp(const QString &appId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->deleteOAuthApp(appId, m_uid);
     return method(result, delete_oauth_app, DDPClient::Persistent);
+}
+
+quint64 DDPClient::bannerDismiss(const QString &bannerId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, m_uid);
+    return method(result, banner_dismiss, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
