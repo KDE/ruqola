@@ -20,6 +20,13 @@ MessageListNormalLayout::MessageListNormalLayout(MessageListDelegate *delegate)
 
 MessageListNormalLayout::~MessageListNormalLayout() = default;
 
+// Use big icon 2 lines
+// [Optional date header]
+// [margin] <pixmap> [margin] <sender>
+// [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
+//                                                                  <attachments>
+//                                                                  <reactions>
+//                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
@@ -218,7 +225,7 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
     int additionalHeight = 0;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
-        additionalHeight += 4;
+        additionalHeight += 6; // Add more space as cozy mode
     }
 
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)

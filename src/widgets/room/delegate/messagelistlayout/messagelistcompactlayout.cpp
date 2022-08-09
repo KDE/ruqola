@@ -20,6 +20,11 @@ MessageListCompactLayout::MessageListCompactLayout(MessageListDelegate *delegate
 
 MessageListCompactLayout::~MessageListCompactLayout() = default;
 
+// [Optional date header]
+// [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
+//                                                                  <attachments>
+//                                                                  <reactions>
+//                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
