@@ -48,8 +48,6 @@
 </keywordset>
 </bookinfo>
 
-<!-- info + screenshots from http://www.aegiap.eu/kdeblog/2014/01/new-in-kdepim-4-13-sieveeditor/ -->
-
 <chapter id="introduction">
 <title>Introduction</title>
 <para>&i18n-kapplication; is a client application for RocketChat.</para>
