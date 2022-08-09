@@ -1217,8 +1217,7 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         threadsInRoom(roomId, false);
         break;
     case ListMessagesModel::UnreadThreadsMessages:
-        // FIXME in RC 5.0
-        // FIXME threadsInRoom(roomId, true);
+        threadsInRoom(roomId, true);
         break;
     }
 }
@@ -2283,9 +2282,11 @@ void RocketChatAccount::createDiscussion(const QString &parentRoomId,
 
 void RocketChatAccount::threadsInRoom(const QString &roomId, bool onlyUnread)
 {
-    mListMessageModel->clear();
-    mListMessageModel->setRoomId(roomId);
-    restApi()->getThreadsList(roomId, onlyUnread);
+    if (threadsEnabled()) {
+        mListMessageModel->clear();
+        mListMessageModel->setRoomId(roomId);
+        restApi()->getThreadsList(roomId, onlyUnread);
+    }
 }
 
 void RocketChatAccount::discussionsInRoom(const QString &roomId)
