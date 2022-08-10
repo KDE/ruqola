@@ -100,7 +100,8 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
 {
     mRocketChatAccount = rcAccount;
     mAvatarCacheManager->setCurrentRocketChatAccount(mRocketChatAccount);
-    mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
+    // Switch messageLayout after set rocketchatAccount
+    switchMessageLayout();
 
     mHelperText->setRocketChatAccount(mRocketChatAccount);
     mHelperAttachmentImage->setRocketChatAccount(mRocketChatAccount);
@@ -620,6 +621,12 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
 
 void MessageListDelegate::switchMessageLayout()
 {
+    // FIXME reactivate it when layout will be implemented correctly
+    // Move this line at end when we reactivate code
+#if 1
+    mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
+    return;
+#else
     if (mRocketChatAccount) {
         delete mMessageListLayoutBase;
         const int i = mRocketChatAccount->ownUserPreferences().messageViewMode();
@@ -638,6 +645,8 @@ void MessageListDelegate::switchMessageLayout()
             mMessageListLayoutBase = new MessageListCompactLayout(this);
             break;
         }
+        mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
         updateView();
     }
+#endif
 }
