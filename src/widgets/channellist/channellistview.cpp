@@ -403,6 +403,7 @@ void ChannelListView::switchToChannel(bool switchToNextUnreadChannel)
     Q_ASSERT(filterModel);
     const int nRooms = filterModel->rowCount();
     if (nRooms == 0) {
+        // FIXME : switch to empty room widget ?
         return;
     }
     int roomIdx = 0;
