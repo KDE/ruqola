@@ -25,7 +25,6 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     , mAtLeastOneUppercase(new QCheckBox(i18n("At Least One Uppercase"), this))
     , mAtLeastOneNumber(new QCheckBox(i18n("At Least One Number"), this))
     , mAtLeastOneSymbol(new QCheckBox(i18n("At Least One Symbol"), this))
-
 {
     auto historyLabel = createBoldLabel(i18n("Password History"));
     historyLabel->setObjectName(QStringLiteral("historyLabel"));

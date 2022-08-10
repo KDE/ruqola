@@ -24,4 +24,9 @@ private:
     QLineEdit *const mHost;
     QSpinBox *const mPort;
     QCheckBox *const mReconnect;
+    QCheckBox *const mAuthenticationEnabled;
+    QLineEdit *const mAuthenticationUserDN;
+    QSpinBox *const mTimeouts;
+    QSpinBox *const mConnectionTimeouts;
+    QSpinBox *const mIdleTimeouts;
 };
