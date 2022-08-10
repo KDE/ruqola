@@ -20,5 +20,5 @@ struct LIBRUQOLAWIDGETS_TESTS_EXPORT RunningAnimatedImage {
     RunningAnimatedImage &operator=(RunningAnimatedImage &&other);
 
     QPersistentModelIndex index;
-    QMovie *movie;
+    QMovie *movie = nullptr;
 };
