@@ -37,6 +37,8 @@ public:
 
     void clear();
 
+    void updateBannerReadInfo(const QString &name, bool readStatus);
+
     Q_REQUIRED_RESULT int count() const;
 
     Q_REQUIRED_RESULT bool isEmpty() const;

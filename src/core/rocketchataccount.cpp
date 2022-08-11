@@ -2627,25 +2627,34 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
     for (auto array : contents) {
         const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
-        if (updateJson.contains(QStringLiteral("settings.preferences.highlights"))) {
-            const QJsonArray highlightsArray = updateJson.value(QStringLiteral("settings.preferences.highlights")).toArray();
-            mOwnUser.ownUserPreferences().updateHighlightWords(highlightsArray);
-            Q_EMIT needUpdateView();
-        }
-        if (updateJson.contains(QStringLiteral("settings.preferences.enableAutoAway"))) {
-            mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(QStringLiteral("settings.preferences.enableAutoAway")).toBool());
-        }
-        if (updateJson.contains(QStringLiteral("settings.preferences.convertAsciiEmoji"))) {
-            mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(QStringLiteral("settings.preferences.convertAsciiEmoji")).toBool());
-            Q_EMIT needUpdateView();
-        }
-        if (updateJson.contains(QStringLiteral("settings.preferences.hideRoles"))) {
-            mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(QStringLiteral("settings.preferences.hideRoles")).toBool());
-            Q_EMIT needUpdateView();
-        }
-        if (updateJson.contains(QStringLiteral("settings.preferences.messageViewMode"))) {
-            // TODO mRuqolaServerConfig->setViewMode(updateJson.value(QStringLiteral("settings.preferences.messageViewMode")).toInt());
-            Q_EMIT needUpdateView();
+        const QStringList keys = updateJson.keys();
+        for (const QString &key : keys) {
+            if (key == QStringLiteral("settings.preferences.highlights")) {
+                const QJsonArray highlightsArray = updateJson.value(key).toArray();
+                mOwnUser.ownUserPreferences().updateHighlightWords(highlightsArray);
+                Q_EMIT needUpdateView();
+            } else if (key == QStringLiteral("settings.preferences.enableAutoAway")) {
+                mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(key).toBool());
+            } else if (key == QStringLiteral("settings.preferences.convertAsciiEmoji")) {
+                mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(key).toBool());
+                Q_EMIT needUpdateView();
+            } else if (key == QStringLiteral("settings.preferences.hideRoles")) {
+                mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(key).toBool());
+                Q_EMIT needUpdateView();
+            } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
+                mOwnUser.ownUserPreferences().setMessageViewMode(updateJson.value(key).toInt());
+                Q_EMIT needUpdateView();
+            } else {
+                const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
+                QRegularExpressionMatch rmatch;
+                if (key.contains(bannerRegularExpression, &rmatch)) {
+                    if (rmatch.hasMatch()) {
+                        const QString bannerName = rmatch.captured(1);
+                        const bool result = updateJson.value(key).toBool();
+                        mBannerInfos.updateBannerReadInfo(bannerName, result);
+                    }
+                }
+            }
         }
     }
     // QJsonArray([{"diff":{"_updatedAt":{"$date":1639552419120},"avatarETag":"MCGFkLtBKkhb5GXBj","avatarOrigin":"rest"},"type":"updated","unset":{}}])

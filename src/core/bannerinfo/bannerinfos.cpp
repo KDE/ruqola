@@ -71,6 +71,15 @@ void BannerInfos::clear()
     mBanners.clear();
 }
 
+void BannerInfos::updateBannerReadInfo(const QString &name, bool readStatus)
+{
+    for (int i = 0; i < mBanners.size(); ++i) {
+        if (mBanners.at(i).identifier() == name) {
+            mBanners[i].setRead(readStatus);
+        }
+    }
+}
+
 int BannerInfos::count() const
 {
     return mBanners.count();
