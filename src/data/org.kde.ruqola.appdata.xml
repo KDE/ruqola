@@ -110,6 +110,8 @@
     <binary>ruqola</binary>
   </provides>
   <releases>
+    <release version="1.7.4" date="2022-08-08"/>
+    <release version="1.7.3" date="2022-07-31"/>
     <release version="1.7.2" date="2022-06-20">
       <artifacts>
         <artifact type="binary" platform="x86_64-windows-msvc">
