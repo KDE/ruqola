@@ -40,6 +40,9 @@ public:
     void copyImage();
     void copyLocation();
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 private:
     void updateRanges();
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

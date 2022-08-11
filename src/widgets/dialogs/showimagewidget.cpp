@@ -309,6 +309,20 @@ ShowImageWidget::ShowImageWidget(RocketChatAccount *account, QWidget *parent)
 
 ShowImageWidget::~ShowImageWidget() = default;
 
+void ShowImageWidget::keyPressEvent(QKeyEvent *event)
+{
+    const bool isControlClicked = event->modifiers() & Qt::ControlModifier;
+    if (isControlClicked) {
+        if (event->key() == Qt::Key_Plus) {
+            mSlider->setValue(mSlider->value() + mSlider->singleStep());
+        } else if (event->key() == Qt::Key_Minus) {
+            mSlider->setValue(mSlider->value() - mSlider->singleStep());
+        }
+    } else {
+        QWidget::keyPressEvent(event);
+    }
+}
+
 void ShowImageWidget::slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl)
 {
     qCDebug(RUQOLAWIDGETS_SHOWIMAGE_LOG) << "File Downloaded : " << filePath << " cacheImageUrl " << cacheImageUrl;
