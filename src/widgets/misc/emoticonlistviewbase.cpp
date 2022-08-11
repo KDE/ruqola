@@ -7,7 +7,6 @@
 #include "ruqolaglobalconfig.h"
 #include "utils.h"
 #include <QKeyEvent>
-#include <QShortcut>
 
 EmoticonListViewBase::EmoticonListViewBase(QWidget *parent)
     : QListView(parent)
