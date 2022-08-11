@@ -335,6 +335,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Message
     if (layout.textRect.isValid()) {
+#if 0
+        painter->save();
+        painter->setPen(QPen(Qt::red));
+        painter->drawRect(layout.textRect);
+        painter->restore();
+#endif
         mHelperText->draw(painter, layout.textRect, index, option);
     }
 

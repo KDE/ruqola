@@ -74,10 +74,10 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-
+    qDebug() << "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
-    int textLeft = senderX + senderTextSize.width() + margin;
+    int textLeft = /*senderX + senderTextSize.width() +*/ margin;
 
     // Roles icon
     const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
@@ -135,7 +135,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin + senderAscent, maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
         layout.baseLine += layout.textRect.top(); // make it absolute
     } else {
