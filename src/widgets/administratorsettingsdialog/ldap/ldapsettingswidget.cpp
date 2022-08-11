@@ -66,12 +66,12 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     // Add timeouts
     mTimeouts->setObjectName(QStringLiteral("mTimeouts"));
     mTimeouts->setMaximum(99999);
-    mTimeouts->setToolTip(i18n("How many mileseconds wait for a search result before return an error"));
+    mTimeouts->setToolTip(i18n("How many milliseconds wait for a search result before return an error"));
     addSpinbox(i18n("Timeout (ms)"), mTimeouts, QStringLiteral("LDAP_Timeout"));
 
     mConnectionTimeouts->setObjectName(QStringLiteral("mConnectionTimeouts"));
     mConnectionTimeouts->setMaximum(99999);
-    mConnectionTimeouts->setToolTip(i18n("How many mileseconds wait for a search result before return an error"));
+    mConnectionTimeouts->setToolTip(i18n("How many milliseconds wait for a search result before return an error"));
     addSpinbox(i18n("Connection Timeout (ms)"), mConnectionTimeouts, QStringLiteral("LDAP_Connect_Timeout"));
 
     mIdleTimeouts->setObjectName(QStringLiteral("mIdleTimeouts"));
