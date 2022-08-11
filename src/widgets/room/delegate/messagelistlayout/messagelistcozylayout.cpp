@@ -60,7 +60,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    if (mRocketChatAccount && !mRocketChatAccount->hideAvatars()) {
+    if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
         layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height() * 2);
     }
 

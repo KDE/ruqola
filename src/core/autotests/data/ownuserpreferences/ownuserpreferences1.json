@@ -7,7 +7,7 @@
             "desktopNotifications": "mentions",
             "emailNotificationMode": "mentions",
             "enableAutoAway": false,
-            "hideAvatars": false,
+            "displayAvatars": true,
             "hideFlexTab": false,
             "hideRoles": false,
             "hideUsernames": false,

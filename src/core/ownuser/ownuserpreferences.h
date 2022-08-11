@@ -36,8 +36,8 @@ public:
     Q_REQUIRED_RESULT bool hideRoles() const;
     void setHideRoles(bool hideRoles);
 
-    Q_REQUIRED_RESULT bool hideAvatars() const;
-    void setHideAvatars(bool hideAvatars);
+    Q_REQUIRED_RESULT bool displayAvatars() const;
+    void setDisplayAvatars(bool hideAvatars);
 
     Q_REQUIRED_RESULT int idleTimeLimit() const;
     void setIdleTimeLimit(int newIdleTimeLimit);
@@ -63,7 +63,7 @@ private:
     bool mConvertAsciiEmoji = true;
     bool mUseEmojis = true;
     bool mHideRoles = false;
-    bool mHideAvatars = false;
+    bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
 };
 

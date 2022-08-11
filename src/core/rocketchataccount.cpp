@@ -2641,6 +2641,9 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             } else if (key == QStringLiteral("settings.preferences.hideRoles")) {
                 mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(key).toBool());
                 Q_EMIT needUpdateView();
+            } else if (key == QStringLiteral("settings.preferences.displayAvatars")) {
+                mOwnUser.ownUserPreferences().setDisplayAvatars(updateJson.value(key).toBool());
+                Q_EMIT needUpdateView();
             } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
                 mOwnUser.ownUserPreferences().setMessageViewMode(updateJson.value(key).toInt());
                 Q_EMIT needUpdateView();
@@ -2814,9 +2817,9 @@ bool RocketChatAccount::hideRoles() const
     return ownUser().ownUserPreferences().hideRoles();
 }
 
-bool RocketChatAccount::hideAvatars() const
+bool RocketChatAccount::displayAvatars() const
 {
-    return ownUser().ownUserPreferences().hideAvatars();
+    return ownUser().ownUserPreferences().displayAvatars();
 }
 
 int RocketChatAccount::messageViewMode() const

@@ -61,7 +61,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
 
-    if (mRocketChatAccount && !mRocketChatAccount->hideAvatars()) {
+    if (mRocketChatAccount && mRocketChatAccount->displayAvatars()) {
         layout.avatarPixmap = mDelegate->makeAvatarPixmap(option.widget, index, senderTextSize.height() * 2);
     }
 
@@ -135,7 +135,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     int attachmentsY;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
-        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin + senderAscent, maxWidth, textSize.height() + textVMargin);
+        layout.textRect = QRect(textLeft, usableRect.top() + textVMargin + layout.senderRect.height(), maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
         layout.baseLine += layout.textRect.top(); // make it absolute
     } else {

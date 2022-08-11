@@ -33,7 +33,7 @@ private:
     QCheckBox *const mUseEmoji;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
-    QCheckBox *const mhideAvatars;
+    QCheckBox *const mDisplayAvatars;
     RocketChatAccount *const mRocketChatAccount;
     bool mChanged = false;
 };

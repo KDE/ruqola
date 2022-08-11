@@ -25,13 +25,13 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
-    , mhideAvatars(new QCheckBox(i18n("Hide Avatars"), this))
+    , mDisplayAvatars(new QCheckBox(i18n("Display Avatars"), this))
     , mRocketChatAccount(account)
 {
     mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
     mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
     mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
-    mhideAvatars->setObjectName(QStringLiteral("mhideAvatars"));
+    mDisplayAvatars->setObjectName(QStringLiteral("mDisplayAvatars"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -86,8 +86,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mConvertAsciiEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mHideRoles);
     connect(mHideRoles, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    mainLayout->addWidget(mhideAvatars);
-    connect(mhideAvatars, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mDisplayAvatars);
+    connect(mDisplayAvatars, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addStretch();
     initComboboxValues();
 }
@@ -140,7 +140,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.userId = mRocketChatAccount->userId();
         info.useEmoji = mUseEmoji->isChecked();
         info.hideRoles = mHideRoles->isChecked();
-        info.hideAvatars = mhideAvatars->isChecked();
+        info.displayAvatars = mDisplayAvatars->isChecked();
         info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
         info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
@@ -156,7 +156,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
     mUseEmoji->setChecked(ownUserPreferences.useEmojis());
     mHideRoles->setChecked(ownUserPreferences.hideRoles());
-    mhideAvatars->setChecked(ownUserPreferences.hideAvatars());
+    mDisplayAvatars->setChecked(ownUserPreferences.displayAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
     mViewMode->setCurrentIndex(mViewMode->findData(ownUserPreferences.messageViewMode()));
     mChanged = false;

@@ -50,7 +50,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         QCOMPARE(
             job.json().toJson(QJsonDocument::Compact),
             QStringLiteral(
-                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
+                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","displayAvatars":false,"hideRoles":false,"highlights":[],"useEmojis":true},"userId":"%1"})")
                 .arg(userId, desktopNotifications)
                 .toLatin1());
     }
@@ -70,7 +70,7 @@ void UsersSetPreferencesJobTest::shouldGenerateJson()
         QCOMPARE(
             job.json().toJson(QJsonDocument::Compact),
             QStringLiteral(
-                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","hideAvatars":false,"hideRoles":false,"highlights":[],"messageViewMode":%3,"useEmojis":true},"userId":"%1"})")
+                R"({"data":{"convertAsciiEmoji":true,"desktopNotifications":"%2","displayAvatars":false,"hideRoles":false,"highlights":[],"messageViewMode":%3,"useEmojis":true},"userId":"%1"})")
                 .arg(userId, desktopNotifications, QString::number(viewMode))
                 .toLatin1());
     }

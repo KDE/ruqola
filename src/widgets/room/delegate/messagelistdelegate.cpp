@@ -350,7 +350,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     // Draw the pixmap
-    if (!mRocketChatAccount->hideAvatars() && !layout.sameSenderAsPreviousMessage) {
+    if (mRocketChatAccount->displayAvatars() && !layout.sameSenderAsPreviousMessage) {
         painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
     }
 

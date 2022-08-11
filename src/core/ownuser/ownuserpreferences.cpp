@@ -29,7 +29,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setConvertAsciiEmoji(replyObject.value(QLatin1String("convertAsciiEmoji")).toBool(true));
     setUseEmojis(replyObject.value(QLatin1String("useEmojis")).toBool(true));
     setHideRoles(replyObject.value(QLatin1String("hideRoles")).toBool(false));
-    setHideAvatars(replyObject.value(QLatin1String("hideAvatars")).toBool(false));
+    setDisplayAvatars(replyObject.value(QLatin1String("displayAvatars")).toBool(true));
     setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
     setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
@@ -39,7 +39,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
 {
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
-        && mHideRoles == other.hideRoles() && mHideAvatars == other.hideAvatars() && mIdleTimeLimit == other.idleTimeLimit()
+        && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode();
 }
 
@@ -134,14 +134,14 @@ void OwnUserPreferences::setHideRoles(bool hideRoles)
     mHideRoles = hideRoles;
 }
 
-bool OwnUserPreferences::hideAvatars() const
+bool OwnUserPreferences::displayAvatars() const
 {
-    return mHideAvatars;
+    return mDisplayAvatars;
 }
 
-void OwnUserPreferences::setHideAvatars(bool hideAvatars)
+void OwnUserPreferences::setDisplayAvatars(bool hideAvatars)
 {
-    mHideAvatars = hideAvatars;
+    mDisplayAvatars = hideAvatars;
 }
 
 int OwnUserPreferences::idleTimeLimit() const
@@ -172,7 +172,7 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mUseEmojis " << t.useEmojis();
     d << "mConvertAsciiEmoji " << t.convertAsciiEmoji();
     d << "mHideRoles " << t.hideRoles();
-    d << "mHideAvatars " << t.hideAvatars();
+    d << "mDisplayAvatars " << t.displayAvatars();
     d << "mIdleTimeLimit " << t.idleTimeLimit();
     d << "mEnableAutoAway " << t.enableAutoAway();
     d << "mPushNotifications " << t.pushNotifications();

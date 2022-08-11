@@ -436,7 +436,7 @@ public:
     MessageCache *messageCache() const;
 
     Q_REQUIRED_RESULT bool hideRoles() const;
-    Q_REQUIRED_RESULT bool hideAvatars() const;
+    Q_REQUIRED_RESULT bool displayAvatars() const;
     void roomsAutocomplete(const QString &searchText, const QString &exception);
     Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
