@@ -2553,6 +2553,7 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     downloadAppsLanguages();
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
+    Q_EMIT ownUserPreferencesChanged();
 }
 
 bool RocketChatAccount::isAdministrator() const
