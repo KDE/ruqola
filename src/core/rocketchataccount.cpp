@@ -2650,6 +2650,8 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
                 mOwnUser.ownUserPreferences().setMessageViewMode(updateJson.value(key).toInt());
                 Q_EMIT needUpdateView();
+            } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) {
+                // TODO
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
