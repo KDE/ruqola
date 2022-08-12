@@ -146,7 +146,7 @@ void RuqolaMainWidget::slotMarkBannerAsRead(const QString &identifier)
 {
 #if 1
     mCurrentRocketChatAccount->ddp()->bannerDismiss(identifier);
-    qDebug() << " identifier " << identifier;
+    // qDebug() << " identifier " << identifier;
 #else
     auto job = new RocketChatRestApi::BannersDismissJob(this);
     job->setBannerId(identifier);
