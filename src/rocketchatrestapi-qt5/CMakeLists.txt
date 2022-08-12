@@ -240,6 +240,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     librestapi_private_export.h
     license/licenseslistjob.cpp
     license/licenseslistjob.h
+    license/licensesisenterprisejob.cpp
+    license/licensesisenterprisejob.h
+
     misc/directoryjob.cpp
     misc/directoryjob.h
     misc/listoauthappsjob.cpp

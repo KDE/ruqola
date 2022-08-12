@@ -504,6 +504,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("licenses.maxActiveUsers");
     case RestApiUtil::RestApiUrlType::LicensesAdd:
         return QStringLiteral("licenses.add");
+    case RestApiUtil::RestApiUrlType::LicensesIsEntreprise:
+        return QStringLiteral("licenses.isEnterprise");
 
     case RestApiUtil::RestApiUrlType::BannersDismiss:
         return QStringLiteral("banners.dismiss");
