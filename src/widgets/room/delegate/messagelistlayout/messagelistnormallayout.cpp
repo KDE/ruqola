@@ -74,7 +74,6 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    qDebug() << "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS";
     const qreal margin = MessageDelegateUtils::basicMargin();
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
     int textLeft = /*senderX + senderTextSize.width() +*/ margin;
