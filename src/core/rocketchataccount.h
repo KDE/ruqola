@@ -621,6 +621,7 @@ private:
     void slotLoadRoles();
     void slotAwayStatusChanged(bool away);
     void slotJobFailed(const QString &str);
+    void checkLicenses();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

@@ -54,6 +54,7 @@
 #include "ddpapi/ddpclient.h"
 #include "directmessage/opendmjob.h"
 #include "discussions/discussions.h"
+#include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
 #include "managechannels.h"
 #include "messagecache.h"
@@ -2397,8 +2398,23 @@ void RocketChatAccount::initializeAccount()
     ddp()->listCustomSounds();
     customUsersStatus();
     slotLoadRoles();
+    if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
+        checkLicenses();
+    }
 
     Q_EMIT accountInitialized();
+}
+
+void RocketChatAccount::checkLicenses()
+{
+    auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
+    restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](const QJsonObject &obj) {
+        qDebug() << " LicensesIsEnterpriseJob " << obj;
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
+    }
 }
 
 void RocketChatAccount::downloadAppsLanguages()

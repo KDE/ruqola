@@ -38,6 +38,7 @@ bool LicensesIsEnterpriseJob::start()
 void LicensesIsEnterpriseJob::onGetRequestResponse(const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
+    qDebug() << " ssssssssssssssss " << replyObject;
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
