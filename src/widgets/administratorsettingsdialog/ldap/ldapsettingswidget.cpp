@@ -7,6 +7,7 @@
 #include "ldapsettingswidget.h"
 
 #include <KLocalizedString>
+#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
@@ -24,6 +25,7 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mTimeouts(new QSpinBox(this))
     , mConnectionTimeouts(new QSpinBox(this))
     , mIdleTimeouts(new QSpinBox(this))
+    , mAuthenticationPassword(new KPasswordLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Attempt to utilize LDAP for authentication."));
@@ -56,6 +58,9 @@ LDapSettingsWidget::LDapSettingsWidget(RocketChatAccount *account, QWidget *pare
     mAuthenticationUserDN->setToolTip(
         i18n("The LDAP user that performs user lookups to authenticate other users when they sign in. This is typically a service account created specifically "
              "for third-party integrations. Use a fully qualified name, such as cn=Administrator,cn=Users,dc=Example,dc=com."));
+
+    mAuthenticationPassword->setObjectName(QStringLiteral("mAuthenticationPassword"));
+    addPasswordEdit(i18n("Password"), mAuthenticationPassword, QStringLiteral("LDAP_Authentication_Password"));
 
     // Add password
 
@@ -94,4 +99,5 @@ void LDapSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTimeouts, mapSettings);
     initializeWidget(mConnectionTimeouts, mapSettings);
     initializeWidget(mIdleTimeouts, mapSettings);
+    initializeWidget(mAuthenticationPassword, mapSettings);
 }

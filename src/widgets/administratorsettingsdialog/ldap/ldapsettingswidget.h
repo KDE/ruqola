@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
+class KPasswordLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT LDapSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -29,4 +30,5 @@ private:
     QSpinBox *const mTimeouts;
     QSpinBox *const mConnectionTimeouts;
     QSpinBox *const mIdleTimeouts;
+    KPasswordLineEdit *const mAuthenticationPassword;
 };

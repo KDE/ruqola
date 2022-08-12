@@ -12,6 +12,7 @@
 
 #include <KLocalizedString>
 
+#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFormLayout>
@@ -130,6 +131,30 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     mMainLayout->addRow(layout);
 }
 
+void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    layout->addWidget(label);
+    layout->addWidget(lineEdit);
+    auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setText(i18n("Apply"));
+    toolButton->setProperty(s_property, variable);
+    lineEdit->setProperty(s_property, variable);
+    layout->addWidget(toolButton);
+    toolButton->setEnabled(false);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
+        updateSettings(variable, lineEdit->password(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    });
+    connect(lineEdit, &KPasswordLineEdit::passwordChanged, this, [toolButton]() {
+        toolButton->setEnabled(true);
+    });
+
+    mMainLayout->addRow(layout);
+}
+
 void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable)
 {
     auto layout = new QHBoxLayout;
@@ -165,6 +190,19 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         lineEdit->setText(value.toString());
+        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+        if (toolButton) {
+            toolButton->setEnabled(false);
+        }
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = lineEdit->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        lineEdit->setPassword(value.toString());
         auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
         if (toolButton) {
             toolButton->setEnabled(false);

@@ -6,6 +6,7 @@
 #include "ldapsettingswidgettest.h"
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <KPasswordLineEdit>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QLineEdit>
@@ -84,4 +85,10 @@ void LDapSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mIdleTimeouts->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mIdleTimeouts), QStringLiteral("LDAP_Idle_Timeout"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Idle_Timeout"));
+
+    auto mAuthenticationPassword = w.findChild<KPasswordLineEdit *>(QStringLiteral("mAuthenticationPassword"));
+    QVERIFY(mAuthenticationPassword);
+    QVERIFY(mAuthenticationPassword->password().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAuthenticationPassword), QStringLiteral("LDAP_Authentication_Password"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("LDAP_Authentication_Password"));
 }
