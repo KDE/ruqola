@@ -59,6 +59,7 @@
 #include "messagecache.h"
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
+#include "ruqola_thread_message_debug.h"
 #include "uploadfilemanager.h"
 
 #include <KLocalizedString>
@@ -1027,6 +1028,7 @@ void RocketChatAccount::slotGetDiscussionsListDone(const QJsonObject &obj, const
 void RocketChatAccount::slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type)
 {
     if (mMarkUnreadThreadsAsReadOnNextReply && type == ListMessagesModel::UnreadThreadsMessages) {
+        qCDebug(RUQOLA_THREAD_MESSAGE_LOG) << "Obj" << obj << "roomId:" << roomId;
         mMarkUnreadThreadsAsReadOnNextReply = false;
 
         ListMessages messages;

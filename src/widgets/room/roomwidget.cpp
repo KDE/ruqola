@@ -40,6 +40,7 @@
 #include "roomquotemessagewidget.h"
 #include "roomreplythreadwidget.h"
 #include "roomwidgetbase.h"
+#include "ruqola_thread_message_widgets_debug.h"
 #include "teams/teamchannelsdialog.h"
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
@@ -758,6 +759,7 @@ void RoomWidget::slotGoBackToRoom()
 
 void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
 {
+    qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "threadMessageId: " << threadMessageId;
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     dlg->setThreadMessageId(threadMessageId);
     dlg->setFollowingThread(threadIsFollowing);

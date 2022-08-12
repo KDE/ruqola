@@ -26,6 +26,7 @@
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "ruqola.h"
+#include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolawidgets_debug.h"
 
 #include <QAbstractItemView>
@@ -482,9 +483,11 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
         }
         if (message->threadCount() > 0) {
+            qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area";
             const QRect threadRect(layout.usableRect.x(), layout.repliesY, layout.usableRect.width(), layout.repliesHeight);
             if (threadRect.contains(mev->pos())) {
                 const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
+                qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area: " << message->messageId();
                 const bool threadIsFollowing = message->replies().contains(mRocketChatAccount->userId());
                 Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
                                                                threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString()
