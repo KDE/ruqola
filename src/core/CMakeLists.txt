@@ -55,6 +55,10 @@ target_sources(libruqolacore PRIVATE
     customusers/customuserstatuses.cpp
     customusers/customuserstatuses.h
     customusers/customuserstatus.h
+
+    managedevices/deviceinfo.h
+    managedevices/deviceinfo.cpp
+
     ddpapi/ddpauthenticationmanager.cpp
     ddpapi/ddpauthenticationmanager.h
     ddpapi/ddpclient.cpp
