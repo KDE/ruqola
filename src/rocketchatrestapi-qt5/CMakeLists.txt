@@ -312,6 +312,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     rooms/saveroomsettingsjob.h
     serverinfojob.cpp
     serverinfojob.h
+    sessions/sessionslistjob.cpp
+    sessions/sessionslistjob.h
     settings/privateinfojob.cpp
     settings/privateinfojob.h
     settings/updateadminsettingsjob.cpp
