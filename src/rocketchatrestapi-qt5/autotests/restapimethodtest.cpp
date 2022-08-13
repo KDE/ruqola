@@ -321,4 +321,10 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/list")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/info")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsListAll), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/list.all")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsLogoutMe), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/logout.me")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsLogout), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/logout")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsInfoAdmin), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/info.admin")));
 }

@@ -517,6 +517,14 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("sessions/list");
     case RestApiUtil::RestApiUrlType::SessionsInfo:
         return QStringLiteral("sessions/info");
+    case RestApiUtil::RestApiUrlType::SessionsListAll:
+        return QStringLiteral("sessions/list.all");
+    case RestApiUtil::RestApiUrlType::SessionsLogoutMe:
+        return QStringLiteral("sessions/logout.me");
+    case RestApiUtil::RestApiUrlType::SessionsLogout:
+        return QStringLiteral("sessions/logout");
+    case RestApiUtil::RestApiUrlType::SessionsInfoAdmin:
+        return QStringLiteral("sessions/info.admin");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
