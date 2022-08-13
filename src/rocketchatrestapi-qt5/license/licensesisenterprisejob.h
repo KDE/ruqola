@@ -26,7 +26,7 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
 Q_SIGNALS:
-    void licensesIsEnterpriseDone(const QJsonObject &obj);
+    void licensesIsEnterpriseDone(bool isEnterprise);
 
 private:
     Q_DISABLE_COPY(LicensesIsEnterpriseJob)

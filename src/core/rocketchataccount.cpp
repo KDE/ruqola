@@ -2409,8 +2409,8 @@ void RocketChatAccount::checkLicenses()
 {
     auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
     restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](const QJsonObject &obj) {
-        qDebug() << " LicensesIsEnterpriseJob " << obj;
+    connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
+        qDebug() << " LicensesIsEnterpriseJob " << isEnterprise;
     });
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
