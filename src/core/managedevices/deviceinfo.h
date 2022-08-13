@@ -16,6 +16,11 @@ class LIBRUQOLACORE_EXPORT DeviceInfo
 public:
     DeviceInfo();
     ~DeviceInfo();
+
+    void parseDeviceInfo(const QJsonObject &object);
+
+    Q_REQUIRED_RESULT bool operator==(const DeviceInfo &other) const;
+
     Q_REQUIRED_RESULT const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 

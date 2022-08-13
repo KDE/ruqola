@@ -19,6 +19,16 @@ QDebug operator<<(QDebug d, const DeviceInfo &t)
     return d;
 }
 
+void DeviceInfo::parseDeviceInfo(const QJsonObject &object)
+{
+    // TODO
+}
+
+bool DeviceInfo::operator==(const DeviceInfo &other) const
+{
+    return mIdentifier == other.identifier() && mIp == other.ip() && mHost == other.host() && mSessionId == other.sessionId();
+}
+
 const QString &DeviceInfo::identifier() const
 {
     return mIdentifier;
