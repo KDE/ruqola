@@ -318,4 +318,7 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::BannersDismiss), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners.dismiss")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::Banners), QUrl(QStringLiteral("http://www.kde.org/api/v1/banners")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsList), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::SessionsInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/sessions/info")));
 }

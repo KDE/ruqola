@@ -511,6 +511,12 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("banners.dismiss");
     case RestApiUtil::RestApiUrlType::Banners:
         return QStringLiteral("banners");
+
+    // RC 5.0
+    case RestApiUtil::RestApiUrlType::SessionsList:
+        return QStringLiteral("sessions/list");
+    case RestApiUtil::RestApiUrlType::SessionsInfo:
+        return QStringLiteral("sessions/info");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
