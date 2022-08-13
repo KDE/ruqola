@@ -16,6 +16,23 @@ class LIBRUQOLACORE_EXPORT DeviceInfo
 public:
     DeviceInfo();
     ~DeviceInfo();
+    Q_REQUIRED_RESULT const QString &identifier() const;
+    void setIdentifier(const QString &newIdentifier);
+
+    Q_REQUIRED_RESULT const QString &host() const;
+    void setHost(const QString &newHost);
+
+    Q_REQUIRED_RESULT const QString &sessionId() const;
+    void setSessionId(const QString &newSessionId);
+
+    Q_REQUIRED_RESULT const QString &ip() const;
+    void setIp(const QString &newIp);
+
+private:
+    QString mIdentifier;
+    QString mHost;
+    QString mSessionId;
+    QString mIp;
 };
 
 Q_DECLARE_METATYPE(DeviceInfo)
