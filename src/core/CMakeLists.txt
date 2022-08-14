@@ -111,6 +111,8 @@ target_sources(libruqolacore PRIVATE
     localmessagelogger.cpp
     localmessagelogger.h
     lrucache.h
+    licenses/licensesmanager.h
+    licenses/licensesmanager.cpp
     managechannels.cpp
     managechannels.h
     managerdatapaths.cpp
