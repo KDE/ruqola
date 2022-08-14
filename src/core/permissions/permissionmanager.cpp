@@ -71,7 +71,8 @@ bool PermissionManager::storePermission(const QString &id)
         || id == QLatin1String("edit-team-channel") || id == QLatin1String("remove-team-channel") || id == QLatin1String("view-all-team-channels")
         || id == QLatin1String("view-all-teams") || id == QLatin1String("access-permissions") || id == QLatin1String("edit-other-user-e2ee")
         || id == QLatin1String("edit-other-user-totp") || id == QLatin1String("assign-admin-role") || id == QLatin1String("edit-other-user-info")
-        || id == QLatin1String("edit-other-user-active-status");
+        || id == QLatin1String("edit-other-user-active-status") || id == QLatin1String("logout-device-management")
+        || id == QLatin1String("view-device-management");
 }
 
 void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)
