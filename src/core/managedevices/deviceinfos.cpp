@@ -119,3 +119,8 @@ void DeviceInfos::parseMoreDeviceInfos(const QJsonObject &deviceInfosObj)
     parseDeviceInfosObj(deviceInfosObj);
     mDeviceInfosCount += deviceInfosCount;
 }
+
+DeviceInfo DeviceInfos::takeAt(int index)
+{
+    return mDeviceInfosList.takeAt(index);
+}

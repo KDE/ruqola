@@ -38,6 +38,8 @@ public:
     void parseDeviceInfos(const QJsonObject &discussionsObj);
     void parseMoreDeviceInfos(const QJsonObject &deviceInfosObj);
 
+    DeviceInfo takeAt(int index);
+
 private:
     void parseDeviceInfosObj(const QJsonObject &discussionsObj);
     QVector<DeviceInfo> mDeviceInfosList;
