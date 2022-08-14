@@ -33,11 +33,19 @@ public:
     Q_REQUIRED_RESULT const QString &ip() const;
     void setIp(const QString &newIp);
 
+    Q_REQUIRED_RESULT const QString &userId() const;
+    void setUserId(const QString &newUserId);
+
+    Q_REQUIRED_RESULT qint64 loginAt() const;
+    void setLoginAt(qint64 newLoginAt);
+
 private:
     QString mIdentifier;
     QString mHost;
     QString mSessionId;
     QString mIp;
+    QString mUserId;
+    qint64 mLoginAt = -1;
 };
 
 Q_DECLARE_METATYPE(DeviceInfo)

@@ -16,17 +16,26 @@ QDebug operator<<(QDebug d, const DeviceInfo &t)
     d << "Host " << t.host();
     d << "SessionId " << t.sessionId();
     d << "Ip " << t.ip();
+    d << "UserId " << t.userId();
+    d << "LoginAt " << t.loginAt();
     return d;
 }
 
-void DeviceInfo::parseDeviceInfo(const QJsonObject &object)
+void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
 {
+    mIdentifier = obj[QStringLiteral("_id")].toString();
+    mHost = obj[QStringLiteral("host")].toString();
+    mSessionId = obj[QStringLiteral("sessionId")].toString();
+    mIp = obj[QStringLiteral("ip")].toString();
+    mUserId = obj[QStringLiteral("userId")].toString();
+    // TODO LoginAt
     // TODO
 }
 
 bool DeviceInfo::operator==(const DeviceInfo &other) const
 {
-    return mIdentifier == other.identifier() && mIp == other.ip() && mHost == other.host() && mSessionId == other.sessionId();
+    return mIdentifier == other.identifier() && mIp == other.ip() && mHost == other.host() && mSessionId == other.sessionId() && mUserId == other.userId()
+        && mLoginAt == other.loginAt();
 }
 
 const QString &DeviceInfo::identifier() const
@@ -67,4 +76,24 @@ const QString &DeviceInfo::ip() const
 void DeviceInfo::setIp(const QString &newIp)
 {
     mIp = newIp;
+}
+
+const QString &DeviceInfo::userId() const
+{
+    return mUserId;
+}
+
+void DeviceInfo::setUserId(const QString &newUserId)
+{
+    mUserId = newUserId;
+}
+
+qint64 DeviceInfo::loginAt() const
+{
+    return mLoginAt;
+}
+
+void DeviceInfo::setLoginAt(qint64 newLoginAt)
+{
+    mLoginAt = newLoginAt;
 }
