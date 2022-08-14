@@ -17,7 +17,6 @@ class LIBRUQOLACORE_EXPORT DeviceInfos
 {
 public:
     DeviceInfos();
-    ~DeviceInfos();
 
     Q_REQUIRED_RESULT int offset() const;
     void setOffset(int newOffset);
@@ -36,11 +35,11 @@ public:
     Q_REQUIRED_RESULT int count() const;
     Q_REQUIRED_RESULT DeviceInfo at(int index) const;
 
-    void parseDiscussions(const QJsonObject &discussionsObj);
-    void parseMoreDiscussions(const QJsonObject &deviceInfosObj);
+    void parseDeviceInfos(const QJsonObject &discussionsObj);
+    void parseMoreDeviceInfos(const QJsonObject &deviceInfosObj);
 
 private:
-    void parseDiscussionsObj(const QJsonObject &discussionsObj);
+    void parseDeviceInfosObj(const QJsonObject &discussionsObj);
     QVector<DeviceInfo> mDeviceInfosList;
     int mDeviceInfosCount = 0;
     int mOffset = 0;

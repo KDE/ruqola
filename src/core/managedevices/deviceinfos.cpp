@@ -7,9 +7,9 @@
 #include "deviceinfos.h"
 #include "ruqola_debug.h"
 
-DeviceInfos::DeviceInfos() = default;
+#include <QJsonArray>
 
-DeviceInfos::~DeviceInfos() = default;
+DeviceInfos::DeviceInfos() = default;
 
 QDebug operator<<(QDebug d, const DeviceInfos &t)
 {
@@ -86,17 +86,17 @@ DeviceInfo DeviceInfos::at(int index) const
     return mDeviceInfosList.at(index);
 }
 
-void DeviceInfos::parseDiscussions(const QJsonObject &deviceInfosObj)
+void DeviceInfos::parseDeviceInfos(const QJsonObject &deviceInfosObj)
 {
     mDeviceInfosList.clear();
     mDeviceInfosCount = deviceInfosObj[QStringLiteral("count")].toInt();
     mOffset = deviceInfosObj[QStringLiteral("offset")].toInt();
     mTotal = deviceInfosObj[QStringLiteral("total")].toInt();
     mDeviceInfosList.reserve(mDeviceInfosCount);
-    parseDiscussionsObj(deviceInfosObj);
+    parseDeviceInfosObj(deviceInfosObj);
 }
 
-void DeviceInfos::parseDiscussionsObj(const QJsonObject &deviceInfosObj)
+void DeviceInfos::parseDeviceInfosObj(const QJsonObject &deviceInfosObj)
 {
     const QJsonArray discussionsArray = deviceInfosObj[QStringLiteral("sessions")].toArray();
     for (const QJsonValue &current : discussionsArray) {
@@ -111,11 +111,11 @@ void DeviceInfos::parseDiscussionsObj(const QJsonObject &deviceInfosObj)
     }
 }
 
-void DeviceInfos::parseMoreDiscussions(const QJsonObject &deviceInfosObj)
+void DeviceInfos::parseMoreDeviceInfos(const QJsonObject &deviceInfosObj)
 {
-    const int discussionsCount = deviceInfosObj[QStringLiteral("count")].toInt();
+    const int deviceInfosCount = deviceInfosObj[QStringLiteral("count")].toInt();
     mOffset = deviceInfosObj[QStringLiteral("offset")].toInt();
     mTotal = deviceInfosObj[QStringLiteral("total")].toInt();
-    parseDiscussionsObj(deviceInfosObj);
-    mDeviceInfosCount += discussionsCount;
+    parseDeviceInfosObj(deviceInfosObj);
+    mDeviceInfosCount += deviceInfosCount;
 }

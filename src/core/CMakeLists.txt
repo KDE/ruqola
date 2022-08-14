@@ -59,6 +59,9 @@ target_sources(libruqolacore PRIVATE
     managedevices/deviceinfo.h
     managedevices/deviceinfo.cpp
 
+    managedevices/deviceinfos.h
+    managedevices/deviceinfos.cpp
+
     ddpapi/ddpauthenticationmanager.cpp
     ddpapi/ddpauthenticationmanager.h
     ddpapi/ddpclient.cpp
