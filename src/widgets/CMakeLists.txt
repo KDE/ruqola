@@ -574,8 +574,8 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagelistlayout/messagelistcozylayout.h
     room/delegate/messagelistlayout/messagelistcozylayout.cpp
 
-    #managedevice/managedevicewidget.cpp
-    #managedevice/managedevicewidget.h
+    managedevice/managedevicewidget.cpp
+    managedevice/managedevicewidget.h
 )
 
 
