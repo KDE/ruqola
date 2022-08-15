@@ -33,6 +33,14 @@ namespace RuqolaTestWebSocket
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void license_get_modules(const QJsonObject &root, RocketChatAccount *account)
+{
+    // qDebug() << " root " << root;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
+    }
+}
+
 void banner_dismiss(const QJsonObject &root, RocketChatAccount *account)
 {
     // qDebug() << " root " << root;
@@ -594,6 +602,12 @@ quint64 DDPClient::bannerDismiss(const QString &bannerId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->bannerDismiss(bannerId, m_uid);
     return method(result, banner_dismiss, DDPClient::Persistent);
+}
+
+quint64 DDPClient::licenseGetModules()
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->licenseGetModules(m_uid);
+    return method(result, license_get_modules, DDPClient::Persistent);
 }
 
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)

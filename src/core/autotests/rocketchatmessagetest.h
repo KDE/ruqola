@@ -62,6 +62,8 @@ private Q_SLOTS:
 
     void bannerDismiss();
 
+    void licenseGetModules();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };

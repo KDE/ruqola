@@ -200,6 +200,7 @@ public:
     quint64 openRoom(const QString &roomId);
     quint64 getRoomById(const QString &roomId);
     quint64 bannerDismiss(const QString &bannerId);
+    quint64 licenseGetModules();
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

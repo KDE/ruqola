@@ -281,3 +281,11 @@ void RocketChatMessageTest::bannerDismiss()
     RocketChatMessage::RocketChatMessageResult r = m.bannerDismiss(QStringLiteral("banner_read"), 43);
     compareFile(r.result, QStringLiteral("bannerDismiss"));
 }
+
+void RocketChatMessageTest::licenseGetModules()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+    RocketChatMessage::RocketChatMessageResult r = m.licenseGetModules(43);
+    compareFile(r.result, QStringLiteral("licenseGetModules"));
+}
