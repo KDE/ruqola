@@ -15,6 +15,9 @@ ListMessagesModelFilterProxyModelTest::ListMessagesModelFilterProxyModelTest(QOb
 
 void ListMessagesModelFilterProxyModelTest::shouldHaveDefaultValues()
 {
-    ListMessagesModelFilterProxyModel w;
-    // TODO
+    ListMessagesModel model;
+    ListMessagesModelFilterProxyModel w(&model);
+    QCOMPARE(w.filterCaseSensitivity(), Qt::CaseInsensitive);
+    QCOMPARE(w.sortOrder(), Qt::DescendingOrder);
+    QCOMPARE(w.filterRole(), ListMessagesModel::OriginalMessage);
 }
