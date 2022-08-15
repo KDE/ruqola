@@ -55,9 +55,9 @@ void ManageDeviceWidget::slotLoadElements(int offset, int count, const QString &
     auto job = new RocketChatRestApi::SessionsListJob(this);
 
     RocketChatRestApi::QueryParameters parameters;
-    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
-    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
-    parameters.setSorting(map);
+    //    QMap<QString, RocketChatRestApi::QueryParameters::SortOrder> map;
+    //    map.insert(QStringLiteral("name"), RocketChatRestApi::QueryParameters::SortOrder::Ascendant);
+    //    parameters.setSorting(map);
     if (offset != -1) {
         parameters.setOffset(offset);
     }
