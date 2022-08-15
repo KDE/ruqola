@@ -14,6 +14,7 @@ class MyAccountProfileConfigureWidget;
 class MyAccountPreferenceConfigureWidget;
 class MyAccount2e2ConfigureWidget;
 class RocketChatAccount;
+class ManageDeviceWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     MyAccountPreferenceConfigureWidget *const mMyAccountPreferenceConfigureWidget;
     MyAccount2e2ConfigureWidget *const mMyAccount2e2ConfigureWidget;
     RocketChatAccount *const mRocketChatAccount;
+    ManageDeviceWidget *mManageDeviceWidget = nullptr;
 };

@@ -5,6 +5,7 @@
 */
 
 #include "myaccountconfigurewidget.h"
+#include "managedevice/managedevicewidget.h"
 #include "myaccount2e2configurewidget.h"
 #include "myaccount2faconfigurewidget.h"
 #include "myaccountpreferenceconfigurewidget.h"
@@ -52,7 +53,8 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         tabWidget->setTabVisible(index2e2Page, false);
     }
     if (account && account->hasLicense(QStringLiteral("device-management"))) {
-        // TODO
+        mManageDeviceWidget = new ManageDeviceWidget(mRocketChatAccount, this);
+        tabWidget->addTab(mManageDeviceWidget, i18n("Manage Device"));
     }
 }
 
