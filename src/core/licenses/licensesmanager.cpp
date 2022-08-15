@@ -24,3 +24,11 @@ bool LicensesManager::hasLicense(const QString &name)
 {
     return mLicenses.contains(name);
 }
+
+void LicensesManager::parseLicenses(const QJsonArray &replyArray)
+{
+    mLicenses.clear();
+    for (int i = 0, total = replyArray.count(); i < total; ++i) {
+        mLicenses.append(replyArray.at(i).toString());
+    }
+}

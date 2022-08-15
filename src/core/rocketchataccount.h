@@ -502,6 +502,7 @@ public:
 
     Q_REQUIRED_RESULT int messageViewMode() const;
     Q_REQUIRED_RESULT bool hasLicense(const QString &name);
+    void parseLicenses(const QJsonArray &replyArray);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

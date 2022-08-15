@@ -2397,6 +2397,7 @@ void RocketChatAccount::initializeAccount()
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
+    ddp()->licenseGetModules();
     customUsersStatus();
     slotLoadRoles();
     if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
@@ -2931,4 +2932,9 @@ void RocketChatAccount::setOauthAppUpdated(const QJsonObject &obj)
 bool RocketChatAccount::hasLicense(const QString &name)
 {
     return mLicensesManager.hasLicense(name);
+}
+
+void RocketChatAccount::parseLicenses(const QJsonArray &replyArray)
+{
+    mLicensesManager.parseLicenses(replyArray);
 }

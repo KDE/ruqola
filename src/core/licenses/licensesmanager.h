@@ -6,7 +6,7 @@
 
 #pragma once
 #include "libruqola_private_export.h"
-#include <QJsonObject>
+#include <QJsonArray>
 #include <QString>
 
 class LIBRUQOLACORE_TESTS_EXPORT LicensesManager
@@ -19,6 +19,8 @@ public:
     void setLicenses(const QStringList &newLicenses);
 
     Q_REQUIRED_RESULT bool hasLicense(const QString &name);
+
+    void parseLicenses(const QJsonArray &obj);
 
 private:
     QStringList mLicenses;
