@@ -86,16 +86,16 @@ void ManageDeviceWidget::slotDeviceRemoved(const QString &emojiId)
 
 void ManageDeviceWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
-    QMenu menu(this);
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
+        QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
             slotRemoveDevice(modelIndex);
         });
+        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
-    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
 }
 
 void ManageDeviceWidget::slotRemoveDevice(const QModelIndex &index)
