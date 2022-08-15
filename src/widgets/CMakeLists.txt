@@ -576,6 +576,8 @@ target_sources(libruqolawidgets PRIVATE
 
     managedevice/managedevicewidget.cpp
     managedevice/managedevicewidget.h
+    managedevice/managedevicedialog.h
+    managedevice/managedevicedialog.cpp
 )
 
 
@@ -658,6 +660,7 @@ if (BUILD_TESTING)
     add_subdirectory(discussions/autotests/)
     add_subdirectory(administratorsettingsdialog/autotests/)
     add_subdirectory(bannerinfodialog/autotests)
+    add_subdirectory(managedevice/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
