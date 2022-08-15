@@ -7,7 +7,7 @@
 #include "adminroomsfilterproxymodel.h"
 #include "adminroomsmodel.h"
 AdminRoomsFilterProxyModel::AdminRoomsFilterProxyModel(DirectoryBaseModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     sort(0, Qt::DescendingOrder);

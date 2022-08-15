@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "directorybasefilterproxymodel.h"
-DirectoryBaseFilterProxyModel::DirectoryBaseFilterProxyModel(QAbstractListModel *model, QObject *parent)
+#include "searchtreebasefilterproxymodel.h"
+SearchTreeBaseFilterProxyModel::SearchTreeBaseFilterProxyModel(QAbstractListModel *model, QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     setSourceModel(model);
@@ -14,14 +14,14 @@ DirectoryBaseFilterProxyModel::DirectoryBaseFilterProxyModel(QAbstractListModel 
     sort(0, Qt::DescendingOrder);
 }
 
-DirectoryBaseFilterProxyModel::~DirectoryBaseFilterProxyModel() = default;
+SearchTreeBaseFilterProxyModel::~SearchTreeBaseFilterProxyModel() = default;
 
-void DirectoryBaseFilterProxyModel::setFilterString(const QString &string)
+void SearchTreeBaseFilterProxyModel::setFilterString(const QString &string)
 {
     setFilterFixedString(string);
 }
 
-void DirectoryBaseFilterProxyModel::clearFilter()
+void SearchTreeBaseFilterProxyModel::clearFilter()
 {
     setFilterFixedString(QString());
 }

@@ -8,12 +8,12 @@
 
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
-class LIBRUQOLACORE_EXPORT DirectoryBaseFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT SearchTreeBaseFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit DirectoryBaseFilterProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
-    ~DirectoryBaseFilterProxyModel() override;
+    explicit SearchTreeBaseFilterProxyModel(QAbstractListModel *model = nullptr, QObject *parent = nullptr);
+    ~SearchTreeBaseFilterProxyModel() override;
 
     void setFilterString(const QString &string);
     void clearFilter();

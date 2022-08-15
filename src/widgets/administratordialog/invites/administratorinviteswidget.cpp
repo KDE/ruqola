@@ -12,7 +12,7 @@
 #include "invite/removeinvitejob.h"
 #include "invitetreeview.h"
 #include "model/admininvitemodel.h"
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"

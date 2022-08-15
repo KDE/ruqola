@@ -8,7 +8,7 @@
 #include "connection.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "misc/searchwithdelaylineedit.h"
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 #include "model/usersinrolemodel.h"
 #include "rocketchataccount.h"
 #include "role/addusertorolejob.h"
@@ -29,7 +29,7 @@ UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent
     mModel = new UsersInRoleModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
-    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
     mTreeView->setModel(mProxyModelModel);

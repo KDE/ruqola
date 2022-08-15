@@ -12,7 +12,7 @@ class SearchWithDelayLineEdit;
 class QTreeView;
 class DirectoryBaseModel;
 class QVBoxLayout;
-class DirectoryBaseFilterProxyModel;
+class SearchTreeBaseFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchTreeBaseWidget : public QWidget
 {
@@ -39,7 +39,7 @@ protected:
     SearchWithDelayLineEdit *const mSearchLineEdit;
     QTreeView *const mTreeView;
     DirectoryBaseModel *mModel = nullptr;
-    DirectoryBaseFilterProxyModel *mProxyModelModel = nullptr;
+    SearchTreeBaseFilterProxyModel *mProxyModelModel = nullptr;
     QVBoxLayout *mSearchLayout = nullptr;
     RocketChatAccount *const mRocketChatAccount;
     Q_REQUIRED_RESULT QString clickableStr() const;

@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "directorybasefilterproxymodel.h"
 #include "libruqolacore_export.h"
+#include "searchtreebasefilterproxymodel.h"
 class DirectoryBaseModel;
-class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public DirectoryBaseFilterProxyModel
+class LIBRUQOLACORE_EXPORT AdminRoomsFilterProxyModel : public SearchTreeBaseFilterProxyModel
 {
     Q_OBJECT
 public:

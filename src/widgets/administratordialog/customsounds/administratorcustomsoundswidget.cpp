@@ -10,7 +10,7 @@
 #include "custom/customsoundslistjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomsoundmodel.h"
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -28,7 +28,7 @@ AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccou
     mModel->setObjectName(QStringLiteral("mAdminCustomSoundModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Custom Sounds"));
 
-    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mCustomSoundProxyModel"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();

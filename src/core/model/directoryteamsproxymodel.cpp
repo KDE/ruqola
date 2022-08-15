@@ -8,7 +8,7 @@
 #include "directoryteamsmodel.h"
 
 DirectoryTeamsProxyModel::DirectoryTeamsProxyModel(QAbstractListModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
 }
 
@@ -20,7 +20,7 @@ bool DirectoryTeamsProxyModel::lessThan(const QModelIndex &left, const QModelInd
     if (leftColumn == DirectoryTeamsModel::CreateTeam) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryTeamsModel::CreateTeamDateTime);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryTeamsModel::CreateTeamDateTime);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-    return DirectoryBaseFilterProxyModel::lessThan(left, right);
+    return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }

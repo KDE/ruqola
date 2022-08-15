@@ -8,7 +8,7 @@
 #include "directoryusersmodel.h"
 
 DirectoryUsersProxyModel::DirectoryUsersProxyModel(QAbstractListModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
 }
 
@@ -20,7 +20,7 @@ bool DirectoryUsersProxyModel::lessThan(const QModelIndex &left, const QModelInd
     if (leftColumn == DirectoryUsersModel::JoinAt) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryUsersModel::JoinAtDateTime);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryUsersModel::JoinAtDateTime);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-    return DirectoryBaseFilterProxyModel::lessThan(left, right);
+    return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }

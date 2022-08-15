@@ -8,7 +8,7 @@
 #include "model/admininvitemodel.h"
 
 AdministratorInvitesFilterProxyModel::AdministratorInvitesFilterProxyModel(QAbstractListModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
 }
 
@@ -20,7 +20,7 @@ bool AdministratorInvitesFilterProxyModel::lessThan(const QModelIndex &left, con
     if (leftColumn == AdminInviteModel::CreateAtStr) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminInviteModel::CreateAt);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminInviteModel::CreateAt);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-    return DirectoryBaseFilterProxyModel::lessThan(left, right);
+    return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }

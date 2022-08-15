@@ -8,7 +8,7 @@
 #include "model/adminoauthmodel.h"
 
 AdministratorOauthFilterProxyModel::AdministratorOauthFilterProxyModel(QAbstractListModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
 }
 
@@ -20,7 +20,7 @@ bool AdministratorOauthFilterProxyModel::lessThan(const QModelIndex &left, const
     if (leftColumn == AdminOauthModel::CreatedAtStr) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), AdminOauthModel::CreatedAt);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), AdminOauthModel::CreatedAt);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-    return DirectoryBaseFilterProxyModel::lessThan(left, right);
+    return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }

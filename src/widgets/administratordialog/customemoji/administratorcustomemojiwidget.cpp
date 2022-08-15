@@ -13,7 +13,7 @@
 #include "emoji/emojicustomupdatejob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomemojimodel.h"
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -31,7 +31,7 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Custom Emojis"));
 
-    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
     mTreeView->setModel(mProxyModelModel);
     hideColumns();

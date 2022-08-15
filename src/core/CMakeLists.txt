@@ -177,8 +177,8 @@ target_sources(libruqolacore PRIVATE
     model/commandsmodel.h
     model/deviceinfomodel.cpp
     model/deviceinfomodel.h
-    model/directorybasefilterproxymodel.cpp
-    model/directorybasefilterproxymodel.h
+    model/searchtreebasefilterproxymodel.cpp
+    model/searchtreebasefilterproxymodel.h
     model/directorybasemodel.cpp
     model/directorybasemodel.h
     model/directoryroomsmodel.cpp

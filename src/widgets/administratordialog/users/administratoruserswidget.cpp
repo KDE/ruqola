@@ -10,7 +10,7 @@
 #include "dialogs/confirmpassworddialog.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersmodel.h"
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -40,7 +40,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
     }
     mModel = adminUsersModel;
 
-    mProxyModelModel = new DirectoryBaseFilterProxyModel(mModel, this);
+    mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
     mTreeView->setModel(mProxyModelModel);

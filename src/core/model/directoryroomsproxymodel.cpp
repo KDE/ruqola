@@ -8,7 +8,7 @@
 #include "directoryroomsmodel.h"
 
 DirectoryRoomsProxyModel::DirectoryRoomsProxyModel(QAbstractListModel *model, QObject *parent)
-    : DirectoryBaseFilterProxyModel(model, parent)
+    : SearchTreeBaseFilterProxyModel(model, parent)
 {
 }
 
@@ -20,11 +20,11 @@ bool DirectoryRoomsProxyModel::lessThan(const QModelIndex &left, const QModelInd
     if (leftColumn == DirectoryRoomsModel::LastMessageStr) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryRoomsModel::LastMessageDateTime);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryRoomsModel::LastMessageDateTime);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     } else if (leftColumn == DirectoryRoomsModel::CreatedStr) {
         const QModelIndex leftMessageModelIndex = sourceModel()->index(left.row(), DirectoryRoomsModel::CreatedDateTime);
         const QModelIndex rightMessageModelIndex = sourceModel()->index(right.row(), DirectoryRoomsModel::CreatedDateTime);
-        return DirectoryBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
+        return SearchTreeBaseFilterProxyModel::lessThan(leftMessageModelIndex, rightMessageModelIndex);
     }
-    return DirectoryBaseFilterProxyModel::lessThan(left, right);
+    return SearchTreeBaseFilterProxyModel::lessThan(left, right);
 }

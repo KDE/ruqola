@@ -5,9 +5,9 @@
 */
 
 #pragma once
-#include "model/directorybasefilterproxymodel.h"
+#include "model/searchtreebasefilterproxymodel.h"
 
-class AdministratorOauthFilterProxyModel : public DirectoryBaseFilterProxyModel
+class AdministratorOauthFilterProxyModel : public SearchTreeBaseFilterProxyModel
 {
     Q_OBJECT
 public:
