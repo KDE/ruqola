@@ -61,7 +61,6 @@
 #include "misc/roleslistjob.h"
 #include "receivetypingnotificationmanager.h"
 #include "ruqola_thread_message_debug.h"
-#include "sessions/sessionslistjob.h"
 #include "uploadfilemanager.h"
 
 #include <KLocalizedString>
@@ -2414,14 +2413,7 @@ void RocketChatAccount::checkLicenses()
     connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
         qDebug() << " LicensesIsEnterpriseJob " << isEnterprise;
         if (isEnterprise) {
-            auto sessionsListJob = new RocketChatRestApi::SessionsListJob(this);
-            restApi()->initializeRestApiJob(sessionsListJob);
-            connect(sessionsListJob, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, [this](const QJsonObject &obj) {
-                qDebug() << " obj" << obj;
-            });
-            if (!sessionsListJob->start()) {
-                qCWarning(RUQOLA_LOG) << "Impossible to start SessionsListJob job";
-            }
+            // TODO
         }
     });
     if (!job->start()) {

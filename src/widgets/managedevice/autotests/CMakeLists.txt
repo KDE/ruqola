@@ -10,4 +10,3 @@ macro(add_ruqola_managedevicedialog_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqola_managedevicedialog_test(managedevicedialogtest.cpp)

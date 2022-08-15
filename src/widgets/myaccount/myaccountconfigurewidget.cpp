@@ -53,8 +53,9 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         tabWidget->setTabVisible(index2e2Page, false);
     }
     if (account && account->hasLicense(QStringLiteral("device-management"))) {
-        mManageDeviceWidget = new ManageDeviceWidget(mRocketChatAccount, this);
-        tabWidget->addTab(mManageDeviceWidget, i18n("Manage Device"));
+        auto manageDeviceWidget = new ManageDeviceWidget(mRocketChatAccount, this);
+        tabWidget->addTab(manageDeviceWidget, i18n("Manage Device"));
+        manageDeviceWidget->initialize();
     }
 }
 

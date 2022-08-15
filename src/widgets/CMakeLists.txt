@@ -576,8 +576,6 @@ target_sources(libruqolawidgets PRIVATE
 
     managedevice/managedevicewidget.cpp
     managedevice/managedevicewidget.h
-    managedevice/managedevicedialog.h
-    managedevice/managedevicedialog.cpp
 )
 
 
