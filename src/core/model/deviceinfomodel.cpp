@@ -30,6 +30,10 @@ QVariant DeviceInfoModel::headerData(int section, Qt::Orientation orientation, i
             return {};
         case DeviceInfoRoles::Host:
             return i18n("Host");
+        case DeviceInfoRoles::Os:
+            return i18n("Os");
+        case DeviceInfoRoles::Client:
+            return i18n("Client");
         case DeviceInfoRoles::SessionId:
             return i18n("Session Id");
         case DeviceInfoRoles::Ip:
@@ -73,8 +77,11 @@ QVariant DeviceInfoModel::data(const QModelIndex &index, int role) const
         return deviceInfo.userId();
     case DeviceInfoRoles::LoginAt:
         return deviceInfo.loginAt();
+    case DeviceInfoRoles::Os:
+        return deviceInfo.os();
+    case DeviceInfoRoles::Client:
+        return deviceInfo.client();
     }
-
     return {};
 }
 

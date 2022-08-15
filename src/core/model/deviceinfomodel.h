@@ -15,6 +15,8 @@ class LIBRUQOLACORE_EXPORT DeviceInfoModel : public DirectoryBaseModel
     Q_OBJECT
 public:
     enum DeviceInfoRoles {
+        Os,
+        Client,
         Host,
         Identifier,
         SessionId,
