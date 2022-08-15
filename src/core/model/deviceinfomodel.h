@@ -15,9 +15,13 @@ class LIBRUQOLACORE_EXPORT DeviceInfoModel : public DirectoryBaseModel
     Q_OBJECT
 public:
     enum DeviceInfoRoles {
-        Name,
+        Host,
         Identifier,
-        LastColumn = Identifier,
+        SessionId,
+        Ip,
+        UserId,
+        LoginAt,
+        LastColumn = LoginAt,
     };
     Q_ENUM(DeviceInfoRoles)
 

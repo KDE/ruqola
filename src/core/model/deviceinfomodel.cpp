@@ -26,10 +26,18 @@ QVariant DeviceInfoModel::headerData(int section, Qt::Orientation orientation, i
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<DeviceInfoRoles>(section)) {
-            //        case DeviceInfoRoles::Name:
-            //            return i18n("Name");
         case DeviceInfoRoles::Identifier:
-            return i18n("Identifier");
+            return {};
+        case DeviceInfoRoles::Host:
+            return i18n("Host");
+        case DeviceInfoRoles::SessionId:
+            return i18n("Session Id");
+        case DeviceInfoRoles::Ip:
+            return i18n("Ip");
+        case DeviceInfoRoles::UserId:
+            return {};
+        case DeviceInfoRoles::LoginAt:
+            return i18n("Login At");
         }
     }
     return {};
@@ -53,10 +61,18 @@ QVariant DeviceInfoModel::data(const QModelIndex &index, int role) const
     const DeviceInfo &deviceInfo = mDeviceInfos.at(index.row());
     const int col = index.column();
     switch (static_cast<DeviceInfoRoles>(col)) {
-        //    case DeviceInfoRoles::Name:
-        //        return deviceInfo.name();
     case DeviceInfoRoles::Identifier:
         return deviceInfo.identifier();
+    case DeviceInfoRoles::Host:
+        return deviceInfo.host();
+    case DeviceInfoRoles::SessionId:
+        return deviceInfo.sessionId();
+    case DeviceInfoRoles::Ip:
+        return deviceInfo.ip();
+    case DeviceInfoRoles::UserId:
+        return deviceInfo.userId();
+    case DeviceInfoRoles::LoginAt:
+        return deviceInfo.loginAt();
     }
 
     return {};
@@ -118,7 +134,7 @@ void DeviceInfoModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> DeviceInfoModel::hideColumns() const
 {
-    return {DeviceInfoRoles::Identifier};
+    return {DeviceInfoRoles::Identifier, DeviceInfoRoles::UserId, DeviceInfoRoles::SessionId};
 }
 
 void DeviceInfoModel::removeElement(const QString &identifier)
