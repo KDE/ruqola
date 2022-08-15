@@ -22,4 +22,6 @@ void DeviceInfoTest::shouldHaveDefaultValues()
     QVERIFY(w.ip().isEmpty());
     QVERIFY(w.userId().isEmpty());
     QCOMPARE(w.loginAt(), -1);
+    QVERIFY(w.os().isEmpty());
+    QVERIFY(w.client().isEmpty());
 }

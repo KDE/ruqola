@@ -35,7 +35,7 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
 bool DeviceInfo::operator==(const DeviceInfo &other) const
 {
     return mIdentifier == other.identifier() && mIp == other.ip() && mHost == other.host() && mSessionId == other.sessionId() && mUserId == other.userId()
-        && mLoginAt == other.loginAt();
+        && mLoginAt == other.loginAt() && mOs == other.os() && mClient == other.client();
 }
 
 const QString &DeviceInfo::identifier() const
@@ -96,4 +96,24 @@ qint64 DeviceInfo::loginAt() const
 void DeviceInfo::setLoginAt(qint64 newLoginAt)
 {
     mLoginAt = newLoginAt;
+}
+
+const QString &DeviceInfo::client() const
+{
+    return mClient;
+}
+
+void DeviceInfo::setClient(const QString &newClient)
+{
+    mClient = newClient;
+}
+
+const QString &DeviceInfo::os() const
+{
+    return mOs;
+}
+
+void DeviceInfo::setOs(const QString &newOs)
+{
+    mOs = newOs;
 }

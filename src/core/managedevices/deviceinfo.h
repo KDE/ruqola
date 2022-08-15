@@ -39,12 +39,20 @@ public:
     Q_REQUIRED_RESULT qint64 loginAt() const;
     void setLoginAt(qint64 newLoginAt);
 
+    Q_REQUIRED_RESULT const QString &client() const;
+    void setClient(const QString &newClient);
+
+    Q_REQUIRED_RESULT const QString &os() const;
+    void setOs(const QString &newOs);
+
 private:
     QString mIdentifier;
     QString mHost;
     QString mSessionId;
     QString mIp;
     QString mUserId;
+    QString mClient;
+    QString mOs;
     qint64 mLoginAt = -1;
 };
 
