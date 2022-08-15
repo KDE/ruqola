@@ -51,6 +51,9 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     if (account && !account->encryptionEnabled()) {
         tabWidget->setTabVisible(index2e2Page, false);
     }
+    if (account && account->hasLicense(QStringLiteral("device-management"))) {
+        // TODO
+    }
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;

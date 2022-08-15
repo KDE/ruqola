@@ -19,6 +19,7 @@
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "inputtextmanager.h"
 #include "libruqolacore_export.h"
+#include "licenses/licensesmanager.h"
 #include "messages/message.h"
 #include "model/listmessagesmodel.h"
 #include "model/roommodel.h"
@@ -500,6 +501,7 @@ public:
     Q_REQUIRED_RESULT bool useRealName() const;
 
     Q_REQUIRED_RESULT int messageViewMode() const;
+    Q_REQUIRED_RESULT bool hasLicense(const QString &name);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
@@ -685,6 +687,7 @@ private:
     CustomUserStatuses mCustomUserStatuses;
     PermissionManager mPermissionManager;
     RolesManager mRolesManager;
+    LicensesManager mLicensesManager;
     QStringList mSearchListCompletion;
     BannerInfos mBannerInfos;
 

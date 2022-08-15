@@ -2927,3 +2927,8 @@ void RocketChatAccount::setOauthAppUpdated(const QJsonObject &obj)
     // TODO return error
     Q_EMIT oauthAppUpdated(obj);
 }
+
+bool RocketChatAccount::hasLicense(const QString &name)
+{
+    return mLicensesManager.hasLicense(name);
+}
