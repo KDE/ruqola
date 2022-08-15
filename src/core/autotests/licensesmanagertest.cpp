@@ -16,5 +16,6 @@ LicensesManagerTest::LicensesManagerTest(QObject *parent)
 void LicensesManagerTest::shouldHaveDefaultValues()
 {
     LicensesManager w;
-    // TODO
+    QVERIFY(w.licenses().isEmpty());
+    QVERIFY(!w.hasLicense(QStringLiteral("bla")));
 }

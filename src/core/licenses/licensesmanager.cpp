@@ -9,3 +9,18 @@
 LicensesManager::LicensesManager() = default;
 
 LicensesManager::~LicensesManager() = default;
+
+const QStringList &LicensesManager::licenses() const
+{
+    return mLicenses;
+}
+
+void LicensesManager::setLicenses(const QStringList &newLicenses)
+{
+    mLicenses = newLicenses;
+}
+
+bool LicensesManager::hasLicense(const QString &name)
+{
+    return mLicenses.contains(name);
+}
