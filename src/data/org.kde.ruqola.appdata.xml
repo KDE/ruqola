@@ -543,6 +543,7 @@
       <li xml:lang="sv">Stöd för information om ny RocketChat-server</li>
       <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
       <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
+      <li>Manage Device (RC >= 5.0)</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
