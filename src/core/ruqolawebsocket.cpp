@@ -5,6 +5,7 @@
 */
 
 #include "ruqolawebsocket.h"
+#include "config-ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqolalogger.h"
 
@@ -29,7 +30,12 @@ RuqolaWebSocket::~RuqolaWebSocket()
 
 void RuqolaWebSocket::openUrl(const QUrl &url)
 {
-    mWebSocket->open(url);
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setHeader(
+        QNetworkRequest::UserAgentHeader,
+        QStringLiteral("Ruqola/%1 (%2 %3) Ruqola/%1").arg(QStringLiteral(RUQOLA_VERSION), QSysInfo::prettyProductName(), QSysInfo::currentCpuArchitecture()));
+    mWebSocket->open(request);
 }
 
 qint64 RuqolaWebSocket::sendTextMessage(const QString &message)
