@@ -90,15 +90,15 @@ void ManageDeviceWidget::slotCustomContextMenuRequested(const QPoint &pos)
     if (index.isValid()) {
         QMenu menu(this);
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, newModelIndex]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Disconnect"), this, [this, newModelIndex]() {
             const QModelIndex modelIndex = mModel->index(newModelIndex.row(), DeviceInfoModel::Identifier);
-            slotRemoveDevice(modelIndex);
+            slotDisconnectDevice(modelIndex);
         });
         menu.exec(mTreeView->viewport()->mapToGlobal(pos));
     }
 }
 
-void ManageDeviceWidget::slotRemoveDevice(const QModelIndex &index)
+void ManageDeviceWidget::slotDisconnectDevice(const QModelIndex &index)
 {
     // TODO remove it!
     // Add job for logout it!
