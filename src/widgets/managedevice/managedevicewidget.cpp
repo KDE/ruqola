@@ -13,6 +13,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "sessions/sessionslistjob.h"
+#include "sessions/sessionslogoutmejob.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
@@ -100,6 +101,15 @@ void ManageDeviceWidget::slotCustomContextMenuRequested(const QPoint &pos)
 
 void ManageDeviceWidget::slotDisconnectDevice(const QModelIndex &index)
 {
-    // TODO remove it!
-    // Add job for logout it!
+    auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
+    const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);
+    const QString sessionsId = modelIndex.data().toString();
+    job->setSessionId(sessionsId);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job, &RocketChatRestApi::SessionsLogoutMeJob::logoutMeDone, this, [this, sessionsId]() {
+        slotDeviceRemoved(sessionsId);
+    });
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsLogoutMeJob job";
+    }
 }
