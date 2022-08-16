@@ -50,5 +50,23 @@ void DeviceInfoTest::shouldDeviceInfo_data()
     QTest::addColumn<DeviceInfo>("deviceInfo");
     QTest::addRow("deviceinfoempty") << QStringLiteral("deviceinfoempty") << DeviceInfo();
     {
+        DeviceInfo info;
+        info.setHost(QStringLiteral("chat.kde.org"));
+        info.setIdentifier(QStringLiteral("iy78NiKzd"));
+        info.setIp(QStringLiteral("179.4.8.1"));
+        info.setSessionId(QStringLiteral("iKzd"));
+        info.setUserId(QStringLiteral("acidH"));
+        QTest::addRow("deviceinfo1") << QStringLiteral("deviceinfo1") << info;
+    }
+    {
+        DeviceInfo info;
+        info.setHost(QStringLiteral("chat.kde.org"));
+        info.setIdentifier(QStringLiteral("87pMW"));
+        info.setIp(QStringLiteral("1.7.6.11"));
+        info.setSessionId(QStringLiteral("87pMW"));
+        info.setUserId(QStringLiteral("dacidH"));
+        info.setClient(QStringLiteral("Firefox"));
+        info.setOs(QStringLiteral("Linux x86_64"));
+        QTest::addRow("deviceinfo2") << QStringLiteral("deviceinfo2") << info;
     }
 }
