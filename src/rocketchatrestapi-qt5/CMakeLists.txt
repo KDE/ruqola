@@ -314,6 +314,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     serverinfojob.h
     sessions/sessionslistjob.cpp
     sessions/sessionslistjob.h
+    sessions/sessionslogoutmejob.h
+    sessions/sessionslogoutmejob.cpp
     settings/privateinfojob.cpp
     settings/privateinfojob.h
     settings/updateadminsettingsjob.cpp
