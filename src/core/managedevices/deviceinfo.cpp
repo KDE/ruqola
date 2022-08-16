@@ -28,6 +28,15 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
     mSessionId = obj[QStringLiteral("sessionId")].toString();
     mIp = obj[QStringLiteral("ip")].toString();
     mUserId = obj[QStringLiteral("userId")].toString();
+    const QJsonObject deviceObj = obj[QStringLiteral("device")].toObject();
+    if (!deviceObj.isEmpty()) {
+        const QJsonObject osObj = deviceObj[QStringLiteral("os")].toObject();
+        if (!osObj.isEmpty()) {
+            mOs = osObj[QStringLiteral("name")].toString() + QLatin1Char(' ') + osObj[QStringLiteral("version")].toString();
+        }
+        mClient = deviceObj[QStringLiteral("name")].toString();
+    }
+    //"device":{"longVersion":"103.0","name":"Firefox","os":{"name":"Linux","version":"x86_64"},"type":"browser","version":"103.0"}
     // TODO LoginAt
     // TODO
 }
