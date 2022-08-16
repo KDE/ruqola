@@ -148,7 +148,7 @@ void DeviceInfoModel::removeElement(const QString &identifier)
 {
     const int userCount = mDeviceInfos.count();
     for (int i = 0; i < userCount; ++i) {
-        if (mDeviceInfos.at(i).identifier() == identifier) {
+        if (mDeviceInfos.at(i).sessionId() == identifier) {
             beginRemoveRows(QModelIndex(), i, i);
             mDeviceInfos.takeAt(i);
             mDeviceInfos.setTotal(mDeviceInfos.count()); // Update total
