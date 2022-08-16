@@ -65,7 +65,9 @@ void ManageDeviceWidget::slotLoadElements(int offset, int count, const QString &
     if (count != -1) {
         parameters.setCount(count);
     }
-    parameters.setSearchString(searchName);
+    if (!searchName.isEmpty()) {
+        parameters.setSearchString(searchName);
+    }
 
     job->setQueryParameters(parameters);
 
