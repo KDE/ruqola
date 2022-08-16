@@ -617,7 +617,7 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
         urlQuery.addQueryItem(QStringLiteral("query"), str);
     }
     if (!queryParameters.searchString().isEmpty()) {
-        QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
+        const QString str = QStringLiteral(R"({"name":{"$regex":"%1","$options":"i"}})").arg(queryParameters.searchString());
         urlQuery.addQueryItem(QStringLiteral("query"), str);
     }
 
