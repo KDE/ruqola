@@ -45,6 +45,8 @@ public:
     Q_REQUIRED_RESULT const QString &os() const;
     void setOs(const QString &newOs);
 
+    Q_REQUIRED_RESULT QString loginAtDisplay() const;
+
 private:
     QString mIdentifier;
     QString mHost;
@@ -53,6 +55,7 @@ private:
     QString mUserId;
     QString mClient;
     QString mOs;
+    QString mLoginAtDateTimeStr;
     qint64 mLoginAt = -1;
 };
 

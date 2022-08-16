@@ -76,7 +76,7 @@ QVariant DeviceInfoModel::data(const QModelIndex &index, int role) const
     case DeviceInfoRoles::UserId:
         return deviceInfo.userId();
     case DeviceInfoRoles::LoginAt:
-        return deviceInfo.loginAt();
+        return deviceInfo.loginAtDisplay();
     case DeviceInfoRoles::Os:
         return deviceInfo.os();
     case DeviceInfoRoles::Client:

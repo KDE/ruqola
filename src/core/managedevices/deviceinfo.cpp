@@ -5,6 +5,7 @@
 */
 
 #include "deviceinfo.h"
+#include "utils.h"
 
 DeviceInfo::DeviceInfo() = default;
 
@@ -36,6 +37,7 @@ void DeviceInfo::parseDeviceInfo(const QJsonObject &obj)
         }
         mClient = deviceObj[QStringLiteral("name")].toString();
     }
+    setLoginAt(Utils::parseIsoDate(QStringLiteral("loginAt"), obj));
     //"device":{"longVersion":"103.0","name":"Firefox","os":{"name":"Linux","version":"x86_64"},"type":"browser","version":"103.0"}
     // TODO LoginAt
     // TODO
@@ -105,6 +107,13 @@ qint64 DeviceInfo::loginAt() const
 void DeviceInfo::setLoginAt(qint64 newLoginAt)
 {
     mLoginAt = newLoginAt;
+    QLocale l;
+    mLoginAtDateTimeStr = l.toString(QDateTime::fromMSecsSinceEpoch(mLoginAt), QLocale::LongFormat);
+}
+
+QString DeviceInfo::loginAtDisplay() const
+{
+    return mLoginAtDateTimeStr;
 }
 
 const QString &DeviceInfo::client() const
