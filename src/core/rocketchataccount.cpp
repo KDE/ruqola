@@ -2396,7 +2396,6 @@ void RocketChatAccount::initializeAccount()
     // Initialize sounds
     mCustomSoundManager->initializeDefaultSounds();
     ddp()->listCustomSounds();
-    ddp()->licenseGetModules();
     customUsersStatus();
     slotLoadRoles();
     if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
@@ -2411,9 +2410,8 @@ void RocketChatAccount::checkLicenses()
     auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
-        qDebug() << " LicensesIsEnterpriseJob " << isEnterprise;
         if (isEnterprise) {
-            // TODO
+            ddp()->licenseGetModules();
         }
     });
     if (!job->start()) {
