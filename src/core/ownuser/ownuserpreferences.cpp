@@ -34,6 +34,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
     setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
     setShowUnread(replyObject.value(QLatin1String("sidebarShowUnread")).toBool(false));
+    setShowRoomAvatar(replyObject.value(QLatin1String("sidebarDisplayAvatar")).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -42,7 +43,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
-        && mShowUnread == other.showUnread();
+        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -114,6 +115,16 @@ bool OwnUserPreferences::showUnread() const
 void OwnUserPreferences::setShowUnread(bool newShowUnread)
 {
     mShowUnread = newShowUnread;
+}
+
+bool OwnUserPreferences::showRoomAvatar() const
+{
+    return mShowRoomAvatar;
+}
+
+void OwnUserPreferences::setShowRoomAvatar(bool newShowRoomAvatar)
+{
+    mShowRoomAvatar = newShowRoomAvatar;
 }
 
 bool OwnUserPreferences::convertAsciiEmoji() const
@@ -190,5 +201,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mPushNotifications " << t.pushNotifications();
     d << "mMessageViewMode " << t.messageViewMode();
     d << "mShowUnread " << t.showUnread();
+    d << "mShowRoomAvatar " << t.showRoomAvatar();
     return d;
 }

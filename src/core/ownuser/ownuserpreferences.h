@@ -56,6 +56,9 @@ public:
     Q_REQUIRED_RESULT bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
+    Q_REQUIRED_RESULT bool showRoomAvatar() const;
+    void setShowRoomAvatar(bool newShowRoomAvatar);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -69,6 +72,7 @@ private:
     bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
+    bool mShowRoomAvatar = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

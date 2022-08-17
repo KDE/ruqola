@@ -28,6 +28,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QCOMPARE(p.messageViewMode(), -1);
     QCOMPARE(p.idleTimeLimit(), -1);
     QVERIFY(!p.showUnread());
+    QVERIFY(!p.showRoomAvatar());
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
