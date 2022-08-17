@@ -564,7 +564,7 @@ Q_SIGNALS:
 
     void oauthAppAdded(const QJsonObject &obj);
     void oauthAppUpdated(const QJsonObject &obj);
-    void needUpdateView();
+    void needUpdateMessageView();
     void publicSettingLoaded(const QJsonObject &obj);
     void bannerInfoChanged();
 

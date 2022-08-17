@@ -2653,23 +2653,26 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             if (key == QStringLiteral("settings.preferences.highlights")) {
                 const QJsonArray highlightsArray = updateJson.value(key).toArray();
                 mOwnUser.ownUserPreferences().updateHighlightWords(highlightsArray);
-                Q_EMIT needUpdateView();
+                Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.enableAutoAway")) {
                 mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(key).toBool());
             } else if (key == QStringLiteral("settings.preferences.convertAsciiEmoji")) {
                 mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(key).toBool());
-                Q_EMIT needUpdateView();
+                Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.hideRoles")) {
                 mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(key).toBool());
-                Q_EMIT needUpdateView();
+                Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.displayAvatars")) {
                 mOwnUser.ownUserPreferences().setDisplayAvatars(updateJson.value(key).toBool());
-                Q_EMIT needUpdateView();
+                Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
                 mOwnUser.ownUserPreferences().setMessageViewMode(updateJson.value(key).toInt());
-                Q_EMIT needUpdateView();
-            } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) {
+                Q_EMIT needUpdateMessageView();
+            } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 // TODO
+            } else if (key == QStringLiteral("settings.preferences.sidebarShowUnread")) {
+                // TODO
+            } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;

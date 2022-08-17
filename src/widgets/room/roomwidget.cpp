@@ -728,7 +728,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
-        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateView, this, &RoomWidget::updateListView);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
     }
 
     mCurrentRocketChatAccount = account;
@@ -736,7 +736,7 @@ void RoomWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
     connect(mCurrentRocketChatAccount, &RocketChatAccount::openThreadRequested, this, &RoomWidget::slotOpenThreadRequested);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::displayReconnectWidget, this, &RoomWidget::slotDisplayReconnectWidget);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RoomWidget::slotLoginStatusChanged);
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateView, this, &RoomWidget::updateListView);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateMessageView, this, &RoomWidget::updateListView);
     // TODO verify if we need to show or not reconnect widget
     mRoomHeaderWidget->setCurrentRocketChatAccount(account);
     mUsersInRoomFlowWidget->setCurrentRocketChatAccount(account);
