@@ -53,6 +53,9 @@ public:
     Q_REQUIRED_RESULT int messageViewMode() const;
     void setMessageViewMode(int newMessageViewMode);
 
+    Q_REQUIRED_RESULT bool showUnread() const;
+    void setShowUnread(bool newShowUnread);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -65,6 +68,7 @@ private:
     bool mHideRoles = false;
     bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
+    bool mShowUnread = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

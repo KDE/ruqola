@@ -33,6 +33,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setIdleTimeLimit(replyObject.value(QLatin1String("idleTimeLimit")).toInt(-1));
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
     setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
+    setShowUnread(replyObject.value(QLatin1String("sidebarShowUnread")).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -40,7 +41,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
     return mHighlightWords == other.highlightWords() && mEmailNotificationMode == other.emailNotificationMode()
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
-        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode();
+        && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
+        && mShowUnread == other.showUnread();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -102,6 +104,16 @@ int OwnUserPreferences::messageViewMode() const
 void OwnUserPreferences::setMessageViewMode(int newMessageViewMode)
 {
     mMessageViewMode = newMessageViewMode;
+}
+
+bool OwnUserPreferences::showUnread() const
+{
+    return mShowUnread;
+}
+
+void OwnUserPreferences::setShowUnread(bool newShowUnread)
+{
+    mShowUnread = newShowUnread;
 }
 
 bool OwnUserPreferences::convertAsciiEmoji() const
@@ -177,5 +189,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mEnableAutoAway " << t.enableAutoAway();
     d << "mPushNotifications " << t.pushNotifications();
     d << "mMessageViewMode " << t.messageViewMode();
+    d << "mShowUnread " << t.showUnread();
     return d;
 }
