@@ -62,4 +62,5 @@ private:
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
+    QMetaObject::Connection mUpdateChannelViewConnect;
 };
