@@ -17,7 +17,15 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesJob : public RestApiAbs
     Q_OBJECT
 public:
     struct LIBROCKETCHATRESTAPI_QT5_EXPORT UsersSetPreferencesInfo {
+        enum State {
+            Unknown = 0,
+            Checked = 1,
+            Unchecked = 2,
+        };
+
         Q_REQUIRED_RESULT bool isValid() const;
+        Q_REQUIRED_RESULT static bool convertToBool(State state);
+        Q_REQUIRED_RESULT static State convertToState(bool checked);
         QString userId;
         QString newRoomNotification;
         QString newMessageNotification;
@@ -26,10 +34,11 @@ public:
         QString emailNotificationMode;
         QStringList highlights;
         int messageViewMode = -1;
-        bool useEmoji = true;
-        bool convertAsciiToEmoji = true;
-        bool hideRoles = false;
-        bool displayAvatars = false;
+        State useEmoji = Unknown;
+        State convertAsciiToEmoji = Unknown;
+        State hideRoles = Unknown;
+        State displayAvatars = Unknown;
+        State sidebarDisplayAvatar = Unknown;
         // Add more
     };
 

@@ -104,12 +104,25 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (mUsersSetPreferencesInfo.messageViewMode != -1) {
         dataObj[QLatin1String("messageViewMode")] = mUsersSetPreferencesInfo.messageViewMode;
     }
+    if (!mUsersSetPreferencesInfo.highlights.isEmpty()) {
+        dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
+    }
 
-    dataObj[QLatin1String("useEmojis")] = mUsersSetPreferencesInfo.useEmoji;
-    dataObj[QLatin1String("convertAsciiEmoji")] = mUsersSetPreferencesInfo.convertAsciiToEmoji;
-    dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
-    dataObj[QLatin1String("hideRoles")] = mUsersSetPreferencesInfo.hideRoles;
-    dataObj[QLatin1String("displayAvatars")] = mUsersSetPreferencesInfo.displayAvatars;
+    if (mUsersSetPreferencesInfo.useEmoji != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("useEmojis")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.useEmoji);
+    }
+    if (mUsersSetPreferencesInfo.convertAsciiToEmoji != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("convertAsciiEmoji")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.convertAsciiToEmoji);
+    }
+    if (mUsersSetPreferencesInfo.hideRoles != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("hideRoles")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.hideRoles);
+    }
+    if (mUsersSetPreferencesInfo.displayAvatars != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("displayAvatars")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.displayAvatars);
+    }
+    if (mUsersSetPreferencesInfo.sidebarDisplayAvatar != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("sidebarDisplayAvatar")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarDisplayAvatar);
+    }
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -144,4 +157,22 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
 bool UsersSetPreferencesJob::UsersSetPreferencesInfo::isValid() const
 {
     return !userId.isEmpty();
+}
+
+bool UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToBool(State state)
+{
+    switch (state) {
+    case Unknown:
+        return false;
+    case Checked:
+        return true;
+    case Unchecked:
+        return false;
+    }
+    return false;
+}
+
+UsersSetPreferencesJob::UsersSetPreferencesInfo::State UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(bool checked)
+{
+    return checked ? UsersSetPreferencesJob::UsersSetPreferencesInfo::Checked : UsersSetPreferencesJob::UsersSetPreferencesInfo::Unchecked;
 }
