@@ -32,9 +32,9 @@ void RuqolaWebSocket::openUrl(const QUrl &url)
 {
     QNetworkRequest request;
     request.setUrl(url);
-    request.setHeader(
-        QNetworkRequest::UserAgentHeader,
-        QStringLiteral("Ruqola/%1 (%2 %3) Ruqola/%1").arg(QStringLiteral(RUQOLA_VERSION), QSysInfo::prettyProductName(), QSysInfo::currentCpuArchitecture()));
+    request.setHeader(QNetworkRequest::UserAgentHeader,
+                      QStringLiteral("webkit/Ruqola-%1 (%2 %3) webkit/Ruqola-%1")
+                          .arg(QStringLiteral(RUQOLA_VERSION), QSysInfo::prettyProductName(), QSysInfo::currentCpuArchitecture()));
     mWebSocket->open(request);
 }
 
