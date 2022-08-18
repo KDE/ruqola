@@ -544,6 +544,12 @@
       <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
       <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
       <li>Manage Device (RC &gt;= 5.0)</li>
+      <li xml:lang="ca">Gestiona el dispositiu (RC &gt;= 5.0)</li>
+      <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
+      <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
+      <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
+      <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
+      <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
