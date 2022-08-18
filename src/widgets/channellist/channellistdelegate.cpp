@@ -11,7 +11,6 @@
 #include "model/roomlistheadingsproxymodel.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
-#include "ruqolaglobalconfig.h"
 
 #include <KColorScheme>
 #include <QPainter>
@@ -37,7 +36,8 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const int iconSize = isHeader ? 0 : option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
     int offsetAvatarRoom = 0;
-    if (!isHeader && RuqolaGlobalConfig::self()->showRoomAvatar()) {
+    const bool showRoomAvatar = mRocketChatAccount ? mRocketChatAccount->ownUserPreferences().showRoomAvatar() : false;
+    if (!isHeader && showRoomAvatar) {
         offsetAvatarRoom = margin + option.rect.height(); // Icon will be draw with option.rect.height() as size.
     }
     const QRect decorationRect(option.rect.x() + margin + offsetAvatarRoom, option.rect.y(), iconSize, option.rect.height());
@@ -56,7 +56,7 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!isHeader) {
         const auto icon = index.data(Qt::DecorationRole).value<QIcon>();
         icon.paint(painter, decorationRect, Qt::AlignCenter);
-        if (RuqolaGlobalConfig::self()->showRoomAvatar()) {
+        if (showRoomAvatar) {
             const auto avatarInfo = index.data(RoomModel::RoomAvatarInfo).value<Utils::AvatarInfo>();
             if (avatarInfo.isValid()) {
                 const QPixmap pix = mAvatarCacheManager->makeAvatarUrlPixmap(option.widget, avatarInfo, option.rect.height());

@@ -2681,7 +2681,9 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             } else if (key == QStringLiteral("settings.preferences.sidebarShowUnread")) {
                 // TODO
             } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
-                mOwnUser.ownUserPreferences().setShowRoomAvatar(updateJson.value(key).toBool());
+                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
+                ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateChannelView();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
