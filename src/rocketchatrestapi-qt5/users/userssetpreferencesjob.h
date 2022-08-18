@@ -39,6 +39,7 @@ public:
         State hideRoles = Unknown;
         State displayAvatars = Unknown;
         State sidebarDisplayAvatar = Unknown;
+        State sidebarShowUnread = Unknown;
         // Add more
     };
 
