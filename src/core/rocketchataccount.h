@@ -530,7 +530,6 @@ Q_SIGNALS:
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);
     void missingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
     void editingModeChanged();
-    void sortUnreadOnTopChanged();
     void jobFailed(const QString &message, const QString &accountName);
     void switchedRooms();
     void userStatusUpdated(User::PresenceStatus status, const QString &customText, const QString &accountName);

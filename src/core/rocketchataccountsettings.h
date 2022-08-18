@@ -52,9 +52,6 @@ public:
 
     void removeSettings();
 
-    Q_REQUIRED_RESULT bool showUnreadOnTop() const;
-    bool setShowUnreadOnTop(bool showUnreadOnTop);
-
     Q_REQUIRED_RESULT qint64 expireToken() const;
     void setExpireToken(qint64 expireToken);
 
@@ -98,6 +95,5 @@ private:
     QString mTwoFactorAuthenticationCode;
     qint64 mExpireToken = -1;
     QSettings *mSetting = nullptr;
-    bool mShowUnreadOnTop = false;
     bool mAccountEnabled = true;
 };

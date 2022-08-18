@@ -1950,17 +1950,17 @@ void RocketChatAccount::switchEditingMode(bool b)
     }
 }
 
-void RocketChatAccount::setSortUnreadOnTop(bool b)
+void RocketChatAccount::setSortUnreadOnTop(bool checked)
 {
-    if (settings()->setShowUnreadOnTop(b)) {
-        mRoomFilterProxyModel->invalidate();
-        Q_EMIT sortUnreadOnTopChanged();
-    }
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.userId = userId();
+    info.sidebarShowUnread = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
+    setUserPreferences(info);
 }
 
 bool RocketChatAccount::sortUnreadOnTop() const
 {
-    return settings()->showUnreadOnTop();
+    return ownUser().ownUserPreferences().showUnread();
 }
 
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
@@ -2679,7 +2679,10 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
             } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 // TODO
             } else if (key == QStringLiteral("settings.preferences.sidebarShowUnread")) {
-                // TODO
+                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
+                ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT needUpdateChannelView();
             } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());

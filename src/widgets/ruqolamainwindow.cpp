@@ -277,7 +277,7 @@ void RuqolaMainWindow::slotPermissionChanged()
 
 void RuqolaMainWindow::updateActions()
 {
-    mUnreadOnTop->setChecked(mCurrentRocketChatAccount->sortUnreadOnTop());
+    mUnreadOnTop->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showUnread());
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFromEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};

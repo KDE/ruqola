@@ -46,7 +46,6 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mExpireToken = mSetting->value(QStringLiteral("expireToken")).toLongLong();
     mAccountName = mSetting->value(QStringLiteral("accountName")).toString();
     mUseLdap = mSetting->value(QStringLiteral("useLdap")).toBool();
-    mShowUnreadOnTop = mSetting->value(QStringLiteral("showunreadontop")).toBool();
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
     if (mAccountEnabled) {
@@ -137,22 +136,6 @@ void RocketChatAccountSettings::setExpireToken(qint64 expireToken)
 bool RocketChatAccountSettings::tokenExpired() const
 {
     return mExpireToken < QDateTime::currentDateTime().toMSecsSinceEpoch();
-}
-
-bool RocketChatAccountSettings::showUnreadOnTop() const
-{
-    return mShowUnreadOnTop;
-}
-
-bool RocketChatAccountSettings::setShowUnreadOnTop(bool showUnreadOnTop)
-{
-    if (mShowUnreadOnTop != showUnreadOnTop) {
-        mShowUnreadOnTop = showUnreadOnTop;
-        mSetting->setValue(QStringLiteral("showunreadontop"), mShowUnreadOnTop);
-        mSetting->sync();
-        return true;
-    }
-    return false;
 }
 
 QString RocketChatAccountSettings::userId() const
