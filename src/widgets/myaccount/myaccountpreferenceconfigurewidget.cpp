@@ -138,10 +138,10 @@ void MyAccountPreferenceConfigureWidget::save()
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = mRocketChatAccount->userId();
-        info.useEmoji = mUseEmoji->isChecked();
-        info.hideRoles = mHideRoles->isChecked();
-        info.displayAvatars = mDisplayAvatars->isChecked();
-        info.convertAsciiToEmoji = mConvertAsciiEmoji->isChecked();
+        info.useEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mUseEmoji->isChecked());
+        info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
+        info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
+        info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
     }
