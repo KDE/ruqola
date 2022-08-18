@@ -96,6 +96,7 @@ private:
     void slotAdministratorServerSettings();
     void slotRocketChatInformation();
     Q_REQUIRED_RESULT bool hasBannerInfo() const;
+    void slotShowRoomAvatar(bool checked);
 
     bool mReallyClose{false};
 
@@ -134,4 +135,5 @@ private:
     KActionMenu *mAdministratorMenu = nullptr;
     AccountManager *mAccountManager = nullptr;
     QAction *mShowRocketChatServerInfo = nullptr;
+    QAction *mRoomAvatar = nullptr;
 };

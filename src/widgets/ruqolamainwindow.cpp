@@ -282,6 +282,7 @@ void RuqolaMainWindow::updateActions()
     mAdministratorServerSettings->setEnabled(isAdministrator);
     mAdministratorMenu->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
+    mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -492,6 +493,11 @@ void RuqolaMainWindow::setupActions()
     mShowRocketChatServerInfo = new QAction(i18n("Show RocketChat Information"), this);
     connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
     ac->addAction(QStringLiteral("show_rocketchat_information"), mShowRocketChatServerInfo);
+
+    mRoomAvatar = new QAction(i18n("Room Avatar"), this);
+    mRoomAvatar->setCheckable(true);
+    connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
+    ac->addAction(QStringLiteral("room_avatar"), mRoomAvatar);
 }
 
 void RuqolaMainWindow::showNextView()
@@ -666,6 +672,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());
+    mRoomAvatar->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -875,4 +882,9 @@ void RuqolaMainWindow::slotRocketChatInformation()
 {
     BannerInfoDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
+}
+
+void RuqolaMainWindow::slotShowRoomAvatar(bool checked)
+{
+    mCurrentRocketChatAccount->setShowRoomAvatar(checked);
 }

@@ -232,6 +232,8 @@ public:
     Q_REQUIRED_RESULT QUrl urlForLink(const QString &link) const;
     void setUserStatusChanged(const QJsonArray &array);
 
+    void setShowRoomAvatar(bool checked);
+
     SearchMessageFilterProxyModel *searchMessageFilterProxyModel() const;
     FilesForRoomFilterProxyModel *filesForRoomFilterProxyModel() const;
     ReceiveTypingNotificationManager *receiveTypingNotificationManager() const;
