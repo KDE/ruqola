@@ -35,7 +35,7 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 
 void license_get_modules(const QJsonObject &root, RocketChatAccount *account)
 {
-    qDebug() << " root " << root;
+    // qDebug() << " root " << root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("License GetModule:") + QJsonDocument(root).toJson());
     }
