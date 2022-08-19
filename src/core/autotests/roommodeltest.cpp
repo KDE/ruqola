@@ -478,7 +478,9 @@ void RoomModelTest::shouldOrderRooms()
 {
     // GIVEN
     RocketChatAccount account;
-    account.setSortUnreadOnTop(true);
+    auto preference = account.ownUser().ownUserPreferences();
+    preference.setShowUnread(true);
+    account.setOwnUserPreferences(preference);
     RoomModel sampleModel(&account);
     int count = 0;
     std::vector<Room *> rooms;

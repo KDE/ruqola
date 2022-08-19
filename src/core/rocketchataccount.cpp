@@ -289,6 +289,11 @@ void RocketChatAccount::slotRoomNeedAttention()
     Q_EMIT roomNeedAttention();
 }
 
+void RocketChatAccount::setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences)
+{
+    mOwnUser.setOwnUserPreferences(ownUserPreferences);
+}
+
 OwnUser RocketChatAccount::ownUser() const
 {
     return mOwnUser;
