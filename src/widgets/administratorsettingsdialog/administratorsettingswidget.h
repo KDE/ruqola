@@ -24,6 +24,7 @@ class IrcFederationWidget;
 class WebDavSettingsWidget;
 class LDapSettingsWidget;
 class LayoutSettingsWidget;
+class SettingsWidgetBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
 private:
     void initialize(const QJsonObject &obj);
     void updateState(bool state);
+    void initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings);
     QTabWidget *const mTabWidget;
     AccountSettingsWidget *const mAccountSettingsWidget;
     EncryptionSettingsWidget *const mEncryptionSettingsWidget;

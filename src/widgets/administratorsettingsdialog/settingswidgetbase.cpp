@@ -41,6 +41,11 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
+void SettingsWidgetBase::initializeDefaultValue()
+{
+    // Nothing
+}
+
 SettingsWidgetBase::~SettingsWidgetBase() = default;
 
 void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)

@@ -92,7 +92,7 @@ void AdministratorSettingsWidget::loadSettings()
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
-    // qDebug() << " obj " << obj;
+    qDebug() << " obj " << obj;
     QMap<QString, QVariant> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
@@ -102,20 +102,26 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
         mapSettings.insert(id, value);
     }
 
-    mAccountSettingsWidget->initialize(mapSettings);
-    mEncryptionSettingsWidget->initialize(mapSettings);
-    mMessageSettingsWidget->initialize(mapSettings);
-    mUploadFileSettingsWidget->initialize(mapSettings);
-    mRetentionPolicySettingsWidget->initialize(mapSettings);
-    mGeneralSettingsWidget->initialize(mapSettings);
-    mRateLimiterWidget->initialize(mapSettings);
-    mPasswordSettingsWidget->initialize(mapSettings);
-    mVideoConferenceWidget->initialize(mapSettings);
-    mIrcFederationWidget->initialize(mapSettings);
-    mWebDavSettingsWidget->initialize(mapSettings);
-    mLDapSettingsWidget->initialize(mapSettings);
-    mLayoutSettingsWidget->initialize(mapSettings);
+    initializeValues(mAccountSettingsWidget, mapSettings);
+    initializeValues(mEncryptionSettingsWidget, mapSettings);
+    initializeValues(mMessageSettingsWidget, mapSettings);
+    initializeValues(mUploadFileSettingsWidget, mapSettings);
+    initializeValues(mRetentionPolicySettingsWidget, mapSettings);
+    initializeValues(mGeneralSettingsWidget, mapSettings);
+    initializeValues(mRateLimiterWidget, mapSettings);
+    initializeValues(mPasswordSettingsWidget, mapSettings);
+    initializeValues(mVideoConferenceWidget, mapSettings);
+    initializeValues(mIrcFederationWidget, mapSettings);
+    initializeValues(mWebDavSettingsWidget, mapSettings);
+    initializeValues(mLDapSettingsWidget, mapSettings);
+    initializeValues(mLayoutSettingsWidget, mapSettings);
     updateState(true);
+}
+
+void AdministratorSettingsWidget::initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings)
+{
+    widget->initializeDefaultValue();
+    widget->initialize(mapSettings);
 }
 
 void AdministratorSettingsWidget::updateState(bool state)

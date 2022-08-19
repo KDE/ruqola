@@ -26,6 +26,7 @@ public:
     ~SettingsWidgetBase() override;
 
     virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
+    virtual void initializeDefaultValue();
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
