@@ -19,6 +19,7 @@ public:
     ~GeneralSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initializeDefaultValue() override;
 
     void loadSettings();
 

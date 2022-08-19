@@ -100,3 +100,15 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUnreadCountDirectMessages, mapSettings);
     initializeWidget(mEnableUpdateChecker, mapSettings);
 }
+
+void GeneralSettingsWidget::initializeDefaultValue()
+{
+    mEnableUpdateChecker->setChecked(true);
+    mEnableFavoriteRooms->setChecked(true);
+    mUTF8UsernamesValidation->setText(QStringLiteral("[0-9a-zA-Z-_.]+"));
+    mUTF8ChannelNamesValidation->setText(QStringLiteral("[0-9a-zA-Z-_.]+"));
+    mDeepLinkUrl->setText(QStringLiteral("https://go.rocket.chat"));
+    // TODO
+    // mUnreadCount;
+    // mUnreadCountDirectMessages;
+}

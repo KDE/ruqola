@@ -84,3 +84,18 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings);
     initializeWidget(mLoginExpirationInDays, mapSettings);
 }
+
+void AccountSettingsWidget::initializeDefaultValue()
+{
+    mAllowChangeName->setChecked(true);
+    mAllowChangeUserProfile->setChecked(true);
+    mAllowChangeUserAvatar->setChecked(true);
+    mAllowChangeEmail->setChecked(true);
+    mAllowChangePassword->setChecked(true);
+    mAllowChangeEmailNotifications->setChecked(true);
+    mAllowUsersToDeleteOwnAccount->setChecked(true);
+    mAllowAnonymousWrite->setChecked(true);
+    mAllowUsersDeleteOwnAccount->setChecked(false);
+    mAllowPasswordChangeOauthUsers->setChecked(false);
+    mLoginExpirationInDays->setValue(90);
+}

@@ -40,6 +40,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
 
     mPort->setObjectName(QStringLiteral("mPort"));
     mPort->setToolTip(i18n("The port to bind to on the IRC host server."));
+    mPort->setMaximum(99999);
     addSpinbox(i18n("Port"), mPort, QStringLiteral("IRC_Port"));
 
     mName->setObjectName(QStringLiteral("mName"));
@@ -67,4 +68,15 @@ void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mDescription, mapSettings);
     initializeWidget(mLocalPassword, mapSettings);
     initializeWidget(mPeerPassword, mapSettings);
+}
+
+void IrcFederationWidget::initializeDefaultValue()
+{
+    mEnabled->setChecked(false);
+    mHost->setText(QStringLiteral("localhost"));
+    mPort->setValue(6667);
+    mName->setText(QStringLiteral("irc.rocket.chat"));
+    mDescription->setText(QStringLiteral("Rocket.Chat IRC Bridge"));
+    mLocalPassword->setText(QStringLiteral("password"));
+    mPeerPassword->setText(QStringLiteral("password"));
 }
