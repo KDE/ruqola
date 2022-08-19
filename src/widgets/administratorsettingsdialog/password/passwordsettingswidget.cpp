@@ -86,9 +86,25 @@ PasswordSettingsWidget::PasswordSettingsWidget(RocketChatAccount *account, QWidg
     mAtLeastOneSymbol->setToolTip(i18n("Enforce that a password contain at least one special character."));
     mMainLayout->addWidget(mAtLeastOneSymbol);
     connectCheckBox(mAtLeastOneSymbol, QStringLiteral("Accounts_Password_Policy_AtLeastOneSpecialCharacter"));
+
+    connect(mEnablePasswordHistory, &QCheckBox::clicked, this, &PasswordSettingsWidget::updateSettingsStatus);
 }
 
 PasswordSettingsWidget::~PasswordSettingsWidget() = default;
+
+void PasswordSettingsWidget::updateSettingsStatus(bool enabled)
+{
+    mPasswordHistoryLength->setEnabled(enabled);
+    mEnablePasswordPolicy->setEnabled(enabled);
+    mMinimumLength->setEnabled(enabled);
+    mMaximumLength->setEnabled(enabled);
+    mForbidRepeatingCharacters->setEnabled(enabled);
+    mMaxRepeatingCharacters->setEnabled(enabled);
+    mAtLeastOneLowercase->setEnabled(enabled);
+    mAtLeastOneUppercase->setEnabled(enabled);
+    mAtLeastOneNumber->setEnabled(enabled);
+    mAtLeastOneSymbol->setEnabled(enabled);
+}
 
 void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
@@ -103,4 +119,21 @@ void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettin
     initializeWidget(mAtLeastOneUppercase, mapSettings);
     initializeWidget(mAtLeastOneNumber, mapSettings);
     initializeWidget(mAtLeastOneSymbol, mapSettings);
+}
+
+void PasswordSettingsWidget::initializeDefaultValue()
+{
+    mEnablePasswordHistory->setEnabled(true);
+    mEnablePasswordHistory->setChecked(false);
+    updateSettingsStatus(false);
+    mPasswordHistoryLength->setValue(7);
+    mEnablePasswordPolicy->setChecked(true);
+    mMinimumLength->setValue(7);
+    mMaximumLength->setValue(-1);
+    mForbidRepeatingCharacters->setChecked(true);
+    mMaxRepeatingCharacters->setValue(3);
+    mAtLeastOneLowercase->setChecked(true);
+    mAtLeastOneUppercase->setChecked(true);
+    mAtLeastOneNumber->setChecked(true);
+    mAtLeastOneSymbol->setChecked(true);
 }
