@@ -19,6 +19,12 @@
 #include <KIO/JobUiDelegate>
 #include <KLocalizedString>
 #include <KService>
+#include <kio_version.h>
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
+#include <KIO/JobUiDelegateFactory>
+#else
+#include <KIO/JobUiDelegate>
+#endif
 
 #include <QAbstractTextDocumentLayout>
 #include <QMessageBox>
@@ -142,7 +148,11 @@ static void runApplication(const KService::Ptr &offer, const QString &link, QWid
         auto job = new KIO::ApplicationLauncherJob(offer); // asks the user if offer is nullptr
         job->setUrls({localFileUrl});
         job->setRunFlags(KIO::ApplicationLauncherJob::DeleteTemporaryFiles);
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 98, 0)
+        job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget));
+#else
         job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, widget));
+#endif
         job->start();
     });
 }
