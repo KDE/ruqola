@@ -22,6 +22,7 @@ void EnterpriseSettingsWidgetTest::shouldHaveDefaultValues()
     auto mEnterpriseLicense = w.findChild<QLineEdit *>(QStringLiteral("mEnterpriseLicense"));
     QVERIFY(mEnterpriseLicense);
     QVERIFY(mEnterpriseLicense->text().isEmpty());
+    QVERIFY(!mEnterpriseLicense->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnterpriseLicense), QStringLiteral("Enterprise_License"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Enterprise_License"));
 }
