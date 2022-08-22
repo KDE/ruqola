@@ -27,11 +27,11 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<R
     for (int i = 0; i < roleArray.count(); ++i) {
         const QString role{roleArray.at(i).toString()};
         mRoles.append(role);
-        for (const RoleInfo &info : roleInfo) {
-            if (role == info.identifier()) {
-                mRolesStr.append(info.name());
-                break;
-            }
+        auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [role](const RoleInfo &info) {
+            return (role == info.identifier());
+        });
+        if (index != roleInfo.end()) {
+            mRolesStr.append((*index).name());
         }
     }
     return true;
