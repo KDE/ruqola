@@ -2694,6 +2694,10 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateChannelView();
+            } else if (key == QStringLiteral("settings.preferences.sidebarShowFavorites")) {
+                // TODO
+            } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
+                // TODO
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;
