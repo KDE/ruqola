@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
+#include "administratorsettingsdialog/enterprise/enterprisesettingswidget.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
@@ -78,4 +79,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mLayoutSettingsWidget = w.findChild<LayoutSettingsWidget *>(QStringLiteral("mLayoutSettingsWidget"));
     QVERIFY(mLayoutSettingsWidget);
+
+    auto mEnterpriseSettingsWidget = w.findChild<EnterpriseSettingsWidget *>(QStringLiteral("mEnterpriseSettingsWidget"));
+    QVERIFY(mEnterpriseSettingsWidget);
 }

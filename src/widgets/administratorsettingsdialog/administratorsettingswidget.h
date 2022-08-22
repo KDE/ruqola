@@ -24,6 +24,7 @@ class IrcFederationWidget;
 class WebDavSettingsWidget;
 class LDapSettingsWidget;
 class LayoutSettingsWidget;
+class EnterpriseSettingsWidget;
 class SettingsWidgetBase;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
@@ -52,5 +53,6 @@ private:
     WebDavSettingsWidget *const mWebDavSettingsWidget;
     LDapSettingsWidget *const mLDapSettingsWidget;
     LayoutSettingsWidget *const mLayoutSettingsWidget;
+    EnterpriseSettingsWidget *const mEnterpriseSettingsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -144,6 +144,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/layout/layoutsettingswidget.cpp
     administratorsettingsdialog/layout/layoutsettingswidget.h
 
+    administratorsettingsdialog/enterprise/enterprisesettingswidget.h
+    administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h

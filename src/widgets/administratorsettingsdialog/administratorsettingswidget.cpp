@@ -7,6 +7,7 @@
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
+#include "enterprise/enterprisesettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
 #include "general/generalsettingswidget.h"
 #include "ircfederation/ircfederationwidget.h"
@@ -41,6 +42,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mWebDavSettingsWidget(new WebDavSettingsWidget(account, this))
     , mLDapSettingsWidget(new LDapSettingsWidget(account, this))
     , mLayoutSettingsWidget(new LayoutSettingsWidget(account, this))
+    , mEnterpriseSettingsWidget(new EnterpriseSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -63,6 +65,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mWebDavSettingsWidget->setObjectName(QStringLiteral("mWebDavSettingsWidget"));
     mLDapSettingsWidget->setObjectName(QStringLiteral("mLDapSettingsWidget"));
     mLayoutSettingsWidget->setObjectName(QStringLiteral("mLayoutSettingsWidget"));
+    mEnterpriseSettingsWidget->setObjectName(QStringLiteral("mEnterpriseSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -76,6 +79,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mWebDavSettingsWidget, i18n("Webdav"));
     mTabWidget->addTab(mLDapSettingsWidget, i18n("LDAP"));
     mTabWidget->addTab(mLayoutSettingsWidget, i18n("Layout"));
+    mTabWidget->addTab(mEnterpriseSettingsWidget, i18n("Enterprise"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -92,7 +96,7 @@ void AdministratorSettingsWidget::loadSettings()
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 {
     QJsonArray configs = obj.value(QLatin1String("result")).toArray();
-    qDebug() << " obj " << obj;
+    // qDebug() << " obj " << obj;
     QMap<QString, QVariant> mapSettings;
     for (QJsonValueRef currentConfig : configs) {
         const QJsonObject currentConfObject = currentConfig.toObject();
@@ -115,6 +119,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mWebDavSettingsWidget, mapSettings);
     initializeValues(mLDapSettingsWidget, mapSettings);
     initializeValues(mLayoutSettingsWidget, mapSettings);
+    initializeValues(mEnterpriseSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -138,4 +143,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mWebDavSettingsWidget->setEnabled(state);
     mLDapSettingsWidget->setEnabled(state);
     mLayoutSettingsWidget->setEnabled(state);
+    mEnterpriseSettingsWidget->setEnabled(state);
 }
