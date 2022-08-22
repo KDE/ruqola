@@ -17,7 +17,7 @@ ServerInfoWidgetTest::ServerInfoWidgetTest(QWidget *parent)
 
 void ServerInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ServerInfoWidget w;
+    ServerInfoWidget w(nullptr);
     auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});

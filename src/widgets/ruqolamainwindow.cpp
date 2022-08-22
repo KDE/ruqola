@@ -615,8 +615,7 @@ void RuqolaMainWindow::slotAddServer()
 
 void RuqolaMainWindow::slotServerInfo()
 {
-    ServerInfoDialog dlg(this);
-    dlg.setServerConfigInfo(mCurrentRocketChatAccount->serverConfigInfo());
+    ServerInfoDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 

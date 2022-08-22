@@ -10,9 +10,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ServerInfoDialog::ServerInfoDialog(QWidget *parent)
+ServerInfoDialog::ServerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mServerInfoWidget(new ServerInfoWidget(this))
+    , mServerInfoWidget(new ServerInfoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Server Info"));
     auto mainLayout = new QVBoxLayout(this);
@@ -28,8 +28,3 @@ ServerInfoDialog::ServerInfoDialog(QWidget *parent)
 }
 
 ServerInfoDialog::~ServerInfoDialog() = default;
-
-void ServerInfoDialog::setServerConfigInfo(ServerConfigInfo *info)
-{
-    mServerInfoWidget->setServerConfigInfo(info);
-}

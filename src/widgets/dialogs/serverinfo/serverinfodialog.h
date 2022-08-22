@@ -9,14 +9,13 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ServerInfoWidget;
-class ServerConfigInfo;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerInfoDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ServerInfoDialog(QWidget *parent = nullptr);
+    explicit ServerInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ServerInfoDialog() override;
-    void setServerConfigInfo(ServerConfigInfo *info);
 
 private:
     ServerInfoWidget *const mServerInfoWidget;

@@ -9,18 +9,20 @@
 #include "libruqolawidgets_export.h"
 #include <QWidget>
 class QLabel;
+class RocketChatAccount;
 class ServerConfigInfo;
 class LIBRUQOLAWIDGETS_EXPORT ServerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ServerInfoWidget(QWidget *parent = nullptr);
+    explicit ServerInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ServerInfoWidget() override;
-    void setServerConfigInfo(ServerConfigInfo *info);
 
 private:
+    void setServerConfigInfo(ServerConfigInfo *info);
     QLabel *const mAccountName;
     QLabel *const mUserName;
     QLabel *const mServerVersion;
     QLabel *const mServerUrl;
+    QLabel *mEnterpriseLicense = nullptr;
 };

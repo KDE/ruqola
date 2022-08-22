@@ -5,12 +5,13 @@
 */
 
 #include "serverinfowidget.h"
+#include "rocketchataccount.h"
 #include "serverconfiginfo.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
 
-ServerInfoWidget::ServerInfoWidget(QWidget *parent)
+ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAccountName(new QLabel(this))
     , mUserName(new QLabel(this))
@@ -41,6 +42,18 @@ ServerInfoWidget::ServerInfoWidget(QWidget *parent)
     mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mServerVersion->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Server Version:"), mServerVersion);
+
+    if (account) {
+        if (account->ruqolaServerConfig()->hasAtLeastVersion(5, 0, 0)) {
+            mEnterpriseLicense = new QLabel(this);
+            mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
+            mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
+            mEnterpriseLicense->setTextFormat(Qt::PlainText);
+            layout->addRow(i18n("License:"), mEnterpriseLicense);
+            mEnterpriseLicense->setText(account->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
+        }
+        setServerConfigInfo(account->serverConfigInfo());
+    }
 }
 
 ServerInfoWidget::~ServerInfoWidget() = default;

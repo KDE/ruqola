@@ -499,6 +499,16 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     }
 }
 
+bool RuqolaServerConfig::hasEnterpriseSupport() const
+{
+    return mHasEnterpriseSupport;
+}
+
+void RuqolaServerConfig::setHasEnterpriseSupport(bool newHasEnterpriseSupport)
+{
+    mHasEnterpriseSupport = newHasEnterpriseSupport;
+}
+
 bool RuqolaServerConfig::useRealName() const
 {
     return mUIUseRealName;

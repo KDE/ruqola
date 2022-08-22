@@ -142,6 +142,9 @@ public:
     Q_REQUIRED_RESULT bool useRealName() const;
     void setUseRealName(bool newUIUseRealName);
 
+    Q_REQUIRED_RESULT bool hasEnterpriseSupport() const;
+    void setHasEnterpriseSupport(bool newHasEnterpriseSupport);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -176,5 +179,7 @@ private:
     QString mFaviconUrl;
     int mLoginExpiration = -1;
     int mMessageMaximumAllowedSize = -1;
+
+    bool mHasEnterpriseSupport = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);

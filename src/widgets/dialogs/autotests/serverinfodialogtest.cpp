@@ -20,7 +20,7 @@ ServerInfoDialogTest::ServerInfoDialogTest(QObject *parent)
 
 void ServerInfoDialogTest::shouldHaveDefaultValues()
 {
-    ServerInfoDialog w;
+    ServerInfoDialog w(nullptr);
     QVERIFY(!w.windowTitle().isEmpty());
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

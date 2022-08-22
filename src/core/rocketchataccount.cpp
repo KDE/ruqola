@@ -2423,6 +2423,7 @@ void RocketChatAccount::checkLicenses()
     auto job = new RocketChatRestApi::LicensesIsEnterpriseJob(this);
     restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::LicensesIsEnterpriseJob::licensesIsEnterpriseDone, this, [this](bool isEnterprise) {
+        mRuqolaServerConfig->setHasEnterpriseSupport(isEnterprise);
         if (isEnterprise) {
             ddp()->licenseGetModules();
         }
