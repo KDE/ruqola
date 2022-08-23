@@ -34,6 +34,7 @@ protected:
     void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable);
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
     void addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable);
+    void addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable);
 
     QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
@@ -43,6 +44,7 @@ protected:
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings);
 
     Q_REQUIRED_RESULT QLabel *createBoldLabel(const QString &text);
 

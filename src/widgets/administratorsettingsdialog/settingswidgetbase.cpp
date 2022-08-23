@@ -136,6 +136,17 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     mMainLayout->addRow(layout);
 }
 
+void SettingsWidgetBase::addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    layout->addWidget(label);
+    layout->addWidget(labelElement);
+    labelElement->setProperty(s_property, variable);
+    mMainLayout->addRow(layout);
+}
+
 void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable)
 {
     auto layout = new QHBoxLayout;
@@ -221,6 +232,15 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         checkbox->setChecked(value.toBool());
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = label->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        label->setText(value.toString());
     }
 }
 

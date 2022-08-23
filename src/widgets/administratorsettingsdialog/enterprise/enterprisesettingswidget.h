@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EnterpriseSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ public:
 
 private:
     QLineEdit *const mEnterpriseLicense;
+    QLabel *const mStatus;
 };
