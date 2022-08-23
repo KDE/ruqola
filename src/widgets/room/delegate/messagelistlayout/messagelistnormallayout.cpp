@@ -74,52 +74,56 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     }
 
     layout.usableRect = usableRect; // Just for the top, for now. The left will move later on.
-    const qreal margin = MessageDelegateUtils::basicMargin();
-    const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
-    int textLeft = /*senderX + senderTextSize.width() +*/ margin;
+    usableRect.setTop(usableRect.top() + 20); // FIXME position.
 
+    const qreal margin = MessageDelegateUtils::basicMargin();
+    const int avatarWidth = MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width();
+    const int senderX = option.rect.x() + avatarWidth + 2 * margin;
+    int textLeft = avatarWidth + 2 * margin;
+
+    int positionIcon = senderX + senderTextSize.width() + margin;
     // Roles icon
     const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
     if (hasRoles) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
     // Edit icon
-    const int editIconX = textLeft;
+    const int editIconX = positionIcon;
     if (message->wasEdited()) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
-    const int favoriteIconX = textLeft;
+    const int favoriteIconX = positionIcon;
     // Favorite icon
     if (message->isStarred()) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
-    const int pinIconX = textLeft;
+    const int pinIconX = positionIcon;
     // Pin icon
     if (message->isPinned()) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
     const int followingIconX = textLeft;
     layout.messageIsFollowing = mRocketChatAccount && message->replies().contains(mRocketChatAccount->userId());
     // Following icon
     if (layout.messageIsFollowing) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
-    const int translatedIconX = textLeft;
+    const int translatedIconX = positionIcon;
     // translated icon
     if (message->isAutoTranslated()) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
-    const int showIgnoreMessageIconX = textLeft;
+    const int showIgnoreMessageIconX = positionIcon;
     // showIgnoreMessage icon
     const bool ignoreMessage = MessageDelegateUtils::showIgnoreMessages(index);
     if (ignoreMessage) {
-        textLeft += iconSize + margin;
+        positionIcon += iconSize + margin;
     }
 
     // Timestamp
@@ -136,7 +140,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     if (textSize.isValid()) {
         layout.textRect = QRect(textLeft, usableRect.top() + textVMargin + layout.senderRect.height(), maxWidth, textSize.height() + textVMargin);
         attachmentsY = layout.textRect.y() + layout.textRect.height();
-        layout.baseLine += layout.textRect.top(); // make it absolute
+        layout.baseLine += option.rect.top(); // make it absolute
     } else {
         attachmentsY = usableRect.top() + textVMargin;
         layout.baseLine = attachmentsY + option.fontMetrics.ascent();
@@ -221,10 +225,10 @@ QSize MessageListNormalLayout::sizeHint(const QStyleOptionViewItem &option, cons
     // Note: option.rect in this method is huge (as big as the viewport)
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-    int additionalHeight = 0;
+    int additionalHeight = 5;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
-        additionalHeight += 6; // Add more space as cozy mode
+        additionalHeight += 10; // Add more space as cozy mode
     }
 
     // contents is date + text + attachments + reactions + replies + discussions (where all of those are optional)
