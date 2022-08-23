@@ -264,7 +264,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     }
 
     const MessageListLayoutBase::Layout layout = doLayout(option, index);
-    if (layout.senderRect.contains(info.pos)) {
+    if (layout.senderRect.contains(info.pos) && !layout.sameSenderAsPreviousMessage) {
         QMenu menu;
         auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("User Info"), &menu);
         connect(userInfoAction, &QAction::triggered, this, [message, this]() {
