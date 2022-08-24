@@ -48,7 +48,6 @@ int main(int argc, char *argv[])
 #endif
 
     KLocalizedString::setApplicationDomain("ruqola");
-    QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
 
     KAboutData aboutData(QStringLiteral("ruqola"),
                          i18n("Ruqola"),
