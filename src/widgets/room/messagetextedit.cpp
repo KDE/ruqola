@@ -254,6 +254,28 @@ void MessageTextEdit::mousePressEvent(QMouseEvent *ev)
     KTextEdit::mousePressEvent(ev);
 }
 
+void MessageTextEdit::dragEnterEvent(QDragEnterEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        event->accept();
+        // Don't let QTextEdit move the cursor around
+        return;
+    }
+    KTextEdit::dragEnterEvent(event);
+}
+
+void MessageTextEdit::dragMoveEvent(QDragMoveEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData();
+    if (mimeData->hasUrls()) {
+        event->accept();
+        // Don't let QTextEdit move the cursor around
+        return;
+    }
+    KTextEdit::dragMoveEvent(event);
+}
+
 void MessageTextEdit::dropEvent(QDropEvent *event)
 {
     const QMimeData *mimeData = event->mimeData();

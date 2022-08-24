@@ -48,6 +48,8 @@ protected:
     void keyPressEvent(QKeyEvent *e) override;
     void mousePressEvent(QMouseEvent *ev) override;
     void dropEvent(QDropEvent *e) override;
+    void dragEnterEvent(QDragEnterEvent *event) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
 
 private:
     void slotCompletionTypeChanged(InputTextManager::CompletionForType type);
