@@ -29,7 +29,6 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QMenu>
-#include <QPointer>
 #include <QVBoxLayout>
 
 TeamChannelsWidget::TeamChannelsWidget(RocketChatAccount *account, QWidget *parent)
