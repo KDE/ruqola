@@ -7,6 +7,7 @@
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "settingswidgetshelper.h"
 #include <QLabel>
+#include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(RateLimiterWidgetTest)
 RateLimiterWidgetTest::RateLimiterWidgetTest(QObject *parent)
@@ -49,4 +50,9 @@ void RateLimiterWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLimitByConnection->isChecked());
     QVERIFY(!mLimitByConnection->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimitByConnection), QStringLiteral("DDP_Rate_Limit_Connection_Enabled"));
+
+    auto mLimiteByIpRequestsAllowed = w.findChild<QSpinBox *>(QStringLiteral("mLimiteByIpRequestsAllowed"));
+    QVERIFY(mLimiteByIpRequestsAllowed);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLimiteByIpRequestsAllowed), QStringLiteral("DDP_Rate_Limit_IP_Requests_Allowed"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DDP_Rate_Limit_IP_Requests_Allowed"));
 }

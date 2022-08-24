@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RateLimiterWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -20,6 +21,7 @@ public:
 private:
     QCheckBox *const mEnableRateLimiter;
     QCheckBox *const mLimitByIP;
+    QSpinBox *const mLimiteByIpRequestsAllowed;
     QCheckBox *const mLimitByUser;
     QCheckBox *const mLimitByConnection;
 };
