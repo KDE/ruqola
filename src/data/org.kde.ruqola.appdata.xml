@@ -537,6 +537,7 @@
       <li xml:lang="en-GB">New RocketChat Server Information Support</li>
       <li xml:lang="es">Nuevo soporte de información de servidor RocketChat</li>
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
+      <li xml:lang="it">Nuovo supporto per le informazioni del server RocketChat</li>
       <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
       <li xml:lang="pt">Nova Informação de Suporte do Servidor RocketChat</li>
       <li xml:lang="sl">Informacijska podpora novemu strežniku RocketChat</li>
@@ -548,6 +549,7 @@
       <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="en-GB">Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
+      <li xml:lang="it">Gestisci dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
       <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="sl">Upravljaj napravo (RC &gt;= 5.0)</li>
