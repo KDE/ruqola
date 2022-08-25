@@ -17,6 +17,7 @@ public:
     explicit RateLimiterWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~RateLimiterWidget() override;
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+    void initializeDefaultValue() override;
 
 private:
     QCheckBox *const mEnableRateLimiter;

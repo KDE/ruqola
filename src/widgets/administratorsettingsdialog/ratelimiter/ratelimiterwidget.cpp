@@ -87,3 +87,20 @@ void RateLimiterWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLimiteByConnectionRequestsAllowed, mapSettings);
     initializeWidget(mLimiteByConnectionIntervalTime, mapSettings);
 }
+
+void RateLimiterWidget::initializeDefaultValue()
+{
+    mLimiteByConnectionIntervalTime->setValue(60000);
+    mLimiteByConnectionRequestsAllowed->setValue(600);
+    mLimitByConnection->setChecked(true);
+
+    mEnableRateLimiter->setChecked(true);
+    mLimitByIP->setChecked(true);
+
+    mLimiteByIpRequestsAllowed->setValue(120000);
+    mLimiteByIpIntervalTime->setValue(60000);
+
+    mLimitByUser->setChecked(true);
+    mLimiteByUserRequestsAllowed->setValue(1200);
+    mLimiteByUserIntervalTime->setValue(60000);
+}
