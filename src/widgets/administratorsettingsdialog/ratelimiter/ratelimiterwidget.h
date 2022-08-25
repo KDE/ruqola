@@ -22,6 +22,11 @@ private:
     QCheckBox *const mEnableRateLimiter;
     QCheckBox *const mLimitByIP;
     QSpinBox *const mLimiteByIpRequestsAllowed;
+    QSpinBox *const mLimiteByIpIntervalTime;
     QCheckBox *const mLimitByUser;
+    QSpinBox *const mLimiteByUserRequestsAllowed;
+    QSpinBox *const mLimiteByUserIntervalTime;
     QCheckBox *const mLimitByConnection;
+    QSpinBox *const mLimiteByConnectionRequestsAllowed;
+    QSpinBox *const mLimiteByConnectionIntervalTime;
 };
