@@ -92,21 +92,12 @@ void LDapSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings);
     initializeWidget(mHost, mapSettings);
-    initializeWidget(mPort, mapSettings);
-    initializeWidget(mReconnect, mapSettings);
+    initializeWidget(mPort, mapSettings, 389);
+    initializeWidget(mReconnect, mapSettings, false);
     initializeWidget(mAuthenticationEnabled, mapSettings);
     initializeWidget(mAuthenticationUserDN, mapSettings);
-    initializeWidget(mTimeouts, mapSettings);
-    initializeWidget(mConnectionTimeouts, mapSettings);
-    initializeWidget(mIdleTimeouts, mapSettings);
+    initializeWidget(mTimeouts, mapSettings, 60000);
+    initializeWidget(mConnectionTimeouts, mapSettings, 1000);
+    initializeWidget(mIdleTimeouts, mapSettings, 1000);
     initializeWidget(mAuthenticationPassword, mapSettings);
-}
-
-void LDapSettingsWidget::initializeDefaultValue()
-{
-    mPort->setValue(389);
-    mReconnect->setChecked(false);
-    mConnectionTimeouts->setValue(1000);
-    mIdleTimeouts->setValue(1000);
-    mTimeouts->setValue(60000);
 }

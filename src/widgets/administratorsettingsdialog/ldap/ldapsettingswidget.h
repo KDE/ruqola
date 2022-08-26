@@ -19,7 +19,6 @@ public:
     ~LDapSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
-    void initializeDefaultValue() override;
 
 private:
     QCheckBox *const mEnabled;

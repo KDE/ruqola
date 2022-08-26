@@ -72,30 +72,15 @@ AccountSettingsWidget::~AccountSettingsWidget() = default;
 
 void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mAllowChangeName, mapSettings);
-    initializeWidget(mAllowChangeUserProfile, mapSettings);
-    initializeWidget(mAllowChangeUserAvatar, mapSettings);
-    initializeWidget(mAllowChangeEmail, mapSettings);
-    initializeWidget(mAllowChangePassword, mapSettings);
-    initializeWidget(mAllowChangeEmailNotifications, mapSettings);
-    initializeWidget(mAllowUsersToDeleteOwnAccount, mapSettings);
-    initializeWidget(mAllowAnonymousWrite, mapSettings);
-    initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings);
-    initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings);
-    initializeWidget(mLoginExpirationInDays, mapSettings);
-}
-
-void AccountSettingsWidget::initializeDefaultValue()
-{
-    mAllowChangeName->setChecked(true);
-    mAllowChangeUserProfile->setChecked(true);
-    mAllowChangeUserAvatar->setChecked(true);
-    mAllowChangeEmail->setChecked(true);
-    mAllowChangePassword->setChecked(true);
-    mAllowChangeEmailNotifications->setChecked(true);
-    mAllowUsersToDeleteOwnAccount->setChecked(true);
-    mAllowAnonymousWrite->setChecked(true);
-    mAllowUsersDeleteOwnAccount->setChecked(false);
-    mAllowPasswordChangeOauthUsers->setChecked(false);
-    mLoginExpirationInDays->setValue(90);
+    initializeWidget(mAllowChangeName, mapSettings, true);
+    initializeWidget(mAllowChangeUserProfile, mapSettings, true);
+    initializeWidget(mAllowChangeUserAvatar, mapSettings, true);
+    initializeWidget(mAllowChangeEmail, mapSettings, true);
+    initializeWidget(mAllowChangePassword, mapSettings, true);
+    initializeWidget(mAllowChangeEmailNotifications, mapSettings, true);
+    initializeWidget(mAllowUsersToDeleteOwnAccount, mapSettings, true);
+    initializeWidget(mAllowAnonymousWrite, mapSettings, true);
+    initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings, true);
+    initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings, false);
+    initializeWidget(mLoginExpirationInDays, mapSettings, 90);
 }

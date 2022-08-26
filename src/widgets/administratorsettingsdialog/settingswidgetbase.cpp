@@ -41,11 +41,6 @@ SettingsWidgetBase::SettingsWidgetBase(RocketChatAccount *account, QWidget *pare
     mMainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
-void SettingsWidgetBase::initializeDefaultValue()
-{
-    // Nothing
-}
-
 SettingsWidgetBase::~SettingsWidgetBase() = default;
 
 void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &variable)
@@ -200,16 +195,17 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     mMainLayout->addRow(layout);
 }
 
-void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = lineEdit->property(s_property).toString();
+    QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        lineEdit->setText(value.toString());
-        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-        if (toolButton) {
-            toolButton->setEnabled(false);
-        }
+        value = mapSettings.value(variableName).toString();
+    }
+    lineEdit->setText(value);
+    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    if (toolButton) {
+        toolButton->setEnabled(false);
     }
 }
 
@@ -226,12 +222,14 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue)
 {
     const QString variableName = checkbox->property(s_property).toString();
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         checkbox->setChecked(value.toBool());
+    } else {
+        checkbox->setChecked(defaultValue);
     }
 }
 
@@ -244,16 +242,18 @@ void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVa
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue)
 {
     const QString variableName = spinbox->property(s_property).toString();
-    if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        spinbox->setValue(value.toInt());
-        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-        if (toolButton) {
-            toolButton->setEnabled(false);
-        }
+    const bool hasValue = mapSettings.contains(variableName);
+    int spinboxValue = defaultValue;
+    if (hasValue) {
+        spinboxValue = mapSettings.value(variableName).toInt();
+    }
+    spinbox->setValue(spinboxValue);
+    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    if (toolButton) {
+        toolButton->setEnabled(false);
     }
 }
 

@@ -125,7 +125,6 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
 
 void AdministratorSettingsWidget::initializeValues(SettingsWidgetBase *widget, const QMap<QString, QVariant> &mapSettings)
 {
-    widget->initializeDefaultValue();
     widget->initialize(mapSettings);
 }
 

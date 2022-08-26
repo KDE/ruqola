@@ -108,32 +108,16 @@ void PasswordSettingsWidget::updateSettingsStatus(bool enabled)
 
 void PasswordSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnablePasswordHistory, mapSettings);
-    initializeWidget(mPasswordHistoryLength, mapSettings);
-    initializeWidget(mEnablePasswordPolicy, mapSettings);
-    initializeWidget(mMinimumLength, mapSettings);
-    initializeWidget(mMaximumLength, mapSettings);
-    initializeWidget(mForbidRepeatingCharacters, mapSettings);
-    initializeWidget(mMaxRepeatingCharacters, mapSettings);
-    initializeWidget(mAtLeastOneLowercase, mapSettings);
-    initializeWidget(mAtLeastOneUppercase, mapSettings);
-    initializeWidget(mAtLeastOneNumber, mapSettings);
-    initializeWidget(mAtLeastOneSymbol, mapSettings);
-}
-
-void PasswordSettingsWidget::initializeDefaultValue()
-{
-    mEnablePasswordHistory->setEnabled(true);
-    mEnablePasswordHistory->setChecked(false);
+    initializeWidget(mEnablePasswordHistory, mapSettings, false);
+    initializeWidget(mPasswordHistoryLength, mapSettings, 7);
+    initializeWidget(mEnablePasswordPolicy, mapSettings, true);
+    initializeWidget(mMinimumLength, mapSettings, 7);
+    initializeWidget(mMaximumLength, mapSettings, -1);
+    initializeWidget(mForbidRepeatingCharacters, mapSettings, true);
+    initializeWidget(mMaxRepeatingCharacters, mapSettings, 3);
+    initializeWidget(mAtLeastOneLowercase, mapSettings, true);
+    initializeWidget(mAtLeastOneUppercase, mapSettings, true);
+    initializeWidget(mAtLeastOneNumber, mapSettings, true);
+    initializeWidget(mAtLeastOneSymbol, mapSettings, true);
     updateSettingsStatus(false);
-    mPasswordHistoryLength->setValue(7);
-    mEnablePasswordPolicy->setChecked(true);
-    mMinimumLength->setValue(7);
-    mMaximumLength->setValue(-1);
-    mForbidRepeatingCharacters->setChecked(true);
-    mMaxRepeatingCharacters->setValue(3);
-    mAtLeastOneLowercase->setChecked(true);
-    mAtLeastOneUppercase->setChecked(true);
-    mAtLeastOneNumber->setChecked(true);
-    mAtLeastOneSymbol->setChecked(true);
 }

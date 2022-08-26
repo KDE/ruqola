@@ -26,7 +26,6 @@ public:
     ~SettingsWidgetBase() override;
 
     virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
-    virtual void initializeDefaultValue();
 
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
@@ -40,9 +39,9 @@ protected:
     QFormLayout *mMainLayout = nullptr;
 
     void initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
-    void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
-    void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings);
-    void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
+    void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue = false);
+    void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue = -1);
     void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings);
 

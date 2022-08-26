@@ -16,7 +16,6 @@ public:
     explicit PasswordSettingsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PasswordSettingsWidget() override;
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
-    void initializeDefaultValue() override;
 
 private:
     void updateSettingsStatus(bool enabled);

@@ -60,23 +60,12 @@ IrcFederationWidget::~IrcFederationWidget() = default;
 
 void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnabled, mapSettings);
+    initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mProtocol, mapSettings);
-    initializeWidget(mHost, mapSettings);
-    initializeWidget(mPort, mapSettings);
-    initializeWidget(mName, mapSettings);
-    initializeWidget(mDescription, mapSettings);
-    initializeWidget(mLocalPassword, mapSettings);
-    initializeWidget(mPeerPassword, mapSettings);
-}
-
-void IrcFederationWidget::initializeDefaultValue()
-{
-    mEnabled->setChecked(false);
-    mHost->setText(QStringLiteral("localhost"));
-    mPort->setValue(6667);
-    mName->setText(QStringLiteral("irc.rocket.chat"));
-    mDescription->setText(QStringLiteral("Rocket.Chat IRC Bridge"));
-    mLocalPassword->setText(QStringLiteral("password"));
-    mPeerPassword->setText(QStringLiteral("password"));
+    initializeWidget(mHost, mapSettings, QStringLiteral("localhost"));
+    initializeWidget(mPort, mapSettings, 6667);
+    initializeWidget(mName, mapSettings, QStringLiteral("irc.rocket.chat"));
+    initializeWidget(mDescription, mapSettings, QStringLiteral("Rocket.Chat IRC Bridge"));
+    initializeWidget(mLocalPassword, mapSettings, QStringLiteral("password"));
+    initializeWidget(mPeerPassword, mapSettings, QStringLiteral("password"));
 }

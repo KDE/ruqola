@@ -88,27 +88,15 @@ GeneralSettingsWidget::~GeneralSettingsWidget() = default;
 
 void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnableFavoriteRooms, mapSettings);
+    initializeWidget(mEnableFavoriteRooms, mapSettings, true);
     initializeWidget(mSiteUrl, mapSettings);
     initializeWidget(mSiteName, mapSettings);
-    initializeWidget(mUTF8UsernamesValidation, mapSettings);
-    initializeWidget(mUTF8ChannelNamesValidation, mapSettings);
+    initializeWidget(mUTF8UsernamesValidation, mapSettings, QStringLiteral("[0-9a-zA-Z-_.]+"));
+    initializeWidget(mUTF8ChannelNamesValidation, mapSettings, QStringLiteral("[0-9a-zA-Z-_.]+"));
     initializeWidget(mFirstChannelAfterLogin, mapSettings);
-    initializeWidget(mDeepLinkUrl, mapSettings);
+    initializeWidget(mDeepLinkUrl, mapSettings, QStringLiteral("https://go.rocket.chat"));
     initializeWidget(mCDNPrefix, mapSettings);
     initializeWidget(mUnreadCount, mapSettings);
     initializeWidget(mUnreadCountDirectMessages, mapSettings);
-    initializeWidget(mEnableUpdateChecker, mapSettings);
-}
-
-void GeneralSettingsWidget::initializeDefaultValue()
-{
-    mEnableUpdateChecker->setChecked(true);
-    mEnableFavoriteRooms->setChecked(true);
-    mUTF8UsernamesValidation->setText(QStringLiteral("[0-9a-zA-Z-_.]+"));
-    mUTF8ChannelNamesValidation->setText(QStringLiteral("[0-9a-zA-Z-_.]+"));
-    mDeepLinkUrl->setText(QStringLiteral("https://go.rocket.chat"));
-    // TODO
-    // mUnreadCount;
-    // mUnreadCountDirectMessages;
+    initializeWidget(mEnableUpdateChecker, mapSettings, true);
 }
