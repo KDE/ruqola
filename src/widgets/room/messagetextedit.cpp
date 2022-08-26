@@ -84,6 +84,7 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
 {
     if (mCurrentInputTextManager) {
         disconnect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
+        disconnect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
     }
     mCurrentRocketChatAccount = account;
     mCurrentInputTextManager = threadMessageDialog ? mCurrentRocketChatAccount->inputThreadMessageTextManager() : mCurrentRocketChatAccount->inputTextManager();
@@ -91,6 +92,17 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
     mEmojiCompletionListView->setModel(mCurrentInputTextManager->emojiCompleterModel());
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
     connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
+}
+
+void MessageTextEdit::slotLoginChanged()
+{
+    const auto loginStatus = mCurrentRocketChatAccount->loginStatus();
+    if (loginStatus != DDPAuthenticationManager::LoggedIn) {
+        mUserAndChannelCompletionListView->hide();
+        mEmojiCompletionListView->hide();
+        mCommandCompletionListView->hide();
+    }
 }
 
 void MessageTextEdit::insertEmoji(const QString &text)
