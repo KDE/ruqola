@@ -37,8 +37,8 @@ LayoutSettingsWidget::~LayoutSettingsWidget() = default;
 
 void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mDisplayRoles, mapSettings);
-    initializeWidget(mUseRealName, mapSettings);
-    initializeWidget(mUseFullNameGenerateDefaultAvatar, mapSettings);
-    initializeWidget(mAllowSpecialCharactersRoomNames, mapSettings);
+    initializeWidget(mDisplayRoles, mapSettings, true);
+    initializeWidget(mUseRealName, mapSettings, false);
+    initializeWidget(mUseFullNameGenerateDefaultAvatar, mapSettings, false);
+    initializeWidget(mAllowSpecialCharactersRoomNames, mapSettings, false);
 }

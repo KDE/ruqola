@@ -90,7 +90,7 @@ LDapSettingsWidget::~LDapSettingsWidget() = default;
 
 void LDapSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnabled, mapSettings);
+    initializeWidget(mEnabled, mapSettings, true);
     initializeWidget(mHost, mapSettings);
     initializeWidget(mPort, mapSettings, 389);
     initializeWidget(mReconnect, mapSettings, false);

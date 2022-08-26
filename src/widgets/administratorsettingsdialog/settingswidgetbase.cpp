@@ -257,16 +257,17 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = comboBox->property(s_property).toString();
+    QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        comboBox->setCurrentIndex(comboBox->findData(value.toString()));
-        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-        if (toolButton) {
-            toolButton->setEnabled(false);
-        }
+        value = mapSettings.value(variableName).toString();
+    }
+    comboBox->setCurrentIndex(comboBox->findData(value));
+    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    if (toolButton) {
+        toolButton->setEnabled(false);
     }
 }
 

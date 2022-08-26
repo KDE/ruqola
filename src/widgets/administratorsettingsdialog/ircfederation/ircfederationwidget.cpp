@@ -61,7 +61,7 @@ IrcFederationWidget::~IrcFederationWidget() = default;
 void IrcFederationWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
-    initializeWidget(mProtocol, mapSettings);
+    initializeWidget(mProtocol, mapSettings, QStringLiteral("RFC2813"));
     initializeWidget(mHost, mapSettings, QStringLiteral("localhost"));
     initializeWidget(mPort, mapSettings, 6667);
     initializeWidget(mName, mapSettings, QStringLiteral("irc.rocket.chat"));

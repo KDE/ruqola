@@ -76,12 +76,12 @@ FileUploadSettingsWidget::~FileUploadSettingsWidget() = default;
 
 void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mFileUploadsEnabled, mapSettings);
-    initializeWidget(mProtectUploadedFiles, mapSettings);
-    initializeWidget(mRotateImagesUpload, mapSettings);
-    initializeWidget(mMaximumFileUploadSize, mapSettings);
-    initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings);
-    initializeWidget(mAcceptedMediaTypes, mapSettings);
-    initializeWidget(mBlockedMediaTypes, mapSettings);
-    initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings);
+    initializeWidget(mFileUploadsEnabled, mapSettings, true);
+    initializeWidget(mProtectUploadedFiles, mapSettings, true);
+    initializeWidget(mRotateImagesUpload, mapSettings, true);
+    initializeWidget(mMaximumFileUploadSize, mapSettings, 104857600);
+    initializeWidget(mFileUploadsEnabledDirectMessages, mapSettings, true);
+    initializeWidget(mAcceptedMediaTypes, mapSettings, QString());
+    initializeWidget(mBlockedMediaTypes, mapSettings, QStringLiteral("image/svg+xml"));
+    initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings, QString());
 }

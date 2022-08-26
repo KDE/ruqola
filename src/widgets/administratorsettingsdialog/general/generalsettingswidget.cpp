@@ -89,14 +89,14 @@ GeneralSettingsWidget::~GeneralSettingsWidget() = default;
 void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnableFavoriteRooms, mapSettings, true);
-    initializeWidget(mSiteUrl, mapSettings);
-    initializeWidget(mSiteName, mapSettings);
+    initializeWidget(mSiteUrl, mapSettings, QString());
+    initializeWidget(mSiteName, mapSettings, QString());
     initializeWidget(mUTF8UsernamesValidation, mapSettings, QStringLiteral("[0-9a-zA-Z-_.]+"));
     initializeWidget(mUTF8ChannelNamesValidation, mapSettings, QStringLiteral("[0-9a-zA-Z-_.]+"));
     initializeWidget(mFirstChannelAfterLogin, mapSettings);
     initializeWidget(mDeepLinkUrl, mapSettings, QStringLiteral("https://go.rocket.chat"));
-    initializeWidget(mCDNPrefix, mapSettings);
-    initializeWidget(mUnreadCount, mapSettings);
-    initializeWidget(mUnreadCountDirectMessages, mapSettings);
+    initializeWidget(mCDNPrefix, mapSettings, QString());
+    initializeWidget(mUnreadCount, mapSettings, QStringLiteral("user_and_group_mentions_only"));
+    initializeWidget(mUnreadCountDirectMessages, mapSettings, QStringLiteral("all_messages"));
     initializeWidget(mEnableUpdateChecker, mapSettings, true);
 }
