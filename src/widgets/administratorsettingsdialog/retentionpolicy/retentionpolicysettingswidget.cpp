@@ -98,9 +98,9 @@ RetentionPolicySettingsWidget::~RetentionPolicySettingsWidget() = default;
 
 void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnabled, mapSettings);
-    initializeWidget(mUseAdvancedRetentionPolicyConfiguration, mapSettings);
-    initializeWidget(mDontPruneThreads, mapSettings);
+    initializeWidget(mEnabled, mapSettings, false);
+    initializeWidget(mUseAdvancedRetentionPolicyConfiguration, mapSettings, false);
+    initializeWidget(mDontPruneThreads, mapSettings, true);
     initializeWidget(mDontPruneDiscussion, mapSettings);
     initializeWidget(mDontPrunePinnedMessages, mapSettings);
     initializeWidget(mOnlyDeleteFiles, mapSettings);

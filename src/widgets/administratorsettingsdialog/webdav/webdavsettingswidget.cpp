@@ -21,5 +21,5 @@ WebDavSettingsWidget::~WebDavSettingsWidget() = default;
 
 void WebDavSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnabled, mapSettings);
+    initializeWidget(mEnabled, mapSettings, false);
 }
