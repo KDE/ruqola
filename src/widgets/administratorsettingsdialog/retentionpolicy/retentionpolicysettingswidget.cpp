@@ -101,14 +101,14 @@ void RetentionPolicySettingsWidget::initialize(const QMap<QString, QVariant> &ma
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mUseAdvancedRetentionPolicyConfiguration, mapSettings, false);
     initializeWidget(mDontPruneThreads, mapSettings, true);
-    initializeWidget(mDontPruneDiscussion, mapSettings);
-    initializeWidget(mDontPrunePinnedMessages, mapSettings);
-    initializeWidget(mOnlyDeleteFiles, mapSettings);
-    initializeWidget(mAppliesChannels, mapSettings);
-    initializeWidget(mAppliesGroups, mapSettings);
-    initializeWidget(mAppliesMessages, mapSettings);
-    initializeWidget(mMaximumMessageDirectMessages, mapSettings);
-    initializeWidget(mMaximumMessagePrivateGroups, mapSettings);
-    initializeWidget(mMaximumMessageChannels, mapSettings);
-    initializeWidget(mTimerPrecision, mapSettings);
+    initializeWidget(mDontPruneDiscussion, mapSettings, true);
+    initializeWidget(mDontPrunePinnedMessages, mapSettings, false);
+    initializeWidget(mOnlyDeleteFiles, mapSettings, false);
+    initializeWidget(mAppliesChannels, mapSettings, false);
+    initializeWidget(mAppliesGroups, mapSettings, false);
+    initializeWidget(mAppliesMessages, mapSettings, false);
+    initializeWidget(mMaximumMessageDirectMessages, mapSettings, 30);
+    initializeWidget(mMaximumMessagePrivateGroups, mapSettings, 30);
+    initializeWidget(mMaximumMessageChannels, mapSettings, 30);
+    initializeWidget(mTimerPrecision, mapSettings, QStringLiteral("0"));
 }
