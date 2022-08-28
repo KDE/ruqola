@@ -43,7 +43,7 @@ EncryptionSettingsWidget::~EncryptionSettingsWidget() = default;
 
 void EncryptionSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnableE2E, mapSettings);
+    initializeWidget(mEnableE2E, mapSettings, false);
     initializeWidget(mEnableEncryptionDirectRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableEncryptionPrivateRoomsByDefault, mapSettings, false);
     initializeWidget(mEnableOtr, mapSettings);

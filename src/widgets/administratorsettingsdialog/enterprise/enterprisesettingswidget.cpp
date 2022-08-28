@@ -28,6 +28,6 @@ EnterpriseSettingsWidget::~EnterpriseSettingsWidget() = default;
 
 void EnterpriseSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mEnterpriseLicense, mapSettings);
-    initializeWidget(mStatus, mapSettings);
+    initializeWidget(mEnterpriseLicense, mapSettings, QString());
+    initializeWidget(mStatus, mapSettings, QString());
 }

@@ -233,13 +233,14 @@ void SettingsWidgetBase::initializeWidget(QCheckBox *checkbox, const QMap<QStrin
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = label->property(s_property).toString();
+    QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        label->setText(value.toString());
+        value = mapSettings.value(variableName).toString();
     }
+    label->setText(value);
 }
 
 void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue)

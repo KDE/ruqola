@@ -43,7 +43,7 @@ protected:
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue = false);
     void initializeWidget(QSpinBox *spinbox, const QMap<QString, QVariant> &mapSettings, int defaultValue = -1);
     void initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
-    void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QLabel *label, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue);
 
     Q_REQUIRED_RESULT QLabel *createBoldLabel(const QString &text);
 
