@@ -7,7 +7,7 @@ project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(KF5_MIN_VERSION "5.91.0")
+set(KF5_MIN_VERSION "5.93.0")
 set(REQUIRED_QT_VERSION "5.15.2")
 
 # Do NOT add quote
@@ -35,6 +35,7 @@ include(GenerateExportHeader)
 include(FeatureSummary)
 include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
@@ -135,8 +136,9 @@ set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050F00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 6.0.0
+    )
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)
 endif()       	
