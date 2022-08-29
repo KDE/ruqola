@@ -579,6 +579,9 @@ target_sources(libruqolawidgets PRIVATE
 
     managedevice/managedevicewidget.cpp
     managedevice/managedevicewidget.h
+
+    translation/translationconfigurewidget.h
+    translation/translationconfigurewidget.cpp
 )
 
 
