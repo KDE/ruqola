@@ -11,7 +11,7 @@ class ConverterTextAbstractJobImpl : public ConverterTextAbstractJob
 {
 public:
     explicit ConverterTextAbstractJobImpl(QObject *parent = nullptr)
-        : ConverterTextAbstractJob(parent)
+        : ConverterTextAbstractJob(nullptr, parent)
     {
     }
 
@@ -31,4 +31,5 @@ void ConverterTextAbstractJobTest::shouldHaveDefaultValue()
 {
     ConverterTextAbstractJobImpl job;
     QVERIFY(job.messageId().isEmpty());
+    QVERIFY(!job.rocketChatAcount());
 }

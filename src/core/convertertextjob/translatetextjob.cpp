@@ -6,8 +6,8 @@
 
 #include "translatetextjob.h"
 
-TranslateTextJob::TranslateTextJob(QObject *parent)
-    : ConverterTextAbstractJob(parent)
+TranslateTextJob::TranslateTextJob(RocketChatAccount *account, QObject *parent)
+    : ConverterTextAbstractJob(account, parent)
 {
 }
 

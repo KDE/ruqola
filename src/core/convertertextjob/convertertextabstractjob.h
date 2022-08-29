@@ -8,12 +8,12 @@
 
 #include "libruqola_private_export.h"
 #include <QObject>
-
+class RocketChatAccount;
 class LIBRUQOLACORE_TESTS_EXPORT ConverterTextAbstractJob : public QObject
 {
     Q_OBJECT
 public:
-    explicit ConverterTextAbstractJob(QObject *parent = nullptr);
+    explicit ConverterTextAbstractJob(RocketChatAccount *account, QObject *parent = nullptr);
     ~ConverterTextAbstractJob() override;
 
     Q_REQUIRED_RESULT QString messageId() const;
@@ -21,6 +21,9 @@ public:
 
     virtual void start() = 0;
 
-private:
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAcount() const;
+
+protected:
     QString mMessageId;
+    RocketChatAccount *const mRocketChatAcount;
 };

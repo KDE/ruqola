@@ -12,7 +12,7 @@ class LIBRUQOLACORE_TESTS_EXPORT TranslateTextJob : public ConverterTextAbstract
 {
     Q_OBJECT
 public:
-    explicit TranslateTextJob(QObject *parent = nullptr);
+    explicit TranslateTextJob(RocketChatAccount *account, QObject *parent = nullptr);
     ~TranslateTextJob() override;
 
     void start() override;

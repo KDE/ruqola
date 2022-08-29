@@ -6,8 +6,9 @@
 
 #include "convertertextabstractjob.h"
 
-ConverterTextAbstractJob::ConverterTextAbstractJob(QObject *parent)
+ConverterTextAbstractJob::ConverterTextAbstractJob(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
+    , mRocketChatAcount(account)
 {
 }
 
@@ -21,4 +22,9 @@ QString ConverterTextAbstractJob::messageId() const
 void ConverterTextAbstractJob::setMessageId(const QString &messageId)
 {
     mMessageId = messageId;
+}
+
+RocketChatAccount *ConverterTextAbstractJob::rocketChatAcount() const
+{
+    return mRocketChatAcount;
 }
