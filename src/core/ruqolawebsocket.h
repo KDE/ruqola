@@ -30,7 +30,7 @@ public:
     qint64 sendBinaryMessage(const QByteArray &data) override;
     void ignoreSslErrors() override;
 
-private Q_SLOTS:
+private:
     void slotTextMessageReceived(const QString &msg);
     void slotError(QAbstractSocket::SocketError error);
 

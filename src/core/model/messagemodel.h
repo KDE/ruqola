@@ -135,10 +135,8 @@ public:
     Q_REQUIRED_RESULT QString searchText() const;
     void setSearchText(const QString &searchText);
 
-private Q_SLOTS:
-    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
-
 private:
+    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     Q_DISABLE_COPY(MessageModel)
     /**
      * @brief Adds a message to the model
