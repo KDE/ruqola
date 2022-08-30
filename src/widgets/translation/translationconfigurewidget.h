@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
-class TranslationConfigureWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
