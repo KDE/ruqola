@@ -22,7 +22,7 @@ BannerInfoDialog::BannerInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
     , mBannerInfoWidget(new BannerInfoWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Banner Informations"));
+    setWindowTitle(i18nc("@title:window", "Banner Information"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
