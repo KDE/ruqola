@@ -36,6 +36,7 @@ include(FeatureSummary)
 include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
+include(KDEClangFormat)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
