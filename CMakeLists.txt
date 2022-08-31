@@ -35,6 +35,7 @@ include(GenerateExportHeader)
 include(FeatureSummary)
 include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
+include(KDEClangFormat)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
