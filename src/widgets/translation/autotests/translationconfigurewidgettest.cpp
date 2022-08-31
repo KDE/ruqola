@@ -7,6 +7,7 @@
 #include "translationconfigurewidgettest.h"
 #include "translation/translationconfigurewidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TranslationConfigureWidgetTest)
 TranslationConfigureWidgetTest::TranslationConfigureWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +17,8 @@ TranslationConfigureWidgetTest::TranslationConfigureWidgetTest(QObject *parent)
 void TranslationConfigureWidgetTest::shouldHaveDefaultValues()
 {
     TranslationConfigureWidget w;
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
     // TODO
 }
