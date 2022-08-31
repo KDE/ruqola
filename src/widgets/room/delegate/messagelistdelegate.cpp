@@ -150,7 +150,7 @@ MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageA
     case MessageAttachment::NormalText:
         return mHelperAttachmentText.data();
     case MessageAttachment::Unknown:
-        qCWarning(RUQOLAWIDGETS_LOG) << "It's an unknow attachement ! It's a bug for sure";
+        qCWarning(RUQOLAWIDGETS_LOG) << "It's an unknown attachment ! It's a bug for sure";
         break;
     }
     return nullptr;

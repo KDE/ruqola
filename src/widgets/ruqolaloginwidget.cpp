@@ -53,7 +53,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     // Type of account
     mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
-    mAuthenticationAccountWidget->setVisible(false);
 
     auto authenticationAccountLayout = new QVBoxLayout(mAuthenticationAccountWidget);
     authenticationAccountLayout->setObjectName(QStringLiteral("authenticationAccountLayout"));
@@ -151,10 +150,10 @@ void RuqolaLoginWidget::slotLogin()
     mRocketChatAccount->setUserName(mUserName->text());
     mRocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
     // mRocketChatAccount->setUseLdap(mLdapCheckBox->isChecked());
-    if (!mAuthenticationWidget->isHidden()) {
-        mRocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
-    } else {
+    if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
+    } else {
+        mRocketChatAccount->setTwoFactorAuthenticationCode(mTwoFactorAuthenticationPasswordLineEdit->code());
     }
     mRocketChatAccount->tryLogin();
 }
