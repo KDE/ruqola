@@ -8,11 +8,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit TranslationConfigureWidget(QWidget *parent = nullptr);
     ~TranslationConfigureWidget() override;
+
+private:
+    QComboBox *const mEngine;
 };

@@ -12,9 +12,11 @@
 
 TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     : QWidget{parent}
+    , mEngine(new QComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mEngine->setObjectName(QStringLiteral("mEngine"));
 }
 
 TranslationConfigureWidget::~TranslationConfigureWidget() = default;
