@@ -17,5 +17,6 @@ public:
     ~TranslationConfigureWidget() override;
 
 private:
+    void fillEngine();
     QComboBox *const mEngine;
 };
