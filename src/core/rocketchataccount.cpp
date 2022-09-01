@@ -2398,9 +2398,6 @@ void RocketChatAccount::initializeAccount()
 
     // load when necessary
     usersPresence();
-    if (hasAutotranslateSupport()) {
-        getSupportedLanguages();
-    }
     // Force set online.
     // TODO don't reset message status !
     if (RuqolaGlobalConfig::self()->setOnlineAccounts()) {
@@ -2801,6 +2798,10 @@ void RocketChatAccount::slotPermissionListAllDone(const QJsonObject &replyObject
     // qDebug() << accountName() << " replyObject " << replyObject;
     mPermissionManager.parsePermissions(replyObject);
     Q_EMIT permissionChanged();
+    // We can't load until permission loaded.
+    if (hasAutotranslateSupport()) {
+        getSupportedLanguages();
+    }
 }
 
 QStringList RocketChatAccount::permissions(const QString &permissionId) const
