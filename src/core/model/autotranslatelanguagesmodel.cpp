@@ -28,9 +28,9 @@ QVariant AutotranslateLanguagesModel::data(const QModelIndex &index, int role) c
     const AutotranslateLanguage language = mAutoTranslateLanguages.at(index.row());
 
     switch (role) {
-    case Qt::DisplayRole:
     case AutotranslateLanguagesModel::LanguageName:
         return language.language();
+    case Qt::DisplayRole:
     case AutotranslateLanguagesModel::DisplayName:
         return language.displayLanguage();
     }

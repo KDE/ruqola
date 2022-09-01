@@ -30,7 +30,7 @@ private:
     void slotLanguageChanged(int index);
     void slotAutoTranslateLanguageChanged();
     QCheckBox *const mAutoTranslate;
-    QComboBox *const mLanguage;
+    QComboBox *const mLanguageComboBox;
     QPointer<Room> mRoom;
     RocketChatAccount *const mRocketChatAccount;
 };
