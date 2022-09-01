@@ -19,7 +19,7 @@
 AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mAutoTranslate(new QCheckBox(i18n("Auto-Translate"), this))
-    , mLanguage(new QComboBox(this))
+    , mLanguageComboBox(new QComboBox(this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -40,13 +40,13 @@ AutoTranslateConfigureWidget::AutoTranslateConfigureWidget(RocketChatAccount *ac
     label->setTextFormat(Qt::PlainText);
     horizontalLayout->addWidget(label);
 
-    mLanguage->setObjectName(QStringLiteral("mLanguage"));
+    mLanguageComboBox->setObjectName(QStringLiteral("mLanguage"));
     if (mRocketChatAccount) {
-        mLanguage->setModel(mRocketChatAccount->autoTranslateLanguagesModel());
+        mLanguageComboBox->setModel(mRocketChatAccount->autoTranslateLanguagesModel());
     }
-    connect(mLanguage, &QComboBox::activated, this, &AutoTranslateConfigureWidget::slotLanguageChanged);
+    connect(mLanguageComboBox, &QComboBox::activated, this, &AutoTranslateConfigureWidget::slotLanguageChanged);
 
-    horizontalLayout->addWidget(mLanguage);
+    horizontalLayout->addWidget(mLanguageComboBox);
 
     mainLayout->addStretch(1);
 }
@@ -75,7 +75,7 @@ void AutoTranslateConfigureWidget::slotAutoTranslateChanged()
 
 void AutoTranslateConfigureWidget::slotAutoTranslateLanguageChanged()
 {
-    mLanguage->setCurrentIndex(mRocketChatAccount->autoTranslateLanguagesModel()->currentLanguage(mRoom->autoTranslateLanguage()));
+    mLanguageComboBox->setCurrentIndex(mRocketChatAccount->autoTranslateLanguagesModel()->currentLanguage(mRoom->autoTranslateLanguage()));
 }
 
 void AutoTranslateConfigureWidget::setRoom(Room *room)
