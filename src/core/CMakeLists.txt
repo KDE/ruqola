@@ -21,6 +21,26 @@ target_sources(libruqolacore PRIVATE
     autotranslate/autotranslatelanguage.h
     autotranslate/autotranslatelanguages.cpp
     autotranslate/autotranslatelanguages.h
+
+    convertertextjob/translatetext/engine/bingtranslator.cpp
+    convertertextjob/translatetext/engine/bingtranslator.h
+    convertertextjob/translatetext/engine/deepltranslator.cpp
+    convertertextjob/translatetext/engine/deepltranslator.h
+    convertertextjob/translatetext/engine/googletranslator.cpp
+    convertertextjob/translatetext/engine/googletranslator.h
+    convertertextjob/translatetext/engine/libretranslatetranslator.cpp
+    convertertextjob/translatetext/engine/libretranslatetranslator.h
+    convertertextjob/translatetext/engine/lingvatranslator.cpp
+    convertertextjob/translatetext/engine/lingvatranslator.h
+    convertertextjob/translatetext/engine/yandextranslator.cpp
+    convertertextjob/translatetext/engine/yandextranslator.h
+    convertertextjob/translatetext/translatorengineaccessmanager.cpp
+    convertertextjob/translatetext/translatorengineaccessmanager.h
+    convertertextjob/translatetext/translatorenginebase.cpp
+    convertertextjob/translatetext/translatorenginebase.h
+    convertertextjob/translatetext/translatorutil.cpp
+    convertertextjob/translatetext/translatorutil.h
+
     avatarmanager.cpp
     avatarmanager.h
     away/awaymanager.cpp
