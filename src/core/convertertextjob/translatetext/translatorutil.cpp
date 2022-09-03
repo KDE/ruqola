@@ -11,6 +11,7 @@
 #include "engine/libretranslatetranslator.h"
 #include "engine/lingvatranslator.h"
 #include "engine/yandextranslator.h"
+#include "ruqola_translation_debug.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -294,7 +295,7 @@ TranslatorEngineBase::TranslatorEngine TranslatorUtil::loadEngineSettings()
     } else if (engineTypeStr == QLatin1String("lingva")) {
         engineType = TranslatorEngineBase::TranslatorEngine::Lingva;
     } else {
-        // qCWarning(PIMCOMMON_LOG) << "Invalid translator engine " << engineTypeStr;
+        qCWarning(RUQOLA_TRANSLATION_LOG) << "Invalid translator engine " << engineTypeStr;
         engineType = TranslatorEngineBase::TranslatorEngine::Google;
     }
     return engineType;

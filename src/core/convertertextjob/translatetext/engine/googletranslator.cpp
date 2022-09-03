@@ -7,6 +7,7 @@
 #include "googletranslator.h"
 #include "convertertextjob/translatetext/translatorengineaccessmanager.h"
 #include "convertertextjob/translatetext/translatorutil.h"
+#include "ruqola_translation_debug.h"
 #include <KLocalizedString>
 #include <QJsonParseError>
 #include <QNetworkAccessManager>
@@ -133,7 +134,7 @@ void GoogleTranslator::slotTranslateFinished(QNetworkReply *reply)
     //  but this is not valid JSON for QJSON, it expects empty strings: ["foo","","bar"]
     mJsonData.replace(QRegularExpression(QLatin1String(",{3,3}")), QStringLiteral(",\"\",\"\","));
     mJsonData.replace(QRegularExpression(QLatin1String(",{2,2}")), QStringLiteral(",\"\","));
-    // qCDebug(PIMCOMMON_LOG) << mJsonData;
+    qCDebug(RUQOLA_TRANSLATION_LOG) << mJsonData;
 
     QJsonParseError parsingError;
     const QJsonDocument jsonDoc = QJsonDocument::fromJson(mJsonData.toUtf8(), &parsingError);

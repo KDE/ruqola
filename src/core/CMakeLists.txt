@@ -442,6 +442,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_specialwa
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_thread_message_debug.h IDENTIFIER RUQOLA_THREAD_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.threadmessages DESCRIPTION "ruqola thread message" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_translation_debug.h IDENTIFIER RUQOLA_TRANSLATION_LOG
+    CATEGORY_NAME org.kde.ruqola.translation DESCRIPTION "ruqola translation" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
