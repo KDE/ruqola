@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <QNetworkReply>
 #include <QObject>
-class TranslatorEngineBase : public QObject
+class LIBRUQOLACORE_EXPORT TranslatorEngineBase : public QObject
 {
     Q_OBJECT
 public:
@@ -51,18 +52,14 @@ Q_SIGNALS:
     void translateFailed(bool result, const QString &errorMessage = QString());
 
 protected:
+    void slotError(QNetworkReply::NetworkError error);
     QString mJsonData;
     QString mJsonDebug;
     QString mInputText;
     QString mFrom;
     QString mTo;
     QString mResult;
-
     QString mServerUrl;
-
     QString mApiKey;
-
     bool mDebug = false;
-
-    void slotError(QNetworkReply::NetworkError error);
 };

@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include "translatorenginebase.h"
 #include <QMap>
 #include <QPair>
@@ -13,7 +14,7 @@
 
 class QComboBox;
 
-class TranslatorUtil
+class LIBRUQOLACORE_EXPORT TranslatorUtil
 {
 public:
     TranslatorUtil();
