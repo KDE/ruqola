@@ -15,7 +15,6 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <QComboBox>
 
 TranslatorUtil::TranslatorUtil() = default;
 
@@ -210,11 +209,6 @@ QPair<QString, QString> TranslatorUtil::pair(TranslatorUtil::languages lang)
     return ret;
 }
 
-void TranslatorUtil::addItemToFromComboBox(QComboBox *combo, const QPair<QString, QString> &pair)
-{
-    combo->addItem(pair.first, pair.second);
-}
-
 TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent)
 {
     TranslatorEngineBase *abstractTranslator = nullptr;
@@ -240,35 +234,6 @@ TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::Transla
     }
     abstractTranslator->loadSettings();
     return abstractTranslator;
-}
-
-void TranslatorUtil::fillComboboxSettings(QComboBox *combo)
-{
-    for (int i = 0; i < TranslatorEngineBase::TranslatorEngine::LastEngine; ++i) {
-        switch (i) {
-        case TranslatorEngineBase::TranslatorEngine::Google:
-            combo->addItem(i18n("Google"), QStringLiteral("google"));
-            break;
-        case TranslatorEngineBase::TranslatorEngine::Yandex:
-            combo->addItem(i18n("Yandex"), QStringLiteral("yandex"));
-            break;
-        case TranslatorEngineBase::TranslatorEngine::Bing:
-            combo->addItem(i18n("Bing"), QStringLiteral("bing"));
-            break;
-        case TranslatorEngineBase::TranslatorEngine::Lingva:
-            combo->addItem(i18n("Lingva"), QStringLiteral("lingva"));
-            break;
-        case TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-            combo->addItem(i18n("Libre Translate"), QStringLiteral("libretranslate"));
-            break;
-        case TranslatorEngineBase::TranslatorEngine::DeepL:
-            combo->addItem(i18n("DeepL"), QStringLiteral("deepl"));
-            break;
-        default:
-            qCWarning(RUQOLA_TRANSLATION_LOG) << " Missing engine. It's a bug " << i;
-            break;
-        }
-    }
 }
 
 QString TranslatorUtil::loadEngine()

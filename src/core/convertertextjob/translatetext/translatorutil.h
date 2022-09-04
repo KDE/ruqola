@@ -12,8 +12,6 @@
 #include <QPair>
 #include <QString>
 
-class QComboBox;
-
 class LIBRUQOLACORE_EXPORT TranslatorUtil
 {
 public:
@@ -24,8 +22,6 @@ public:
         QString from;
         QString to;
     };
-
-    void addItemToFromComboBox(QComboBox *combo, const QPair<QString, QString> &pair);
 
     enum languages {
         automatic,
@@ -93,7 +89,6 @@ public:
     };
     Q_REQUIRED_RESULT QPair<QString, QString> pair(TranslatorUtil::languages lang);
     Q_REQUIRED_RESULT static TranslatorEngineBase *switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent);
-    static void fillComboboxSettings(QComboBox *combo);
     Q_REQUIRED_RESULT static TranslatorEngineBase::TranslatorEngine loadEngineSettings();
     Q_REQUIRED_RESULT static QString loadEngine();
     static void saveEngineSettings(const QString &engineName);

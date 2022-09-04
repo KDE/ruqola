@@ -6,6 +6,7 @@
 
 #include "translationconfigurewidget.h"
 #include "convertertextjob/translatetext/translatorutil.h"
+#include "translationconfigureutil.h"
 #include <KLocalizedString>
 #include <QComboBox>
 #include <QLabel>
@@ -41,5 +42,5 @@ TranslationConfigureWidget::~TranslationConfigureWidget() = default;
 
 void TranslationConfigureWidget::fillEngine()
 {
-    TranslatorUtil::fillComboboxSettings(mEngine);
+    TranslationConfigureUtil::fillComboboxSettings(mEngine);
 }
