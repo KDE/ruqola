@@ -11,3 +11,4 @@ macro(add_ruqolatranslation_test _source)
 endmacro()
 
 add_ruqolatranslation_test(translationconfigurewidgettest.cpp)
+add_ruqolatranslation_test(translationconfigurelanguagelistwidgettest.cpp)
