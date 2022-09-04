@@ -28,6 +28,12 @@ TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mEngine);
+
+    auto vboxLayout = new QVBoxLayout;
+    vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
+    vboxLayout->setContentsMargins({});
+    mainLayout->addLayout(vboxLayout);
+
     fillEngine();
 }
 
