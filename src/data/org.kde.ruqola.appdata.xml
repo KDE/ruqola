@@ -63,6 +63,7 @@
     <p xml:lang="ca-valencia">Ruqola és un client per a Rocket.Chat.</p>
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
     <p xml:lang="nl">Ruqola is client voor Rocket.Chat.</p>
+    <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
     <p xml:lang="x-test">xxRuqola is a client for Rocket.Chat.xx</p>
     <p>
       It supports RC features:
@@ -71,6 +72,7 @@
     <p xml:lang="ca-valencia">Permet les característiques de RC:</p>
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
     <p xml:lang="nl">Het ondersteunt RC-functies:</p>
+    <p xml:lang="uk">Передбачено підтримку таких можливостей RC:</p>
     <p xml:lang="x-test">xxIt supports RC features:xx</p>
     <ul>
       <li>Direct Message</li>
@@ -78,162 +80,189 @@
       <li xml:lang="ca-valencia">Missatge directe</li>
       <li xml:lang="fr">Message direct</li>
       <li xml:lang="nl">Direct bericht</li>
+      <li xml:lang="uk">Безпосереднє повідомлення</li>
       <li xml:lang="x-test">xxDirect Messagexx</li>
       <li>group channel</li>
       <li xml:lang="ca">Canal de grup</li>
       <li xml:lang="ca-valencia">Canal de grup</li>
       <li xml:lang="fr">canal de groupe</li>
       <li xml:lang="nl">groepskanaal</li>
+      <li xml:lang="uk">Групування каналів</li>
       <li xml:lang="x-test">xxgroup channelxx</li>
       <li>channel</li>
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
       <li xml:lang="fr">canal</li>
       <li xml:lang="nl">kanaal</li>
+      <li xml:lang="uk">Канали</li>
       <li xml:lang="x-test">xxchannelxx</li>
       <li>Support autotranslate (when RC has it)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
       <li xml:lang="nl">Ondersteunt automatische vertaling (wanneer RC dat heeft)</li>
+      <li xml:lang="uk">Підтримка автоматичного перекладу (якщо її передбачено у RC)</li>
       <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li>Configuring room notification</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
       <li xml:lang="ca-valencia">Configuració de les notificacions de sala</li>
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
       <li xml:lang="nl">Roommelding wordt geconfigureerd</li>
+      <li xml:lang="uk">Налаштовування сповіщень у кімнатах</li>
       <li xml:lang="x-test">xxConfiguring room notificationxx</li>
       <li>Configuring room</li>
       <li xml:lang="ca">Configuració de sales</li>
       <li xml:lang="ca-valencia">Configuració de sales</li>
       <li xml:lang="fr">Configuration du salon en cours</li>
       <li xml:lang="nl">Room wordt geconfigureerd</li>
+      <li xml:lang="uk">Налаштовування кімнат</li>
       <li xml:lang="x-test">xxConfiguring roomxx</li>
       <li>Thread message support</li>
       <li xml:lang="ca">Permet fils de missatges</li>
       <li xml:lang="ca-valencia">Permet fils de missatges</li>
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
       <li xml:lang="nl">Discussiebundeling van bericht wordt ondersteund</li>
+      <li xml:lang="uk">Підтримка гілок повідомлень</li>
       <li xml:lang="x-test">xxThread message supportxx</li>
       <li>Discussion room</li>
       <li xml:lang="ca">Sales de debats</li>
       <li xml:lang="ca-valencia">Sales de debats</li>
       <li xml:lang="fr">Salon de discussions</li>
       <li xml:lang="nl">Discussieroom</li>
+      <li xml:lang="uk">Кімнати обговорення</li>
       <li xml:lang="x-test">xxDiscussion roomxx</li>
       <li>Teams room support</li>
       <li xml:lang="ca">Permet sales d'equips</li>
       <li xml:lang="ca-valencia">Permet sales d'equips</li>
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
       <li xml:lang="nl">Ondersteuning van teamsroom</li>
+      <li xml:lang="uk">Підтримка кімнат команд</li>
       <li xml:lang="x-test">xxTeams room supportxx</li>
       <li>Configuring own account</li>
       <li xml:lang="ca">Configuració del compte propi</li>
       <li xml:lang="ca-valencia">Configuració del compte propi</li>
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
       <li xml:lang="nl">Eigen account wordt geconfigureerd</li>
+      <li xml:lang="uk">Налаштовування власного облікового запису</li>
       <li xml:lang="x-test">xxConfiguring own accountxx</li>
       <li>Registering new account</li>
       <li xml:lang="ca">Registre d'un compte nou</li>
       <li xml:lang="ca-valencia">Registre d'un compte nou</li>
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
       <li xml:lang="nl">Nieuwe account wordt geregistreerd</li>
+      <li xml:lang="uk">Реєстрація нових облікових записів</li>
       <li xml:lang="x-test">xxRegistering new accountxx</li>
       <li>Support multi account</li>
       <li xml:lang="ca">Permet diversos comptes</li>
       <li xml:lang="ca-valencia">Permet diversos comptes</li>
       <li xml:lang="fr">Prend en charge le compte multiple</li>
       <li xml:lang="nl">Ondersteuning voor meerdere accounts</li>
+      <li xml:lang="uk">Підтримка роботи із декількома обліковими записами</li>
       <li xml:lang="x-test">xxSupport multi accountxx</li>
       <li>Search message in room</li>
       <li xml:lang="ca">Cerca missatges a una sala</li>
       <li xml:lang="ca-valencia">Busca missatges a una sala</li>
       <li xml:lang="fr">Rechercher un message dans le salon</li>
       <li xml:lang="nl">Berichten zoeken in room</li>
+      <li xml:lang="uk">Пошук повідомлень у кімнаті</li>
       <li xml:lang="x-test">xxSearch message in roomxx</li>
       <li>Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="ca">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="ca-valencia">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="nl">Noemen tonen/bijlage/vastgezet bericht/startbericht</li>
+      <li xml:lang="uk">Показ згадок/долучень/пришпилених повідомлень/початкового повідомлення</li>
       <li xml:lang="x-test">xxShow mention/attachment/Pinned message/start messagexx</li>
       <li>Support emoji</li>
       <li xml:lang="ca">Permet emojis</li>
       <li xml:lang="ca-valencia">Permet emojis</li>
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
       <li xml:lang="nl">Ondersteuning van emoji</li>
+      <li xml:lang="uk">Підтримка емодзі</li>
       <li xml:lang="x-test">xxSupport emojixx</li>
       <li>Video support</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="nl">Ondersteuning video</li>
+      <li xml:lang="uk">Підтримка відео</li>
       <li xml:lang="x-test">xxVideo supportxx</li>
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="nl">Ondersteuning van configuratie door beheerder (toevoegen/verwijderen van rollen, toevoegen/verwijderen van gebruikers, toevoegen/verwijderen van rechten, rooms configureren etc.)</li>
+      <li xml:lang="uk">Налаштовування параметрів адміністрування (додавання/вилучення ролей, додавання/вилучення користувачів, додавання/вилучення прав доступу, налаштовування кімнат тощо)</li>
       <li xml:lang="x-test">xxConfigure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)xx</li>
       <li>Support OTR (in progress)</li>
       <li xml:lang="ca">Permet OTR (en curs)</li>
       <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
       <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
+      <li xml:lang="uk">Підтримка OTR (в опрацюванні)</li>
       <li xml:lang="x-test">xxSupport OTR (in progress)xx</li>
       <li>support gif image</li>
       <li xml:lang="ca">Permet imatges GIF</li>
       <li xml:lang="ca-valencia">Permet imatges GIF</li>
       <li xml:lang="fr">Prend en charge les images « gif »</li>
       <li xml:lang="nl">Ondersteuning van gif-afbeelding</li>
+      <li xml:lang="uk">Підтримка зображень gif</li>
       <li xml:lang="x-test">xxsupport gif imagexx</li>
       <li>Add support for uploading attachment files</li>
       <li xml:lang="ca">Permet pujar fitxers adjunts</li>
       <li xml:lang="ca-valencia">Permet pujar fitxers adjunts</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor uploaden van bijgevoegde bestanden</li>
+      <li xml:lang="uk">Підтримка вивантаження файлів долучень</li>
       <li xml:lang="x-test">xxAdd support for uploading attachment filesxx</li>
       <li>Show unread message information</li>
       <li xml:lang="ca">Mostra la informació dels missatges no llegits</li>
       <li xml:lang="ca-valencia">Mostra la informació dels missatges no llegits</li>
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="nl">Informatie over ongelezen berichten tonen</li>
+      <li xml:lang="uk">Показ відомостей щодо непрочитаних повідомлень</li>
       <li xml:lang="x-test">xxShow unread message informationxx</li>
       <li>Allow to block/unblock users</li>
       <li xml:lang="ca">Permet blocar/desbloquejar usuaris</li>
       <li xml:lang="ca-valencia">Permet blocar/desbloquejar usuaris</li>
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
       <li xml:lang="nl">Toestaan gebruikers te blokkeren/dit opheffen</li>
+      <li xml:lang="uk">Можливість блокування/розблокування користувачів</li>
       <li xml:lang="x-test">xxAllow to block/unblock usersxx</li>
       <li>Auto-away</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
       <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="nl">Automatisch afwezig</li>
+      <li xml:lang="uk">Автовстановлення відсутності</li>
       <li xml:lang="x-test">xxAuto-awayxx</li>
       <li>Two-factor authentication via TOTP</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="nl">Twee-factor-authenticatie via TOTP</li>
+      <li xml:lang="uk">Двофакторне розпізнавання за допомогою TOTP</li>
       <li xml:lang="x-test">xxTwo-factor authentication via TOTPxx</li>
       <li>Two-factor authentication via email</li>
       <li xml:lang="ca">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="nl">Twee-factor-authenticatie via e-mail</li>
+      <li xml:lang="uk">Двофакторне розпізнавання за допомогою електронної пошти</li>
       <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, Statut personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d’affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="nl">Ondersteuning van beheerder (Serverinformatie, Rooms, Aangepaste status van gebruiker, Aangepaste geluiden, Aangepaste emoji, Gebruikers, Uitnodigingen, Log bekijken, Rechten, Rollen, Oauth), Instellingen van beheerder (Bericht, Account, Bewaarbeleid, Uploaden van bestanden, Versleuteling)</li>
+      <li xml:lang="uk">Підтримка адміністрування (відомості щодо сервера, кімнат, нетипові стани користувачів, нетипові звуки, нетипові емодзі, користувачі, запрошення, перегляд журналу, права доступу, ролі, Oauth), параметри адміністрування (повідомлення, обліковий запис, правила збереження, вивантаження файлів, шифрування)</li>
       <li xml:lang="x-test">xxAdministrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)xx</li>
       <li>Export Messages</li>
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="nl">Berichten exporteren</li>
+      <li xml:lang="uk">Експорт повідомлень</li>
       <li xml:lang="x-test">xxExport Messagesxx</li>
     </ul>
     <p>
@@ -243,6 +272,7 @@
     <p xml:lang="ca-valencia">Característiques addicionals:</p>
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
     <p xml:lang="nl">Extra mogelijkheden:</p>
+    <p xml:lang="uk">Додаткові можливості:</p>
     <p xml:lang="x-test">xxExtra features:xx</p>
     <ul>
       <li>Allow to reply directly to message from notification (kde features)</li>
@@ -250,42 +280,49 @@
       <li xml:lang="ca-valencia">Permet respondre directament al missatge des d'una notificació (característiques de KDE)</li>
       <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de Kde)</li>
       <li xml:lang="nl">Toestaan om directe op een bericht uit een melding te antwoorden (kde functies)</li>
+      <li xml:lang="uk">Можливість відповідати на повідомлення безпосередньо з панелі сповіщення (можливість KDE)</li>
       <li xml:lang="x-test">xxAllow to reply directly to message from notification (kde features)xx</li>
       <li>Dnd image from ruqola to website or local folder</li>
       <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
       <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
       <li xml:lang="fr">Image « dnd » à partir de ruqola vers le site Internet ou vers un dossier locale</li>
       <li xml:lang="nl">Download afbeelding uit ruqola naar website of lokale map</li>
+      <li xml:lang="uk">Перетягування і скидання зображення з ruqola на сайт або локальну теку</li>
       <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge a la base de dades local perquè es puga buscar fora de línia</li>
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
+      <li xml:lang="uk">Зберігання повідомлення у локальній базі даних для пошуку в автономному режимі</li>
       <li xml:lang="x-test">xxStore message in local database so we can search in offlinexx</li>
       <li>Mark All Channels are read</li>
       <li xml:lang="ca">Marcar tots els canals com a llegits</li>
       <li xml:lang="ca-valencia">Marca tots els canals com a llegits</li>
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
       <li xml:lang="nl">Alle kanalen markeren als gelezen</li>
+      <li xml:lang="uk">Позначення усіх каналів, як прочитаних</li>
       <li xml:lang="x-test">xxMark All Channels are readxx</li>
       <li>Add notification history</li>
       <li xml:lang="ca">Afegeix un historial de notificacions</li>
       <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
       <li xml:lang="fr">Ajouter un historique de notifications</li>
       <li xml:lang="nl">Geschiedenis van meldingen toevoegen</li>
+      <li xml:lang="uk">Журнал сповіщень</li>
       <li xml:lang="x-test">xxAdd notification historyxx</li>
       <li>New RocketChat Server Information Support</li>
       <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
+      <li xml:lang="uk">Підтримка відомостей щодо сервера RocketChat</li>
       <li xml:lang="x-test">xxNew RocketChat Server Information Supportxx</li>
       <li>Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="ca">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
       <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
+      <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
     </ul>
   </description>
