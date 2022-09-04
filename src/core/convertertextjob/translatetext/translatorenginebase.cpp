@@ -10,7 +10,7 @@
 TranslatorEngineBase::TranslatorEngineBase(QObject *parent)
     : QObject{parent}
 {
-    mDebug = !qEnvironmentVariableIsEmpty("KDEPIM_DEBUGGING");
+    mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_TRANSLATION_DEBUGGING");
 }
 
 TranslatorEngineBase::~TranslatorEngineBase() = default;
