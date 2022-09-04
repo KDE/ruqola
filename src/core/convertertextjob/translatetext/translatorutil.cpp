@@ -265,7 +265,7 @@ void TranslatorUtil::fillComboboxSettings(QComboBox *combo)
             combo->addItem(i18n("DeepL"), QStringLiteral("deepl"));
             break;
         default:
-            // qCWarning(PIMCOMMON_LOG) << " Missing engine. It's a bug " << i;
+            qCWarning(RUQOLA_TRANSLATION_LOG) << " Missing engine. It's a bug " << i;
             break;
         }
     }
