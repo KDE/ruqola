@@ -22,6 +22,7 @@ public:
         DeepL = 5,
         LastEngine = DeepL,
     };
+    Q_ENUM(TranslatorEngine)
     explicit TranslatorEngineBase(QObject *parent = nullptr);
     ~TranslatorEngineBase() override;
 
@@ -45,7 +46,6 @@ public:
     void setApiKey(const QString &newApiKey);
 
     virtual void loadSettings();
-    virtual void saveSettings();
 
 Q_SIGNALS:
     void translateDone();
