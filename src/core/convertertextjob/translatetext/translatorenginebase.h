@@ -52,6 +52,7 @@ Q_SIGNALS:
     void translateFailed(bool result, const QString &errorMessage = QString());
 
 protected:
+    void checkLoadedSupportedLanguage();
     void slotError(QNetworkReply::NetworkError error);
     QString mJsonData;
     QString mJsonDebug;
@@ -62,4 +63,5 @@ protected:
     QString mServerUrl;
     QString mApiKey;
     bool mDebug = false;
+    static inline QVector<QPair<QString, QString>> sSupportedLanguage;
 };
