@@ -27,11 +27,18 @@ public:
 
     Q_REQUIRED_RESULT bool canStart() const override;
 
+    Q_REQUIRED_RESULT bool needTargetLanguage() const;
+    void setNeedTargetLanguage(bool newNeedTargetLanguage);
+
 Q_SIGNALS:
     void getSupportedLanguagesDone(const QJsonObject &obj);
+
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
 
 private:
     Q_DISABLE_COPY(GetSupportedLanguagesJob)
     void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    bool mNeedTargetLanguage = false;
 };
 }

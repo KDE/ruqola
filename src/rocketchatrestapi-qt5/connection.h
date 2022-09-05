@@ -169,7 +169,7 @@ public:
     void getThreadMessages(const QString &threadMessageId);
     void sendMessage(const QString &roomId, const QString &text, const QString &messageId = QString(), const QString &threadMessageId = QString());
     void getPinnedMessages(const QString &roomId, int offset = 0, int count = 50);
-    void getSupportedLanguagesMessages();
+    void getSupportedLanguagesMessages(bool needTagetLanguage);
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
     void autoTranslateSaveAutoTranslateSettings(const QString &roomId, bool autoTranslate);
     void setUserStatus(const QString &userId, SetStatusJob::StatusType status, const QString &message = QString());

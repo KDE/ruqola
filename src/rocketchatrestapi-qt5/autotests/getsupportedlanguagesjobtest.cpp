@@ -22,6 +22,7 @@ void GetSupportedLanguagesJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(!job.needTargetLanguage());
 }
 
 void GetSupportedLanguagesJobTest::shouldGenerateRequest()
