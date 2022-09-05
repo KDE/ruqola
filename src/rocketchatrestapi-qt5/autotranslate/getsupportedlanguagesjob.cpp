@@ -7,9 +7,11 @@
 #include "getsupportedlanguagesjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 GetSupportedLanguagesJob::GetSupportedLanguagesJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -48,9 +50,24 @@ void GetSupportedLanguagesJob::onGetRequestResponse(const QJsonDocument &replyJs
     }
 }
 
+bool GetSupportedLanguagesJob::needTargetLanguage() const
+{
+    return mNeedTargetLanguage;
+}
+
+void GetSupportedLanguagesJob::setNeedTargetLanguage(bool newNeedTargetLanguage)
+{
+    mNeedTargetLanguage = newNeedTargetLanguage;
+}
+
 QNetworkRequest GetSupportedLanguagesJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::AutoTranslateGetSupportedLanguages);
+    if (mNeedTargetLanguage) {
+        QUrlQuery queryUrl;
+        queryUrl.addQueryItem(QStringLiteral("targetLanguage"), QStringLiteral("en"));
+        url.setQuery(queryUrl);
+    }
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     addRequestAttribute(request, false);
@@ -63,4 +80,12 @@ bool GetSupportedLanguagesJob::canStart() const
         return false;
     }
     return true;
+}
+
+QString GetSupportedLanguagesJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("invalid-params")) {
+        return i18n("Invalid Parameters");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }

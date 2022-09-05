@@ -1751,10 +1751,12 @@ void Connection::sendMessage(const QString &roomId, const QString &text, const Q
     }
 }
 
-void Connection::getSupportedLanguagesMessages()
+void Connection::getSupportedLanguagesMessages(bool needTagetLanguage)
 {
     auto job = new GetSupportedLanguagesJob(this);
+    job->setNeedTargetLanguage(needTagetLanguage);
     initializeRestApiJob(job);
+
     connect(job, &GetSupportedLanguagesJob::getSupportedLanguagesDone, this, &Connection::getSupportedLanguagesDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start getSupportedLanguagesMessages";

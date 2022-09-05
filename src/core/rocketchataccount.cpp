@@ -2329,7 +2329,11 @@ bool RocketChatAccount::hasOldSubscriptionSupport() const
 void RocketChatAccount::getSupportedLanguages()
 {
     if (autoTranslateEnabled()) {
-        restApi()->getSupportedLanguagesMessages();
+        bool needTargetLanguage = false;
+        if (ruqolaServerConfig()->hasAtLeastVersion(5, 1, 0)) {
+            needTargetLanguage = true;
+        }
+        restApi()->getSupportedLanguagesMessages(needTargetLanguage);
     } else {
         qCWarning(RUQOLA_LOG) << " RocketChatAccount::getSupportedLanguages is not supported before server 2.0.0";
     }
