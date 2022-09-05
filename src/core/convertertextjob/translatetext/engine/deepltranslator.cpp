@@ -90,5 +90,8 @@ void DeepLTranslator::loadSettings()
 
 QVector<QPair<QString, QString>> DeepLTranslator::languages()
 {
-    return {};
+    if (sSupportedLanguage.isEmpty()) {
+        // TODO
+    }
+    return sSupportedLanguage;
 }

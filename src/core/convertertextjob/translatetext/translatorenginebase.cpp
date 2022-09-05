@@ -70,11 +70,6 @@ void TranslatorEngineBase::clear()
     mJsonData.clear();
 }
 
-void TranslatorEngineBase::checkLoadedSupportedLanguage()
-{
-    if (sSupportedLanguage.isEmpty()) { }
-}
-
 void TranslatorEngineBase::slotError(QNetworkReply::NetworkError error)
 {
     QString messageError;
