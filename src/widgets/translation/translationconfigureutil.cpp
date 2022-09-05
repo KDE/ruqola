@@ -37,3 +37,9 @@ void TranslationConfigureUtil::fillComboboxSettings(QComboBox *combo)
         }
     }
 }
+
+QVector<QPair<QString, QString>> TranslationConfigureUtil::languages(const QString &language)
+{
+    // TODO
+    return {};
+}

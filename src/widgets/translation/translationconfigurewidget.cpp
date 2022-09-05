@@ -43,6 +43,8 @@ TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     hLanguageListboxLayout->addWidget(mFromLanguageWidget);
     hLanguageListboxLayout->addWidget(mToLanguageWidget);
 
+    connect(mEngine, &QComboBox::currentIndexChanged, this, &TranslationConfigureWidget::slotEngineChanged);
+
     fillEngine();
 }
 
@@ -65,6 +67,11 @@ void TranslationConfigureWidget::saveSettings()
 }
 
 void TranslationConfigureWidget::loadSettings()
+{
+    // TODO
+}
+
+void TranslationConfigureWidget::slotEngineChanged(int index)
 {
     // TODO
 }
