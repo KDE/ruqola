@@ -8,11 +8,16 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QListWidget;
+class KListWidgetSearchLine;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationConfigureLanguageListWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit TranslationConfigureLanguageListWidget(QWidget *parent = nullptr);
     ~TranslationConfigureLanguageListWidget() override;
+
+private:
+    QListWidget *const mLanguageListWidget;
+    KListWidgetSearchLine *const mListSearchLine;
 };

@@ -6,7 +6,10 @@
 
 #include "translationconfigurelanguagelistwidgettest.h"
 #include "translation/translationconfigurelanguagelistwidget.h"
+#include <KListWidgetSearchLine>
+#include <QListWidget>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(TranslationConfigureLanguageListWidgetTest)
 TranslationConfigureLanguageListWidgetTest::TranslationConfigureLanguageListWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +19,15 @@ TranslationConfigureLanguageListWidgetTest::TranslationConfigureLanguageListWidg
 void TranslationConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
 {
     TranslationConfigureLanguageListWidget w;
-    // TODO
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mLanguageListWidget = w.findChild<QListWidget *>(QStringLiteral("mLanguageListWidget"));
+    QVERIFY(mLanguageListWidget);
+    QCOMPARE(mLanguageListWidget->count(), 0);
+
+    auto mListSearchLine = w.findChild<KListWidgetSearchLine *>(QStringLiteral("mListSearchLine"));
+    QVERIFY(mListSearchLine);
+    QVERIFY(!mListSearchLine->placeholderText().isEmpty());
+    QCOMPARE(mListSearchLine->listWidget(), mLanguageListWidget);
 }
