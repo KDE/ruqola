@@ -4,10 +4,10 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #pragma once
-
 #include "convertertextjob/translatetext/translatorenginebase.h"
+#include "libruqolacore_export.h"
 
-class YandexTranslator : public TranslatorEngineBase
+class LIBRUQOLACORE_EXPORT YandexTranslator : public TranslatorEngineBase
 {
     Q_OBJECT
 public:

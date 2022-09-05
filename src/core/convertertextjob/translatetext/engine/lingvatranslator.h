@@ -5,9 +5,9 @@
 */
 
 #pragma once
-
 #include "convertertextjob/translatetext/translatorenginebase.h"
-class LingvaTranslator : public TranslatorEngineBase
+#include "libruqolacore_export.h"
+class LIBRUQOLACORE_EXPORT LingvaTranslator : public TranslatorEngineBase
 {
     Q_OBJECT
 public:

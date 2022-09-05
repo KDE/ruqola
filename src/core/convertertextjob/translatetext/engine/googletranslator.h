@@ -5,15 +5,15 @@
 */
 
 #pragma once
-
 #include "convertertextjob/translatetext/translatorenginebase.h"
+#include "libruqolacore_export.h"
 
 #include <QNetworkReply>
 #include <QObject>
 class QNetworkAccessManager;
 class QComboBox;
 
-class GoogleTranslator : public TranslatorEngineBase
+class LIBRUQOLACORE_EXPORT GoogleTranslator : public TranslatorEngineBase
 {
     Q_OBJECT
 public:
