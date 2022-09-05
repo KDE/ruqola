@@ -19,6 +19,8 @@ public:
     Q_REQUIRED_RESULT QVector<QPair<QString, QString>> supportedLanguage() const override;
     void loadSettings() override;
 
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> languages();
+
 private:
     void translateText();
     void parseTranslation(QNetworkReply *reply);

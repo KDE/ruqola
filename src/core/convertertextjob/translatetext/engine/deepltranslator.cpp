@@ -43,7 +43,7 @@ void DeepLTranslator::translate()
 
 QVector<QPair<QString, QString>> DeepLTranslator::supportedLanguage() const
 {
-    return {};
+    return languages();
 }
 
 void DeepLTranslator::translateText()
@@ -86,4 +86,9 @@ void DeepLTranslator::loadSettings()
     mUseFreeLicense = myGroup.readEntry(QStringLiteral("freeLicense"), false);
     mServerUrl = mUseFreeLicense ? QStringLiteral("https://api-free.deepl.com/v2/translate") : QStringLiteral("https://api.deepl.com/v2/translate");
     // TODO load API key ? stored in kwallet ?
+}
+
+QVector<QPair<QString, QString>> DeepLTranslator::languages()
+{
+    return {};
 }

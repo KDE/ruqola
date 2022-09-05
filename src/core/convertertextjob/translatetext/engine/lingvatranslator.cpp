@@ -38,7 +38,7 @@ void LingvaTranslator::translate()
 
 QVector<QPair<QString, QString>> LingvaTranslator::supportedLanguage() const
 {
-    return {};
+    return languages();
 }
 
 void LingvaTranslator::translateText()
@@ -79,4 +79,9 @@ void LingvaTranslator::loadSettings()
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LingvaTranslator"));
     mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
+}
+
+QVector<QPair<QString, QString>> LingvaTranslator::languages()
+{
+    return {};
 }

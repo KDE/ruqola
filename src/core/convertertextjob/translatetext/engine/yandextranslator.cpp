@@ -40,6 +40,16 @@ void YandexTranslator::translate()
 
 QVector<QPair<QString, QString>> YandexTranslator::supportedLanguage() const
 {
+    return languages();
+}
+
+QString YandexTranslator::engineName() const
+{
+    return i18n("Yandex");
+}
+
+QVector<QPair<QString, QString>> YandexTranslator::languages()
+{
     TranslatorUtil translatorUtil;
     QVector<QPair<QString, QString>> fullListLanguage;
     fullListLanguage.append(translatorUtil.pair(TranslatorUtil::automatic));
@@ -101,11 +111,6 @@ QVector<QPair<QString, QString>> YandexTranslator::supportedLanguage() const
     fullListLanguage.append(translatorUtil.pair(TranslatorUtil::cy));
     fullListLanguage.append(translatorUtil.pair(TranslatorUtil::yi));
     return fullListLanguage;
-}
-
-QString YandexTranslator::engineName() const
-{
-    return i18n("Yandex");
 }
 
 void YandexTranslator::parseCredentials(QNetworkReply *reply)

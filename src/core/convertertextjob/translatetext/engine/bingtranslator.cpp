@@ -169,6 +169,11 @@ void BingTranslator::parseTranslation(QNetworkReply *reply)
 
 QVector<QPair<QString, QString>> BingTranslator::supportedLanguage() const
 {
+    return languages();
+}
+
+QVector<QPair<QString, QString>> BingTranslator::languages()
+{
     TranslatorUtil translatorUtil;
     QVector<QPair<QString, QString>> fullListLanguage;
     fullListLanguage.append(translatorUtil.pair(TranslatorUtil::automatic));

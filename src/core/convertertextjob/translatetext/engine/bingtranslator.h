@@ -17,11 +17,15 @@ public:
     void translate() override;
     Q_REQUIRED_RESULT QString engineName() const override;
     Q_REQUIRED_RESULT QVector<QPair<QString, QString>> supportedLanguage() const override;
+
     static QByteArray sBingKey;
     static QByteArray sBingToken;
     static QString sBingIg;
     static QString sBingIid;
 
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> languages();
+
+private:
 private:
     void parseCredentials(QNetworkReply *reply);
     void parseTranslation(QNetworkReply *reply);

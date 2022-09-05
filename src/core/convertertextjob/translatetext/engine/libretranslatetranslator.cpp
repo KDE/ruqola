@@ -35,7 +35,7 @@ void LibreTranslateTranslator::translate()
 
 QVector<QPair<QString, QString>> LibreTranslateTranslator::supportedLanguage() const
 {
-    return {};
+    return languages();
 }
 
 void LibreTranslateTranslator::translateText()
@@ -74,4 +74,9 @@ void LibreTranslateTranslator::loadSettings()
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LibreTranslateTranslator"));
     mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
+}
+
+QVector<QPair<QString, QString>> LibreTranslateTranslator::languages()
+{
+    return {};
 }
