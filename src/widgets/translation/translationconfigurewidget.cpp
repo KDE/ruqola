@@ -51,4 +51,20 @@ TranslationConfigureWidget::~TranslationConfigureWidget() = default;
 void TranslationConfigureWidget::fillEngine()
 {
     TranslationConfigureUtil::fillComboboxSettings(mEngine);
+    uploadListLanguages();
+}
+
+void TranslationConfigureWidget::uploadListLanguages()
+{
+    // TODO
+}
+
+void TranslationConfigureWidget::saveSettings()
+{
+    // TODO
+}
+
+void TranslationConfigureWidget::loadSettings()
+{
+    // TODO
 }

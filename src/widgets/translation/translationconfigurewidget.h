@@ -17,8 +17,12 @@ public:
     explicit TranslationConfigureWidget(QWidget *parent = nullptr);
     ~TranslationConfigureWidget() override;
 
+    void saveSettings();
+    void loadSettings();
+
 private:
     void fillEngine();
+    void uploadListLanguages();
     QComboBox *const mEngine;
     TranslationConfigureLanguageListWidget *const mFromLanguageWidget;
     TranslationConfigureLanguageListWidget *const mToLanguageWidget;
