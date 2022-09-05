@@ -6,6 +6,7 @@
 
 #include "translationconfigurewidget.h"
 #include "convertertextjob/translatetext/translatorutil.h"
+#include "translationconfigurelanguagelistwidget.h"
 #include "translationconfigureutil.h"
 #include <KLocalizedString>
 #include <QComboBox>
@@ -15,6 +16,8 @@
 TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     : QWidget{parent}
     , mEngine(new QComboBox(this))
+    , mFromLanguageWidget(new TranslationConfigureLanguageListWidget(this))
+    , mToLanguageWidget(new TranslationConfigureLanguageListWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -30,10 +33,15 @@ TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mEngine);
 
-    auto vboxLayout = new QVBoxLayout;
-    vboxLayout->setObjectName(QStringLiteral("vboxLayout"));
-    vboxLayout->setContentsMargins({});
-    mainLayout->addLayout(vboxLayout);
+    auto hLanguageListboxLayout = new QHBoxLayout;
+    hLanguageListboxLayout->setObjectName(QStringLiteral("hLanguageListboxLayout"));
+    hLanguageListboxLayout->setContentsMargins({});
+    mainLayout->addLayout(hLanguageListboxLayout);
+
+    mFromLanguageWidget->setObjectName(QStringLiteral("mFromLanguageWidget"));
+    mToLanguageWidget->setObjectName(QStringLiteral("mFromLanguageWidget"));
+    hLanguageListboxLayout->addWidget(mFromLanguageWidget);
+    hLanguageListboxLayout->addWidget(mToLanguageWidget);
 
     fillEngine();
 }
