@@ -60,6 +60,7 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
         if (mouseEvent(event, options, index)) {
             update(index);
         }
+        // TODO store QPersistentModelIndex => we can show or not
     }
 }
 
