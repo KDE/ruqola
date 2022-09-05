@@ -192,6 +192,9 @@ public:
     const QMap<QString, QString> &channels() const;
     void setChannels(const QMap<QString, QString> &newChannels);
 
+    Q_REQUIRED_RESULT bool showReactionIcon() const;
+    void setShowReactionIcon(bool newShowReactionIcon);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -302,6 +305,8 @@ private:
     bool mShowIgnoredMessage = false;
 
     bool mIsEditingMode = false;
+
+    bool mShowReactionIcon = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

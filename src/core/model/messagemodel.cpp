@@ -390,6 +390,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.showIgnoredMessage();
     case MessageModel::MessageInEditMode:
         return message.isEditingMode();
+    case MessageModel::ShowReactionIcon:
+        return message.showReactionIcon();
     }
 
     return {};
@@ -451,6 +453,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     case MessageModel::MessageInEditMode:
         message.setIsEditingMode(value.toBool());
+        Q_EMIT dataChanged(index, index);
+        return true;
+    case MessageModel::ShowReactionIcon:
+        message.setShowReactionIcon(value.toBool());
         Q_EMIT dataChanged(index, index);
         return true;
     }

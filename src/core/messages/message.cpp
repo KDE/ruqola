@@ -295,6 +295,16 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
+bool Message::showReactionIcon() const
+{
+    return mShowReactionIcon;
+}
+
+void Message::setShowReactionIcon(bool newShowReactionIcon)
+{
+    mShowReactionIcon = newShowReactionIcon;
+}
+
 const QMap<QString, QString> &Message::channels() const
 {
     return mChannels;

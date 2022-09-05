@@ -75,6 +75,7 @@ public:
         ShowIgnoredMessage,
         MessageInEditMode,
         DirectChannels,
+        ShowReactionIcon,
     };
     Q_ENUM(MessageRoles)
 
