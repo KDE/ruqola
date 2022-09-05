@@ -7,16 +7,21 @@
 #include "translationconfigurelanguagelistwidget.h"
 #include <KListWidgetSearchLine>
 #include <KLocalizedString>
+#include <QLabel>
 #include <QListWidget>
 #include <QVBoxLayout>
 
-TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(QWidget *parent)
+TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(const QString &labelText, QWidget *parent)
     : QWidget{parent}
     , mLanguageListWidget(new QListWidget(this))
     , mListSearchLine(new KListWidgetSearchLine(this))
+    , mLabel(new QLabel(labelText, this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mLabel->setObjectName(QStringLiteral("mLabel"));
+    mainLayout->addWidget(mLabel);
 
     mListSearchLine->setObjectName(QStringLiteral("mListSearchLine"));
     mainLayout->addWidget(mListSearchLine);

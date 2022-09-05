@@ -10,14 +10,16 @@
 #include <QWidget>
 class QListWidget;
 class KListWidgetSearchLine;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationConfigureLanguageListWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TranslationConfigureLanguageListWidget(QWidget *parent = nullptr);
+    explicit TranslationConfigureLanguageListWidget(const QString &labelText, QWidget *parent = nullptr);
     ~TranslationConfigureLanguageListWidget() override;
 
 private:
     QListWidget *const mLanguageListWidget;
     KListWidgetSearchLine *const mListSearchLine;
+    QLabel *const mLabel;
 };
