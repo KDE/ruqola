@@ -26,7 +26,6 @@ public:
     Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> languages();
 
 private:
-private:
     void parseCredentials(QNetworkReply *reply);
     void parseTranslation(QNetworkReply *reply);
     void translateText();
