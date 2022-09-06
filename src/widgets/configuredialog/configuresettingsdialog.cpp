@@ -44,15 +44,15 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureGeneralWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("ruqola")));
     addPage(mConfigureGeneralWidgetPage);
 
-    const QString fontPageName = i18nc("@title Preferences page name", "Font");
-    mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
-    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
-    addPage(mConfigureFontWidgetPage);
-
     const QString accountPageName = i18nc("@title Preferences page name", "Account");
     mConfigureAccountWidgetPage = new KPageWidgetItem(mConfigureAccountWidget, accountPageName);
     mConfigureAccountWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureAccountWidgetPage);
+
+    const QString fontPageName = i18nc("@title Preferences page name", "Font");
+    mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
+    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    addPage(mConfigureFontWidgetPage);
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
