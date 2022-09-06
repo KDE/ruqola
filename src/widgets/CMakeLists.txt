@@ -586,6 +586,8 @@ target_sources(libruqolawidgets PRIVATE
     translation/translationconfigureutil.cpp
     translation/translationconfigurelanguagelistwidget.h
     translation/translationconfigurelanguagelistwidget.cpp
+    translation/translationmenu.cpp
+    translation/translationmenu.h
 )
 
 
