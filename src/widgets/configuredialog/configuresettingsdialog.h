@@ -18,6 +18,7 @@ class ConfigureUserFeedbackWidget;
 #endif
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
+class TranslationConfigureWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -34,8 +35,8 @@ private:
     ConfigureAccountWidget *const mConfigureAccountWidget;
     KPageWidgetItem *mConfigureSpellCheckingWidgetPage = nullptr;
     ConfigureSpellCheckingWidget *const mConfigureSpellCheckingWidget;
-    ConfigureGeneralWidget *const mConfigureGeneralWidget;
     KPageWidgetItem *mConfigureGeneralWidgetPage = nullptr;
+    ConfigureGeneralWidget *const mConfigureGeneralWidget;
 
     ConfigureFontWidget *const mConfigureFontWidget;
     KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
@@ -43,4 +44,6 @@ private:
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
+    KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
+    TranslationConfigureWidget *const mConfigureTranslateWidget;
 };

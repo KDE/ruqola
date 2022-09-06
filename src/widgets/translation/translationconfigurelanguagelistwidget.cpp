@@ -18,6 +18,7 @@ TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(c
     , mLabel(new QLabel(labelText, this))
 {
     auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mLabel->setObjectName(QStringLiteral("mLabel"));

@@ -32,6 +32,7 @@ TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mEngine);
+    hboxLayout->addStretch(0);
 
     auto hLanguageListboxLayout = new QHBoxLayout;
     hLanguageListboxLayout->setObjectName(QStringLiteral("hLanguageListboxLayout"));

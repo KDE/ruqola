@@ -22,6 +22,7 @@ void TranslationConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
     TranslationConfigureLanguageListWidget w({});
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mLanguageListWidget = w.findChild<QListWidget *>(QStringLiteral("mLanguageListWidget"));
     QVERIFY(mLanguageListWidget);

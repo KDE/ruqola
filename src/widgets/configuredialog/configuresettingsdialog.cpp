@@ -9,6 +9,7 @@
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurespellcheckingwidget.h"
+#include "translation/translationconfigurewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -33,6 +34,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_KUSERFEEDBACK
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
+    , mConfigureTranslateWidget(new TranslationConfigureWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
@@ -58,6 +60,11 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
     mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
     addPage(mConfigureSpellCheckingWidgetPage);
+
+    const QString translatePageName = i18nc("@title Preferences page name", "Translate");
+    mConfigureTranslateWidgetPage = new KPageWidgetItem(mConfigureTranslateWidget, translatePageName);
+    mConfigureTranslateWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
+    addPage(mConfigureTranslateWidgetPage);
 
 #if HAVE_KUSERFEEDBACK
     const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
@@ -101,6 +108,7 @@ void ConfigureSettingsDialog::slotAccepted()
 #endif
     mConfigureGeneralWidget->save();
     mConfigureFontWidget->save();
+    mConfigureTranslateWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
@@ -112,4 +120,5 @@ void ConfigureSettingsDialog::load()
 #endif
     mConfigureGeneralWidget->load();
     mConfigureFontWidget->load();
+    mConfigureTranslateWidget->load();
 }
