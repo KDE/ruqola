@@ -58,13 +58,16 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
 {
     const QPersistentModelIndex index = indexAt(event->pos());
     if (index.isValid()) {
-        if (mCurrentIndex.isValid() && mCurrentIndex != index) {
-            auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-            lastModel->setData(mCurrentIndex, false, MessageModel::ShowReactionIcon);
+        // When the cursor hovers another message, hide/show the reaction icon accordingly
+        if (mCurrentIndex != index) {
+            if (mCurrentIndex.isValid()) {
+                auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
+                lastModel->setData(mCurrentIndex, false, MessageModel::ShowReactionIcon);
+            }
+            mCurrentIndex = index;
+            auto model = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
+            model->setData(mCurrentIndex, true, MessageModel::ShowReactionIcon);
         }
-        mCurrentIndex = index;
-        auto model = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-        model->setData(mCurrentIndex, true, MessageModel::ShowReactionIcon);
 
         QStyleOptionViewItem options = listViewOptions();
         options.rect = visualRect(mCurrentIndex);

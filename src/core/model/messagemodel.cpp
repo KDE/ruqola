@@ -457,7 +457,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     case MessageModel::ShowReactionIcon:
         message.setShowReactionIcon(value.toBool());
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessageModel::ShowReactionIcon});
         return true;
     }
     return false;
