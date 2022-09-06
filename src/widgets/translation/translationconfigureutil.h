@@ -11,5 +11,4 @@ class QComboBox;
 namespace TranslationConfigureUtil
 {
 void fillComboboxSettings(QComboBox *combo);
-Q_REQUIRED_RESULT QVector<QPair<QString, QString>> languages(const QString &language);
 }

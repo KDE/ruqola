@@ -18,7 +18,7 @@
 
 TranslatorUtil::TranslatorUtil() = default;
 
-QPair<QString, QString> TranslatorUtil::pair(TranslatorUtil::languages lang)
+QPair<QString, QString> TranslatorUtil::pair(TranslatorUtil::LanguageType lang)
 {
     QPair<QString, QString> ret;
     switch (lang) {
@@ -271,4 +271,26 @@ void TranslatorUtil::saveEngineSettings(const QString &engineName)
     KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
     myGroup.writeEntry(QStringLiteral("Engine"), engineName);
     myGroup.sync();
+}
+
+QVector<QPair<QString, QString>> TranslatorUtil::supportedLanguages(const QString &engineTypeStr)
+{
+    QVector<QPair<QString, QString>> languagesList;
+    if (engineTypeStr == QLatin1String("google")) {
+        languagesList = GoogleTranslator::languages();
+    } else if (engineTypeStr == QLatin1String("bing")) {
+        languagesList = BingTranslator::languages();
+    } else if (engineTypeStr == QLatin1String("yandex")) {
+        languagesList = YandexTranslator::languages();
+    } else if (engineTypeStr == QLatin1String("libretranslate")) {
+        languagesList = LibreTranslateTranslator::languages();
+    } else if (engineTypeStr == QLatin1String("deepl")) {
+        languagesList = DeepLTranslator::languages();
+    } else if (engineTypeStr == QLatin1String("lingva")) {
+        languagesList = LingvaTranslator::languages();
+    } else {
+        qCWarning(RUQOLA_TRANSLATION_LOG) << "Invalid translator engine " << engineTypeStr;
+        languagesList = GoogleTranslator::languages();
+    }
+    return languagesList;
 }

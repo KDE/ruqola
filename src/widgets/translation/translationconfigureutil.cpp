@@ -6,6 +6,7 @@
 
 #include "translationconfigureutil.h"
 #include "convertertextjob/translatetext/translatorenginebase.h"
+
 #include <KLocalizedString>
 #include <QComboBox>
 
@@ -36,10 +37,4 @@ void TranslationConfigureUtil::fillComboboxSettings(QComboBox *combo)
             break;
         }
     }
-}
-
-QVector<QPair<QString, QString>> TranslationConfigureUtil::languages(const QString &language)
-{
-    // TODO
-    return {};
 }

@@ -23,7 +23,7 @@ public:
         QString to;
     };
 
-    enum languages {
+    enum LanguageType {
         automatic,
         en,
         zh,
@@ -87,9 +87,10 @@ public:
         cy,
         yi
     };
-    Q_REQUIRED_RESULT QPair<QString, QString> pair(TranslatorUtil::languages lang);
+    Q_REQUIRED_RESULT QPair<QString, QString> pair(TranslatorUtil::LanguageType lang);
     Q_REQUIRED_RESULT static TranslatorEngineBase *switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent);
     Q_REQUIRED_RESULT static TranslatorEngineBase::TranslatorEngine loadEngineSettings();
     Q_REQUIRED_RESULT static QString loadEngine();
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> supportedLanguages(const QString &engineTypeStr);
     static void saveEngineSettings(const QString &engineName);
 };
