@@ -7,10 +7,12 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include <QObject>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationMenu
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationMenu : public QObject
 {
+    Q_OBJECT
 public:
-    TranslationMenu();
+    explicit TranslationMenu(QObject *parent = nullptr);
     ~TranslationMenu();
 };

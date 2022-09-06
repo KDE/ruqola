@@ -6,7 +6,8 @@
 
 #include "translationmenu.h"
 
-TranslationMenu::TranslationMenu()
+TranslationMenu::TranslationMenu(QObject *parent)
+    : QObject(parent)
 {
 }
 
