@@ -39,3 +39,18 @@ void TranslationConfigureLanguageListWidget::clear()
 {
     mLanguageListWidget->clear();
 }
+
+void TranslationConfigureLanguageListWidget::addItem(const QPair<QString, QString> &lang)
+{
+    QListWidgetItem *item = new QListWidgetItem(mLanguageListWidget);
+    item->setText(lang.first);
+    item->setData(LanguageCode, lang.second);
+    item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+    item->setCheckState(Qt::Unchecked);
+}
+
+QStringList TranslationConfigureLanguageListWidget::selectedLanguages() const
+{
+    // TODO
+    return {};
+}

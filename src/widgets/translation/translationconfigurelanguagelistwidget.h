@@ -20,7 +20,14 @@ public:
 
     void clear();
 
+    void addItem(const QPair<QString, QString> &lang);
+
+    Q_REQUIRED_RESULT QStringList selectedLanguages() const;
+
 private:
+    enum LanguageData {
+        LanguageCode = Qt::UserRole + 1,
+    };
     QListWidget *const mLanguageListWidget;
     KListWidgetSearchLine *const mListSearchLine;
     QLabel *const mLabel;

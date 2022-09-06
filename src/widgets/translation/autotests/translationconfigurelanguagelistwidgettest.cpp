@@ -36,6 +36,7 @@ void TranslationConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
     auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);
     QVERIFY(mLabel->text().isEmpty());
+    QVERIFY(w.selectedLanguages().isEmpty());
 }
 
 void TranslationConfigureLanguageListWidgetTest::shouldAssignLabel()
