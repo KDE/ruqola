@@ -78,8 +78,8 @@ void LibreTranslateTranslator::loadSettings()
 
 QVector<QPair<QString, QString>> LibreTranslateTranslator::languages()
 {
-    if (sSupportedLanguage.isEmpty()) {
+    if (mLanguages.isEmpty()) {
         // TODO
     }
-    return sSupportedLanguage;
+    return mLanguages;
 }

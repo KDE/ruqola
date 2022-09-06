@@ -83,8 +83,8 @@ void LingvaTranslator::loadSettings()
 
 QVector<QPair<QString, QString>> LingvaTranslator::languages()
 {
-    if (sSupportedLanguage.isEmpty()) {
+    if (mLanguages.isEmpty()) {
         // TODO
     }
-    return sSupportedLanguage;
+    return mLanguages;
 }

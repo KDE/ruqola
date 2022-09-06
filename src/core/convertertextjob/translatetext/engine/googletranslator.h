@@ -29,4 +29,5 @@ public:
 
 private:
     void slotTranslateFinished(QNetworkReply *);
+    static inline QVector<QPair<QString, QString>> mLanguages;
 };

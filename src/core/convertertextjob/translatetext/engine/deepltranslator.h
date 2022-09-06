@@ -25,5 +25,6 @@ private:
     Q_REQUIRED_RESULT QString apiUrl() const;
     void translateText();
     void parseTranslation(QNetworkReply *reply);
+    static inline QVector<QPair<QString, QString>> mLanguages;
     bool mUseFreeLicense = false;
 };

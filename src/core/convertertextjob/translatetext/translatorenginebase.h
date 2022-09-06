@@ -62,5 +62,4 @@ protected:
     QString mServerUrl;
     QString mApiKey;
     bool mDebug = false;
-    static inline QVector<QPair<QString, QString>> sSupportedLanguage;
 };

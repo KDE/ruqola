@@ -50,7 +50,7 @@ QString YandexTranslator::engineName() const
 
 QVector<QPair<QString, QString>> YandexTranslator::languages()
 {
-    if (sSupportedLanguage.isEmpty()) {
+    if (mLanguages.isEmpty()) {
         TranslatorUtil translatorUtil;
         QVector<QPair<QString, QString>> fullListLanguage;
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::automatic));
@@ -111,9 +111,9 @@ QVector<QPair<QString, QString>> YandexTranslator::languages()
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::vi));
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::cy));
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::yi));
-        sSupportedLanguage = fullListLanguage;
+        mLanguages = fullListLanguage;
     }
-    return sSupportedLanguage;
+    return mLanguages;
 }
 
 void YandexTranslator::parseCredentials(QNetworkReply *reply)

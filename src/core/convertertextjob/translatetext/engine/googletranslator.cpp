@@ -30,7 +30,7 @@ QVector<QPair<QString, QString>> GoogleTranslator::supportedLanguage() const
 
 QVector<QPair<QString, QString>> GoogleTranslator::languages()
 {
-    if (sSupportedLanguage.isEmpty()) {
+    if (mLanguages.isEmpty()) {
         TranslatorUtil translatorUtil;
         QVector<QPair<QString, QString>> fullListLanguage;
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::automatic));
@@ -93,9 +93,9 @@ QVector<QPair<QString, QString>> GoogleTranslator::languages()
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::vi));
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::cy));
         fullListLanguage.append(translatorUtil.pair(TranslatorUtil::yi));
-        sSupportedLanguage = fullListLanguage;
+        mLanguages = fullListLanguage;
     }
-    return sSupportedLanguage;
+    return mLanguages;
 }
 
 void GoogleTranslator::translate()

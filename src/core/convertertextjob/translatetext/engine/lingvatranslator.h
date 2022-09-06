@@ -24,4 +24,5 @@ public:
 private:
     void translateText();
     void parseTranslation(QNetworkReply *reply);
+    static inline QVector<QPair<QString, QString>> mLanguages;
 };

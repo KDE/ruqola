@@ -24,6 +24,7 @@ private:
     void parseCredentials(QNetworkReply *reply);
     void parseTranslation(QNetworkReply *reply);
     void translateText();
+    static inline QVector<QPair<QString, QString>> mLanguages;
     static QByteArray sBingKey;
     static QByteArray sBingToken;
     static QString sBingIg;
