@@ -60,3 +60,11 @@ QStringList TranslationConfigureLanguageListWidget::selectedLanguages() const
     }
     return langs;
 }
+
+void TranslationConfigureLanguageListWidget::setSelectedLanguages(const QStringList &list)
+{
+    for (int i = 0; i < mLanguageListWidget->count(); ++i) {
+        const auto item = mLanguageListWidget->item(i);
+        item->setCheckState(list.contains(item->data(LanguageCode).toString()) ? Qt::Checked : Qt::Unchecked);
+    }
+}

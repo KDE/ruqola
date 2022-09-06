@@ -23,6 +23,7 @@ public:
     void addItem(const QPair<QString, QString> &lang);
 
     Q_REQUIRED_RESULT QStringList selectedLanguages() const;
+    void setSelectedLanguages(const QStringList &list);
 
 private:
     enum LanguageData {

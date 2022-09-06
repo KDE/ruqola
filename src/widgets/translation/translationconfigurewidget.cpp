@@ -63,6 +63,8 @@ void TranslationConfigureWidget::save()
     const QString engine = mEngine->currentData().toString();
     KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
     groupTranslate.writeEntry(QStringLiteral("engine"), engine);
+    groupTranslate.writeEntry(QStringLiteral("From"), mFromLanguageWidget->selectedLanguages());
+    groupTranslate.writeEntry(QStringLiteral("To"), mToLanguageWidget->selectedLanguages());
 }
 
 void TranslationConfigureWidget::load()
@@ -73,6 +75,8 @@ void TranslationConfigureWidget::load()
     if (index != -1) {
         mEngine->setCurrentIndex(index);
     }
+    mFromLanguageWidget->setSelectedLanguages(groupTranslate.readEntry(QStringLiteral("From"), QStringList()));
+    mToLanguageWidget->setSelectedLanguages(groupTranslate.readEntry(QStringLiteral("To"), QStringList()));
 }
 
 void TranslationConfigureWidget::slotEngineChanged(int index)
