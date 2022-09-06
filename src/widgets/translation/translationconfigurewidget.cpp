@@ -8,7 +8,9 @@
 #include "convertertextjob/translatetext/translatorutil.h"
 #include "translationconfigurelanguagelistwidget.h"
 #include "translationconfigureutil.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QComboBox>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -54,22 +56,23 @@ TranslationConfigureWidget::~TranslationConfigureWidget() = default;
 void TranslationConfigureWidget::fillEngine()
 {
     TranslationConfigureUtil::fillComboboxSettings(mEngine);
-    uploadListLanguages();
-}
-
-void TranslationConfigureWidget::uploadListLanguages()
-{
-    // TODO
 }
 
 void TranslationConfigureWidget::save()
 {
-    // TODO
+    const QString engine = mEngine->currentData().toString();
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
+    groupTranslate.writeEntry(QStringLiteral("engine"), engine);
 }
 
 void TranslationConfigureWidget::load()
 {
-    // TODO
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
+    const QString engine = groupTranslate.readEntry(QStringLiteral("engine"), QStringLiteral("google")); // Google by default
+    const int index = mEngine->findData(engine);
+    if (index != -1) {
+        mEngine->setCurrentIndex(index);
+    }
 }
 
 void TranslationConfigureWidget::slotEngineChanged(int index)

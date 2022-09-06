@@ -51,6 +51,12 @@ void TranslationConfigureLanguageListWidget::addItem(const QPair<QString, QStrin
 
 QStringList TranslationConfigureLanguageListWidget::selectedLanguages() const
 {
-    // TODO
-    return {};
+    QStringList langs;
+    for (int i = 0; i < mLanguageListWidget->count(); ++i) {
+        const auto item = mLanguageListWidget->item(i);
+        if (item->checkState() == Qt::Checked) {
+            langs.append(item->data(LanguageCode).toString());
+        }
+    }
+    return langs;
 }

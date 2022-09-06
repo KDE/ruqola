@@ -22,7 +22,6 @@ public:
 
 private:
     void fillEngine();
-    void uploadListLanguages();
     void slotEngineChanged(int index);
     QComboBox *const mEngine;
     TranslationConfigureLanguageListWidget *const mFromLanguageWidget;
