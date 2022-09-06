@@ -34,3 +34,8 @@ TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(c
 }
 
 TranslationConfigureLanguageListWidget::~TranslationConfigureLanguageListWidget() = default;
+
+void TranslationConfigureLanguageListWidget::clear()
+{
+    mLanguageListWidget->clear();
+}

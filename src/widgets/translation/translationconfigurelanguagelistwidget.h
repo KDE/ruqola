@@ -18,6 +18,8 @@ public:
     explicit TranslationConfigureLanguageListWidget(const QString &labelText, QWidget *parent = nullptr);
     ~TranslationConfigureLanguageListWidget() override;
 
+    void clear();
+
 private:
     QListWidget *const mLanguageListWidget;
     KListWidgetSearchLine *const mListSearchLine;
