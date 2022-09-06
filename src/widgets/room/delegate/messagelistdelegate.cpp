@@ -335,7 +335,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
     const Message::MessageType messageType = message->messageType();
     const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
-    if (!isSystemMessage /* && message->showReactionIcon()*/) {
+    if (!isSystemMessage && message->showReactionIcon()) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
     }
 

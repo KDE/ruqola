@@ -172,11 +172,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         layout.showIgnoredMessageIconRect = QRect(showIgnoreMessageIconX, layout.senderRect.y(), iconSize, iconSize);
         layout.showIgnoreMessage = index.data(MessageModel::ShowIgnoredMessage).toBool();
     }
-#if 0
-    layout.addReactionRect = QRect(textLeft + textSize.width() + margin /* + maxWidth*/, layout.senderRect.y(), iconSize, iconSize);
-#else
-    layout.addReactionRect = QRect(textLeft + maxWidth, layout.senderRect.y(), iconSize, iconSize);
-#endif
+    layout.addReactionRect = QRect(textLeft + textSize.width() + margin, layout.senderRect.y(), iconSize, iconSize);
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
     layout.timeStampRect = QRect(QPoint(layout.timeStampPos.x(), usableRect.top()), timeSize);
 

@@ -5,6 +5,8 @@
 */
 
 #include "messagelistviewbase.h"
+#include "model/messagemodel.h"
+#include <QAbstractItemModel>
 #include <QApplication>
 #include <QMouseEvent>
 #include <QScrollBar>
@@ -19,6 +21,7 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     // only the lineedit takes focus
     setFocusPolicy(Qt::NoFocus);
     scrollToBottom();
+    setMouseTracking(true);
 }
 
 MessageListViewBase::~MessageListViewBase() = default;
@@ -55,12 +58,19 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
 {
     const QPersistentModelIndex index = indexAt(event->pos());
     if (index.isValid()) {
-        QStyleOptionViewItem options = listViewOptions();
-        options.rect = visualRect(index);
-        if (mouseEvent(event, options, index)) {
-            update(index);
+        if (mCurrentIndex.isValid() && mCurrentIndex != index) {
+            auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
+            lastModel->setData(mCurrentIndex, false, MessageModel::ShowReactionIcon);
         }
-        // TODO store QPersistentModelIndex => we can show or not
+        mCurrentIndex = index;
+        auto model = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
+        model->setData(mCurrentIndex, true, MessageModel::ShowReactionIcon);
+
+        QStyleOptionViewItem options = listViewOptions();
+        options.rect = visualRect(mCurrentIndex);
+        if (mouseEvent(event, options, mCurrentIndex)) {
+            update(mCurrentIndex);
+        }
     }
 }
 

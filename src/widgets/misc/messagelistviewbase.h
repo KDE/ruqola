@@ -37,4 +37,5 @@ private:
     void handleMouseEvent(QMouseEvent *event);
     bool mAtBottom = true;
     QPoint mPressedPosition;
+    QPersistentModelIndex mCurrentIndex = {};
 };
