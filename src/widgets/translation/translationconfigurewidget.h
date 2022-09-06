@@ -17,8 +17,8 @@ public:
     explicit TranslationConfigureWidget(QWidget *parent = nullptr);
     ~TranslationConfigureWidget() override;
 
-    void saveSettings();
-    void loadSettings();
+    void save();
+    void load();
 
 private:
     void fillEngine();

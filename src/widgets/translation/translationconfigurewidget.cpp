@@ -61,12 +61,12 @@ void TranslationConfigureWidget::uploadListLanguages()
     // TODO
 }
 
-void TranslationConfigureWidget::saveSettings()
+void TranslationConfigureWidget::save()
 {
     // TODO
 }
 
-void TranslationConfigureWidget::loadSettings()
+void TranslationConfigureWidget::load()
 {
     // TODO
 }
