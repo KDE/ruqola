@@ -12,3 +12,8 @@ TranslationMenu::TranslationMenu(QObject *parent)
 }
 
 TranslationMenu::~TranslationMenu() = default;
+
+void TranslationMenu::updateMenu()
+{
+    // TODO
+}

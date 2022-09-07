@@ -15,4 +15,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationMenu : public QObject
 public:
     explicit TranslationMenu(QObject *parent = nullptr);
     ~TranslationMenu();
+
+Q_SIGNALS:
+    void translate(const QString &from, const QString &to);
+
+private:
+    void updateMenu();
 };
