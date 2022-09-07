@@ -609,7 +609,7 @@
     </release>
     <release version="1.6.3" date="2022-03-04">
       <artifacts>
-        <artifact type="binary" platform="win64">
+        <artifact type="binary" platform="x86_64-windows-msvc">
           <location>https://download.kde.org/stable/ruqola/ruqola-1.6.3-windows-msvc2019_64-cl.exe</location>
           <checksum type="sha256">6488a9192ad565e8afa474e661541b4640aeecec060eae058ee29d200e3e18e7</checksum>
           <size type="download">54219968</size>
