@@ -81,6 +81,9 @@ void TranslationConfigureWidget::load()
 
 void TranslationConfigureWidget::slotEngineChanged(int index)
 {
+    const QStringList fromLanguages = mFromLanguageWidget->selectedLanguages();
+    const QStringList toLanguages = mToLanguageWidget->selectedLanguages();
+
     const QString engine = mEngine->itemData(index).toString();
     const QVector<QPair<QString, QString>> listLanguage = TranslatorUtil::supportedLanguages(engine);
     mFromLanguageWidget->clear();
@@ -94,4 +97,7 @@ void TranslationConfigureWidget::slotEngineChanged(int index)
             mToLanguageWidget->addItem(currentLanguage);
         }
     }
+    // Restore if possible
+    mFromLanguageWidget->setSelectedLanguages(fromLanguages);
+    mToLanguageWidget->setSelectedLanguages(toLanguages);
 }
