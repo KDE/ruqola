@@ -567,6 +567,9 @@ void RoomWidget::connectRoom()
         connect(mRoom, &Room::nameChanged, this, [this]() {
             mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
         });
+        connect(mRoom, &Room::fnameChanged, this, [this]() {
+            mRoomHeaderWidget->setRoomName(mRoom->displayRoomName());
+        });
         connect(mRoom, &Room::favoriteChanged, this, [this]() {
             mRoomHeaderWidget->setFavoriteStatus(mRoom->favorite());
         });
