@@ -18,8 +18,8 @@
 TranslationConfigureWidget::TranslationConfigureWidget(QWidget *parent)
     : QWidget{parent}
     , mEngine(new QComboBox(this))
-    , mFromLanguageWidget(new TranslationConfigureLanguageListWidget(i18n("From"), this))
-    , mToLanguageWidget(new TranslationConfigureLanguageListWidget(i18n("To"), this))
+    , mFromLanguageWidget(new TranslationConfigureLanguageListWidget(i18n("From:"), this))
+    , mToLanguageWidget(new TranslationConfigureLanguageListWidget(i18n("To:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
