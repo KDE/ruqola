@@ -22,6 +22,7 @@ TranslatorMenu::~TranslatorMenu()
 
 void TranslatorMenu::updateMenu()
 {
+    mMenu->clear();
     // TODO
 }
 
