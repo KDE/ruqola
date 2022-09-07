@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class TranslationConfigureWidgetTest : public QObject
+class TranslatorConfigureWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit TranslationConfigureWidgetTest(QObject *parent = nullptr);
-    ~TranslationConfigureWidgetTest() override = default;
+    explicit TranslatorConfigureWidgetTest(QObject *parent = nullptr);
+    ~TranslatorConfigureWidgetTest() override = default;
 
 private Q_SLOTS:
     void shouldHaveDefaultValues();

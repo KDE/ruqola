@@ -4,22 +4,22 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "translationconfigurelanguagelistwidgettest.h"
-#include "translation/translationconfigurelanguagelistwidget.h"
+#include "translatorconfigurelanguagelistwidgettest.h"
+#include "translator/translatorconfigurelanguagelistwidget.h"
 #include <KListWidgetSearchLine>
 #include <QLabel>
 #include <QListWidget>
 #include <QTest>
 #include <QVBoxLayout>
-QTEST_MAIN(TranslationConfigureLanguageListWidgetTest)
-TranslationConfigureLanguageListWidgetTest::TranslationConfigureLanguageListWidgetTest(QObject *parent)
+QTEST_MAIN(TranslatorConfigureLanguageListWidgetTest)
+TranslatorConfigureLanguageListWidgetTest::TranslatorConfigureLanguageListWidgetTest(QObject *parent)
     : QObject{parent}
 {
 }
 
-void TranslationConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
+void TranslatorConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
 {
-    TranslationConfigureLanguageListWidget w({});
+    TranslatorConfigureLanguageListWidget w({});
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -39,10 +39,10 @@ void TranslationConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
     QVERIFY(w.selectedLanguages().isEmpty());
 }
 
-void TranslationConfigureLanguageListWidgetTest::shouldAssignLabel()
+void TranslatorConfigureLanguageListWidgetTest::shouldAssignLabel()
 {
     const QString label{QStringLiteral("FOO")};
-    TranslationConfigureLanguageListWidget w(label);
+    TranslatorConfigureLanguageListWidget w(label);
     auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);
     QCOMPARE(mLabel->text(), label);

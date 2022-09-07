@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-macro(add_ruqolatranslation_test _source)
+macro(add_ruqolatranslatorwidget_test _source)
     set( _sources ${_source} ${ARGN} )
     get_filename_component( _name ${_source} NAME_WE )
     add_executable( ${_name} ${_sources} ${_name}.h)
@@ -10,5 +10,6 @@ macro(add_ruqolatranslation_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqolatranslation_test(translationconfigurewidgettest.cpp)
-add_ruqolatranslation_test(translationconfigurelanguagelistwidgettest.cpp)
+add_ruqolatranslatorwidget_test(translatorconfigurewidgettest.cpp)
+add_ruqolatranslatorwidget_test(translatorconfigurelanguagelistwidgettest.cpp)
+add_ruqolatranslatorwidget_test(translatormenutest.cpp)

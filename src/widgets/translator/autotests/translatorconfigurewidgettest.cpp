@@ -4,24 +4,24 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "translationconfigurewidgettest.h"
-#include "translation/translationconfigurewidget.h"
+#include "translatorconfigurewidgettest.h"
+#include "translator/translatorconfigurewidget.h"
 #include <QComboBox>
 #include <QLabel>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 
-QTEST_MAIN(TranslationConfigureWidgetTest)
-TranslationConfigureWidgetTest::TranslationConfigureWidgetTest(QObject *parent)
+QTEST_MAIN(TranslatorConfigureWidgetTest)
+TranslatorConfigureWidgetTest::TranslatorConfigureWidgetTest(QObject *parent)
     : QObject{parent}
 {
     QStandardPaths::setTestModeEnabled(true);
 }
 
-void TranslationConfigureWidgetTest::shouldHaveDefaultValues()
+void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
 {
-    TranslationConfigureWidget w;
+    TranslatorConfigureWidget w;
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 

@@ -11,12 +11,12 @@
 class QListWidget;
 class KListWidgetSearchLine;
 class QLabel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationConfigureLanguageListWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorConfigureLanguageListWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TranslationConfigureLanguageListWidget(const QString &labelText, QWidget *parent = nullptr);
-    ~TranslationConfigureLanguageListWidget() override;
+    explicit TranslatorConfigureLanguageListWidget(const QString &labelText, QWidget *parent = nullptr);
+    ~TranslatorConfigureLanguageListWidget() override;
 
     void clear();
 

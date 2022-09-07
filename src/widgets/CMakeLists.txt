@@ -580,14 +580,14 @@ target_sources(libruqolawidgets PRIVATE
     managedevice/managedevicewidget.cpp
     managedevice/managedevicewidget.h
 
-    translation/translationconfigurewidget.h
-    translation/translationconfigurewidget.cpp
-    translation/translationconfigureutil.h
-    translation/translationconfigureutil.cpp
-    translation/translationconfigurelanguagelistwidget.h
-    translation/translationconfigurelanguagelistwidget.cpp
-    translation/translationmenu.cpp
-    translation/translationmenu.h
+    translator/translatorconfigurewidget.h
+    translator/translatorconfigurewidget.cpp
+    translator/translatorconfigureutil.h
+    translator/translatorconfigureutil.cpp
+    translator/translatorconfigurelanguagelistwidget.h
+    translator/translatorconfigurelanguagelistwidget.cpp
+    translator/translatormenu.cpp
+    translator/translatormenu.h
 )
 
 
@@ -671,7 +671,7 @@ if (BUILD_TESTING)
     add_subdirectory(administratorsettingsdialog/autotests/)
     add_subdirectory(bannerinfodialog/autotests)
     add_subdirectory(managedevice/autotests)
-    add_subdirectory(translation/autotests)
+    add_subdirectory(translator/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

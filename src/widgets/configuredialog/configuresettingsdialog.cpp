@@ -9,7 +9,7 @@
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurespellcheckingwidget.h"
-#include "translation/translationconfigurewidget.h"
+#include "translator/translatorconfigurewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -34,7 +34,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_KUSERFEEDBACK
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
-    , mConfigureTranslateWidget(new TranslationConfigureWidget(this))
+    , mConfigureTranslateWidget(new TranslatorConfigureWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);

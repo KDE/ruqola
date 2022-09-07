@@ -8,7 +8,7 @@
 #include <QVector>
 
 class QComboBox;
-namespace TranslationConfigureUtil
+namespace TranslatorConfigureUtil
 {
 void fillComboboxSettings(QComboBox *combo);
 }

@@ -4,14 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "translationconfigurelanguagelistwidget.h"
+#include "translatorconfigurelanguagelistwidget.h"
 #include <KListWidgetSearchLine>
 #include <KLocalizedString>
 #include <QLabel>
 #include <QListWidget>
 #include <QVBoxLayout>
 
-TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(const QString &labelText, QWidget *parent)
+TranslatorConfigureLanguageListWidget::TranslatorConfigureLanguageListWidget(const QString &labelText, QWidget *parent)
     : QWidget{parent}
     , mLanguageListWidget(new QListWidget(this))
     , mListSearchLine(new KListWidgetSearchLine(this))
@@ -33,14 +33,14 @@ TranslationConfigureLanguageListWidget::TranslationConfigureLanguageListWidget(c
     mainLayout->addWidget(mLanguageListWidget);
 }
 
-TranslationConfigureLanguageListWidget::~TranslationConfigureLanguageListWidget() = default;
+TranslatorConfigureLanguageListWidget::~TranslatorConfigureLanguageListWidget() = default;
 
-void TranslationConfigureLanguageListWidget::clear()
+void TranslatorConfigureLanguageListWidget::clear()
 {
     mLanguageListWidget->clear();
 }
 
-void TranslationConfigureLanguageListWidget::addItem(const QPair<QString, QString> &lang)
+void TranslatorConfigureLanguageListWidget::addItem(const QPair<QString, QString> &lang)
 {
     QListWidgetItem *item = new QListWidgetItem(mLanguageListWidget);
     item->setText(lang.first);
@@ -49,7 +49,7 @@ void TranslationConfigureLanguageListWidget::addItem(const QPair<QString, QStrin
     item->setCheckState(Qt::Unchecked);
 }
 
-QStringList TranslationConfigureLanguageListWidget::selectedLanguages() const
+QStringList TranslatorConfigureLanguageListWidget::selectedLanguages() const
 {
     QStringList langs;
     for (int i = 0; i < mLanguageListWidget->count(); ++i) {
@@ -61,7 +61,7 @@ QStringList TranslationConfigureLanguageListWidget::selectedLanguages() const
     return langs;
 }
 
-void TranslationConfigureLanguageListWidget::setSelectedLanguages(const QStringList &list)
+void TranslatorConfigureLanguageListWidget::setSelectedLanguages(const QStringList &list)
 {
     for (int i = 0; i < mLanguageListWidget->count(); ++i) {
         const auto item = mLanguageListWidget->item(i);

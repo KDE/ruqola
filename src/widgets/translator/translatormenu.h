@@ -8,17 +8,20 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
-
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslationMenu : public QObject
+class QMenu;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorMenu : public QObject
 {
     Q_OBJECT
 public:
-    explicit TranslationMenu(QObject *parent = nullptr);
-    ~TranslationMenu();
+    explicit TranslatorMenu(QObject *parent = nullptr);
+    ~TranslatorMenu();
+
+    Q_REQUIRED_RESULT QMenu *menu() const;
 
 Q_SIGNALS:
     void translate(const QString &from, const QString &to);
 
 private:
     void updateMenu();
+    QMenu *const mMenu;
 };

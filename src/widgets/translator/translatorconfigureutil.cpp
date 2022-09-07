@@ -4,13 +4,13 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "translationconfigureutil.h"
+#include "translatorconfigureutil.h"
 #include "convertertextjob/translatetext/translatorenginebase.h"
 
 #include <KLocalizedString>
 #include <QComboBox>
 
-void TranslationConfigureUtil::fillComboboxSettings(QComboBox *combo)
+void TranslatorConfigureUtil::fillComboboxSettings(QComboBox *combo)
 {
     for (int i = 0; i < TranslatorEngineBase::TranslatorEngine::LastEngine; ++i) {
         switch (i) {
