@@ -6,11 +6,14 @@
 
 #include "translatormenutest.h"
 #include "translator/translatormenu.h"
+#include <QStandardPaths>
 #include <QTest>
+
 QTEST_MAIN(TranslatorMenuTest)
 TranslatorMenuTest::TranslatorMenuTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void TranslatorMenuTest::shouldHaveDefaultValues()

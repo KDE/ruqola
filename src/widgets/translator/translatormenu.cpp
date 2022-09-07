@@ -6,6 +6,8 @@
 
 #include "translatormenu.h"
 
+#include <KConfigGroup>
+#include <KSharedConfig>
 #include <QMenu>
 
 TranslatorMenu::TranslatorMenu(QObject *parent)
@@ -23,7 +25,15 @@ TranslatorMenu::~TranslatorMenu()
 void TranslatorMenu::updateMenu()
 {
     mMenu->clear();
-    // TODO
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
+    const auto fromList = groupTranslate.readEntry(QStringLiteral("From"), QStringList());
+    const auto toList = groupTranslate.readEntry(QStringLiteral("To"), QStringList());
+
+    for (const auto &fromLang : fromList) {
+        for (const auto &toLang : toList) {
+            // TODO
+        }
+    }
 }
 
 QMenu *TranslatorMenu::menu() const
