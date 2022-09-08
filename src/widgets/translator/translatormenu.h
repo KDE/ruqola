@@ -18,10 +18,12 @@ public:
 
     Q_REQUIRED_RESULT QMenu *menu() const;
 
+    Q_REQUIRED_RESULT bool isEmpty() const;
 Q_SIGNALS:
     void translate(const QString &from, const QString &to);
 
 private:
+    Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
     void updateMenu();
     QMenu *const mMenu;
 };

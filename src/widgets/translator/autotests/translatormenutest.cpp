@@ -20,4 +20,5 @@ void TranslatorMenuTest::shouldHaveDefaultValues()
 {
     TranslatorMenu w;
     QVERIFY(w.menu());
+    QVERIFY(w.isEmpty());
 }
