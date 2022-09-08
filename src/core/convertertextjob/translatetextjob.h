@@ -7,8 +7,8 @@
 #pragma once
 
 #include "convertertextabstractjob.h"
-#include "libruqola_private_export.h"
-class LIBRUQOLACORE_TESTS_EXPORT TranslateTextJob : public ConverterTextAbstractJob
+#include "libruqolacore_export.h"
+class LIBRUQOLACORE_EXPORT TranslateTextJob : public ConverterTextAbstractJob
 {
     Q_OBJECT
 public:

@@ -66,6 +66,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
     connect(mMessageListDelegate, &MessageListDelegate::startPrivateConversation, this, &MessageListView::slotStartPrivateConversation);
     connect(mMessageListDelegate, &MessageListDelegate::updateView, this, &MessageListView::slotUpdateView);
+    connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
 }
 
 MessageListView::~MessageListView()
@@ -359,6 +360,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(followingToMessageAction);
 #if 0 // Add translator menu
         menu.addSeparator();
+        mTranslatorMenu->setMessageId(message->messageId());
         menu.addMenu(mTranslatorMenu->menu());
 #endif
         if (deleteAction) {
@@ -695,4 +697,8 @@ void MessageListView::slotShowUserInfo(const QString &userName)
     dlg.setUserName(userName);
     dlg.setRoles(mCurrentRocketChatAccount->roleInfo());
     dlg.exec();
+}
+
+void MessageListView::slotTranslate(const QString &from, const QString &to, const QString &messageId)
+{
 }

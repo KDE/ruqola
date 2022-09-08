@@ -90,6 +90,7 @@ private:
     Q_REQUIRED_RESULT QString generatePermalink(const QString &messageId) const;
     void slotShowUserInfo(const QString &userName);
     void slotUpdateView();
+    void slotTranslate(const QString &from, const QString &to, const QString &messageId);
 
 private:
     QPointer<Room> mRoom;

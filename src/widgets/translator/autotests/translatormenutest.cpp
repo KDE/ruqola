@@ -6,6 +6,7 @@
 
 #include "translatormenutest.h"
 #include "translator/translatormenu.h"
+#include <QMenu>
 #include <QStandardPaths>
 #include <QTest>
 
@@ -21,4 +22,5 @@ void TranslatorMenuTest::shouldHaveDefaultValues()
     TranslatorMenu w;
     QVERIFY(w.menu());
     QVERIFY(w.isEmpty());
+    QVERIFY(w.menu()->title().isEmpty());
 }

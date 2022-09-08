@@ -19,6 +19,7 @@ TranslatorMenu::TranslatorMenu(QObject *parent)
 {
     mMenu->setObjectName(QStringLiteral("menu"));
     mMenu->setTitle(i18n("Translate..."));
+    mMenu->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-locale")));
     updateMenu();
 }
 
@@ -53,13 +54,23 @@ void TranslatorMenu::updateMenu()
                     auto action = new QAction(mMenu);
                     action->setText(QStringLiteral("%1->%2").arg(fromLangI18n, toLangI18n));
                     connect(action, &QAction::triggered, this, [this, fromLang, toLang]() {
-                        Q_EMIT translate(fromLang, toLang);
+                        Q_EMIT translate(fromLang, toLang, mMessageId);
                     });
                     mMenu->addAction(action);
                 }
             }
         }
     }
+}
+
+const QString &TranslatorMenu::messageId() const
+{
+    return mMessageId;
+}
+
+void TranslatorMenu::setMessageId(const QString &newMessageId)
+{
+    mMessageId = newMessageId;
 }
 
 QString TranslatorMenu::searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang)

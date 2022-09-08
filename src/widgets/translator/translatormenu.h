@@ -19,11 +19,15 @@ public:
     Q_REQUIRED_RESULT QMenu *menu() const;
 
     Q_REQUIRED_RESULT bool isEmpty() const;
+    const QString &messageId() const;
+    void setMessageId(const QString &newMessageId);
+
 Q_SIGNALS:
-    void translate(const QString &from, const QString &to);
+    void translate(const QString &from, const QString &to, const QString &messageId);
 
 private:
     Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
     void updateMenu();
     QMenu *const mMenu;
+    QString mMessageId;
 };
