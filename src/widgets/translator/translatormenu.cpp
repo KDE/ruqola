@@ -9,6 +9,7 @@
 #include "ruqolawidgets_debug.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <QMenu>
 
@@ -17,6 +18,8 @@ TranslatorMenu::TranslatorMenu(QObject *parent)
     , mMenu(new QMenu)
 {
     mMenu->setObjectName(QStringLiteral("menu"));
+    mMenu->setTitle(i18n("Translate..."));
+    updateMenu();
 }
 
 TranslatorMenu::~TranslatorMenu()

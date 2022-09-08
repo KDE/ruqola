@@ -20,6 +20,7 @@
 #include "ruqolawidgets_debug.h"
 #include "textpluginmanager.h"
 #include "threadwidget/threadmessagedialog.h"
+#include "translator/translatormenu.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -38,6 +39,7 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     : MessageListViewBase(parent)
     , mMode(mode)
     , mMessageListDelegate(new MessageListDelegate(account, this))
+    , mTranslatorMenu(new TranslatorMenu(this))
     , mCurrentRocketChatAccount(account)
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
@@ -355,7 +357,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
-
+#if 0 // Add translator menu
+        menu.addSeparator();
+        menu.addMenu(mTranslatorMenu->menu());
+#endif
         if (deleteAction) {
             menu.addSeparator();
             menu.addAction(deleteAction);
