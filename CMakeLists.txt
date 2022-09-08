@@ -99,6 +99,7 @@ find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5Sonnet ${KF5_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Purpose ${KF5_MIN_VERSION} CONFIG REQUIRED)
 
 find_package(KF5DocTools ${KF5_MIN_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION

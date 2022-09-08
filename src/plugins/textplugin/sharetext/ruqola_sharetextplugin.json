@@ -1,0 +1,9 @@
+{
+    "KPlugin": {
+        "Id": "sharetextplugin",
+        "ServiceTypes": [
+            "Ruqola/TextPlugin"
+        ],
+        "Version": "1.0"
+    }
+}

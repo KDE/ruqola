@@ -28,3 +28,4 @@ Dependencies:
     'frameworks/kidletime': '@stable' 
     'frameworks/knotifyconfig': '@stable'
     'frameworks/breeze-icons': '@stable'
+    'frameworks/purpose': '@stable'
