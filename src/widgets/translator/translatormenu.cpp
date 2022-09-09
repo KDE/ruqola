@@ -54,7 +54,7 @@ void TranslatorMenu::updateMenu()
                     auto action = new QAction(mMenu);
                     action->setText(QStringLiteral("%1 -> %2").arg(fromLangI18n, toLangI18n));
                     connect(action, &QAction::triggered, this, [this, fromLang, toLang]() {
-                        Q_EMIT translate(fromLang, toLang, mMessageId);
+                        Q_EMIT translate(fromLang, toLang, mModelIndex);
                     });
                     mMenu->addAction(action);
                 }
@@ -63,14 +63,14 @@ void TranslatorMenu::updateMenu()
     }
 }
 
-const QString &TranslatorMenu::messageId() const
+const QPersistentModelIndex &TranslatorMenu::modelIndex() const
 {
-    return mMessageId;
+    return mModelIndex;
 }
 
-void TranslatorMenu::setMessageId(const QString &newMessageId)
+void TranslatorMenu::setModelIndex(const QPersistentModelIndex &newModelIndex)
 {
-    mMessageId = newMessageId;
+    mModelIndex = newModelIndex;
 }
 
 QString TranslatorMenu::searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang)

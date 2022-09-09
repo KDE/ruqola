@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QObject>
+#include <QPersistentModelIndex>
 class QMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorMenu : public QObject
 {
@@ -19,15 +20,16 @@ public:
     Q_REQUIRED_RESULT QMenu *menu() const;
 
     Q_REQUIRED_RESULT bool isEmpty() const;
-    const QString &messageId() const;
-    void setMessageId(const QString &newMessageId);
+
+    Q_REQUIRED_RESULT const QPersistentModelIndex &modelIndex() const;
+    void setModelIndex(const QPersistentModelIndex &newModelIndex);
 
 Q_SIGNALS:
-    void translate(const QString &from, const QString &to, const QString &messageId);
+    void translate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
 
 private:
     Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
     void updateMenu();
     QMenu *const mMenu;
-    QString mMessageId;
+    QPersistentModelIndex mModelIndex;
 };

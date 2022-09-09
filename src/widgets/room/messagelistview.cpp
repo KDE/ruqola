@@ -361,7 +361,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #if 0 // Add translator menu
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
-            mTranslatorMenu->setMessageId(message->messageId());
+            mTranslatorMenu->setModelIndex(index);
             menu.addMenu(mTranslatorMenu->menu());
         }
 #endif
@@ -701,6 +701,6 @@ void MessageListView::slotShowUserInfo(const QString &userName)
     dlg.exec();
 }
 
-void MessageListView::slotTranslate(const QString &from, const QString &to, const QString &messageId)
+void MessageListView::slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex)
 {
 }
