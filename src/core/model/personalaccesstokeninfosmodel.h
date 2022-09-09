@@ -1,0 +1,40 @@
+/*
+   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include <QAbstractListModel>
+
+#include "libruqolacore_export.h"
+#include "personalaccesstokens/personalaccesstokeninfos.h"
+#include <QVector>
+
+class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfosModel : public QAbstractListModel
+{
+    Q_OBJECT
+public:
+    enum PersonalAccessTokenInfosRoles {
+        Name = Qt::UserRole + 1,
+        CreateAt,
+        LastTokenPart,
+        ByPassTwoFactor,
+    };
+
+    Q_ENUM(PersonalAccessTokenInfosRoles)
+
+    explicit PersonalAccessTokenInfosModel(QObject *parent = nullptr);
+    ~PersonalAccessTokenInfosModel() override;
+
+    Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+
+    void clear();
+
+    void insertPersonalAccessTokenInfos(const PersonalAccessTokenInfos &infos);
+
+private:
+    PersonalAccessTokenInfos mPersonalAccessTokenInfos;
+};
