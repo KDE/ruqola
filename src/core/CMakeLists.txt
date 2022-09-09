@@ -340,6 +340,8 @@ target_sources(libruqolacore PRIVATE
 
     personalaccesstokens/personalaccesstokeninfo.h
     personalaccesstokens/personalaccesstokeninfo.cpp
+    personalaccesstokens/personalaccesstokeninfos.h
+    personalaccesstokens/personalaccesstokeninfos.cpp
 
     plugins/pluginauthentication.cpp
     plugins/pluginauthentication.h
