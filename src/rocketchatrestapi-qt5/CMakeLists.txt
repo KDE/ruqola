@@ -263,7 +263,12 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     permissions/permissionslistalljob.h
     permissions/permissionupdatejob.cpp
     permissions/permissionupdatejob.h
+
+    personalaccesstoken/getpersonalaccesstokensjob.cpp
+    personalaccesstoken/getpersonalaccesstokensjob.h
+
     python/pyrocketchatrestapi-qt5/rocketchatrestapi-qt5_global.h
+
     restapiabstractjob.cpp
     restapiabstractjob.h
     restapimethod.cpp
