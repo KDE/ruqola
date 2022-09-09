@@ -359,9 +359,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
 #if 0 // Add translator menu
-        menu.addSeparator();
-        mTranslatorMenu->setMessageId(message->messageId());
-        menu.addMenu(mTranslatorMenu->menu());
+        if (!mTranslatorMenu->isEmpty()) {
+            menu.addSeparator();
+            mTranslatorMenu->setMessageId(message->messageId());
+            menu.addMenu(mTranslatorMenu->menu());
+        }
 #endif
         if (deleteAction) {
             menu.addSeparator();
