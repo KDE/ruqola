@@ -337,6 +337,10 @@ target_sources(libruqolacore PRIVATE
     permissions/permissionmanager.h
     permissions/permissions.cpp
     permissions/permissions.h
+
+    personalaccesstokens/personalaccesstokeninfo.h
+    personalaccesstokens/personalaccesstokeninfo.cpp
+
     plugins/pluginauthentication.cpp
     plugins/pluginauthentication.h
     plugins/pluginauthenticationinterface.cpp
