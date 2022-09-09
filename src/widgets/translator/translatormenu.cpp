@@ -52,7 +52,7 @@ void TranslatorMenu::updateMenu()
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find \"to\" language " << fromLangI18n;
                 } else {
                     auto action = new QAction(mMenu);
-                    action->setText(QStringLiteral("%1->%2").arg(fromLangI18n, toLangI18n));
+                    action->setText(QStringLiteral("%1 -> %2").arg(fromLangI18n, toLangI18n));
                     connect(action, &QAction::triggered, this, [this, fromLang, toLang]() {
                         Q_EMIT translate(fromLang, toLang, mMessageId);
                     });
