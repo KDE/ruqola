@@ -28,10 +28,14 @@ enum class RestApiUrlType {
     UsersUpdate,
     UsersPresence, /*since 1.1.0*/
     UsersUpdateOwnBasicInfo,
-    UsersRegeneratePersonalAccessToken,
-    UsersGetUsernameSuggestion,
-    UsersRemovePersonalAccessToken,
+
+    // PersonalAccess Token
     UsersGeneratePersonalAccessToken,
+    UsersRegeneratePersonalAccessToken,
+    UsersRemovePersonalAccessToken,
+    UsersGetPersonalAccessTokens,
+
+    UsersGetUsernameSuggestion,
     UsersSetStatus,
     UsersGetStatus,
     /* ... 2.4 ? */

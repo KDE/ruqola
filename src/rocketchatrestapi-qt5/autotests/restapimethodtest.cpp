@@ -50,16 +50,20 @@ void RestApiMethodTest::shouldGenerateUrl()
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersResetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.resetAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetAvatar), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setAvatar")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdate), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.update")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getUsernameSuggestion")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removePersonalAccessToken")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.generatePersonalAccessToken")));
-    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo),
-             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.updateOwnBasicInfo")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.regeneratePersonalAccessToken")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetPersonalAccessTokens),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getPersonalAccessTokens")));
+
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersSetStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.setStatus")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersGetStatus), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.getStatus")));
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UsersPresence), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.presence")));

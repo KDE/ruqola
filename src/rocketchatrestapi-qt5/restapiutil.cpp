@@ -60,16 +60,20 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("users.update");
     case RestApiUtil::RestApiUrlType::UsersGetUsernameSuggestion:
         return QStringLiteral("users.getUsernameSuggestion");
+
     case RestApiUtil::RestApiUrlType::UsersRemovePersonalAccessToken:
         return QStringLiteral("users.removePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::UsersGeneratePersonalAccessToken:
         return QStringLiteral("users.generatePersonalAccessToken");
+    case RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken:
+        return QStringLiteral("users.regeneratePersonalAccessToken");
+    case RestApiUtil::RestApiUrlType::UsersGetPersonalAccessTokens:
+        return QStringLiteral("users.getPersonalAccessTokens");
+
     case RestApiUtil::RestApiUrlType::UsersPresence:
         return QStringLiteral("users.presence");
     case RestApiUtil::RestApiUrlType::UsersUpdateOwnBasicInfo:
         return QStringLiteral("users.updateOwnBasicInfo");
-    case RestApiUtil::RestApiUrlType::UsersRegeneratePersonalAccessToken:
-        return QStringLiteral("users.regeneratePersonalAccessToken");
     case RestApiUtil::RestApiUrlType::UsersSetStatus:
         return QStringLiteral("users.setStatus");
     case RestApiUtil::RestApiUrlType::UsersGetStatus:
