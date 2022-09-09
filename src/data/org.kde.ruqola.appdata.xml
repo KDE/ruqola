@@ -63,6 +63,7 @@
     <p xml:lang="ca-valencia">Ruqola és un client per a Rocket.Chat.</p>
     <p xml:lang="es">Ruqola es un cliente de chat Rocket.Chat.</p>
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
+    <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rocket.Chat).</p>
     <p xml:lang="nl">Ruqola is client voor Rocket.Chat.</p>
     <p xml:lang="sl">Ruqola je odjemalec za Rocket chat.</p>
     <p xml:lang="uk">Ruqola — клієнт Rocket.Chat.</p>
@@ -84,6 +85,7 @@
       <li xml:lang="ca-valencia">Missatge directe</li>
       <li xml:lang="es">Mensaje directo</li>
       <li xml:lang="fr">Message direct</li>
+      <li xml:lang="ia">Message Directe</li>
       <li xml:lang="nl">Direct bericht</li>
       <li xml:lang="sl">Neposredno sporočilo</li>
       <li xml:lang="uk">Безпосереднє повідомлення</li>
@@ -93,6 +95,7 @@
       <li xml:lang="ca-valencia">Canal de grup</li>
       <li xml:lang="es">canal de grupo</li>
       <li xml:lang="fr">canal de groupe</li>
+      <li xml:lang="ia">canal de gruppo</li>
       <li xml:lang="nl">groepskanaal</li>
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="uk">Групування каналів</li>
@@ -100,8 +103,10 @@
       <li>channel</li>
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
+      <li xml:lang="cs">kanál</li>
       <li xml:lang="es">canal</li>
       <li xml:lang="fr">canal</li>
+      <li xml:lang="ia">Canal</li>
       <li xml:lang="nl">kanaal</li>
       <li xml:lang="sl">kanal</li>
       <li xml:lang="uk">Канали</li>
@@ -147,6 +152,7 @@
       <li xml:lang="ca-valencia">Sales de debats</li>
       <li xml:lang="es">Sala de discusión</li>
       <li xml:lang="fr">Salon de discussions</li>
+      <li xml:lang="ia">Sala de discussion</li>
       <li xml:lang="nl">Discussieroom</li>
       <li xml:lang="sl">Debatna soba</li>
       <li xml:lang="uk">Кімнати обговорення</li>
@@ -217,6 +223,7 @@
       <li>Video support</li>
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
+      <li xml:lang="cs">Podpora videa</li>
       <li xml:lang="es">Soporte de vídeo</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="nl">Ondersteuning video</li>
@@ -280,8 +287,10 @@
       <li>Auto-away</li>
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
+      <li xml:lang="cs">Automaticky pryč</li>
       <li xml:lang="es">Estado ausente automático</li>
       <li xml:lang="fr">Absence automatique</li>
+      <li xml:lang="ia">Absente automatic</li>
       <li xml:lang="nl">Automatisch afwezig</li>
       <li xml:lang="sl">Samodejno zapuščanje sej</li>
       <li xml:lang="uk">Автовстановлення відсутності</li>
@@ -316,8 +325,10 @@
       <li>Export Messages</li>
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
+      <li xml:lang="cs">Exportovat zprávy</li>
       <li xml:lang="es">Exportar mensajes</li>
       <li xml:lang="fr">Exporter des messages</li>
+      <li xml:lang="ia">Exporta Messages </li>
       <li xml:lang="nl">Berichten exporteren</li>
       <li xml:lang="sl">Izvozi sporočila</li>
       <li xml:lang="uk">Експорт повідомлень</li>
