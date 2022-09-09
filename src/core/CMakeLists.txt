@@ -255,6 +255,8 @@ target_sources(libruqolacore PRIVATE
     model/notificationhistorymodelfilterproxymodel.cpp
     model/notificationpreferencemodel.cpp
     model/notificationpreferencemodel.h
+    model/personalaccesstokeninfosmodel.cpp
+    model/personalaccesstokeninfosmodel.h
     model/rocketchataccountfilterproxymodel.cpp
     model/rocketchataccountfilterproxymodel.h
     model/rocketchataccountmodel.cpp

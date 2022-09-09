@@ -15,5 +15,8 @@ PersonalAccessTokenInfoTest::PersonalAccessTokenInfoTest(QObject *parent)
 void PersonalAccessTokenInfoTest::shouldHaveDefaultValues()
 {
     PersonalAccessTokenInfo w;
-    // TODO
+    QVERIFY(!w.bypassTwoFactor());
+    QVERIFY(w.name().isEmpty());
+    QVERIFY(w.lastTokenPart().isEmpty());
+    QVERIFY(!w.isValid());
 }

@@ -48,19 +48,16 @@ void PersonalAccessTokenInfos::setPersonalAccessTokenInfos(const QVector<Persona
 void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &obj)
 {
     mPersonalAccessTokenInfos.clear();
-#if 0
-    const QJsonArray permissionArray = obj[str.isEmpty() ? QStringLiteral("update") : str].toArray();
-    const auto roleArrayCount = permissionArray.count();
-    mPersonalAccessTokenInfos.reserve(roleArrayCount);
-    for (auto i = 0; i < roleArrayCount; ++i) {
-        Permission r;
-        if (r.parsePermission(permissionArray.at(i).toObject(), roleInfo)) {
-            if (r.isValid()) {
-                mPersonalAccessTokenInfos.append(std::move(r));
-            } else {
-                qCWarning(RUQOLA_LOG) << "Invalid permission: " << permissionArray.at(i).toObject();
-            }
+    const QJsonArray tokensArray = obj[QStringLiteral("tokens")].toArray();
+    const auto tokensArrayCount = tokensArray.count();
+    mPersonalAccessTokenInfos.reserve(tokensArrayCount);
+    for (auto i = 0; i < tokensArrayCount; ++i) {
+        PersonalAccessTokenInfo r;
+        r.parsePersonalAccessTokenInfo(tokensArray.at(i).toObject());
+        if (r.isValid()) {
+            mPersonalAccessTokenInfos.append(std::move(r));
+        } else {
+            qCWarning(RUQOLA_LOG) << "Invalid permission: " << tokensArray.at(i).toObject();
         }
     }
-#endif
 }
