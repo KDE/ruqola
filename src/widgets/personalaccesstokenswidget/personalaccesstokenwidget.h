@@ -6,12 +6,21 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class PersonalAccessTokenWidget : public QWidget
+class RocketChatAccount;
+class QLineEdit;
+class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PersonalAccessTokenWidget(QWidget *parent = nullptr);
+    explicit PersonalAccessTokenWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PersonalAccessTokenWidget() override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
+    QLineEdit *const mSearchLineWidget;
+    //    OauthTreeView *const mOauthTreeWidget;
+    //    AdminOauthModel *const mAdminOauthModel;
+    //    AdministratorOauthFilterProxyModel *mAdminInviteFilterProxyModel = nullptr;
 };

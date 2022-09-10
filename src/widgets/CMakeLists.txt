@@ -674,6 +674,7 @@ if (BUILD_TESTING)
     add_subdirectory(bannerinfodialog/autotests)
     add_subdirectory(managedevice/autotests)
     add_subdirectory(translator/autotests)
+    add_subdirectory(personalaccesstokenswidget/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
