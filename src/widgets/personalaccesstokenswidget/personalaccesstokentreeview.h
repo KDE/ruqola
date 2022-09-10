@@ -13,4 +13,10 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenTreeView : public QTreeVi
 public:
     explicit PersonalAccessTokenTreeView(QWidget *parent = nullptr);
     ~PersonalAccessTokenTreeView() override;
+
+private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void addClicked();
+    void removeClicked(const QString &identifier);
+    void editClicked();
 };
