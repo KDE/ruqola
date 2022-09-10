@@ -10,6 +10,8 @@
 #include <QWidget>
 class RocketChatAccount;
 class QLineEdit;
+class PersonalAccessTokenTreeView;
+class PersonalAccessTokenInfosModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenWidget : public QWidget
 {
     Q_OBJECT
@@ -20,7 +22,6 @@ public:
 private:
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
-    //    OauthTreeView *const mOauthTreeWidget;
-    //    AdminOauthModel *const mAdminOauthModel;
-    //    AdministratorOauthFilterProxyModel *mAdminInviteFilterProxyModel = nullptr;
+    PersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;
+    PersonalAccessTokenInfosModel *const mPersonalAccessTokenModel;
 };

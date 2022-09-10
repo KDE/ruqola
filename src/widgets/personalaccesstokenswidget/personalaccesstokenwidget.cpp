@@ -5,6 +5,8 @@
 */
 
 #include "personalaccesstokenwidget.h"
+#include "model/personalaccesstokeninfosmodel.h"
+#include "personalaccesstokentreeview.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -14,8 +16,8 @@ PersonalAccessTokenWidget::PersonalAccessTokenWidget(RocketChatAccount *account,
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
-//    , mOauthTreeWidget(new OauthTreeView(mRocketChatAccount, this))
-//    , mAdminOauthModel(new AdminOauthModel(this))
+    , mPersonalAccessTokenTreeView(new PersonalAccessTokenTreeView(account, this))
+    , mPersonalAccessTokenModel(new PersonalAccessTokenInfosModel(this))
 
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -24,6 +26,9 @@ PersonalAccessTokenWidget::PersonalAccessTokenWidget(RocketChatAccount *account,
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18n("Search Personal Access Token..."));
+    mPersonalAccessTokenTreeView->setObjectName(QStringLiteral("mPersonalAccessTokenTreeView"));
+
+    mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 }
 
 PersonalAccessTokenWidget::~PersonalAccessTokenWidget() = default;

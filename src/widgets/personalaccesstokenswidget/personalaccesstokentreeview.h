@@ -8,10 +8,11 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenTreeView : public QTreeView
 {
 public:
-    explicit PersonalAccessTokenTreeView(QWidget *parent = nullptr);
+    explicit PersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~PersonalAccessTokenTreeView() override;
 
 private:
@@ -19,4 +20,5 @@ private:
     void addClicked();
     void removeClicked(const QString &identifier);
     void editClicked();
+    RocketChatAccount *const mRocketAccount;
 };
