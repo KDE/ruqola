@@ -438,6 +438,8 @@ target_sources(libruqolawidgets PRIVATE
     otr/otrwidget.h
     personalaccesstokenswidget/personalaccesstokenwidget.h
     personalaccesstokenswidget/personalaccesstokenwidget.cpp
+    personalaccesstokenswidget/personalaccesstokentreeview.h
+    personalaccesstokenswidget/personalaccesstokentreeview.cpp
     prunemessages/prunemessagesdialog.cpp
     prunemessages/prunemessagesdialog.h
     prunemessages/prunemessageswidget.cpp
