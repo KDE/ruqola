@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "personalaccesstokenwidget.h"
+#include "myaccountpersonalaccesstokenconfigurewidget.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "personalaccesstokentreeview.h"
 #include "rocketchataccount.h"
@@ -12,7 +12,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-PersonalAccessTokenWidget::PersonalAccessTokenWidget(RocketChatAccount *account, QWidget *parent)
+MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
@@ -31,4 +31,4 @@ PersonalAccessTokenWidget::PersonalAccessTokenWidget(RocketChatAccount *account,
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 }
 
-PersonalAccessTokenWidget::~PersonalAccessTokenWidget() = default;
+MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;

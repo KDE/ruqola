@@ -436,8 +436,8 @@ target_sources(libruqolawidgets PRIVATE
     notificationhistory/notificationhistorylistview.cpp
     otr/otrwidget.cpp
     otr/otrwidget.h
-    personalaccesstokenswidget/personalaccesstokenwidget.h
-    personalaccesstokenswidget/personalaccesstokenwidget.cpp
+    personalaccesstokenswidget/myaccountpersonalaccesstokenconfigurewidget.h
+    personalaccesstokenswidget/myaccountpersonalaccesstokenconfigurewidget.cpp
     personalaccesstokenswidget/personalaccesstokentreeview.h
     personalaccesstokenswidget/personalaccesstokentreeview.cpp
     prunemessages/prunemessagesdialog.cpp

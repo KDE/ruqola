@@ -12,12 +12,12 @@ class RocketChatAccount;
 class QLineEdit;
 class PersonalAccessTokenTreeView;
 class PersonalAccessTokenInfosModel;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PersonalAccessTokenWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~PersonalAccessTokenWidget() override;
+    explicit MyAccountPersonalAccessTokenConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~MyAccountPersonalAccessTokenConfigureWidget() override;
 
 private:
     RocketChatAccount *const mRocketChatAccount;
