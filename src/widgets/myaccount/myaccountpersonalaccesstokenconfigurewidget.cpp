@@ -57,7 +57,6 @@ void MyAccountPersonalAccessTokenConfigureWidget::initialize()
         connect(job, &RocketChatRestApi::GetPersonalAccessTokensJob::getPersonalAccessTokensDone, this, [this](const QJsonObject &obj) {
             PersonalAccessTokenInfos info;
             info.parsePersonalAccessTokenInfos(obj);
-            qDebug() << " info " << info;
             mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
         });
         if (!job->start()) {

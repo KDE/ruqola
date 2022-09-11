@@ -26,7 +26,6 @@ MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(Rocke
             this,
             &MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested);
     connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked);
-    // TODO initialize();
 }
 
 MyAccountPersonalAccessTokenTreeView::~MyAccountPersonalAccessTokenTreeView() = default;
