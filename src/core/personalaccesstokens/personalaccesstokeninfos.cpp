@@ -57,7 +57,7 @@ void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &
         if (r.isValid()) {
             mPersonalAccessTokenInfos.append(std::move(r));
         } else {
-            qCWarning(RUQOLA_LOG) << "Invalid permission: " << tokensArray.at(i).toObject();
+            qCWarning(RUQOLA_LOG) << "Invalid personal Access Token Info: " << tokensArray.at(i).toObject();
         }
     }
 }
