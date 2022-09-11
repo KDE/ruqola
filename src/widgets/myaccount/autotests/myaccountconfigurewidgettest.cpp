@@ -7,6 +7,7 @@
 #include "myaccountconfigurewidgettest.h"
 #include "myaccount/myaccount2faconfigurewidget.h"
 #include "myaccount/myaccountconfigurewidget.h"
+#include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
 #include "myaccount/myaccountpreferenceconfigurewidget.h"
 #include "myaccount/myaccountprofileconfigurewidget.h"
 #include <QStackedWidget>
@@ -39,6 +40,10 @@ void MyAccountConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mMyAccountPreferenceConfigureWidget = w.findChild<MyAccountPreferenceConfigureWidget *>(QStringLiteral("mMyAccountPreferenceConfigureWidget"));
     QVERIFY(mMyAccountPreferenceConfigureWidget);
+
+    auto mMyAccountPersonalAccessTokenConfigureWidget =
+        w.findChild<MyAccountPersonalAccessTokenConfigureWidget *>(QStringLiteral("mMyAccountPersonalAccessTokenConfigureWidget"));
+    QVERIFY(mMyAccountPersonalAccessTokenConfigureWidget);
 
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);

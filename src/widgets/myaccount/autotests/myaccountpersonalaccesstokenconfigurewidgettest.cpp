@@ -6,7 +6,10 @@
 
 #include "myaccountpersonalaccesstokenconfigurewidgettest.h"
 #include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
+#include "myaccount/myaccountpersonalaccesstokentreeview.h"
+#include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(MyAccountPersonalAccessTokenConfigureWidgetTest)
 MyAccountPersonalAccessTokenConfigureWidgetTest::MyAccountPersonalAccessTokenConfigureWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +19,15 @@ MyAccountPersonalAccessTokenConfigureWidgetTest::MyAccountPersonalAccessTokenCon
 void MyAccountPersonalAccessTokenConfigureWidgetTest::shouldHaveDefaultValues()
 {
     MyAccountPersonalAccessTokenConfigureWidget w(nullptr);
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
+    QVERIFY(mSearchLineWidget);
+    QVERIFY(mSearchLineWidget->text().isEmpty());
+    QVERIFY(!mSearchLineWidget->placeholderText().isEmpty());
+
+    auto mPersonalAccessTokenTreeView = w.findChild<MyAccountPersonalAccessTokenTreeView *>(QStringLiteral("mPersonalAccessTokenTreeView"));
+    QVERIFY(mPersonalAccessTokenTreeView);
 }

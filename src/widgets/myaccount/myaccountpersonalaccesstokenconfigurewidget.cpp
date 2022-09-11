@@ -27,6 +27,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     mainLayout->addWidget(mSearchLineWidget);
     mSearchLineWidget->setPlaceholderText(i18n("Search Personal Access Token..."));
     mPersonalAccessTokenTreeView->setObjectName(QStringLiteral("mPersonalAccessTokenTreeView"));
+    mainLayout->addWidget(mPersonalAccessTokenTreeView);
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 }

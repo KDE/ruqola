@@ -8,6 +8,7 @@
 #include "managedevice/managedevicewidget.h"
 #include "myaccount2e2configurewidget.h"
 #include "myaccount2faconfigurewidget.h"
+#include "myaccountpersonalaccesstokenconfigurewidget.h"
 #include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
 #include "rocketchataccount.h"
@@ -22,6 +23,7 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
     , mMyAccount2ProfileConfigureWidget(new MyAccountProfileConfigureWidget(account, this))
     , mMyAccountPreferenceConfigureWidget(new MyAccountPreferenceConfigureWidget(account, this))
     , mMyAccount2e2ConfigureWidget(new MyAccount2e2ConfigureWidget(account, this))
+    , mMyAccountPersonalAccessTokenConfigureWidget(new MyAccountPersonalAccessTokenConfigureWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -57,6 +59,8 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         tabWidget->addTab(manageDeviceWidget, i18n("Manage Device"));
         manageDeviceWidget->initialize();
     }
+    mMyAccountPersonalAccessTokenConfigureWidget->setObjectName(QStringLiteral("mMyAccountPersonalAccessTokenConfigureWidget"));
+    tabWidget->addTab(mMyAccountPersonalAccessTokenConfigureWidget, i18n("Personal Access Token"));
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
