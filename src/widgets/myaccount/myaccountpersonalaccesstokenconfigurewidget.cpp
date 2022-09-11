@@ -5,10 +5,15 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "myaccountpersonalaccesstokentreeview.h"
+#include "personalaccesstoken/getpersonalaccesstokensjob.h"
+#include "personalaccesstokens/personalaccesstokeninfos.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QVBoxLayout>
@@ -36,3 +41,20 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
 }
 
 MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;
+
+void MyAccountPersonalAccessTokenConfigureWidget::initialize()
+{
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::GetPersonalAccessTokensJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::GetPersonalAccessTokensJob::getPersonalAccessTokensDone, this, [this](const QJsonObject &obj) {
+            PersonalAccessTokenInfos info;
+            info.parsePersonalAccessTokenInfos(obj);
+            qDebug() << " info " << info;
+            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetPersonalAccessTokensJob job";
+        }
+    }
+}

@@ -101,4 +101,5 @@ void MyAccountConfigureWidget::initialize()
 {
     mMyAccount2ProfileConfigureWidget->initialize();
     mMyAccount2FaConfigureWidget->initialize();
+    mMyAccountPersonalAccessTokenConfigureWidget->initialize();
 }

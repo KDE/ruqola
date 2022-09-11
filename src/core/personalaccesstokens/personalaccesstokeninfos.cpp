@@ -61,3 +61,11 @@ void PersonalAccessTokenInfos::parsePersonalAccessTokenInfos(const QJsonObject &
         }
     }
 }
+
+QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t)
+{
+    for (int i = 0, total = t.personalAccessTokenInfos().count(); i < total; ++i) {
+        d << t.personalAccessTokenInfos().at(i) << "\n";
+    }
+    return d;
+}

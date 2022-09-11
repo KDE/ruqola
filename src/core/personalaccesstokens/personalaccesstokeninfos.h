@@ -29,3 +29,4 @@ public:
 private:
     QVector<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const PersonalAccessTokenInfos &t);

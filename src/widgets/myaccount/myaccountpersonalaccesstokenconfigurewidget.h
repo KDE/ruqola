@@ -19,6 +19,8 @@ public:
     explicit MyAccountPersonalAccessTokenConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountPersonalAccessTokenConfigureWidget() override;
 
+    void initialize();
+
 private:
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
