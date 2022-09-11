@@ -7,6 +7,7 @@
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/personalaccesstokeninfosfilterproxymodel.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "myaccountpersonalaccesstokentreeview.h"
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
@@ -39,7 +40,11 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 
-    mPersonalAccessTokenTreeView->setModel(mPersonalAccessTokenModel);
+    auto proxyModel = new PersonalAccessTokenInfosFilterProxyModel(this);
+    proxyModel->setObjectName(QStringLiteral("proxyModel"));
+    proxyModel->setSourceModel(mPersonalAccessTokenModel);
+    mPersonalAccessTokenTreeView->setModel(proxyModel);
+    mPersonalAccessTokenTreeView->setColumnHidden(PersonalAccessTokenInfosModel::CreateAtDateTime, true);
 }
 
 MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;
