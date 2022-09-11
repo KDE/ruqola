@@ -10,7 +10,7 @@
 #include <QWidget>
 class RocketChatAccount;
 class QLineEdit;
-class PersonalAccessTokenTreeView;
+class MyAccountPersonalAccessTokenTreeView;
 class PersonalAccessTokenInfosModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenConfigureWidget : public QWidget
 {
@@ -22,6 +22,6 @@ public:
 private:
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
-    PersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;
+    MyAccountPersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;
     PersonalAccessTokenInfosModel *const mPersonalAccessTokenModel;
 };

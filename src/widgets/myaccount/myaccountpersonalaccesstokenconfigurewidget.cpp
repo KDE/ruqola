@@ -6,7 +6,7 @@
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
 #include "model/personalaccesstokeninfosmodel.h"
-#include "personalaccesstokentreeview.h"
+#include "myaccountpersonalaccesstokentreeview.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QLineEdit>
@@ -16,7 +16,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     : QWidget{parent}
     , mRocketChatAccount(account)
     , mSearchLineWidget(new QLineEdit(this))
-    , mPersonalAccessTokenTreeView(new PersonalAccessTokenTreeView(account, this))
+    , mPersonalAccessTokenTreeView(new MyAccountPersonalAccessTokenTreeView(account, this))
     , mPersonalAccessTokenModel(new PersonalAccessTokenInfosModel(this))
 
 {

@@ -4,14 +4,14 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "personalaccesstokentreeview.h"
+#include "myaccountpersonalaccesstokentreeview.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
 
-PersonalAccessTokenTreeView::PersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent)
+MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
     , mRocketAccount(account)
 {
@@ -21,14 +21,17 @@ PersonalAccessTokenTreeView::PersonalAccessTokenTreeView(RocketChatAccount *acco
     setSelectionBehavior(QAbstractItemView::SelectRows);
     setRootIsDecorated(false);
     setSortingEnabled(true);
-    connect(this, &PersonalAccessTokenTreeView::customContextMenuRequested, this, &PersonalAccessTokenTreeView::slotCustomContextMenuRequested);
-    connect(this, &QTreeView::doubleClicked, this, &PersonalAccessTokenTreeView::editClicked);
+    connect(this,
+            &MyAccountPersonalAccessTokenTreeView::customContextMenuRequested,
+            this,
+            &MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested);
+    connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::editClicked);
     // TODO initialize();
 }
 
-PersonalAccessTokenTreeView::~PersonalAccessTokenTreeView() = default;
+MyAccountPersonalAccessTokenTreeView::~MyAccountPersonalAccessTokenTreeView() = default;
 
-void PersonalAccessTokenTreeView::slotCustomContextMenuRequested(const QPoint &pos)
+void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
 #if 0
     const QModelIndex index = indexAt(pos);
@@ -48,7 +51,7 @@ void PersonalAccessTokenTreeView::slotCustomContextMenuRequested(const QPoint &p
 #endif
 }
 
-void PersonalAccessTokenTreeView::removeClicked(const QString &identifier)
+void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &identifier)
 {
 #if 0
     if (KMessageBox::Yes
@@ -58,7 +61,7 @@ void PersonalAccessTokenTreeView::removeClicked(const QString &identifier)
 #endif
 }
 
-void PersonalAccessTokenTreeView::addClicked()
+void MyAccountPersonalAccessTokenTreeView::addClicked()
 {
 #if 0
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
@@ -70,7 +73,7 @@ void PersonalAccessTokenTreeView::addClicked()
 #endif
 }
 
-void PersonalAccessTokenTreeView::editClicked()
+void MyAccountPersonalAccessTokenTreeView::editClicked()
 {
     // TODO
 }

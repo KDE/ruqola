@@ -9,11 +9,11 @@
 #include "libruqolawidgets_private_export.h"
 #include <QTreeView>
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT PersonalAccessTokenTreeView : public QTreeView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenTreeView : public QTreeView
 {
 public:
-    explicit PersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~PersonalAccessTokenTreeView() override;
+    explicit MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~MyAccountPersonalAccessTokenTreeView() override;
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
