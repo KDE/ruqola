@@ -11,14 +11,18 @@
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenTreeView : public QTreeView
 {
+    Q_OBJECT
 public:
     explicit MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent = nullptr);
     ~MyAccountPersonalAccessTokenTreeView() override;
+
+Q_SIGNALS:
+    void removeToken(const QString &identifier);
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void addClicked();
     void removeClicked(const QString &identifier);
-    void editClicked();
+    void regenerateTokenClicked(const QModelIndex &index);
     RocketChatAccount *const mRocketAccount;
 };

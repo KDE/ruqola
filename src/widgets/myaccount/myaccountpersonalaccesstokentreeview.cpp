@@ -25,7 +25,7 @@ MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(Rocke
             &MyAccountPersonalAccessTokenTreeView::customContextMenuRequested,
             this,
             &MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested);
-    connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::editClicked);
+    connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked);
     // TODO initialize();
 }
 
@@ -33,47 +33,36 @@ MyAccountPersonalAccessTokenTreeView::~MyAccountPersonalAccessTokenTreeView() = 
 
 void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 {
-#if 0
     const QModelIndex index = indexAt(pos);
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &OauthTreeView::addClicked);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &MyAccountPersonalAccessTokenTreeView::addClicked);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Modify..."), this, [this, index]() {
-            editClicked(index);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Regenerate..."), this, [this, index]() {
+            regenerateTokenClicked(index);
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
-            removeClicked(modelIndex.data().toString());
+            // const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
+            // removeClicked(modelIndex.data().toString());
         });
     }
     menu.exec(viewport()->mapToGlobal(pos));
-#endif
 }
 
 void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &identifier)
 {
-#if 0
     if (KMessageBox::Yes
-        == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this Oauth?"), i18n("Remove OAuth"), KStandardGuiItem::remove())) {
-        Q_EMIT removeOauth(identifier);
+        == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this Token?"), i18n("Remove Token"), KStandardGuiItem::remove())) {
+        Q_EMIT removeToken(identifier);
     }
-#endif
 }
 
 void MyAccountPersonalAccessTokenTreeView::addClicked()
 {
-#if 0
-    QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
-    if (dlg->exec()) {
-        const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
-        mRocketChatAccount->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
-    }
-    delete dlg;
-#endif
+    // TODO
 }
 
-void MyAccountPersonalAccessTokenTreeView::editClicked()
+void MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked(const QModelIndex &index)
 {
     // TODO
 }
