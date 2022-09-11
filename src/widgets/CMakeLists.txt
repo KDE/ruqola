@@ -432,6 +432,8 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountpersonalaccesstokentreeview.h
     myaccount/myaccountpersonalaccesstokentreeview.cpp
 
+    myaccount/myaccountmanagedeviceconfigurewidget.cpp
+    myaccount/myaccountmanagedeviceconfigurewidget.h
 
     notificationhistory/notificationhistorydialog.cpp
     notificationhistory/notificationhistorydialog.h
@@ -584,9 +586,6 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagelistlayout/messagelistcozylayout.h
     room/delegate/messagelistlayout/messagelistcozylayout.cpp
 
-    managedevice/managedevicewidget.cpp
-    managedevice/managedevicewidget.h
-
     translator/translatorconfigurewidget.h
     translator/translatorconfigurewidget.cpp
     translator/translatorconfigureutil.h
@@ -677,7 +676,6 @@ if (BUILD_TESTING)
     add_subdirectory(discussions/autotests/)
     add_subdirectory(administratorsettingsdialog/autotests/)
     add_subdirectory(bannerinfodialog/autotests)
-    add_subdirectory(managedevice/autotests)
     add_subdirectory(translator/autotests)
 endif()
 

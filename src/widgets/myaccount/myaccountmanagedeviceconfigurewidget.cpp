@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "managedevicewidget.h"
+#include "myaccountmanagedeviceconfigurewidget.h"
 #include "connection.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/deviceinfomodel.h"
@@ -21,7 +21,7 @@
 #include <QPointer>
 #include <QTreeView>
 
-ManageDeviceWidget::ManageDeviceWidget(RocketChatAccount *account, QWidget *parent)
+MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
     mModel = new DeviceInfoModel(this);
@@ -35,14 +35,14 @@ ManageDeviceWidget::ManageDeviceWidget(RocketChatAccount *account, QWidget *pare
     connectModel();
 }
 
-ManageDeviceWidget::~ManageDeviceWidget() = default;
+MyAccountManageDeviceConfigureWidget::~MyAccountManageDeviceConfigureWidget() = default;
 
-void ManageDeviceWidget::updateLabel()
+void MyAccountManageDeviceConfigureWidget::updateLabel()
 {
     mLabelResultSearch->setText(mModel->total() == 0 ? i18n("No device found") : displayShowMessage());
 }
 
-QString ManageDeviceWidget::displayShowMessage() const
+QString MyAccountManageDeviceConfigureWidget::displayShowMessage() const
 {
     QString displayMessageStr = i18np("%1 device (Total: %2)", "%1 devices (Total: %2)", mModel->rowCount(), mModel->total());
     if (!mModel->hasFullList()) {
@@ -51,7 +51,7 @@ QString ManageDeviceWidget::displayShowMessage() const
     return displayMessageStr;
 }
 
-void ManageDeviceWidget::slotLoadElements(int offset, int count, const QString &searchName)
+void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int count, const QString &searchName)
 {
     auto job = new RocketChatRestApi::SessionsListJob(this);
 
@@ -73,21 +73,21 @@ void ManageDeviceWidget::slotLoadElements(int offset, int count, const QString &
 
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     if (offset != -1) {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &ManageDeviceWidget::slotLoadMoreElementDone);
+        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotLoadMoreElementDone);
     } else {
-        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &ManageDeviceWidget::slotSearchDone);
+        connect(job, &RocketChatRestApi::SessionsListJob::sessionsListDone, this, &MyAccountManageDeviceConfigureWidget::slotSearchDone);
     }
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SessionsListJob job";
     }
 }
 
-void ManageDeviceWidget::slotDeviceRemoved(const QString &emojiId)
+void MyAccountManageDeviceConfigureWidget::slotDeviceRemoved(const QString &emojiId)
 {
     mModel->removeElement(emojiId);
 }
 
-void ManageDeviceWidget::slotCustomContextMenuRequested(const QPoint &pos)
+void MyAccountManageDeviceConfigureWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
@@ -101,7 +101,7 @@ void ManageDeviceWidget::slotCustomContextMenuRequested(const QPoint &pos)
     }
 }
 
-void ManageDeviceWidget::slotDisconnectDevice(const QModelIndex &index)
+void MyAccountManageDeviceConfigureWidget::slotDisconnectDevice(const QModelIndex &index)
 {
     auto job = new RocketChatRestApi::SessionsLogoutMeJob(this);
     const QModelIndex modelIndex = mModel->index(index.row(), DeviceInfoModel::SessionId);

@@ -5,6 +5,7 @@
 */
 
 #include "myaccountpersonalaccesstokenconfigurewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "myaccountpersonalaccesstokentreeview.h"
 #include "rocketchataccount.h"
@@ -28,6 +29,8 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     mSearchLineWidget->setPlaceholderText(i18n("Search Personal Access Token..."));
     mPersonalAccessTokenTreeView->setObjectName(QStringLiteral("mPersonalAccessTokenTreeView"));
     mainLayout->addWidget(mPersonalAccessTokenTreeView);
+
+    new LineEditCatchReturnKey(mSearchLineWidget, this);
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 }

@@ -9,12 +9,12 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
 #include <QWidget>
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ManageDeviceWidget : public SearchTreeBaseWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountManageDeviceConfigureWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT
 public:
-    explicit ManageDeviceWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~ManageDeviceWidget() override;
+    explicit MyAccountManageDeviceConfigureWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~MyAccountManageDeviceConfigureWidget() override;
 
 protected:
     void updateLabel() override;
