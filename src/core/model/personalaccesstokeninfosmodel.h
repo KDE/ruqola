@@ -16,7 +16,14 @@ class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfosModel : public QAbstractListM
 {
     Q_OBJECT
 public:
-    enum PersonalAccessTokenInfosRoles { Name, CreateAt, LastTokenPart, ByPassTwoFactor, LastColumn = ByPassTwoFactor };
+    enum PersonalAccessTokenInfosRoles {
+        Name,
+        CreateAt,
+        CreateAtDateTime,
+        LastTokenPart,
+        ByPassTwoFactor,
+        LastColumn = ByPassTwoFactor,
+    };
     Q_ENUM(PersonalAccessTokenInfosRoles)
 
     explicit PersonalAccessTokenInfosModel(QObject *parent = nullptr);

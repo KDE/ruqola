@@ -35,6 +35,9 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
     case PersonalAccessTokenInfosModel::CreateAt: {
         return info.createAtDisplayDateTime();
     }
+    case PersonalAccessTokenInfosModel::CreateAtDateTime: {
+        return info.createdAt();
+    }
     case PersonalAccessTokenInfosModel::LastTokenPart: {
         return info.lastTokenPart();
     }
@@ -83,6 +86,8 @@ QVariant PersonalAccessTokenInfosModel::headerData(int section, Qt::Orientation 
             return i18n("Two Factor Authentication");
         case PersonalAccessTokenInfosModel::LastTokenPart:
             return i18n("Last token part");
+        case PersonalAccessTokenInfosModel::CreateAtDateTime:
+            return {};
         }
     }
     return {};
