@@ -38,6 +38,8 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     new LineEditCatchReturnKey(mSearchLineWidget, this);
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
+
+    mPersonalAccessTokenTreeView->setModel(mPersonalAccessTokenModel);
 }
 
 MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;

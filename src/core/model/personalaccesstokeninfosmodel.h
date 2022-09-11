@@ -16,13 +16,7 @@ class LIBRUQOLACORE_EXPORT PersonalAccessTokenInfosModel : public QAbstractListM
 {
     Q_OBJECT
 public:
-    enum PersonalAccessTokenInfosRoles {
-        Name = Qt::UserRole + 1,
-        CreateAt,
-        LastTokenPart,
-        ByPassTwoFactor,
-    };
-
+    enum PersonalAccessTokenInfosRoles { Name, CreateAt, LastTokenPart, ByPassTwoFactor, LastColumn = ByPassTwoFactor };
     Q_ENUM(PersonalAccessTokenInfosRoles)
 
     explicit PersonalAccessTokenInfosModel(QObject *parent = nullptr);
@@ -30,6 +24,8 @@ public:
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+    Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     void clear();
 
