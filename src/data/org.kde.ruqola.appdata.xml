@@ -61,6 +61,7 @@
     </p>
     <p xml:lang="ca">El Ruqola és un client per al Rocket.Chat.</p>
     <p xml:lang="ca-valencia">Ruqola és un client per a Rocket.Chat.</p>
+    <p xml:lang="en-GB">Ruqola is a client for Rocket.Chat.</p>
     <p xml:lang="es">Ruqola es un cliente de chat Rocket.Chat.</p>
     <p xml:lang="fr">Rugola est un client de discussions « Rocket.Chat »</p>
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rocket.Chat).</p>
@@ -74,6 +75,7 @@
     </p>
     <p xml:lang="ca">Permet les característiques de RC:</p>
     <p xml:lang="ca-valencia">Permet les característiques de RC:</p>
+    <p xml:lang="en-GB">It supports RC features:</p>
     <p xml:lang="es">Soporta la funcionalidades de RC:</p>
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
     <p xml:lang="nl">Het ondersteunt RC-functies:</p>
@@ -85,6 +87,7 @@
       <li>Direct Message</li>
       <li xml:lang="ca">Missatge directe</li>
       <li xml:lang="ca-valencia">Missatge directe</li>
+      <li xml:lang="en-GB">Direct Message</li>
       <li xml:lang="es">Mensaje directo</li>
       <li xml:lang="fr">Message direct</li>
       <li xml:lang="ia">Message Directe</li>
@@ -96,6 +99,7 @@
       <li>group channel</li>
       <li xml:lang="ca">Canal de grup</li>
       <li xml:lang="ca-valencia">Canal de grup</li>
+      <li xml:lang="en-GB">group channel</li>
       <li xml:lang="es">canal de grupo</li>
       <li xml:lang="fr">canal de groupe</li>
       <li xml:lang="ia">canal de gruppo</li>
@@ -108,6 +112,7 @@
       <li xml:lang="ca">Canal</li>
       <li xml:lang="ca-valencia">Canal</li>
       <li xml:lang="cs">kanál</li>
+      <li xml:lang="en-GB">channel</li>
       <li xml:lang="es">canal</li>
       <li xml:lang="fr">canal</li>
       <li xml:lang="ia">Canal</li>
@@ -119,6 +124,7 @@
       <li>Support autotranslate (when RC has it)</li>
       <li xml:lang="ca">Permet la traducció automàtica (quan ho té el RC)</li>
       <li xml:lang="ca-valencia">Permet la traducció automàtica (quan ho té el RC)</li>
+      <li xml:lang="en-GB">Support auto-translate (when RC has it)</li>
       <li xml:lang="es">Soporte de traducción automática (cuando RC lo soporta)</li>
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
       <li xml:lang="nl">Ondersteunt automatische vertaling (wanneer RC dat heeft)</li>
@@ -129,6 +135,7 @@
       <li>Configuring room notification</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
       <li xml:lang="ca-valencia">Configuració de les notificacions de sala</li>
+      <li xml:lang="en-GB">Configuring room notification</li>
       <li xml:lang="es">Configurando notificaciones de sala</li>
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
       <li xml:lang="nl">Roommelding wordt geconfigureerd</li>
@@ -139,6 +146,7 @@
       <li>Configuring room</li>
       <li xml:lang="ca">Configuració de sales</li>
       <li xml:lang="ca-valencia">Configuració de sales</li>
+      <li xml:lang="en-GB">Configuring room</li>
       <li xml:lang="es">Configurando sala</li>
       <li xml:lang="fr">Configuration du salon en cours</li>
       <li xml:lang="nl">Room wordt geconfigureerd</li>
@@ -149,6 +157,7 @@
       <li>Thread message support</li>
       <li xml:lang="ca">Permet fils de missatges</li>
       <li xml:lang="ca-valencia">Permet fils de missatges</li>
+      <li xml:lang="en-GB">Thread message support</li>
       <li xml:lang="es">Soporte de hilos de mensajes</li>
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
       <li xml:lang="nl">Discussiebundeling van bericht wordt ondersteund</li>
@@ -159,6 +168,7 @@
       <li>Discussion room</li>
       <li xml:lang="ca">Sales de debats</li>
       <li xml:lang="ca-valencia">Sales de debats</li>
+      <li xml:lang="en-GB">Discussion room</li>
       <li xml:lang="es">Sala de discusión</li>
       <li xml:lang="fr">Salon de discussions</li>
       <li xml:lang="ia">Sala de discussion</li>
@@ -170,6 +180,7 @@
       <li>Teams room support</li>
       <li xml:lang="ca">Permet sales d'equips</li>
       <li xml:lang="ca-valencia">Permet sales d'equips</li>
+      <li xml:lang="en-GB">Teams room support</li>
       <li xml:lang="es">Soporte de salas de equipo</li>
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
       <li xml:lang="nl">Ondersteuning van teamsroom</li>
@@ -180,6 +191,7 @@
       <li>Configuring own account</li>
       <li xml:lang="ca">Configuració del compte propi</li>
       <li xml:lang="ca-valencia">Configuració del compte propi</li>
+      <li xml:lang="en-GB">Configuring own account</li>
       <li xml:lang="es">Configurando la cuenta propia</li>
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
       <li xml:lang="nl">Eigen account wordt geconfigureerd</li>
@@ -190,6 +202,7 @@
       <li>Registering new account</li>
       <li xml:lang="ca">Registre d'un compte nou</li>
       <li xml:lang="ca-valencia">Registre d'un compte nou</li>
+      <li xml:lang="en-GB">Registering new account</li>
       <li xml:lang="es">Registrando una cuenta nueva</li>
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
       <li xml:lang="nl">Nieuwe account wordt geregistreerd</li>
@@ -200,6 +213,7 @@
       <li>Support multi account</li>
       <li xml:lang="ca">Permet diversos comptes</li>
       <li xml:lang="ca-valencia">Permet diversos comptes</li>
+      <li xml:lang="en-GB">Support multi account</li>
       <li xml:lang="es">Soportar varias cuentas</li>
       <li xml:lang="fr">Prend en charge le compte multiple</li>
       <li xml:lang="nl">Ondersteuning voor meerdere accounts</li>
@@ -210,6 +224,7 @@
       <li>Search message in room</li>
       <li xml:lang="ca">Cerca missatges a una sala</li>
       <li xml:lang="ca-valencia">Busca missatges a una sala</li>
+      <li xml:lang="en-GB">Search message in room</li>
       <li xml:lang="es">Buscar mensaje en sala</li>
       <li xml:lang="fr">Rechercher un message dans le salon</li>
       <li xml:lang="nl">Berichten zoeken in room</li>
@@ -220,6 +235,7 @@
       <li>Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="ca">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
       <li xml:lang="ca-valencia">Mostra les mencions/adjunts/missatges fixats/missatge d'inici</li>
+      <li xml:lang="en-GB">Show mention/attachment/Pinned message/start message</li>
       <li xml:lang="es">Mostrar mención/adjuntos/mensajes fijados/iniciar mensaje</li>
       <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="nl">Noemen tonen/bijlage/vastgezet bericht/startbericht</li>
@@ -230,6 +246,7 @@
       <li>Support emoji</li>
       <li xml:lang="ca">Permet emojis</li>
       <li xml:lang="ca-valencia">Permet emojis</li>
+      <li xml:lang="en-GB">Support emoji</li>
       <li xml:lang="es">Soporte de emojis</li>
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
       <li xml:lang="nl">Ondersteuning van emoji</li>
@@ -241,6 +258,7 @@
       <li xml:lang="ca">Permet vídeo</li>
       <li xml:lang="ca-valencia">Permet vídeo</li>
       <li xml:lang="cs">Podpora videa</li>
+      <li xml:lang="en-GB">Video support</li>
       <li xml:lang="es">Soporte de vídeo</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="nl">Ondersteuning video</li>
@@ -251,6 +269,7 @@
       <li>Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="ca">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
       <li xml:lang="ca-valencia">Permet la configuració d'administració (afegir/eliminar rols, afegir/suprimir usuaris, afegir/eliminar permisos, configurar sales, etc.)</li>
+      <li xml:lang="en-GB">Configure administrator support (add/remove roles, add/remove users, add/remove permissions, configure rooms etc.)</li>
       <li xml:lang="es">Configurar soporte de administrador (añadir/eliminar roles, usuarios, permisos, configurar salas, etc).</li>
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="nl">Ondersteuning van configuratie door beheerder (toevoegen/verwijderen van rollen, toevoegen/verwijderen van gebruikers, toevoegen/verwijderen van rechten, rooms configureren etc.)</li>
@@ -261,6 +280,7 @@
       <li>Support OTR (in progress)</li>
       <li xml:lang="ca">Permet OTR (en curs)</li>
       <li xml:lang="ca-valencia">Permet OTR (en curs)</li>
+      <li xml:lang="en-GB">Support OTR (in progress)</li>
       <li xml:lang="es">Soporte de incógnito (en progreso)</li>
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
       <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
@@ -271,6 +291,7 @@
       <li>support gif image</li>
       <li xml:lang="ca">Permet imatges GIF</li>
       <li xml:lang="ca-valencia">Permet imatges GIF</li>
+      <li xml:lang="en-GB">support gif image</li>
       <li xml:lang="es">Soporte de imágenes gif</li>
       <li xml:lang="fr">Prend en charge les images « gif »</li>
       <li xml:lang="nl">Ondersteuning van gif-afbeelding</li>
@@ -281,6 +302,7 @@
       <li>Add support for uploading attachment files</li>
       <li xml:lang="ca">Permet pujar fitxers adjunts</li>
       <li xml:lang="ca-valencia">Permet pujar fitxers adjunts</li>
+      <li xml:lang="en-GB">Add support for uploading attachment files</li>
       <li xml:lang="es">Añadir soporte para subir archivos adjuntos</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor uploaden van bijgevoegde bestanden</li>
@@ -291,6 +313,7 @@
       <li>Show unread message information</li>
       <li xml:lang="ca">Mostra la informació dels missatges no llegits</li>
       <li xml:lang="ca-valencia">Mostra la informació dels missatges no llegits</li>
+      <li xml:lang="en-GB">Show unread message information</li>
       <li xml:lang="es">Mostrar información de mensajes no leídos</li>
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="nl">Informatie over ongelezen berichten tonen</li>
@@ -301,6 +324,7 @@
       <li>Allow to block/unblock users</li>
       <li xml:lang="ca">Permet blocar/desbloquejar usuaris</li>
       <li xml:lang="ca-valencia">Permet blocar/desbloquejar usuaris</li>
+      <li xml:lang="en-GB">Allow to block/unblock users</li>
       <li xml:lang="es">Permitir bloquear/desbloquear usuarios</li>
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
       <li xml:lang="nl">Toestaan gebruikers te blokkeren/dit opheffen</li>
@@ -312,6 +336,7 @@
       <li xml:lang="ca">Absència automàtica</li>
       <li xml:lang="ca-valencia">Absència automàtica</li>
       <li xml:lang="cs">Automaticky pryč</li>
+      <li xml:lang="en-GB">Auto-away</li>
       <li xml:lang="es">Estado ausente automático</li>
       <li xml:lang="fr">Absence automatique</li>
       <li xml:lang="ia">Absente automatic</li>
@@ -323,6 +348,7 @@
       <li>Two-factor authentication via TOTP</li>
       <li xml:lang="ca">Autenticació de dos factors via TOTP</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via TOTP</li>
+      <li xml:lang="en-GB">Two-factor authentication via TOTP</li>
       <li xml:lang="es">Autenticación de dos factores a través de TOTP</li>
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="nl">Twee-factor-authenticatie via TOTP</li>
@@ -333,6 +359,7 @@
       <li>Two-factor authentication via email</li>
       <li xml:lang="ca">Autenticació de dos factors via correu electrònic</li>
       <li xml:lang="ca-valencia">Autenticació de dos factors via correu electrònic</li>
+      <li xml:lang="en-GB">Two-factor authentication via email</li>
       <li xml:lang="es">Autenticación de dos factores a través de correo electrónico</li>
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="nl">Twee-factor-authenticatie via e-mail</li>
@@ -343,6 +370,7 @@
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
       <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
+      <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="es">Soporte de administrador (Información del servidor, salas, estado personalizado de los usuarios, sonidos personalizados, emojis personalizados, usuarios, invitaciones, ver registros, permisos, roles y autenticación), preferencias de administrador (mensajes, cuentas, política de retención, subida de archivos, cifrado)</li>
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, Statut personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d’affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="nl">Ondersteuning van beheerder (Serverinformatie, Rooms, Aangepaste status van gebruiker, Aangepaste geluiden, Aangepaste emoji, Gebruikers, Uitnodigingen, Log bekijken, Rechten, Rollen, Oauth), Instellingen van beheerder (Bericht, Account, Bewaarbeleid, Uploaden van bestanden, Versleuteling)</li>
@@ -354,6 +382,7 @@
       <li xml:lang="ca">Exportació de missatges</li>
       <li xml:lang="ca-valencia">Exportació de missatges</li>
       <li xml:lang="cs">Exportovat zprávy</li>
+      <li xml:lang="en-GB">Export Messages</li>
       <li xml:lang="es">Exportar mensajes</li>
       <li xml:lang="fr">Exporter des messages</li>
       <li xml:lang="ia">Exporta Messages </li>
@@ -368,6 +397,7 @@
     </p>
     <p xml:lang="ca">Característiques extres:</p>
     <p xml:lang="ca-valencia">Característiques addicionals:</p>
+    <p xml:lang="en-GB">Extra features:</p>
     <p xml:lang="es">Funcionalidades extra:</p>
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
     <p xml:lang="nl">Extra mogelijkheden:</p>
@@ -379,6 +409,7 @@
       <li>Allow to reply directly to message from notification (kde features)</li>
       <li xml:lang="ca">Permet respondre directament al missatge des d'una notificació (característiques del KDE)</li>
       <li xml:lang="ca-valencia">Permet respondre directament al missatge des d'una notificació (característiques de KDE)</li>
+      <li xml:lang="en-GB">Allow to reply directly to message from notification (kde features)</li>
       <li xml:lang="es">Permitir contestar directamente a un mensaje desde las notificaciones (funcionalidad de KDE)</li>
       <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de Kde)</li>
       <li xml:lang="nl">Toestaan om directe op een bericht uit een melding te antwoorden (kde functies)</li>
@@ -389,6 +420,7 @@
       <li>Dnd image from ruqola to website or local folder</li>
       <li xml:lang="ca">Imatges Dnd des del Ruqola a lloc web o carpeta local</li>
       <li xml:lang="ca-valencia">Imatges Dnd des de Ruqola a lloc web o carpeta local</li>
+      <li xml:lang="en-GB">Dnd image from ruqola to website or local folder</li>
       <li xml:lang="es">Descargar imagen desde ruqola a la web o a una carpeta local</li>
       <li xml:lang="fr">Image « dnd » à partir de ruqola vers le site Internet ou vers un dossier locale</li>
       <li xml:lang="nl">Download afbeelding uit ruqola naar website of lokale map</li>
@@ -399,6 +431,7 @@
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
       <li xml:lang="ca-valencia">Emmagatzema el missatge a la base de dades local perquè es puga buscar fora de línia</li>
+      <li xml:lang="en-GB">Store message in local database so we can search in offline</li>
       <li xml:lang="es">Almacenar mensaje en la base de datos local para que pueda ser buscado sin conexión</li>
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
@@ -409,6 +442,7 @@
       <li>Mark All Channels are read</li>
       <li xml:lang="ca">Marcar tots els canals com a llegits</li>
       <li xml:lang="ca-valencia">Marca tots els canals com a llegits</li>
+      <li xml:lang="en-GB">Mark All Channels are read</li>
       <li xml:lang="es">Marcar todos los canales como leídos</li>
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
       <li xml:lang="nl">Alle kanalen markeren als gelezen</li>
@@ -419,6 +453,7 @@
       <li>Add notification history</li>
       <li xml:lang="ca">Afegeix un historial de notificacions</li>
       <li xml:lang="ca-valencia">Afig un historial de notificacions</li>
+      <li xml:lang="en-GB">Add notification history</li>
       <li xml:lang="es">Añadir el histórico de notificaciones</li>
       <li xml:lang="fr">Ajouter un historique de notifications</li>
       <li xml:lang="nl">Geschiedenis van meldingen toevoegen</li>
@@ -429,6 +464,7 @@
       <li>New RocketChat Server Information Support</li>
       <li xml:lang="ca">Implementació nova d'informació del servidor RocketChat</li>
       <li xml:lang="ca-valencia">Implementació nova d'informació del servidor RocketChat</li>
+      <li xml:lang="en-GB">New RocketChat Server Information Support</li>
       <li xml:lang="es">Nuevo soporte de información de servidor RocketChat</li>
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
@@ -439,6 +475,7 @@
       <li>Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="ca">Gestiona el dispositiu (RC &gt;= 5.0)</li>
       <li xml:lang="ca-valencia">Gestiona el dispositiu (RC &gt;= 5.0)</li>
+      <li xml:lang="en-GB">Manage Device (RC &gt;= 5.0)</li>
       <li xml:lang="es">Administrar dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
       <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
