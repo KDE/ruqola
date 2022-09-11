@@ -33,7 +33,7 @@ QVariant PersonalAccessTokenInfosModel::data(const QModelIndex &index, int role)
     const int col = index.column();
     switch (col) {
     case PersonalAccessTokenInfosModel::CreateAt: {
-        return info.createdAt();
+        return info.createAtDisplayDateTime();
     }
     case PersonalAccessTokenInfosModel::LastTokenPart: {
         return info.lastTokenPart();

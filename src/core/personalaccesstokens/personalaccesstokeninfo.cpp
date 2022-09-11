@@ -7,6 +7,8 @@
 #include "personalaccesstokeninfo.h"
 #include "utils.h"
 
+#include <QLocale>
+
 PersonalAccessTokenInfo::PersonalAccessTokenInfo() = default;
 
 QDebug operator<<(QDebug d, const PersonalAccessTokenInfo &t)
@@ -23,7 +25,7 @@ void PersonalAccessTokenInfo::parsePersonalAccessTokenInfo(const QJsonObject &re
     mName = replyObject.value(QLatin1String("name")).toString();
     mLastTokenPart = replyObject.value(QLatin1String("lastTokenPart")).toString();
     mBypassTwoFactor = replyObject.value(QLatin1String("bypassTwoFactor")).toBool();
-    mCreatedAt = Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject);
+    setCreatedAt(Utils::parseIsoDate(QStringLiteral("createdAt"), replyObject));
 }
 
 qint64 PersonalAccessTokenInfo::createdAt() const
@@ -34,6 +36,15 @@ qint64 PersonalAccessTokenInfo::createdAt() const
 void PersonalAccessTokenInfo::setCreatedAt(qint64 newCreatedAt)
 {
     mCreatedAt = newCreatedAt;
+    if (mCreatedAt != -1) {
+        QLocale l;
+        mCreateAtDisplayDateTime = l.toString(QDateTime::fromMSecsSinceEpoch(mCreatedAt), QLocale::LongFormat);
+    }
+}
+
+const QString &PersonalAccessTokenInfo::createAtDisplayDateTime() const
+{
+    return mCreateAtDisplayDateTime;
 }
 
 bool PersonalAccessTokenInfo::bypassTwoFactor() const

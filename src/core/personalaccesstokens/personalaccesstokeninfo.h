@@ -30,10 +30,13 @@ public:
     Q_REQUIRED_RESULT qint64 createdAt() const;
     void setCreatedAt(qint64 newCreatedAt);
 
+    const QString &createAtDisplayDateTime() const;
+
 private:
     qint64 mCreatedAt = -1;
     QString mLastTokenPart;
     QString mName;
+    QString mCreateAtDisplayDateTime;
     bool mBypassTwoFactor = false;
 };
 
