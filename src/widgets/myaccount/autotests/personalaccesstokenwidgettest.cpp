@@ -5,7 +5,7 @@
 */
 
 #include "personalaccesstokenwidgettest.h"
-#include "personalaccesstokenswidget/myaccountpersonalaccesstokenconfigurewidget.h"
+#include "myaccount/myaccountpersonalaccesstokenconfigurewidget.h"
 #include <QTest>
 QTEST_MAIN(PersonalAccessTokenWidgetTest)
 PersonalAccessTokenWidgetTest::PersonalAccessTokenWidgetTest(QObject *parent)

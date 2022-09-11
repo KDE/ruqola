@@ -426,6 +426,13 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountprofileconfigureavatarwidget.h
     myaccount/myaccountprofileconfigurewidget.cpp
     myaccount/myaccountprofileconfigurewidget.h
+
+    myaccount/myaccountpersonalaccesstokenconfigurewidget.h
+    myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp
+    myaccount/personalaccesstokentreeview.h
+    myaccount/personalaccesstokentreeview.cpp
+
+
     notificationhistory/notificationhistorydialog.cpp
     notificationhistory/notificationhistorydialog.h
     notificationhistory/notificationhistorywidget.cpp
@@ -436,10 +443,6 @@ target_sources(libruqolawidgets PRIVATE
     notificationhistory/notificationhistorylistview.cpp
     otr/otrwidget.cpp
     otr/otrwidget.h
-    personalaccesstokenswidget/myaccountpersonalaccesstokenconfigurewidget.h
-    personalaccesstokenswidget/myaccountpersonalaccesstokenconfigurewidget.cpp
-    personalaccesstokenswidget/personalaccesstokentreeview.h
-    personalaccesstokenswidget/personalaccesstokentreeview.cpp
     prunemessages/prunemessagesdialog.cpp
     prunemessages/prunemessagesdialog.h
     prunemessages/prunemessageswidget.cpp
@@ -676,7 +679,6 @@ if (BUILD_TESTING)
     add_subdirectory(bannerinfodialog/autotests)
     add_subdirectory(managedevice/autotests)
     add_subdirectory(translator/autotests)
-    add_subdirectory(personalaccesstokenswidget/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
