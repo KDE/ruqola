@@ -95,14 +95,15 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
 
             mRocketChatAccount->restApi()->initializeRestApiJob(job);
             connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
-                qDebug() << " obj " << obj;
                 const QString token = obj[QLatin1String("token")].toString();
-
+                KMessageBox::information(this,
+                                         i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
+                                              "<b>Token:</b> %1<br>"
+                                              "<b>Your user Id:</b> %2</qt>",
+                                              token,
+                                              mRocketChatAccount->userId()),
+                                         i18n("Personal Token Created"));
                 // TODO update list
-
-                //            PersonalAccessTokenInfos info;
-                //            info.parsePersonalAccessTokenInfos(obj);
-                //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
@@ -137,11 +138,14 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
             const QString token = obj[QLatin1String("token")].toString();
-            // Add KMessageBox::
-            qDebug() << " obj " << obj;
-            //            PersonalAccessTokenInfos info;
-            //            info.parsePersonalAccessTokenInfos(obj);
-            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+            KMessageBox::information(this,
+                                     i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
+                                          "<b>Token:</b> %1<br>"
+                                          "<b>Your user Id:</b> %2</qt>",
+                                          token,
+                                          mRocketChatAccount->userId()),
+                                     i18n("Personal Token Regenerated"));
+            // TODO update list
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RegeneratePersonalAccessTokenJob job";
