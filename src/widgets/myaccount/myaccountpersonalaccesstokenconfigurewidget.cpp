@@ -10,8 +10,13 @@
 #include "model/personalaccesstokeninfosfilterproxymodel.h"
 #include "model/personalaccesstokeninfosmodel.h"
 #include "myaccountpersonalaccesstokentreeview.h"
+#include "personalaccesstoken/generatepersonalaccesstokenjob.h"
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
+#include "personalaccesstoken/regeneratepersonalaccesstokenjob.h"
+#include "personalaccesstoken/removepersonalaccesstokenjob.h"
+
 #include "personalaccesstokens/personalaccesstokeninfos.h"
+
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
@@ -45,6 +50,18 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     proxyModel->setSourceModel(mPersonalAccessTokenModel);
     mPersonalAccessTokenTreeView->setModel(proxyModel);
     mPersonalAccessTokenTreeView->setColumnHidden(PersonalAccessTokenInfosModel::CreateAtDateTime, true);
+    connect(mPersonalAccessTokenTreeView,
+            &MyAccountPersonalAccessTokenTreeView::createToken,
+            this,
+            &MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken);
+    connect(mPersonalAccessTokenTreeView,
+            &MyAccountPersonalAccessTokenTreeView::removeToken,
+            this,
+            &MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken);
+    connect(mPersonalAccessTokenTreeView,
+            &MyAccountPersonalAccessTokenTreeView::regenerateToken,
+            this,
+            &MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken);
 }
 
 MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;
@@ -61,6 +78,59 @@ void MyAccountPersonalAccessTokenConfigureWidget::initialize()
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GetPersonalAccessTokensJob job";
+        }
+    }
+}
+
+void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
+{
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+            //            PersonalAccessTokenInfos info;
+            //            info.parsePersonalAccessTokenInfos(obj);
+            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
+        }
+    }
+}
+
+void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString &tokenName)
+{
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::RemovePersonalAccessTokenJob(this);
+        job->setTokenName(tokenName);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+            //            PersonalAccessTokenInfos info;
+            //            info.parsePersonalAccessTokenInfos(obj);
+            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemovePersonalAccessTokenJob job";
+        }
+    }
+}
+
+void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QString &tokenName)
+{
+    if (mRocketChatAccount) {
+        auto job = new RocketChatRestApi::RegeneratePersonalAccessTokenJob(this);
+        job->setTokenName(tokenName);
+        mRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
+            qDebug() << " obj " << obj;
+            //            PersonalAccessTokenInfos info;
+            //            info.parsePersonalAccessTokenInfos(obj);
+            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RegeneratePersonalAccessTokenJob job";
         }
     }
 }

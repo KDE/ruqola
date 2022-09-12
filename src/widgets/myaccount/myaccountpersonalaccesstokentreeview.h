@@ -17,12 +17,12 @@ public:
     ~MyAccountPersonalAccessTokenTreeView() override;
 
 Q_SIGNALS:
-    void removeToken(const QString &identifier);
+    void removeToken(const QString &tokenName);
+    void createToken();
+    void regenerateToken(const QString &tokenName);
 
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
-    void addClicked();
-    void removeClicked(const QString &identifier);
-    void regenerateTokenClicked(const QModelIndex &index);
+    void removeClicked(const QString &tokenName);
     RocketChatAccount *const mRocketAccount;
 };

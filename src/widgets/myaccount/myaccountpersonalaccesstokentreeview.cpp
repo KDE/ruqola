@@ -5,6 +5,7 @@
 */
 
 #include "myaccountpersonalaccesstokentreeview.h"
+#include "model/personalaccesstokeninfosmodel.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -25,7 +26,7 @@ MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(Rocke
             &MyAccountPersonalAccessTokenTreeView::customContextMenuRequested,
             this,
             &MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested);
-    connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked);
+    // TODO connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked);
 }
 
 MyAccountPersonalAccessTokenTreeView::~MyAccountPersonalAccessTokenTreeView() = default;
@@ -34,34 +35,25 @@ void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const 
 {
     const QModelIndex index = indexAt(pos);
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &MyAccountPersonalAccessTokenTreeView::addClicked);
+    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &MyAccountPersonalAccessTokenTreeView::createToken);
     if (index.isValid()) {
         menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Regenerate..."), this, [this, index]() {
-            regenerateTokenClicked(index);
+            const QModelIndex modelIndex = model()->index(index.row(), PersonalAccessTokenInfosModel::Name);
+            Q_EMIT regenerateToken(modelIndex.data().toString());
         });
         menu.addSeparator();
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-            // const QModelIndex modelIndex = model()->index(index.row(), AdminOauthModel::Identifier);
-            // removeClicked(modelIndex.data().toString());
+            const QModelIndex modelIndex = model()->index(index.row(), PersonalAccessTokenInfosModel::Name);
+            removeClicked(modelIndex.data().toString());
         });
     }
     menu.exec(viewport()->mapToGlobal(pos));
 }
 
-void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &identifier)
+void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &tokenName)
 {
     if (KMessageBox::Yes
         == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this Token?"), i18n("Remove Token"), KStandardGuiItem::remove())) {
-        Q_EMIT removeToken(identifier);
+        Q_EMIT removeToken(tokenName);
     }
-}
-
-void MyAccountPersonalAccessTokenTreeView::addClicked()
-{
-    // TODO
-}
-
-void MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked(const QModelIndex &index)
-{
-    // TODO
 }

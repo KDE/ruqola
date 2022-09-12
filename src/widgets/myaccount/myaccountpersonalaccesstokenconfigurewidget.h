@@ -22,6 +22,9 @@ public:
     void initialize();
 
 private:
+    void slotCreateToken();
+    void slotRemoveToken(const QString &tokenName);
+    void slotRegenerateToken(const QString &tokenName);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     MyAccountPersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;
