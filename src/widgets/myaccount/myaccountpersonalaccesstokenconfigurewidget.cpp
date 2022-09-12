@@ -9,6 +9,7 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/personalaccesstokeninfosfilterproxymodel.h"
 #include "model/personalaccesstokeninfosmodel.h"
+#include "myaccountpersonalaccesscreatedialog.h"
 #include "myaccountpersonalaccesstokentreeview.h"
 #include "personalaccesstoken/generatepersonalaccesstokenjob.h"
 #include "personalaccesstoken/getpersonalaccesstokensjob.h"
@@ -85,19 +86,30 @@ void MyAccountPersonalAccessTokenConfigureWidget::initialize()
 
 void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
 {
-    if (mRocketChatAccount) {
-        auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
-            qDebug() << " obj " << obj;
-            //            PersonalAccessTokenInfos info;
-            //            info.parsePersonalAccessTokenInfos(obj);
-            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
+    QPointer<MyAccountPersonalAccessCreateDialog> createDialog = new MyAccountPersonalAccessCreateDialog(this);
+    if (createDialog->exec()) {
+        if (mRocketChatAccount) {
+            auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
+            job->setTokenName(createDialog->tokenName());
+            job->setBypassTwoFactor(createDialog->bypassTwoFactor());
+
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
+                qDebug() << " obj " << obj;
+                const QString token = obj[QLatin1String("token")].toString();
+
+                // TODO update list
+
+                //            PersonalAccessTokenInfos info;
+                //            info.parsePersonalAccessTokenInfos(obj);
+                //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
+            }
         }
     }
+    delete createDialog;
 }
 
 void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString &tokenName)

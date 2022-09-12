@@ -431,6 +431,10 @@ target_sources(libruqolawidgets PRIVATE
     myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp
     myaccount/myaccountpersonalaccesstokentreeview.h
     myaccount/myaccountpersonalaccesstokentreeview.cpp
+    myaccount/myaccountpersonalaccesscreatedialog.h
+    myaccount/myaccountpersonalaccesscreatedialog.cpp
+    myaccount/myaccountpersonalaccesscreatewidget.h
+    myaccount/myaccountpersonalaccesscreatewidget.cpp
 
     myaccount/myaccountmanagedeviceconfigurewidget.cpp
     myaccount/myaccountmanagedeviceconfigurewidget.h
