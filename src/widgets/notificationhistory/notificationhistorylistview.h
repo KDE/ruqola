@@ -23,6 +23,8 @@ public:
     Q_REQUIRED_RESULT const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
+    Q_REQUIRED_RESULT QString selectedText() const;
+
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;

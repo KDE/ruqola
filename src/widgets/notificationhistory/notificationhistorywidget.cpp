@@ -8,11 +8,12 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
-#include "notificationhistorydelegate.h"
 #include "notificationhistorylistview.h"
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <QApplication>
+#include <QClipboard>
 #include <QLineEdit>
 #include <QListView>
 #include <QMenu>
@@ -81,6 +82,21 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
     }
 }
 
+void NotificationHistoryWidget::copyMessageToClipboard(const QModelIndex &index)
+{
+    QString message = mListNotificationsListView->selectedText();
+    if (message.isEmpty()) {
+        if (!index.isValid()) {
+            return;
+        }
+        message = index.data(NotificationHistoryModel::MessageStr).toString();
+    }
+
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(message, QClipboard::Clipboard);
+    clip->setText(message, QClipboard::Selection);
+}
+
 void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     if (mListNotificationsListView->model()->rowCount() > 0) {
@@ -92,6 +108,13 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
             menu.addAction(i18n("Go to Message"), this, [this, index]() {
                 slotShowMessage(index);
             });
+            menu.addSeparator();
+            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
+            copyAction->setShortcut(QKeySequence::Copy);
+            connect(copyAction, &QAction::triggered, this, [=]() {
+                copyMessageToClipboard(index);
+            });
+
             menu.addSeparator();
             menu.addAction(i18n("Select All"), this, [this, index]() {
                 mListNotificationsListView->slotSelectAll(index);

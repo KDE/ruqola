@@ -275,3 +275,8 @@ RocketChatAccount *NotificationHistoryDelegate::rocketChatAccount(const QModelIn
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     return Ruqola::self()->accountManager()->accountFromName(accountName);
 }
+
+QString NotificationHistoryDelegate::selectedText() const
+{
+    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
+}

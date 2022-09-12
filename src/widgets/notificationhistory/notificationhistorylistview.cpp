@@ -53,3 +53,8 @@ void NotificationHistoryListView::setSearchText(const QString &newSearchText)
 {
     mListNotificationsDelegate->setSearchText(newSearchText);
 }
+
+QString NotificationHistoryListView::selectedText() const
+{
+    return mListNotificationsDelegate->selectedText();
+}
