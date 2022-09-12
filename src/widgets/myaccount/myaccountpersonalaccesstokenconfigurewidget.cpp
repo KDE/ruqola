@@ -21,6 +21,7 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <QLineEdit>
 #include <QVBoxLayout>
 
@@ -107,9 +108,8 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString 
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this](const QJsonObject &obj) {
             qDebug() << " obj " << obj;
-            //            PersonalAccessTokenInfos info;
-            //            info.parsePersonalAccessTokenInfos(obj);
-            //            mPersonalAccessTokenModel->insertPersonalAccessTokenInfos(info);
+            KMessageBox::information(this, i18n("Personal Token removed."), i18n("Remove Personal Token"));
+            // TODO update list.
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemovePersonalAccessTokenJob job";
@@ -124,6 +124,8 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
         job->setTokenName(tokenName);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
+            const QString token = obj[QLatin1String("token")].toString();
+            // Add KMessageBox::
             qDebug() << " obj " << obj;
             //            PersonalAccessTokenInfos info;
             //            info.parsePersonalAccessTokenInfos(obj);
