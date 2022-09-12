@@ -268,6 +268,9 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     personalaccesstoken/getpersonalaccesstokensjob.h
     personalaccesstoken/regeneratepersonalaccesstokenjob.cpp
     personalaccesstoken/regeneratepersonalaccesstokenjob.h
+    personalaccesstoken/removepersonalaccesstokenjob.cpp
+    personalaccesstoken/removepersonalaccesstokenjob.h
+
 
     python/pyrocketchatrestapi-qt5/rocketchatrestapi-qt5_global.h
 
