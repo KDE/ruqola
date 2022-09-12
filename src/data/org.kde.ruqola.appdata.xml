@@ -595,6 +595,7 @@
       <li xml:lang="tr">Aygıt Yönet (RC &gt;= 5.0)</li>
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
+      <li>Manage Personal Access Token</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
