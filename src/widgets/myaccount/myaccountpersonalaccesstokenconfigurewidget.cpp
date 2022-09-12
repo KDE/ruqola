@@ -103,7 +103,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
                                               token,
                                               mRocketChatAccount->userId()),
                                          i18n("Personal Token Created"));
-                // TODO update list
+                initialize();
             });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
@@ -145,7 +145,7 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
                                           token,
                                           mRocketChatAccount->userId()),
                                      i18n("Personal Token Regenerated"));
-            // TODO update list
+            initialize();
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RegeneratePersonalAccessTokenJob job";
