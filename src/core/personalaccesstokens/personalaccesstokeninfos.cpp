@@ -35,6 +35,11 @@ PersonalAccessTokenInfo PersonalAccessTokenInfos::at(int index) const
     return mPersonalAccessTokenInfos.at(index);
 }
 
+void PersonalAccessTokenInfos::removeAt(int index)
+{
+    mPersonalAccessTokenInfos.removeAt(index);
+}
+
 bool PersonalAccessTokenInfos::isEmpty() const
 {
     return mPersonalAccessTokenInfos.isEmpty();

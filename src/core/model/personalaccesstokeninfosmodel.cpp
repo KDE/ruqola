@@ -98,3 +98,16 @@ int PersonalAccessTokenInfosModel::columnCount(const QModelIndex &parent) const
     Q_UNUSED(parent)
     return static_cast<int>(PersonalAccessTokenInfosModel::LastColumn) + 1;
 }
+
+void PersonalAccessTokenInfosModel::removeToken(const QString &tokenName)
+{
+    const int roomCount = mPersonalAccessTokenInfos.count();
+    for (int i = 0; i < roomCount; ++i) {
+        if (mPersonalAccessTokenInfos.at(i).name() == tokenName) {
+            beginRemoveRows(QModelIndex(), i, i);
+            mPersonalAccessTokenInfos.removeAt(i);
+            endRemoveRows();
+            break;
+        }
+    }
+}

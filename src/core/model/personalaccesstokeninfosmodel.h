@@ -38,6 +38,8 @@ public:
 
     void insertPersonalAccessTokenInfos(const PersonalAccessTokenInfos &infos);
 
+    void removeToken(const QString &tokenName);
+
 private:
     PersonalAccessTokenInfos mPersonalAccessTokenInfos;
 };

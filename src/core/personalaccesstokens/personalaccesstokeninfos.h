@@ -26,6 +26,8 @@ public:
 
     Q_REQUIRED_RESULT PersonalAccessTokenInfo at(int index) const;
 
+    void removeAt(int index);
+
 private:
     QVector<PersonalAccessTokenInfo> mPersonalAccessTokenInfos;
 };
