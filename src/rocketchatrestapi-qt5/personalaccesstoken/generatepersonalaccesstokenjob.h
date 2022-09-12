@@ -10,12 +10,12 @@
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_EXPORT RegeneratePersonalAccessTokenJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT GeneratePersonalAccessTokenJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
-    explicit RegeneratePersonalAccessTokenJob(QObject *parent = nullptr);
-    ~RegeneratePersonalAccessTokenJob() override;
+    explicit GeneratePersonalAccessTokenJob(QObject *parent = nullptr);
+    ~GeneratePersonalAccessTokenJob() override;
 
     Q_REQUIRED_RESULT bool start() override;
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
@@ -27,12 +27,16 @@ public:
     Q_REQUIRED_RESULT const QString &tokenName() const;
     void setTokenName(const QString &newTokenName);
 
+    Q_REQUIRED_RESULT bool bypassTwoFactor() const;
+    void setBypassTwoFactor(bool newBypassTwoFactor);
+
 Q_SIGNALS:
-    void regenerateTokenDone(const QJsonObject &obj);
+    void generateTokenDone(const QJsonObject &obj);
 
 private:
-    Q_DISABLE_COPY(RegeneratePersonalAccessTokenJob)
+    Q_DISABLE_COPY(GeneratePersonalAccessTokenJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
     QString mTokenName;
+    bool mBypassTwoFactor = false;
 };
 }

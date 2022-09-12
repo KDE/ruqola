@@ -24,7 +24,7 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
-    const QString &tokenName() const;
+    Q_REQUIRED_RESULT const QString &tokenName() const;
     void setTokenName(const QString &newTokenName);
 
 Q_SIGNALS:
