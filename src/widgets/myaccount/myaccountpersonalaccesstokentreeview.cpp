@@ -26,7 +26,6 @@ MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(Rocke
             &MyAccountPersonalAccessTokenTreeView::customContextMenuRequested,
             this,
             &MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested);
-    // TODO connect(this, &QTreeView::doubleClicked, this, &MyAccountPersonalAccessTokenTreeView::regenerateTokenClicked);
 }
 
 MyAccountPersonalAccessTokenTreeView::~MyAccountPersonalAccessTokenTreeView() = default;
@@ -37,7 +36,7 @@ void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const 
     QMenu menu(this);
     menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &MyAccountPersonalAccessTokenTreeView::createToken);
     if (index.isValid()) {
-        menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Regenerate..."), this, [this, index]() {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("view-refresh")), i18n("Regenerate..."), this, [this, index]() {
             const QModelIndex modelIndex = model()->index(index.row(), PersonalAccessTokenInfosModel::Name);
             Q_EMIT regenerateToken(modelIndex.data().toString());
         });
@@ -53,7 +52,10 @@ void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const 
 void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &tokenName)
 {
     if (KMessageBox::Yes
-        == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this Token?"), i18n("Remove Token"), KStandardGuiItem::remove())) {
+        == KMessageBox::warningYesNo(this,
+                                     i18n("Are you sure that you want to delete \"%1\" Token?", tokenName),
+                                     i18n("Remove Token"),
+                                     KStandardGuiItem::remove())) {
         Q_EMIT removeToken(tokenName);
     }
 }
