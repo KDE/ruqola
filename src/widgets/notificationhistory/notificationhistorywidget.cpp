@@ -114,7 +114,7 @@ void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos
             connect(copyAction, &QAction::triggered, this, [=]() {
                 copyMessageToClipboard(index);
             });
-
+            menu.addAction(copyAction);
             menu.addSeparator();
             menu.addAction(i18n("Select All"), this, [this, index]() {
                 mListNotificationsListView->slotSelectAll(index);
