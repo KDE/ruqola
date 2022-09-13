@@ -16,6 +16,7 @@
 #include "personalaccesstoken/regeneratepersonalaccesstokenjob.h"
 #include "personalaccesstoken/removepersonalaccesstokenjob.h"
 
+#include "dialogs/confirmpassworddialog.h"
 #include "personalaccesstokens/personalaccesstokeninfos.h"
 
 #include "rocketchataccount.h"
@@ -89,7 +90,20 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
     QPointer<MyAccountPersonalAccessCreateDialog> createDialog = new MyAccountPersonalAccessCreateDialog(this);
     if (createDialog->exec()) {
         if (mRocketChatAccount) {
+            QString password;
+            const bool twoFactorAuthenticationEnforcePasswordFallback = true; // mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+            if (twoFactorAuthenticationEnforcePasswordFallback) {
+                QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+                if (dialog->exec()) {
+                    password = dialog->password();
+                }
+                delete dialog;
+            }
             auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
+            if (twoFactorAuthenticationEnforcePasswordFallback) {
+                job->setAuthMethod(QStringLiteral("password"));
+                job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+            }
             job->setTokenName(createDialog->tokenName());
             job->setBypassTwoFactor(createDialog->bypassTwoFactor());
 
@@ -116,8 +130,23 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
 void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString &tokenName)
 {
     if (mRocketChatAccount) {
+        QString password;
+        const bool twoFactorAuthenticationEnforcePasswordFallback = true; // mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            if (dialog->exec()) {
+                password = dialog->password();
+            }
+            delete dialog;
+        }
+
         auto job = new RocketChatRestApi::RemovePersonalAccessTokenJob(this);
         job->setTokenName(tokenName);
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+        }
+
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this, tokenName](const QJsonObject &obj) {
             // qDebug() << " obj " << obj;
@@ -133,7 +162,21 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString 
 void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QString &tokenName)
 {
     if (mRocketChatAccount) {
+        QString password;
+        const bool twoFactorAuthenticationEnforcePasswordFallback = true; // mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            if (dialog->exec()) {
+                password = dialog->password();
+            }
+            delete dialog;
+        }
+
         auto job = new RocketChatRestApi::RegeneratePersonalAccessTokenJob(this);
+        if (twoFactorAuthenticationEnforcePasswordFallback) {
+            job->setAuthMethod(QStringLiteral("password"));
+            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+        }
         job->setTokenName(tokenName);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
