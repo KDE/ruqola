@@ -31,4 +31,5 @@ void MyAccountPersonalAccessCreateWidgetTest::shouldHaveDefaultValues()
     auto mTokenName = w.findChild<QLineEdit *>(QStringLiteral("mTokenName"));
     QVERIFY(mTokenName);
     QVERIFY(mTokenName->text().isEmpty());
+    QVERIFY(mTokenName->isClearButtonEnabled());
 }

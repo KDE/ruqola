@@ -21,6 +21,7 @@ MyAccountPersonalAccessCreateWidget::MyAccountPersonalAccessCreateWidget(QWidget
 
     mBypassTwoFactor->setObjectName(QStringLiteral("mBypassTwoFactor"));
     mTokenName->setObjectName(QStringLiteral("mTokenName"));
+    mTokenName->setClearButtonEnabled(true);
 
     new LineEditCatchReturnKey(mTokenName, this);
 
