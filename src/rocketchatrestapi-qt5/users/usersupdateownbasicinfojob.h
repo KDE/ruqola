@@ -45,9 +45,6 @@ public:
     Q_REQUIRED_RESULT UpdateOwnBasicInfo updateOwnBasicInfo() const;
     void setUpdateOwnBasicInfo(const UpdateOwnBasicInfo &updateOwnBasicInfo);
 
-protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
-
 Q_SIGNALS:
     void updateOwnBasicInfoDone();
     void passwordChanged();

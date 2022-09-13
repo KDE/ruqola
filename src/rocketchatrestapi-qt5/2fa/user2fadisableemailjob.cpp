@@ -79,9 +79,7 @@ bool User2FADisableEmailJob::requireTwoFactorAuthentication() const
 
 QString User2FADisableEmailJob::errorMessage(const QString &str, const QJsonObject &detail)
 {
-    if (str == QLatin1String("totp-required")) {
-        return i18n("TOTP Required");
-    } else if (str == QLatin1String("totp-invalid")) {
+    if (str == QLatin1String("totp-invalid")) {
         return i18n("Invalid Password");
     }
     return RestApiAbstractJob::errorMessage(str, detail);

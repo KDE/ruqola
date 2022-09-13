@@ -91,14 +91,6 @@ QJsonDocument RemovePersonalAccessTokenJob::json() const
     return postData;
 }
 
-QString RemovePersonalAccessTokenJob::errorMessage(const QString &str, const QJsonObject &details)
-{
-    if (str == QLatin1String("totp-required")) {
-        return i18n("Two Authentication Password Required");
-    }
-    return RestApiAbstractJob::errorMessage(str, details);
-}
-
 bool RemovePersonalAccessTokenJob::requireTwoFactorAuthentication() const
 {
     return true;

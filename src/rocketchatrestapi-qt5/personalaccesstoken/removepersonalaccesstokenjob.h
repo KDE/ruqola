@@ -31,9 +31,6 @@ public:
 Q_SIGNALS:
     void removeTokenDone(const QJsonObject &obj);
 
-protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
-
 private:
     Q_DISABLE_COPY(RemovePersonalAccessTokenJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;

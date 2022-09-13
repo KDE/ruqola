@@ -432,6 +432,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("Direct Messages can not be archived");
     } else if (str == QLatin1String("error-message-not-found")) {
         return i18n("Message not found.");
+    } else if (str == QLatin1String("totp-required")) {
+        return i18n("Two Authentication Password Required");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
