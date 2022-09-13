@@ -60,7 +60,10 @@ MyAccountConfigureWidget::MyAccountConfigureWidget(RocketChatAccount *account, Q
         manageDeviceWidget->initialize();
     }
     mMyAccountPersonalAccessTokenConfigureWidget->setObjectName(QStringLiteral("mMyAccountPersonalAccessTokenConfigureWidget"));
-    tabWidget->addTab(mMyAccountPersonalAccessTokenConfigureWidget, i18n("Personal Access Token"));
+    const int pageIndex = tabWidget->addTab(mMyAccountPersonalAccessTokenConfigureWidget, i18n("Personal Access Token"));
+    if (account && !account->hasPermission(QStringLiteral("create-personal-access-tokens"))) {
+        tabWidget->setTabVisible(pageIndex, false);
+    }
 }
 
 MyAccountConfigureWidget::~MyAccountConfigureWidget() = default;
