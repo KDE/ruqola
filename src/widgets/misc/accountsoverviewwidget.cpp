@@ -86,6 +86,7 @@ Q_REQUIRED_RESULT QString currentText(RocketChatAccount *account)
 AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     : QWidget(parent)
     , mTabBar(new QTabBar(this))
+    , mAccountManager(Ruqola::self()->accountManager())
 {
     mTabBar->setShape(QTabBar::RoundedSouth);
     mTabBar->setObjectName(QStringLiteral("mTabBar"));
@@ -95,7 +96,6 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabBar);
 
-    mAccountManager = Ruqola::self()->accountManager();
     const auto model = mAccountManager->rocketChatAccountModel();
     connect(model, &RocketChatAccountModel::accountNumberChanged, this, &AccountsOverviewWidget::updateButtons);
     updateButtons();

@@ -28,5 +28,5 @@ private:
     void goToView(int index);
 
     QTabBar *const mTabBar;
-    AccountManager *mAccountManager = nullptr;
+    AccountManager *const mAccountManager;
 };
