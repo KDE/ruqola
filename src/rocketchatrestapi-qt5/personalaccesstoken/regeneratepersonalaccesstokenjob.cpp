@@ -87,3 +87,8 @@ QJsonDocument RegeneratePersonalAccessTokenJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+bool RegeneratePersonalAccessTokenJob::requireTwoFactorAuthentication() const
+{
+    return true;
+}

@@ -21,6 +21,7 @@ public:
     Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
     Q_REQUIRED_RESULT bool canStart() const override;
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
+    Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
@@ -29,6 +30,9 @@ public:
 
 Q_SIGNALS:
     void removeTokenDone(const QJsonObject &obj);
+
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &details) override;
 
 private:
     Q_DISABLE_COPY(RemovePersonalAccessTokenJob)

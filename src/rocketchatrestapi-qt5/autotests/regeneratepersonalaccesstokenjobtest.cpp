@@ -23,6 +23,7 @@ void RegeneratePersonalAccessTokenJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.tokenName().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.requireTwoFactorAuthentication());
 }
 
 void RegeneratePersonalAccessTokenJobTest::shouldGenerateRequest()
@@ -60,6 +61,13 @@ void RegeneratePersonalAccessTokenJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
+
+    job.setAuthCode(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+
+    job.setAuthMethod(QStringLiteral("method"));
+    QVERIFY(!job.canStart());
+
     const QString tokenName = QStringLiteral("foo1");
     job.setTokenName(tokenName);
     QVERIFY(job.canStart());

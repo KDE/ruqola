@@ -8,9 +8,12 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+
 using namespace RocketChatRestApi;
 RemovePersonalAccessTokenJob::RemovePersonalAccessTokenJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -86,4 +89,17 @@ QJsonDocument RemovePersonalAccessTokenJob::json() const
     jsonObj[QLatin1String("tokenName")] = mTokenName;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString RemovePersonalAccessTokenJob::errorMessage(const QString &str, const QJsonObject &details)
+{
+    if (str == QLatin1String("totp-required")) {
+        return i18n("Two Authentication Password Required");
+    }
+    return RestApiAbstractJob::errorMessage(str, details);
+}
+
+bool RemovePersonalAccessTokenJob::requireTwoFactorAuthentication() const
+{
+    return true;
 }

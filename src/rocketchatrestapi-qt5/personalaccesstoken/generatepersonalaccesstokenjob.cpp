@@ -98,3 +98,8 @@ QJsonDocument GeneratePersonalAccessTokenJob::json() const
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
+
+bool GeneratePersonalAccessTokenJob::requireTwoFactorAuthentication() const
+{
+    return true;
+}

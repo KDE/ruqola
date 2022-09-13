@@ -23,6 +23,7 @@ void RemovePersonalAccessTokenJobTest::shouldHaveDefaultValue()
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.tokenName().isEmpty());
     QVERIFY(!job.hasQueryParameterSupport());
+    QVERIFY(job.requireTwoFactorAuthentication());
 }
 
 void RemovePersonalAccessTokenJobTest::shouldGenerateRequest()
@@ -58,6 +59,13 @@ void RemovePersonalAccessTokenJobTest::shouldNotStarting()
     const QString userId = QStringLiteral("foo");
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
+
+    job.setAuthCode(QStringLiteral("bla"));
+    QVERIFY(!job.canStart());
+
+    job.setAuthMethod(QStringLiteral("method"));
+    QVERIFY(!job.canStart());
+
     job.setUserId(userId);
     QVERIFY(!job.canStart());
     const QString tokenName = QStringLiteral("foo1");
