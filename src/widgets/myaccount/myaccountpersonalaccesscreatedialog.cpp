@@ -15,7 +15,7 @@ MyAccountPersonalAccessCreateDialog::MyAccountPersonalAccessCreateDialog(QWidget
     : QDialog(parent)
     , mCreateWidget(new MyAccountPersonalAccessCreateWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Prune Messages"));
+    setWindowTitle(i18nc("@title:window", "Create Personal Token"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
