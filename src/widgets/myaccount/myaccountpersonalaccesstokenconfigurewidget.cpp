@@ -99,28 +99,30 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotCreateToken()
                 }
                 delete dialog;
             }
-            auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
-            if (twoFactorAuthenticationEnforcePasswordFallback) {
-                job->setAuthMethod(QStringLiteral("password"));
-                job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-            }
-            job->setTokenName(createDialog->tokenName());
-            job->setBypassTwoFactor(createDialog->bypassTwoFactor());
+            if (!password.isEmpty()) {
+                auto job = new RocketChatRestApi::GeneratePersonalAccessTokenJob(this);
+                if (twoFactorAuthenticationEnforcePasswordFallback) {
+                    job->setAuthMethod(QStringLiteral("password"));
+                    job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+                }
+                job->setTokenName(createDialog->tokenName());
+                job->setBypassTwoFactor(createDialog->bypassTwoFactor());
 
-            mRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
-                const QString token = obj[QLatin1String("token")].toString();
-                KMessageBox::information(this,
-                                         i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
-                                              "<b>Token:</b> %1<br>"
-                                              "<b>Your user Id:</b> %2</qt>",
-                                              token,
-                                              mRocketChatAccount->userId()),
-                                         i18n("Personal Token Created"));
-                initialize();
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::GeneratePersonalAccessTokenJob::generateTokenDone, this, [this](const QJsonObject &obj) {
+                    const QString token = obj[QLatin1String("token")].toString();
+                    KMessageBox::information(this,
+                                             i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
+                                                  "<b>Token:</b> %1<br>"
+                                                  "<b>Your user Id:</b> %2</qt>",
+                                                  token,
+                                                  mRocketChatAccount->userId()),
+                                             i18n("Personal Token Created"));
+                    initialize();
+                });
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start GeneratePersonalAccessTokenJob job";
+                }
             }
         }
     }
@@ -140,21 +142,22 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRemoveToken(const QString 
             delete dialog;
         }
 
-        auto job = new RocketChatRestApi::RemovePersonalAccessTokenJob(this);
-        job->setTokenName(tokenName);
-        if (twoFactorAuthenticationEnforcePasswordFallback) {
-            job->setAuthMethod(QStringLiteral("password"));
-            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-        }
+        if (!password.isEmpty()) {
+            auto job = new RocketChatRestApi::RemovePersonalAccessTokenJob(this);
+            job->setTokenName(tokenName);
+            if (twoFactorAuthenticationEnforcePasswordFallback) {
+                job->setAuthMethod(QStringLiteral("password"));
+                job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+            }
 
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this, tokenName](const QJsonObject &obj) {
-            // qDebug() << " obj " << obj;
-            KMessageBox::information(this, i18n("Personal Token removed."), i18n("Remove Personal Token"));
-            mPersonalAccessTokenModel->removeToken(tokenName);
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemovePersonalAccessTokenJob job";
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::RemovePersonalAccessTokenJob::removeTokenDone, this, [this, tokenName]() {
+                KMessageBox::information(this, i18n("Personal Token removed."), i18n("Remove Personal Token"));
+                mPersonalAccessTokenModel->removeToken(tokenName);
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RemovePersonalAccessTokenJob job";
+            }
         }
     }
 }
@@ -172,26 +175,28 @@ void MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken(const QStr
             delete dialog;
         }
 
-        auto job = new RocketChatRestApi::RegeneratePersonalAccessTokenJob(this);
-        if (twoFactorAuthenticationEnforcePasswordFallback) {
-            job->setAuthMethod(QStringLiteral("password"));
-            job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
-        }
-        job->setTokenName(tokenName);
-        mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
-            const QString token = obj[QLatin1String("token")].toString();
-            KMessageBox::information(this,
-                                     i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
-                                          "<b>Token:</b> %1<br>"
-                                          "<b>Your user Id:</b> %2</qt>",
-                                          token,
-                                          mRocketChatAccount->userId()),
-                                     i18n("Personal Token Regenerated"));
-            initialize();
-        });
-        if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RegeneratePersonalAccessTokenJob job";
+        if (!password.isEmpty()) {
+            auto job = new RocketChatRestApi::RegeneratePersonalAccessTokenJob(this);
+            if (twoFactorAuthenticationEnforcePasswordFallback) {
+                job->setAuthMethod(QStringLiteral("password"));
+                job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
+            }
+            job->setTokenName(tokenName);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::RegeneratePersonalAccessTokenJob::regenerateTokenDone, this, [this](const QJsonObject &obj) {
+                const QString token = obj[QLatin1String("token")].toString();
+                KMessageBox::information(this,
+                                         i18n("<qt>Please save your token carefully as you will no longer be able to view it afterwards.<br>"
+                                              "<b>Token:</b> %1<br>"
+                                              "<b>Your user Id:</b> %2</qt>",
+                                              token,
+                                              mRocketChatAccount->userId()),
+                                         i18n("Personal Token Regenerated"));
+                initialize();
+            });
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start RegeneratePersonalAccessTokenJob job";
+            }
         }
     }
 }
