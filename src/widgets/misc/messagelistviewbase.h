@@ -36,6 +36,8 @@ protected:
     virtual bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
     Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
 
+    void addTextPlugins(QMenu *menu, const QString &selectedText);
+
     QVector<PluginTextInterface *> mPluginTextInterface;
 
 private:

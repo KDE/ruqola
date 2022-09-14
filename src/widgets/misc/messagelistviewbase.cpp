@@ -7,6 +7,7 @@
 #include "messagelistviewbase.h"
 #include "model/messagemodel.h"
 #include "room/plugins/plugintext.h"
+#include "room/plugins/plugintextinterface.h"
 #include "room/textpluginmanager.h"
 #include <QAbstractItemModel>
 #include <QApplication>
@@ -156,4 +157,12 @@ bool MessageListViewBase::mouseEvent(QMouseEvent *event, const QStyleOptionViewI
     Q_UNUSED(option);
     Q_UNUSED(index);
     return false;
+}
+
+void MessageListViewBase::addTextPlugins(QMenu *menu, const QString &selectedText)
+{
+    for (PluginTextInterface *interface : std::as_const(mPluginTextInterface)) {
+        interface->setSelectedText(selectedText);
+        interface->addAction(menu);
+    }
 }

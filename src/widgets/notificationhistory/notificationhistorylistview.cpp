@@ -5,8 +5,15 @@
 */
 
 #include "notificationhistorylistview.h"
+#include "model/notificationhistorymodel.h"
 #include "notificationhistorydelegate.h"
+#include "notificationhistorymanager.h"
 
+#include <KLocalizedString>
+
+#include <QApplication>
+#include <QClipboard>
+#include <QMenu>
 #include <QMouseEvent>
 
 NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
@@ -20,6 +27,7 @@ NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     connect(mListNotificationsDelegate, &NotificationHistoryDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
+    connect(this, &QListView::customContextMenuRequested, this, &NotificationHistoryListView::slotCustomContextMenuRequested);
 }
 
 NotificationHistoryListView::~NotificationHistoryListView() = default;
@@ -57,4 +65,52 @@ void NotificationHistoryListView::setSearchText(const QString &newSearchText)
 QString NotificationHistoryListView::selectedText() const
 {
     return mListNotificationsDelegate->selectedText();
+}
+
+void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &pos)
+{
+    if (model()->rowCount() > 0) {
+        QMenu menu(this);
+        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryListView::slotClearList);
+        const QModelIndex index = indexAt(pos);
+        if (index.isValid()) {
+            menu.addSeparator();
+            menu.addAction(i18n("Go to Message"), this, [this, index]() {
+                Q_EMIT showMessage(index);
+            });
+            menu.addSeparator();
+            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
+            copyAction->setShortcut(QKeySequence::Copy);
+            connect(copyAction, &QAction::triggered, this, [=]() {
+                copyMessageToClipboard(index);
+            });
+            menu.addAction(copyAction);
+            menu.addSeparator();
+            menu.addAction(i18n("Select All"), this, [this, index]() {
+                slotSelectAll(index);
+            });
+        }
+        menu.exec(viewport()->mapToGlobal(pos));
+    }
+}
+
+void NotificationHistoryListView::slotClearList()
+{
+    clearCache();
+    NotificationHistoryManager::self()->notificationHistoryModel()->clear();
+}
+
+void NotificationHistoryListView::copyMessageToClipboard(const QModelIndex &index)
+{
+    QString message = selectedText();
+    if (message.isEmpty()) {
+        if (!index.isValid()) {
+            return;
+        }
+        message = index.data(NotificationHistoryModel::MessageStr).toString();
+    }
+
+    QClipboard *clip = QApplication::clipboard();
+    clip->setText(message, QClipboard::Clipboard);
+    clip->setText(message, QClipboard::Selection);
 }

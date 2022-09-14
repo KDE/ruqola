@@ -29,6 +29,12 @@ protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
+Q_SIGNALS:
+    void showMessage(const QModelIndex &index);
+
 private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotClearList();
+    void copyMessageToClipboard(const QModelIndex &index);
     NotificationHistoryDelegate *const mListNotificationsDelegate;
 };

@@ -26,9 +26,7 @@ Q_SIGNALS:
 private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
-    void slotClearList();
     void slotTextChanged(const QString &str);
-    void copyMessageToClipboard(const QModelIndex &index);
     NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;

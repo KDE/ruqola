@@ -44,7 +44,6 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotificationsListView);
 
-    connect(mListNotificationsListView, &QListView::customContextMenuRequested, this, &NotificationHistoryWidget::slotCustomContextMenuRequested);
     auto model = NotificationHistoryManager::self()->notificationHistoryModel();
 
     mNotificationFilterProxyModel->setObjectName(QStringLiteral("mNotificationFilterProxyModel"));
@@ -52,6 +51,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     mListNotificationsListView->setModel(mNotificationFilterProxyModel);
 
     connect(mListNotificationsListView, &QListView::doubleClicked, this, &NotificationHistoryWidget::slotShowMessage);
+    connect(mListNotificationsListView, &NotificationHistoryListView::showMessage, this, &NotificationHistoryWidget::slotShowMessage);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
@@ -80,52 +80,4 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
             qCWarning(RUQOLAWIDGETS_LOG) << " Problem with index. AccountName " << accountName << " roomId : " << roomId << "messageId " << messageId;
         }
     }
-}
-
-void NotificationHistoryWidget::copyMessageToClipboard(const QModelIndex &index)
-{
-    QString message = mListNotificationsListView->selectedText();
-    if (message.isEmpty()) {
-        if (!index.isValid()) {
-            return;
-        }
-        message = index.data(NotificationHistoryModel::MessageStr).toString();
-    }
-
-    QClipboard *clip = QApplication::clipboard();
-    clip->setText(message, QClipboard::Clipboard);
-    clip->setText(message, QClipboard::Selection);
-}
-
-void NotificationHistoryWidget::slotCustomContextMenuRequested(const QPoint &pos)
-{
-    if (mListNotificationsListView->model()->rowCount() > 0) {
-        QMenu menu(this);
-        menu.addAction(QIcon::fromTheme(QStringLiteral("edit-clear-history")), i18n("Clear"), this, &NotificationHistoryWidget::slotClearList);
-        const QModelIndex index = mListNotificationsListView->indexAt(pos);
-        if (index.isValid()) {
-            menu.addSeparator();
-            menu.addAction(i18n("Go to Message"), this, [this, index]() {
-                slotShowMessage(index);
-            });
-            menu.addSeparator();
-            auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
-            copyAction->setShortcut(QKeySequence::Copy);
-            connect(copyAction, &QAction::triggered, this, [=]() {
-                copyMessageToClipboard(index);
-            });
-            menu.addAction(copyAction);
-            menu.addSeparator();
-            menu.addAction(i18n("Select All"), this, [this, index]() {
-                mListNotificationsListView->slotSelectAll(index);
-            });
-        }
-        menu.exec(mListNotificationsListView->viewport()->mapToGlobal(pos));
-    }
-}
-
-void NotificationHistoryWidget::slotClearList()
-{
-    mListNotificationsListView->clearCache();
-    NotificationHistoryManager::self()->notificationHistoryModel()->clear();
 }
