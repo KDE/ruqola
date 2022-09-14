@@ -6,6 +6,8 @@
 
 #include "messagelistviewbase.h"
 #include "model/messagemodel.h"
+#include "room/plugins/plugintext.h"
+#include "room/textpluginmanager.h"
 #include <QAbstractItemModel>
 #include <QApplication>
 #include <QMouseEvent>
@@ -22,9 +24,17 @@ MessageListViewBase::MessageListViewBase(QWidget *parent)
     setFocusPolicy(Qt::NoFocus);
     scrollToBottom();
     setMouseTracking(true);
+
+    const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
+    for (PluginText *plugin : plugins) {
+        mPluginTextInterface.append(plugin->createInterface(this));
+    }
 }
 
-MessageListViewBase::~MessageListViewBase() = default;
+MessageListViewBase::~MessageListViewBase()
+{
+    qDeleteAll(mPluginTextInterface);
+}
 
 void MessageListViewBase::resizeEvent(QResizeEvent *ev)
 {

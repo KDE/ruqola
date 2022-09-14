@@ -8,7 +8,8 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QListView>
-
+#include <QVector>
+class PluginTextInterface;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListViewBase : public QListView
 {
     Q_OBJECT
@@ -34,6 +35,8 @@ protected:
     virtual bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
     virtual bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
     Q_REQUIRED_RESULT QStyleOptionViewItem listViewOptions() const;
+
+    QVector<PluginTextInterface *> mPluginTextInterface;
 
 private:
     void handleMouseEvent(QMouseEvent *event);

@@ -33,8 +33,6 @@
 #include <QPainter>
 #include <QScrollBar>
 
-#include <KIO/KUriFilterSearchProviderActions>
-
 MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget *parent)
     : MessageListViewBase(parent)
     , mMode(mode)
@@ -59,20 +57,13 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     // as Qt would otherwise overwrite it internally. We apparently need a queued connection too to ensure our value is set
     connect(verticalScrollBar(), &QScrollBar::rangeChanged, this, &MessageListView::updateVerticalPageStep, Qt::QueuedConnection);
     updateVerticalPageStep();
-    const QVector<PluginText *> plugins = TextPluginManager::self()->pluginsList();
-    for (PluginText *plugin : plugins) {
-        mPluginTextInterface.append(plugin->createInterface(this));
-    }
     connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
     connect(mMessageListDelegate, &MessageListDelegate::startPrivateConversation, this, &MessageListView::slotStartPrivateConversation);
     connect(mMessageListDelegate, &MessageListDelegate::updateView, this, &MessageListView::slotUpdateView);
     connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
 }
 
-MessageListView::~MessageListView()
-{
-    qDeleteAll(mPluginTextInterface);
-}
+MessageListView::~MessageListView() = default;
 
 void MessageListView::paintEvent(QPaintEvent *e)
 {

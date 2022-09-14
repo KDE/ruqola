@@ -13,7 +13,6 @@
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
-class PluginTextInterface;
 class TranslatorMenu;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public MessageListViewBase
 {
@@ -98,6 +97,5 @@ private:
     MessageListDelegate *const mMessageListDelegate;
     TranslatorMenu *const mTranslatorMenu;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-    QVector<PluginTextInterface *> mPluginTextInterface;
     bool mDebug = false;
 };
