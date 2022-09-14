@@ -51,12 +51,14 @@ void TranslatorMenu::updateMenu()
                 if (toLangI18n.isEmpty()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find \"to\" language " << fromLangI18n;
                 } else {
-                    auto action = new QAction(mMenu);
-                    action->setText(QStringLiteral("%1 -> %2").arg(fromLangI18n, toLangI18n));
-                    connect(action, &QAction::triggered, this, [this, fromLang, toLang]() {
-                        Q_EMIT translate(fromLang, toLang, mModelIndex);
-                    });
-                    mMenu->addAction(action);
+                    if (fromLangI18n != toLangI18n) {
+                        auto action = new QAction(mMenu);
+                        action->setText(QStringLiteral("%1 -> %2").arg(fromLangI18n, toLangI18n));
+                        connect(action, &QAction::triggered, this, [this, fromLang, toLang]() {
+                            Q_EMIT translate(fromLang, toLang, mModelIndex);
+                        });
+                        mMenu->addAction(action);
+                    }
                 }
             }
         }
