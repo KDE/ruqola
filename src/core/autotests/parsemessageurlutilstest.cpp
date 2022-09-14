@@ -7,7 +7,7 @@
 #include "parsemessageurlutilstest.h"
 #include "parsemessageurlutils.h"
 #include <QTest>
-QTEST_MAIN(ParseMessageUrlUtilsTest)
+QTEST_GUILESS_MAIN(ParseMessageUrlUtilsTest)
 ParseMessageUrlUtilsTest::ParseMessageUrlUtilsTest(QObject *parent)
     : QObject{parent}
 {

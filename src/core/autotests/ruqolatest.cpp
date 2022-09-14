@@ -8,7 +8,7 @@
 #include "ruqola.h"
 #include <QTest>
 
-QTEST_MAIN(RuqolaTest)
+QTEST_GUILESS_MAIN(RuqolaTest)
 
 RuqolaTest::RuqolaTest(QObject *parent)
     : QObject(parent)
