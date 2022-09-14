@@ -6,10 +6,8 @@
 
 #include "roleinfo.h"
 
-RoleInfo::RoleInfo()
-{
-    //{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
-}
+//{"_id":"admin","description":"Admin","mandatory2fa":false,"name":"admin","protected":true,"scope":"Users"},
+RoleInfo::RoleInfo() = default;
 
 const QString &RoleInfo::identifier() const
 {
