@@ -280,3 +280,8 @@ QString NotificationHistoryDelegate::selectedText() const
 {
     return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
 }
+
+bool NotificationHistoryDelegate::hasSelection() const
+{
+    return mTextSelectionImpl->textSelection()->hasSelection();
+}

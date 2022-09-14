@@ -29,6 +29,8 @@ public:
 
     Q_REQUIRED_RESULT QString selectedText() const;
 
+    Q_REQUIRED_RESULT bool hasSelection() const;
+
 protected:
     Q_REQUIRED_RESULT QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 

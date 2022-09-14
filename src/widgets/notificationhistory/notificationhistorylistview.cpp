@@ -85,6 +85,9 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
                 copyMessageToClipboard(index);
             });
             menu.addAction(copyAction);
+            if (mListNotificationsDelegate->hasSelection()) {
+                addTextPlugins(&menu, mListNotificationsDelegate->selectedText());
+            }
             menu.addSeparator();
             menu.addAction(i18n("Select All"), this, [this, index]() {
                 slotSelectAll(index);
