@@ -17,6 +17,16 @@ PersonalAccessTokenInfosFilterProxyModel::PersonalAccessTokenInfosFilterProxyMod
 
 PersonalAccessTokenInfosFilterProxyModel::~PersonalAccessTokenInfosFilterProxyModel() = default;
 
+void PersonalAccessTokenInfosFilterProxyModel::setFilterString(const QString &string)
+{
+    setFilterFixedString(string);
+}
+
+void PersonalAccessTokenInfosFilterProxyModel::clearFilter()
+{
+    setFilterFixedString(QString());
+}
+
 bool PersonalAccessTokenInfosFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
     if (!sourceModel()) {

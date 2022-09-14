@@ -16,6 +16,9 @@ public:
     explicit PersonalAccessTokenInfosFilterProxyModel(QObject *parent = nullptr);
     ~PersonalAccessTokenInfosFilterProxyModel() override;
 
+    void setFilterString(const QString &string);
+    void clearFilter();
+
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };

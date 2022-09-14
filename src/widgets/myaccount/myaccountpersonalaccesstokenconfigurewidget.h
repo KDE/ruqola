@@ -12,6 +12,7 @@ class RocketChatAccount;
 class QLineEdit;
 class MyAccountPersonalAccessTokenTreeView;
 class PersonalAccessTokenInfosModel;
+class PersonalAccessTokenInfosFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountPersonalAccessTokenConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -25,8 +26,10 @@ private:
     void slotCreateToken();
     void slotRemoveToken(const QString &tokenName);
     void slotRegenerateToken(const QString &tokenName);
+    void slotTextChanged(const QString &str);
     RocketChatAccount *const mRocketChatAccount;
     QLineEdit *const mSearchLineWidget;
     MyAccountPersonalAccessTokenTreeView *const mPersonalAccessTokenTreeView;
     PersonalAccessTokenInfosModel *const mPersonalAccessTokenModel;
+    PersonalAccessTokenInfosFilterProxyModel *const mPersonalAccessTokenFilterProxyModel;
 };

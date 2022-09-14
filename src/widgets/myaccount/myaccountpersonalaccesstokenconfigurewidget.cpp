@@ -33,6 +33,7 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
     , mSearchLineWidget(new QLineEdit(this))
     , mPersonalAccessTokenTreeView(new MyAccountPersonalAccessTokenTreeView(account, this))
     , mPersonalAccessTokenModel(new PersonalAccessTokenInfosModel(this))
+    , mPersonalAccessTokenFilterProxyModel(new PersonalAccessTokenInfosFilterProxyModel(this))
 
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -48,10 +49,9 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
 
     mPersonalAccessTokenModel->setObjectName(QStringLiteral("mPersonalAccessTokenModel"));
 
-    auto proxyModel = new PersonalAccessTokenInfosFilterProxyModel(this);
-    proxyModel->setObjectName(QStringLiteral("proxyModel"));
-    proxyModel->setSourceModel(mPersonalAccessTokenModel);
-    mPersonalAccessTokenTreeView->setModel(proxyModel);
+    mPersonalAccessTokenFilterProxyModel->setObjectName(QStringLiteral("proxyModel"));
+    mPersonalAccessTokenFilterProxyModel->setSourceModel(mPersonalAccessTokenModel);
+    mPersonalAccessTokenTreeView->setModel(mPersonalAccessTokenFilterProxyModel);
     mPersonalAccessTokenTreeView->setColumnHidden(PersonalAccessTokenInfosModel::CreateAtDateTime, true);
     connect(mPersonalAccessTokenTreeView,
             &MyAccountPersonalAccessTokenTreeView::createToken,
@@ -65,9 +65,15 @@ MyAccountPersonalAccessTokenConfigureWidget::MyAccountPersonalAccessTokenConfigu
             &MyAccountPersonalAccessTokenTreeView::regenerateToken,
             this,
             &MyAccountPersonalAccessTokenConfigureWidget::slotRegenerateToken);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &MyAccountPersonalAccessTokenConfigureWidget::slotTextChanged);
 }
 
 MyAccountPersonalAccessTokenConfigureWidget::~MyAccountPersonalAccessTokenConfigureWidget() = default;
+
+void MyAccountPersonalAccessTokenConfigureWidget::slotTextChanged(const QString &str)
+{
+    mPersonalAccessTokenFilterProxyModel->setFilterString(str);
+}
 
 void MyAccountPersonalAccessTokenConfigureWidget::initialize()
 {
