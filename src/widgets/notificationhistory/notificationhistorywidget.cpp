@@ -12,11 +12,8 @@
 #include "notificationhistorymanager.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
-#include <QApplication>
-#include <QClipboard>
 #include <QLineEdit>
 #include <QListView>
-#include <QMenu>
 #include <QVBoxLayout>
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
