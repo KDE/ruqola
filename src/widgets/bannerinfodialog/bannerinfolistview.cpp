@@ -8,6 +8,7 @@
 #include "bannerinfolistviewdelegate.h"
 
 #include <QMouseEvent>
+#include <QScrollBar>
 
 BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
@@ -18,6 +19,8 @@ BannerInfoListView::BannerInfoListView(RocketChatAccount *account, QWidget *pare
     connect(mBannerInfoListViewDelegate, &BannerInfoListViewDelegate::updateView, this, [this](const QModelIndex &index) {
         update(index);
     });
+    const auto lineHeight = fontMetrics().height() + 10;
+    verticalScrollBar()->setSingleStep(lineHeight);
 }
 
 BannerInfoListView::~BannerInfoListView() = default;
