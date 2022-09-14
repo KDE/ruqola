@@ -596,6 +596,12 @@
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
       <li>Manage Personal Access Token</li>
+      <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
+      <li xml:lang="ca-valencia">Gestió del testimoni d'accés personal</li>
+      <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
+      <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
+      <li xml:lang="uk">Керування жетоном особистого доступу</li>
+      <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
