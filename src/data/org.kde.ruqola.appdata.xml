@@ -600,6 +600,8 @@
       <li xml:lang="ca-valencia">Gestió del testimoni d'accés personal</li>
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
+      <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
+      <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
       <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
     </ul>
