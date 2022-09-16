@@ -22,5 +22,4 @@ public:
 private:
     void slotSpeakText();
     QString mSelectedText;
-    QTextToSpeech *const mTextToSpeech;
 };

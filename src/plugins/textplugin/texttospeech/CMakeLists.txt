@@ -8,6 +8,8 @@ target_sources(ruqola_texttospeechtextplugin PRIVATE
     texttospeechtextplugin.cpp
     texttospeechtextinterface.h
     texttospeechtextplugin.h
+    texttospeechmanager.h
+    texttospeechmanager.cpp
     )
 target_link_libraries(ruqola_texttospeechtextplugin
     libruqolawidgets
