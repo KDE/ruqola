@@ -28,9 +28,6 @@ public:
     Q_REQUIRED_RESULT const QString &resetUserId() const;
     void setResetUserId(const QString &newResetUserId);
 
-protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
-
 Q_SIGNALS:
     void resetE2EKeyDone();
 

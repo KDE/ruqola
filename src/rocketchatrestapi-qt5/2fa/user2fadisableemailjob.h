@@ -26,7 +26,6 @@ public:
     Q_REQUIRED_RESULT bool requireTwoFactorAuthentication() const override;
 
 protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
 
 Q_SIGNALS:

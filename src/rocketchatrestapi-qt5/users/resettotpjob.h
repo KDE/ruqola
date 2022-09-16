@@ -31,9 +31,6 @@ public:
 Q_SIGNALS:
     void resetTOTPDone();
 
-protected:
-    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
-
 private:
     Q_DISABLE_COPY(ResetTOTPJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;

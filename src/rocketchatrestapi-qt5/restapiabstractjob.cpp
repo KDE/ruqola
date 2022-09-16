@@ -434,6 +434,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("Message not found.");
     } else if (str == QLatin1String("totp-required")) {
         return i18n("Two Authentication Password Required");
+    } else if (str == QLatin1String("totp-invalid")) {
+        return i18n("Invalid Password");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
