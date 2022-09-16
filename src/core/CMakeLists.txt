@@ -40,6 +40,8 @@ target_sources(libruqolacore PRIVATE
     convertertextjob/translatetext/translatorenginebase.h
     convertertextjob/translatetext/translatorutil.cpp
     convertertextjob/translatetext/translatorutil.h
+    convertertextjob/translatetext/translatorenginemanager.h
+    convertertextjob/translatetext/translatorenginemanager.cpp
 
     avatarmanager.cpp
     avatarmanager.h

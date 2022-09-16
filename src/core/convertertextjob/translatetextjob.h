@@ -5,18 +5,15 @@
 */
 
 #pragma once
-
-#include "convertertextabstractjob.h"
 #include "libruqolacore_export.h"
+#include <QObject>
 class TranslatorEngineBase;
-class LIBRUQOLACORE_EXPORT TranslateTextJob : public ConverterTextAbstractJob
+class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT
 public:
-    explicit TranslateTextJob(RocketChatAccount *account, QObject *parent = nullptr);
+    explicit TranslateTextJob(QObject *parent = nullptr);
     ~TranslateTextJob() override;
-
-    void start() override;
 
     Q_REQUIRED_RESULT const QString &from() const;
     void setFrom(const QString &newFrom);
@@ -27,14 +24,15 @@ public:
     Q_REQUIRED_RESULT const QString &inputText() const;
     void setInputText(const QString &newInputText);
 
+    void translate();
+
 Q_SIGNALS:
     void translateDone(const QString &translatedText);
     void translateFailed(bool result, const QString &errorMessage = QString());
 
 private:
-    void slotTranslateDone();
+    void initializeTranslateEngine();
     QString mFrom;
     QString mTo;
     QString mInputText;
-    TranslatorEngineBase *mTranslatorEngineBase = nullptr;
 };

@@ -5,24 +5,25 @@
 */
 
 #include "translatetextjob.h"
+#include "convertertextjob/translatetext/translatorenginemanager.h"
 #include "convertertextjob/translatetext/translatorutil.h"
 
-TranslateTextJob::TranslateTextJob(RocketChatAccount *account, QObject *parent)
-    : ConverterTextAbstractJob(account, parent)
+TranslateTextJob::TranslateTextJob(QObject *parent)
+    : QObject(parent)
 {
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateDone, this, &TranslateTextJob::translateDone);
+    connect(TranslatorEngineManager::self(), &TranslatorEngineManager::translateFailed, this, &TranslateTextJob::translateFailed);
 }
 
 TranslateTextJob::~TranslateTextJob() = default;
 
-void TranslateTextJob::start()
+void TranslateTextJob::translate()
 {
-    mTranslatorEngineBase = TranslatorUtil::switchEngine(TranslatorUtil::loadEngineSettings(), this);
-    mTranslatorEngineBase->setInputText(mInputText);
-    mTranslatorEngineBase->setFrom(mFrom);
-    mTranslatorEngineBase->setTo(mTo);
-    mTranslatorEngineBase->translate();
-    connect(mTranslatorEngineBase, &TranslatorEngineBase::translateDone, this, &TranslateTextJob::slotTranslateDone);
-    connect(mTranslatorEngineBase, &TranslatorEngineBase::translateFailed, this, &TranslateTextJob::translateFailed);
+    auto translatorEngine = TranslatorEngineManager::self()->translatorEngineBase();
+    translatorEngine->setInputText(mInputText);
+    translatorEngine->setFrom(mFrom);
+    translatorEngine->setTo(mTo);
+    translatorEngine->translate();
 }
 
 const QString &TranslateTextJob::from() const
@@ -53,10 +54,4 @@ const QString &TranslateTextJob::inputText() const
 void TranslateTextJob::setInputText(const QString &newInputText)
 {
     mInputText = newInputText;
-}
-
-void TranslateTextJob::slotTranslateDone()
-{
-    const QString result = mTranslatorEngineBase->resultTranslate();
-    Q_EMIT translateDone(result);
 }
