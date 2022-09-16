@@ -31,7 +31,6 @@ BingTranslator::~BingTranslator() = default;
 
 void BingTranslator::translate()
 {
-    qDebug() << " BingTranslator::translate() ";
     if (sBingKey.isEmpty() || sBingToken.isEmpty()) {
         const QUrl url(QStringLiteral("https://www.bing.com/translator"));
         QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(QNetworkRequest(url));
@@ -54,7 +53,6 @@ QString BingTranslator::engineName() const
 
 void BingTranslator::parseCredentials(QNetworkReply *reply)
 {
-    qDebug() << " void BingTranslator::parseCredentials(QNetworkReply *reply)";
     const QByteArray webSiteData = reply->readAll();
     reply->deleteLater();
     const QByteArray credentialsBeginString = QByteArrayLiteral("var params_RichTranslateHelper = [");
@@ -129,7 +127,6 @@ void BingTranslator::translateText()
     request.setHeader(QNetworkRequest::UserAgentHeader,
                       QString::fromUtf8("%1/%2").arg(QCoreApplication::applicationName()).arg(QCoreApplication::applicationVersion()));
 
-    qDebug() << " url " << url;
     QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->post(request, postData);
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);

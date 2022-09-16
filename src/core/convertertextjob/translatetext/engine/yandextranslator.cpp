@@ -127,7 +127,7 @@ void YandexTranslator::parseCredentials(QNetworkReply *reply)
                                     "from your computer network. Please try your request again later."));
         return;
     }
-    qDebug() << "webSiteData  " << webSiteData;
+    // qDebug() << "webSiteData  " << webSiteData;
     const QByteArray sidBeginString = "SID: '";
     const int sidBeginStringPos = webSiteData.indexOf(sidBeginString);
 
@@ -150,7 +150,7 @@ void YandexTranslator::parseCredentials(QNetworkReply *reply)
 
     QStringList sidParts = sid.split(QLatin1Char('.'));
 
-    for (int i = 0; i < sidParts.size(); ++i) {
+    for (int i = 0, total = sidParts.size(); i < total; ++i) {
         std::reverse(sidParts[i].begin(), sidParts[i].end());
     }
 
