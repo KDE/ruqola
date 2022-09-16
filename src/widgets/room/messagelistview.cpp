@@ -690,4 +690,9 @@ void MessageListView::slotShowUserInfo(const QString &userName)
 
 void MessageListView::slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex)
 {
+    if (modelIndex.isValid()) {
+        const QString originalMessage = modelIndex.data(MessageModel::OriginalMessage).toString();
+        qDebug() << " originalMessage " << originalMessage;
+        qDebug() << " from " << from << " to " << to;
+    }
 }
