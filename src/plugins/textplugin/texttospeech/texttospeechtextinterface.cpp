@@ -5,6 +5,7 @@
 */
 
 #include "texttospeechtextinterface.h"
+#include "texttospeechmanager.h"
 
 #include <KLocalizedString>
 
@@ -16,7 +17,6 @@
 
 TextToSpeechTextInterface::TextToSpeechTextInterface(QObject *parent)
     : PluginTextInterface(parent)
-    , mTextToSpeech(new QTextToSpeech(this))
 {
 }
 
@@ -36,5 +36,5 @@ void TextToSpeechTextInterface::setSelectedText(const QString &str)
 
 void TextToSpeechTextInterface::slotSpeakText()
 {
-    mTextToSpeech->say(mSelectedText);
+    TextToSpeechManager::self()->textToSpeech()->say(mSelectedText);
 }
