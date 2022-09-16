@@ -18,6 +18,23 @@ public:
 
     void start() override;
 
+    Q_REQUIRED_RESULT const QString &from() const;
+    void setFrom(const QString &newFrom);
+
+    Q_REQUIRED_RESULT const QString &to() const;
+    void setTo(const QString &newTo);
+
+    Q_REQUIRED_RESULT const QString &inputText() const;
+    void setInputText(const QString &newInputText);
+
+Q_SIGNALS:
+    void translateDone(const QString &translatedText);
+    void translateFailed(bool result, const QString &errorMessage = QString());
+
 private:
+    void slotTranslateDone();
+    QString mFrom;
+    QString mTo;
+    QString mInputText;
     TranslatorEngineBase *mTranslatorEngineBase = nullptr;
 };
