@@ -8,6 +8,7 @@
 
 #include "convertertextabstractjob.h"
 #include "libruqolacore_export.h"
+class TranslatorEngineBase;
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public ConverterTextAbstractJob
 {
     Q_OBJECT
@@ -16,4 +17,7 @@ public:
     ~TranslateTextJob() override;
 
     void start() override;
+
+private:
+    TranslatorEngineBase *mTranslatorEngineBase = nullptr;
 };

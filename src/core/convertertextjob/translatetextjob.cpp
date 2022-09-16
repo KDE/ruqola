@@ -5,6 +5,7 @@
 */
 
 #include "translatetextjob.h"
+#include "convertertextjob/translatetext/translatorutil.h"
 
 TranslateTextJob::TranslateTextJob(RocketChatAccount *account, QObject *parent)
     : ConverterTextAbstractJob(account, parent)
@@ -15,5 +16,11 @@ TranslateTextJob::~TranslateTextJob() = default;
 
 void TranslateTextJob::start()
 {
-    // TODO
+#if 0
+    mTranslatorEngineBase = TranslatorUtil::switchEngine(TranslatorUtil::loadEngineSettings(), this);
+    mTranslatorEngineBase->setInputText();
+    mTranslatorEngineBase->setFrom();
+    mTranslatorEngineBase->setTo();
+    mTranslatorEngineBase->translate();
+#endif
 }
