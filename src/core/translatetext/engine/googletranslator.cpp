@@ -5,9 +5,9 @@
 */
 
 #include "googletranslator.h"
-#include "convertertextjob/translatetext/translatorengineaccessmanager.h"
-#include "convertertextjob/translatetext/translatorutil.h"
 #include "ruqola_translation_debug.h"
+#include "translatetext/translatorengineaccessmanager.h"
+#include "translatetext/translatorutil.h"
 #include <KLocalizedString>
 #include <QJsonParseError>
 #include <QNetworkAccessManager>

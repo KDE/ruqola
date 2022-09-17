@@ -5,28 +5,24 @@
 */
 
 #pragma once
-#include "convertertextjob/translatetext/translatorenginebase.h"
 #include "libruqolacore_export.h"
-class LIBRUQOLACORE_EXPORT BingTranslator : public TranslatorEngineBase
+#include "translatetext/translatorenginebase.h"
+class LIBRUQOLACORE_EXPORT LibreTranslateTranslator : public TranslatorEngineBase
 {
     Q_OBJECT
 public:
-    explicit BingTranslator(QObject *parent = nullptr);
-    ~BingTranslator() override;
+    explicit LibreTranslateTranslator(QObject *parent = nullptr);
+    ~LibreTranslateTranslator() override;
 
-    void translate() override;
     Q_REQUIRED_RESULT QString engineName() const override;
+    void translate() override;
     Q_REQUIRED_RESULT QVector<QPair<QString, QString>> supportedLanguage() const override;
+    void loadSettings() override;
 
     Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> languages();
 
 private:
-    void parseCredentials(QNetworkReply *reply);
-    void parseTranslation(QNetworkReply *reply);
     void translateText();
+    void parseTranslation(QNetworkReply *reply);
     static inline QVector<QPair<QString, QString>> mLanguages;
-    static QByteArray sBingKey;
-    static QByteArray sBingToken;
-    static QString sBingIg;
-    static QString sBingIid;
 };

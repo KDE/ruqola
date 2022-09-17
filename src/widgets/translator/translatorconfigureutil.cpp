@@ -5,7 +5,7 @@
 */
 
 #include "translatorconfigureutil.h"
-#include "convertertextjob/translatetext/translatorenginebase.h"
+#include "translatetext/translatorenginebase.h"
 
 #include <KLocalizedString>
 #include <QComboBox>

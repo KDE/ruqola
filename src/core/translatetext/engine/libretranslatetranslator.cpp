@@ -4,35 +4,27 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "deepltranslator.h"
-#include "convertertextjob/translatetext/translatorengineaccessmanager.h"
-#include "convertertextjob/translatetext/translatorutil.h"
+#include "libretranslatetranslator.h"
+#include "translatetext/translatorengineaccessmanager.h"
+#include "translatetext/translatorutil.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QJsonParseError>
 #include <QNetworkAccessManager>
 
-DeepLTranslator::DeepLTranslator(QObject *parent)
+LibreTranslateTranslator::LibreTranslateTranslator(QObject *parent)
     : TranslatorEngineBase{parent}
 {
 }
 
-DeepLTranslator::~DeepLTranslator() = default;
+LibreTranslateTranslator::~LibreTranslateTranslator() = default;
 
-QString DeepLTranslator::engineName() const
+QString LibreTranslateTranslator::engineName() const
 {
-    return i18n("DeepL");
+    return i18n("Libre Translate");
 }
 
-QString DeepLTranslator::apiUrl() const
-{
-    return mServerUrl;
-}
-
-void DeepLTranslator::translate()
+void LibreTranslateTranslator::translate()
 {
     if (mFrom == mTo) {
         Q_EMIT translateFailed(false, i18n("You used same language for from and to language."));
@@ -41,17 +33,15 @@ void DeepLTranslator::translate()
     translateText();
 }
 
-QVector<QPair<QString, QString>> DeepLTranslator::supportedLanguage() const
+QVector<QPair<QString, QString>> LibreTranslateTranslator::supportedLanguage() const
 {
     return languages();
 }
 
-void DeepLTranslator::translateText()
+void LibreTranslateTranslator::translateText()
 {
     mResult.clear();
-
     const QUrl url(QString::fromUtf8("%1/api/v1/%2/%3/%4").arg(mServerUrl).arg(mFrom).arg(mTo).arg(QString::fromUtf8(QUrl::toPercentEncoding(mInputText))));
-
     const QNetworkRequest request(url);
 
     QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(request);
@@ -65,7 +55,7 @@ void DeepLTranslator::translateText()
     });
 }
 
-void DeepLTranslator::parseTranslation(QNetworkReply *reply)
+void LibreTranslateTranslator::parseTranslation(QNetworkReply *reply)
 {
     if (reply->error() != QNetworkReply::NoError) {
         Q_EMIT translateFailed(false, reply->errorString());
@@ -73,22 +63,20 @@ void DeepLTranslator::parseTranslation(QNetworkReply *reply)
         return;
     }
 
-    const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
-    const QJsonObject responseObject = jsonResponse.object();
-    mResult = responseObject.value(QStringLiteral("translation")).toString();
+    //    const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
+    //    const QJsonObject responseObject = jsonResponse.object();
+    //    mResult = responseObject.value(QStringLiteral("translation")).toString();
     reply->deleteLater();
     Q_EMIT translateDone();
 }
 
-void DeepLTranslator::loadSettings()
+void LibreTranslateTranslator::loadSettings()
 {
-    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("DeepLTranslator"));
-    mUseFreeLicense = myGroup.readEntry(QStringLiteral("freeLicense"), false);
-    mServerUrl = mUseFreeLicense ? QStringLiteral("https://api-free.deepl.com/v2/translate") : QStringLiteral("https://api.deepl.com/v2/translate");
-    // TODO load API key ? stored in kwallet ?
+    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LibreTranslateTranslator"));
+    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
 }
 
-QVector<QPair<QString, QString>> DeepLTranslator::languages()
+QVector<QPair<QString, QString>> LibreTranslateTranslator::languages()
 {
     if (mLanguages.isEmpty()) {
         // TODO

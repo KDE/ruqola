@@ -5,8 +5,8 @@
 */
 
 #include "bingtranslator.h"
-#include "convertertextjob/translatetext/translatorengineaccessmanager.h"
-#include "convertertextjob/translatetext/translatorutil.h"
+#include "translatetext/translatorengineaccessmanager.h"
+#include "translatetext/translatorutil.h"
 
 #include <KLocalizedString>
 

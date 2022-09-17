@@ -5,14 +5,14 @@
 */
 
 #pragma once
-#include "convertertextjob/translatetext/translatorenginebase.h"
 #include "libruqolacore_export.h"
-class LIBRUQOLACORE_EXPORT LibreTranslateTranslator : public TranslatorEngineBase
+#include "translatetext/translatorenginebase.h"
+class LIBRUQOLACORE_EXPORT LingvaTranslator : public TranslatorEngineBase
 {
     Q_OBJECT
 public:
-    explicit LibreTranslateTranslator(QObject *parent = nullptr);
-    ~LibreTranslateTranslator() override;
+    explicit LingvaTranslator(QObject *parent = nullptr);
+    ~LingvaTranslator() override;
 
     Q_REQUIRED_RESULT QString engineName() const override;
     void translate() override;

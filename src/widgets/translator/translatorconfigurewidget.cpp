@@ -5,7 +5,7 @@
 */
 
 #include "translatorconfigurewidget.h"
-#include "convertertextjob/translatetext/translatorutil.h"
+#include "translatetext/translatorutil.h"
 #include "translatorconfigurelanguagelistwidget.h"
 #include "translatorconfigureutil.h"
 #include <KConfigGroup>

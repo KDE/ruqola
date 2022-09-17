@@ -5,8 +5,8 @@
 */
 
 #include "translatormenu.h"
-#include "convertertextjob/translatetext/translatorutil.h"
 #include "ruqolawidgets_debug.h"
+#include "translatetext/translatorutil.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>

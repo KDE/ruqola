@@ -22,26 +22,28 @@ target_sources(libruqolacore PRIVATE
     autotranslate/autotranslatelanguages.cpp
     autotranslate/autotranslatelanguages.h
 
-    convertertextjob/translatetext/engine/bingtranslator.cpp
-    convertertextjob/translatetext/engine/bingtranslator.h
-    convertertextjob/translatetext/engine/deepltranslator.cpp
-    convertertextjob/translatetext/engine/deepltranslator.h
-    convertertextjob/translatetext/engine/googletranslator.cpp
-    convertertextjob/translatetext/engine/googletranslator.h
-    convertertextjob/translatetext/engine/libretranslatetranslator.cpp
-    convertertextjob/translatetext/engine/libretranslatetranslator.h
-    convertertextjob/translatetext/engine/lingvatranslator.cpp
-    convertertextjob/translatetext/engine/lingvatranslator.h
-    convertertextjob/translatetext/engine/yandextranslator.cpp
-    convertertextjob/translatetext/engine/yandextranslator.h
-    convertertextjob/translatetext/translatorengineaccessmanager.cpp
-    convertertextjob/translatetext/translatorengineaccessmanager.h
-    convertertextjob/translatetext/translatorenginebase.cpp
-    convertertextjob/translatetext/translatorenginebase.h
-    convertertextjob/translatetext/translatorutil.cpp
-    convertertextjob/translatetext/translatorutil.h
-    convertertextjob/translatetext/translatorenginemanager.h
-    convertertextjob/translatetext/translatorenginemanager.cpp
+    translatetext/engine/bingtranslator.cpp
+    translatetext/engine/bingtranslator.h
+    translatetext/engine/deepltranslator.cpp
+    translatetext/engine/deepltranslator.h
+    translatetext/engine/googletranslator.cpp
+    translatetext/engine/googletranslator.h
+    translatetext/engine/libretranslatetranslator.cpp
+    translatetext/engine/libretranslatetranslator.h
+    translatetext/engine/lingvatranslator.cpp
+    translatetext/engine/lingvatranslator.h
+    translatetext/engine/yandextranslator.cpp
+    translatetext/engine/yandextranslator.h
+    translatetext/translatorengineaccessmanager.cpp
+    translatetext/translatorengineaccessmanager.h
+    translatetext/translatorenginebase.cpp
+    translatetext/translatorenginebase.h
+    translatetext/translatorutil.cpp
+    translatetext/translatorutil.h
+    translatetext/translatorenginemanager.h
+    translatetext/translatorenginemanager.cpp
+    translatetext/translatetextjob.cpp
+    translatetext/translatetextjob.h
 
     avatarmanager.cpp
     avatarmanager.h
@@ -65,8 +67,6 @@ target_sources(libruqolacore PRIVATE
     commands/commands.h
     convertertextjob/convertertextabstractjob.cpp
     convertertextjob/convertertextabstractjob.h
-    convertertextjob/translatetextjob.cpp
-    convertertextjob/translatetextjob.h
     customsound/customsoundinfo.cpp
     customsound/customsoundinfo.h
     customsound/customsoundsinfo.cpp

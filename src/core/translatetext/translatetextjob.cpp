@@ -5,8 +5,8 @@
 */
 
 #include "translatetextjob.h"
-#include "convertertextjob/translatetext/translatorenginemanager.h"
-#include "convertertextjob/translatetext/translatorutil.h"
+#include "translatetext/translatorenginemanager.h"
+#include "translatetext/translatorutil.h"
 
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : QObject(parent)

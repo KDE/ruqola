@@ -5,8 +5,8 @@
 */
 
 #pragma once
-#include "convertertextjob/translatetext/translatorenginebase.h"
 #include "libruqolacore_export.h"
+#include "translatetext/translatorenginebase.h"
 
 #include <QNetworkReply>
 #include <QObject>
