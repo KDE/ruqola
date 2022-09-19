@@ -8,6 +8,7 @@
 #include "ruqola_debug.h"
 #include "translatetext/translatorenginebase.h"
 #include "translatetext/translatorenginemanager.h"
+#include <KLocalizedString>
 
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : QObject(parent)
@@ -27,6 +28,7 @@ void TranslateTextJob::translate()
         translatorEngine->setTo(mInfo.to);
         translatorEngine->translate();
     } else {
+        Q_EMIT translateFailed(false, i18n("Missing translator info. It's a bug"));
         qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
     }
 }
