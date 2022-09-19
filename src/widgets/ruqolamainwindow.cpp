@@ -684,6 +684,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mShowLog->setEnabled(!loginPageActivated);
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());
     mRoomAvatar->setEnabled(!loginPageActivated);
+    mUnreadOnTop->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
