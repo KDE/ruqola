@@ -13,12 +13,9 @@
 #include "dialogs/reportmessagedialog.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "room/plugins/plugintext.h"
-#include "room/plugins/plugintextinterface.h"
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "textpluginmanager.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "translator/translatormenu.h"
 
