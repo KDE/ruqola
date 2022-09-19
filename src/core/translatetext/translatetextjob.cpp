@@ -5,8 +5,9 @@
 */
 
 #include "translatetextjob.h"
+#include "ruqola_debug.h"
+#include "translatetext/translatorenginebase.h"
 #include "translatetext/translatorenginemanager.h"
-#include "translatetext/translatorutil.h"
 
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : QObject(parent)
@@ -19,39 +20,36 @@ TranslateTextJob::~TranslateTextJob() = default;
 
 void TranslateTextJob::translate()
 {
-    auto translatorEngine = TranslatorEngineManager::self()->translatorEngineBase();
-    translatorEngine->setInputText(mInputText);
-    translatorEngine->setFrom(mFrom);
-    translatorEngine->setTo(mTo);
-    translatorEngine->translate();
+    if (mInfo.isValid()) {
+        auto translatorEngine = TranslatorEngineManager::self()->translatorEngineBase();
+        translatorEngine->setInputText(mInfo.inputText);
+        translatorEngine->setFrom(mInfo.from);
+        translatorEngine->setTo(mInfo.to);
+        translatorEngine->translate();
+    } else {
+        qCDebug(RUQOLA_LOG) << " Invalid translate info " << mInfo;
+    }
 }
 
-const QString &TranslateTextJob::from() const
+const TranslateTextJob::TranslateInfo &TranslateTextJob::info() const
 {
-    return mFrom;
+    return mInfo;
 }
 
-void TranslateTextJob::setFrom(const QString &newFrom)
+void TranslateTextJob::setInfo(const TranslateInfo &newInfo)
 {
-    mFrom = newFrom;
+    mInfo = newInfo;
 }
 
-const QString &TranslateTextJob::to() const
+bool TranslateTextJob::TranslateInfo::isValid() const
 {
-    return mTo;
+    return !from.isEmpty() && !to.isEmpty() && !inputText.isEmpty();
 }
 
-void TranslateTextJob::setTo(const QString &newTo)
+QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t)
 {
-    mTo = newTo;
-}
-
-const QString &TranslateTextJob::inputText() const
-{
-    return mInputText;
-}
-
-void TranslateTextJob::setInputText(const QString &newInputText)
-{
-    mInputText = newInputText;
+    d << "From " << t.from;
+    d << "To " << t.to;
+    d << "inputtext " << t.inputText;
+    return d;
 }
