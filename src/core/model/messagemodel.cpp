@@ -391,6 +391,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.isEditingMode();
     case MessageModel::ShowReactionIcon:
         return message.showReactionIcon();
+    case MessageModel::LocalTranslation:
+        return message.localTranslation();
     }
 
     return {};
@@ -457,6 +459,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     case MessageModel::ShowReactionIcon:
         message.setShowReactionIcon(value.toBool());
         Q_EMIT dataChanged(index, index, {MessageModel::ShowReactionIcon});
+        return true;
+    case MessageModel::LocalTranslation:
+        message.setLocalTranslation(value.toString());
+        Q_EMIT dataChanged(index, index);
         return true;
     }
     return false;

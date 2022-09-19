@@ -295,6 +295,16 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
+const QString &Message::localTranslation() const
+{
+    return mLocalTranslation;
+}
+
+void Message::setLocalTranslation(const QString &newLocalTranslation)
+{
+    mLocalTranslation = newLocalTranslation;
+}
+
 bool Message::showReactionIcon() const
 {
     return mShowReactionIcon;
@@ -421,7 +431,7 @@ bool Message::operator==(const Message &other) const
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
         && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
-        && (mChannels == other.channels());
+        && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation());
 }
 
 bool Message::operator<(const Message &other) const
@@ -1008,5 +1018,6 @@ QDebug operator<<(QDebug d, const Message &t)
     d << "mPendingMessage " << t.pendingMessage();
     d << "mShowIgnoredMessage " << t.showIgnoredMessage();
     d << "mChannels " << t.channels();
+    d << "mLocalTranslation " << t.localTranslation();
     return d;
 }

@@ -76,6 +76,7 @@ public:
         MessageInEditMode,
         DirectChannels,
         ShowReactionIcon,
+        LocalTranslation,
     };
     Q_ENUM(MessageRoles)
 

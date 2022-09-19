@@ -195,6 +195,9 @@ public:
     Q_REQUIRED_RESULT bool showReactionIcon() const;
     void setShowReactionIcon(bool newShowReactionIcon);
 
+    Q_REQUIRED_RESULT const QString &localTranslation() const;
+    void setLocalTranslation(const QString &newLocalTranslation);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -202,6 +205,10 @@ private:
     void parseUrls(const QJsonArray &urls);
     void parseReactions(const QJsonObject &mentions);
     void parseChannels(const QJsonArray &channels);
+
+
+    // Local translation
+    QString mLocalTranslation;
 
     // Message Pinned
     MessagePinned mMessagePinned;
