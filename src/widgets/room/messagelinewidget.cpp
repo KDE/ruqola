@@ -13,7 +13,6 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
-#include "uploadfilemanager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
