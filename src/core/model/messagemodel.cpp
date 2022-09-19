@@ -490,6 +490,9 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
                     messageStr = messageTranslation;
                 }
             }
+
+        } else if (message.showTranslatedMessage() && !message.localTranslation().isEmpty()) {
+            messageStr = message.localTranslation();
         }
     }
 

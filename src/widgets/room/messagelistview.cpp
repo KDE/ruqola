@@ -358,7 +358,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
             menu.addSeparator();
             menu.addAction(deleteAction);
         }
-        if (mCurrentRocketChatAccount->hasAutotranslateSupport()) {
+        if (mCurrentRocketChatAccount->hasAutotranslateSupport() || !message->localTranslation().isEmpty()) {
             createSeparator(menu);
             const bool isTranslated = message->showTranslatedMessage();
             auto translateAction = new QAction(isTranslated ? i18n("Show Original Message") : i18n("Translate Message"), &menu);
