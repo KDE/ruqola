@@ -16,7 +16,6 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "ruqola_debug.h"
-#include "ruqolaserverconfig.h"
 #include "textconverter.h"
 #include "utils.h"
 
