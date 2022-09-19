@@ -347,7 +347,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
-#if 0 // Add translator menu
+#if 1 // Add translator menu
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
             mTranslatorMenu->setModelIndex(index);
@@ -699,10 +699,12 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
         auto job = new TranslateTextJob(this);
         job->setInfo(info);
         connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex](const QString &str) {
-            // TODO
+            auto messageModel = qobject_cast<MessageModel *>(model());
+            messageModel->setData(modelIndex, str, MessageModel::LocalTranslation);
+            qDebug() << " str" << str;
         });
         connect(job, &TranslateTextJob::translateFailed, this, [this](bool result, const QString &errorMessage) {
-            // TODO
+            KMessageBox::error(this, errorMessage, i18n("Translator Error"));
         });
         job->translate();
     }
