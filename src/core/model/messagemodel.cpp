@@ -18,7 +18,6 @@
 #include "ruqola_debug.h"
 #include "ruqolaserverconfig.h"
 #include "textconverter.h"
-#include "texthighlighter.h"
 #include "utils.h"
 
 #include <KLocalizedString>
