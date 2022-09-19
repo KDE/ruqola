@@ -18,6 +18,7 @@
 #include "ruqolawidgets_debug.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "translator/translatormenu.h"
+#include "translatetext/translatetextjob.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -691,5 +692,18 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
         const QString originalMessage = modelIndex.data(MessageModel::OriginalMessage).toString();
         qDebug() << " originalMessage " << originalMessage;
         qDebug() << " from " << from << " to " << to;
+        TranslateTextJob::TranslateInfo info;
+        info.from = from;
+        info.to = to;
+        info.inputText = originalMessage;
+        auto job = new TranslateTextJob(this);
+        job->setInfo(info);
+        connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex](const QString &str) {
+            // TODO
+        });
+        connect(job, &TranslateTextJob::translateFailed, this, [this](bool result, const QString &errorMessage) {
+            // TODO
+        });
+        job->translate();
     }
 }
