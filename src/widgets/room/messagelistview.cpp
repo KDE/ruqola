@@ -14,7 +14,7 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
-#include "ruqola.h"
+//#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "translator/translatormenu.h"
@@ -35,7 +35,6 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     : MessageListViewBase(parent)
     , mMode(mode)
     , mMessageListDelegate(new MessageListDelegate(account, this))
-    , mTranslatorMenu(new TranslatorMenu(this))
     , mCurrentRocketChatAccount(account)
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
@@ -58,7 +57,6 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     connect(mMessageListDelegate, &MessageListDelegate::showUserInfo, this, &MessageListView::slotShowUserInfo);
     connect(mMessageListDelegate, &MessageListDelegate::startPrivateConversation, this, &MessageListView::slotStartPrivateConversation);
     connect(mMessageListDelegate, &MessageListDelegate::updateView, this, &MessageListView::slotUpdateView);
-    connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
 }
 
 MessageListView::~MessageListView() = default;
@@ -347,6 +345,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
+        if (!mTranslatorMenu) {
+            mTranslatorMenu = new TranslatorMenu(this);
+            connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+        }
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
             mTranslatorMenu->setModelIndex(index);

@@ -95,7 +95,7 @@ private:
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
-    TranslatorMenu *const mTranslatorMenu;
+    TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mDebug = false;
 };
