@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
-    QMenu *const mMenu;
     QPersistentModelIndex mModelIndex;
+    QMenu *const mMenu;
 };
