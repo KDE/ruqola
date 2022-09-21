@@ -5,6 +5,7 @@
 */
 
 #include "translatormenu.h"
+#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "translatetext/translatorutil.h"
 
@@ -20,6 +21,7 @@ TranslatorMenu::TranslatorMenu(QObject *parent)
     mMenu->setObjectName(QStringLiteral("menu"));
     mMenu->setTitle(i18n("Translate..."));
     mMenu->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-locale")));
+    connect(Ruqola::self(), &Ruqola::translatorMenuChanged, this, &TranslatorMenu::updateMenu);
     updateMenu();
 }
 

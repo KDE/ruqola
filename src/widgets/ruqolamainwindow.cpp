@@ -601,6 +601,7 @@ void RuqolaMainWindow::slotConfigure()
 
         mAccountOverviewWidget->updateButtons();
         createSystemTray();
+        Q_EMIT Ruqola::self()->translatorMenuChanged();
     }
     delete dlg;
 }

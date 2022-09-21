@@ -40,6 +40,9 @@ public:
 
     void openMessageUrl(const QString &url);
 
+Q_SIGNALS:
+    void translatorMenuChanged();
+
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
