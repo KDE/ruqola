@@ -42,7 +42,7 @@ TranslatorConfigureWidget::TranslatorConfigureWidget(QWidget *parent)
     mainLayout->addLayout(hLanguageListboxLayout);
 
     mFromLanguageWidget->setObjectName(QStringLiteral("mFromLanguageWidget"));
-    mToLanguageWidget->setObjectName(QStringLiteral("mFromLanguageWidget"));
+    mToLanguageWidget->setObjectName(QStringLiteral("mToLanguageWidget"));
     hLanguageListboxLayout->addWidget(mFromLanguageWidget);
     hLanguageListboxLayout->addWidget(mToLanguageWidget);
 

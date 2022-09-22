@@ -5,6 +5,7 @@
 */
 
 #include "translatorconfigurewidgettest.h"
+#include "translator/translatorconfigurelanguagelistwidget.h"
 #include "translator/translatorconfigurewidget.h"
 #include <QComboBox>
 #include <QLabel>
@@ -27,5 +28,10 @@ void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mEngine = w.findChild<QComboBox *>(QStringLiteral("mEngine"));
     QVERIFY(mEngine);
-    // TODO
+
+    auto mFromLanguageWidget = w.findChild<TranslatorConfigureLanguageListWidget *>(QStringLiteral("mFromLanguageWidget"));
+    QVERIFY(mFromLanguageWidget);
+
+    auto mToLanguageWidget = w.findChild<TranslatorConfigureLanguageListWidget *>(QStringLiteral("mToLanguageWidget"));
+    QVERIFY(mToLanguageWidget);
 }
