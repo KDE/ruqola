@@ -7,7 +7,6 @@
 #include "bannerinfowidget.h"
 #include "bannerinfolistsearchlinewidget.h"
 #include "bannerinfolistview.h"
-#include "bannerinfolistviewdelegate.h"
 #include "model/bannerinfosfilterproxymodel.h"
 #include "model/bannerinfosmodel.h"
 #include "rocketchataccount.h"

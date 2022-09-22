@@ -13,11 +13,9 @@
 #include <QPainter>
 #include <QToolTip>
 
-#include "colors.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
 #include "rocketchataccount.h"
-#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 BannerInfoListViewDelegate::BannerInfoListViewDelegate(QListView *view, RocketChatAccount *account, QObject *parent)

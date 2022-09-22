@@ -6,7 +6,6 @@
 
 #include "showdiscussionswidget.h"
 #include "discussionlistview.h"
-#include "discussions/discussion/listdiscussiondelegate.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/discussionsfilterproxymodel.h"
 #include "rocketchataccount.h"

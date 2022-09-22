@@ -7,7 +7,6 @@
 #include "discussionlistview.h"
 #include "discussion/listdiscussiondelegate.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 
 #include <KLocalizedString>
 
