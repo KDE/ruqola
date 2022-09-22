@@ -11,7 +11,6 @@
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teams/channelsconverttoteamjob.h"
 #include "teams/groupsconverttoteamjob.h"
