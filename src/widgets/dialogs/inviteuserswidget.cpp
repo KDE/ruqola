@@ -8,7 +8,6 @@
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 
 #include <KCollapsibleGroupBox>
 #include <KLocalizedString>

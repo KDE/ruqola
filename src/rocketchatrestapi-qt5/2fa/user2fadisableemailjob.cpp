@@ -6,7 +6,6 @@
 
 #include "user2fadisableemailjob.h"
 #include "restapimethod.h"
-#include "rocketchatqtrestapi_debug.h"
 #include <KLocalizedString>
 
 #include <QJsonDocument>

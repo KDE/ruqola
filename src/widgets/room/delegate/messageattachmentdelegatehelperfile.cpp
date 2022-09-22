@@ -9,11 +9,8 @@
 #include "common/delegateutil.h"
 #include "connection.h"
 #include "downloadfilejob.h"
-#include "model/messagemodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolautils.h"
-#include "ruqolawidgets_debug.h"
 #include <KApplicationTrader>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>

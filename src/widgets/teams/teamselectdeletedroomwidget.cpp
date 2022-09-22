@@ -8,8 +8,6 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>

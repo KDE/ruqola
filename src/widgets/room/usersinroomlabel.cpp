@@ -5,7 +5,6 @@
 */
 
 #include "usersinroomlabel.h"
-#include "dialogs/directchannelinfodialog.h"
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"

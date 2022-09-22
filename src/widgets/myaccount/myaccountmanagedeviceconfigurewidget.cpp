@@ -10,7 +10,6 @@
 #include "model/deviceinfomodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "sessions/sessionslistjob.h"
 #include "sessions/sessionslogoutmejob.h"

@@ -12,9 +12,7 @@
 #include "room.h"
 #include "room/messagelinewidget.h"
 #include "room/messagelistview.h"
-#include "room/messagetextedit.h"
 #include "room/roomwidgetbase.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 
 #include <KLocalizedString>
@@ -23,6 +21,8 @@
 #include <QMimeData>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QDropEvent>
+#include <QDragEnterEvent>
 
 ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)

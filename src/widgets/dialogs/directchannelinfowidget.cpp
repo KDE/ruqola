@@ -7,7 +7,6 @@
 #include "directchannelinfowidget.h"
 #include "connection.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "user.h"
 #include "users/userinfojob.h"

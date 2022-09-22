@@ -10,7 +10,6 @@
 #include "common/emojicompletiondelegate.h"
 #include "model/inputcompletermodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 
 #include <KLocalizedString>
 

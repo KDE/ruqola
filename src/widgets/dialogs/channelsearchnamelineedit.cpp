@@ -11,7 +11,6 @@
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <QJsonObject>
 

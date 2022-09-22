@@ -6,7 +6,6 @@
 
 #include "myaccountprofileconfigureavatarwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QContextMenuEvent>
 #include <QFileDialog>

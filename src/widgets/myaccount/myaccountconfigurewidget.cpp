@@ -12,7 +12,6 @@
 #include "myaccountpreferenceconfigurewidget.h"
 #include "myaccountprofileconfigurewidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QTabWidget>
 #include <QVBoxLayout>

@@ -12,7 +12,6 @@
 #include "model/notificationhistorymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>

@@ -9,8 +9,6 @@
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticon.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolautils.h"
 #include "utils.h"
 #include <model/messagemodel.h>
 

@@ -9,7 +9,6 @@
 #include "model/searchmessagefilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
-#include "ruqola.h"
 #include "searchmessagewithdelaylineedit.h"
 #include <KLocalizedString>
 #include <QLabel>

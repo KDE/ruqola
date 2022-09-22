@@ -13,7 +13,6 @@
 #include "model/teamroomsfilterproxymodel.h"
 #include "model/teamroomsmodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teams/teamaddroomsjob.h"
 #include "teams/teamchannelscombobox.h"

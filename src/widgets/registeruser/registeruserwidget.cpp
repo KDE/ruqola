@@ -6,7 +6,6 @@
 
 #include "registeruserwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KPasswordLineEdit>

@@ -10,7 +10,6 @@
 #include "misc/passwordconfirmwidget.h"
 #include "myaccountprofileconfigureavatarwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KAuthorized>
 #include <KLocalizedString>
 #include <KMessageBox>

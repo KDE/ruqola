@@ -10,7 +10,6 @@
 #include "dialogs/autotranslateconfiguredialog.h"
 #include "dialogs/channelinfodialog.h"
 #include "dialogs/configurenotificationdialog.h"
-#include "dialogs/createnewdiscussiondialog.h"
 #include "dialogs/directchannelinfodialog.h"
 #include "dialogs/inviteusersdialog.h"
 #include "dialogs/searchmessagedialog.h"
@@ -24,21 +23,16 @@
 #include "exportmessages/exportmessagesdialog.h"
 #include "messagelinewidget.h"
 #include "messagelistview.h"
-#include "messagetextedit.h"
 #include "prunemessages/prunemessagesdialog.h"
-#include "readonlylineeditwidget.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "roomutil.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "usersinroomflowwidget.h"
 
 #include "otr/otrwidget.h"
 #include "reconnectinfowidget.h"
 #include "roomcounterinfowidget.h"
-#include "roomquotemessagewidget.h"
-#include "roomreplythreadwidget.h"
 #include "roomwidgetbase.h"
 #include "ruqola_thread_message_widgets_debug.h"
 #include "teams/teamchannelsdialog.h"
@@ -52,6 +46,8 @@
 #include <QPushButton>
 #include <QScrollBar>
 #include <QVBoxLayout>
+#include <QDragEnterEvent>
+#include <QDropEvent>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)

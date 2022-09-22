@@ -17,7 +17,6 @@
 #include "misc/avatarcachemanager.h"
 #include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
-#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 ListDiscussionDelegate::ListDiscussionDelegate(QListView *view, RocketChatAccount *account, QObject *parent)

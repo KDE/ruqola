@@ -8,7 +8,6 @@
 #include "colors.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 #include "utils.h"

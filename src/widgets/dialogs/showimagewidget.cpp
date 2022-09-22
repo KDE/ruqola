@@ -7,7 +7,6 @@
 #include "showimagewidget.h"
 #include "common/delegateutil.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_showimage_debug.h"
 #include <KLocalizedString>
 #include <QApplication>

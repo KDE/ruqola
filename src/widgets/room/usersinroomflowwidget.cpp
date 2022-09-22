@@ -10,7 +10,6 @@
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "ruqola.h"
 #include "usersinroomdialog.h"
 #include "usersinroomlabel.h"
 #include <KLocalizedString>

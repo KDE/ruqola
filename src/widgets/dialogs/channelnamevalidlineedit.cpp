@@ -6,7 +6,6 @@
 
 #include "channelnamevalidlineedit.h"
 #include "rocketchataccount.h"
-#include "ruqolawidgets_debug.h"
 
 #include <KColorScheme>
 #include <KStatefulBrush>

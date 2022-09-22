@@ -7,7 +7,6 @@
 #include "showlistmessagebasedialog.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "showlistmessagebasewidget.h"
 

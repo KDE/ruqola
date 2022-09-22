@@ -7,13 +7,8 @@
 #include "messageattachmentdelegatehelpertext.h"
 #include "colors.h"
 #include "common/delegatepaintutil.h"
-#include "common/delegateutil.h"
 #include "delegateutils/messagedelegateutils.h"
-#include "dialogs/showvideodialog.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqolawidgets_selection_debug.h"
 #include "textconverter.h"
 
 #include <KColorScheme>

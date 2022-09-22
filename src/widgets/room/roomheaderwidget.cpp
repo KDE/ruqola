@@ -8,7 +8,6 @@
 #include "channelactionpopupmenu.h"
 #include "room.h"
 #include "roomheaderlabel.h"
-#include "ruqolawidgets_debug.h"
 #include "teamnamelabel.h"
 #include <KLocalizedString>
 #include <QLabel>

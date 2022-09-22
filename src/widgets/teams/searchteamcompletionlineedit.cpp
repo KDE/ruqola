@@ -9,9 +9,7 @@
 #include "connection.h"
 #include "model/teamcompletermodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
-#include "teams/teamroomcompleter.h"
 #include "teams/teamsautocompletejob.h"
 
 #include <QJsonArray>

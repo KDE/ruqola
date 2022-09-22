@@ -20,7 +20,6 @@
 #include "personalaccesstokens/personalaccesstokeninfos.h"
 
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>

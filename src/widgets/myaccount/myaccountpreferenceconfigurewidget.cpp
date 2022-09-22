@@ -7,7 +7,6 @@
 #include "myaccountpreferenceconfigurewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QComboBox>

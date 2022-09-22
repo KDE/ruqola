@@ -10,7 +10,6 @@
 #include "model/usersforroomfilterproxymodel.h"
 #include "model/usersforroommodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "usersinroomcombobox.h"
 #include "usersinroommenu.h"
 #include <KLocalizedString>

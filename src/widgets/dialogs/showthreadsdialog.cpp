@@ -6,8 +6,6 @@
 
 #include "showthreadsdialog.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>

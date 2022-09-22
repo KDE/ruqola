@@ -9,7 +9,6 @@
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselection.h"
-#include "emoticons/emojimanager.h"
 #include "messageattachmentdelegatehelperfile.h"
 #include "messageattachmentdelegatehelperimage.h"
 #include "messageattachmentdelegatehelpersound.h"
@@ -25,7 +24,6 @@
 #include "room/delegate/messagelistlayout/messagelistcompactlayout.h"
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
-#include "ruqola.h"
 #include "ruqola_thread_message_widgets_debug.h"
 #include "ruqolawidgets_debug.h"
 

@@ -9,7 +9,6 @@
 #include "e2e/resetowne2ekeyjob.h"
 #include "misc/passwordconfirmwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLabel>
