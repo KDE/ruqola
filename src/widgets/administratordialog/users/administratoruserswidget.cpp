@@ -12,7 +12,6 @@
 #include "model/adminusersmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "users/deleteuserjob.h"
 #include "users/resete2ekeyjob.h"

@@ -13,10 +13,8 @@
 #include "customsounds/administratorcustomsoundswidget.h"
 #include "customuserstatus/administratorcustomuserstatuswidget.h"
 #include "invites/administratorinviteswidget.h"
-#include "permissions/permissionmanager.h"
 #include "rocketchataccount.h"
 #include "rooms/administratorroomswidget.h"
-#include "ruqola.h"
 #include "serverinfo/administratorserverinfowidget.h"
 #include "users/administratoruserswidget.h"
 #include <KLocalizedString>

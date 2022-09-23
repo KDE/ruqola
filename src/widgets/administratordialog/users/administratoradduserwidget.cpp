@@ -6,7 +6,6 @@
 #include "administratoradduserwidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "misc/rolescombobox.h"
-#include "ruqolawidgets_debug.h"
 #include "user.h"
 #include <KAuthorized>
 #include <KLocalizedString>

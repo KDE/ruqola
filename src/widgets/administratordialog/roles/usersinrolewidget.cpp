@@ -14,7 +14,6 @@
 #include "role/addusertorolejob.h"
 #include "role/getusersinrolejob.h"
 #include "role/removeuserfromrolejob.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>

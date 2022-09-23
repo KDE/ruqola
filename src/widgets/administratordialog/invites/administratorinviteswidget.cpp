@@ -14,7 +14,6 @@
 #include "model/admininvitemodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <QLineEdit>

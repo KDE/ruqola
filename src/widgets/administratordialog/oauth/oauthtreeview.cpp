@@ -7,12 +7,8 @@
 #include "oauthtreeview.h"
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
-#include "connection.h"
-#include "misc/oauthappsjob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>

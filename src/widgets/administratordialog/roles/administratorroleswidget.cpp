@@ -11,7 +11,6 @@
 #include "rocketchataccount.h"
 #include "roleeditdialog.h"
 #include "rolestreeview.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "userinroleeditdialog.h"
 

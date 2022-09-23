@@ -9,7 +9,6 @@
 #include "ddpapi/ddpclient.h"
 #include "misc/stdoutqueuejob.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include <QJsonArray>
 #include <QPlainTextEdit>

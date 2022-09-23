@@ -9,7 +9,6 @@
 #include "license/licenseslistjob.h"
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "serverinfojob.h"
 
