@@ -19,7 +19,6 @@ QDebug operator<<(QDebug d, const OauthInfo &t)
     d << "ClientSecret " << t.clientSecret();
     d << "RedirectUri " << t.redirectUri();
     d << "CreatedBy" << t.createdBy();
-    // TODO
     return d;
 }
 
