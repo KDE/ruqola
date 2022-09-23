@@ -158,7 +158,7 @@ void Message::setName(const QString &name)
 
 bool Message::isAutoTranslated() const
 {
-    return false;
+    return !mMessageTranslation.translatedString().isEmpty();
 }
 
 bool Message::showTranslatedMessage() const
