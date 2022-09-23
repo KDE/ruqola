@@ -689,8 +689,8 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
 {
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessageModel::OriginalMessage).toString();
-        qDebug() << " originalMessage " << originalMessage;
-        qDebug() << " from " << from << " to " << to;
+        // qDebug() << " originalMessage " << originalMessage;
+        // qDebug() << " from " << from << " to " << to;
         TranslateTextJob::TranslateInfo info;
         info.from = from;
         info.to = to;
@@ -700,7 +700,7 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
         connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex](const QString &str) {
             auto messageModel = qobject_cast<MessageModel *>(model());
             messageModel->setData(modelIndex, str, MessageModel::LocalTranslation);
-            qDebug() << " str" << str;
+            // qDebug() << " str" << str;
         });
         connect(job, &TranslateTextJob::translateFailed, this, [this](bool result, const QString &errorMessage) {
             KMessageBox::error(this, errorMessage, i18n("Translator Error"));
