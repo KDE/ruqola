@@ -5,7 +5,6 @@
 */
 
 #include "loginmethodmodel.h"
-#include "ruqola_debug.h"
 #include <QModelIndex>
 
 LoginMethodModel::LoginMethodModel(QObject *parent)

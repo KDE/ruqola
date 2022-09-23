@@ -5,7 +5,6 @@
 */
 
 #include "notifierjob.h"
-#include "knotifications_version.h"
 #include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <KNotification>

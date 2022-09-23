@@ -5,7 +5,6 @@
 */
 
 #include "usercompletermodel.h"
-#include "ruqola_debug.h"
 #include <QIcon>
 #include <QModelIndex>
 

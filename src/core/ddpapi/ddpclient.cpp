@@ -8,7 +8,6 @@
  */
 
 #include "ddpclient.h"
-#include "connection.h"
 #include "customsound/customsoundsmanager.h"
 #include "messagequeue.h"
 #include "plugins/pluginauthenticationinterface.h"

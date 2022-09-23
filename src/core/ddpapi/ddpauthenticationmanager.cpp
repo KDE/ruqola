@@ -10,7 +10,6 @@
 
 #include "ddpapi/ddpclient.h"
 
-#include "ruqola_ddpapi_command_debug.h"
 #include "ruqola_ddpapi_debug.h"
 
 #include "utils.h"

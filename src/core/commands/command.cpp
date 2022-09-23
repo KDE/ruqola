@@ -6,7 +6,6 @@
 
 #include "command.h"
 #include "ruqola_commands_debug.h"
-#include "ruqola_debug.h"
 #include <KLocalizedString>
 #include <QJsonArray>
 

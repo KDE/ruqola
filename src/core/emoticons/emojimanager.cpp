@@ -7,7 +7,6 @@
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
 
 #include <QJsonArray>

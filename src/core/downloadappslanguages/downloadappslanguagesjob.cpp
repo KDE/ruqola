@@ -6,7 +6,6 @@
 
 #include "downloadappslanguagesjob.h"
 #include "ruqola_debug.h"
-#include "utils.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
