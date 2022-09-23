@@ -14,7 +14,6 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QSettings>
-#include <QUrlQuery>
 
 AccountManager::AccountManager(QObject *parent)
     : QObject(parent)

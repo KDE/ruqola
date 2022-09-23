@@ -6,7 +6,6 @@
 #include "enterprisesettingswidgettest.h"
 #include "administratorsettingsdialog/enterprise/enterprisesettingswidget.h"
 #include "settingswidgetshelper.h"
-#include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QTest>

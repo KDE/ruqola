@@ -9,7 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "misc/messagelistviewbase.h"
 #include <QPointer>
-#include <QVector>
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;

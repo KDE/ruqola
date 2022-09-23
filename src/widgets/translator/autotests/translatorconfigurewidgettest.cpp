@@ -8,7 +8,6 @@
 #include "translator/translatorconfigurelanguagelistwidget.h"
 #include "translator/translatorconfigurewidget.h"
 #include <QComboBox>
-#include <QLabel>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>

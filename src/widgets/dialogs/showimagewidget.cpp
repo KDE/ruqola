@@ -24,7 +24,6 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QWheelEvent>
-#include <QtMath>
 
 namespace
 {

@@ -13,7 +13,6 @@
 
 #include "misc/pixmapcache.h"
 
-#include <QFont>
 #include <QItemDelegate>
 #include <QScopedPointer>
 

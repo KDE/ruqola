@@ -6,7 +6,6 @@
 #include "layoutsettingswidgettest.h"
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "settingswidgetshelper.h"
-#include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(LayoutSettingsWidgetTest)
 

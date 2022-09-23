@@ -8,7 +8,6 @@
 #include "settingswidgetshelper.h"
 #include <KPasswordLineEdit>
 #include <QCheckBox>
-#include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>

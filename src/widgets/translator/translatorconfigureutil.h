@@ -5,7 +5,6 @@
 */
 
 #pragma once
-#include <QVector>
 
 class QComboBox;
 namespace TranslatorConfigureUtil

@@ -10,7 +10,6 @@
 #include <QString>
 #include <QTest>
 #include <QToolButton>
-#include <QVariant>
 
 namespace SettingsWidgetHelper
 {

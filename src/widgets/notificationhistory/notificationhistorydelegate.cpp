@@ -15,7 +15,6 @@
 #include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
-#include <QTextBlock>
 #include <QToolTip>
 
 NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObject *parent)
