@@ -33,11 +33,14 @@ AdministratorCustomSoundsCreateWidget::~AdministratorCustomSoundsCreateWidget() 
 
 void AdministratorCustomSoundsCreateWidget::setCustomSoundInfo(const CustomSoundInfo &info)
 {
-    // TODO
+    mSelectFile->setUrl(info.fileNameUrl);
+    mName->setText(info.name);
 }
 
 AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSoundsCreateWidget::customSoundInfo() const
 {
-    // TODO
-    return {};
+    AdministratorCustomSoundsCreateWidget::CustomSoundInfo info;
+    info.fileNameUrl = mSelectFile->url();
+    info.name = mName->text().trimmed();
+    return info;
 }
