@@ -7,10 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
-#include "user.h"
 
 #include <QJsonObject>
-
+#include <QDebug>
 class LIBRUQOLACORE_EXPORT ServicePassword
 {
 public:

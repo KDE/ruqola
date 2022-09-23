@@ -7,7 +7,6 @@
 #include "passwordauthenticationinterface.h"
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
-#include "passwordauthenticationplugin_debug.h"
 #include "rocketchataccount.h"
 
 PasswordAuthenticationInterface::PasswordAuthenticationInterface(QObject *parent)
