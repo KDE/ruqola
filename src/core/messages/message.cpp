@@ -45,9 +45,9 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 
     QStringList lst;
     const QJsonArray replieArray = o.value(QLatin1String("replies")).toArray();
-    const int nbReplieArrayCount{replieArray.count()};
+    const auto nbReplieArrayCount{replieArray.count()};
     lst.reserve(nbReplieArrayCount);
-    for (int i = 0; i < nbReplieArrayCount; ++i) {
+    for (auto i = 0; i < nbReplieArrayCount; ++i) {
         lst.append(replieArray.at(i).toVariant().toString());
     }
     mReplies = lst;
