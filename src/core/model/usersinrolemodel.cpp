@@ -5,7 +5,6 @@
 */
 
 #include "usersinrolemodel.h"
-#include "discussions/discussions.h"
 #include <KLocalizedString>
 
 UsersInRoleModel::UsersInRoleModel(QObject *parent)

@@ -5,8 +5,7 @@
 */
 
 #include "statusmodel.h"
-#include "customusers/customuserstatuses.h"
-#include "ruqola_debug.h"
+#include "customusers/customuserstatus.h"
 #include "utils.h"
 #include <KLocalizedString>
 

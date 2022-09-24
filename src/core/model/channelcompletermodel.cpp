@@ -5,7 +5,6 @@
 */
 
 #include "channelcompletermodel.h"
-#include "ruqola_debug.h"
 #include <QModelIndex>
 
 ChannelCompleterModel::ChannelCompleterModel(QObject *parent)
