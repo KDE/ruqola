@@ -629,6 +629,7 @@
       <li xml:lang="pl">Zarządzanie urządzeniami (RC &gt;= 5.0)</li>
       <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="sl">Upravljaj napravo (RC &gt;= 5.0)</li>
+      <li xml:lang="sv">Hantera enhet (RC ≥ 5.0)</li>
       <li xml:lang="tr">Aygıt Yönet (RC &gt;= 5.0)</li>
       <li xml:lang="uk">Керування пристроєм (RC &gt;= 5.0)</li>
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
@@ -637,19 +638,23 @@
       <li xml:lang="ca-valencia">Gestió del testimoni d'accés personal</li>
       <li xml:lang="en-GB">Manage Personal Access Token</li>
       <li xml:lang="es">Administrar símbolo de acceso personal</li>
+      <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="it">Gestisci token di accesso personale</li>
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
+      <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
       <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
       <li>Add support for local translation</li>
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la traducció local</li>
+      <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
+      <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
     </ul>
