@@ -10,6 +10,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
+#include <QWindow>
 
 namespace
 {
@@ -29,15 +31,15 @@ ShowThreadsDialog::~ShowThreadsDialog()
 
 void ShowThreadsDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowThreadsDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ShowThreadsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowThreadsDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

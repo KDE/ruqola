@@ -9,7 +9,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-
+#include <KWindowConfig>
+#include <QWindow>
 namespace
 {
 static const char myShowMentionsMessagesDialogGroupName[] = "ShowMentionsMessagesDialog";
@@ -29,15 +30,15 @@ ShowMentionsMessagesDialog::~ShowMentionsMessagesDialog()
 
 void ShowMentionsMessagesDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ShowMentionsMessagesDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowMentionsMessagesDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
