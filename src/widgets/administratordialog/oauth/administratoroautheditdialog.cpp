@@ -9,9 +9,11 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 static const char myConfigAdministratorOauthEditDialogGroupName[] = "AdministratorOauthEditDialog";
@@ -57,15 +59,15 @@ void AdministratorOauthEditDialog::setOauthInfo(const AdministratorOauthEditWidg
 
 void AdministratorOauthEditDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthEditDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorOauthEditDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorOauthEditDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

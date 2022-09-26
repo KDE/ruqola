@@ -9,9 +9,11 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 static const char myConfigAdministratorCustomUserStatusCreateDialogGroupName[] = "AdministratorCustomUserStatusCreateDialog";
@@ -45,17 +47,17 @@ AdministratorCustomUserStatusCreateDialog::~AdministratorCustomUserStatusCreateD
 
 void AdministratorCustomUserStatusCreateDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorCustomUserStatusCreateDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomUserStatusCreateDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 AdministratorCustomUserStatusCreateWidget::UserStatusInfo AdministratorCustomUserStatusCreateDialog::userStatusInfo() const

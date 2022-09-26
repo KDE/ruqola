@@ -9,8 +9,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
 
 namespace
 {
@@ -53,15 +55,15 @@ AdministratorCustomSoundsCreateWidget::CustomSoundInfo AdministratorCustomSounds
 
 void AdministratorCustomSoundsCreateDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorCustomSoundsCreateDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomSoundsCreateDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

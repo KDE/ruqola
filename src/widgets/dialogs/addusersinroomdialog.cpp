@@ -9,9 +9,11 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 static const char myConfigAddUsersInRoomDialogGroupName[] = "AddUsersInRoomDialog";
@@ -55,15 +57,15 @@ QStringList AddUsersInRoomDialog::userNames() const
 
 void AddUsersInRoomDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAddUsersInRoomDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AddUsersInRoomDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAddUsersInRoomDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

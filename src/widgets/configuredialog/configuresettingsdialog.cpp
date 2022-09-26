@@ -13,9 +13,11 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QIcon>
 #include <QPushButton>
+#include <QWindow>
 
 #if HAVE_KUSERFEEDBACK
 #include "configureuserfeedbackwidget.h"
@@ -86,17 +88,17 @@ ConfigureSettingsDialog::~ConfigureSettingsDialog()
 
 void ConfigureSettingsDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ConfigureSettingsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 void ConfigureSettingsDialog::slotAccepted()
