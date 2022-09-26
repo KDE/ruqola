@@ -10,8 +10,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
 
 namespace
 {
@@ -51,15 +53,15 @@ void AdministratorDialog::initialize()
 
 void AdministratorDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(400, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void AdministratorDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myAdministratorDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

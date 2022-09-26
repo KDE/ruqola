@@ -9,8 +9,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 const char myTeamConvertToChannelDialogConfigGroupName[] = "TeamConvertToChannelDialog";
@@ -56,15 +58,15 @@ void TeamConvertToChannelDialog::setTeamName(const QString &name)
 
 void TeamConvertToChannelDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(400, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void TeamConvertToChannelDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamConvertToChannelDialogConfigGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

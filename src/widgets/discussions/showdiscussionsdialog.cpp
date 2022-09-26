@@ -11,10 +11,12 @@
 
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 
 namespace
 {
@@ -48,17 +50,17 @@ ShowDiscussionsDialog::~ShowDiscussionsDialog()
 
 void ShowDiscussionsDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowDiscussionsDialogGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ShowDiscussionsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myShowDiscussionsDialogGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 void ShowDiscussionsDialog::slotLoadMoreDiscussions()

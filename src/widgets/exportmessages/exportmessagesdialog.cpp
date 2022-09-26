@@ -9,9 +9,11 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 const char myExportMessagesDialogConfigGroupName[] = "ExportMessagesDialog";
@@ -47,15 +49,15 @@ RocketChatRestApi::RoomsExportJob::RoomsExportInfo ExportMessagesDialog::roomExp
 
 void ExportMessagesDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(400, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myExportMessagesDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void ExportMessagesDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myExportMessagesDialogConfigGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }

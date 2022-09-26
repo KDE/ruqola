@@ -9,8 +9,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QWindow>
 namespace
 {
 const char myTeamSelectDeletedRoomDialogConfigGroupName[] = "TeamSelectDeletedRoomDialog";
@@ -46,17 +48,17 @@ void TeamSelectDeletedRoomDialog::setTeamRooms(const QVector<TeamRoom> &rooms)
 
 void TeamSelectDeletedRoomDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(400, 300));
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSelectDeletedRoomDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(400, 300));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void TeamSelectDeletedRoomDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTeamSelectDeletedRoomDialogConfigGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
 QStringList TeamSelectDeletedRoomDialog::roomsId() const
