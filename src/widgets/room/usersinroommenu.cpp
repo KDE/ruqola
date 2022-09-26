@@ -89,33 +89,42 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
         if (!menu.isEmpty()) {
             menu.addSeparator();
         }
-        const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
-        auto removeAsUser = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
-        connect(removeAsUser, &QAction::triggered, this, [this, hasOwnerRole, account]() {
-            account->changeRoles(mRoom->roomId(), mUserId, mRoom->channelType(), hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
-        });
+        if (mRoom->hasPermission(QStringLiteral("set-owner"))) {
+            const bool hasOwnerRole = mRoom->userHasOwnerRole(mUserId);
+            auto removeAsOwner = new QAction(hasOwnerRole ? i18n("Remove as Owner") : i18n("Add as Owner"), &menu);
+            connect(removeAsOwner, &QAction::triggered, this, [this, hasOwnerRole, account]() {
+                account->changeRoles(mRoom->roomId(),
+                                     mUserId,
+                                     mRoom->channelType(),
+                                     hasOwnerRole ? RocketChatAccount::RemoveOwner : RocketChatAccount::AddOwner);
+            });
 
-        menu.addAction(removeAsUser);
+            menu.addAction(removeAsOwner);
+        }
 
-        const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
-        auto removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
-        connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
-            account->changeRoles(mRoom->roomId(),
-                                 mUserId,
-                                 mRoom->channelType(),
-                                 hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
-        });
-        menu.addAction(removeAsLeader);
+        if (mRoom->hasPermission(QStringLiteral("set-leader"))) {
+            const bool hasLeaderRole = mRoom->userHasLeaderRole(mUserId);
+            auto removeAsLeader = new QAction(hasLeaderRole ? i18n("Remove as Leader") : i18n("Add as Leader"), &menu);
+            connect(removeAsLeader, &QAction::triggered, this, [this, hasLeaderRole, account]() {
+                account->changeRoles(mRoom->roomId(),
+                                     mUserId,
+                                     mRoom->channelType(),
+                                     hasLeaderRole ? RocketChatAccount::RemoveLeader : RocketChatAccount::AddLeader);
+            });
+            menu.addAction(removeAsLeader);
+        }
 
-        const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
-        auto removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
-        connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
-            account->changeRoles(mRoom->roomId(),
-                                 mUserId,
-                                 mRoom->channelType(),
-                                 hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
-        });
-        menu.addAction(removeAsModerator);
+        if (mRoom->hasPermission(QStringLiteral("set-moderator"))) {
+            const bool hasModeratorRole = mRoom->userHasModeratorRole(mUserId);
+            auto removeAsModerator = new QAction(hasModeratorRole ? i18n("Remove as Moderator") : i18n("Add as Moderator"), &menu);
+            connect(removeAsModerator, &QAction::triggered, this, [this, hasModeratorRole, account]() {
+                account->changeRoles(mRoom->roomId(),
+                                     mUserId,
+                                     mRoom->channelType(),
+                                     hasModeratorRole ? RocketChatAccount::RemoveModerator : RocketChatAccount::AddModerator);
+            });
+            menu.addAction(removeAsModerator);
+        }
         menu.addSeparator();
         auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
         connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
