@@ -125,10 +125,12 @@ void UsersInRoomMenu::slotCustomContextMenuRequested(const QPoint &pos)
             });
             menu.addAction(removeAsModerator);
         }
-        menu.addSeparator();
-        auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
-        connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
-        menu.addAction(removeFromRoom);
+        if (mRoom->hasPermission(QStringLiteral("remove-user"))) {
+            menu.addSeparator();
+            auto removeFromRoom = new QAction(i18n("Remove from Room"), &menu);
+            connect(removeFromRoom, &QAction::triggered, this, &UsersInRoomMenu::slotRemoveFromRoom);
+            menu.addAction(removeFromRoom);
+        }
     }
     if (isNotMe) {
         if (isAdirectChannel) {
