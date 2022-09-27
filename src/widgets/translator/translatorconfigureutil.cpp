@@ -12,7 +12,7 @@
 
 void TranslatorConfigureUtil::fillComboboxSettings(QComboBox *combo)
 {
-    for (int i = 0; i < TranslatorEngineBase::TranslatorEngine::LastEngine; ++i) {
+    for (int i = 0; i <= TranslatorEngineBase::TranslatorEngine::LastEngine; ++i) {
         switch (i) {
         case TranslatorEngineBase::TranslatorEngine::Google:
             combo->addItem(i18n("Google"), QStringLiteral("google"));
