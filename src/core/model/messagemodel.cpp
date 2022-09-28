@@ -484,13 +484,16 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
         emojiManager = mRocketChatAccount->emojiManager();
         messageCache = mRocketChatAccount->messageCache();
         if (mRocketChatAccount->hasAutotranslateSupport()) {
-            if (message.showTranslatedMessage() && mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
-                const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
-                if (!messageTranslation.isEmpty()) {
-                    messageStr = messageTranslation;
+            if (message.showTranslatedMessage()) {
+                if (mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
+                    const QString messageTranslation = message.messageTranslation().translatedStringFromLanguage(mRoom->autoTranslateLanguage());
+                    if (!messageTranslation.isEmpty()) {
+                        messageStr = messageTranslation;
+                    } else if (!message.localTranslation().isEmpty()) {
+                        messageStr = message.localTranslation();
+                    }
                 }
             }
-
         } else if (message.showTranslatedMessage() && !message.localTranslation().isEmpty()) {
             messageStr = message.localTranslation();
         }
