@@ -13,17 +13,21 @@
 #include <KSharedConfig>
 #include <QComboBox>
 #include <QLabel>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 TranslatorConfigureWidget::TranslatorConfigureWidget(QWidget *parent)
     : QWidget{parent}
     , mEngine(new QComboBox(this))
+    , mConfigureEngine(new QToolButton(this))
     , mFromLanguageWidget(new TranslatorConfigureLanguageListWidget(i18n("From:"), this))
     , mToLanguageWidget(new TranslatorConfigureLanguageListWidget(i18n("To:"), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mEngine->setObjectName(QStringLiteral("mEngine"));
+    mConfigureEngine->setObjectName(QStringLiteral("mConfigureEngine"));
+    mConfigureEngine->setEnabled(false); // Disable by default
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
@@ -34,6 +38,7 @@ TranslatorConfigureWidget::TranslatorConfigureWidget(QWidget *parent)
     label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mEngine);
+    hboxLayout->addWidget(mConfigureEngine);
     hboxLayout->addStretch(0);
 
     auto hLanguageListboxLayout = new QHBoxLayout;

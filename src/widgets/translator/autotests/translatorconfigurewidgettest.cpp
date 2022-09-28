@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QStandardPaths>
 #include <QTest>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 QTEST_MAIN(TranslatorConfigureWidgetTest)
@@ -33,4 +34,8 @@ void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mToLanguageWidget = w.findChild<TranslatorConfigureLanguageListWidget *>(QStringLiteral("mToLanguageWidget"));
     QVERIFY(mToLanguageWidget);
+
+    auto mConfigureEngine = w.findChild<QToolButton *>(QStringLiteral("mConfigureEngine"));
+    QVERIFY(mConfigureEngine);
+    QVERIFY(!mConfigureEngine->isEnabled());
 }

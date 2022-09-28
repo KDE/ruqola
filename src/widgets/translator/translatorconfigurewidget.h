@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class QComboBox;
+class QToolButton;
 class TranslatorConfigureLanguageListWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorConfigureWidget : public QWidget
 {
@@ -24,6 +25,7 @@ private:
     void fillEngine();
     void slotEngineChanged(int index);
     QComboBox *const mEngine;
+    QToolButton *const mConfigureEngine;
     TranslatorConfigureLanguageListWidget *const mFromLanguageWidget;
     TranslatorConfigureLanguageListWidget *const mToLanguageWidget;
 };
