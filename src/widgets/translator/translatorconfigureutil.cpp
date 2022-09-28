@@ -11,6 +11,17 @@
 
 bool TranslatorConfigureUtil::hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType)
 {
+    qDebug() << " engineType " << engineType;
+    switch (engineType) {
+    case TranslatorEngineBase::TranslatorEngine::Google:
+    case TranslatorEngineBase::TranslatorEngine::Yandex:
+    case TranslatorEngineBase::TranslatorEngine::Bing:
+    case TranslatorEngineBase::TranslatorEngine::Lingva:
+        return false;
+    case TranslatorEngineBase::TranslatorEngine::LibreTranslate:
+    case TranslatorEngineBase::TranslatorEngine::DeepL:
+        return true;
+    }
     return false;
 }
 

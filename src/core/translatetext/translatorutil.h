@@ -92,5 +92,6 @@ public:
     Q_REQUIRED_RESULT static TranslatorEngineBase::TranslatorEngine loadEngineSettings();
     Q_REQUIRED_RESULT static QString loadEngine();
     Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> supportedLanguages(const QString &engineTypeStr);
+    Q_REQUIRED_RESULT static TranslatorEngineBase::TranslatorEngine convertStringToTranslatorEngine(const QString &engineTypeStr);
     static void saveEngineSettings(const QString &engineName);
 };

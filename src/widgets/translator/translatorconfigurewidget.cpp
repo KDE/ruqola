@@ -105,4 +105,5 @@ void TranslatorConfigureWidget::slotEngineChanged(int index)
     // Restore if possible
     mFromLanguageWidget->setSelectedLanguages(fromLanguages);
     mToLanguageWidget->setSelectedLanguages(toLanguages);
+    mConfigureEngine->setEnabled(TranslatorConfigureUtil::hasConfigureDialog(TranslatorUtil::convertStringToTranslatorEngine(engine)));
 }

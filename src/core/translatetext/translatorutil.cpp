@@ -245,8 +245,13 @@ QString TranslatorUtil::loadEngine()
 
 TranslatorEngineBase::TranslatorEngine TranslatorUtil::loadEngineSettings()
 {
+    const TranslatorEngineBase::TranslatorEngine engineType = TranslatorUtil::convertStringToTranslatorEngine(TranslatorUtil::loadEngine());
+    return engineType;
+}
+
+TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)
+{
     TranslatorEngineBase::TranslatorEngine engineType = TranslatorEngineBase::TranslatorEngine::Google;
-    const QString engineTypeStr = TranslatorUtil::loadEngine();
     if (engineTypeStr == QLatin1String("google")) {
         engineType = TranslatorEngineBase::TranslatorEngine::Google;
     } else if (engineTypeStr == QLatin1String("bing")) {
