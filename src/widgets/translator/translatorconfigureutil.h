@@ -6,8 +6,11 @@
 
 #pragma once
 
+#include "translatetext/translatorenginebase.h"
+
 class QComboBox;
 namespace TranslatorConfigureUtil
 {
 void fillComboboxSettings(QComboBox *combo);
+Q_REQUIRED_RESULT bool hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType);
 }
