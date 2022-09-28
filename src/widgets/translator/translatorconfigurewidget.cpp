@@ -28,6 +28,7 @@ TranslatorConfigureWidget::TranslatorConfigureWidget(QWidget *parent)
     mEngine->setObjectName(QStringLiteral("mEngine"));
     mConfigureEngine->setObjectName(QStringLiteral("mConfigureEngine"));
     mConfigureEngine->setEnabled(false); // Disable by default
+    connect(mConfigureEngine, &QToolButton::clicked, this, &TranslatorConfigureWidget::slotConfigureEngine);
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
@@ -106,4 +107,9 @@ void TranslatorConfigureWidget::slotEngineChanged(int index)
     mFromLanguageWidget->setSelectedLanguages(fromLanguages);
     mToLanguageWidget->setSelectedLanguages(toLanguages);
     mConfigureEngine->setEnabled(TranslatorConfigureUtil::hasConfigureDialog(TranslatorUtil::convertStringToTranslatorEngine(engine)));
+}
+
+void TranslatorConfigureWidget::slotConfigureEngine()
+{
+    // TODO
 }

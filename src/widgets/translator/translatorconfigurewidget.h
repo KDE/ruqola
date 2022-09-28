@@ -24,6 +24,7 @@ public:
 private:
     void fillEngine();
     void slotEngineChanged(int index);
+    void slotConfigureEngine();
     QComboBox *const mEngine;
     QToolButton *const mConfigureEngine;
     TranslatorConfigureLanguageListWidget *const mFromLanguageWidget;
