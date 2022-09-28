@@ -696,7 +696,15 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
-    <release version="1.8.0" date="2022-08-31"/>
+    <release version="1.8.0" date="2022-08-31">
+        <artifacts>
+        <artifact type="binary" platform="x86_64-windows-msvc">
+          <location>https://download.kde.org/stable/ruqola/ruqola-1.8.0-windows-msvc2019_64-cl.exe</location>
+          <checksum type="sha256">deafa9a418759c9ecf0e421b2974c53c27d2447199dc3d66779d88b5e61df920</checksum>
+          <size type="download">66384792</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="1.7.4" date="2022-08-08"/>
     <release version="1.7.3" date="2022-07-31"/>
     <release version="1.7.2" date="2022-06-20">
