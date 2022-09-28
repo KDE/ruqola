@@ -28,6 +28,7 @@ TranslatorConfigureWidget::TranslatorConfigureWidget(QWidget *parent)
     mEngine->setObjectName(QStringLiteral("mEngine"));
     mConfigureEngine->setObjectName(QStringLiteral("mConfigureEngine"));
     mConfigureEngine->setEnabled(false); // Disable by default
+    mConfigureEngine->setIcon(QIcon::fromTheme(QStringLiteral("settings-configure")));
     connect(mConfigureEngine, &QToolButton::clicked, this, &TranslatorConfigureWidget::slotConfigureEngine);
 
     auto hboxLayout = new QHBoxLayout;
