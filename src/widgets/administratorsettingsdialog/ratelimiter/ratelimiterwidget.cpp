@@ -22,6 +22,13 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     , mLimitByConnection(new QCheckBox(i18n("Limit by Connection"), this))
     , mLimiteByConnectionRequestsAllowed(new QSpinBox(this))
     , mLimiteByConnectionIntervalTime(new QSpinBox(this))
+
+    , mLimitByUserPerMethod(new QCheckBox(i18n("Limit by User per Method"), this))
+    , mLimiteByUserRequestsAllowedPerMethod(new QSpinBox(this))
+    , mLimiteByUserIntervalTimePerMethod(new QSpinBox(this))
+    , mLimitByConnectionPerMethod(new QCheckBox(i18n("Limit by Connection per Method"), this))
+    , mLimiteByConnectionRequestsAllowedPerMethod(new QSpinBox(this))
+    , mLimiteByConnectionIntervalTimePerMethod(new QSpinBox(this))
 {
     auto apiRateLimiterLabel = createBoldLabel(i18n("API Rate Limiter"));
     apiRateLimiterLabel->setObjectName(QStringLiteral("apiRateLimiterLabel"));
@@ -70,6 +77,36 @@ RateLimiterWidget::RateLimiterWidget(RocketChatAccount *account, QWidget *parent
     mLimiteByConnectionIntervalTime->setObjectName(QStringLiteral("mLimiteByConnectionIntervalTime"));
     mLimiteByConnectionIntervalTime->setMaximum(9999999);
     addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByConnectionIntervalTime, QStringLiteral("DDP_Rate_Limit_Connection_Interval_Time"));
+
+    mLimitByUserPerMethod->setObjectName(QStringLiteral("mLimitByUserPerMethod"));
+    mMainLayout->addWidget(mLimitByUserPerMethod);
+    connectCheckBox(mLimitByUserPerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Enabled"));
+
+    mLimiteByUserRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByUserRequestsAllowedPerMethod"));
+    mLimiteByUserRequestsAllowedPerMethod->setMaximum(9999999);
+    addSpinbox(i18n("Limit by User: requests allowed"),
+               mLimiteByUserRequestsAllowedPerMethod,
+               QStringLiteral("DDP_Rate_Limit_User_By_Method_Requests_Allowed"));
+
+    mLimiteByUserIntervalTimePerMethod->setObjectName(QStringLiteral("mLimiteByUserIntervalTimePerMethod"));
+    mLimiteByUserIntervalTimePerMethod->setMaximum(9999999);
+    addSpinbox(i18n("Limit by User: requests allowed"), mLimiteByUserIntervalTimePerMethod, QStringLiteral("DDP_Rate_Limit_User_By_Method_Interval_Time"));
+
+    mLimitByConnectionPerMethod->setObjectName(QStringLiteral("mLimitByConnectionPerMethod"));
+    mMainLayout->addWidget(mLimitByConnectionPerMethod);
+    connectCheckBox(mLimitByConnectionPerMethod, QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Enabled"));
+
+    mLimiteByConnectionRequestsAllowedPerMethod->setObjectName(QStringLiteral("mLimiteByConnectionRequestsAllowedPerMethod"));
+    mLimiteByConnectionRequestsAllowedPerMethod->setMaximum(9999999);
+    addSpinbox(i18n("Limit by User: requests allowed"),
+               mLimiteByConnectionRequestsAllowedPerMethod,
+               QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Requests_Allowed"));
+
+    mLimiteByConnectionIntervalTimePerMethod->setObjectName(QStringLiteral("mLimiteByConnectionIntervalTimePerMethod"));
+    mLimiteByConnectionIntervalTimePerMethod->setMaximum(9999999);
+    addSpinbox(i18n("Limit by User: requests allowed"),
+               mLimiteByConnectionIntervalTimePerMethod,
+               QStringLiteral("DDP_Rate_Limit_Connection_By_Method_Interval_Time"));
 }
 
 RateLimiterWidget::~RateLimiterWidget() = default;
@@ -80,10 +117,18 @@ void RateLimiterWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLimitByIP, mapSettings, true);
     initializeWidget(mLimitByUser, mapSettings, true);
     initializeWidget(mLimitByConnection, mapSettings, true);
+    initializeWidget(mLimitByUserPerMethod, mapSettings, true);
+    initializeWidget(mLimitByConnectionPerMethod, mapSettings, true);
+
     initializeWidget(mLimiteByIpRequestsAllowed, mapSettings, 120000);
     initializeWidget(mLimiteByIpIntervalTime, mapSettings, 60000);
     initializeWidget(mLimiteByUserRequestsAllowed, mapSettings, 1200);
     initializeWidget(mLimiteByUserIntervalTime, mapSettings, 60000);
     initializeWidget(mLimiteByConnectionRequestsAllowed, mapSettings, 600);
     initializeWidget(mLimiteByConnectionIntervalTime, mapSettings, 60000);
+
+    initializeWidget(mLimiteByUserRequestsAllowedPerMethod, mapSettings, 20);
+    initializeWidget(mLimiteByUserIntervalTimePerMethod, mapSettings, 10000);
+    initializeWidget(mLimiteByConnectionRequestsAllowedPerMethod, mapSettings, 10);
+    initializeWidget(mLimiteByConnectionIntervalTimePerMethod, mapSettings, 10000);
 }
