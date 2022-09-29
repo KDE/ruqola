@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 #include <QLabel>
+#include <QLineEdit>
 #include <QSpinBox>
 
 MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -24,6 +25,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockMessageEditingAfterMinutes(new QSpinBox(this))
     , mBlockMessageDeletingAfterMinutes(new QSpinBox(this))
     , mMaximumAllowedCharactersPerMessage(new QSpinBox(this))
+    , mSafePort(new QLineEdit(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -72,6 +74,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMaximumAllowedCharactersPerMessage->setObjectName(QStringLiteral("mMaximumAllowedCharactersPerMessage"));
     mMaximumAllowedCharactersPerMessage->setMaximum(99999);
     addSpinbox(i18n("Maximum Allowed Characters Per Message"), mMaximumAllowedCharactersPerMessage, QStringLiteral("Message_MaxAllowedSize"));
+
+    mSafePort->setObjectName(QStringLiteral("mSafePort"));
+    addLineEdit(i18n("Safe Ports"), mSafePort, QStringLiteral("API_EmbedSafePorts"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -89,4 +94,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockMessageEditingAfterMinutes, mapSettings, 0);
     initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings, 0);
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
+    initializeWidget(mSafePort, mapSettings, QStringLiteral("80, 443"));
 }

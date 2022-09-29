@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QSpinBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -31,4 +32,5 @@ private:
     QSpinBox *const mBlockMessageEditingAfterMinutes;
     QSpinBox *const mBlockMessageDeletingAfterMinutes;
     QSpinBox *const mMaximumAllowedCharactersPerMessage;
+    QLineEdit *const mSafePort;
 };

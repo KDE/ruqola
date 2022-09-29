@@ -8,6 +8,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(MessageSettingsWidgetTest)
@@ -92,4 +93,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumAllowedCharactersPerMessage), QStringLiteral("Message_MaxAllowedSize"));
     QCOMPARE(mMaximumAllowedCharactersPerMessage->maximum(), 99999);
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_MaxAllowedSize"));
+
+    auto mSafePort = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    QVERIFY(mSafePort);
+    QVERIFY(mSafePort->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSafePort), QStringLiteral("API_EmbedSafePorts"));
 }
