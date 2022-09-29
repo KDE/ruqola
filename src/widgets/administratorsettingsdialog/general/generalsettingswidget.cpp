@@ -79,9 +79,10 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mEnableUpdateChecker->setObjectName(QStringLiteral("mEnableUpdateChecker"));
     mMainLayout->addWidget(mEnableUpdateChecker);
     connectCheckBox(mEnableUpdateChecker, QStringLiteral("Update_EnableChecker"));
-    mEnableUpdateChecker->setToolTip(i18n(
-        "Checks automatically for new updates / important messages from the Rocket.Chat developers and receives notifications when available. The notification "
-        "appears once per new version as a clickable banner and as a message from the Rocket.Cat bot, both visible only for administrators."));
+    mEnableUpdateChecker->setToolTip(
+        i18n("Checks automatically for new updates / important messages from the Rocket.Chat developers and receives notifications when available.\n"
+             "The notification appears once per new version as a clickable banner and as a message from the Rocket.Cat bot,\n"
+             "both visible only for administrators."));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
