@@ -20,6 +20,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowChangeEmailNotifications(new QCheckBox(i18n("Allow Email Notifications"), this))
     , mAllowUsersToDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowAnonymousWrite(new QCheckBox(i18n("Allow Anonymous Write"), this))
+    , mAllowAnonymousRead(new QCheckBox(i18n("Allow Anonymous Read"), this))
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
     , mLoginExpirationInDays(new QSpinBox(this))
@@ -56,6 +57,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(mAllowAnonymousWrite);
     connectCheckBox(mAllowAnonymousWrite, QStringLiteral("Accounts_AllowAnonymousWrite"));
 
+    mAllowAnonymousRead->setObjectName(QStringLiteral("mAllowAnonymousRead"));
+    mMainLayout->addWidget(mAllowAnonymousRead);
+    connectCheckBox(mAllowAnonymousRead, QStringLiteral("Accounts_AllowAnonymousRead"));
+
     mAllowUsersDeleteOwnAccount->setObjectName(QStringLiteral("mAllowUsersDeleteOwnAccount"));
     mMainLayout->addWidget(mAllowUsersDeleteOwnAccount);
     connectCheckBox(mAllowUsersDeleteOwnAccount, QStringLiteral("Accounts_AllowDeleteOwnAccount"));
@@ -79,8 +84,9 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowChangePassword, mapSettings, true);
     initializeWidget(mAllowChangeEmailNotifications, mapSettings, true);
     initializeWidget(mAllowUsersToDeleteOwnAccount, mapSettings, true);
-    initializeWidget(mAllowAnonymousWrite, mapSettings, true);
-    initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings, true);
+    initializeWidget(mAllowAnonymousWrite, mapSettings, false);
+    initializeWidget(mAllowAnonymousRead, mapSettings, false);
+    initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings, false);
     initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings, false);
     initializeWidget(mLoginExpirationInDays, mapSettings, 90);
 }

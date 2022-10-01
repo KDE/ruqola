@@ -75,6 +75,12 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowAnonymousWrite->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowAnonymousWrite), QStringLiteral("Accounts_AllowAnonymousWrite"));
 
+    auto mAllowAnonymousRead = w.findChild<QCheckBox *>(QStringLiteral("mAllowAnonymousRead"));
+    QVERIFY(mAllowAnonymousRead);
+    QVERIFY(!mAllowAnonymousRead->isChecked());
+    QVERIFY(!mAllowAnonymousRead->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowAnonymousRead), QStringLiteral("Accounts_AllowAnonymousRead"));
+
     auto mAllowUsersDeleteOwnAccount = w.findChild<QCheckBox *>(QStringLiteral("mAllowUsersDeleteOwnAccount"));
     QVERIFY(mAllowUsersDeleteOwnAccount);
     QVERIFY(!mAllowUsersDeleteOwnAccount->isChecked());

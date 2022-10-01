@@ -29,6 +29,7 @@ private:
     QCheckBox *const mAllowChangeEmailNotifications;
     QCheckBox *const mAllowUsersToDeleteOwnAccount;
     QCheckBox *const mAllowAnonymousWrite;
+    QCheckBox *const mAllowAnonymousRead;
     QCheckBox *const mAllowUsersDeleteOwnAccount;
     QCheckBox *const mAllowPasswordChangeOauthUsers;
     QSpinBox *const mLoginExpirationInDays;
