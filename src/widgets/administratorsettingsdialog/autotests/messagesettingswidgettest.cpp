@@ -94,7 +94,7 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(mMaximumAllowedCharactersPerMessage->maximum(), 99999);
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_MaxAllowedSize"));
 
-    auto mSafePort = w.findChild<QLineEdit *>(QStringLiteral("mDescription"));
+    auto mSafePort = w.findChild<QLineEdit *>(QStringLiteral("mSafePort"));
     QVERIFY(mSafePort);
     QVERIFY(mSafePort->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSafePort), QStringLiteral("API_EmbedSafePorts"));
