@@ -40,4 +40,10 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowSpecialCharactersRoomNames->isChecked());
     QVERIFY(!mAllowSpecialCharactersRoomNames->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowSpecialCharactersRoomNames), QStringLiteral("UI_Allow_room_names_with_special_chars"));
+
+    auto mMergePrivateGroupsWithChannels = w.findChild<QCheckBox *>(QStringLiteral("mMergePrivateGroupsWithChannels"));
+    QVERIFY(mMergePrivateGroupsWithChannels);
+    QVERIFY(!mMergePrivateGroupsWithChannels->isChecked());
+    QVERIFY(!mMergePrivateGroupsWithChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMergePrivateGroupsWithChannels), QStringLiteral("UI_Merge_Channels_Groups"));
 }

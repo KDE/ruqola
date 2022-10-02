@@ -15,6 +15,7 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     , mUseRealName(new QCheckBox(i18n("Use Real Name"), this))
     , mUseFullNameGenerateDefaultAvatar(new QCheckBox(i18n("Use Full Name Initials to Generate Default Avatar"), this))
     , mAllowSpecialCharactersRoomNames(new QCheckBox(i18n("Allow Special Characters in Room Names"), this))
+    , mMergePrivateGroupsWithChannels(new QCheckBox(i18n("Merge Private Groups with Channels"), this))
 {
     mDisplayRoles->setObjectName(QStringLiteral("mDisplayRoles"));
     mMainLayout->addWidget(mDisplayRoles);
@@ -31,6 +32,10 @@ LayoutSettingsWidget::LayoutSettingsWidget(RocketChatAccount *account, QWidget *
     mAllowSpecialCharactersRoomNames->setObjectName(QStringLiteral("mAllowSpecialCharactersRoomNames"));
     mMainLayout->addWidget(mAllowSpecialCharactersRoomNames);
     connectCheckBox(mAllowSpecialCharactersRoomNames, QStringLiteral("UI_Allow_room_names_with_special_chars"));
+
+    mMergePrivateGroupsWithChannels->setObjectName(QStringLiteral("mMergePrivateGroupsWithChannels"));
+    mMainLayout->addWidget(mMergePrivateGroupsWithChannels);
+    connectCheckBox(mMergePrivateGroupsWithChannels, QStringLiteral("UI_Merge_Channels_Groups"));
 }
 
 LayoutSettingsWidget::~LayoutSettingsWidget() = default;
@@ -41,4 +46,5 @@ void LayoutSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mUseRealName, mapSettings, false);
     initializeWidget(mUseFullNameGenerateDefaultAvatar, mapSettings, false);
     initializeWidget(mAllowSpecialCharactersRoomNames, mapSettings, false);
+    initializeWidget(mMergePrivateGroupsWithChannels, mapSettings, true);
 }
