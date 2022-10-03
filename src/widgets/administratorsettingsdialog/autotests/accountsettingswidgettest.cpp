@@ -102,4 +102,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowInvisibleStatusOption->isChecked());
     QVERIFY(!mAllowInvisibleStatusOption->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowInvisibleStatusOption), QStringLiteral("Accounts_AllowInvisibleStatusOption"));
+
+    auto mForgetUserSessionWindowClose = w.findChild<QCheckBox *>(QStringLiteral("mForgetUserSessionWindowClose"));
+    QVERIFY(mForgetUserSessionWindowClose);
+    QVERIFY(!mForgetUserSessionWindowClose->isChecked());
+    QVERIFY(!mForgetUserSessionWindowClose->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForgetUserSessionWindowClose), QStringLiteral("Accounts_ForgetUserSessionOnWindowClose"));
 }

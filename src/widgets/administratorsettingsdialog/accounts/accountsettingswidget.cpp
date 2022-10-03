@@ -25,6 +25,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
     , mLoginExpirationInDays(new QSpinBox(this))
     , mAllowInvisibleStatusOption(new QCheckBox(i18n("Allow Invisible status option"), this))
+    , mForgetUserSessionWindowClose(new QCheckBox(i18n("Forget User Session on Window Close"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -76,6 +77,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mAllowInvisibleStatusOption->setObjectName(QStringLiteral("mAllowInvisibleStatusOption"));
     mMainLayout->addWidget(mAllowInvisibleStatusOption);
     connectCheckBox(mAllowInvisibleStatusOption, QStringLiteral("Accounts_AllowInvisibleStatusOption"));
+
+    mForgetUserSessionWindowClose->setObjectName(QStringLiteral("mForgetUserSessionWindowClose"));
+    mMainLayout->addWidget(mForgetUserSessionWindowClose);
+    connectCheckBox(mForgetUserSessionWindowClose, QStringLiteral("Accounts_ForgetUserSessionOnWindowClose"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -95,4 +100,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings, false);
     initializeWidget(mLoginExpirationInDays, mapSettings, 90);
     initializeWidget(mAllowInvisibleStatusOption, mapSettings, true);
+    initializeWidget(mForgetUserSessionWindowClose, mapSettings, false);
 }

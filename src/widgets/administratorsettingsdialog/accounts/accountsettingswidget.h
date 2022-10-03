@@ -34,4 +34,5 @@ private:
     QCheckBox *const mAllowPasswordChangeOauthUsers;
     QSpinBox *const mLoginExpirationInDays;
     QCheckBox *const mAllowInvisibleStatusOption;
+    QCheckBox *const mForgetUserSessionWindowClose;
 };

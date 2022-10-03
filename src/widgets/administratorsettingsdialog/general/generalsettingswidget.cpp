@@ -27,6 +27,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mUnreadCount(new QComboBox(this))
     , mUnreadCountDirectMessages(new QComboBox(this))
     , mEnableUpdateChecker(new QCheckBox(i18n("Enable the Update Checker"), this))
+    , mDefaultTimeZone(new QComboBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -83,6 +84,18 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
         i18n("Checks automatically for new updates / important messages from the Rocket.Chat developers and receives notifications when available.\n"
              "The notification appears once per new version as a clickable banner and as a message from the Rocket.Cat bot,\n"
              "both visible only for administrators."));
+
+    auto timeZoneLabel = createBoldLabel(i18n("TimeZone"));
+    timeZoneLabel->setObjectName(QStringLiteral("timeZoneLabel"));
+    mMainLayout->addWidget(timeZoneLabel);
+
+    mDefaultTimeZone->setObjectName(QStringLiteral("mDefaultTimeZone"));
+    maps = {
+        {QStringLiteral("server"), i18n("Server Timezone")},
+        {QStringLiteral("custom"), i18n("Custom Timezone")},
+        {QStringLiteral("user"), i18n("User's current Timezone")},
+    };
+    addComboBox(i18n("Default timezone for reporting"), maps, mDefaultTimeZone, QStringLiteral("Default_Timezone_For_Reporting"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -100,4 +113,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUnreadCount, mapSettings, QStringLiteral("user_and_group_mentions_only"));
     initializeWidget(mUnreadCountDirectMessages, mapSettings, QStringLiteral("all_messages"));
     initializeWidget(mEnableUpdateChecker, mapSettings, true);
+    initializeWidget(mDefaultTimeZone, mapSettings, QStringLiteral("server"));
 }

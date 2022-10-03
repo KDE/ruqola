@@ -32,4 +32,5 @@ private:
     QComboBox *const mUnreadCount;
     QComboBox *const mUnreadCountDirectMessages;
     QCheckBox *const mEnableUpdateChecker;
+    QComboBox *const mDefaultTimeZone;
 };

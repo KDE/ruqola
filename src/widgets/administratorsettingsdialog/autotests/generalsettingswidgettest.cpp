@@ -96,4 +96,13 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     auto updateLabel = w.findChild<QLabel *>(QStringLiteral("updateLabel"));
     QVERIFY(updateLabel);
     QVERIFY(!updateLabel->text().isEmpty());
+
+    auto timeZoneLabel = w.findChild<QLabel *>(QStringLiteral("timeZoneLabel"));
+    QVERIFY(timeZoneLabel);
+    QVERIFY(!timeZoneLabel->text().isEmpty());
+
+    auto mDefaultTimeZone = w.findChild<QComboBox *>(QStringLiteral("mDefaultTimeZone"));
+    QVERIFY(mDefaultTimeZone);
+    QCOMPARE(mDefaultTimeZone->count(), 3);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultTimeZone), QStringLiteral("Default_Timezone_For_Reporting"));
 }
