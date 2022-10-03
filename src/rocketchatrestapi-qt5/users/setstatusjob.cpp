@@ -7,6 +7,7 @@
 #include "setstatusjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -128,4 +129,12 @@ QJsonDocument SetStatusJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString SetStatusJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QStringLiteral("error-status-not-allowed")) {
+        return i18n("Invisible status is disabled");
+    }
+    return RestApiAbstractJob::errorMessage(str, detail);
 }
