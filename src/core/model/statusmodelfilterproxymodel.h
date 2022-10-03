@@ -19,10 +19,14 @@ public:
     Q_REQUIRED_RESULT bool useOnlyStandardStatus() const;
     void setUseOnlyStandardStatus(bool useOnlyStandardStatus);
 
+    Q_REQUIRED_RESULT bool allowOfflineSupport() const;
+    void setAllowOfflineSupport(bool newAllowOfflineSupport);
+
 protected:
     bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     bool mUseOnlyStandardStatus = false;
+    bool mAllowOfflineSupport = true;
 };

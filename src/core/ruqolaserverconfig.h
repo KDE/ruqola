@@ -184,6 +184,6 @@ private:
     int mMessageMaximumAllowedSize = -1;
 
     bool mHasEnterpriseSupport = false;
-    bool mAccountsAllowInvisibleStatusOption = false;
+    bool mAccountsAllowInvisibleStatusOption = true; // Default true
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);

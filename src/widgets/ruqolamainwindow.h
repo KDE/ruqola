@@ -97,6 +97,7 @@ private:
     void slotRocketChatInformation();
     Q_REQUIRED_RESULT bool hasBannerInfo() const;
     void slotShowRoomAvatar(bool checked);
+    void slotPrivateSettingsChanged();
 
     bool mReallyClose{false};
 

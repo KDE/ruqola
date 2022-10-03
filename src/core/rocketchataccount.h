@@ -571,6 +571,7 @@ Q_SIGNALS:
     void needUpdateChannelView();
     void publicSettingLoaded(const QJsonObject &obj);
     void bannerInfoChanged();
+    void privateSettingsChanged();
 
 private:
     Q_DISABLE_COPY(RocketChatAccount)

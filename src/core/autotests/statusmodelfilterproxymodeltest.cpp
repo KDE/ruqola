@@ -17,4 +17,5 @@ void StatusModelFilterProxyModelTest::shouldHaveDefaultValues()
 {
     StatusModelFilterProxyModel w;
     QVERIFY(!w.useOnlyStandardStatus());
+    QVERIFY(w.allowOfflineSupport());
 }

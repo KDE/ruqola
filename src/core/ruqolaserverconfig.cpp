@@ -377,6 +377,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mMessageMaximumAllowedSize " << t.messageMaximumAllowedSize();
     d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
     d << "mUIUseRealName " << t.useRealName();
+    d << "mAccountsAllowInvisibleStatusOption" << t.accountsAllowInvisibleStatusOption();
     return d;
 }
 

@@ -253,6 +253,8 @@ void RuqolaMainWindow::slotAccountChanged()
                 }
             });
     connect(mCurrentRocketChatAccount, &RocketChatAccount::updateStatusComboBox, this, &RuqolaMainWindow::slotUpdateCustomUserStatus);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::privateSettingsChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::publicSettingChanged, this, &RuqolaMainWindow::slotPrivateSettingsChanged);
 
     updateActions();
     slotClearNotification(); // Clear notification when we switch too.
@@ -261,11 +263,17 @@ void RuqolaMainWindow::slotAccountChanged()
 
     mStatusComboBox->blockSignals(true);
     mStatusProxyModel->setSourceModel(mCurrentRocketChatAccount->statusModel());
+    slotPrivateSettingsChanged();
     mStatusComboBox->setModel(mStatusProxyModel);
 
     slotUpdateCustomUserStatus();
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
     mStatusComboBox->blockSignals(false);
+}
+
+void RuqolaMainWindow::slotPrivateSettingsChanged()
+{
+    mStatusProxyModel->setAllowOfflineSupport(mCurrentRocketChatAccount->ruqolaServerConfig()->accountsAllowInvisibleStatusOption());
 }
 
 void RuqolaMainWindow::slotRaiseWindow()
