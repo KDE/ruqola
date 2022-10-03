@@ -24,6 +24,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowUsersDeleteOwnAccount(new QCheckBox(i18n("Allow Users to Delete Own Account"), this))
     , mAllowPasswordChangeOauthUsers(new QCheckBox(i18n("Allow Password Change for OAuth Users"), this))
     , mLoginExpirationInDays(new QSpinBox(this))
+    , mAllowInvisibleStatusOption(new QCheckBox(i18n("Allow Invisible status option"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -71,6 +72,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mLoginExpirationInDays->setObjectName(QStringLiteral("mLoginExpirationInDays"));
     addSpinbox(i18n("Login Expiration in Days"), mLoginExpirationInDays, QStringLiteral("Accounts_LoginExpiration"));
+
+    mAllowInvisibleStatusOption->setObjectName(QStringLiteral("mAllowInvisibleStatusOption"));
+    mMainLayout->addWidget(mAllowInvisibleStatusOption);
+    connectCheckBox(mAllowInvisibleStatusOption, QStringLiteral("Accounts_AllowInvisibleStatusOption"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -89,4 +94,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowUsersDeleteOwnAccount, mapSettings, false);
     initializeWidget(mAllowPasswordChangeOauthUsers, mapSettings, false);
     initializeWidget(mLoginExpirationInDays, mapSettings, 90);
+    initializeWidget(mAllowInvisibleStatusOption, mapSettings, true);
 }

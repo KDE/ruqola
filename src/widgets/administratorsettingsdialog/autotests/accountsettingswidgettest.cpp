@@ -96,4 +96,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     auto mLoginExpirationInDays = w.findChild<QSpinBox *>(QStringLiteral("mLoginExpirationInDays"));
     QVERIFY(mLoginExpirationInDays);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginExpirationInDays), QStringLiteral("Accounts_LoginExpiration"));
+
+    auto mAllowInvisibleStatusOption = w.findChild<QCheckBox *>(QStringLiteral("mAllowInvisibleStatusOption"));
+    QVERIFY(mAllowInvisibleStatusOption);
+    QVERIFY(!mAllowInvisibleStatusOption->isChecked());
+    QVERIFY(!mAllowInvisibleStatusOption->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowInvisibleStatusOption), QStringLiteral("Accounts_AllowInvisibleStatusOption"));
 }
