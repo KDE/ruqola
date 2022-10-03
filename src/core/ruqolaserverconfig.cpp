@@ -494,9 +494,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageAllowConvertLongMessagesToAttachment(value.toBool());
     } else if (id == QLatin1String("UI_Use_Real_Name")) {
         setUseRealName(value.toBool());
+    } else if (id == QLatin1String("Accounts_AllowInvisibleStatusOption")) {
+        setAccountsAllowInvisibleStatusOption(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+bool RuqolaServerConfig::accountsAllowInvisibleStatusOption() const
+{
+    return mAccountsAllowInvisibleStatusOption;
+}
+
+void RuqolaServerConfig::setAccountsAllowInvisibleStatusOption(bool newAccountsAllowInvisibleStatusOption)
+{
+    mAccountsAllowInvisibleStatusOption = newAccountsAllowInvisibleStatusOption;
 }
 
 bool RuqolaServerConfig::hasEnterpriseSupport() const

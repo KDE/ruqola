@@ -145,6 +145,9 @@ public:
     Q_REQUIRED_RESULT bool hasEnterpriseSupport() const;
     void setHasEnterpriseSupport(bool newHasEnterpriseSupport);
 
+    Q_REQUIRED_RESULT bool accountsAllowInvisibleStatusOption() const;
+    void setAccountsAllowInvisibleStatusOption(bool newAccountsAllowInvisibleStatusOption);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -181,5 +184,6 @@ private:
     int mMessageMaximumAllowedSize = -1;
 
     bool mHasEnterpriseSupport = false;
+    bool mAccountsAllowInvisibleStatusOption = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
