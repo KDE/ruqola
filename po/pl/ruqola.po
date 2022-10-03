@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:46+0000\n"
+"POT-Creation-Date: 2022-10-03 00:48+0000\n"
 "PO-Revision-Date: 2022-09-15 15:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -3983,6 +3983,11 @@ msgstr "Użyj inicjałów imienia i nazwiska, aby wytworzyć domyślny awatar"
 #, kde-format
 msgid "Allow Special Characters in Room Names"
 msgstr "Zezwól na znaki szczególne w nazwach pokojów"
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
+#, kde-format
+msgid "Merge Private Groups with Channels"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, fuzzy, kde-format

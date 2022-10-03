@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:46+0000\n"
-"PO-Revision-Date: 2022-09-30 10:21+0200\n"
+"POT-Creation-Date: 2022-10-03 00:48+0000\n"
+"PO-Revision-Date: 2022-10-02 15:51+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3549,10 +3549,9 @@ msgid "Allow Anonymous Write"
 msgstr "Permet escriure anònimament"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Anonymous Write"
+#, kde-format
 msgid "Allow Anonymous Read"
-msgstr "Permet escriure anònimament"
+msgstr "Permet llegir anònimament"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
@@ -3912,7 +3911,7 @@ msgstr ""
 "importants dels desenvolupadors de Rocket.Chat i rep notificacions quan "
 "estan disponibles. La notificació apareix una vegada per a cada versió nova "
 "com un bàner clicable i com un missatge del bot Rocket.Chat,\n"
-" tots dos visibles només per als administradors."
+"tots dos visibles només per als administradors."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -3983,6 +3982,11 @@ msgstr ""
 #, kde-format
 msgid "Allow Special Characters in Room Names"
 msgstr "Permet caràcters especials en els noms de les sales"
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
+#, kde-format
+msgid "Merge Private Groups with Channels"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format

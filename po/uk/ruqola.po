@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-02 00:46+0000\n"
-"PO-Revision-Date: 2022-09-30 07:25+0300\n"
+"POT-Creation-Date: 2022-10-03 00:48+0000\n"
+"PO-Revision-Date: 2022-10-02 09:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3549,10 +3549,9 @@ msgid "Allow Anonymous Write"
 msgstr "Дозволити запис від анонімного користувача"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Anonymous Write"
+#, kde-format
 msgid "Allow Anonymous Read"
-msgstr "Дозволити запис від анонімного користувача"
+msgstr "Дозволити читання від анонімного користувача"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
@@ -3982,6 +3981,11 @@ msgstr "Скористатися ініціалами для створення 
 #, kde-format
 msgid "Allow Special Characters in Room Names"
 msgstr "Дозволити спеціальні символи у назвах кімнат"
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
+#, kde-format
+msgid "Merge Private Groups with Channels"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
