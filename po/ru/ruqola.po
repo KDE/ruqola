@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-03 00:48+0000\n"
+"POT-Creation-Date: 2022-10-04 00:44+0000\n"
 "PO-Revision-Date: 2021-02-08 09:40+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -826,7 +826,7 @@ msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Status"
 msgstr ""
@@ -1380,12 +1380,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2792
+#: core/rocketchataccount.cpp:2793
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2793
+#: core/rocketchataccount.cpp:2794
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1857,7 +1857,7 @@ msgstr ""
 msgid "User"
 msgstr "Пользователи:"
 
-#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:397
+#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:405
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -2603,6 +2603,11 @@ msgstr ""
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr ""
 
+#: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
+#, kde-format
+msgid "Invisible status is disabled"
+msgstr ""
+
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
 msgid "%1 is already in use."
@@ -2846,7 +2851,7 @@ msgstr ""
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:449
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:457
 #, kde-format
 msgid "Status:"
 msgstr ""
@@ -3630,7 +3635,17 @@ msgstr ""
 msgid "Allow Password Change for OAuth Users"
 msgstr "Пароль:"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#, kde-format
+msgid "Allow Invisible status option"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#, kde-format
+msgid "Forget User Session on Window Close"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr ""
@@ -3655,7 +3670,7 @@ msgstr "Описание:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:808
+#: widgets/ruqolamainwindow.cpp:816
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -3876,97 +3891,97 @@ msgstr "Удалить комнату:"
 msgid "Enable the Update Checker"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:37
 #, kde-format
 msgid "Site URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:40
 #, fuzzy, kde-format
 #| msgid "Name:"
 msgid "Site Name"
 msgstr "Имя:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
 #, kde-format
 msgid "RegExp that will be used to validate usernames"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "RegExp that will be used to validate channel names"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
 #, kde-format
 msgid "First Channel After Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
 msgid "Deep Link Url"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
 #, kde-format
 msgid "CDN Prefix"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:61
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "All messages"
 msgstr "Добавить пользователей"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "User mentions only"
 msgstr "Информация о сервере..."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
 #, kde-format
 msgid "Group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "User and group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
 #, kde-format
 msgid "Unread Count"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
 #, kde-format
 msgid "Mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Unread Count for Direct Messages"
 msgstr "Создать обсуждение"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
 #, kde-format
 msgid "Update"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -3974,6 +3989,32 @@ msgid ""
 "The notification appears once per new version as a clickable banner and as a "
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
+#, kde-format
+msgid "TimeZone"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
+#, fuzzy, kde-format
+#| msgid "Server Info..."
+msgid "Server Timezone"
+msgstr "Информация о сервере..."
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
+#, kde-format
+msgid "Custom Timezone"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#, kde-format
+msgid "User's current Timezone"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
+#, kde-format
+msgid "Default timezone for reporting"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -6956,158 +6997,158 @@ msgstr ""
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:337
+#: widgets/ruqolamainwindow.cpp:345
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Add Server..."
 msgstr "Информация о сервере..."
 
-#: widgets/ruqolamainwindow.cpp:342
+#: widgets/ruqolamainwindow.cpp:350
 #, kde-format
 msgid "Server Info..."
 msgstr "Информация о сервере..."
 
-#: widgets/ruqolamainwindow.cpp:346
+#: widgets/ruqolamainwindow.cpp:354
 #, kde-format
 msgid "Logout Current Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:350
+#: widgets/ruqolamainwindow.cpp:358
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:355
+#: widgets/ruqolamainwindow.cpp:363
 #, kde-format
 msgid "Create New Channel..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:359
+#: widgets/ruqolamainwindow.cpp:367
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:363
+#: widgets/ruqolamainwindow.cpp:371
 #, kde-format
 msgid "Create Discussion..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:367
+#: widgets/ruqolamainwindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Create"
 msgid "Create Team..."
 msgstr "Создать"
 
-#: widgets/ruqolamainwindow.cpp:375
+#: widgets/ruqolamainwindow.cpp:383
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:380
+#: widgets/ruqolamainwindow.cpp:388
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Show Channel Log"
 msgstr "Имя канала"
 
-#: widgets/ruqolamainwindow.cpp:384
+#: widgets/ruqolamainwindow.cpp:392
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgid "Register a New User..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:393
+#: widgets/ruqolamainwindow.cpp:401
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "My Account..."
 msgstr "Добавить учётную запись"
 
-#: widgets/ruqolamainwindow.cpp:398
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:412
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Server Settings..."
 msgstr "Информация о сервере..."
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:417
 #, kde-format
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:438
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "&Next Server"
 msgstr "Информация о сервере..."
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:443
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "&Previous Server"
 msgstr "Имя канала"
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:473
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Previous Selected Channel"
 msgstr "Имя канала"
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:480
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Next Selected Channel"
 msgstr "Имя канала"
 
-#: widgets/ruqolamainwindow.cpp:501
+#: widgets/ruqolamainwindow.cpp:509
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:505
+#: widgets/ruqolamainwindow.cpp:513
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:509
+#: widgets/ruqolamainwindow.cpp:517
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "Room Avatar"
 msgstr "Пароль:"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:543
 #, fuzzy, kde-format
 #| msgid "Create"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Создать"
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:718
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:711
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Register New User"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:835
+#: widgets/ruqolamainwindow.cpp:843
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:838
+#: widgets/ruqolamainwindow.cpp:846
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""

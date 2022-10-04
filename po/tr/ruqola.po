@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-03 00:48+0000\n"
-"PO-Revision-Date: 2022-10-01 05:30+0300\n"
+"POT-Creation-Date: 2022-10-04 00:44+0000\n"
+"PO-Revision-Date: 2022-10-03 21:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -804,7 +804,7 @@ msgstr "Devre Dışı"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:442
+#: widgets/ruqolamainwindow.cpp:450
 #, kde-format
 msgid "Status"
 msgstr "Durum"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2792
+#: core/rocketchataccount.cpp:2793
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2793
+#: core/rocketchataccount.cpp:2794
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -1815,7 +1815,7 @@ msgstr "Yidiş"
 msgid "User"
 msgstr "Kullanıcı"
 
-#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:397
+#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:405
 #, kde-format
 msgid "Administrator"
 msgstr "Yönetici"
@@ -2332,27 +2332,27 @@ msgstr "Parola, sunucunun en kısa uzunluk politikasına uymuyor (pek kısa)"
 msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
-msgstr ""
+msgstr "Parola, sunucunun en az bir küçük harf içerme politikasına uymuyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:371
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
-msgstr ""
+msgstr "Parola, sunucunun en az bir sayı içerme politikasına uymuyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:373
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
-msgstr ""
+msgstr "Parola, sunucunun en az bir özel karakter içerme politikasına uymuyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:375
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
-msgstr ""
+msgstr "Parola, sunucunun en az bir BÜYÜK harf içerme politikasına uymuyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:378
 #, kde-format
@@ -2360,51 +2360,53 @@ msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
 msgstr ""
+"Parola, sunucunun aynı karakteri pek çok kez yineleme politikasına uymuyor "
+"(aynı karakter, çok kez yan yana kullanılmış)"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Push is disabled"
-msgstr ""
+msgstr "İtme, devre dışı"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:384
 #, kde-format
 msgid "Cannot delete role because it's in use"
-msgstr ""
+msgstr "Rol silinemiyor; çünkü kullanımda"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:386
 #, kde-format
 msgid "Role name is required"
-msgstr ""
+msgstr "Rol adı gerekli"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:388
 #, kde-format
 msgid "Room is not closed"
-msgstr ""
+msgstr "Oda, kapalı değil"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:390
 #, kde-format
 msgid "The field __field__ is required."
-msgstr ""
+msgstr "__field__ alanı gerekli."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:392
 #, kde-format
 msgid "This is not a Livechat room"
-msgstr ""
+msgstr "Bu, bir Livechat odası değil"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:394
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
-msgstr ""
+msgstr "Kişisel Erişim Jetonları, şu anda devre dışı"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:396
 #, kde-format
 msgid "A token with this name already exists"
-msgstr ""
+msgstr "Bu adda bir jeton halihazırda var"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:398
 #, kde-format
 msgid "Token does not exists"
-msgstr ""
+msgstr "Jeton yok"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:400
 #, kde-format
@@ -2412,16 +2414,18 @@ msgid ""
 "Error, too many requests. Please slow down. You must wait __seconds__ "
 "seconds before trying again."
 msgstr ""
+"Hata, pek çok istek gönderimi. Lütfen yavaşlayın. Yeniden denemeden önce "
+"__seconds__ saniye beklemelisiniz."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:402
 #, kde-format
 msgid "User has no roles"
-msgstr ""
+msgstr "Kullanıcının bir rolü yok"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:404
 #, kde-format
 msgid "User is not activated"
-msgstr ""
+msgstr "Kullanıcı, etkin değil"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:406
 #, kde-format
@@ -2429,204 +2433,213 @@ msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
 msgstr ""
+"#channel_name kanalına davet etmeye çalıştığınız kullanıcıların sayısı, "
+"yönetici tarafından konulan sınırı aşıyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:408
 #, kde-format
 msgid "User is not in this room"
-msgstr ""
+msgstr "Kullanıcı, bu odada değil"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:410
 #, kde-format
 msgid "You are not in the room `%s`"
-msgstr ""
+msgstr "'%s' odasında değilsiniz"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:412
 #, kde-format
 msgid "User registration is disabled"
-msgstr ""
+msgstr "Kullanıcı kaydı devre dışı"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:414
 #, kde-format
 msgid "User registration is only allowed via Secret URL"
-msgstr ""
+msgstr "Kullanıcı kaydına, yalnızca Gizli URL ile izin veriliyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:416
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
+"Siz, son sahipsiniz. Odadan ayrılmadan önce lütfen yeni bir sahip ayarlayın."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:418
 #, kde-format
 msgid "The private group is archived"
-msgstr ""
+msgstr "Özel grup, arşivlenmiş"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:420
 #, kde-format
 msgid "User is already an owner"
-msgstr ""
+msgstr "Kullanıcı, halihazırda bir sahip"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:422
 #, kde-format
 msgid "User is already a leader"
-msgstr ""
+msgstr "Kullanıcı, halihazırda bir lider"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:424
 #, kde-format
 msgid "User is already a moderator"
-msgstr ""
+msgstr "Kullanıcı, halihazırda bir moderatör"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:426
 #, kde-format
 msgid "Invalid message id"
-msgstr ""
+msgstr "Geçersiz ileti kimliği"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:428
 #, kde-format
 msgid "User is not a leader"
-msgstr ""
+msgstr "Kullanıcı, bir lider değil"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:430
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr ""
+msgstr "Uygulama kullanıcısına giriş yapma izni verilmiyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:432
 #, kde-format
 msgid "Direct Messages can not be archived"
-msgstr ""
+msgstr "Doğrudan İletiler arşivlenemez"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:434
 #, kde-format
 msgid "Message not found."
-msgstr ""
+msgstr "İleti bulunamadı."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:436
 #, kde-format
 msgid "Two Authentication Password Required"
-msgstr ""
+msgstr "İki Yetkilendirme Parolası Gerekiyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:438
 #, kde-format
 msgid "Invalid Password"
-msgstr ""
+msgstr "Geçersiz Parola"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
 msgid "This user is not in this role."
-msgstr ""
+msgstr "Kullanıcı, bu rolde değil."
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
-msgstr ""
+msgstr "Geçersiz Abonelik"
 
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
 msgid "Unread message not authorized."
-msgstr ""
+msgstr "Okunmamış ileti yetkilendirilmemiş."
 
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:63
 #, kde-format
 msgid "There are no messages to mark unread."
-msgstr ""
+msgstr "Okunmamış olarak imlenecek ileti yok."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:97
 #, kde-format
 msgid "Channel can not convert to Team."
-msgstr ""
+msgstr "Kanal, takıma dönüştürülemiyor."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
-msgstr ""
+msgstr "Bu kanalı, takıma eklemek için izniniz yok"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
 msgid "Get Avatar"
-msgstr ""
+msgstr "Avatar Al"
 
 #: rocketchatrestapi-qt5/users/registeruserjob.cpp:71
 #, kde-format
 msgid "Invalid Email '%1'."
-msgstr ""
+msgstr "Geçersiz E-posta: '%1'."
 
 #: rocketchatrestapi-qt5/users/setavatarjob.cpp:110
 #, kde-format
 msgid "Invalid avatar URL: %1"
-msgstr ""
+msgstr "Geçersiz avatar URL'si: %1"
 
 #: rocketchatrestapi-qt5/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
-msgstr ""
+msgstr "%2 için \"%1\" URL'sinden avatar ayarlama sırasında hata"
+
+#: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
+#, fuzzy, kde-format
+#| msgid "User registration is disabled"
+msgid "Invisible status is disabled"
+msgstr "Kullanıcı kaydı devre dışı"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
 msgid "%1 is already in use."
-msgstr ""
+msgstr "%1, halihazırda kullanımda."
 
 #: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:137
 #, kde-format
 msgid "Invalid parameters"
-msgstr ""
+msgstr "Geçersiz parametreler"
 
 #: rocketchatrestapi-qt5/users/usersupdatejob.cpp:64
 #, kde-format
 msgid "Error trying to send email %1"
-msgstr ""
+msgstr "%1 e-postası gönderilmeye çalışılırken hata"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator"
-msgstr ""
+msgstr "Yönetici"
 
 #: widgets/administratordialog/administratorwidget.cpp:48
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:302
 #, kde-format
 msgid "Server Info"
-msgstr ""
+msgstr "Sunucu Bilgisi"
 
 #: widgets/administratordialog/administratorwidget.cpp:54
 #, kde-format
 msgid "Custom User Status"
-msgstr ""
+msgstr "Özel Kullanıcı Durumu"
 
 #: widgets/administratordialog/administratorwidget.cpp:57
 #, kde-format
 msgid "Custom Sounds"
-msgstr ""
+msgstr "Özel Sesler"
 
 #: widgets/administratordialog/administratorwidget.cpp:60
 #, kde-format
 msgid "Custom Emojis"
-msgstr ""
+msgstr "Özel Emojiler"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Users"
-msgstr ""
+msgstr "Kullanıcılar"
 
 #: widgets/administratordialog/administratorwidget.cpp:66
 #, kde-format
 msgid "Invites"
-msgstr ""
+msgstr "Davetler"
 
 #: widgets/administratordialog/administratorwidget.cpp:69
 #, kde-format
 msgid "View Log"
-msgstr ""
+msgstr "Günlüğü Görüntüle"
 
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, kde-format
 msgid "Permissions"
-msgstr ""
+msgstr "İzinler"
 
 #: widgets/administratordialog/administratorwidget.cpp:78
 #, kde-format
 msgid "Oauth"
-msgstr ""
+msgstr "Oauth"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatedialog.cpp:25
 #, kde-format
@@ -2790,7 +2803,7 @@ msgstr ""
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:449
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:457
 #, kde-format
 msgid "Status:"
 msgstr ""
@@ -3507,7 +3520,17 @@ msgstr ""
 msgid "Allow Password Change for OAuth Users"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#, kde-format
+msgid "Allow Invisible status option"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#, kde-format
+msgid "Forget User Session on Window Close"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr ""
@@ -3530,7 +3553,7 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:808
+#: widgets/ruqolamainwindow.cpp:816
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -3747,93 +3770,93 @@ msgstr ""
 msgid "Enable the Update Checker"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:37
 #, kde-format
 msgid "Site URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:40
 #, kde-format
 msgid "Site Name"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
 #, kde-format
 msgid "RegExp that will be used to validate usernames"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "RegExp that will be used to validate channel names"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
 #, kde-format
 msgid "First Channel After Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
 msgid "Deep Link Url"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
 #, kde-format
 msgid "CDN Prefix"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:61
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
 #, kde-format
 msgid "All messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
 #, kde-format
 msgid "User mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
 #, kde-format
 msgid "Group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "User and group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
 #, kde-format
 msgid "Unread Count"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
 #, kde-format
 msgid "Mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:74
 #, kde-format
 msgid "Unread Count for Direct Messages"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
 #, kde-format
 msgid "Update"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -3841,6 +3864,33 @@ msgid ""
 "The notification appears once per new version as a clickable banner and as a "
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
+#, kde-format
+msgid "TimeZone"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Server Timezone"
+msgstr "Sunucu Bilgisi"
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
+#, fuzzy, kde-format
+#| msgid "Custom Sounds"
+msgid "Custom Timezone"
+msgstr "Özel Sesler"
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#, kde-format
+msgid "User's current Timezone"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
+#, kde-format
+msgid "Default timezone for reporting"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -6696,147 +6746,147 @@ msgstr ""
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:337
+#: widgets/ruqolamainwindow.cpp:345
 #, kde-format
 msgid "Add Server..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:342
+#: widgets/ruqolamainwindow.cpp:350
 #, kde-format
 msgid "Server Info..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:346
+#: widgets/ruqolamainwindow.cpp:354
 #, kde-format
 msgid "Logout Current Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:350
+#: widgets/ruqolamainwindow.cpp:358
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:355
+#: widgets/ruqolamainwindow.cpp:363
 #, kde-format
 msgid "Create New Channel..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:359
+#: widgets/ruqolamainwindow.cpp:367
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:363
+#: widgets/ruqolamainwindow.cpp:371
 #, kde-format
 msgid "Create Discussion..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:367
+#: widgets/ruqolamainwindow.cpp:375
 #, kde-format
 msgid "Create Team..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:375
+#: widgets/ruqolamainwindow.cpp:383
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:380
+#: widgets/ruqolamainwindow.cpp:388
 #, kde-format
 msgid "Show Channel Log"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:384
+#: widgets/ruqolamainwindow.cpp:392
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgid "Register a New User..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:393
+#: widgets/ruqolamainwindow.cpp:401
 #, kde-format
 msgid "My Account..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:398
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:412
 #, kde-format
 msgid "Server Settings..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:417
 #, kde-format
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:430
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "&Next Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgid "&Previous Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:465
+#: widgets/ruqolamainwindow.cpp:473
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:480
 #, kde-format
 msgid "Next Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:501
+#: widgets/ruqolamainwindow.cpp:509
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:505
+#: widgets/ruqolamainwindow.cpp:513
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:509
+#: widgets/ruqolamainwindow.cpp:517
 #, kde-format
 msgid "Room Avatar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:543
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:710
+#: widgets/ruqolamainwindow.cpp:718
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:711
+#: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Register New User"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:835
+#: widgets/ruqolamainwindow.cpp:843
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:838
+#: widgets/ruqolamainwindow.cpp:846
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
