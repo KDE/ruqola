@@ -95,10 +95,11 @@ QVector<EmoticonCategory> UnicodeEmoticonManager::categories() const
             cat.setCategory(category);
             cat.setName(emo.unicode());
             cat.setI18nName(i18nUnicodeCategory(category));
+            cat.setOrder(UnicodeEmoticonParser::changeOrder(category));
             categories.append(std::move(cat));
         }
     }
-    // TODO sort categories in a way that makes sense for the user
+    std::sort(categories.begin(), categories.end());
     return categories;
 }
 

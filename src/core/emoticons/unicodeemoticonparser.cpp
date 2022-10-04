@@ -5,6 +5,7 @@
 */
 
 #include "unicodeemoticonparser.h"
+#include "ruqola_debug.h"
 #include <QJsonArray>
 #include <QJsonObject>
 
@@ -55,4 +56,31 @@ QVector<UnicodeEmoticon> UnicodeEmoticonParser::parse(const QJsonObject &o) cons
     };
     std::sort(lstEmoticons.begin(), lstEmoticons.end(), compareOrder);
     return lstEmoticons;
+}
+
+int UnicodeEmoticonParser::changeOrder(const QString &name)
+{
+    // ame "🚗"Category "travel", Name "🇿"Category "regional", Name "🏳️"Category "flags")
+    if (name == QLatin1String("people")) {
+        return 1;
+    } else if (name == QLatin1String("flags")) {
+        return 2;
+    } else if (name == QLatin1String("travel")) {
+        return 3;
+    } else if (name == QLatin1String("symbols")) {
+        return 4;
+    } else if (name == QLatin1String("activity")) {
+        return 5;
+    } else if (name == QLatin1String("objects")) {
+        return 6;
+    } else if (name == QLatin1String("nature")) {
+        return 7;
+    } else if (name == QLatin1String("food")) {
+        return 8;
+    } else if (name == QLatin1String("regional")) {
+        return 9;
+    } else {
+        qCWarning(RUQOLA_LOG) << "Missing i18n translate " << name;
+    }
+    return 20;
 }
