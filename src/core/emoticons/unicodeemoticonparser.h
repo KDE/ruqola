@@ -17,4 +17,5 @@ public:
     ~UnicodeEmoticonParser();
 
     Q_REQUIRED_RESULT QVector<UnicodeEmoticon> parse(const QJsonObject &o) const;
+    Q_REQUIRED_RESULT static int changeOrder(const QString &name);
 };

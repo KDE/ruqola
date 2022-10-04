@@ -24,10 +24,16 @@ public:
 
     void setI18nName(const QString &newI18nName);
 
+    Q_REQUIRED_RESULT bool operator<(const EmoticonCategory &other);
+
+    Q_REQUIRED_RESULT int order() const;
+    void setOrder(int newOrder);
+
 private:
     QString mName;
     QString mCategory;
     QString mI18nName;
+    int mOrder = 20;
 };
 Q_DECLARE_METATYPE(EmoticonCategory)
 Q_DECLARE_TYPEINFO(EmoticonCategory, Q_MOVABLE_TYPE);

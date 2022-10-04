@@ -38,6 +38,21 @@ void EmoticonCategory::setI18nName(const QString &newI18nName)
     mI18nName = newI18nName;
 }
 
+bool EmoticonCategory::operator<(const EmoticonCategory &other)
+{
+    return mOrder < other.order();
+}
+
+int EmoticonCategory::order() const
+{
+    return mOrder;
+}
+
+void EmoticonCategory::setOrder(int newOrder)
+{
+    mOrder = newOrder;
+}
+
 QDebug operator<<(QDebug d, const EmoticonCategory &t)
 {
     d << "Name " << t.name();
