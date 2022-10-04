@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <QObject>
-
 #include "room/plugins/plugintext.h"
+#include <QObject>
+#include <QVariantList>
 
 class TextToSpeechTextPlugin : public PluginText
 {
