@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-09-20 09:36+0100\n"
+"PO-Revision-Date: 2022-10-04 11:36+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -2601,10 +2601,9 @@ msgstr ""
 "Erro ao configurar a opção do avatar a partir de um URL (\"%1\") para o %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "O registo de utilizadores está desactivado"
+msgstr "O estado invisível está desactivado"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3554,10 +3553,9 @@ msgid "Allow Anonymous Write"
 msgstr "Permitir a Escrita Anónima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Anonymous Write"
+#, kde-format
 msgid "Allow Anonymous Read"
-msgstr "Permitir a Escrita Anónima"
+msgstr "Permitir a Leitura Anónima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
@@ -3567,12 +3565,12 @@ msgstr "Permitir a Mudança de Senha dos Utilizadores de OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Permitir a opção do estado Invisível"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Esquecer a Sessão do Utilizador ao Fechar a Janela"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3916,12 +3914,7 @@ msgid "Update"
 msgstr "Actualizar"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
-#, fuzzy, kde-format
-#| msgid ""
-#| "Checks automatically for new updates / important messages from the Rocket."
-#| "Chat developers and receives notifications when available. The "
-#| "notification appears once per new version as a clickable banner and as a "
-#| "message from the Rocket.Cat bot, both visible only for administrators."
+#, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
 "Chat developers and receives notifications when available.\n"
@@ -3931,37 +3924,35 @@ msgid ""
 msgstr ""
 "Procura automaticamente por actualizações novas / mensagens importantes dos "
 "programadores do Rocket.Chat e recebe notificações quando estiverem "
-"disponíveis. A notificação aparece uma vez por cada nova versão como um "
-"separador que poderá carregar e como uma mensagem do 'bot' do Rocket.Chat, "
+"disponíveis.\n"
+"A notificação aparece uma vez por cada nova versão como um separador que "
+"poderá carregar e como uma mensagem do 'bot' do Rocket.Chat,\n"
 "estando ambos visíveis apenas para os administradores."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Fuso-horário:"
+msgstr "Fuso-Horário"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Fuso-horário:"
+msgstr "Fuso-Horário do Servidor"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Fuso-horário:"
+msgstr "Fuso-Horário Personalizado"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Fuso-horário actual do utilizador"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Fuso-horário predefinido da comunicação"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -4035,7 +4026,7 @@ msgstr "Permitir Caracteres Especiais nos Nomes das Salas"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
-msgstr ""
+msgstr "Reunir os Grupos Privados com o Canal"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -4205,7 +4196,7 @@ msgstr "Máximo de Caracteres Permitido por Mensagem"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:79
 #, kde-format
 msgid "Safe Ports"
-msgstr ""
+msgstr "Portos Seguros"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -4363,16 +4354,14 @@ msgid "Limit by Connection"
 msgstr "Limitar pela Ligação"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Limit by User"
+#, kde-format
 msgid "Limit by User per Method"
-msgstr "Limitar pelo Utilizador"
+msgstr "Limitar pelo Utilizador e Método"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Limit by Connection"
+#, kde-format
 msgid "Limit by Connection per Method"
-msgstr "Limitar pela Ligação"
+msgstr "Limitar pela Ligação e Método"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-10-03 10:22+0200\n"
+"PO-Revision-Date: 2022-10-04 12:39+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2592,10 +2592,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Error en gestionar la definició d'avatar des de l'URL (%1) per a %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "El registre d'usuaris està desactivat"
+msgstr "L'estat invisible està desactivat"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3556,12 +3555,12 @@ msgstr "Permet el canvi de contrasenya als usuaris d'OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Permet l'opció d'estat invisible"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Oblida la sessió d'usuari en tancar la finestra"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3920,32 +3919,29 @@ msgstr ""
 "tots dos visibles només per als administradors."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Zona horària:"
+msgstr "Zona horària"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Zona horària:"
+msgstr "Servidor de zona horària"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Zona horària:"
+msgstr "Zona horària personalitzada"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Zona horària actual de l'usuari"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Zona horària predeterminada per a informació"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23

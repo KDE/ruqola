@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-10-03 12:19+0200\n"
+"PO-Revision-Date: 2022-10-04 10:23+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2591,10 +2591,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Fout bij manipuleren van avatar-instelling uit een URL \"%1\" voor %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Registratie van gebruikers is uitgeschakeld"
+msgstr "Onzichtbare status is uitgeschakeld"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3555,12 +3554,12 @@ msgstr "Wijziging van wachtwoord toestaan voor OAuth gebruikers"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Optie onzichtbare status toestaan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Gebruikerssessie vergeten bij sluiten van venster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3919,32 +3918,29 @@ msgstr ""
 "beiden alleen zichtbaar voor beheerders."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Tijdzone:"
+msgstr "Tijdzone"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Tijdzone:"
+msgstr "Tijdzone van server"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Tijdzone:"
+msgstr "Aangepaste tijdzone"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Huidige tijdzone van gebruiker"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Standaard tijdzone voor rapportage"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23

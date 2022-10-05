@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-10-03 21:24+0300\n"
+"PO-Revision-Date: 2022-10-04 12:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1878,7 +1878,7 @@ msgstr "Oda, bir parola gerektiriyor."
 #: rocketchatrestapi-qt5/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
-msgstr "Bu odaya yetkilendirilmemiş üyeleri al"
+msgstr "Bu oda için yetkilendirilmemiş üyeleri al"
 
 #: rocketchatrestapi-qt5/channels/channelopenjob.cpp:78
 #, kde-format
@@ -2510,7 +2510,7 @@ msgstr "İleti bulunamadı."
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:436
 #, kde-format
 msgid "Two Authentication Password Required"
-msgstr "İki Yetkilendirme Parolası Gerekiyor"
+msgstr "İki Kimlik Doğrulama Parolası Gerekiyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:438
 #, kde-format
@@ -2568,10 +2568,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "%2 için \"%1\" URL'sinden avatar ayarlama sırasında hata"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Kullanıcı kaydı devre dışı"
+msgstr "Görünmez durumu devre dışı"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -2645,12 +2644,12 @@ msgstr "Oauth"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
-msgstr ""
+msgstr "Özel Emoji Yapılandır"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
-msgstr ""
+msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:45
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
@@ -2669,47 +2668,47 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
 #, kde-format
 msgid "Name:"
-msgstr ""
+msgstr "Ad:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:46
 #, kde-format
 msgid "Alias:"
-msgstr ""
+msgstr "Arma:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:28
 #, kde-format
 msgid "File:"
-msgstr ""
+msgstr "Dosya:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:31
 #, kde-format
 msgid "Search Custom Emojis"
-msgstr ""
+msgstr "Özel Emojileri Ara"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:45
 #, kde-format
 msgid "No custom emoji found"
-msgstr ""
+msgstr "Özel emoji bulunamadı"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:50
 #, kde-format
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 özel emoji (Toplam: %2)"
+msgstr[1] "%1 özel emoji (Toplam: %2)"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:147
 #, kde-format
 msgid "Do you want to remove this emoji?"
-msgstr ""
+msgstr "Bu emojiyi kaldırmak istiyor musunz?"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
-msgstr ""
+msgstr "Emojiyi Kaldır"
 
 #. i18n: ectx: property (text), widget (QPushButton, addServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:174
@@ -2723,7 +2722,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "Ekle..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:177
@@ -2737,7 +2736,7 @@ msgstr ""
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
-msgstr ""
+msgstr "Değiştir..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
@@ -2753,200 +2752,200 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Sound"
-msgstr ""
+msgstr "Yeni Ses Oluştur"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
 #, kde-format
 msgid "Search Custom Sounds"
-msgstr ""
+msgstr "Özel Sesleri Ara"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:60
 #, kde-format
 msgid "No custom sound found"
-msgstr ""
+msgstr "Özel ses bulunamadı"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:65
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 özel ses (Toplam: %2)"
+msgstr[1] "%1 özel ses (Toplam: %2)"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:126
 #, kde-format
 msgid "Do you want to remove this sound?"
-msgstr ""
+msgstr "Bu sesi kaldırmak istiyor musunuz?"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:127
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
-msgstr ""
+msgstr "Özel Sesi Kaldır"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User Status"
-msgstr ""
+msgstr "Yeni Kullanıcı Durumu Oluştur"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User Status"
-msgstr ""
+msgstr "Kullanıcı Durumunu Düzenle"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:457
 #, kde-format
 msgid "Status:"
-msgstr ""
+msgstr "Durum:"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
 #, kde-format
 msgid "Presence"
-msgstr ""
+msgstr "Varlık"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:116
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:188
 #, kde-format
 msgid "Do you want to remove \"%1\"?"
-msgstr ""
+msgstr "\"%1\" durumunu kaldırmak istiyor musunuz?"
 
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:117
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
-msgstr ""
+msgstr "Özel Kullanıcı Durumunu Kaldır"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
 #, kde-format
 msgid "Search Invite..."
-msgstr ""
+msgstr "Davet Ara..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:50
 #, kde-format
 msgid "Are you sure that you want to delete this invite?"
-msgstr ""
+msgstr "Bu daveti silmek istediğinize emin misiniz?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:50
 #, kde-format
 msgid "Remove Invite"
-msgstr ""
+msgstr "Daveti Kaldır"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
-msgstr ""
+msgstr "Oauth Uygulamaları Ekle"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:30
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
 #, kde-format
 msgid "Redirect Url:"
-msgstr ""
+msgstr "Yeniden Yönlendirme URL'si:"
 
 #: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
-msgstr ""
+msgstr "Oauth Uygulamalarını Düzenle"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
 msgid "Client ID:"
-msgstr ""
+msgstr "İstemci Kimliği:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:41
 #, kde-format
 msgid "Client Secret:"
-msgstr ""
+msgstr "İstemci Gizi:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
 msgid "Authorization Url:"
-msgstr ""
+msgstr "Yetkilendirme URL'si:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
 msgid "Access Token URL:"
-msgstr ""
+msgstr "Erişim Jetonu URL'si:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
 #, kde-format
 msgid "Search Oauth Apps..."
-msgstr ""
+msgstr "Oauth Uygulamalarını Ara..."
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:61
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
-msgstr ""
+msgstr "Bu Oauth'u silmek istediğinize emin misiniz?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:61
 #, kde-format
 msgid "Remove OAuth"
-msgstr ""
+msgstr "Oauth'u Kaldır"
 
 #: widgets/administratordialog/permissions/permissionseditdialog.cpp:16
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit '%1' Permission"
-msgstr ""
+msgstr "\"%1\" İznini Düzenle"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/directchannelinfowidget.cpp:62
 #, kde-format
 msgid "Roles:"
-msgstr ""
+msgstr "Roller:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
 #, kde-format
 msgid "Search Permissions..."
-msgstr ""
+msgstr "İzinleri Ara..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:44
 #, kde-format
 msgid "Search Roles..."
-msgstr ""
+msgstr "Rolleri Ara..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:105
 #, kde-format
 msgid "Add Users In Role..."
-msgstr ""
+msgstr "Role Kullanıcılar Ekle..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:217
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
-msgstr ""
+msgstr "'%1' rolünü kaldırmak istiyor musunuz?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:218
 #, kde-format
 msgid "Remove Role"
-msgstr ""
+msgstr "Rolü Kaldır"
 
 #: widgets/administratordialog/roles/roleeditdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Role"
-msgstr ""
+msgstr "Rol Ekle"
 
 #: widgets/administratordialog/roles/roleeditdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Role"
-msgstr ""
+msgstr "Rolü Düzenle"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:19
 #, kde-format
 msgid "Use Two Factor Authentication"
-msgstr ""
+msgstr "İki Adımlı Kimlik Doğrulama Kullan"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
@@ -2956,23 +2955,23 @@ msgstr ""
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
-msgstr ""
+msgstr "Açıklama:"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:37
 #, kde-format
 msgid "Scope:"
-msgstr ""
+msgstr "Kapsam:"
 
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:14
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #: widgets/administratordialog/roles/userinroleeditdialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Users in Role"
-msgstr ""
+msgstr "Roldeki Kullanıcılar"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:33
 #: widgets/administratordialog/users/administratoruserswidget.cpp:44
@@ -2982,30 +2981,30 @@ msgstr ""
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
 msgid "Search Users..."
-msgstr ""
+msgstr "Kullanıcıları Ara..."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Role"
-msgstr ""
+msgstr "Role Kullanıcıları Ekle"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:76
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
-msgstr ""
+msgstr "\"%1\" kullanıcısını kaldırmak istiyor musunuz?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:77
 #: widgets/administratordialog/users/administratoruserswidget.cpp:146
 #, kde-format
 msgid "Remove User"
-msgstr ""
+msgstr "Kullanıcıyı Kaldır"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:116
 #: widgets/administratordialog/users/administratoruserswidget.cpp:249
 #, kde-format
 msgid "No user found"
-msgstr ""
+msgstr "Kullanıcı bulunamadı"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:121
 #: widgets/administratordialog/users/administratoruserswidget.cpp:254
@@ -3013,237 +3012,237 @@ msgstr ""
 #, kde-format
 msgid "%1 user (Total: %2)"
 msgid_plural "%1 users (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 kullanıcı (Toplam: %2)"
+msgstr[1] "%1 kullanıcı (Toplam: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
 #: widgets/room/roomheaderwidget.cpp:44
 #, kde-format
 msgid "Favorite"
-msgstr ""
+msgstr "Sık Kullanılan"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:18
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:22
 #, kde-format
 msgid "Featured"
-msgstr ""
+msgstr "Öne Çıkan"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Direct Room"
-msgstr ""
+msgstr "Doğrudan Odayı Düzenle"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:31
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Room"
-msgstr ""
+msgstr "Odayı Düzenle"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:23
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:16
 #, kde-format
 msgid "Private"
-msgstr ""
+msgstr "Özel"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:24
 #, kde-format
 msgid "Read-Only"
-msgstr ""
+msgstr "Saltokunur"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:25
 #, kde-format
 msgid "Archived"
-msgstr ""
+msgstr "Arşivlenmiş"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
 #, kde-format
 msgid "Owner:"
-msgstr ""
+msgstr "Sahip:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:61
 #: widgets/dialogs/channelinforeadonlywidget.cpp:45
 #, kde-format
 msgid "Comment:"
-msgstr ""
+msgstr "Yorum:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
 #: widgets/dialogs/channelinfoeditablewidget.cpp:65
 #: widgets/dialogs/channelinforeadonlywidget.cpp:53
 #, kde-format
 msgid "Announcement:"
-msgstr ""
+msgstr "Duyuru:"
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
 msgid "Public"
-msgstr ""
+msgstr "Genel"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:40
 #, kde-format
 msgid "Search Rooms"
-msgstr ""
+msgstr "Odaları Ara"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:74
 #, kde-format
 msgid "No room found"
-msgstr ""
+msgstr "Oda bulunamadı"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:79
 #: widgets/directory/directorywidget.cpp:180
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 oda (Toplam: %2)"
+msgstr[1] "%1 oda (Toplam: %2)"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:189
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
-msgstr ""
+msgstr "Odayı Kaldır"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:43
 #, kde-format
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:62
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:127
 #, kde-format
 msgid "Licenses"
-msgstr ""
+msgstr "Lisanslar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:129
 #, kde-format
 msgid "Auditing"
-msgstr ""
+msgstr "Denetleme"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:130
 #, kde-format
 msgid "Canned Responses"
-msgstr ""
+msgstr "Hazır Yanıtlar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
 msgid "Engagement Dashboard"
-msgstr ""
+msgstr "Etkinlik Gösterge Tablosu"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:155
 #, kde-format
 msgid "Version"
-msgstr ""
+msgstr "Sürüm"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:156
 #, kde-format
 msgid "Deployment ID"
-msgstr ""
+msgstr "Konuşlanma Kimliği"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Rocket.Chat App Users"
-msgstr ""
+msgstr "Rocket.Chat Uygulaması Kullanıcıları"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Away Users"
-msgstr ""
+msgstr "Uzaktaki Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Total Uploads Size"
-msgstr ""
+msgstr "Toplam Karşıya Yükleme Boyutu"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Offline Users"
-msgstr ""
+msgstr "Çevrimdışı Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Online Users"
-msgstr ""
+msgstr "Çevrimiçi Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Activated Users"
-msgstr ""
+msgstr "Etkinleştirilmiş Kullanıcılar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Activated Guests"
-msgstr ""
+msgstr "Etkinleştirilmiş Konuklar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Total Uploads"
-msgstr ""
+msgstr "Toplam Karşıya Yükleme"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Total Channels"
-msgstr ""
+msgstr "Toplam Kanal"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Total Rooms"
-msgstr ""
+msgstr "Toplam Oda"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Total Private Groups"
-msgstr ""
+msgstr "Toplam Özel Grup"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Total Direct Message Rooms"
-msgstr ""
+msgstr "Toplam Doğrudan İleti Odası"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Total Threads"
-msgstr ""
+msgstr "Toplam İlmek"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
 #, kde-format
 msgid "Total Users"
-msgstr ""
+msgstr "Toplam Kullanıcı"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Messages"
-msgstr ""
+msgstr "Toplam İleti"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Messages in Channels"
-msgstr ""
+msgstr "Kanallardaki Toplam İleti"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Messages in Private Groups"
-msgstr ""
+msgstr "Özel Gruplardaki Toplam İleti"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Messages in Direct Messages"
-msgstr ""
+msgstr "Doğrudan İletilerdeki Toplam İleti"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Discussions"
-msgstr ""
+msgstr "Toplam Tartışma"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, kde-format
 msgid "Total Connected Users"
-msgstr ""
+msgstr "Toplam Bağlı Kullanıcı"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format

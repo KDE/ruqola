@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-10-03 07:53+0200\n"
+"PO-Revision-Date: 2022-10-04 09:08+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2582,10 +2582,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Napaka pri obravnavanju nastavitev avatarja iz URL-ja »%1« za %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Registracija uporabnika je onemogočena"
+msgstr "Nevidno stanje je onemogočeno"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3552,12 +3551,12 @@ msgstr "Dovoli spremembo gesla uporabnikom OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Dovoli možnost nevidnega stanja"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Pozabi uporabnikovo sejo ob zaprtju okna"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3914,32 +3913,29 @@ msgstr ""
 "oboje vidno samo skrbnikom."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Časovni pas:"
+msgstr "Časovni pas"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Časovni pas:"
+msgstr "Časovni pas strežnika"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Časovni pas:"
+msgstr "Časovni pas po meri"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Uporabnikov trenutni časovni pas"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Privzeti časovni pas za poročanje"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -4013,7 +4009,7 @@ msgstr "Dovoli posebne znake v imenih sob"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
-msgstr ""
+msgstr "Zlij zasebne skupine s kanali"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format

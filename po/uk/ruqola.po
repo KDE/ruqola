@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-04 00:44+0000\n"
-"PO-Revision-Date: 2022-10-03 07:15+0300\n"
+"PO-Revision-Date: 2022-10-04 07:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2595,10 +2595,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Помилка під час обробки параметра аватара з адреси «%1» для %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Реєстрацію користувачів вимкнено"
+msgstr "Невидимий стан вимкнено"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3567,12 +3566,12 @@ msgstr "Дозволити зміну пароля для користувачі
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Дозволити варіант із невидимим станом"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Забувати про сеанси користувача при закритті вікна"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3930,32 +3929,29 @@ msgstr ""
 "Обидва сповіщення будуть видимими лише адміністраторам."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Часовий пояс:"
+msgstr "Часовий пояс"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Часовий пояс:"
+msgstr "Часовий пояс сервера"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Часовий пояс:"
+msgstr "Нетиповий часовий пояс"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Поточний часовий пояс користувача"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Типовий часовий пояс для звітів"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
