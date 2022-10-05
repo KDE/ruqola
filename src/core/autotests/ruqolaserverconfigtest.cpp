@@ -41,7 +41,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.messageAllowConvertLongMessagesToAttachment());
     QVERIFY(!config.useRealName());
     QVERIFY(!config.hasEnterpriseSupport());
-    QVERIFY(!config.accountsAllowInvisibleStatusOption());
+    QVERIFY(config.accountsAllowInvisibleStatusOption());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
