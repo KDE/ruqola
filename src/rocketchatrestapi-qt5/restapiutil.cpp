@@ -529,6 +529,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("sessions/logout");
     case RestApiUtil::RestApiUrlType::SessionsInfoAdmin:
         return QStringLiteral("sessions/info.admin");
+
+    case RestApiUtil::RestApiUrlType::UserRequestDataDownload:
+        return QStringLiteral("users.requestDataDownload");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};
