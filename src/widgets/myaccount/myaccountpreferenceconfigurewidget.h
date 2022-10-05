@@ -23,8 +23,10 @@ public:
     void load();
 
 private:
+    void slotUserRequestDataDownloadDone();
     void setWasChanged();
     void initComboboxValues();
+    void downloadData(bool fullData);
     QLineEdit *const mHighlightWords;
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;

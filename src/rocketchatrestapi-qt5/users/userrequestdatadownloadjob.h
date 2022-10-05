@@ -31,7 +31,7 @@ public:
     void setFullExport(bool newFullExport);
 
 Q_SIGNALS:
-    void getUsernameSuggestionDone(const QString &result);
+    void userRequestDataDownloadDone(const QString &result);
 
 private:
     Q_DISABLE_COPY(UserRequestDataDownloadJob)

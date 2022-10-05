@@ -5,8 +5,11 @@
 */
 
 #include "myaccountpreferenceconfigurewidget.h"
+#include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
+#include "users/userrequestdatadownloadjob.h"
 #include <KLocalizedString>
 #include <KSeparator>
 #include <QCheckBox>
@@ -99,10 +102,16 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     auto downloadDataButton = new QPushButton(i18n("Download My Data (HTML)"), this);
     downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
     downloadLayout->addWidget(downloadDataButton);
+    connect(downloadDataButton, &QPushButton::clicked, this, [this]() {
+        downloadData(false);
+    });
 
     auto exportDataButton = new QPushButton(i18n("Export My Data (JSON)"), this);
     exportDataButton->setObjectName(QStringLiteral("exportDataButton"));
     downloadLayout->addWidget(exportDataButton);
+    connect(exportDataButton, &QPushButton::clicked, this, [this]() {
+        downloadData(true);
+    });
 
     mainLayout->addLayout(downloadLayout);
 
@@ -111,6 +120,25 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 }
 
 MyAccountPreferenceConfigureWidget::~MyAccountPreferenceConfigureWidget() = default;
+
+void MyAccountPreferenceConfigureWidget::downloadData(bool fullData)
+{
+    auto job = new RocketChatRestApi::UserRequestDataDownloadJob(this);
+    job->setFullExport(fullData);
+    mRocketChatAccount->restApi()->initializeRestApiJob(job);
+    connect(job,
+            &RocketChatRestApi::UserRequestDataDownloadJob::userRequestDataDownloadDone,
+            this,
+            &MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone);
+    if (!job->start()) {
+        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UserRequestDataDownloadJob job";
+    }
+}
+
+void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
+{
+    // TODO
+}
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
 {

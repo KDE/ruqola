@@ -42,7 +42,7 @@ void UserRequestDataDownloadJob::onGetRequestResponse(const QJsonDocument &reply
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UserRequestDataDownloadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         const QString result = replyObject[QStringLiteral("result")].toString();
-        Q_EMIT getUsernameSuggestionDone(result);
+        Q_EMIT userRequestDataDownloadDone(result);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("UserRequestDataDownloadJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
