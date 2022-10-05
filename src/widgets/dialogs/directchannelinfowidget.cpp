@@ -135,8 +135,9 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
-    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(60, 60)); // TODO hardcoded ?
-
+    QSize pixmapAvatarSize{QSize(60, 60)};
+    pixmapAvatarSize /= qreal(physicalDpiX()) / qreal(logicalDpiX());
+    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
     const QStringList roles{user.roles()};
     if (roles.isEmpty()) {
         hideWidget(mRoles);
