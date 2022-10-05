@@ -8,10 +8,12 @@
 #include "misc/lineeditcatchreturnkey.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KSeparator>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketChatAccount *account, QWidget *parent)
@@ -87,6 +89,23 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mHideRoles, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mDisplayAvatars);
     connect(mDisplayAvatars, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+
+    mainLayout->addWidget(new KSeparator(this));
+
+    auto downloadLayout = new QHBoxLayout;
+    downloadLayout->setObjectName(QStringLiteral("downloadLayout"));
+    downloadLayout->setContentsMargins({});
+
+    auto downloadDataButton = new QPushButton(i18n("Download My Data (HTML)"), this);
+    downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
+    downloadLayout->addWidget(downloadDataButton);
+
+    auto exportDataButton = new QPushButton(i18n("Export My Data (JSON)"), this);
+    exportDataButton->setObjectName(QStringLiteral("exportDataButton"));
+    downloadLayout->addWidget(exportDataButton);
+
+    mainLayout->addLayout(downloadLayout);
+
     mainLayout->addStretch();
     initComboboxValues();
 }

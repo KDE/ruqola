@@ -10,6 +10,7 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(MyAccountPreferenceConfigureWidgetTest)
@@ -83,4 +84,16 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDisplayAvatars);
     QVERIFY(!mDisplayAvatars->isChecked());
     QVERIFY(!mDisplayAvatars->text().isEmpty());
+
+    auto downloadLayout = w.findChild<QHBoxLayout *>(QStringLiteral("downloadLayout"));
+    QVERIFY(downloadLayout);
+    QCOMPARE(downloadLayout->contentsMargins(), QMargins{});
+
+    auto downloadDataButton = w.findChild<QPushButton *>(QStringLiteral("downloadDataButton"));
+    QVERIFY(downloadDataButton);
+    QVERIFY(!downloadDataButton->text().isEmpty());
+
+    auto exportDataButton = w.findChild<QPushButton *>(QStringLiteral("exportDataButton"));
+    QVERIFY(exportDataButton);
+    QVERIFY(!exportDataButton->text().isEmpty());
 }
