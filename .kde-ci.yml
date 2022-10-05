@@ -15,7 +15,6 @@ Dependencies:
     'frameworks/kwindowsystem': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/knewstuff': '@stable'
-    'frameworks/kglobalaccel': '@stable'
     'frameworks/kxmlgui': '@stable'
     'frameworks/purpose': '@stable'
     'frameworks/kguiaddons': '@stable'
