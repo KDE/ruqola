@@ -13,6 +13,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QSpinBox>
 
 GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -30,6 +31,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mEnableUpdateChecker(new QCheckBox(i18n("Enable the Update Checker"), this))
     , mDefaultTimeZone(new QComboBox(this))
     , mSendStatisticsRocketChat(new QCheckBox(i18n("Send Statistics to Rocket.Chat"), this))
+    , mMaxRoomMembersDisablingMessageNotifications(new QSpinBox(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -112,6 +114,19 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mSendStatisticsRocketChat->setObjectName(QStringLiteral("mSendStatisticsRocketChat"));
     mMainLayout->addWidget(mSendStatisticsRocketChat);
     connectCheckBox(mSendStatisticsRocketChat, QStringLiteral("Statistics_reporting"));
+
+    auto notificationLabel = createBoldLabel(i18n("Notifications"));
+    notificationLabel->setObjectName(QStringLiteral("notificationLabel"));
+    mMainLayout->addWidget(notificationLabel);
+
+    mMaxRoomMembersDisablingMessageNotifications->setObjectName(QStringLiteral("mMaxRoomMembersDisablingMessageNotifications"));
+    mMaxRoomMembersDisablingMessageNotifications->setToolTip(
+        i18n("Max number of members in room when notifications for all messages gets disabled. Users can still change per room setting to receive all "
+             "notifications on an individual basis. (0 to disable)"));
+    mMaxRoomMembersDisablingMessageNotifications->setMaximum(999);
+    addSpinbox(i18n("Max Room Members Before Disabling All Message Notifications"),
+               mMaxRoomMembersDisablingMessageNotifications,
+               QStringLiteral("Notifications_Max_Room_Members"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -132,4 +147,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mDefaultTimeZone, mapSettings, QStringLiteral("server"));
     initializeWidget(mUTF8NamesSlugify, mapSettings, true);
     initializeWidget(mSendStatisticsRocketChat, mapSettings, true);
+    initializeWidget(mMaxRoomMembersDisablingMessageNotifications, mapSettings, 100);
 }

@@ -12,6 +12,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QSpinBox>
 #include <QTest>
 
 QTEST_MAIN(GeneralSettingsWidgetTest)
@@ -121,4 +122,14 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSendStatisticsRocketChat->isChecked());
     QVERIFY(!mSendStatisticsRocketChat->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSendStatisticsRocketChat), QStringLiteral("Statistics_reporting"));
+
+    auto notificationLabel = w.findChild<QLabel *>(QStringLiteral("notificationLabel"));
+    QVERIFY(notificationLabel);
+    QVERIFY(!notificationLabel->text().isEmpty());
+
+    auto mMaxRoomMembersDisablingMessageNotifications = w.findChild<QSpinBox *>(QStringLiteral("mMaxRoomMembersDisablingMessageNotifications"));
+    QVERIFY(mMaxRoomMembersDisablingMessageNotifications);
+    QVERIFY(!mMaxRoomMembersDisablingMessageNotifications->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaxRoomMembersDisablingMessageNotifications), QStringLiteral("Notifications_Max_Room_Members"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Notifications_Max_Room_Members"));
 }

@@ -11,6 +11,7 @@
 class QCheckBox;
 class QLineEdit;
 class QComboBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT GeneralSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -35,4 +36,5 @@ private:
     QCheckBox *const mEnableUpdateChecker;
     QComboBox *const mDefaultTimeZone;
     QCheckBox *const mSendStatisticsRocketChat;
+    QSpinBox *const mMaxRoomMembersDisablingMessageNotifications;
 };
