@@ -1,0 +1,41 @@
+/*
+   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+
+   SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include "librestapi_private_export.h"
+#include "restapiabstractjob.h"
+
+#include <QNetworkRequest>
+namespace RocketChatRestApi
+{
+class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT UserRequestDataDownloadJob : public RestApiAbstractJob
+{
+    Q_OBJECT
+public:
+    // Since 0.65
+    explicit UserRequestDataDownloadJob(QObject *parent = nullptr);
+    ~UserRequestDataDownloadJob() override;
+
+    Q_REQUIRED_RESULT bool start() override;
+    Q_REQUIRED_RESULT bool requireHttpAuthentication() const override;
+
+    Q_REQUIRED_RESULT QNetworkRequest request() const override;
+
+    Q_REQUIRED_RESULT bool canStart() const override;
+
+    Q_REQUIRED_RESULT bool fullExport() const;
+    void setFullExport(bool newFullExport);
+
+Q_SIGNALS:
+    void getUsernameSuggestionDone(const QString &result);
+
+private:
+    Q_DISABLE_COPY(UserRequestDataDownloadJob)
+    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    bool mFullExport = false;
+};
+}

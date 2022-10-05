@@ -416,6 +416,10 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     users/usersupdatejob.h
     users/usersupdateownbasicinfojob.cpp
     users/usersupdateownbasicinfojob.h
+    users/userrequestdatadownloadjob.cpp
+    users/userrequestdatadownloadjob.h
+
+
     video-conference/videoconfupdatejitsitimeoutjob.cpp
     video-conference/videoconfupdatejitsitimeoutjob.h
 )
