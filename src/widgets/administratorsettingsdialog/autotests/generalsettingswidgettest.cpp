@@ -105,4 +105,10 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDefaultTimeZone);
     QCOMPARE(mDefaultTimeZone->count(), 3);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultTimeZone), QStringLiteral("Default_Timezone_For_Reporting"));
+
+    auto mUTF8NamesSlugify = w.findChild<QCheckBox *>(QStringLiteral("mUTF8NamesSlugify"));
+    QVERIFY(mUTF8NamesSlugify);
+    QVERIFY(!mUTF8NamesSlugify->isChecked());
+    QVERIFY(!mUTF8NamesSlugify->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUTF8NamesSlugify), QStringLiteral("UTF8_Names_Slugify"));
 }

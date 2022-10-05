@@ -21,6 +21,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mSiteName(new QLineEdit(this))
     , mUTF8UsernamesValidation(new QLineEdit(this))
     , mUTF8ChannelNamesValidation(new QLineEdit(this))
+    , mUTF8NamesSlugify(new QCheckBox(i18n("UTF8 Names Slugify"), this))
     , mFirstChannelAfterLogin(new QLineEdit(this))
     , mDeepLinkUrl(new QLineEdit(this))
     , mCDNPrefix(new QLineEdit(this))
@@ -46,6 +47,10 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mUTF8ChannelNamesValidation->setObjectName(QStringLiteral("mUTF8ChannelNamesValidation"));
     mUTF8ChannelNamesValidation->setToolTip(i18n("RegExp that will be used to validate channel names"));
     addLineEdit(i18n("UTF8 Channel Names Validation"), mUTF8ChannelNamesValidation, QStringLiteral("UTF8_Channel_Names_Validation"));
+
+    mUTF8NamesSlugify->setObjectName(QStringLiteral("mUTF8NamesSlugify"));
+    mMainLayout->addWidget(mUTF8NamesSlugify);
+    connectCheckBox(mUTF8NamesSlugify, QStringLiteral("UTF8_Names_Slugify"));
 
     mFirstChannelAfterLogin->setObjectName(QStringLiteral("mFirstChannelAfterLogin"));
     addLineEdit(i18n("First Channel After Login"), mFirstChannelAfterLogin, QStringLiteral("First_Channel_After_Login"));
@@ -90,12 +95,14 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(timeZoneLabel);
 
     mDefaultTimeZone->setObjectName(QStringLiteral("mDefaultTimeZone"));
+    mDefaultTimeZone->setToolTip(i18n("Sets the default timezone that will be used when showing dashboards or sending emails"));
     maps = {
         {QStringLiteral("server"), i18n("Server Timezone")},
         {QStringLiteral("custom"), i18n("Custom Timezone")},
         {QStringLiteral("user"), i18n("User's current Timezone")},
     };
     addComboBox(i18n("Default timezone for reporting"), maps, mDefaultTimeZone, QStringLiteral("Default_Timezone_For_Reporting"));
+    // TODO add custom time zone
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -114,4 +121,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUnreadCountDirectMessages, mapSettings, QStringLiteral("all_messages"));
     initializeWidget(mEnableUpdateChecker, mapSettings, true);
     initializeWidget(mDefaultTimeZone, mapSettings, QStringLiteral("server"));
+    initializeWidget(mUTF8NamesSlugify, mapSettings, true);
 }
