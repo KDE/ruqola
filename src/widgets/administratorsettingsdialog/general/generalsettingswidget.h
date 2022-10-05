@@ -34,4 +34,5 @@ private:
     QComboBox *const mUnreadCountDirectMessages;
     QCheckBox *const mEnableUpdateChecker;
     QComboBox *const mDefaultTimeZone;
+    QCheckBox *const mSendStatisticsRocketChat;
 };

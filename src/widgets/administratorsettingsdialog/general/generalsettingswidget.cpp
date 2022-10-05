@@ -29,6 +29,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mUnreadCountDirectMessages(new QComboBox(this))
     , mEnableUpdateChecker(new QCheckBox(i18n("Enable the Update Checker"), this))
     , mDefaultTimeZone(new QComboBox(this))
+    , mSendStatisticsRocketChat(new QCheckBox(i18n("Send Statistics to Rocket.Chat"), this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -103,6 +104,14 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     };
     addComboBox(i18n("Default timezone for reporting"), maps, mDefaultTimeZone, QStringLiteral("Default_Timezone_For_Reporting"));
     // TODO add custom time zone
+
+    auto reportingLabel = createBoldLabel(i18n("Reporting"));
+    reportingLabel->setObjectName(QStringLiteral("reportingLabel"));
+    mMainLayout->addWidget(reportingLabel);
+
+    mSendStatisticsRocketChat->setObjectName(QStringLiteral("mSendStatisticsRocketChat"));
+    mMainLayout->addWidget(mSendStatisticsRocketChat);
+    connectCheckBox(mSendStatisticsRocketChat, QStringLiteral("Statistics_reporting"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -122,4 +131,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mEnableUpdateChecker, mapSettings, true);
     initializeWidget(mDefaultTimeZone, mapSettings, QStringLiteral("server"));
     initializeWidget(mUTF8NamesSlugify, mapSettings, true);
+    initializeWidget(mSendStatisticsRocketChat, mapSettings, true);
 }

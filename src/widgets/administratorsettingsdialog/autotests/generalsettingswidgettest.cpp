@@ -111,4 +111,14 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUTF8NamesSlugify->isChecked());
     QVERIFY(!mUTF8NamesSlugify->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUTF8NamesSlugify), QStringLiteral("UTF8_Names_Slugify"));
+
+    auto reportingLabel = w.findChild<QLabel *>(QStringLiteral("reportingLabel"));
+    QVERIFY(reportingLabel);
+    QVERIFY(!reportingLabel->text().isEmpty());
+
+    auto mSendStatisticsRocketChat = w.findChild<QCheckBox *>(QStringLiteral("mSendStatisticsRocketChat"));
+    QVERIFY(mSendStatisticsRocketChat);
+    QVERIFY(!mSendStatisticsRocketChat->isChecked());
+    QVERIFY(!mSendStatisticsRocketChat->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSendStatisticsRocketChat), QStringLiteral("Statistics_reporting"));
 }
