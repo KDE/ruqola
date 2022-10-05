@@ -99,7 +99,6 @@ void AdministratorWidget::updateUiFromPermission()
     if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
         mTabWidget->setTabVisible(mCustomSoundsTabIndex, false);
     }
-
     if (!mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
         mTabWidget->setTabVisible(mServerInfoTabIndex, false);
     }
