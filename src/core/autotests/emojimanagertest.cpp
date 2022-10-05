@@ -284,8 +284,8 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
     QCOMPARE(manager.unicodeEmoticonForEmoji(QStringLiteral(":-)")).unicode(), slightSmile);
 
     QCOMPARE(manager.categories().count(), 9);
-    QCOMPARE(manager.categories().at(0).category(), QStringLiteral("symbols"));
-    QCOMPARE(manager.emojisForCategory(QStringLiteral("symbols")).count(), 304);
+    QCOMPARE(manager.categories().at(0).category(), QStringLiteral("people"));
+    QCOMPARE(manager.emojisForCategory(QStringLiteral("people")).count(), 1656);
 }
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
