@@ -110,7 +110,11 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
         slotInsertEmoticons(identifier);
     });
     connect(mCustomEmojiView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
-    setMinimumSize(400, 250);
+
+    QSize popupMenuSize{QSize(400, 250)};
+    popupMenuSize /= qreal(physicalDpiX()) / qreal(logicalDpiX());
+
+    setMinimumSize(popupMenuSize);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
