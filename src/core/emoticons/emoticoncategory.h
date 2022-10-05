@@ -24,7 +24,7 @@ public:
 
     void setI18nName(const QString &newI18nName);
 
-    Q_REQUIRED_RESULT bool operator<(const EmoticonCategory &other);
+    Q_REQUIRED_RESULT bool operator<(const EmoticonCategory &other) const;
 
     Q_REQUIRED_RESULT int order() const;
     void setOrder(int newOrder);

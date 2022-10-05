@@ -38,7 +38,7 @@ void EmoticonCategory::setI18nName(const QString &newI18nName)
     mI18nName = newI18nName;
 }
 
-bool EmoticonCategory::operator<(const EmoticonCategory &other)
+bool EmoticonCategory::operator<(const EmoticonCategory &other) const
 {
     return mOrder < other.order();
 }
