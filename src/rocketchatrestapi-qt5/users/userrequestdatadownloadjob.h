@@ -16,7 +16,6 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT UserRequestDataDownloadJob : public RestAp
 {
     Q_OBJECT
 public:
-    // Since 0.65
     explicit UserRequestDataDownloadJob(QObject *parent = nullptr);
     ~UserRequestDataDownloadJob() override;
 
