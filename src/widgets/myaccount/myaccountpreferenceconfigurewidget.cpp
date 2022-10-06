@@ -11,6 +11,7 @@
 #include "ruqolawidgets_debug.h"
 #include "users/userrequestdatadownloadjob.h"
 #include <KLocalizedString>
+#include <KMessageBox>
 #include <KSeparator>
 #include <QCheckBox>
 #include <QComboBox>
@@ -137,7 +138,9 @@ void MyAccountPreferenceConfigureWidget::downloadData(bool fullData)
 
 void MyAccountPreferenceConfigureWidget::slotUserRequestDataDownloadDone()
 {
-    // TODO
+    KMessageBox::information(this,
+                             i18n("Your data file will be generated. A link to download it will be sent to your email address when ready."),
+                             i18n("Download File Requested"));
 }
 
 void MyAccountPreferenceConfigureWidget::initComboboxValues()
