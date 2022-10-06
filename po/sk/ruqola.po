@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-04 00:44+0000\n"
+"POT-Creation-Date: 2022-10-06 00:45+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -831,7 +831,7 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
 #, kde-format
 msgid "Disabled"
 msgstr ""
@@ -990,8 +990,8 @@ msgstr[2] "%1 sekúnd"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:101
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:106
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
 #, kde-format
 msgid "Nothing"
 msgstr "Nič"
@@ -1027,15 +1027,15 @@ msgid "Seasons"
 msgstr "Série "
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:99
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:104
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:146
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
 #, kde-format
 msgid "All Messages"
 msgstr "Všetky správy"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:100
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:105
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
 #, kde-format
 msgid "Mentions"
 msgstr ""
@@ -2679,7 +2679,7 @@ msgid "Administrator"
 msgstr ""
 
 #: widgets/administratordialog/administratorwidget.cpp:48
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:302
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:306
 #, kde-format
 msgid "Server Info"
 msgstr "Informácie o serveri"
@@ -3303,192 +3303,198 @@ msgid "Total Uploads Size"
 msgstr "Zadajte užívateľské meno"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#, kde-format
+msgid "Total Uploads"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Offline"
 msgid "Offline Users"
 msgstr "Nepripojený"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Online Users"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Activated Users"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Activated Guests"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
-#, kde-format
-msgid "Total Uploads"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
-msgid "Total Channels"
-msgstr "Opustiť kanál"
-
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
-#, fuzzy, kde-format
-#| msgid "Default"
-msgid "Total Rooms"
-msgstr "Predvolené"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
-#, kde-format
-msgid "Total Private Groups"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Total Direct Message Rooms"
-msgstr "Správa"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
-#, fuzzy, kde-format
-#| msgid "Threads"
-msgid "Total Threads"
-msgstr "Vlákna"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
-#, fuzzy, kde-format
-#| msgid "Enter Username"
-msgid "Total Users"
-msgstr "Zadajte užívateľské meno"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
-#, fuzzy, kde-format
-#| msgid "All Messages"
-msgid "Total Messages"
-msgstr "Všetky správy"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
-#, fuzzy, kde-format
-#| msgid "Leave Channel"
-msgid "Total Messages in Channels"
-msgstr "Opustiť kanál"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
-#, kde-format
-msgid "Total Messages in Private Groups"
-msgstr ""
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
-#, fuzzy, kde-format
-#| msgid "Message"
-msgid "Total Messages in Direct Messages"
-msgstr "Správa"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Search File..."
-msgid "Total Discussions"
-msgstr "Hľadať súbor..."
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
-#, fuzzy, kde-format
-#| msgid "Enter Username"
-msgid "Total Connected Users"
-msgstr "Zadajte užívateľské meno"
-
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Deactivated Users"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:229
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:274
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgid "Total Channels"
+msgstr "Opustiť kanál"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#, fuzzy, kde-format
+#| msgid "Default"
+msgid "Total Rooms"
+msgstr "Predvolené"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#, kde-format
+msgid "Total Private Groups"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Total Direct Message Rooms"
+msgstr "Správa"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#, fuzzy, kde-format
+#| msgid "Threads"
+msgid "Total Threads"
+msgstr "Vlákna"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#, fuzzy, kde-format
+#| msgid "Enter Username"
+msgid "Total Users"
+msgstr "Zadajte užívateľské meno"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#, fuzzy, kde-format
+#| msgid "Search File..."
+msgid "Total Discussions"
+msgstr "Hľadať súbor..."
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgid "Total Omnichannel Rooms"
+msgstr "Opustiť kanál"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#, fuzzy, kde-format
+#| msgid "All Messages"
+msgid "Total Messages"
+msgstr "Všetky správy"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
+#, fuzzy, kde-format
+#| msgid "Leave Channel"
+msgid "Total Messages in Channels"
+msgstr "Opustiť kanál"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
+#, kde-format
+msgid "Total Messages in Private Groups"
+msgstr ""
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Total Messages in Direct Messages"
+msgstr "Správa"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#, fuzzy, kde-format
+#| msgid "Enter Username"
+msgid "Total Connected Users"
+msgstr "Zadajte užívateľské meno"
+
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:233
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:278
 #, kde-format
 msgid "OS Release"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:230
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
 #, kde-format
 msgid "OS Type"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:231
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:292
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:296
 #, kde-format
 msgid "OS Platform"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:232
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:236
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "OS Total Memory"
 msgstr "Zadajte užívateľské meno"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:233
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
 #, kde-format
 msgid "OS Free Memory"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
 #, kde-format
 msgid "Hash"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:246
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
 #, kde-format
 msgid "Branch"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:252
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:256
 #, kde-format
 msgid "Tag"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:258
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:262
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:264
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
 #, kde-format
 msgid "Subject"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:280
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:284
 #, fuzzy, kde-format
 #| msgid "Version %1"
 msgid "Node Version"
 msgstr "Verzia %1"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:286
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:290
 #, fuzzy, kde-format
 #| msgid "Archive:"
 msgid "Arch"
 msgstr "Archív:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:307
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:311
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Usage"
 msgstr "Správa"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:312
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:316
 #, kde-format
 msgid "Runtime Environment"
 msgstr ""
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:322
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:326
 #, fuzzy, kde-format
 #| msgid "Comment:"
 msgid "Commit"
 msgstr "Komentár:"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:326
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:330
 #, kde-format
 msgid "Build Environment"
 msgstr ""
@@ -3944,110 +3950,120 @@ msgstr ""
 msgid "Storage Type"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Enable Favorite Rooms"
 msgstr "Predvolené"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
+#, kde-format
+msgid "UTF8 Names Slugify"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
 msgid "Enable the Update Checker"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
+#, kde-format
+msgid "Send Statistics to Rocket.Chat"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:41
 #, kde-format
 msgid "Site URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Site Name"
 msgstr "URL serveru:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "RegExp that will be used to validate usernames"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
 #, kde-format
 msgid "RegExp that will be used to validate channel names"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
 #, kde-format
 msgid "First Channel After Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
 #, kde-format
 msgid "Deep Link Url"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "CDN Prefix"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "All messages"
 msgstr "Všetky správy"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "User mentions only"
 msgstr "Informácie o serveri"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
 #, kde-format
 msgid "Group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
 #, kde-format
 msgid "User and group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Unread Count"
 msgstr "Vlákna"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Mentions only"
 msgstr "Súkromné adresy"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Unread Count for Direct Messages"
 msgstr "Správa"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
 #, kde-format
 msgid "Update"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:92
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -4057,31 +4073,63 @@ msgid ""
 "both visible only for administrators."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "TimeZone"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
+#, kde-format
+msgid ""
+"Sets the default timezone that will be used when showing dashboards or "
+"sending emails"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server Timezone"
 msgstr "URL serveru:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom Timezone"
 msgstr "Stav:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid "User's current Timezone"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "Default timezone for reporting"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
+#, fuzzy, kde-format
+#| msgid "Report a Bug"
+msgid "Reporting"
+msgstr "Nahlásiť chybu"
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Notifications"
+msgstr "Upozornenia"
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:124
+#, kde-format
+msgid ""
+"Max number of members in room when notifications for all messages gets "
+"disabled. Users can still change per room setting to receive all "
+"notifications on an individual basis. (0 to disable)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
+#, kde-format
+msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -5421,18 +5469,18 @@ msgstr ""
 msgid "Last Login:"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
 msgid "Verified"
 msgstr ""
 
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:171
 #, fuzzy, kde-format
 #| msgid "Not authorized"
 msgid "Not verified"
 msgstr "Nemá oprávnenie"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:170
+#: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
 msgid "%1 [%2]"
 msgstr ""
@@ -6327,82 +6375,92 @@ msgstr ""
 msgid "Remove Token"
 msgstr "Odstrániť účet"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:24
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, kde-format
 msgid "Use Emoji"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:25
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:26
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Hide Roles"
 msgstr "Súkromné:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:27
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgid "Display Avatars"
 msgstr "Heslo:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:37
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
 #, kde-format
 msgid "Highlight words:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:49
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:45
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:54
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Desktop Notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Offline Email Notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Push Notification:"
 msgstr "Upozornenia"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:80
 #, kde-format
 msgid "View Mode:"
 msgstr ""
 
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:102
+#, kde-format
+msgid "Download My Data (HTML)"
+msgstr ""
+
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:109
+#, kde-format
+msgid "Export My Data (JSON)"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
 #, kde-format
 msgid "Each Mentions"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:112
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
 #, kde-format
 msgid "Normal"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:113
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
 #, kde-format
 msgid "Cozy"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
 #, kde-format
 msgid "Compact"
 msgstr ""
@@ -7725,9 +7783,6 @@ msgstr ""
 
 #~ msgid "About"
 #~ msgstr "O aplikácii"
-
-#~ msgid "Report a Bug"
-#~ msgstr "Nahlásiť chybu"
 
 #~ msgid "Configure Account"
 #~ msgstr "Nastaviť účet"
