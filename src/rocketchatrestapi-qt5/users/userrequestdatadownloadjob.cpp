@@ -9,6 +9,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
+#include <QUrlQuery>
 using namespace RocketChatRestApi;
 UserRequestDataDownloadJob::UserRequestDataDownloadJob(QObject *parent)
     : RestApiAbstractJob(parent)
@@ -40,6 +41,7 @@ void UserRequestDataDownloadJob::onGetRequestResponse(const QJsonDocument &reply
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
+        // qDebug() << " replyObject " << replyObject;
         addLoggerInfo(QByteArrayLiteral("UserRequestDataDownloadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         const QString result = replyObject[QStringLiteral("result")].toString();
         Q_EMIT userRequestDataDownloadDone(result);
@@ -62,6 +64,11 @@ void UserRequestDataDownloadJob::setFullExport(bool newFullExport)
 QNetworkRequest UserRequestDataDownloadJob::request() const
 {
     QUrl url = mRestApiMethod->generateUrl(RestApiUtil::RestApiUrlType::UserRequestDataDownload);
+    QUrlQuery queryUrl;
+    queryUrl.addQueryItem(QStringLiteral("fullExport"), mFullExport ? QStringLiteral("true") : QStringLiteral("false"));
+    addQueryParameter(queryUrl);
+    url.setQuery(queryUrl);
+
     QNetworkRequest request(url);
     addAuthRawHeader(request);
     return request;

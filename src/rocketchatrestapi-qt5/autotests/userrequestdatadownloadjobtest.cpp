@@ -32,6 +32,10 @@ void UserRequestDataDownloadJobTest::shouldGenerateRequest()
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
     job.setRestApiMethod(&method);
-    const QNetworkRequest request = job.request();
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload")));
+    QNetworkRequest request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload?fullExport=false")));
+
+    job.setFullExport(true);
+    request = job.request();
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload?fullExport=true")));
 }
