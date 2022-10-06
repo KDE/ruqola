@@ -229,7 +229,7 @@ void EmojiManager::replaceEmojis(QString *str)
         QTextStream stream(&pattern);
         // prevent replacements within other strings, use a negative-lookbehind to rule out
         // that we are within some word or link or such
-        stream << "(?<![\\w\\-])";
+        stream << "(?<![\\w\\-:])";
         // put all other patterns in a non-capturing group
         stream << "(?:";
         stream << commonPattern;

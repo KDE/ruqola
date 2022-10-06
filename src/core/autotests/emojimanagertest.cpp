@@ -8,6 +8,7 @@
 #include "emoticons/customemoji.h"
 #include "emoticons/emojimanager.h"
 #include "emoticons/unicodeemoticonmanager.h"
+#include "rocketchataccount.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -395,4 +396,31 @@ void EmojiManagerTest::shouldNormalizeReactions()
 
     EmojiManager manager(nullptr);
     QCOMPARE(manager.normalizedReactionEmoji(emoji), normalizedEmoji);
+}
+
+void EmojiManagerTest::replaceAsciiEmoji_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<bool>("replaced");
+
+    QTest::addRow("1") << "hello :)" << true;
+    QTest::addRow("2") << "Item::Lock" << false;
+    QTest::addRow("3") << ":)" << true;
+    QTest::addRow("3") << ":)what" << true;
+}
+
+void EmojiManagerTest::replaceAsciiEmoji()
+{
+    QFETCH(QString, input);
+    QFETCH(bool, replaced);
+    QString original = input;
+
+    UnicodeEmoticonManager::self();
+    RocketChatAccount account;
+    account.ownUserPreferences().setConvertAsciiEmoji(true);
+    EmojiManager manager(&account);
+    manager.setServerUrl(QStringLiteral("blah blah"));
+    manager.replaceEmojis(&input);
+
+    QCOMPARE(input != original, replaced);
 }

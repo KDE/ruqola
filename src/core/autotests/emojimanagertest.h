@@ -38,4 +38,7 @@ private Q_SLOTS:
 
     void shouldUpdateEmojiCustom_data();
     void shouldUpdateEmojiCustom();
+
+    void replaceAsciiEmoji_data();
+    void replaceAsciiEmoji();
 };
