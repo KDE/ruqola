@@ -35,6 +35,7 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
     setShowUnread(replyObject.value(QLatin1String("sidebarShowUnread")).toBool(false));
     setShowRoomAvatar(replyObject.value(QLatin1String("sidebarDisplayAvatar")).toBool(false));
+    setShowFavorite(replyObject.value(QLatin1String("sidebarShowFavorites")).toBool(false));
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -43,7 +44,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
-        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar();
+        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -127,6 +128,16 @@ void OwnUserPreferences::setShowRoomAvatar(bool newShowRoomAvatar)
     mShowRoomAvatar = newShowRoomAvatar;
 }
 
+bool OwnUserPreferences::showFavorite() const
+{
+    return mShowFavorite;
+}
+
+void OwnUserPreferences::setShowFavorite(bool newShowFavorite)
+{
+    mShowFavorite = newShowFavorite;
+}
+
 bool OwnUserPreferences::convertAsciiEmoji() const
 {
     return mConvertAsciiEmoji;
@@ -202,5 +213,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mMessageViewMode " << t.messageViewMode();
     d << "mShowUnread " << t.showUnread();
     d << "mShowRoomAvatar " << t.showRoomAvatar();
+    d << "mShowFavorite " << t.showFavorite();
     return d;
 }

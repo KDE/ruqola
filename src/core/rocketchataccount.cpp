@@ -1966,6 +1966,11 @@ bool RocketChatAccount::sortUnreadOnTop() const
     return ownUser().ownUserPreferences().showUnread();
 }
 
+bool RocketChatAccount::sortFavoriteChannels() const
+{
+    return ownUser().ownUserPreferences().showFavorite();
+}
+
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
 {
     switch (channelType) {
@@ -2694,7 +2699,10 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateChannelView();
             } else if (key == QStringLiteral("settings.preferences.sidebarShowFavorites")) {
-                // TODO
+                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
+                ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT needUpdateChannelView();
             } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
                 // TODO
             } else {

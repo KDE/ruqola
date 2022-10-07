@@ -450,7 +450,7 @@ RoomModel::Section RoomModel::section(Room *r) const
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
         return Section::Unread;
     }
-    if (r->favorite()) {
+    if (r->favorite() && mRocketChatAccount && mRocketChatAccount->sortFavoriteChannels()) {
         return Section::Favorites;
     } else if (r->teamInfo().mainTeam()) {
         return Section::Teams;

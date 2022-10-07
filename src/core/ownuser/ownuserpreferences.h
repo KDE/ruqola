@@ -59,6 +59,9 @@ public:
     Q_REQUIRED_RESULT bool showRoomAvatar() const;
     void setShowRoomAvatar(bool newShowRoomAvatar);
 
+    Q_REQUIRED_RESULT bool showFavorite() const;
+    void setShowFavorite(bool newShowFavorite);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -73,6 +76,7 @@ private:
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
     bool mShowRoomAvatar = false;
+    bool mShowFavorite = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)
