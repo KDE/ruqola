@@ -16,8 +16,8 @@
 #include "roomutil.h"
 #include "ruqolawidgets_debug.h"
 #include "threadwidget/threadmessagedialog.h"
-#include "translator/translatormenu.h"
 #include "translatetext/translatetextjob.h"
+#include "translator/translatormenu.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>

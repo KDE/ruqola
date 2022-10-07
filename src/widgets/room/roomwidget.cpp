@@ -42,12 +42,12 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QMimeData>
 #include <QPushButton>
 #include <QScrollBar>
 #include <QVBoxLayout>
-#include <QDragEnterEvent>
-#include <QDropEvent>
 
 RoomWidget::RoomWidget(QWidget *parent)
     : QWidget(parent)

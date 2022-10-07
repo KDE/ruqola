@@ -8,8 +8,8 @@
 
 #include "libruqolacore_export.h"
 
-#include <QJsonObject>
 #include <QDebug>
+#include <QJsonObject>
 class LIBRUQOLACORE_EXPORT ServicePassword
 {
 public:

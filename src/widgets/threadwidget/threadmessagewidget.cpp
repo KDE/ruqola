@@ -17,12 +17,12 @@
 
 #include <KLocalizedString>
 
+#include <QDragEnterEvent>
+#include <QDropEvent>
 #include <QLabel>
 #include <QMimeData>
 #include <QToolButton>
 #include <QVBoxLayout>
-#include <QDropEvent>
-#include <QDragEnterEvent>
 
 ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
