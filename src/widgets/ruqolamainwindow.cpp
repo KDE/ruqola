@@ -514,7 +514,7 @@ void RuqolaMainWindow::setupActions()
     connect(mShowRocketChatServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotRocketChatInformation);
     ac->addAction(QStringLiteral("show_rocketchat_information"), mShowRocketChatServerInfo);
 
-    mRoomAvatar = new QAction(i18n("Room Avatar"), this);
+    mRoomAvatar = new QAction(i18n("Show Room Avatar"), this);
     mRoomAvatar->setCheckable(true);
     connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
     ac->addAction(QStringLiteral("room_avatar"), mRoomAvatar);
