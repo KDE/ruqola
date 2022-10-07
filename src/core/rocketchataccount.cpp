@@ -1268,6 +1268,14 @@ void RocketChatAccount::setShowRoomAvatar(bool checked)
     setUserPreferences(info);
 }
 
+void RocketChatAccount::setShowFavoriteRoom(bool checked)
+{
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.userId = userId();
+    info.sidebarShowFavorites = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(checked);
+    setUserPreferences(info);
+}
+
 void RocketChatAccount::loadMoreListMessages(const QString &roomId)
 {
     if (!mListMessageModel->loadMoreListMessagesInProgress()) {

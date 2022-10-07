@@ -303,6 +303,7 @@ void RuqolaMainWindow::updateActions()
     mAdministratorMenu->setVisible(isAdministrator);
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
     mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
+    mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -518,6 +519,11 @@ void RuqolaMainWindow::setupActions()
     mRoomAvatar->setCheckable(true);
     connect(mRoomAvatar, &QAction::triggered, this, &RuqolaMainWindow::slotShowRoomAvatar);
     ac->addAction(QStringLiteral("room_avatar"), mRoomAvatar);
+
+    mRoomFavorite = new QAction(i18n("Show Favorite Room"), this);
+    mRoomFavorite->setCheckable(true);
+    connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
+    ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
 }
 
 void RuqolaMainWindow::showNextView()
@@ -698,6 +704,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());
     mRoomAvatar->setEnabled(!loginPageActivated);
     mUnreadOnTop->setEnabled(!loginPageActivated);
+    mRoomFavorite->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
@@ -912,4 +919,9 @@ void RuqolaMainWindow::slotRocketChatInformation()
 void RuqolaMainWindow::slotShowRoomAvatar(bool checked)
 {
     mCurrentRocketChatAccount->setShowRoomAvatar(checked);
+}
+
+void RuqolaMainWindow::slotShowFavoriteRoom(bool checked)
+{
+    mCurrentRocketChatAccount->setShowFavoriteRoom(checked);
 }

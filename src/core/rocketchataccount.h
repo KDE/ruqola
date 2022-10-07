@@ -509,6 +509,7 @@ public:
     void setOwnUserPreferences(const OwnUserPreferences &ownUserPreferences);
 
     Q_REQUIRED_RESULT bool sortFavoriteChannels() const;
+    void setShowFavoriteRoom(bool checked);
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

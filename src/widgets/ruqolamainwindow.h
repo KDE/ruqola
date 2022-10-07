@@ -98,6 +98,7 @@ private:
     Q_REQUIRED_RESULT bool hasBannerInfo() const;
     void slotShowRoomAvatar(bool checked);
     void slotPrivateSettingsChanged();
+    void slotShowFavoriteRoom(bool checked);
 
     bool mReallyClose{false};
 
@@ -137,4 +138,5 @@ private:
     AccountManager *mAccountManager = nullptr;
     QAction *mShowRocketChatServerInfo = nullptr;
     QAction *mRoomAvatar = nullptr;
+    QAction *mRoomFavorite = nullptr;
 };

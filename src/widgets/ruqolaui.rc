@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="37">
+<gui name="ruqola" version="38">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -48,6 +48,7 @@
   <Menu name="view" >
    <text>View</text>
    <Action name="room_avatar" />
+   <Action name="room_favorite" />
    <Separator/>
    <Action name="unread_on_top" />
    <Separator/>

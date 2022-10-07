@@ -40,6 +40,7 @@ public:
         State displayAvatars = Unknown;
         State sidebarDisplayAvatar = Unknown;
         State sidebarShowUnread = Unknown;
+        State sidebarShowFavorites = Unknown;
         // Add more
     };
 
