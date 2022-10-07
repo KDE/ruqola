@@ -52,7 +52,16 @@ public:
     };
     Q_ENUM(RoomRoles)
 
-    enum class Section { Unread, Favorites, Teams, Rooms, PrivateMessages, Discussions, Unknown, NSections };
+    enum class Section {
+        Unread,
+        Favorites,
+        Teams,
+        Rooms,
+        PrivateMessages,
+        Discussions,
+        Unknown,
+        NSections,
+    };
 
     explicit RoomModel(RocketChatAccount *account = nullptr, QObject *parent = nullptr);
     ~RoomModel() override;
