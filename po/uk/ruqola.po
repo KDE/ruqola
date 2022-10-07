@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-06 00:45+0000\n"
-"PO-Revision-Date: 2022-10-04 07:18+0300\n"
+"POT-Creation-Date: 2022-10-07 00:46+0000\n"
+"PO-Revision-Date: 2022-10-06 19:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -802,7 +802,7 @@ msgid "Role"
 msgstr "Роль"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
 #, kde-format
 msgid "Disabled"
 msgstr "Вимкнено"
@@ -949,8 +949,8 @@ msgstr[3] "%1 секунда"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:148
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
 #, kde-format
 msgid "Nothing"
 msgstr "Нічого"
@@ -986,15 +986,15 @@ msgid "Seasons"
 msgstr "Пори"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:146
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:154
 #, kde-format
 msgid "All Messages"
 msgstr "Всі повідомлення"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:147
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:155
 #, kde-format
 msgid "Mentions"
 msgstr "Згадування"
@@ -3261,10 +3261,9 @@ msgid "Total Discussions"
 msgstr "Загалом обговорень"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Total Channels"
+#, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr "Загалом каналів"
+msgstr "Загалом загальноканальних кімнат"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
@@ -3831,7 +3830,7 @@ msgstr "Увімкнути улюблені кімнати"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "Скорочення імен UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -3841,7 +3840,7 @@ msgstr "Увімкнути перевірку оновлень"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Надсилати статистику до Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:41
 #, kde-format
@@ -3955,6 +3954,8 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Встановлює типовий часовий пояс, який буде використано при показу панелей "
+"приладів або надсилання повідомлень електронної пошти"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, kde-format
@@ -3977,15 +3978,12 @@ msgid "Default timezone for reporting"
 msgstr "Типовий часовий пояс для звітів"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
-#, fuzzy, kde-format
-#| msgid "Report a Bug"
+#, kde-format
 msgid "Reporting"
-msgstr "Повідомити про ваду"
+msgstr "Звітування"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Notifications"
 msgstr "Сповіщення"
 
@@ -3996,11 +3994,16 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Максимальна кількість учасників у кімнаті для вимикання сповіщень щодо усіх "
+"повідомлень. Користувачі можуть змінювати значення цього параметра в окремих "
+"кімнатах, щоб отримувати усі сповіщення на індивідуальній основі. (0 — "
+"вимкнути)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
+"Максимальна кількість учасників для вимикання усіх сповіщень щодо повідомлень"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -6154,87 +6157,99 @@ msgstr "Ви справді хочете вилучити жетон «%1»?"
 msgid "Remove Token"
 msgstr "Вилучити жетон"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Use Emoji"
 msgstr "Використовувати емодзі"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Перетворювати ASCII на емодзі"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, kde-format
 msgid "Hide Roles"
 msgstr "Приховати ролі"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Display Avatars"
 msgstr "Показувати аватари"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:42
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
 #, kde-format
 msgid "Highlight words:"
 msgstr "Позначення слів:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:49
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Скористайтеся «,» для відокремлення слів"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Слова слід відокремлювати за допомогою «,»."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
 #, kde-format
 msgid "Desktop Notification:"
 msgstr "Стільничне сповіщення:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
 #, kde-format
 msgid "Offline Email Notification:"
 msgstr "Автономне сповіщення електронною поштою:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
 #, kde-format
 msgid "Push Notification:"
 msgstr "Пуш-сповіщення:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:80
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
 msgid "View Mode:"
 msgstr "Режим перегляду:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:102
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
 #, kde-format
 msgid "Download My Data (HTML)"
-msgstr ""
+msgstr "Отримання ваших даних (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:109
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Export My Data (JSON)"
+msgstr "Експортування ваших даних (JSON)"
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
+#, kde-format
+msgid ""
+"Your data file will be generated. A link to download it will be sent to your "
+"email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
+#, kde-format
+msgid "Download File Requested"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
 #, kde-format
 msgid "Each Mentions"
 msgstr "Усі згадки"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:162
 #, kde-format
 msgid "Normal"
 msgstr "Звичайний"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:163
 #, kde-format
 msgid "Cozy"
 msgstr "Зручний"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
 #, kde-format
 msgid "Compact"
 msgstr "Компактний"
