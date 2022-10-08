@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:46+0000\n"
-"PO-Revision-Date: 2022-10-04 09:08+0200\n"
+"POT-Creation-Date: 2022-10-08 00:46+0000\n"
+"PO-Revision-Date: 2022-10-07 11:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -807,7 +807,7 @@ msgstr "Onemogočeno"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
@@ -1346,12 +1346,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2793
+#: core/rocketchataccount.cpp:2809
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2794
+#: core/rocketchataccount.cpp:2810
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -1822,7 +1822,7 @@ msgstr "Jidiš"
 msgid "User"
 msgstr "Uporabnik"
 
-#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:405
+#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Administrator"
 msgstr "Skrbnik"
@@ -2591,7 +2591,7 @@ msgstr "Nevidno stanje je onemogočeno"
 msgid "%1 is already in use."
 msgstr "%1 je že v uporabi."
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:137
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:140
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Neveljavni parametri"
@@ -2820,7 +2820,7 @@ msgstr "Uredi stanje uporabnika"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:457
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgid "Status:"
 msgstr "Stanje:"
@@ -3247,10 +3247,9 @@ msgid "Total Discussions"
 msgstr "Skupaj razprav"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Total Channels"
+#, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr "Skupaj kanalov"
+msgstr "Skupaj omnikanalnih sob"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
@@ -3587,7 +3586,7 @@ msgstr "Šifriranje"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:816
+#: widgets/ruqolamainwindow.cpp:823
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
@@ -3815,7 +3814,7 @@ msgstr "Omogoči priljubljene sobe"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "UTF8 imena Slugify"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -3825,7 +3824,7 @@ msgstr "Omogoči preverjalnik posodobitev"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Pošlji statistike v Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:41
 #, kde-format
@@ -3939,6 +3938,8 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Določi privzeti časovni pas, ki bo uporabljen za kontrolne plošče in "
+"pošiljanje e-poštnih sporočil"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
 #, kde-format
@@ -3961,17 +3962,14 @@ msgid "Default timezone for reporting"
 msgstr "Privzeti časovni pas za poročanje"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reporting"
-msgstr "Sporočilo s poročilom"
+msgstr "Poročanje"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Notifications"
-msgstr "Obvestilo"
+msgstr "Obvestila"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:124
 #, kde-format
@@ -3980,11 +3978,15 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Največje število članov v sobi, kadar so onemogočena obvestila za vsa "
+"sporočila. Uporabniki še vedno lahko spreminjajo individualne nastavitve "
+"sprejemanja obvestil glede na sobo. (0 pomeni onemogočenje)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
+"Največje število članov sobe pred onemogočenjem vseh obvestil o sporočilih"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -6173,12 +6175,12 @@ msgstr "Način pogleda:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
 #, kde-format
 msgid "Download My Data (HTML)"
-msgstr ""
+msgstr "Prenesi My Data (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Export My Data (JSON)"
-msgstr ""
+msgstr "Izvozi My Data (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
 #, kde-format
@@ -6186,11 +6188,13 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"Vaša podatkovna datoteka bo generirana. Povezava za prenos po poslana na "
+"vašo elektronsko pošto, ko bo pripravljena."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
 #, kde-format
 msgid "Download File Requested"
-msgstr ""
+msgstr "Zahtevan je prenos datoteke"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
 #, kde-format
@@ -6939,128 +6943,135 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
-#: widgets/ruqolamainwindow.cpp:345
+#: widgets/ruqolamainwindow.cpp:346
 #, kde-format
 msgid "Add Server..."
 msgstr "Dodaj strežnik ..."
 
-#: widgets/ruqolamainwindow.cpp:350
+#: widgets/ruqolamainwindow.cpp:351
 #, kde-format
 msgid "Server Info..."
 msgstr "Podatki o strežniku ..."
 
-#: widgets/ruqolamainwindow.cpp:354
+#: widgets/ruqolamainwindow.cpp:355
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Odjavi se iz trenutnega strežnika"
 
-#: widgets/ruqolamainwindow.cpp:358
+#: widgets/ruqolamainwindow.cpp:359
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Skoči na naslednji neprebrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:363
+#: widgets/ruqolamainwindow.cpp:364
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Ustvari nov kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:367
+#: widgets/ruqolamainwindow.cpp:368
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Ustvari neposredna sporočila ..."
 
-#: widgets/ruqolamainwindow.cpp:371
+#: widgets/ruqolamainwindow.cpp:372
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Ustvari razpravo ..."
 
-#: widgets/ruqolamainwindow.cpp:375
+#: widgets/ruqolamainwindow.cpp:376
 #, kde-format
 msgid "Create Team..."
 msgstr "Ustvari ekipo ..."
 
-#: widgets/ruqolamainwindow.cpp:383
+#: widgets/ruqolamainwindow.cpp:384
 #, kde-format
 msgid "Unread on Top"
 msgstr "Neprebrano na vrhu"
 
-#: widgets/ruqolamainwindow.cpp:388
+#: widgets/ruqolamainwindow.cpp:389
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Pokaži zapisnik kanala"
 
-#: widgets/ruqolamainwindow.cpp:392
+#: widgets/ruqolamainwindow.cpp:393
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Označi vse kanale kot prebrane"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:398
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registriraj novega uporabnika ..."
 
-#: widgets/ruqolamainwindow.cpp:401
+#: widgets/ruqolamainwindow.cpp:402
 #, kde-format
 msgid "My Account..."
 msgstr "Moj račun ..."
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:407
 #, kde-format
 msgid "Administrator..."
 msgstr "Skrbnik ..."
 
-#: widgets/ruqolamainwindow.cpp:412
+#: widgets/ruqolamainwindow.cpp:413
 #, kde-format
 msgid "Server Settings..."
 msgstr "Nastavitve strežnika..."
 
-#: widgets/ruqolamainwindow.cpp:417
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Directory..."
 msgstr "Mapa …"
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgid "&Next Server"
 msgstr "&Naslednji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:444
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Prejšnji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:473
+#: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Prejšnji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:480
+#: widgets/ruqolamainwindow.cpp:481
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Naslednji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:509
+#: widgets/ruqolamainwindow.cpp:510
 #, kde-format
 msgid "Show Notify History"
 msgstr "Prikaži zgodovino obvestil"
 
-#: widgets/ruqolamainwindow.cpp:513
+#: widgets/ruqolamainwindow.cpp:514
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
-#: widgets/ruqolamainwindow.cpp:517
-#, kde-format
-msgid "Room Avatar"
-msgstr "Avatar sobe"
+#: widgets/ruqolamainwindow.cpp:518
+#, fuzzy, kde-format
+#| msgid "Show room avatar"
+msgid "Show Room Avatar"
+msgstr "Pokaži avatar sobe"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:523
+#, fuzzy, kde-format
+#| msgid "Enable Favorite Rooms"
+msgid "Show Favorite Room"
+msgstr "Omogoči priljubljene sobe"
+
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:718
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -7069,12 +7080,12 @@ msgstr ""
 "Poslali smo vam e-poštno sporočilo, da potrdite svojo registracijo.\n"
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:726
 #, kde-format
 msgid "Register New User"
 msgstr "Registriraj novega uporabnika"
 
-#: widgets/ruqolamainwindow.cpp:843
+#: widgets/ruqolamainwindow.cpp:850
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -7083,7 +7094,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:846
+#: widgets/ruqolamainwindow.cpp:853
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Krij menijsko vrstico"
@@ -7113,7 +7124,7 @@ msgid "View"
 msgstr "Pogled"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:59
+#: widgets/ruqolaui.rc:60
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
@@ -7243,6 +7254,9 @@ msgstr "Podatki o računu"
 msgid "Return the number of account."
 msgstr "Vrnite številko računa."
 
+#~ msgid "Room Avatar"
+#~ msgstr "Avatar sobe"
+
 #~ msgid "TOTP Required"
 #~ msgstr "Zahtevano TOTP"
 
@@ -7259,9 +7273,6 @@ msgstr "Vrnite številko računa."
 
 #~ msgid "Read"
 #~ msgstr "Beri"
-
-#~ msgid "Show room avatar"
-#~ msgstr "Pokaži avatar sobe"
 
 #~ msgid "Audio:"
 #~ msgstr "Zvočna datoteka:"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-07 00:46+0000\n"
+"POT-Creation-Date: 2022-10-08 00:46+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -846,7 +846,7 @@ msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:450
+#: widgets/ruqolamainwindow.cpp:451
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Status"
@@ -1413,13 +1413,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2793
+#: core/rocketchataccount.cpp:2809
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "檢舉訊息"
 
-#: core/rocketchataccount.cpp:2794
+#: core/rocketchataccount.cpp:2810
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1892,7 +1892,7 @@ msgstr ""
 msgid "User"
 msgstr "使用者："
 
-#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:405
+#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -2657,7 +2657,7 @@ msgstr ""
 msgid "%1 is already in use."
 msgstr ""
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:137
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:140
 #, fuzzy, kde-format
 #| msgid "Invalid message id"
 msgid "Invalid parameters"
@@ -2903,7 +2903,7 @@ msgstr "自訂使用者狀態"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:457
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:458
 #, kde-format
 msgid "Status:"
 msgstr "狀態："
@@ -3744,7 +3744,7 @@ msgstr "加密："
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:816
+#: widgets/ruqolamainwindow.cpp:823
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -7220,167 +7220,173 @@ msgstr "登入失敗"
 msgid "Show New Notifications"
 msgstr "停用通知："
 
-#: widgets/ruqolamainwindow.cpp:345
+#: widgets/ruqolamainwindow.cpp:346
 #, kde-format
 msgid "Add Server..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:350
+#: widgets/ruqolamainwindow.cpp:351
 #, kde-format
 msgid "Server Info..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:354
+#: widgets/ruqolamainwindow.cpp:355
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Logout Current Server"
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:358
+#: widgets/ruqolamainwindow.cpp:359
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:363
+#: widgets/ruqolamainwindow.cpp:364
 #, kde-format
 msgid "Create New Channel..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:367
+#: widgets/ruqolamainwindow.cpp:368
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
 msgid "Create Direct Messages..."
 msgstr "開始視訊聊天"
 
-#: widgets/ruqolamainwindow.cpp:371
+#: widgets/ruqolamainwindow.cpp:372
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion..."
 msgstr "建立討論區"
 
-#: widgets/ruqolamainwindow.cpp:375
+#: widgets/ruqolamainwindow.cpp:376
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Create Team..."
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:383
+#: widgets/ruqolamainwindow.cpp:384
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:388
+#: widgets/ruqolamainwindow.cpp:389
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Channel Log"
 msgstr "找不到頻道"
 
-#: widgets/ruqolamainwindow.cpp:392
+#: widgets/ruqolamainwindow.cpp:393
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark All Channels as Read"
 msgstr "找不到訊息"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:398
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
 msgid "Register a New User..."
 msgstr "邀請使用者"
 
-#: widgets/ruqolamainwindow.cpp:401
+#: widgets/ruqolamainwindow.cpp:402
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "My Account..."
 msgstr "加入帳戶"
 
-#: widgets/ruqolamainwindow.cpp:406
+#: widgets/ruqolamainwindow.cpp:407
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:412
+#: widgets/ruqolamainwindow.cpp:413
 #, fuzzy, kde-format
 #| msgid "Server version:"
 msgid "Server Settings..."
 msgstr "伺服器版本："
 
-#: widgets/ruqolamainwindow.cpp:417
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:439
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "&Next Server"
 msgstr "伺服器資訊"
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:444
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "&Previous Server"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:473
+#: widgets/ruqolamainwindow.cpp:474
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous Selected Channel"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:480
+#: widgets/ruqolamainwindow.cpp:481
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Selected Channel"
 msgstr "下一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:509
+#: widgets/ruqolamainwindow.cpp:510
 #, fuzzy, kde-format
 #| msgid "Disable Notifications:"
 msgid "Show Notify History"
 msgstr "停用通知："
 
-#: widgets/ruqolamainwindow.cpp:513
+#: widgets/ruqolamainwindow.cpp:514
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat 登入"
 
-#: widgets/ruqolamainwindow.cpp:517
+#: widgets/ruqolamainwindow.cpp:518
 #, fuzzy, kde-format
 #| msgid "Password"
-msgid "Room Avatar"
+msgid "Show Room Avatar"
 msgstr "密碼"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:523
+#, fuzzy, kde-format
+#| msgid "Delete Room"
+msgid "Show Favorite Room"
+msgstr "刪除聊天室"
+
+#: widgets/ruqolamainwindow.cpp:549
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:718
+#: widgets/ruqolamainwindow.cpp:725
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:726
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
 msgid "Register New User"
 msgstr "邀請使用者"
 
-#: widgets/ruqolamainwindow.cpp:843
+#: widgets/ruqolamainwindow.cpp:850
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:846
+#: widgets/ruqolamainwindow.cpp:853
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -7410,7 +7416,7 @@ msgid "View"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:59
+#: widgets/ruqolaui.rc:60
 #, kde-format
 msgid "Main Toolbar"
 msgstr ""
@@ -7557,6 +7563,11 @@ msgid "Return the number of account."
 msgstr "回到帳戶列表"
 
 #, fuzzy
+#~| msgid "Password"
+#~ msgid "Room Avatar"
+#~ msgstr "密碼"
+
+#, fuzzy
 #~| msgid "Authentication Method"
 #~ msgid "Authentication required"
 #~ msgstr "身份驗證方式"
@@ -7565,11 +7576,6 @@ msgstr "回到帳戶列表"
 #~| msgid "Read-Only:"
 #~ msgid "Read"
 #~ msgstr "唯讀："
-
-#, fuzzy
-#~| msgid "Password"
-#~ msgid "Show room avatar"
-#~ msgstr "密碼"
 
 #~ msgid "Audio:"
 #~ msgstr "音訊："
