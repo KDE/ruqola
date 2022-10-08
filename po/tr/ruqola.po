@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-06 12:04+0300\n"
+"PO-Revision-Date: 2022-10-08 12:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4467,29 +4467,29 @@ msgstr "Zamanlayıcı Duyarlılığı"
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:62
 #, kde-format
 msgid "Only files will be deleted, the messages themselves will stay in place."
-msgstr ""
+msgstr "Yalnızca dosyalar silinecektir, iletiler yerlerinde kalacak."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:72
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:82
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:92
 #, kde-format
 msgid "Prune all messages older than this value, in days."
-msgstr ""
+msgstr "Gün türündeki bu değerden eski tüm iletileri buda."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:74
 #, kde-format
 msgid "Maximum message age in channels"
-msgstr ""
+msgstr "Kanallardaki en yüksek ileti yaşı"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:84
 #, kde-format
 msgid "Maximum message age in private groups"
-msgstr ""
+msgstr "Özel gruplardaki en yüksek ileti yaşı"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:94
 #, kde-format
 msgid "Maximum message age in direct messages"
-msgstr ""
+msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:95
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:119
@@ -4497,74 +4497,74 @@ msgstr ""
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
 #, kde-format
 msgid "Apply"
-msgstr ""
+msgstr "Uygula"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
 #, kde-format
 msgid "Always Open in New Window"
-msgstr ""
+msgstr "Her Zaman Yeni Pencerede Aç"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr ""
+msgstr "Oda adı sağlamasını etkinleştir"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL eullan"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:28
 #, kde-format
 msgid "Enable in Channels"
-msgstr ""
+msgstr "Kanallarda etkinleştir"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:29
 #, kde-format
 msgid "Enable for Teams"
-msgstr ""
+msgstr "Takımlarda etkinleştir"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:31
 #, kde-format
 msgid "Enable JWT auth"
-msgstr ""
+msgstr "JWT kimlik doğrulamasını etkinleştir"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
 #, kde-format
 msgid "Limit token to Jitsi Room"
-msgstr ""
+msgstr "Jitsi odasına jetonu sınırla"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:36
 #, kde-format
 msgid "BigBlueButton"
-msgstr ""
+msgstr "BüyükMaviDüğme"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:45
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:63
 #, kde-format
 msgid "Domain"
-msgstr ""
+msgstr "Alan Adı"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:48
 #, kde-format
 msgid "Shared Secret"
-msgstr ""
+msgstr "Paylaşılan Giz"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:54
 #, kde-format
 msgid "Jitsi"
-msgstr ""
+msgstr "Jitsi"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:66
 #, kde-format
 msgid "URL room prefix"
-msgstr ""
+msgstr "URL oda öneki"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:69
 #, kde-format
 msgid "URL room suffix"
-msgstr ""
+msgstr "URL oda soneki"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:72
 #, kde-format
@@ -4572,37 +4572,39 @@ msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
 msgstr ""
+"Jitsi örneği bir kimlik doğrulama mekanızması kullanmıyorsa etkinleştirilmesi"
+" önerilir."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
 #, kde-format
 msgid "Chrome Extension Id"
-msgstr ""
+msgstr "Chrome Uzantı Kimliği"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:100
 #, kde-format
 msgid "Application ID (iss)"
-msgstr ""
+msgstr "Uygulama Kimliği (iss)"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:103
 #, kde-format
 msgid "Application Secret"
-msgstr ""
+msgstr "Uygulama Gizi"
 
 #: widgets/administratorsettingsdialog/webdav/webdavsettingswidget.cpp:13
 #, kde-format
 msgid "Webdav Integration Enabled"
-msgstr ""
+msgstr "Webdav Tümleştirmesi Etkin"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
 msgid "Banner Information"
-msgstr ""
+msgstr "Afiş Bilgisi"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:16
 #, kde-format
 msgid "Show Unread"
-msgstr ""
+msgstr "Okunmamışları Göster"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:46
@@ -4610,451 +4612,451 @@ msgstr ""
 #: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
 #, kde-format
 msgid "Search..."
-msgstr ""
+msgstr "Ara..."
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
 msgid "Mark as Read"
-msgstr ""
+msgstr "Okundu Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:99
 #, kde-format
 msgid "Mark As Read"
-msgstr ""
+msgstr "Okundu Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:99
 #, kde-format
 msgid "Mark As Unread"
-msgstr ""
+msgstr "Okunmamış Olarak İmle"
 
 #: widgets/channellist/channellistview.cpp:107
 #: widgets/room/messagelistview.cpp:225
 #, kde-format
 msgid "Set as Favorite"
-msgstr ""
+msgstr "Sık Kullanılan Olarak Ayarla"
 
 #: widgets/channellist/channellistview.cpp:107
 #, kde-format
 msgid "Unset as Favorite"
-msgstr ""
+msgstr "Sık Kullanılanlardan Kaldır"
 
 #: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Hide Channel"
-msgstr ""
+msgstr "Kanalı Gizle"
 
 #: widgets/channellist/channellistview.cpp:129
 #: widgets/channellist/channellistview.cpp:263
 #, kde-format
 msgid "Convert to Team"
-msgstr ""
+msgstr "Takıma Dönüştür"
 
 #: widgets/channellist/channellistview.cpp:138
 #, kde-format
 msgid "Convert to Channel"
-msgstr ""
+msgstr "Kanala Dönüştür"
 
 #: widgets/channellist/channellistview.cpp:148
 #, kde-format
 msgid "Move to Team"
-msgstr ""
+msgstr "Takıma Taşı"
 
 #: widgets/channellist/channellistview.cpp:163
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
-msgstr ""
+msgstr "Bildirimleri Yapılandır..."
 
 #: widgets/channellist/channellistview.cpp:170
 #, kde-format
 msgid "Quit Channel"
-msgstr ""
+msgstr "Kanaldan Çık"
 
 #: widgets/channellist/channellistview.cpp:216
 #, kde-format
 msgid "Any team selected."
-msgstr ""
+msgstr "Herhangi bir takım seçili."
 
 #: widgets/channellist/channellistview.cpp:216
 #, kde-format
 msgid "Move To Team"
-msgstr ""
+msgstr "Takıma Taşı"
 
 #: widgets/channellist/channellistview.cpp:263
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
-msgstr ""
+msgstr "Takıma dönüştürmek istediğinize emin misiniz? Bu işlem geri alınamaz."
 
 #: widgets/channellist/channellistwidget.cpp:39
 #, kde-format
 msgid "Filter Channels (CTRL + K)"
-msgstr ""
+msgstr "Kanalları Süz (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:46
 #, kde-format
 msgid "Search Channels"
-msgstr ""
+msgstr "Kanalları Ara"
 
 #: widgets/channellist/channellistwidget.cpp:53
 #, kde-format
 msgid "Previous Channel"
-msgstr ""
+msgstr "Önceki Kanal"
 
 #: widgets/channellist/channellistwidget.cpp:61
 #, kde-format
 msgid "Next Channel"
-msgstr ""
+msgstr "Sonraki Kanal"
 
 #: widgets/common/delegateutil.cpp:63
 #, kde-format
 msgid "Error saving file"
-msgstr ""
+msgstr "Dosya kaydedilirken hata"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:58
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
-msgstr ""
+msgstr "'%1' hesabını kaldırmak istediğinize emin misiniz?"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Account"
-msgstr ""
+msgstr "Hesabı Kaldır"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
 msgid "&Use custom fonts"
-msgstr ""
+msgstr "Ö&zel yazıtipleri kullan"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
 #, kde-format
 msgid "Set accounts online on startup"
-msgstr ""
+msgstr "Başlangıçta, hesapları çevrimiçi yap"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:16
 #, kde-format
 msgid "Show images by default"
-msgstr ""
+msgstr "Görselleri öntanımlı olarak göster"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:17
 #, kde-format
 msgid "Mark room as read when clicking to write a reply"
-msgstr ""
+msgstr "Bir yanıt yazmak için odaya tıklandığında odayı okundu olarak imle"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:18
 #, kde-format
 msgid "Enable system tray icon"
-msgstr ""
+msgstr "Sistem tepsisi simgesini etkinleştir"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
 msgid "Enable logging"
-msgstr ""
+msgstr "Günlüklemeyi etkinleştir"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:41
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
-msgstr ""
+msgstr "Ruqola'yı Yapılandır"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:46
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:51
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
-msgstr ""
+msgstr "Hesap"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:56
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
-msgstr ""
+msgstr "Yazıtipi"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:61
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
-msgstr ""
+msgstr "Yazım Denetimi"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:66
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
-msgstr ""
+msgstr "Çeviri"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
-msgstr ""
+msgstr "Kullanıcı Geri Bildirimi"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Room"
-msgstr ""
+msgstr "Odaya Kullanıcılar Ekle"
 
 #: widgets/dialogs/asktwoauthenticationpassworddialog.cpp:18
 #: widgets/dialogs/channelinfodialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info"
-msgstr ""
+msgstr "Kanal Bilgisi"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:96
 #, kde-format
 msgid "Save Attachment"
-msgstr ""
+msgstr "İlişiği Kaydet"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:107
 #, kde-format
 msgid "Do you want to Delete this File?"
-msgstr ""
+msgstr "Bu dosyası silmek istediğinize emin misiniz?"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:108
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
-msgstr ""
+msgstr "Dosyayı Sil"
 
 #: widgets/dialogs/autotranslateconfiguredialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
-msgstr ""
+msgstr "Otomatik Çeviriyi Yapılandır"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:21
 #, kde-format
 msgid "Auto-Translate"
-msgstr ""
+msgstr "Otomatik Çeviri"
 
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:38
 #, kde-format
 msgid "Language:"
-msgstr ""
+msgstr "Dil:"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Team Info about '%1'"
-msgstr ""
+msgstr "'%1' Takımı Bilgisi"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
 msgid "Channel Info about '%1'"
-msgstr ""
+msgstr "'%1' Kanalı Bilgisi"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:232
 #, kde-format
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, kde-format
 msgid "ReadOnly:"
-msgstr ""
+msgstr "Saltokunur:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
 msgid "Archive:"
-msgstr ""
+msgstr "Arşivle:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to archive this room?"
-msgstr ""
+msgstr "Bu odayı arşivlemek istediğinize emin misiniz?"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to unarchive this room?"
-msgstr ""
+msgstr "Bu odanın arşivini açmak istediğinize emin misiniz?"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive Channel"
-msgstr ""
+msgstr "Kanalı Arşivle"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Unarchive Channel"
-msgstr ""
+msgstr "Kanalı Arşivden Çıkar"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:95
 #, kde-format
 msgid "Private:"
-msgstr ""
+msgstr "Özel:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:98
 #, kde-format
 msgid "Encrypted:"
-msgstr ""
+msgstr "Şifreli:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Hide System Messages:"
-msgstr ""
+msgstr "Sistem İletilerini Gizle:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:116
 #, kde-format
 msgid "Do you want to delete this Team?"
-msgstr ""
+msgstr "Bu takımı silmek istediğinize emin misiniz?"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:117
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
-msgstr ""
+msgstr "Takımı Sil"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:125
 #, kde-format
 msgid "Do you want to delete this room?"
-msgstr ""
+msgstr "Bu odayı silmek istediğinize emin misiniz?"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
-msgstr ""
+msgstr "Odayı Sil"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:268
 #, kde-format
 msgid "This Room has a password"
-msgstr ""
+msgstr "Bu odanın bir parolası var"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:268
 #, kde-format
 msgid "Add password"
-msgstr ""
+msgstr "Parola ekle"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:19
 #, kde-format
 msgid "Exclude pinned messages"
-msgstr ""
+msgstr "Sabitlenen iletileri dışarıda tut"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:20
 #, kde-format
 msgid "Prune files only, keep messages"
-msgstr ""
+msgstr "Yalnızca dosyaları budayıp iletileri tut"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:21
 #, kde-format
 msgid "Automatically prune old messages"
-msgstr ""
+msgstr "Eski iletileri kendiliğinden buda"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:22
 #, kde-format
 msgid "Override global retention policy"
-msgstr ""
+msgstr "Global tutma politikasını geçersiz kıl"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
 #: widgets/prunemessages/prunemessagesdialog.cpp:42
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "Buda"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
 #, kde-format
 msgid "Maximum message age in days (default: 300):"
-msgstr ""
+msgstr "Gün türünden en yüksek ileti yaşı (öntanımlı: 300):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:59
 #, kde-format
 msgid "%1 name is already used."
-msgstr ""
+msgstr "%1 adı, halihazırda kullanılıyor."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:65
 #, kde-format
 msgid "Invalid characters found."
-msgstr ""
+msgstr "Geçersiz karakterler bulundu."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Password"
-msgstr ""
+msgstr "Parola Ekle"
 
 #: widgets/dialogs/channelpasswordwidget.cpp:22
 #, kde-format
 msgid "Channel Password:"
-msgstr ""
+msgstr "Kanal Parolası:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
-msgstr ""
+msgstr "Temizle"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, kde-format
 msgid "Select a channel"
-msgstr ""
+msgstr "Bir kanal seç"
 
 #: widgets/dialogs/configurenotificationdialog.cpp:17
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Notification"
-msgstr ""
+msgstr "Bildirimi Yapılandır"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Disable Notification"
-msgstr ""
+msgstr "Bildirimi Devre Dışı Bırak"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
 #, kde-format
 msgid "Hide Unread Room Status"
-msgstr ""
+msgstr "Okunmamış Oda Durumunu Gizle"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:26
 #, kde-format
 msgid "Mute Group Mentions"
-msgstr ""
+msgstr "Grup Değinmelerini Sessize Al"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:54
 #, kde-format
 msgid "Desktop"
-msgstr ""
+msgstr "Masaüstü"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:62
 #: widgets/dialogs/configurenotificationwidget.cpp:87
 #: widgets/dialogs/configurenotificationwidget.cpp:103
 #, kde-format
 msgid "Alert:"
-msgstr ""
+msgstr "Alarm:"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:71
 #, kde-format
 msgid "Sound:"
-msgstr ""
+msgstr "Ses:"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:79
 #, kde-format
 msgid "Mobile"
-msgstr ""
+msgstr "Taşınabilir"
 
 #: widgets/dialogs/confirmpassworddialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
-msgstr ""
+msgstr "Parolayı Onayla"
 
 #: widgets/dialogs/confirmpasswordwidget.cpp:23
 #, kde-format
 msgid "For your security, you must enter your current password to continue"
-msgstr ""
+msgstr "Güvenliğiniz açısından, sürdürmek için geçerli parolanızı girin"
 
 #: widgets/dialogs/createdirectmessagesdialog.cpp:30
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
-msgstr ""
+msgstr "Doğrudan İletiler Oluştur - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:21
 #, kde-format
