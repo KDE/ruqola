@@ -49,6 +49,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setIdleTimeLimit(300);
         preferences.setMessageViewMode(0);
         preferences.setDisplayAvatars(true);
+        preferences.setShowFavorite(true);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }
