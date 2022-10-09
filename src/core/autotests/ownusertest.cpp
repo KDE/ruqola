@@ -64,6 +64,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setEnableAutoAway(true);
     ownUser.setMessageViewMode(0);
     ownUser.setDisplayAvatars(false);
+    ownUser.setShowFavorite(true);
     result.setOwnUserPreferences(ownUser);
 
     QTest::addRow("example1") << QStringLiteral("example1") << result;

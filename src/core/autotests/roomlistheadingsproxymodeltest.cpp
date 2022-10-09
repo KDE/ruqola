@@ -7,6 +7,7 @@
 #include "model/roomfilterproxymodel.h"
 #include "model/roomlistheadingsproxymodel.h"
 
+#include <QStandardPaths>
 #include <QTest>
 #include <rocketchataccount.h>
 
@@ -15,6 +16,7 @@ QTEST_GUILESS_MAIN(RoomListHeadingsProxyModelTest)
 RoomListHeadingsProxyModelTest::RoomListHeadingsProxyModelTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 static QStandardItem *newItem(const char *text, RoomModel::Section section)
