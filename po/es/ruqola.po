@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-01 17:25+0200\n"
+"PO-Revision-Date: 2022-10-08 17:20+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2596,10 +2596,9 @@ msgstr ""
 "Error mientras se intentaba establecer el avatar desde la URL «%1» para %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "El registro de usuarios está desactivado"
+msgstr "El estado invisible está desactivado"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3254,10 +3253,9 @@ msgid "Total Discussions"
 msgstr "Total de discusiones"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Total Channels"
+#, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr "Total de canales"
+msgstr "Total de salas omnicanal"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
@@ -3553,10 +3551,9 @@ msgid "Allow Anonymous Write"
 msgstr "Permitir escritura anónima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Anonymous Write"
+#, kde-format
 msgid "Allow Anonymous Read"
-msgstr "Permitir escritura anónima"
+msgstr "Permitir lectura anónima"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
@@ -3566,12 +3563,12 @@ msgstr "Permitir cambio de contraseña para usuarios OAuth"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Permitir opción de estado invisible"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Olvidar la sesión de usuario al cerrar la ventana"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
 #, kde-format
@@ -3826,7 +3823,7 @@ msgstr "Activar salas favoritas"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "Convertir nombres UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -3836,7 +3833,7 @@ msgstr "Activar la comprobación de actualizaciones"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Enviar estadísticas a Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:41
 #, kde-format
@@ -3941,10 +3938,9 @@ msgstr ""
 " ambos solo visibles para administradores."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Zona horaria:"
+msgstr "Zona horaria"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
 #, kde-format
@@ -3952,41 +3948,38 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Establece el uso horario por omisión que se usará al mostrar el panel de "
+"instrumentos o enviar correos electrónicos"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Zona horaria:"
+msgstr "Zona horaria del servidor"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Zona horaria:"
+msgstr "Zona horaria personalizada"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "El uso horario actual del usuario"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "El uso horario por omisión al reportar"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
-#, fuzzy, kde-format
-#| msgid "Report Message"
+#, kde-format
 msgid "Reporting"
-msgstr "Notificar mensaje"
+msgstr "Reportando"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Notifications"
-msgstr "Notificación"
+msgstr "Notificaciones"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:124
 #, kde-format
@@ -3995,11 +3988,17 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Máximo número de miembros en la sala para desactivar las notificaciones para "
+"todos los mensajes. Los usuarios todavía pueden cambiar esta preferencia por "
+"sala para recibir todas las notificaciones de manera individual (0 para "
+"desactivar)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
+"Máximo número de miembros en la sala antes de desactivar las notificaciones "
+"a todos los mensajes"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
@@ -4073,7 +4072,7 @@ msgstr "Permitir caracteres especiales en el nombre de las salas"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
-msgstr ""
+msgstr "Fusionar grupos privados con canales"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -6180,12 +6179,12 @@ msgstr "Modo de vista:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
 #, kde-format
 msgid "Download My Data (HTML)"
-msgstr ""
+msgstr "Descargar mis datos (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Export My Data (JSON)"
-msgstr ""
+msgstr "Exportar mis datos (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
 #, kde-format
@@ -6193,11 +6192,13 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"Su archivo de datos se está generando. Se le enviará un enlace a su "
+"dirección de correo cuando esté disponible."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
 #, kde-format
 msgid "Download File Requested"
-msgstr ""
+msgstr "Descarga de archivo solicitada"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
 #, kde-format
@@ -7052,16 +7053,14 @@ msgid "Show RocketChat Information"
 msgstr "Mostrar información de RocketChat"
 
 #: widgets/ruqolamainwindow.cpp:518
-#, fuzzy, kde-format
-#| msgid "Room Avatar"
+#, kde-format
 msgid "Show Room Avatar"
-msgstr "Avatar de la sala"
+msgstr "Mostrar avatar de la sala"
 
 #: widgets/ruqolamainwindow.cpp:523
-#, fuzzy, kde-format
-#| msgid "Enable Favorite Rooms"
+#, kde-format
 msgid "Show Favorite Room"
-msgstr "Activar salas favoritas"
+msgstr "Mostrar sala favorita"
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format

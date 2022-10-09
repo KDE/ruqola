@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-07 09:16+0100\n"
+"PO-Revision-Date: 2022-10-08 11:03+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -7069,16 +7069,14 @@ msgid "Show RocketChat Information"
 msgstr "Mostrar a Informação do Rocket.Chat"
 
 #: widgets/ruqolamainwindow.cpp:518
-#, fuzzy, kde-format
-#| msgid "Room Avatar"
+#, kde-format
 msgid "Show Room Avatar"
-msgstr "Avatar da Sala"
+msgstr "Mostrar o Avatar da Sala"
 
 #: widgets/ruqolamainwindow.cpp:523
-#, fuzzy, kde-format
-#| msgid "Enable Favorite Rooms"
+#, kde-format
 msgid "Show Favorite Room"
-msgstr "Activar as Salas Favoritas"
+msgstr "Mostrar a Sala Favorita"
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format
