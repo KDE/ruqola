@@ -229,6 +229,7 @@ void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
     RoomListHeadingsProxyModel proxy;
     RocketChatAccount account;
     account.setSortUnreadOnTop(true);
+    account.setShowFavoriteRoom(true);
     RoomModel sampleModel(&account);
     int count = 0;
     std::vector<Room *> rooms;

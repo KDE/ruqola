@@ -76,7 +76,7 @@ private:
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
     bool mShowRoomAvatar = false;
-    bool mShowFavorite = false;
+    bool mShowFavorite = true;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)
