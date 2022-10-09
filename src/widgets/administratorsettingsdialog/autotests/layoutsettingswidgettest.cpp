@@ -46,4 +46,10 @@ void LayoutSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMergePrivateGroupsWithChannels->isChecked());
     QVERIFY(!mMergePrivateGroupsWithChannels->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMergePrivateGroupsWithChannels), QStringLiteral("UI_Merge_Channels_Groups"));
+
+    auto mGroupChannelsByType = w.findChild<QCheckBox *>(QStringLiteral("mGroupChannelsByType"));
+    QVERIFY(mGroupChannelsByType);
+    QVERIFY(!mGroupChannelsByType->isChecked());
+    QVERIFY(!mGroupChannelsByType->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupChannelsByType), QStringLiteral("UI_Group_Channels_By_Type"));
 }

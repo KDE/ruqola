@@ -23,4 +23,5 @@ private:
     QCheckBox *const mUseFullNameGenerateDefaultAvatar;
     QCheckBox *const mAllowSpecialCharactersRoomNames;
     QCheckBox *const mMergePrivateGroupsWithChannels;
+    QCheckBox *const mGroupChannelsByType;
 };
