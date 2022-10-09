@@ -14,6 +14,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTest>
 #include <qglobal.h>
 #include <rocketchataccount.h>
@@ -25,6 +26,7 @@ QTEST_GUILESS_MAIN(RoomModelTest)
 RoomModelTest::RoomModelTest(QObject *parent)
     : QObject(parent)
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void RoomModelTest::shouldHaveDefaultValues()
@@ -480,6 +482,7 @@ void RoomModelTest::shouldOrderRooms()
     RocketChatAccount account;
     auto preference = account.ownUser().ownUserPreferences();
     preference.setShowUnread(true);
+    preference.setShowFavorite(true);
     account.setOwnUserPreferences(preference);
     RoomModel sampleModel(&account);
     int count = 0;
