@@ -109,4 +109,15 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mRemoveEXIFMetadata->isChecked());
     QVERIFY(!mRemoveEXIFMetadata->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRemoveEXIFMetadata), QStringLiteral("Message_Attachments_Strip_Exif"));
+
+    auto mEnableImageThumbnails = w.findChild<QCheckBox *>(QStringLiteral("mEnableImageThumbnails"));
+    QVERIFY(mEnableImageThumbnails);
+    QVERIFY(!mEnableImageThumbnails->isChecked());
+    QVERIFY(!mEnableImageThumbnails->text().isEmpty());
+    QVERIFY(!mEnableImageThumbnails->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableImageThumbnails), QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+
+    auto audioMessageLabel = w.findChild<QLabel *>(QStringLiteral("audioMessageLabel"));
+    QVERIFY(audioMessageLabel);
+    QVERIFY(!audioMessageLabel->text().isEmpty());
 }

@@ -27,6 +27,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mMaximumAllowedCharactersPerMessage(new QSpinBox(this))
     , mSafePort(new QLineEdit(this))
     , mRemoveEXIFMetadata(new QCheckBox(i18n("Remove EXIF metadata from supported files"), this))
+    , mEnableImageThumbnails(new QCheckBox(i18n("Enable image thumbnails to save bandwith"), this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -88,6 +89,17 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
         "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is not retroactive, so files uploaded while disabled will have EXIF data"));
     mMainLayout->addWidget(mRemoveEXIFMetadata);
     connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
+
+    mEnableImageThumbnails->setObjectName(QStringLiteral("mRemoveEXIFMetadata"));
+    mEnableImageThumbnails->setToolTip(
+        i18n("Thumbnails will be served instead of the original image to reduce bandwith usage. Images at original resolution can be downloaded using the icon "
+             "next to the attachment's name."));
+    mMainLayout->addWidget(mEnableImageThumbnails);
+    connectCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+
+    auto audioMessageLabel = createBoldLabel(i18n("Audio Message"));
+    audioMessageLabel->setObjectName(QStringLiteral("audioMessageLabel"));
+    mMainLayout->addWidget(audioMessageLabel);
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -107,4 +119,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
     initializeWidget(mSafePort, mapSettings, QStringLiteral("80, 443"));
     initializeWidget(mRemoveEXIFMetadata, mapSettings, false);
+    initializeWidget(mEnableImageThumbnails, mapSettings, true);
 }

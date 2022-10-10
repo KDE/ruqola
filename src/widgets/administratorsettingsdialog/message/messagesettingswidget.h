@@ -34,4 +34,5 @@ private:
     QSpinBox *const mMaximumAllowedCharactersPerMessage;
     QLineEdit *const mSafePort;
     QCheckBox *const mRemoveEXIFMetadata;
+    QCheckBox *const mEnableImageThumbnails;
 };
