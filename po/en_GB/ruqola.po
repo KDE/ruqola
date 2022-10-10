@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:46+0000\n"
+"POT-Creation-Date: 2022-10-10 00:46+0000\n"
 "PO-Revision-Date: 2022-09-18 12:15+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -4058,6 +4058,11 @@ msgstr "Allow Special Characters in Room Names"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
+#, kde-format
+msgid "Group channels by type"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-07 06:30+0200\n"
+"POT-Creation-Date: 2022-10-10 00:46+0000\n"
+"PO-Revision-Date: 2022-10-09 04:19+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -427,17 +427,17 @@ msgstr ""
 #: core/messages/message.cpp:496
 #, kde-format
 msgid "Message Deleted"
-msgstr ""
+msgstr "შეტყობინება წაშლილია"
 
 #: core/messages/message.cpp:498
 #, kde-format
 msgid "Message Pinned"
-msgstr ""
+msgstr "შეტყობინება მიჭიკარტებულია"
 
 #: core/messages/message.cpp:500
 #, kde-format
 msgid "Encrypted Message"
-msgstr ""
+msgstr "დაშიფრული შეტყობინება"
 
 #: core/messages/message.cpp:502
 #, kde-format
@@ -495,7 +495,7 @@ msgstr ""
 #: core/messages/message.cpp:527
 #, kde-format
 msgid "Welcome %1!"
-msgstr ""
+msgstr "მოგესალმებით, %1!"
 
 #: core/messages/message.cpp:529
 #, kde-format
@@ -580,7 +580,7 @@ msgstr ""
 #: core/messages/message.cpp:561
 #, kde-format
 msgid "key refreshed successfully"
-msgstr ""
+msgstr "გასაღები წარმატებით განახლდა"
 
 #: core/messages/message.cpp:563
 #, kde-format
@@ -605,7 +605,7 @@ msgstr ""
 #: core/messages/messageattachment.cpp:244
 #, kde-format
 msgid "File Uploaded:"
-msgstr ""
+msgstr "ფაილი აიტვირთა."
 
 #: core/messages/messageattachment.cpp:375
 #, kde-format
@@ -823,7 +823,7 @@ msgstr "ჰოსტი"
 #: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
-msgstr ""
+msgstr "ოპერაციული სისტემა"
 
 #: core/model/deviceinfomodel.cpp:36
 #, kde-format
@@ -838,7 +838,7 @@ msgstr "სესიის ID"
 #: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
-msgstr ""
+msgstr "IP"
 
 #: core/model/deviceinfomodel.cpp:44
 #, kde-format
@@ -1009,7 +1009,7 @@ msgstr ""
 #: core/model/personalaccesstokeninfosmodel.cpp:86
 #, kde-format
 msgid "Two Factor Authentication"
-msgstr ""
+msgstr "2FA ავთენტიკაცია"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
@@ -1286,7 +1286,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "Open channel"
 msgid "Open Channel"
-msgstr ""
+msgstr "არხის გახსნა"
 
 #: core/notifications/notifierjob.cpp:35
 #, kde-format
@@ -1296,7 +1296,7 @@ msgstr "პასუხი"
 #: core/notifications/notifierjob.cpp:36
 #, kde-format
 msgid "Reply..."
-msgstr ""
+msgstr "პასუხი…"
 
 #: core/otr/otrnotificationjob.cpp:46 core/otr/otrnotificationjob.cpp:56
 #: core/otr/otrnotificationjob.cpp:69
@@ -1313,7 +1313,7 @@ msgstr "უარყოფა"
 #: core/otr/otrnotificationjob.cpp:59
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "დიახ"
 
 #: core/otr/otrnotificationjob.cpp:94
 #, kde-format
@@ -1922,7 +1922,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/chat/postmessagejob.cpp:111
 #, kde-format
 msgid "This room is blocked"
-msgstr ""
+msgstr "ეს ოთახი დაბლოკილია"
 
 #: rocketchatrestapi-qt5/chat/postmessagejob.cpp:113
 #, kde-format
@@ -1967,7 +1967,7 @@ msgstr "ავტორიზაციის გარეშე"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:222
 #, kde-format
 msgid "%1:%2"
-msgstr ""
+msgstr "%1:%2"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:229
 #, kde-format
@@ -2092,7 +2092,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:277
 #, kde-format
 msgid "Invalid Account"
-msgstr ""
+msgstr "არასწორი ანგარიში"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:279
 #, kde-format
@@ -2107,7 +2107,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:283
 #, kde-format
 msgid "Invalid channel."
-msgstr ""
+msgstr "არასწორი არხი."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:285
 #, kde-format
@@ -2134,7 +2134,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:293
 #, kde-format
 msgid "Invalid description"
-msgstr ""
+msgstr "არასწორი აღწერა"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:295
 #, kde-format
@@ -2154,17 +2154,17 @@ msgstr "ელ-ფოსტის არასწორი მისამარ
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:301
 #, kde-format
 msgid "Invalid file height"
-msgstr ""
+msgstr "ფალის არასწორი სიმაღ₾ე"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:303
 #, kde-format
 msgid "Invalid file type"
-msgstr ""
+msgstr "ფაილის არასწორი ტიპი"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:305
 #, kde-format
 msgid "Invalid file width"
-msgstr ""
+msgstr "ფაილის არასწორი სიგანე"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:307
 #, kde-format
@@ -2174,12 +2174,12 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:309
 #, kde-format
 msgid "Invalid integration"
-msgstr ""
+msgstr "არასწორი ინტეგრაცია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:311
 #, kde-format
 msgid "Invalid message"
-msgstr ""
+msgstr "არასწორი შეტყობინება"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:313
 #, kde-format
@@ -2199,7 +2199,7 @@ msgstr "არასწორი პაროლი"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:319
 #, kde-format
 msgid "Invalid permission"
-msgstr ""
+msgstr "არასწორი წვდომა"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:321
 #, kde-format
@@ -2209,13 +2209,13 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:323
 #, kde-format
 msgid "Invalid role"
-msgstr ""
+msgstr "არასწორი როლი"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:325
 #: rocketchatrestapi-qt5/rooms/roomstartdiscussionjob.cpp:154
 #, kde-format
 msgid "Invalid room"
-msgstr ""
+msgstr "არასწორი ოთახი"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:327
 #, kde-format
@@ -2235,12 +2235,12 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:333
 #, kde-format
 msgid "Invalid subscription"
-msgstr ""
+msgstr "არასწორი გამოწერა"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:335
 #, kde-format
 msgid "Invalid token"
-msgstr ""
+msgstr "არასწორი კოდი"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:337
 #, kde-format
@@ -2260,7 +2260,7 @@ msgstr "არასწორი მომხმარებელი"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:343
 #, kde-format
 msgid "Invalid username"
-msgstr ""
+msgstr "არასწორი მომხმარებელი"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:345
 #, kde-format
@@ -2411,12 +2411,12 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:402
 #, kde-format
 msgid "User has no roles"
-msgstr ""
+msgstr "მომხმარებელს როლები არ გააჩნია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:404
 #, kde-format
 msgid "User is not activated"
-msgstr ""
+msgstr "მომხმარებელი არ არის აქტიური"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:406
 #, kde-format
@@ -2668,7 +2668,7 @@ msgstr "მეტსახელი:"
 #: widgets/dialogs/uploadfilewidget.cpp:28
 #, kde-format
 msgid "File:"
-msgstr ""
+msgstr "ფაილი:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:31
 #, kde-format
@@ -2710,7 +2710,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Add..."
-msgstr ""
+msgstr "დამატება..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:177
@@ -2740,7 +2740,7 @@ msgstr "ჩასწორება..."
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "წაშლა"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:26
 #, kde-format
@@ -2853,7 +2853,7 @@ msgstr "კლიენტის ID:"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:41
 #, kde-format
 msgid "Client Secret:"
-msgstr ""
+msgstr "კლიენტის საიდუმლო ფრაზა:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
@@ -3054,7 +3054,7 @@ msgstr "მეპატრონე:"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:45
 #, kde-format
 msgid "Comment:"
-msgstr ""
+msgstr "კომენტარი:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
 #: widgets/dialogs/channelinfoeditablewidget.cpp:65
@@ -3090,7 +3090,7 @@ msgstr[1] ""
 #, kde-format
 msgctxt "@title"
 msgid "Remove Room"
-msgstr ""
+msgstr "ოთახის წაშლა"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:43
 #, kde-format
@@ -3100,7 +3100,7 @@ msgstr "განახლება"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:62
 #, kde-format
 msgid "Copy"
-msgstr ""
+msgstr "კოპირება"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:127
 #, kde-format
@@ -3328,7 +3328,7 @@ msgstr "აგების გარემო"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User"
-msgstr ""
+msgstr "ახალი მომხმარებლის შექმნა"
 
 #: widgets/administratordialog/users/administratoradduserdialog.cpp:49
 #, kde-format
@@ -3589,7 +3589,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
 #, kde-format
 msgid "Webdav"
-msgstr ""
+msgstr "Webdav"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
 #, kde-format
@@ -3725,17 +3725,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "GridFS"
-msgstr ""
+msgstr "GridFS"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
 #, kde-format
 msgid "AmazonS3"
-msgstr ""
+msgstr "AmazonS3"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "GoogleCloudStorage"
-msgstr ""
+msgstr "GoogleCloudStorage"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
@@ -3871,7 +3871,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid "TimeZone"
-msgstr ""
+msgstr "დროის სარტყელი"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
 #, kde-format
@@ -3958,22 +3958,22 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "პორტი"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
 #, kde-format
 msgid "Local Password"
-msgstr ""
+msgstr "ლოკალური პაროლი"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:56
 #, kde-format
 msgid "Peer Password"
-msgstr ""
+msgstr "პარტნიორის პაროლი"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:14
 #, kde-format
 msgid "Display Roles"
-msgstr ""
+msgstr "როლების ჩვენება"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:15
 #, kde-format
@@ -3993,6 +3993,11 @@ msgstr ""
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
+#, kde-format
+msgid "Group channels by type"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
@@ -6914,10 +6919,9 @@ msgid "Show Room Avatar"
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:523
-#, fuzzy, kde-format
-#| msgid "Favorite"
+#, kde-format
 msgid "Show Favorite Room"
-msgstr "რჩეული"
+msgstr "რჩეული ოთახის ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format

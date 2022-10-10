@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-07 11:05+0200\n"
+"POT-Creation-Date: 2022-10-10 00:46+0000\n"
+"PO-Revision-Date: 2022-10-09 08:49+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -4062,6 +4062,11 @@ msgstr "Dovoli posebne znake v imenih sob"
 msgid "Merge Private Groups with Channels"
 msgstr "Zlij zasebne skupine s kanali"
 
+#: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
+#, kde-format
+msgid "Group channels by type"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
 msgid "LDAP Enabled"
@@ -7054,16 +7059,14 @@ msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
 #: widgets/ruqolamainwindow.cpp:518
-#, fuzzy, kde-format
-#| msgid "Show room avatar"
+#, kde-format
 msgid "Show Room Avatar"
-msgstr "Pokaži avatar sobe"
+msgstr "Pokaži avatarja sobe"
 
 #: widgets/ruqolamainwindow.cpp:523
-#, fuzzy, kde-format
-#| msgid "Enable Favorite Rooms"
+#, kde-format
 msgid "Show Favorite Room"
-msgstr "Omogoči priljubljene sobe"
+msgstr "Prikaži priljubljeno sobo"
 
 #: widgets/ruqolamainwindow.cpp:549
 #, kde-format
