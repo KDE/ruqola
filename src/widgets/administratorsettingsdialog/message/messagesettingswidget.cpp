@@ -26,6 +26,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockMessageDeletingAfterMinutes(new QSpinBox(this))
     , mMaximumAllowedCharactersPerMessage(new QSpinBox(this))
     , mSafePort(new QLineEdit(this))
+    , mRemoveEXIFMetadata(new QCheckBox(i18n("Remove EXIF metadata from supported files"), this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -81,6 +82,12 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
     messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
     mMainLayout->addWidget(messageAttachmentsLabel);
+
+    mRemoveEXIFMetadata->setObjectName(QStringLiteral("mRemoveEXIFMetadata"));
+    mRemoveEXIFMetadata->setToolTip(i18n(
+        "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is not retroactive, so files uploaded while disabled will have EXIF data"));
+    mMainLayout->addWidget(mRemoveEXIFMetadata);
+    connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -99,4 +106,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings, 0);
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
     initializeWidget(mSafePort, mapSettings, QStringLiteral("80, 443"));
+    initializeWidget(mRemoveEXIFMetadata, mapSettings, false);
 }

@@ -33,4 +33,5 @@ private:
     QSpinBox *const mBlockMessageDeletingAfterMinutes;
     QSpinBox *const mMaximumAllowedCharactersPerMessage;
     QLineEdit *const mSafePort;
+    QCheckBox *const mRemoveEXIFMetadata;
 };

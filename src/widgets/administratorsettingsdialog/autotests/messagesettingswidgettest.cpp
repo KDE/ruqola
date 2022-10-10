@@ -103,4 +103,10 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     auto messageAttachmentsLabel = w.findChild<QLabel *>(QStringLiteral("messageAttachmentsLabel"));
     QVERIFY(messageAttachmentsLabel);
     QVERIFY(!messageAttachmentsLabel->text().isEmpty());
+
+    auto mRemoveEXIFMetadata = w.findChild<QCheckBox *>(QStringLiteral("mRemoveEXIFMetadata"));
+    QVERIFY(mRemoveEXIFMetadata);
+    QVERIFY(!mRemoveEXIFMetadata->isChecked());
+    QVERIFY(!mRemoveEXIFMetadata->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRemoveEXIFMetadata), QStringLiteral("Message_Attachments_Strip_Exif"));
 }
