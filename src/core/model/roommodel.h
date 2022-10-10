@@ -48,6 +48,7 @@ public:
         RoomAvatarInfo,
         RoomTeamId,
         RoomTeamIsMain,
+        RoomLastMessageAt,
         UserOffline,
     };
     Q_ENUM(RoomRoles)

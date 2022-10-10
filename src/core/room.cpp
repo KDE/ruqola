@@ -275,6 +275,10 @@ void Room::parseUpdateRoom(const QJsonObject &json)
     if (result != -1) {
         setLastSeenAt(result);
     }
+    const qint64 lm = Utils::parseDate(QStringLiteral("lm"), json);
+    if (lm != -1) {
+        setLastMessageAt(lm);
+    }
 
     const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
     QStringList lstHighlightsWord;
@@ -603,6 +607,7 @@ void Room::parseInsertRoom(const QJsonObject &json)
     }
     setUpdatedAt(Utils::parseDate(QStringLiteral("_updatedAt"), json));
     setLastSeenAt(Utils::parseDate(QStringLiteral("ls"), json));
+    setLastMessageAt(Utils::parseDate(QStringLiteral("lm"), json));
     setUnread(json[QStringLiteral("unread")].toInt());
     setOpen(json[QStringLiteral("open")].toBool());
     setAlert(json[QStringLiteral("alert")].toBool());
@@ -659,6 +664,19 @@ void Room::setLastSeenAt(qint64 lastSeenAt)
     if (mLastSeenAt != lastSeenAt) {
         mLastSeenAt = lastSeenAt;
         Q_EMIT lastSeenChanged();
+    }
+}
+
+qint64 Room::lastMessageAt() const
+{
+    return mLastMessageAt;
+}
+
+void Room::setLastMessageAt(qint64 lastMessageAt)
+{
+    if (mLastMessageAt != lastMessageAt) {
+        mLastMessageAt = lastMessageAt;
+        Q_EMIT lastMessageAtChanged();
     }
 }
 

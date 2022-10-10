@@ -158,6 +158,9 @@ public:
     Q_REQUIRED_RESULT qint64 lastSeenAt() const;
     void setLastSeenAt(qint64 lastSeenAt);
 
+    Q_REQUIRED_RESULT qint64 lastMessageAt() const;
+    void setLastMessageAt(qint64 lastMessageAt);
+
     Q_REQUIRED_RESULT bool blocked() const;
     void setBlocked(bool blocked);
 
@@ -290,6 +293,7 @@ Q_SIGNALS:
     void autoTranslateLanguageChanged();
     void autoTranslateChanged();
     void lastSeenChanged();
+    void lastMessageAtChanged();
 
     void directChannelUserIdChanged();
     void displaySystemMessageTypesChanged();
@@ -359,6 +363,7 @@ private:
     qint64 mJitsiTimeout = -1;
     qint64 mUpdatedAt = -1;
     qint64 mLastSeenAt = -1;
+    qint64 mLastMessageAt = -1;
 
     // Encryption Key
     QString mE2EKey;

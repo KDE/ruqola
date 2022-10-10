@@ -182,6 +182,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->teamInfo().teamId();
     case RoomModel::RoomTeamIsMain:
         return r->teamInfo().mainTeam();
+    case RoomModel::RoomLastMessageAt:
+        return r->lastMessageAt();
     case RoomModel::UserOffline:
         return userOffline(r);
     case Qt::ToolTipRole:
