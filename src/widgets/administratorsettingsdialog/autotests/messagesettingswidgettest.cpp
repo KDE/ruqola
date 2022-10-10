@@ -8,6 +8,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
@@ -98,4 +99,8 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSafePort);
     QVERIFY(mSafePort->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSafePort), QStringLiteral("API_EmbedSafePorts"));
+
+    auto messageAttachmentsLabel = w.findChild<QLabel *>(QStringLiteral("messageAttachmentsLabel"));
+    QVERIFY(messageAttachmentsLabel);
+    QVERIFY(!messageAttachmentsLabel->text().isEmpty());
 }

@@ -77,6 +77,10 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mSafePort->setObjectName(QStringLiteral("mSafePort"));
     addLineEdit(i18n("Safe Ports"), mSafePort, QStringLiteral("API_EmbedSafePorts"));
+
+    auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
+    messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
+    mMainLayout->addWidget(messageAttachmentsLabel);
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
