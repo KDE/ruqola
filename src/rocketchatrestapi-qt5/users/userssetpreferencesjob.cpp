@@ -129,6 +129,9 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (mUsersSetPreferencesInfo.sidebarShowFavorites != UsersSetPreferencesInfo::Unknown) {
         dataObj[QLatin1String("sidebarShowFavorites")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.sidebarShowFavorites);
     }
+    if (!mUsersSetPreferencesInfo.sidebarSortby.isEmpty()) {
+        dataObj[QLatin1String("sidebarSortby")] = mUsersSetPreferencesInfo.sidebarSortby;
+    }
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -160,6 +163,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "sidebarShowUnread: " << t.sidebarShowUnread;
     d << "sidebarDisplayAvatar " << t.sidebarDisplayAvatar;
     d << "sidebarShowFavorites " << t.sidebarShowFavorites;
+    d << "sidebarSortby: " << t.sidebarSortby;
     return d;
 }
 

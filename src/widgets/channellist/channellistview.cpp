@@ -55,6 +55,7 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     mCurrentRocketChatAccount = currentRocketChatAccount;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
     mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateChannelView, this, [this]() {
+        filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
         filterModel()->invalidate();
     });
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);

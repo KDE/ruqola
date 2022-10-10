@@ -79,7 +79,7 @@ bool Room::isEqual(const Room &other) const
         && (mAutotranslateLanguage == other.autoTranslateLanguage()) && (mDirectChannelUserId == other.directChannelUserId())
         && (mDisplaySystemMessageType == other.displaySystemMessageTypes()) && (mAvatarETag == other.avatarETag()) && (mUids == other.uids())
         && (mUserNames == other.userNames()) && (mHighlightsWord == other.highlightsWord()) && (mRetentionInfo == other.retentionInfo())
-        && (mTeamInfo == other.teamInfo());
+        && (mTeamInfo == other.teamInfo()) && (mLastMessageAt == other.lastMessageAt());
 }
 
 QString Room::displayRoomName() const
@@ -120,6 +120,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "notifications: " << t.notificationOptions();
     d << "UpdatedAt: " << t.updatedAt();
     d << "LastSeenAt: " << t.lastSeenAt();
+    d << "LastMessageAt: " << t.lastMessageAt();
     d << "blocked: " << t.blocked();
     d << "roles: " << t.roles();
     d << "ignoredUsers: " << t.ignoredUsers();

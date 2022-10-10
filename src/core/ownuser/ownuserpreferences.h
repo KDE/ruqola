@@ -10,9 +10,11 @@
 
 #include <QDebug>
 #include <QJsonObject>
+#include <QObject>
 
 class LIBRUQOLACORE_EXPORT OwnUserPreferences
 {
+    Q_GADGET
 public:
     OwnUserPreferences();
     ~OwnUserPreferences();
@@ -56,6 +58,11 @@ public:
     Q_REQUIRED_RESULT bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
+    enum class RoomListSortOrder { ByLastMessage, Alphabetically };
+    Q_ENUM(RoomListSortOrder)
+    Q_REQUIRED_RESULT RoomListSortOrder roomListSortOrder() const;
+    void setRoomListSortOrder(RoomListSortOrder roomListSortOrder);
+
     Q_REQUIRED_RESULT bool showRoomAvatar() const;
     void setShowRoomAvatar(bool newShowRoomAvatar);
 
@@ -75,6 +82,7 @@ private:
     bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
+    RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::ByLastMessage;
     bool mShowRoomAvatar = false;
     bool mShowFavorite = true;
 };

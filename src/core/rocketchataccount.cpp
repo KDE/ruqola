@@ -197,6 +197,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
 
     mRoomFilterProxyModel->setSourceModel(mRoomModel);
+    mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
     mMessageQueue = new MessageQueue(this, this);
@@ -1979,6 +1980,26 @@ bool RocketChatAccount::sortFavoriteChannels() const
     return ownUser().ownUserPreferences().showFavorite();
 }
 
+void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder)
+{
+    RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo info;
+    info.userId = userId();
+    switch (roomListSortOrder) {
+    case OwnUserPreferences::RoomListSortOrder::ByLastMessage:
+        info.sidebarSortby = QStringLiteral("activity");
+        break;
+    case OwnUserPreferences::RoomListSortOrder::Alphabetically:
+        info.sidebarSortby = QStringLiteral("alphabetical");
+        break;
+    }
+    setUserPreferences(info);
+}
+
+OwnUserPreferences::RoomListSortOrder RocketChatAccount::roomListSortOrder() const
+{
+    return ownUser().ownUserPreferences().roomListSortOrder();
+}
+
 void RocketChatAccount::kickUser(const QString &roomId, const QString &userId, Room::RoomType channelType)
 {
     switch (channelType) {
@@ -2712,7 +2733,15 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateChannelView();
             } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
-                // TODO
+                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
+                const QString value = updateJson.value(key).toString();
+                if (value == QLatin1String("activity")) {
+                    ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+                } else if (value == QLatin1String("alphabetical")) {
+                    ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
+                }
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                Q_EMIT needUpdateChannelView();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;

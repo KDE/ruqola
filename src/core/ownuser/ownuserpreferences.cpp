@@ -34,6 +34,12 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     setEnableAutoAway(replyObject.value(QLatin1String("enableAutoAway")).toBool(false));
     setMessageViewMode(replyObject.value(QLatin1String("messageViewMode")).toInt(-1));
     setShowUnread(replyObject.value(QLatin1String("sidebarShowUnread")).toBool(false));
+    const QString sidebarSortBy = replyObject.value(QLatin1String("sidebarSortby")).toString();
+    if (sidebarSortBy == QLatin1String("activity")) {
+        setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+    } else if (sidebarSortBy == QLatin1String("alphabetical")) {
+        setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
+    }
     setShowRoomAvatar(replyObject.value(QLatin1String("sidebarDisplayAvatar")).toBool(false));
     setShowFavorite(replyObject.value(QLatin1String("sidebarShowFavorites")).toBool(false));
 }
@@ -44,7 +50,8 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mDesktopNotifications == other.desktopNotifications() && mUseEmojis == other.useEmojis() && mConvertAsciiEmoji == other.convertAsciiEmoji()
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
-        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite();
+        && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite()
+        && mRoomListSortOrder == other.roomListSortOrder();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -116,6 +123,16 @@ bool OwnUserPreferences::showUnread() const
 void OwnUserPreferences::setShowUnread(bool newShowUnread)
 {
     mShowUnread = newShowUnread;
+}
+
+OwnUserPreferences::RoomListSortOrder OwnUserPreferences::roomListSortOrder() const
+{
+    return mRoomListSortOrder;
+}
+
+void OwnUserPreferences::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder)
+{
+    mRoomListSortOrder = roomListSortOrder;
 }
 
 bool OwnUserPreferences::showRoomAvatar() const
@@ -212,6 +229,7 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mPushNotifications " << t.pushNotifications();
     d << "mMessageViewMode " << t.messageViewMode();
     d << "mShowUnread " << t.showUnread();
+    d << "mRoomListSortOrder " << t.roomListSortOrder();
     d << "mShowRoomAvatar " << t.showRoomAvatar();
     d << "mShowFavorite " << t.showFavorite();
     return d;

@@ -24,9 +24,19 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
         const int orderLeftData = sourceModel()->data(left, RoomModel::RoomOrder).toInt();
         const int orderRightData = sourceModel()->data(right, RoomModel::RoomOrder).toInt();
         if (orderLeftData == orderRightData) {
-            const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
-            const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
-            return QString::localeAwareCompare(leftString, rightString) < 0;
+            qint64 leftDate = 0;
+            qint64 rightDate = 0;
+            if (mSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage) {
+                leftDate = sourceModel()->data(left, RoomModel::RoomLastMessageAt).toLongLong();
+                rightDate = sourceModel()->data(right, RoomModel::RoomLastMessageAt).toLongLong();
+            }
+            if (leftDate == rightDate) {
+                const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
+                const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
+                return QString::localeAwareCompare(leftString, rightString) < 0;
+            } else {
+                return leftDate > rightDate;
+            }
         } else {
             return orderLeftData < orderRightData;
         }
@@ -37,6 +47,12 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
 void RoomFilterProxyModel::setFilterString(const QString &string)
 {
     mFilterString = string;
+    invalidate();
+}
+
+void RoomFilterProxyModel::setSortOrder(OwnUserPreferences::RoomListSortOrder sortOrder)
+{
+    mSortOrder = sortOrder;
     invalidate();
 }
 

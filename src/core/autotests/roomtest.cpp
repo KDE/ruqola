@@ -62,6 +62,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.directChannelUserId().isEmpty());
     QVERIFY(input.displaySystemMessageTypes().isEmpty());
     QVERIFY(input.highlightsWord().isEmpty());
+    QCOMPARE(input.lastMessageAt(), -1);
 }
 
 // TODO add notification, userMentions too
@@ -128,6 +129,7 @@ void RoomTest::shouldEmitSignals()
     QSignalSpy spyautoTranslateLanguageChanged(&input, &Room::autoTranslateLanguageChanged);
     QSignalSpy spyautoTranslateChanged(&input, &Room::autoTranslateChanged);
     QSignalSpy spydirectChannelUserIdChanged(&input, &Room::directChannelUserIdChanged);
+    QSignalSpy spylastMessageAtChanged(&input, &Room::lastMessageAtChanged);
 
     input.setRoomId(QStringLiteral("foo"));
     input.setChannelType(Room::roomTypeFromString(QStringLiteral("p")));
@@ -156,6 +158,7 @@ void RoomTest::shouldEmitSignals()
     input.setAutoTranslateLanguage(QStringLiteral("bli"));
     input.setAutoTranslate(true);
     input.setDirectChannelUserId(QStringLiteral("naninani"));
+    input.setLastMessageAt(QDateTime::currentMSecsSinceEpoch());
 
     QCOMPARE(spyNameChanged.count(), 1);
     QCOMPARE(spyannouncementChanged.count(), 1);
@@ -178,6 +181,7 @@ void RoomTest::shouldEmitSignals()
     QCOMPARE(spyautoTranslateLanguageChanged.count(), 1);
     QCOMPARE(spyautoTranslateChanged.count(), 1);
     QCOMPARE(spydirectChannelUserIdChanged.count(), 1);
+    QCOMPARE(spylastMessageAtChanged.count(), 1);
 }
 
 void RoomTest::shouldChangeInputMessage()

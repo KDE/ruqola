@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="38">
+<gui name="ruqola" version="39">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -50,6 +50,8 @@
    <Action name="room_avatar" />
    <Action name="room_favorite" />
    <Separator/>
+   <Action name="room_list_sort_by_last_message" />
+   <Action name="room_list_sort_alphabetically" />
    <Action name="unread_on_top" />
    <Separator/>
    <Action name="fullscreen"/>

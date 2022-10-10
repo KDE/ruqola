@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "ownuser/ownuserpreferences.h"
 #include <QSortFilterProxyModel>
 
 /**
@@ -23,6 +24,8 @@ public:
 
     void setFilterString(const QString &string);
 
+    void setSortOrder(OwnUserPreferences::RoomListSortOrder sortOrder);
+
 protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
     Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
@@ -30,4 +33,5 @@ protected:
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
     QString mFilterString;
+    OwnUserPreferences::RoomListSortOrder mSortOrder = OwnUserPreferences::RoomListSortOrder::ByLastMessage;
 };

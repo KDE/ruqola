@@ -59,6 +59,8 @@ private:
     void slotClearNotification();
     void slotAccountChanged();
     void slotUnreadOnTop(bool checked);
+    void slotRoomListSortByLastMessage();
+    void slotRoomListSortAlphabetically();
     void slotShowLog();
     void updateActions();
     void slotMissingChannelPassword(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
@@ -109,6 +111,8 @@ private:
     QAction *mCreateNewChannel = nullptr;
     QAction *mCreateDirectMessages = nullptr;
     QAction *mUnreadOnTop = nullptr;
+    QAction *mRoomListSortByLastMessage = nullptr;
+    QAction *mRoomListSortAlphabetically = nullptr;
     QAction *mShowLog = nullptr;
     QAction *mClearAlerts = nullptr;
     QAction *mRegisterNewUser = nullptr;

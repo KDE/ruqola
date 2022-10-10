@@ -25,6 +25,7 @@
 #include "model/roommodel.h"
 #include "notificationinfo.h"
 #include "ownuser/ownuser.h"
+#include "ownuser/ownuserpreferences.h"
 #include "parsemessageurlutils.h"
 #include "permissions/permissionmanager.h"
 #include "rocketchataccountsettings.h"
@@ -196,6 +197,7 @@ public:
     void groupInfo(const QString &roomId);
     void switchEditingMode(bool b);
     void setSortUnreadOnTop(bool b);
+    void setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder roomListSortOrder);
     void kickUser(const QString &rid, const QString &userId, Room::RoomType channelType);
     void changeRoles(const QString &rid, const QString &userId, Room::RoomType channelType, RocketChatAccount::RoleType roleType);
     void rolesInRoom(const QString &roomId, Room::RoomType channelType);
@@ -257,6 +259,7 @@ public:
     Q_REQUIRED_RESULT LoginMethodModel *loginMethodModel() const;
     Q_REQUIRED_RESULT bool editingMode() const;
     Q_REQUIRED_RESULT bool sortUnreadOnTop() const;
+    Q_REQUIRED_RESULT OwnUserPreferences::RoomListSortOrder roomListSortOrder() const;
 
     Q_REQUIRED_RESULT DDPAuthenticationManager::LoginStatus loginStatus();
     RocketChatRestApi::Connection *restApi();

@@ -34,6 +34,7 @@
 #include "myaccount/myaccountconfiguredialog.h"
 #include "notificationhistory/notificationhistorydialog.h"
 #include "notifications/notification.h"
+#include "ownuser/ownuserpreferences.h"
 #include "receivetypingnotificationmanager.h"
 #include "registeruser/registeruserdialog.h"
 #include "rocketchataccount.h"
@@ -61,6 +62,7 @@
 #include <KStandardAction>
 #include <KToggleFullScreenAction>
 #include <KToolBar>
+#include <QActionGroup>
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QDir>
@@ -295,6 +297,9 @@ void RuqolaMainWindow::slotPermissionChanged()
 void RuqolaMainWindow::updateActions()
 {
     mUnreadOnTop->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showUnread());
+    const auto roomListSortOrder = mCurrentRocketChatAccount->ownUserPreferences().roomListSortOrder();
+    mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+    mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFromEnabled());
     mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
@@ -385,6 +390,21 @@ void RuqolaMainWindow::setupActions()
     mUnreadOnTop->setCheckable(true);
     connect(mUnreadOnTop, &QAction::triggered, this, &RuqolaMainWindow::slotUnreadOnTop);
     ac->addAction(QStringLiteral("unread_on_top"), mUnreadOnTop);
+
+    QActionGroup *roomListSortOrder = new QActionGroup(this);
+    roomListSortOrder->setExclusive(true);
+
+    mRoomListSortByLastMessage = new QAction(i18n("By Last Message"), this);
+    mRoomListSortByLastMessage->setCheckable(true);
+    connect(mRoomListSortByLastMessage, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortByLastMessage);
+    roomListSortOrder->addAction(mRoomListSortByLastMessage);
+    ac->addAction(QStringLiteral("room_list_sort_by_last_message"), mRoomListSortByLastMessage);
+
+    mRoomListSortAlphabetically = new QAction(i18n("Alphabetically"), this);
+    mRoomListSortAlphabetically->setCheckable(true);
+    connect(mRoomListSortAlphabetically, &QAction::triggered, this, &RuqolaMainWindow::slotRoomListSortAlphabetically);
+    roomListSortOrder->addAction(mRoomListSortAlphabetically);
+    ac->addAction(QStringLiteral("room_list_sort_alphabetically"), mRoomListSortAlphabetically);
 
     mShowLog = new QAction(QIcon::fromTheme(QStringLiteral("view-history")), i18n("Show Channel Log"), this);
     connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
@@ -653,6 +673,16 @@ void RuqolaMainWindow::slotUnreadOnTop(bool checked)
     mCurrentRocketChatAccount->setSortUnreadOnTop(checked);
 }
 
+void RuqolaMainWindow::slotRoomListSortByLastMessage()
+{
+    mCurrentRocketChatAccount->setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+}
+
+void RuqolaMainWindow::slotRoomListSortAlphabetically()
+{
+    mCurrentRocketChatAccount->setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
+}
+
 void RuqolaMainWindow::slotShowLog()
 {
     auto *room = mMainWidget->room();
@@ -704,6 +734,8 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mShowRocketChatServerInfo->setVisible(!loginPageActivated && hasBannerInfo());
     mRoomAvatar->setEnabled(!loginPageActivated);
     mUnreadOnTop->setEnabled(!loginPageActivated);
+    mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
+    mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
     mRoomFavorite->setEnabled(!loginPageActivated);
 }
 
