@@ -47,6 +47,10 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSiteName), QStringLiteral("Site_Name"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Site_Name"));
 
+    auto utf8Label = w.findChild<QLabel *>(QStringLiteral("utf8Label"));
+    QVERIFY(utf8Label);
+    QVERIFY(!utf8Label->text().isEmpty());
+
     auto mUTF8UsernamesValidation = w.findChild<QLineEdit *>(QStringLiteral("mUTF8UsernamesValidation"));
     QVERIFY(mUTF8UsernamesValidation);
     QVERIFY(mUTF8UsernamesValidation->text().isEmpty());

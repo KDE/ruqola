@@ -43,6 +43,10 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     mSiteName->setObjectName(QStringLiteral("mSiteName"));
     addLineEdit(i18n("Site Name"), mSiteName, QStringLiteral("Site_Name"));
 
+    auto utf8Label = createBoldLabel(i18n("UTF8"));
+    utf8Label->setObjectName(QStringLiteral("utf8Label"));
+    mMainLayout->addWidget(utf8Label);
+
     mUTF8UsernamesValidation->setObjectName(QStringLiteral("mUTF8UsernamesValidation"));
     mUTF8UsernamesValidation->setToolTip(i18n("RegExp that will be used to validate usernames"));
     addLineEdit(i18n("UTF8 Usernames Validation"), mUTF8UsernamesValidation, QStringLiteral("UTF8_User_Names_Validation"));
