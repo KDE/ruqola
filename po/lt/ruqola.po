@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:46+0000\n"
+"POT-Creation-Date: 2022-10-11 00:46+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -3990,89 +3990,94 @@ msgstr ""
 msgid "Site Name"
 msgstr "Pavadinimas:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
 #, kde-format
-msgid "RegExp that will be used to validate usernames"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
-#, kde-format
-msgid "UTF8 Usernames Validation"
+msgid "UTF8"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
 #, kde-format
-msgid "RegExp that will be used to validate channel names"
+msgid "RegExp that will be used to validate usernames"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
+msgid "UTF8 Usernames Validation"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:55
+#, kde-format
+msgid "RegExp that will be used to validate channel names"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
+#, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
 #, kde-format
 msgid "First Channel After Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
 #, kde-format
 msgid "Deep Link Url"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:69
 #, kde-format
 msgid "CDN Prefix"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:83
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "All messages"
 msgstr "1 žinutė"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "User mentions only"
 msgstr "Informacija apie serverį..."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
 #, kde-format
 msgid "Group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
 #, kde-format
 msgid "User and group mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread Count"
 msgstr "Gijos"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
 #, kde-format
 msgid "Mentions only"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Unread Count for Direct Messages"
 msgstr "Ištrinti žinutę"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "Update"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -4082,53 +4087,53 @@ msgid ""
 "both visible only for administrators."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "TimeZone"
 msgstr "Laiko juosta:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "Server Timezone"
 msgstr "Laiko juosta:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "TimeZone:"
 msgid "Custom Timezone"
 msgstr "Laiko juosta:"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
 #, kde-format
 msgid "User's current Timezone"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Report a Bug"
 msgid "Reporting"
 msgstr "Pranešti apie klaidą"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:122
 #, kde-format
 msgid "Notifications"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:128
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -4136,7 +4141,7 @@ msgid ""
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:131
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
@@ -4328,7 +4333,7 @@ msgid "Show Deleted Status"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Allow Message Pinning"
@@ -4351,45 +4356,82 @@ msgstr "Ištrinti priedą"
 msgid "Video Recorder Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
+#, kde-format
+msgid "Remove EXIF metadata from supported files"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
+#, kde-format
+msgid "Enable image thumbnails to save bandwith"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:37
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:38
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Šifruota žinutė"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Šifruota žinutė"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:46
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Šifruota žinutė"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:78
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:81
 #, kde-format
 msgid "Safe Ports"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:83
+#, fuzzy, kde-format
+#| msgid "Save Attachment"
+msgid "Message Attachments"
+msgstr "Įrašyti priedą"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:89
+#, kde-format
+msgid ""
+"Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
+"not retroactive, so files uploaded while disabled will have EXIF data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
+#, kde-format
+msgid ""
+"Thumbnails will be served instead of the original image to reduce bandwith "
+"usage. Images at original resolution can be downloaded using the icon next "
+"to the attachment's name."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Copy link"
+msgid "Audio Message"
+msgstr "Kopijuoti nuorodą"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, fuzzy, kde-format
@@ -4570,22 +4612,31 @@ msgid "DDP Rate Limit"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
+#, kde-format
+msgid "Limit by IP: interval time"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:55
 #, kde-format
 msgid "Limit by IP: requests allowed"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:63
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:75
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:87
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:93
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:101
-#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
 #, kde-format
 msgid "Limit by User: requests allowed"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:67
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:93
+#: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
+#, fuzzy, kde-format
+#| msgid "List of Users"
+msgid "Limit by User: interval time"
+msgstr "Naudotojų sąrašas"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
 #, kde-format
