@@ -9,7 +9,6 @@
 #include "directoryusersmodel.h"
 
 #include "libruqolacore_export.h"
-#include "user.h"
 
 class LIBRUQOLACORE_EXPORT AdminUsersModel : public DirectoryUsersModel
 {

@@ -9,10 +9,7 @@
 
 #pragma once
 
-#include "ddpapi/ddpclient.h"
 #include "libruqolacore_export.h"
-#include "model/messagemodel.h"
-#include "model/roommodel.h"
 #include <QObject>
 
 class RocketChatAccount;

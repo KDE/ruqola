@@ -7,7 +7,6 @@
 #pragma once
 
 #include "accountroomsettings.h"
-#include "attachments/file.h"
 #include "authenticationinfo.h"
 #include "bannerinfo/bannerinfos.h"
 #include "channelgroupbasejob.h"

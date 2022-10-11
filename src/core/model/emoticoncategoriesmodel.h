@@ -7,7 +7,6 @@
 #pragma once
 
 #include "emoticons/emoticoncategory.h"
-#include "emoticons/unicodeemoticon.h"
 #include "libruqola_private_export.h"
 #include <QAbstractListModel>
 #include <QVector>

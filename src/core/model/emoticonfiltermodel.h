@@ -7,7 +7,6 @@
 #pragma once
 
 #include "emoticoncategoriesmodel.h"
-#include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
 #include <QSortFilterProxyModel>
 

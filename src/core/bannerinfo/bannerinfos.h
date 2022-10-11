@@ -7,7 +7,7 @@
 #pragma once
 
 #include "bannerinfo.h"
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QVector>
 
