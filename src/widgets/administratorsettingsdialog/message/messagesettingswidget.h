@@ -35,4 +35,6 @@ private:
     QLineEdit *const mSafePort;
     QCheckBox *const mRemoveEXIFMetadata;
     QCheckBox *const mEnableImageThumbnails;
+    QSpinBox *const mThumbnailMaxWidth;
+    QSpinBox *const mThumbnailMaxHeight;
 };

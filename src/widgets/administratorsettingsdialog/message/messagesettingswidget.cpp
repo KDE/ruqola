@@ -28,6 +28,8 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mSafePort(new QLineEdit(this))
     , mRemoveEXIFMetadata(new QCheckBox(i18n("Remove EXIF metadata from supported files"), this))
     , mEnableImageThumbnails(new QCheckBox(i18n("Enable image thumbnails to save bandwith"), this))
+    , mThumbnailMaxWidth(new QSpinBox(this))
+    , mThumbnailMaxHeight(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -90,12 +92,18 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(mRemoveEXIFMetadata);
     connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
 
-    mEnableImageThumbnails->setObjectName(QStringLiteral("mRemoveEXIFMetadata"));
+    mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
     mEnableImageThumbnails->setToolTip(
         i18n("Thumbnails will be served instead of the original image to reduce bandwith usage. Images at original resolution can be downloaded using the icon "
              "next to the attachment's name."));
     mMainLayout->addWidget(mEnableImageThumbnails);
     connectCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
+
+    mThumbnailMaxWidth->setObjectName(QStringLiteral("mThumbnailMaxWidth"));
+    addSpinbox(i18n("Thumbnail's max width (in pixels)"), mThumbnailMaxWidth, QStringLiteral("Message_Attachments_Thumbnails_Width"));
+
+    mThumbnailMaxHeight->setObjectName(QStringLiteral("mThumbnailMaxHeight"));
+    addSpinbox(i18n("Thumbnail's max height (in pixels)"), mThumbnailMaxHeight, QStringLiteral("Message_Attachments_Thumbnails_Height"));
 
     auto audioMessageLabel = createBoldLabel(i18n("Audio Message"));
     audioMessageLabel->setObjectName(QStringLiteral("audioMessageLabel"));
@@ -118,6 +126,8 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockMessageDeletingAfterMinutes, mapSettings, 0);
     initializeWidget(mMaximumAllowedCharactersPerMessage, mapSettings, 5000);
     initializeWidget(mSafePort, mapSettings, QStringLiteral("80, 443"));
-    initializeWidget(mRemoveEXIFMetadata, mapSettings, false);
+    initializeWidget(mThumbnailMaxHeight, mapSettings, false);
     initializeWidget(mEnableImageThumbnails, mapSettings, true);
+    initializeWidget(mThumbnailMaxWidth, mapSettings, 480);
+    initializeWidget(mThumbnailMaxHeight, mapSettings, 360);
 }

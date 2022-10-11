@@ -120,4 +120,14 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     auto audioMessageLabel = w.findChild<QLabel *>(QStringLiteral("audioMessageLabel"));
     QVERIFY(audioMessageLabel);
     QVERIFY(!audioMessageLabel->text().isEmpty());
+
+    auto mThumbnailMaxWidth = w.findChild<QSpinBox *>(QStringLiteral("mThumbnailMaxWidth"));
+    QVERIFY(mThumbnailMaxWidth);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxWidth), QStringLiteral("Message_Attachments_Thumbnails_Width"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Attachments_Thumbnails_Width"));
+
+    auto mThumbnailMaxHeight = w.findChild<QSpinBox *>(QStringLiteral("mThumbnailMaxHeight"));
+    QVERIFY(mThumbnailMaxHeight);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxHeight), QStringLiteral("Message_Attachments_Thumbnails_Height"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Attachments_Thumbnails_Height"));
 }
