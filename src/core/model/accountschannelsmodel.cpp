@@ -22,7 +22,7 @@ AccountsChannelsModel::AccountsChannelsModel(QObject *parent)
 
     auto roomsModel = [src, acctsProxy](int i) {
         const auto acctIndex = acctsProxy->mapToSource(acctsProxy->index(i, 0)).row();
-        return src->account(acctIndex)->roomFilterProxyModel();
+        return src->account(acctIndex)->roomModel();
     };
 
     auto mapRoomsModel = [roomsModel, acctsProxy, this](int roomsModelIndex) {

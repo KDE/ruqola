@@ -11,6 +11,7 @@ RoomFilterProxyModel::RoomFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
     sort(0);
+    setRecursiveFilteringEnabled(true);
 }
 
 RoomFilterProxyModel::~RoomFilterProxyModel() = default;
@@ -20,28 +21,23 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
     if (!sourceModel()) {
         return false;
     }
-    if (left.isValid() && right.isValid()) {
-        const int orderLeftData = sourceModel()->data(left, RoomModel::RoomOrder).toInt();
-        const int orderRightData = sourceModel()->data(right, RoomModel::RoomOrder).toInt();
-        if (orderLeftData == orderRightData) {
-            qint64 leftDate = 0;
-            qint64 rightDate = 0;
-            if (mSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage) {
-                leftDate = sourceModel()->data(left, RoomModel::RoomLastMessageAt).toLongLong();
-                rightDate = sourceModel()->data(right, RoomModel::RoomLastMessageAt).toLongLong();
-            }
-            if (leftDate == rightDate) {
-                const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
-                const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
-                return QString::localeAwareCompare(leftString, rightString) < 0;
-            } else {
-                return leftDate > rightDate;
-            }
+    // assumes that we have a section → channels hierarchy
+    if (left.parent().isValid() && right.parent().isValid()) {
+        qint64 leftDate = 0;
+        qint64 rightDate = 0;
+        if (mSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage) {
+            leftDate = sourceModel()->data(left, RoomModel::RoomLastMessageAt).toLongLong();
+            rightDate = sourceModel()->data(right, RoomModel::RoomLastMessageAt).toLongLong();
+        }
+        if (leftDate == rightDate) {
+            const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
+            const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
+            return QString::localeAwareCompare(leftString, rightString) < 0;
         } else {
-            return orderLeftData < orderRightData;
+            return leftDate > rightDate;
         }
     }
-    return false;
+    return left.row() < right.row();
 }
 
 void RoomFilterProxyModel::setFilterString(const QString &string)
@@ -59,6 +55,12 @@ void RoomFilterProxyModel::setSortOrder(OwnUserPreferences::RoomListSortOrder so
 bool RoomFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
+
+    // By default don't display any sections
+    // Thanks to recursive filtering, the sections with channels will be displayed
+    if (!source_parent.isValid()) {
+        return false;
+    }
 
     auto match = [&](int role) {
         return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);

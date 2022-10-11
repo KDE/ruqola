@@ -153,8 +153,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
-    mRoomFilterProxyModel = new RoomFilterProxyModel(this);
-
     mUserCompleterModel = new UserCompleterModel(this);
     mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
@@ -194,8 +192,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
 
-    mRoomFilterProxyModel->setSourceModel(mRoomModel);
-    mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
     mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
     mMessageQueue = new MessageQueue(this, this);
@@ -209,7 +205,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     connect(this, &RocketChatAccount::customUserStatusChanged, this, &RocketChatAccount::slotUpdateCustomUserStatus);
-    connect(this, &RocketChatAccount::ownUserPreferencesChanged, this, &RocketChatAccount::updateSortOrder);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 
 #if HAVE_SOLID
@@ -372,11 +367,6 @@ RuqolaServerConfig *RocketChatAccount::ruqolaServerConfig() const
 RuqolaLogger *RocketChatAccount::ruqolaLogger() const
 {
     return mRuqolaLogger;
-}
-
-RoomFilterProxyModel *RocketChatAccount::roomFilterProxyModel() const
-{
-    return mRoomFilterProxyModel;
 }
 
 UsersForRoomModel *RocketChatAccount::usersModelForRoom(const QString &roomId) const
@@ -2625,11 +2615,6 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     Q_EMIT ownUserPreferencesChanged();
 }
 
-void RocketChatAccount::updateSortOrder()
-{
-    mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
-}
-
 bool RocketChatAccount::isAdministrator() const
 {
     return mOwnUser.isAdministrator();
@@ -2728,17 +2713,17 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                 OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT needUpdateChannelView();
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
                 OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT needUpdateChannelView();
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarShowFavorites")) {
                 OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                Q_EMIT needUpdateChannelView();
+                Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
                 OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 const QString value = updateJson.value(key).toString();
@@ -2750,8 +2735,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     qCWarning(RUQOLA_LOG) << "Sortby is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                updateSortOrder();
-                Q_EMIT needUpdateChannelView();
+                Q_EMIT ownUserPreferencesChanged();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
                 QRegularExpressionMatch rmatch;

@@ -23,10 +23,8 @@ private Q_SLOTS:
     void shouldMapProxyRows();
     void shouldMapSourceRows_data();
     void shouldMapSourceRows();
-    void shouldDetermineProxyRowSection();
     void shouldReturnData();
     void shouldUpdateOnSectionUpdates();
-    void shouldWorkOnTopOfQSFPM();
 
 private:
     QStandardItemModel mSourceModel;

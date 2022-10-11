@@ -361,8 +361,6 @@ void RoomModelTest::shouldReturnDataDefault()
     QCOMPARE(output.toBool(), false);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QVERIFY(output.toString().isEmpty());
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
-    QCOMPARE(output, QVariant(int(35))); // not favorite (20), not mainTeam (10) + RoomType::Unknown (5)
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon()));
 }
@@ -434,8 +432,6 @@ void RoomModelTest::shouldReturnData()
     QCOMPARE(output.toBool(), open);
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomSection);
     QCOMPARE(output.value<RoomModel::Section>(), RoomModel::Section::Favorites); // first priority for favorites and then to channels
-    output = sampleModel.data(sampleModel.index(0), RoomModel::RoomOrder);
-    QCOMPARE(output, QVariant(int(11))); // Favorite, private room
     output = sampleModel.data(sampleModel.index(0), RoomModel::RoomIcon);
     QCOMPARE(output, QVariant(QIcon::fromTheme(QStringLiteral("lock"))));
 }
@@ -474,113 +470,6 @@ void RoomModelTest::shouldInsertRoom()
 
     auto m = Room::fromJSon(docSerialized.object());
     QCOMPARE(*r, *m);
-}
-
-void RoomModelTest::shouldOrderRooms()
-{
-    // GIVEN
-    RocketChatAccount account;
-    auto preference = account.ownUser().ownUserPreferences();
-    preference.setShowUnread(true);
-    preference.setShowFavorite(true);
-    account.setOwnUserPreferences(preference);
-    RoomModel sampleModel(&account);
-    int count = 0;
-    std::vector<Room *> rooms;
-    auto addRoom = [&](bool unread, bool favorite, bool mainTeam, Room::RoomType roomType, const char *name) {
-        auto room = new Room;
-        room->setRoomId(QString::number(count));
-        QString str = QString::fromLatin1(name);
-        if (favorite) {
-            str.prepend(QStringLiteral("fav_"));
-        }
-        room->setName(unread ? (QStringLiteral("unread_") + str) : str);
-        room->setFavorite(favorite);
-        room->setUnread(unread ? 1 : 0);
-        room->setParentRid(QStringLiteral("parentRId")); // not empty
-        TeamInfo teamInfo;
-        teamInfo.setMainTeam(mainTeam);
-        room->setTeamInfo(teamInfo);
-        room->setChannelType(roomType);
-        QVERIFY(sampleModel.addRoom(room));
-        rooms.push_back(room);
-        ++count;
-    };
-    for (bool unread : {false, true}) {
-        for (bool favorite : {false, true}) {
-            addRoom(unread, favorite, false, Room::RoomType::Private, "p");
-            addRoom(unread, favorite, false, Room::RoomType::Channel, "c");
-            addRoom(unread, favorite, false, Room::RoomType::Direct, "d");
-            addRoom(unread, favorite, true, Room::RoomType::Private, "mp");
-            addRoom(unread, favorite, true, Room::RoomType::Channel, "mc");
-            addRoom(unread, favorite, true, Room::RoomType::Direct, "md");
-        }
-    }
-    QCOMPARE(sampleModel.rowCount(), count);
-
-    // WHEN
-    QMap<int, QString> orderedRooms;
-    QMap<int, QString> orderedSections;
-    for (int row = 0; row < count; ++row) {
-        const QModelIndex index = sampleModel.index(row, 0);
-        const QString name = index.data(RoomModel::RoomName).toString();
-        const int order = index.data(RoomModel::RoomOrder).toInt();
-        QVERIFY(!orderedRooms.contains(order));
-        orderedRooms.insert(order, name);
-        const auto section = index.data(RoomModel::RoomSection).value<RoomModel::Section>();
-        orderedSections.insert(order, RoomModel::sectionName(section));
-    }
-
-    // THEN
-    const QStringList expectedRoomNames{
-        // Unread
-        QStringLiteral("unread_fav_mc"),
-        QStringLiteral("unread_fav_md"),
-        QStringLiteral("unread_fav_mp"),
-        QStringLiteral("unread_fav_c"),
-        QStringLiteral("unread_fav_d"),
-        QStringLiteral("unread_fav_p"),
-        QStringLiteral("unread_mc"),
-        QStringLiteral("unread_md"),
-        QStringLiteral("unread_mp"),
-        QStringLiteral("unread_c"),
-        QStringLiteral("unread_d"),
-        QStringLiteral("unread_p"),
-        // Favorites
-        QStringLiteral("fav_mc"),
-        QStringLiteral("fav_md"),
-        QStringLiteral("fav_mp"),
-        QStringLiteral("fav_c"),
-        QStringLiteral("fav_d"),
-        QStringLiteral("fav_p"),
-        // Main team
-        QStringLiteral("mc"),
-        QStringLiteral("md"),
-        QStringLiteral("mp"),
-        // Read channel/discussion/private messages
-        QStringLiteral("c"),
-        QStringLiteral("d"),
-        QStringLiteral("p"),
-    };
-    QCOMPARE(orderedRooms.values(), expectedRoomNames);
-
-    QStringList expectedSections;
-    expectedSections.reserve(expectedRoomNames.size());
-    for (int i = 0; i < 12; ++i) {
-        expectedSections.append(QStringLiteral("Unread"));
-    }
-    for (int i = 0; i < 6; ++i) {
-        expectedSections.append(QStringLiteral("Favorites"));
-    }
-    for (int i = 0; i < 3; ++i) {
-        expectedSections.append(QStringLiteral("Teams"));
-    }
-    expectedSections.append(QStringLiteral("Rooms"));
-    expectedSections.append(QStringLiteral("Private Messages"));
-    expectedSections.append(QStringLiteral("Discussions"));
-    QCOMPARE(orderedSections.values(), expectedSections);
-
-    qDeleteAll(rooms);
 }
 
 // TODO add autotest for notification update.

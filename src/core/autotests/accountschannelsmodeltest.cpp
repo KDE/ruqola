@@ -52,15 +52,6 @@ void AccountsChannelsModelTest::accountsAndChannels()
     const auto newRoomId = QStringLiteral("RoomId");
     const auto newRoomName = QStringLiteral("Room Name");
     acct->roomModel()->addRoom(newRoomId, newRoomName);
-    QCOMPARE(model.rowCount(newAcctIndex), 0); // Room not yet open
-
-    // FIXME: RoomModel should probably emit dataChanged to allow the sort/filter to update
-    acct->roomModel()->findRoom(newRoomId)->setOpen(true);
-    QEXPECT_FAIL("", "RoomModel missing dataChanged", Continue);
-    QCOMPARE(model.rowCount(newAcctIndex), 1);
-    // ... workaround for the above
-    acct->roomFilterProxyModel()->invalidate();
-    // ... and try again
     QCOMPARE(model.rowCount(newAcctIndex), 1);
 
     const auto newRoomIndex = model.index(0, 0, newAcctIndex);

@@ -21,6 +21,9 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
     , mRocketChatAccount(account)
 {
+    connect(account, &RocketChatAccount::ownUserPreferencesChanged, this, [this] {
+        Q_EMIT dataChanged(index(0), index(rowCount() - 1), {RoomRoles::RoomSection});
+    });
 }
 
 RoomModel::~RoomModel()
@@ -160,8 +163,6 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->favorite();
     case RoomModel::RoomSection:
         return QVariant::fromValue(section(r));
-    case RoomModel::RoomOrder:
-        return order(r);
     case RoomModel::RoomIcon:
     case Qt::DecorationRole:
         return icon(r);
@@ -475,50 +476,6 @@ RoomModel::Section RoomModel::section(Room *r) const
         break;
     }
     return Section::Unknown;
-}
-
-int RoomModel::order(Room *r) const
-{
-    int order = 0;
-    // Unread on top: push down everything that isn't unread
-    if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && r->unread() == 0 && !r->alert()) {
-        order += 40;
-    }
-
-    // Then we have favorites channels, push down everything else
-    if (!r->favorite()) {
-        order += 20;
-    }
-
-    if (!r->teamInfo().mainTeam()) {
-        order += 10;
-    }
-
-    const Room::RoomType roomType = r->channelType();
-    switch (roomType) {
-    case Room::RoomType::Private: {
-        if (r->parentRid().isEmpty()) {
-            order += 1;
-        } else {
-            order += 4;
-        }
-        break;
-    }
-    case Room::RoomType::Channel: {
-        order += 1;
-        break;
-    }
-    case Room::RoomType::Direct: {
-        order += 2;
-        break;
-    }
-    case Room::RoomType::Unknown:
-        qCDebug(RUQOLA_ROOMS_LOG) << r->name() << "has unhandled channel type" << roomType;
-        order += 5;
-
-        break;
-    }
-    return order;
 }
 
 bool RoomModel::userOffline(Room *r) const

@@ -46,7 +46,10 @@ void RoomListHeadingsProxyModelTest::shouldBeEmptyByDefault()
     // WHEN
     proxy.setSourceModel(&sourceModel);
     // THEN
-    QCOMPARE(proxy.rowCount(), 0); // this caught the missing std::fill on the std::array...
+    QCOMPARE(proxy.rowCount({}), proxy.sectionCount);
+    for (uint section = 0; section < proxy.sectionCount; ++section) {
+        QCOMPARE(proxy.rowCount(proxy.index(section, 0, {})), 0);
+    }
     QCOMPARE(proxy.sourceModel(), &sourceModel);
 }
 
@@ -54,94 +57,86 @@ void RoomListHeadingsProxyModelTest::shouldReturnRowCount()
 {
     // GIVEN
     RoomListHeadingsProxyModel proxy;
-    proxy.setSourceModel(&mSourceModel);
     // WHEN
-    const int count = proxy.rowCount();
+    proxy.setSourceModel(&mSourceModel);
     // THEN
-    QCOMPARE(count, 5 + 3);
+    const auto expectedCount = [](RoomModel::Section section) {
+        switch (section) {
+        case RoomModel::Section::Unread:
+        case RoomModel::Section::Favorites:
+        case RoomModel::Section::Rooms:
+        case RoomModel::Section::Unknown:
+            return 0;
+        case RoomModel::Section::Teams:
+        case RoomModel::Section::Discussions:
+            return 2;
+        case RoomModel::Section::PrivateMessages:
+            return 1;
+        case RoomModel::Section::NSections:
+            Q_UNREACHABLE();
+        }
+        Q_UNREACHABLE();
+    };
+
+    for (uint section = 0; section < proxy.sectionCount; ++section) {
+        QCOMPARE(proxy.rowCount(proxy.index(section, 0, {})), expectedCount(RoomModel::Section(section)));
+    }
 }
 
 void RoomListHeadingsProxyModelTest::shouldMapProxyRows_data()
 {
+    QTest::addColumn<RoomModel::Section>("section");
     QTest::addColumn<int>("proxyRow");
     QTest::addColumn<int>("expectedSourceRow");
 
-    QTest::newRow("0") << 0 << -1;
-    QTest::newRow("1") << 1 << 0;
-    QTest::newRow("2") << 2 << 1;
-    QTest::newRow("3") << 3 << -1;
-    QTest::newRow("4") << 4 << 2;
-    QTest::newRow("5") << 5 << -1;
-    QTest::newRow("6") << 6 << 3;
-    QTest::newRow("7") << 7 << 4;
+    QTest::newRow("0") << RoomModel::Section::Teams << 0 << 0;
+    QTest::newRow("1") << RoomModel::Section::Teams << 1 << 1;
+    QTest::newRow("2") << RoomModel::Section::PrivateMessages << 0 << 2;
+    QTest::newRow("3") << RoomModel::Section::Discussions << 0 << 3;
+    QTest::newRow("4") << RoomModel::Section::Discussions << 1 << 4;
 }
 
 void RoomListHeadingsProxyModelTest::shouldMapProxyRows()
 {
     // GIVEN
+    QFETCH(RoomModel::Section, section);
     QFETCH(int, proxyRow);
     QFETCH(int, expectedSourceRow);
     RoomListHeadingsProxyModel proxy;
     proxy.setSourceModel(&mSourceModel);
     // WHEN
-    const QModelIndex proxyIndex = proxy.index(proxyRow, 0);
+    const QModelIndex proxyIndex = proxy.index(proxyRow, 0, proxy.index(int(section), 0, {}));
     // THEN
-    QCOMPARE(proxyIndex.row(), proxyRow);
-    QCOMPARE(proxy.proxyRowToSourceRow(proxyRow), expectedSourceRow);
-    if (expectedSourceRow == -1) {
-        QVERIFY(!proxy.mapToSource(proxyIndex).isValid());
-    } else {
-        QCOMPARE(proxy.mapToSource(proxyIndex).row(), expectedSourceRow);
-    }
+    QCOMPARE(proxy.mapToSource(proxyIndex).row(), expectedSourceRow);
 }
 
 void RoomListHeadingsProxyModelTest::shouldMapSourceRows_data()
 {
     QTest::addColumn<int>("sourceRow");
+    QTest::addColumn<RoomModel::Section>("expectedSection");
     QTest::addColumn<int>("expectedProxyRow");
 
-    QTest::newRow("0") << 0 << 1;
-    QTest::newRow("1") << 1 << 2;
-    QTest::newRow("2") << 2 << 4;
-    QTest::newRow("3") << 3 << 6;
-    QTest::newRow("4") << 4 << 7;
+    QTest::newRow("0") << 0 << RoomModel::Section::Teams << 0;
+    QTest::newRow("1") << 1 << RoomModel::Section::Teams << 1;
+    QTest::newRow("2") << 2 << RoomModel::Section::PrivateMessages << 0;
+    QTest::newRow("3") << 3 << RoomModel::Section::Discussions << 0;
+    QTest::newRow("4") << 4 << RoomModel::Section::Discussions << 1;
 }
 
 void RoomListHeadingsProxyModelTest::shouldMapSourceRows()
 {
     // GIVEN
     QFETCH(int, sourceRow);
+    QFETCH(RoomModel::Section, expectedSection);
     QFETCH(int, expectedProxyRow);
     RoomListHeadingsProxyModel proxy;
     proxy.setSourceModel(&mSourceModel);
     // WHEN
     const QModelIndex sourceIndex = mSourceModel.index(sourceRow, 0);
     // THEN
-    QCOMPARE(proxy.sourceRowToProxyRow(sourceRow), expectedProxyRow);
-    QCOMPARE(proxy.mapFromSource(sourceIndex).row(), expectedProxyRow);
-}
-
-void RoomListHeadingsProxyModelTest::shouldDetermineProxyRowSection()
-{
-    // GIVEN
-    RoomListHeadingsProxyModel proxy;
-    proxy.setSourceModel(&mSourceModel);
-    // WHEN/THEN
-    const RoomModel::Section expected[] = {
-        RoomModel::Section::Teams,
-        RoomModel::Section::Teams,
-        RoomModel::Section::Teams,
-        RoomModel::Section::PrivateMessages,
-        RoomModel::Section::PrivateMessages,
-        RoomModel::Section::Discussions,
-        RoomModel::Section::Discussions,
-        RoomModel::Section::Discussions,
-    };
-    const int expectedRows = std::end(expected) - std::begin(expected); // need C++17 for std::size(expected)
-    QCOMPARE(expectedRows, proxy.rowCount());
-    for (size_t row = 0; row < expectedRows; ++row) {
-        QCOMPARE(proxy.proxyRowSection(row), expected[row]);
-    }
+    const QModelIndex proxyIndex = proxy.mapFromSource(sourceIndex);
+    QCOMPARE(proxyIndex.row(), expectedProxyRow);
+    QCOMPARE(proxyIndex.parent().row(), int(expectedSection));
 }
 
 static QStringList initialExpectedList()
@@ -161,18 +156,18 @@ static QStringList extractTexts(QAbstractItemModel *model)
     const int count = model->rowCount();
     QStringList texts;
     texts.reserve(count);
-    for (int row = 0; row < count; ++row) {
-        texts.append(model->index(row, 0).data().toString());
-    }
-    return texts;
-}
+    for (int sectionId = 0; sectionId < count; ++sectionId) {
+        const auto section = model->index(sectionId, 0, {});
+        const auto sectionSize = model->rowCount(section);
 
-static QStringList extractTexts(const std::vector<QPersistentModelIndex> &indexes)
-{
-    QStringList texts;
-    texts.reserve(indexes.size());
-    for (const QPersistentModelIndex &idx : indexes) {
-        texts.append(idx.data().toString());
+        if (sectionSize == 0)
+            continue;
+
+        texts.append(section.data().toString());
+
+        for (int row = 0; row < sectionSize; ++row) {
+            texts.append(model->index(row, 0, section).data().toString());
+        }
     }
     return texts;
 }
@@ -221,89 +216,4 @@ void RoomListHeadingsProxyModelTest::shouldUpdateOnSectionUpdates()
                                   QStringLiteral("Discuss 1"),
                                   QStringLiteral("Discuss 2")};
     QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
-}
-
-void RoomListHeadingsProxyModelTest::shouldWorkOnTopOfQSFPM()
-{
-    // GIVEN
-    RoomListHeadingsProxyModel proxy;
-    RocketChatAccount account;
-    account.setSortUnreadOnTop(true);
-    account.setShowFavoriteRoom(true);
-    RoomModel sampleModel(&account);
-    int count = 0;
-    std::vector<Room *> rooms;
-    auto addRoom = [&](bool mainTeam, Room::RoomType roomType, const char *name) {
-        auto room = new Room;
-        room->setRoomId(QString::number(count));
-        room->setName(QString::fromLatin1(name));
-        room->setUnread(0);
-        room->setParentRid(QStringLiteral("parentRId")); // not empty
-        TeamInfo teamInfo;
-        teamInfo.setMainTeam(mainTeam);
-        room->setTeamInfo(teamInfo);
-        room->setChannelType(roomType);
-        room->setOpen(true);
-        QVERIFY(sampleModel.addRoom(room));
-        rooms.push_back(room);
-        ++count;
-    };
-    addRoom(true, Room::RoomType::Channel, "Team 1");
-    addRoom(true, Room::RoomType::Channel, "Team 2");
-    addRoom(false, Room::RoomType::Direct, "PM 1");
-    addRoom(false, Room::RoomType::Private, "Discuss 1");
-    addRoom(false, Room::RoomType::Private, "Discuss 2");
-    QCOMPARE(sampleModel.rowCount(), 5);
-    RoomFilterProxyModel qsfpm;
-    qsfpm.setSourceModel(&sampleModel);
-    QCOMPARE(qsfpm.rowCount(), 5);
-
-    // WHEN
-    proxy.setSourceModel(&qsfpm);
-
-    // THEN
-    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
-
-    // AND WHEN
-    std::vector<QPersistentModelIndex> persistentIndexes;
-    const int proxyCount = proxy.rowCount();
-    for (int row = 0; row < proxyCount; ++row) {
-        persistentIndexes.emplace_back(proxy.index(row, 0));
-    }
-    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), initialExpectedList()));
-
-    const QModelIndex discuss2Index = sampleModel.index(4, 0);
-    QCOMPARE(discuss2Index.data().toString(), QStringLiteral("Discuss 2"));
-    rooms[4]->setFavorite(true);
-    Q_EMIT sampleModel.dataChanged(discuss2Index, discuss2Index);
-
-    // THEN
-    const QStringList newExpected{QStringLiteral("Favorites"),
-                                  QStringLiteral("Discuss 2"),
-                                  QStringLiteral("Teams"),
-                                  QStringLiteral("Team 1"),
-                                  QStringLiteral("Team 2"),
-                                  QStringLiteral("Private Messages"),
-                                  QStringLiteral("PM 1"),
-                                  QStringLiteral("Discussions"),
-                                  QStringLiteral("Discuss 1")};
-    QVERIFY(compareWithExpected(extractTexts(&proxy), newExpected));
-
-    const QStringList expectedPersistent{QString(),
-                                         QStringLiteral("Team 1"),
-                                         QStringLiteral("Team 2"),
-                                         QString(),
-                                         QStringLiteral("PM 1"),
-                                         QString(),
-                                         QStringLiteral("Discuss 1"),
-                                         QStringLiteral("Discuss 2")};
-    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), expectedPersistent));
-
-    // AND WHEN
-    rooms[4]->setFavorite(false);
-    Q_EMIT sampleModel.dataChanged(discuss2Index, discuss2Index);
-
-    // THEN
-    QVERIFY(compareWithExpected(extractTexts(&proxy), initialExpectedList()));
-    QVERIFY(compareWithExpected(extractTexts(persistentIndexes), expectedPersistent));
 }

@@ -32,7 +32,7 @@ void ChannelListDelegate::setCurrentRocketChatAccount(RocketChatAccount *current
 void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // [M] <avatar> [M] <icon> [M] <name>       <(nr_unread)> [M]    ([M] = margin)
-    const auto isHeader = index.data(RoomListHeadingsProxyModel::IsHeading).toBool();
+    const auto isHeader = !index.parent().isValid();
     const int iconSize = isHeader ? 0 : option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     const int margin = DelegatePaintUtil::margin();
     int offsetAvatarRoom = 0;

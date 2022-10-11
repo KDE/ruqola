@@ -48,7 +48,6 @@ class MessageModel;
 class DDPClient;
 class MessageQueue;
 class RocketChatBackend;
-class RoomFilterProxyModel;
 class RuqolaLogger;
 class RuqolaServerConfig;
 class UserCompleterModel;
@@ -241,7 +240,6 @@ public:
     UserCompleterFilterProxyModel *userCompleterFilterModelProxy() const;
 
     UsersModel *usersModel() const;
-    RoomFilterProxyModel *roomFilterProxyModel() const;
     MessageModel *threadMessageModel() const;
     EmoticonFilterModel *emoticonFilterModel() const;
     EmoticonModel *emoticonModel() const;
@@ -573,7 +571,6 @@ Q_SIGNALS:
     void oauthAppAdded(const QJsonObject &obj);
     void oauthAppUpdated(const QJsonObject &obj);
     void needUpdateMessageView();
-    void needUpdateChannelView();
     void publicSettingLoaded(const QJsonObject &obj);
     void bannerInfoChanged();
     void privateSettingsChanged();
@@ -635,7 +632,6 @@ private:
     void slotAwayStatusChanged(bool away);
     void slotJobFailed(const QString &str);
     void checkLicenses();
-    void updateSortOrder();
 
     AccountRoomSettings *const mAccountRoomSettings;
 
@@ -649,7 +645,6 @@ private:
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *mUserModel = nullptr;
     RoomModel *mRoomModel = nullptr;
-    RoomFilterProxyModel *mRoomFilterProxyModel = nullptr;
     DDPClient *mDdp = nullptr;
     RocketChatRestApi::Connection *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;

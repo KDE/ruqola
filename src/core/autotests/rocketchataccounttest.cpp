@@ -30,7 +30,6 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     RocketChatAccount w;
     QVERIFY(w.emojiManager());
     QVERIFY(w.roomModel());
-    QVERIFY(w.roomFilterProxyModel());
     QVERIFY(w.settings());
     QVERIFY(!w.ruqolaLogger());
     QVERIFY(w.ruqolaServerConfig());

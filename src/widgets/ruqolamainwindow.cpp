@@ -241,7 +241,7 @@ void RuqolaMainWindow::slotAccountChanged()
         updateActions();
         slotPermissionChanged();
     });
-    connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateChannelView, this, [this]() {
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
         updateActions();
     });
     connect(mCurrentRocketChatAccount, &RocketChatAccount::raiseWindow, this, &RuqolaMainWindow::slotRaiseWindow);

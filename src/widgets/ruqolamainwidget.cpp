@@ -126,6 +126,7 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 {
     // Before switching rocketchataccount otherwise
     mRoomWidget->storeRoomSettings();
+    const auto previousRocketChatAccount = mCurrentRocketChatAccount;
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
         disconnect(mCurrentRocketChatAccount, &RocketChatAccount::bannerInfoChanged, this, &RuqolaMainWidget::updateBannerInfo);
@@ -138,7 +139,10 @@ void RuqolaMainWidget::setCurrentRocketChatAccount(RocketChatAccount *account)
 
     // This is for switching between already-loaded accounts
     // On startup it's too early
-    mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+    if (previousRocketChatAccount) {
+        mChannelList->channelListView()->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+    }
+
     updateBannerInfo();
 }
 

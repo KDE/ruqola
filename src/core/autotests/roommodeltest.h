@@ -31,5 +31,4 @@ private Q_SLOTS:
     void shouldReturnData();
     void shouldInsertRoom_data();
     void shouldInsertRoom();
-    void shouldOrderRooms();
 };

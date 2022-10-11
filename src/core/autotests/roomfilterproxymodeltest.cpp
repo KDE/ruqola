@@ -19,6 +19,8 @@ RoomFilterProxyModelTest::RoomFilterProxyModelTest(QObject *parent)
 void RoomFilterProxyModelTest::shouldHaveDefaultValue()
 {
     RoomFilterProxyModel w;
+    QCOMPARE(w.sortColumn(), 0);
+    QCOMPARE(w.isRecursiveFilteringEnabled(), true);
     RoomModel sourceModel;
     w.setSourceModel(&sourceModel);
     QCOMPARE(w.rowCount(), 0);

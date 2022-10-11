@@ -7,46 +7,47 @@
 
 #include "libruqolacore_export.h"
 #include "roommodel.h"
-#include <QIdentityProxyModel>
+#include <QAbstractProxyModel>
 
 #include <array>
+#include <vector>
 
-class LIBRUQOLACORE_EXPORT RoomListHeadingsProxyModel final : public QIdentityProxyModel
+class LIBRUQOLACORE_EXPORT RoomListHeadingsProxyModel final : public QAbstractProxyModel
 {
     Q_OBJECT
+
 public:
     explicit RoomListHeadingsProxyModel(QObject *parent = nullptr);
 
-    enum Roles { IsHeading = 0x2711C5C2 };
+    static constexpr uint sectionCount = uint(RoomModel::Section::NSections);
 
+    // QAbstractItemModel interface
+    QVariant data(const QModelIndex &index, int role) const override;
+    QModelIndex index(int row, int column, const QModelIndex &parent) const override;
+    QModelIndex parent(const QModelIndex &child) const override;
+    int rowCount(const QModelIndex &parent) const override;
+    int columnCount(const QModelIndex &parent) const override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    bool hasChildren(const QModelIndex &index) const override;
+
+    // QAbstractProxyModel interface
     void setSourceModel(QAbstractItemModel *sourceModel) override;
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
     QModelIndex mapToSource(const QModelIndex &proxyIndex) const override;
-    Qt::ItemFlags flags(const QModelIndex &proxyIndex) const override;
+    QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
 
 private:
-    void _our_sourceLayoutAboutToBeChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint);
-    void _our_sourceLayoutChanged(const QList<QPersistentModelIndex> &sourceParents, QAbstractItemModel::LayoutChangeHint hint);
+    void onRowsInserted(const QModelIndex &parent, int first, int last);
+    void onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last);
+    void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+    void rebuildSections();
 
-    void ensureCachedCounts() const;
-    int numVisibleSections() const;
-    RoomModel::Section proxyRowSection(int proxyRow) const;
-    int proxyRowToSourceRow(int proxyRow) const;
-    int sourceRowToProxyRow(int sourceRow) const;
-    void setDirty();
-    void dumpCache() const;
-    friend class RoomListHeadingsProxyModelTest;
+    // each section vector is kept sorted for performance reasons
+    std::array<std::vector<QPersistentModelIndex>, sectionCount> mSections;
 
-    mutable bool mDirty = true;
-    // Number of rows in each section
-    mutable std::array<int, int(RoomModel::Section::NSections)> mSectionCounts;
-
-    // for layoutAboutToBeChanged/layoutChanged
-    QVector<QPersistentModelIndex> mLayoutChangePersistentIndexes;
-    QVector<int> mLayoutChangeProxyRows;
-    QModelIndexList mProxyIndexes;
+    enum class IndexType {
+        Root,
+        Section,
+        Channel,
+    };
+    Q_REQUIRED_RESULT IndexType type(const QModelIndex &index) const;
 };

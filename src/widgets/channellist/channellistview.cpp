@@ -31,17 +31,27 @@
 #include <QVector>
 
 ChannelListView::ChannelListView(QWidget *parent)
-    : QListView(parent)
+    : QTreeView(parent)
     , mChannelListDelegate(new ChannelListDelegate(this))
     , mRoomListHeadingsProxyModel(new RoomListHeadingsProxyModel(this))
+    , mRoomFilterProxyModel(new RoomFilterProxyModel(this))
 {
     mChannelListDelegate->setObjectName(QStringLiteral("mChannelListDelegate"));
     setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    QListView::setModel(mRoomListHeadingsProxyModel);
-    setSpacing(2);
+    mRoomFilterProxyModel->setSourceModel(mRoomListHeadingsProxyModel);
+    setModel(mRoomFilterProxyModel);
+    setHeaderHidden(true);
+    setRootIsDecorated(false);
+    setUniformRowHeights(true);
+    setItemsExpandable(false);
+    setIndentation(0);
 
     connect(this, &ChannelListView::pressed, this, &ChannelListView::slotClicked);
+    connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
+    connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
 }
 
 ChannelListView::~ChannelListView() = default;
@@ -54,26 +64,17 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
     }
     mCurrentRocketChatAccount = currentRocketChatAccount;
     connect(mCurrentRocketChatAccount, &RocketChatAccount::roomRemoved, this, &ChannelListView::slotRoomRemoved);
-    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::needUpdateChannelView, this, [this]() {
+    mUpdateChannelViewConnect = connect(mCurrentRocketChatAccount, &RocketChatAccount::ownUserPreferencesChanged, this, [this]() {
         filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
-        filterModel()->invalidate();
     });
+    filterModel()->setSortOrder(mCurrentRocketChatAccount->roomListSortOrder());
     mChannelListDelegate->setCurrentRocketChatAccount(currentRocketChatAccount);
-}
-
-QAbstractItemModel *ChannelListView::model() const
-{
-    return QListView::model();
+    mRoomListHeadingsProxyModel->setSourceModel(currentRocketChatAccount->roomModel());
 }
 
 RoomFilterProxyModel *ChannelListView::filterModel() const
 {
-    return qobject_cast<RoomFilterProxyModel *>(mRoomListHeadingsProxyModel->sourceModel());
-}
-
-void ChannelListView::setFilterModel(RoomFilterProxyModel *model)
-{
-    mRoomListHeadingsProxyModel->setSourceModel(model);
+    return mRoomFilterProxyModel;
 }
 
 void ChannelListView::slotClicked(const QModelIndex &index)
@@ -89,7 +90,7 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!index.isValid()) {
         return;
     }
-    if (index.data(RoomListHeadingsProxyModel::IsHeading).toBool()) {
+    if (!index.parent().isValid()) {
         return;
     }
     QMenu menu(this);
@@ -180,11 +181,6 @@ void ChannelListView::contextMenuEvent(QContextMenuEvent *event)
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
-}
-
-void ChannelListView::setModel(QAbstractItemModel *model)
-{
-    QListView::setModel(model);
 }
 
 void ChannelListView::slotConfigureNotification(Room *room)
@@ -320,12 +316,13 @@ void ChannelListView::slotMarkAsChannel(const QModelIndex &index, bool markAsRea
 
 void ChannelListView::channelSelected(const QModelIndex &index)
 {
-    if (!index.data(RoomListHeadingsProxyModel::IsHeading).toBool()) {
-        const QString roomId = index.data(RoomModel::RoomId).toString();
-        const QString roomName = index.data(RoomModel::RoomFName).toString();
-        const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
-        Q_EMIT roomSelected(roomName, roomId, roomType);
-    }
+    if (!index.parent().isValid())
+        return;
+
+    const QString roomId = index.data(RoomModel::RoomId).toString();
+    const QString roomName = index.data(RoomModel::RoomFName).toString();
+    const auto roomType = index.data(RoomModel::RoomType).value<Room::RoomType>();
+    Q_EMIT roomSelected(roomName, roomId, roomType);
 }
 
 void ChannelListView::slotHideChannel(const QModelIndex &index, Room::RoomType roomType)
@@ -348,25 +345,8 @@ void ChannelListView::slotChangeFavorite(const QModelIndex &index, bool isFavori
 
 void ChannelListView::selectChannelRequested(const QString &channelId)
 {
-    if (channelId.isEmpty()) {
-        return;
-    }
-    QAbstractItemModel *filterModel = model();
-    Q_ASSERT(filterModel);
-    const int nRooms = filterModel->rowCount();
-    if (nRooms == 0) {
-        return; // too early, next chance when accountInitialized is emitted
-    }
-    for (int roomIdx = 0; roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto roomId = roomModelIndex.data(RoomModel::RoomId).toString();
-        if (roomId == channelId) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            return;
-        }
-    }
-    qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
+    if (!selectChannelByRoomIdRequested(channelId))
+        qCWarning(RUQOLAWIDGETS_LOG) << "Room not found:" << channelId;
 }
 
 bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool roomId)
@@ -374,14 +354,20 @@ bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool ro
     if (id.isEmpty()) {
         return false;
     }
-    QAbstractItemModel *filterModel = model();
-    for (int roomIdx = 0, nRooms = filterModel->rowCount(); roomIdx < nRooms; ++roomIdx) {
-        const auto roomModelIndex = filterModel->index(roomIdx, 0);
-        const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
-        if (identifier == id) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-            return true;
+    Q_ASSERT(filterModel());
+    const int nSections = filterModel()->rowCount();
+    for (int sectionId = 0; sectionId < nSections; ++sectionId) {
+        const auto section = filterModel()->index(sectionId, 0, {});
+        const auto sectionSize = filterModel()->rowCount(section);
+
+        for (int roomIdx = 0; roomIdx < sectionSize; ++roomIdx) {
+            const auto roomModelIndex = filterModel()->index(roomIdx, 0, section);
+            const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
+            if (identifier == id) {
+                channelSelected(roomModelIndex);
+                selectionModel()->setCurrentIndex(roomModelIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+                return true;
+            }
         }
     }
     return false;
@@ -404,35 +390,51 @@ void ChannelListView::selectNextUnreadChannel()
 
 void ChannelListView::switchToChannel(bool switchToNextUnreadChannel)
 {
-    QAbstractItemModel *filterModel = model();
-    Q_ASSERT(filterModel);
-    const int nRooms = filterModel->rowCount();
-    if (nRooms == 0) {
+    Q_ASSERT(filterModel());
+
+    const auto nSections = filterModel()->rowCount();
+    if (nSections == 0) {
         // FIXME : switch to empty room widget ?
         return;
     }
-    int roomIdx = 0;
+
+    int startSection = 0;
+    int startRoom = 0;
     // if we have a selection, start searching for the next unread channel there, otherwise start at the top
     const auto currentlySelectedIndex = selectionModel()->currentIndex();
     if (currentlySelectedIndex.isValid()) {
-        roomIdx = currentlySelectedIndex.row();
+        startSection = currentlySelectedIndex.parent().row();
+        startRoom = currentlySelectedIndex.row() + 1;
     }
 
-    const int startIndex = roomIdx;
-    // iterate through to the end, and then wrap around to the starting point
-    while (roomIdx < nRooms || (roomIdx % nRooms < startIndex)) {
-        const auto roomModelIndex = filterModel->index(roomIdx % nRooms, 0);
-        bool isUnRead = true;
-        if (switchToNextUnreadChannel) {
-            isUnRead = roomModelIndex.data(RoomModel::RoomAlert).toBool();
+    const auto selectRoomInSection = [this, switchToNextUnreadChannel](const QModelIndex &sectionIndex, size_t fromRoom, size_t toRoom) {
+        for (auto roomId = fromRoom; roomId < toRoom; ++roomId) {
+            const auto roomIndex = filterModel()->index(roomId, 0, sectionIndex);
+            if (!switchToNextUnreadChannel || roomIndex.data(RoomModel::RoomAlert).toBool()) {
+                channelSelected(roomIndex);
+                selectionModel()->setCurrentIndex(roomIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+                return true;
+            }
         }
-        if (isUnRead && roomModelIndex != currentlySelectedIndex) {
-            channelSelected(roomModelIndex);
-            selectionModel()->setCurrentIndex(filterModel->index(roomIdx % nRooms, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
+
+        return false;
+    };
+
+    const auto startSectionIndex = filterModel()->index(startSection, 0);
+    const auto nRooms = filterModel()->rowCount(startSectionIndex);
+    if (selectRoomInSection(startSectionIndex, startRoom, nRooms))
+        return;
+
+    for (auto sectionId = startSection + 1; sectionId != nSections; sectionId = (sectionId + 1) % nSections) {
+        const auto sectionIndex = filterModel()->index(sectionId, 0);
+        const auto nRooms = filterModel()->rowCount(sectionIndex);
+
+        if (selectRoomInSection(sectionIndex, 0, nRooms))
             return;
-        }
-        roomIdx++;
     }
+
+    if (selectRoomInSection(startSectionIndex, 0, startRoom))
+        return;
 }
 
 void ChannelListView::slotRoomRemoved(const QString &roomId)

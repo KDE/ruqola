@@ -35,7 +35,6 @@ public:
         RoomAnnouncement,
         RoomOpen,
         RoomAlert,
-        RoomOrder,
         RoomFavorite,
         RoomSection,
         RoomIcon,
@@ -124,7 +123,6 @@ private:
     Room *createNewRoom();
     Q_REQUIRED_RESULT bool userOffline(Room *r) const;
     Q_REQUIRED_RESULT QIcon icon(Room *r) const;
-    Q_REQUIRED_RESULT int order(Room *r) const;
     Q_REQUIRED_RESULT Section section(Room *r) const;
     Q_REQUIRED_RESULT QString generateToolTip(Room *r) const;
 

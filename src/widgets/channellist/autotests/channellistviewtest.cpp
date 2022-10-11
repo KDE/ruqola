@@ -19,5 +19,9 @@ void ChannelListViewTest::shouldHaveDefaultValues()
     ChannelListView w;
     QCOMPARE(w.horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
     QCOMPARE(w.itemDelegate()->objectName(), QStringLiteral("mChannelListDelegate"));
-    QCOMPARE(w.spacing(), 2);
+    QCOMPARE(w.isHeaderHidden(), true);
+    QCOMPARE(w.rootIsDecorated(), false);
+    QCOMPARE(w.uniformRowHeights(), true);
+    QCOMPARE(w.itemsExpandable(), false);
+    QCOMPARE(w.indentation(), 0);
 }

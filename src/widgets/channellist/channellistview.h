@@ -6,25 +6,24 @@
 
 #pragma once
 #include "room.h"
-#include <QListView>
+#include <QTreeView>
 
 #include "libruqolawidgets_private_export.h"
 
+class RoomModel;
 class RoomFilterProxyModel;
 class RoomListHeadingsProxyModel;
 class ChannelListDelegate;
 class RocketChatAccount;
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QListView
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ChannelListView : public QTreeView
 {
     Q_OBJECT
 public:
     explicit ChannelListView(QWidget *parent = nullptr);
     ~ChannelListView() override;
 
-    QAbstractItemModel *model() const;
     Q_REQUIRED_RESULT RoomFilterProxyModel *filterModel() const;
-    void setFilterModel(RoomFilterProxyModel *model);
 
     void selectChannelRequested(const QString &channelId);
     void selectNextUnreadChannel();
@@ -43,7 +42,6 @@ protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
 
 private:
-    void setModel(QAbstractItemModel *model) override;
     void slotClicked(const QModelIndex &index);
     void slotHideChannel(const QModelIndex &index, Room::RoomType roomType);
     void slotLeaveChannel(const QModelIndex &index, Room::RoomType roomType);
@@ -61,6 +59,7 @@ private:
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;
+    RoomFilterProxyModel *const mRoomFilterProxyModel;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     QMetaObject::Connection mUpdateChannelViewConnect;
 };
