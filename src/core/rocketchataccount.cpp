@@ -2739,6 +2739,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
+                mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
                 Q_EMIT needUpdateChannelView();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
