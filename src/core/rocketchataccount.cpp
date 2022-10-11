@@ -79,9 +79,7 @@
 #include <plugins/pluginauthenticationinterface.h>
 
 #include "away/awaymanager.h"
-#include "channels/channelopenjob.h"
 #include "customsound/customsoundsmanager.h"
-#include "groups/groupopenjob.h"
 #include "model/switchchannelhistorymodel.h"
 #include "users/setstatusjob.h"
 #include "users/usersautocompletejob.h"
