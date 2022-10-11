@@ -33,5 +33,5 @@ protected:
 private:
     Q_DISABLE_COPY(RoomFilterProxyModel)
     QString mFilterString;
-    OwnUserPreferences::RoomListSortOrder mSortOrder = OwnUserPreferences::RoomListSortOrder::ByLastMessage;
+    OwnUserPreferences::RoomListSortOrder mSortOrder = OwnUserPreferences::RoomListSortOrder::Unknown;
 };

@@ -58,7 +58,11 @@ public:
     Q_REQUIRED_RESULT bool showUnread() const;
     void setShowUnread(bool newShowUnread);
 
-    enum class RoomListSortOrder { ByLastMessage, Alphabetically };
+    enum class RoomListSortOrder {
+        Unknown,
+        ByLastMessage,
+        Alphabetically,
+    };
     Q_ENUM(RoomListSortOrder)
     Q_REQUIRED_RESULT RoomListSortOrder roomListSortOrder() const;
     void setRoomListSortOrder(RoomListSortOrder roomListSortOrder);
@@ -82,7 +86,7 @@ private:
     bool mDisplayAvatars = true;
     bool mEnableAutoAway = false;
     bool mShowUnread = false;
-    RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::ByLastMessage;
+    RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
     bool mShowRoomAvatar = false;
     bool mShowFavorite = true;
 };

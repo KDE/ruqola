@@ -65,6 +65,7 @@ void OwnUserTest::shouldLoadOwnUser_data()
     ownUser.setMessageViewMode(0);
     ownUser.setDisplayAvatars(false);
     ownUser.setShowFavorite(true);
+    ownUser.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     result.setOwnUserPreferences(ownUser);
 
     QTest::addRow("example1") << QStringLiteral("example1") << result;

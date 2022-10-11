@@ -30,7 +30,7 @@ void OwnUserPreferencesTest::shouldHaveDefaultValues()
     QVERIFY(!p.showUnread());
     QVERIFY(!p.showRoomAvatar());
     QVERIFY(p.showFavorite());
-    QCOMPARE(p.roomListSortOrder(), OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+    QCOMPARE(p.roomListSortOrder(), OwnUserPreferences::RoomListSortOrder::Unknown);
 }
 
 void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
@@ -52,6 +52,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setMessageViewMode(0);
         preferences.setDisplayAvatars(true);
         preferences.setShowFavorite(true);
+        preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }

@@ -1989,6 +1989,9 @@ void RocketChatAccount::setRoomListSortOrder(OwnUserPreferences::RoomListSortOrd
     case OwnUserPreferences::RoomListSortOrder::Alphabetically:
         info.sidebarSortby = QStringLiteral("alphabetical");
         break;
+    case OwnUserPreferences::RoomListSortOrder::Unknown:
+        qCWarning(RUQOLA_LOG) << " OwnUserPreferences::RoomListSortOrder::Unknown is a bug";
+        return;
     }
     setUserPreferences(info);
 }
@@ -2619,6 +2622,12 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
     Q_EMIT ownUserPreferencesChanged();
+    updateSortOrder();
+}
+
+void RocketChatAccount::updateSortOrder()
+{
+    mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
 }
 
 bool RocketChatAccount::isAdministrator() const
@@ -2739,7 +2748,7 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
-                mRoomFilterProxyModel->setSortOrder(roomListSortOrder());
+                updateSortOrder();
                 Q_EMIT needUpdateChannelView();
             } else {
                 const static QRegularExpression bannerRegularExpression(QStringLiteral("banners.(.*).read"));
@@ -2891,6 +2900,7 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
         Q_EMIT ownUserPreferencesChanged();
+        updateSortOrder();
     }
 }
 
