@@ -27,7 +27,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mMaximumAllowedCharactersPerMessage(new QSpinBox(this))
     , mSafePort(new QLineEdit(this))
     , mRemoveEXIFMetadata(new QCheckBox(i18n("Remove EXIF metadata from supported files"), this))
-    , mEnableImageThumbnails(new QCheckBox(i18n("Enable image thumbnails to save bandwith"), this))
+    , mEnableImageThumbnails(new QCheckBox(i18n("Enable image thumbnails to save bandwidth"), this))
     , mThumbnailMaxWidth(new QSpinBox(this))
     , mThumbnailMaxHeight(new QSpinBox(this))
 {
@@ -94,7 +94,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
     mEnableImageThumbnails->setToolTip(
-        i18n("Thumbnails will be served instead of the original image to reduce bandwith usage. Images at original resolution can be downloaded using the icon "
+        i18n("Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
              "next to the attachment's name."));
     mMainLayout->addWidget(mEnableImageThumbnails);
     connectCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
