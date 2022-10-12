@@ -2895,7 +2895,7 @@ void RocketChatAccount::setUserPreferences(const RocketChatRestApi::UsersSetPref
 
 void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)
 {
-    qDebug() << " void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)" << replyObject;
+    // qDebug() << " void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObject)" << replyObject;
     const QJsonObject user = replyObject.value(QLatin1String("user")).toObject();
     if (user.value(QLatin1String("_id")).toString() == userId()) {
         OwnUserPreferences ownUserPreferences;
