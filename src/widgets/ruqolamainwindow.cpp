@@ -76,6 +76,9 @@
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QKeyCombination>
+#endif
 
 #if !defined(Q_OS_WIN) && !defined(Q_OS_MACOS)
 #include <KWindowSystem>
@@ -500,7 +503,12 @@ void RuqolaMainWindow::setupActions()
 
         act = new QAction(i18n("Next Selected Channel"), this);
         ac->addAction(QStringLiteral("next_channel"), act);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         ac->setDefaultShortcut(act, QKeySequence(Qt::SHIFT | Qt::Key_Tab | Qt::CTRL));
+#else
+        QKeyCombination combinationKeys(Qt::CTRL | Qt::SHIFT, Qt::Key_Tab);
+        ac->setDefaultShortcut(act, combinationKeys);
+#endif
         connect(act, &QAction::triggered, this, &RuqolaMainWindow::redoSwitchChannel);
         listActions.append(act);
 
