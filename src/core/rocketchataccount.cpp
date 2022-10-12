@@ -209,6 +209,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mCache, &RocketChatCache::fileDownloaded, this, &RocketChatAccount::fileDownloaded);
     connect(mTypingNotification, &TypingNotification::informTypingStatus, this, &RocketChatAccount::slotInformTypingStatus);
     connect(this, &RocketChatAccount::customUserStatusChanged, this, &RocketChatAccount::slotUpdateCustomUserStatus);
+    connect(this, &RocketChatAccount::ownUserPreferencesChanged, this, &RocketChatAccount::updateSortOrder);
     QTimer::singleShot(0, this, &RocketChatAccount::clearModels);
 
 #if HAVE_SOLID
@@ -2622,7 +2623,6 @@ void RocketChatAccount::parseOwnInfoDone(const QJsonObject &replyObject)
     Q_EMIT bannerInfoChanged();
     Q_EMIT ownInfoChanged();
     Q_EMIT ownUserPreferencesChanged();
-    updateSortOrder();
 }
 
 void RocketChatAccount::updateSortOrder()
@@ -2746,6 +2746,8 @@ void RocketChatAccount::updateUserData(const QJsonArray &contents)
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
                 } else if (value == QLatin1String("alphabetical")) {
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
+                } else {
+                    qCWarning(RUQOLA_LOG) << "Sortby is not defined ?  " << value;
                 }
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 updateSortOrder();
@@ -2900,7 +2902,6 @@ void RocketChatAccount::slotUsersSetPreferencesDone(const QJsonObject &replyObje
         ownUserPreferences.parsePreferences(user.value(QLatin1String("settings")).toObject().value(QLatin1String("preferences")).toObject());
         mOwnUser.setOwnUserPreferences(ownUserPreferences);
         Q_EMIT ownUserPreferencesChanged();
-        updateSortOrder();
     }
 }
 
