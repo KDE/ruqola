@@ -26,6 +26,7 @@ class LDapSettingsWidget;
 class LayoutSettingsWidget;
 class EnterpriseSettingsWidget;
 class SettingsWidgetBase;
+class UserDataDownloadWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -54,5 +55,6 @@ private:
     LDapSettingsWidget *const mLDapSettingsWidget;
     LayoutSettingsWidget *const mLayoutSettingsWidget;
     EnterpriseSettingsWidget *const mEnterpriseSettingsWidget;
+    UserDataDownloadWidget *const mUserDataDownloadWidget;
     RocketChatAccount *const mRocketChatAccount;
 };
