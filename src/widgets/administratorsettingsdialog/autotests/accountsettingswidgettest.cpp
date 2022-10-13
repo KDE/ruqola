@@ -108,4 +108,8 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mForgetUserSessionWindowClose->isChecked());
     QVERIFY(!mForgetUserSessionWindowClose->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForgetUserSessionWindowClose), QStringLiteral("Accounts_ForgetUserSessionOnWindowClose"));
+
+    auto failedLoginAttemptsLabel = w.findChild<QLabel *>(QStringLiteral("failedLoginAttemptsLabel"));
+    QVERIFY(failedLoginAttemptsLabel);
+    QVERIFY(!failedLoginAttemptsLabel->text().isEmpty());
 }

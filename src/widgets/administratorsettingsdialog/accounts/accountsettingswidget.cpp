@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QSpinBox>
 
 AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -81,6 +82,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mForgetUserSessionWindowClose->setObjectName(QStringLiteral("mForgetUserSessionWindowClose"));
     mMainLayout->addWidget(mForgetUserSessionWindowClose);
     connectCheckBox(mForgetUserSessionWindowClose, QStringLiteral("Accounts_ForgetUserSessionOnWindowClose"));
+
+    auto failedLoginAttemptsLabel = createBoldLabel(i18n("Failed Login Attempts"));
+    failedLoginAttemptsLabel->setObjectName(QStringLiteral("failedLoginAttemptsLabel"));
+    mMainLayout->addWidget(failedLoginAttemptsLabel);
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
