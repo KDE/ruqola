@@ -94,11 +94,18 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(mDisplayAvatars);
     connect(mDisplayAvatars, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 
-    mainLayout->addWidget(new KSeparator(this));
+    QWidget *downloadWidget = new QWidget;
+    downloadWidget->setObjectName(QStringLiteral("downloadWidget"));
+    auto downloadWidgetLayout = new QVBoxLayout(downloadWidget);
+    downloadWidgetLayout->setContentsMargins({});
+
+    downloadWidgetLayout->addWidget(new KSeparator(this));
 
     auto downloadLayout = new QHBoxLayout;
     downloadLayout->setObjectName(QStringLiteral("downloadLayout"));
     downloadLayout->setContentsMargins({});
+
+    downloadWidgetLayout->addLayout(downloadLayout);
 
     auto downloadDataButton = new QPushButton(i18n("Download My Data (HTML)"), this);
     downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
@@ -114,9 +121,12 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
         downloadData(true);
     });
 
-    mainLayout->addLayout(downloadLayout);
+    mainLayout->addWidget(downloadWidget);
 
     mainLayout->addStretch();
+    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->userDataDownloadEnabled()) {
+        downloadWidget->setVisible(false);
+    }
     initComboboxValues();
 }
 

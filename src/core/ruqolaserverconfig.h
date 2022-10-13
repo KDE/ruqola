@@ -148,6 +148,9 @@ public:
     Q_REQUIRED_RESULT bool accountsAllowInvisibleStatusOption() const;
     void setAccountsAllowInvisibleStatusOption(bool newAccountsAllowInvisibleStatusOption);
 
+    Q_REQUIRED_RESULT bool userDataDownloadEnabled() const;
+    void setUserDataDownloadEnabled(bool newUserDataDownloadEnabled);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -185,5 +188,6 @@ private:
 
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true
+    bool mUserDataDownloadEnabled = true;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);

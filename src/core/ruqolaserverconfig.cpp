@@ -378,6 +378,7 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mMessageAllowConvertLongMessagesToAttachment " << t.messageAllowConvertLongMessagesToAttachment();
     d << "mUIUseRealName " << t.useRealName();
     d << "mAccountsAllowInvisibleStatusOption" << t.accountsAllowInvisibleStatusOption();
+    d << "mUserDataDownloadEnabled " << t.userDataDownloadEnabled();
     return d;
 }
 
@@ -497,9 +498,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setUseRealName(value.toBool());
     } else if (id == QLatin1String("Accounts_AllowInvisibleStatusOption")) {
         setAccountsAllowInvisibleStatusOption(value.toBool());
+    } else if (id == QLatin1String("UserData_EnableDownload")) {
+        setUserDataDownloadEnabled(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+bool RuqolaServerConfig::userDataDownloadEnabled() const
+{
+    return mUserDataDownloadEnabled;
+}
+
+void RuqolaServerConfig::setUserDataDownloadEnabled(bool newUserDataDownloadEnabled)
+{
+    mUserDataDownloadEnabled = newUserDataDownloadEnabled;
 }
 
 bool RuqolaServerConfig::accountsAllowInvisibleStatusOption() const

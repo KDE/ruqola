@@ -42,6 +42,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.useRealName());
     QVERIFY(!config.hasEnterpriseSupport());
     QVERIFY(config.accountsAllowInvisibleStatusOption());
+    QVERIFY(config.userDataDownloadEnabled());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
