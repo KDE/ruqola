@@ -8,7 +8,9 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-class QLabel;
+class QLineEdit;
+class QCheckBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UserDataDownloadWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -17,4 +19,11 @@ public:
     ~UserDataDownloadWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mUserDataDownloadEnabled;
+    QLineEdit *const mSystemPathExportedFiles;
+    QLineEdit *const mSystemPathCompressedFile;
+    QSpinBox *const mProcessingFrequency;
+    QSpinBox *const mMessageLimitRequest;
 };
