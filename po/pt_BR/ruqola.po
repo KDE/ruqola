@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-13 00:46+0000\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -805,7 +805,7 @@ msgid "Role"
 msgstr "Função"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Disabled"
 msgstr "Desabilitado"
@@ -953,8 +953,8 @@ msgstr[1] "%1 segundos"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
 msgid "Nothing"
 msgstr "Nada"
@@ -990,15 +990,15 @@ msgid "Seasons"
 msgstr "Seasons"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:154
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
 #, kde-format
 msgid "All Messages"
 msgstr "Todas as mensagens"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:155
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Mentions"
 msgstr "Menções"
@@ -3552,76 +3552,81 @@ msgstr "Redefinir avatar"
 msgid "TOTP key for %1 has been reset"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
 #, kde-format
 msgid "Allow Name Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow User Profile Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow Email Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Require Password Change"
 msgid "Allow Password Change"
 msgstr "Solicitar redefinição de senha"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Email Notification:"
 msgid "Allow Email Notifications"
 msgstr "Notificação por e-mail:"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgid "Allow Users to Delete Own Account"
 msgstr "Excluir minha conta"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Require Password Change"
 msgid "Allow Password Change for OAuth Users"
 msgstr "Solicitar redefinição de senha"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Forget User Session on Window Close"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Expiração (dias)"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#, kde-format
+msgid "Failed Login Attempts"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, fuzzy, kde-format
@@ -3630,88 +3635,94 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Administrador"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Accounts"
 msgstr "Conta"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
 msgstr "Criptografado:"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:863
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "File upload"
 msgid "File Upload"
 msgstr "Enviar arquivo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
 #, kde-format
 msgid "Retention Policy"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "General"
 msgid "General"
 msgstr "Geral"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgid "Rate Limiter"
 msgstr "Sem limite"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Senha"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Video Conference"
 msgstr "Preferencias"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Conversation"
 msgid "IRC Federation"
 msgstr "Conversa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #, kde-format
 msgid "Webdav"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #, kde-format
 msgid "LDAP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Layout"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Enter code"
 msgid "Enterprise"
 msgstr "Digite o código"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#, fuzzy, kde-format
+#| msgid "Download"
+msgid "User Data Download"
+msgstr "Baixar"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, fuzzy, kde-format
@@ -4686,6 +4697,32 @@ msgstr "Total de mensagens nas mensagens diretas"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
 #, kde-format
 msgid "Apply"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Enable system tray icon"
+msgid "Enable User Data Download"
+msgstr "Habilitar ícone na área de notificação"
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
+#, kde-format
+msgid "System Path (Exported Files)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
+#, kde-format
+msgid "System Path (Compressed File)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
+#, kde-format
+msgid "Processing Frequency (Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
+#, kde-format
+msgid "Message Limit per Request"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
@@ -6361,45 +6398,45 @@ msgstr "Notificações"
 msgid "View Mode:"
 msgstr "Visualizar log"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Download My Data (HTML)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:117
 #, kde-format
 msgid "Export My Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "Each Mentions"
 msgstr "A cada menção"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:162
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:172
 #, fuzzy, kde-format
 #| msgid "Format"
 msgid "Normal"
 msgstr "Formato"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:163
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
 #, kde-format
 msgid "Cozy"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Compact"
 msgstr ""
@@ -7662,9 +7699,6 @@ msgstr "Retorna o número da conta."
 
 #~ msgid "Channel '%1' needs a password"
 #~ msgstr "O canal '%1' precisa de uma senha"
-
-#~ msgid "Download"
-#~ msgstr "Baixar"
 
 #~ msgid "Configure Accounts"
 #~ msgstr "Configurar contas"

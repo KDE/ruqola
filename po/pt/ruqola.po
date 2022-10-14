@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-13 00:46+0000\n"
-"PO-Revision-Date: 2022-10-11 19:42+0100\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"PO-Revision-Date: 2022-10-12 12:50+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -817,7 +817,7 @@ msgid "Role"
 msgstr "Papel"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Disabled"
 msgstr "Desactivada"
@@ -962,8 +962,8 @@ msgstr[1] "%1 segundos"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
 msgid "Nothing"
 msgstr "Nada"
@@ -999,15 +999,15 @@ msgid "Seasons"
 msgstr "Estações"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:154
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
 #, kde-format
 msgid "All Messages"
 msgstr "Todas as Mensagens"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:155
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Mentions"
 msgstr "Menções"
@@ -3517,71 +3517,76 @@ msgstr "Repor o TOTP"
 msgid "TOTP key for %1 has been reset"
 msgstr "A chave TOTP do %1 foi reposta"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
 #, kde-format
 msgid "Allow Name Change"
 msgstr "Permitir a Mudança de Nome"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow User Profile Change"
 msgstr "Permitir a Mudança do Perfil do Utilizador"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr "Permitir a Mudança do Avatar do Utilizador"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow Email Change"
 msgstr "Permitir a Mudança do E-mail"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow Password Change"
 msgstr "Permitir a Mudança de Senha"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
 msgid "Allow Email Notifications"
 msgstr "Permitir as Notificações por E-Mail"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Users to Delete Own Account"
 msgstr "Permitir aos Utilizadores Apagarem as suas Contas"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr "Permitir a Escrita Anónima"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr "Permitir a Leitura Anónima"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
 msgstr "Permitir a Mudança de Senha dos Utilizadores de OAuth"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
 msgstr "Permitir a opção do estado Invisível"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Forget User Session on Window Close"
 msgstr "Esquecer a Sessão do Utilizador ao Fechar a Janela"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Validade da Sessão em Dias"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#, kde-format
+msgid "Failed Login Attempts"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3589,79 +3594,84 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuração do Servidor de Administração - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
 #, kde-format
 msgid "Accounts"
 msgstr "Contas"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptação"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:863
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
 #, kde-format
 msgid "File Upload"
 msgstr "Envio de Ficheiros"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de Retenção"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
 #, kde-format
 msgid "General"
 msgstr "Geral"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitação por Taxa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Senha"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferência"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federação do IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #, kde-format
 msgid "Webdav"
 msgstr "WebDAV"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Layout"
 msgstr "Disposição"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Empresa"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#, kde-format
+msgid "User Data Download"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4229,8 +4239,7 @@ msgid "Remove EXIF metadata from supported files"
 msgstr "Remover os meta-dados EXIF dos ficheiros suportados"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Enable image thumbnails to save bandwith"
+#, kde-format
 msgid "Enable image thumbnails to save bandwidth"
 msgstr "Activar as miniaturas das imagens para poupar largura de banda"
 
@@ -4289,11 +4298,7 @@ msgstr ""
 "desactivada terão dados em EXIF"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
-#, fuzzy, kde-format
-#| msgid ""
-#| "Thumbnails will be served instead of the original image to reduce "
-#| "bandwith usage. Images at original resolution can be downloaded using the "
-#| "icon next to the attachment's name."
+#, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
 "usage. Images at original resolution can be downloaded using the icon next "
@@ -4306,12 +4311,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr ""
+msgstr "Largura máxima da miniatura (em pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr ""
+msgstr "Altura máxima da miniatura (em pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
@@ -4620,6 +4625,32 @@ msgstr "Idade máxima das mensagens nas mensagens directas"
 #, kde-format
 msgid "Apply"
 msgstr "Aplicar"
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Enable system tray icon"
+msgid "Enable User Data Download"
+msgstr "Activar o ícone na bandeja do sistema"
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
+#, kde-format
+msgid "System Path (Exported Files)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
+#, kde-format
+msgid "System Path (Compressed File)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
+#, kde-format
+msgid "Processing Frequency (Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
+#, kde-format
+msgid "Message Limit per Request"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -6267,17 +6298,17 @@ msgstr "Notificação da Aplicação:"
 msgid "View Mode:"
 msgstr "Modo de Visualização:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Download My Data (HTML)"
 msgstr "Transferir os meus Dados (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:117
 #, kde-format
 msgid "Export My Data (JSON)"
 msgstr "Exportar os meus Dados (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -6286,27 +6317,27 @@ msgstr ""
 "O seu ficheiro de dados será gerado. Será enviado um endereço de "
 "transferência para o seu endereço de e-mail quando terminar."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
 #, kde-format
 msgid "Download File Requested"
 msgstr "Pedido de Transferência do Ficheiro"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "Each Mentions"
 msgstr "Em Cada Menção"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:162
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:172
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:163
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
 #, kde-format
 msgid "Cozy"
 msgstr "Confortável"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Compact"
 msgstr "Compacto"
@@ -7078,15 +7109,14 @@ msgid "Unread on Top"
 msgstr "Não-Lidas no Topo"
 
 #: widgets/ruqolamainwindow.cpp:400
-#, fuzzy, kde-format
-#| msgid "Last Message"
+#, kde-format
 msgid "By Last Message"
-msgstr "Última Mensagem"
+msgstr "Pela Última Mensagem"
 
 #: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Alphabetically"
-msgstr ""
+msgstr "Alfabeticamente"
 
 #: widgets/ruqolamainwindow.cpp:412
 #, kde-format

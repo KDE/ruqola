@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-13 00:46+0000\n"
+"POT-Creation-Date: 2022-10-14 00:47+0000\n"
 "PO-Revision-Date: 2022-10-12 11:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -802,7 +802,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Disabled"
 msgstr "Desactivat"
@@ -947,8 +947,8 @@ msgstr[1] "%1 segons"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:151
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:156
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
 msgid "Nothing"
 msgstr "Res"
@@ -984,15 +984,15 @@ msgid "Seasons"
 msgstr "Estacions"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:149
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:154
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
 #, kde-format
 msgid "All Messages"
 msgstr "Tots els missatges"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:150
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:155
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
 #, kde-format
 msgid "Mentions"
 msgstr "Mencions"
@@ -3506,71 +3506,76 @@ msgstr "Reinicia el TOTP"
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
 #, kde-format
 msgid "Allow Name Change"
 msgstr "Permet el canvi de nom"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow User Profile Change"
 msgstr "Permet el canvi de perfil d'usuari"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr "Permet el canvi d'avatar d'usuari"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow Email Change"
 msgstr "Permet el canvi de correu electrònic"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow Password Change"
 msgstr "Permet el canvi de contrasenya"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
 msgid "Allow Email Notifications"
 msgstr "Permet les notificacions de correu electrònic"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Users to Delete Own Account"
 msgstr "Permet que els usuaris suprimeixin el seu propi compte"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr "Permet escriure anònimament"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr "Permet llegir anònimament"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
 msgstr "Permet el canvi de contrasenya als usuaris d'OAuth"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
 msgstr "Permet l'opció d'estat invisible"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Forget User Session on Window Close"
 msgstr "Oblida la sessió d'usuari en tancar la finestra"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Venciment de l'inici de sessió en dies"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#, kde-format
+msgid "Failed Login Attempts"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3578,79 +3583,84 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuració de l'administració del servidor - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:863
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
 #, kde-format
 msgid "File Upload"
 msgstr "Pujada de fitxers"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de retenció"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitador de velocitat"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Contrasenya"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federació d'IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Layout"
 msgstr "Disposició"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#, kde-format
+msgid "User Data Download"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4601,6 +4611,32 @@ msgstr "Antiguitat màxima dels missatges als missatges directes"
 #, kde-format
 msgid "Apply"
 msgstr "Aplica"
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Enable system tray icon"
+msgid "Enable User Data Download"
+msgstr "Habilita la icona a la safata del sistema"
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
+#, kde-format
+msgid "System Path (Exported Files)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
+#, kde-format
+msgid "System Path (Compressed File)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
+#, kde-format
+msgid "Processing Frequency (Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
+#, kde-format
+msgid "Message Limit per Request"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -6243,17 +6279,17 @@ msgstr "Notificació d'inserció:"
 msgid "View Mode:"
 msgstr "Mode de vista:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:103
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
 #, kde-format
 msgid "Download My Data (HTML)"
 msgstr "Baixa les meves dades (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:117
 #, kde-format
 msgid "Export My Data (JSON)"
 msgstr "Exporta les meves dades (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:142
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -6262,27 +6298,27 @@ msgstr ""
 "Es generarà el fitxer amb les vostres dades. S'enviarà a la vostra adreça "
 "electrònica un enllaç per baixar-lo quan estigui llest."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:143
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
 #, kde-format
 msgid "Download File Requested"
 msgstr "S'ha sol·licitat la baixada del fitxer"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "Each Mentions"
 msgstr "Cada menció"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:162
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:172
 #, kde-format
 msgid "Normal"
 msgstr "Normal"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:163
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
 #, kde-format
 msgid "Cozy"
 msgstr "Confortable"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Compact"
 msgstr "Compacta"
