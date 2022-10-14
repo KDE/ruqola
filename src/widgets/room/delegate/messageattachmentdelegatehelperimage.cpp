@@ -10,8 +10,6 @@
 #include "dialogs/showimagedialog.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqolawidgets_selection_debug.h"
 
 #include <KLocalizedString>
 
