@@ -93,9 +93,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     connectCheckBox(mRemoveEXIFMetadata, QStringLiteral("Message_Attachments_Strip_Exif"));
 
     mEnableImageThumbnails->setObjectName(QStringLiteral("mEnableImageThumbnails"));
-    mEnableImageThumbnails->setToolTip(
-        i18n("Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
-             "next to the attachment's name."));
+    mEnableImageThumbnails->setToolTip(i18n(
+        "Thumbnails will be served instead of the original image to reduce bandwidth usage. Images at original resolution can be downloaded using the icon "
+        "next to the attachment's name."));
     mMainLayout->addWidget(mEnableImageThumbnails);
     connectCheckBox(mEnableImageThumbnails, QStringLiteral("Message_Attachments_Thumbnails_Enabled"));
 

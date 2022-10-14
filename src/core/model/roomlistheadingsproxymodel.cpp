@@ -27,9 +27,13 @@ void RoomListHeadingsProxyModel::setSourceModel(QAbstractItemModel *sourceModel)
 
     connect(sourceModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, &RoomListHeadingsProxyModel::onRowsAboutToBeRemoved);
 
-    connect(sourceModel, &QAbstractItemModel::rowsAboutToBeMoved, this, [this]{ Q_EMIT layoutAboutToBeChanged(); });
+    connect(sourceModel, &QAbstractItemModel::rowsAboutToBeMoved, this, [this] {
+        Q_EMIT layoutAboutToBeChanged();
+    });
     connect(sourceModel, &QAbstractItemModel::rowsMoved, this, &RoomListHeadingsProxyModel::rebuildSections);
-    connect(sourceModel, &QAbstractItemModel::rowsMoved, this, [this]{ Q_EMIT layoutChanged(); });
+    connect(sourceModel, &QAbstractItemModel::rowsMoved, this, [this] {
+        Q_EMIT layoutChanged();
+    });
 
     connect(sourceModel, &QAbstractItemModel::dataChanged, this, &RoomListHeadingsProxyModel::onDataChanged);
 

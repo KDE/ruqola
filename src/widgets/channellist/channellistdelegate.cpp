@@ -52,7 +52,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const QSize unreadSize = !unreadText.isEmpty() ? option.fontMetrics.size(Qt::TextSingleLine, unreadText) : QSize(0, 0);
     const int xText = offsetAvatarRoom + option.rect.x() + iconSize + (isHeader ? 1 : 2) * margin;
     const QRect displayRect(xText, option.rect.y() + padding, option.rect.width() - xText - unreadSize.width() - margin, option.rect.height() - 2 * padding);
-    const QRect unreadRect(option.rect.width() - unreadSize.width() - margin, option.rect.y() + padding, unreadSize.width(), option.rect.height() - 2 * padding);
+    const QRect unreadRect(option.rect.width() - unreadSize.width() - margin,
+                           option.rect.y() + padding,
+                           unreadSize.width(),
+                           option.rect.height() - 2 * padding);
 
     QStyleOptionViewItem optionCopy = option;
     optionCopy.showDecorationSelected = true;
