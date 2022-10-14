@@ -27,6 +27,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mLoginExpirationInDays(new QSpinBox(this))
     , mAllowInvisibleStatusOption(new QCheckBox(i18n("Allow Invisible status option"), this))
     , mForgetUserSessionWindowClose(new QCheckBox(i18n("Forget User Session on Window Close"), this))
+    , mEnableCollectLog(new QCheckBox(i18n("Enable collect log in data"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -86,6 +87,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     auto failedLoginAttemptsLabel = createBoldLabel(i18n("Failed Login Attempts"));
     failedLoginAttemptsLabel->setObjectName(QStringLiteral("failedLoginAttemptsLabel"));
     mMainLayout->addWidget(failedLoginAttemptsLabel);
+
+    mEnableCollectLog->setObjectName(QStringLiteral("mEnableCollectLog"));
+    mMainLayout->addWidget(mEnableCollectLog);
+    connectCheckBox(mEnableCollectLog, QStringLiteral("Block_Multiple_Failed_Logins_Enabled"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -106,4 +111,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mLoginExpirationInDays, mapSettings, 90);
     initializeWidget(mAllowInvisibleStatusOption, mapSettings, true);
     initializeWidget(mForgetUserSessionWindowClose, mapSettings, false);
+    initializeWidget(mEnableCollectLog, mapSettings, false);
 }

@@ -112,4 +112,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     auto failedLoginAttemptsLabel = w.findChild<QLabel *>(QStringLiteral("failedLoginAttemptsLabel"));
     QVERIFY(failedLoginAttemptsLabel);
     QVERIFY(!failedLoginAttemptsLabel->text().isEmpty());
+
+    auto mEnableCollectLog = w.findChild<QCheckBox *>(QStringLiteral("mEnableCollectLog"));
+    QVERIFY(mEnableCollectLog);
+    QVERIFY(!mEnableCollectLog->isChecked());
+    QVERIFY(!mEnableCollectLog->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableCollectLog), QStringLiteral("Block_Multiple_Failed_Logins_Enabled"));
 }

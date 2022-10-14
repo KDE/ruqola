@@ -35,4 +35,5 @@ private:
     QSpinBox *const mLoginExpirationInDays;
     QCheckBox *const mAllowInvisibleStatusOption;
     QCheckBox *const mForgetUserSessionWindowClose;
+    QCheckBox *const mEnableCollectLog;
 };
