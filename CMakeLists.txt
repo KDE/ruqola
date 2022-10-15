@@ -137,7 +137,7 @@ set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network manag
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
+#add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x060000)
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)
 endif()       	
