@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
+"POT-Creation-Date: 2022-10-15 00:46+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -872,7 +872,7 @@ msgstr "Criado em"
 msgid "Channel Type"
 msgstr "Tipo de canal"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:613
+#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -1032,55 +1032,55 @@ msgstr "Autenticação de dois fatores"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:492
 #, kde-format
 msgid "Teams Room"
 msgstr "Sala da equipe"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:498
 #, kde-format
 msgid "Private Room"
 msgstr "Sala privada"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Discussion Room"
 msgstr "Sala de discussão"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Channel Room"
 msgstr "Sala do canal"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Unread"
 msgstr "Não lida"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:566
 #, kde-format
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:568
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr "Equipes"
 
-#: core/model/roommodel.cpp:615
+#: core/model/roommodel.cpp:572
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussões"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:574
 #, kde-format
 msgid "Private Messages"
 msgstr "Mensagens privadas"
 
-#: core/model/roommodel.cpp:619
+#: core/model/roommodel.cpp:576
 #, kde-format
 msgid "Unknown"
 msgstr "Desconhecido"
@@ -1370,12 +1370,12 @@ msgstr "<strong>%1</strong> está digitando..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:2848
+#: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensagens"
 
-#: core/rocketchataccount.cpp:2849
+#: core/rocketchataccount.cpp:2833
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Seu e-mail está na fila para envio."
@@ -3617,13 +3617,19 @@ msgstr ""
 msgid "Forget User Session on Window Close"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Enable logging"
+msgid "Enable collect log in data"
+msgstr "Habilitar registro de logs"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Expiração (dias)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
@@ -4853,71 +4859,71 @@ msgstr "Pesquisar..."
 msgid "Mark as Read"
 msgstr "Marcar como lida"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Read"
 msgstr "Marcar como lida"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Marcar como não lida"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #: widgets/room/messagelistview.cpp:225
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Definir como favorito"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Desativar como favorito"
 
-#: widgets/channellist/channellistview.cpp:115
+#: widgets/channellist/channellistview.cpp:116
 #, kde-format
 msgid "Hide Channel"
 msgstr "Ocultar canal"
 
-#: widgets/channellist/channellistview.cpp:130
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Convert to Team"
 msgstr "Converter para equipe"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Converter para canal"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgid "Move to Team"
 msgstr "Mover para equipe"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:165
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Configurar notificação..."
 
-#: widgets/channellist/channellistview.cpp:171
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgid "Quit Channel"
 msgstr "Sair do canal"
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, fuzzy, kde-format
 #| msgid "Move to Team"
 msgid "Move To Team"
 msgstr "Mover para equipe"
 
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
@@ -5786,7 +5792,7 @@ msgid "Fit to View"
 msgstr "Ajustar a visualização"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
 #, kde-format
 msgid "Save Image"

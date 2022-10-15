@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-10-12 10:28+0200\n"
+"POT-Creation-Date: 2022-10-15 00:46+0000\n"
+"PO-Revision-Date: 2022-10-14 10:19+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -863,7 +863,7 @@ msgstr "Aangemaakt"
 msgid "Channel Type"
 msgstr "Kanaaltype"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:613
+#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -1019,55 +1019,55 @@ msgstr "Twee-factor-authenticatie"
 msgid "Last token part"
 msgstr "Laatste gedeelte token"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:492
 #, kde-format
 msgid "Teams Room"
 msgstr "Teamsroom"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:498
 #, kde-format
 msgid "Private Room"
 msgstr "Privéroom"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Discussion Room"
 msgstr "Discussieroom"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Channel Room"
 msgstr "Kanaalroom"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Unread"
 msgstr "Ongelezen"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:566
 #, kde-format
 msgid "Favorites"
 msgstr "Favorieten"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:568
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
 
-#: core/model/roommodel.cpp:615
+#: core/model/roommodel.cpp:572
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Discussies"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:574
 #, kde-format
 msgid "Private Messages"
 msgstr "Privé berichten"
 
-#: core/model/roommodel.cpp:619
+#: core/model/roommodel.cpp:576
 #, kde-format
 msgid "Unknown"
 msgstr "Onbekend"
@@ -1345,12 +1345,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2848
+#: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2849
+#: core/rocketchataccount.cpp:2833
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -3566,15 +3566,21 @@ msgstr "Optie onzichtbare status toestaan"
 msgid "Forget User Session on Window Close"
 msgstr "Gebruikerssessie vergeten bij sluiten van venster"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Enable logging"
+msgid "Enable collect log in data"
+msgstr "Loggen inschakelen"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Verlopen van kunnen aanmelden in dagen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr ""
+msgstr "Mislukte pogingen tot aanmelden"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3657,10 +3663,9 @@ msgid "Enterprise"
 msgstr "Grote onderneming"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgid "User Data Download"
-msgstr "Downloaden"
+msgstr "Gedownloade gebruikersgegevens"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4616,30 +4621,29 @@ msgid "Apply"
 msgstr "Toepassen"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable system tray icon"
+#, kde-format
 msgid "Enable User Data Download"
-msgstr "Systeemvakpictogram inschakelen"
+msgstr "Downloaden van gebruikersgegevens inschakelen"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
 #, kde-format
 msgid "System Path (Exported Files)"
-msgstr ""
+msgstr "Systeempad (Geëxporteerde bestanden)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
 #, kde-format
 msgid "System Path (Compressed File)"
-msgstr ""
+msgstr "Systeempad (Gecomprimeerde bestanden)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
 #, kde-format
 msgid "Processing Frequency (Minutes)"
-msgstr ""
+msgstr "Frequentie van verwerking (minuten)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
 #, kde-format
 msgid "Message Limit per Request"
-msgstr ""
+msgstr "Limiet van berichtgrootte per verzoek"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -4761,70 +4765,70 @@ msgstr "Zoeken..."
 msgid "Mark as Read"
 msgstr "Als gelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Read"
 msgstr "Als gelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Als ongelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #: widgets/room/messagelistview.cpp:225
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Als favoriet instellen"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Instelling als favoriet ongedaan maken"
 
-#: widgets/channellist/channellistview.cpp:115
+#: widgets/channellist/channellistview.cpp:116
 #, kde-format
 msgid "Hide Channel"
 msgstr "Kanaal verbergen"
 
-#: widgets/channellist/channellistview.cpp:130
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Convert to Team"
 msgstr "Naar team converteren"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Naar kanaal converteren"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgid "Move to Team"
 msgstr "Naar team verplaatsen"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:165
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Meldingen configureren..."
 
-#: widgets/channellist/channellistview.cpp:171
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgid "Quit Channel"
 msgstr "Kanaal verlaten"
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgid "Any team selected."
 msgstr "Elk geselecteerd team."
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgid "Move To Team"
 msgstr "Naar team verplaatsen"
 
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Naar team converteren? Het kan niet ongedaan worden gemaakt."
@@ -5681,7 +5685,7 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
 #, kde-format
 msgid "Save Image"

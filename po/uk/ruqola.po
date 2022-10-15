@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:47+0000\n"
-"PO-Revision-Date: 2022-10-12 08:05+0300\n"
+"POT-Creation-Date: 2022-10-15 00:46+0000\n"
+"PO-Revision-Date: 2022-10-14 17:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -866,7 +866,7 @@ msgstr "Створено"
 msgid "Channel Type"
 msgstr "Тип каналу"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:613
+#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -1024,55 +1024,55 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:535
+#: core/model/roommodel.cpp:492
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:541
+#: core/model/roommodel.cpp:498
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:543
+#: core/model/roommodel.cpp:500
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:547
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:607
+#: core/model/roommodel.cpp:564
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:609
+#: core/model/roommodel.cpp:566
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:611
+#: core/model/roommodel.cpp:568
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:615
+#: core/model/roommodel.cpp:572
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:617
+#: core/model/roommodel.cpp:574
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:619
+#: core/model/roommodel.cpp:576
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -1349,12 +1349,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2848
+#: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2849
+#: core/rocketchataccount.cpp:2833
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -3578,15 +3578,21 @@ msgstr "Дозволити варіант із невидимим станом"
 msgid "Forget User Session on Window Close"
 msgstr "Забувати про сеанси користувача при закритті вікна"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Enable logging"
+msgid "Enable collect log in data"
+msgstr "Увімкнути журнал"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Строк дії облікового запису (у днях)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr ""
+msgstr "Невдалі спроби увійти"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3669,10 +3675,9 @@ msgid "Enterprise"
 msgstr "Промислове"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgid "User Data Download"
-msgstr "Отримати"
+msgstr "Отримання даних користувача"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4627,30 +4632,29 @@ msgid "Apply"
 msgstr "Застосувати"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable system tray icon"
+#, kde-format
 msgid "Enable User Data Download"
-msgstr "Ввімкнути піктограму у системному лотку"
+msgstr "Увімкнути отримання даних користувача"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
 #, kde-format
 msgid "System Path (Exported Files)"
-msgstr ""
+msgstr "Загальносистемний шлях (експортовані файли)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
 #, kde-format
 msgid "System Path (Compressed File)"
-msgstr ""
+msgstr "Загальносистемний шлях (стиснений файл)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
 #, kde-format
 msgid "Processing Frequency (Minutes)"
-msgstr ""
+msgstr "Частота обробки (хвилини)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
 #, kde-format
 msgid "Message Limit per Request"
-msgstr ""
+msgstr "Обмеження повідомлень на запит"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -4772,70 +4776,70 @@ msgstr "Шукати…"
 msgid "Mark as Read"
 msgstr "Позначити як прочитане"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Read"
 msgstr "Позначити як непрочитане"
 
-#: widgets/channellist/channellistview.cpp:100
+#: widgets/channellist/channellistview.cpp:101
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Позначити як непрочитане"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #: widgets/room/messagelistview.cpp:225
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Зробити улюбленим"
 
-#: widgets/channellist/channellistview.cpp:108
+#: widgets/channellist/channellistview.cpp:109
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Скасувати позначення улюбленим"
 
-#: widgets/channellist/channellistview.cpp:115
+#: widgets/channellist/channellistview.cpp:116
 #, kde-format
 msgid "Hide Channel"
 msgstr "Приховати канал"
 
-#: widgets/channellist/channellistview.cpp:130
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:131
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Convert to Team"
 msgstr "Перетворити на команду"
 
-#: widgets/channellist/channellistview.cpp:139
+#: widgets/channellist/channellistview.cpp:140
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Перетворити на канал"
 
-#: widgets/channellist/channellistview.cpp:149
+#: widgets/channellist/channellistview.cpp:150
 #, kde-format
 msgid "Move to Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:164
+#: widgets/channellist/channellistview.cpp:165
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Налаштувати сповіщення…"
 
-#: widgets/channellist/channellistview.cpp:171
+#: widgets/channellist/channellistview.cpp:172
 #, kde-format
 msgid "Quit Channel"
 msgstr "Вийти з каналу"
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgid "Any team selected."
 msgstr "Не вибрано жодної команди."
 
-#: widgets/channellist/channellistview.cpp:217
+#: widgets/channellist/channellistview.cpp:213
 #, kde-format
 msgid "Move To Team"
 msgstr "Пересунути до команди"
 
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:260
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
@@ -5709,7 +5713,7 @@ msgid "Fit to View"
 msgstr "Підібрати за розмірами"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:129
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
 #, kde-format
 msgid "Save Image"
