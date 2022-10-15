@@ -20,6 +20,7 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+#include <kwidgetsaddons_version.h>
 
 AdministratorCustomSoundsWidget::AdministratorCustomSoundsWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
@@ -123,12 +124,20 @@ void AdministratorCustomSoundsWidget::slotModifyCustomSound(const QModelIndex &i
 
 void AdministratorCustomSoundsWidget::slotRemoveCustomSound(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Do you want to remove this sound?"),
-                                   i18nc("@title", "Remove Custom Sound"),
-                                   KStandardGuiItem::remove(),
-                                   KStandardGuiItem::cancel())
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::warningTwoActions(this,
+#else
+    if (KMessageBox::warningYesNo(this,
+#endif
+                                       i18n("Do you want to remove this sound?"),
+                                       i18nc("@title", "Remove Custom Sound"),
+                                       KStandardGuiItem::remove(),
+                                       KStandardGuiItem::cancel())
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        == KMessageBox::PrimaryAction) {
+#else
         == KMessageBox::Yes) {
+#endif
         const QModelIndex modelIndex = mModel->index(index.row(), AdminCustomSoundModel::Identifier);
         const QString soundIdentifier = modelIndex.data().toString();
         mRocketChatAccount->ddp()->deleteCustomSound(soundIdentifier);

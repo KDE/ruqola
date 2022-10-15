@@ -22,6 +22,7 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+#include <kwidgetsaddons_version.h>
 
 UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
@@ -73,12 +74,17 @@ void UsersInRoleWidget::slotAddUsersToRoleDone(const QJsonObject &replyObject)
 void UsersInRoleWidget::slotRemoveUser(const QModelIndex &index)
 {
     QModelIndex modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::Name);
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()),
-                                   i18n("Remove User"),
-                                   KStandardGuiItem::remove(),
-                                   KStandardGuiItem::cancel())
-        == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+                                           i18n("Do you want to remove this user \"%1\"?", modelIndex.data().toString()),
+                                           i18n("Remove User"),
+                                           KStandardGuiItem::remove(),
+                                           KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::RemoveUserFromRoleJob(this);
         job->setRoleName(mRoleName);
         modelIndex = mTreeView->model()->index(index.row(), UsersInRoleModel::UserName);

@@ -29,6 +29,7 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
+#include <kwidgetsaddons_version.h>
 
 AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
@@ -144,8 +145,17 @@ void AdministratorUsersWidget::slotUserUpdateDone(const QJsonObject &obj)
 
 void AdministratorUsersWidget::slotRemoveUser(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this, i18n("Do you want to remove this user?"), i18n("Remove User"), KStandardGuiItem::remove(), KStandardGuiItem::cancel())
-        == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+                                           i18n("Do you want to remove this user?"),
+                                           i18n("Remove User"),
+                                           KStandardGuiItem::remove(),
+                                           KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::DeleteUserJob(this);
         RocketChatRestApi::UserBaseJob::UserInfo info;
         info.userInfoType = RocketChatRestApi::UserBaseJob::UserInfoType::UserId;
@@ -295,15 +305,21 @@ void AdministratorUsersWidget::slotChangeAdmin(const QModelIndex &index, bool ad
 
 void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Reset the current E2E key will log out the user. When the user login again, Rocket.Chat "
-                                        "will generate a new key and restore the user access to any encrypted room that has one or more members "
-                                        "online. Due to the nature of the E2E encryption, Rocket.Chat will not be able to restore access to any encrypted "
-                                        "room that has no member online."),
-                                   i18n("Reset E2E key"),
-                                   KStandardGuiItem::reset(),
-                                   KStandardGuiItem::cancel())
-        == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(
+            this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+            i18n("Reset the current E2E key will log out the user. When the user login again, Rocket.Chat "
+                 "will generate a new key and restore the user access to any encrypted room that has one or more members "
+                 "online. Due to the nature of the E2E encryption, Rocket.Chat will not be able to restore access to any encrypted "
+                 "room that has no member online."),
+            i18n("Reset E2E key"),
+            KStandardGuiItem::reset(),
+            KStandardGuiItem::cancel())) {
         QString password;
         const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
@@ -338,12 +354,18 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
 {
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Reset the current Two Factor TOTP will log out the user. The user will be able to set the Two Factor again later."),
-                                   i18n("Reset TOTP"),
-                                   KStandardGuiItem::reset(),
-                                   KStandardGuiItem::cancel())
-        == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(
+            this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+            i18n("Reset the current Two Factor TOTP will log out the user. The user will be able to set the Two Factor again later."),
+            i18n("Reset TOTP"),
+            KStandardGuiItem::reset(),
+            KStandardGuiItem::cancel())) {
         QString password;
         const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {

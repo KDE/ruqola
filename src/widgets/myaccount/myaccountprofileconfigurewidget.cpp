@@ -19,6 +19,7 @@
 #include <QLineEdit>
 #include <QPointer>
 #include <QPushButton>
+#include <kwidgetsaddons_version.h>
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -89,12 +90,17 @@ void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this,
-                                      i18n("Do you really delete your account ?"),
-                                      i18nc("@title", "Delete my Account"),
-                                      KStandardGuiItem::del(),
-                                      KStandardGuiItem::cancel())) {
+#endif
+                                           i18n("Do you really delete your account ?"),
+                                           i18nc("@title", "Delete my Account"),
+                                           KStandardGuiItem::del(),
+                                           KStandardGuiItem::cancel())) {
         QPointer<KPasswordDialog> dlg = new KPasswordDialog(this);
         dlg->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
         dlg->setPrompt(i18n("Current Password"));

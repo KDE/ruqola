@@ -20,6 +20,7 @@
 #include "role/roleupdatejob.h"
 
 #include <KLocalizedString>
+#include <kwidgetsaddons_version.h>
 
 #include <KMessageBox>
 #include <QHeaderView>
@@ -214,12 +215,17 @@ void AdministratorRolesWidget::deleteRole(const QModelIndex &modelIndex)
         return;
     }
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
-    if (KMessageBox::questionYesNo(this,
-                                   i18n("Do you want to remove this role \'%1\'?", index.data().toString()),
-                                   i18n("Remove Role"),
-                                   KStandardGuiItem::remove(),
-                                   KStandardGuiItem::cancel())
-        == KMessageBox::Yes) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+                                           i18n("Do you want to remove this role \'%1\'?", index.data().toString()),
+                                           i18n("Remove Role"),
+                                           KStandardGuiItem::remove(),
+                                           KStandardGuiItem::cancel())) {
         auto roleDeleteJob = new RocketChatRestApi::RoleDeleteJob(this);
         mRocketChatAccount->restApi()->initializeRestApiJob(roleDeleteJob);
         roleDeleteJob->setRoleId(identifier);

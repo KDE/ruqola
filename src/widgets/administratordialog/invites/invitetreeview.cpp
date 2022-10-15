@@ -9,6 +9,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
+#include <kwidgetsaddons_version.h>
 
 InviteTreeView::InviteTreeView(QWidget *parent)
     : QTreeView(parent)
@@ -46,8 +47,17 @@ void InviteTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void InviteTreeView::removeClicked(const QString &identifier)
 {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::PrimaryAction
+        == KMessageBox::warningTwoActions(this,
+#else
     if (KMessageBox::Yes
-        == KMessageBox::warningYesNo(this, i18n("Are you sure that you want to delete this invite?"), i18n("Remove Invite"), KStandardGuiItem::del())) {
+        == KMessageBox::warningYesNo(this,
+#endif
+                                          i18n("Are you sure that you want to delete this invite?"),
+                                          i18n("Remove Invite"),
+                                          KStandardGuiItem::del(),
+                                          KStandardGuiItem::cancel())) {
         Q_EMIT removeInvite(identifier);
     }
 }
