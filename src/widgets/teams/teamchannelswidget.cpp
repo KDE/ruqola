@@ -21,6 +21,7 @@
 #include "teams/teamsearchroomdialog.h"
 #include "teams/teamslistroomsjob.h"
 #include "teams/teamupdateroomjob.h"
+#include <kwidgetsaddons_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -158,12 +159,17 @@ void TeamChannelsWidget::slotTeamUpdateRoomDone(const QJsonObject &replyObject)
 
 void TeamChannelsWidget::removeRoomFromTeam(const QString &roomId)
 {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this,
-                                      i18n("Would you like to remove this Channel from team?"),
-                                      i18nc("@title", "Remove Channel from Team"),
-                                      KStandardGuiItem::remove(),
-                                      KStandardGuiItem::cancel())) {
+#endif
+                                           i18n("Would you like to remove this Channel from team?"),
+                                           i18nc("@title", "Remove Channel from Team"),
+                                           KStandardGuiItem::remove(),
+                                           KStandardGuiItem::cancel())) {
         auto job = new RocketChatRestApi::TeamRemoveRoomJob(this);
         job->setTeamId(mTeamId);
         job->setRoomId(roomId);

@@ -41,6 +41,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 
 #include <QDragEnterEvent>
 #include <QDropEvent>
@@ -206,12 +207,17 @@ void RoomWidget::slotPruneMessages()
     if (dlg->exec()) {
         RocketChatRestApi::RoomsCleanHistoryJob::CleanHistoryInfo info = dlg->cleanHistoryInfo();
         info.roomId = mRoomWidgetBase->roomId();
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+        if (KMessageBox::ButtonCode::PrimaryAction
+            == KMessageBox::questionTwoActions(this,
+#else
         if (KMessageBox::Yes
-            == KMessageBox::warningYesNo(this,
-                                         i18n("Do you want really remove history?"),
-                                         i18n("Remove History"),
-                                         KStandardGuiItem::remove(),
-                                         KStandardGuiItem::cancel())) {
+            == KMessageBox::questionYesNo(this,
+#endif
+                                               i18n("Do you want really remove history?"),
+                                               i18n("Remove History"),
+                                               KStandardGuiItem::remove(),
+                                               KStandardGuiItem::cancel())) {
             mCurrentRocketChatAccount->cleanChannelHistory(info);
         }
     }

@@ -13,6 +13,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolaserverconfig.h"
 #include "ruqolawidgets_debug.h"
+#include <kwidgetsaddons_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -98,8 +99,17 @@ void MessageLineWidget::slotSendMessage(const QString &msg)
             }
             if (msg.size() > mCurrentRocketChatAccount->messageMaximumAllowedSize()) {
                 if (mCurrentRocketChatAccount->messageAllowConvertLongMessagesToAttachment()) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+                    if (KMessageBox::ButtonCode::PrimaryAction
+                        == KMessageBox::questionTwoActions(this,
+#else
                     if (KMessageBox::Yes
-                        == KMessageBox::questionYesNo(this, i18n("Do you want to convert this big text as attachment?"), i18n("Message Too Big"))) {
+                        == KMessageBox::questionYesNo(this,
+#endif
+                                                           i18n("Do you want to convert this big text as attachment?"),
+                                                           i18n("Message Too Big"),
+                                                           KStandardGuiItem::ok(),
+                                                           KStandardGuiItem::cancel())) {
                         QPointer<MessageMaximumSizeDialog> dlg = new MessageMaximumSizeDialog(this);
                         if (dlg->exec()) {
                             QTemporaryFile tempFile(QDir::tempPath() + QStringLiteral("/XXXXXX.txt"));

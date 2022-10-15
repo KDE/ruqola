@@ -23,6 +23,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <kwidgetsaddons_version.h>
 
 #include <QAction>
 #include <QContextMenuEvent>
@@ -257,7 +258,17 @@ void ChannelListView::slotConvertToChannel(const QModelIndex &index)
 
 void ChannelListView::slotConvertToTeam(const QModelIndex &index, Room::RoomType roomType)
 {
-    if (KMessageBox::Yes == KMessageBox::warningYesNo(this, i18n("Are you sure to convert it to team? It can not be undo."), i18n("Convert to Team"))) {
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
+    if (KMessageBox::Yes
+        == KMessageBox::warningYesNo(this,
+#endif
+                                           i18n("Are you sure to convert it to team? It can not be undo."),
+                                           i18n("Convert to Team"),
+                                           KStandardGuiItem::ok(),
+                                           KStandardGuiItem::cancel())) {
         const QString roomId = index.data(RoomModel::RoomId).toString();
         switch (roomType) {
         case Room::RoomType::Unknown:

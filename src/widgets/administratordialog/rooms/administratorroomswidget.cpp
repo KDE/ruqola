@@ -16,6 +16,7 @@
 #include "rooms/adminroomsgetroomjob.h"
 #include "rooms/adminroomsjob.h"
 #include "ruqolawidgets_debug.h"
+#include <kwidgetsaddons_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -183,12 +184,17 @@ AdministratorRoomsWidget::convertToSaveRoomSettingsInfo(const AdministratorRooms
 void AdministratorRoomsWidget::slotRemoveRoom(const QModelIndex &index)
 {
     const QString roomName = mModel->index(index.row(), AdminRoomsModel::Name).data().toString();
+#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
+    if (KMessageBox::ButtonCode::PrimaryAction
+        == KMessageBox::questionTwoActions(this,
+#else
     if (KMessageBox::Yes
         == KMessageBox::questionYesNo(this,
-                                      i18n("Do you want to remove \"%1\"?", roomName),
-                                      i18nc("@title", "Remove Room"),
-                                      KStandardGuiItem::remove(),
-                                      KStandardGuiItem::cancel())) {
+#endif
+                                           i18n("Do you want to remove \"%1\"?", roomName),
+                                           i18nc("@title", "Remove Room"),
+                                           KStandardGuiItem::remove(),
+                                           KStandardGuiItem::cancel())) {
         const QString roomIdentifier = mModel->index(index.row(), AdminRoomsModel::Identifier).data().toString();
         const QString channelType = mModel->index(index.row(), AdminRoomsModel::ChannelType).data().toString();
         const Room::RoomType roomType = Room::roomTypeFromString(channelType);
