@@ -5,13 +5,11 @@
 */
 
 #include "configurenotificationwidget.h"
-#include "model/notificationdesktopdurationpreferencemodel.h"
 #include "model/notificationdesktopsoundpreferencemodel.h"
 #include "model/notificationpreferencemodel.h"
 #include "notifications/notificationpreferences.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QComboBox>

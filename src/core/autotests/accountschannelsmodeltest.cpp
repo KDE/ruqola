@@ -8,7 +8,6 @@
 
 #include "accountmanager.h"
 #include "model/accountschannelsmodel.h"
-#include "model/roomfilterproxymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 

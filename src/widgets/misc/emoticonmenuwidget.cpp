@@ -16,7 +16,6 @@
 #include "model/emoticonmodelfilterproxymodel.h"
 #include "recentusedemoticonview.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolaglobalconfig.h"
 #include "searchwithdelaylineedit.h"
 #include "utils.h"

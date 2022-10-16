@@ -8,7 +8,6 @@
  */
 
 #include "notification.h"
-#include "ruqola.h"
 #include "ruqola_notification_debug.h"
 #ifdef UNITY_SUPPORT
 #include "unityservicemanager.h"

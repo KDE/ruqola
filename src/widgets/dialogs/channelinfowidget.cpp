@@ -6,15 +6,9 @@
 
 #include "channelinfowidget.h"
 #include "channelinfoeditablewidget.h"
-#include "channelinfoprunewidget.h"
 #include "channelinforeadonlywidget.h"
-#include "connection.h"
-#include "misc/systemmessagescombobox.h"
-#include "permissions/permissionmanager.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
 
 #include <QCheckBox>
 #include <QPushButton>

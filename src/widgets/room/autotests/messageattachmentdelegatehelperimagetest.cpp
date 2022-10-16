@@ -5,12 +5,9 @@
 */
 
 #include "messageattachmentdelegatehelperimagetest.h"
-#include "managerdatapaths.h"
-#include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdelegatehelperimage.h"
-#include "ruqola.h"
 #include "testdata.h"
 
 #include <QListView>

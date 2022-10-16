@@ -8,7 +8,6 @@
 #include "common/delegateutil.h"
 #include "model/filesforroommodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMimeDatabase>

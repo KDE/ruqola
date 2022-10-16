@@ -8,7 +8,6 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomavatarreadonlywidget.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>

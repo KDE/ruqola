@@ -9,7 +9,6 @@
 #include "model/usercompleterfilterproxymodel.h"
 #include "model/usercompletermodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)

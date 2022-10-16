@@ -8,7 +8,6 @@
 #include "colors.h"
 #include "common/delegatepaintutil.h"
 #include "misc/avatarcachemanager.h"
-#include "model/roomlistheadingsproxymodel.h"
 #include "model/roommodel.h"
 #include "rocketchataccount.h"
 

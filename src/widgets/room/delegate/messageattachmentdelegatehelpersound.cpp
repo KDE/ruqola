@@ -9,9 +9,6 @@
 #include "common/delegateutil.h"
 #include "dialogs/playsounddialog.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
-#include "ruqolawidgets_selection_debug.h"
 
 #include <KLocalizedString>
 

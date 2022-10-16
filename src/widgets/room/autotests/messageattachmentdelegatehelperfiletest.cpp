@@ -5,11 +5,6 @@
 */
 
 #include "messageattachmentdelegatehelperfiletest.h"
-#include "messages/message.h"
-#include "messages/messageattachment.h"
-#include "rocketchataccount.h"
-#include "room/delegate/messageattachmentdelegatehelperfile.h"
-#include "ruqola.h"
 
 #include <QStyleOptionViewItem>
 #include <QTest>

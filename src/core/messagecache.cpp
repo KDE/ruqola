@@ -7,7 +7,6 @@
 #include "messagecache.h"
 #include "connection.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqola_debug.h"
 
 #include <chat/getmessagejob.h>

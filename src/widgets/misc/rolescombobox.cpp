@@ -4,10 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "rolescombobox.h"
-#include "connection.h"
 #include "model/rolesmodel.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
 
 RolesComboBox::RolesComboBox(QWidget *parent)
     : QComboBox(parent)

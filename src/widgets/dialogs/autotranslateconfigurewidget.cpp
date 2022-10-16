@@ -8,7 +8,6 @@
 #include "model/autotranslatelanguagesmodel.h"
 #include "rocketchataccount.h"
 #include "room.h"
-#include "ruqola.h"
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QComboBox>

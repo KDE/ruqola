@@ -10,8 +10,6 @@
 #include "ddpapi/ddpauthenticationmanager.h"
 #include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
-#include "ruqola_debug.h"
 
 #include <QCborValue>
 #include <QDataStream>

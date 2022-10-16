@@ -10,7 +10,6 @@
 #include "rocketchataccount.h"
 #include "rocketchataccountfilterproxymodel.h"
 #include "rocketchataccountmodel.h"
-#include "roomfilterproxymodel.h"
 #include "ruqola.h"
 
 AccountsChannelsModel::AccountsChannelsModel(QObject *parent)

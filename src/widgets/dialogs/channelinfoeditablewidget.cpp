@@ -11,7 +11,6 @@
 #include "misc/systemmessagescombobox.h"
 #include "rocketchataccount.h"
 #include "roomavatarwidget.h"
-#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "teams/teamdeletejob.h"
 #include "teams/teamroom.h"

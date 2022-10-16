@@ -6,7 +6,6 @@
 
 #include "ruqolacentralwidget.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
 #include <KLocalizedString>

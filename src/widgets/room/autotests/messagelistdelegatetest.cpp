@@ -5,7 +5,6 @@
 */
 
 #include "messagelistdelegatetest.h"
-#include "messageattachmentdelegatehelperimagetest.h"
 #include "messages/message.h"
 #include "messages/messageattachment.h"
 #include "rocketchataccount.h"
