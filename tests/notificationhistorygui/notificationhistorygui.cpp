@@ -5,7 +5,6 @@
 */
 
 #include "notificationhistorygui.h"
-#include "notificationhistory/notificationhistorywidget.h"
 #include <QApplication>
 #include <QDebug>
 #include <QJsonDocument>
