@@ -41,7 +41,7 @@ public:
     //   - LoggedIn
     //   - LoginFailedInvalidOtp
     //   - GenericError
-    // state == LogoutOngoing since the logout requet is sent until a response is received,
+    // state == LogoutOngoing since the logout request is sent until a response is received,
     //   next states could be
     //   - LoggedOut
     //   - GenericError
