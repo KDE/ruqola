@@ -130,4 +130,15 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mThumbnailMaxHeight);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mThumbnailMaxHeight), QStringLiteral("Message_Attachments_Thumbnails_Height"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Attachments_Thumbnails_Height"));
+
+    auto mAudioRecorderEnabled = w.findChild<QCheckBox *>(QStringLiteral("mAudioRecorderEnabled"));
+    QVERIFY(mAudioRecorderEnabled);
+    QVERIFY(!mAudioRecorderEnabled->isChecked());
+    QVERIFY(!mAudioRecorderEnabled->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioRecorderEnabled), QStringLiteral("Message_AudioRecorderEnabled"));
+
+    auto mAudioMessageBitRate = w.findChild<QSpinBox *>(QStringLiteral("mAudioMessageBitRate"));
+    QVERIFY(mAudioMessageBitRate);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioMessageBitRate), QStringLiteral("Message_Audio_bitRate"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Audio_bitRate"));
 }

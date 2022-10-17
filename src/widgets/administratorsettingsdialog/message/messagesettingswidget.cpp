@@ -30,6 +30,8 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mEnableImageThumbnails(new QCheckBox(i18n("Enable image thumbnails to save bandwidth"), this))
     , mThumbnailMaxWidth(new QSpinBox(this))
     , mThumbnailMaxHeight(new QSpinBox(this))
+    , mAudioRecorderEnabled(new QCheckBox(i18n("Audio Recorder Enabled"), this))
+    , mAudioMessageBitRate(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -108,6 +110,14 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     auto audioMessageLabel = createBoldLabel(i18n("Audio Message"));
     audioMessageLabel->setObjectName(QStringLiteral("audioMessageLabel"));
     mMainLayout->addWidget(audioMessageLabel);
+
+    mAudioRecorderEnabled->setObjectName(QStringLiteral("mAudioRecorderEnabled"));
+    mMainLayout->addWidget(mAudioRecorderEnabled);
+    connectCheckBox(mAudioRecorderEnabled, QStringLiteral("Message_AudioRecorderEnabled"));
+
+    mAudioMessageBitRate->setObjectName(QStringLiteral("mAudioMessageBitRate"));
+    mAudioMessageBitRate->setMaximum(1000);
+    addSpinbox(i18n("Audio Message Bit Rate"), mAudioMessageBitRate, QStringLiteral("Message_Audio_bitRate"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -130,4 +140,6 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mEnableImageThumbnails, mapSettings, true);
     initializeWidget(mThumbnailMaxWidth, mapSettings, 480);
     initializeWidget(mThumbnailMaxHeight, mapSettings, 360);
+    initializeWidget(mAudioRecorderEnabled, mapSettings, true);
+    initializeWidget(mAudioMessageBitRate, mapSettings, 32);
 }

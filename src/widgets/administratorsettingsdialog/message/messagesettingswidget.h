@@ -37,4 +37,6 @@ private:
     QCheckBox *const mEnableImageThumbnails;
     QSpinBox *const mThumbnailMaxWidth;
     QSpinBox *const mThumbnailMaxHeight;
+    QCheckBox *const mAudioRecorderEnabled;
+    QSpinBox *const mAudioMessageBitRate;
 };
