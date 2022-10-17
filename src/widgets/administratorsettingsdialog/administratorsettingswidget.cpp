@@ -19,6 +19,7 @@
 #include "retentionpolicy/retentionpolicysettingswidget.h"
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
+#include "slackbridge/slackbridgewidget.h"
 #include "userdatadownload/userdatadownloadwidget.h"
 #include "videoconference/videoconferencewidget.h"
 #include "webdav/webdavsettingswidget.h"
@@ -45,6 +46,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mLayoutSettingsWidget(new LayoutSettingsWidget(account, this))
     , mEnterpriseSettingsWidget(new EnterpriseSettingsWidget(account, this))
     , mUserDataDownloadWidget(new UserDataDownloadWidget(account, this))
+    , mSlackBridgeWidget(new SlackBridgeWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -69,6 +71,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mLayoutSettingsWidget->setObjectName(QStringLiteral("mLayoutSettingsWidget"));
     mEnterpriseSettingsWidget->setObjectName(QStringLiteral("mEnterpriseSettingsWidget"));
     mUserDataDownloadWidget->setObjectName(QStringLiteral("mUserDataDownloadWidget"));
+    mSlackBridgeWidget->setObjectName(QStringLiteral("mSlackBridgeWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -84,6 +87,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mLayoutSettingsWidget, i18n("Layout"));
     mTabWidget->addTab(mEnterpriseSettingsWidget, i18n("Enterprise"));
     mTabWidget->addTab(mUserDataDownloadWidget, i18n("User Data Download"));
+    mTabWidget->addTab(mSlackBridgeWidget, i18n("Slack Bridge"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -125,6 +129,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mLayoutSettingsWidget, mapSettings);
     initializeValues(mEnterpriseSettingsWidget, mapSettings);
     initializeValues(mUserDataDownloadWidget, mapSettings);
+    initializeValues(mSlackBridgeWidget, mapSettings);
     updateState(true);
 }
 
@@ -149,4 +154,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mLayoutSettingsWidget->setEnabled(state);
     mEnterpriseSettingsWidget->setEnabled(state);
     mUserDataDownloadWidget->setEnabled(state);
+    mSlackBridgeWidget->setEnabled(state);
 }

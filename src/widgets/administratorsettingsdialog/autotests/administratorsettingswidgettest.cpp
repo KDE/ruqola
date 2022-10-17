@@ -18,6 +18,7 @@
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
+#include "administratorsettingsdialog/slackbridge/slackbridgewidget.h"
 #include "administratorsettingsdialog/userdatadownload/userdatadownloadwidget.h"
 #include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
@@ -86,4 +87,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mUserDataDownloadWidget = w.findChild<UserDataDownloadWidget *>(QStringLiteral("mUserDataDownloadWidget"));
     QVERIFY(mUserDataDownloadWidget);
+
+    auto mSlackBridgeWidget = w.findChild<SlackBridgeWidget *>(QStringLiteral("mSlackBridgeWidget"));
+    QVERIFY(mSlackBridgeWidget);
 }
