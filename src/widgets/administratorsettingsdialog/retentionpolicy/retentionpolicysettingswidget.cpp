@@ -34,7 +34,7 @@ RetentionPolicySettingsWidget::RetentionPolicySettingsWidget(RocketChatAccount *
     connectCheckBox(mEnabled, QStringLiteral("RetentionPolicy_Enabled"));
 
     mTimerPrecision->setObjectName(QStringLiteral("mTimerPrecision"));
-    QMap<QString, QString> maps = {
+    const QMap<QString, QString> maps = {
         {QStringLiteral("0"), i18n("Once every 30 minutes")},
         {QStringLiteral("1"), i18n("Once every hour")},
         {QStringLiteral("2"), i18n("Once every six hours")},

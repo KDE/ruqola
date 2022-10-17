@@ -30,7 +30,7 @@ IrcFederationWidget::IrcFederationWidget(RocketChatAccount *account, QWidget *pa
     connectCheckBox(mEnabled, QStringLiteral("IRC_Enabled"));
 
     mProtocol->setObjectName(QStringLiteral("mProtocol"));
-    QMap<QString, QString> maps = {
+    const QMap<QString, QString> maps = {
         {QStringLiteral("RFC2813"), i18n("RFC2813")},
     };
     addComboBox(i18n("Protocol"), maps, mProtocol, QStringLiteral("IRC_Protocol"));

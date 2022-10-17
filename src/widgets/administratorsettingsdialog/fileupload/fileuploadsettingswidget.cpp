@@ -62,7 +62,7 @@ FileUploadSettingsWidget::FileUploadSettingsWidget(RocketChatAccount *account, Q
     addLineEdit(i18n("Accepted Media Types"), mFileUploadJsonWebTokenSecret, QStringLiteral("FileUpload_json_web_token_secret_for_files"));
 
     mStorageType->setObjectName(QStringLiteral("mStorageType"));
-    QMap<QString, QString> maps = {
+    const QMap<QString, QString> maps = {
         {QStringLiteral("GridFS"), i18n("GridFS")},
         {QStringLiteral("AmazonS3"), i18n("AmazonS3")},
         {QStringLiteral("GoogleCloudStorage"), i18n("GoogleCloudStorage")},
