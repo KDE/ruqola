@@ -28,6 +28,12 @@ public:
     void selectChannelRequested(const QString &channelId);
     void selectNextUnreadChannel();
 
+    enum class Direction {
+        Up,
+        Down,
+    };
+    void selectNextChannel(Direction direction = Direction::Down, bool switchToNextUnreadChannel = false);
+
     Q_REQUIRED_RESULT bool selectChannelByRoomNameRequested(const QString &selectedRoomName);
 
     void channelSelected(const QModelIndex &index);
@@ -55,7 +61,6 @@ private:
     void slotConfigureNotification(Room *room);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
     void slotRoomRemoved(const QString &roomId);
-    void switchToChannel(bool switchToNextUnreadChannel = false);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

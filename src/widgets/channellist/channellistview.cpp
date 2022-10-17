@@ -396,10 +396,10 @@ bool ChannelListView::selectChannelByRoomIdRequested(const QString &identifier)
 
 void ChannelListView::selectNextUnreadChannel()
 {
-    switchToChannel(true);
+    selectNextChannel(Direction::Down, true);
 }
 
-void ChannelListView::switchToChannel(bool switchToNextUnreadChannel)
+void ChannelListView::selectNextChannel(Direction direction, bool switchToNextUnreadChannel)
 {
     Q_ASSERT(filterModel());
 
@@ -409,43 +409,50 @@ void ChannelListView::switchToChannel(bool switchToNextUnreadChannel)
         return;
     }
 
-    int startSection = 0;
-    int startRoom = 0;
-    // if we have a selection, start searching for the next unread channel there, otherwise start at the top
-    const auto currentlySelectedIndex = selectionModel()->currentIndex();
-    if (currentlySelectedIndex.isValid()) {
-        startSection = currentlySelectedIndex.parent().row();
-        startRoom = currentlySelectedIndex.row() + 1;
-    }
+    const QModelIndex initialIndex = selectionModel()->currentIndex();
+    QModelIndex currentIndex = initialIndex;
 
-    const auto selectRoomInSection = [this, switchToNextUnreadChannel](const QModelIndex &sectionIndex, size_t fromRoom, size_t toRoom) {
-        for (auto roomId = fromRoom; roomId < toRoom; ++roomId) {
-            const auto roomIndex = filterModel()->index(roomId, 0, sectionIndex);
-            if (!switchToNextUnreadChannel || roomIndex.data(RoomModel::RoomAlert).toBool()) {
-                channelSelected(roomIndex);
-                selectionModel()->setCurrentIndex(roomIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-                return true;
+    // nextIndex(invalid) → top or bottom
+    // nextIndex(other) → above or below, invalid on overflow
+    const auto nextIndex = [this, direction](const QModelIndex &index) {
+        if (!index.isValid()) {
+            switch (direction) {
+            case Direction::Up: {
+                QModelIndex lastIndex = filterModel()->index(filterModel()->rowCount() - 1, 0);
+                while (filterModel()->rowCount(lastIndex) > 0) {
+                    lastIndex = filterModel()->index(filterModel()->rowCount(lastIndex) - 1, 0, lastIndex);
+                }
+                return lastIndex;
             }
+            case Direction::Down:
+                return filterModel()->index(0, 0, {});
+            }
+            Q_UNREACHABLE();
         }
 
-        return false;
+        switch (direction) {
+        case Direction::Up: {
+            return indexAbove(index);
+        }
+        case Direction::Down: {
+            return indexBelow(index);
+        }
+        }
+        Q_UNREACHABLE();
     };
 
-    const auto startSectionIndex = filterModel()->index(startSection, 0);
-    const auto nRooms = filterModel()->rowCount(startSectionIndex);
-    if (selectRoomInSection(startSectionIndex, startRoom, nRooms))
-        return;
+    const auto matchesFilter = [switchToNextUnreadChannel](const QModelIndex &index) {
+        return index.isValid() && index.flags().testFlag(Qt::ItemIsSelectable) && (!switchToNextUnreadChannel || index.data(RoomModel::RoomAlert).toBool());
+    };
 
-    for (auto sectionId = startSection + 1; sectionId != nSections; sectionId = (sectionId + 1) % nSections) {
-        const auto sectionIndex = filterModel()->index(sectionId, 0);
-        const auto nRooms = filterModel()->rowCount(sectionIndex);
+    do {
+        currentIndex = nextIndex(currentIndex);
+    } while (currentIndex != initialIndex && !matchesFilter(currentIndex));
 
-        if (selectRoomInSection(sectionIndex, 0, nRooms))
-            return;
+    if (currentIndex.isValid()) {
+        channelSelected(currentIndex);
+        selectionModel()->setCurrentIndex(currentIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
     }
-
-    if (selectRoomInSection(startSectionIndex, 0, startRoom))
-        return;
 }
 
 void ChannelListView::slotRoomRemoved(const QString &roomId)
@@ -453,6 +460,6 @@ void ChannelListView::slotRoomRemoved(const QString &roomId)
     const auto currentlySelectedIndex = selectionModel()->currentIndex();
     const QString currentRoomId = currentlySelectedIndex.data(RoomModel::RoomId).toString();
     if (currentRoomId == roomId) {
-        switchToChannel();
+        selectNextChannel();
     }
 }

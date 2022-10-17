@@ -53,7 +53,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     auto previousRoomAction = new QAction(i18n("Previous Channel"), this);
     previousRoomAction->setShortcut(Qt::CTRL | Qt::Key_Up);
     connect(previousRoomAction, &QAction::triggered, this, [this]() {
-        selectNextChannel(Qt::Key_Up);
+        mChannelView->selectNextChannel(ChannelListView::Direction::Up);
         applyChannelSelection();
     });
     addAction(previousRoomAction); // TODO: Add to MainWindow's action collection instead?
@@ -61,7 +61,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     auto nextRoomAction = new QAction(i18n("Next Channel"), this);
     nextRoomAction->setShortcut(Qt::CTRL | Qt::Key_Down);
     connect(nextRoomAction, &QAction::triggered, this, [this]() {
-        selectNextChannel(Qt::Key_Down);
+        mChannelView->selectNextChannel(ChannelListView::Direction::Down);
         applyChannelSelection();
     });
     addAction(nextRoomAction); // TODO: Add to MainWindow's action collection instead?
@@ -108,7 +108,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
         if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
             applyChannelSelection();
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
-            selectNextChannel(keyValue);
+            mChannelView->selectNextChannel(keyValue == Qt::Key_Up ? ChannelListView::Direction::Up : ChannelListView::Direction::Down);
             return true; // eat event
         }
     }
@@ -274,47 +274,6 @@ void ChannelListWidget::slotOpenLinkRequested(const QString &link)
 void ChannelListWidget::setLayoutSpacing(int spacing)
 {
     layout()->setSpacing(spacing);
-}
-
-void ChannelListWidget::selectNextChannel(int direction)
-{
-    Q_ASSERT(direction == Qt::Key_Up || direction == Qt::Key_Down);
-
-    const auto *model = mChannelView->model();
-    const QModelIndex currentIndex = mChannelView->selectionModel()->currentIndex();
-    const auto rowCount = model->rowCount();
-    int selectRow = -1;
-    if (direction == Qt::Key_Up) {
-        if (!currentIndex.isValid()) {
-            selectRow = rowCount - 1;
-        } else if (currentIndex.row() - 1 >= 0) {
-            selectRow = currentIndex.row() - 1;
-        }
-    } else { // Qt::Key_Down
-        if (!currentIndex.isValid() || (currentIndex.row() + 1) == rowCount) {
-            selectRow = 0;
-        } else if (currentIndex.row() + 1 < rowCount) {
-            selectRow = currentIndex.row() + 1;
-        }
-    }
-
-    while (selectRow != -1 && selectRow != currentIndex.row() && !model->index(selectRow, 0).flags().testFlag(Qt::ItemIsSelectable)) {
-        if (direction == Qt::Key_Up) {
-            --selectRow;
-            if (selectRow == -1) {
-                selectRow = rowCount - 1;
-            }
-        } else { // Qt::Key_Down
-            ++selectRow;
-            if (selectRow == rowCount) {
-                selectRow = 0;
-            }
-        }
-    }
-
-    if (selectRow != -1) {
-        mChannelView->selectionModel()->setCurrentIndex(model->index(selectRow, 0), QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
-    }
 }
 
 void ChannelListWidget::applyChannelSelection()
