@@ -7,6 +7,7 @@
 #pragma once
 
 #include <QObject>
+#include <QVariant>
 
 #include "room/plugins/plugintext.h"
 
