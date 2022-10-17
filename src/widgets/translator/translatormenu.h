@@ -15,7 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorMenu : public QObject
     Q_OBJECT
 public:
     explicit TranslatorMenu(QObject *parent = nullptr);
-    ~TranslatorMenu();
+    ~TranslatorMenu() override;
 
     Q_REQUIRED_RESULT QMenu *menu() const;
 
