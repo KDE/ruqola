@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:46+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -794,7 +794,7 @@ msgid "UserName"
 msgstr "Nome do usuário"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/dialogs/configurenotificationwidget.cpp:95
+#: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
@@ -890,7 +890,7 @@ msgstr "E-mails"
 msgid "Join At"
 msgstr "Entrar em"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
 #, kde-format
 msgid "Custom"
 msgstr "Personalizado"
@@ -1302,7 +1302,7 @@ msgstr "%2 adicionou %1 à conversa"
 msgid "(Autojoin)"
 msgstr "(Entrada automática)"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:80
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 tem %2 mensagens não lidas"
@@ -2721,8 +2721,8 @@ msgstr "O emoji personalizado ou um de seus apelidos já está em uso."
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:48
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
-#: widgets/dialogs/channelinforeadonlywidget.cpp:37
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
+#: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
 #: widgets/dialogs/directchannelinfowidget.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
@@ -3018,8 +3018,8 @@ msgstr "Usar autenticação de dois fatores"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
-#: widgets/dialogs/channelinforeadonlywidget.cpp:61
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
+#: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/uploadfilewidget.cpp:25
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -3135,15 +3135,15 @@ msgid "Owner:"
 msgstr "Proprietário:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
-#: widgets/dialogs/channelinforeadonlywidget.cpp:45
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
+#: widgets/dialogs/channelinforeadonlywidget.cpp:44
 #, kde-format
 msgid "Comment:"
 msgstr "Comentário:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
-#: widgets/dialogs/channelinforeadonlywidget.cpp:53
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
+#: widgets/dialogs/channelinforeadonlywidget.cpp:52
 #, kde-format
 msgid "Announcement:"
 msgstr "Anúncio:"
@@ -3466,10 +3466,10 @@ msgid "Email:"
 msgstr "E-mail:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
-#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:72
 #, kde-format
 msgid "Password:"
 msgstr "Senha:"
@@ -4846,7 +4846,7 @@ msgid "Show Unread"
 msgstr "Não lida"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
+#: widgets/misc/emoticonmenuwidget.cpp:45
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
 #, kde-format
@@ -5051,17 +5051,17 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Informações do canal"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:97
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:96
 #, kde-format
 msgid "Save Attachment"
 msgstr "Salvar anexo"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Deseja excluir este arquivo?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -5073,12 +5073,12 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Configurar a tradução automática"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:21
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Tradução automática"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:38
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "Idioma:"
@@ -5095,85 +5095,85 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Informação do canal sobre '%1'"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Delete"
 msgstr "Excluir"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:80
+#: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, kde-format
 msgid "ReadOnly:"
 msgstr "Apenas leitura:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
 msgid "Archive:"
 msgstr "Arquivo:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Deseja arquivar esta sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Deseja desarquivar esta sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive Channel"
 msgstr "Arquivar canal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Unarchive Channel"
 msgstr "Desarquivar canal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:100
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Private:"
 msgstr "Privado:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Encrypted:"
 msgstr "Criptografado:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:107
+#: widgets/dialogs/channelinfoeditablewidget.cpp:106
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Ocultar mensagens do sistema:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:125
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Deseja excluir esta equipe?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Excluir equipe"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:140
+#: widgets/dialogs/channelinfoeditablewidget.cpp:139
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Deseja excluir esta sala?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:141
+#: widgets/dialogs/channelinfoeditablewidget.cpp:140
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Excluir sala"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "This Room has a password"
 msgstr "Esta sala tem uma senha"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "Add password"
 msgstr "Adicionar senha"
@@ -5250,39 +5250,39 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Configurar notificação"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:22
 #, kde-format
 msgid "Disable Notification"
 msgstr "Desativar notificação"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Ocultar status não lidos na sala"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:26
+#: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute Group Mentions"
 msgstr "Silenciar menções do grupo"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:54
+#: widgets/dialogs/configurenotificationwidget.cpp:52
 #, kde-format
 msgid "Desktop"
 msgstr "Área de trabalho"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
-#: widgets/dialogs/configurenotificationwidget.cpp:87
-#: widgets/dialogs/configurenotificationwidget.cpp:103
+#: widgets/dialogs/configurenotificationwidget.cpp:60
+#: widgets/dialogs/configurenotificationwidget.cpp:85
+#: widgets/dialogs/configurenotificationwidget.cpp:101
 #, kde-format
 msgid "Alert:"
 msgstr "Alerta:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:71
+#: widgets/dialogs/configurenotificationwidget.cpp:69
 #, kde-format
 msgid "Sound:"
 msgstr "Som:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:79
+#: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Celular"
@@ -5434,21 +5434,21 @@ msgstr "Modificar conta"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Nome da conta:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
 msgstr "URL do servidor:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "User Name:"
 msgstr "Nome do usuário:"
@@ -5908,7 +5908,7 @@ msgstr[0] "%1 equipe (total: %2)"
 msgstr[1] "%1 equipes (total: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
-#: widgets/teams/addteamroomcompletionlineedit.cpp:31
+#: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, kde-format
 msgid "Search Rooms..."
 msgstr "Pesquisar salas..."
@@ -6054,7 +6054,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Uma senha de uso único é necessária para completar o procedimento de login."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Falha no login: código OTP inválido."
@@ -6069,12 +6069,12 @@ msgstr "Status desconhecido"
 msgid "(Unnamed)"
 msgstr "(sem nome)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:72
 #, kde-format
 msgid "Search"
 msgstr "Pesquisar"
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:96
 #, kde-format
 msgid "Recent"
 msgstr "Recentes"
@@ -6111,12 +6111,12 @@ msgstr "Pesquisar palavra..."
 msgid "Server"
 msgstr "Servidor"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
 msgstr "Digite o código"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, kde-format
 msgid "Send new code"
 msgstr "Enviar novo código"
@@ -6701,7 +6701,7 @@ msgstr "Salvar &como..."
 msgid "Save File"
 msgstr "Salvar arquivo"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:89
+#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
 #, kde-format
 msgid "Save Sound"
 msgstr "Salvar som"
@@ -7126,28 +7126,28 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuário na sala (total: %2)"
 msgstr[1] "%1 usuários na sala (total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:44
+#: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Erro da conta '%1'"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Login"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name"
 msgstr "Nome da conta"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:59
 #, kde-format
 msgid "Authentication Method"
 msgstr "Método de autenticação"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:87
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -7156,17 +7156,17 @@ msgstr ""
 "Você habilitou a autenticação de dois fatores.\n"
 "Digite o código gerado ou um código de backup."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Falha no login: nome de usuário ou senha inválido"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Encontrado problema na instalação. Nenhum plugin encontrado aqui."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Falha no login: erro genérico"

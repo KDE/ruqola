@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:46+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -816,7 +816,7 @@ msgid "UserName"
 msgstr "Käyttäjätunnus"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/dialogs/configurenotificationwidget.cpp:95
+#: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
 msgstr "Sähköposti"
@@ -916,7 +916,7 @@ msgstr "Sähköposti"
 msgid "Join At"
 msgstr "Liity"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Custom Sounds"
 msgid "Custom"
@@ -1338,7 +1338,7 @@ msgstr "%2 lisäsi henkilön %1 keskusteluun"
 msgid "(Autojoin)"
 msgstr "(Liity automaattisesti)"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:80
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "Käyttäjällä %1 on %2 lukematonta viestiä"
@@ -2761,8 +2761,8 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:48
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
-#: widgets/dialogs/channelinforeadonlywidget.cpp:37
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
+#: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
 #: widgets/dialogs/directchannelinfowidget.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
@@ -3087,8 +3087,8 @@ msgstr "Kahden tekijän todennus"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
-#: widgets/dialogs/channelinforeadonlywidget.cpp:61
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
+#: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/uploadfilewidget.cpp:25
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -3214,15 +3214,15 @@ msgid "Owner:"
 msgstr "Omistaja"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
-#: widgets/dialogs/channelinforeadonlywidget.cpp:45
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
+#: widgets/dialogs/channelinforeadonlywidget.cpp:44
 #, kde-format
 msgid "Comment:"
 msgstr "Huomautus:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
-#: widgets/dialogs/channelinforeadonlywidget.cpp:53
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
+#: widgets/dialogs/channelinforeadonlywidget.cpp:52
 #, kde-format
 msgid "Announcement:"
 msgstr "Ilmoitus:"
@@ -3561,10 +3561,10 @@ msgid "Email:"
 msgstr "Sähköposti:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
-#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:72
 #, kde-format
 msgid "Password:"
 msgstr "Salasana:"
@@ -4936,7 +4936,7 @@ msgid "Show Unread"
 msgstr "Lukematta olevat huoneet"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
+#: widgets/misc/emoticonmenuwidget.cpp:45
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
 #, fuzzy, kde-format
@@ -5146,17 +5146,17 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Kanavatiedot"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:97
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:96
 #, kde-format
 msgid "Save Attachment"
 msgstr "Tallenna liite"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Haluatko poistaa tämän tiedoston?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
 #, fuzzy, kde-format
 #| msgid "Delete File"
 msgctxt "@title"
@@ -5169,12 +5169,12 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Automaattikäännöksen asetukset"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:21
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Käännä automaattisesti"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:38
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "Kieli:"
@@ -5193,87 +5193,87 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Tietoa kanavasta ”%1”"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Delete"
 msgstr "Poista"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:80
+#: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, kde-format
 msgid "ReadOnly:"
 msgstr "Vain luku:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
 msgid "Archive:"
 msgstr "Arkisto:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Haluatko arkistoida tämän huoneen?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Haluatko palauttaa tämän huoneen arkistosta?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive Channel"
 msgstr "Arkistoi kanava"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Unarchive Channel"
 msgstr "Peru kanavan arkistointi"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:100
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Private:"
 msgstr "Yksityinen:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Encrypted:"
 msgstr "Salattu:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:107
+#: widgets/dialogs/channelinfoeditablewidget.cpp:106
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Piilota järjestelmäviestit:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:125
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Haluatko poistaa tämän ryhmän?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Delete Team"
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Poista ryhmä"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:140
+#: widgets/dialogs/channelinfoeditablewidget.cpp:139
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Haluatko poistaa tämän huoneen?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:141
+#: widgets/dialogs/channelinfoeditablewidget.cpp:140
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Poista huone"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "This Room has a password"
 msgstr "Tällä huoneella on salasana"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "Add password"
 msgstr "Lisää salasana"
@@ -5351,39 +5351,39 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Ilmoitusasetukset"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:22
 #, kde-format
 msgid "Disable Notification"
 msgstr "Poista ilmoitus käytöstä"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Piilota lukematta olevan huoneen tila"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:26
+#: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute Group Mentions"
 msgstr "Vaimenna ryhmämaininnat"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:54
+#: widgets/dialogs/configurenotificationwidget.cpp:52
 #, kde-format
 msgid "Desktop"
 msgstr "Työpöytä"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
-#: widgets/dialogs/configurenotificationwidget.cpp:87
-#: widgets/dialogs/configurenotificationwidget.cpp:103
+#: widgets/dialogs/configurenotificationwidget.cpp:60
+#: widgets/dialogs/configurenotificationwidget.cpp:85
+#: widgets/dialogs/configurenotificationwidget.cpp:101
 #, kde-format
 msgid "Alert:"
 msgstr "Hälytys:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:71
+#: widgets/dialogs/configurenotificationwidget.cpp:69
 #, kde-format
 msgid "Sound:"
 msgstr "Ääni:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:79
+#: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Matkapuhelin"
@@ -5534,21 +5534,21 @@ msgstr "Muokkaa tiliä"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Tilin nimi:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
 msgstr "Palvelimen osoite:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "User Name:"
 msgstr "Käyttäjätunnus:"
@@ -6015,7 +6015,7 @@ msgstr[0] "Huoneessa on %1 säie (yhteensä: %2)"
 msgstr[1] "Huoneessa on %1 säiettä (yhteensä: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
-#: widgets/teams/addteamroomcompletionlineedit.cpp:31
+#: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search Room..."
 msgid "Search Rooms..."
@@ -6161,7 +6161,7 @@ msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Kirjautumisen viimeistelyyn vaaditaan kertakäyttöinen salasana."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Kirjautuminen epäonnistui: virheellinen OTP-koodi."
@@ -6176,12 +6176,12 @@ msgstr "Tuntematon tila"
 msgid "(Unnamed)"
 msgstr "(Nimetön)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:72
 #, kde-format
 msgid "Search"
 msgstr "Etsi"
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:96
 #, kde-format
 msgid "Recent"
 msgstr "Viimeaikaiset"
@@ -6218,12 +6218,12 @@ msgstr "Etsi sanaa…"
 msgid "Server"
 msgstr "Palvelin"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
 msgstr "Anna koodi"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, kde-format
 msgid "Send new code"
 msgstr "Lähetä uusi koodi"
@@ -6814,7 +6814,7 @@ msgstr "Tallenna &nimellä…"
 msgid "Save File"
 msgstr "Tallenna tiedosto"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:89
+#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
 #, kde-format
 msgid "Save Sound"
 msgstr "Tallenna ääni"
@@ -7252,28 +7252,28 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:44
+#: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
 msgid "Error from '%1' account"
 msgstr ""
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Kirjaudu"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name"
 msgstr "Tilin nimi"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:59
 #, kde-format
 msgid "Authentication Method"
 msgstr "Tunnistautumistapa"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:87
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -7282,17 +7282,17 @@ msgstr ""
 "Käytössä on kahden tekijän todennus.\n"
 "Anna luotu koodi tai varmistuskoodi."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Kirjautuminen epäonnistui: virheellinen käyttäjätunnus tai salasana"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Havaittiin asennusongelma: liitännäisiä ei löytynyt."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Kirjautuminen epäonnistui: yleinen virhe"

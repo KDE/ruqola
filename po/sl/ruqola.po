@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:46+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2022-10-15 10:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -789,7 +789,7 @@ msgid "UserName"
 msgstr "Uporabniško ime"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/dialogs/configurenotificationwidget.cpp:95
+#: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
 msgstr "E-pošta"
@@ -882,7 +882,7 @@ msgstr "E-pošta"
 msgid "Join At"
 msgstr "Pridružite se na"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
 #, kde-format
 msgid "Custom"
 msgstr "Po meri"
@@ -1278,7 +1278,7 @@ msgstr "Se je pridružil tej ekipi"
 msgid "(Autojoin)"
 msgstr "(Samodejno pridruži)"
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:80
 #, kde-format
 msgid "%1 has %2 Unread Message"
 msgstr "%1 ima %2 neprebrano sporočilo"
@@ -2674,8 +2674,8 @@ msgstr "Ime emodžija po meri in njegovi vzdevki morajo biti različni."
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:48
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
-#: widgets/dialogs/channelinforeadonlywidget.cpp:37
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
+#: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
 #: widgets/dialogs/directchannelinfowidget.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
@@ -2967,8 +2967,8 @@ msgstr "Uporabi dvostopenjsko preverjanje pristnosti"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
-#: widgets/dialogs/channelinforeadonlywidget.cpp:61
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
+#: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/uploadfilewidget.cpp:25
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -3082,15 +3082,15 @@ msgid "Owner:"
 msgstr "Lastnik:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
-#: widgets/dialogs/channelinforeadonlywidget.cpp:45
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
+#: widgets/dialogs/channelinforeadonlywidget.cpp:44
 #, kde-format
 msgid "Comment:"
 msgstr "Komentar:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
-#: widgets/dialogs/channelinforeadonlywidget.cpp:53
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
+#: widgets/dialogs/channelinforeadonlywidget.cpp:52
 #, kde-format
 msgid "Announcement:"
 msgstr "Objava:"
@@ -3413,10 +3413,10 @@ msgid "Email:"
 msgstr "E-naslov:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
-#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:72
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
@@ -4736,7 +4736,7 @@ msgid "Show Unread"
 msgstr "Prikaži neprebrano"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
+#: widgets/misc/emoticonmenuwidget.cpp:45
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
 #, kde-format
@@ -4939,17 +4939,17 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Podatki o kanalu"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:97
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:96
 #, kde-format
 msgid "Save Attachment"
 msgstr "Shrani priponko"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr "Ali želite izbrisati to datoteko?"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
 #, kde-format
 msgctxt "@title"
 msgid "Delete File"
@@ -4961,12 +4961,12 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Prilagodi samodejno prevajanje"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:21
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Samodejno prevedi"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:38
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "Jezik:"
@@ -4983,85 +4983,85 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Podatki o kanalu »%1«"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Delete"
 msgstr "Izbriši"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:80
+#: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, kde-format
 msgid "ReadOnly:"
 msgstr "Samo-za-branje:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
 msgid "Archive:"
 msgstr "Arhiv:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr "Ali želite arhivirati to sobo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr "Bi radi to sobo povrnili iz arhiva?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive Channel"
 msgstr "Arhiviraj kanal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Unarchive Channel"
 msgstr "Odarhiviraj kanal"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:100
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Private:"
 msgstr "Zasebno:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Encrypted:"
 msgstr "Šifrirano:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:107
+#: widgets/dialogs/channelinfoeditablewidget.cpp:106
 #, kde-format
 msgid "Hide System Messages:"
 msgstr "Skrij sistemska sporočila:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:125
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr "Ali želite izbrisati to ekipo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, kde-format
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Izbriši ekipo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:140
+#: widgets/dialogs/channelinfoeditablewidget.cpp:139
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr "Ali želite izbrisati to sobo?"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:141
+#: widgets/dialogs/channelinfoeditablewidget.cpp:140
 #, kde-format
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Izbriši sobo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "This Room has a password"
 msgstr "Soba ima geslo"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "Add password"
 msgstr "Dodaj geslo"
@@ -5135,39 +5135,39 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Prilagodi obvestilo"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:22
 #, kde-format
 msgid "Disable Notification"
 msgstr "Onemogoči obveščanje"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr "Skrij stanje neprebrane sobe"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:26
+#: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute Group Mentions"
 msgstr "Utišaj omembe skupine"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:54
+#: widgets/dialogs/configurenotificationwidget.cpp:52
 #, kde-format
 msgid "Desktop"
 msgstr "Namizje"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
-#: widgets/dialogs/configurenotificationwidget.cpp:87
-#: widgets/dialogs/configurenotificationwidget.cpp:103
+#: widgets/dialogs/configurenotificationwidget.cpp:60
+#: widgets/dialogs/configurenotificationwidget.cpp:85
+#: widgets/dialogs/configurenotificationwidget.cpp:101
 #, kde-format
 msgid "Alert:"
 msgstr "Opozorilo:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:71
+#: widgets/dialogs/configurenotificationwidget.cpp:69
 #, kde-format
 msgid "Sound:"
 msgstr "Zvok:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:79
+#: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Mobilni telefon"
@@ -5314,21 +5314,21 @@ msgstr "Spremeni račun"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Ime računa:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
 msgstr "Url strežnika:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "User Name:"
 msgstr "Uporabniško ime:"
@@ -5783,7 +5783,7 @@ msgstr[2] "%1 ekipe (skupaj: %2)"
 msgstr[3] "%1 ekip (skupaj: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
-#: widgets/teams/addteamroomcompletionlineedit.cpp:31
+#: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, kde-format
 msgid "Search Rooms..."
 msgstr "Išči sobe ..."
@@ -5928,7 +5928,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -5943,12 +5943,12 @@ msgstr "Neznano stanje"
 msgid "(Unnamed)"
 msgstr "(Neimenovano)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:72
 #, kde-format
 msgid "Search"
 msgstr "Išči"
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:96
 #, kde-format
 msgid "Recent"
 msgstr "Nedavno"
@@ -5985,12 +5985,12 @@ msgstr "Poišči besedo ..."
 msgid "Server"
 msgstr "Strežnik"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
 msgstr "Vnesite kodo"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, kde-format
 msgid "Send new code"
 msgstr "Pošlji novo kodo"
@@ -6577,7 +6577,7 @@ msgstr "Shrani &kot ..."
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:89
+#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
 #, kde-format
 msgid "Save Sound"
 msgstr "Shrani zvok"
@@ -7002,28 +7002,28 @@ msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
 msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:44
+#: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Napaka iz računa »%1«"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Prijava"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name"
 msgstr "Ime računa"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:59
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda preverjanja pristnosti"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:87
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -7032,17 +7032,17 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:207
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"

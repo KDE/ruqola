@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-16 00:46+0000\n"
+"POT-Creation-Date: 2022-10-17 00:46+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -820,7 +820,7 @@ msgid "UserName"
 msgstr "Meno používateľa: %1"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/dialogs/configurenotificationwidget.cpp:95
+#: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
 msgstr ""
@@ -919,7 +919,7 @@ msgstr ""
 msgid "Join At"
 msgstr ""
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom"
@@ -1344,7 +1344,7 @@ msgstr "Odstrániť účet"
 msgid "(Autojoin)"
 msgstr ""
 
-#: core/notifications/notification.cpp:81
+#: core/notifications/notification.cpp:80
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "%1 has %2 Unread Message"
@@ -2752,8 +2752,8 @@ msgstr ""
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:48
-#: widgets/dialogs/channelinfoeditablewidget.cpp:54
-#: widgets/dialogs/channelinforeadonlywidget.cpp:37
+#: widgets/dialogs/channelinfoeditablewidget.cpp:53
+#: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
 #: widgets/dialogs/directchannelinfowidget.cpp:42
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
@@ -3068,8 +3068,8 @@ msgstr "Autentifikačná metóda"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
-#: widgets/dialogs/channelinfoeditablewidget.cpp:70
-#: widgets/dialogs/channelinforeadonlywidget.cpp:61
+#: widgets/dialogs/channelinfoeditablewidget.cpp:69
+#: widgets/dialogs/channelinforeadonlywidget.cpp:60
 #: widgets/dialogs/uploadfilewidget.cpp:25
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
@@ -3194,15 +3194,15 @@ msgid "Owner:"
 msgstr "Vlastník"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
-#: widgets/dialogs/channelinfoeditablewidget.cpp:62
-#: widgets/dialogs/channelinforeadonlywidget.cpp:45
+#: widgets/dialogs/channelinfoeditablewidget.cpp:61
+#: widgets/dialogs/channelinforeadonlywidget.cpp:44
 #, kde-format
 msgid "Comment:"
 msgstr "Komentár:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:50
-#: widgets/dialogs/channelinfoeditablewidget.cpp:66
-#: widgets/dialogs/channelinforeadonlywidget.cpp:53
+#: widgets/dialogs/channelinfoeditablewidget.cpp:65
+#: widgets/dialogs/channelinforeadonlywidget.cpp:52
 #, kde-format
 msgid "Announcement:"
 msgstr ""
@@ -3561,10 +3561,10 @@ msgid "Email:"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:52
-#: widgets/dialogs/channelinfoeditablewidget.cpp:77
+#: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:72
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
@@ -4895,7 +4895,7 @@ msgid "Show Unread"
 msgstr "Vlákna"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
+#: widgets/misc/emoticonmenuwidget.cpp:45
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
 #, fuzzy, kde-format
@@ -5118,18 +5118,18 @@ msgctxt "@title:window"
 msgid "Channel Info"
 msgstr "Názov kanála"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:97
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:96
 #, fuzzy, kde-format
 #| msgid "Attachments"
 msgid "Save Attachment"
 msgstr "Prílohy"
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:112
 #, kde-format
 msgid "Do you want to Delete this File?"
 msgstr ""
 
-#: widgets/dialogs/attachment/listattachmentdelegate.cpp:114
+#: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
 #, fuzzy, kde-format
 #| msgid "Select File..."
 msgctxt "@title"
@@ -5143,13 +5143,13 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Preklad"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:21
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Auto-Translate"
 msgstr "Preklad"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:38
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr ""
@@ -5168,91 +5168,91 @@ msgctxt "@title:window"
 msgid "Channel Info about '%1'"
 msgstr "Názov kanála"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:42
+#: widgets/dialogs/channelinfoeditablewidget.cpp:41
 #: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Delete"
 msgstr "Vymazať"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:80
+#: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, fuzzy, kde-format
 #| msgid "Read-Only:"
 msgid "ReadOnly:"
 msgstr "Len na čítanie:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:83
+#: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
 msgid "Archive:"
 msgstr "Archív:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to archive this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:88
+#: widgets/dialogs/channelinfoeditablewidget.cpp:87
 #, kde-format
 msgid "Do you want to unarchive this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Archive Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:89
+#: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Unarchive Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:100
+#: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Private:"
 msgstr "Súkromné:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:103
+#: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Encrypted:"
 msgstr "Šifrovaný:"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:107
+#: widgets/dialogs/channelinfoeditablewidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Hide System Messages:"
 msgstr "Súkromné adresy"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:126
+#: widgets/dialogs/channelinfoeditablewidget.cpp:125
 #, kde-format
 msgid "Do you want to delete this Team?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:127
+#: widgets/dialogs/channelinfoeditablewidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Select File..."
 msgctxt "@title"
 msgid "Delete Team"
 msgstr "Vybrať súbor..."
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:140
+#: widgets/dialogs/channelinfoeditablewidget.cpp:139
 #, kde-format
 msgid "Do you want to delete this room?"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:141
+#: widgets/dialogs/channelinfoeditablewidget.cpp:140
 #, fuzzy, kde-format
 #| msgid "Default"
 msgctxt "@title"
 msgid "Delete Room"
 msgstr "Predvolené"
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "This Room has a password"
 msgstr ""
 
-#: widgets/dialogs/channelinfoeditablewidget.cpp:283
+#: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
 msgid "Add password"
 msgstr ""
@@ -5332,40 +5332,40 @@ msgctxt "@title:window"
 msgid "Configure Notification"
 msgstr "Upozornenia"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:24
+#: widgets/dialogs/configurenotificationwidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Disable Notification"
 msgstr "Upozornenia"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:25
+#: widgets/dialogs/configurenotificationwidget.cpp:23
 #, kde-format
 msgid "Hide Unread Room Status"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:26
+#: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute Group Mentions"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:54
+#: widgets/dialogs/configurenotificationwidget.cpp:52
 #, kde-format
 msgid "Desktop"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:62
-#: widgets/dialogs/configurenotificationwidget.cpp:87
-#: widgets/dialogs/configurenotificationwidget.cpp:103
+#: widgets/dialogs/configurenotificationwidget.cpp:60
+#: widgets/dialogs/configurenotificationwidget.cpp:85
+#: widgets/dialogs/configurenotificationwidget.cpp:101
 #, kde-format
 msgid "Alert:"
 msgstr "Varovanie:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:71
+#: widgets/dialogs/configurenotificationwidget.cpp:69
 #, kde-format
 msgid "Sound:"
 msgstr "Zvuk:"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:79
+#: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr ""
@@ -5519,7 +5519,7 @@ msgstr "Pridať účet"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Account Name:"
@@ -5527,14 +5527,14 @@ msgstr "Meno účtu"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
 msgstr "URL serveru:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "User Name:"
@@ -6024,7 +6024,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 #: widgets/directory/directorywidget.cpp:201
-#: widgets/teams/addteamroomcompletionlineedit.cpp:31
+#: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Search Rooms..."
@@ -6179,7 +6179,7 @@ msgstr "Prihlásenie zlyhalo"
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:192
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login failed: Invalid OTP code."
@@ -6195,13 +6195,13 @@ msgstr ""
 msgid "(Unnamed)"
 msgstr ""
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Search"
 msgstr "Hľadať súbor..."
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:96
 #, kde-format
 msgid "Recent"
 msgstr ""
@@ -6243,13 +6243,13 @@ msgstr "Vlákna"
 msgid "Server"
 msgstr "URL serveru"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:26
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
 msgid "Enter code"
 msgstr "Zadať názov účtu"
 
-#: widgets/misc/twoauthenticationpasswordwidget.cpp:30
+#: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
 msgid "Send new code"
@@ -6861,7 +6861,7 @@ msgstr ""
 msgid "Save File"
 msgstr "Hľadať súbor..."
 
-#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:89
+#: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
 #, fuzzy, kde-format
 #| msgid "Sound:"
 msgid "Save Sound"
@@ -7316,45 +7316,45 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: widgets/ruqolacentralwidget.cpp:44
+#: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
 msgid "Error from '%1' account"
 msgstr ""
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name"
 msgstr "Meno účtu"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:59
 #, kde-format
 msgid "Authentication Method"
 msgstr "Autentifikačná metóda"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:87
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:188
+#: widgets/ruqolaloginwidget.cpp:187
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:202
+#: widgets/ruqolaloginwidget.cpp:201
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:208
+#: widgets/ruqolaloginwidget.cpp:207
 #, fuzzy, kde-format
 #| msgid "Login Failed"
 msgid "Login Failed: generic error"
