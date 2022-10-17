@@ -150,6 +150,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/userdatadownload/userdatadownloadwidget.h
     administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp
 
+    administratorsettingsdialog/slackbridge/slackbridgewidget.cpp
+    administratorsettingsdialog/slackbridge/slackbridgewidget.h
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
