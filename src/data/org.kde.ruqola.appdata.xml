@@ -128,7 +128,6 @@
       <li xml:lang="it">canale di gruppo</li>
       <li xml:lang="nl">groepskanaal</li>
       <li xml:lang="pl">kanał grupy</li>
-      <li xml:lang="pt">canal em grupo</li>
       <li xml:lang="ru">Группировка каналов</li>
       <li xml:lang="sl">skupinski kanal</li>
       <li xml:lang="sv">gruppkanal</li>
@@ -778,6 +777,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
+    <release version="1.8.1" date="2022-10-16"/>	  
     <release version="1.8.0" date="2022-08-31">
       <artifacts>
         <artifact type="binary" platform="x86_64-windows-msvc">

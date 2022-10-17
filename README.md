@@ -31,7 +31,7 @@ It supports RC feature:
 - Auto-away
 - Two-factor authentication via TOTP
 - Two-factor authentication via email
-- Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Adminitrator settings (Message, Account, Retention Policy, File Upload, Encryption)
+- Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)
 - Export Messages
 
 Extra features:
