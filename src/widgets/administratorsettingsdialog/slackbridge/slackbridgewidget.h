@@ -26,4 +26,5 @@ private:
     QCheckBox *const mSlackBridgeOutAll;
     QLineEdit *const mAliasFormat;
     QLineEdit *const mExcludeBots;
+    QCheckBox *const mReactions;
 };

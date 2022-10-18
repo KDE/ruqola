@@ -57,4 +57,10 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mExcludeBots->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mExcludeBots), QStringLiteral("SlackBridge_ExcludeBotnames"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SlackBridge_ExcludeBotnames"));
+
+    auto mReactions = w.findChild<QCheckBox *>(QStringLiteral("mReactions"));
+    QVERIFY(mReactions);
+    QVERIFY(!mReactions->isChecked());
+    QVERIFY(!mReactions->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mReactions), QStringLiteral("SlackBridge_Reactions_Enabled"));
 }

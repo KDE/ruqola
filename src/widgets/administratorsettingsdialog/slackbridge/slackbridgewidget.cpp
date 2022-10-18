@@ -20,6 +20,7 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     , mSlackBridgeOutAll(new QCheckBox(i18n("SlackBridge Out All"), this))
     , mAliasFormat(new QLineEdit(this))
     , mExcludeBots(new QLineEdit(this))
+    , mReactions(new QCheckBox(i18n("Reactions"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Enable Rocket.Chat to communicate directly with Slack."));
@@ -48,6 +49,10 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     mExcludeBots->setToolTip(
         i18n("Do not propagate messages from bots whose name matches the regular expression above. If left empty, all messages from bots will be propagated."));
     addLineEdit(i18n("Exclude Bots"), mExcludeBots, QStringLiteral("SlackBridge_ExcludeBotnames"));
+
+    mReactions->setObjectName(QStringLiteral("mReactions"));
+    mMainLayout->addWidget(mReactions);
+    connectCheckBox(mReactions, QStringLiteral("SlackBridge_Reactions_Enabled"));
 }
 
 SlackBridgeWidget::~SlackBridgeWidget() = default;
@@ -60,4 +65,5 @@ void SlackBridgeWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mSlackBridgeOutAll, mapSettings, false);
     initializeWidget(mAliasFormat, mapSettings, {});
     initializeWidget(mExcludeBots, mapSettings, {});
+    initializeWidget(mReactions, mapSettings, true);
 }
