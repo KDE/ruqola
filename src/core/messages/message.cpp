@@ -296,6 +296,14 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
+QString Message::originalMessageOrAttachmentDescription() const
+{
+    if (attachments().empty()) {
+        return text();
+    }
+    return attachments().constFirst().description();
+}
+
 const QString &Message::localTranslation() const
 {
     return mLocalTranslation;

@@ -198,6 +198,8 @@ public:
     Q_REQUIRED_RESULT const QString &localTranslation() const;
     void setLocalTranslation(const QString &newLocalTranslation);
 
+    Q_REQUIRED_RESULT QString originalMessageOrAttachmentDescription() const;
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);

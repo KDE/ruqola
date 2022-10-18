@@ -146,6 +146,11 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     return true;
 }
 
+void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
+{
+    mDocumentCache.remove(messageId);
+}
+
 void MessageDelegateHelperBase::clearTextDocumentCache()
 {
     mDocumentCache.clear();

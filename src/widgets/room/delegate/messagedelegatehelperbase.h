@@ -53,6 +53,8 @@ public:
 
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
+    void removeMessageCache(const QString &messageId);
+
 protected:
     Q_REQUIRED_RESULT virtual QPoint
     adaptMousePosition(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) = 0;

@@ -426,10 +426,10 @@ void MessageLineWidget::keyPressedInLineEdit(QKeyEvent *ev)
         };
         if (key == Qt::Key_Up) {
             const Message &msg = model->findLastMessageBefore(mMessageIdBeingEdited, isEditable);
-            setEditMessage(msg.messageId(), msg.text());
+            setEditMessage(msg.messageId(), msg.originalMessageOrAttachmentDescription());
         } else {
             const Message &msg = model->findNextMessageAfter(mMessageIdBeingEdited, isEditable);
-            setEditMessage(msg.messageId(), msg.text());
+            setEditMessage(msg.messageId(), msg.originalMessageOrAttachmentDescription());
         }
         ev->accept();
     } else {

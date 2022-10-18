@@ -84,6 +84,8 @@ public:
 
     Q_REQUIRED_RESULT MessageDelegateHelperReactions *helperReactions() const;
 
+    void removeMessageCache(const QString &messageId, const QStringList &attachmentIdList);
+
 Q_SIGNALS:
     void showUserInfo(const QString &userName);
     void startPrivateConversation(const QString &userName);

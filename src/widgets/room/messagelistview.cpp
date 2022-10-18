@@ -158,6 +158,21 @@ void MessageListView::setModel(QAbstractItemModel *newModel)
     connect(newModel, &QAbstractItemModel::rowsInserted, this, &MessageListView::modelChanged);
     connect(newModel, &QAbstractItemModel::rowsRemoved, this, &MessageListView::modelChanged);
     connect(newModel, &QAbstractItemModel::modelReset, this, &MessageListView::modelChanged);
+    // Clear document cache when message is updated otherwise image description is not up to date
+    connect(newModel, &QAbstractItemModel::dataChanged, this, [this](const QModelIndex &topLeft, const QModelIndex &, const QVector<int> &roles) {
+        if (roles.contains(MessageModel::OriginalMessageOrAttachmentDescription)) {
+            const Message *message = topLeft.data(MessageModel::MessagePointer).value<Message *>();
+            if (message) {
+                QStringList attachmentIdList;
+                const auto attachments{message->attachments()};
+                attachmentIdList.reserve(attachments.count());
+                for (const auto &attachment : attachments) {
+                    attachmentIdList.append(attachment.attachmentId());
+                }
+                mMessageListDelegate->removeMessageCache(message->messageId(), attachmentIdList);
+            }
+        }
+    });
 
     scrollToBottom();
 }
@@ -550,7 +565,7 @@ void MessageListView::slotQuoteMessage(const QModelIndex &index)
 
 void MessageListView::slotEditMessage(const QModelIndex &index)
 {
-    const QString text = index.data(MessageModel::OriginalMessage).toString();
+    const QString text = index.data(MessageModel::OriginalMessageOrAttachmentDescription).toString();
     const QString messageId = index.data(MessageModel::MessageId).toString();
     Q_EMIT editMessageRequested(messageId, text);
 }

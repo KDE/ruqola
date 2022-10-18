@@ -188,9 +188,9 @@ void MessageModel::addMessage(const Message &message)
 {
     auto it = std::upper_bound(mAllMessages.begin(), mAllMessages.end(), message, compareTimeStamps);
 
-    auto emitChanged = [this](int rowNumber) {
+    auto emitChanged = [this](int rowNumber, const QVector<int> &roles = QVector<int>()) {
         const QModelIndex index = createIndex(rowNumber, 0);
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, roles);
     };
 
     // When we have 1 element.
@@ -206,7 +206,7 @@ void MessageModel::addMessage(const Message &message)
             return;
         }
         (*(it - 1)) = message;
-        emitChanged(std::distance(mAllMessages.begin(), it - 1));
+        emitChanged(std::distance(mAllMessages.begin(), it - 1), {OriginalMessageOrAttachmentDescription});
     } else {
         const int pos = it - mAllMessages.begin();
         beginInsertRows(QModelIndex(), pos, pos);
@@ -392,6 +392,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.showReactionIcon();
     case MessageModel::LocalTranslation:
         return message.localTranslation();
+    case MessageModel::OriginalMessageOrAttachmentDescription:
+        return message.originalMessageOrAttachmentDescription();
     }
 
     return {};

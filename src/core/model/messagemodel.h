@@ -77,6 +77,7 @@ public:
         DirectChannels,
         ShowReactionIcon,
         LocalTranslation,
+        OriginalMessageOrAttachmentDescription,
     };
     Q_ENUM(MessageRoles)
 

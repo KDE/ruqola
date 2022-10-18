@@ -217,6 +217,18 @@ void MessageListDelegate::selectAll(const QStyleOptionViewItem &option, const QM
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }
 
+void MessageListDelegate::removeMessageCache(const QString &messageId, const QStringList &attachmentIdList)
+{
+    mHelperText->removeMessageCache(messageId);
+    for (const auto &attachmentId : attachmentIdList) {
+        mHelperAttachmentImage->removeMessageCache(attachmentId);
+        mHelperAttachmentFile->removeMessageCache(attachmentId);
+        mHelperAttachmentVideo->removeMessageCache(attachmentId);
+        mHelperAttachmentSound->removeMessageCache(attachmentId);
+        mHelperAttachmentText->removeMessageCache(attachmentId);
+    }
+}
+
 void MessageListDelegate::clearTextDocumentCache()
 {
     mHelperText->clearTextDocumentCache();
