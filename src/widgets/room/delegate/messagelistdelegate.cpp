@@ -87,7 +87,7 @@ void MessageListDelegate::slotUpdateColors()
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
-    updateView();
+    Q_EMIT updateView();
 }
 
 MessageListLayoutBase::Layout MessageListDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
