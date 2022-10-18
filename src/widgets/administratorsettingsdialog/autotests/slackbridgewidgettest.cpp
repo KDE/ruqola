@@ -24,4 +24,17 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnabled->text().isEmpty());
     QVERIFY(!mEnabled->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("SlackBridge_Enabled"));
+
+    auto mFileUpload = w.findChild<QCheckBox *>(QStringLiteral("mFileUpload"));
+    QVERIFY(mFileUpload);
+    QVERIFY(!mFileUpload->isChecked());
+    QVERIFY(!mFileUpload->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFileUpload), QStringLiteral("SlackBridge_FileUpload_Enabled"));
+
+    auto mSlackBridgeOutEnabled = w.findChild<QCheckBox *>(QStringLiteral("mSlackBridgeOutEnabled"));
+    QVERIFY(mSlackBridgeOutEnabled);
+    QVERIFY(!mSlackBridgeOutEnabled->isChecked());
+    QVERIFY(!mSlackBridgeOutEnabled->text().isEmpty());
+    QVERIFY(!mSlackBridgeOutEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSlackBridgeOutEnabled), QStringLiteral("SlackBridge_Out_Enabled"));
 }
