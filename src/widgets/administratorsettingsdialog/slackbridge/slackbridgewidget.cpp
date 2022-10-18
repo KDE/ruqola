@@ -16,6 +16,7 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
     , mFileUpload(new QCheckBox(i18n("File Upload"), this))
     , mSlackBridgeOutEnabled(new QCheckBox(i18n("SlackBridge Out Enabled"), this))
+    , mSlackBridgeOutAll(new QCheckBox(i18n("SlackBridge Out All"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Enable Rocket.Chat to communicate directly with Slack."));
@@ -30,6 +31,11 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     mSlackBridgeOutEnabled->setToolTip(i18n("Choose whether SlackBridge should also send your messages back to Slack"));
     mMainLayout->addWidget(mSlackBridgeOutEnabled);
     connectCheckBox(mSlackBridgeOutEnabled, QStringLiteral("SlackBridge_Out_Enabled"));
+
+    mSlackBridgeOutAll->setObjectName(QStringLiteral("mSlackBridgeOutAll"));
+    mSlackBridgeOutAll->setToolTip(i18n("Send messages from all channels that exist in Slack and the bot has joined"));
+    mMainLayout->addWidget(mSlackBridgeOutAll);
+    connectCheckBox(mSlackBridgeOutAll, QStringLiteral("SlackBridge_Out_All"));
 }
 
 SlackBridgeWidget::~SlackBridgeWidget() = default;
@@ -39,4 +45,5 @@ void SlackBridgeWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mFileUpload, mapSettings, true);
     initializeWidget(mSlackBridgeOutEnabled, mapSettings, false);
+    initializeWidget(mSlackBridgeOutAll, mapSettings, false);
 }

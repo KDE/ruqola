@@ -23,4 +23,5 @@ private:
     QCheckBox *const mEnabled;
     QCheckBox *const mFileUpload;
     QCheckBox *const mSlackBridgeOutEnabled;
+    QCheckBox *const mSlackBridgeOutAll;
 };

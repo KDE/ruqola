@@ -37,4 +37,11 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSlackBridgeOutEnabled->text().isEmpty());
     QVERIFY(!mSlackBridgeOutEnabled->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSlackBridgeOutEnabled), QStringLiteral("SlackBridge_Out_Enabled"));
+
+    auto mSlackBridgeOutAll = w.findChild<QCheckBox *>(QStringLiteral("mSlackBridgeOutAll"));
+    QVERIFY(mSlackBridgeOutAll);
+    QVERIFY(!mSlackBridgeOutAll->isChecked());
+    QVERIFY(!mSlackBridgeOutAll->text().isEmpty());
+    QVERIFY(!mSlackBridgeOutAll->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSlackBridgeOutAll), QStringLiteral("SlackBridge_Out_All"));
 }
