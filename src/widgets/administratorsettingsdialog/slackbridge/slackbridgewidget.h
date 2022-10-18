@@ -18,4 +18,7 @@ public:
     ~SlackBridgeWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mEnabled;
 };

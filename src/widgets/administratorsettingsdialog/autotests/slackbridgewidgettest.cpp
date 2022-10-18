@@ -6,6 +6,8 @@
 
 #include "slackbridgewidgettest.h"
 #include "administratorsettingsdialog/slackbridge/slackbridgewidget.h"
+#include "settingswidgetshelper.h"
+#include <QCheckBox>
 #include <QTest>
 QTEST_MAIN(SlackBridgeWidgetTest)
 SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
@@ -16,5 +18,10 @@ SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
 void SlackBridgeWidgetTest::shouldHaveDefaultValues()
 {
     SlackBridgeWidget w(nullptr);
-    // TODO
+    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    QVERIFY(mEnabled);
+    QVERIFY(!mEnabled->isChecked());
+    QVERIFY(!mEnabled->text().isEmpty());
+    QVERIFY(!mEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("SlackBridge_Enabled"));
 }
