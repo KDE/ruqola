@@ -9,7 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
-class QComboBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SlackBridgeWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -24,4 +24,6 @@ private:
     QCheckBox *const mFileUpload;
     QCheckBox *const mSlackBridgeOutEnabled;
     QCheckBox *const mSlackBridgeOutAll;
+    QLineEdit *const mAliasFormat;
+    QLineEdit *const mExcludeBots;
 };

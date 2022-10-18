@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/slackbridge/slackbridgewidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(SlackBridgeWidgetTest)
 SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
@@ -44,4 +45,16 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSlackBridgeOutAll->text().isEmpty());
     QVERIFY(!mSlackBridgeOutAll->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSlackBridgeOutAll), QStringLiteral("SlackBridge_Out_All"));
+
+    auto mAliasFormat = w.findChild<QLineEdit *>(QStringLiteral("mAliasFormat"));
+    QVERIFY(mAliasFormat);
+    QVERIFY(mAliasFormat->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAliasFormat), QStringLiteral("SlackBridge_AliasFormat"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SlackBridge_AliasFormat"));
+
+    auto mExcludeBots = w.findChild<QLineEdit *>(QStringLiteral("mExcludeBots"));
+    QVERIFY(mExcludeBots);
+    QVERIFY(mExcludeBots->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mExcludeBots), QStringLiteral("SlackBridge_ExcludeBotnames"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SlackBridge_ExcludeBotnames"));
 }
