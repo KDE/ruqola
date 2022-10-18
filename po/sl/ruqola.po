@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-17 00:46+0000\n"
+"POT-Creation-Date: 2022-10-18 00:44+0000\n"
 "PO-Revision-Date: 2022-10-15 10:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3584,84 +3584,89 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Skrbnikove nastavitev strežnika - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
 #, kde-format
 msgid "Accounts"
 msgstr "Računi"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:863
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
 #, kde-format
 msgid "File Upload"
 msgstr "Prenašanje datoteke navzgor"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
 #, kde-format
 msgid "Retention Policy"
 msgstr "Politika ohranjanja"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Omejilnik hitrosti"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Geslo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konferenca"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "IRC Federation"
 msgstr "IRC Federation"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #, kde-format
 msgid "Layout"
 msgstr "Razpored"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Podjetje"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, kde-format
 msgid "User Data Download"
 msgstr "Prenos uporabniških podatkov"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#, kde-format
+msgid "Slack Bridge"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4195,7 +4200,7 @@ msgid "Show Deleted Status"
 msgstr "Prikaži stanja izbrisanega"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Dovoli pripenjanje sporočil"
@@ -4225,27 +4230,33 @@ msgstr "Odstrani metapodatke EXIF iz podprtih datotek"
 msgid "Enable image thumbnails to save bandwidth"
 msgstr "Omogoči predogledne sličice za varčevanje na komunikaciji"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
+#, fuzzy, kde-format
+#| msgid "Video Recorder Enabled"
+msgid "Audio Recorder Enabled"
+msgstr "Video snemalnik omogočen"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "Vnesite 0, da bi prepovedali blokiranje."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:42
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Blokiraj urejanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Blokiraj brisanje sporočila po (n) minutah."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Blokiraj brisanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:76
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -4254,22 +4265,22 @@ msgstr ""
 "Zahteva, da so datoteke 'video/webm' sprejeta vrsta medijev v nastavitvah "
 "'Prenos datoteke tja'."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:82
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Največje dovoljeno število znakov na sporočilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:85
 #, kde-format
 msgid "Safe Ports"
 msgstr "Varna vrata"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
 msgid "Message Attachments"
 msgstr "Priponke sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
@@ -4279,7 +4290,7 @@ msgstr ""
 "nastavitev ne velja za nazaj, tako bodo datoteke prenesene med onemogočanjem "
 "te možnosti imele podatke EXIF"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -4290,19 +4301,25 @@ msgstr ""
 "pasovne širine. Slike v izvirni ločljivosti lahko prenesete s pomočjo ikone "
 "zraven imena priloge."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Maksimalna širina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Maksimalna višina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
 #, kde-format
 msgid "Audio Message"
+msgstr "Zvočno sporočilo"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:120
+#, fuzzy, kde-format
+#| msgid "Audio Message"
+msgid "Audio Message Bit Rate"
 msgstr "Zvočno sporočilo"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
@@ -6749,7 +6766,7 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:712
+#: widgets/room/messagelistview.cpp:714
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
