@@ -9,6 +9,7 @@
 #include "common/completionlineedit.h"
 #include "libruqolawidgets_private_export.h"
 class RocketChatAccount;
+class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AddUsersCompletionLineEdit : public CompletionLineEdit
 {
     Q_OBJECT
@@ -22,9 +23,13 @@ public:
 
 Q_SIGNALS:
     void newUserName(const AddUsersCompletionLineEdit::UserCompletionInfo &userIno);
+    void searchRequested(const QString &str);
 
 private:
+    void slotSearchTimerFired();
     void slotTextChanged(const QString &text);
     void slotComplete(const QModelIndex &index);
+    void slotSearchTextEdited();
     RocketChatAccount *const mRocketChatAccount;
+    QTimer *const mSearchTimer;
 };

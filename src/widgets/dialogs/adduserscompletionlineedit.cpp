@@ -10,18 +10,46 @@
 #include "model/usercompletermodel.h"
 #include "rocketchataccount.h"
 
+#include <QTimer>
+#include <chrono>
+
+using namespace std::chrono_literals;
+
 AddUsersCompletionLineEdit::AddUsersCompletionLineEdit(RocketChatAccount *account, QWidget *parent)
     : CompletionLineEdit(parent)
     , mRocketChatAccount(account)
+    , mSearchTimer(new QTimer(this))
 {
-    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
     if (mRocketChatAccount) {
         setCompletionModel(mRocketChatAccount->userCompleterFilterModelProxy());
     }
+    connect(mSearchTimer, &QTimer::timeout, this, &AddUsersCompletionLineEdit::slotSearchTimerFired);
+    connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
+
     connect(this, &AddUsersCompletionLineEdit::complete, this, &AddUsersCompletionLineEdit::slotComplete);
 }
 
 AddUsersCompletionLineEdit::~AddUsersCompletionLineEdit() = default;
+
+void AddUsersCompletionLineEdit::slotSearchTextEdited()
+{
+    if (mSearchTimer->isActive()) {
+        mSearchTimer->stop(); // eventually
+    }
+
+    mSearchTimer->setSingleShot(true);
+    mSearchTimer->start(1s);
+}
+
+void AddUsersCompletionLineEdit::slotSearchTimerFired()
+{
+    mSearchTimer->stop();
+    if (!text().trimmed().isEmpty()) {
+        slotTextChanged(text());
+    } else {
+        clear();
+    }
+}
 
 void AddUsersCompletionLineEdit::slotTextChanged(const QString &text)
 {
@@ -38,8 +66,8 @@ void AddUsersCompletionLineEdit::slotComplete(const QModelIndex &index)
     info.username = completerName;
     info.userId = userId;
     mCompletionListView->hide();
-    disconnect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    disconnect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
     Q_EMIT newUserName(info);
     clear();
-    connect(this, &QLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotTextChanged);
+    connect(this, &AddUsersCompletionLineEdit::textChanged, this, &AddUsersCompletionLineEdit::slotSearchTextEdited);
 }
