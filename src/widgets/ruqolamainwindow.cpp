@@ -304,7 +304,8 @@ void RuqolaMainWindow::updateActions()
     mRoomListSortByLastMessage->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::ByLastMessage);
     mRoomListSortAlphabetically->setChecked(roomListSortOrder == OwnUserPreferences::RoomListSortOrder::Alphabetically);
     mRegisterNewUser->setVisible(mCurrentRocketChatAccount->registrationFromEnabled());
-    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled());
+    mCreateDiscussion->setEnabled(mCurrentRocketChatAccount->discussionEnabled()
+                                  && (mCurrentRocketChatAccount->loginStatus() == DDPAuthenticationManager::LoggedIn));
     const bool isAdministrator{mCurrentRocketChatAccount->isAdministrator()};
     mAdministrator->setEnabled(isAdministrator);
     mAdministratorServerSettings->setEnabled(isAdministrator);
