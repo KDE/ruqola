@@ -18,6 +18,7 @@ class QLineEdit;
 class QComboBox;
 class QLabel;
 class KPasswordLineEdit;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SettingsWidgetBase : public QScrollArea
 {
     Q_OBJECT
@@ -34,10 +35,12 @@ protected:
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
     void addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable);
     void addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable);
+    void addPlainTextEdit(const QString &labelStr, QPlainTextEdit *lineEdit, const QString &variable);
 
     QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
 
+    void initializeWidget(QPlainTextEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue = false);

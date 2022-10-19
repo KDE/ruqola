@@ -19,6 +19,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QSpinBox>
 #include <QToolButton>
@@ -139,6 +140,30 @@ void SettingsWidgetBase::addLabel(const QString &labelStr, QLabel *labelElement,
     layout->addWidget(label);
     layout->addWidget(labelElement);
     labelElement->setProperty(s_property, variable);
+    mMainLayout->addRow(layout);
+}
+
+void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdit *lineEdit, const QString &variable)
+{
+    auto layout = new QHBoxLayout;
+    auto label = new QLabel(labelStr, this);
+    label->setObjectName(QStringLiteral("label_%1").arg(variable));
+    layout->addWidget(label);
+    layout->addWidget(lineEdit);
+    auto toolButton = new QToolButton(this);
+    toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
+    toolButton->setText(i18n("Apply"));
+    toolButton->setProperty(s_property, variable);
+    lineEdit->setProperty(s_property, variable);
+    layout->addWidget(toolButton);
+    toolButton->setEnabled(false);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
+        updateSettings(variable, lineEdit->toPlainText(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    });
+    connect(lineEdit, &QPlainTextEdit::textChanged, this, [toolButton]() {
+        toolButton->setEnabled(true);
+    });
+
     mMainLayout->addRow(layout);
 }
 
@@ -269,6 +294,15 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
     if (toolButton) {
         toolButton->setEnabled(false);
+    }
+}
+
+void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings)
+{
+    const QString variableName = plainTextEdit->property(s_property).toString();
+    if (mapSettings.contains(variableName)) {
+        const auto value = mapSettings.value(variableName);
+        plainTextEdit->setPlainText(value.toString());
     }
 }
 
