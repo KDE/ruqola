@@ -151,7 +151,13 @@ void RoomWidgetBase::keyPressedInLineEdit(QKeyEvent *ev)
 {
     const int key = ev->key();
     if (key == Qt::Key_Escape) {
-        slotClearNotification();
+        if (mRoomReplyThreadWidget->isVisible()) {
+            Q_EMIT mRoomReplyThreadWidget->cancelReplyingInThread();
+        } else if (mRoomQuoteMessageWidget->isVisible()) {
+            Q_EMIT mRoomQuoteMessageWidget->cancelQuoteMessage();
+        } else {
+            slotClearNotification();
+        }
         ev->accept();
     } else if (ev->matches(QKeySequence::Copy) && mMessageLineWidget->messageTextEdit()->textCursor().selectedText().isEmpty()) {
         mMessageListView->copyMessageToClipboard();
