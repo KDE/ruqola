@@ -28,6 +28,7 @@ class EnterpriseSettingsWidget;
 class SettingsWidgetBase;
 class UserDataDownloadWidget;
 class SlackBridgeWidget;
+class LogsSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -58,5 +59,6 @@ private:
     EnterpriseSettingsWidget *const mEnterpriseSettingsWidget;
     UserDataDownloadWidget *const mUserDataDownloadWidget;
     SlackBridgeWidget *const mSlackBridgeWidget;
+    LogsSettingsWidget *const mLogsSettingsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

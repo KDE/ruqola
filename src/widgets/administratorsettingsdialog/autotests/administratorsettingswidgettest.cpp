@@ -14,6 +14,7 @@
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
+#include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
@@ -90,4 +91,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mSlackBridgeWidget = w.findChild<SlackBridgeWidget *>(QStringLiteral("mSlackBridgeWidget"));
     QVERIFY(mSlackBridgeWidget);
+
+    auto mLogsSettingsWidget = w.findChild<LogsSettingsWidget *>(QStringLiteral("mLogsSettingsWidget"));
+    QVERIFY(mLogsSettingsWidget);
 }
