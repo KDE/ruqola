@@ -204,7 +204,8 @@ void RoomWidgetBase::setCurrentRocketChatAccount(RocketChatAccount *account)
 void RoomWidgetBase::slotClearNotification()
 {
     if (!mRoomId.isEmpty()) {
-        if (mCurrentRocketChatAccount->room(mRoomId)->unread() > 0 || mCurrentRocketChatAccount->room(mRoomId)->alert()) {
+        auto room = mCurrentRocketChatAccount->room(mRoomId);
+        if (room && ((room->unread() > 0) || room->alert())) {
             mCurrentRocketChatAccount->markRoomAsRead(mRoomId);
         }
     }
