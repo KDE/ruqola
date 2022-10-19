@@ -11,6 +11,7 @@
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 
 SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -21,11 +22,15 @@ SlackBridgeWidget::SlackBridgeWidget(RocketChatAccount *account, QWidget *parent
     , mAliasFormat(new QLineEdit(this))
     , mExcludeBots(new QLineEdit(this))
     , mReactions(new QCheckBox(i18n("Reactions"), this))
+    , mAPITokens(new QPlainTextEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mEnabled->setToolTip(i18n("Enable Rocket.Chat to communicate directly with Slack."));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("SlackBridge_Enabled"));
+
+    mAPITokens->setObjectName(QStringLiteral("mAPITokens"));
+    addPlainTextEdit(i18n("API Tokens"), mAPITokens, QStringLiteral("SlackBridge_APIToken"));
 
     mFileUpload->setObjectName(QStringLiteral("mFileUpload"));
     mMainLayout->addWidget(mFileUpload);
@@ -66,4 +71,5 @@ void SlackBridgeWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mAliasFormat, mapSettings, {});
     initializeWidget(mExcludeBots, mapSettings, {});
     initializeWidget(mReactions, mapSettings, true);
+    initializeWidget(mAPITokens, mapSettings);
 }

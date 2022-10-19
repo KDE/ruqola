@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QTest>
 QTEST_MAIN(SlackBridgeWidgetTest)
 SlackBridgeWidgetTest::SlackBridgeWidgetTest(QObject *parent)
@@ -63,4 +64,10 @@ void SlackBridgeWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mReactions->isChecked());
     QVERIFY(!mReactions->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mReactions), QStringLiteral("SlackBridge_Reactions_Enabled"));
+
+    auto mAPITokens = w.findChild<QPlainTextEdit *>(QStringLiteral("mAPITokens"));
+    QVERIFY(mAPITokens);
+    QVERIFY(mAPITokens->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAPITokens), QStringLiteral("SlackBridge_APIToken"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SlackBridge_APIToken"));
 }

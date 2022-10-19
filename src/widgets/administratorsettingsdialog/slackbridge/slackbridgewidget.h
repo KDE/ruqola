@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SlackBridgeWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -27,4 +28,5 @@ private:
     QLineEdit *const mAliasFormat;
     QLineEdit *const mExcludeBots;
     QCheckBox *const mReactions;
+    QPlainTextEdit *const mAPITokens;
 };
