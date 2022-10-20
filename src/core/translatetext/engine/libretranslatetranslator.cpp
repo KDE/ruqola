@@ -73,13 +73,13 @@ void LibreTranslateTranslator::parseTranslation(QNetworkReply *reply)
 void LibreTranslateTranslator::loadSettings()
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LibreTranslateTranslator"));
-    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
+    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QStringLiteral("https://translate.argosopentech.com/"));
 }
 
 QVector<QPair<QString, QString>> LibreTranslateTranslator::languages()
 {
     if (mLanguages.isEmpty()) {
-        // TODO
+        mLanguages = TranslatorUtil::genericLanguages();
     }
     return mLanguages;
 }

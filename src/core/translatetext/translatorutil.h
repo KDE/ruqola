@@ -85,8 +85,15 @@ public:
         ur,
         vi,
         cy,
-        yi
+        yi,
+        jv_yandex,
+        zn_yandex,
     };
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> genericLanguages();
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> googleSpecificLanguages();
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> yandexSpecificLanguages();
+    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> bingSpecificLanguages();
+
     Q_REQUIRED_RESULT QPair<QString, QString> pair(TranslatorUtil::LanguageType lang);
     Q_REQUIRED_RESULT static TranslatorEngineBase *switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent);
     Q_REQUIRED_RESULT static TranslatorEngineBase::TranslatorEngine loadEngineSettings();
