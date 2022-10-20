@@ -5,24 +5,10 @@
 */
 
 #include "translatorconfigureutil.h"
+#include "translatetext/translatorenginebase.h"
 
 #include <KLocalizedString>
 #include <QComboBox>
-
-bool TranslatorConfigureUtil::hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType)
-{
-    switch (engineType) {
-    case TranslatorEngineBase::TranslatorEngine::Google:
-    case TranslatorEngineBase::TranslatorEngine::Yandex:
-    case TranslatorEngineBase::TranslatorEngine::Bing:
-    case TranslatorEngineBase::TranslatorEngine::Lingva:
-        return false;
-    case TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-    case TranslatorEngineBase::TranslatorEngine::DeepL:
-        return true;
-    }
-    return false;
-}
 
 void TranslatorConfigureUtil::fillComboboxSettings(QComboBox *combo)
 {

@@ -107,10 +107,12 @@ void TranslatorConfigureWidget::slotEngineChanged(int index)
     // Restore if possible
     mFromLanguageWidget->setSelectedLanguages(fromLanguages);
     mToLanguageWidget->setSelectedLanguages(toLanguages);
-    mConfigureEngine->setEnabled(TranslatorConfigureUtil::hasConfigureDialog(TranslatorUtil::convertStringToTranslatorEngine(engine)));
+    mConfigureEngine->setEnabled(TranslatorUtil::hasConfigureDialog(TranslatorUtil::convertStringToTranslatorEngine(engine)));
 }
 
 void TranslatorConfigureWidget::slotConfigureEngine()
 {
+    const QString engine = mEngine->currentData().toString();
+    if (TranslatorUtil::hasConfigureDialog(TranslatorUtil::convertStringToTranslatorEngine(engine))) { }
     // TODO
 }

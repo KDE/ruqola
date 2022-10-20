@@ -104,4 +104,5 @@ public:
     Q_REQUIRED_RESULT static QString groupTranslateName();
     Q_REQUIRED_RESULT static QString engineTranslateName();
     Q_REQUIRED_RESULT static QString defaultEngineName();
+    Q_REQUIRED_RESULT static bool hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType);
 };
