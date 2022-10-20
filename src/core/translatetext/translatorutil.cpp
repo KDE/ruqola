@@ -313,6 +313,7 @@ QPair<QString, QString> TranslatorUtil::pair(TranslatorUtil::LanguageType lang)
 
 TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent)
 {
+    qDebug() << " TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::TranslatorEngine engineType, QObject *parent)" << engineType;
     TranslatorEngineBase *abstractTranslator = nullptr;
     switch (engineType) {
     case TranslatorEngineBase::TranslatorEngine::Google:
@@ -328,7 +329,7 @@ TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::Transla
         abstractTranslator = new LingvaTranslator(parent);
         break;
     case TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-        abstractTranslator = new LingvaTranslator(parent);
+        abstractTranslator = new LibreTranslateTranslator(parent);
         break;
     case TranslatorEngineBase::TranslatorEngine::DeepL:
         abstractTranslator = new DeepLTranslator(parent);
@@ -338,10 +339,25 @@ TranslatorEngineBase *TranslatorUtil::switchEngine(TranslatorEngineBase::Transla
     return abstractTranslator;
 }
 
+QString TranslatorUtil::groupTranslateName()
+{
+    return QStringLiteral("Translate");
+}
+
+QString TranslatorUtil::engineTranslateName()
+{
+    return QStringLiteral("engine");
+}
+
+QString TranslatorUtil::defaultEngineName()
+{
+    return QStringLiteral("google");
+}
+
 QString TranslatorUtil::loadEngine()
 {
-    KConfigGroup myGeneralGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
-    const QString engineTypeStr = myGeneralGroup.readEntry(QStringLiteral("Engine"), QStringLiteral("google")); // Default google
+    KConfigGroup myGeneralGroup(KSharedConfig::openConfig(), groupTranslateName());
+    const QString engineTypeStr = myGeneralGroup.readEntry(engineTranslateName(), defaultEngineName()); // Default google
     return engineTypeStr;
 }
 
@@ -353,6 +369,7 @@ TranslatorEngineBase::TranslatorEngine TranslatorUtil::loadEngineSettings()
 
 TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)
 {
+    qDebug() << " TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)" << engineTypeStr;
     TranslatorEngineBase::TranslatorEngine engineType = TranslatorEngineBase::TranslatorEngine::Google;
     if (engineTypeStr == QLatin1String("google")) {
         engineType = TranslatorEngineBase::TranslatorEngine::Google;
@@ -375,8 +392,8 @@ TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslator
 
 void TranslatorUtil::saveEngineSettings(const QString &engineName)
 {
-    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
-    myGroup.writeEntry(QStringLiteral("Engine"), engineName);
+    KConfigGroup myGroup(KSharedConfig::openConfig(), groupTranslateName());
+    myGroup.writeEntry(engineTranslateName(), engineName);
     myGroup.sync();
 }
 

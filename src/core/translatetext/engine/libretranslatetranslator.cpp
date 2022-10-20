@@ -10,6 +10,8 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QNetworkAccessManager>
 
 LibreTranslateTranslator::LibreTranslateTranslator(QObject *parent)
@@ -41,10 +43,16 @@ QVector<QPair<QString, QString>> LibreTranslateTranslator::supportedLanguage() c
 void LibreTranslateTranslator::translateText()
 {
     mResult.clear();
-    const QUrl url(QString::fromUtf8("%1/api/v1/%2/%3/%4").arg(mServerUrl).arg(mFrom).arg(mTo).arg(QString::fromUtf8(QUrl::toPercentEncoding(mInputText))));
-    const QNetworkRequest request(url);
 
-    QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(request);
+    QByteArray postData = "&q=" + QUrl::toPercentEncoding(mInputText) + "&source=" + mFrom.toUtf8() + "&target=" + mTo.toUtf8();
+    if (!mApiKey.isEmpty()) {
+        postData += "&api_key=" + mApiKey.toUtf8();
+    }
+    QNetworkRequest request;
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/x-www-form-urlencoded"));
+    request.setUrl(QUrl(QStringLiteral("%1/translate").arg(mServerUrl)));
+
+    QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->post(request, postData);
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);
         reply->deleteLater();
@@ -63,9 +71,10 @@ void LibreTranslateTranslator::parseTranslation(QNetworkReply *reply)
         return;
     }
 
-    //    const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
-    //    const QJsonObject responseObject = jsonResponse.object();
-    //    mResult = responseObject.value(QStringLiteral("translation")).toString();
+    const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
+    const QJsonObject responseObject = jsonResponse.object();
+    mResult = responseObject.value(QStringLiteral("translatedText")).toString();
+    // qDebug() << " mResult" << mResult;
     reply->deleteLater();
     Q_EMIT translateDone();
 }

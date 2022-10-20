@@ -68,16 +68,16 @@ void TranslatorConfigureWidget::fillEngine()
 void TranslatorConfigureWidget::save()
 {
     const QString engine = mEngine->currentData().toString();
-    KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
-    groupTranslate.writeEntry(QStringLiteral("engine"), engine);
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), TranslatorUtil::groupTranslateName());
+    groupTranslate.writeEntry(TranslatorUtil::engineTranslateName(), engine);
     groupTranslate.writeEntry(QStringLiteral("From"), mFromLanguageWidget->selectedLanguages());
     groupTranslate.writeEntry(QStringLiteral("To"), mToLanguageWidget->selectedLanguages());
 }
 
 void TranslatorConfigureWidget::load()
 {
-    KConfigGroup groupTranslate(KSharedConfig::openConfig(), QStringLiteral("Translate"));
-    const QString engine = groupTranslate.readEntry(QStringLiteral("engine"), QStringLiteral("google")); // Google by default
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), TranslatorUtil::groupTranslateName());
+    const QString engine = groupTranslate.readEntry(TranslatorUtil::engineTranslateName(), TranslatorUtil::defaultEngineName()); // Google by default
     const int index = mEngine->findData(engine);
     if (index != -1) {
         mEngine->setCurrentIndex(index);
