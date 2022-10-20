@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
+#include <QSpinBox>
 #include <QTest>
 
 QTEST_MAIN(LogsSettingsWidgetTest)
@@ -24,4 +25,10 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLogExceptionsChannel->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogExceptionsChannel), QStringLiteral("Log_Exceptions_to_Channel"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Exceptions_to_Channel"));
+
+    auto mLogViewLimit = w.findChild<QSpinBox *>(QStringLiteral("mLogViewLimit"));
+    QVERIFY(mLogViewLimit);
+    QVERIFY(!mLogViewLimit->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogViewLimit), QStringLiteral("Log_View_Limit"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_View_Limit"));
 }
