@@ -369,7 +369,6 @@ TranslatorEngineBase::TranslatorEngine TranslatorUtil::loadEngineSettings()
 
 TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)
 {
-    qDebug() << " TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)" << engineTypeStr;
     TranslatorEngineBase::TranslatorEngine engineType = TranslatorEngineBase::TranslatorEngine::Google;
     if (engineTypeStr == QLatin1String("google")) {
         engineType = TranslatorEngineBase::TranslatorEngine::Google;

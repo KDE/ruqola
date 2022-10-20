@@ -18,7 +18,6 @@
 LingvaTranslator::LingvaTranslator(QObject *parent)
     : TranslatorEngineBase{parent}
 {
-    qDebug() << " CXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 }
 
 LingvaTranslator::~LingvaTranslator() = default;
