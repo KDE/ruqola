@@ -8,9 +8,7 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-class QCheckBox;
 class QLineEdit;
-class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT LogsSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -19,4 +17,7 @@ public:
     ~LogsSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QLineEdit *const mLogExceptionsChannel;
 };
