@@ -7,6 +7,7 @@
 #include "logssettingswidgettest.h"
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <QComboBox>
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
@@ -31,4 +32,15 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mLogViewLimit->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogViewLimit), QStringLiteral("Log_View_Limit"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_View_Limit"));
+
+    auto mLogLevel = w.findChild<QComboBox *>(QStringLiteral("mLogLevel"));
+    QVERIFY(mLogLevel);
+    QCOMPARE(mLogLevel->count(), 3);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogLevel), QStringLiteral("Log_Level"));
+
+    auto mTraceMethodCalls = w.findChild<QCheckBox *>(QStringLiteral("mTraceMethodCalls"));
+    QVERIFY(mTraceMethodCalls);
+    QVERIFY(!mTraceMethodCalls->isChecked());
+    QVERIFY(!mTraceMethodCalls->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodCalls), QStringLiteral("Log_Trace_Methods"));
 }

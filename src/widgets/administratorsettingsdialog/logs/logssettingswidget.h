@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QLineEdit;
 class QSpinBox;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT LogsSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -22,4 +23,6 @@ public:
 private:
     QLineEdit *const mLogExceptionsChannel;
     QSpinBox *const mLogViewLimit;
+    QComboBox *const mLogLevel;
+    QCheckBox *const mTraceMethodCalls;
 };
