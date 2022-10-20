@@ -78,13 +78,13 @@ void LingvaTranslator::parseTranslation(QNetworkReply *reply)
 void LingvaTranslator::loadSettings()
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LingvaTranslator"));
-    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
+    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QStringLiteral("https://lingva.ml"));
 }
 
 QVector<QPair<QString, QString>> LingvaTranslator::languages()
 {
     if (mLanguages.isEmpty()) {
-        // TODO
+        mLanguages = TranslatorUtil::genericLanguages();
     }
     return mLanguages;
 }
