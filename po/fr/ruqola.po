@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:48+0000\n"
-"PO-Revision-Date: 2022-10-10 20:58+0200\n"
+"POT-Creation-Date: 2022-10-21 00:46+0000\n"
+"PO-Revision-Date: 2022-10-20 18:02+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1418,7 +1418,7 @@ msgid "Omnichannel"
 msgstr "Omnicanal"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:39
+#: widgets/translator/translatorconfigureutil.cpp:24
 #, kde-format
 msgid "Bing"
 msgstr "Bing"
@@ -1452,47 +1452,47 @@ msgstr ""
 
 #: core/translatetext/engine/bingtranslator.cpp:110
 #: core/translatetext/engine/deepltranslator.cpp:38
-#: core/translatetext/engine/googletranslator.cpp:104
-#: core/translatetext/engine/libretranslatetranslator.cpp:30
+#: core/translatetext/engine/googletranslator.cpp:43
+#: core/translatetext/engine/libretranslatetranslator.cpp:32
 #: core/translatetext/engine/lingvatranslator.cpp:33
-#: core/translatetext/engine/yandextranslator.cpp:164
+#: core/translatetext/engine/yandextranslator.cpp:105
 #, kde-format
 msgid "You used same language for from and to language."
 msgstr ""
 "Vous avez utilisé la même langue pour la langue « depuis » et « vers »."
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:48
+#: widgets/translator/translatorconfigureutil.cpp:33
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
 
-#: core/translatetext/engine/googletranslator.cpp:133
+#: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:18
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
-#: core/translatetext/engine/libretranslatetranslator.cpp:24
-#: widgets/translator/translatorconfigureutil.cpp:45
+#: core/translatetext/engine/libretranslatetranslator.cpp:26
+#: widgets/translator/translatorconfigureutil.cpp:30
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:42
+#: widgets/translator/translatorconfigureutil.cpp:27
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:36
+#: widgets/translator/translatorconfigureutil.cpp:21
 #, kde-format
 msgid "Yandex"
 msgstr "Yandex"
 
-#: core/translatetext/engine/yandextranslator.cpp:126
+#: core/translatetext/engine/yandextranslator.cpp:67
 #: core/translatetext/translatorenginebase.cpp:77
 #, kde-format
 msgid ""
@@ -1502,20 +1502,20 @@ msgstr ""
 "Erreur : . le système de moteur a détecté un trafic suspect à partir du "
 "réseau de votre ordinateur. Veuillez relancer votre demande plus tard."
 
-#: core/translatetext/engine/yandextranslator.cpp:135
+#: core/translatetext/engine/yandextranslator.cpp:76
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr ""
 "Erreur : impossible de trouver des « Yandex SID » dans la version Internet."
 
-#: core/translatetext/engine/yandextranslator.cpp:143
+#: core/translatetext/engine/yandextranslator.cpp:84
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
 "Erreur : impossible d'extraire un « Yandex SID » à partir de la version "
 "Internet."
 
-#: core/translatetext/engine/yandextranslator.cpp:212
+#: core/translatetext/engine/yandextranslator.cpp:153
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "Erreur : impossible d'analyser la langue détectée automatiquement"
@@ -1527,302 +1527,312 @@ msgstr ""
 "Informations manquantes sur la personne en charge de la traduction. Ceci est "
 "un bogue."
 
-#: core/translatetext/translatorutil.cpp:26
+#: core/translatetext/translatorutil.cpp:122
 #, kde-format
 msgid "Detect language"
 msgstr "Détecter une langue"
 
-#: core/translatetext/translatorutil.cpp:29
+#: core/translatetext/translatorutil.cpp:125
 #, kde-format
 msgid "English"
 msgstr "Anglais"
 
-#: core/translatetext/translatorutil.cpp:32
-#: core/translatetext/translatorutil.cpp:95
+#: core/translatetext/translatorutil.cpp:128
+#: core/translatetext/translatorutil.cpp:191
 #, kde-format
 msgid "Chinese (Simplified)"
 msgstr "Chinois (Simplifié)"
 
-#: core/translatetext/translatorutil.cpp:35
-#: core/translatetext/translatorutil.cpp:98
+#: core/translatetext/translatorutil.cpp:131
+#: core/translatetext/translatorutil.cpp:194
 #, kde-format
 msgid "Chinese (Traditional)"
 msgstr "Chinois (Traditionnel)"
 
-#: core/translatetext/translatorutil.cpp:38
+#: core/translatetext/translatorutil.cpp:134
 #, kde-format
 msgid "Dutch"
 msgstr "Néerlandais"
 
-#: core/translatetext/translatorutil.cpp:41
+#: core/translatetext/translatorutil.cpp:137
 #, kde-format
 msgid "French"
 msgstr "Français"
 
-#: core/translatetext/translatorutil.cpp:44
+#: core/translatetext/translatorutil.cpp:140
 #, kde-format
 msgid "German"
 msgstr "Allemand"
 
-#: core/translatetext/translatorutil.cpp:47
+#: core/translatetext/translatorutil.cpp:143
 #, kde-format
 msgid "Greek"
 msgstr "Grec"
 
-#: core/translatetext/translatorutil.cpp:50
+#: core/translatetext/translatorutil.cpp:146
 #, kde-format
 msgid "Italian"
 msgstr "Italien"
 
-#: core/translatetext/translatorutil.cpp:53
+#: core/translatetext/translatorutil.cpp:149
 #, kde-format
 msgid "Japanese"
 msgstr "Japonais"
 
-#: core/translatetext/translatorutil.cpp:56
+#: core/translatetext/translatorutil.cpp:152
 #, kde-format
 msgid "Korean"
 msgstr "Coréen"
 
-#: core/translatetext/translatorutil.cpp:59
+#: core/translatetext/translatorutil.cpp:155
 #, kde-format
 msgid "Portuguese"
 msgstr "Portugais"
 
-#: core/translatetext/translatorutil.cpp:62
+#: core/translatetext/translatorutil.cpp:158
 #, kde-format
 msgid "Russian"
 msgstr "Russe"
 
-#: core/translatetext/translatorutil.cpp:65
+#: core/translatetext/translatorutil.cpp:161
 #, kde-format
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: core/translatetext/translatorutil.cpp:68
+#: core/translatetext/translatorutil.cpp:164
 #, kde-format
 msgid "Afrikaans"
 msgstr "Afrikaner"
 
-#: core/translatetext/translatorutil.cpp:71
+#: core/translatetext/translatorutil.cpp:167
 #, kde-format
 msgid "Albanian"
 msgstr "Albanais"
 
-#: core/translatetext/translatorutil.cpp:74
+#: core/translatetext/translatorutil.cpp:170
 #, kde-format
 msgid "Arabic"
 msgstr "Arabe"
 
-#: core/translatetext/translatorutil.cpp:77
+#: core/translatetext/translatorutil.cpp:173
 #, kde-format
 msgid "Armenian"
 msgstr "Arménien"
 
-#: core/translatetext/translatorutil.cpp:80
+#: core/translatetext/translatorutil.cpp:176
 #, kde-format
 msgid "Azerbaijani"
 msgstr "Azerbaïdjanais"
 
-#: core/translatetext/translatorutil.cpp:83
+#: core/translatetext/translatorutil.cpp:179
 #, kde-format
 msgid "Basque"
 msgstr "Basque"
 
-#: core/translatetext/translatorutil.cpp:86
+#: core/translatetext/translatorutil.cpp:182
 #, kde-format
 msgid "Belarusian"
 msgstr "Biélorusse"
 
-#: core/translatetext/translatorutil.cpp:89
+#: core/translatetext/translatorutil.cpp:185
 #, kde-format
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: core/translatetext/translatorutil.cpp:92
+#: core/translatetext/translatorutil.cpp:188
 #, kde-format
 msgid "Catalan"
 msgstr "Catalan"
 
-#: core/translatetext/translatorutil.cpp:101
+#: core/translatetext/translatorutil.cpp:197
 #, kde-format
 msgid "Croatian"
 msgstr "Croate"
 
-#: core/translatetext/translatorutil.cpp:104
+#: core/translatetext/translatorutil.cpp:200
 #, kde-format
 msgid "Czech"
 msgstr "Tchèque"
 
-#: core/translatetext/translatorutil.cpp:107
+#: core/translatetext/translatorutil.cpp:203
 #, kde-format
 msgid "Danish"
 msgstr "Danois"
 
-#: core/translatetext/translatorutil.cpp:110
+#: core/translatetext/translatorutil.cpp:206
 #, kde-format
 msgid "Estonian"
 msgstr "Estonien"
 
-#: core/translatetext/translatorutil.cpp:113
+#: core/translatetext/translatorutil.cpp:209
 #, kde-format
 msgid "Filipino"
 msgstr "Philippin"
 
-#: core/translatetext/translatorutil.cpp:116
+#: core/translatetext/translatorutil.cpp:212
 #, kde-format
 msgid "Finnish"
 msgstr "Finnois"
 
-#: core/translatetext/translatorutil.cpp:119
+#: core/translatetext/translatorutil.cpp:215
 #, kde-format
 msgid "Galician"
 msgstr "Galicien"
 
-#: core/translatetext/translatorutil.cpp:122
+#: core/translatetext/translatorutil.cpp:218
 #, kde-format
 msgid "Georgian"
 msgstr "Géorgien"
 
-#: core/translatetext/translatorutil.cpp:125
+#: core/translatetext/translatorutil.cpp:221
 #, kde-format
 msgid "Haitian Creole"
 msgstr "Créole haïtien"
 
-#: core/translatetext/translatorutil.cpp:128
+#: core/translatetext/translatorutil.cpp:224
 #, kde-format
 msgid "Hebrew"
 msgstr "Hébreu"
 
-#: core/translatetext/translatorutil.cpp:131
+#: core/translatetext/translatorutil.cpp:227
 #, kde-format
 msgid "Hindi"
 msgstr "Hindi"
 
-#: core/translatetext/translatorutil.cpp:134
+#: core/translatetext/translatorutil.cpp:230
 #, kde-format
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: core/translatetext/translatorutil.cpp:137
+#: core/translatetext/translatorutil.cpp:233
 #, kde-format
 msgid "Icelandic"
 msgstr "Islandais"
 
-#: core/translatetext/translatorutil.cpp:140
+#: core/translatetext/translatorutil.cpp:236
 #, kde-format
 msgid "Indonesian"
 msgstr "Indonésien"
 
-#: core/translatetext/translatorutil.cpp:143
+#: core/translatetext/translatorutil.cpp:239
 #, kde-format
 msgid "Irish"
 msgstr "Irlandais"
 
-#: core/translatetext/translatorutil.cpp:146
+#: core/translatetext/translatorutil.cpp:242
 #, kde-format
 msgid "Latvian"
 msgstr "Letton"
 
-#: core/translatetext/translatorutil.cpp:149
+#: core/translatetext/translatorutil.cpp:245
 #, kde-format
 msgid "Lithuanian"
 msgstr "Lituanien"
 
-#: core/translatetext/translatorutil.cpp:152
+#: core/translatetext/translatorutil.cpp:248
 #, kde-format
 msgid "Macedonian"
 msgstr "Macédonien"
 
-#: core/translatetext/translatorutil.cpp:155
+#: core/translatetext/translatorutil.cpp:251
 #, kde-format
 msgid "Malay"
 msgstr "Malais"
 
-#: core/translatetext/translatorutil.cpp:158
+#: core/translatetext/translatorutil.cpp:254
 #, kde-format
 msgid "Maltese"
 msgstr "Maltais"
 
-#: core/translatetext/translatorutil.cpp:161
+#: core/translatetext/translatorutil.cpp:257
 #, kde-format
 msgid "Norwegian"
 msgstr "Norvégien"
 
-#: core/translatetext/translatorutil.cpp:164
+#: core/translatetext/translatorutil.cpp:260
 #, kde-format
 msgid "Persian"
 msgstr "Persan"
 
-#: core/translatetext/translatorutil.cpp:167
+#: core/translatetext/translatorutil.cpp:263
 #, kde-format
 msgid "Polish"
 msgstr "Polonais"
 
-#: core/translatetext/translatorutil.cpp:170
+#: core/translatetext/translatorutil.cpp:266
 #, kde-format
 msgid "Romanian"
 msgstr "Roumain"
 
-#: core/translatetext/translatorutil.cpp:173
+#: core/translatetext/translatorutil.cpp:269
 #, kde-format
 msgid "Serbian"
 msgstr "Serbe"
 
-#: core/translatetext/translatorutil.cpp:176
+#: core/translatetext/translatorutil.cpp:272
 #, kde-format
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: core/translatetext/translatorutil.cpp:179
+#: core/translatetext/translatorutil.cpp:275
 #, kde-format
 msgid "Slovenian"
 msgstr "Slovène"
 
-#: core/translatetext/translatorutil.cpp:182
+#: core/translatetext/translatorutil.cpp:278
 #, kde-format
 msgid "Swahili"
 msgstr "Swahili"
 
-#: core/translatetext/translatorutil.cpp:185
+#: core/translatetext/translatorutil.cpp:281
 #, kde-format
 msgid "Swedish"
 msgstr "Suédois"
 
-#: core/translatetext/translatorutil.cpp:188
+#: core/translatetext/translatorutil.cpp:284
 #, kde-format
 msgid "Thai"
 msgstr "Thaïlandais"
 
-#: core/translatetext/translatorutil.cpp:191
+#: core/translatetext/translatorutil.cpp:287
 #, kde-format
 msgid "Turkish"
 msgstr "Turc"
 
-#: core/translatetext/translatorutil.cpp:194
+#: core/translatetext/translatorutil.cpp:290
 #, kde-format
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: core/translatetext/translatorutil.cpp:197
+#: core/translatetext/translatorutil.cpp:293
 #, kde-format
 msgid "Urdu"
 msgstr "Ourdou"
 
-#: core/translatetext/translatorutil.cpp:200
+#: core/translatetext/translatorutil.cpp:296
 #, kde-format
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: core/translatetext/translatorutil.cpp:203
+#: core/translatetext/translatorutil.cpp:299
 #, kde-format
 msgid "Welsh"
 msgstr "Gallois"
 
-#: core/translatetext/translatorutil.cpp:206
+#: core/translatetext/translatorutil.cpp:302
 #, kde-format
 msgid "Yiddish"
 msgstr "Yiddish"
+
+#: core/translatetext/translatorutil.cpp:305
+#, kde-format
+msgid "Modern Javanese (Indonesia)"
+msgstr ""
+
+#: core/translatetext/translatorutil.cpp:308
+#, kde-format
+msgid "Chinese"
+msgstr ""
 
 #: core/user.cpp:199
 #, kde-format
@@ -3589,10 +3599,9 @@ msgid "Forget User Session on Window Close"
 msgstr "Oublier la session utilisateur à la fermeture de la fenêtre"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Enable logging"
+#, kde-format
 msgid "Enable collect log in data"
-msgstr "Activer la journalisation"
+msgstr "Activer la collecte des données de connexion"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
@@ -3602,7 +3611,7 @@ msgstr "Expiration de la connexion en jours"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr ""
+msgstr "Échecs de tentatives de connexion"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3686,15 +3695,14 @@ msgid "Enterprise"
 msgstr "Enterprise"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgid "User Data Download"
-msgstr "Télécharger"
+msgstr "Téléchargement des données de l'utilisateur"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Slack Bridge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
@@ -3873,7 +3881,7 @@ msgstr "Activer les salons favoris"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "Transformation en URL des noms « UTF8 »"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -3898,7 +3906,7 @@ msgstr "Nom du site"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
 #, kde-format
 msgid "UTF8"
-msgstr ""
+msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:51
 #, kde-format
@@ -4228,6 +4236,53 @@ msgstr ""
 msgid "Idle Timeout (ms)"
 msgstr "Délai maximal d’inactivité (ms)"
 
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
+#, kde-format
+msgid "Trace method calls"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#, kde-format
+msgid ""
+"A channel that will receive all captured exceptions. Leave empty to ignore "
+"exceptions."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Convert to Channel"
+msgid "Log Exceptions to Channel"
+msgstr "Convertir en un canal"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Error: "
+msgid "Errors Only"
+msgstr "Erreur :"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Banner Information"
+msgid "Errors and Information"
+msgstr "Informations de la bannière"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
+#, kde-format
+msgid "Log Level"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Log View Limit"
+msgstr "Aucune limite"
+
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
 msgid "Allow Message Editing"
@@ -4272,18 +4327,17 @@ msgstr "Enregistreur vidéo activé"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
 #, kde-format
 msgid "Remove EXIF metadata from supported files"
-msgstr ""
+msgstr "Supprimer les métadonnées « EXIF » des fichiers pris en charge"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
-msgstr ""
+msgstr "Activer les vignettes d’images pour limiter la bande passante"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Video Recorder Enabled"
+#, kde-format
 msgid "Audio Recorder Enabled"
-msgstr "Enregistreur vidéo activé"
+msgstr "Enregistreur audio activé"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
 #, kde-format
@@ -4325,10 +4379,9 @@ msgid "Safe Ports"
 msgstr "Ports sûrs"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
-#, fuzzy, kde-format
-#| msgid "Save Attachment"
+#, kde-format
 msgid "Message Attachments"
-msgstr "Enregistrer la pièce jointe"
+msgstr "Pièces jointes du message"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
@@ -4336,6 +4389,10 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"Supprime les métadonnées « EXIF  » des fichiers d’images (jpeg, tiff, etc.). "
+"Ce paramètre n’est pas rétroactif. Donc les fichiers téléchargés ayant été "
+"téléchargés avant la désactivation de ce paramètre posséderont des données "
+"« EXIF »."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
@@ -4344,28 +4401,30 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"Les vignettes seront fournies à la place de l’image originale pour réduire "
+"l’utilisation de la bande passante. Les images à la résolution originale "
+"peuvent être téléchargées à l’aide de l’icône à côté du nom de la pièce "
+"jointe."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr ""
+msgstr "Largeur maximale de la vignette (En pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr ""
+msgstr "Hauteur maximale de la vignette (En pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:110
-#, fuzzy, kde-format
-#| msgid "Pin Message"
+#, kde-format
 msgid "Audio Message"
-msgstr "Agrafer le message"
+msgstr "Message audio"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:120
-#, fuzzy, kde-format
-#| msgid "Pin Message"
+#, kde-format
 msgid "Audio Message Bit Rate"
-msgstr "Agrafer le message"
+msgstr "Débit binaire des messages audio"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -4546,10 +4605,9 @@ msgid "DDP Rate Limit"
 msgstr "Limiteur de débit « DDP »"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Limit by IP: requests allowed"
+#, kde-format
 msgid "Limit by IP: interval time"
-msgstr "Limiter par IP : demandes autorisées"
+msgstr "Limite par adresse « IP » : intervalle de temps"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:55
 #, kde-format
@@ -4568,10 +4626,9 @@ msgstr "Limiter par l'utilisateur : demandes autorisées"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:93
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Limit by User per Method"
+#, kde-format
 msgid "Limit by User: interval time"
-msgstr "Limite par utilisateur et par méthode"
+msgstr "Limite par utilisateur : intervalle de temps"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
 #, kde-format
@@ -4679,23 +4736,22 @@ msgstr "Appliquer"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "Sorties pour SlackBridge activées"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "Toutes les sorties pour SlackBridge"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "Reactions"
-msgstr "Mentions"
+msgstr "Réactions"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Activer « Rocket.Chat » pour communiquer directement avec Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, fuzzy, kde-format
@@ -4707,12 +4763,15 @@ msgstr "Jeton"
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
+"Sélectionnez si SlackBridge doit également envoyer vos messages à Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
+"Envoyer des messages à partir de tous les canaux présents dans Slack et que "
+"le bot a rejoint"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -4720,12 +4779,14 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Importez les messages de Slack avec un alias : %s est remplacé par le nom "
+"d’utilisateur de l’utilisateur. Si ce paramètre est vide, alors, aucun alias "
+"ne sera utilisé."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Alias Format"
-msgstr "Format"
+msgstr "Format d'alias"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
 #, kde-format
@@ -4733,37 +4794,39 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Ne propagez pas les messages des bots dont le nom correspond à l’expression "
+"régulière ci-dessus. Si ce paramètre est laissé vide, tous les messages des "
+"bots seront propagés."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
 msgid "Exclude Bots"
-msgstr ""
+msgstr "Exclure les bots"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable system tray icon"
+#, kde-format
 msgid "Enable User Data Download"
-msgstr "Activer l'icône de la boîte à miniatures"
+msgstr "Activer le téléchargement des données de l'utilisateur"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
 #, kde-format
 msgid "System Path (Exported Files)"
-msgstr ""
+msgstr "Emplacement du système (Fichiers exportés)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
 #, kde-format
 msgid "System Path (Compressed File)"
-msgstr ""
+msgstr "Emplacement du système (Fichiers compressés)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
 #, kde-format
 msgid "Processing Frequency (Minutes)"
-msgstr ""
+msgstr "Fréquence de traitement (Minutes)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
 #, kde-format
 msgid "Message Limit per Request"
-msgstr ""
+msgstr "Limite de messages par requête"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -7222,15 +7285,14 @@ msgid "Unread on Top"
 msgstr "Non lus en haut"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, fuzzy, kde-format
-#| msgid "Last Message"
+#, kde-format
 msgid "By Last Message"
-msgstr "Dernier message"
+msgstr "Par message le plus ancien"
 
 #: widgets/ruqolamainwindow.cpp:407
 #, kde-format
 msgid "Alphabetically"
-msgstr ""
+msgstr "Par ordre alphabétique"
 
 #: widgets/ruqolamainwindow.cpp:413
 #, kde-format

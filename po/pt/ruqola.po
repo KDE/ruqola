@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:48+0000\n"
-"PO-Revision-Date: 2022-10-19 09:32+0100\n"
+"POT-Creation-Date: 2022-10-21 00:46+0000\n"
+"PO-Revision-Date: 2022-10-20 09:32+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -1437,7 +1437,7 @@ msgid "Omnichannel"
 msgstr "Omnicanal"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:39
+#: widgets/translator/translatorconfigureutil.cpp:24
 #, kde-format
 msgid "Bing"
 msgstr "Bing"
@@ -1467,46 +1467,46 @@ msgstr ""
 
 #: core/translatetext/engine/bingtranslator.cpp:110
 #: core/translatetext/engine/deepltranslator.cpp:38
-#: core/translatetext/engine/googletranslator.cpp:104
-#: core/translatetext/engine/libretranslatetranslator.cpp:30
+#: core/translatetext/engine/googletranslator.cpp:43
+#: core/translatetext/engine/libretranslatetranslator.cpp:32
 #: core/translatetext/engine/lingvatranslator.cpp:33
-#: core/translatetext/engine/yandextranslator.cpp:164
+#: core/translatetext/engine/yandextranslator.cpp:105
 #, kde-format
 msgid "You used same language for from and to language."
 msgstr "Usou a mesma língua para a origem e o destino."
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:48
+#: widgets/translator/translatorconfigureutil.cpp:33
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
 
-#: core/translatetext/engine/googletranslator.cpp:133
+#: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:18
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
-#: core/translatetext/engine/libretranslatetranslator.cpp:24
-#: widgets/translator/translatorconfigureutil.cpp:45
+#: core/translatetext/engine/libretranslatetranslator.cpp:26
+#: widgets/translator/translatorconfigureutil.cpp:30
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:42
+#: widgets/translator/translatorconfigureutil.cpp:27
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:36
+#: widgets/translator/translatorconfigureutil.cpp:21
 #, kde-format
 msgid "Yandex"
 msgstr "Yandex"
 
-#: core/translatetext/engine/yandextranslator.cpp:126
+#: core/translatetext/engine/yandextranslator.cpp:67
 #: core/translatetext/translatorenginebase.cpp:77
 #, kde-format
 msgid ""
@@ -1516,17 +1516,17 @@ msgstr ""
 "Erro: Os sistemas do motor detectaram tráfego suspeito na rede do seu "
 "computador. Por favor, tente de novo o seu pedido mais tarde."
 
-#: core/translatetext/engine/yandextranslator.cpp:135
+#: core/translatetext/engine/yandextranslator.cpp:76
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr "Erro: Não foi possível detectar o SID do Yandex na versão Web."
 
-#: core/translatetext/engine/yandextranslator.cpp:143
+#: core/translatetext/engine/yandextranslator.cpp:84
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr "Erro: Não foi possível extrair o SID do Yandex na versão Web."
 
-#: core/translatetext/engine/yandextranslator.cpp:212
+#: core/translatetext/engine/yandextranslator.cpp:153
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "Erro: Não foi possível processar a língua detectada automaticamente"
@@ -1536,302 +1536,312 @@ msgstr "Erro: Não foi possível processar a língua detectada automaticamente"
 msgid "Missing translator info. It's a bug"
 msgstr "Faltam dados do tradutor. Isto é um erro"
 
-#: core/translatetext/translatorutil.cpp:26
+#: core/translatetext/translatorutil.cpp:122
 #, kde-format
 msgid "Detect language"
 msgstr "Detectar a língua"
 
-#: core/translatetext/translatorutil.cpp:29
+#: core/translatetext/translatorutil.cpp:125
 #, kde-format
 msgid "English"
 msgstr "Inglês"
 
-#: core/translatetext/translatorutil.cpp:32
-#: core/translatetext/translatorutil.cpp:95
+#: core/translatetext/translatorutil.cpp:128
+#: core/translatetext/translatorutil.cpp:191
 #, kde-format
 msgid "Chinese (Simplified)"
 msgstr "Chinês (Simplificado)"
 
-#: core/translatetext/translatorutil.cpp:35
-#: core/translatetext/translatorutil.cpp:98
+#: core/translatetext/translatorutil.cpp:131
+#: core/translatetext/translatorutil.cpp:194
 #, kde-format
 msgid "Chinese (Traditional)"
 msgstr "Chinês (Tradicional)"
 
-#: core/translatetext/translatorutil.cpp:38
+#: core/translatetext/translatorutil.cpp:134
 #, kde-format
 msgid "Dutch"
 msgstr "Holandês"
 
-#: core/translatetext/translatorutil.cpp:41
+#: core/translatetext/translatorutil.cpp:137
 #, kde-format
 msgid "French"
 msgstr "Francês"
 
-#: core/translatetext/translatorutil.cpp:44
+#: core/translatetext/translatorutil.cpp:140
 #, kde-format
 msgid "German"
 msgstr "Alemão"
 
-#: core/translatetext/translatorutil.cpp:47
+#: core/translatetext/translatorutil.cpp:143
 #, kde-format
 msgid "Greek"
 msgstr "Grego"
 
-#: core/translatetext/translatorutil.cpp:50
+#: core/translatetext/translatorutil.cpp:146
 #, kde-format
 msgid "Italian"
 msgstr "Italiano"
 
-#: core/translatetext/translatorutil.cpp:53
+#: core/translatetext/translatorutil.cpp:149
 #, kde-format
 msgid "Japanese"
 msgstr "Japonês"
 
-#: core/translatetext/translatorutil.cpp:56
+#: core/translatetext/translatorutil.cpp:152
 #, kde-format
 msgid "Korean"
 msgstr "Coreano"
 
-#: core/translatetext/translatorutil.cpp:59
+#: core/translatetext/translatorutil.cpp:155
 #, kde-format
 msgid "Portuguese"
 msgstr "Português"
 
-#: core/translatetext/translatorutil.cpp:62
+#: core/translatetext/translatorutil.cpp:158
 #, kde-format
 msgid "Russian"
 msgstr "Russo"
 
-#: core/translatetext/translatorutil.cpp:65
+#: core/translatetext/translatorutil.cpp:161
 #, kde-format
 msgid "Spanish"
 msgstr "Espanhol"
 
-#: core/translatetext/translatorutil.cpp:68
+#: core/translatetext/translatorutil.cpp:164
 #, kde-format
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: core/translatetext/translatorutil.cpp:71
+#: core/translatetext/translatorutil.cpp:167
 #, kde-format
 msgid "Albanian"
 msgstr "Albanês"
 
-#: core/translatetext/translatorutil.cpp:74
+#: core/translatetext/translatorutil.cpp:170
 #, kde-format
 msgid "Arabic"
 msgstr "Árabe"
 
-#: core/translatetext/translatorutil.cpp:77
+#: core/translatetext/translatorutil.cpp:173
 #, kde-format
 msgid "Armenian"
 msgstr "Arménio"
 
-#: core/translatetext/translatorutil.cpp:80
+#: core/translatetext/translatorutil.cpp:176
 #, kde-format
 msgid "Azerbaijani"
 msgstr "Azerbaijano"
 
-#: core/translatetext/translatorutil.cpp:83
+#: core/translatetext/translatorutil.cpp:179
 #, kde-format
 msgid "Basque"
 msgstr "Basco"
 
-#: core/translatetext/translatorutil.cpp:86
+#: core/translatetext/translatorutil.cpp:182
 #, kde-format
 msgid "Belarusian"
 msgstr "Bielorrusso"
 
-#: core/translatetext/translatorutil.cpp:89
+#: core/translatetext/translatorutil.cpp:185
 #, kde-format
 msgid "Bulgarian"
 msgstr "Búlgaro"
 
-#: core/translatetext/translatorutil.cpp:92
+#: core/translatetext/translatorutil.cpp:188
 #, kde-format
 msgid "Catalan"
 msgstr "Catalão"
 
-#: core/translatetext/translatorutil.cpp:101
+#: core/translatetext/translatorutil.cpp:197
 #, kde-format
 msgid "Croatian"
 msgstr "Croata"
 
-#: core/translatetext/translatorutil.cpp:104
+#: core/translatetext/translatorutil.cpp:200
 #, kde-format
 msgid "Czech"
 msgstr "Checo"
 
-#: core/translatetext/translatorutil.cpp:107
+#: core/translatetext/translatorutil.cpp:203
 #, kde-format
 msgid "Danish"
 msgstr "Dinamarquês"
 
-#: core/translatetext/translatorutil.cpp:110
+#: core/translatetext/translatorutil.cpp:206
 #, kde-format
 msgid "Estonian"
 msgstr "Estoniano"
 
-#: core/translatetext/translatorutil.cpp:113
+#: core/translatetext/translatorutil.cpp:209
 #, kde-format
 msgid "Filipino"
 msgstr "Filipino"
 
-#: core/translatetext/translatorutil.cpp:116
+#: core/translatetext/translatorutil.cpp:212
 #, kde-format
 msgid "Finnish"
 msgstr "Finlandês"
 
-#: core/translatetext/translatorutil.cpp:119
+#: core/translatetext/translatorutil.cpp:215
 #, kde-format
 msgid "Galician"
 msgstr "Galego"
 
-#: core/translatetext/translatorutil.cpp:122
+#: core/translatetext/translatorutil.cpp:218
 #, kde-format
 msgid "Georgian"
 msgstr "Geórgio"
 
-#: core/translatetext/translatorutil.cpp:125
+#: core/translatetext/translatorutil.cpp:221
 #, kde-format
 msgid "Haitian Creole"
 msgstr "Criolo do Haiti"
 
-#: core/translatetext/translatorutil.cpp:128
+#: core/translatetext/translatorutil.cpp:224
 #, kde-format
 msgid "Hebrew"
 msgstr "Hebreu"
 
-#: core/translatetext/translatorutil.cpp:131
+#: core/translatetext/translatorutil.cpp:227
 #, kde-format
 msgid "Hindi"
 msgstr "Hindu"
 
-#: core/translatetext/translatorutil.cpp:134
+#: core/translatetext/translatorutil.cpp:230
 #, kde-format
 msgid "Hungarian"
 msgstr "Húngaro"
 
-#: core/translatetext/translatorutil.cpp:137
+#: core/translatetext/translatorutil.cpp:233
 #, kde-format
 msgid "Icelandic"
 msgstr "Islandês"
 
-#: core/translatetext/translatorutil.cpp:140
+#: core/translatetext/translatorutil.cpp:236
 #, kde-format
 msgid "Indonesian"
 msgstr "Indonésio"
 
-#: core/translatetext/translatorutil.cpp:143
+#: core/translatetext/translatorutil.cpp:239
 #, kde-format
 msgid "Irish"
 msgstr "Irlandês"
 
-#: core/translatetext/translatorutil.cpp:146
+#: core/translatetext/translatorutil.cpp:242
 #, kde-format
 msgid "Latvian"
 msgstr "Letão"
 
-#: core/translatetext/translatorutil.cpp:149
+#: core/translatetext/translatorutil.cpp:245
 #, kde-format
 msgid "Lithuanian"
 msgstr "Lituano"
 
-#: core/translatetext/translatorutil.cpp:152
+#: core/translatetext/translatorutil.cpp:248
 #, kde-format
 msgid "Macedonian"
 msgstr "Macedónio"
 
-#: core/translatetext/translatorutil.cpp:155
+#: core/translatetext/translatorutil.cpp:251
 #, kde-format
 msgid "Malay"
 msgstr "Malaio"
 
-#: core/translatetext/translatorutil.cpp:158
+#: core/translatetext/translatorutil.cpp:254
 #, kde-format
 msgid "Maltese"
 msgstr "Maltês"
 
-#: core/translatetext/translatorutil.cpp:161
+#: core/translatetext/translatorutil.cpp:257
 #, kde-format
 msgid "Norwegian"
 msgstr "Norueguês"
 
-#: core/translatetext/translatorutil.cpp:164
+#: core/translatetext/translatorutil.cpp:260
 #, kde-format
 msgid "Persian"
 msgstr "Persa"
 
-#: core/translatetext/translatorutil.cpp:167
+#: core/translatetext/translatorutil.cpp:263
 #, kde-format
 msgid "Polish"
 msgstr "Polaco"
 
-#: core/translatetext/translatorutil.cpp:170
+#: core/translatetext/translatorutil.cpp:266
 #, kde-format
 msgid "Romanian"
 msgstr "Romeno"
 
-#: core/translatetext/translatorutil.cpp:173
+#: core/translatetext/translatorutil.cpp:269
 #, kde-format
 msgid "Serbian"
 msgstr "Sérvio"
 
-#: core/translatetext/translatorutil.cpp:176
+#: core/translatetext/translatorutil.cpp:272
 #, kde-format
 msgid "Slovak"
 msgstr "Eslovaco"
 
-#: core/translatetext/translatorutil.cpp:179
+#: core/translatetext/translatorutil.cpp:275
 #, kde-format
 msgid "Slovenian"
 msgstr "Esloveno"
 
-#: core/translatetext/translatorutil.cpp:182
+#: core/translatetext/translatorutil.cpp:278
 #, kde-format
 msgid "Swahili"
 msgstr "Swahili"
 
-#: core/translatetext/translatorutil.cpp:185
+#: core/translatetext/translatorutil.cpp:281
 #, kde-format
 msgid "Swedish"
 msgstr "Sueco"
 
-#: core/translatetext/translatorutil.cpp:188
+#: core/translatetext/translatorutil.cpp:284
 #, kde-format
 msgid "Thai"
 msgstr "Tailandês"
 
-#: core/translatetext/translatorutil.cpp:191
+#: core/translatetext/translatorutil.cpp:287
 #, kde-format
 msgid "Turkish"
 msgstr "Turco"
 
-#: core/translatetext/translatorutil.cpp:194
+#: core/translatetext/translatorutil.cpp:290
 #, kde-format
 msgid "Ukrainian"
 msgstr "Ucraniano"
 
-#: core/translatetext/translatorutil.cpp:197
+#: core/translatetext/translatorutil.cpp:293
 #, kde-format
 msgid "Urdu"
 msgstr "Urdu"
 
-#: core/translatetext/translatorutil.cpp:200
+#: core/translatetext/translatorutil.cpp:296
 #, kde-format
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
-#: core/translatetext/translatorutil.cpp:203
+#: core/translatetext/translatorutil.cpp:299
 #, kde-format
 msgid "Welsh"
 msgstr "Galês"
 
-#: core/translatetext/translatorutil.cpp:206
+#: core/translatetext/translatorutil.cpp:302
 #, kde-format
 msgid "Yiddish"
 msgstr "Yiddish"
+
+#: core/translatetext/translatorutil.cpp:305
+#, kde-format
+msgid "Modern Javanese (Indonesia)"
+msgstr ""
+
+#: core/translatetext/translatorutil.cpp:308
+#, kde-format
+msgid "Chinese"
+msgstr ""
 
 #: core/user.cpp:199
 #, kde-format
@@ -3687,7 +3697,7 @@ msgstr "Interface com Slack"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Registos"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4209,6 +4219,53 @@ msgstr ""
 msgid "Idle Timeout (ms)"
 msgstr "Tempo-limite de Inactividade (ms)"
 
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
+#, kde-format
+msgid "Trace method calls"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#, kde-format
+msgid ""
+"A channel that will receive all captured exceptions. Leave empty to ignore "
+"exceptions."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
+#, fuzzy, kde-format
+#| msgid "Convert to Channel"
+msgid "Log Exceptions to Channel"
+msgstr "Converter para um Canal"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Error: "
+msgid "Errors Only"
+msgstr "Erro: "
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Banner Information"
+msgid "Errors and Information"
+msgstr "Informações do Separador"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
+#, kde-format
+msgid "Log Level"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "No Limit"
+msgid "Log View Limit"
+msgstr "Sem Limite"
+
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
 msgid "Allow Message Editing"
@@ -4675,10 +4732,9 @@ msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Activar o Rocket.Chat para comunicar directamente com o Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "API Tokens"
-msgstr "Símbolo"
+msgstr "Códigos da API"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
