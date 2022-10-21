@@ -47,7 +47,7 @@ LogsSettingsWidget::~LogsSettingsWidget() = default;
 void LogsSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mLogExceptionsChannel, mapSettings, {});
-    initializeWidget(mLogViewLimit, mapSettings, {});
+    initializeWidget(mLogViewLimit, mapSettings, 1000);
     initializeWidget(mLogLevel, mapSettings, QStringLiteral("0"));
     initializeWidget(mTraceMethodCalls, mapSettings, false);
 }
