@@ -20,7 +20,9 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mLogViewLimit(new QSpinBox(this))
     , mLogLevel(new QComboBox(this))
     , mTraceMethodCalls(new QCheckBox(i18n("Trace method calls"), this))
+    , mTraceMethodFilter(new QLineEdit(this))
     , mTraceSubscriptionCalls(new QCheckBox(i18n("Trace subscription calls"), this))
+    , mTraceSubscriptionFilter(new QLineEdit(this))
 {
     mLogExceptionsChannel->setObjectName(QStringLiteral("mLogExceptionsChannel"));
     mLogExceptionsChannel->setToolTip(i18n("A channel that will receive all captured exceptions. Leave empty to ignore exceptions."));
@@ -42,9 +44,17 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     mMainLayout->addWidget(mTraceMethodCalls);
     connectCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
 
+    mTraceMethodFilter->setObjectName(QStringLiteral("mTraceMethodFilter"));
+    mTraceMethodFilter->setToolTip(i18n("The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
+    addLineEdit(i18n("Trace method filter"), mTraceMethodFilter, QStringLiteral("Log_Trace_Methods_Filter"));
+
     mTraceSubscriptionCalls->setObjectName(QStringLiteral("mTraceSubscriptionCalls"));
     mMainLayout->addWidget(mTraceSubscriptionCalls);
     connectCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
+
+    mTraceSubscriptionFilter->setObjectName(QStringLiteral("mTraceSubscriptionFilter"));
+    mTraceSubscriptionFilter->setToolTip(i18n("The text here will be evaluated as RegExp (new RegExp('text')). Keep it empty to show trace of every call."));
+    addLineEdit(i18n("Trace method filter"), mTraceSubscriptionFilter, QStringLiteral("Log_Trace_Subscriptions_Filter"));
 }
 
 LogsSettingsWidget::~LogsSettingsWidget() = default;
@@ -56,4 +66,6 @@ void LogsSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLogLevel, mapSettings, QStringLiteral("0"));
     initializeWidget(mTraceMethodCalls, mapSettings, false);
     initializeWidget(mTraceSubscriptionCalls, mapSettings, false);
+    initializeWidget(mTraceMethodFilter, mapSettings, {});
+    initializeWidget(mTraceSubscriptionFilter, mapSettings, {});
 }

@@ -29,7 +29,7 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mLogViewLimit = w.findChild<QSpinBox *>(QStringLiteral("mLogViewLimit"));
     QVERIFY(mLogViewLimit);
-    QVERIFY(!mLogViewLimit->toolTip().isEmpty());
+    QVERIFY(mLogViewLimit->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLogViewLimit), QStringLiteral("Log_View_Limit"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_View_Limit"));
 
@@ -49,4 +49,16 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTraceSubscriptionCalls->isChecked());
     QVERIFY(!mTraceSubscriptionCalls->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionCalls), QStringLiteral("Log_Trace_Subscriptions"));
+
+    auto mTraceMethodFilter = w.findChild<QLineEdit *>(QStringLiteral("mTraceMethodFilter"));
+    QVERIFY(mTraceMethodFilter);
+    QVERIFY(mTraceMethodFilter->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodFilter), QStringLiteral("Log_Trace_Methods_Filter"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Trace_Methods_Filter"));
+
+    auto mTraceSubscriptionFilter = w.findChild<QLineEdit *>(QStringLiteral("mTraceSubscriptionFilter"));
+    QVERIFY(mTraceSubscriptionFilter);
+    QVERIFY(mTraceSubscriptionFilter->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionFilter), QStringLiteral("Log_Trace_Subscriptions_Filter"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Log_Trace_Subscriptions_Filter"));
 }
