@@ -20,6 +20,7 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     , mLogViewLimit(new QSpinBox(this))
     , mLogLevel(new QComboBox(this))
     , mTraceMethodCalls(new QCheckBox(i18n("Trace method calls"), this))
+    , mTraceSubscriptionCalls(new QCheckBox(i18n("Trace subscription calls"), this))
 {
     mLogExceptionsChannel->setObjectName(QStringLiteral("mLogExceptionsChannel"));
     mLogExceptionsChannel->setToolTip(i18n("A channel that will receive all captured exceptions. Leave empty to ignore exceptions."));
@@ -40,6 +41,10 @@ LogsSettingsWidget::LogsSettingsWidget(RocketChatAccount *account, QWidget *pare
     mTraceMethodCalls->setObjectName(QStringLiteral("mTraceMethodCalls"));
     mMainLayout->addWidget(mTraceMethodCalls);
     connectCheckBox(mTraceMethodCalls, QStringLiteral("Log_Trace_Methods"));
+
+    mTraceSubscriptionCalls->setObjectName(QStringLiteral("mTraceSubscriptionCalls"));
+    mMainLayout->addWidget(mTraceSubscriptionCalls);
+    connectCheckBox(mTraceSubscriptionCalls, QStringLiteral("Log_Trace_Subscriptions"));
 }
 
 LogsSettingsWidget::~LogsSettingsWidget() = default;
@@ -50,4 +55,5 @@ void LogsSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLogViewLimit, mapSettings, 1000);
     initializeWidget(mLogLevel, mapSettings, QStringLiteral("0"));
     initializeWidget(mTraceMethodCalls, mapSettings, false);
+    initializeWidget(mTraceSubscriptionCalls, mapSettings, false);
 }

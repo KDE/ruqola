@@ -25,4 +25,5 @@ private:
     QSpinBox *const mLogViewLimit;
     QComboBox *const mLogLevel;
     QCheckBox *const mTraceMethodCalls;
+    QCheckBox *const mTraceSubscriptionCalls;
 };

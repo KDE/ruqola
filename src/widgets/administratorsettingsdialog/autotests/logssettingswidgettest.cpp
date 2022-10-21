@@ -43,4 +43,10 @@ void LogsSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTraceMethodCalls->isChecked());
     QVERIFY(!mTraceMethodCalls->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceMethodCalls), QStringLiteral("Log_Trace_Methods"));
+
+    auto mTraceSubscriptionCalls = w.findChild<QCheckBox *>(QStringLiteral("mTraceSubscriptionCalls"));
+    QVERIFY(mTraceSubscriptionCalls);
+    QVERIFY(!mTraceSubscriptionCalls->isChecked());
+    QVERIFY(!mTraceSubscriptionCalls->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTraceSubscriptionCalls), QStringLiteral("Log_Trace_Subscriptions"));
 }
