@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-20 12:36+0200\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 13:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1821,12 +1821,12 @@ msgstr "Jiddisch"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "Javanès modern (Indonèsia)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "Xinès"
 
 #: core/user.cpp:199
 #, kde-format
@@ -4208,49 +4208,67 @@ msgstr "Temps d'espera sense activitat (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Traça les crides als mètodes"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgid "Trace subscription calls"
+msgstr "Traça les crides als mètodes"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Un canal que rebrà totes les excepcions capturades. Deixeu-ho buit per "
+"ignorar les excepcions."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
-msgid "Log Exceptions to Channel"
-msgstr "Converteix a un canal"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: "
-msgid "Errors Only"
-msgstr "Error: "
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
-msgid "Errors and Information"
-msgstr "Informació del bàner"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
-msgid "Errors, Information and Debug"
-msgstr ""
+msgid "Log Exceptions to Channel"
+msgstr "Enregistra les excepcions en un canal"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
+#, kde-format
+msgid "Errors Only"
+msgstr "Només els errors"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
+msgid "Errors and Information"
+msgstr "Errors i informació"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr "Errors, informació i depuració"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
+#, kde-format
 msgid "Log Level"
+msgstr "Nivell de depuració"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
+#, kde-format
+msgid "Log View Limit"
+msgstr "El límit a visualitzar del registre"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, fuzzy, kde-format
-#| msgid "No Limit"
-msgid "Log View Limit"
-msgstr "Sense límit"
+#| msgid "Trace method calls"
+msgid "Trace method filter"
+msgstr "Traça les crides als mètodes"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

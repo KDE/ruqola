@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-20 15:59+0300\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 09:52+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1821,12 +1821,12 @@ msgstr "ідиш"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "сучасна яванська (Індонезія)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "китайська"
 
 #: core/user.cpp:199
 #, kde-format
@@ -4218,49 +4218,67 @@ msgstr "Час очікування бездіяльності (мс)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Трасувати виклики методів"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgid "Trace subscription calls"
+msgstr "Трасувати виклики методів"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Канал, який отримуватиме усі перехоплені виключення. Не заповнюйте, якщо "
+"виключення слід ігнорувати."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
-msgid "Log Exceptions to Channel"
-msgstr "Перетворити на канал"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: "
-msgid "Errors Only"
-msgstr "Помилка:"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
-msgid "Errors and Information"
-msgstr "Відомості щодо банерів"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
-msgid "Errors, Information and Debug"
-msgstr ""
+msgid "Log Exceptions to Channel"
+msgstr "Записувати журнал виключено на каналі"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
+#, kde-format
+msgid "Errors Only"
+msgstr "Лише помилки"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
+msgid "Errors and Information"
+msgstr "Помилки і відомості"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr "Помилки, відомості та діагностика"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
+#, kde-format
 msgid "Log Level"
+msgstr "Рівень журналу"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
+#, kde-format
+msgid "Log View Limit"
+msgstr "Обмеження перегляду журналу"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, fuzzy, kde-format
-#| msgid "No Limit"
-msgid "Log View Limit"
-msgstr "Не обмежувати"
+#| msgid "Trace method calls"
+msgid "Trace method filter"
+msgstr "Трасувати виклики методів"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

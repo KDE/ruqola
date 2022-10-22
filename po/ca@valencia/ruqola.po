@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
 "PO-Revision-Date: 2022-10-20 12:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4221,47 +4221,67 @@ msgstr "Temps d'espera sense activitat (ms)"
 msgid "Trace method calls"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Invalid subscription"
+msgid "Trace subscription calls"
+msgstr "Subscripció no vàlida"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgid "Log Exceptions to Channel"
 msgstr "Convertix a un canal"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Error: "
 msgid "Errors Only"
 msgstr "S'ha produït un error: "
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Banner Information"
 msgid "Errors and Information"
 msgstr "Informació del bàner"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgid "Log View Limit"
 msgstr "Sense límit"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
+#, kde-format
+msgid "Trace method filter"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

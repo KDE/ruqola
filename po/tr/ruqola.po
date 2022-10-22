@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-20 11:08+0300\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 10:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1813,12 +1813,12 @@ msgstr "Yidiş"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "Çağdaş Javaca (Endonezya)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "Çince"
 
 #: core/user.cpp:199
 #, kde-format
@@ -4179,49 +4179,67 @@ msgstr "Boşta Zaman Aşımı (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Yöntem çağrılarını izle"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgid "Trace subscription calls"
+msgstr "Yöntem çağrılarını izle"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Tüm yakalanan istisnaları alacak bir kanal. İstisnaları yok saymak için boş "
+"bırakın."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
-msgid "Log Exceptions to Channel"
-msgstr "Kanala Dönüştür"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: "
-msgid "Errors Only"
-msgstr "Hata:"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
-msgid "Errors and Information"
-msgstr "Afiş Bilgisi"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
-msgid "Errors, Information and Debug"
-msgstr ""
+msgid "Log Exceptions to Channel"
+msgstr "İstisnaları Kanala Günlükle"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
+#, kde-format
+msgid "Errors Only"
+msgstr "Yalnızca Hatalar"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
+msgid "Errors and Information"
+msgstr "Hatalar ve Bilgi"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr "Hatalar, Bilgi ve Hata Ayıklama"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
+#, kde-format
 msgid "Log Level"
+msgstr "Günlükleme Düzeyi"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
+#, kde-format
+msgid "Log View Limit"
+msgstr "Günlük Görüntüleme Sınırı"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, fuzzy, kde-format
-#| msgid "No Limit"
-msgid "Log View Limit"
-msgstr "Sınır Yok"
+#| msgid "Trace method calls"
+msgid "Trace method filter"
+msgstr "Yöntem çağrılarını izle"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

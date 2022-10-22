@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-20 15:04+0200\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 12:45+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1817,12 +1817,12 @@ msgstr "Jiddisch"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "Modern Javaans (Indonesië)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "Chinees"
 
 #: core/user.cpp:199
 #, kde-format
@@ -4208,49 +4208,67 @@ msgstr "Timeout van inactief (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Aanroepen van methode volgen"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgid "Trace subscription calls"
+msgstr "Aanroepen van methode volgen"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Een kanaal dat all gevangen uitzonderingen ontvangt. Leeg laten om "
+"uitzonderingen te negeren."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
-msgid "Log Exceptions to Channel"
-msgstr "Naar kanaal converteren"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: "
-msgid "Errors Only"
-msgstr "Fout: "
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
-msgid "Errors and Information"
-msgstr "Informatie in banner"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
-msgid "Errors, Information and Debug"
-msgstr ""
+msgid "Log Exceptions to Channel"
+msgstr "Uitzonderingen naar kanaal loggen"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
+#, kde-format
+msgid "Errors Only"
+msgstr "Alleen fouten"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
+msgid "Errors and Information"
+msgstr "Fouten en informatie"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr "Fouten, informatie en debug"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
+#, kde-format
 msgid "Log Level"
+msgstr "Loglevel"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
+#, kde-format
+msgid "Log View Limit"
+msgstr "Limiet van weergave van log"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, fuzzy, kde-format
-#| msgid "No Limit"
-msgid "Log View Limit"
-msgstr "Geen limiet"
+#| msgid "Trace method calls"
+msgid "Trace method filter"
+msgstr "Aanroepen van methode volgen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

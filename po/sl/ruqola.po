@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-19 08:56+0200\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 08:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #, kde-format
@@ -1820,12 +1820,12 @@ msgstr "Jidiš"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "moderno javansko (Indonezija)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "kitajsko"
 
 #: core/user.cpp:199
 #, kde-format
@@ -3682,7 +3682,7 @@ msgstr "Slack Bridge"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Dnevniki"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4199,49 +4199,66 @@ msgstr "Časovni rok nedejavnosti (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Sledi metodam klicev"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Trace method calls"
+msgid "Trace subscription calls"
+msgstr "Sledi metodam klicev"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Kanal, ki bo prejemal vse zajete izjeme. Pustite prazno, če prezrete izjeme."
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
-msgid "Log Exceptions to Channel"
-msgstr "Pretvori v kanal"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Error: "
-msgid "Errors Only"
-msgstr "Napaka: "
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
-msgid "Errors and Information"
-msgstr "Informacija o pasici"
-
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
-msgid "Errors, Information and Debug"
-msgstr ""
+msgid "Log Exceptions to Channel"
+msgstr "Beleži izjeme v kanal"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
+#, kde-format
+msgid "Errors Only"
+msgstr "Samo napake"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, kde-format
+msgid "Errors and Information"
+msgstr "Napake in informacije"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
+#, kde-format
+msgid "Errors, Information and Debug"
+msgstr "Napake, informacije in pomoč pri odkrivanju napak"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
+#, kde-format
 msgid "Log Level"
+msgstr "Raven beleženja"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
+#, kde-format
+msgid "Log View Limit"
+msgstr "Omejitev pogleda dnevnika"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, fuzzy, kde-format
-#| msgid "No Limit"
-msgid "Log View Limit"
-msgstr "Brez omejitve"
+#| msgid "Trace method calls"
+msgid "Trace method filter"
+msgstr "Sledi metodam klicev"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -4704,10 +4721,9 @@ msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Omogoči Rocket.Chat za neposredno komunikacijo s Slackom."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "API Tokens"
-msgstr "Žeton"
+msgstr "Žetoni API"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
@@ -4719,6 +4735,7 @@ msgstr "Izberite ali naj SlackBridge tudi pošilja vaša sporočila nazaj v Slac
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
+"Pošli sporočila iz vseh kanalov, ki obstajajo v Slacku in se je pridružil bot"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -4740,6 +4757,8 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Ne razširjajte sporočil od botov, katerih ime se ujema z regularnim izrazom "
+"zgoraj. Če pustite prazno, bodo razširjana vsa sporočila botov."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format

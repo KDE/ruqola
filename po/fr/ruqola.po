@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-21 00:46+0000\n"
-"PO-Revision-Date: 2022-10-20 18:02+0200\n"
+"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"PO-Revision-Date: 2022-10-21 07:15+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -3707,7 +3707,7 @@ msgstr "Slack Bridge"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Journaux"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4241,47 +4241,67 @@ msgstr "Délai maximal d’inactivité (ms)"
 msgid "Trace method calls"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
+#, fuzzy, kde-format
+#| msgid "Invalid subscription"
+msgid "Trace subscription calls"
+msgstr "Abonnement non valable"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
 msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Convert to Channel"
 msgid "Log Exceptions to Channel"
 msgstr "Convertir en un canal"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Error: "
 msgid "Errors Only"
 msgstr "Erreur :"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Banner Information"
 msgid "Errors and Information"
 msgstr "Informations de la bannière"
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgid "Log View Limit"
 msgstr "Aucune limite"
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
+#, kde-format
+msgid ""
+"The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
+"empty to show trace of every call."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
+#, kde-format
+msgid "Trace method filter"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -4754,10 +4774,9 @@ msgid "Enable Rocket.Chat to communicate directly with Slack."
 msgstr "Activer « Rocket.Chat » pour communiquer directement avec Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "API Tokens"
-msgstr "Jeton"
+msgstr "Jetons d'API"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
