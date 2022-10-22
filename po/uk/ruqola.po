@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-21 09:52+0300\n"
+"PO-Revision-Date: 2022-10-22 09:24+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -4221,10 +4221,9 @@ msgid "Trace method calls"
 msgstr "Трасувати виклики методів"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Трасувати виклики методів"
+msgstr "Трасувати виклики щодо підписки"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4272,13 +4271,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Текст звідси буде оброблено як формальний вираз (new RegExp('текст')). "
+"Нічого не вписуйте, якщо слід показати трасування усіх викликів."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace method filter"
-msgstr "Трасувати виклики методів"
+msgstr "Фільтр трасування методів"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
