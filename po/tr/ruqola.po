@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-21 10:50+0300\n"
+"PO-Revision-Date: 2022-10-22 13:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4182,10 +4182,9 @@ msgid "Trace method calls"
 msgstr "Yöntem çağrılarını izle"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Yöntem çağrılarını izle"
+msgstr "Abonelik çağrılarını izle"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4233,13 +4232,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Buradaki metin düzenli ifade olarak değerlendirilecektir (yeni "
+"RegExp('metin')). Her bir çağrının izini göstermek için boş bırakın."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace method filter"
-msgstr "Yöntem çağrılarını izle"
+msgstr "Yöntem süzgecini izle"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -4700,7 +4700,7 @@ msgstr "Tepkiler"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr "Rocket.Chat'in doğrudan Slack ile iletişim kurmasına izin ver"
+msgstr "Rocket.Chat'in doğrudan Slack ile iletişim kurmasına izin ver."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format

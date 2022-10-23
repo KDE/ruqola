@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-21 12:45+0200\n"
+"PO-Revision-Date: 2022-10-22 10:02+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4211,10 +4211,9 @@ msgid "Trace method calls"
 msgstr "Aanroepen van methode volgen"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Aanroepen van methode volgen"
+msgstr "Aanroepen vgoor inschrijven volgen"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4262,13 +4261,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"De tekst hier zal geëvalueerd worden als RegExp (nieuw RegExp('tekst')). "
+"Laat het leeg om elke aanroep te volgen en deze te tonen."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
-#, fuzzy, kde-format
-#| msgid "Trace method calls"
+#, kde-format
 msgid "Trace method filter"
-msgstr "Aanroepen van methode volgen"
+msgstr "Filter voor volgmethode"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

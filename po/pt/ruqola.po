@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-20 09:32+0100\n"
+"PO-Revision-Date: 2022-10-22 12:51+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -35,7 +35,8 @@ msgstr ""
 "X-POFile-SpellExtra: Chrome ISS LDAPS bot DN cn Administrator Users dc\n"
 "X-POFile-SpellExtra: Example ms Cloud Bing DeepL Libre Translate Lingva\n"
 "X-POFile-SpellExtra: Yandex SID Afrikaans Criolo Swahili Urdu Yiddish Id\n"
-"X-POFile-SpellExtra: Omnichannel EXIF Slack SlackBridge bots Bots\n"
+"X-POFile-SpellExtra: Omnichannel EXIF Slack SlackBridge bots Bots new\n"
+"X-POFile-SpellExtra: RegExp\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1836,7 +1837,7 @@ msgstr "Yiddish"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "Javanês Moderno (Indonésia)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
@@ -4222,13 +4223,12 @@ msgstr "Tempo-limite de Inactividade (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Registar as chamadas dos métodos"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Invalid subscription"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Subscrição inválida"
+msgstr "Registar as chamadas de subscrição"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4236,30 +4236,28 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Um canal que irá receber todas as excepções capturadas. Deixe em branco para "
+"ignorar as excepções."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgid "Log Exceptions to Channel"
-msgstr "Converter para um Canal"
+msgstr "Registar as Excepções num Canal"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Error: "
+#, kde-format
 msgid "Errors Only"
-msgstr "Erro: "
+msgstr "Apenas os Erros"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
+#, kde-format
 msgid "Errors and Information"
-msgstr "Informações do Separador"
+msgstr "Erros e Informações"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
-msgstr ""
+msgstr "Erros, Informações e Depuração"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
@@ -4267,10 +4265,9 @@ msgid "Log Level"
 msgstr "Nível de Registo"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "Log View Limit"
-msgstr "Sem Limite"
+msgstr "Limite de Visualização do Registo"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
@@ -4279,12 +4276,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"O texto aqui será avaliado como uma Expressão Regular (new RegExp('texto')). "
+"Deixe em branco para mostrar o registo de todas as chamadas."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "Filtro do registo de métodos"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
