@@ -5,6 +5,7 @@
 */
 
 #include "translatorconfigureutil.h"
+#include "ruqolawidgets_debug.h"
 #include "translatetext/translatorenginebase.h"
 
 #include <KLocalizedString>
@@ -33,7 +34,7 @@ void TranslatorConfigureUtil::fillComboboxSettings(QComboBox *combo)
             combo->addItem(i18n("DeepL"), QStringLiteral("deepl"));
             break;
         default:
-            // qCWarning(RUQOLA_TRANSLATION_LOG) << " Missing engine. It's a bug " << i;
+            qCWarning(RUQOLAWIDGETS_LOG) << " Missing engine. It's a bug " << i;
             break;
         }
     }
