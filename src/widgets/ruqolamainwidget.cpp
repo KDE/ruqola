@@ -5,11 +5,9 @@
 */
 
 #include "ruqolamainwidget.h"
-#include "banner/bannersdismissjob.h"
 #include "bannerinfodialog/bannermessagewidget.h"
 #include "channellist/channellistview.h"
 #include "channellist/channellistwidget.h"
-#include "connection.h"
 #include "model/switchchannelhistorymodel.h"
 #include "rocketchataccount.h"
 #include "rocketchataccountsettings.h"
