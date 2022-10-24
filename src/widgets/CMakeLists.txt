@@ -156,6 +156,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/logs/logssettingswidget.h
     administratorsettingsdialog/logs/logssettingswidget.cpp
 
+    administratorsettingsdialog/email/emailsettingswidget.h
+    administratorsettingsdialog/email/emailsettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
