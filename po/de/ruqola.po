@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"POT-Creation-Date: 2022-10-24 00:48+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1481,7 +1481,7 @@ msgid "Omnichannel"
 msgstr "Kanal öffnen"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:24
+#: widgets/translator/translatorconfigureutil.cpp:25
 #, kde-format
 msgid "Bing"
 msgstr ""
@@ -1518,20 +1518,20 @@ msgid "You used same language for from and to language."
 msgstr ""
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:34
 #, kde-format
 msgid "DeepL"
 msgstr ""
 
 #: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:18
+#: widgets/translator/translatorconfigureutil.cpp:19
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
 #: core/translatetext/engine/libretranslatetranslator.cpp:26
-#: widgets/translator/translatorconfigureutil.cpp:30
+#: widgets/translator/translatorconfigureutil.cpp:31
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Auto-Translate"
@@ -1539,13 +1539,13 @@ msgid "Libre Translate"
 msgstr "Automatisches Übersetzen einrichten"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:27
+#: widgets/translator/translatorconfigureutil.cpp:28
 #, kde-format
 msgid "Lingva"
 msgstr ""
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:21
+#: widgets/translator/translatorconfigureutil.cpp:22
 #, kde-format
 msgid "Yandex"
 msgstr ""

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-22 11:33+0200\n"
+"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"PO-Revision-Date: 2022-10-23 09:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -1418,7 +1418,7 @@ msgid "Omnichannel"
 msgstr "Omnicanal"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:24
+#: widgets/translator/translatorconfigureutil.cpp:25
 #, kde-format
 msgid "Bing"
 msgstr "Bing"
@@ -1462,32 +1462,32 @@ msgstr ""
 "Vous avez utilisé la même langue pour la langue « depuis » et « vers »."
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:34
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
 
 #: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:18
+#: widgets/translator/translatorconfigureutil.cpp:19
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
 #: core/translatetext/engine/libretranslatetranslator.cpp:26
-#: widgets/translator/translatorconfigureutil.cpp:30
+#: widgets/translator/translatorconfigureutil.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:27
+#: widgets/translator/translatorconfigureutil.cpp:28
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:21
+#: widgets/translator/translatorconfigureutil.cpp:22
 #, kde-format
 msgid "Yandex"
 msgstr "Yandex"
@@ -4242,10 +4242,9 @@ msgid "Trace method calls"
 msgstr "Tracer les appels de méthode"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Invalid subscription"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Abonnement non valable"
+msgstr "Tracer les appels de souscription"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4293,12 +4292,15 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Ce texte ici sera évalué comme une expression régulière (nouveau "
+"RegExp(« texte »)). Veuillez le maintenir vide pour afficher une trace de "
+"chaque appel."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "Tracer le filtre de méthode"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format

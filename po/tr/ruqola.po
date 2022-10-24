@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-22 00:45+0000\n"
+"POT-Creation-Date: 2022-10-24 00:48+0000\n"
 "PO-Revision-Date: 2022-10-22 13:03+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1416,7 +1416,7 @@ msgid "Omnichannel"
 msgstr "Tek Kanal"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:24
+#: widgets/translator/translatorconfigureutil.cpp:25
 #, kde-format
 msgid "Bing"
 msgstr "Bing"
@@ -1453,32 +1453,32 @@ msgid "You used same language for from and to language."
 msgstr "Kimden ve kime dilinde aynı dili kullandınız."
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:34
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
 
 #: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:18
+#: widgets/translator/translatorconfigureutil.cpp:19
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
 #: core/translatetext/engine/libretranslatetranslator.cpp:26
-#: widgets/translator/translatorconfigureutil.cpp:30
+#: widgets/translator/translatorconfigureutil.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:27
+#: widgets/translator/translatorconfigureutil.cpp:28
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:21
+#: widgets/translator/translatorconfigureutil.cpp:22
 #, kde-format
 msgid "Yandex"
 msgstr "Yandex"

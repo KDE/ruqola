@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-22 00:45+0000\n"
-"PO-Revision-Date: 2022-10-15 17:17+0200\n"
+"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"PO-Revision-Date: 2022-10-22 17:55+0200\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1420,7 +1420,7 @@ msgid "Omnichannel"
 msgstr "Omnicanal"
 
 #: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:24
+#: widgets/translator/translatorconfigureutil.cpp:25
 #, kde-format
 msgid "Bing"
 msgstr "Bing"
@@ -1459,32 +1459,32 @@ msgid "You used same language for from and to language."
 msgstr "Ha usado el mismo idioma para el idioma origen y destino."
 
 #: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:33
+#: widgets/translator/translatorconfigureutil.cpp:34
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
 
 #: core/translatetext/engine/googletranslator.cpp:72
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:18
+#: widgets/translator/translatorconfigureutil.cpp:19
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
 #: core/translatetext/engine/libretranslatetranslator.cpp:26
-#: widgets/translator/translatorconfigureutil.cpp:30
+#: widgets/translator/translatorconfigureutil.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Traducción libre"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:27
+#: widgets/translator/translatorconfigureutil.cpp:28
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:21
+#: widgets/translator/translatorconfigureutil.cpp:22
 #, kde-format
 msgid "Yandex"
 msgstr "Yandex"
@@ -1821,12 +1821,12 @@ msgstr "Yiddish"
 #: core/translatetext/translatorutil.cpp:305
 #, kde-format
 msgid "Modern Javanese (Indonesia)"
-msgstr ""
+msgstr "Javanés moderno (Indonesia)"
 
 #: core/translatetext/translatorutil.cpp:308
 #, kde-format
 msgid "Chinese"
-msgstr ""
+msgstr "Chino"
 
 #: core/user.cpp:199
 #, kde-format
@@ -3684,12 +3684,12 @@ msgstr "Descarga de datos de usuario"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Conexión con Slack"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Registros"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4213,13 +4213,12 @@ msgstr "Expiración en reposo (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Trazar llamadas a métodos"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Invalid subscription"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Suscripción no válida"
+msgstr "Trazas de llamadas a suscripciones"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -4227,41 +4226,38 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Un canal que recibirá todas las excepciones capturadas. Déjelo vacío para "
+"ignorar excepciones."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgid "Log Exceptions to Channel"
-msgstr "Convertir en canal"
+msgstr "Registros de excepciones al canal"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Error: "
+#, kde-format
 msgid "Errors Only"
-msgstr "Error:"
+msgstr "Solo errores"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
+#, kde-format
 msgid "Errors and Information"
-msgstr "Pancarta de información"
+msgstr "Errores e información"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
-msgstr ""
+msgstr "Errores, información y depuración"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
-msgstr ""
+msgstr "Nivel de registros"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "Log View Limit"
-msgstr "Sin límite"
+msgstr "Límite de vista de registros"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
@@ -4270,12 +4266,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"El texto aquí presente se evaluará como expresión regular (new "
+"RegExp('text')). Déjelo vacío para mostrar las trazas de todas las llamadas. "
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "Filtro de trazas de métodos"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -4329,10 +4327,9 @@ msgid "Enable image thumbnails to save bandwidth"
 msgstr "Activar miniaturas de imágenes para reducir el ancho de banda"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Video Recorder Enabled"
+#, kde-format
 msgid "Audio Recorder Enabled"
-msgstr "Grabación de video activada"
+msgstr "Grabación de audio activada"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
 #, kde-format
@@ -4415,10 +4412,9 @@ msgid "Audio Message"
 msgstr "Mensaje de audio"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:120
-#, fuzzy, kde-format
-#| msgid "Audio Message"
+#, kde-format
 msgid "Audio Message Bit Rate"
-msgstr "Mensaje de audio"
+msgstr "Tasa de bits en mensajes de audio"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -4725,40 +4721,41 @@ msgstr "Aplicar"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "Conexión de Slack activada"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "Conexión de Slack Todo"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "Reactions"
-msgstr "Menciones"
+msgstr "Reacciones"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Permitir que Rocket.Chat comunique directamente con Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "API Tokens"
-msgstr "Señal"
+msgstr "Identificadores de la API"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
+"Elegir si la conexión con Slack debe enviar los mensajes de vuelta de Slack."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
+"Enviar mensajes de todos los canales que existen en Slack y a los que el bot "
+"se ha unido"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -4766,12 +4763,13 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Importar mensajes desde Slack con un alias; %s se remplazará por el nombre "
+"de usuario. Si se deja vacío, no se usará ningún alias."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Alias Format"
-msgstr "Formato"
+msgstr "Formato del alias"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
 #, kde-format
@@ -4779,11 +4777,14 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Evitar propagación de mensajes de bots cuyo nombre cumple la expresión "
+"regular de más arriba. Si se deja vació, todos los mensajes de bots se "
+"propagarán."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
 msgid "Exclude Bots"
-msgstr ""
+msgstr "Excluir bots"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
