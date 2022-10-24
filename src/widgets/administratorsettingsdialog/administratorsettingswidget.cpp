@@ -6,6 +6,7 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
+#include "email/emailsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "enterprise/enterprisesettingswidget.h"
 #include "fileupload/fileuploadsettingswidget.h"
@@ -49,6 +50,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mUserDataDownloadWidget(new UserDataDownloadWidget(account, this))
     , mSlackBridgeWidget(new SlackBridgeWidget(account, this))
     , mLogsSettingsWidget(new LogsSettingsWidget(account, this))
+    , mEmailSettingsWidget(new EmailSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -75,6 +77,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mUserDataDownloadWidget->setObjectName(QStringLiteral("mUserDataDownloadWidget"));
     mSlackBridgeWidget->setObjectName(QStringLiteral("mSlackBridgeWidget"));
     mLogsSettingsWidget->setObjectName(QStringLiteral("mLogsSettingsWidget"));
+    mEmailSettingsWidget->setObjectName(QStringLiteral("mEmailSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -92,6 +95,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mUserDataDownloadWidget, i18n("User Data Download"));
     mTabWidget->addTab(mSlackBridgeWidget, i18n("Slack Bridge"));
     mTabWidget->addTab(mLogsSettingsWidget, i18n("Logs"));
+    mTabWidget->addTab(mEmailSettingsWidget, i18n("Email"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -135,6 +139,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mUserDataDownloadWidget, mapSettings);
     initializeValues(mSlackBridgeWidget, mapSettings);
     initializeValues(mLogsSettingsWidget, mapSettings);
+    initializeValues(mEmailSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -161,4 +166,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mUserDataDownloadWidget->setEnabled(state);
     mSlackBridgeWidget->setEnabled(state);
     mLogsSettingsWidget->setEnabled(state);
+    mEmailSettingsWidget->setEnabled(state);
 }

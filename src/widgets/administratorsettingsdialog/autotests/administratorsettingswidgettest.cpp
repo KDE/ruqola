@@ -7,6 +7,7 @@
 #include "administratorsettingswidgettest.h"
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
+#include "administratorsettingsdialog/email/emailsettingswidget.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
 #include "administratorsettingsdialog/enterprise/enterprisesettingswidget.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
@@ -94,4 +95,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mLogsSettingsWidget = w.findChild<LogsSettingsWidget *>(QStringLiteral("mLogsSettingsWidget"));
     QVERIFY(mLogsSettingsWidget);
+
+    auto mEmailSettingsWidget = w.findChild<EmailSettingsWidget *>(QStringLiteral("mEmailSettingsWidget"));
+    QVERIFY(mEmailSettingsWidget);
 }
