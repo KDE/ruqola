@@ -132,6 +132,13 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.sidebarSortby.isEmpty()) {
         dataObj[QLatin1String("sidebarSortby")] = mUsersSetPreferencesInfo.sidebarSortby;
     }
+    // Disable until they will fix REST API see https://github.com/RocketChat/Rocket.Chat/issues/27132
+#if 0
+    if (mUsersSetPreferencesInfo.receiveLoginDetectionEmail != UsersSetPreferencesInfo::Unknown) {
+        dataObj[QLatin1String("receiveLoginDetectionEmail")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
+    }
+#endif
+    qDebug() << " dataObj " << dataObj;
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -164,6 +171,7 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "sidebarDisplayAvatar " << t.sidebarDisplayAvatar;
     d << "sidebarShowFavorites " << t.sidebarShowFavorites;
     d << "sidebarSortby: " << t.sidebarSortby;
+    d << "receiveLoginDetectionEmail: " << t.receiveLoginDetectionEmail;
     return d;
 }
 

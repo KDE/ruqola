@@ -42,6 +42,9 @@ void OwnUserPreferences::parsePreferences(const QJsonObject &replyObject)
     }
     setShowRoomAvatar(replyObject.value(QLatin1String("sidebarDisplayAvatar")).toBool(false));
     setShowFavorite(replyObject.value(QLatin1String("sidebarShowFavorites")).toBool(false));
+    setReceiveLoginDetectionEmail(replyObject.value(QLatin1String("receiveLoginDetectionEmail")).toBool(true));
+
+    qDebug() << " replyObject " << replyObject;
 }
 
 bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
@@ -51,7 +54,7 @@ bool OwnUserPreferences::operator==(const OwnUserPreferences &other) const
         && mHideRoles == other.hideRoles() && mDisplayAvatars == other.displayAvatars() && mIdleTimeLimit == other.idleTimeLimit()
         && mEnableAutoAway == other.enableAutoAway() && mPushNotifications == other.pushNotifications() && mMessageViewMode == other.messageViewMode()
         && mShowUnread == other.showUnread() && mShowRoomAvatar == other.showRoomAvatar() && mShowFavorite == other.showFavorite()
-        && mRoomListSortOrder == other.roomListSortOrder();
+        && mRoomListSortOrder == other.roomListSortOrder() && mReceiveLoginDetectionEmail == other.receiveLoginDetectionEmail();
 }
 
 QStringList OwnUserPreferences::highlightWords() const
@@ -155,6 +158,16 @@ void OwnUserPreferences::setShowFavorite(bool newShowFavorite)
     mShowFavorite = newShowFavorite;
 }
 
+bool OwnUserPreferences::receiveLoginDetectionEmail() const
+{
+    return mReceiveLoginDetectionEmail;
+}
+
+void OwnUserPreferences::setReceiveLoginDetectionEmail(bool newReceiveLoginDetectionEmail)
+{
+    mReceiveLoginDetectionEmail = newReceiveLoginDetectionEmail;
+}
+
 bool OwnUserPreferences::convertAsciiEmoji() const
 {
     return mConvertAsciiEmoji;
@@ -232,5 +245,6 @@ QDebug operator<<(QDebug d, const OwnUserPreferences &t)
     d << "mRoomListSortOrder " << t.roomListSortOrder();
     d << "mShowRoomAvatar " << t.showRoomAvatar();
     d << "mShowFavorite " << t.showFavorite();
+    d << "mReceiveLoginDetectionEmail " << t.receiveLoginDetectionEmail();
     return d;
 }

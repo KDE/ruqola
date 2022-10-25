@@ -73,6 +73,9 @@ public:
     Q_REQUIRED_RESULT bool showFavorite() const;
     void setShowFavorite(bool newShowFavorite);
 
+    Q_REQUIRED_RESULT bool receiveLoginDetectionEmail() const;
+    void setReceiveLoginDetectionEmail(bool newReceiveLoginDetectionEmail);
+
 private:
     QStringList mHighlightWords;
     QString mEmailNotificationMode;
@@ -89,6 +92,7 @@ private:
     RoomListSortOrder mRoomListSortOrder = RoomListSortOrder::Unknown;
     bool mShowRoomAvatar = false;
     bool mShowFavorite = true;
+    bool mReceiveLoginDetectionEmail = false;
 };
 
 Q_DECLARE_METATYPE(OwnUserPreferences)

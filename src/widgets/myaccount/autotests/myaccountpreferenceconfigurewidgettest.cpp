@@ -96,4 +96,10 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto exportDataButton = w.findChild<QPushButton *>(QStringLiteral("exportDataButton"));
     QVERIFY(exportDataButton);
     QVERIFY(!exportDataButton->text().isEmpty());
+
+    auto mReceiveLoginDetectionEmails = w.findChild<QCheckBox *>(QStringLiteral("mReceiveLoginDetectionEmails"));
+    QVERIFY(mReceiveLoginDetectionEmails);
+    QVERIFY(!mReceiveLoginDetectionEmails->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mReceiveLoginDetectionEmails->text().isEmpty());
+    QVERIFY(!mReceiveLoginDetectionEmails->toolTip().isEmpty());
 }

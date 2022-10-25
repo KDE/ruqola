@@ -41,6 +41,7 @@ public:
         State sidebarDisplayAvatar = Unknown;
         State sidebarShowUnread = Unknown;
         State sidebarShowFavorites = Unknown;
+        State receiveLoginDetectionEmail = Unknown;
         QString sidebarSortby;
         // Add more
     };

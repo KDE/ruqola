@@ -31,6 +31,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
     , mDisplayAvatars(new QCheckBox(i18n("Display Avatars"), this))
+    , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
     , mRocketChatAccount(account)
 {
     mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
@@ -77,6 +78,11 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mainLayout->addWidget(pushNotificationLabel);
 
     mainLayout->addWidget(mPushNotification);
+
+    mReceiveLoginDetectionEmails->setObjectName(QStringLiteral("mReceiveLoginDetectionEmails"));
+    mReceiveLoginDetectionEmails->setToolTip(i18n("Receive an email each time a new login is detected on your account."));
+    connect(mReceiveLoginDetectionEmails, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mReceiveLoginDetectionEmails);
 
     auto viewModeLabel = new QLabel(i18n("View Mode:"), this);
     viewModeLabel->setObjectName(QStringLiteral("viewModeLabel"));
@@ -201,6 +207,8 @@ void MyAccountPreferenceConfigureWidget::save()
         info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
+        info.receiveLoginDetectionEmail =
+            RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
         info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
     }
@@ -217,6 +225,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mHideRoles->setChecked(ownUserPreferences.hideRoles());
     mDisplayAvatars->setChecked(ownUserPreferences.displayAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
+    mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
     mViewMode->setCurrentIndex(mViewMode->findData(ownUserPreferences.messageViewMode()));
     mChanged = false;
 }
