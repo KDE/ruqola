@@ -500,9 +500,33 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setAccountsAllowInvisibleStatusOption(value.toBool());
     } else if (id == QLatin1String("UserData_EnableDownload")) {
         setUserDataDownloadEnabled(value.toBool());
+    } else if (id == QLatin1String("Device_Management_Enable_Login_Emails")) {
+        setDeviceManagementEnableLoginEmails(value.toBool());
+    } else if (id == QLatin1String("Device_Management_Allow_Login_Email_preference")) {
+        setDeviceManagementAllowLoginEmailpreference(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+bool RuqolaServerConfig::deviceManagementAllowLoginEmailpreference() const
+{
+    return mDeviceManagementAllowLoginEmailpreference;
+}
+
+void RuqolaServerConfig::setDeviceManagementAllowLoginEmailpreference(bool newDeviceManagementAllowLoginEmailpreference)
+{
+    mDeviceManagementAllowLoginEmailpreference = newDeviceManagementAllowLoginEmailpreference;
+}
+
+bool RuqolaServerConfig::deviceManagementEnableLoginEmails() const
+{
+    return mDeviceManagementEnableLoginEmails;
+}
+
+void RuqolaServerConfig::setDeviceManagementEnableLoginEmails(bool newDeviceManagementEnableLoginEmails)
+{
+    mDeviceManagementEnableLoginEmails = newDeviceManagementEnableLoginEmails;
 }
 
 bool RuqolaServerConfig::userDataDownloadEnabled() const

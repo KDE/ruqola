@@ -43,6 +43,8 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.hasEnterpriseSupport());
     QVERIFY(config.accountsAllowInvisibleStatusOption());
     QVERIFY(config.userDataDownloadEnabled());
+    QVERIFY(!config.deviceManagementEnableLoginEmails());
+    QVERIFY(!config.deviceManagementAllowLoginEmailpreference());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

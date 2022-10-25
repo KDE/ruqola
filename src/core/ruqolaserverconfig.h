@@ -151,6 +151,12 @@ public:
     Q_REQUIRED_RESULT bool userDataDownloadEnabled() const;
     void setUserDataDownloadEnabled(bool newUserDataDownloadEnabled);
 
+    Q_REQUIRED_RESULT bool deviceManagementEnableLoginEmails() const;
+    void setDeviceManagementEnableLoginEmails(bool newDeviceManagementEnableLoginEmails);
+
+    Q_REQUIRED_RESULT bool deviceManagementAllowLoginEmailpreference() const;
+    void setDeviceManagementAllowLoginEmailpreference(bool newDeviceManagementAllowLoginEmailpreference);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -189,5 +195,7 @@ private:
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true
     bool mUserDataDownloadEnabled = true;
+    bool mDeviceManagementEnableLoginEmails = false;
+    bool mDeviceManagementAllowLoginEmailpreference = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);

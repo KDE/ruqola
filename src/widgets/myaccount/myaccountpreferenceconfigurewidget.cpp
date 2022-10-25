@@ -134,8 +134,13 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
         downloadWidget->setVisible(false);
     }
     initComboboxValues();
-    if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
-        mReceiveLoginDetectionEmails->setVisible(false);
+    if (mRocketChatAccount) {
+        if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
+            mReceiveLoginDetectionEmails->setVisible(false);
+        } else if (!mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
+                   || !mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
+            mReceiveLoginDetectionEmails->setVisible(false);
+        }
     }
 }
 
@@ -210,9 +215,14 @@ void MyAccountPreferenceConfigureWidget::save()
         info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
-        if (mRocketChatAccount && !mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
-            info.receiveLoginDetectionEmail =
-                RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
+        if (mRocketChatAccount) {
+            if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
+                if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
+                    && mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
+                    info.receiveLoginDetectionEmail =
+                        RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mReceiveLoginDetectionEmails->isChecked());
+                }
+            }
         }
         info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
