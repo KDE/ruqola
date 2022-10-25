@@ -84,4 +84,5 @@ void FileUploadSettingsWidget::initialize(const QMap<QString, QVariant> &mapSett
     initializeWidget(mAcceptedMediaTypes, mapSettings, QString());
     initializeWidget(mBlockedMediaTypes, mapSettings, QStringLiteral("image/svg+xml"));
     initializeWidget(mFileUploadJsonWebTokenSecret, mapSettings, QString());
+    initializeWidget(mStorageType, mapSettings, QStringLiteral("GridFS"));
 }
