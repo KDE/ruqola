@@ -9,6 +9,9 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QComboBox;
+class QLineEdit;
+class QSpinBox;
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmailSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -20,4 +23,7 @@ public:
 
 private:
     QComboBox *const mSmtpProtocol;
+    QLineEdit *const mSmtpHost;
+    QSpinBox *const mSmtpPort;
+    QCheckBox *const mIgnoreTls;
 };
