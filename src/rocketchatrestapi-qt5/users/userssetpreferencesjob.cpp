@@ -138,7 +138,6 @@ QJsonDocument UsersSetPreferencesJob::json() const
         dataObj[QLatin1String("receiveLoginDetectionEmail")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
     }
 #endif
-    qDebug() << " dataObj " << dataObj;
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
