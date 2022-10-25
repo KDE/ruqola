@@ -6,6 +6,7 @@
 
 #include "emailsettingswidgettest.h"
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(EmailSettingsWidgetTest)
 EmailSettingsWidgetTest::EmailSettingsWidgetTest(QObject *parent)
@@ -16,5 +17,7 @@ EmailSettingsWidgetTest::EmailSettingsWidgetTest(QObject *parent)
 void EmailSettingsWidgetTest::shouldHaveDefaultValues()
 {
     EmailSettingsWidget w(nullptr);
-    // TODO
+    auto smtpLabel = w.findChild<QLabel *>(QStringLiteral("smtpLabel"));
+    QVERIFY(smtpLabel);
+    QVERIFY(!smtpLabel->text().isEmpty());
 }
