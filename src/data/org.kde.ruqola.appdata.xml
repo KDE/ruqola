@@ -44,6 +44,7 @@
   <summary xml:lang="ia">Cliente de Rocket Chat (Conversation in directo de Rocchetta)</summary>
   <summary xml:lang="id">Klien Obrolan Rocket</summary>
   <summary xml:lang="it">Client Rocket Chat</summary>
+  <summary xml:lang="ka">Rocket Chat -ის კლიენტი</summary>
   <summary xml:lang="ko">Rocket Chat 클라이언트</summary>
   <summary xml:lang="lt">Rocket Chat kliento programa</summary>
   <summary xml:lang="nl">Client van Rocket Chat</summary>
@@ -232,6 +233,7 @@
       <li xml:lang="ia">Sala de discussion</li>
       <li xml:lang="id">Ruang diskusi</li>
       <li xml:lang="it">Stanza di discussione</li>
+      <li xml:lang="ka">კამათის ოთახი</li>
       <li xml:lang="nl">Discussieroom</li>
       <li xml:lang="pl">Pokój rozmów</li>
       <li xml:lang="pt">Sala de discussão</li>
@@ -351,6 +353,7 @@
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
       <li xml:lang="id">Dukungan emoji</li>
       <li xml:lang="it">Supporto emoji</li>
+      <li xml:lang="ka">ემოჯის მხარდაჭერა</li>
       <li xml:lang="nl">Ondersteuning van emoji</li>
       <li xml:lang="pl">Obsługa emoji</li>
       <li xml:lang="pt">Suporte para emojis</li>
@@ -369,6 +372,7 @@
       <li xml:lang="fr">Prise en charge de la vidéo</li>
       <li xml:lang="id">Dukungan video</li>
       <li xml:lang="it">Supporto video</li>
+      <li xml:lang="ka">ვიდეოს მხარდაჭერა</li>
       <li xml:lang="nl">Ondersteuning video</li>
       <li xml:lang="pl">Obsługa filmów</li>
       <li xml:lang="pt">Suporte para vídeo</li>
@@ -560,6 +564,7 @@
       <li xml:lang="ia">Exporta Messages </li>
       <li xml:lang="id">Ekspor Pesan</li>
       <li xml:lang="it">Esposta messaggi</li>
+      <li xml:lang="ka">შეტყობინებების გატანა</li>
       <li xml:lang="nl">Berichten exporteren</li>
       <li xml:lang="pl">Wyeksportuj wiadomości</li>
       <li xml:lang="pt">Exportar as Mensagens</li>
