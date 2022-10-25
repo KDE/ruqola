@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -17,16 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 21.12.3\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Deutsches KDE-Übersetzerteam"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kde-i18n-de@kde.org"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -812,6 +802,7 @@ msgid "UserName"
 msgstr "Benutzername"
 
 #: core/model/adminusersmodel.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3723,100 +3714,100 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Administrator"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, fuzzy, kde-format
 #| msgid "Account"
 msgid "Accounts"
 msgstr "Zugang"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
 msgstr "Verschlüsselt:"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Nachricht"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "File Uploaded:"
 msgid "File Upload"
 msgstr "Datei hochgeladen:"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Retention Policy"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "General"
 msgid "General"
 msgstr "Allgemein"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "No Limit"
 msgid "Rate Limiter"
 msgstr "Keine Begrenzung"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Passwort"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Video Conference"
 msgstr "Vorliebe"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #, kde-format
 msgid "IRC Federation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #, kde-format
 msgid "Webdav"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "LDAP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Layout"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
 msgid "Enterprise"
 msgstr "Zugangsname eingeben"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "User Data Download"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "Slack Bridge"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, kde-format
 msgid "Logs"
 msgstr ""
@@ -7766,6 +7757,14 @@ msgstr "Zugangsinformationen"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Anzahl der Zugänge zurückgeben."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Deutsches KDE-Übersetzerteam"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kde-i18n-de@kde.org"
 
 #, fuzzy
 #~| msgid "Select Room Avatar"

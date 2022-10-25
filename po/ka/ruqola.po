@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 00:48+0000\n"
-"PO-Revision-Date: 2022-10-21 05:52+0200\n"
+"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"PO-Revision-Date: 2022-10-24 06:24+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,17 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
-
-#, kde-format
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Temuri Doghonadze"
-
-#, kde-format
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Temuri.doghonadze@gmail.com"
+"X-Generator: Poedit 3.2\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -785,6 +775,7 @@ msgid "UserName"
 msgstr "მოხმარებელი"
 
 #: core/model/adminusersmodel.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -1343,7 +1334,7 @@ msgstr ""
 #: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Export Messages"
-msgstr ""
+msgstr "შეტყობინებების გატანა"
 
 #: core/rocketchataccount.cpp:2833
 #, kde-format
@@ -1468,13 +1459,13 @@ msgstr "Google"
 #: widgets/translator/translatorconfigureutil.cpp:31
 #, kde-format
 msgid "Libre Translate"
-msgstr ""
+msgstr "Libre Translate"
 
 #: core/translatetext/engine/lingvatranslator.cpp:27
 #: widgets/translator/translatorconfigureutil.cpp:28
 #, kde-format
 msgid "Lingva"
-msgstr ""
+msgstr "Lingva"
 
 #: core/translatetext/engine/yandextranslator.cpp:48
 #: widgets/translator/translatorconfigureutil.cpp:22
@@ -2067,7 +2058,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:263
 #, kde-format
 msgid "File is too large"
-msgstr ""
+msgstr "ფაილი ძალიან დიდია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:265
 #, kde-format
@@ -3210,7 +3201,7 @@ msgstr "პირდაპირი შეტყობინებების �
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Threads"
-msgstr ""
+msgstr "სულ ნაკადები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
@@ -3553,92 +3544,92 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
 #, kde-format
 msgid "Accounts"
 msgstr "ანგარიშები"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:79
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
 #, kde-format
 msgid "Encryption"
 msgstr "დაშიფვრა"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Retention Policy"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #, kde-format
 msgid "General"
 msgstr "საერთო"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #, kde-format
 msgid "Rate Limiter"
 msgstr "სიჩქარის შემზღუდველი"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Password"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, kde-format
 msgid "Video Conference"
 msgstr "ვიდეო კონფერენცია"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #, kde-format
 msgid "IRC Federation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Layout"
 msgstr "განლაგება"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "კომპანიის"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "User Data Download"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "Slack Bridge"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, kde-format
 msgid "Logs"
 msgstr "ჟურნალი"
@@ -4127,10 +4118,9 @@ msgid "Trace method calls"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Invalid subscription"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "არასწორი გამოწერა"
+msgstr "გამოწერის ფუნქციების ტრეისი"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -6364,7 +6354,7 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Delete my Account"
-msgstr ""
+msgstr "ჩემი ანგარიშის წაშლა"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:31
 #, kde-format
@@ -7367,3 +7357,11 @@ msgstr "ანგარიშის ინფორმაცია"
 #, kde-format
 msgid "Return the number of account."
 msgstr ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Temuri Doghonadze"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Temuri.doghonadze@gmail.com"
