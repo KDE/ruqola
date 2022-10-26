@@ -23,7 +23,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mShowMessageEmailNotification(new QCheckBox(i18n("Show Message in Email Notification"), this))
     , mAddSenderReplyTo(new QCheckBox(i18n("Add Sender to Reply-To"), this))
 {
-    auto smtpLabel = createBoldLabel(i18n("STMP"));
+    auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
     mMainLayout->addWidget(smtpLabel);
 
