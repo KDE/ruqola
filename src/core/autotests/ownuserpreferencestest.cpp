@@ -40,6 +40,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
     {
         OwnUserPreferences preferences;
         preferences.setShowFavorite(false);
+        preferences.setReceiveLoginDetectionEmail(true);
         QTest::addRow("empty") << QStringLiteral("empty") << preferences;
     }
     {
@@ -53,6 +54,7 @@ void OwnUserPreferencesTest::shouldLoadOwnUserPreferencesInfo_data()
         preferences.setDisplayAvatars(true);
         preferences.setShowFavorite(true);
         preferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
+        preferences.setReceiveLoginDetectionEmail(true);
         QTest::addRow("ownuserpreferences1") << QStringLiteral("ownuserpreferences1") << preferences;
     }
 }
