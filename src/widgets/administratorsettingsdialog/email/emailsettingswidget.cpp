@@ -51,7 +51,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     // Add password
 
     mFromEmail->setObjectName(QStringLiteral("mFromEmail"));
-    addLineEdit(i18n("Username"), mFromEmail, QStringLiteral("From_Email"));
+    addLineEdit(i18n("From Email"), mFromEmail, QStringLiteral("From_Email"));
 
     auto privacyLabel = createBoldLabel(i18n("Privacy"));
     privacyLabel->setObjectName(QStringLiteral("privacyLabel"));
