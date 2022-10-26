@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:46+0000\n"
+"POT-Creation-Date: 2022-10-26 00:46+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -822,7 +822,7 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
 #, kde-format
 msgid "Disabled"
 msgstr ""
@@ -842,6 +842,7 @@ msgid "link"
 msgstr "Kopijuoti nuorodą"
 
 #: core/model/deviceinfomodel.cpp:32
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -977,8 +978,8 @@ msgstr[3] ""
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:161
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
 #, kde-format
 msgid "Nothing"
 msgstr ""
@@ -1014,15 +1015,15 @@ msgid "Seasons"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:159
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
 #, kde-format
 msgid "All Messages"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
 #, kde-format
 msgid "Mentions"
 msgstr ""
@@ -2665,7 +2666,7 @@ msgstr "Naudotojų registracija yra išjungta"
 msgid "%1 is already in use."
 msgstr "Naudotojas jau yra savininkas"
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:143
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:149
 #, fuzzy, kde-format
 #| msgid "Encrypted message: %1"
 msgid "Invalid parameters"
@@ -3838,6 +3839,40 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Ignore User"
+msgid "IgnoreTLS"
+msgstr "Nepaisyti naudotojo"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
+#, kde-format
+msgid "STMP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#, kde-format
+msgid "smtp"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#, kde-format
+msgid "smtps"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
+#, kde-format
+msgid "Protocol"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
+#, kde-format
+msgid "Port"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
 msgid "Enabled E2E encryption"
@@ -4196,20 +4231,9 @@ msgstr ""
 msgid "RFC2813"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
-#, kde-format
-msgid "Protocol"
-msgstr ""
-
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
 #, kde-format
 msgid "The port to bind to on the IRC host server."
-msgstr ""
-
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
-#, kde-format
-msgid "Port"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:53
@@ -6630,79 +6654,89 @@ msgstr "Slėpti kambarį"
 msgid "Display Avatars"
 msgstr "Slaptažodis"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#, kde-format
+msgid "Receive login detection emails"
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
 msgid "Highlight words:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:52
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:60
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
 #, kde-format
 msgid "Desktop Notification:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:67
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
 #, kde-format
 msgid "Offline Email Notification:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:74
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, kde-format
 msgid "Push Notification:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
+#, kde-format
+msgid "Receive an email each time a new login is detected on your account."
+msgstr ""
+
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
 msgid "View Mode:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:110
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
 #, kde-format
 msgid "Download My Data (HTML)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:117
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
 #, kde-format
 msgid "Export My Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:152
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:153
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
 #, kde-format
 msgid "Each Mentions"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:172
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
 msgid "Normal"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
 #, kde-format
 msgid "Cozy"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
 #, kde-format
 msgid "Compact"
 msgstr ""
