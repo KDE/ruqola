@@ -26,4 +26,6 @@ private:
     QLineEdit *const mSmtpHost;
     QSpinBox *const mSmtpPort;
     QCheckBox *const mIgnoreTls;
+    QLineEdit *const mUserName;
+    QLineEdit *const mFromEmail;
 };

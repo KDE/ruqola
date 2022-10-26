@@ -18,6 +18,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mSmtpHost(new QLineEdit(this))
     , mSmtpPort(new QSpinBox(this))
     , mIgnoreTls(new QCheckBox(i18n("IgnoreTLS"), this))
+    , mUserName(new QLineEdit(this))
+    , mFromEmail(new QLineEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("STMP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -40,6 +42,14 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     mIgnoreTls->setObjectName(QStringLiteral("mIgnoreTls"));
     mMainLayout->addWidget(mIgnoreTls);
     connectCheckBox(mIgnoreTls, QStringLiteral("SMTP_IgnoreTLS"));
+
+    mUserName->setObjectName(QStringLiteral("mUserName"));
+    addLineEdit(i18n("Username"), mUserName, QStringLiteral("SMTP_Username"));
+
+    // Add password
+
+    mFromEmail->setObjectName(QStringLiteral("mFromEmail"));
+    addLineEdit(i18n("Username"), mFromEmail, QStringLiteral("From_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -50,4 +60,6 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mSmtpHost, mapSettings, QString());
     initializeWidget(mSmtpPort, mapSettings, 0);
     initializeWidget(mIgnoreTls, mapSettings, true);
+    initializeWidget(mUserName, mapSettings, QString());
+    initializeWidget(mFromEmail, mapSettings, QString());
 }

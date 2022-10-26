@@ -43,4 +43,18 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mIgnoreTls->text().isEmpty());
     QVERIFY(mIgnoreTls->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mIgnoreTls), QStringLiteral("SMTP_IgnoreTLS"));
+
+    auto mUserName = w.findChild<QLineEdit *>(QStringLiteral("mUserName"));
+    QVERIFY(mUserName);
+    QVERIFY(mUserName->text().isEmpty());
+    QVERIFY(mUserName->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUserName), QStringLiteral("SMTP_Username"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SMTP_Username"));
+
+    auto mFromEmail = w.findChild<QLineEdit *>(QStringLiteral("mFromEmail"));
+    QVERIFY(mFromEmail);
+    QVERIFY(mFromEmail->text().isEmpty());
+    QVERIFY(mFromEmail->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFromEmail), QStringLiteral("From_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("From_Email"));
 }
