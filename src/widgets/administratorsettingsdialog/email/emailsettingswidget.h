@@ -28,4 +28,6 @@ private:
     QCheckBox *const mIgnoreTls;
     QLineEdit *const mUserName;
     QLineEdit *const mFromEmail;
+    QCheckBox *const mShowMessageEmailNotification;
+    QCheckBox *const mAddSenderReplyTo;
 };

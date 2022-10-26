@@ -57,4 +57,22 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFromEmail->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFromEmail), QStringLiteral("From_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("From_Email"));
+
+    auto privacyLabel = w.findChild<QLabel *>(QStringLiteral("privacyLabel"));
+    QVERIFY(privacyLabel);
+    QVERIFY(!privacyLabel->text().isEmpty());
+
+    auto mShowMessageEmailNotification = w.findChild<QCheckBox *>(QStringLiteral("mShowMessageEmailNotification"));
+    QVERIFY(mShowMessageEmailNotification);
+    QVERIFY(!mShowMessageEmailNotification->isChecked());
+    QVERIFY(!mShowMessageEmailNotification->text().isEmpty());
+    QVERIFY(mShowMessageEmailNotification->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowMessageEmailNotification), QStringLiteral("Email_notification_show_message"));
+
+    auto mAddSenderReplyTo = w.findChild<QCheckBox *>(QStringLiteral("mAddSenderReplyTo"));
+    QVERIFY(mAddSenderReplyTo);
+    QVERIFY(!mAddSenderReplyTo->isChecked());
+    QVERIFY(!mAddSenderReplyTo->text().isEmpty());
+    QVERIFY(mAddSenderReplyTo->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAddSenderReplyTo), QStringLiteral("Add_Sender_To_ReplyTo"));
 }

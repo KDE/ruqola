@@ -20,6 +20,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mIgnoreTls(new QCheckBox(i18n("IgnoreTLS"), this))
     , mUserName(new QLineEdit(this))
     , mFromEmail(new QLineEdit(this))
+    , mShowMessageEmailNotification(new QCheckBox(i18n("Show Message in Email Notification"), this))
+    , mAddSenderReplyTo(new QCheckBox(i18n("Add Sender to Reply-To"), this))
 {
     auto smtpLabel = createBoldLabel(i18n("STMP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -50,6 +52,18 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mFromEmail->setObjectName(QStringLiteral("mFromEmail"));
     addLineEdit(i18n("Username"), mFromEmail, QStringLiteral("From_Email"));
+
+    auto privacyLabel = createBoldLabel(i18n("Privacy"));
+    privacyLabel->setObjectName(QStringLiteral("privacyLabel"));
+    mMainLayout->addWidget(privacyLabel);
+
+    mShowMessageEmailNotification->setObjectName(QStringLiteral("mShowMessageEmailNotification"));
+    mMainLayout->addWidget(mShowMessageEmailNotification);
+    connectCheckBox(mShowMessageEmailNotification, QStringLiteral("Email_notification_show_message"));
+
+    mAddSenderReplyTo->setObjectName(QStringLiteral("mAddSenderReplyTo"));
+    mMainLayout->addWidget(mAddSenderReplyTo);
+    connectCheckBox(mAddSenderReplyTo, QStringLiteral("Add_Sender_To_ReplyTo"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -62,4 +76,6 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mIgnoreTls, mapSettings, true);
     initializeWidget(mUserName, mapSettings, QString());
     initializeWidget(mFromEmail, mapSettings, QString());
+    initializeWidget(mShowMessageEmailNotification, mapSettings, true);
+    initializeWidget(mAddSenderReplyTo, mapSettings, false);
 }
