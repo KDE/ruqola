@@ -22,6 +22,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mFromEmail(new QLineEdit(this))
     , mShowMessageEmailNotification(new QCheckBox(i18n("Show Message in Email Notification"), this))
     , mAddSenderReplyTo(new QCheckBox(i18n("Add Sender to Reply-To"), this))
+    , mEnableDirectReply(new QCheckBox(i18n("Enable Direct Reply"), this))
+    , mDebugDirectReply(new QCheckBox(i18n("Debug Direct Reply"), this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -64,6 +66,24 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     mAddSenderReplyTo->setObjectName(QStringLiteral("mAddSenderReplyTo"));
     mMainLayout->addWidget(mAddSenderReplyTo);
     connectCheckBox(mAddSenderReplyTo, QStringLiteral("Add_Sender_To_ReplyTo"));
+
+    auto directReplyLabel = createBoldLabel(i18n("Direct Reply"));
+    directReplyLabel->setObjectName(QStringLiteral("directReplyLabel"));
+    mMainLayout->addWidget(directReplyLabel);
+
+    mEnableDirectReply->setObjectName(QStringLiteral("mEnableDirectReply"));
+    mMainLayout->addWidget(mEnableDirectReply);
+    mEnableDirectReply->setToolTip(
+        i18n("[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the configured email mailbox.\n"
+             "All unread e-mails are retrieved, marked as read and processed.\n"
+             "\"Direct Reply\" should only be activated if the mailbox used is intended exclusively for access by Rocket.Chat\n"
+             "and is not read/processed \"in parallel\" by humans."));
+    connectCheckBox(mEnableDirectReply, QStringLiteral("Direct_Reply_Enable"));
+
+    mDebugDirectReply->setObjectName(QStringLiteral("mEnableDirectReply"));
+    mMainLayout->addWidget(mDebugDirectReply);
+    mDebugDirectReply->setToolTip(i18n("[Beware] Enabling Debug mode would display your 'Plain Text Password' in Admin console."));
+    connectCheckBox(mDebugDirectReply, QStringLiteral("Direct_Reply_Debug"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -78,4 +98,5 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mFromEmail, mapSettings, QString());
     initializeWidget(mShowMessageEmailNotification, mapSettings, true);
     initializeWidget(mAddSenderReplyTo, mapSettings, false);
+    initializeWidget(mEnableDirectReply, mapSettings, false);
 }

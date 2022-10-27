@@ -30,4 +30,6 @@ private:
     QLineEdit *const mFromEmail;
     QCheckBox *const mShowMessageEmailNotification;
     QCheckBox *const mAddSenderReplyTo;
+    QCheckBox *const mEnableDirectReply;
+    QCheckBox *const mDebugDirectReply;
 };

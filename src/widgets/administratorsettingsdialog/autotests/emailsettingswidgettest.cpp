@@ -75,4 +75,22 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAddSenderReplyTo->text().isEmpty());
     QVERIFY(mAddSenderReplyTo->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAddSenderReplyTo), QStringLiteral("Add_Sender_To_ReplyTo"));
+
+    auto directReplyLabel = w.findChild<QLabel *>(QStringLiteral("directReplyLabel"));
+    QVERIFY(directReplyLabel);
+    QVERIFY(!directReplyLabel->text().isEmpty());
+
+    auto mEnableDirectReply = w.findChild<QCheckBox *>(QStringLiteral("mEnableDirectReply"));
+    QVERIFY(mEnableDirectReply);
+    QVERIFY(!mEnableDirectReply->isChecked());
+    QVERIFY(!mEnableDirectReply->text().isEmpty());
+    QVERIFY(!mEnableDirectReply->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableDirectReply), QStringLiteral("Direct_Reply_Enable"));
+
+    auto mDebugDirectReply = w.findChild<QCheckBox *>(QStringLiteral("mDebugDirectReply"));
+    QVERIFY(mDebugDirectReply);
+    QVERIFY(!mDebugDirectReply->isChecked());
+    QVERIFY(!mDebugDirectReply->text().isEmpty());
+    QVERIFY(!mDebugDirectReply->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDebugDirectReply), QStringLiteral("Direct_Reply_Debug"));
 }
