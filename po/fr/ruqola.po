@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
 "PO-Revision-Date: 2022-10-23 09:38+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -804,7 +804,7 @@ msgid "link"
 msgstr "lien"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3707,33 +3707,61 @@ msgstr "Journaux"
 msgid "IgnoreTLS"
 msgstr "Ignorer"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "Permettre des notifications de courriels"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
-msgid "STMP"
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocole"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Port"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, kde-format
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "Courriel"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Privé"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7708,9 +7736,6 @@ msgstr "Renvoyer le numéro du compte."
 #~ msgctxt "@title:window"
 #~ msgid "Users Info"
 #~ msgstr "Informations sur les utilisateurs"
-
-#~ msgid "Username"
-#~ msgstr "Nom d'utilisateur"
 
 #~ msgid "Unread Discussions"
 #~ msgstr "Discussions non lues"

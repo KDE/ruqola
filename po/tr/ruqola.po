@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
-"PO-Revision-Date: 2022-10-22 13:03+0300\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
+"PO-Revision-Date: 2022-10-26 10:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -806,7 +806,7 @@ msgid "link"
 msgstr "bağlantı"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3656,38 +3656,66 @@ msgid "Logs"
 msgstr "Günlükler"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ignore"
-msgid "IgnoreTLS"
-msgstr "Yok Say"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, kde-format
-msgid "STMP"
+msgid "IgnoreTLS"
+msgstr "TLS'yi Yok Say"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "E-posta Bildirimlerine İzin Ver"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#, kde-format
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protokol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Kapı"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username"
+msgstr "Kullanıcı Adı:"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "E-posta"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Özel"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6396,7 +6424,7 @@ msgstr "Avatarları Göster"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "Giriş algılama e-postalarını al"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -6431,7 +6459,7 @@ msgstr "Anlık Bildirim:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
-msgstr ""
+msgstr "Hesabınıza yeni bir giriş yapıldığında bir e-posta bildirimi alın."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7519,6 +7547,9 @@ msgstr "Hesap bilgisi"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Hesabın numarasını döndür."
+
+#~ msgid "STMP"
+#~ msgstr "SMTP"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

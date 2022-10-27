@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -842,7 +842,7 @@ msgid "link"
 msgstr "Kopírovať"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3837,33 +3837,61 @@ msgstr ""
 msgid "IgnoreTLS"
 msgstr "Ignorovať"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Show Message in Email Notification"
+msgstr "Upozornenia"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
-msgid "STMP"
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "User name: %1"
+msgid "Username"
+msgstr "Meno používateľa: %1"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, kde-format
+msgid "From Email"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Privacy"
+msgstr "Súkromné:"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -8010,11 +8038,6 @@ msgstr ""
 #~ msgctxt "@title:window"
 #~ msgid "Users Info"
 #~ msgstr "Informácie o užívateľovi"
-
-#, fuzzy
-#~| msgid "User name: %1"
-#~ msgid "Username"
-#~ msgstr "Meno používateľa: %1"
 
 #, fuzzy
 #~| msgid "Search File..."

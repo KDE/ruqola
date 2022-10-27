@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
-"PO-Revision-Date: 2022-10-22 12:51+0100\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
+"PO-Revision-Date: 2022-10-26 22:17+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -36,7 +36,7 @@ msgstr ""
 "X-POFile-SpellExtra: Example ms Cloud Bing DeepL Libre Translate Lingva\n"
 "X-POFile-SpellExtra: Yandex SID Afrikaans Criolo Swahili Urdu Yiddish Id\n"
 "X-POFile-SpellExtra: Omnichannel EXIF Slack SlackBridge bots Bots new\n"
-"X-POFile-SpellExtra: RegExp\n"
+"X-POFile-SpellExtra: RegExp STMP SMTPS\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -827,7 +827,7 @@ msgid "link"
 msgstr "ligação"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3693,38 +3693,66 @@ msgid "Logs"
 msgstr "Registos"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ignore"
-msgid "IgnoreTLS"
-msgstr "Ignorar"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, kde-format
-msgid "STMP"
+msgid "IgnoreTLS"
+msgstr "Ignorar o TLS"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "Permitir as Notificações por E-Mail"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#, kde-format
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "SMTPS"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocolo"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Porto"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username"
+msgstr "Utilizador:"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "E-mail"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Privado"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6453,7 +6481,7 @@ msgstr "Mostrar os Avatares"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "Receber os e-mails de detecção da autenticação"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -6489,6 +6517,8 @@ msgstr "Notificação da Aplicação:"
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
+"Receber um e-mail de cada vez que se detecta uma nova autenticação na sua "
+"conta."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7579,10 +7609,5 @@ msgstr "Informação da conta"
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
 
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "José Nuno Pires"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "zepires@gmail.com"
+#~ msgid "STMP"
+#~ msgstr "STMP"

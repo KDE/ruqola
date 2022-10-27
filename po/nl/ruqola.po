@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
-"PO-Revision-Date: 2022-10-22 10:02+0200\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
+"PO-Revision-Date: 2022-10-26 23:12+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -808,7 +808,7 @@ msgid "link"
 msgstr "koppeling"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3680,38 +3680,65 @@ msgid "Logs"
 msgstr "Logs"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ignore"
-msgid "IgnoreTLS"
-msgstr "Negeren"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, kde-format
-msgid "STMP"
+msgid "IgnoreTLS"
+msgstr "TLS negeren"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "E-mailmelding toestaan"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#, kde-format
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Poort"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, kde-format
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "E-mail"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Privé"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6434,7 +6461,7 @@ msgstr "Avatars tonen"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "E-mails over aanmelddetectie ontvangen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -6470,6 +6497,8 @@ msgstr "Push-melding:"
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
+"Een e-mail ontvangen elke keer wanneer een nieuwe aanmelding met uw account "
+"wordt gedetecteerd."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7559,6 +7588,9 @@ msgstr "Account-informatie"
 msgid "Return the number of account."
 msgstr "Het nummer van het account teruggeven."
 
+#~ msgid "STMP"
+#~ msgstr "STMP"
+
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Freek de Kruijf - 2019 t/m 2022"
@@ -7662,9 +7694,6 @@ msgstr "Het nummer van het account teruggeven."
 #~ msgctxt "@title:window"
 #~ msgid "Users Info"
 #~ msgstr "Gebruikersinformatie"
-
-#~ msgid "Username"
-#~ msgstr "Gebruikersnaam"
 
 #~ msgid "Unread Discussions"
 #~ msgstr "Ongelezen discussies"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -819,7 +819,7 @@ msgid "link"
 msgstr "ссылка"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3704,33 +3704,61 @@ msgstr ""
 msgid "IgnoreTLS"
 msgstr "Игнорировать"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "Разрешить уведомления по электронной почте"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
-msgid "STMP"
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Протокол"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Порт"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, fuzzy, kde-format
+msgid "Username"
+msgstr "Имя пользователя:"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "Эл. почта"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Закрытая"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7632,10 +7660,6 @@ msgstr "Вернуть номер учётной записи."
 #, fuzzy
 #~ msgid "Search Teams"
 #~ msgstr "Архивировать комнату"
-
-#, fuzzy
-#~ msgid "Username"
-#~ msgstr "Имя пользователя:"
 
 #, fuzzy
 #~ msgid "Ruqolaqml"

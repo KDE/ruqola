@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-26 00:46+0000\n"
-"PO-Revision-Date: 2022-10-22 09:24+0300\n"
+"POT-Creation-Date: 2022-10-27 00:46+0000\n"
+"PO-Revision-Date: 2022-10-26 16:28+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -811,7 +811,7 @@ msgid "link"
 msgstr "посилання"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3692,38 +3692,65 @@ msgid "Logs"
 msgstr "Журнал"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ignore"
-msgid "IgnoreTLS"
-msgstr "Ігнорувати"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:22
 #, kde-format
-msgid "STMP"
+msgid "IgnoreTLS"
+msgstr "IgnoreTLS"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#, fuzzy, kde-format
+#| msgid "Allow Email Notifications"
+msgid "Show Message in Email Notification"
+msgstr "Дозволити сповіщення електронною поштою"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#, kde-format
+msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#, kde-format
+msgid "SMTP"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Протокол"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Порт"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#, kde-format
+msgid "Username"
+msgstr "Користувач"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, fuzzy, kde-format
+#| msgid "Email"
+msgid "From Email"
+msgstr "Ел. пошта"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#, fuzzy, kde-format
+#| msgid "Private"
+msgid "Privacy"
+msgstr "Особисте"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6472,7 +6499,7 @@ msgstr "Показувати аватари"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "Отримувати поштові повідомлення про виявлений вхід"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -6508,6 +6535,8 @@ msgstr "Пуш-сповіщення:"
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
+"Отримувати поштове повідомлення кожного разу, коли буде виявлено вхід до "
+"облікового запису."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7606,6 +7635,9 @@ msgstr "Дані щодо облікового запису"
 msgid "Return the number of account."
 msgstr "Повернути номер облікового запису."
 
+#~ msgid "STMP"
+#~ msgstr "STMP"
+
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
 #~ msgstr "Юрій Чорноіван"
@@ -7707,9 +7739,6 @@ msgstr "Повернути номер облікового запису."
 #~ msgctxt "@title:window"
 #~ msgid "Users Info"
 #~ msgstr "Інформація про користувачів"
-
-#~ msgid "Username"
-#~ msgstr "Користувач"
 
 #~ msgid "Unread Discussions"
 #~ msgstr "Непрочитані обговорення"
