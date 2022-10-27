@@ -595,6 +595,18 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             }
         }
         const QPoint helpEventPos{helpEvent->pos()};
+        if (layout.senderRect.contains(helpEventPos)) {
+            QString tooltip = message->name();
+
+            if (mRocketChatAccount && mRocketChatAccount->useRealName() && !tooltip.isEmpty()) {
+                tooltip = QLatin1Char('@') + message->username();
+            }
+
+            if (!tooltip.isEmpty()) {
+                QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+                return true;
+            }
+        }
         if (layout.rolesIconRect.contains(helpEventPos)) {
             const QString tooltip = index.data(MessageModel::Roles).toString();
             QToolTip::showText(helpEvent->globalPos(), tooltip, view);
