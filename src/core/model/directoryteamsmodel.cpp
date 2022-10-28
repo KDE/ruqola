@@ -5,7 +5,6 @@
 */
 
 #include "directoryteamsmodel.h"
-#include "discussions/discussions.h"
 #include <KLocalizedString>
 
 DirectoryTeamsModel::DirectoryTeamsModel(QObject *parent)

@@ -5,7 +5,6 @@
 */
 
 #include "teamcompletermodel.h"
-#include "ruqola_debug.h"
 #include <QModelIndex>
 
 TeamCompleterModel::TeamCompleterModel(QObject *parent)

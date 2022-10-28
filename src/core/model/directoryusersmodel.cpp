@@ -5,7 +5,6 @@
 */
 
 #include "directoryusersmodel.h"
-#include "discussions/discussions.h"
 #include <KLocalizedString>
 
 DirectoryUsersModel::DirectoryUsersModel(QObject *parent)
