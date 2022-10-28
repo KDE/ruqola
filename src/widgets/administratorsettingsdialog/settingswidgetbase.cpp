@@ -297,12 +297,13 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
     }
 }
 
-void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings)
+void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
 {
     const QString variableName = plainTextEdit->property(s_property).toString();
+    QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
-        const auto value = mapSettings.value(variableName);
-        plainTextEdit->setPlainText(value.toString());
+        value = mapSettings.value(variableName).toString();
+        plainTextEdit->setPlainText(value);
     }
 }
 

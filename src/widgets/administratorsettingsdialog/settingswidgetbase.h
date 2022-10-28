@@ -40,7 +40,7 @@ protected:
     QWidget *const mCurrentWidget;
     QFormLayout *mMainLayout = nullptr;
 
-    void initializeWidget(QPlainTextEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
+    void initializeWidget(QPlainTextEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
     void initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings);
     void initializeWidget(QLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue = QString());
     void initializeWidget(QCheckBox *checkbox, const QMap<QString, QVariant> &mapSettings, bool defaultValue = false);
