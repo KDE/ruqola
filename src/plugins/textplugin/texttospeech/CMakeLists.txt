@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-kcoreaddons_add_plugin(ruqola_texttospeechtextplugin JSON ruqola_texttospeechtextplugin.json INSTALL_NAMESPACE ruqolaplugins/textplugins)
+kcoreaddons_add_plugin(ruqola_texttospeechtextplugin INSTALL_NAMESPACE ruqolaplugins/textplugins)
 
 target_sources(ruqola_texttospeechtextplugin PRIVATE
     texttospeechtextinterface.cpp
