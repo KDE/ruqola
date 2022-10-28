@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-27 00:46+0000\n"
-"PO-Revision-Date: 2022-10-24 06:24+0200\n"
+"POT-Creation-Date: 2022-10-28 00:45+0000\n"
+"PO-Revision-Date: 2022-10-27 05:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -132,7 +132,7 @@ msgstr "Waqar Ahmed"
 #: apps/main.cpp:73
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr ""
+msgstr "გამართვა (აგება, ქსელის ავარია...)"
 
 #: apps/main.cpp:74
 #, kde-format
@@ -142,12 +142,12 @@ msgstr "ნიკოლას ფელა"
 #: apps/main.cpp:74
 #, kde-format
 msgid "Optimization, fix windows/mac support"
-msgstr ""
+msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდაჭერა"
 
 #: apps/main.cpp:99
 #, kde-format
 msgid "The following accounts are available:"
-msgstr ""
+msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
 #: core/accountmanager.cpp:60
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "სტატუსის შეტყობინება"
 #: core/commands/command.cpp:54
 #, kde-format
 msgid "Topic message"
-msgstr ""
+msgstr "თემის შინაარსი"
 
 #: core/commands/command.cpp:56
 #, kde-format
@@ -182,7 +182,7 @@ msgstr "თქვენი შეტყობინება"
 #: core/commands/command.cpp:58
 #, kde-format
 msgid "your message (optional)"
-msgstr ""
+msgstr "თქვენი შეტყობინება (არასავალდებულო)"
 
 #: core/commands/command.cpp:74
 #, kde-format
@@ -257,27 +257,27 @@ msgstr ""
 #: core/commands/command.cpp:102
 #, kde-format
 msgid "Leave the current channel"
-msgstr ""
+msgstr "მიმდინარე არხიდან გასვლა"
 
 #: core/commands/command.cpp:104
 #, kde-format
 msgid "Displays action text"
-msgstr ""
+msgstr "ქმედების ტექსტის ჩვენება"
 
 #: core/commands/command.cpp:106
 #, kde-format
 msgid "Direct message someone"
-msgstr ""
+msgstr "ვინმესთვის პირადი შეტყობინების მიწერა"
 
 #: core/commands/command.cpp:108
 #, kde-format
 msgid "Mute someone in the room"
-msgstr ""
+msgstr "ოთახში ვინმეს დადუმება"
 
 #: core/commands/command.cpp:110
 #, kde-format
 msgid "Unmute someone in the room"
-msgstr ""
+msgstr "ოთახში ვინმესთვის დადუმების მოხსნა"
 
 #: core/commands/command.cpp:112
 #, kde-format
@@ -292,7 +292,7 @@ msgstr "თემის დაყენება"
 #: core/commands/command.cpp:116
 #, kde-format
 msgid "Unarchive"
-msgstr ""
+msgstr "დეარქივირება"
 
 #: core/discussions/discussion.cpp:84
 #, kde-format
@@ -805,7 +805,7 @@ msgid "link"
 msgstr "ბმული"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -835,12 +835,12 @@ msgstr "IP"
 #: core/model/deviceinfomodel.cpp:44
 #, kde-format
 msgid "Login At"
-msgstr ""
+msgstr "შესვლის დრო"
 
 #: core/model/directoryroomsmodel.cpp:127
 #, kde-format
 msgid "Last Message"
-msgstr ""
+msgstr "ბოლო შეტყობინება"
 
 #: core/model/directoryroomsmodel.cpp:129 core/model/directoryteamsmodel.cpp:97
 #, kde-format
@@ -850,7 +850,7 @@ msgstr "შექმნილია"
 #: core/model/directoryroomsmodel.cpp:132
 #, kde-format
 msgid "Channel Type"
-msgstr ""
+msgstr "არხის ტიპი"
 
 #: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
@@ -868,7 +868,7 @@ msgstr "ელ.წერილები"
 #: core/model/directoryusersmodel.cpp:105
 #, kde-format
 msgid "Join At"
-msgstr ""
+msgstr "ჩართვის დრო"
 
 #: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
 #, kde-format
@@ -1097,167 +1097,167 @@ msgstr ""
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
 msgid "Hide \"User Added\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი დაემატა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:35
 #, kde-format
 msgid "Hide \"Welcome\" messages"
-msgstr ""
+msgstr "\"მოგესალმებით\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:36
 #, kde-format
 msgid "Hide \"User Joined Conversation\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი დაემატა საუბარს\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:37
 #, kde-format
 msgid "Hide \"User Leave\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი გავიდა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:38
 #, kde-format
 msgid "Hide \"User Left Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი გავიდა გუნდიდან\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:39
 #, kde-format
 msgid "Hide \"User Join\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი შემოვიდა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:40
 #, kde-format
 msgid "Hide \"Role No Longer Defined\" messages"
-msgstr ""
+msgstr "\"როლი აღწერილი აღარაა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:41
 #, kde-format
 msgid "Hide \"Was Set Role\" messages"
-msgstr ""
+msgstr "\"როლი მინიჭებულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:42
 #, kde-format
 msgid "Hide \"User Removed\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი წაშლილია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:43
 #, kde-format
 msgid "Hide \"Room Unarchived\" messages"
-msgstr ""
+msgstr "\"ოთახი აღდგენილია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:44
 #, kde-format
 msgid "Hide \"Room encryption disabled\" messages"
-msgstr ""
+msgstr "\"ოთახის შიფრაცია გათიშულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:45
 #, kde-format
 msgid "Hide \"Room encryption enabled\" messages"
-msgstr ""
+msgstr "\"ოთახის შიფრაცია ჩართულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:46
 #, kde-format
 msgid "Hide \"Room type changed\" messages"
-msgstr ""
+msgstr "\"ოთახის ტიპი შეიცვალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:47
 #, kde-format
 msgid "Hide \"Room avatar changed\" messages"
-msgstr ""
+msgstr "\"ოთახის ავატარი შეიცვალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:48
 #, kde-format
 msgid "Hide \"User Muted / Unmuted\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი დადუმებულია/განდუმებულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:49
 #, kde-format
 msgid "Hide \"Room Name Changed\" messages"
-msgstr ""
+msgstr "\"ოთახის სახელი შეიცვალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:50
 #, kde-format
 msgid "Hide \"Message Removed\" messages"
-msgstr ""
+msgstr "\"შეტყობინება წაშლილია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:51
 #, kde-format
 msgid "Hide \"Room Archived\" messages"
-msgstr ""
+msgstr "\"ოთახი დაარქივდა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:52
 #, kde-format
 msgid "Hide \"Encryption Enabled\" messages"
-msgstr ""
+msgstr "\"შიფრაცია ჩართულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:53
 #, kde-format
 msgid "Hide \"Encryption Disabled\" messages"
-msgstr ""
+msgstr "\"შიფრაცია გათიშულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:54
 #, kde-format
 msgid "Hide \"Room added writing permission\" messages"
-msgstr ""
+msgstr "\"ოთახს ჩაწერის წვდომა დაემატა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:55
 #, kde-format
 msgid "Hide \"Room set Read Only\" messages"
-msgstr ""
+msgstr "\"ოთახი მხოლოდ კითხვადია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:56
 #, kde-format
 msgid "Hide \"Room disallowed reacting\" messages"
-msgstr ""
+msgstr "\"ოთახში რეაქციების გამოხატვა გათიშულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:57
 #, kde-format
 msgid "Hide \"Room allowed reacting\" messages"
-msgstr ""
+msgstr "\"ოთახში რეაქციების გამოხატვა ჩართულია\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:58
 #, kde-format
 msgid "Hide \"User Added Room to Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმა ოთახი გუნდში დაამატა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:59
 #, kde-format
 msgid "Hide \"User converted team to a Channel\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმა გუნდი არხად გადააკეთა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:60
 #, kde-format
 msgid "Hide \"User converted channel to a Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმა არხი გუნდად გადააკეთა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:61
 #, kde-format
 msgid "Hide \"User deleted room from Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმა ოთახი გუნდიდან წაშალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:62
 #, kde-format
 msgid "Hide \"User removed room from Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმა ოთახი გუნიდან მოაცილა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:64
 #, kde-format
 msgid "Hide \"Removed user from Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელი წაიშალა გუნდიდან\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:65
 #, kde-format
 msgid "Hide \"Added user to Team\" messages"
-msgstr ""
+msgstr "\"მომხმარებელმი დაემატა გუნდს\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:66
 #, kde-format
 msgid "Hide \"Room topic changed\" messages"
-msgstr ""
+msgstr "\"ოთახის სათაური შეიცვალა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:68
 #, kde-format
 msgid "Joined this Team"
-msgstr ""
+msgstr "შეუერთდა ამ გუნდს"
 
 #: core/model/teamroomsmodel.cpp:32
 #, kde-format
@@ -1375,7 +1375,7 @@ msgstr ""
 #: core/roominfo/roominfo.cpp:108
 #, kde-format
 msgid "Private Team"
-msgstr ""
+msgstr "პირადი გუნდი"
 
 #: core/roominfo/roominfo.cpp:110
 #, kde-format
@@ -1385,7 +1385,7 @@ msgstr "ჯგუფი"
 #: core/roominfo/roominfo.cpp:114
 #, kde-format
 msgid "Public Team"
-msgstr ""
+msgstr "საჯარო გუნდი"
 
 #. i18n: ectx: Menu (channel)
 #: core/roominfo/roominfo.cpp:116 widgets/ruqolaui.rc:23
@@ -2839,7 +2839,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
 #, kde-format
 msgid "Redirect Url:"
-msgstr ""
+msgstr "გადამისამართების URL-ი:"
 
 #: widgets/administratordialog/oauth/administratoroautheditdialog.cpp:25
 #, kde-format
@@ -2860,12 +2860,12 @@ msgstr "კლიენტის საიდუმლო ფრაზა:"
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
 msgid "Authorization Url:"
-msgstr ""
+msgstr "ავტორიზაციის URL:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
 msgid "Access Token URL:"
-msgstr ""
+msgstr "წვდომს კოდის URL:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
 #, kde-format
@@ -3063,7 +3063,7 @@ msgstr "კომენტარი:"
 #: widgets/dialogs/channelinforeadonlywidget.cpp:52
 #, kde-format
 msgid "Announcement:"
-msgstr ""
+msgstr "გამოცხადება:"
 
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:15
 #, kde-format
@@ -3142,42 +3142,42 @@ msgstr ""
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Away Users"
-msgstr ""
+msgstr "გასული მომხმარებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
 msgid "Total Uploads Size"
-msgstr ""
+msgstr "ატვირთვის ჯამური ზომა"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Total Uploads"
-msgstr ""
+msgstr "სულ ატვირთვები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Offline Users"
-msgstr ""
+msgstr "გათიშული მომხმარებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Online Users"
-msgstr ""
+msgstr "ონლაინ მომხმარებელები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Activated Users"
-msgstr ""
+msgstr "აქტივირებული მომხმარებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Activated Guests"
-msgstr ""
+msgstr "აქტივირებული სტუმრები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
 #, kde-format
 msgid "Deactivated Users"
-msgstr ""
+msgstr "დეაქტივირებული მომხმრებლები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
@@ -3636,10 +3636,9 @@ msgid "Logs"
 msgstr "ჟურნალი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgid "IgnoreTLS"
-msgstr "იგნორი"
+msgstr "TLS-ის იგნორი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
 #, kde-format
@@ -3651,51 +3650,83 @@ msgstr ""
 msgid "Add Sender to Reply-To"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enabled File Upload"
+msgid "Enable Direct Reply"
+msgstr "ფაილის ატვირთვა ჩართულია"
+
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
-msgid "SMTP"
+msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#, kde-format
+msgid "SMTP"
+msgstr "SMTP"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
 #, kde-format
 msgid "smtp"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
-#, kde-format
-msgid "smtps"
-msgstr ""
+msgstr "smtp"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#, kde-format
+msgid "smtps"
+msgstr "smtps"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "ოქმი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "პორტი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Username:"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
+#, kde-format
 msgid "Username"
-msgstr "მომხმარებელი:"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Email"
-msgid "From Email"
-msgstr "Email"
+msgstr "მომხმარებლის სახელი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
+msgid "From Email"
+msgstr "ელფოსტიდან"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#, kde-format
 msgid "Privacy"
-msgstr "პირადი"
+msgstr "პირადი ინფორმაცია"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
+#, fuzzy, kde-format
+#| msgid "Direct"
+msgid "Direct Reply"
+msgstr "პირდაპირი"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#, kde-format
+msgid ""
+"[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
+"configured email mailbox.\n"
+"All unread e-mails are retrieved, marked as read and processed.\n"
+"\"Direct Reply\" should only be activated if the mailbox used is intended "
+"exclusively for access by Rocket.Chat\n"
+"and is not read/processed \"in parallel\" by humans."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#, kde-format
+msgid ""
+"[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
+"Admin console."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -3835,7 +3866,7 @@ msgstr "WebDAV"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:70
 #, kde-format
 msgid "FileSystem"
-msgstr ""
+msgstr "ფაილური სისტემა"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
 #, kde-format
@@ -3978,17 +4009,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:107
 #, kde-format
 msgid "Server Timezone"
-msgstr ""
+msgstr "სერვერის დროის სარტყელი"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:108
 #, kde-format
 msgid "Custom Timezone"
-msgstr ""
+msgstr "ხელით მითითებული დროის სარტყელი"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "მომხმარებლის დროის სარტყელი"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
 #, kde-format
@@ -4204,7 +4235,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
-msgstr ""
+msgstr "ჟურნალის დონე"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, kde-format

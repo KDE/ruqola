@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-27 00:46+0000\n"
-"PO-Revision-Date: 2022-10-26 23:12+0200\n"
+"POT-Creation-Date: 2022-10-28 00:45+0000\n"
+"PO-Revision-Date: 2022-10-27 12:23+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -808,7 +808,7 @@ msgid "link"
 msgstr "koppeling"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3685,60 +3685,92 @@ msgid "IgnoreTLS"
 msgstr "TLS negeren"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
+#, kde-format
 msgid "Show Message in Email Notification"
-msgstr "E-mailmelding toestaan"
+msgstr "Bericht in e-mailmelding tonen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Verzender toevoegen aan Antw-aan"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Enabled File Upload"
+msgid "Enable Direct Reply"
+msgstr "Bestand uploaden ingeschakeld"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
-msgid "SMTP"
+msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#, kde-format
+msgid "SMTP"
+msgstr "SMTP"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Poort"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
 #, kde-format
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Email"
-msgid "From Email"
-msgstr "E-mail"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
+msgid "From Email"
+msgstr "Uit e-mail"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#, kde-format
 msgid "Privacy"
-msgstr "Privé"
+msgstr "Privacy"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
+#, fuzzy, kde-format
+#| msgid "Direct"
+msgid "Direct Reply"
+msgstr "Direct"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#, kde-format
+msgid ""
+"[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
+"configured email mailbox.\n"
+"All unread e-mails are retrieved, marked as read and processed.\n"
+"\"Direct Reply\" should only be activated if the mailbox used is intended "
+"exclusively for access by Rocket.Chat\n"
+"and is not read/processed \"in parallel\" by humans."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#, kde-format
+msgid ""
+"[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
+"Admin console."
+msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
