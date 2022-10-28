@@ -12,6 +12,7 @@ class QComboBox;
 class QLineEdit;
 class QSpinBox;
 class QCheckBox;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT EmailSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -32,4 +33,6 @@ private:
     QCheckBox *const mAddSenderReplyTo;
     QCheckBox *const mEnableDirectReply;
     QCheckBox *const mDebugDirectReply;
+    QPlainTextEdit *const mDirectMessageEmailSubject;
+    QPlainTextEdit *const mMentionEmailSubject;
 };

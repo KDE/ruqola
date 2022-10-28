@@ -10,6 +10,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QSpinBox>
 
 EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -24,6 +25,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mAddSenderReplyTo(new QCheckBox(i18n("Add Sender to Reply-To"), this))
     , mEnableDirectReply(new QCheckBox(i18n("Enable Direct Reply"), this))
     , mDebugDirectReply(new QCheckBox(i18n("Debug Direct Reply"), this))
+    , mDirectMessageEmailSubject(new QPlainTextEdit(this))
+    , mMentionEmailSubject(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -88,6 +91,16 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     auto forgotPasswordLabel = createBoldLabel(i18n("Forgot password"));
     forgotPasswordLabel->setObjectName(QStringLiteral("forgotPasswordLabel"));
     mMainLayout->addWidget(forgotPasswordLabel);
+
+    auto subjectLabel = createBoldLabel(i18n("Subject"));
+    subjectLabel->setObjectName(QStringLiteral("subjectLabel"));
+    mMainLayout->addWidget(subjectLabel);
+
+    mDirectMessageEmailSubject->setObjectName(QStringLiteral("mDirectMessageEmailSubject"));
+    addPlainTextEdit(i18n("Direct Message Email Subject"), mDirectMessageEmailSubject, QStringLiteral("Offline_DM_Email"));
+
+    mMentionEmailSubject->setObjectName(QStringLiteral("mMentionEmailSubject"));
+    addPlainTextEdit(i18n("Mention Email Subject"), mMentionEmailSubject, QStringLiteral("Offline_Mention_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -103,4 +116,6 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mShowMessageEmailNotification, mapSettings, true);
     initializeWidget(mAddSenderReplyTo, mapSettings, false);
     initializeWidget(mEnableDirectReply, mapSettings, false);
+    initializeWidget(mDirectMessageEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been direct messaged by [User]"));
+    initializeWidget(mMentionEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been mentioned by [User] in #[Room]"));
 }

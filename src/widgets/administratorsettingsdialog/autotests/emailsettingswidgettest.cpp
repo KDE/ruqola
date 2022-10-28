@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QSpinBox>
 #include <QTest>
 QTEST_MAIN(EmailSettingsWidgetTest)
@@ -97,4 +98,20 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     auto forgotPasswordLabel = w.findChild<QLabel *>(QStringLiteral("forgotPasswordLabel"));
     QVERIFY(forgotPasswordLabel);
     QVERIFY(!forgotPasswordLabel->text().isEmpty());
+
+    auto subjectLabel = w.findChild<QLabel *>(QStringLiteral("subjectLabel"));
+    QVERIFY(subjectLabel);
+    QVERIFY(!subjectLabel->text().isEmpty());
+
+    auto mDirectMessageEmailSubject = w.findChild<QPlainTextEdit *>(QStringLiteral("mDirectMessageEmailSubject"));
+    QVERIFY(mDirectMessageEmailSubject);
+    QVERIFY(!mDirectMessageEmailSubject->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageEmailSubject), QStringLiteral("Offline_DM_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_DM_Email"));
+
+    auto mMentionEmailSubject = w.findChild<QPlainTextEdit *>(QStringLiteral("mMentionEmailSubject"));
+    QVERIFY(mMentionEmailSubject);
+    QVERIFY(!mMentionEmailSubject->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMentionEmailSubject), QStringLiteral("Offline_Mention_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_Mention_Email"));
 }
