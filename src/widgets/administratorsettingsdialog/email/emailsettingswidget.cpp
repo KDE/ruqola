@@ -84,6 +84,10 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(mDebugDirectReply);
     mDebugDirectReply->setToolTip(i18n("[Beware] Enabling Debug mode would display your 'Plain Text Password' in Admin console."));
     connectCheckBox(mDebugDirectReply, QStringLiteral("Direct_Reply_Debug"));
+
+    auto forgotPasswordLabel = createBoldLabel(i18n("Forgot password"));
+    forgotPasswordLabel->setObjectName(QStringLiteral("forgotPasswordLabel"));
+    mMainLayout->addWidget(forgotPasswordLabel);
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;

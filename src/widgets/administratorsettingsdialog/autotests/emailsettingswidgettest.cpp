@@ -93,4 +93,8 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mDebugDirectReply->text().isEmpty());
     QVERIFY(!mDebugDirectReply->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDebugDirectReply), QStringLiteral("Direct_Reply_Debug"));
+
+    auto forgotPasswordLabel = w.findChild<QLabel *>(QStringLiteral("forgotPasswordLabel"));
+    QVERIFY(forgotPasswordLabel);
+    QVERIFY(!forgotPasswordLabel->text().isEmpty());
 }
