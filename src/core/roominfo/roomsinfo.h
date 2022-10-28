@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include "roominfo.h"
 #include <QDebug>
 #include <QVector>
