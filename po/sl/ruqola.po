@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:45+0000\n"
-"PO-Revision-Date: 2022-10-27 07:19+0200\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
+"PO-Revision-Date: 2022-10-28 07:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -625,8 +625,8 @@ msgstr "%1 in %2"
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
 #: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:115 core/model/directoryteamsmodel.cpp:91
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:100
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:40
@@ -638,7 +638,7 @@ msgstr "Ime"
 #: core/model/admincustomemojimodel.cpp:32
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:121 core/model/directoryteamsmodel.cpp:95
+#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Identifikator"
@@ -748,22 +748,22 @@ msgstr "Opis"
 msgid "Number Of Messages"
 msgstr "Število sporočil"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:117
+#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Number Of Users"
 msgstr "Število uporabnikov"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:119
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Topic"
 msgstr "Tema"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:123
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Read Only"
 msgstr "Samo za branje"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:125
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Default Room"
 msgstr "Privzeta soba"
@@ -809,7 +809,7 @@ msgid "link"
 msgstr "povezava"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:43
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -841,22 +841,22 @@ msgstr "Ip"
 msgid "Login At"
 msgstr "Prijava na"
 
-#: core/model/directoryroomsmodel.cpp:127
+#: core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Last Message"
 msgstr "Zadnje sporočilo"
 
-#: core/model/directoryroomsmodel.cpp:129 core/model/directoryteamsmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
 #, kde-format
 msgid "Created"
 msgstr "Ustvarjeno"
 
-#: core/model/directoryroomsmodel.cpp:132
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Channel Type"
 msgstr "Vrsta kanala"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -864,12 +864,12 @@ msgstr "Vrsta kanala"
 msgid "Rooms"
 msgstr "Sobe"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
 #, kde-format
 msgid "Emails"
 msgstr "E-pošta"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:104
 #, kde-format
 msgid "Join At"
 msgstr "Pridružite se na"
@@ -3326,6 +3326,7 @@ msgid "Author"
 msgstr "Avtor"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
 #, kde-format
 msgid "Subject"
 msgstr "Zadeva"
@@ -3676,86 +3677,80 @@ msgstr "Slack Bridge"
 msgid "Logs"
 msgstr "Dnevniki"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
 msgstr "PrezriTLS"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
-msgid "Show Message in Email Notification"
-msgstr "Dovoli e-poštna obvestila"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#, kde-format
+msgid "Show Message in Email Notification"
+msgstr "Prikaži sporočila v e-poštnih obvestilih"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr "STMP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
-msgid "Enable Direct Reply"
-msgstr "Omogoči prenose datotek tja"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
-msgid "Debug Direct Reply"
-msgstr ""
+msgid "Enable Direct Reply"
+msgstr "Omogoči neposredni odgovor"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
+#, kde-format
+msgid "Debug Direct Reply"
+msgstr "Omogoči analizo programskih napak neposrednega odgovora"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protokol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Vrata"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Username:"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#, kde-format
 msgid "Username"
-msgstr "Uporabniško ime:"
+msgstr "Uporabniško ime"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Email"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
+#, kde-format
 msgid "From Email"
-msgstr "E-pošta"
+msgstr "Od e-pošte"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
-#, fuzzy, kde-format
-#| msgid "Private"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
+#, kde-format
 msgid "Privacy"
-msgstr "Zasebno"
+msgstr "Zasebnost"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Direct"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
+#, kde-format
 msgid "Direct Reply"
-msgstr "Neposredno"
+msgstr "Neposredni odgovor"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3765,12 +3760,38 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Pozor!] Če je omogočen \"neposreden odgovor\", bo Rocket.chat nadzoroval "
+"konfiguriran nabiralnik e-pošte.\n"
+"Vsa neprebrana e-poštna sporočila so pridobljena, označena kot prebrana in "
+"obdelana.\n"
+"\"Neposredni odgovor\" se sme aktivirati samo, če je uporabljen nabiralnik "
+"izključno za dostop programa Rocket.Chat\n"
+"in ga ljudje ne berejo/obdelujejo \"vzporedno\"."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
+msgstr ""
+"[Opozorilo] Omogočanje načinov za odpravljanje napak bi prikazalo vaše "
+"'Geslo v odprtem besedilu' v skrbnikovi konzoli."
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
+#, fuzzy, kde-format
+#| msgid "Add password"
+msgid "Forgot password"
+msgstr "Dodaj geslo"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct Message Email Subject"
+msgstr "Neposredno sporočajte drugim"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#, kde-format
+msgid "Mention Email Subject"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
@@ -6868,17 +6889,17 @@ msgstr[3] "%1 sporočilo"
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:609
+#: widgets/room/delegate/messagelistdelegate.cpp:621
 #, kde-format
 msgid "Following"
 msgstr "Sledite"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:613
+#: widgets/room/delegate/messagelistdelegate.cpp:625
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Sporočilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:617
+#: widgets/room/delegate/messagelistdelegate.cpp:629
 #, kde-format
 msgid "Message has been starred"
 msgstr "Sporočilo označeno z zvezdico"

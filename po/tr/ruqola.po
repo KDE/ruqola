@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:45+0000\n"
-"PO-Revision-Date: 2022-10-27 04:47+0300\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
+"PO-Revision-Date: 2022-10-28 12:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -622,8 +622,8 @@ msgstr "%1 ve %2"
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
 #: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:115 core/model/directoryteamsmodel.cpp:91
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:100
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:40
@@ -635,7 +635,7 @@ msgstr "Ad"
 #: core/model/admincustomemojimodel.cpp:32
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:121 core/model/directoryteamsmodel.cpp:95
+#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Tanımlayıcı"
@@ -745,22 +745,22 @@ msgstr "Açıklama"
 msgid "Number Of Messages"
 msgstr "İleti Sayısı"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:117
+#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Number Of Users"
 msgstr "Kullanıcı Sayısı"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:119
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Topic"
 msgstr "Konu"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:123
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Read Only"
 msgstr "Saltokunur"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:125
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Default Room"
 msgstr "Öntanımlı Oda"
@@ -806,7 +806,7 @@ msgid "link"
 msgstr "bağlantı"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:43
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -838,22 +838,22 @@ msgstr "IP"
 msgid "Login At"
 msgstr "Giriş Tarihi"
 
-#: core/model/directoryroomsmodel.cpp:127
+#: core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Last Message"
 msgstr "Son İleti"
 
-#: core/model/directoryroomsmodel.cpp:129 core/model/directoryteamsmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
 #, kde-format
 msgid "Created"
 msgstr "Oluşturma"
 
-#: core/model/directoryroomsmodel.cpp:132
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Channel Type"
 msgstr "Kanal Türü"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -861,12 +861,12 @@ msgstr "Kanal Türü"
 msgid "Rooms"
 msgstr "Odalar"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
 #, kde-format
 msgid "Emails"
 msgstr "E-postalar"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:104
 #, kde-format
 msgid "Join At"
 msgstr "Şurada Katıl"
@@ -3304,6 +3304,7 @@ msgid "Author"
 msgstr "Yazar"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
 #, kde-format
 msgid "Subject"
 msgstr "Konu"
@@ -3655,82 +3656,80 @@ msgstr "Slack Köprüsü"
 msgid "Logs"
 msgstr "Günlükler"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
 msgstr "TLS'yi Yok Say"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
 msgid "Show Message in Email Notification"
 msgstr "E-posta Bildiriminde İletiyi Göster"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr "Yanıt Adresine Göndereni Ekle"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
-msgid "Enable Direct Reply"
-msgstr "Dosya Karşıya Yükleme Etkinleştirmesi"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
-msgid "Debug Direct Reply"
-msgstr ""
+msgid "Enable Direct Reply"
+msgstr "Doğrudan Yanıtı Etkinleştir"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
+#, kde-format
+msgid "Debug Direct Reply"
+msgstr "Doğrudan Yanıtı Hata Ayıkla"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protokol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Kapı"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #, kde-format
 msgid "Username"
 msgstr "Kullanıcı Adı"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
 #, kde-format
 msgid "From Email"
 msgstr "E-postadan"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
 #, kde-format
 msgid "Privacy"
 msgstr "Gizlilik"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Direct"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
+#, kde-format
 msgid "Direct Reply"
-msgstr "Doğrudan"
+msgstr "Doğrudan Yanıt"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3740,12 +3739,37 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Dikkat!] \"Doğrudan Yanıt\" etkinleştirilmişse Rocket.Chat yapılandırılan e-"
+"posta kutusunu denetleyecektir.\n"
+"Tüm okunmamış e-postalar alınır, okundu olarak imlenir ve işlenir.\n"
+"\"Doğrudan Yanıt\", yalnızca posta kutusu Rocket.Chat tarafından kullanılmak "
+"üzere açılmışsa ve başka\n"
+"birisi tarafından kullanılmayacaksa etkinleştirilmelidir."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
+msgstr ""
+"[Dikkat] Hata ayıklama kipini etkinleştirmek, \"Düz Metin Parola\"nızı "
+"Yönetici panelinde gösterecektir."
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
+#, fuzzy, kde-format
+#| msgid "Add password"
+msgid "Forgot password"
+msgstr "Parola ekle"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct Message Email Subject"
+msgstr "Birine doğrudan ileti gönder"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#, kde-format
+msgid "Mention Email Subject"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
@@ -6829,17 +6853,17 @@ msgstr[1] "%1 ileti"
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:609
+#: widgets/room/delegate/messagelistdelegate.cpp:621
 #, kde-format
 msgid "Following"
 msgstr "Takip Ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:613
+#: widgets/room/delegate/messagelistdelegate.cpp:625
 #, kde-format
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:617
+#: widgets/room/delegate/messagelistdelegate.cpp:629
 #, kde-format
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"

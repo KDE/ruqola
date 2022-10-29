@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:45+0000\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -645,8 +645,8 @@ msgstr "%1 ja %2"
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
 #: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:115 core/model/directoryteamsmodel.cpp:91
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:100
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:40
@@ -658,7 +658,7 @@ msgstr "Nimi"
 #: core/model/admincustomemojimodel.cpp:32
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:121 core/model/directoryteamsmodel.cpp:95
+#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Tunniste"
@@ -775,22 +775,22 @@ msgstr "Kuvaus"
 msgid "Number Of Messages"
 msgstr "Viestimäärä"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:117
+#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Number Of Users"
 msgstr "Käyttäjämäärä"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:119
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Topic"
 msgstr "Aihe"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:123
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Read Only"
 msgstr "Vain luku"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:125
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Default Room"
 msgstr "Oletushuone"
@@ -837,7 +837,7 @@ msgid "link"
 msgstr "Kopioi linkki"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:43
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -870,25 +870,25 @@ msgstr ""
 msgid "Login At"
 msgstr "Liity"
 
-#: core/model/directoryroomsmodel.cpp:127
+#: core/model/directoryroomsmodel.cpp:126
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgid "Last Message"
 msgstr "(Viimeisin viesti: %1)"
 
-#: core/model/directoryroomsmodel.cpp:129 core/model/directoryteamsmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
 #, fuzzy, kde-format
 #| msgid "Create"
 msgid "Created"
 msgstr "Luo"
 
-#: core/model/directoryroomsmodel.cpp:132
+#: core/model/directoryroomsmodel.cpp:131
 #, fuzzy, kde-format
 #| msgid "Channel Name"
 msgid "Channel Type"
 msgstr "Kanavan nimi"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -896,13 +896,13 @@ msgstr "Kanavan nimi"
 msgid "Rooms"
 msgstr "Huoneet"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
 #, fuzzy, kde-format
 #| msgid "Email"
 msgid "Emails"
 msgstr "Sähköposti"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:104
 #, fuzzy, kde-format
 #| msgid "Join"
 msgid "Join At"
@@ -3467,6 +3467,7 @@ msgid "Author"
 msgstr "Tekijä"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
 #, kde-format
 msgid "Subject"
 msgstr "Aihe"
@@ -3839,86 +3840,86 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgid "IgnoreTLS"
 msgstr "Ohita"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Email Notification:"
 msgid "Show Message in Email Notification"
 msgstr "Sähköposti-ilmoitus:"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "File Uploaded:"
 msgid "Enable Direct Reply"
 msgstr "Tiedosto lähetetty:"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #, kde-format
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Email"
 msgid "From Email"
 msgstr "Sähköposti"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
 #, fuzzy, kde-format
 #| msgid "Private"
 msgid "Privacy"
 msgstr "Yksityinen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Direct"
 msgid "Direct Reply"
 msgstr "Suora"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3929,11 +3930,28 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
+#, fuzzy, kde-format
+#| msgid "Add password"
+msgid "Forgot password"
+msgstr "Lisää salasana"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct Message Email Subject"
+msgstr "Lähetä jollekulle suoraviesti"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#, kde-format
+msgid "Mention Email Subject"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
@@ -7101,18 +7119,18 @@ msgstr[1] "%1 viestiä"
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:609
+#: widgets/room/delegate/messagelistdelegate.cpp:621
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:613
+#: widgets/room/delegate/messagelistdelegate.cpp:625
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:617
+#: widgets/room/delegate/messagelistdelegate.cpp:629
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"

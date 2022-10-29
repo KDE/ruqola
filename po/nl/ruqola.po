@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-28 00:45+0000\n"
-"PO-Revision-Date: 2022-10-27 12:23+0200\n"
+"POT-Creation-Date: 2022-10-29 00:47+0000\n"
+"PO-Revision-Date: 2022-10-28 11:24+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -624,8 +624,8 @@ msgstr "%1 en %2"
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
 #: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:115 core/model/directoryteamsmodel.cpp:91
-#: core/model/directoryusersmodel.cpp:101
+#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
+#: core/model/directoryusersmodel.cpp:100
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:40
@@ -637,7 +637,7 @@ msgstr "Naam"
 #: core/model/admincustomemojimodel.cpp:32
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
-#: core/model/directoryroomsmodel.cpp:121 core/model/directoryteamsmodel.cpp:95
+#: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
 #, kde-format
 msgid "Identifier"
 msgstr "Identifier"
@@ -747,22 +747,22 @@ msgstr "Beschrijving"
 msgid "Number Of Messages"
 msgstr "Aantal berichten"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:117
+#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
 #, kde-format
 msgid "Number Of Users"
 msgstr "Aantal gebruikers"
 
-#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:119
+#: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
 #, kde-format
 msgid "Topic"
 msgstr "Onderwerp"
 
-#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:123
+#: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
 #, kde-format
 msgid "Read Only"
 msgstr "Alleen-lezen"
 
-#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:125
+#: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
 msgid "Default Room"
 msgstr "Standaard room"
@@ -808,7 +808,7 @@ msgid "link"
 msgstr "koppeling"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:43
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -840,22 +840,22 @@ msgstr "Ip"
 msgid "Login At"
 msgstr "Aanmelden op"
 
-#: core/model/directoryroomsmodel.cpp:127
+#: core/model/directoryroomsmodel.cpp:126
 #, kde-format
 msgid "Last Message"
 msgstr "Laatste bericht"
 
-#: core/model/directoryroomsmodel.cpp:129 core/model/directoryteamsmodel.cpp:97
+#: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
 #, kde-format
 msgid "Created"
 msgstr "Aangemaakt"
 
-#: core/model/directoryroomsmodel.cpp:132
+#: core/model/directoryroomsmodel.cpp:131
 #, kde-format
 msgid "Channel Type"
 msgstr "Kanaaltype"
 
-#: core/model/directoryteamsmodel.cpp:93 core/model/roommodel.cpp:570
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:570
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -863,12 +863,12 @@ msgstr "Kanaaltype"
 msgid "Rooms"
 msgstr "Rooms"
 
-#: core/model/directoryusersmodel.cpp:103 core/model/usersinrolemodel.cpp:88
+#: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
 #, kde-format
 msgid "Emails"
 msgstr "E-mailberichten"
 
-#: core/model/directoryusersmodel.cpp:105
+#: core/model/directoryusersmodel.cpp:104
 #, kde-format
 msgid "Join At"
 msgstr "Deelnemen op"
@@ -3328,6 +3328,7 @@ msgid "Author"
 msgstr "Auteur"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
 #, kde-format
 msgid "Subject"
 msgstr "Onderwerp"
@@ -3679,82 +3680,80 @@ msgstr "Slack Bridge"
 msgid "Logs"
 msgstr "Logs"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
 msgstr "TLS negeren"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
 msgid "Show Message in Email Notification"
 msgstr "Bericht in e-mailmelding tonen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
 msgstr "Verzender toevoegen aan Antw-aan"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
-msgid "Enable Direct Reply"
-msgstr "Bestand uploaden ingeschakeld"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, kde-format
-msgid "Debug Direct Reply"
-msgstr ""
+msgid "Enable Direct Reply"
+msgstr "Direct antwoord inschakelen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
+#, kde-format
+msgid "Debug Direct Reply"
+msgstr "Direct antwoord debuggen"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Poort"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #, kde-format
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
 #, kde-format
 msgid "From Email"
 msgstr "Uit e-mail"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
 #, kde-format
 msgid "Privacy"
 msgstr "Privacy"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Direct"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
+#, kde-format
 msgid "Direct Reply"
-msgstr "Direct"
+msgstr "Direct antwoord"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3764,12 +3763,38 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Attentie!] Als \"Direct antwoord\" is ingeschakeld, zal Rocket.Chat de "
+"geconfigureerde e-mail-mailbox controleren.\n"
+"Alle ongelezen e-mails worden opgehaald, gemarkeerd als gelezen en "
+"verwerkt.\n"
+"\"Direct antwoord\" zou alleen geactiveerd moeten worden als de gebruikte e-"
+"mailbox exclusief bedoeld is voor toegang door Rocket.Chat\n"
+"en niet \"parallel\" gelezen/verwerkt door personen."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
+msgstr ""
+"[Let op] Modus debug inschakelen zou uw 'Platte tekst wachtwoord' tonen in "
+"de console van de beheerder."
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
+#, fuzzy, kde-format
+#| msgid "Add password"
+msgid "Forgot password"
+msgstr "Wachtwoord toevoegen"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Direct Message Email Subject"
+msgstr "Iemand direct berichten"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#, kde-format
+msgid "Mention Email Subject"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
@@ -6868,17 +6893,17 @@ msgstr[1] "%1 berichten"
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:609
+#: widgets/room/delegate/messagelistdelegate.cpp:621
 #, kde-format
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:613
+#: widgets/room/delegate/messagelistdelegate.cpp:625
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:617
+#: widgets/room/delegate/messagelistdelegate.cpp:629
 #, kde-format
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
