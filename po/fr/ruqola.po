@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-26 21:01+0200\n"
+"PO-Revision-Date: 2022-10-28 15:02+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -3708,15 +3708,14 @@ msgid "IgnoreTLS"
 msgstr "Ignorer « TLS »"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
+#, kde-format
 msgid "Show Message in Email Notification"
-msgstr "Permettre des notifications de courriels"
+msgstr "Afficher le message dans la notification du courriel"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Ajouter l'expéditeur dans « Répondre à »"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
 #, fuzzy, kde-format
@@ -3732,7 +3731,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
@@ -3763,16 +3762,14 @@ msgid "Username"
 msgstr "Nom d'utilisateur"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "From Email"
-msgstr "Courriel"
+msgstr "A partir du courriel"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
 msgid "Privacy"
-msgstr "Privé"
+msgstr "Confidentialité"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
 #, fuzzy, kde-format

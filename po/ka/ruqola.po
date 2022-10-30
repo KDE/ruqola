@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-27 05:53+0200\n"
+"PO-Revision-Date: 2022-10-29 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -192,27 +192,27 @@ msgstr "არქივი"
 #: core/commands/command.cpp:76
 #, kde-format
 msgid "Displays ༼ つ ◕_◕ ༽つ before your message"
-msgstr ""
+msgstr "თქვენს შეტყობინებამდე ༼ つ ◕_◕ ༽つ -ის ჩვენება"
 
 #: core/commands/command.cpp:78
 #, kde-format
 msgid "Displays ( ͡° ͜ʖ ͡°) after your message"
-msgstr ""
+msgstr "თქვენს შეტყობინებამდე ( ͡° ͜ʖ ͡°) -ის ჩვენება"
 
 #: core/commands/command.cpp:80
 #, kde-format
 msgid "Displays ¯\\_(ツ)_/¯ after your message"
-msgstr ""
+msgstr "თქვენი შეტყობინების შემდეგ ¯\\_(ツ)_/¯ -ის ჩვენება"
 
 #: core/commands/command.cpp:82
 #, kde-format
 msgid "Displays (╯°□°）╯︵ ┻━┻"
-msgstr ""
+msgstr "(╯°□°）╯︵ ┻━┻-ის ჩვენება"
 
 #: core/commands/command.cpp:84
 #, kde-format
 msgid "Displays ┬─┬<feff> ノ( ゜-゜ノ)"
-msgstr ""
+msgstr "┬─┬<feff> ノ( ゜-゜ノ)-ის ჩვენება"
 
 #: core/commands/command.cpp:86
 #, kde-format
@@ -600,7 +600,7 @@ msgstr "ფაილი აიტვირთა:"
 #: core/messages/messageattachment.cpp:375
 #, kde-format
 msgid "File Uploaded: %1"
-msgstr ""
+msgstr "ატვირთული ფაილები: %1"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -662,7 +662,7 @@ msgstr "გამოყენებები"
 #: core/model/admininvitemodel.cpp:41
 #, kde-format
 msgid "Uses left"
-msgstr ""
+msgstr "დარჩენილი გამოყენება"
 
 #: core/model/admininvitemodel.cpp:43
 #, kde-format
@@ -878,7 +878,7 @@ msgstr "ხელით მითითებული"
 #: core/model/listmessagesmodelfilterproxymodel.cpp:43
 #, kde-format
 msgid "Starred Messages"
-msgstr ""
+msgstr "ვარსკვლავიანი შეტყობინებები"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
@@ -888,7 +888,7 @@ msgstr ""
 #: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Pinned Messages"
-msgstr ""
+msgstr "მიმაგრებული შეტყობინებები"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
@@ -3652,10 +3652,9 @@ msgid "Add Sender to Reply-To"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
+#, kde-format
 msgid "Enable Direct Reply"
-msgstr "ფაილის ატვირთვა ჩართულია"
+msgstr "პირდაპირი პასუხის ჩართვა"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
@@ -3706,10 +3705,9 @@ msgid "Privacy"
 msgstr "პირადი ინფორმაცია"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Direct"
+#, kde-format
 msgid "Direct Reply"
-msgstr "პირდაპირი"
+msgstr "პირდაპირი პასუხი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
@@ -3730,16 +3728,14 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "პაროლის დამატება"
+msgstr "დაგავიწყდა პაროლი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "ვინმესთვის პირადი შეტყობინების მიწერა"
+msgstr "პირადი შეტყობინების ელფოსტის სათაური"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
@@ -6633,7 +6629,7 @@ msgstr ""
 #: widgets/room/channelactionpopupmenu.cpp:73
 #, kde-format
 msgid "Show Threads..."
-msgstr ""
+msgstr "ნაკადების ჩვენება..."
 
 #: widgets/room/channelactionpopupmenu.cpp:88
 #, kde-format
@@ -6664,7 +6660,7 @@ msgstr "შეტყობინებების დაშიფრვა"
 #, kde-format
 msgctxt "@title:window"
 msgid "Open Attachment?"
-msgstr ""
+msgstr "გავხსნა მიმაგრებული ფაილი?"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:118
 #, kde-kuit-format
@@ -6760,7 +6756,7 @@ msgstr ""
 #: widgets/room/messagelinewidget.cpp:290
 #, kde-format
 msgid "File upload"
-msgstr ""
+msgstr "ფაილის ატვირთვა"
 
 #: widgets/room/messagelistview.cpp:75
 #, kde-format
@@ -6800,7 +6796,7 @@ msgstr "რედაქტირება"
 #: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Quote"
-msgstr ""
+msgstr "ციტატა"
 
 #: widgets/room/messagelistview.cpp:279
 #, kde-format
@@ -7034,13 +7030,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Ignore User"
-msgstr ""
+msgstr "მომხმარებლის იგნორირება"
 
 #: widgets/room/usersinroommenu.cpp:64
 #, kde-format
 msgctxt "@action:button"
 msgid "Ignore User"
-msgstr ""
+msgstr "მომხმარებლის იგნორირება"
 
 #: widgets/room/usersinroommenu.cpp:89
 #, kde-format
@@ -7065,27 +7061,27 @@ msgstr ""
 #: widgets/room/usersinroommenu.cpp:119
 #, kde-format
 msgid "Add as Leader"
-msgstr ""
+msgstr "ლიდერად დამატება"
 
 #: widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgid "Remove as Moderator"
-msgstr ""
+msgstr "ლიდერობიდან მოხსნა"
 
 #: widgets/room/usersinroommenu.cpp:131
 #, kde-format
 msgid "Add as Moderator"
-msgstr ""
+msgstr "მოდერატორად დამატება"
 
 #: widgets/room/usersinroommenu.cpp:142
 #, kde-format
 msgid "Remove from Room"
-msgstr ""
+msgstr "მოდერატორობიდან მოხსნა"
 
 #: widgets/room/usersinroommenu.cpp:153
 #, kde-format
 msgid "Unblock User"
-msgstr ""
+msgstr "მომხმარებლის განბლოკვა"
 
 #: widgets/room/usersinroommenu.cpp:153
 #, kde-format
@@ -7118,7 +7114,7 @@ msgstr ""
 #: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
-msgstr ""
+msgstr "შესვლა"
 
 #: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
@@ -7160,17 +7156,17 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:355
 #, kde-format
 msgid "Add Server..."
-msgstr ""
+msgstr "სერვერის დამატება..."
 
 #: widgets/ruqolamainwindow.cpp:360
 #, kde-format
 msgid "Server Info..."
-msgstr ""
+msgstr "სერვერის ინფორმაცია..."
 
 #: widgets/ruqolamainwindow.cpp:364
 #, kde-format
 msgid "Logout Current Server"
-msgstr ""
+msgstr "მიმდინარე სერვერიდან გასვლა"
 
 #: widgets/ruqolamainwindow.cpp:368
 #, kde-format
@@ -7230,32 +7226,32 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "My Account..."
-msgstr ""
+msgstr "ჩემი ანგარიში..."
 
 #: widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Administrator..."
-msgstr ""
+msgstr "ადმინისტრატორი..."
 
 #: widgets/ruqolamainwindow.cpp:437
 #, kde-format
 msgid "Server Settings..."
-msgstr ""
+msgstr "სერვერის მორგება..."
 
 #: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgid "Directory..."
-msgstr ""
+msgstr "საქაღალდე  ..."
 
 #: widgets/ruqolamainwindow.cpp:463
 #, kde-format
 msgid "&Next Server"
-msgstr ""
+msgstr "&შემდეგი სერვერი"
 
 #: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "&Previous Server"
-msgstr ""
+msgstr "&წნა სერვერი"
 
 #: widgets/ruqolamainwindow.cpp:498
 #, kde-format

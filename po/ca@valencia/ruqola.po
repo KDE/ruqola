@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-26 09:03+0200\n"
+"PO-Revision-Date: 2022-10-29 12:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3698,31 +3698,29 @@ msgid "IgnoreTLS"
 msgstr "Ignora TLS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
+#, kde-format
 msgid "Show Message in Email Notification"
-msgstr "Permet les notificacions de correu electrònic"
+msgstr "Mostra el missatge en les notificacions de correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Afig el remitent al «Reply-To»"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
+#, kde-format
 msgid "Enable Direct Reply"
-msgstr "Pujada de fitxers activada"
+msgstr "Activa la resposta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Depura la resposta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
@@ -3748,28 +3746,24 @@ msgid "Port"
 msgstr "Port"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username"
-msgstr "Nom d'usuari:"
+msgstr "Nom d'usuari"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "From Email"
-msgstr "Correu electrònic"
+msgstr "Del correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
 msgid "Privacy"
-msgstr "Privada"
+msgstr "Privadesa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Direct"
+#, kde-format
 msgid "Direct Reply"
-msgstr "Directa"
+msgstr "Resposta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
@@ -3781,6 +3775,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Atenció!] Si s'ha activat la «Resposta directa», Rocket.Chat controlarà la "
+"bústia de correu configurada.\n"
+"Tots els correus sense llegir es recuperen, es marquen com a llegits i es "
+"processen.\n"
+"La «Resposta directa» només s'ha d'activar si la bústia utilitzada està "
+"destinada exclusivament per a l'accés de Rocket.Chat\n"
+"i no és llegit/processat «en paral·lel» per humans."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
@@ -3788,23 +3789,23 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Aneu amb compte] L'activació del mode de depuració mostrarà la vostra "
+"«Contrasenya amb text net» a la consola d'administració."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Afig una contrasenya"
+msgstr "Oblida la contrasenya"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Missatge directe a algú"
+msgstr "Missatge directe de l'assumpte del correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Menciona l'assumpte del correu electrònic"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -7652,6 +7653,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "STMP"
-#~ msgstr "SMTP"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-28 12:07+0300\n"
+"PO-Revision-Date: 2022-10-29 12:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3756,21 +3756,19 @@ msgstr ""
 "Yönetici panelinde gösterecektir."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Parola ekle"
+msgstr "Parolayı unuttum"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Birine doğrudan ileti gönder"
+msgstr "Doğrudan İleti E-posta Konusu"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "E-posta Konusuna Değin"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format

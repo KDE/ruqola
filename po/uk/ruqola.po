@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-28 20:55+0300\n"
+"PO-Revision-Date: 2022-10-29 08:37+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3793,21 +3793,19 @@ msgstr ""
 "шифрування в консолі адміністратора."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Додати пароль"
+msgstr "Не пам'ятаю пароль"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Надіслати комусь безпосереднє повідомлення"
+msgstr "Тема безпосереднього повідомлення"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Тема повідомлення нагадування"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format

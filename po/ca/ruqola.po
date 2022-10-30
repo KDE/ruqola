@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-28 08:46+0200\n"
+"PO-Revision-Date: 2022-10-29 12:01+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3782,21 +3782,19 @@ msgstr ""
 "«Contrasenya amb text net» a la consola d'administració."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Afegeix una contrasenya"
+msgstr "Oblida la contrasenya"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Missatge directe a algú"
+msgstr "Missatge directe de l'assumpte del correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Menciona l'assumpte del correu electrònic"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
