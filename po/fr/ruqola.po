@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-28 15:02+0200\n"
+"PO-Revision-Date: 2022-10-30 14:31+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -3718,15 +3718,14 @@ msgid "Add Sender to Reply-To"
 msgstr "Ajouter l'expéditeur dans « Répondre à »"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
+#, kde-format
 msgid "Enable Direct Reply"
-msgstr "Envoi de fichiers activé"
+msgstr "Activer la réponse directe"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Déboguer une réponse directe"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
@@ -3772,10 +3771,9 @@ msgid "Privacy"
 msgstr "Confidentialité"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Direct"
+#, kde-format
 msgid "Direct Reply"
-msgstr "Direct"
+msgstr "Réponse directe"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
@@ -3787,6 +3785,12 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Attention ! ] Si l'option « Réponse directe » est activée, Rocket.Chat "
+"contrôlera la boîte de courriels configurée. \n"
+"Tous les courriels non lus sont chargés, marqués comme lus et traités. \n"
+"Cette option ne doit être activée que si la boîte aux lettres utilisée est "
+"destinée exclusivement pour accéder à Rocket.Chat \n"
+"et n’est pas lue / traitée « en parallèle » par des personnes réelles."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
@@ -3794,23 +3798,23 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Attention] L’activation du mode « Débogage » afficherait votre « mot de "
+"passe textuel en clair » dans la console d’administration."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Ajouter un mot de passe"
+msgstr "Mot de passe oublié"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Quelqu'un pour un message direct"
+msgstr "Objet du courriel d'un message direct"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Citer l'objet du courriel"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
