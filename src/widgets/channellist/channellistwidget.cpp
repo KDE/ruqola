@@ -119,6 +119,8 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
             mChannelView->selectNextChannel(keyValue == Qt::Key_Up ? ChannelListView::Direction::Up : ChannelListView::Direction::Down);
             return true; // eat event
+        } else if (keyValue == Qt::Key_Escape) {
+            mSearchRoomLineEdit->clear();
         }
     }
 
