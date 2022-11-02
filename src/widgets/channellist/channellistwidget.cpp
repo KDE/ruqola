@@ -31,7 +31,16 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
-    connect(mChannelView, &ChannelListView::roomSelected, this, &ChannelListWidget::roomSelected);
+    connect(mChannelView, &ChannelListView::roomSelected, this, [this](const QString &roomName, const QString &roomId, Room::RoomType roomType) {
+        // retain focus on the search line edit when this is triggering the room change
+        const auto wasFocused = mSearchRoomLineEdit->hasFocus();
+
+        Q_EMIT roomSelected(roomName, roomId, roomType);
+
+        if (wasFocused) {
+            mSearchRoomLineEdit->setFocus();
+        }
+    });
 
     // dummy action just for getting the icon)
     mSearchRoomLineEdit->addAction(QIcon::fromTheme(QStringLiteral("view-filter")), QLineEdit::LeadingPosition);
@@ -280,7 +289,14 @@ void ChannelListWidget::applyChannelSelection()
 {
     const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
     if (selectedIndex.isValid()) {
+        // retain focus on the search line edit when this is triggering the room change
+        const auto wasFocused = mSearchRoomLineEdit->hasFocus();
+
         mChannelView->channelSelected(selectedIndex);
         mSearchRoomLineEdit->setText({});
+
+        if (wasFocused) {
+            setFocus();
+        }
     }
 }
