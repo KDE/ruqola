@@ -303,7 +303,11 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const Q
     QString value = defaultValue;
     if (mapSettings.contains(variableName)) {
         value = mapSettings.value(variableName).toString();
-        plainTextEdit->setPlainText(value);
+    }
+    plainTextEdit->setPlainText(value);
+    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
+    if (toolButton) {
+        toolButton->setEnabled(false);
     }
 }
 
