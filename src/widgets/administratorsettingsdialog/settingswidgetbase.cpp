@@ -228,10 +228,7 @@ void SettingsWidgetBase::initializeWidget(QLineEdit *lineEdit, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     lineEdit->setText(value);
-    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-    if (toolButton) {
-        toolButton->setEnabled(false);
-    }
+    disableTooButton(variableName);
 }
 
 void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMap<QString, QVariant> &mapSettings)
@@ -240,10 +237,7 @@ void SettingsWidgetBase::initializeWidget(KPasswordLineEdit *lineEdit, const QMa
     if (mapSettings.contains(variableName)) {
         const auto value = mapSettings.value(variableName);
         lineEdit->setPassword(value.toString());
-        auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-        if (toolButton) {
-            toolButton->setEnabled(false);
-        }
+        disableTooButton(variableName);
     }
 }
 
@@ -277,10 +271,7 @@ void SettingsWidgetBase::initializeWidget(QSpinBox *spinbox, const QMap<QString,
         spinboxValue = mapSettings.value(variableName).toInt();
     }
     spinbox->setValue(spinboxValue);
-    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-    if (toolButton) {
-        toolButton->setEnabled(false);
-    }
+    disableTooButton(variableName);
 }
 
 void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
@@ -291,10 +282,7 @@ void SettingsWidgetBase::initializeWidget(QComboBox *comboBox, const QMap<QStrin
         value = mapSettings.value(variableName).toString();
     }
     comboBox->setCurrentIndex(comboBox->findData(value));
-    auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
-    if (toolButton) {
-        toolButton->setEnabled(false);
-    }
+    disableTooButton(variableName);
 }
 
 void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const QMap<QString, QVariant> &mapSettings, const QString &defaultValue)
@@ -305,6 +293,11 @@ void SettingsWidgetBase::initializeWidget(QPlainTextEdit *plainTextEdit, const Q
         value = mapSettings.value(variableName).toString();
     }
     plainTextEdit->setPlainText(value);
+    disableTooButton(variableName);
+}
+
+void SettingsWidgetBase::disableTooButton(const QString &variableName)
+{
     auto toolButton = findChild<QToolButton *>(QStringLiteral("toolbutton_%1").arg(variableName));
     if (toolButton) {
         toolButton->setEnabled(false);

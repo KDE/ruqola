@@ -55,4 +55,5 @@ private:
     updateSettings(const QString &settingName, const QVariant &value, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue);
     void slotAdminSettingsDone(const QJsonObject &obj);
     RocketChatAccount *const mAccount;
+    void disableTooButton(const QString &variableName);
 };
