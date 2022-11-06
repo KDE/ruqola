@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-29 00:47+0000\n"
-"PO-Revision-Date: 2022-10-22 17:55+0200\n"
+"PO-Revision-Date: 2022-11-05 17:37+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3685,47 +3685,44 @@ msgid "Logs"
 msgstr "Registros"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgid "IgnoreTLS"
-msgstr "Ignorar"
+msgstr "Ignorar TLS"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
+#, kde-format
 msgid "Show Message in Email Notification"
-msgstr "Permitir notificaciones de correo electrónico"
+msgstr "Mostrar mensaje en la notificación de correo electrónico"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Añadir remitente a «Responder a»"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
+#, kde-format
 msgid "Enable Direct Reply"
-msgstr "Activar subida de archivos"
+msgstr "Activar respuesta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Depurar respuesta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "smtp"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
@@ -3741,28 +3738,24 @@ msgid "Port"
 msgstr "Puerto"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username"
-msgstr "Nombre del usuario:"
+msgstr "Nombre del usuario"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "From Email"
-msgstr "Correo electrónico"
+msgstr "Desde el correo electrónico"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
 msgid "Privacy"
-msgstr "Privado"
+msgstr "Privacidad"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
-#, fuzzy, kde-format
-#| msgid "Direct"
+#, kde-format
 msgid "Direct Reply"
-msgstr "Directo"
+msgstr "Respuesta directa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
@@ -3774,6 +3767,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Atención] Si «Respuesta directa» está activa, Rocket.Chat controlará la "
+"bandeja de correo configurada.\n"
+"Todos los correos electrónicos no leídos serán recuperados, marcados como "
+"leídos y procesados.\n"
+"«Respuesta directa» debería ser activada solo si la bandeja de correo está "
+"pensada para ser usada en exclusiva por Rocket.Chat\n"
+"y no va a ser leída/procesada «en paralelo» por humanos."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
 #, kde-format
@@ -3781,23 +3781,23 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Cuidado] Activar el modo de depuración mostrará su contraseña en texto "
+"plano en la consola del administrador."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Añadir contraseña"
+msgstr "Olvidar contraseña"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Mensaje directo a alguien"
+msgstr "Título del correo electrónico del mensaje directo"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Mencionar el título del correo electrónico"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -6516,7 +6516,7 @@ msgstr "Mostrar avatares"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "Recibir correos electrónicos de detección de inicio de sesión"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -6552,6 +6552,8 @@ msgstr "Envío de notificación:"
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
+"Recibir un correo electrónico cada vez que se detecta un nuevo inicio de "
+"sesión en su cuenta."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7642,11 +7644,3 @@ msgstr "Información de la cuenta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
-
-#~ msgctxt "NAME OF TRANSLATORS"
-#~ msgid "Your names"
-#~ msgstr "Manuel Alcaraz,Eloy Cuadra,Víctor Rodrigo Córdoba"
-
-#~ msgctxt "EMAIL OF TRANSLATORS"
-#~ msgid "Your emails"
-#~ msgstr "manuelalcarazzam@gmail.com,ecuadra@eloihr.net,vrcordoba@gmail.com"
