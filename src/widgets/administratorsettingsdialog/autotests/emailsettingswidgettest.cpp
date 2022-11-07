@@ -105,13 +105,19 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mDirectMessageEmailSubject = w.findChild<QPlainTextEdit *>(QStringLiteral("mDirectMessageEmailSubject"));
     QVERIFY(mDirectMessageEmailSubject);
-    QVERIFY(!mDirectMessageEmailSubject->toPlainText().isEmpty());
+    QVERIFY(mDirectMessageEmailSubject->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageEmailSubject), QStringLiteral("Offline_DM_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_DM_Email"));
 
     auto mMentionEmailSubject = w.findChild<QPlainTextEdit *>(QStringLiteral("mMentionEmailSubject"));
     QVERIFY(mMentionEmailSubject);
-    QVERIFY(!mMentionEmailSubject->toPlainText().isEmpty());
+    QVERIFY(mMentionEmailSubject->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMentionEmailSubject), QStringLiteral("Offline_Mention_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_Mention_Email"));
+
+    auto mMentionAllEmailSubject = w.findChild<QPlainTextEdit *>(QStringLiteral("mMentionAllEmailSubject"));
+    QVERIFY(mMentionAllEmailSubject);
+    QVERIFY(mMentionAllEmailSubject->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMentionAllEmailSubject), QStringLiteral("Offline_Mention_All_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_Mention_All_Email"));
 }

@@ -35,4 +35,5 @@ private:
     QCheckBox *const mDebugDirectReply;
     QPlainTextEdit *const mDirectMessageEmailSubject;
     QPlainTextEdit *const mMentionEmailSubject;
+    QPlainTextEdit *const mMentionAllEmailSubject;
 };

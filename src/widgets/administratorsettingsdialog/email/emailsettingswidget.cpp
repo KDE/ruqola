@@ -27,6 +27,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mDebugDirectReply(new QCheckBox(i18n("Debug Direct Reply"), this))
     , mDirectMessageEmailSubject(new QPlainTextEdit(this))
     , mMentionEmailSubject(new QPlainTextEdit(this))
+    , mMentionAllEmailSubject(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -83,7 +84,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
              "and is not read/processed \"in parallel\" by humans."));
     connectCheckBox(mEnableDirectReply, QStringLiteral("Direct_Reply_Enable"));
 
-    mDebugDirectReply->setObjectName(QStringLiteral("mEnableDirectReply"));
+    mDebugDirectReply->setObjectName(QStringLiteral("mDebugDirectReply"));
     mMainLayout->addWidget(mDebugDirectReply);
     mDebugDirectReply->setToolTip(i18n("[Beware] Enabling Debug mode would display your 'Plain Text Password' in Admin console."));
     connectCheckBox(mDebugDirectReply, QStringLiteral("Direct_Reply_Debug"));
@@ -101,6 +102,9 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mMentionEmailSubject->setObjectName(QStringLiteral("mMentionEmailSubject"));
     addPlainTextEdit(i18n("Mention Email Subject"), mMentionEmailSubject, QStringLiteral("Offline_Mention_Email"));
+
+    mMentionAllEmailSubject->setObjectName(QStringLiteral("mMentionAllEmailSubject"));
+    addPlainTextEdit(i18n("Mention All Email Subject"), mMentionAllEmailSubject, QStringLiteral("Offline_Mention_All_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -118,4 +122,5 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mEnableDirectReply, mapSettings, false);
     initializeWidget(mDirectMessageEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been direct messaged by [User]"));
     initializeWidget(mMentionEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been mentioned by [User] in #[Room]"));
+    initializeWidget(mMentionAllEmailSubject, mapSettings, QStringLiteral("[User] has posted a message in #[Room]"));
 }
