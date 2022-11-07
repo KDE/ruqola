@@ -28,6 +28,10 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mDirectMessageEmailSubject(new QPlainTextEdit(this))
     , mMentionEmailSubject(new QPlainTextEdit(this))
     , mMentionAllEmailSubject(new QPlainTextEdit(this))
+    , mVerificationSubject(new QLineEdit(this))
+    , mVerificationBody(new QPlainTextEdit(this))
+    , mForgotPasswordSubject(new QLineEdit(this))
+    , mForgotPasswordBody(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -93,6 +97,12 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     forgotPasswordLabel->setObjectName(QStringLiteral("forgotPasswordLabel"));
     mMainLayout->addWidget(forgotPasswordLabel);
 
+    mForgotPasswordSubject->setObjectName(QStringLiteral("mForgotPasswordSubject"));
+    addLineEdit(i18n("Subject"), mForgotPasswordSubject, QStringLiteral("Forgot_Password_Email_Subject"));
+
+    mForgotPasswordBody->setObjectName(QStringLiteral("mForgotPasswordBody"));
+    addPlainTextEdit(i18n("Body"), mForgotPasswordBody, QStringLiteral("Forgot_Password_Email"));
+
     auto subjectLabel = createBoldLabel(i18n("Subject"));
     subjectLabel->setObjectName(QStringLiteral("subjectLabel"));
     mMainLayout->addWidget(subjectLabel);
@@ -105,6 +115,16 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mMentionAllEmailSubject->setObjectName(QStringLiteral("mMentionAllEmailSubject"));
     addPlainTextEdit(i18n("Mention All Email Subject"), mMentionAllEmailSubject, QStringLiteral("Offline_Mention_All_Email"));
+
+    auto verificationLabel = createBoldLabel(i18n("Verification"));
+    verificationLabel->setObjectName(QStringLiteral("verificationLabel"));
+    mMainLayout->addWidget(verificationLabel);
+
+    mVerificationSubject->setObjectName(QStringLiteral("mVerificationSubject"));
+    addLineEdit(i18n("Subject"), mVerificationSubject, QStringLiteral("Verification_Email_Subject"));
+
+    mVerificationBody->setObjectName(QStringLiteral("mVerificationBody"));
+    addPlainTextEdit(i18n("Body"), mVerificationBody, QStringLiteral("Verification_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -123,4 +143,8 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mDirectMessageEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been direct messaged by [User]"));
     initializeWidget(mMentionEmailSubject, mapSettings, QStringLiteral("[[Site_Name]] You have been mentioned by [User] in #[Room]"));
     initializeWidget(mMentionAllEmailSubject, mapSettings, QStringLiteral("[User] has posted a message in #[Room]"));
+    initializeWidget(mVerificationSubject, mapSettings, QStringLiteral("[Site_Name] - Email address verification"));
+    initializeWidget(mVerificationBody, mapSettings, QStringLiteral("Click <a href=\"[Verification_Url]\">here</a> to verify your email address."));
+    initializeWidget(mForgotPasswordSubject, mapSettings, QStringLiteral("[Site_Name] - Password Recovery"));
+    initializeWidget(mForgotPasswordBody, mapSettings, QStringLiteral("Click <a href=\"[Forgot_Password_Url]\">here</a> to reset your password."));
 }

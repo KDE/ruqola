@@ -36,4 +36,9 @@ private:
     QPlainTextEdit *const mDirectMessageEmailSubject;
     QPlainTextEdit *const mMentionEmailSubject;
     QPlainTextEdit *const mMentionAllEmailSubject;
+    QLineEdit *const mVerificationSubject;
+    QPlainTextEdit *const mVerificationBody;
+
+    QLineEdit *const mForgotPasswordSubject;
+    QPlainTextEdit *const mForgotPasswordBody;
 };

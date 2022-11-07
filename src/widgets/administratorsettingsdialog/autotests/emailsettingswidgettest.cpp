@@ -120,4 +120,34 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMentionAllEmailSubject->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMentionAllEmailSubject), QStringLiteral("Offline_Mention_All_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Offline_Mention_All_Email"));
+
+    auto verificationLabel = w.findChild<QLabel *>(QStringLiteral("verificationLabel"));
+    QVERIFY(verificationLabel);
+    QVERIFY(!verificationLabel->text().isEmpty());
+
+    auto mVerificationSubject = w.findChild<QLineEdit *>(QStringLiteral("mVerificationSubject"));
+    QVERIFY(mVerificationSubject);
+    QVERIFY(mVerificationSubject->text().isEmpty());
+    QVERIFY(mVerificationSubject->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mVerificationSubject), QStringLiteral("Verification_Email_Subject"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Verification_Email_Subject"));
+
+    auto mVerificationBody = w.findChild<QPlainTextEdit *>(QStringLiteral("mVerificationBody"));
+    QVERIFY(mVerificationBody);
+    QVERIFY(mVerificationBody->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mVerificationBody), QStringLiteral("Verification_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Verification_Email"));
+
+    auto mForgotPasswordSubject = w.findChild<QLineEdit *>(QStringLiteral("mForgotPasswordSubject"));
+    QVERIFY(mForgotPasswordSubject);
+    QVERIFY(mForgotPasswordSubject->text().isEmpty());
+    QVERIFY(mForgotPasswordSubject->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForgotPasswordSubject), QStringLiteral("Forgot_Password_Email_Subject"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Forgot_Password_Email_Subject"));
+
+    auto mForgotPasswordBody = w.findChild<QPlainTextEdit *>(QStringLiteral("mForgotPasswordBody"));
+    QVERIFY(mForgotPasswordBody);
+    QVERIFY(mForgotPasswordBody->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForgotPasswordBody), QStringLiteral("Forgot_Password_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Forgot_Password_Email"));
 }
