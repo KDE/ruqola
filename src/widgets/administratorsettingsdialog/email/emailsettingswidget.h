@@ -41,4 +41,7 @@ private:
 
     QLineEdit *const mForgotPasswordSubject;
     QPlainTextEdit *const mForgotPasswordBody;
+
+    QLineEdit *const mEmailAddressChangedSubject;
+    QPlainTextEdit *const mEmailAddressChangedBody;
 };

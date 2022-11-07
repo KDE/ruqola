@@ -150,4 +150,21 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mForgotPasswordBody->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForgotPasswordBody), QStringLiteral("Forgot_Password_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Forgot_Password_Email"));
+
+    auto emailAddressChangedLabel = w.findChild<QLabel *>(QStringLiteral("emailAddressChangedLabel"));
+    QVERIFY(emailAddressChangedLabel);
+    QVERIFY(!emailAddressChangedLabel->text().isEmpty());
+
+    auto mEmailAddressChangedSubject = w.findChild<QLineEdit *>(QStringLiteral("mEmailAddressChangedSubject"));
+    QVERIFY(mEmailAddressChangedSubject);
+    QVERIFY(mEmailAddressChangedSubject->text().isEmpty());
+    QVERIFY(mEmailAddressChangedSubject->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmailAddressChangedSubject), QStringLiteral("Email_Changed_Email_Subject"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Email_Changed_Email_Subject"));
+
+    auto mEmailAddressChangedBody = w.findChild<QPlainTextEdit *>(QStringLiteral("mEmailAddressChangedBody"));
+    QVERIFY(mEmailAddressChangedBody);
+    QVERIFY(mEmailAddressChangedBody->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmailAddressChangedBody), QStringLiteral("Email_Changed_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Email_Changed_Email"));
 }

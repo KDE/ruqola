@@ -32,6 +32,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mVerificationBody(new QPlainTextEdit(this))
     , mForgotPasswordSubject(new QLineEdit(this))
     , mForgotPasswordBody(new QPlainTextEdit(this))
+    , mEmailAddressChangedSubject(new QLineEdit(this))
+    , mEmailAddressChangedBody(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -125,6 +127,16 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mVerificationBody->setObjectName(QStringLiteral("mVerificationBody"));
     addPlainTextEdit(i18n("Body"), mVerificationBody, QStringLiteral("Verification_Email"));
+
+    auto emailAddressChangedLabel = createBoldLabel(i18n("Email Address Changed"));
+    emailAddressChangedLabel->setObjectName(QStringLiteral("emailAddressChangedLabel"));
+    mMainLayout->addWidget(emailAddressChangedLabel);
+
+    mEmailAddressChangedSubject->setObjectName(QStringLiteral("mEmailAddressChangedSubject"));
+    addLineEdit(i18n("Subject"), mEmailAddressChangedSubject, QStringLiteral("Email_Changed_Email_Subject"));
+
+    mEmailAddressChangedBody->setObjectName(QStringLiteral("mEmailAddressChangedBody"));
+    addPlainTextEdit(i18n("Body"), mEmailAddressChangedBody, QStringLiteral("Email_Changed_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -147,4 +159,7 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mVerificationBody, mapSettings, QStringLiteral("Click <a href=\"[Verification_Url]\">here</a> to verify your email address."));
     initializeWidget(mForgotPasswordSubject, mapSettings, QStringLiteral("[Site_Name] - Password Recovery"));
     initializeWidget(mForgotPasswordBody, mapSettings, QStringLiteral("Click <a href=\"[Forgot_Password_Url]\">here</a> to reset your password."));
+
+    initializeWidget(mEmailAddressChangedSubject, mapSettings, QStringLiteral("[Site_Name] - Email address has been changed"));
+    initializeWidget(mEmailAddressChangedBody, mapSettings, QStringLiteral("Click <a href=\"[Forgot_Password_Url]\">here</a> to reset your password."));
 }
