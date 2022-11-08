@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-29 00:47+0000\n"
+"POT-Creation-Date: 2022-11-08 00:46+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -849,7 +849,7 @@ msgid "link"
 msgstr "Kopeeri link"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:50
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3520,7 +3520,10 @@ msgid "Author"
 msgstr "Autor"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
 #, kde-format
 msgid "Subject"
 msgstr ""
@@ -3922,57 +3925,57 @@ msgstr "Fail üles laaditud: "
 msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
 #, kde-format
 msgid "SMTP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
 #, kde-format
 msgid "smtp"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:45
 #, kde-format
 msgid "smtps"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
 #, kde-format
 msgid "Username"
 msgstr "Kasutajanimi"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Email"
 msgid "From Email"
 msgstr "E-post"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Privacy"
 msgstr "Privaatne:"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
 #, kde-format
 msgid "Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3983,28 +3986,52 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:98
 #, fuzzy, kde-format
 #| msgid "Add password"
 msgid "Forgot password"
 msgstr "Parooli lisamine"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:139
+#, kde-format
+msgid "Body"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
 #, fuzzy, kde-format
 #| msgid "Direct message someone"
 msgid "Direct Message Email Subject"
 msgstr "Otsesõnum kellelegi"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:116
 #, kde-format
 msgid "Mention Email Subject"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:119
+#, fuzzy, kde-format
+#| msgid "Direct message someone"
+msgid "Mention All Email Subject"
+msgstr "Otsesõnum kellelegi"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
+#, fuzzy, kde-format
+#| msgid "Notifications"
+msgid "Verification"
+msgstr "Märguanded"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#, kde-format
+msgid "Email Address Changed"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
