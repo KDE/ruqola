@@ -44,4 +44,7 @@ private:
 
     QLineEdit *const mEmailAddressChangedSubject;
     QPlainTextEdit *const mEmailAddressChangedBody;
+
+    QLineEdit *const mInvitationSubject;
+    QPlainTextEdit *const mInvitationBody;
 };

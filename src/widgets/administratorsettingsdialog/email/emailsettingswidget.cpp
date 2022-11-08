@@ -34,6 +34,8 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mForgotPasswordBody(new QPlainTextEdit(this))
     , mEmailAddressChangedSubject(new QLineEdit(this))
     , mEmailAddressChangedBody(new QPlainTextEdit(this))
+    , mInvitationSubject(new QLineEdit(this))
+    , mInvitationBody(new QPlainTextEdit(this))
 {
     auto smtpLabel = createBoldLabel(i18n("SMTP"));
     smtpLabel->setObjectName(QStringLiteral("smtpLabel"));
@@ -137,6 +139,16 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mEmailAddressChangedBody->setObjectName(QStringLiteral("mEmailAddressChangedBody"));
     addPlainTextEdit(i18n("Body"), mEmailAddressChangedBody, QStringLiteral("Email_Changed_Email"));
+
+    auto invitationLabel = createBoldLabel(i18n("Invitation"));
+    emailAddressChangedLabel->setObjectName(QStringLiteral("invitationLabel"));
+    mMainLayout->addWidget(invitationLabel);
+
+    mInvitationSubject->setObjectName(QStringLiteral("mInvitationSubject"));
+    addLineEdit(i18n("Subject"), mInvitationSubject, QStringLiteral("Invitation_Subject"));
+
+    mInvitationBody->setObjectName(QStringLiteral("mInvitationBody"));
+    addPlainTextEdit(i18n("Body"), mInvitationBody, QStringLiteral("Invitation_Email"));
 }
 
 EmailSettingsWidget::~EmailSettingsWidget() = default;
@@ -162,4 +174,7 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 
     initializeWidget(mEmailAddressChangedSubject, mapSettings, QStringLiteral("[Site_Name] - Email address has been changed"));
     initializeWidget(mEmailAddressChangedBody, mapSettings, QStringLiteral("Click <a href=\"[Forgot_Password_Url]\">here</a> to reset your password."));
+
+    initializeWidget(mInvitationSubject, mapSettings, QStringLiteral("You have been invited to [Site_Name]"));
+    initializeWidget(mInvitationBody, mapSettings, QStringLiteral("<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"));
 }

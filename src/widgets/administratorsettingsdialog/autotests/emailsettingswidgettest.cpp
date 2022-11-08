@@ -167,4 +167,21 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEmailAddressChangedBody->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEmailAddressChangedBody), QStringLiteral("Email_Changed_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Email_Changed_Email"));
+
+    auto invitationLabel = w.findChild<QLabel *>(QStringLiteral("invitationLabel"));
+    QVERIFY(invitationLabel);
+    QVERIFY(!invitationLabel->text().isEmpty());
+
+    auto mInvitationSubject = w.findChild<QLineEdit *>(QStringLiteral("mInvitationSubject"));
+    QVERIFY(mInvitationSubject);
+    QVERIFY(mInvitationSubject->text().isEmpty());
+    QVERIFY(mInvitationSubject->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mInvitationSubject), QStringLiteral("Invitation_Subject"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Invitation_Subject"));
+
+    auto mInvitationBody = w.findChild<QPlainTextEdit *>(QStringLiteral("mInvitationBody"));
+    QVERIFY(mInvitationBody);
+    QVERIFY(mInvitationBody->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mInvitationBody), QStringLiteral("Invitation_Email"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Invitation_Email"));
 }
