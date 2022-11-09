@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-08 00:46+0000\n"
-"PO-Revision-Date: 2022-10-29 10:31+0200\n"
+"POT-Creation-Date: 2022-11-09 00:47+0000\n"
+"PO-Revision-Date: 2022-11-08 10:18-0400\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -808,7 +808,7 @@ msgid "link"
 msgstr "koppeling"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:52
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3328,10 +3328,11 @@ msgid "Author"
 msgstr "Auteur"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
 #, kde-format
 msgid "Subject"
 msgstr "Onderwerp"
@@ -3708,55 +3709,55 @@ msgstr "Direct antwoord inschakelen"
 msgid "Debug Direct Reply"
 msgstr "Direct antwoord debuggen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "Protocol"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "Poort"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:63
 #, kde-format
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #, kde-format
 msgid "From Email"
 msgstr "Uit e-mail"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
 #, kde-format
 msgid "Privacy"
 msgstr "Privacy"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
 #, kde-format
 msgid "Direct Reply"
 msgstr "Direct antwoord"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3774,7 +3775,7 @@ msgstr ""
 "mailbox exclusief bedoeld is voor toegang door Rocket.Chat\n"
 "en niet \"parallel\" gelezen/verwerkt door personen."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
@@ -3783,46 +3784,49 @@ msgstr ""
 "[Let op] Modus debug inschakelen zou uw 'Platte tekst wachtwoord' tonen in "
 "de console van de beheerder."
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
 msgid "Forgot password"
 msgstr "Wachtwoord vergeten"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:106
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:129
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:139
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Body"
-msgstr ""
+msgstr "Inhoud"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #, kde-format
 msgid "Direct Message Email Subject"
 msgstr "E-mailonderwerp van direct bericht"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Mention Email Subject"
 msgstr "Onderwerp voor e-mailbericht noemen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:119
-#, fuzzy, kde-format
-#| msgid "Mention Email Subject"
-msgid "Mention All Email Subject"
-msgstr "Onderwerp voor e-mailbericht noemen"
-
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
-msgid "Verification"
-msgstr "Melding"
+#, kde-format
+msgid "Mention All Email Subject"
+msgstr "Alle onderwerpen van alle e-mailberichten noemen"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Allow Email Change"
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
+#, kde-format
+msgid "Verification"
+msgstr "Verificatie"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
+#, kde-format
 msgid "Email Address Changed"
-msgstr "Wijziging van e-mail toestaan"
+msgstr "E-mailadres gewijzigd"
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid "Invalid integration"
+msgid "Invitation"
+msgstr "Ongeldige integratie"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format

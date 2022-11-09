@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-08 00:46+0000\n"
+"POT-Creation-Date: 2022-11-09 00:47+0000\n"
 "PO-Revision-Date: 2022-10-29 05:18+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -805,7 +805,7 @@ msgid "link"
 msgstr "ბმული"
 
 #: core/model/deviceinfomodel.cpp:32
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:52
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:39
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
@@ -3292,10 +3292,11 @@ msgid "Author"
 msgstr "ავტორი"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:103
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:126
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:136
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:148
 #, kde-format
 msgid "Subject"
 msgstr "თემა"
@@ -3664,55 +3665,55 @@ msgstr "პირდაპირი პასუხის ჩართვა"
 msgid "Debug Direct Reply"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
 msgid "SMTP"
 msgstr "SMTP"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:44
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
 #, kde-format
 msgid "smtp"
 msgstr "smtp"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
 msgstr "ოქმი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:54
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
 msgstr "პორტი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:63
 #, kde-format
 msgid "Username"
 msgstr "მომხმარებლის სახელი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #, kde-format
 msgid "From Email"
 msgstr "ელფოსტიდან"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
 #, kde-format
 msgid "Privacy"
 msgstr "პირადი ინფორმაცია"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
 #, kde-format
 msgid "Direct Reply"
 msgstr "პირდაპირი პასუხი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
 #, kde-format
 msgid ""
 "[Attention!] If \"Direct Reply\" is enabled, Rocket.Chat will control the "
@@ -3723,52 +3724,59 @@ msgid ""
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
 msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
 msgid "Forgot password"
 msgstr "დაგავიწყდა პაროლი"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:106
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:129
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:139
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Body"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #, kde-format
 msgid "Direct Message Email Subject"
 msgstr "პირადი შეტყობინების ელფოსტის სათაური"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Mention Email Subject"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Direct Message Email Subject"
 msgid "Mention All Email Subject"
 msgstr "პირადი შეტყობინების ელფოსტის სათაური"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Notification"
 msgid "Verification"
 msgstr "შეტყობინება"
 
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
 #, kde-format
 msgid "Email Address Changed"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid "Invalid integration"
+msgid "Invitation"
+msgstr "არასწორი ინტეგრაცია"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
