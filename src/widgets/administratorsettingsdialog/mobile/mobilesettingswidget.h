@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MobileSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -20,4 +21,6 @@ public:
 
 private:
     QCheckBox *const mAllowSaveMediaGallery;
+    QCheckBox *const mForceScreenLock;
+    QSpinBox *const mForceScreenLockAfter;
 };
