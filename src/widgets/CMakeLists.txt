@@ -162,6 +162,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/mobile/mobilesettingswidget.h
     administratorsettingsdialog/mobile/mobilesettingswidget.cpp
 
+    administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.h
+    administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
