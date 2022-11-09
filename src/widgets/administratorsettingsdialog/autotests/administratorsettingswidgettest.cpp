@@ -17,6 +17,7 @@
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
+#include "administratorsettingsdialog/mobile/mobilesettingswidget.h"
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
@@ -98,4 +99,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mEmailSettingsWidget = w.findChild<EmailSettingsWidget *>(QStringLiteral("mEmailSettingsWidget"));
     QVERIFY(mEmailSettingsWidget);
+
+    auto mMobileSettingsWidget = w.findChild<MobileSettingsWidget *>(QStringLiteral("mMobileSettingsWidget"));
+    QVERIFY(mMobileSettingsWidget);
 }
