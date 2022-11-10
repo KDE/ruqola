@@ -8,7 +8,7 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-
+class QCheckBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TroubleshootSettingsWidget : public SettingsWidgetBase
 {
 public:
@@ -16,4 +16,7 @@ public:
     ~TroubleshootSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mDisableNotifications;
 };

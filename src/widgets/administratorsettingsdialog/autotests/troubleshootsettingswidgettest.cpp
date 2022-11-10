@@ -19,5 +19,10 @@ TroubleshootSettingsWidgetTest::TroubleshootSettingsWidgetTest(QObject *parent)
 void TroubleshootSettingsWidgetTest::shouldHaveDefaultValues()
 {
     TroubleshootSettingsWidget w(nullptr);
-    // TODO
+    auto mDisableNotifications = w.findChild<QCheckBox *>(QStringLiteral("mDisableNotifications"));
+    QVERIFY(mDisableNotifications);
+    QVERIFY(!mDisableNotifications->isChecked());
+    QVERIFY(!mDisableNotifications->text().isEmpty());
+    QVERIFY(mDisableNotifications->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDisableNotifications), QStringLiteral("Troubleshoot_Disable_Notifications"));
 }
