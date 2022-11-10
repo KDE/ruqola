@@ -71,6 +71,7 @@
     <p xml:lang="ia">Ruqola es un Rocket Chat client (Cliente de Conversation in directo de Rochet.Chat).</p>
     <p xml:lang="id">Ruqola adalah klien untuk Rocket.Chat.</p>
     <p xml:lang="it">Ruqola è un client Rocket.Chat.</p>
+    <p xml:lang="ka">Ruqola-ი Rocket Chat-ის კლიენტია.</p>
     <p xml:lang="nl">Ruqola is client voor Rocket.Chat.</p>
     <p xml:lang="pl">Ruqola jest programem do Rocket.Chat.</p>
     <p xml:lang="pt">O Ruqola é um cliente de Rocket.Chat.</p>
@@ -90,6 +91,7 @@
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
     <p xml:lang="id">Yang mendukung fitur RC:</p>
     <p xml:lang="it">Supporta le funzionalità di RC:</p>
+    <p xml:lang="ka">მას აქვს RC-ის ფუნქციები:</p>
     <p xml:lang="nl">Het ondersteunt RC-functies:</p>
     <p xml:lang="pl">Obsługuje następujące cechy RC:</p>
     <p xml:lang="pt">Suporta as funcionalidades do RC:</p>
@@ -109,6 +111,7 @@
       <li xml:lang="ia">Message Directe</li>
       <li xml:lang="id">Perpesanan Langsung</li>
       <li xml:lang="it">Messaggio diretto</li>
+      <li xml:lang="ka">პირადი შეტყობინება</li>
       <li xml:lang="nl">Direct bericht</li>
       <li xml:lang="pl">Wiadomość bezpośrednia</li>
       <li xml:lang="pt">Mensagem Directa</li>
@@ -127,6 +130,7 @@
       <li xml:lang="ia">canal de gruppo</li>
       <li xml:lang="id">kanal kelompok grup</li>
       <li xml:lang="it">canale di gruppo</li>
+      <li xml:lang="ka">ჯგუფური არხი</li>
       <li xml:lang="nl">groepskanaal</li>
       <li xml:lang="pl">kanał grupy</li>
       <li xml:lang="pt">canal em grupo</li>
@@ -164,6 +168,7 @@
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
       <li xml:lang="id">Dukungan auto terjemah (ketika RC memilikinya)</li>
       <li xml:lang="it">Supporta la traduzione automatica (quando disponibile in RC)</li>
+      <li xml:lang="ka">ავტოთარგმანის მხარდაჭერა (როცა RC-ს ის გააჩნია)</li>
       <li xml:lang="nl">Ondersteunt automatische vertaling (wanneer RC dat heeft)</li>
       <li xml:lang="pl">Obsługa samotłumaczenia (gdy RC to ma)</li>
       <li xml:lang="pt">Suporte para traduções automáticas (se o RC o suportar)</li>
@@ -181,6 +186,7 @@
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
       <li xml:lang="id">Pengaturan notifikasi ruang</li>
       <li xml:lang="it">Configurazione della notifica della stanza</li>
+      <li xml:lang="ka">ოთახის შეტყობინებების მორგება</li>
       <li xml:lang="nl">Roommelding wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia powiadomień pokoju</li>
       <li xml:lang="pt">Configuração das notificações da sala</li>
@@ -198,6 +204,7 @@
       <li xml:lang="fr">Configuration du salon en cours</li>
       <li xml:lang="id">Pengaturan ruang</li>
       <li xml:lang="it">Configurazione della stanza</li>
+      <li xml:lang="ka">ოთახის მორგება</li>
       <li xml:lang="nl">Room wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia pokoju</li>
       <li xml:lang="pt">Configuração da sala</li>
@@ -251,6 +258,7 @@
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
       <li xml:lang="id">Dukungan ruang regu</li>
       <li xml:lang="it">Supporto stanze di squadra</li>
+      <li xml:lang="ka">გუნდის ოთახის მხარდაჭერა</li>
       <li xml:lang="nl">Ondersteuning van teamsroom</li>
       <li xml:lang="pl">Obsługa pokoju zespołu</li>
       <li xml:lang="pt">Suporte para sala de equipas</li>
@@ -268,6 +276,7 @@
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
       <li xml:lang="id">Pengaturan akun milik sendiri</li>
       <li xml:lang="it">Configurazione del proprio account</li>
+      <li xml:lang="ka">საკუთარი ანგარიშის მორგება</li>
       <li xml:lang="nl">Eigen account wordt geconfigureerd</li>
       <li xml:lang="pl">Ustawienia własnego konta</li>
       <li xml:lang="pt">Configuração da própria conta</li>
@@ -285,6 +294,7 @@
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
       <li xml:lang="id">Peregistrasian akun baru</li>
       <li xml:lang="it">Registrazione nuovo account</li>
+      <li xml:lang="ka">ახალი ანგარიშის რეგისტრაცია</li>
       <li xml:lang="nl">Nieuwe account wordt geregistreerd</li>
       <li xml:lang="pl">Rejestracja nowego konta</li>
       <li xml:lang="pt">A registar uma nova conta</li>
@@ -302,6 +312,7 @@
       <li xml:lang="fr">Prend en charge le compte multiple</li>
       <li xml:lang="id">Dukungan banyak akun</li>
       <li xml:lang="it">Supporta più account</li>
+      <li xml:lang="ka">მრავალანგარიშიანობის მხარდაჭერა</li>
       <li xml:lang="nl">Ondersteuning voor meerdere accounts</li>
       <li xml:lang="pl">Obsługa wielu kont</li>
       <li xml:lang="pt">Suporte para várias contas</li>
@@ -319,6 +330,7 @@
       <li xml:lang="fr">Rechercher un message dans le salon</li>
       <li xml:lang="id">Pencarian pesan di ruang</li>
       <li xml:lang="it">Ricerca messaggio nella stanza</li>
+      <li xml:lang="ka">ოთახში შეტყობინების ძებნა</li>
       <li xml:lang="nl">Berichten zoeken in room</li>
       <li xml:lang="pl">Szukanie wiadomości w pokoju</li>
       <li xml:lang="pt">Pesquisa de mensagens na sala</li>
@@ -424,6 +436,7 @@
       <li xml:lang="fr">Prend en charge les images « gif »</li>
       <li xml:lang="id">Dukungan gambar gift</li>
       <li xml:lang="it">supporto immagine GIF</li>
+      <li xml:lang="ka">gif სურათების მხარდაჭერა</li>
       <li xml:lang="nl">Ondersteuning van gif-afbeelding</li>
       <li xml:lang="pl">Obsługa obrazów GIF</li>
       <li xml:lang="pt">Suporte para imagens GIF</li>
@@ -441,6 +454,7 @@
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
       <li xml:lang="id">Menambahkan dukungan untuk mengunggah pelampiran file</li>
       <li xml:lang="it">Aggiunge il supporto per il caricamento di file allegati</li>
+      <li xml:lang="ka">მისამაგრებელი ფაილების ატვირთვის მხარდაჭერის დამატება</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor uploaden van bijgevoegde bestanden</li>
       <li xml:lang="pl">Dodanie obsługi wysyłania załączników</li>
       <li xml:lang="pt">Adição do suporte para o envio de ficheiros em anexo</li>
@@ -458,6 +472,7 @@
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
       <li xml:lang="id">Tampilkan informasi pesan yang belum dibaca</li>
       <li xml:lang="it">Mostra le informazioni sui messaggi non letti</li>
+      <li xml:lang="ka">წაუკითხავი შეტყობინებების ინფორმაციის ჩვენება</li>
       <li xml:lang="nl">Informatie over ongelezen berichten tonen</li>
       <li xml:lang="pl">Pokazywanie liczby nieprzeczytanych wiadomości</li>
       <li xml:lang="pt">Mostrar informações de mensagens não-lidas</li>
@@ -475,6 +490,7 @@
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
       <li xml:lang="id">Izinkan memblokir/membuka blokir pengguna</li>
       <li xml:lang="it">Consente di bloccare/sbloccare gli utenti</li>
+      <li xml:lang="ka">მომხმარებლების დაბლოკვა/განბლოკვა</li>
       <li xml:lang="nl">Toestaan gebruikers te blokkeren/dit opheffen</li>
       <li xml:lang="pl">Zezwolenie na blokowanie/odblokowywanie użytkowników</li>
       <li xml:lang="pt">Permitir o bloqueio/desbloqueio de utilizadores</li>
@@ -494,6 +510,7 @@
       <li xml:lang="ia">Absente automatic</li>
       <li xml:lang="id">Pergi otomatis</li>
       <li xml:lang="it">Assenza automatica</li>
+      <li xml:lang="ka">გასული მდგომარეობის ავტომატური დაყენება</li>
       <li xml:lang="nl">Automatisch afwezig</li>
       <li xml:lang="pl">Samowolna nieobecność</li>
       <li xml:lang="pt">Ausência automática</li>
@@ -511,6 +528,7 @@
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
       <li xml:lang="id">Dua faktor autentikasi via TOTP</li>
       <li xml:lang="it">Autenticazione a due fattori tramite TOTP</li>
+      <li xml:lang="ka">2FA-ი TOTP-ით</li>
       <li xml:lang="nl">Twee-factor-authenticatie via TOTP</li>
       <li xml:lang="pl">Dwuskładnikowe uwierzytelnianie przez TOTP</li>
       <li xml:lang="pt">Autenticação em dois-passos por TOTP</li>
@@ -528,6 +546,7 @@
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
       <li xml:lang="id">Dua faktor autentikasi via email</li>
       <li xml:lang="it">Autenticazione a due fattori tramite posta elettronica</li>
+      <li xml:lang="ka">2FA-ი ელფოსტით</li>
       <li xml:lang="nl">Twee-factor-authenticatie via e-mail</li>
       <li xml:lang="pl">Dwuskładnikowe uwierzytelnianie przez pocztę</li>
       <li xml:lang="pt">Autenticação em dois-passos por e-mail</li>
@@ -585,6 +604,7 @@
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
     <p xml:lang="id">Fitur ekstra:</p>
     <p xml:lang="it">Funzionalità aggiuntive:</p>
+    <p xml:lang="ka">დამატებითი ფუნქციები:</p>
     <p xml:lang="nl">Extra mogelijkheden:</p>
     <p xml:lang="pl">Dodatkowe możliwości:</p>
     <p xml:lang="pt">Funcionalidades extra:</p>
@@ -654,6 +674,7 @@
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
       <li xml:lang="id">Tandai Semua Kanal yang dibaca</li>
       <li xml:lang="it">Marca tutti i canali come letti</li>
+      <li xml:lang="ka">ყველა არხის წაკითხულად დაყენება</li>
       <li xml:lang="nl">Alle kanalen markeren als gelezen</li>
       <li xml:lang="pl">Oznacz wszystkie kanały jako przeczytane</li>
       <li xml:lang="pt">Marcação de todos os canais como lidos</li>
@@ -671,6 +692,7 @@
       <li xml:lang="fr">Ajouter un historique de notifications</li>
       <li xml:lang="id">Menambahkan histori notifikasi</li>
       <li xml:lang="it">Aggiunge la cronologia delle notifiche</li>
+      <li xml:lang="ka">გაფრთხილებების ისტორიის დამაება</li>
       <li xml:lang="nl">Geschiedenis van meldingen toevoegen</li>
       <li xml:lang="pl">Dodanie historii powiadomień</li>
       <li xml:lang="pt">Adição do histórico de notificações</li>
@@ -736,6 +758,7 @@
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
       <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
       <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
+      <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
