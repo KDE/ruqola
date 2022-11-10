@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-09 00:47+0000\n"
-"PO-Revision-Date: 2022-11-08 20:48+0300\n"
+"POT-Creation-Date: 2022-11-10 00:46+0000\n"
+"PO-Revision-Date: 2022-11-09 11:30+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -776,7 +776,7 @@ msgid "UserName"
 msgstr "Kullanıcı Adı"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3570,95 +3570,101 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Yönetici Sunucu Ayarları - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "İleti"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Dosya Karşıya Yükle"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #, kde-format
 msgid "Retention Policy"
 msgstr "Tutma Politikası"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, kde-format
 msgid "General"
 msgstr "Genel"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Hız Sınırlayıcı"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Parola"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Konferans"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "IRC Federation"
 msgstr "IRC Yönetimi"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "Layout"
 msgstr "Yerleşim"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Kurumsal"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "User Data Download"
 msgstr "Kullanıcı Verisi İndirme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Slack Köprüsü"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #, kde-format
 msgid "Logs"
 msgstr "Günlükler"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/dialogs/configurenotificationwidget.cpp:77
+#, kde-format
+msgid "Mobile"
+msgstr "Taşınabilir"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -3798,10 +3804,9 @@ msgid "Email Address Changed"
 msgstr "E-posta Adresi Değiştirildi"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Invalid integration"
+#, kde-format
 msgid "Invitation"
-msgstr "Geçersiz tümleştirme"
+msgstr "Davet"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4081,10 +4086,11 @@ msgid ""
 "message from the Rocket.Cat bot,\n"
 "both visible only for administrators."
 msgstr ""
-"Rocket.Chat geliştiricilerinden gelen güncellemeleri ve önemli iletileri\n"
+"Rocket.Chat geliştiricilerinden gelen güncellemeleri ve önemli iletileri "
 "kendiliğinden denetler ve kullanılabilir olduğunda bildirim gösterir.\n"
-"Bildirim, her yeni sürüm başına yalnızca yöneticilere özgü tıklanabilir\n"
-"bir şerit ve Rocket.Chat botundan bir ileti olarak görünür."
+"\n"
+"Bildirim, her yeni sürüm başına yalnızca yöneticilere özgü tıklanabilir bir "
+"şerit ve Rocket.Chat botundan bir ileti olarak görünür."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -4510,6 +4516,40 @@ msgstr "Ses İletisi"
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Ses İletisi Bit Hızı"
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
+#, kde-format
+msgid "Allow Save Media to Gallery"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
+#, kde-format
+msgid "Force screen lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
+#, kde-format
+msgid "Screen Lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
+#, kde-format
+msgid ""
+"When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
+"the app."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The time to request password again after the finish of the latest session, "
+"in seconds."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
+#, kde-format
+msgid "Force Screen Lock After"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -5436,11 +5476,6 @@ msgstr "Alarm:"
 #, kde-format
 msgid "Sound:"
 msgstr "Ses:"
-
-#: widgets/dialogs/configurenotificationwidget.cpp:77
-#, kde-format
-msgid "Mobile"
-msgstr "Taşınabilir"
 
 #: widgets/dialogs/confirmpassworddialog.cpp:18
 #, kde-format

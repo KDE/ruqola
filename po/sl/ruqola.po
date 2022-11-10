@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-09 00:47+0000\n"
-"PO-Revision-Date: 2022-11-08 11:05+0100\n"
+"POT-Creation-Date: 2022-11-10 00:46+0000\n"
+"PO-Revision-Date: 2022-11-09 08:41+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -779,7 +779,7 @@ msgid "UserName"
 msgstr "Uporabniško ime"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3591,95 +3591,101 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Skrbnikove nastavitev strežnika - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Accounts"
 msgstr "Računi"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Prenašanje datoteke navzgor"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #, kde-format
 msgid "Retention Policy"
 msgstr "Politika ohranjanja"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, kde-format
 msgid "General"
 msgstr "Splošno"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Omejilnik hitrosti"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Geslo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konferenca"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "IRC Federation"
 msgstr "IRC Federation"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "Layout"
 msgstr "Razpored"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Podjetje"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "User Data Download"
 msgstr "Prenos uporabniških podatkov"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Slack Bridge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #, kde-format
 msgid "Logs"
 msgstr "Dnevniki"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/dialogs/configurenotificationwidget.cpp:77
+#, kde-format
+msgid "Mobile"
+msgstr "Mobilni telefon"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -3820,10 +3826,9 @@ msgid "Email Address Changed"
 msgstr "Naslov elektronske pošte se je spremenil"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Invalid integration"
+#, kde-format
 msgid "Invitation"
-msgstr "Neveljavna integracija"
+msgstr "Povabilo"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4530,6 +4535,40 @@ msgstr "Zvočno sporočilo"
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Bitna hitrost zvočnega sporočila"
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
+#, kde-format
+msgid "Allow Save Media to Gallery"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
+#, kde-format
+msgid "Force screen lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
+#, kde-format
+msgid "Screen Lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
+#, kde-format
+msgid ""
+"When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
+"the app."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The time to request password again after the finish of the latest session, "
+"in seconds."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
+#, kde-format
+msgid "Force Screen Lock After"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -5458,11 +5497,6 @@ msgstr "Opozorilo:"
 #, kde-format
 msgid "Sound:"
 msgstr "Zvok:"
-
-#: widgets/dialogs/configurenotificationwidget.cpp:77
-#, kde-format
-msgid "Mobile"
-msgstr "Mobilni telefon"
 
 #: widgets/dialogs/confirmpassworddialog.cpp:18
 #, kde-format

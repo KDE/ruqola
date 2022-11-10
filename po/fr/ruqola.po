@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-09 00:47+0000\n"
+"POT-Creation-Date: 2022-11-10 00:46+0000\n"
 "PO-Revision-Date: 2022-10-30 14:31+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -774,7 +774,7 @@ msgid "UserName"
 msgstr "Nom d'utilisateur"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3616,95 +3616,101 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuration d'administration du serveur - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
 #, kde-format
 msgid "Encryption"
 msgstr "Chiffrement"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Message"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Envoi de fichiers"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #, kde-format
 msgid "Retention Policy"
 msgstr "Stratégie de rétention"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #, kde-format
 msgid "General"
 msgstr "Général"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limiteur de taux"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Mot de passe"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "Video Conference"
 msgstr "Vidéo conférence"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "IRC Federation"
 msgstr "Fédération « IRC »"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "Layout"
 msgstr "Disposition"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Enterprise"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "User Data Download"
 msgstr "Téléchargement des données de l'utilisateur"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Slack Bridge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #, kde-format
 msgid "Logs"
 msgstr "Journaux"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/dialogs/configurenotificationwidget.cpp:77
+#, kde-format
+msgid "Mobile"
+msgstr "Mobile"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -4577,6 +4583,40 @@ msgstr "Message audio"
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Débit binaire des messages audio"
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
+#, kde-format
+msgid "Allow Save Media to Gallery"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
+#, kde-format
+msgid "Force screen lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
+#, kde-format
+msgid "Screen Lock"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
+#, kde-format
+msgid ""
+"When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
+"the app."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The time to request password again after the finish of the latest session, "
+"in seconds."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
+#, kde-format
+msgid "Force Screen Lock After"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -5516,11 +5556,6 @@ msgstr "Alerte :"
 #, kde-format
 msgid "Sound:"
 msgstr "Son :"
-
-#: widgets/dialogs/configurenotificationwidget.cpp:77
-#, kde-format
-msgid "Mobile"
-msgstr "Mobile"
 
 #: widgets/dialogs/confirmpassworddialog.cpp:18
 #, kde-format
