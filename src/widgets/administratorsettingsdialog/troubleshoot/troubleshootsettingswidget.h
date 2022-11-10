@@ -22,4 +22,8 @@ private:
     QCheckBox *const mDisablePresenceBroadcast;
     QCheckBox *const mDisableInstanceBroadcast;
     QCheckBox *const mDisableSessionsMonitor;
+    QCheckBox *const mDisableLivechatActivityMonitor;
+    QCheckBox *const mDisableStatisticsGenerator;
+    QCheckBox *const mDisableDataExporterProcessor;
+    QCheckBox *const mDisableWorkspaceSync;
 };
