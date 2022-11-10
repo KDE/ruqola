@@ -19,4 +19,7 @@ public:
 
 private:
     QCheckBox *const mDisableNotifications;
+    QCheckBox *const mDisablePresenceBroadcast;
+    QCheckBox *const mDisableInstanceBroadcast;
+    QCheckBox *const mDisableSessionsMonitor;
 };
