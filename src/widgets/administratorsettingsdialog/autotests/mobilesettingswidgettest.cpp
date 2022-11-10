@@ -42,6 +42,6 @@ void MobileSettingsWidgetTest::shouldHaveDefaultValues()
     auto mForceScreenLockAfter = w.findChild<QSpinBox *>(QStringLiteral("mForceScreenLockAfter"));
     QVERIFY(mForceScreenLockAfter);
     QVERIFY(!mForceScreenLockAfter->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForceScreenLockAfter), QStringLiteral("SMTP_Port"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("SMTP_Port"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mForceScreenLockAfter), QStringLiteral("Force_Screen_Lock_After"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Force_Screen_Lock_After"));
 }

@@ -141,7 +141,7 @@ EmailSettingsWidget::EmailSettingsWidget(RocketChatAccount *account, QWidget *pa
     addPlainTextEdit(i18n("Body"), mEmailAddressChangedBody, QStringLiteral("Email_Changed_Email"));
 
     auto invitationLabel = createBoldLabel(i18n("Invitation"));
-    emailAddressChangedLabel->setObjectName(QStringLiteral("invitationLabel"));
+    invitationLabel->setObjectName(QStringLiteral("invitationLabel"));
     mMainLayout->addWidget(invitationLabel);
 
     mInvitationSubject->setObjectName(QStringLiteral("mInvitationSubject"));
