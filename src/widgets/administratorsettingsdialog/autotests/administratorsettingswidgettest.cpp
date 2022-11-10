@@ -22,6 +22,7 @@
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
 #include "administratorsettingsdialog/slackbridge/slackbridgewidget.h"
+#include "administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.h"
 #include "administratorsettingsdialog/userdatadownload/userdatadownloadwidget.h"
 #include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
@@ -102,4 +103,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mMobileSettingsWidget = w.findChild<MobileSettingsWidget *>(QStringLiteral("mMobileSettingsWidget"));
     QVERIFY(mMobileSettingsWidget);
+
+    auto mTroubleshootSettingsWidget = w.findChild<TroubleshootSettingsWidget *>(QStringLiteral("mTroubleshootSettingsWidget"));
+    QVERIFY(mTroubleshootSettingsWidget);
 }

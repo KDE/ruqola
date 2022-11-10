@@ -23,6 +23,7 @@
 #include "rocketchataccount.h"
 #include "rocketchatbackend.h"
 #include "slackbridge/slackbridgewidget.h"
+#include "troubleshoot/troubleshootsettingswidget.h"
 #include "userdatadownload/userdatadownloadwidget.h"
 #include "videoconference/videoconferencewidget.h"
 #include "webdav/webdavsettingswidget.h"
@@ -53,6 +54,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mLogsSettingsWidget(new LogsSettingsWidget(account, this))
     , mEmailSettingsWidget(new EmailSettingsWidget(account, this))
     , mMobileSettingsWidget(new MobileSettingsWidget(account, this))
+    , mTroubleshootSettingsWidget(new TroubleshootSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -81,6 +83,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mLogsSettingsWidget->setObjectName(QStringLiteral("mLogsSettingsWidget"));
     mEmailSettingsWidget->setObjectName(QStringLiteral("mEmailSettingsWidget"));
     mMobileSettingsWidget->setObjectName(QStringLiteral("mMobileSettingsWidget"));
+    mTroubleshootSettingsWidget->setObjectName(QStringLiteral("mTroubleshootSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -100,6 +103,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mLogsSettingsWidget, i18n("Logs"));
     mTabWidget->addTab(mEmailSettingsWidget, i18n("Email"));
     mTabWidget->addTab(mMobileSettingsWidget, i18n("Mobile"));
+    mTabWidget->addTab(mTroubleshootSettingsWidget, i18n("Troubleshoot"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -145,6 +149,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mLogsSettingsWidget, mapSettings);
     initializeValues(mEmailSettingsWidget, mapSettings);
     initializeValues(mMobileSettingsWidget, mapSettings);
+    initializeValues(mTroubleshootSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -173,4 +178,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mLogsSettingsWidget->setEnabled(state);
     mEmailSettingsWidget->setEnabled(state);
     mMobileSettingsWidget->setEnabled(state);
+    mTroubleshootSettingsWidget->setEnabled(state);
 }
