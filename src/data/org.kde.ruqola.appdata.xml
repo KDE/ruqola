@@ -651,7 +651,7 @@
       <li xml:lang="x-test">xxDnd image from ruqola to website or local folderxx</li>
       <li>Store message in local database so we can search in offline</li>
       <li xml:lang="ca">Emmagatzema el missatge a la base de dades local perquè es pugui cercar fora de línia</li>
-      <li xml:lang="ca-valencia">Emmagatzema el missatge a la base de dades local perquè es puga buscar fora de línia</li>
+      <li xml:lang="ca-valencia">Emmagatzema el missatge en la base de dades local perquè es puga buscar fora de línia</li>
       <li xml:lang="en-GB">Store message in local database so we can search in offline</li>
       <li xml:lang="es">Almacenar mensaje en la base de datos local para que pueda ser buscado sin conexión</li>
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
