@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:46+0000\n"
+"POT-Creation-Date: 2022-11-11 00:45+0000\n"
 "PO-Revision-Date: 2022-09-15 15:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -780,7 +780,7 @@ msgid "UserName"
 msgstr "Nazwa użytkownika"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3605,101 +3605,106 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Ustawienia administratora serwera - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #, kde-format
 msgid "Accounts"
 msgstr "Konta"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #, kde-format
 msgid "Encryption"
 msgstr "Szyfrowanie"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Wiadomość"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Wysłanie pliku"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #, kde-format
 msgid "Retention Policy"
 msgstr "Zasady przechowywania"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "General"
 msgstr "Ogólne"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Ogranicznik szybkości"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Hasło"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "Video Conference"
 msgstr "Wideokonferencja"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federacja IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "LDAP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Layout"
 msgstr "Układ"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Firmowe"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #, kde-format
 msgid "User Data Download"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "Slack Bridge"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #, kde-format
 msgid "Logs"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Komórka"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#, kde-format
+msgid "Troubleshoot"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, fuzzy, kde-format
@@ -4973,6 +4978,100 @@ msgstr ""
 msgid "Exclude Bots"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
+#, fuzzy, kde-format
+#| msgid "Disable Notifications:"
+msgid "Disable Notifications"
+msgstr "Wyłącz powiadomienia:"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
+#, kde-format
+msgid "Disable Presence Broadcast"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
+#, kde-format
+msgid "Disable Instance Broadcast"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
+#, kde-format
+msgid "Disable Sessions Monitor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
+#, kde-format
+msgid "Disable Livechat Activity Monitor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Disable Notification"
+msgid "Disable Statistics Generator"
+msgstr "Wyłącz powiadomienie"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
+#, kde-format
+msgid "Disable Data Exporter Processor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
+#, kde-format
+msgid "Disable Workspace Sync"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
+#, kde-format
+msgid ""
+"This setting completely disables the notifications system; sounds, desktop "
+"notifications, mobile notifications, and emails will stop!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
+#, kde-format
+msgid ""
+"This setting prevents all instances form sending the status changes of the "
+"users to their clients keeping all the users with their presence status from "
+"the first load!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
+#, kde-format
+msgid ""
+"This setting prevents the Rocket.Chat instances from sending events to the "
+"other instances, it may cause syncing problems and misbehavior!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#, kde-format
+msgid ""
+"This setting stops the processing of livechat visitor sessions causing the "
+"statistics to stop working correctly!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#, kde-format
+msgid ""
+"This setting stops the processing all statistics making the info page "
+"outdated until someone clicks on the refresh button and may cause other "
+"missing information around the system!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
+#, kde-format
+msgid ""
+"This setting stops the processing of all export requests from users, so they "
+"will not receive the link to download their data!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
+#, kde-format
+msgid ""
+"This setting stops the sync of this server with Rocket.Chat's cloud and may "
+"cause issues with marketplace and enteprise licenses!"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Enable system tray icon"
@@ -5189,22 +5288,22 @@ msgstr "Przenieś do zespołu"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Czy na pewno przekształcić na zespół? Nie będzie można tego wycofać."
 
-#: widgets/channellist/channellistwidget.cpp:39
+#: widgets/channellist/channellistwidget.cpp:48
 #, kde-format
 msgid "Filter Channels (CTRL + K)"
 msgstr "Odfiltruj kanały (Ctrl + K)"
 
-#: widgets/channellist/channellistwidget.cpp:46
+#: widgets/channellist/channellistwidget.cpp:55
 #, kde-format
 msgid "Search Channels"
 msgstr "Szukaj kanałów"
 
-#: widgets/channellist/channellistwidget.cpp:53
+#: widgets/channellist/channellistwidget.cpp:62
 #, kde-format
 msgid "Previous Channel"
 msgstr "Poprzedni kanał"
 
-#: widgets/channellist/channellistwidget.cpp:61
+#: widgets/channellist/channellistwidget.cpp:70
 #, kde-format
 msgid "Next Channel"
 msgstr "Następny kanał"
@@ -8099,9 +8198,6 @@ msgstr "Zwróć numer konta."
 
 #~ msgid "Original Message"
 #~ msgstr "Pierwotna wiadomość"
-
-#~ msgid "Disable Notifications:"
-#~ msgstr "Wyłącz powiadomienia:"
 
 #~ msgid "Mute Groups Mention:"
 #~ msgstr "Wspomnienia o grupach bez głosu:"

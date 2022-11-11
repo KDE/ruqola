@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:46+0000\n"
-"PO-Revision-Date: 2022-10-29 12:01+0200\n"
+"POT-Creation-Date: 2022-11-11 00:45+0000\n"
+"PO-Revision-Date: 2022-11-10 09:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -781,7 +781,7 @@ msgid "UserName"
 msgstr "Nom d'usuari"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -3606,101 +3606,106 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuració de l'administració del servidor - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptació"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Pujada de fitxers"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de retenció"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitador de velocitat"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Contrasenya"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federació d'IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Layout"
 msgstr "Disposició"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #, kde-format
 msgid "User Data Download"
 msgstr "Baixada de dades d'usuari"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Pont d'Slack"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #, kde-format
 msgid "Logs"
 msgstr "Registres"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Mòbil"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#, kde-format
+msgid "Troubleshoot"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -3813,7 +3818,7 @@ msgstr "Oblida la contrasenya"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Body"
-msgstr ""
+msgstr "Cos"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #, kde-format
@@ -3826,29 +3831,24 @@ msgid "Mention Email Subject"
 msgstr "Menciona l'assumpte del correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Mention Email Subject"
+#, kde-format
 msgid "Mention All Email Subject"
-msgstr "Menciona l'assumpte del correu electrònic"
+msgstr "Menciona tots els assumptes dels correus electrònics"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Verification"
-msgstr "Notificació"
+msgstr "Verificació"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
-#, fuzzy, kde-format
-#| msgid "Allow Email Change"
+#, kde-format
 msgid "Email Address Changed"
-msgstr "Permet el canvi de correu electrònic"
+msgstr "Ha canviat l'adreça de correu electrònic"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Invalid integration"
+#, kde-format
 msgid "Invitation"
-msgstr "Integració no vàlida"
+msgstr "Invitació"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -4565,17 +4565,17 @@ msgstr "Taxa de bits dels missatges d'àudio"
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Permet guardar els fitxers multimèdia a la galleria"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
 msgid "Force screen lock"
-msgstr ""
+msgstr "Força el bloqueig de la pantalla"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
 msgid "Screen Lock"
-msgstr ""
+msgstr "Bloqueig de la pantalla"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
 #, kde-format
@@ -4583,6 +4583,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"Quan està activada, obligareu els vostres usuaris a utilitzar un PIN/"
+"BIOMETRIA/CARA per a desbloquejar l'aplicació."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -4590,11 +4592,13 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"El temps per a sol·licitar la contrasenya de nou després del final de "
+"l'última sessió, en segons."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "Força el bloqueig de la pantalla després de"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -4969,6 +4973,100 @@ msgstr ""
 msgid "Exclude Bots"
 msgstr "Exclou els bots"
 
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
+#, fuzzy, kde-format
+#| msgid "Disable Notification"
+msgid "Disable Notifications"
+msgstr "Desactiva la notificació"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
+#, kde-format
+msgid "Disable Presence Broadcast"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
+#, kde-format
+msgid "Disable Instance Broadcast"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
+#, kde-format
+msgid "Disable Sessions Monitor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
+#, kde-format
+msgid "Disable Livechat Activity Monitor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Disable Notification"
+msgid "Disable Statistics Generator"
+msgstr "Desactiva la notificació"
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
+#, kde-format
+msgid "Disable Data Exporter Processor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
+#, kde-format
+msgid "Disable Workspace Sync"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
+#, kde-format
+msgid ""
+"This setting completely disables the notifications system; sounds, desktop "
+"notifications, mobile notifications, and emails will stop!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
+#, kde-format
+msgid ""
+"This setting prevents all instances form sending the status changes of the "
+"users to their clients keeping all the users with their presence status from "
+"the first load!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
+#, kde-format
+msgid ""
+"This setting prevents the Rocket.Chat instances from sending events to the "
+"other instances, it may cause syncing problems and misbehavior!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
+#, kde-format
+msgid ""
+"This setting stops the processing of livechat visitor sessions causing the "
+"statistics to stop working correctly!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
+#, kde-format
+msgid ""
+"This setting stops the processing all statistics making the info page "
+"outdated until someone clicks on the refresh button and may cause other "
+"missing information around the system!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
+#, kde-format
+msgid ""
+"This setting stops the processing of all export requests from users, so they "
+"will not receive the link to download their data!"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
+#, kde-format
+msgid ""
+"This setting stops the sync of this server with Rocket.Chat's cloud and may "
+"cause issues with marketplace and enteprise licenses!"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
 msgid "Enable User Data Download"
@@ -5182,22 +5280,22 @@ msgstr "Mou a un equip"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
 
-#: widgets/channellist/channellistwidget.cpp:39
+#: widgets/channellist/channellistwidget.cpp:48
 #, kde-format
 msgid "Filter Channels (CTRL + K)"
 msgstr "Filtre de canals (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:46
+#: widgets/channellist/channellistwidget.cpp:55
 #, kde-format
 msgid "Search Channels"
 msgstr "Busca de canals"
 
-#: widgets/channellist/channellistwidget.cpp:53
+#: widgets/channellist/channellistwidget.cpp:62
 #, kde-format
 msgid "Previous Channel"
 msgstr "Canal anterior"
 
-#: widgets/channellist/channellistwidget.cpp:61
+#: widgets/channellist/channellistwidget.cpp:70
 #, kde-format
 msgid "Next Channel"
 msgstr "Canal següent"
