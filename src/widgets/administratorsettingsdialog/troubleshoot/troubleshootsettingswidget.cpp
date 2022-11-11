@@ -67,7 +67,7 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     mDisableWorkspaceSync->setObjectName(QStringLiteral("mDisableWorkspaceSync"));
     mMainLayout->addWidget(mDisableWorkspaceSync);
     mDisableWorkspaceSync->setToolTip(
-        i18n("This setting stops the sync of this server with Rocket.Chat's cloud and may cause issues with marketplace and enteprise licenses!"));
+        i18n("This setting stops the sync of this server with Rocket.Chat's cloud and may cause issues with marketplace and enterprise licenses!"));
     connectCheckBox(mDisableWorkspaceSync, QStringLiteral("Troubleshoot_Disable_Workspace_Sync"));
 }
 
