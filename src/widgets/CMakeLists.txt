@@ -165,6 +165,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.h
     administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp
 
+    administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp
+    administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
