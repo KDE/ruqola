@@ -29,7 +29,7 @@ TroubleshootSettingsWidget::TroubleshootSettingsWidget(RocketChatAccount *accoun
     mDisablePresenceBroadcast->setObjectName(QStringLiteral("mDisablePresenceBroadcast"));
     mMainLayout->addWidget(mDisablePresenceBroadcast);
     mDisablePresenceBroadcast->setToolTip(
-        i18n("This setting prevents all instances form sending the status changes of the users to their clients keeping all the users with their presence "
+        i18n("This setting prevents all instances from sending the status changes of the users to their clients keeping all the users with their presence "
              "status from the first load!"));
     connectCheckBox(mDisablePresenceBroadcast, QStringLiteral("Troubleshoot_Disable_Presence_Broadcast"));
 
