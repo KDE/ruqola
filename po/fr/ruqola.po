@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:45+0000\n"
-"PO-Revision-Date: 2022-11-09 20:31+0100\n"
+"POT-Creation-Date: 2022-11-12 00:47+0000\n"
+"PO-Revision-Date: 2022-11-10 22:06+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -4587,17 +4587,17 @@ msgstr "Débit binaire des messages audio"
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Autoriser l'enregistrement de média dans la galerie"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
 msgid "Force screen lock"
-msgstr ""
+msgstr "Forcer le verrouillage d'écran"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
 msgid "Screen Lock"
-msgstr ""
+msgstr "Verrouillage d'écran"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
 #, kde-format
@@ -4605,6 +4605,9 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"Si cette option est activée, vous forcerez vos utilisateurs à utiliser un "
+"code « PIN » / un élément biométrique / un élément « FACEID » pour dé-"
+"verrouiller l'application."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -4612,11 +4615,13 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"La durée exprimée en secondes pour une nouvelle demande de mot de passe "
+"après la fin de la dernière session."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "Forcer le verrouillage d'écran ultérieurement"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -5046,7 +5051,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
 msgid ""
-"This setting prevents all instances form sending the status changes of the "
+"This setting prevents all instances from sending the status changes of the "
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
@@ -5085,7 +5090,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
-"cause issues with marketplace and enteprise licenses!"
+"cause issues with marketplace and enterprise licenses!"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16

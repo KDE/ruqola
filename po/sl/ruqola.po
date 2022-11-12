@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:45+0000\n"
-"PO-Revision-Date: 2022-11-09 08:41+0100\n"
+"POT-Creation-Date: 2022-11-12 00:47+0000\n"
+"PO-Revision-Date: 2022-11-11 10:04+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -4991,7 +4991,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
 msgid ""
-"This setting prevents all instances form sending the status changes of the "
+"This setting prevents all instances from sending the status changes of the "
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
@@ -5030,7 +5030,7 @@ msgstr ""
 #, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
-"cause issues with marketplace and enteprise licenses!"
+"cause issues with marketplace and enterprise licenses!"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-11 00:45+0000\n"
-"PO-Revision-Date: 2022-11-10 14:36+0200\n"
+"POT-Creation-Date: 2022-11-12 00:47+0000\n"
+"PO-Revision-Date: 2022-11-11 17:57+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -3705,7 +3705,7 @@ msgstr "Мобільний"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Troubleshoot"
-msgstr ""
+msgstr "Діагностика проблем"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -4976,46 +4976,44 @@ msgid "Exclude Bots"
 msgstr "Виключити ботів"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "Disable Notifications:"
+#, kde-format
 msgid "Disable Notifications"
-msgstr "Вимкнення сповіщень:"
+msgstr "Вимкнути сповіщення"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
 #, kde-format
 msgid "Disable Presence Broadcast"
-msgstr ""
+msgstr "Вимкнути трансляцію присутності"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "Вимкнути трансляцію екземпляра"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
 msgid "Disable Sessions Monitor"
-msgstr ""
+msgstr "Вимкнути монітор сеансів"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Вимкнути інтерактивний монітор дій"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Disable Notification"
+#, kde-format
 msgid "Disable Statistics Generator"
-msgstr "Вимкнення сповіщень"
+msgstr "Вимкнути генератор статистики"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
 #, kde-format
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "Вимкнути обробник експортування даних"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Вимкнути синхронізацію робочого простору"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -5023,14 +5021,24 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Цей пункт повністю вимикає систему сповіщень; не працюватимуть звуки, "
+"сповіщення стільниці, сповіщення на мобільних пристроях та сповіщення "
+"електронною поштою!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting prevents all instances form sending the status changes of "
+#| "the users to their clients keeping all the users with their presence "
+#| "status from the first load!"
 msgid ""
-"This setting prevents all instances form sending the status changes of the "
+"This setting prevents all instances from sending the status changes of the "
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Цей пункт забороняє усім екземплярам надсилати дані щодо зміни стану "
+"користувачів до клієнтів, зберігаючи повідомлення щодо стану присутності "
+"користувачів, які було встановлено під час першого завантаження!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -5039,6 +5047,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Цей пункт забороняє екземплярам Rocket.Chat надсилати повідомлення про події "
+"до інших екземплярів. Може спричинити проблеми із синхронізацією та "
+"поведінкою програм!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -5046,6 +5057,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Цей пункт припиняє обробку інтерактивних сеансів, порушуючи роботу обробника "
+"статистики!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -5054,6 +5067,9 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Цей пункт припиняє обробку усіх статистичних даних, роблячи сторінку "
+"відомостей застарілою, аж доки хтось не натисне кнопку оновлення даних. Може "
+"спричинити нестачу інформації в інших місцях системи!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -5061,13 +5077,21 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Цей пункт вимикає обробку усіх запитів щодо експортування від користувачів, "
+"тобто не дає їм отримати посилання для отримання власних даних!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This setting stops the sync of this server with Rocket.Chat's cloud and "
+#| "may cause issues with marketplace and enteprise licenses!"
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
-"cause issues with marketplace and enteprise licenses!"
+"cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Цей пункт припиняє синхронізацію цього сервера із «хмарою» Rocket.Chat і "
+"може призвести до проблем із ліцензуванням торговельних та промислових "
+"майданчиків!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
