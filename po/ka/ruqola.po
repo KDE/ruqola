@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-12 00:47+0000\n"
-"PO-Revision-Date: 2022-11-09 06:29+0100\n"
+"PO-Revision-Date: 2022-11-12 05:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1415,17 +1415,17 @@ msgstr "Bing"
 #: core/translatetext/engine/bingtranslator.cpp:62
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr ""
+msgstr "შეცდომა: ვებ ვერსიაში Bing-ის ავტორიზაციის დეტალები ვერ ვიპოვე."
 
 #: core/translatetext/engine/bingtranslator.cpp:70
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
-msgstr ""
+msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის გასაღების გამოღება შეუძლებელია."
 
 #: core/translatetext/engine/bingtranslator.cpp:79
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
-msgstr ""
+msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის კოდის გამოღება შეუძლებელია."
 
 #: core/translatetext/engine/bingtranslator.cpp:88
 #: core/translatetext/engine/bingtranslator.cpp:97
@@ -1837,7 +1837,7 @@ msgstr "ტექსტის გაზიარება..."
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "პრობლემა დოკუმენტის გაზიარებისას: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
@@ -3651,7 +3651,7 @@ msgstr "მობაილი"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Troubleshoot"
-msgstr ""
+msgstr "პრობლემების პოვნა"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -4461,7 +4461,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
 msgid "Screen Lock"
-msgstr ""
+msgstr "ეკრანის დაბლოკვა"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
 #, kde-format
@@ -4835,10 +4835,9 @@ msgid "Exclude Bots"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Disable Notifications"
-msgstr "გაფრთხილებები"
+msgstr "შეტყობინებების გამორთვა"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
 #, kde-format

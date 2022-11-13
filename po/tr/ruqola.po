@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-12 00:47+0000\n"
-"PO-Revision-Date: 2022-11-11 20:21+0300\n"
+"PO-Revision-Date: 2022-11-12 19:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4974,11 +4974,7 @@ msgstr ""
 "bildirimler; taşınabilir bildirimler ve e-postalar duracaktır!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting prevents all instances form sending the status changes of "
-#| "the users to their clients keeping all the users with their presence "
-#| "status from the first load!"
+#, kde-format
 msgid ""
 "This setting prevents all instances from sending the status changes of the "
 "users to their clients keeping all the users with their presence status from "
@@ -5028,10 +5024,7 @@ msgstr ""
 "durdurur; böylece verilerini indirmek için bir indirme bağlantısı alamazlar!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "This setting stops the sync of this server with Rocket.Chat's cloud and "
-#| "may cause issues with marketplace and enteprise licenses!"
+#, kde-format
 msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"

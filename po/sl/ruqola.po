@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-12 00:47+0000\n"
-"PO-Revision-Date: 2022-11-11 10:04+0100\n"
+"PO-Revision-Date: 2022-11-12 09:28+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3690,7 +3690,7 @@ msgstr "Mobilni telefon"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Troubleshoot"
-msgstr ""
+msgstr "Išči napake"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -4544,17 +4544,17 @@ msgstr "Bitna hitrost zvočnega sporočila"
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Dovoli shranjevanje medijev v galerijo"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
 msgid "Force screen lock"
-msgstr ""
+msgstr "Prisili zaklep zaslona"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
 msgid "Screen Lock"
-msgstr ""
+msgstr "Zaklep zaslona"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
 #, kde-format
@@ -4562,18 +4562,20 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"Kadar je omogočeno boste prisilili uporabnike v uporabo PINa/BIOMETRIJE/"
+"PREPOZNAVO OBRAZA za odklepanje aplikacije."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
-msgstr ""
+msgstr "Čas za ponovno zahtevo gesla po zaključku zadnje seje v sekundah."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "Prisili zaklep zaslona po"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -4940,46 +4942,44 @@ msgid "Exclude Bots"
 msgstr "Izvzemi bote"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "Disable Notification"
+#, kde-format
 msgid "Disable Notifications"
-msgstr "Onemogoči obveščanje"
+msgstr "Onemogoči obvestila"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
 #, kde-format
 msgid "Disable Presence Broadcast"
-msgstr ""
+msgstr "Onemogoči objavo prisotnosti"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "Onemogoči objavo pojavka"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
 msgid "Disable Sessions Monitor"
-msgstr ""
+msgstr "Onemogoči monitorja sej"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Onemogoči monitorja dejavnosti aktivnih klepetov"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Disable Notification"
+#, kde-format
 msgid "Disable Statistics Generator"
-msgstr "Onemogoči obveščanje"
+msgstr "Onemogoči generator statistike"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
 #, kde-format
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "Onemogoči procesor izvoza podatkov"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Onemogoči sinhronizacijo delovnega prostora"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -4987,6 +4987,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Ta nastavitev popolnoma onemogoča sistem obveščanja: zvoki, obvestila "
+"namizja, mobilna obvestila in elektronska pošta se bodo ustavil!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -4995,6 +4997,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Ta nastavitev preprečuje vsem pojavkom pošiljanje sprememb stanja "
+"uporabnikov njihovim odjemalcem in tako ohranjanje vseh uporabnikov v stanju "
+"začetnega nalaganja!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -5003,6 +5008,8 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Ta nastavitev preprečuje pojavkom Rocket.Chata pošiljanje dogodkov drugi "
+"pojavkom, to lahko povzroča probleme sinhronizacije in čudno obnašanje!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -5010,6 +5017,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Ta nastavitev ustavi obdelave obiskovalcev klepeta v živo, kar povzroči, da "
+"statistika ne deluje pravilno!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -5018,6 +5027,9 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Ta nastavitev ustavi obdelovanje vseh statistik, kar povzroči, da je "
+"informativna stran neažurna dokler nekdo ne klikne gumba za osveževanje in "
+"povzroči druge manjkajoče informacije okoli sistema!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -5025,6 +5037,8 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Ta nastavitev ustavi obdelavo vseh zahtevkov uporabnikov za izvoz, tako da "
+"ne bodo prejeli povezav za prenos njihovih podatkov!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -5032,6 +5046,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Ta nastavitev ustavi sinhronizacijo tega strežnika z oblakom Rocket.Chat in "
+"lahko povzroči težave z dovoljenji trga in podjetja!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
