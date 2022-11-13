@@ -1,0 +1,11 @@
+#SPDX-License-Identifier: GPL-2.0-or-later
+#SPDX-FileCopyrightText: none
+File=pimcommonautocorrection.kcfg
+ClassName=PimCommonAutoCorrectionSettingsBase
+NameSpace=PimCommonAutoCorrection
+Visibility=PIMCOMMONAUTOCORRECTION_EXPORT
+Mutators=true
+Singleton=true
+ItemAccessors=true
+IncludeFiles=qapplication.h,pimcommonautocorrection/pimcommonautocorrection_export.h
+
