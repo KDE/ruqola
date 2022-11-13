@@ -222,6 +222,7 @@
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
       <li xml:lang="id">Dukungan perpesanan utas</li>
       <li xml:lang="it">Supporto per messaggi di conversazioni</li>
+      <li xml:lang="ka">ნაკადური შეტყობინებების მხარდაჭერა</li>
       <li xml:lang="nl">Discussiebundeling van bericht wordt ondersteund</li>
       <li xml:lang="pl">Obsługa wiadomości w wątkach</li>
       <li xml:lang="pt">Suporte para mensagens por tópicos</li>
@@ -348,6 +349,7 @@
       <li xml:lang="fr">Afficher la mention / la pièce jointe / le message épinglé / le message de démarrage</li>
       <li xml:lang="id">Tampilkan pesan awal/sebutan/lampiran/pesan yang disematkan</li>
       <li xml:lang="it">Mostra menzione/allegato/messaggio appuntato/messaggio iniziale</li>
+      <li xml:lang="ka">ხსენების/მიმაგრებული/მიჭიკარტებული შეტყობინების/საწყისი შეტყობინების ჩვენება</li>
       <li xml:lang="nl">Noemen tonen/bijlage/vastgezet bericht/startbericht</li>
       <li xml:lang="pl">Pokazywanie wspomnień/załączników/przypiętych wiadomości/wiadomości początkowej</li>
       <li xml:lang="pt">Mostrar as menções/anexos/mensagens fixas/mensagens iniciais</li>
@@ -402,6 +404,7 @@
       <li xml:lang="fr">Configurer la prise en charge du rôle administrateur (ajouter / supprimer des rôles, ajouter / supprimer des utilisateurs, ajouter / supprimer des permissions, configurer des salons, etc.)</li>
       <li xml:lang="id">Mengonfigurasi dukungan administrator (menambah/menghapus peran, menambah/menyingkirkan pengguna, menambah/menghapus izin, mengonfigurasi ruang, dll.)</li>
       <li xml:lang="it">Configurazione del supporto dell'amministratore (aggiungi/rimuovi ruoli, aggiungi/rimuovi utenti, aggiungi/rimuovi permessi, configura stanze ecc.)</li>
+      <li xml:lang="ka">ადმინისტრატორის მხარდაჭერის მორგება (დაამატეთ/წაშალეთ როლები, მომხმარებლები, წვდომები, მოირგეთ ოთახები და ა.შ.)</li>
       <li xml:lang="nl">Ondersteuning van configuratie door beheerder (toevoegen/verwijderen van rollen, toevoegen/verwijderen van gebruikers, toevoegen/verwijderen van rechten, rooms configureren etc.)</li>
       <li xml:lang="pl">Ustawienia obsługi administratora (dodawanie/usuwanie ról, -użytkowników, -uprawnień, ustawianie pokojów, itp.)</li>
       <li xml:lang="pt">Suporte para a configuração do administrador (adição/remoção de perfis, adição/remoção de utilizadores, adição/remoção de permissões, configuração das salas, etc.)</li>
@@ -419,6 +422,7 @@
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
       <li xml:lang="id">Dukungan OTR (dalam progres)</li>
       <li xml:lang="it">Supporto OTR (in corso)</li>
+      <li xml:lang="ka">OTR-ის მხარდაჭერა (დასრულებული არაა)</li>
       <li xml:lang="nl">Ondersteuning van OTR (werk-in-uitvoering)</li>
       <li xml:lang="pl">Obsługa OTR (w trakcie)</li>
       <li xml:lang="pt">Suporte para OTR (em curso)</li>
@@ -564,6 +568,7 @@
       <li xml:lang="fr">Prise en charge du rôle d'administrateur (Informations serveur, Salons, Statut personnalisé utilisateur, Sons personnalisés, Émoticônes personnalisées, Utilisateurs, Invitations, Journal d’affichage, Permissions, Rôles, Oauth), Paramètres d'administration (Message, Compte, Politique de rétention, Envoi de fichiers, Chiffrement)</li>
       <li xml:lang="id">Dukungan administrator (Info Server, Ruangan, Status Pengguna Kustom, Suara Kustom, Emoji Kustom, Pengguna, Undangan, Lihat Log, Izin, Peran, Oauth), Pengaturan Administrator (Pesan, Akun, Kebijakan Retensi, Unggah File, Enkripsi)</li>
       <li xml:lang="it">Supporto amministratore (informazioni server, stanze, stato utente personalizzato, suoni personalizzati, emoji personalizzati, utenti, inviti, visualizza registro, permessi, ruoli, Oauth), Impostazioni amministratore (messaggio, account, criteri di conservazione, caricamento file, cifratura)</li>
+      <li xml:lang="ka">ადმინისტრატორის მხარდაჭერა (სერვერის ინფორმაცია, ოთახები, მომხმარებლის მორგებული სტატუსი, ხმების ხელით მითითება, ემოჯიების ხელით მითითება, მომხმარებლები, მოსაწვევები, ჟურნალის ნახვა, წვდომები, როლები, OAuth) და ადმინისტრატორის პარამეტრები (შეტყობინება, ანგარიში, შენახვის პოლიტიკა, ფაილის ატვირთვა, დაშიფვრა)</li>
       <li xml:lang="nl">Ondersteuning van beheerder (Serverinformatie, Rooms, Aangepaste status van gebruiker, Aangepaste geluiden, Aangepaste emoji, Gebruikers, Uitnodigingen, Log bekijken, Rechten, Rollen, Oauth), Instellingen van beheerder (Bericht, Account, Bewaarbeleid, Uploaden van bestanden, Versleuteling)</li>
       <li xml:lang="pl">Obsługa administratora (Szczegóły serwera, pokoje, własne stany użytkownika, własne dźwięki, własne emoji, użytkownicy, zaproszenia, oglądanie dziennika, uprawnienia, role, Oauth), Ustawienia administrator (wiadomość, konto, zasady przechowywania, wysyłanie plików, szyfrowanie)</li>
       <li xml:lang="pt">Suporte para a administração (Informação do Servidor, Salas, Estados Personalizados do Utilizador, Sons Personalizados, Ícones Emotivos Personalizados, Utilizadores, Convites, Visualização do Registo, Permissões, Perfis, OAuth) e configuração do administrador (Mensagem, Conta, Política de Retenção, Envio de Ficheiros, Encriptação)</li>
@@ -623,6 +628,7 @@
       <li xml:lang="fr">Autoriser à répondre directement au message à partir de la notification (fonctionnalités de Kde)</li>
       <li xml:lang="id">Izinkan untuk membalas langsung pesan dari notifikasi (fitur kde)</li>
       <li xml:lang="it">Consente di rispondere direttamente al messaggio dalla notifica (funzionalità di kde)</li>
+      <li xml:lang="ka">შეტყობინების გაფრთხილებიდან პასუხის შესაძლებლობის ჩართვა (KDE-ის ფუნქცია)</li>
       <li xml:lang="nl">Toestaan om directe op een bericht uit een melding te antwoorden (kde functies)</li>
       <li xml:lang="pl">Zezwala na bezpośrednie odpowiadanie na wiadomość z powiadomienia o niej (możliwe w KDE)</li>
       <li xml:lang="pt">Possibilidade de responder directamente à mensagem a partir da notificação (no KDE)</li>
@@ -640,6 +646,7 @@
       <li xml:lang="fr">Image « dnd » à partir de ruqola vers le site Internet ou vers un dossier locale</li>
       <li xml:lang="id">Gambar dnd dari ruqola ke situs atau folder lokal</li>
       <li xml:lang="it">Immagine Non disturbare da ruqola al sito web o alla cartella locale</li>
+      <li xml:lang="ka">DND გამოსახულება ruqola-დან ვებსაიტამდე ან ლოკალურ საქაღალდემდე</li>
       <li xml:lang="nl">Download afbeelding uit ruqola naar website of lokale map</li>
       <li xml:lang="pl">Obraz NiePrzeszkadzać z ruqola do strony sieciowej lub miejscowego katalogu</li>
       <li xml:lang="pt">Arrastamento de imagens do Ruqola para uma página Web ou pasta local</li>
@@ -657,6 +664,7 @@
       <li xml:lang="fr">Enregistrer un message dans la base de données locale. Ainsi, vous pouvez rechercher en configuration hors ligne.</li>
       <li xml:lang="id">Simpan pesan di database lokal sehingga kami bisa mencari secara offline</li>
       <li xml:lang="it">Memorizza il messaggio nella banca dati locale in modo da poter eseguire ricerche quando non si è in linea</li>
+      <li xml:lang="ka">შეტყობინების ლოკალურ ბაზაში შენახვა მისი ინტერნეტის გარეშე წასაკითხად</li>
       <li xml:lang="nl">Bericht in lokale database opslaan zodat we offline kunnen zoeken</li>
       <li xml:lang="pl">Przechowywanie wiadomości w miejscowej bazie danych do późniejszego wyszukiwania</li>
       <li xml:lang="pt">Armazenamento da mensagem na base de dados local, para que possa ser pesquisada mesmo sem rede</li>
@@ -710,6 +718,7 @@
       <li xml:lang="fr">Nouvelle prise en charge des informations du serveur RocketChat</li>
       <li xml:lang="id">Dukungan Informasi Server RocketChat Baru</li>
       <li xml:lang="it">Nuovo supporto per le informazioni del server RocketChat</li>
+      <li xml:lang="ka">ახალი RocketChat სერვერის ინფორმაციის მხარდაჭერა</li>
       <li xml:lang="nl">Nieuwe informatieondersteuning voor RocketChat-server</li>
       <li xml:lang="pl">Nowa obsługa szczegółów serwera RocketChat</li>
       <li xml:lang="pt">Nova Informação de Suporte do Servidor RocketChat</li>
@@ -727,6 +736,7 @@
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
       <li xml:lang="id">Kelola Peranti (RC &gt;= 5.0)</li>
       <li xml:lang="it">Gestisci dispositivo (RC &gt;= 5.0)</li>
+      <li xml:lang="ka">მოწყობილობის მართვა (RC &gt;= 5.0)</li>
       <li xml:lang="nl">Apparaat beheren (RC &gt;= 5.0)</li>
       <li xml:lang="pl">Zarządzanie urządzeniami (RC &gt;= 5.0)</li>
       <li xml:lang="pt">Gerir o Dispositivo (RC &gt;= 5.0)</li>
@@ -744,6 +754,7 @@
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="id">Kelola Token Akses Personal</li>
       <li xml:lang="it">Gestisci token di accesso personale</li>
+      <li xml:lang="ka">პირადი წვდომის კოდის მართვა</li>
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
@@ -783,6 +794,7 @@
       <caption xml:lang="ia">Sala de conversation in Ruqola</caption>
       <caption xml:lang="id">Ruang obrolan di Ruqola</caption>
       <caption xml:lang="it">Stanza di chat in Ruqola</caption>
+      <caption xml:lang="ka">ჩატის ოთახი Ruqola-ში</caption>
       <caption xml:lang="ko">Ruqola 대화방</caption>
       <caption xml:lang="nl">Chatroom in Ruqola</caption>
       <caption xml:lang="pl">Pokój rozmów w Ruqola</caption>
