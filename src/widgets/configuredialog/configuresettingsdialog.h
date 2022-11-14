@@ -19,6 +19,7 @@ class ConfigureUserFeedbackWidget;
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
 class TranslatorConfigureWidget;
+class ConfigureAutoCorrectionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
     Q_OBJECT
@@ -40,6 +41,10 @@ private:
 
     ConfigureFontWidget *const mConfigureFontWidget;
     KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
+
+    ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget;
+    KPageWidgetItem *mConfigureAutoCorrectionWidgetPage = nullptr;
+
 #if HAVE_KUSERFEEDBACK
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;

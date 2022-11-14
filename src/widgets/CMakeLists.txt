@@ -220,6 +220,8 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configurespellcheckingwidget.h
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configureuserfeedbackwidget.h
+    configuredialog/configureautocorrectionwidget.h
+    configuredialog/configureautocorrectionwidget.cpp
     delegateutils/messagedelegateutils.cpp
     delegateutils/messagedelegateutils.h
     delegateutils/textselection.cpp
@@ -667,6 +669,7 @@ target_link_libraries(libruqolawidgets
     KF5::KIOFileWidgets
     librocketchatrestapi-qt5
     libruqolacore
+    KF5PimCommonAutoCorrection
 )
 
 if (NOT WIN32 AND NOT APPLE)

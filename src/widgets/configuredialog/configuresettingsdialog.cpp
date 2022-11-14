@@ -6,6 +6,7 @@
 
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
+#include "configureautocorrectionwidget.h"
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurespellcheckingwidget.h"
@@ -33,6 +34,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureSpellCheckingWidget(new ConfigureSpellCheckingWidget(this))
     , mConfigureGeneralWidget(new ConfigureGeneralWidget(this))
     , mConfigureFontWidget(new ConfigureFontWidget(this))
+    , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
 #if HAVE_KUSERFEEDBACK
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
@@ -57,6 +59,11 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
     mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
     addPage(mConfigureFontWidgetPage);
+
+    const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
+    mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
+    // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    addPage(mConfigureAutoCorrectionWidgetPage);
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
@@ -111,6 +118,7 @@ void ConfigureSettingsDialog::slotAccepted()
     mConfigureGeneralWidget->save();
     mConfigureFontWidget->save();
     mConfigureTranslateWidget->save();
+    mConfigureAutoCorrectionWidget->save();
 }
 
 void ConfigureSettingsDialog::load()
@@ -123,4 +131,5 @@ void ConfigureSettingsDialog::load()
     mConfigureGeneralWidget->load();
     mConfigureFontWidget->load();
     mConfigureTranslateWidget->load();
+    mConfigureAutoCorrectionWidget->load();
 }

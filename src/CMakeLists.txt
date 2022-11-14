@@ -8,6 +8,7 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
    include(PySide2ModuleBuild)
 endif()
 
+# Remove it when we will split lib
 add_subdirectory(pimcommonautocorrection)
 add_subdirectory(rocketchatrestapi-qt5)
 
