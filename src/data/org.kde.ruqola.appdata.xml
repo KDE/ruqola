@@ -777,6 +777,7 @@
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
+      <li>Add support for text auto-correction</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
