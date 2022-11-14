@@ -48,7 +48,8 @@ add_library(KF5::PimCommonAutoCorrection ALIAS KF5PimCommonAutoCorrection)
 ki18n_wrap_ui(KF5PimCommonAutoCorrection
     autocorrection/ui/autocorrectionwidget.ui
     )
-ecm_qt_declare_logging_category(KF5PimCommonAutoCorrection HEADER pimcommonautocorrection_debug.h IDENTIFIER PIMCOMMONAUTOCORRECTION_LOG CATEGORY_NAME org.kde.pim.pimcommonautocorrection
+ecm_qt_declare_logging_category(KF5PimCommonAutoCorrection HEADER pimcommonautocorrection_debug.h
+    IDENTIFIER PIMCOMMONAUTOCORRECTION_LOG CATEGORY_NAME org.kde.pim.pimcommonautocorrection
         DESCRIPTION "kdepim (pimcommon AutoCorrection)"
         EXPORT PIMCOMMON
     )
@@ -118,16 +119,12 @@ target_link_libraries(KF5PimCommonAutoCorrection
 
 target_include_directories(KF5PimCommonAutoCorrection PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src;${CMAKE_BINARY_DIR}/src>")
 
-set_target_properties(KF5PimCommonAutoCorrection PROPERTIES
-    VERSION ${PIMCOMMON_VERSION}
-    SOVERSION ${PIMCOMMON_SOVERSION}
-    EXPORT_NAME PimCommonAutoCorrection
-    )
+set_target_properties(KF5PimCommonAutoCorrection
+    PROPERTIES OUTPUT_NAME ruqola-autocorrection VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
+)
 
-#install(TARGETS
-#    KF5PimCommonAutoCorrection
-#    EXPORT KF5PimCommonAutoCorrectionTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
-#    )
+install(TARGETS KF5PimCommonAutoCorrection ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+
 
 if (BUILD_TESTING)
     add_subdirectory(autocorrection/autotests)
