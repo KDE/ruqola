@@ -2,42 +2,42 @@
 # SPDX-FileCopyrightText: none
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5PimCommonAutoCorrection")
 
-if (BUILD_QCH)
-    ecm_install_qch_export(
-        TARGETS KF5PimCommonAutoCorrection_QCH
-        FILE KF5PimCommonAutoCorrectionQchTargets.cmake
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        COMPONENT Devel
-    )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5PimCommonAutoCorrectionQchTargets.cmake\")")
-endif()
+#if (BUILD_QCH)
+#    ecm_install_qch_export(
+#        TARGETS KF5PimCommonAutoCorrection_QCH
+#        FILE KF5PimCommonAutoCorrectionQchTargets.cmake
+#        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+#        COMPONENT Devel
+#    )
+#    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/KF5PimCommonAutoCorrectionQchTargets.cmake\")")
+#endif()
 
-configure_package_config_file(
-    "${CMAKE_CURRENT_SOURCE_DIR}/KF5PimCommonAutoCorrectionConfig.cmake.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfig.cmake"
-    INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
-    )
+#configure_package_config_file(
+#    "${CMAKE_CURRENT_SOURCE_DIR}/KF5PimCommonAutoCorrectionConfig.cmake.in"
+#    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfig.cmake"
+#    INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
+#    )
 
 
-ecm_setup_version(PROJECT VARIABLE_PREFIX PIMCOMMON
-    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_version.h"
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfigVersion.cmake"
-    SOVERSION 5
-    )
+#ecm_setup_version(PROJECT VARIABLE_PREFIX PIMCOMMON
+#    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_version.h"
+#    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfigVersion.cmake"
+#    SOVERSION 5
+#    )
 
-install(FILES
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfig.cmake"
-    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfigVersion.cmake"
-    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-    COMPONENT Devel
-    )
+#install(FILES
+#    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfig.cmake"
+#    "${CMAKE_CURRENT_BINARY_DIR}/KF5PimCommonAutoCorrectionConfigVersion.cmake"
+#    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+#    COMPONENT Devel
+#    )
 
-install(EXPORT KF5PimCommonAutoCorrectionTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5PimCommonAutoCorrectionTargets.cmake NAMESPACE KF5::)
+#install(EXPORT KF5PimCommonAutoCorrectionTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5PimCommonAutoCorrectionTargets.cmake NAMESPACE KF5::)
 
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_version.h
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/ COMPONENT Devel
-    )
+#install(FILES
+#    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_version.h
+#    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/ COMPONENT Devel
+#    )
 
 kconfig_add_kcfg_files(pimcommonautocorrection_settings_SRCS
     settings/pimcommonautocorrectionsetting_base.kcfgc
@@ -106,13 +106,13 @@ target_link_libraries(KF5PimCommonAutoCorrection
     KF5::ConfigWidgets
     PRIVATE
     KF5::I18n
-    KF5::Libkdepim
+    #KF5::Libkdepim
     KF5::Archive
     )
 
-target_include_directories(KF5PimCommonAutoCorrection INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/>")
+#target_include_directories(KF5PimCommonAutoCorrection INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/>")
 
-target_include_directories(KF5PimCommonAutoCorrection PUBLIC "$<BUILD_INTERFACE:${pimcommon_SOURCE_DIR}/src;${pimcommon_BINARY_DIR}/src>")
+target_include_directories(KF5PimCommonAutoCorrection PUBLIC "$<BUILD_INTERFACE:${ruqola_SOURCE_DIR}/src;${ruqola_BINARY_DIR}/src>")
 
 set_target_properties(KF5PimCommonAutoCorrection PROPERTIES
     VERSION ${PIMCOMMON_VERSION}
@@ -131,87 +131,87 @@ if (BUILD_TESTING)
 endif()
 
 
-ecm_generate_headers(PimCommon_Camelcaseautocorrectionwidgets_HEADERS
-    HEADER_NAMES
-    AutoCorrectionWidget
-    AutoCorrectionLanguage
-    SelectSpecialCharDialog
-    AutoCorrectionTextEdit
-    REQUIRED_HEADERS PimCommon_autocorrectionwidgets_HEADERS
-    PREFIX PimCommonAutoCorrection
-    RELATIVE autocorrection/widgets/
-    )
+#ecm_generate_headers(PimCommon_Camelcaseautocorrectionwidgets_HEADERS
+#    HEADER_NAMES
+#    AutoCorrectionWidget
+#    AutoCorrectionLanguage
+#    SelectSpecialCharDialog
+#    AutoCorrectionTextEdit
+#    REQUIRED_HEADERS PimCommon_autocorrectionwidgets_HEADERS
+#    PREFIX PimCommonAutoCorrection
+#    RELATIVE autocorrection/widgets/
+#    )
 
-ecm_generate_headers(PimCommon_Camelcaseautocorrection_HEADERS
-    HEADER_NAMES
-    AutoCorrection
-    AutoCorrectionSettings
-    AutoCorrectionUtils
+#ecm_generate_headers(PimCommon_Camelcaseautocorrection_HEADERS
+#    HEADER_NAMES
+#    AutoCorrection
+#    AutoCorrectionSettings
+#    AutoCorrectionUtils
 
-    REQUIRED_HEADERS PimCommon_autocorrection_HEADERS
-    PREFIX PimCommonAutoCorrection
-    RELATIVE autocorrection/
-    )
+#    REQUIRED_HEADERS PimCommon_autocorrection_HEADERS
+#    PREFIX PimCommonAutoCorrection
+#    RELATIVE autocorrection/
+#    )
 
-ecm_generate_headers(PimCommon_Camelcasesettings_HEADERS
-    HEADER_NAMES
-    PimCommonAutoCorrectionSettings
-    REQUIRED_HEADERS PimCommon_settings_HEADERS
-    PREFIX PimCommonAutoCorrection
-    RELATIVE settings
-    )
+#ecm_generate_headers(PimCommon_Camelcasesettings_HEADERS
+#    HEADER_NAMES
+#    PimCommonAutoCorrectionSettings
+#    REQUIRED_HEADERS PimCommon_settings_HEADERS
+#    PREFIX PimCommonAutoCorrection
+#    RELATIVE settings
+#    )
 
-ecm_generate_pri_file(BASE_NAME PimCommonAutoCorrection
-    LIB_NAME KF5PimCommon
-    DEPS "PimCommon" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection
-    )
-
-
-install(FILES
-    ${PimCommon_Camelcaseautocorrection_HEADERS}
-    ${PimCommon_Camelcaseautocorrectionwidgets_HEADERS}
-    ${PimCommon_Camelcasesettings_HEADERS}
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/PimCommonAutoCorrection
-    COMPONENT Devel
-    )
-
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_export.h
-    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrectionsetting_base.h
-    ${PimCommon_HEADERS}
-    ${PimCommon_autocorrection_HEADERS}
-    ${PimCommon_autocorrectionwidgets_HEADERS}
-    ${PimCommon_settings_HEADERS}
-
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/pimcommonautocorrection
-    COMPONENT Devel
-    )
-
-install(FILES
-    ${PRI_FILENAME}
-    DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+#ecm_generate_pri_file(BASE_NAME PimCommonAutoCorrection
+#    LIB_NAME KF5PimCommon
+#    DEPS "PimCommon" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection
+#    )
 
 
-if (BUILD_QCH)
-    ecm_add_qch(
-        KF5PimCommonAutoCorrection_QCH
-        NAME KF5PimCommonAutoCorrection
-        BASE_NAME KF5PimCommonAutoCorrection
-        VERSION ${PIM_VERSION}
-        ORG_DOMAIN org.kde
-        SOURCES # using only public headers, to cover only public API
-        ${PimCommon_autocorrection_HEADERS}
-        ${PimCommon_autocorrectionwidgets_HEADERS}
-        LINK_QCHS
-            Qt5Core_QCH
-            Qt5Gui_QCH
-            Qt5Widgets_QCH
-        INCLUDE_DIRS
-            ${CMAKE_CURRENT_BINARY_DIR}
-        BLANK_MACROS
-            PIMCOMMON_EXPORT
-        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
-        COMPONENT Devel
-    )
-endif()
+#install(FILES
+#    ${PimCommon_Camelcaseautocorrection_HEADERS}
+#    ${PimCommon_Camelcaseautocorrectionwidgets_HEADERS}
+#    ${PimCommon_Camelcasesettings_HEADERS}
+#    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/PimCommonAutoCorrection
+#    COMPONENT Devel
+#    )
+
+#install(FILES
+#    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrection_export.h
+#    ${CMAKE_CURRENT_BINARY_DIR}/pimcommonautocorrectionsetting_base.h
+#    ${PimCommon_HEADERS}
+#    ${PimCommon_autocorrection_HEADERS}
+#    ${PimCommon_autocorrectionwidgets_HEADERS}
+#    ${PimCommon_settings_HEADERS}
+
+#    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/pimcommonautocorrection
+#    COMPONENT Devel
+#    )
+
+#install(FILES
+#    ${PRI_FILENAME}
+#    DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
+
+
+#if (BUILD_QCH)
+#    ecm_add_qch(
+#        KF5PimCommonAutoCorrection_QCH
+#        NAME KF5PimCommonAutoCorrection
+#        BASE_NAME KF5PimCommonAutoCorrection
+#        VERSION ${PIM_VERSION}
+#        ORG_DOMAIN org.kde
+#        SOURCES # using only public headers, to cover only public API
+#        ${PimCommon_autocorrection_HEADERS}
+#        ${PimCommon_autocorrectionwidgets_HEADERS}
+#        LINK_QCHS
+#            Qt5Core_QCH
+#            Qt5Gui_QCH
+#            Qt5Widgets_QCH
+#        INCLUDE_DIRS
+#            ${CMAKE_CURRENT_BINARY_DIR}
+#        BLANK_MACROS
+#            PIMCOMMON_EXPORT
+#        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+#        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+#        COMPONENT Devel
+#    )
+#endif()
