@@ -28,3 +28,4 @@ Dependencies:
     'frameworks/knotifyconfig': '@stable'
     'frameworks/breeze-icons': '@stable'
     'frameworks/purpose': '@stable'
+    'frameworks/karchive': '@stable'
