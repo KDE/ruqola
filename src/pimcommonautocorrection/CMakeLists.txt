@@ -124,10 +124,10 @@ set_target_properties(KF5PimCommonAutoCorrection PROPERTIES
     EXPORT_NAME PimCommonAutoCorrection
     )
 
-install(TARGETS
-    KF5PimCommonAutoCorrection
-    EXPORT KF5PimCommonAutoCorrectionTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
-    )
+#install(TARGETS
+#    KF5PimCommonAutoCorrection
+#    EXPORT KF5PimCommonAutoCorrectionTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
+#    )
 
 if (BUILD_TESTING)
     add_subdirectory(autocorrection/autotests)
