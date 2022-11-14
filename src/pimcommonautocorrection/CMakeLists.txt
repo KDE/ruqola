@@ -88,6 +88,10 @@ target_sources(KF5PimCommonAutoCorrection PRIVATE
     autocorrection/widgets/autocorrectiontextedit.h
     autocorrection/widgets/autocorrectionlineedit.cpp
     autocorrection/widgets/autocorrectionlineedit.h
+
+    autocorrection/widgets/lineeditcatchreturnkey.cpp
+    autocorrection/widgets/lineeditcatchreturnkey.h
+
     settings/pimcommonautocorrectionsettings.h
     settings/pimcommonautocorrectionsettings.cpp
 
@@ -131,35 +135,35 @@ if (BUILD_TESTING)
 endif()
 
 
-#ecm_generate_headers(PimCommon_Camelcaseautocorrectionwidgets_HEADERS
-#    HEADER_NAMES
-#    AutoCorrectionWidget
-#    AutoCorrectionLanguage
-#    SelectSpecialCharDialog
-#    AutoCorrectionTextEdit
-#    REQUIRED_HEADERS PimCommon_autocorrectionwidgets_HEADERS
-#    PREFIX PimCommonAutoCorrection
-#    RELATIVE autocorrection/widgets/
-#    )
+ecm_generate_headers(PimCommon_Camelcaseautocorrectionwidgets_HEADERS
+    HEADER_NAMES
+    AutoCorrectionWidget
+    AutoCorrectionLanguage
+    SelectSpecialCharDialog
+    AutoCorrectionTextEdit
+    REQUIRED_HEADERS PimCommon_autocorrectionwidgets_HEADERS
+    PREFIX PimCommonAutoCorrection
+    RELATIVE autocorrection/widgets/
+    )
 
-#ecm_generate_headers(PimCommon_Camelcaseautocorrection_HEADERS
-#    HEADER_NAMES
-#    AutoCorrection
-#    AutoCorrectionSettings
-#    AutoCorrectionUtils
+ecm_generate_headers(PimCommon_Camelcaseautocorrection_HEADERS
+    HEADER_NAMES
+    AutoCorrection
+    AutoCorrectionSettings
+    AutoCorrectionUtils
 
-#    REQUIRED_HEADERS PimCommon_autocorrection_HEADERS
-#    PREFIX PimCommonAutoCorrection
-#    RELATIVE autocorrection/
-#    )
+    REQUIRED_HEADERS PimCommon_autocorrection_HEADERS
+    PREFIX PimCommonAutoCorrection
+    RELATIVE autocorrection/
+    )
 
-#ecm_generate_headers(PimCommon_Camelcasesettings_HEADERS
-#    HEADER_NAMES
-#    PimCommonAutoCorrectionSettings
-#    REQUIRED_HEADERS PimCommon_settings_HEADERS
-#    PREFIX PimCommonAutoCorrection
-#    RELATIVE settings
-#    )
+ecm_generate_headers(PimCommon_Camelcasesettings_HEADERS
+    HEADER_NAMES
+    PimCommonAutoCorrectionSettings
+    REQUIRED_HEADERS PimCommon_settings_HEADERS
+    PREFIX PimCommonAutoCorrection
+    RELATIVE settings
+    )
 
 #ecm_generate_pri_file(BASE_NAME PimCommonAutoCorrection
 #    LIB_NAME KF5PimCommon

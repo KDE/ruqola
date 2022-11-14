@@ -13,7 +13,7 @@
 #include "ui_autocorrectionwidget.h"
 
 #include "autocorrection/widgets/selectspecialchardialog.h"
-#include <Libkdepim/LineEditCatchReturnKey>
+#include "lineeditcatchreturnkey.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -59,10 +59,10 @@ AutoCorrectionWidget::AutoCorrectionWidget(QWidget *parent)
     d->ui->add1->setEnabled(false);
     d->ui->add2->setEnabled(false);
 
-    KPIM::LineEditCatchReturnKey(d->ui->find, this);
-    KPIM::LineEditCatchReturnKey(d->ui->replace, this);
-    KPIM::LineEditCatchReturnKey(d->ui->abbreviation, this);
-    KPIM::LineEditCatchReturnKey(d->ui->twoUpperLetter, this);
+    PimCommonAutoCorrection::LineEditCatchReturnKey(d->ui->find, this);
+    PimCommonAutoCorrection::LineEditCatchReturnKey(d->ui->replace, this);
+    PimCommonAutoCorrection::LineEditCatchReturnKey(d->ui->abbreviation, this);
+    PimCommonAutoCorrection::LineEditCatchReturnKey(d->ui->twoUpperLetter, this);
     connect(d->ui->autoChangeFormat, &QCheckBox::clicked, this, &AutoCorrectionWidget::emitChanged);
     connect(d->ui->autoFormatUrl, &QCheckBox::clicked, this, &AutoCorrectionWidget::emitChanged);
     connect(d->ui->upperCase, &QCheckBox::clicked, this, &AutoCorrectionWidget::emitChanged);

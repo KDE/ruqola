@@ -39,6 +39,8 @@ include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(KDEClangFormat)
+# remove when created a lib for libpimcommonautocorrection
+include(ECMGenerateHeaders)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
