@@ -6,9 +6,13 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
-class ConfigureAutoCorrectionWidget : public QWidget
+namespace PimCommonAutoCorrection
+{
+class AutoCorrectionWidget;
+}
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAutoCorrectionWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -17,4 +21,7 @@ public:
 
     void save();
     void load();
+
+private:
+    PimCommonAutoCorrection::AutoCorrectionWidget *const mAutoCorrectionWidget;
 };

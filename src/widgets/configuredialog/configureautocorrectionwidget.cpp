@@ -5,20 +5,28 @@
 */
 
 #include "configureautocorrectionwidget.h"
+#include "autocorrection/widgets/autocorrectionwidget.h"
+
+#include <QVBoxLayout>
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     : QWidget{parent}
+    , mAutoCorrectionWidget(new PimCommonAutoCorrection::AutoCorrectionWidget(this))
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+    mainLayout->addWidget(mAutoCorrectionWidget);
 }
 
 ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 
 void ConfigureAutoCorrectionWidget::save()
 {
-    // TODO
+    mAutoCorrectionWidget->writeConfig();
 }
 
 void ConfigureAutoCorrectionWidget::load()
 {
-    // TODO
+    mAutoCorrectionWidget->loadConfig();
 }
