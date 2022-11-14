@@ -90,6 +90,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     ItemViews
     IdleTime
     Prison
+    Archive
 )
 
 if (NOT WIN32 AND NOT APPLE)
