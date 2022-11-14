@@ -112,7 +112,7 @@ target_link_libraries(KF5PimCommonAutoCorrection
 
 #target_include_directories(KF5PimCommonAutoCorrection INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/>")
 
-target_include_directories(KF5PimCommonAutoCorrection PUBLIC "$<BUILD_INTERFACE:${ruqola_SOURCE_DIR}/src;${ruqola_BINARY_DIR}/src>")
+target_include_directories(KF5PimCommonAutoCorrection PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src;${CMAKE_BINARY_DIR}/src>")
 
 set_target_properties(KF5PimCommonAutoCorrection PROPERTIES
     VERSION ${PIMCOMMON_VERSION}
