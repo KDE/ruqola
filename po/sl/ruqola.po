@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
-"PO-Revision-Date: 2022-11-12 09:28+0100\n"
+"POT-Creation-Date: 2022-11-15 00:46+0000\n"
+"PO-Revision-Date: 2022-11-14 17:52+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -5728,43 +5728,50 @@ msgstr "Omogoči ikono sistemskega pladnja"
 msgid "Enable logging"
 msgstr "Omogoči zapisovanje v dnevnik"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:41
+#: widgets/configuredialog/configuresettingsdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Prilagodi Ruqolo"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:46
+#: widgets/configuredialog/configuresettingsdialog.cpp:48
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Splošno"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:51
+#: widgets/configuredialog/configuresettingsdialog.cpp:53
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Račun"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:56
+#: widgets/configuredialog/configuresettingsdialog.cpp:58
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Pisava"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:61
+#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#, fuzzy, kde-format
+#| msgid "Enabled E2E encryption"
+msgctxt "@title AutoCorrection page name"
+msgid "AutoCorrection"
+msgstr "Omogočeno šifriranje E2E"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Preveri črkovanje"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Prevedi"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"

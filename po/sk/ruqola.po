@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2022-11-15 00:46+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -5878,46 +5878,53 @@ msgstr ""
 msgid "Enable logging"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:41
+#: widgets/configuredialog/configuresettingsdialog.cpp:43
 #, fuzzy, kde-format
 #| msgid "Configure Account"
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Nastaviť účet"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:46
+#: widgets/configuredialog/configuresettingsdialog.cpp:48
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:51
+#: widgets/configuredialog/configuresettingsdialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Pridať účet"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:56
+#: widgets/configuredialog/configuresettingsdialog.cpp:58
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:61
+#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#, fuzzy, kde-format
+#| msgid "Add Account"
+msgctxt "@title AutoCorrection page name"
+msgid "AutoCorrection"
+msgstr "Pridať účet"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Preklad"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"

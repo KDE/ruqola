@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
+"POT-Creation-Date: 2022-11-15 00:46+0000\n"
 "PO-Revision-Date: 2022-11-12 09:40+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -5762,43 +5762,50 @@ msgstr "Habilita la icona en la safata del sistema"
 msgid "Enable logging"
 msgstr "Activa el registre"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:41
+#: widgets/configuredialog/configuresettingsdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:46
+#: widgets/configuredialog/configuresettingsdialog.cpp:48
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "General"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:51
+#: widgets/configuredialog/configuresettingsdialog.cpp:53
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Compte"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:56
+#: widgets/configuredialog/configuresettingsdialog.cpp:58
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Tipus de lletra"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:61
+#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#, fuzzy, kde-format
+#| msgid "Enabled E2E encryption"
+msgctxt "@title AutoCorrection page name"
+msgid "AutoCorrection"
+msgstr "Encriptació E2E activat"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Verificació ortogràfica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Traduïx"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"

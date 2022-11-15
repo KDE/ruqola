@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-14 00:45+0000\n"
-"PO-Revision-Date: 2022-11-12 09:28+0200\n"
+"POT-Creation-Date: 2022-11-15 00:46+0000\n"
+"PO-Revision-Date: 2022-11-14 13:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1842,40 +1842,37 @@ msgstr "Бот"
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
 msgid "Archive cannot be opened in read mode."
-msgstr ""
+msgstr "Не вдалося відкрити архів у режимі читання"
 
 #. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:21
-#, fuzzy, kde-format
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgid "Enable autocorrection"
-msgstr "Увімкнено шифрування E2E"
+msgstr "Увімкнути автовиправлення"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:30
 #, kde-format
 msgid "Replacement and exception for language:"
-msgstr ""
+msgstr "Заміна і виключення для мови:"
 
 #. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:44
-#, fuzzy, kde-format
-#| msgid "Export Messages..."
+#, kde-format
 msgid "Export..."
-msgstr "Експортувати повідомлення…"
+msgstr "Експортувати…"
 
 #. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:51
 #, kde-format
 msgid "Import..."
-msgstr ""
+msgstr "Імпортувати…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:77
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Ad&vanced Autocorrection"
-msgstr "Додати автодолучення"
+msgstr "Д&одаткове автовиправлення"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #. i18n: ectx: property (text), widget (QPushButton, add1)
@@ -1884,7 +1881,7 @@ msgstr "Додати автодолучення"
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:465
 #, kde-format
 msgid "&Add"
-msgstr ""
+msgstr "&Додати"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #. i18n: ectx: property (text), widget (QPushButton, remove2)
@@ -1908,74 +1905,69 @@ msgstr "Вилучити"
 
 #. i18n: ectx: property (text), widget (QCheckBox, advancedAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Enable for Teams"
+#, kde-format
 msgid "&Enable word replacement"
-msgstr "Увімкнути для команд"
+msgstr "&Увімкнути заміну слів"
 
 #. i18n: ectx: property (text), widget (QLabel, findLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:129
 #, kde-format
 msgid "&Find"
-msgstr ""
+msgstr "&Знайти"
 
 #. i18n: ectx: property (text), widget (QLabel, replaceLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:146
 #, kde-format
 msgid "Re&place"
-msgstr ""
+msgstr "За&мінити"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:181
 #, kde-format
 msgid "Find"
-msgstr ""
+msgstr "Знайти"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:186
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Replace"
-msgstr "Відповісти"
+msgstr "Замінити"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:195
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgid "E&xceptions"
-msgstr "Параметри"
+msgstr "Ви&нятки"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:203
 #, kde-format
 msgid "Do not treat as the end of a sentence:"
-msgstr ""
+msgstr "Не вважати кінцем речення:"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:226
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "R&emove"
-msgstr "Вилучити"
+msgstr "Ви&лучити"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:268
 #, kde-format
 msgid "Accept two uppercase letters in:"
-msgstr ""
+msgstr "Допускати дві великі літеру у словах:"
 
 #. i18n: ectx: property (text), widget (QPushButton, add2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:284
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "Add"
-msgstr "Додати…"
+msgstr "Додати"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:332
 #, kde-format
 msgid "Si&mple Autocorrection"
-msgstr ""
+msgstr "Пр&осте автовиправлення"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:338
@@ -1984,6 +1976,8 @@ msgid ""
 "Detect when a new sentence is started and always ensure that the first "
 "character is an uppercase character"
 msgstr ""
+"Визначати початок нового речення і завжди виставляти верхній регістр для "
+"наступної літери"
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:342
@@ -1992,6 +1986,8 @@ msgid ""
 "Convert &first letter of a sentence automatically to uppercase\n"
 "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 msgstr ""
+"Автоматично виправляти п&ершу літеру речення на прописну літеру\n"
+"(наприклад, «мій дім. у цьому місті» на «мій дім. У цьому місті»)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:352
@@ -2001,6 +1997,9 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"Всі слова перевірятимуться на звичайну помилку, що полягає у задовгому "
+"утримуванні клавіші Shift. Якщо деякі слова мають дві великі літери на "
+"початку, їх слід додати до списку на вкладці «Винятки»."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:356
@@ -2010,6 +2009,9 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"Перетворювати &дві початкові великі літери на одну велику і одну маленьку "
+"літери\n"
+" (наприклад, ЧУдовий на Чудовий)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:363
@@ -2018,30 +2020,32 @@ msgid ""
 "Make sure that more than one space cannot be typed, as this is a common "
 "mistake which is quite hard to find in formatted text."
 msgstr ""
+"Переконатися, що надруковано підряд не більше двох пробілів, оскільки це є "
+"типовою помилкою під час набору, яку важко знайти у форматованому тексті."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:366
 #, kde-format
 msgid "&Suppress double spaces"
-msgstr ""
+msgstr "Змінювати &подвійні пробіли"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:373
 #, kde-format
 msgid "Most standard fraction notations will be converted when available"
-msgstr ""
+msgstr "Більшість звичайних дробів буде перетворено за можливості"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:376
 #, kde-format
 msgid "Re&place 1/2... with ½..."
-msgstr ""
+msgstr "За&мінювати 1/2… на ½…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:383
 #, kde-format
 msgid "Capitalize name of days"
-msgstr ""
+msgstr "Назви днів великими літерами"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:390
@@ -2050,12 +2054,15 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"Визначати, коли набирається URL (Uniform Resource Locator — адреса у мережі "
+"інтернет), і встановлювати для неї форматування, що відповідає способу її "
+"показу у переглядачі мережі інтернет."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:393
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr ""
+msgstr "Автоматичне форматування &адрес (режим HTML)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:400
@@ -2064,43 +2071,49 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"Коли ви друкуєте _підкреслений_ або *жирний*, текст між знаками підкреслення "
+"і зірочками буде перетворено на текст з лінією підкреслення або текст у "
+"напівжирній гарнітурі."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:403
 #, kde-format
 msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
 msgstr ""
+"Автоматично вмикати напів&жирний, перекреслений та підкреслений формати "
+"(режим HTML)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:410
 #, kde-format
 msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr ""
+msgstr "Замінювати 1st… на 1^st… (режим HTML)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:417
 #, kde-format
 msgid "Add non breaking space before specific punctuation marks in French text"
 msgstr ""
+"Додавати нерозривний пробіл перед певними знаками пунктуації у тексті "
+"французькою"
 
 #. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:424
 #, kde-format
 msgid "Replace double quotes by french quotes"
-msgstr ""
+msgstr "Замінювати подвійні лапки типографськими"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:445
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Custom &Quotes"
-msgstr "Нетипові звуки"
+msgstr "Спеціальні &лапки"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:451
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr ""
+msgstr "Замінювати &подвійні лапки типографськими"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -2110,10 +2123,9 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:502
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:629
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:643
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "By Default"
-msgstr "Типовий"
+msgstr "Типові"
 
 #. i18n: ectx: property (text), widget (QPushButton, doubleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, doubleQuote2)
@@ -2121,13 +2133,13 @@ msgstr "Типовий"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:488
 #, kde-format
 msgid "\""
-msgstr ""
+msgstr "\""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:495
 #, kde-format
 msgid "Ending Quote:"
-msgstr ""
+msgstr "Завершальні лапки:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -2135,13 +2147,13 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:622
 #, kde-format
 msgid "Opening Quote:"
-msgstr ""
+msgstr "Початкові лапки:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:560
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
-msgstr ""
+msgstr "Замін&ювати одинарні лапки типографськими"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -2149,105 +2161,100 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:615
 #, kde-format
 msgid "'"
-msgstr ""
+msgstr "'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:636
 #, kde-format
 msgid "Ending Quotes:"
-msgstr ""
+msgstr "Завершальні лапки:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:127
 #, kde-format
 msgid "LibreOffice Autocorrection"
-msgstr ""
+msgstr "Автовиправлення LibreOffice"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:131
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
-msgstr ""
+msgstr "Автовиправлення KMail/Calligra"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr ""
+msgstr "Рядок-замінник збігається з рядком пошуку."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add Autocorrection Entry"
-msgstr "Додати автодолучення"
+msgstr "Додати запис автовиправлення"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:462
-#, fuzzy, kde-format
-#| msgid "Modify..."
+#, kde-format
 msgid "&Modify"
-msgstr "Змінити…"
+msgstr "З&мінити"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:573
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
-msgstr ""
+msgstr "Імпортувати автовиправлення LibreOffice"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:574
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr ""
+msgstr "файл автовиправлення LibreOffice (*.dat)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:577
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr ""
+msgstr "Імпортувати автовиправлення KMail"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:578
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr ""
+msgstr "файл автовиправлення KMail (*.xml)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:610
 #, kde-format
 msgid "Import Autocorrection File"
-msgstr ""
+msgstr "Імпортувати файл автовиправлення"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:637
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
-msgstr ""
+msgstr "Мову було змінено, хочете зберегти налаштування для попередньої мови?"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:638
-#, fuzzy, kde-format
-#| msgid "Save Sound"
+#, kde-format
 msgid "Save config"
-msgstr "Зберегти звукові дані"
+msgstr "Збереження налаштувань"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
 #, kde-format
 msgid "Please save changes before exporting settings."
-msgstr ""
+msgstr "Будь ласка, збережіть зміни, перш ніж експортувати параметри."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:680
 #, kde-format
 msgid "Export Autocorrection File"
-msgstr ""
+msgstr "Експортувати файл автовиправлення"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Allow Special Characters in Room Names"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Special Characters"
-msgstr "Дозволити спеціальні символи у назвах кімнат"
+msgstr "Виберіть спеціальні символи"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:40
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Вставити"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgid "Select"
-msgstr "Вибрати все"
+msgstr "Вибрати"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -5765,43 +5772,50 @@ msgstr "Ввімкнути піктограму у системному лотк
 msgid "Enable logging"
 msgstr "Увімкнути журнал"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:41
+#: widgets/configuredialog/configuresettingsdialog.cpp:43
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Налаштування Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:46
+#: widgets/configuredialog/configuresettingsdialog.cpp:48
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Загальне"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:51
+#: widgets/configuredialog/configuresettingsdialog.cpp:53
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Обліковий запис"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:56
+#: widgets/configuredialog/configuresettingsdialog.cpp:58
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Шрифт"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:61
+#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#, fuzzy, kde-format
+#| msgid "Si&mple Autocorrection"
+msgctxt "@title AutoCorrection page name"
+msgid "AutoCorrection"
+msgstr "Пр&осте автовиправлення"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Перевірка правопису"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:66
+#: widgets/configuredialog/configuresettingsdialog.cpp:73
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Переклад"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
