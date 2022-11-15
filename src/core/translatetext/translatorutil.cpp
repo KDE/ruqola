@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "translatorutil.h"
+#include "misc/translatorutil.h"
 #include "engine/bingtranslator.h"
 #include "engine/deepltranslator.h"
 #include "engine/googletranslator.h"

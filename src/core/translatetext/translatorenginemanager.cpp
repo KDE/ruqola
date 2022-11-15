@@ -5,7 +5,7 @@
 */
 
 #include "translatorenginemanager.h"
-#include "translatorutil.h"
+#include "misc/translatorutil.h"
 
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}

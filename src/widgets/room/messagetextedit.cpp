@@ -9,7 +9,10 @@
 #include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
 #include "model/inputcompletermodel.h"
+#include "pimcommonautocorrection/autocorrection/autocorrection.h"
+#include "pimcommonautocorrection/settings/pimcommonautocorrectionsettings.h"
 #include "rocketchataccount.h"
+#include "ruqola.h"
 
 #include <KLocalizedString>
 
@@ -209,8 +212,39 @@ void MessageTextEdit::insertFormat(QChar formatChar)
     setTextCursor(cursor);
 }
 
+static bool isSpecial(const QTextCharFormat &charFormat)
+{
+    return charFormat.isFrameFormat() || charFormat.isImageFormat() || charFormat.isListFormat() || charFormat.isTableFormat()
+        || charFormat.isTableCellFormat();
+}
+
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
+    if (Ruqola::self()->autoCorrection()->autoCorrectionSettings()->isEnabledAutoCorrection()) {
+        if ((e->key() == Qt::Key_Space) || (e->key() == Qt::Key_Enter) || (e->key() == Qt::Key_Return)) {
+            if (!textCursor().hasSelection()) {
+                const QTextCharFormat initialTextFormat = textCursor().charFormat();
+                const bool richText = acceptRichText();
+                int position = textCursor().position();
+                const bool addSpace = Ruqola::self()->autoCorrection()->autocorrect(richText, *document(), position);
+                QTextCursor cur = textCursor();
+                cur.setPosition(position);
+                const bool spacePressed = (e->key() == Qt::Key_Space);
+                const QChar insertChar = spacePressed ? QLatin1Char(' ') : QLatin1Char('\n');
+                if (richText && !isSpecial(initialTextFormat)) {
+                    if (addSpace || !spacePressed) {
+                        cur.insertText(insertChar, initialTextFormat);
+                    }
+                } else {
+                    if (addSpace || !spacePressed) {
+                        cur.insertText(insertChar);
+                    }
+                }
+                setTextCursor(cur);
+            }
+        }
+    }
+
     const int key = e->key();
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {

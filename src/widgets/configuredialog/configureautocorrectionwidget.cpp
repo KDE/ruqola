@@ -6,6 +6,8 @@
 
 #include "configureautocorrectionwidget.h"
 #include "autocorrection/widgets/autocorrectionwidget.h"
+#include "pimcommonautocorrection/autocorrection/autocorrection.h"
+#include "pimcommonautocorrection/settings/pimcommonautocorrectionsettings.h"
 #include "ruqola.h"
 #include <QVBoxLayout>
 
@@ -25,6 +27,7 @@ ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 void ConfigureAutoCorrectionWidget::save()
 {
     mAutoCorrectionWidget->writeConfig();
+    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->save();
 }
 
 void ConfigureAutoCorrectionWidget::load()
