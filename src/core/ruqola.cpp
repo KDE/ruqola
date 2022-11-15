@@ -11,9 +11,14 @@
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
 
+#include <PimCommonAutoCorrection/PimCommonAutoCorrection/AutoCorrection>
+
 static Ruqola *s_self = nullptr;
 
-Ruqola::~Ruqola() = default;
+Ruqola::~Ruqola()
+{
+    delete mAutoCorrection;
+}
 
 Ruqola *Ruqola::self()
 {
@@ -31,6 +36,7 @@ void Ruqola::destroy()
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
+    , mAutoCorrection(new PimCommonAutoCorrection::AutoCorrection())
 {
     // Initialize paths
     (void)ManagerDataPaths::self();
@@ -40,6 +46,11 @@ Ruqola::Ruqola(QObject *parent)
 void Ruqola::openMessageUrl(const QString &url)
 {
     mAccountManager->openMessageUrl(url);
+}
+
+PimCommonAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
+{
+    return mAutoCorrection;
 }
 
 void Ruqola::setCurrentAccount(const QString &accountName)

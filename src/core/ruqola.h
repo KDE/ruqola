@@ -14,6 +14,10 @@
 
 class RocketChatAccount;
 class AccountManager;
+namespace PimCommonAutoCorrection
+{
+class AutoCorrection;
+}
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -37,10 +41,13 @@ public:
 
     void openMessageUrl(const QString &url);
 
+    PimCommonAutoCorrection::AutoCorrection *autoCorrection() const;
+
 Q_SIGNALS:
     void translatorMenuChanged();
 
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
+    PimCommonAutoCorrection::AutoCorrection *const mAutoCorrection;
 };

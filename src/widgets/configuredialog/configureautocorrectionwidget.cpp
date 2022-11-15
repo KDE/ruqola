@@ -6,7 +6,7 @@
 
 #include "configureautocorrectionwidget.h"
 #include "autocorrection/widgets/autocorrectionwidget.h"
-
+#include "ruqola.h"
 #include <QVBoxLayout>
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
@@ -17,6 +17,7 @@ ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mAutoCorrectionWidget);
+    mAutoCorrectionWidget->setAutoCorrection(Ruqola::self()->autoCorrection());
 }
 
 ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
