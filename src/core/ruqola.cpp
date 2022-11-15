@@ -9,9 +9,8 @@
 #include "ruqola.h"
 #include "accountmanager.h"
 #include "managerdatapaths.h"
+#include "pimcommonautocorrection/autocorrection/autocorrection.h"
 #include "rocketchataccount.h"
-
-#include <PimCommonAutoCorrection/PimCommonAutoCorrection/AutoCorrection>
 
 static Ruqola *s_self = nullptr;
 
