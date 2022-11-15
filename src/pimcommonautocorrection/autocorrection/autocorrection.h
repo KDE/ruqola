@@ -26,6 +26,7 @@ public:
     ~AutoCorrection();
 
     void writeConfig();
+    void readConfig();
 
     bool autocorrect(bool htmlMode, QTextDocument &document, int &position);
 
@@ -37,8 +38,6 @@ public:
     void writeAutoCorrectionXmlFile(const QString &filename);
 
 private:
-    void readConfig();
-
     void fixTwoUppercaseChars();
     Q_REQUIRED_RESULT bool singleSpaces() const;
     void capitalizeWeekDays();
