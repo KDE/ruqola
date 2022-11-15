@@ -212,40 +212,28 @@ void MessageTextEdit::insertFormat(QChar formatChar)
     setTextCursor(cursor);
 }
 
-static bool isSpecial(const QTextCharFormat &charFormat)
-{
-    return charFormat.isFrameFormat() || charFormat.isImageFormat() || charFormat.isListFormat() || charFormat.isTableFormat()
-        || charFormat.isTableCellFormat();
-}
-
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
+    const int key = e->key();
     if (Ruqola::self()->autoCorrection()->autoCorrectionSettings()->isEnabledAutoCorrection()) {
-        if ((e->key() == Qt::Key_Space) || (e->key() == Qt::Key_Enter) || (e->key() == Qt::Key_Return)) {
+        if ((key == Qt::Key_Space) || (key == Qt::Key_Enter) || (key == Qt::Key_Return)) {
             if (!textCursor().hasSelection()) {
-                const QTextCharFormat initialTextFormat = textCursor().charFormat();
-                const bool richText = acceptRichText();
                 int position = textCursor().position();
-                const bool addSpace = Ruqola::self()->autoCorrection()->autocorrect(richText, *document(), position);
+                // no Html format in subject. => false
+                const bool addSpace = Ruqola::self()->autoCorrection()->autocorrect(false, *document(), position);
                 QTextCursor cur = textCursor();
                 cur.setPosition(position);
-                const bool spacePressed = (e->key() == Qt::Key_Space);
-                const QChar insertChar = spacePressed ? QLatin1Char(' ') : QLatin1Char('\n');
-                if (richText && !isSpecial(initialTextFormat)) {
-                    if (addSpace || !spacePressed) {
-                        cur.insertText(insertChar, initialTextFormat);
+                if (key == Qt::Key_Space) {
+                    if (addSpace) {
+                        cur.insertText(QStringLiteral(" "));
+                        setTextCursor(cur);
                     }
-                } else {
-                    if (addSpace || !spacePressed) {
-                        cur.insertText(insertChar);
-                    }
+                    return;
                 }
-                setTextCursor(cur);
             }
         }
     }
 
-    const int key = e->key();
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {
             Q_EMIT sendMessage(text());
