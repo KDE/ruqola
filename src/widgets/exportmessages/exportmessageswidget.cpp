@@ -12,8 +12,8 @@
 
 ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     : QWidget(parent)
-    , mFromDate(new QDateEdit(this))
-    , mToDate(new QDateEdit(this))
+    , mFromDate(new QDateEdit(QDate::currentDate(), this))
+    , mToDate(new QDateEdit(QDate::currentDate(), this))
     , mFormat(new QComboBox(this))
 {
     auto mainLayout = new QFormLayout(this);
@@ -27,7 +27,7 @@ ExportMessagesWidget::ExportMessagesWidget(QWidget *parent)
     mainLayout->addRow(i18n("To:"), mToDate);
 
     mFormat->setObjectName(QStringLiteral("mFormat"));
-    mainLayout->addRow(i18n("Format"), mFormat);
+    mainLayout->addRow(i18n("Output Format:"), mFormat);
     fillFormat();
 }
 
