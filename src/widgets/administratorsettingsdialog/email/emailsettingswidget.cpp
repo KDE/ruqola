@@ -155,7 +155,7 @@ EmailSettingsWidget::~EmailSettingsWidget() = default;
 
 void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    initializeWidget(mSmtpProtocol, mapSettings, QStringLiteral("mSmtpProtocol"));
+    initializeWidget(mSmtpProtocol, mapSettings, QStringLiteral("smtp"));
     initializeWidget(mSmtpHost, mapSettings, QString());
     initializeWidget(mSmtpPort, mapSettings, 0);
     initializeWidget(mIgnoreTls, mapSettings, true);
