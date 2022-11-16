@@ -70,6 +70,9 @@ void MessageTextEdit::slotLanguageChanged(const QString &lang)
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, "Spelling");
     group.writeEntry("Language", lang);
+    auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
+    settings->setLanguage(lang);
+    Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
 }
 
 void MessageTextEdit::loadSpellCheckingSettings()
