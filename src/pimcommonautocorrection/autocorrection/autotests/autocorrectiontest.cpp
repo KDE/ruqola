@@ -606,6 +606,7 @@ void AutoCorrectionTest::shouldReplaceWithMultiOption_data()
     mapAutoCorrect map;
     map.insert(QStringLiteral("boo"), QStringLiteral("bla"));
     map.insert(QStringLiteral(":j2:"), QStringLiteral("TV"));
+    map.insert(QStringLiteral("i"), QStringLiteral("I"));
 
     QTest::newRow("disable") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo boo boo") << map << false << false << false << false << -1;
     QTest::newRow("enablebutdisablealloptions") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo boo boo") << map << true << false << false << false
@@ -629,6 +630,8 @@ void AutoCorrectionTest::shouldReplaceWithMultiOption_data()
     QTest::newRow(":j2: bla") << QStringLiteral(":j2: bla") << QStringLiteral(":j2: bla") << map << true << false << true << false << -1;
     QTest::newRow(":j2: bla 1") << QStringLiteral(":j2: bla") << QStringLiteral("TV bla") << map << true << false << true << false << 4;
     QTest::newRow(":j2: bla 2") << QStringLiteral(":j2: :j2:") << QStringLiteral(":j2: TV") << map << true << false << true << false << -1;
+    QTest::newRow("La mais il n est pas ici ") << QStringLiteral("La mais il n est pas ici ") << QStringLiteral("La mais il n est pas ici ") << map << true
+                                               << false << true << false << 25;
     // TODO add more
 }
 

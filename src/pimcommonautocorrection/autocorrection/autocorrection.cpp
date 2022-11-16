@@ -177,6 +177,7 @@ bool AutoCorrection::autocorrect(bool htmlMode, QTextDocument &document, int &po
             d->mWord = d->mCursor.selectedText();
             if (!d->mWord.isEmpty()) {
                 const QStringList lst = AutoCorrectionUtils::wordsFromSentence(d->mWord);
+                // qDebug() << " lst " << lst;
                 for (const auto &string : lst) {
                     d->mWord = string;
                     const int newPos = advancedAutocorrect();
@@ -723,12 +724,16 @@ int AutoCorrection::advancedAutocorrect()
         if (i.key().length() > actualWordLength) {
             continue;
         }
+        // qDebug() << " i.key() " << i.key();
         if (actualWord.endsWith(i.key()) || actualWord.endsWith(i.key(), Qt::CaseInsensitive) || actualWordWithFirstUpperCase.endsWith(i.key())) {
             int pos = d->mWord.lastIndexOf(i.key());
+            // qDebug() << " pos 1 " << pos << " d->mWord " << d->mWord;
             if (pos == -1) {
                 pos = actualWord.toLower().lastIndexOf(i.key());
+                // qDebug() << " pos 2 " << pos;
                 if (pos == -1) {
                     pos = actualWordWithFirstUpperCase.lastIndexOf(i.key());
+                    // qDebug() << " pos 3 " << pos;
                     if (pos == -1) {
                         continue;
                     }
@@ -736,9 +741,11 @@ int AutoCorrection::advancedAutocorrect()
             }
             QString replacement = i.value();
 
-            // Keep capitalized words capitalized.
-            // (Necessary to make sure the first letters match???)
-            const QChar actualWordFirstChar = actualWord.at(pos);
+            // qDebug() << " actualWord " << actualWord << " pos " << pos << " actualWord.size" << actualWord.length() << "actualWordWithFirstUpperCase "
+            // <<actualWordWithFirstUpperCase; qDebug() << " d->mWord " << d->mWord << " i.key() " << i.key() << "replacement " << replacement; Keep capitalized
+            // words capitalized. (Necessary to make sure the first letters match???)
+            const QChar actualWordFirstChar = d->mWord.at(pos);
+
             const QChar replacementFirstChar = replacement[0];
             if (actualWordFirstChar.isUpper() && replacementFirstChar.isLower()) {
                 replacement[0] = replacementFirstChar.toUpper();
