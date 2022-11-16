@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class RocketChatAccount;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -17,4 +18,7 @@ public:
     ~ConferenceCallSettingsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QComboBox *const mDefaultProvider;
 };

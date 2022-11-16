@@ -14,4 +14,6 @@ class ConferenceCallSettingsWidgetTest : public QObject
 public:
     explicit ConferenceCallSettingsWidgetTest(QObject *parent = nullptr);
     ~ConferenceCallSettingsWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
