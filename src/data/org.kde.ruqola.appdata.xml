@@ -778,6 +778,15 @@
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li>Add support for text auto-correction</li>
+      <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
+      <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
+      <li xml:lang="it">Aggiungi il supporto per la correzione automatica del testo</li>
+      <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
+      <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
+      <li xml:lang="pt">Adição do suporte para a correcção automática do texto</li>
+      <li xml:lang="tr">Metin otomatik düzeltme için destek ekle</li>
+      <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
+      <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
     </ul>
   </description>
   <url type="homepage">https://apps.kde.org/ruqola</url>
