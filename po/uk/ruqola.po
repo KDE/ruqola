@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-14 13:33+0200\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-15 16:35+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5797,11 +5797,10 @@ msgid "Font"
 msgstr "Шрифт"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:63
-#, fuzzy, kde-format
-#| msgid "Si&mple Autocorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
-msgstr "Пр&осте автовиправлення"
+msgstr "Автовиправлення"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
@@ -7670,32 +7669,32 @@ msgstr "Вилучення повідомлення"
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
 
-#: widgets/room/messagetextedit.cpp:149
+#: widgets/room/messagetextedit.cpp:152
 #, kde-format
 msgid "Change Text Format"
 msgstr "Зміна форматування тексту"
 
-#: widgets/room/messagetextedit.cpp:151
+#: widgets/room/messagetextedit.cpp:154
 #, kde-format
 msgid "Bold"
 msgstr "Напівжирний"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Italic"
 msgstr "Курсив"
 
-#: widgets/room/messagetextedit.cpp:153
+#: widgets/room/messagetextedit.cpp:156
 #, kde-format
 msgid "Strike-out"
 msgstr "Закреслений"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Code Block"
 msgstr "Блок коду"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:160
 #, kde-format
 msgid "Markdown Url"
 msgstr "Адреса Markdown"

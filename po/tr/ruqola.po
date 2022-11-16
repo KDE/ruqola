@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
-"PO-Revision-Date: 2022-11-14 11:50+0300\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"PO-Revision-Date: 2022-11-15 04:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5740,11 +5740,10 @@ msgid "Font"
 msgstr "Yazıtipi"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:63
-#, fuzzy, kde-format
-#| msgid "Si&mple Autocorrection"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
-msgstr "&Temel Otomatik Düzeltme"
+msgstr "Otomatik Düzeltme"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:68
 #, kde-format
@@ -7585,32 +7584,32 @@ msgstr "İleti Sil"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:149
+#: widgets/room/messagetextedit.cpp:152
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:151
+#: widgets/room/messagetextedit.cpp:154
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:153
+#: widgets/room/messagetextedit.cpp:156
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:160
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL'si"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:46+0000\n"
+"POT-Creation-Date: 2022-11-16 00:47+0000\n"
 "PO-Revision-Date: 2022-06-28 14:39+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -7486,32 +7486,32 @@ msgstr "Smazat zprávu"
 msgid "Translator Error"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:149
+#: widgets/room/messagetextedit.cpp:152
 #, kde-format
 msgid "Change Text Format"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:151
+#: widgets/room/messagetextedit.cpp:154
 #, kde-format
 msgid "Bold"
 msgstr "Tučné"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: widgets/room/messagetextedit.cpp:153
+#: widgets/room/messagetextedit.cpp:156
 #, kde-format
 msgid "Strike-out"
 msgstr "Přeškrtnuté"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kódu"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:160
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
