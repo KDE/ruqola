@@ -57,7 +57,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 
     const QString fontPageName = i18nc("@title Preferences page name", "Font");
     mConfigureFontWidgetPage = new KPageWidgetItem(mConfigureFontWidget, fontPageName);
-    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
     addPage(mConfigureFontWidgetPage);
 
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
