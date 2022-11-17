@@ -32,16 +32,10 @@ void RocketChatAccountModel::clear()
 
 void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &accounts)
 {
-    if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mRocketChatAccount.count() - 1);
-        mRocketChatAccount.clear();
-        endRemoveRows();
-    }
-    if (!accounts.isEmpty()) {
-        beginInsertRows(QModelIndex(), 0, accounts.count() - 1);
-        mRocketChatAccount = accounts;
-        endInsertRows();
-    }
+    beginResetModel();
+    mRocketChatAccount = accounts;
+    endResetModel();
+
     Q_EMIT accountNumberChanged();
 }
 

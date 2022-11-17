@@ -38,18 +38,24 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
     QSignalSpy rowABTInserted(&w, &RocketChatAccountModel::rowsAboutToBeInserted);
     QSignalSpy rowRemovedSpy(&w, &RocketChatAccountModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &RocketChatAccountModel::rowsAboutToBeRemoved);
+    QSignalSpy modelResetSpy(&w, &RocketChatAccountModel::modelReset);
+    QSignalSpy modelABTReset(&w, &RocketChatAccountModel::modelAboutToBeReset);
 
     w.setAccounts(accounts);
     QCOMPARE(w.rowCount(), 10);
-    QCOMPARE(rowInsertedSpy.count(), 1);
-    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(modelABTReset.count(), 1);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
+    modelResetSpy.clear();
+    modelABTReset.clear();
 
     qDeleteAll(accounts);
     accounts.clear();
@@ -63,10 +69,12 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
 
     QCOMPARE(w.rowCount(), 3);
 
-    QCOMPARE(rowInsertedSpy.count(), 1);
-    QCOMPARE(rowABTInserted.count(), 1);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(modelABTReset.count(), 1);
 }
 
 void RocketChatAccountModelTest::shouldClearAccounts()
@@ -112,18 +120,24 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QSignalSpy rowABTInserted(&w, &RocketChatAccountModel::rowsAboutToBeInserted);
     QSignalSpy rowRemovedSpy(&w, &RocketChatAccountModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &RocketChatAccountModel::rowsAboutToBeRemoved);
+    QSignalSpy modelResetSpy(&w, &RocketChatAccountModel::modelReset);
+    QSignalSpy modelABTReset(&w, &RocketChatAccountModel::modelAboutToBeReset);
 
     w.setAccounts(accounts);
     QCOMPARE(w.rowCount(), 10);
-    QCOMPARE(rowInsertedSpy.count(), 1);
-    QCOMPARE(rowABTInserted.count(), 1);
+    QCOMPARE(rowInsertedSpy.count(), 0);
+    QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(modelABTReset.count(), 1);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
+    modelResetSpy.clear();
+    modelABTReset.clear();
 
     w.removeAccount(QStringLiteral("foo2"));
 
@@ -133,11 +147,15 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QCOMPARE(rowABTRemoved.count(), 1);
     QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("2,2"));
     QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("2,2"));
+    QCOMPARE(modelResetSpy.count(), 0);
+    QCOMPARE(modelABTReset.count(), 0);
 
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
+    modelResetSpy.clear();
+    modelABTReset.clear();
 
     w.removeAccount(QStringLiteral("notexist"));
 
@@ -145,4 +163,6 @@ void RocketChatAccountModelTest::shouldRemoveAccount()
     QCOMPARE(rowABTInserted.count(), 0);
     QCOMPARE(rowRemovedSpy.count(), 0);
     QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 0);
+    QCOMPARE(modelABTReset.count(), 0);
 }
