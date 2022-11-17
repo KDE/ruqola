@@ -96,8 +96,11 @@ AccountsOverviewWidget::AccountsOverviewWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mTabBar);
 
-    const auto model = mAccountManager->rocketChatAccountModel();
-    connect(model, &RocketChatAccountModel::accountNumberChanged, this, &AccountsOverviewWidget::updateButtons);
+    const auto model = mAccountManager->rocketChatAccountProxyModel();
+    connect(model, &QAbstractItemModel::modelReset, this, &AccountsOverviewWidget::updateButtons);
+    connect(model, &QAbstractItemModel::rowsInserted, this, &AccountsOverviewWidget::updateButtons);
+    connect(model, &QAbstractItemModel::rowsRemoved, this, &AccountsOverviewWidget::updateButtons);
+    connect(model, &QAbstractItemModel::rowsMoved, this, &AccountsOverviewWidget::updateButtons);
     updateButtons();
 
     connect(mAccountManager, &AccountManager::currentAccountChanged, this, &AccountsOverviewWidget::updateCurrentTab);
@@ -112,7 +115,7 @@ AccountsOverviewWidget::~AccountsOverviewWidget() = default;
 
 void AccountsOverviewWidget::updateButtons()
 {
-    const auto model = mAccountManager->rocketChatAccountModel();
+    const auto model = mAccountManager->rocketChatAccountProxyModel();
     const auto count = model->rowCount();
 
     for (int i = 0; i < count; ++i) {
@@ -120,7 +123,8 @@ void AccountsOverviewWidget::updateButtons()
             mTabBar->addTab({});
         }
 
-        auto account = model->account(i);
+        auto index = model->index(i, 0);
+        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
         disconnect(account, nullptr, this, nullptr);
 
         mTabBar->setTabData(i, QVariant::fromValue(account));

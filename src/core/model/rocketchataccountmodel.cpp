@@ -114,6 +114,8 @@ QVariant RocketChatAccountModel::data(const QModelIndex &index, int role) const
         return account->ruqolaServerConfig()->siteUrl();
     case UserName:
         return account->userName();
+    case Account:
+        return QVariant::fromValue(account);
     }
     // Add icon ???
     return {};
