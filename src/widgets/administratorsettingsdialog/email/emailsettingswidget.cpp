@@ -176,5 +176,8 @@ void EmailSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mEmailAddressChangedBody, mapSettings, QStringLiteral("Click <a href=\"[Forgot_Password_Url]\">here</a> to reset your password."));
 
     initializeWidget(mInvitationSubject, mapSettings, QStringLiteral("You have been invited to [Site_Name]"));
-    initializeWidget(mInvitationBody, mapSettings, QStringLiteral("<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"));
+    initializeWidget(mInvitationBody,
+                     mapSettings,
+                     QStringLiteral("<h2>{Welcome_to Site_Name}</h2><p>{Visit_Site_Url_and_try_the_best_open_source_chat_solution_available_today}</p><a "
+                                    "class=\"btn\" href=\"[Site_URL]\">{Join_Chat}</a>"));
 }
