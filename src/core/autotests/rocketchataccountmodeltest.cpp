@@ -89,21 +89,25 @@ void RocketChatAccountModelTest::shouldClearAccounts()
     QSignalSpy rowABTInserted(&w, &RocketChatAccountModel::rowsAboutToBeInserted);
     QSignalSpy rowRemovedSpy(&w, &RocketChatAccountModel::rowsRemoved);
     QSignalSpy rowABTRemoved(&w, &RocketChatAccountModel::rowsAboutToBeRemoved);
+    QSignalSpy modelResetSpy(&w, &RocketChatAccountModel::modelReset);
+    QSignalSpy modelABTReset(&w, &RocketChatAccountModel::modelAboutToBeReset);
 
     w.setAccounts(accounts);
     rowInsertedSpy.clear();
     rowABTInserted.clear();
     rowRemovedSpy.clear();
     rowABTRemoved.clear();
+    modelResetSpy.clear();
+    modelABTReset.clear();
 
     w.clear();
     QCOMPARE(w.rowCount(), 0);
     QCOMPARE(rowInsertedSpy.count(), 0);
     QCOMPARE(rowABTInserted.count(), 0);
-    QCOMPARE(rowRemovedSpy.count(), 1);
-    QCOMPARE(rowABTRemoved.count(), 1);
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowRemovedSpy), QStringLiteral("0,9"));
-    QCOMPARE(TestModelHelpers::rowSpyToText(rowABTRemoved), QStringLiteral("0,9"));
+    QCOMPARE(rowRemovedSpy.count(), 0);
+    QCOMPARE(rowABTRemoved.count(), 0);
+    QCOMPARE(modelResetSpy.count(), 1);
+    QCOMPARE(modelABTReset.count(), 1);
 }
 
 void RocketChatAccountModelTest::shouldRemoveAccount()

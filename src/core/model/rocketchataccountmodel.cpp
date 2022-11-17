@@ -21,13 +21,7 @@ RocketChatAccountModel::~RocketChatAccountModel()
 
 void RocketChatAccountModel::clear()
 {
-    if (!mRocketChatAccount.isEmpty()) {
-        beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
-        qDeleteAll(mRocketChatAccount);
-        mRocketChatAccount.clear();
-        endRemoveRows();
-    }
-    Q_EMIT accountNumberChanged();
+    setAccounts({});
 }
 
 void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &accounts)
