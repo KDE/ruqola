@@ -70,9 +70,15 @@ void MessageTextEdit::slotLanguageChanged(const QString &lang)
     KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group(config, "Spelling");
     group.writeEntry("Language", lang);
+    switchAutoCorrectionLanguage(lang);
+}
+
+void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
+{
     auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
     settings->setLanguage(lang);
     Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+    qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
 }
 
 void MessageTextEdit::loadSpellCheckingSettings()
@@ -81,7 +87,9 @@ void MessageTextEdit::loadSpellCheckingSettings()
     if (config->hasGroup("Spelling")) {
         KConfigGroup group(config, "Spelling");
         setCheckSpellingEnabled(group.readEntry("checkerEnabledByDefault", false));
-        setSpellCheckingLanguage(group.readEntry("Language", QString()));
+        const QString language = group.readEntry("Language", QString());
+        setSpellCheckingLanguage(language);
+        switchAutoCorrectionLanguage(language);
     }
 }
 
