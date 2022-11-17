@@ -177,7 +177,7 @@ bool AutoCorrection::autocorrect(bool htmlMode, QTextDocument &document, int &po
             d->mWord = d->mCursor.selectedText();
             if (!d->mWord.isEmpty()) {
                 const QStringList lst = AutoCorrectionUtils::wordsFromSentence(d->mWord);
-                // qDebug() << " lst " << lst;
+                qDebug() << " lst " << lst;
                 for (const auto &string : lst) {
                     d->mWord = string;
                     const int newPos = advancedAutocorrect();
@@ -704,6 +704,7 @@ int AutoCorrection::advancedAutocorrect()
         return -1;
     }
     const int startPos = d->mCursor.selectionStart();
+    qDebug() << "d->mCursor  " << d->mCursor.selectedText() << " startPos " << startPos;
     const int length = d->mWord.length();
     // If the last char is punctuation, drop it for now
     bool hasPunctuation = false;
@@ -724,16 +725,16 @@ int AutoCorrection::advancedAutocorrect()
         if (i.key().length() > actualWordLength) {
             continue;
         }
-        // qDebug() << " i.key() " << i.key();
+        qDebug() << " i.key() " << i.key();
         if (actualWord.endsWith(i.key()) || actualWord.endsWith(i.key(), Qt::CaseInsensitive) || actualWordWithFirstUpperCase.endsWith(i.key())) {
             int pos = d->mWord.lastIndexOf(i.key());
-            // qDebug() << " pos 1 " << pos << " d->mWord " << d->mWord;
+            qDebug() << " pos 1 " << pos << " d->mWord " << d->mWord;
             if (pos == -1) {
                 pos = actualWord.toLower().lastIndexOf(i.key());
-                // qDebug() << " pos 2 " << pos;
+                qDebug() << " pos 2 " << pos;
                 if (pos == -1) {
                     pos = actualWordWithFirstUpperCase.lastIndexOf(i.key());
-                    // qDebug() << " pos 3 " << pos;
+                    qDebug() << " pos 3 " << pos;
                     if (pos == -1) {
                         continue;
                     }
@@ -745,6 +746,7 @@ int AutoCorrection::advancedAutocorrect()
             // <<actualWordWithFirstUpperCase; qDebug() << " d->mWord " << d->mWord << " i.key() " << i.key() << "replacement " << replacement; Keep capitalized
             // words capitalized. (Necessary to make sure the first letters match???)
             const QChar actualWordFirstChar = d->mWord.at(pos);
+            qDebug() << " actualWordFirstChar " << actualWordFirstChar;
 
             const QChar replacementFirstChar = replacement[0];
             if (actualWordFirstChar.isUpper() && replacementFirstChar.isLower()) {
@@ -765,6 +767,7 @@ int AutoCorrection::advancedAutocorrect()
             d->mCursor.setPosition(startPos);
             d->mCursor.setPosition(startPos + length, QTextCursor::KeepAnchor);
             d->mCursor.insertText(d->mWord);
+            qDebug() << " insert text " << d->mWord << " startPos " << startPos;
             d->mCursor.setPosition(startPos); // also restore the selection
             const int newPosition = startPos + d->mWord.length();
             d->mCursor.setPosition(newPosition, QTextCursor::KeepAnchor);
