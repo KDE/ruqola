@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:45+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -4030,6 +4030,11 @@ msgstr ""
 msgid "Troubleshoot"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#, kde-format
+msgid "Default Provider"
+msgstr ""
+
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
@@ -6533,7 +6538,7 @@ msgstr ""
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
-msgid "Format"
+msgid "Output Format:"
 msgstr ""
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
@@ -7410,32 +7415,32 @@ msgstr ""
 msgid "Translator Error"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Change Text Format"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:154
+#: widgets/room/messagetextedit.cpp:157
 #, kde-format
 msgid "Bold"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Italic"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:156
+#: widgets/room/messagetextedit.cpp:159
 #, kde-format
 msgid "Strike-out"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:161
 #, kde-format
 msgid "Code Block"
 msgstr ""
 
-#: widgets/room/messagetextedit.cpp:160
+#: widgets/room/messagetextedit.cpp:163
 #, kde-format
 msgid "Markdown Url"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:45+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -4253,6 +4253,12 @@ msgstr "Matkapuhelin"
 msgid "Troubleshoot"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Default Room"
+msgid "Default Provider"
+msgstr "Oletushuone"
+
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Ignore"
@@ -6918,8 +6924,9 @@ msgid "To:"
 msgstr "Vastaanottaja:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, kde-format
-msgid "Format"
+#, fuzzy, kde-format
+#| msgid "Format"
+msgid "Output Format:"
 msgstr "Muoto"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
@@ -7842,32 +7849,32 @@ msgstr "Poista viesti"
 msgid "Translator Error"
 msgstr "Käännös"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Change Text Format"
 msgstr "Muuta tekstin muotoa"
 
-#: widgets/room/messagetextedit.cpp:154
+#: widgets/room/messagetextedit.cpp:157
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
-#: widgets/room/messagetextedit.cpp:156
+#: widgets/room/messagetextedit.cpp:159
 #, kde-format
 msgid "Strike-out"
 msgstr "Yliviivattu"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:161
 #, kde-format
 msgid "Code Block"
 msgstr "Koodilohko"
 
-#: widgets/room/messagetextedit.cpp:160
+#: widgets/room/messagetextedit.cpp:163
 #, kde-format
 msgid "Markdown Url"
 msgstr ""

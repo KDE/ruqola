@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:47+0000\n"
-"PO-Revision-Date: 2022-11-15 08:37+0100\n"
+"POT-Creation-Date: 2022-11-17 00:45+0000\n"
+"PO-Revision-Date: 2022-11-16 11:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4092,6 +4092,12 @@ msgstr "Mobilni telefon"
 msgid "Troubleshoot"
 msgstr "Išči napake"
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Default Room"
+msgid "Default Provider"
+msgstr "Privzeta soba"
+
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
@@ -6700,8 +6706,9 @@ msgid "To:"
 msgstr "Za:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, kde-format
-msgid "Format"
+#, fuzzy, kde-format
+#| msgid "Format"
+msgid "Output Format:"
 msgstr "Oblika"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
@@ -7613,32 +7620,32 @@ msgstr "Izbriši sporočilo"
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Change Text Format"
 msgstr "Spremeni obliko besedila"
 
-#: widgets/room/messagetextedit.cpp:154
+#: widgets/room/messagetextedit.cpp:157
 #, kde-format
 msgid "Bold"
 msgstr "Krepko"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Italic"
 msgstr "Ležeče"
 
-#: widgets/room/messagetextedit.cpp:156
+#: widgets/room/messagetextedit.cpp:159
 #, kde-format
 msgid "Strike-out"
 msgstr "Prečrtano"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:161
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kode"
 
-#: widgets/room/messagetextedit.cpp:160
+#: widgets/room/messagetextedit.cpp:163
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url markdowna"

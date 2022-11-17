@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:47+0000\n"
+"POT-Creation-Date: 2022-11-17 00:45+0000\n"
 "PO-Revision-Date: 2022-11-15 04:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -4075,6 +4075,12 @@ msgstr "Taşınabilir"
 msgid "Troubleshoot"
 msgstr "Tanılar"
 
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Default Room"
+msgid "Default Provider"
+msgstr "Öntanımlı Oda"
+
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
 msgid "IgnoreTLS"
@@ -6675,8 +6681,9 @@ msgid "To:"
 msgstr "Nereye:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, kde-format
-msgid "Format"
+#, fuzzy, kde-format
+#| msgid "Format"
+msgid "Output Format:"
 msgstr "Biçim"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
@@ -7584,32 +7591,32 @@ msgstr "İleti Sil"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:152
+#: widgets/room/messagetextedit.cpp:155
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:154
+#: widgets/room/messagetextedit.cpp:157
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:158
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:156
+#: widgets/room/messagetextedit.cpp:159
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:161
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:160
+#: widgets/room/messagetextedit.cpp:163
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL'si"
