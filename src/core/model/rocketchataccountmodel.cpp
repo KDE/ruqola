@@ -37,6 +37,7 @@ void RocketChatAccountModel::setAccounts(const QVector<RocketChatAccount *> &acc
     }
 
     beginResetModel();
+    qDeleteAll(mRocketChatAccount);
     mRocketChatAccount = accounts;
     endResetModel();
 

@@ -57,7 +57,6 @@ void RocketChatAccountModelTest::shouldAddAccountValue()
     modelResetSpy.clear();
     modelABTReset.clear();
 
-    qDeleteAll(accounts);
     accounts.clear();
     accounts.reserve(3);
     for (int i = 0; i < 3; ++i) {
