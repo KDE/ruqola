@@ -75,9 +75,11 @@ void MessageTextEdit::slotLanguageChanged(const QString &lang)
 
 void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 {
-    auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
-    settings->setLanguage(lang);
-    Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+    if (!lang.isEmpty()) {
+        auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
+        settings->setLanguage(lang);
+        Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+    }
     qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
 }
 
