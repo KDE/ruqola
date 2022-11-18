@@ -28,6 +28,7 @@
 #include "userdatadownload/userdatadownloadwidget.h"
 #include "videoconference/videoconferencewidget.h"
 #include "webdav/webdavsettingswidget.h"
+#include "webrtc/webrtcsettingswidget.h"
 
 #include <KLocalizedString>
 #include <QTabWidget>
@@ -57,6 +58,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mMobileSettingsWidget(new MobileSettingsWidget(account, this))
     , mTroubleshootSettingsWidget(new TroubleshootSettingsWidget(account, this))
     , mConferenceCallSettingsWidget(new ConferenceCallSettingsWidget(account, this))
+    , mWebRtcSettingsWidget(new WebRtcSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -87,6 +89,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mMobileSettingsWidget->setObjectName(QStringLiteral("mMobileSettingsWidget"));
     mTroubleshootSettingsWidget->setObjectName(QStringLiteral("mTroubleshootSettingsWidget"));
     mConferenceCallSettingsWidget->setObjectName(QStringLiteral("mConferenceCallSettingsWidget"));
+    mWebRtcSettingsWidget->setObjectName(QStringLiteral("mWebRtcSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -108,6 +111,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mMobileSettingsWidget, i18n("Mobile"));
     mTabWidget->addTab(mTroubleshootSettingsWidget, i18n("Troubleshoot"));
     mTabWidget->addTab(mConferenceCallSettingsWidget, i18n("Conference Call"));
+    mTabWidget->addTab(mWebRtcSettingsWidget, i18n("WebRTC"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -155,6 +159,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mMobileSettingsWidget, mapSettings);
     initializeValues(mTroubleshootSettingsWidget, mapSettings);
     initializeValues(mConferenceCallSettingsWidget, mapSettings);
+    initializeValues(mWebRtcSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -185,4 +190,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mMobileSettingsWidget->setEnabled(state);
     mTroubleshootSettingsWidget->setEnabled(state);
     mConferenceCallSettingsWidget->setEnabled(state);
+    mWebRtcSettingsWidget->setEnabled(state);
 }

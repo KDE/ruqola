@@ -27,6 +27,7 @@
 #include "administratorsettingsdialog/userdatadownload/userdatadownloadwidget.h"
 #include "administratorsettingsdialog/videoconference/videoconferencewidget.h"
 #include "administratorsettingsdialog/webdav/webdavsettingswidget.h"
+#include "administratorsettingsdialog/webrtc/webrtcsettingswidget.h"
 #include <QTabWidget>
 #include <QTest>
 #include <QVBoxLayout>
@@ -110,4 +111,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mConferenceCallSettingsWidget = w.findChild<ConferenceCallSettingsWidget *>(QStringLiteral("mConferenceCallSettingsWidget"));
     QVERIFY(mConferenceCallSettingsWidget);
+
+    auto mWebRtcSettingsWidget = w.findChild<WebRtcSettingsWidget *>(QStringLiteral("mWebRtcSettingsWidget"));
+    QVERIFY(mWebRtcSettingsWidget);
 }
