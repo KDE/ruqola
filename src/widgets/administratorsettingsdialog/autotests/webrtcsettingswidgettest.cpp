@@ -21,5 +21,27 @@ WebRtcSettingsWidgetTest::WebRtcSettingsWidgetTest(QObject *parent)
 void WebRtcSettingsWidgetTest::shouldHaveDefaultValues()
 {
     WebRtcSettingsWidget w(nullptr);
-    // TODO
+    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    QVERIFY(mEnabled);
+    QVERIFY(!mEnabled->isChecked());
+    QVERIFY(!mEnabled->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("WebRTC_Enabled"));
+
+    auto mEnablePublicChannels = w.findChild<QCheckBox *>(QStringLiteral("mEnablePublicChannels"));
+    QVERIFY(mEnablePublicChannels);
+    QVERIFY(!mEnablePublicChannels->isChecked());
+    QVERIFY(!mEnablePublicChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePublicChannels), QStringLiteral("WebRTC_Enable_Channel"));
+
+    auto mEnablePrivateChannels = w.findChild<QCheckBox *>(QStringLiteral("mEnablePrivateChannels"));
+    QVERIFY(mEnablePrivateChannels);
+    QVERIFY(!mEnablePrivateChannels->isChecked());
+    QVERIFY(!mEnablePrivateChannels->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnablePrivateChannels), QStringLiteral("WebRTC_Enable_Private"));
+
+    auto mEnableDirectMessages = w.findChild<QCheckBox *>(QStringLiteral("mEnableDirectMessages"));
+    QVERIFY(mEnableDirectMessages);
+    QVERIFY(!mEnableDirectMessages->isChecked());
+    QVERIFY(!mEnableDirectMessages->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableDirectMessages), QStringLiteral("WebRTC_Enable_Direct"));
 }
