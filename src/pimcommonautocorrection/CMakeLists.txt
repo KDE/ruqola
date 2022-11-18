@@ -54,6 +54,12 @@ ecm_qt_declare_logging_category(KF5PimCommonAutoCorrection HEADER pimcommonautoc
         EXPORT PIMCOMMON
     )
 
+ecm_qt_declare_logging_category(KF5PimCommonAutoCorrection HEADER pimcommonautocorrectionautocorrect_debug.h
+    IDENTIFIER PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG CATEGORY_NAME org.kde.pim.pimcommonautocorrection.autocorrect
+        DESCRIPTION "kdepim (pimcommon AutoCorrection autocorrect text)"
+        EXPORT PIMCOMMON
+    )
+
 target_sources(KF5PimCommonAutoCorrection PRIVATE
     ${pimcommonautocorrection_settings_SRCS}
     autocorrection/autocorrection.cpp
