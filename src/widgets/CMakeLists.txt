@@ -168,6 +168,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp
     administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h
 
+    administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp
+    administratorsettingsdialog/webrtc/webrtcsettingswidget.h
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
