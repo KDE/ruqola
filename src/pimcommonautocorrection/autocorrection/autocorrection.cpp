@@ -180,7 +180,11 @@ bool AutoCorrection::autocorrect(bool htmlMode, QTextDocument &document, int &po
                 const QStringList lst = AutoCorrectionUtils::wordsFromSentence(d->mWord);
                 qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " lst " << lst;
                 for (const auto &string : lst) {
+                    const int diffSize = d->mWord.length() - string.length();
                     d->mWord = string;
+                    const int positionEnd(d->mCursor.selectionEnd());
+                    d->mCursor.setPosition(d->mCursor.selectionStart() + diffSize);
+                    d->mCursor.setPosition(positionEnd, QTextCursor::KeepAnchor);
                     const int newPos = advancedAutocorrect();
                     if (newPos != -1) {
                         if (d->mCursor.selectedText() != d->mWord) {
@@ -723,18 +727,27 @@ int AutoCorrection::advancedAutocorrect()
     QHashIterator<QString, QString> i(d->mAutoCorrectionSettings->autocorrectEntries());
     while (i.hasNext()) {
         i.next();
-        if (i.key().length() > actualWordLength) {
-            continue;
+        const auto key = i.key();
+        const auto keyLength{key.length()};
+        if (hasPunctuation) {
+            // We remove 1 element when we have punctuation
+            if (keyLength != actualWordLength - 1) {
+                continue;
+            }
+        } else {
+            if (keyLength != actualWordLength) {
+                continue;
+            }
         }
-        qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " i.key() " << i.key();
-        if (actualWord.endsWith(i.key()) || actualWord.endsWith(i.key(), Qt::CaseInsensitive) || actualWordWithFirstUpperCase.endsWith(i.key())) {
-            int pos = d->mWord.lastIndexOf(i.key());
+        qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " i.key() " << key << "actual" << actualWord;
+        if (actualWord.endsWith(key) || actualWord.endsWith(key, Qt::CaseInsensitive) || actualWordWithFirstUpperCase.endsWith(key)) {
+            int pos = d->mWord.lastIndexOf(key);
             qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " pos 1 " << pos << " d->mWord " << d->mWord;
             if (pos == -1) {
-                pos = actualWord.toLower().lastIndexOf(i.key());
+                pos = actualWord.toLower().lastIndexOf(key);
                 qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " pos 2 " << pos;
                 if (pos == -1) {
-                    pos = actualWordWithFirstUpperCase.lastIndexOf(i.key());
+                    pos = actualWordWithFirstUpperCase.lastIndexOf(key);
                     qCDebug(PIMCOMMONAUTOCORRECTION_AUTOCORRECT_LOG) << " pos 3 " << pos;
                     if (pos == -1) {
                         continue;

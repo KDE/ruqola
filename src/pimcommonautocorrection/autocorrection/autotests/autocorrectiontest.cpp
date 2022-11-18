@@ -519,6 +519,11 @@ void AutoCorrectionTest::shouldAutocorrectMultiWord_data()
     QTest::newRow("replace-1") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo bli") << map;
 
     map.clear();
+    map.insert(QStringLiteral("boo boo"), QStringLiteral("bli"));
+    map.insert(QStringLiteral("boo"), QStringLiteral("bla"));
+    QTest::newRow("replace-1-order") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo bli") << map;
+
+    map.clear();
     map.insert(QStringLiteral("au delà"), QStringLiteral("au-delà"));
     map.insert(QStringLiteral("boo boo"), QStringLiteral("bli"));
     QTest::newRow("replace-2") << QStringLiteral("voilà au delà") << QStringLiteral("voilà au-delà") << map;
@@ -608,6 +613,8 @@ void AutoCorrectionTest::shouldReplaceWithMultiOption_data()
     map.insert(QStringLiteral(":j2:"), QStringLiteral("TV"));
     map.insert(QStringLiteral("i"), QStringLiteral("I"));
     map.insert(QStringLiteral("Noel"), QStringLiteral("noal"));
+    // create a big word otherwise we can't reproduce bug
+    map.insert(QStringLiteral("anticonstitutionnellement"), QStringLiteral("2"));
 
     QTest::newRow("disable") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo boo boo") << map << false << false << false << false << -1;
     QTest::newRow("enablebutdisablealloptions") << QStringLiteral("Boo boo boo") << QStringLiteral("Boo boo boo") << map << true << false << false << false
