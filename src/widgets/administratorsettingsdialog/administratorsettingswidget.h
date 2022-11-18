@@ -32,6 +32,7 @@ class LogsSettingsWidget;
 class EmailSettingsWidget;
 class MobileSettingsWidget;
 class TroubleshootSettingsWidget;
+class ConferenceCallSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -66,5 +67,6 @@ private:
     EmailSettingsWidget *const mEmailSettingsWidget;
     MobileSettingsWidget *const mMobileSettingsWidget;
     TroubleshootSettingsWidget *const mTroubleshootSettingsWidget;
+    ConferenceCallSettingsWidget *const mConferenceCallSettingsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -6,6 +6,7 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
+#include "conferencecall/conferencecallsettingswidget.h"
 #include "email/emailsettingswidget.h"
 #include "encryption/encryptionsettingswidget.h"
 #include "enterprise/enterprisesettingswidget.h"
@@ -55,6 +56,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mEmailSettingsWidget(new EmailSettingsWidget(account, this))
     , mMobileSettingsWidget(new MobileSettingsWidget(account, this))
     , mTroubleshootSettingsWidget(new TroubleshootSettingsWidget(account, this))
+    , mConferenceCallSettingsWidget(new ConferenceCallSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -84,6 +86,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mEmailSettingsWidget->setObjectName(QStringLiteral("mEmailSettingsWidget"));
     mMobileSettingsWidget->setObjectName(QStringLiteral("mMobileSettingsWidget"));
     mTroubleshootSettingsWidget->setObjectName(QStringLiteral("mTroubleshootSettingsWidget"));
+    mConferenceCallSettingsWidget->setObjectName(QStringLiteral("mConferenceCallSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -104,6 +107,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mEmailSettingsWidget, i18n("Email"));
     mTabWidget->addTab(mMobileSettingsWidget, i18n("Mobile"));
     mTabWidget->addTab(mTroubleshootSettingsWidget, i18n("Troubleshoot"));
+    mTabWidget->addTab(mConferenceCallSettingsWidget, i18n("Conference Call"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -150,6 +154,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mEmailSettingsWidget, mapSettings);
     initializeValues(mMobileSettingsWidget, mapSettings);
     initializeValues(mTroubleshootSettingsWidget, mapSettings);
+    initializeValues(mConferenceCallSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -179,4 +184,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mEmailSettingsWidget->setEnabled(state);
     mMobileSettingsWidget->setEnabled(state);
     mTroubleshootSettingsWidget->setEnabled(state);
+    mConferenceCallSettingsWidget->setEnabled(state);
 }
