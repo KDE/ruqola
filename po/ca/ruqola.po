@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
-"PO-Revision-Date: 2022-11-15 10:05+0100\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
+"PO-Revision-Date: 2022-11-17 14:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4102,10 +4102,9 @@ msgid "Troubleshoot"
 msgstr "Resolució de problemes"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Default Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "Sala predeterminada"
+msgstr "Proveïdor predeterminat"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -6723,10 +6722,9 @@ msgid "To:"
 msgstr "A:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Output Format:"
-msgstr "Format"
+msgstr "Format de sortida:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -7633,32 +7631,32 @@ msgstr "Supressió de missatge"
 msgid "Translator Error"
 msgstr "Error del traductor"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:165
 #, kde-format
 msgid "Change Text Format"
 msgstr "Canvia el format del text"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:167
 #, kde-format
 msgid "Bold"
 msgstr "Negreta"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:168
 #, kde-format
 msgid "Italic"
 msgstr "Cursiva"
 
-#: widgets/room/messagetextedit.cpp:159
+#: widgets/room/messagetextedit.cpp:169
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrat"
 
-#: widgets/room/messagetextedit.cpp:161
+#: widgets/room/messagetextedit.cpp:171
 #, kde-format
 msgid "Code Block"
 msgstr "Bloc de codi"
 
-#: widgets/room/messagetextedit.cpp:163
+#: widgets/room/messagetextedit.cpp:173
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL en Markdown"

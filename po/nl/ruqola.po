@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
-"PO-Revision-Date: 2022-11-16 15:09+0100\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
+"PO-Revision-Date: 2022-11-17 13:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4107,10 +4107,9 @@ msgid "Troubleshoot"
 msgstr "Problemen oplossen"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Default Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "Standaard room"
+msgstr "Standaard leverancier"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -6731,10 +6730,9 @@ msgid "To:"
 msgstr "Aan:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Output Format:"
-msgstr "Opmaak"
+msgstr "Uitvoerformaat:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -7641,32 +7639,32 @@ msgstr "Bericht verwijderen"
 msgid "Translator Error"
 msgstr "Fout van vertaler"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:165
 #, kde-format
 msgid "Change Text Format"
 msgstr "Tekstformaat wijzigen"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:167
 #, kde-format
 msgid "Bold"
 msgstr "Vet"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:168
 #, kde-format
 msgid "Italic"
 msgstr "Cursief"
 
-#: widgets/room/messagetextedit.cpp:159
+#: widgets/room/messagetextedit.cpp:169
 #, kde-format
 msgid "Strike-out"
 msgstr "Doorstrepen"
 
-#: widgets/room/messagetextedit.cpp:161
+#: widgets/room/messagetextedit.cpp:171
 #, kde-format
 msgid "Code Block"
 msgstr "Codeblok"
 
-#: widgets/room/messagetextedit.cpp:163
+#: widgets/room/messagetextedit.cpp:173
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url in markdown"

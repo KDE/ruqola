@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
 "PO-Revision-Date: 2022-09-15 15:54+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -7645,32 +7645,32 @@ msgstr "Usuń wiadomość"
 msgid "Translator Error"
 msgstr "Tłumaczenie"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:165
 #, kde-format
 msgid "Change Text Format"
 msgstr "Zmień format tekstu"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:167
 #, kde-format
 msgid "Bold"
 msgstr "Pogrubienie"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:168
 #, kde-format
 msgid "Italic"
 msgstr "Kursywa"
 
-#: widgets/room/messagetextedit.cpp:159
+#: widgets/room/messagetextedit.cpp:169
 #, kde-format
 msgid "Strike-out"
 msgstr "Przekreślenie"
 
-#: widgets/room/messagetextedit.cpp:161
+#: widgets/room/messagetextedit.cpp:171
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kodu"
 
-#: widgets/room/messagetextedit.cpp:163
+#: widgets/room/messagetextedit.cpp:173
 #, kde-format
 msgid "Markdown Url"
 msgstr "Adres URL Markdown"

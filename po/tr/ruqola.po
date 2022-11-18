@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-17 00:45+0000\n"
-"PO-Revision-Date: 2022-11-15 04:43+0300\n"
+"POT-Creation-Date: 2022-11-18 00:45+0000\n"
+"PO-Revision-Date: 2022-11-17 18:16+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4076,10 +4076,9 @@ msgid "Troubleshoot"
 msgstr "Tanılar"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Default Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "Öntanımlı Oda"
+msgstr "Öntanımlı Sağlayıcı"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
 #, kde-format
@@ -6681,10 +6680,9 @@ msgid "To:"
 msgstr "Nereye:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Output Format:"
-msgstr "Biçim"
+msgstr "Çıktı Biçimi:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -7591,32 +7589,32 @@ msgstr "İleti Sil"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:155
+#: widgets/room/messagetextedit.cpp:165
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:157
+#: widgets/room/messagetextedit.cpp:167
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:158
+#: widgets/room/messagetextedit.cpp:168
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:159
+#: widgets/room/messagetextedit.cpp:169
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:161
+#: widgets/room/messagetextedit.cpp:171
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:163
+#: widgets/room/messagetextedit.cpp:173
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL'si"
