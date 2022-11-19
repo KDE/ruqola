@@ -7,6 +7,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WebRtcSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -21,4 +22,5 @@ private:
     QCheckBox *const mEnablePublicChannels;
     QCheckBox *const mEnablePrivateChannels;
     QCheckBox *const mEnableDirectMessages;
+    QLineEdit *const mServer;
 };

@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QComboBox>
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 
 QTEST_MAIN(WebRtcSettingsWidgetTest)
@@ -44,4 +45,11 @@ void WebRtcSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableDirectMessages->isChecked());
     QVERIFY(!mEnableDirectMessages->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableDirectMessages), QStringLiteral("WebRTC_Enable_Direct"));
+
+    auto mServer = w.findChild<QLineEdit *>(QStringLiteral("mServer"));
+    QVERIFY(mServer);
+    QVERIFY(mServer->text().isEmpty());
+    QVERIFY(!mServer->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mServer), QStringLiteral("WebRTC_Servers"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("WebRTC_Servers"));
 }

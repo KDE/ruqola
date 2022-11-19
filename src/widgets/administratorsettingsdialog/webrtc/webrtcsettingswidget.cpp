@@ -8,6 +8,7 @@
 #include <KLocalizedString>
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 
 WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -15,6 +16,7 @@ WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *
     , mEnablePublicChannels(new QCheckBox(i18n("Enable for Public Channels"), this))
     , mEnablePrivateChannels(new QCheckBox(i18n("Enable for Private Channels"), this))
     , mEnableDirectMessages(new QCheckBox(i18n("Enable for Direct Messages"), this))
+    , mServer(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -31,6 +33,12 @@ WebRtcSettingsWidget::WebRtcSettingsWidget(RocketChatAccount *account, QWidget *
     mEnableDirectMessages->setObjectName(QStringLiteral("mEnableDirectMessages"));
     mMainLayout->addWidget(mEnableDirectMessages);
     connectCheckBox(mEnableDirectMessages, QStringLiteral("WebRTC_Enable_Direct"));
+
+    mServer->setObjectName(QStringLiteral("mServer"));
+    mServer->setToolTip(
+        i18n("A list of STUN and TURN servers separated by comma.\nUsername, password and port are allowed in the format username:password@stun:host:port or "
+             "username:password@turn:host:port."));
+    addLineEdit(i18n("STUN/TURN Servers"), mServer, QStringLiteral("WebRTC_Servers"));
 }
 
 WebRtcSettingsWidget::~WebRtcSettingsWidget() = default;
@@ -41,4 +49,5 @@ void WebRtcSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings
     initializeWidget(mEnablePublicChannels, mapSettings, false);
     initializeWidget(mEnablePrivateChannels, mapSettings, false);
     initializeWidget(mEnableDirectMessages, mapSettings, false);
+    initializeWidget(mServer, mapSettings, QString());
 }
