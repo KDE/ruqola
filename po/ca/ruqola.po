@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-18 00:45+0000\n"
+"POT-Creation-Date: 2022-11-19 00:45+0000\n"
 "PO-Revision-Date: 2022-11-17 14:16+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -781,7 +781,7 @@ msgid "UserName"
 msgstr "Nom d'usuari"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #: widgets/dialogs/configurenotificationwidget.cpp:93
 #, kde-format
 msgid "Email"
@@ -4000,106 +4000,117 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuració de l'administració del servidor - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Pujada de fitxers"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de retenció"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitador de velocitat"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Contrasenya"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federació d'IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #, kde-format
 msgid "Layout"
 msgstr "Disposició"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
 msgid "User Data Download"
 msgstr "Baixada de dades d'usuari"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Pont de l'Slack"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #, kde-format
 msgid "Logs"
 msgstr "Registres"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #: widgets/dialogs/configurenotificationwidget.cpp:77
 #, kde-format
 msgid "Mobile"
 msgstr "Mòbil"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Resolució de problemes"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#, fuzzy, kde-format
+#| msgid "Video Conference"
+msgid "Conference Call"
+msgstr "Conferència de vídeo"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#, kde-format
+msgid "WebRTC"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -4604,6 +4615,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:14
 #, kde-format
 msgid "Enabled"
 msgstr "Activada"
@@ -5603,6 +5615,24 @@ msgstr "Secret d'aplicació"
 #, kde-format
 msgid "Webdav Integration Enabled"
 msgstr "Integració de Webdav activada"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Enable in Channels"
+msgid "Enable for Public Channels"
+msgstr "Activa en els canals"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
+#, fuzzy, kde-format
+#| msgid "Enable in Channels"
+msgid "Enable for Private Channels"
+msgstr "Activa en els canals"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
+#, fuzzy, kde-format
+#| msgid "Unread Count for Direct Messages"
+msgid "Enable for Direct Messages"
+msgstr "Comptador de no llegits per als missatges directes"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
