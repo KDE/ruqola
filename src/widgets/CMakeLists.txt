@@ -171,6 +171,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp
     administratorsettingsdialog/webrtc/webrtcsettingswidget.h
 
+    administratorsettingsdialog/cas/cassettingswidget.h
+    administratorsettingsdialog/cas/cassettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
