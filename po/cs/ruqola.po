@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:45+0000\n"
+"POT-Creation-Date: 2022-11-20 00:46+0000\n"
 "PO-Revision-Date: 2022-06-28 14:39+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -4557,7 +4557,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:14
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Povoleno"
@@ -5503,22 +5503,35 @@ msgstr ""
 msgid "Webdav Integration Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, kde-format
 msgid "Enable for Public Channels"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
 #, fuzzy, kde-format
 #| msgid "Unarchive Channel"
 msgid "Enable for Private Channels"
 msgstr "Zrušit archivaci kanálu"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "Enabled File Upload"
 msgid "Enable for Direct Messages"
 msgstr "Povoleno odesílání souboru"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
+#, kde-format
+msgid ""
+"A list of STUN and TURN servers separated by comma.\n"
+"Username, password and port are allowed in the format username:password@stun:"
+"host:port or username:password@turn:host:port."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
+#, kde-format
+msgid "STUN/TURN Servers"
+msgstr ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format

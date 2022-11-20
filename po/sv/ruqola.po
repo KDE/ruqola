@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:45+0000\n"
+"POT-Creation-Date: 2022-11-20 00:46+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4594,7 +4594,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:14
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Aktiverad"
@@ -5567,23 +5567,36 @@ msgstr "Programhemlighet"
 msgid "Webdav Integration Enabled"
 msgstr "Webdav-integrering aktiverad"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
 #, fuzzy, kde-format
 #| msgid "Enable in Channels"
 msgid "Enable for Public Channels"
 msgstr "Aktivera i kanaler"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
 #, fuzzy, kde-format
 #| msgid "Enable in Channels"
 msgid "Enable for Private Channels"
 msgstr "Aktivera i kanaler"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "Unread Count for Direct Messages"
 msgid "Enable for Direct Messages"
 msgstr "Antal olästa direktmeddelanden"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
+#, kde-format
+msgid ""
+"A list of STUN and TURN servers separated by comma.\n"
+"Username, password and port are allowed in the format username:password@stun:"
+"host:port or username:password@turn:host:port."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
+#, kde-format
+msgid "STUN/TURN Servers"
+msgstr ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format

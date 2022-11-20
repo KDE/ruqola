@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-19 00:45+0000\n"
-"PO-Revision-Date: 2022-11-17 04:12+0200\n"
+"POT-Creation-Date: 2022-11-20 00:46+0000\n"
+"PO-Revision-Date: 2022-11-19 06:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -4113,15 +4113,14 @@ msgid "Troubleshoot"
 msgstr "Діагностика проблем"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "Video Conference"
+#, kde-format
 msgid "Conference Call"
-msgstr "Відеоконференція"
+msgstr "Конференція"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -4624,7 +4623,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:14
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
 #, kde-format
 msgid "Enabled"
 msgstr "Увімкнено"
@@ -5629,23 +5628,33 @@ msgstr "Реєстраційні дані програми"
 msgid "Webdav Integration Enabled"
 msgstr "Увімкнено інтеграцію із Webdav"
 
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
-msgid "Enable for Public Channels"
-msgstr "Увімкнути на каналах"
-
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
-msgid "Enable for Private Channels"
-msgstr "Увімкнути на каналах"
+#, kde-format
+msgid "Enable for Public Channels"
+msgstr "Увімкнути для загальнодоступних каналів"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Unread Count for Direct Messages"
+#, kde-format
+msgid "Enable for Private Channels"
+msgstr "Увімкнути для конфіденційних каналів"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
+#, kde-format
 msgid "Enable for Direct Messages"
-msgstr "Кількість непрочитаних для безпосередніх повідомлень"
+msgstr "Увімкнути для безпосередніх повідомлень"
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
+#, kde-format
+msgid ""
+"A list of STUN and TURN servers separated by comma.\n"
+"Username, password and port are allowed in the format username:password@stun:"
+"host:port or username:password@turn:host:port."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
+#, kde-format
+msgid "STUN/TURN Servers"
+msgstr ""
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
