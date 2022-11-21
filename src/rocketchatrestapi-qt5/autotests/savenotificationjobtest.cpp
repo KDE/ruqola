@@ -57,7 +57,7 @@ void SaveNotificationJobTest::shouldGenerateJson()
     // Add settings
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{,"hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{"hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId).toLatin1());
     const QString mobilePushNotifications = QStringLiteral("all");
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
