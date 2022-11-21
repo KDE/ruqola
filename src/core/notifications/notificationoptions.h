@@ -84,6 +84,7 @@ private:
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;
+    bool mhideMentionStatus = false; // TODO ?
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValues &t);
