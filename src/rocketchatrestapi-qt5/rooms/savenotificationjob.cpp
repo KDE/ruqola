@@ -51,6 +51,7 @@ bool SaveNotificationJob::hideMentionStatus() const
 
 void SaveNotificationJob::setHideMentionStatus(bool newHideMentionStatus)
 {
+    mSettingsWillBeChanged |= HideMentionStatus;
     mHideMentionStatus = newHideMentionStatus;
 }
 
