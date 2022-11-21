@@ -17,6 +17,19 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
 public:
     NotificationOptions();
     NotificationOptions(const NotificationOptions &other) = default;
+    struct NotificationValues {
+        NotificationValues() = default;
+        explicit NotificationValues(const QString &val, const QString pref)
+            : value(val)
+            , preferenceOrigin(pref)
+        {
+        }
+        QString value;
+        QString preferenceOrigin;
+        Q_REQUIRED_RESULT bool operator==(const NotificationValues &other) const;
+        Q_REQUIRED_RESULT QString currentValue() const;
+        Q_REQUIRED_RESULT bool isEmpty() const;
+    };
 
     enum NotificationType {
         Default = 0,
@@ -35,14 +48,14 @@ public:
     Q_REQUIRED_RESULT QString unreadTrayIconAlert() const;
     void setUnreadTrayIconAlert(const QString &unreadTrayIconAlert);
 
-    Q_REQUIRED_RESULT QString emailNotifications() const;
-    void setEmailNotifications(const QString &emailNotifications);
+    Q_REQUIRED_RESULT NotificationValues emailNotifications() const;
+    void setEmailNotifications(const NotificationValues &emailNotifications);
 
-    Q_REQUIRED_RESULT QString mobilePushNotification() const;
-    void setMobilePushNotification(const QString &mobilePushNotification);
+    Q_REQUIRED_RESULT NotificationValues mobilePushNotification() const;
+    void setMobilePushNotification(const NotificationValues &mobilePushNotification);
 
-    Q_REQUIRED_RESULT QString desktopNotifications() const;
-    void setDesktopNotifications(const QString &desktopNotifications);
+    Q_REQUIRED_RESULT NotificationValues desktopNotifications() const;
+    void setDesktopNotifications(const NotificationValues &desktopNotifications);
 
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
@@ -61,10 +74,11 @@ public:
     void setMuteGroupMentions(bool muteGroupMentions);
 
 private:
+    NotificationValues mDesktopNotifications;
+    NotificationValues mMobilePushNotification;
+    NotificationValues mEmailNotifications;
+
     // TODO use enums ????
-    QString mDesktopNotifications;
-    QString mMobilePushNotification;
-    QString mEmailNotifications;
     QString mUnreadTrayIconAlert;
     QString mAudioNotificationValue; // Type
     bool mDisableNotifications = false;
@@ -72,3 +86,4 @@ private:
     bool mMuteGroupMentions = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValues &t);

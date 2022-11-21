@@ -30,13 +30,13 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
 void NotificationOptionsTest::shouldAssignValue()
 {
     NotificationOptions w;
-    QString desktopNotifications = QStringLiteral("bla");
+    NotificationOptions::NotificationValues desktopNotifications = NotificationOptions::NotificationValues{QStringLiteral("bla"), QString()};
     w.setDesktopNotifications(desktopNotifications);
 
-    QString mobilePushNotification = QStringLiteral("bli");
+    NotificationOptions::NotificationValues mobilePushNotification = NotificationOptions::NotificationValues{QStringLiteral("bli"), QString()};
     w.setMobilePushNotification(mobilePushNotification);
 
-    QString emailNotifications = QStringLiteral("blu");
+    NotificationOptions::NotificationValues emailNotifications = NotificationOptions::NotificationValues{QStringLiteral("blu"), QString()};
     w.setEmailNotifications(emailNotifications);
 
     QString unreadTrayIconAlert = QStringLiteral("Ablu");

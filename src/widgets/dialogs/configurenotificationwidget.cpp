@@ -121,12 +121,12 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mDisableNotification->setChecked(notificationOptions.disableNotifications());
     mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
-    mDesktopAlertCombobox->setCurrentIndex(
-        NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(notificationOptions.desktopNotifications()));
+    mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(
+        notificationOptions.desktopNotifications().currentValue()));
     mDesktopSoundCombobox->setCurrentIndex(
         NotificationPreferences::self()->desktopSoundNotificationModel()->setCurrentNotificationPreference(notificationOptions.audioNotificationValue()));
-    mMobileAlertCombobox->setCurrentIndex(
-        NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(notificationOptions.mobilePushNotification()));
+    mMobileAlertCombobox->setCurrentIndex(NotificationPreferences::self()->mobileNotificationModel()->setCurrentNotificationPreference(
+        notificationOptions.mobilePushNotification().currentValue()));
     mEmailAlertCombobox->setCurrentIndex(
-        NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions.emailNotifications()));
+        NotificationPreferences::self()->emailNotificationModel()->setCurrentNotificationPreference(notificationOptions.emailNotifications().currentValue()));
 }
