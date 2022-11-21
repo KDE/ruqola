@@ -16,6 +16,7 @@
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",
+        "hideMentionStatus": false,
         "hideUnreadStatus": false,
         "mobilePushNotifications": "",
         "muteGroupMentions": false,

@@ -18,6 +18,7 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
     qDebug() << " parseNotificationOptions " << obj;
     mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();
+    mHideMentionStatus = obj.value(QLatin1String("hideMentionStatus")).toBool();
     mDisableNotifications = obj.value(QLatin1String("disableNotifications")).toBool();
 
     mAudioNotificationValue = obj.value(QLatin1String("audioNotificationValue")).toString();
@@ -56,6 +57,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
     obj[QStringLiteral("unreadAlert")] = options.unreadTrayIconAlert();
     obj[QStringLiteral("hideUnreadStatus")] = options.hideUnreadStatus();
     obj[QStringLiteral("muteGroupMentions")] = options.muteGroupMentions();
+    obj[QStringLiteral("hideMentionStatus")] = options.hideMentionStatus();
     return obj;
 }
 
