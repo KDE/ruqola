@@ -12,7 +12,6 @@
     "name": "ruqola-broadcast",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "mentions",

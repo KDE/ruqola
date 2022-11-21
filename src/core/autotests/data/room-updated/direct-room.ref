@@ -13,7 +13,6 @@
     "name": "laurent",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "mentions",
         "disableNotifications": false,
         "emailNotifications": "mentions",

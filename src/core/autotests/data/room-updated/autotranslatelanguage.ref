@@ -13,7 +13,6 @@
     "name": "ruqola",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",

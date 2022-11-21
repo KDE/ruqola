@@ -12,7 +12,6 @@
     "name": "user2",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",

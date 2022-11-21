@@ -12,7 +12,6 @@
     "name": "ruqola-team21",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",

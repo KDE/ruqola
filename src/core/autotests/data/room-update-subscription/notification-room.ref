@@ -14,7 +14,6 @@
     "name": "test",
     "notifications": {
         "audioNotificationValue": "chime",
-        "audioNotifications": "all",
         "desktopNotifications": "mentions",
         "disableNotifications": false,
         "emailNotifications": "default",

@@ -12,7 +12,6 @@
     "name": "test",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "all",
         "desktopNotifications": "mentions",
         "disableNotifications": false,
         "emailNotifications": "default",

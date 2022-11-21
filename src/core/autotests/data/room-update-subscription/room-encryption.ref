@@ -14,7 +14,6 @@
     "name": "test-add-user-ruqola",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",
