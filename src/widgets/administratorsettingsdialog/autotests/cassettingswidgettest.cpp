@@ -7,9 +7,8 @@
 #include "cassettingswidgettest.h"
 #include "administratorsettingsdialog/cas/cassettingswidget.h"
 #include "settingswidgetshelper.h"
-#include <QComboBox>
+#include <QCheckBox>
 #include <QFormLayout>
-#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CasSettingsWidgetTest)
 CasSettingsWidgetTest::CasSettingsWidgetTest(QObject *parent)
@@ -20,5 +19,9 @@ CasSettingsWidgetTest::CasSettingsWidgetTest(QObject *parent)
 void CasSettingsWidgetTest::shouldHaveDefaultValues()
 {
     CasSettingsWidget w(nullptr);
-    // TODO
+    auto mEnabled = w.findChild<QCheckBox *>(QStringLiteral("mEnabled"));
+    QVERIFY(mEnabled);
+    QVERIFY(!mEnabled->isChecked());
+    QVERIFY(!mEnabled->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("CAS_enabled"));
 }
