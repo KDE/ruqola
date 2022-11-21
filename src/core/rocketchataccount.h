@@ -120,7 +120,6 @@ public:
     enum NotificationOptionsType {
         DisableNotifications,
         HideUnreadStatus,
-        AudioNotifications,
         DesktopNotifications,
         DesktopDurationNotifications,
         DesktopSoundNotifications,

@@ -17,7 +17,6 @@ NotificationOptionsTest::NotificationOptionsTest(QObject *parent)
 void NotificationOptionsTest::shouldHaveDefaultValue()
 {
     NotificationOptions w;
-    QVERIFY(w.audioNotifications().isEmpty());
     QVERIFY(w.desktopNotifications().isEmpty());
     QVERIFY(w.mobilePushNotification().isEmpty());
     QVERIFY(w.emailNotifications().isEmpty());
@@ -31,9 +30,6 @@ void NotificationOptionsTest::shouldHaveDefaultValue()
 void NotificationOptionsTest::shouldAssignValue()
 {
     NotificationOptions w;
-    QString audioNotifications = QStringLiteral("foo");
-    w.setAudioNotifications(audioNotifications);
-
     QString desktopNotifications = QStringLiteral("bla");
     w.setDesktopNotifications(desktopNotifications);
 
@@ -58,7 +54,6 @@ void NotificationOptionsTest::shouldAssignValue()
     bool muteGroupMentions = true;
     w.setMuteGroupMentions(muteGroupMentions);
 
-    QCOMPARE(w.audioNotifications(), audioNotifications);
     QCOMPARE(w.desktopNotifications(), desktopNotifications);
     QCOMPARE(w.mobilePushNotification(), mobilePushNotification);
     QCOMPARE(w.emailNotifications(), emailNotifications);

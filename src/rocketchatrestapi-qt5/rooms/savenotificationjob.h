@@ -40,9 +40,6 @@ public:
     Q_REQUIRED_RESULT QString emailNotifications() const;
     void setEmailNotifications(const QString &emailNotifications);
 
-    Q_REQUIRED_RESULT QString audioNotifications() const;
-    void setAudioNotifications(const QString &audioNotifications);
-
     Q_REQUIRED_RESULT QString mobilePushNotifications() const;
     void setMobilePushNotifications(const QString &mobilePushNotifications);
 
@@ -68,15 +65,14 @@ private:
     enum SettingChanged {
         Unknown = 0,
         EmailNotifications = 1,
-        AudioNotifications = 2,
-        MobilePushNotifications = 4,
-        AudioNotificationValue = 8,
-        UnreadAlert = 16,
-        DesktopNotificationDuration = 32,
-        DisableNotifications = 64,
-        HideUnreadStatus = 128,
-        MuteGroupMentions = 256,
-        DesktopNotification = 512,
+        MobilePushNotifications = 2,
+        AudioNotificationValue = 4,
+        UnreadAlert = 8,
+        DesktopNotificationDuration = 16,
+        DisableNotifications = 32,
+        HideUnreadStatus = 64,
+        MuteGroupMentions = 128,
+        DesktopNotification = 256,
     };
     Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -86,7 +82,6 @@ private:
 
     QString mDesktopNotifications;
     QString mEmailNotifications;
-    QString mAudioNotifications;
     QString mMobilePushNotifications;
     QString mAudioNotificationValue;
     QString mUnreadAlert;

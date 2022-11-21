@@ -99,17 +99,6 @@ void SaveNotificationJob::setMobilePushNotifications(const QString &mobilePushNo
     mMobilePushNotifications = mobilePushNotifications;
 }
 
-QString SaveNotificationJob::audioNotifications() const
-{
-    return mAudioNotifications;
-}
-
-void SaveNotificationJob::setAudioNotifications(const QString &audioNotifications)
-{
-    mSettingsWillBeChanged |= AudioNotifications;
-    mAudioNotifications = audioNotifications;
-}
-
 QString SaveNotificationJob::emailNotifications() const
 {
     return mEmailNotifications;
@@ -202,9 +191,6 @@ QJsonDocument SaveNotificationJob::json() const
 
     if (mSettingsWillBeChanged & EmailNotifications) {
         notificationsJson[QLatin1String("emailNotifications")] = emailNotifications();
-    }
-    if (mSettingsWillBeChanged & AudioNotifications) {
-        notificationsJson[QLatin1String("audioNotifications")] = audioNotifications();
     }
     if (mSettingsWillBeChanged & MobilePushNotifications) {
         notificationsJson[QLatin1String("mobilePushNotifications")] = mobilePushNotifications();

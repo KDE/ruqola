@@ -26,7 +26,6 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.muteGroupMentions());
     QVERIFY(!job.hideUnreadStatus());
     QVERIFY(job.emailNotifications().isEmpty());
-    QVERIFY(job.audioNotifications().isEmpty());
     QVERIFY(job.desktopNotifications().isEmpty());
     QVERIFY(job.mobilePushNotifications().isEmpty());
     QVERIFY(job.audioNotificationValue().isEmpty());
@@ -56,43 +55,37 @@ void SaveNotificationJobTest::shouldGenerateJson()
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{},"roomId":"%1"})").arg(roomId).toLatin1());
 
     // Add settings
-    const QString audioNotification = QStringLiteral("all");
-    job.setAudioNotifications(audioNotification);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"notifications":{"audioNotifications":"%2"},"roomId":"%1"})").arg(roomId, audioNotification).toLatin1());
-
     const bool hideUnread = true;
     job.setHideUnreadStatus(hideUnread);
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"notifications":{"audioNotifications":"%2","hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId, audioNotification).toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"notifications":{,"hideUnreadStatus":"1"},"roomId":"%1"})").arg(roomId).toLatin1());
     const QString mobilePushNotifications = QStringLiteral("all");
     job.setMobilePushNotifications(mobilePushNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
+             QStringLiteral("{\"notifications\":{"
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .arg(roomId, mobilePushNotifications)
                  .toLatin1());
 
     const bool disableNotifications = true;
     job.setDisableNotifications(disableNotifications);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
+             QStringLiteral("{\"notifications\":{"
                             "\"disableNotifications\":\"1\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .arg(roomId, mobilePushNotifications)
                  .toLatin1());
 
     const bool muteMentionGroups = true;
     job.setMuteGroupMentions(muteMentionGroups);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral("{\"notifications\":{\"audioNotifications\":\"%2\","
+             QStringLiteral("{\"notifications\":{"
                             "\"disableNotifications\":\"1\","
                             "\"hideUnreadStatus\":\"1\","
                             "\"mobilePushNotifications\":\"%3\","
                             "\"muteGroupMentions\":\"1\"},\"roomId\":\"%1\"}")
-                 .arg(roomId, audioNotification, mobilePushNotifications)
+                 .arg(roomId, mobilePushNotifications)
                  .toLatin1());
 
     // TODO add more settings

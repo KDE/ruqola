@@ -16,10 +16,10 @@ void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
 
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
+    qDebug() << " parseNotificationOptions " << obj;
     mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();
     mDisableNotifications = obj.value(QLatin1String("disableNotifications")).toBool();
 
-    mAudioNotifications = obj.value(QLatin1String("audioNotifications")).toString();
     mAudioNotificationValue = obj.value(QLatin1String("audioNotificationValue")).toString();
     //"desktopNotificationDuration":0,"desktopNotifications":"mentions"
     mDesktopNotifications = obj.value(QLatin1String("desktopNotifications")).toString();
@@ -45,7 +45,6 @@ void NotificationOptions::setAudioNotificationValue(const QString &audioNotifica
 QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
 {
     QJsonObject obj;
-    obj[QStringLiteral("audioNotifications")] = options.audioNotifications();
     obj[QStringLiteral("audioNotificationValue")] = options.audioNotificationValue();
     obj[QStringLiteral("disableNotifications")] = options.disableNotifications();
     obj[QStringLiteral("desktopNotifications")] = options.desktopNotifications();
@@ -124,23 +123,12 @@ void NotificationOptions::setDesktopNotifications(const QString &desktopNotifica
     mDesktopNotifications = desktopNotifications;
 }
 
-QString NotificationOptions::audioNotifications() const
-{
-    return mAudioNotifications;
-}
-
-void NotificationOptions::setAudioNotifications(const QString &audioNotifications)
-{
-    mAudioNotifications = audioNotifications;
-}
-
 bool NotificationOptions::operator==(const NotificationOptions &other) const
 {
-    return (mAudioNotifications == other.audioNotifications()) && (mDesktopNotifications == other.desktopNotifications())
-        && (mMobilePushNotification == other.mobilePushNotification()) && (mEmailNotifications == other.emailNotifications())
-        && (mUnreadTrayIconAlert == other.unreadTrayIconAlert()) && (mDisableNotifications == other.disableNotifications())
-        && (mHideUnreadStatus == other.hideUnreadStatus()) && (mAudioNotificationValue == other.audioNotificationValue())
-        && (mMuteGroupMentions == other.muteGroupMentions());
+    return (mDesktopNotifications == other.desktopNotifications()) && (mMobilePushNotification == other.mobilePushNotification())
+        && (mEmailNotifications == other.emailNotifications()) && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
+        && (mDisableNotifications == other.disableNotifications()) && (mHideUnreadStatus == other.hideUnreadStatus())
+        && (mAudioNotificationValue == other.audioNotificationValue()) && (mMuteGroupMentions == other.muteGroupMentions());
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const
@@ -160,7 +148,6 @@ void NotificationOptions::setMuteGroupMentions(bool muteGroupMentions)
 
 QDebug operator<<(QDebug d, const NotificationOptions &t)
 {
-    d << "mAudioNotifications: " << t.audioNotifications();
     d << "mAudioNotificationValue: " << t.audioNotificationValue();
     d << "mDesktopNotifications: " << t.desktopNotifications();
     d << "mMobilePushNotification: " << t.mobilePushNotification();

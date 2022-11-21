@@ -1000,17 +1000,6 @@ void Connection::hideUnreadStatus(const QString &roomId, bool value)
     }
 }
 
-void Connection::audioNotifications(const QString &roomId, const QString &value)
-{
-    auto job = new SaveNotificationJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    job->setAudioNotifications(value);
-    if (!job->start()) {
-        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start audioNotifications job";
-    }
-}
-
 void Connection::desktopNotifications(const QString &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);

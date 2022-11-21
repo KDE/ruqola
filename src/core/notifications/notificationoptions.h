@@ -44,9 +44,6 @@ public:
     Q_REQUIRED_RESULT QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
-    Q_REQUIRED_RESULT QString audioNotifications() const;
-    void setAudioNotifications(const QString &audioNotifications);
-
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
@@ -65,7 +62,6 @@ public:
 
 private:
     // TODO use enums ????
-    QString mAudioNotifications;
     QString mDesktopNotifications;
     QString mMobilePushNotification;
     QString mEmailNotifications;
