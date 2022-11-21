@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:46+0000\n"
-"PO-Revision-Date: 2022-11-18 07:40+0100\n"
+"PO-Revision-Date: 2022-11-20 07:34+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -61,7 +61,7 @@ msgstr "David Faure"
 #: apps/main.cpp:64
 #, kde-format
 msgid "Bug fixing, delegates etc."
-msgstr ""
+msgstr "შეცდომების გამართვა, დელეგატები, ა.შ.)"
 
 #: apps/main.cpp:65
 #, kde-format
@@ -72,7 +72,7 @@ msgstr "Kevin Funk"
 #: apps/main.cpp:70
 #, kde-format
 msgid "Bug fixing"
-msgstr ""
+msgstr "შეცდომების გამართვა"
 
 #: apps/main.cpp:66
 #, kde-format
@@ -92,7 +92,7 @@ msgstr "Till Adam"
 #: apps/main.cpp:68
 #, kde-format
 msgid "Windows compile bug fixing"
-msgstr ""
+msgstr "Windows-ზე აგების შეცდომების გასწორება"
 
 #: apps/main.cpp:69
 #, kde-format
@@ -112,7 +112,7 @@ msgstr "Hannah von Reth"
 #: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
-msgstr ""
+msgstr "შეცდომების გასწორება Windows/Mac-ზე"
 
 #: apps/main.cpp:72
 #, kde-format
@@ -222,7 +222,7 @@ msgstr "ახალი არხის შექმნა"
 #: core/commands/command.cpp:88
 #, kde-format
 msgid "Show the keyboard shortcut list"
-msgstr ""
+msgstr "კლავიატურის მალსახმობის სიის ჩვენება"
 
 #: core/commands/command.cpp:90
 #, kde-format
@@ -232,12 +232,12 @@ msgstr "ოთახის დამალვა"
 #: core/commands/command.cpp:92
 #, kde-format
 msgid "Invite one user to join this channel"
-msgstr ""
+msgstr "მოიწვიეთ მომხმარებელი ამ არხზე გასაწევრიანებლად"
 
 #: core/commands/command.cpp:94
 #, kde-format
 msgid "Invite all users from this channel to join [#channel]"
-msgstr ""
+msgstr "ამ არხის ყველა მომხმარებლის მოწვევა [#channel]"
 
 #: core/commands/command.cpp:96
 #, kde-format
@@ -247,12 +247,12 @@ msgstr ""
 #: core/commands/command.cpp:98
 #, kde-format
 msgid "Join the given channel"
-msgstr ""
+msgstr "შეუერთდით მოცემულ არხს"
 
 #: core/commands/command.cpp:100
 #, kde-format
 msgid "Remove someone from the room"
-msgstr ""
+msgstr "წაშალეთ ვინმე ოთახიდან"
 
 #: core/commands/command.cpp:102
 #, kde-format
@@ -362,17 +362,17 @@ msgstr "%1 მიატოვა ეს გუნდი"
 #: core/messages/message.cpp:476
 #, kde-format
 msgid "Topic was cleared by: %1"
-msgstr ""
+msgstr "სათაური გაასუფთავა: %1"
 
 #: core/messages/message.cpp:478
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
-msgstr ""
+msgstr "%2-მა შეცვალა სათაური: <i>%1</i>"
 
 #: core/messages/message.cpp:481
 #, kde-format
 msgid "%2 added %1 to the conversation"
-msgstr ""
+msgstr "%2 -მა %1 საუბარში ჩაამატა"
 
 #: core/messages/message.cpp:483
 #, kde-format
@@ -490,7 +490,7 @@ msgstr "მოგესალმებით, %1!"
 #: core/messages/message.cpp:537
 #, kde-format
 msgid "Room avatar changed by %1"
-msgstr ""
+msgstr "ოთახის ავატარი შეიცვალა %1-ის მიერ"
 
 #: core/messages/message.cpp:539
 #, kde-format
@@ -4037,10 +4037,9 @@ msgid "Troubleshoot"
 msgstr "პრობლემების პოვნა"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "Video Conference"
+#, kde-format
 msgid "Conference Call"
-msgstr "ვიდეო კონფერენცია"
+msgstr "საკონფერენციო ზარი"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
@@ -5446,22 +5445,19 @@ msgid "Webdav Integration Enabled"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Public Channels"
-msgstr "არხებში ჩართვა"
+msgstr "საჯარო არხებში ჩართვა"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Private Channels"
-msgstr "არხებში ჩართვა"
+msgstr "პირად არხებში ჩართვა"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Total Direct Message Rooms"
+#, kde-format
 msgid "Enable for Direct Messages"
-msgstr "პირდაპირი შეტყობინებების ოთახების რაოდენობა"
+msgstr "პირდაპირი შეტყობინებებისთვის ჩართვა"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
 #, kde-format
@@ -7711,7 +7707,7 @@ msgstr[1] ""
 #: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
 msgid "Error from '%1' account"
-msgstr ""
+msgstr "შეცდომა '%1' ანგარიშიდან"
 
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:31
@@ -7779,27 +7775,27 @@ msgstr ""
 #: widgets/ruqolamainwindow.cpp:373
 #, kde-format
 msgid "Create New Channel..."
-msgstr ""
+msgstr "შექმენით ახალი არხი..."
 
 #: widgets/ruqolamainwindow.cpp:377
 #, kde-format
 msgid "Create Direct Messages..."
-msgstr ""
+msgstr "შექმენით პირდაპირი შეტყობინებები..."
 
 #: widgets/ruqolamainwindow.cpp:381
 #, kde-format
 msgid "Create Discussion..."
-msgstr ""
+msgstr "შექმენით კამათი..."
 
 #: widgets/ruqolamainwindow.cpp:385
 #, kde-format
 msgid "Create Team..."
-msgstr ""
+msgstr "შექმენით გუნდი..."
 
 #: widgets/ruqolamainwindow.cpp:393
 #, kde-format
 msgid "Unread on Top"
-msgstr ""
+msgstr "ჯერ წაუკითხავები"
 
 #: widgets/ruqolamainwindow.cpp:401
 #, kde-format
@@ -7814,17 +7810,17 @@ msgstr "ანბანის მიხედვით"
 #: widgets/ruqolamainwindow.cpp:413
 #, kde-format
 msgid "Show Channel Log"
-msgstr ""
+msgstr "არხის ჟურნალის ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:417
 #, kde-format
 msgid "Mark All Channels as Read"
-msgstr ""
+msgstr "ყველა არხის წაკითხულად დაყენება"
 
 #: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgid "Register a New User..."
-msgstr ""
+msgstr "ახალი მომხმარებლის რეგისტრაცია..."
 
 #: widgets/ruqolamainwindow.cpp:426
 #, kde-format
@@ -7890,7 +7886,7 @@ msgstr "რჩეული ოთახის ჩვენება"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
-msgstr ""
+msgstr "გუნდის შექმნა"
 
 #: widgets/ruqolamainwindow.cpp:766
 #, kde-format

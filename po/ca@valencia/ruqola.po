@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:46+0000\n"
-"PO-Revision-Date: 2022-11-17 14:16+0100\n"
+"PO-Revision-Date: 2022-11-20 10:18+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -4114,15 +4114,14 @@ msgid "Troubleshoot"
 msgstr "Resolució de problemes"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid "Video Conference"
+#, kde-format
 msgid "Conference Call"
-msgstr "Conferència de vídeo"
+msgstr "Tocada de conferència"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -5630,22 +5629,19 @@ msgid "Webdav Integration Enabled"
 msgstr "Integració de Webdav activada"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Public Channels"
-msgstr "Activa en els canals"
+msgstr "Activa en els canals públics"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Private Channels"
-msgstr "Activa en els canals"
+msgstr "Activa en els canals privats"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Unread Count for Direct Messages"
+#, kde-format
 msgid "Enable for Direct Messages"
-msgstr "Comptador de no llegits per als missatges directes"
+msgstr "Activa en els missatges directes"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
 #, kde-format
@@ -5654,11 +5650,14 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Una llista de servidors STUN i TURN separats per comes.\n"
+"Es permet el nom d'usuari, contrasenya i port en el format nomusuari:"
+"contrasenya@stun:host:port o nomusuari:contrasenya@turn:host:port."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
 msgid "STUN/TURN Servers"
-msgstr ""
+msgstr "Servidors STUN/TURN"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format

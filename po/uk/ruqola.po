@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-20 00:46+0000\n"
-"PO-Revision-Date: 2022-11-19 06:45+0200\n"
+"PO-Revision-Date: 2022-11-20 08:44+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5650,11 +5650,14 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Список відокремлених комами записів серверів STUN і TURN.\n"
+"Можна вказувати ім'я користувача, пароль і порт у форматі користувач:"
+"пароль@stun:вузол:порт або користувач:пароль@turn:вузол:порт."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
 msgid "STUN/TURN Servers"
-msgstr ""
+msgstr "Сервери STUN/TURN"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
