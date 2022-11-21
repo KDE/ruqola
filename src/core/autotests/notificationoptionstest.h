@@ -17,4 +17,6 @@ public:
 private Q_SLOTS:
     void shouldHaveDefaultValue();
     void shouldAssignValue();
+    void shouldParseNotification_data();
+    void shouldParseNotification();
 };

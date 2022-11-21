@@ -6,6 +6,8 @@
 
 #include "notificationoptionstest.h"
 #include "notifications/notificationoptions.h"
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(NotificationOptionsTest)
 
@@ -66,4 +68,36 @@ void NotificationOptionsTest::shouldAssignValue()
     NotificationOptions t;
     t = w;
     QCOMPARE(t, w);
+}
+
+void NotificationOptionsTest::shouldParseNotification_data()
+{
+    QTest::addColumn<QString>("fileNameinit");
+    QTest::addColumn<QString>("desktopNotifications");
+    QTest::addColumn<QString>("mobilePushNotification");
+    QTest::addColumn<QString>("emailNotifications");
+    NotificationOptions notif;
+    QTest::addRow("notification1") << QStringLiteral("notification1") << QStringLiteral("default") << QStringLiteral("all") << QStringLiteral("all");
+}
+
+void NotificationOptionsTest::shouldParseNotification()
+{
+    QFETCH(QString, fileNameinit);
+    QFETCH(QString, desktopNotifications);
+    QFETCH(QString, mobilePushNotification);
+    QFETCH(QString, emailNotifications);
+
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/notificationoption/") + fileNameinit + QLatin1String(".json");
+    QFile f(originalJsonFile);
+    QVERIFY(f.open(QIODevice::ReadOnly));
+    const QByteArray content = f.readAll();
+    f.close();
+    const QJsonDocument doc = QJsonDocument::fromJson(content);
+    const QJsonObject notification = doc.object();
+
+    NotificationOptions w;
+    w.parseNotificationOptions(notification);
+    QCOMPARE(w.desktopNotifications().currentValue(), desktopNotifications);
+    QCOMPARE(w.mobilePushNotification().currentValue(), mobilePushNotification);
+    QCOMPARE(w.emailNotifications().currentValue(), emailNotifications);
 }
