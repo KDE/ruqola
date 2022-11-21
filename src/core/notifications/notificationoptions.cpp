@@ -131,7 +131,8 @@ bool NotificationOptions::operator==(const NotificationOptions &other) const
     return (mDesktopNotifications == other.desktopNotifications()) && (mMobilePushNotification == other.mobilePushNotification())
         && (mEmailNotifications == other.emailNotifications()) && (mUnreadTrayIconAlert == other.unreadTrayIconAlert())
         && (mDisableNotifications == other.disableNotifications()) && (mHideUnreadStatus == other.hideUnreadStatus())
-        && (mAudioNotificationValue == other.audioNotificationValue()) && (mMuteGroupMentions == other.muteGroupMentions());
+        && (mAudioNotificationValue == other.audioNotificationValue()) && (mMuteGroupMentions == other.muteGroupMentions())
+        && (mHideMentionStatus == other.hideMentionStatus());
 }
 
 bool NotificationOptions::operator!=(const NotificationOptions &other) const
@@ -149,6 +150,16 @@ void NotificationOptions::setMuteGroupMentions(bool muteGroupMentions)
     mMuteGroupMentions = muteGroupMentions;
 }
 
+bool NotificationOptions::hideMentionStatus() const
+{
+    return mHideMentionStatus;
+}
+
+void NotificationOptions::setHideMentionStatus(bool newHideMentionStatus)
+{
+    mHideMentionStatus = newHideMentionStatus;
+}
+
 QDebug operator<<(QDebug d, const NotificationOptions &t)
 {
     d << "mAudioNotificationValue: " << t.audioNotificationValue();
@@ -159,6 +170,7 @@ QDebug operator<<(QDebug d, const NotificationOptions &t)
     d << "hideUnreadStatus: " << t.hideUnreadStatus();
     d << "unreadTrayIconAlert: " << t.unreadTrayIconAlert();
     d << "mMuteGroupMentions: " << t.muteGroupMentions();
+    d << "mHideMentionStatus: " << t.hideMentionStatus();
     return d;
 }
 

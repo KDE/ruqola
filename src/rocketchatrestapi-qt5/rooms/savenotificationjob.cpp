@@ -44,6 +44,16 @@ void SaveNotificationJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
+bool SaveNotificationJob::hideMentionStatus() const
+{
+    return mHideMentionStatus;
+}
+
+void SaveNotificationJob::setHideMentionStatus(bool newHideMentionStatus)
+{
+    mHideMentionStatus = newHideMentionStatus;
+}
+
 QString SaveNotificationJob::desktopNotifications() const
 {
     return mDesktopNotifications;
@@ -215,6 +225,9 @@ QJsonDocument SaveNotificationJob::json() const
     }
     if (mSettingsWillBeChanged & DesktopNotification) {
         notificationsJson[QLatin1String("desktopNotifications")] = desktopNotifications();
+    }
+    if (mSettingsWillBeChanged & HideMentionStatus) {
+        notificationsJson[QLatin1String("hideMentionStatus")] = hideMentionStatus();
     }
     jsonObj[QLatin1String("notifications")] = notificationsJson;
 

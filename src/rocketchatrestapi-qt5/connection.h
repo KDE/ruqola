@@ -200,6 +200,7 @@ public:
     void statistics(bool refresh);
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QString &roomId, int offset = 0, int count = 50);
+    void hideMentionStatus(const QString &roomId, bool value);
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();

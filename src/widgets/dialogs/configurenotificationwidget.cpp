@@ -53,7 +53,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     mShowBadgeMentions->setObjectName(QStringLiteral("mShowBadgeMentions"));
     topLayout->addWidget(mShowBadgeMentions);
     connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
-        // account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
+        account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideMentionStatus, checked);
     });
 
     auto desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
@@ -128,7 +128,7 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mDisableNotification->setChecked(notificationOptions.disableNotifications());
     mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
-    // TODOmShowBadgeMentions->setChecked(notificationOptions.muteGroupMentions());
+    mShowBadgeMentions->setChecked(notificationOptions.hideMentionStatus());
     mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.desktopNotifications().currentValue()));
     mDesktopSoundCombobox->setCurrentIndex(

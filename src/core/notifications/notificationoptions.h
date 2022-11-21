@@ -73,6 +73,9 @@ public:
     Q_REQUIRED_RESULT bool muteGroupMentions() const;
     void setMuteGroupMentions(bool muteGroupMentions);
 
+    Q_REQUIRED_RESULT bool hideMentionStatus() const;
+    void setHideMentionStatus(bool newMhideMentionStatus);
+
 private:
     NotificationValues mDesktopNotifications;
     NotificationValues mMobilePushNotification;
@@ -84,7 +87,7 @@ private:
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;
-    bool mhideMentionStatus = false; // TODO ?
+    bool mHideMentionStatus = false; // TODO ?
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValues &t);

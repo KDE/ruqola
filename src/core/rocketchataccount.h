@@ -126,7 +126,8 @@ public:
         EmailNotifications,
         MobilePushNotifications,
         UnreadAlert,
-        MuteGroupMentions
+        MuteGroupMentions,
+        HideMentionStatus,
     };
 
     Q_ENUM(NotificationOptionsType)

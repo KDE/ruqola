@@ -1410,6 +1410,9 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
     case DesktopSoundNotifications:
         restApi()->desktopSoundNotifications(roomId, newValue.toString());
         break;
+    case HideMentionStatus:
+        restApi()->hideMentionStatus(roomId, newValue.toBool());
+        break;
     }
 }
 

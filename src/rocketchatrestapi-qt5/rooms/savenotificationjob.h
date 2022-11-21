@@ -55,6 +55,9 @@ public:
     Q_REQUIRED_RESULT QString desktopNotifications() const;
     void setDesktopNotifications(const QString &desktopNotifications);
 
+    Q_REQUIRED_RESULT bool hideMentionStatus() const;
+    void setHideMentionStatus(bool newHideMentionStatus);
+
 Q_SIGNALS:
     void changeNotificationDone();
 
@@ -73,6 +76,7 @@ private:
         HideUnreadStatus = 64,
         MuteGroupMentions = 128,
         DesktopNotification = 256,
+        HideMentionStatus = 512,
     };
     Q_DECLARE_FLAGS(SettingsChanged, SettingChanged)
 
@@ -89,5 +93,6 @@ private:
     bool mDisableNotifications = false;
     bool mHideUnreadStatus = false;
     bool mMuteGroupMentions = false;
+    bool mHideMentionStatus = false;
 };
 }

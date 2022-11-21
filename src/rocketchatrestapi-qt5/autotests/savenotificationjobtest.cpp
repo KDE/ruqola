@@ -25,6 +25,7 @@ void SaveNotificationJobTest::shouldHaveDefaultValue()
     QVERIFY(!job.disableNotifications());
     QVERIFY(!job.muteGroupMentions());
     QVERIFY(!job.hideUnreadStatus());
+    QVERIFY(!job.hideMentionStatus());
     QVERIFY(job.emailNotifications().isEmpty());
     QVERIFY(job.desktopNotifications().isEmpty());
     QVERIFY(job.mobilePushNotifications().isEmpty());

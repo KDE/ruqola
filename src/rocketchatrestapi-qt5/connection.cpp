@@ -930,6 +930,17 @@ void Connection::desktopDurationNotifications(const QString &roomId, int value)
     }
 }
 
+void Connection::hideMentionStatus(const QString &roomId, bool value)
+{
+    auto job = new SaveNotificationJob(this);
+    initializeRestApiJob(job);
+    job->setRoomId(roomId);
+    job->setHideMentionStatus(value);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start desktopSoundNotifications job";
+    }
+}
+
 void Connection::desktopSoundNotifications(const QString &roomId, const QString &value)
 {
     auto job = new SaveNotificationJob(this);
