@@ -22,6 +22,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     , mDisableNotification(new QCheckBox(i18n("Disable Notification"), this))
     , mHideUnreadRoomStatus(new QCheckBox(i18n("Hide Unread Room Status"), this))
     , mMuteGroupMentions(new QCheckBox(i18n("Mute Group Mentions"), this))
+    , mShowBadgeMentions(new QCheckBox(i18n("Show badge for mentions"), this))
     , mDesktopAlertCombobox(new QComboBox(this))
     , mDesktopSoundCombobox(new QComboBox(this))
     , mMobileAlertCombobox(new QComboBox(this))
@@ -47,6 +48,12 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     topLayout->addWidget(mMuteGroupMentions);
     connect(mMuteGroupMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
         account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
+    });
+
+    mShowBadgeMentions->setObjectName(QStringLiteral("mShowBadgeMentions"));
+    topLayout->addWidget(mShowBadgeMentions);
+    connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
+        // account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::MuteGroupMentions, checked);
     });
 
     auto desktopGroupBox = new QGroupBox(i18n("Desktop"), this);
@@ -121,6 +128,7 @@ void ConfigureNotificationWidget::setRoom(Room *room)
     mDisableNotification->setChecked(notificationOptions.disableNotifications());
     mHideUnreadRoomStatus->setChecked(notificationOptions.hideUnreadStatus());
     mMuteGroupMentions->setChecked(notificationOptions.muteGroupMentions());
+    // TODOmShowBadgeMentions->setChecked(notificationOptions.muteGroupMentions());
     mDesktopAlertCombobox->setCurrentIndex(NotificationPreferences::self()->desktopNotificationModel()->setCurrentNotificationPreference(
         notificationOptions.desktopNotifications().currentValue()));
     mDesktopSoundCombobox->setCurrentIndex(

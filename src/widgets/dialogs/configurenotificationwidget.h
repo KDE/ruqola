@@ -27,6 +27,7 @@ private:
     QCheckBox *const mDisableNotification;
     QCheckBox *const mHideUnreadRoomStatus;
     QCheckBox *const mMuteGroupMentions;
+    QCheckBox *const mShowBadgeMentions;
     QPointer<Room> mRoom;
     QComboBox *const mDesktopAlertCombobox;
     QComboBox *const mDesktopSoundCombobox;
