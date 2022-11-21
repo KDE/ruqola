@@ -7,6 +7,7 @@
 #include "administratorsettingswidgettest.h"
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
+#include "administratorsettingsdialog/cas/cassettingswidget.h"
 #include "administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h"
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
 #include "administratorsettingsdialog/encryption/encryptionsettingswidget.h"
@@ -114,4 +115,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mWebRtcSettingsWidget = w.findChild<WebRtcSettingsWidget *>(QStringLiteral("mWebRtcSettingsWidget"));
     QVERIFY(mWebRtcSettingsWidget);
+
+    auto mCasSettingsWidget = w.findChild<CasSettingsWidget *>(QStringLiteral("mCasSettingsWidget"));
+    QVERIFY(mCasSettingsWidget);
 }

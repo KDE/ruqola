@@ -24,4 +24,10 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnabled->isChecked());
     QVERIFY(!mEnabled->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnabled), QStringLiteral("CAS_enabled"));
+
+    auto mTrustCASUsername = w.findChild<QCheckBox *>(QStringLiteral("mTrustCASUsername"));
+    QVERIFY(mTrustCASUsername);
+    QVERIFY(!mTrustCASUsername->isChecked());
+    QVERIFY(!mTrustCASUsername->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTrustCASUsername), QStringLiteral("CAS_trust_username"));
 }
