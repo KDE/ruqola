@@ -25,12 +25,12 @@ void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 
     //"desktopNotificationDuration":0,"desktopNotifications":"mentions"
     mDesktopNotifications =
-        NotificationValues{obj.value(QLatin1String("desktopNotifications")).toString(), obj.value(QLatin1String("desktopPrefOrigin")).toString()};
+        NotificationValue{obj.value(QLatin1String("desktopNotifications")).toString(), obj.value(QLatin1String("desktopPrefOrigin")).toString()};
     //"mobilePushNotifications":"nothing"
     mMobilePushNotification =
-        NotificationValues{obj.value(QLatin1String("mobilePushNotifications")).toString(), obj.value(QLatin1String("mobilePrefOrigin")).toString()};
+        NotificationValue{obj.value(QLatin1String("mobilePushNotifications")).toString(), obj.value(QLatin1String("mobilePrefOrigin")).toString()};
     //"emailNotifications":"default"
-    mEmailNotifications = NotificationValues{obj.value(QLatin1String("emailNotifications")).toString(), obj.value(QLatin1String("emailPrefOrigin")).toString()};
+    mEmailNotifications = NotificationValue{obj.value(QLatin1String("emailNotifications")).toString(), obj.value(QLatin1String("emailPrefOrigin")).toString()};
     //"unreadAlert":"nothing"
     mUnreadTrayIconAlert = obj.value(QLatin1String("unreadAlert")).toString();
     mMuteGroupMentions = obj.value(QLatin1String("muteGroupMentions")).toBool();
@@ -98,32 +98,32 @@ void NotificationOptions::setUnreadTrayIconAlert(const QString &unreadTrayIconAl
     mUnreadTrayIconAlert = unreadTrayIconAlert;
 }
 
-NotificationOptions::NotificationValues NotificationOptions::emailNotifications() const
+NotificationOptions::NotificationValue NotificationOptions::emailNotifications() const
 {
     return mEmailNotifications;
 }
 
-void NotificationOptions::setEmailNotifications(const NotificationValues &emailNotifications)
+void NotificationOptions::setEmailNotifications(const NotificationValue &emailNotifications)
 {
     mEmailNotifications = emailNotifications;
 }
 
-NotificationOptions::NotificationValues NotificationOptions::mobilePushNotification() const
+NotificationOptions::NotificationValue NotificationOptions::mobilePushNotification() const
 {
     return mMobilePushNotification;
 }
 
-void NotificationOptions::setMobilePushNotification(const NotificationValues &mobilePushNotification)
+void NotificationOptions::setMobilePushNotification(const NotificationValue &mobilePushNotification)
 {
     mMobilePushNotification = mobilePushNotification;
 }
 
-NotificationOptions::NotificationValues NotificationOptions::desktopNotifications() const
+NotificationOptions::NotificationValue NotificationOptions::desktopNotifications() const
 {
     return mDesktopNotifications;
 }
 
-void NotificationOptions::setDesktopNotifications(const NotificationValues &desktopNotifications)
+void NotificationOptions::setDesktopNotifications(const NotificationValue &desktopNotifications)
 {
     mDesktopNotifications = desktopNotifications;
 }
@@ -176,19 +176,19 @@ QDebug operator<<(QDebug d, const NotificationOptions &t)
     return d;
 }
 
-QDebug operator<<(QDebug d, const NotificationOptions::NotificationValues &t)
+QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t)
 {
     d << " value " << t.value;
     d << " preferenceOrigin " << t.preferenceOrigin;
     return d;
 }
 
-bool NotificationOptions::NotificationValues::operator==(const NotificationValues &other) const
+bool NotificationOptions::NotificationValue::operator==(const NotificationValue &other) const
 {
     return other.preferenceOrigin == preferenceOrigin && other.value == value;
 }
 
-QString NotificationOptions::NotificationValues::currentValue() const
+QString NotificationOptions::NotificationValue::currentValue() const
 {
     if (preferenceOrigin == QStringLiteral("subscription") && !value.isEmpty()) {
         return value;
@@ -203,7 +203,7 @@ QString NotificationOptions::NotificationValues::currentValue() const
     return QStringLiteral("default");
 }
 
-bool NotificationOptions::NotificationValues::isEmpty() const
+bool NotificationOptions::NotificationValue::isEmpty() const
 {
     return preferenceOrigin.isEmpty() && value.isEmpty();
 }

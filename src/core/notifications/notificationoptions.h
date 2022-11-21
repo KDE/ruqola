@@ -17,16 +17,16 @@ class LIBRUQOLACORE_EXPORT NotificationOptions
 public:
     NotificationOptions();
     NotificationOptions(const NotificationOptions &other) = default;
-    struct LIBRUQOLACORE_EXPORT NotificationValues {
-        NotificationValues() = default;
-        explicit NotificationValues(const QString &val, const QString pref)
+    struct LIBRUQOLACORE_EXPORT NotificationValue {
+        NotificationValue() = default;
+        explicit NotificationValue(const QString &val, const QString pref)
             : value(val)
             , preferenceOrigin(pref)
         {
         }
         QString value;
         QString preferenceOrigin;
-        Q_REQUIRED_RESULT bool operator==(const NotificationValues &other) const;
+        Q_REQUIRED_RESULT bool operator==(const NotificationValue &other) const;
         Q_REQUIRED_RESULT QString currentValue() const;
         Q_REQUIRED_RESULT bool isEmpty() const;
     };
@@ -48,14 +48,14 @@ public:
     Q_REQUIRED_RESULT QString unreadTrayIconAlert() const;
     void setUnreadTrayIconAlert(const QString &unreadTrayIconAlert);
 
-    Q_REQUIRED_RESULT NotificationValues emailNotifications() const;
-    void setEmailNotifications(const NotificationValues &emailNotifications);
+    Q_REQUIRED_RESULT NotificationValue emailNotifications() const;
+    void setEmailNotifications(const NotificationValue &emailNotifications);
 
-    Q_REQUIRED_RESULT NotificationValues mobilePushNotification() const;
-    void setMobilePushNotification(const NotificationValues &mobilePushNotification);
+    Q_REQUIRED_RESULT NotificationValue mobilePushNotification() const;
+    void setMobilePushNotification(const NotificationValue &mobilePushNotification);
 
-    Q_REQUIRED_RESULT NotificationValues desktopNotifications() const;
-    void setDesktopNotifications(const NotificationValues &desktopNotifications);
+    Q_REQUIRED_RESULT NotificationValue desktopNotifications() const;
+    void setDesktopNotifications(const NotificationValue &desktopNotifications);
 
     Q_REQUIRED_RESULT QString audioNotificationValue() const;
     void setAudioNotificationValue(const QString &audioNotificationValue);
@@ -77,9 +77,9 @@ public:
     void setHideMentionStatus(bool newMhideMentionStatus);
 
 private:
-    NotificationValues mDesktopNotifications;
-    NotificationValues mMobilePushNotification;
-    NotificationValues mEmailNotifications;
+    NotificationValue mDesktopNotifications;
+    NotificationValue mMobilePushNotification;
+    NotificationValue mEmailNotifications;
 
     // TODO use enums ????
     QString mUnreadTrayIconAlert;
@@ -90,4 +90,4 @@ private:
     bool mHideMentionStatus = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions &t);
-LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValues &t);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationOptions::NotificationValue &t);
