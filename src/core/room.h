@@ -259,6 +259,7 @@ public:
     Q_REQUIRED_RESULT bool roomIsBlocked() const;
     Q_REQUIRED_RESULT bool roomIsEmpty() const;
     Q_REQUIRED_RESULT bool hideBadgeForMention() const;
+    Q_REQUIRED_RESULT bool hideUnreadStatus() const;
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();

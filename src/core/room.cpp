@@ -373,6 +373,11 @@ bool Room::hideBadgeForMention() const
     return mNotificationOptions.hideMentionStatus();
 }
 
+bool Room::hideUnreadStatus() const
+{
+    return mNotificationOptions.hideUnreadStatus();
+}
+
 int Room::unread() const
 {
     return mUnread;

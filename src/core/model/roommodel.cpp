@@ -453,7 +453,9 @@ RoomModel::Section RoomModel::section(Room *r) const
 {
     const Room::RoomType roomType = r->channelType();
     if (mRocketChatAccount && mRocketChatAccount->sortUnreadOnTop() && (r->unread() > 0 || r->alert())) {
-        return Section::Unread;
+        if (!r->hideUnreadStatus()) {
+            return Section::Unread;
+        }
     }
     if (r->favorite() && mRocketChatAccount && mRocketChatAccount->sortFavoriteChannels()) {
         return Section::Favorites;
