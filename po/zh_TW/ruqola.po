@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-20 00:46+0000\n"
+"POT-Creation-Date: 2022-11-22 00:45+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -818,8 +818,8 @@ msgid "UserName"
 msgstr "使用者名稱："
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
-#: widgets/dialogs/configurenotificationwidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/dialogs/configurenotificationwidget.cpp:100
 #, kde-format
 msgid "Email"
 msgstr "電子信箱"
@@ -4141,121 +4141,144 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
 #, fuzzy, kde-format
 #| msgid "Account Name"
 msgid "Accounts"
 msgstr "帳戶名稱"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
 #, fuzzy, kde-format
 #| msgid "Encrypted:"
 msgid "Encryption"
 msgstr "加密："
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:96
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "File Uploaded: %1"
 msgid "File Upload"
 msgstr "已上傳檔案：%1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
 #, kde-format
 msgid "Retention Policy"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
 #, kde-format
 msgid "General"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "Rate Limiter"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "密碼"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #, kde-format
 msgid "Video Conference"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #, kde-format
 msgid "IRC Federation"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Webdav"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
 msgid "LDAP"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Layout"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
 #, fuzzy, kde-format
 #| msgid "Enter account name"
 msgid "Enterprise"
 msgstr "輸入帳戶名稱"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, fuzzy, kde-format
 #| msgid "Download"
 msgid "User Data Download"
 msgstr "下載"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "Slack Bridge"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Logs"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
-#: widgets/dialogs/configurenotificationwidget.cpp:77
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/dialogs/configurenotificationwidget.cpp:84
 #, kde-format
 msgid "Mobile"
 msgstr "行動電話"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "Troubleshoot"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "Conference Call"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "WebRTC"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#, kde-format
+msgid "CAS"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
+#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
+#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
+#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
+#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
+#, kde-format
+msgid "Enabled"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Trust CAS Username"
+msgstr "使用者名稱"
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, fuzzy, kde-format
@@ -4742,17 +4765,6 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:131
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
-#: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
-#: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
-#: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:18
-#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
-#: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
-#: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#, kde-format
-msgid "Enabled"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
@@ -6219,19 +6231,25 @@ msgstr "隱藏未讀的聊天室狀態："
 msgid "Mute Group Mentions"
 msgstr "靜音群組提及："
 
-#: widgets/dialogs/configurenotificationwidget.cpp:52
+#: widgets/dialogs/configurenotificationwidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Rocket.Chat Login"
+msgid "Show badge for mentions"
+msgstr "Rocket.Chat 登入"
+
+#: widgets/dialogs/configurenotificationwidget.cpp:59
 #, kde-format
 msgid "Desktop"
 msgstr "桌面"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:60
-#: widgets/dialogs/configurenotificationwidget.cpp:85
-#: widgets/dialogs/configurenotificationwidget.cpp:101
+#: widgets/dialogs/configurenotificationwidget.cpp:67
+#: widgets/dialogs/configurenotificationwidget.cpp:92
+#: widgets/dialogs/configurenotificationwidget.cpp:108
 #, kde-format
 msgid "Alert:"
 msgstr "提示："
 
-#: widgets/dialogs/configurenotificationwidget.cpp:69
+#: widgets/dialogs/configurenotificationwidget.cpp:76
 #, kde-format
 msgid "Sound:"
 msgstr "聲音："
