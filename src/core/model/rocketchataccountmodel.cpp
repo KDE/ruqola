@@ -131,19 +131,20 @@ void RocketChatAccountModel::insertAccount(RocketChatAccount *account)
     Q_EMIT accountNumberChanged();
 }
 
-void RocketChatAccountModel::removeAccount(const QString &name)
+RocketChatAccount *RocketChatAccountModel::removeAccount(const QString &name)
 {
     // qDebug() << " void RocketChatAccountModel::removeAccount(const QString &name)"<<name;
     // Search account.
+    RocketChatAccount *account = nullptr;
     for (int i = 0, total = mRocketChatAccount.count(); i < total; ++i) {
         if (mRocketChatAccount.at(i)->accountName() == name) {
             beginRemoveRows(QModelIndex(), i, i);
-            RocketChatAccount *account = mRocketChatAccount.takeAt(i);
+            account = mRocketChatAccount.takeAt(i);
             account->removeSettings();
-            delete account;
             endRemoveRows();
             Q_EMIT accountNumberChanged();
             break;
         }
     }
+    return account;
 }

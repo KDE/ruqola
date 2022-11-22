@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
     void insertAccount(RocketChatAccount *account);
-    void removeAccount(const QString &name);
+    RocketChatAccount *removeAccount(const QString &name);
 
     void clear();
 
