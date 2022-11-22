@@ -49,6 +49,7 @@ public:
         RoomTeamIsMain,
         RoomLastMessageAt,
         UserOffline,
+        HideBadgeForMention,
     };
     Q_ENUM(RoomRoles)
 

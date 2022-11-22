@@ -368,6 +368,11 @@ void Room::setSelected(bool selected)
     }
 }
 
+bool Room::hideBadgeForMention() const
+{
+    return mNotificationOptions.hideMentionStatus();
+}
+
 int Room::unread() const
 {
     return mUnread;

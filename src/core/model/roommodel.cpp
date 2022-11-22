@@ -187,6 +187,8 @@ QVariant RoomModel::data(const QModelIndex &index, int role) const
         return r->lastMessageAt();
     case RoomModel::UserOffline:
         return userOffline(r);
+    case RoomModel::HideBadgeForMention:
+        return r->hideBadgeForMention();
     case Qt::ToolTipRole:
         return generateToolTip(r);
     }

@@ -94,6 +94,10 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
 QString ChannelListDelegate::makeUnreadText(const QModelIndex &index) const
 {
+    const bool hideBadgeForMention = index.data(RoomModel::HideBadgeForMention).toBool();
+    if (hideBadgeForMention) {
+        return QString();
+    }
     const int unreadCount = index.data(RoomModel::RoomUnread).toInt();
     const QString unreadText = unreadCount > 0 ? QStringLiteral("(%1)").arg(unreadCount) : QString();
     const int userMentionsCount = index.data(RoomModel::RoomUserMentions).toInt();
