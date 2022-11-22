@@ -21,7 +21,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     : QWidget(parent)
     , mDisableNotification(new QCheckBox(i18n("Disable Notification"), this))
     , mHideUnreadRoomStatus(new QCheckBox(i18n("Hide Unread Room Status"), this))
-    , mMuteGroupMentions(new QCheckBox(i18n("Mute Group Mentions"), this))
+    , mMuteGroupMentions(new QCheckBox(i18n("Mute @all and @here mentions"), this))
     , mShowBadgeMentions(new QCheckBox(i18n("Show badge for mentions"), this))
     , mDesktopAlertCombobox(new QComboBox(this))
     , mDesktopSoundCombobox(new QComboBox(this))
@@ -33,6 +33,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     topLayout->setContentsMargins({});
 
     mDisableNotification->setObjectName(QStringLiteral("mDisableNotification"));
+    mDisableNotification->setToolTip(i18n("Receive alerts"));
     topLayout->addWidget(mDisableNotification);
     connect(mDisableNotification, &QCheckBox::clicked, this, [this, account](bool checked) {
         account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::DisableNotifications, checked);
@@ -51,6 +52,7 @@ ConfigureNotificationWidget::ConfigureNotificationWidget(RocketChatAccount *acco
     });
 
     mShowBadgeMentions->setObjectName(QStringLiteral("mShowBadgeMentions"));
+    mShowBadgeMentions->setToolTip(i18n("Display badge for direct mentions only"));
     topLayout->addWidget(mShowBadgeMentions);
     connect(mShowBadgeMentions, &QCheckBox::clicked, this, [this, account](bool checked) {
         account->changeNotificationsSettings(mRoom->roomId(), RocketChatAccount::HideMentionStatus, !checked);
