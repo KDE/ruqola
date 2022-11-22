@@ -10,6 +10,4 @@ macro(add_ruqolatranslatorwidget_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqolatranslatorwidget_test(translatorconfigurewidgettest.cpp)
-add_ruqolatranslatorwidget_test(translatorconfigurelanguagelistwidgettest.cpp)
 add_ruqolatranslatorwidget_test(translatormenutest.cpp)

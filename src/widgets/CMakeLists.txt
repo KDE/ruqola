@@ -619,12 +619,6 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagelistlayout/messagelistcozylayout.h
     room/delegate/messagelistlayout/messagelistcozylayout.cpp
 
-    translator/translatorconfigurewidget.h
-    translator/translatorconfigurewidget.cpp
-    translator/translatorconfigureutil.h
-    translator/translatorconfigureutil.cpp
-    translator/translatorconfigurelanguagelistwidget.h
-    translator/translatorconfigurelanguagelistwidget.cpp
     translator/translatormenu.cpp
     translator/translatormenu.h
 )

@@ -18,7 +18,10 @@ class ConfigureUserFeedbackWidget;
 #endif
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
-class TranslatorConfigureWidget;
+namespace PimCommonTextTranslator
+{
+class TranslatorConfigureListsWidget;
+}
 class ConfigureAutoCorrectionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
@@ -50,5 +53,5 @@ private:
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
     KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
-    TranslatorConfigureWidget *const mConfigureTranslateWidget;
+    PimCommonTextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
 };

@@ -8,7 +8,10 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
+namespace PimCommonTextTranslator
+{
 class TranslatorEngineBase;
+}
 class LIBRUQOLACORE_EXPORT TranslatorEngineManager : public QObject
 {
     Q_OBJECT
@@ -19,7 +22,7 @@ public:
 
     void translatorConfigChanged();
 
-    Q_REQUIRED_RESULT TranslatorEngineBase *translatorEngineBase() const;
+    Q_REQUIRED_RESULT PimCommonTextTranslator::TranslatorEngineBase *translatorEngineBase() const;
 
 Q_SIGNALS:
     void updateTranslateEngine();
@@ -29,5 +32,5 @@ Q_SIGNALS:
 private:
     void initializeTranslateEngine();
     void slotTranslateDone();
-    TranslatorEngineBase *mTranslatorEngineBase = nullptr;
+    PimCommonTextTranslator::TranslatorEngineBase *mTranslatorEngineBase = nullptr;
 };

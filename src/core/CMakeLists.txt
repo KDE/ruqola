@@ -22,29 +22,6 @@ target_sources(libruqolacore PRIVATE
     autotranslate/autotranslatelanguages.cpp
     autotranslate/autotranslatelanguages.h
 
-    translatetext/engine/bingtranslator.cpp
-    translatetext/engine/bingtranslator.h
-    translatetext/engine/deepltranslator.cpp
-    translatetext/engine/deepltranslator.h
-    translatetext/engine/googletranslator.cpp
-    translatetext/engine/googletranslator.h
-    translatetext/engine/libretranslatetranslator.cpp
-    translatetext/engine/libretranslatetranslator.h
-    translatetext/engine/lingvatranslator.cpp
-    translatetext/engine/lingvatranslator.h
-    translatetext/engine/yandextranslator.cpp
-    translatetext/engine/yandextranslator.h
-    translatetext/translatorengineaccessmanager.cpp
-    translatetext/translatorengineaccessmanager.h
-    translatetext/translatorenginebase.cpp
-    translatetext/translatorenginebase.h
-    translatetext/translatorutil.cpp
-    translatetext/translatorutil.h
-    translatetext/translatorenginemanager.h
-    translatetext/translatorenginemanager.cpp
-    translatetext/translatetextjob.cpp
-    translatetext/translatetextjob.h
-
     avatarmanager.cpp
     avatarmanager.h
     away/awaymanager.cpp
@@ -425,6 +402,10 @@ target_sources(libruqolacore PRIVATE
     utils.cpp
     utils.h
 
+    translatetext/translatetextjob.cpp
+    translatetext/translatetextjob.h
+    translatetext/translatorenginemanager.cpp
+    translatetext/translatorenginemanager.h
     ruqolacore.qrc
 )
 
@@ -491,6 +472,7 @@ target_link_libraries(libruqolacore
     KF5::IdleTime
     KF5::WindowSystem
     KF5PimCommonAutoCorrection
+    KF5PimCommonTextTranslator
 )
 
 if (WIN32 OR APPLE)

@@ -5,7 +5,7 @@
 */
 
 #include "translatorenginemanager.h"
-#include "translatorutil.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}
@@ -30,12 +30,12 @@ void TranslatorEngineManager::translatorConfigChanged()
 void TranslatorEngineManager::initializeTranslateEngine()
 {
     delete mTranslatorEngineBase;
-    mTranslatorEngineBase = TranslatorUtil::switchEngine(TranslatorUtil::loadEngineSettings(), this);
-    connect(mTranslatorEngineBase, &TranslatorEngineBase::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
-    connect(mTranslatorEngineBase, &TranslatorEngineBase::translateFailed, this, &TranslatorEngineManager::translateFailed);
+    mTranslatorEngineBase = PimCommonTextTranslator::TranslatorUtil::switchEngine(PimCommonTextTranslator::TranslatorUtil::loadEngineSettings(), this);
+    connect(mTranslatorEngineBase, &PimCommonTextTranslator::TranslatorEngineBase::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
+    connect(mTranslatorEngineBase, &PimCommonTextTranslator::TranslatorEngineBase::translateFailed, this, &TranslatorEngineManager::translateFailed);
 }
 
-TranslatorEngineBase *TranslatorEngineManager::translatorEngineBase() const
+PimCommonTextTranslator::TranslatorEngineBase *TranslatorEngineManager::translatorEngineBase() const
 {
     return mTranslatorEngineBase;
 }

@@ -10,6 +10,8 @@ endif()
 
 # Remove it when we will split lib
 add_subdirectory(pimcommonautocorrection)
+add_subdirectory(pimcommontexttranslator)
+
 add_subdirectory(rocketchatrestapi-qt5)
 
 add_subdirectory(core)
