@@ -618,9 +618,6 @@ target_sources(libruqolawidgets PRIVATE
 
     room/delegate/messagelistlayout/messagelistcozylayout.h
     room/delegate/messagelistlayout/messagelistcozylayout.cpp
-
-    translator/translatormenu.cpp
-    translator/translatormenu.h
 )
 
 
@@ -704,7 +701,6 @@ if (BUILD_TESTING)
     add_subdirectory(discussions/autotests/)
     add_subdirectory(administratorsettingsdialog/autotests/)
     add_subdirectory(bannerinfodialog/autotests)
-    add_subdirectory(translator/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

@@ -14,10 +14,11 @@
 #include "rocketchataccount.h"
 #include "room.h"
 #include "roomutil.h"
+#include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "translatetext/translatetextjob.h"
-#include "translator/translatormenu.h"
+#include <PimCommonTextTranslator/TranslatorMenu>
 #include <kwidgetsaddons_version.h>
 
 #include <KLocalizedString>
@@ -361,8 +362,9 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
         if (!mTranslatorMenu) {
-            mTranslatorMenu = new TranslatorMenu(this);
-            connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+            mTranslatorMenu = new PimCommonTextTranslator::TranslatorMenu(this);
+            connect(mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+            connect(Ruqola::self(), &Ruqola::translatorMenuChanged, mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::updateMenu);
         }
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();

@@ -12,7 +12,10 @@
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
+namespace PimCommonTextTranslator
+{
 class TranslatorMenu;
+}
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListView : public MessageListViewBase
 {
     Q_OBJECT
@@ -94,7 +97,7 @@ private:
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
-    TranslatorMenu *mTranslatorMenu = nullptr;
+    PimCommonTextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mDebug = false;
 };
