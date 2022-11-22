@@ -430,6 +430,17 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addAction(copyLinkToMessageAction);
         menu.addSeparator();
         menu.addAction(selectAllAction);
+#if 0
+        if (!mTranslatorMenu) {
+            mTranslatorMenu = new TranslatorMenu(this);
+            connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+        }
+        if (!mTranslatorMenu->isEmpty()) {
+            menu.addSeparator();
+            mTranslatorMenu->setModelIndex(index);
+            menu.addMenu(mTranslatorMenu->menu());
+        }
+#endif
         menu.addSeparator();
         auto goToMessageAction = new QAction(i18n("Go to Message"), &menu); // Add icon
         connect(goToMessageAction, &QAction::triggered, this, [=]() {
