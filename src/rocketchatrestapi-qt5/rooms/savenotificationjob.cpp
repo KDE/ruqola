@@ -228,7 +228,7 @@ QJsonDocument SaveNotificationJob::json() const
         notificationsJson[QLatin1String("desktopNotifications")] = desktopNotifications();
     }
     if (mSettingsWillBeChanged & HideMentionStatus) {
-        notificationsJson[QLatin1String("hideMentionStatus")] = hideMentionStatus();
+        notificationsJson[QLatin1String("hideMentionStatus")] = hideMentionStatus() ? QStringLiteral("1") : QStringLiteral("0");
     }
     jsonObj[QLatin1String("notifications")] = notificationsJson;
 
