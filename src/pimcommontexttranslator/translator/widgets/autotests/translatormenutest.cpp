@@ -5,7 +5,7 @@
 */
 
 #include "translatormenutest.h"
-#include "translator/translatormenu.h"
+#include <PimCommonTextTranslator/TranslatorMenu>
 #include <QMenu>
 #include <QStandardPaths>
 #include <QTest>
@@ -19,7 +19,7 @@ TranslatorMenuTest::TranslatorMenuTest(QObject *parent)
 
 void TranslatorMenuTest::shouldHaveDefaultValues()
 {
-    TranslatorMenu w;
+    PimCommonTextTranslator::TranslatorMenu w;
     QVERIFY(w.menu());
     QVERIFY(w.isEmpty());
     QVERIFY(!w.menu()->title().isEmpty());

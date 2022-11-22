@@ -6,11 +6,14 @@
 
 #pragma once
 
-#include "libruqolawidgets_private_export.h"
+#include "pimcommontexttranslator_export.h"
 #include <QObject>
 #include <QPersistentModelIndex>
 class QMenu;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT TranslatorMenu : public QObject
+
+namespace PimCommonTextTranslator
+{
+class PIMCOMMONTEXTTRANSLATOR_EXPORT TranslatorMenu : public QObject
 {
     Q_OBJECT
 public:
@@ -24,12 +27,14 @@ public:
     Q_REQUIRED_RESULT const QPersistentModelIndex &modelIndex() const;
     void setModelIndex(const QPersistentModelIndex &newModelIndex);
 
+    void updateMenu();
+
 Q_SIGNALS:
     void translate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
 
 private:
-    void updateMenu();
     Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
     QPersistentModelIndex mModelIndex;
     QMenu *const mMenu;
 };
+}

@@ -62,8 +62,8 @@ target_sources(KF5PimCommonTextTranslator PRIVATE
     translator/widgets/translatorconfigurelanguagelistwidget.h
     translator/widgets/translatorconfigureutil.cpp
     translator/widgets/translatorconfigureutil.h
-    #translator/widgets/translatormenu.cpp
-    #translator/widgets/translatormenu.h
+    translator/widgets/translatormenu.cpp
+    translator/widgets/translatormenu.h
 
 
     translator/networkmanager.cpp
@@ -138,6 +138,7 @@ ecm_generate_headers(PimCommonTextTranslator_Camelcasetranslatorwidgets_HEADERS
     TranslatorConfigureDialog
     TranslatorConfigureLanguageListWidget
     TranslatorConfigureListsWidget
+    TranslatorMenu
     REQUIRED_HEADERS PimCommonTextTranslator_translatorwidgets_HEADERS
     PREFIX PimCommonTextTranslator
     RELATIVE translator/widgets/

@@ -5,15 +5,15 @@
 */
 
 #include "translatormenu.h"
-#include "ruqola.h"
-#include "ruqolawidgets_debug.h"
-#include "translatetext/translatorutil.h"
+#include "pimcommontexttranslator_debug.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QMenu>
 
+using namespace PimCommonTextTranslator;
 TranslatorMenu::TranslatorMenu(QObject *parent)
     : QObject(parent)
     , mMenu(new QMenu)
@@ -21,7 +21,6 @@ TranslatorMenu::TranslatorMenu(QObject *parent)
     mMenu->setObjectName(QStringLiteral("menu"));
     mMenu->setTitle(i18n("Translate..."));
     mMenu->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-locale")));
-    connect(Ruqola::self(), &Ruqola::translatorMenuChanged, this, &TranslatorMenu::updateMenu);
     updateMenu();
 }
 
@@ -42,16 +41,16 @@ void TranslatorMenu::updateMenu()
     const QString engine = groupTranslate.readEntry(QStringLiteral("engine"), QStringLiteral("google")); // Google by default
     const auto fromList = groupTranslate.readEntry(QStringLiteral("From"), QStringList());
     const auto toList = groupTranslate.readEntry(QStringLiteral("To"), QStringList());
-    const QVector<QPair<QString, QString>> languagesList = TranslatorUtil::supportedLanguages(engine);
+    const QVector<QPair<QString, QString>> languagesList = PimCommonTextTranslator::TranslatorUtil::supportedLanguages(engine);
     for (const auto &fromLang : fromList) {
         const QString fromLangI18n = searchI18nFromLanguage(languagesList, fromLang);
         if (fromLangI18n.isEmpty()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find \"from\" language " << fromLangI18n;
+            qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Impossible to find \"from\" language " << fromLangI18n;
         } else {
             for (const auto &toLang : toList) {
                 const QString toLangI18n = searchI18nFromLanguage(languagesList, toLang);
                 if (toLangI18n.isEmpty()) {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to find \"to\" language " << fromLangI18n;
+                    qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Impossible to find \"to\" language " << fromLangI18n;
                 } else {
                     if (fromLangI18n != toLangI18n) {
                         auto action = new QAction(mMenu);

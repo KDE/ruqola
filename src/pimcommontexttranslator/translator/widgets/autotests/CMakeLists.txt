@@ -12,4 +12,4 @@ endmacro()
 
 add_pimcommontranslatorwidget_test(translatorconfigurelistswidgettest.cpp)
 add_pimcommontranslatorwidget_test(translatorconfigurelanguagelistwidgettest.cpp)
-#add_pimcommontranslatorwidget_test(translatormenutest.cpp)
+add_pimcommontranslatorwidget_test(translatormenutest.cpp)
