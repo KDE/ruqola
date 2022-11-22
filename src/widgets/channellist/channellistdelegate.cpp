@@ -73,9 +73,11 @@ void ChannelListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     }
 
     if (!(unreadText.isEmpty() && !index.data(RoomModel::RoomAlert).toBool())) {
-        optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::Link));
-        if (option.state & QStyle::State_Selected) {
-            optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::HighlightedText));
+        if (!index.data(RoomModel::HideBadgeForMention).toBool()) {
+            optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::Link));
+            if (option.state & QStyle::State_Selected) {
+                optionCopy.palette.setBrush(QPalette::Text, optionCopy.palette.brush(QPalette::HighlightedText));
+            }
         }
     } else {
         if (option.state & QStyle::State_Selected) {
