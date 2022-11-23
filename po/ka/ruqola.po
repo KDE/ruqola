@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-22 00:45+0000\n"
-"PO-Revision-Date: 2022-11-20 07:34+0100\n"
+"POT-Creation-Date: 2022-11-23 00:47+0000\n"
+"PO-Revision-Date: 2022-11-22 07:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -387,7 +387,7 @@ msgstr "%2 წაშალა მომხმარებელი %1"
 #: core/messages/message.cpp:488
 #, kde-format
 msgid "Description was cleared by %1"
-msgstr ""
+msgstr "აღწერა წაიშალა %1-ის მიერ"
 
 #: core/messages/message.cpp:490
 #, kde-format
@@ -432,12 +432,12 @@ msgstr "დაშიფრული შეტყობინება"
 #: core/messages/message.cpp:510
 #, kde-format
 msgid "%1 was unmuted by %2"
-msgstr ""
+msgstr "%1-ის დადუმება მოიხსნა %2-ის მიერ"
 
 #: core/messages/message.cpp:512
 #, kde-format
 msgid "%1 was muted by %2"
-msgstr ""
+msgstr "%1 დადუმებულია %2-ის მიერ"
 
 #: core/messages/message.cpp:514
 #, kde-format
@@ -776,7 +776,7 @@ msgstr "მოხმარებელი"
 
 #: core/model/adminusersmodel.cpp:110
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/dialogs/configurenotificationwidget.cpp:100
+#: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
 msgstr "Email"
@@ -852,7 +852,7 @@ msgstr "შექმნილია"
 msgid "Channel Type"
 msgstr "არხის ტიპი"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:570
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/directory/directorytabwidget.cpp:19
@@ -1012,55 +1012,55 @@ msgstr "2FA ავთენტიკაცია"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:492
+#: core/model/roommodel.cpp:496
 #, kde-format
 msgid "Teams Room"
 msgstr "გუნდის ოთახი"
 
-#: core/model/roommodel.cpp:498
+#: core/model/roommodel.cpp:502
 #, kde-format
 msgid "Private Room"
 msgstr "პირადი ოთახი"
 
-#: core/model/roommodel.cpp:500
+#: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Discussion Room"
 msgstr ""
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:508
 #, kde-format
 msgid "Channel Room"
 msgstr "არხის ოთახი"
 
-#: core/model/roommodel.cpp:564
+#: core/model/roommodel.cpp:568
 #, kde-format
 msgid "Unread"
 msgstr "წაუკითხავი"
 
-#: core/model/roommodel.cpp:566
+#: core/model/roommodel.cpp:570
 #, kde-format
 msgid "Favorites"
 msgstr "სანიშნები"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:572
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr "გუნდები"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:576
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:574
+#: core/model/roommodel.cpp:578
 #, kde-format
 msgid "Private Messages"
 msgstr "პირადი შეტყობინებები"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:580
 #, kde-format
 msgid "Unknown"
 msgstr "უცნობი"
@@ -1346,32 +1346,32 @@ msgstr "შეტყობინებების გატანა"
 msgid "Your email has been queued for sending."
 msgstr ""
 
-#: core/room.cpp:1121
+#: core/room.cpp:1131
 #, kde-format
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: core/room.cpp:1124
+#: core/room.cpp:1134
 #, kde-format
 msgid "Leader"
 msgstr "ლიდერი"
 
-#: core/room.cpp:1127
+#: core/room.cpp:1137
 #, kde-format
 msgid "Moderator"
 msgstr "მოდერატორი"
 
-#: core/room.cpp:1481
+#: core/room.cpp:1491
 #, kde-format
 msgid "Channel is read only."
 msgstr "არხი მხოლოდ-კითხვადია."
 
-#: core/room.cpp:1484
+#: core/room.cpp:1494
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "თქვენ დაბლოკეთ ეს არხი."
 
-#: core/room.cpp:1487
+#: core/room.cpp:1497
 #, kde-format
 msgid "Channel was blocked."
 msgstr "არხი დაბლოკილია."
@@ -1410,408 +1410,10 @@ msgstr "პირდაპირი"
 msgid "Omnichannel"
 msgstr ""
 
-#: core/translatetext/engine/bingtranslator.cpp:51
-#: widgets/translator/translatorconfigureutil.cpp:25
-#, kde-format
-msgid "Bing"
-msgstr "Bing"
-
-#: core/translatetext/engine/bingtranslator.cpp:62
-#, kde-format
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "შეცდომა: ვებ ვერსიაში Bing-ის ავტორიზაციის დეტალები ვერ ვიპოვე."
-
-#: core/translatetext/engine/bingtranslator.cpp:70
-#, kde-format
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის გასაღების გამოღება შეუძლებელია."
-
-#: core/translatetext/engine/bingtranslator.cpp:79
-#, kde-format
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის კოდის გამოღება შეუძლებელია."
-
-#: core/translatetext/engine/bingtranslator.cpp:88
-#: core/translatetext/engine/bingtranslator.cpp:97
-#, kde-format
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
-
-#: core/translatetext/engine/bingtranslator.cpp:110
-#: core/translatetext/engine/deepltranslator.cpp:38
-#: core/translatetext/engine/googletranslator.cpp:43
-#: core/translatetext/engine/libretranslatetranslator.cpp:32
-#: core/translatetext/engine/lingvatranslator.cpp:33
-#: core/translatetext/engine/yandextranslator.cpp:105
-#, kde-format
-msgid "You used same language for from and to language."
-msgstr ""
-
-#: core/translatetext/engine/deepltranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:34
-#, kde-format
-msgid "DeepL"
-msgstr "DeepL"
-
-#: core/translatetext/engine/googletranslator.cpp:72
-#: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/translator/translatorconfigureutil.cpp:19
-#, kde-format
-msgid "Google"
-msgstr "Google"
-
-#: core/translatetext/engine/libretranslatetranslator.cpp:26
-#: widgets/translator/translatorconfigureutil.cpp:31
-#, kde-format
-msgid "Libre Translate"
-msgstr "Libre Translate"
-
-#: core/translatetext/engine/lingvatranslator.cpp:27
-#: widgets/translator/translatorconfigureutil.cpp:28
-#, kde-format
-msgid "Lingva"
-msgstr "Lingva"
-
-#: core/translatetext/engine/yandextranslator.cpp:48
-#: widgets/translator/translatorconfigureutil.cpp:22
-#, kde-format
-msgid "Yandex"
-msgstr "Yandex"
-
-#: core/translatetext/engine/yandextranslator.cpp:67
-#: core/translatetext/translatorenginebase.cpp:77
-#, kde-format
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
-msgstr ""
-
-#: core/translatetext/engine/yandextranslator.cpp:76
-#, kde-format
-msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
-
-#: core/translatetext/engine/yandextranslator.cpp:84
-#, kde-format
-msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
-
-#: core/translatetext/engine/yandextranslator.cpp:153
-#, kde-format
-msgid "Error: Unable to parse autodetected language"
-msgstr ""
-
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
 msgstr ""
-
-#: core/translatetext/translatorutil.cpp:122
-#, kde-format
-msgid "Detect language"
-msgstr "ნაგულისხმები ენა"
-
-#: core/translatetext/translatorutil.cpp:125
-#, kde-format
-msgid "English"
-msgstr "ინგლისური"
-
-#: core/translatetext/translatorutil.cpp:128
-#: core/translatetext/translatorutil.cpp:191
-#, kde-format
-msgid "Chinese (Simplified)"
-msgstr "ჩინური (გამარტივებული)"
-
-#: core/translatetext/translatorutil.cpp:131
-#: core/translatetext/translatorutil.cpp:194
-#, kde-format
-msgid "Chinese (Traditional)"
-msgstr "ჩინური (ტრადიციული)"
-
-#: core/translatetext/translatorutil.cpp:134
-#, kde-format
-msgid "Dutch"
-msgstr "ჰოლანდიური"
-
-#: core/translatetext/translatorutil.cpp:137
-#, kde-format
-msgid "French"
-msgstr "ფრანგული"
-
-#: core/translatetext/translatorutil.cpp:140
-#, kde-format
-msgid "German"
-msgstr "გერმანული"
-
-#: core/translatetext/translatorutil.cpp:143
-#, kde-format
-msgid "Greek"
-msgstr "ბერძნული"
-
-#: core/translatetext/translatorutil.cpp:146
-#, kde-format
-msgid "Italian"
-msgstr "იტალიური"
-
-#: core/translatetext/translatorutil.cpp:149
-#, kde-format
-msgid "Japanese"
-msgstr "იაპონური"
-
-#: core/translatetext/translatorutil.cpp:152
-#, kde-format
-msgid "Korean"
-msgstr "კორეული"
-
-#: core/translatetext/translatorutil.cpp:155
-#, kde-format
-msgid "Portuguese"
-msgstr "პორტუგალიური"
-
-#: core/translatetext/translatorutil.cpp:158
-#, kde-format
-msgid "Russian"
-msgstr "რუსული"
-
-#: core/translatetext/translatorutil.cpp:161
-#, kde-format
-msgid "Spanish"
-msgstr "ესპანური"
-
-#: core/translatetext/translatorutil.cpp:164
-#, kde-format
-msgid "Afrikaans"
-msgstr "აფრიკაანსი"
-
-#: core/translatetext/translatorutil.cpp:167
-#, kde-format
-msgid "Albanian"
-msgstr "ალბანური"
-
-#: core/translatetext/translatorutil.cpp:170
-#, kde-format
-msgid "Arabic"
-msgstr "არაბული"
-
-#: core/translatetext/translatorutil.cpp:173
-#, kde-format
-msgid "Armenian"
-msgstr "სომხური"
-
-#: core/translatetext/translatorutil.cpp:176
-#, kde-format
-msgid "Azerbaijani"
-msgstr "აზერბაიჯანი"
-
-#: core/translatetext/translatorutil.cpp:179
-#, kde-format
-msgid "Basque"
-msgstr "ბასკური"
-
-#: core/translatetext/translatorutil.cpp:182
-#, kde-format
-msgid "Belarusian"
-msgstr "ბელორუსული"
-
-#: core/translatetext/translatorutil.cpp:185
-#, kde-format
-msgid "Bulgarian"
-msgstr "ბულგარული"
-
-#: core/translatetext/translatorutil.cpp:188
-#, kde-format
-msgid "Catalan"
-msgstr "კატალანური"
-
-#: core/translatetext/translatorutil.cpp:197
-#, kde-format
-msgid "Croatian"
-msgstr "ხორვატული"
-
-#: core/translatetext/translatorutil.cpp:200
-#, kde-format
-msgid "Czech"
-msgstr "ჩეხური"
-
-#: core/translatetext/translatorutil.cpp:203
-#, kde-format
-msgid "Danish"
-msgstr "დანიური"
-
-#: core/translatetext/translatorutil.cpp:206
-#, kde-format
-msgid "Estonian"
-msgstr "ესტონური"
-
-#: core/translatetext/translatorutil.cpp:209
-#, kde-format
-msgid "Filipino"
-msgstr "ფილიპინები"
-
-#: core/translatetext/translatorutil.cpp:212
-#, kde-format
-msgid "Finnish"
-msgstr "ფინური"
-
-#: core/translatetext/translatorutil.cpp:215
-#, kde-format
-msgid "Galician"
-msgstr "გალური"
-
-#: core/translatetext/translatorutil.cpp:218
-#, kde-format
-msgid "Georgian"
-msgstr "ქართული"
-
-#: core/translatetext/translatorutil.cpp:221
-#, kde-format
-msgid "Haitian Creole"
-msgstr "ჰაიტიელი კრეოლები"
-
-#: core/translatetext/translatorutil.cpp:224
-#, kde-format
-msgid "Hebrew"
-msgstr "ივრითი"
-
-#: core/translatetext/translatorutil.cpp:227
-#, kde-format
-msgid "Hindi"
-msgstr "ჰინდი"
-
-#: core/translatetext/translatorutil.cpp:230
-#, kde-format
-msgid "Hungarian"
-msgstr "უნგრული"
-
-#: core/translatetext/translatorutil.cpp:233
-#, kde-format
-msgid "Icelandic"
-msgstr "ისლანდიური"
-
-#: core/translatetext/translatorutil.cpp:236
-#, kde-format
-msgid "Indonesian"
-msgstr "ინდონეზიური"
-
-#: core/translatetext/translatorutil.cpp:239
-#, kde-format
-msgid "Irish"
-msgstr "ირლანდიური"
-
-#: core/translatetext/translatorutil.cpp:242
-#, kde-format
-msgid "Latvian"
-msgstr "ლატვიური"
-
-#: core/translatetext/translatorutil.cpp:245
-#, kde-format
-msgid "Lithuanian"
-msgstr "ლითუანიური"
-
-#: core/translatetext/translatorutil.cpp:248
-#, kde-format
-msgid "Macedonian"
-msgstr "მაკედონიური"
-
-#: core/translatetext/translatorutil.cpp:251
-#, kde-format
-msgid "Malay"
-msgstr "მალაიური"
-
-#: core/translatetext/translatorutil.cpp:254
-#, kde-format
-msgid "Maltese"
-msgstr "მალტური"
-
-#: core/translatetext/translatorutil.cpp:257
-#, kde-format
-msgid "Norwegian"
-msgstr "ნორვეგიული"
-
-#: core/translatetext/translatorutil.cpp:260
-#, kde-format
-msgid "Persian"
-msgstr "სპარსული"
-
-#: core/translatetext/translatorutil.cpp:263
-#, kde-format
-msgid "Polish"
-msgstr "პოლონური"
-
-#: core/translatetext/translatorutil.cpp:266
-#, kde-format
-msgid "Romanian"
-msgstr "რუმინული"
-
-#: core/translatetext/translatorutil.cpp:269
-#, kde-format
-msgid "Serbian"
-msgstr "სერბული"
-
-#: core/translatetext/translatorutil.cpp:272
-#, kde-format
-msgid "Slovak"
-msgstr "სლოვაკური"
-
-#: core/translatetext/translatorutil.cpp:275
-#, kde-format
-msgid "Slovenian"
-msgstr "სლოვენიური"
-
-#: core/translatetext/translatorutil.cpp:278
-#, kde-format
-msgid "Swahili"
-msgstr "სუაჰილი"
-
-#: core/translatetext/translatorutil.cpp:281
-#, kde-format
-msgid "Swedish"
-msgstr "შვედური"
-
-#: core/translatetext/translatorutil.cpp:284
-#, kde-format
-msgid "Thai"
-msgstr "ტაილანდური"
-
-#: core/translatetext/translatorutil.cpp:287
-#, kde-format
-msgid "Turkish"
-msgstr "თურქული"
-
-#: core/translatetext/translatorutil.cpp:290
-#, kde-format
-msgid "Ukrainian"
-msgstr "უკრაინული"
-
-#: core/translatetext/translatorutil.cpp:293
-#, kde-format
-msgid "Urdu"
-msgstr "ურდუ"
-
-#: core/translatetext/translatorutil.cpp:296
-#, kde-format
-msgid "Vietnamese"
-msgstr "ვიეტნამური"
-
-#: core/translatetext/translatorutil.cpp:299
-#, kde-format
-msgid "Welsh"
-msgstr "უელსური"
-
-#: core/translatetext/translatorutil.cpp:302
-#, kde-format
-msgid "Yiddish"
-msgstr "იდიში"
-
-#: core/translatetext/translatorutil.cpp:305
-#, kde-format
-msgid "Modern Javanese (Indonesia)"
-msgstr ""
-
-#: core/translatetext/translatorutil.cpp:308
-#, kde-format
-msgid "Chinese"
-msgstr "ჩინური"
 
 #: core/user.cpp:199
 #, kde-format
@@ -2154,7 +1756,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
 #, kde-format
 msgid "Add Autocorrection Entry"
-msgstr ""
+msgstr "ავტოკორექციის ჩანაწერის დამატება"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:462
 #, kde-format
@@ -2164,7 +1766,7 @@ msgstr "&შეცვლა"
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:573
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
-msgstr ""
+msgstr "LibreOffice-ის ავტოკორექციის შემოტანა"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:574
 #, kde-format
@@ -2174,12 +1776,12 @@ msgstr "LibreOffice-ის ავტოკორექციის ფაილ�
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:577
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr ""
+msgstr "KMail-ის ავტოკორექციის შემოტანა"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:578
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr ""
+msgstr "KMail -ის ავტოკორექციის ფაილი (*.xml)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:610
 #, kde-format
@@ -2211,7 +1813,7 @@ msgstr "ავტოკორექციის ფაილის გატა�
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Special Characters"
-msgstr ""
+msgstr "აირჩიეთ სპეციალური სიმბოლოები"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:40
 #, kde-format
@@ -2222,6 +1824,552 @@ msgstr "ჩასმა"
 #, kde-format
 msgid "Select"
 msgstr "არჩევა"
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:54
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:354
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:24
+#, kde-format
+msgid "Bing"
+msgstr "Bing"
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:65
+#, kde-format
+msgid "Error: Unable to find Bing credentials in web version."
+msgstr "შეცდომა: ვებ ვერსიაში Bing-ის ავტორიზაციის დეტალები ვერ ვიპოვე."
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:73
+#, kde-format
+msgid "Error: Unable to extract Bing key from web version."
+msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის გასაღების გამოღება შეუძლებელია."
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:82
+#, kde-format
+msgid "Error: Unable to extract Bing token from web version."
+msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის კოდის გამოღება შეუძლებელია."
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:91
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:100
+#, kde-format
+msgid "Error: Unable to extract additional Bing information from web version."
+msgstr ""
+
+#: pimcommontexttranslator/translator/engine/bingtranslator.cpp:113
+#: pimcommontexttranslator/translator/engine/deepltranslator.cpp:40
+#: pimcommontexttranslator/translator/engine/googletranslator.cpp:44
+#: pimcommontexttranslator/translator/engine/libretranslatetranslator.cpp:34
+#: pimcommontexttranslator/translator/engine/lingvatranslator.cpp:35
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:107
+#, kde-format
+msgid "You used same language for from and to language."
+msgstr ""
+
+#: pimcommontexttranslator/translator/engine/deepltranslator.cpp:29
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:363
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:33
+#, kde-format
+msgid "DeepL"
+msgstr "DeepL"
+
+#: pimcommontexttranslator/translator/engine/googletranslator.cpp:73
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:348
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:18
+#: plugins/authentication/google/googlepluginauthentication.cpp:36
+#, kde-format
+msgid "Google"
+msgstr "Google"
+
+#: pimcommontexttranslator/translator/engine/libretranslatetranslator.cpp:28
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:360
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:30
+#, kde-format
+msgid "Libre Translate"
+msgstr "Libre Translate"
+
+#: pimcommontexttranslator/translator/engine/lingvatranslator.cpp:29
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:357
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:27
+#, kde-format
+msgid "Lingva"
+msgstr "Lingva"
+
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:59
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:351
+#: pimcommontexttranslator/translator/widgets/translatorconfigureutil.cpp:21
+#, kde-format
+msgid "Yandex"
+msgstr "Yandex"
+
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:69
+#: pimcommontexttranslator/translator/translatorenginebase.cpp:78
+#, kde-format
+msgid ""
+"Error: Engine systems have detected suspicious traffic from your computer "
+"network. Please try your request again later."
+msgstr ""
+
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:78
+#, kde-format
+msgid "Error: Unable to find Yandex SID in web version."
+msgstr ""
+
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:86
+#, kde-format
+msgid "Error: Unable to extract Yandex SID from web version."
+msgstr ""
+
+#: pimcommontexttranslator/translator/engine/yandextranslator.cpp:155
+#, kde-format
+msgid "Error: Unable to parse autodetected language"
+msgstr ""
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:124
+#, kde-format
+msgid "Detect language"
+msgstr "ნაგულისხმები ენა"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:127
+#, kde-format
+msgid "English"
+msgstr "ინგლისური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:130
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:193
+#, kde-format
+msgid "Chinese (Simplified)"
+msgstr "ჩინური (გამარტივებული)"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:133
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:196
+#, kde-format
+msgid "Chinese (Traditional)"
+msgstr "ჩინური (ტრადიციული)"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:136
+#, kde-format
+msgid "Dutch"
+msgstr "ჰოლანდიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:139
+#, kde-format
+msgid "French"
+msgstr "ფრანგული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:142
+#, kde-format
+msgid "German"
+msgstr "გერმანული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:145
+#, kde-format
+msgid "Greek"
+msgstr "ბერძნული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:148
+#, kde-format
+msgid "Italian"
+msgstr "იტალიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:151
+#, kde-format
+msgid "Japanese"
+msgstr "იაპონური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:154
+#, kde-format
+msgid "Korean"
+msgstr "კორეული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:157
+#, kde-format
+msgid "Portuguese"
+msgstr "პორტუგალიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:160
+#, kde-format
+msgid "Russian"
+msgstr "რუსული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:163
+#, kde-format
+msgid "Spanish"
+msgstr "ესპანური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:166
+#, kde-format
+msgid "Afrikaans"
+msgstr "აფრიკაანსი"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:169
+#, kde-format
+msgid "Albanian"
+msgstr "ალბანური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:172
+#, kde-format
+msgid "Arabic"
+msgstr "არაბული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:175
+#, kde-format
+msgid "Armenian"
+msgstr "სომხური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:178
+#, kde-format
+msgid "Azerbaijani"
+msgstr "აზერბაიჯანი"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:181
+#, kde-format
+msgid "Basque"
+msgstr "ბასკური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:184
+#, kde-format
+msgid "Belarusian"
+msgstr "ბელორუსული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:187
+#, kde-format
+msgid "Bulgarian"
+msgstr "ბულგარული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:190
+#, kde-format
+msgid "Catalan"
+msgstr "კატალანური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:199
+#, kde-format
+msgid "Croatian"
+msgstr "ხორვატული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:202
+#, kde-format
+msgid "Czech"
+msgstr "ჩეხური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:205
+#, kde-format
+msgid "Danish"
+msgstr "დანიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:208
+#, kde-format
+msgid "Estonian"
+msgstr "ესტონური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:211
+#, kde-format
+msgid "Filipino"
+msgstr "ფილიპინები"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:214
+#, kde-format
+msgid "Finnish"
+msgstr "ფინური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:217
+#, kde-format
+msgid "Galician"
+msgstr "გალური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:220
+#, kde-format
+msgid "Georgian"
+msgstr "ქართული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:223
+#, kde-format
+msgid "Haitian Creole"
+msgstr "ჰაიტიელი კრეოლები"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:226
+#, kde-format
+msgid "Hebrew"
+msgstr "ივრითი"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:229
+#, kde-format
+msgid "Hindi"
+msgstr "ჰინდი"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:232
+#, kde-format
+msgid "Hungarian"
+msgstr "უნგრული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:235
+#, kde-format
+msgid "Icelandic"
+msgstr "ისლანდიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:238
+#, kde-format
+msgid "Indonesian"
+msgstr "ინდონეზიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:241
+#, kde-format
+msgid "Irish"
+msgstr "ირლანდიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:244
+#, kde-format
+msgid "Latvian"
+msgstr "ლატვიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:247
+#, kde-format
+msgid "Lithuanian"
+msgstr "ლითუანიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:250
+#, kde-format
+msgid "Macedonian"
+msgstr "მაკედონიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:253
+#, kde-format
+msgid "Malay"
+msgstr "მალაიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:256
+#, kde-format
+msgid "Maltese"
+msgstr "მალტური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:259
+#, kde-format
+msgid "Norwegian"
+msgstr "ნორვეგიული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:262
+#, kde-format
+msgid "Persian"
+msgstr "სპარსული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:265
+#, kde-format
+msgid "Polish"
+msgstr "პოლონური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:268
+#, kde-format
+msgid "Romanian"
+msgstr "რუმინული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:271
+#, kde-format
+msgid "Serbian"
+msgstr "სერბული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:274
+#, kde-format
+msgid "Slovak"
+msgstr "სლოვაკური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:277
+#, kde-format
+msgid "Slovenian"
+msgstr "სლოვენიური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:280
+#, kde-format
+msgid "Swahili"
+msgstr "სუაჰილი"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:283
+#, kde-format
+msgid "Swedish"
+msgstr "შვედური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:286
+#, kde-format
+msgid "Thai"
+msgstr "ტაილანდური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:289
+#, kde-format
+msgid "Turkish"
+msgstr "თურქული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:292
+#, kde-format
+msgid "Ukrainian"
+msgstr "უკრაინული"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:295
+#, kde-format
+msgid "Urdu"
+msgstr "ურდუ"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:298
+#, kde-format
+msgid "Vietnamese"
+msgstr "ვიეტნამური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:301
+#, kde-format
+msgid "Welsh"
+msgstr "უელსური"
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:304
+#, kde-format
+msgid "Yiddish"
+msgstr "იდიში"
+
+#: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Libre Translate"
+msgctxt "@title:window"
+msgid "Configure Translator"
+msgstr "Libre Translate"
+
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/misc/emoticonmenuwidget.cpp:45
+#: widgets/notificationhistory/notificationhistorywidget.cpp:34
+#, kde-format
+msgid "Search..."
+msgstr "ძებნა..."
+
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:26
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "საიდან:"
+
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:27
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "ვის:"
+
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:48
+#, kde-format
+msgid "Engine:"
+msgstr "ძრავი:"
+
+#: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translate"
+msgctxt "@title:window"
+msgid "Translator Debug"
+msgstr "თარგმნა"
+
+#: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:38
+#, fuzzy, kde-format
+#| msgid "Save &As..."
+msgid "Save As..."
+msgstr "შეინახვა &როგორც..."
+
+#: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:86
+#, kde-format
+msgid ""
+"Could not write the file %1:\n"
+"\"%2\" is the detailed error description."
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:90
+#, fuzzy, kde-format
+#| msgid "Save File"
+msgid "Save File Error"
+msgstr "ფაილის შენახვა"
+
+#: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:113
+#, kde-format
+msgid "All Files (*)"
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
+#, kde-format
+msgid "Translate..."
+msgstr "თარგმნა..."
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:126
+#, kde-format
+msgid "Problem when connecting to the translator web site."
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:228
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:231
+#, kde-format
+msgid "Close"
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
+#, fuzzy, kde-format
+#| msgid "From:"
+msgctxt "Translate from language"
+msgid "From:"
+msgstr "საიდან:"
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:244
+#, fuzzy, kde-format
+#| msgid "To:"
+msgctxt "Translate to language"
+msgid "To:"
+msgstr "ვის:"
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:256
+#, kde-format
+msgctxt "Invert language choices so that from becomes to and to becomes from"
+msgid "Invert"
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:264
+#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
+#, kde-format
+msgid "Clear"
+msgstr "გაწმენდა"
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:272
+#, fuzzy, kde-format
+#| msgctxt "@title Preferences page name"
+#| msgid "Translate"
+msgid "Translate"
+msgstr "თარგმნა"
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:279
+#, kde-format
+msgid "Debug"
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:297
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
+msgid "Configure"
+msgstr "Ruqola-ის მორგება"
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:312
+#, kde-format
+msgid ""
+"Drag text that you want to translate. (Be careful text will be send to "
+"Google Server)."
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:392
+#, kde-format
+msgid "No network connection detected, we cannot translate text."
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:392
+#, kde-format
+msgid "No network"
+msgstr ""
+
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:431
+#, fuzzy, kde-format
+#| msgid "Translator Error"
+msgid "Translate error"
+msgstr "მთარგმნელის შეცდომა"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -4026,7 +4174,7 @@ msgid "Logs"
 msgstr "ჟურნალი"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
-#: widgets/dialogs/configurenotificationwidget.cpp:84
+#: widgets/dialogs/configurenotificationwidget.cpp:86
 #, kde-format
 msgid "Mobile"
 msgstr "მობაილი"
@@ -4049,7 +4197,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:17
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -4064,8 +4212,7 @@ msgid "Enabled"
 msgstr "ჩართულია"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Trust CAS Username"
 msgstr "მომხმარებლის სახელი"
 
@@ -5495,14 +5642,6 @@ msgstr "ბანერის ინფორმაცია"
 msgid "Show Unread"
 msgstr "წაუკითხავის ჩვენება"
 
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:45
-#: widgets/notificationhistory/notificationhistorywidget.cpp:34
-#: widgets/translator/translatorconfigurelanguagelistwidget.cpp:29
-#, kde-format
-msgid "Search..."
-msgstr "ძებნა..."
-
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
 msgid "Mark as Read"
@@ -5519,7 +5658,7 @@ msgid "Mark As Unread"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:110
-#: widgets/room/messagelistview.cpp:241
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
@@ -5748,7 +5887,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:248
+#: widgets/room/messagelistview.cpp:249
 #, kde-format
 msgid "Delete"
 msgstr "წაშლა"
@@ -5882,12 +6021,6 @@ msgstr "პაროლის დამატება"
 msgid "Channel Password:"
 msgstr "არხის პაროლი:"
 
-#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:74
-#, kde-format
-msgid "Clear"
-msgstr "გაწმენდა"
-
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, kde-format
 msgid "Select a channel"
@@ -5911,7 +6044,7 @@ msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
-msgid "Mute Group Mentions"
+msgid "Mute @all and @here mentions"
 msgstr ""
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
@@ -5919,19 +6052,29 @@ msgstr ""
 msgid "Show badge for mentions"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:59
+#: widgets/dialogs/configurenotificationwidget.cpp:36
+#, kde-format
+msgid "Receive alerts"
+msgstr ""
+
+#: widgets/dialogs/configurenotificationwidget.cpp:55
+#, kde-format
+msgid "Display badge for direct mentions only"
+msgstr ""
+
+#: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
-#: widgets/dialogs/configurenotificationwidget.cpp:67
-#: widgets/dialogs/configurenotificationwidget.cpp:92
-#: widgets/dialogs/configurenotificationwidget.cpp:108
+#: widgets/dialogs/configurenotificationwidget.cpp:69
+#: widgets/dialogs/configurenotificationwidget.cpp:94
+#: widgets/dialogs/configurenotificationwidget.cpp:110
 #, kde-format
 msgid "Alert:"
 msgstr ""
 
-#: widgets/dialogs/configurenotificationwidget.cpp:76
+#: widgets/dialogs/configurenotificationwidget.cpp:78
 #, kde-format
 msgid "Sound:"
 msgstr "ხმა:"
@@ -6552,7 +6695,7 @@ msgstr ""
 
 #: widgets/discussions/discussionlistview.cpp:59
 #: widgets/notificationhistory/notificationhistorylistview.cpp:92
-#: widgets/room/messagelistview.cpp:254
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Select All"
 msgstr ""
@@ -6585,18 +6728,6 @@ msgstr[1] ""
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#: widgets/translator/translatorconfigurewidget.cpp:23
-#, kde-format
-msgid "From:"
-msgstr "საიდან:"
-
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#: widgets/translator/translatorconfigurewidget.cpp:24
-#, kde-format
-msgid "To:"
-msgstr "ვის:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
@@ -6975,7 +7106,7 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
 msgid "Highlight words:"
-msgstr ""
+msgstr "სიტყვების გამოკვეთა:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
@@ -7118,13 +7249,13 @@ msgid "Notification"
 msgstr "შეტყობინება"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:434
+#: widgets/room/messagelistview.cpp:447
 #, kde-format
 msgid "Go to Message"
 msgstr "შეტყობინებაზე გადასვლა"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:224
+#: widgets/room/messagelistview.cpp:225
 #, kde-format
 msgid "Copy Message"
 msgstr "შეტყობინების კოპირება"
@@ -7374,105 +7505,105 @@ msgstr ""
 msgid "File upload"
 msgstr "ფაილის ატვირთვა"
 
-#: widgets/room/messagelistview.cpp:75
+#: widgets/room/messagelistview.cpp:76
 #, kde-format
 msgid "Room is Empty."
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:232
+#: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Unpin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:232
+#: widgets/room/messagelistview.cpp:233
 #, kde-format
 msgid "Pin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:241
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "რჩეულებიდან წაშლა"
 
-#: widgets/room/messagelistview.cpp:259
+#: widgets/room/messagelistview.cpp:260
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:265
 #, kde-format
 msgid "Show Full Thread"
 msgstr "სრული ნაკადის ჩვენება"
 
-#: widgets/room/messagelistview.cpp:269
+#: widgets/room/messagelistview.cpp:270
 #, kde-format
 msgid "Edit"
 msgstr "რედაქტირება"
 
-#: widgets/room/messagelistview.cpp:274
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Quote"
 msgstr "ციტატა"
 
-#: widgets/room/messagelistview.cpp:279
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "შეტყობინების ბმულის კოპირება"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:293
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, kde-format
 msgid "Unfollow Message"
 msgstr "შეტყობინების მიყოლის გაუქმება"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:293
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, kde-format
 msgid "Follow Message"
 msgstr "შეტყობინების მიყოლა"
 
-#: widgets/room/messagelistview.cpp:305
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Copy URL"
 msgstr "URL-ის კოპირება"
 
-#: widgets/room/messagelistview.cpp:313
+#: widgets/room/messagelistview.cpp:314
 #, kde-format
 msgid "Start a Discussion"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:320
+#: widgets/room/messagelistview.cpp:321
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:379
+#: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Show Original Message"
 msgstr "ორიგინალური შეტყობინების ჩვენება"
 
-#: widgets/room/messagelistview.cpp:379
+#: widgets/room/messagelistview.cpp:381
 #, kde-format
 msgid "Translate Message"
 msgstr "შეტყობინების თარგმნა"
 
-#: widgets/room/messagelistview.cpp:448
+#: widgets/room/messagelistview.cpp:461
 #, kde-format
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:611
+#: widgets/room/messagelistview.cpp:624
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "გსურთ წაშალოთ ეს შეტყობინება?"
 
-#: widgets/room/messagelistview.cpp:612
+#: widgets/room/messagelistview.cpp:625
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "შეტყობინების წაშლა"
 
-#: widgets/room/messagelistview.cpp:729
+#: widgets/room/messagelistview.cpp:742
 #, kde-format
 msgid "Translator Error"
 msgstr "მთარგმნელის შეცდომა"
@@ -8061,16 +8192,6 @@ msgctxt "@title:window"
 msgid "Thread"
 msgstr "ნაკადი"
 
-#: widgets/translator/translatorconfigurewidget.cpp:39
-#, kde-format
-msgid "Engine:"
-msgstr "ძრავი:"
-
-#: widgets/translator/translatormenu.cpp:22
-#, kde-format
-msgid "Translate..."
-msgstr "თარგმნა..."
-
 #: widgets/userfeedback/accountinfosource.cpp:22
 #, kde-format
 msgid "Account information"
@@ -8080,6 +8201,9 @@ msgstr "ანგარიშის ინფორმაცია"
 #, kde-format
 msgid "Return the number of account."
 msgstr ""
+
+#~ msgid "Chinese"
+#~ msgstr "ჩინური"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
