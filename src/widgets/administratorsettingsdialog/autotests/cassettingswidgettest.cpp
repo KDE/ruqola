@@ -30,4 +30,10 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTrustCASUsername->isChecked());
     QVERIFY(!mTrustCASUsername->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTrustCASUsername), QStringLiteral("CAS_trust_username"));
+
+    auto mAllowUserCreation = w.findChild<QCheckBox *>(QStringLiteral("mAllowUserCreation"));
+    QVERIFY(mAllowUserCreation);
+    QVERIFY(!mAllowUserCreation->isChecked());
+    QVERIFY(!mAllowUserCreation->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowUserCreation), QStringLiteral("CAS_Creation_User_Enabled"));
 }

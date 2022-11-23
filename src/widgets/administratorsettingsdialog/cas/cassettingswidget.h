@@ -22,4 +22,5 @@ public:
 private:
     QCheckBox *const mEnabled;
     QCheckBox *const mTrustCASUsername;
+    QCheckBox *const mAllowUserCreation;
 };

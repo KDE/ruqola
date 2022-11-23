@@ -16,6 +16,7 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     : SettingsWidgetBase{account, parent}
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
     , mTrustCASUsername(new QCheckBox(i18n("Trust CAS Username"), this))
+    , mAllowUserCreation(new QCheckBox(i18n("Allow user creation"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -23,7 +24,15 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
 
     mTrustCASUsername->setObjectName(QStringLiteral("mTrustCASUsername"));
     mMainLayout->addWidget(mTrustCASUsername);
+    mTrustCASUsername->setToolTip(
+        i18n("When enabled, Rocket.Chat will trust that any username from CAS belongs to the same user on Rocket.Chat.\nThis may be needed if a user is "
+             "renamed on CAS, but may also allow people to take control of Rocket.Chat accounts by renaming their own CAS users."));
     connectCheckBox(mTrustCASUsername, QStringLiteral("CAS_trust_username"));
+
+    mAllowUserCreation->setObjectName(QStringLiteral("mAllowUserCreation"));
+    mAllowUserCreation->setToolTip(i18n("Allow CAS User creation from data provided by the CAS ticket."));
+    mMainLayout->addWidget(mAllowUserCreation);
+    connectCheckBox(mAllowUserCreation, QStringLiteral("CAS_Creation_User_Enabled"));
 }
 
 CasSettingsWidget::~CasSettingsWidget() = default;
@@ -32,4 +41,5 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mTrustCASUsername, mapSettings, false);
+    initializeWidget(mTrustCASUsername, mapSettings, true);
 }
