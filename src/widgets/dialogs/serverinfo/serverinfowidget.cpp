@@ -35,7 +35,6 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     mServerUrl->setTextFormat(Qt::RichText);
-    mServerUrl->setOpenExternalLinks(true);
     layout->addRow(i18n("Server Url:"), mServerUrl);
 
     mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
