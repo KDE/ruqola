@@ -19,6 +19,8 @@ ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
     mainLayout->addWidget(mAutoCorrectionWidget);
+    // We don't have html support here.
+    mAutoCorrectionWidget->setHasHtmlSupport(false);
     mAutoCorrectionWidget->setAutoCorrection(Ruqola::self()->autoCorrection());
 }
 

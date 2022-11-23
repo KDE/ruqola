@@ -37,6 +37,7 @@ public:
     explicit AutoCorrectionWidget(QWidget *parent = nullptr);
     ~AutoCorrectionWidget() override;
     void setAutoCorrection(AutoCorrection *autoCorrect);
+    void setHasHtmlSupport(bool b);
     void loadConfig();
     void writeConfig();
     void resetToDefault();
@@ -87,6 +88,7 @@ private:
     void loadAutoCorrectionAndException();
     void loadGlobalAutoCorrectionAndException();
     void setLanguage(const QString &lang);
+    void updateHtmlSupport();
 
     std::unique_ptr<AutoCorrectionWidgetPrivate> const d;
 };

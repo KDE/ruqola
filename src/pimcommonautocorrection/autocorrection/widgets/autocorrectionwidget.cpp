@@ -22,7 +22,6 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeWidgetItem>
-#include <kwidgetsaddons_version.h>
 
 using namespace PimCommonAutoCorrection;
 
@@ -45,6 +44,7 @@ public:
     std::unique_ptr<Ui::AutoCorrectionWidget> const ui;
     AutoCorrection *mAutoCorrection = nullptr;
     bool mWasChanged = false;
+    bool mHasHtmlSupport = true;
 };
 
 AutoCorrectionWidget::AutoCorrectionWidget(QWidget *parent)
@@ -150,6 +150,21 @@ void AutoCorrectionWidget::setAutoCorrection(AutoCorrection *autoCorrect)
 {
     d->mAutoCorrection = autoCorrect;
     setLanguage(d->ui->autocorrectionLanguage->language());
+}
+
+void AutoCorrectionWidget::setHasHtmlSupport(bool b)
+{
+    if (d->mHasHtmlSupport != b) {
+        d->mHasHtmlSupport = b;
+        updateHtmlSupport();
+    }
+}
+
+void AutoCorrectionWidget::updateHtmlSupport()
+{
+    d->ui->autoFormatUrl->setVisible(d->mHasHtmlSupport);
+    d->ui->autoSuperScript->setVisible(d->mHasHtmlSupport);
+    d->ui->autoChangeFormat->setVisible(d->mHasHtmlSupport);
 }
 
 void AutoCorrectionWidget::loadConfig()
@@ -629,20 +644,12 @@ void AutoCorrectionWidget::changeLanguage(int index)
         return;
     }
     if (d->mWasChanged) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         const int rc = KMessageBox::warningTwoActions(this,
-#else
-        const int rc = KMessageBox::warningYesNo(this,
-#endif
                                                       i18n("Language was changed, do you want to save config for previous language?"),
                                                       i18n("Save config"),
                                                       KStandardGuiItem::save(),
                                                       KStandardGuiItem::discard());
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (rc == KMessageBox::ButtonCode::PrimaryAction) {
-#else
-        if (rc == KMessageBox::Yes) {
-#endif
             writeConfig();
         }
     }
