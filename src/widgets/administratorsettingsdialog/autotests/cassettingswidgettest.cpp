@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CasSettingsWidgetTest)
@@ -51,4 +52,8 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSSOLoginURL->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSSOLoginURL), QStringLiteral("CAS_login_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("CAS_login_url"));
+
+    auto attributeHandlingLabel = w.findChild<QLabel *>(QStringLiteral("attributeHandlingLabel"));
+    QVERIFY(attributeHandlingLabel);
+    QVERIFY(!attributeHandlingLabel->text().isEmpty());
 }

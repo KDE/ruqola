@@ -11,6 +11,7 @@
 
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 
 CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -44,6 +45,10 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     mAllowUserCreation->setToolTip(i18n("Allow CAS User creation from data provided by the CAS ticket."));
     mMainLayout->addWidget(mAllowUserCreation);
     connectCheckBox(mAllowUserCreation, QStringLiteral("CAS_Creation_User_Enabled"));
+
+    auto attributeHandlingLabel = createBoldLabel(i18n("Attribute handling"));
+    attributeHandlingLabel->setObjectName(QStringLiteral("attributeHandlingLabel"));
+    mMainLayout->addWidget(attributeHandlingLabel);
 }
 
 CasSettingsWidget::~CasSettingsWidget() = default;
