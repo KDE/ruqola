@@ -832,6 +832,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.ruqola.desktop</launchable>
   <releases>
+    <release version="1.8.2" date="2022-11-23"/>
     <release version="1.8.1" date="2022-10-16"/>
     <release version="1.8.0" date="2022-08-31">
       <artifacts>
