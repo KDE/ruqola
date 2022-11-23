@@ -52,7 +52,7 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mTrustCASUsername, mapSettings, false);
-    initializeWidget(mTrustCASUsername, mapSettings, true);
+    initializeWidget(mAllowUserCreation, mapSettings, true);
     initializeWidget(mSSOBaseURL, mapSettings, QString());
     initializeWidget(mSSOLoginURL, mapSettings, QString());
 }
