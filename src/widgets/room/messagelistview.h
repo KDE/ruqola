@@ -94,6 +94,7 @@ private:
     void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
 
 private:
+    void createTranslorMenu();
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;

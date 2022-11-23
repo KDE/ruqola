@@ -196,6 +196,15 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
     }
 }
 
+void MessageListView::createTranslorMenu()
+{
+    if (!mTranslatorMenu) {
+        mTranslatorMenu = new PimCommonTextTranslator::TranslatorMenu(this);
+        connect(mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+        connect(Ruqola::self(), &Ruqola::translatorMenuChanged, mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::updateMenu);
+    }
+}
+
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
@@ -361,11 +370,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
-        if (!mTranslatorMenu) {
-            mTranslatorMenu = new PimCommonTextTranslator::TranslatorMenu(this);
-            connect(mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
-            connect(Ruqola::self(), &Ruqola::translatorMenuChanged, mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::updateMenu);
-        }
+        createTranslorMenu();
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
             mTranslatorMenu->setModelIndex(index);
@@ -433,10 +438,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         menu.addSeparator();
         menu.addAction(selectAllAction);
 #if 0
-        if (!mTranslatorMenu) {
-            mTranslatorMenu = new TranslatorMenu(this);
-            connect(mTranslatorMenu, &TranslatorMenu::translate, this, &MessageListView::slotTranslate);
-        }
+        createTranslorMenu();
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
             mTranslatorMenu->setModelIndex(index);
