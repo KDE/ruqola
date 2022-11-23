@@ -11,16 +11,27 @@
 
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 
 CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase{account, parent}
     , mEnabled(new QCheckBox(i18n("Enabled"), this))
     , mTrustCASUsername(new QCheckBox(i18n("Trust CAS Username"), this))
     , mAllowUserCreation(new QCheckBox(i18n("Allow user creation"), this))
+    , mSSOBaseURL(new QLineEdit(this))
+    , mSSOLoginURL(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
     connectCheckBox(mEnabled, QStringLiteral("CAS_enabled"));
+
+    mSSOBaseURL->setObjectName(QStringLiteral("mSSOBaseURL"));
+    addLineEdit(i18n("SSO Base URL"), mSSOBaseURL, QStringLiteral("CAS_base_url"));
+    mSSOBaseURL->setToolTip(i18n("The base URL of your external SSO service e.g: https://sso.example.undef/sso/"));
+
+    mSSOLoginURL->setObjectName(QStringLiteral("mSSOLoginURL"));
+    addLineEdit(i18n("SSO Login URL"), mSSOLoginURL, QStringLiteral("CAS_login_url"));
+    mSSOLoginURL->setToolTip(i18n("The login URL of your external SSO service e.g: https://sso.example.undef/sso/login"));
 
     mTrustCASUsername->setObjectName(QStringLiteral("mTrustCASUsername"));
     mMainLayout->addWidget(mTrustCASUsername);
@@ -42,4 +53,6 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mEnabled, mapSettings, false);
     initializeWidget(mTrustCASUsername, mapSettings, false);
     initializeWidget(mTrustCASUsername, mapSettings, true);
+    initializeWidget(mSSOBaseURL, mapSettings, QString());
+    initializeWidget(mSSOLoginURL, mapSettings, QString());
 }

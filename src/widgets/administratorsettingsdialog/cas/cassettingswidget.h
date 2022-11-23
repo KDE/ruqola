@@ -23,4 +23,6 @@ private:
     QCheckBox *const mEnabled;
     QCheckBox *const mTrustCASUsername;
     QCheckBox *const mAllowUserCreation;
+    QLineEdit *const mSSOBaseURL;
+    QLineEdit *const mSSOLoginURL;
 };

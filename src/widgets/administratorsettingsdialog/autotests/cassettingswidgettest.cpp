@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(CasSettingsWidgetTest)
 CasSettingsWidgetTest::CasSettingsWidgetTest(QObject *parent)
@@ -36,4 +37,18 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowUserCreation->isChecked());
     QVERIFY(!mAllowUserCreation->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowUserCreation), QStringLiteral("CAS_Creation_User_Enabled"));
+
+    auto mSSOBaseURL = w.findChild<QLineEdit *>(QStringLiteral("mSSOBaseURL"));
+    QVERIFY(mSSOBaseURL);
+    QVERIFY(mSSOBaseURL->text().isEmpty());
+    QVERIFY(!mSSOBaseURL->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSSOBaseURL), QStringLiteral("CAS_base_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("CAS_base_url"));
+
+    auto mSSOLoginURL = w.findChild<QLineEdit *>(QStringLiteral("mSSOLoginURL"));
+    QVERIFY(mSSOLoginURL);
+    QVERIFY(mSSOLoginURL->text().isEmpty());
+    QVERIFY(!mSSOLoginURL->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSSOLoginURL), QStringLiteral("CAS_login_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("CAS_login_url"));
 }
