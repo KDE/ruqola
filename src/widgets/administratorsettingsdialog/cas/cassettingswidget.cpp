@@ -23,6 +23,7 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     , mSSOBaseURL(new QLineEdit(this))
     , mSSOLoginURL(new QLineEdit(this))
     , mCASVersion(new QComboBox(this))
+    , mAlwaysSyncUserData(new QCheckBox(i18n("Always Sync User Data"), this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -58,6 +59,12 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     auto attributeHandlingLabel = createBoldLabel(i18n("Attribute handling"));
     attributeHandlingLabel->setObjectName(QStringLiteral("attributeHandlingLabel"));
     mMainLayout->addWidget(attributeHandlingLabel);
+
+    mAlwaysSyncUserData->setObjectName(QStringLiteral("mAlwaysSyncUserData"));
+    mAlwaysSyncUserData->setToolTip(i18n(
+        "Always synchronize external CAS User data into available attributes upon login.\nNote: Attributes are always synced upon account creation anyway."));
+    mMainLayout->addWidget(mAlwaysSyncUserData);
+    connectCheckBox(mAlwaysSyncUserData, QStringLiteral("CAS_Sync_User_Data_Enabled"));
 }
 
 CasSettingsWidget::~CasSettingsWidget() = default;
@@ -70,4 +77,5 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mSSOBaseURL, mapSettings, QString());
     initializeWidget(mSSOLoginURL, mapSettings, QString());
     initializeWidget(mCASVersion, mapSettings, QStringLiteral("1.0"));
+    initializeWidget(mAlwaysSyncUserData, mapSettings, true);
 }

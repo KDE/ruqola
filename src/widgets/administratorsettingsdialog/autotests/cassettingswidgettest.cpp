@@ -62,4 +62,11 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mCASVersion);
     QCOMPARE(mCASVersion->count(), 2);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCASVersion), QStringLiteral("CAS_version"));
+
+    auto mAlwaysSyncUserData = w.findChild<QCheckBox *>(QStringLiteral("mAlwaysSyncUserData"));
+    QVERIFY(mAlwaysSyncUserData);
+    QVERIFY(!mAlwaysSyncUserData->isChecked());
+    QVERIFY(!mAlwaysSyncUserData->text().isEmpty());
+    QVERIFY(!mAlwaysSyncUserData->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAlwaysSyncUserData), QStringLiteral("CAS_Sync_User_Data_Enabled"));
 }
