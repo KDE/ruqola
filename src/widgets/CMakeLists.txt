@@ -174,6 +174,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/cas/cassettingswidget.h
     administratorsettingsdialog/cas/cassettingswidget.cpp
 
+    administratorsettingsdialog/oauth/oauthsettingswidget.h
+    administratorsettingsdialog/oauth/oauthsettingswidget.cpp
+
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp
     bannerinfodialog/bannerinfowidget.h
