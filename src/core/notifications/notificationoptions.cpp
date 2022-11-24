@@ -16,7 +16,7 @@ void NotificationOptions::updateNotificationOptions(const QJsonObject &obj)
 
 void NotificationOptions::parseNotificationOptions(const QJsonObject &obj)
 {
-    qDebug() << " parseNotificationOptions " << obj;
+    // qDebug() << " parseNotificationOptions " << obj;
     mHideUnreadStatus = obj.value(QLatin1String("hideUnreadStatus")).toBool();
     mHideMentionStatus = obj.value(QLatin1String("hideMentionStatus")).toBool();
     mDisableNotifications = obj.value(QLatin1String("disableNotifications")).toBool();
