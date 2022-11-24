@@ -92,6 +92,7 @@ RuqolaMainWidget::~RuqolaMainWidget()
 
 void RuqolaMainWidget::selectChannelRoom(const QString &roomName, const QString &roomId, Room::RoomType roomType)
 {
+    mCurrentRocketChatAccount->settings()->setLastSelectedRoom(roomId);
     mRoomWidget->setChannelSelected(roomId, roomType);
     mStackedRoomWidget->setCurrentWidget(mRoomWidget);
     mCurrentRocketChatAccount->switchChannelHistoryModel()->addHistory(roomName, roomId);
