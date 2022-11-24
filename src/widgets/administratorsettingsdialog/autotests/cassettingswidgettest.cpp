@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/cas/cassettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -56,4 +57,9 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     auto attributeHandlingLabel = w.findChild<QLabel *>(QStringLiteral("attributeHandlingLabel"));
     QVERIFY(attributeHandlingLabel);
     QVERIFY(!attributeHandlingLabel->text().isEmpty());
+
+    auto mCASVersion = w.findChild<QComboBox *>(QStringLiteral("mCASVersion"));
+    QVERIFY(mCASVersion);
+    QCOMPARE(mCASVersion->count(), 2);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCASVersion), QStringLiteral("CAS_version"));
 }

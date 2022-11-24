@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
+class QComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CasSettingsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -25,4 +26,5 @@ private:
     QCheckBox *const mAllowUserCreation;
     QLineEdit *const mSSOBaseURL;
     QLineEdit *const mSSOLoginURL;
+    QComboBox *const mCASVersion;
 };
