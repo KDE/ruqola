@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:47+0000\n"
-"PO-Revision-Date: 2022-11-20 07:39+0100\n"
+"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"PO-Revision-Date: 2022-11-23 08:32+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -1475,7 +1475,7 @@ msgstr "Napredno samodejno popravljanje"
 #. i18n: ectx: property (text), widget (QPushButton, add1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:88
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:219
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:465
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:480
 #, kde-format
 msgid "&Add"
 msgstr "Dod&aj"
@@ -1770,64 +1770,64 @@ msgstr "Samodejni popravki LibreOffice"
 msgid "KMail/Calligra Autocorrection"
 msgstr "Samodejni popravki KMail/Calligra"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
 msgstr "\"Niz zamenjave\" je enak kot \"Niz iskanja\"."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
 #, kde-format
 msgid "Add Autocorrection Entry"
 msgstr "Dodaj vnos samodejnega popravka"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:462
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:477
 #, kde-format
 msgid "&Modify"
 msgstr "Spremeni"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:573
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:588
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
 msgstr "Uvozi samodejni popravek iz LibreOffica"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:574
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:589
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
 msgstr "Datoteka samodejnih popravkov LibreOffice (*.dat)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:577
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:592
 #, kde-format
 msgid "Import KMail Autocorrection"
 msgstr "Uvozi samodejni popravek KMail"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:578
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:593
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
 msgstr "Datoteka samopopravkov KMail (*.xml)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:610
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:625
 #, kde-format
 msgid "Import Autocorrection File"
 msgstr "Uvozi datoteko samopopravkov"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:637
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:648
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
 "Jezik je bil spremenjen, ali želite shraniti nastavitve prejšnjega jezika?"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:638
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:649
 #, kde-format
 msgid "Save config"
 msgstr "Shrani nastavitve"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr "Shranite spremembe pred izvažanjem nastavitev."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:680
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:687
 #, kde-format
 msgid "Export Autocorrection File"
 msgstr "Izvozi datoteko samopopravkov"
@@ -2247,12 +2247,10 @@ msgid "Yiddish"
 msgstr "Jidiš"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Prilagodi samodejno prevajanje"
+msgstr "Prilagodi prevajalnik"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -2281,18 +2279,15 @@ msgid "Engine:"
 msgstr "Zaledna aplikacija:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Debug"
-msgstr "Prevedi"
+msgstr "Razhrošči prevajalnik"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "Shrani &kot ..."
+msgstr "Shrani kot ..."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:86
 #, kde-format
@@ -2300,17 +2295,18 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"Ni bilo mogoče pisati datoteke %1:\n"
+"\"%2\" je podroben opis napake."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Shrani datoteko"
+msgstr "Napaka shranjevanja datoteke"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:113
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Vse datoteke (*)"
 
 #: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
 #, kde-format
@@ -2320,24 +2316,22 @@ msgstr "Prevedi..."
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:126
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Problem pri povezovanju s spletiščem prevajalnika."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:228
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:231
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Zapri"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Od:"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:244
-#, fuzzy, kde-format
-#| msgid "To:"
+#, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "Za:"
@@ -2346,7 +2340,7 @@ msgstr "Za:"
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "Invertiraj"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:264
@@ -2358,23 +2352,19 @@ msgstr "Počisti"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:272
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgid "Translate"
 msgstr "Prevedi"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:279
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "Razhrošči"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:297
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgid "Configure"
-msgstr "Prilagodi Ruqolo"
+msgstr "Konfiguriraj"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:312
 #, kde-format
@@ -2382,22 +2372,23 @@ msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
+"Potegnite besedilo, ki ga želite prevesti. (Bodite previdni, saj bo besedilo "
+"poslano Googlovemu strežniku)."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:392
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
-msgstr ""
+msgstr "Ni zaznanih omrežnih povezav, besedila ni mogoče prevesti."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:392
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "Ni omrežja"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:431
-#, fuzzy, kde-format
-#| msgid "Translator Error"
+#, kde-format
 msgid "Translate error"
-msgstr "Napaka prevajalca"
+msgstr "Napaka prevoda"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -4210,7 +4201,7 @@ msgid "Layout"
 msgstr "Razpored"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Enterprise"
 msgstr "Podjetje"
@@ -4254,9 +4245,9 @@ msgstr "WebRTC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4268,11 +4259,59 @@ msgstr ""
 msgid "Enabled"
 msgstr "Omogočeno"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Username"
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
+#, kde-format
 msgid "Trust CAS Username"
-msgstr "Uporabniško ime"
+msgstr "Zaupaj uporabniškemu imenu CAS"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Allow User Profile Change"
+msgid "Allow user creation"
+msgstr "Dovoli spremembo uporabniškega profila"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Site URL"
+msgid "SSO Base URL"
+msgstr "URL spletišča"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#, kde-format
+msgid ""
+"The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#, kde-format
+msgid "SSO Login URL"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The login URL of your external SSO service e.g: https://sso.example.undef/"
+"sso/login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#, kde-format
+msgid ""
+"When enabled, Rocket.Chat will trust that any username from CAS belongs to "
+"the same user on Rocket.Chat.\n"
+"This may be needed if a user is renamed on CAS, but may also allow people to "
+"take control of Rocket.Chat accounts by renaming their own CAS users."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#, kde-format
+msgid "Allow CAS User creation from data provided by the CAS ticket."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#, kde-format
+msgid "Attribute handling"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -5805,7 +5844,7 @@ msgid "Mark As Unread"
 msgstr "Označi kot neprebrano"
 
 #: widgets/channellist/channellistview.cpp:110
-#: widgets/room/messagelistview.cpp:242
+#: widgets/room/messagelistview.cpp:251
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Nastavi kot priljubljeno"
@@ -6036,7 +6075,7 @@ msgid "Channel Info about '%1'"
 msgstr "Podatki o kanalu »%1«"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:249
+#: widgets/room/messagelistview.cpp:258
 #, kde-format
 msgid "Delete"
 msgstr "Izbriši"
@@ -6194,24 +6233,22 @@ msgstr "Skrij stanje neprebrane sobe"
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute @all and @here mentions"
-msgstr ""
+msgstr "Utišaj vse omembe @all in @here"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Show badge for mentions"
-msgstr "Pokaži omembe ..."
+msgstr "Pokaži značko za omembe"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:36
 #, kde-format
 msgid "Receive alerts"
-msgstr ""
+msgstr "Sprejemaj opozorila"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Display badge for direct mentions only"
-msgstr "Pokaži omembe ..."
+msgstr "Prikaži značke samo za neposredne omembe"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
@@ -6378,7 +6415,7 @@ msgid "Account Name:"
 msgstr "Ime računa:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
@@ -6621,17 +6658,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Podatki o strežniku"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
 #, kde-format
 msgid "Server Version:"
 msgstr "Različica strežnika:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
 #, kde-format
 msgid "License:"
 msgstr "Licenca:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "None"
 msgstr "Noben"
@@ -6862,7 +6899,7 @@ msgstr "Odpri razpravo"
 
 #: widgets/discussions/discussionlistview.cpp:59
 #: widgets/notificationhistory/notificationhistorylistview.cpp:92
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Select All"
 msgstr "Izberi vse"
@@ -7447,13 +7484,13 @@ msgid "Notification"
 msgstr "Obvestilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:447
+#: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgid "Go to Message"
 msgstr "Sporočilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:225
+#: widgets/room/messagelistview.cpp:234
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopiraj sporočilo"
@@ -7714,100 +7751,100 @@ msgstr "Nalaganje datoteke"
 msgid "Room is Empty."
 msgstr "Soba je prazna."
 
-#: widgets/room/messagelistview.cpp:233
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Unpin Message"
 msgstr "Odpni sporočilo"
 
-#: widgets/room/messagelistview.cpp:233
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
-#: widgets/room/messagelistview.cpp:242
+#: widgets/room/messagelistview.cpp:251
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
-#: widgets/room/messagelistview.cpp:260
+#: widgets/room/messagelistview.cpp:269
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Označi sporočilo kot neprebrano"
 
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
 
-#: widgets/room/messagelistview.cpp:270
+#: widgets/room/messagelistview.cpp:279
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:284
 #, kde-format
 msgid "Quote"
 msgstr "Citiraj"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:289
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Kopiraj povezavo v sporočilo"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:302
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Ne sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:302
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, kde-format
 msgid "Follow Message"
 msgstr "Sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:315
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:323
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Začni razpravo"
 
-#: widgets/room/messagelistview.cpp:321
+#: widgets/room/messagelistview.cpp:330
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgid "Report Message"
 msgstr "Sporočilo s poročilom"
 
-#: widgets/room/messagelistview.cpp:624
+#: widgets/room/messagelistview.cpp:626
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:625
+#: widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:742
+#: widgets/room/messagelistview.cpp:744
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"

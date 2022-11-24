@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-23 00:47+0000\n"
+"POT-Creation-Date: 2022-11-24 00:45+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -1538,7 +1538,7 @@ msgstr "Zugang hinzufügen"
 #. i18n: ectx: property (text), widget (QPushButton, add1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:88
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:219
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:465
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:480
 #, kde-format
 msgid "&Add"
 msgstr ""
@@ -1825,66 +1825,66 @@ msgstr ""
 msgid "KMail/Calligra Autocorrection"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:383
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "Add Autocorrection Entry"
 msgstr "Zugang hinzufügen"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:462
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:477
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgid "&Modify"
 msgstr "Ändern ..."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:573
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:588
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:574
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:589
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:577
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:592
 #, kde-format
 msgid "Import KMail Autocorrection"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:578
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:593
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:610
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:625
 #, kde-format
 msgid "Import Autocorrection File"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:637
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:648
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:638
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:649
 #, fuzzy, kde-format
 #| msgid "Sound:"
 msgid "Save config"
 msgstr "Sound:"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr ""
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:677
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:680
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:687
 #, kde-format
 msgid "Export Autocorrection File"
 msgstr ""
@@ -4343,7 +4343,7 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Enter Account Name"
 msgid "Enterprise"
@@ -4391,7 +4391,7 @@ msgstr ""
 msgid "CAS"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4404,11 +4404,59 @@ msgstr ""
 msgid "Enabled"
 msgstr "E2E aktiviert"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Trust CAS Username"
 msgstr "Benutzernamen eingeben"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Message Deleted"
+msgid "Allow user creation"
+msgstr "Nachricht gelöscht"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
+#, kde-format
+msgid "SSO Base URL"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#, kde-format
+msgid ""
+"The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#, kde-format
+msgid "SSO Login URL"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The login URL of your external SSO service e.g: https://sso.example.undef/"
+"sso/login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#, kde-format
+msgid ""
+"When enabled, Rocket.Chat will trust that any username from CAS belongs to "
+"the same user on Rocket.Chat.\n"
+"This may be needed if a user is renamed on CAS, but may also allow people to "
+"take control of Rocket.Chat accounts by renaming their own CAS users."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#, kde-format
+msgid "Allow CAS User creation from data provided by the CAS ticket."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#, kde-format
+msgid "Attribute handling"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, fuzzy, kde-format
@@ -5955,7 +6003,7 @@ msgid "Mark As Unread"
 msgstr "Als ungelesen markieren"
 
 #: widgets/channellist/channellistview.cpp:110
-#: widgets/room/messagelistview.cpp:242
+#: widgets/room/messagelistview.cpp:251
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
@@ -6194,7 +6242,7 @@ msgid "Channel Info about '%1'"
 msgstr "Kanalinfo über '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:41
-#: widgets/room/messagelistview.cpp:249
+#: widgets/room/messagelistview.cpp:258
 #, kde-format
 msgid "Delete"
 msgstr "Löschen"
@@ -6545,7 +6593,7 @@ msgid "Account Name:"
 msgstr "Zugangsname:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server Url:"
@@ -6788,18 +6836,18 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Server-Informationen"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
 #, kde-format
 msgid "Server Version:"
 msgstr "Serverversion:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Licenses"
 msgid "License:"
 msgstr "Lizenzen"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:53
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "None"
 msgstr ""
@@ -7031,7 +7079,7 @@ msgstr ""
 
 #: widgets/discussions/discussionlistview.cpp:59
 #: widgets/notificationhistory/notificationhistorylistview.cpp:92
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Select All"
 msgstr "Alles auswählen"
@@ -7621,14 +7669,14 @@ msgid "Notification"
 msgstr "Benachrichtigungen"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:447
+#: widgets/room/messagelistview.cpp:449
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Go to Message"
 msgstr "Nachricht"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:225
+#: widgets/room/messagelistview.cpp:234
 #, kde-format
 msgid "Copy Message"
 msgstr "Nachricht kopieren"
@@ -7903,104 +7951,104 @@ msgstr "Datei hochgeladen:"
 msgid "Room is Empty."
 msgstr "Der Kanal ist nur lesbar."
 
-#: widgets/room/messagelistview.cpp:233
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Unpin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:233
+#: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Pin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:242
+#: widgets/room/messagelistview.cpp:251
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Als Favorit entfernen"
 
-#: widgets/room/messagelistview.cpp:260
+#: widgets/room/messagelistview.cpp:269
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Nachricht als ungelesen markieren"
 
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:274
 #, fuzzy, kde-format
 #| msgid "Mentions"
 msgid "Show Full Thread"
 msgstr "Nennungen"
 
-#: widgets/room/messagelistview.cpp:270
+#: widgets/room/messagelistview.cpp:279
 #, kde-format
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:284
 #, kde-format
 msgid "Quote"
 msgstr "Zitat"
 
-#: widgets/room/messagelistview.cpp:280
+#: widgets/room/messagelistview.cpp:289
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Copy Link To Message"
 msgstr "Nachricht"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:302
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Unfollow Message"
 msgstr "Alle Nachrichten"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:302
 #: widgets/threadwidget/threadmessagewidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Follow Message"
 msgstr "Alle Nachrichten"
 
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:315
 #, kde-format
 msgid "Copy URL"
 msgstr "Adresse (URL) kopieren"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:323
 #, kde-format
 msgid "Start a Discussion"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:321
+#: widgets/room/messagelistview.cpp:330
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Show Original Message"
 msgstr "Originalnachricht anzeigen"
 
-#: widgets/room/messagelistview.cpp:381
+#: widgets/room/messagelistview.cpp:386
 #, kde-format
 msgid "Translate Message"
 msgstr "Nachrichten übersetzen"
 
-#: widgets/room/messagelistview.cpp:461
+#: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:624
+#: widgets/room/messagelistview.cpp:626
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Möchten Sie diese Nachricht löschen?"
 
-#: widgets/room/messagelistview.cpp:625
+#: widgets/room/messagelistview.cpp:627
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Nachricht löschen"
 
-#: widgets/room/messagelistview.cpp:742
+#: widgets/room/messagelistview.cpp:744
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
