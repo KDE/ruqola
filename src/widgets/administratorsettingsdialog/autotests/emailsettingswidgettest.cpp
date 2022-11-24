@@ -7,6 +7,7 @@
 #include "emailsettingswidgettest.h"
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
 #include "settingswidgetshelper.h"
+#include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPlainTextEdit>
@@ -184,4 +185,9 @@ void EmailSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mInvitationBody->toPlainText().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mInvitationBody), QStringLiteral("Invitation_Email"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Invitation_Email"));
+
+    auto mSmtpProtocol = w.findChild<QComboBox *>(QStringLiteral("mSmtpProtocol"));
+    QVERIFY(mSmtpProtocol);
+    QCOMPARE(mSmtpProtocol->count(), 2);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSmtpProtocol), QStringLiteral("SMTP_Protocol"));
 }
