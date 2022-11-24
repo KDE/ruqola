@@ -24,6 +24,7 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
     , mSSOLoginURL(new QLineEdit(this))
     , mCASVersion(new QComboBox(this))
     , mAlwaysSyncUserData(new QCheckBox(i18n("Always Sync User Data"), this))
+    , mAttributeMap(new QLineEdit(this))
 {
     mEnabled->setObjectName(QStringLiteral("mEnabled"));
     mMainLayout->addWidget(mEnabled);
@@ -65,6 +66,17 @@ CasSettingsWidget::CasSettingsWidget(RocketChatAccount *account, QWidget *parent
         "Always synchronize external CAS User data into available attributes upon login.\nNote: Attributes are always synced upon account creation anyway."));
     mMainLayout->addWidget(mAlwaysSyncUserData);
     connectCheckBox(mAlwaysSyncUserData, QStringLiteral("CAS_Sync_User_Data_Enabled"));
+
+    mAttributeMap->setObjectName(QStringLiteral("mAttributeMap"));
+    addLineEdit(i18n("Attribute Map"), mAttributeMap, QStringLiteral("CAS_Sync_User_Data_FieldMap"));
+    mAttributeMap->setToolTip(
+        i18n("Use this JSON input to build internal attributes (key) from external attributes (value).\n"
+             "External attribute names enclosed with '%' will interpolated in value strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+             "%lastname%\"}"
+             "\nThe attribute map is always interpolated. In CAS 1.0 only the username attribute is available. Available internal attributes are: username, "
+             "name, email, rooms;\n"
+             "rooms is a comma separated list of rooms to join upon user creation e.g: {\"rooms\": \"%team%,%department%\"} "
+             "would join CAS users on creation to their team and department channel."));
 }
 
 CasSettingsWidget::~CasSettingsWidget() = default;
@@ -78,4 +90,5 @@ void CasSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mSSOLoginURL, mapSettings, QString());
     initializeWidget(mCASVersion, mapSettings, QStringLiteral("1.0"));
     initializeWidget(mAlwaysSyncUserData, mapSettings, true);
+    initializeWidget(mAttributeMap, mapSettings, QStringLiteral("{}"));
 }

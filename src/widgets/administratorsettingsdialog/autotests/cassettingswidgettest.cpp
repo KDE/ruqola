@@ -69,4 +69,11 @@ void CasSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAlwaysSyncUserData->text().isEmpty());
     QVERIFY(!mAlwaysSyncUserData->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAlwaysSyncUserData), QStringLiteral("CAS_Sync_User_Data_Enabled"));
+
+    auto mAttributeMap = w.findChild<QLineEdit *>(QStringLiteral("mAttributeMap"));
+    QVERIFY(mAttributeMap);
+    QVERIFY(mAttributeMap->text().isEmpty());
+    QVERIFY(!mAttributeMap->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAttributeMap), QStringLiteral("CAS_Sync_User_Data_FieldMap"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("CAS_Sync_User_Data_FieldMap"));
 }

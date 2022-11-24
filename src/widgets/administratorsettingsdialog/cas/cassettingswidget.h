@@ -28,4 +28,5 @@ private:
     QLineEdit *const mSSOLoginURL;
     QComboBox *const mCASVersion;
     QCheckBox *const mAlwaysSyncUserData;
+    QLineEdit *const mAttributeMap;
 };
