@@ -5,8 +5,10 @@
 */
 
 #include "translatorenginemanager.h"
+#include <PimCommonTextTranslator/TranslatorEngineClient>
+#include <PimCommonTextTranslator/TranslatorEngineLoader>
+#include <PimCommonTextTranslator/TranslatorEnginePlugin>
 #include <PimCommonTextTranslator/TranslatorUtil>
-
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}
 {
@@ -29,19 +31,25 @@ void TranslatorEngineManager::translatorConfigChanged()
 
 void TranslatorEngineManager::initializeTranslateEngine()
 {
-    delete mTranslatorEngineBase;
-    mTranslatorEngineBase = PimCommonTextTranslator::TranslatorUtil::switchEngine(PimCommonTextTranslator::TranslatorUtil::loadEngineSettings(), this);
-    connect(mTranslatorEngineBase, &PimCommonTextTranslator::TranslatorEngineBase::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
-    connect(mTranslatorEngineBase, &PimCommonTextTranslator::TranslatorEngineBase::translateFailed, this, &TranslatorEngineManager::translateFailed);
+    delete mTranslatorEnginePlugin;
+    PimCommonTextTranslator::TranslatorEngineClient *translatorClient =
+        PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(PimCommonTextTranslator::TranslatorUtil::loadEngine());
+    if (translatorClient) {
+        mTranslatorEnginePlugin = translatorClient->createTranslator();
+        connect(mTranslatorEnginePlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
+        connect(mTranslatorEnginePlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorEngineManager::translateFailed);
+    } else {
+        mTranslatorEnginePlugin = nullptr;
+    }
 }
 
-PimCommonTextTranslator::TranslatorEngineBase *TranslatorEngineManager::translatorEngineBase() const
+PimCommonTextTranslator::TranslatorEnginePlugin *TranslatorEngineManager::translatorEngineBase() const
 {
-    return mTranslatorEngineBase;
+    return mTranslatorEnginePlugin;
 }
 
 void TranslatorEngineManager::slotTranslateDone()
 {
-    const QString result = mTranslatorEngineBase->resultTranslate();
+    const QString result = mTranslatorEnginePlugin->resultTranslate();
     Q_EMIT translateDone(result);
 }

@@ -5,12 +5,12 @@
 */
 
 #pragma once
+#include "pimcommontexttranslator_export.h"
 #include <QObject>
-
 class QNetworkAccessManager;
 namespace PimCommonTextTranslator
 {
-class TranslatorEngineAccessManager : public QObject
+class PIMCOMMONTEXTTRANSLATOR_EXPORT TranslatorEngineAccessManager : public QObject
 {
     Q_OBJECT
 public:

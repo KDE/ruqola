@@ -6,7 +6,7 @@
 
 #include "translatormenu.h"
 #include "pimcommontexttranslator_debug.h"
-#include <PimCommonTextTranslator/TranslatorUtil>
+#include "translator/translatorengineloader.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -41,7 +41,7 @@ void TranslatorMenu::updateMenu()
     const QString engine = groupTranslate.readEntry(QStringLiteral("engine"), QStringLiteral("google")); // Google by default
     const auto fromList = groupTranslate.readEntry(QStringLiteral("From"), QStringList());
     const auto toList = groupTranslate.readEntry(QStringLiteral("To"), QStringList());
-    const QVector<QPair<QString, QString>> languagesList = PimCommonTextTranslator::TranslatorUtil::supportedLanguages(engine);
+    const QVector<QPair<QString, QString>> languagesList = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
     for (const auto &fromLang : fromList) {
         const QString fromLangI18n = searchI18nFromLanguage(languagesList, fromLang);
         if (fromLangI18n.isEmpty()) {

@@ -2,41 +2,38 @@
   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
-  Code based on Digikam donlinetranslator
 */
 
-#include "bingtranslator.h"
-#include "translator/misc/translatorutil.h"
-#include "translator/translatorengineaccessmanager.h"
-
+#include "bingengineplugin.h"
 #include <KLocalizedString>
-
+#include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 #include <QCoreApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QJsonParseError>
+#include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QUrlQuery>
 
-using namespace PimCommonTextTranslator;
+QByteArray BingEnginePlugin::sBingKey;
+QByteArray BingEnginePlugin::sBingToken;
+QString BingEnginePlugin::sBingIg;
+QString BingEnginePlugin::sBingIid;
 
-QByteArray BingTranslator::sBingKey;
-QByteArray BingTranslator::sBingToken;
-QString BingTranslator::sBingIg;
-QString BingTranslator::sBingIid;
-
-BingTranslator::BingTranslator(QObject *parent)
-    : TranslatorEngineBase{parent}
+BingEnginePlugin::BingEnginePlugin(QObject *parent)
+    : PimCommonTextTranslator::TranslatorEnginePlugin(parent)
 {
 }
 
-BingTranslator::~BingTranslator() = default;
+BingEnginePlugin::~BingEnginePlugin() = default;
 
-void BingTranslator::translate()
+void BingEnginePlugin::translate()
 {
     if (sBingKey.isEmpty() || sBingToken.isEmpty()) {
         const QUrl url(QStringLiteral("https://www.bing.com/translator"));
-        QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(QNetworkRequest(url));
+        QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->get(QNetworkRequest(url));
         connect(reply, &QNetworkReply::finished, this, [this, reply]() {
             parseCredentials(reply);
         });
@@ -49,12 +46,7 @@ void BingTranslator::translate()
     }
 }
 
-QString BingTranslator::engineName() const
-{
-    return i18n("Bing");
-}
-
-void BingTranslator::parseCredentials(QNetworkReply *reply)
+void BingEnginePlugin::parseCredentials(QNetworkReply *reply)
 {
     const QByteArray webSiteData = reply->readAll();
     reply->deleteLater();
@@ -107,17 +99,15 @@ void BingTranslator::parseCredentials(QNetworkReply *reply)
     translateText();
 }
 
-void BingTranslator::translateText()
+void BingEnginePlugin::translateText()
 {
-    if (mFrom == mTo) {
-        Q_EMIT translateFailed(false, i18n("You used same language for from and to language."));
+    if (verifyFromAndToLanguage()) {
         return;
     }
-
-    mResult.clear();
+    clear();
 
     const QByteArray postData =
-        "&text=" + QUrl::toPercentEncoding(mInputText) + "&fromLang=" + mFrom.toUtf8() + "&to=" + mTo.toUtf8() + "&token=" + sBingToken + "&key=" + sBingKey;
+        "&text=" + QUrl::toPercentEncoding(inputText()) + "&fromLang=" + from().toUtf8() + "&to=" + to().toUtf8() + "&token=" + sBingToken + "&key=" + sBingKey;
 
     QUrlQuery urlQuery;
     urlQuery.addQueryItem(QStringLiteral("IG"), sBingIg);
@@ -130,7 +120,7 @@ void BingTranslator::translateText()
     request.setHeader(QNetworkRequest::UserAgentHeader,
                       QStringLiteral("%1/%2").arg(QCoreApplication::applicationName(), QCoreApplication::applicationVersion()));
 
-    QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->post(request, postData);
+    QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->post(request, postData);
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);
         reply->deleteLater();
@@ -142,15 +132,15 @@ void BingTranslator::translateText()
     });
 }
 
-void BingTranslator::parseTranslation(QNetworkReply *reply)
+void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
 {
     // Parse translation data
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
     qDebug() << " jsonResponse " << jsonResponse;
     const QJsonObject responseObject = jsonResponse.array().first().toObject();
-    if (mFrom == QStringLiteral("auto")) {
+    if (from() == QStringLiteral("auto")) {
         const QString langCode = responseObject.value(QStringLiteral("detectedLanguage")).toObject().value(QStringLiteral("language")).toString();
-        mFrom = langCode;
+        setFrom(langCode);
         //        if (m_sourceLang == NoLanguage)
         //        {
         //            resetData(ParsingError, i18n("Error: Unable to parse autodetected language"));
@@ -159,22 +149,9 @@ void BingTranslator::parseTranslation(QNetworkReply *reply)
     }
 
     const QJsonObject translationsObject = responseObject.value(QStringLiteral("translations")).toArray().first().toObject();
-    mResult += translationsObject.value(QStringLiteral("text")).toString();
-    qDebug() << " mResult " << mResult;
+    appendResult(translationsObject.value(QStringLiteral("text")).toString());
+    qDebug() << " mResult " << result();
     // m_translationTranslit               += translationsObject.value(QStringLiteral("transliteration")).toObject().value(QStringLiteral("text")).toString();
     reply->deleteLater();
     Q_EMIT translateDone();
-}
-
-QVector<QPair<QString, QString>> BingTranslator::supportedLanguage()
-{
-    return languages();
-}
-
-QVector<QPair<QString, QString>> BingTranslator::languages()
-{
-    if (mLanguages.isEmpty()) {
-        mLanguages = TranslatorUtil::genericLanguages();
-    }
-    return mLanguages;
 }

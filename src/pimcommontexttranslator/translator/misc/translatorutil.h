@@ -7,7 +7,6 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
-#include <PimCommonTextTranslator/TranslatorEngineBase>
 #include <QMap>
 #include <QPair>
 #include <QString>
@@ -101,17 +100,10 @@ public:
     Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> bingSpecificLanguages();
 
     Q_REQUIRED_RESULT QPair<QString, QString> pair(TranslatorUtil::languages lang);
-    Q_REQUIRED_RESULT static PimCommonTextTranslator::TranslatorEngineBase *
-    switchEngine(PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine engineType, QObject *parent);
-    static void fillComboboxSettings(QComboBox *combo);
-    Q_REQUIRED_RESULT static PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine loadEngineSettings();
     Q_REQUIRED_RESULT static QString loadEngine();
     static void saveEngineSettings(const QString &engineName);
     Q_REQUIRED_RESULT static QString groupTranslateName();
     Q_REQUIRED_RESULT static QString engineTranslateName();
     Q_REQUIRED_RESULT static QString defaultEngineName();
-    Q_REQUIRED_RESULT static bool hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType);
-    Q_REQUIRED_RESULT static PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine convertStringToTranslatorEngine(const QString &engineTypeStr);
-    Q_REQUIRED_RESULT static QVector<QPair<QString, QString>> supportedLanguages(const QString &engineTypeStr);
 };
 }

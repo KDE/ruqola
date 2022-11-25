@@ -6,12 +6,6 @@
 
 #include "translatorutil.h"
 #include "pimcommontexttranslator_debug.h"
-#include "translator/engine/bingtranslator.h"
-#include "translator/engine/deepltranslator.h"
-#include "translator/engine/googletranslator.h"
-#include "translator/engine/libretranslatetranslator.h"
-#include "translator/engine/lingvatranslator.h"
-#include "translator/engine/yandextranslator.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -312,63 +306,6 @@ void TranslatorUtil::addItemToFromComboBox(QComboBox *combo, const QPair<QString
     combo->addItem(pair.first, pair.second);
 }
 
-PimCommonTextTranslator::TranslatorEngineBase *TranslatorUtil::switchEngine(PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine engineType,
-                                                                            QObject *parent)
-{
-    PimCommonTextTranslator::TranslatorEngineBase *abstractTranslator = nullptr;
-    switch (engineType) {
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google:
-        abstractTranslator = new GoogleTranslator(parent);
-        break;
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Yandex:
-        abstractTranslator = new YandexTranslator(parent);
-        break;
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Bing:
-        abstractTranslator = new BingTranslator(parent);
-        break;
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Lingva:
-        abstractTranslator = new LingvaTranslator(parent);
-        break;
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-        abstractTranslator = new LibreTranslateTranslator(parent);
-        break;
-    case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::DeepL:
-        abstractTranslator = new DeepLTranslator(parent);
-        break;
-    }
-    abstractTranslator->loadSettings();
-    return abstractTranslator;
-}
-
-void TranslatorUtil::fillComboboxSettings(QComboBox *combo)
-{
-    for (int i = 0; i <= PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::LastEngine; ++i) {
-        switch (i) {
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google:
-            combo->addItem(i18n("Google"), QStringLiteral("google"));
-            break;
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Yandex:
-            combo->addItem(i18n("Yandex"), QStringLiteral("yandex"));
-            break;
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Bing:
-            combo->addItem(i18n("Bing"), QStringLiteral("bing"));
-            break;
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Lingva:
-            combo->addItem(i18n("Lingva"), QStringLiteral("lingva"));
-            break;
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-            combo->addItem(i18n("Libre Translate"), QStringLiteral("libretranslate"));
-            break;
-        case PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::DeepL:
-            combo->addItem(i18n("DeepL"), QStringLiteral("deepl"));
-            break;
-        default:
-            qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << " Missing engine. It's a bug " << i;
-            break;
-        }
-    }
-}
-
 QString TranslatorUtil::groupTranslateName()
 {
     return QStringLiteral("Translate");
@@ -391,91 +328,9 @@ QString TranslatorUtil::loadEngine()
     return engineTypeStr;
 }
 
-PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine TranslatorUtil::loadEngineSettings()
-{
-    PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google;
-    const QString engineTypeStr = TranslatorUtil::loadEngine();
-    if (engineTypeStr == QLatin1String("google")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google;
-    } else if (engineTypeStr == QLatin1String("bing")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Bing;
-    } else if (engineTypeStr == QLatin1String("yandex")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Yandex;
-    } else if (engineTypeStr == QLatin1String("libretranslate")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::LibreTranslate;
-    } else if (engineTypeStr == QLatin1String("deepl")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::DeepL;
-    } else if (engineTypeStr == QLatin1String("lingva")) {
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Lingva;
-    } else {
-        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Invalid translator engine " << engineTypeStr;
-        engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google;
-    }
-    return engineType;
-}
-
 void TranslatorUtil::saveEngineSettings(const QString &engineName)
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), groupTranslateName());
     myGroup.writeEntry(engineTranslateName(), engineName);
     myGroup.sync();
-}
-
-bool TranslatorUtil::hasConfigureDialog(TranslatorEngineBase::TranslatorEngine engineType)
-{
-    switch (engineType) {
-    case TranslatorEngineBase::TranslatorEngine::Google:
-    case TranslatorEngineBase::TranslatorEngine::Yandex:
-    case TranslatorEngineBase::TranslatorEngine::Bing:
-        return false;
-    case TranslatorEngineBase::TranslatorEngine::Lingva:
-    case TranslatorEngineBase::TranslatorEngine::LibreTranslate:
-    case TranslatorEngineBase::TranslatorEngine::DeepL:
-        return true;
-    }
-    return false;
-}
-
-PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine TranslatorUtil::convertStringToTranslatorEngine(const QString &engineTypeStr)
-{
-    TranslatorEngineBase::TranslatorEngine engineType = TranslatorEngineBase::TranslatorEngine::Google;
-    if (engineTypeStr == QLatin1String("google")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::Google;
-    } else if (engineTypeStr == QLatin1String("bing")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::Bing;
-    } else if (engineTypeStr == QLatin1String("yandex")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::Yandex;
-    } else if (engineTypeStr == QLatin1String("libretranslate")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::LibreTranslate;
-    } else if (engineTypeStr == QLatin1String("deepl")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::DeepL;
-    } else if (engineTypeStr == QLatin1String("lingva")) {
-        engineType = TranslatorEngineBase::TranslatorEngine::Lingva;
-    } else {
-        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Invalid translator engine " << engineTypeStr;
-        engineType = TranslatorEngineBase::TranslatorEngine::Google;
-    }
-    return engineType;
-}
-
-QVector<QPair<QString, QString>> TranslatorUtil::supportedLanguages(const QString &engineTypeStr)
-{
-    QVector<QPair<QString, QString>> languagesList;
-    if (engineTypeStr == QLatin1String("google")) {
-        languagesList = PimCommonTextTranslator::GoogleTranslator::languages();
-    } else if (engineTypeStr == QLatin1String("bing")) {
-        languagesList = PimCommonTextTranslator::BingTranslator::languages();
-    } else if (engineTypeStr == QLatin1String("yandex")) {
-        languagesList = PimCommonTextTranslator::YandexTranslator::languages();
-    } else if (engineTypeStr == QLatin1String("libretranslate")) {
-        languagesList = PimCommonTextTranslator::LibreTranslateTranslator::languages();
-    } else if (engineTypeStr == QLatin1String("deepl")) {
-        languagesList = PimCommonTextTranslator::DeepLTranslator::languages();
-    } else if (engineTypeStr == QLatin1String("lingva")) {
-        languagesList = PimCommonTextTranslator::LingvaTranslator::languages();
-    } else {
-        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Invalid translator engine " << engineTypeStr;
-        languagesList = PimCommonTextTranslator::GoogleTranslator::languages();
-    }
-    return languagesList;
 }

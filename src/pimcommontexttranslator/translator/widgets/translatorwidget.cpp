@@ -8,6 +8,9 @@
 #include "translatorwidget.h"
 #include "translator/misc/translatorutil.h"
 #include "translator/networkmanager.h"
+#include "translator/translatorengineclient.h"
+#include "translator/translatorengineloader.h"
+#include "translator/translatorengineplugin.h"
 #include "translatorconfiguredialog.h"
 #include "translatordebugdialog.h"
 #include <KBusyIndicatorWidget>
@@ -43,7 +46,7 @@ public:
 
     ~TranslatorWidgetPrivate()
     {
-        delete abstractTranslator;
+        delete translatorPlugin;
     }
 
     void initLanguage();
@@ -58,13 +61,14 @@ public:
     QPushButton *translate = nullptr;
     QPushButton *clear = nullptr;
     QLabel *engineNameLabel = nullptr;
-    PimCommonTextTranslator::TranslatorEngineBase *abstractTranslator = nullptr;
+    PimCommonTextTranslator::TranslatorEngineClient *translatorClient = nullptr;
+    PimCommonTextTranslator::TranslatorEnginePlugin *translatorPlugin = nullptr;
     KBusyIndicatorWidget *progressIndicator = nullptr;
     QPushButton *invert = nullptr;
     QSplitter *splitter = nullptr;
+    QString engineName;
     bool languageSettingsChanged = false;
     bool standalone = true;
-    PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine engineType = PimCommonTextTranslator::TranslatorEngineBase::TranslatorEngine::Google;
 };
 
 void TranslatorWidget::TranslatorWidgetPrivate::fillToCombobox(const QString &lang)
@@ -83,12 +87,12 @@ void TranslatorWidget::TranslatorWidgetPrivate::fillToCombobox(const QString &la
 
 void TranslatorWidget::TranslatorWidgetPrivate::initLanguage()
 {
-    if (!abstractTranslator) {
+    if (!translatorClient) {
         return;
     }
     toCombobox->clear();
     fromCombobox->clear();
-    listLanguage = abstractTranslator->supportedLanguage();
+    listLanguage = translatorClient->supportedLanguages();
 
     const int fullListLanguageSize(listLanguage.count());
     TranslatorUtil translatorUtil;
@@ -211,7 +215,7 @@ void TranslatorWidget::readConfig()
 
 void TranslatorWidget::loadEngineSettings()
 {
-    d->engineType = TranslatorUtil::loadEngineSettings();
+    d->engineName = TranslatorUtil::loadEngine();
     switchEngine();
 }
 
@@ -343,13 +347,14 @@ void TranslatorWidget::init()
 
 void TranslatorWidget::switchEngine()
 {
-    disconnect(d->abstractTranslator);
-    delete d->abstractTranslator;
-    d->abstractTranslator = TranslatorUtil::switchEngine(d->engineType, this);
-    connect(d->abstractTranslator, &PimCommonTextTranslator::TranslatorEngineBase::translateDone, this, &TranslatorWidget::slotTranslateDone);
-    connect(d->abstractTranslator, &PimCommonTextTranslator::TranslatorEngineBase::translateFailed, this, &TranslatorWidget::slotTranslateFailed);
+    disconnect(d->translatorPlugin);
+    delete d->translatorPlugin;
+    d->translatorClient = PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(d->engineName);
+    d->translatorPlugin = d->translatorClient->createTranslator();
+    connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorWidget::slotTranslateDone);
+    connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorWidget::slotTranslateFailed);
     d->initLanguage();
-    d->engineNameLabel->setText(QStringLiteral("[%1]").arg(d->abstractTranslator->engineName()));
+    d->engineNameLabel->setText(QStringLiteral("[%1]").arg(d->translatorClient->translatedName()));
 }
 
 void TranslatorWidget::slotConfigChanged()
@@ -406,10 +411,10 @@ void TranslatorWidget::slotTranslate()
 
     const QString inputText{d->inputText->toPlainText()};
     if (!inputText.isEmpty() && !from.isEmpty() && !to.isEmpty()) {
-        d->abstractTranslator->setFrom(from);
-        d->abstractTranslator->setTo(to);
-        d->abstractTranslator->setInputText(inputText);
-        d->abstractTranslator->translate();
+        d->translatorPlugin->setFrom(from);
+        d->translatorPlugin->setTo(to);
+        d->translatorPlugin->setInputText(inputText);
+        d->translatorPlugin->translate();
     }
 }
 
@@ -418,7 +423,7 @@ void TranslatorWidget::slotTranslateDone()
     d->translate->setEnabled(true);
     d->progressIndicator->hide();
     d->translatorResultTextEdit->setResultFailed(false);
-    d->translatorResultTextEdit->setPlainText(d->abstractTranslator->resultTranslate());
+    d->translatorResultTextEdit->setPlainText(d->translatorPlugin->resultTranslate());
 }
 
 void TranslatorWidget::slotTranslateFailed(bool signalFailed, const QString &message)
@@ -493,12 +498,12 @@ void TranslatorWidget::slotClear()
     d->inputText->clear();
     d->translatorResultTextEdit->clear();
     d->translate->setEnabled(false);
-    d->abstractTranslator->clear();
+    d->translatorPlugin->clear();
 }
 
 void TranslatorWidget::slotDebug()
 {
     TranslatorDebugDialog dlg(this);
-    dlg.setDebug(d->abstractTranslator->jsonDebug());
+    // TODO dlg.setDebug(d->translatorPlugin->jsonDebug());
     dlg.exec();
 }

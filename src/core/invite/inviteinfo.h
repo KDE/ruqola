@@ -20,22 +20,22 @@ public:
     const QString &identifier() const;
     void setIdentifier(const QString &newIdentifier);
 
-    int maxUses() const;
+    Q_REQUIRED_RESULT int maxUses() const;
     void setMaxUses(int newMaxUses);
 
-    const QString &userIdentifier() const;
+    Q_REQUIRED_RESULT const QString &userIdentifier() const;
     void setUserIdentifier(const QString &newUserIdentifier);
 
-    const QString &roomId() const;
+    Q_REQUIRED_RESULT const QString &roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    int uses() const;
+    Q_REQUIRED_RESULT int uses() const;
     void setUses(int newUses);
 
-    const QDateTime &expireDateTime() const;
+    Q_REQUIRED_RESULT const QDateTime &expireDateTime() const;
     void setExpireDateTime(const QDateTime &newExpireDateTime);
 
-    const QDateTime &createDateTime() const;
+    Q_REQUIRED_RESULT const QDateTime &createDateTime() const;
     void setCreateDateTime(const QDateTime &newCreateDateTime);
 
     Q_REQUIRED_RESULT bool operator==(const InviteInfo &other) const;

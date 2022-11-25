@@ -21,7 +21,7 @@ void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
 {
     PimCommonTextTranslator::TranslatorConfigureWidget w;
 
-    auto mEngine = w.findChild<QComboBox *>(QStringLiteral("mEngine"));
+    auto mEngine = w.findChild<QComboBox *>(QStringLiteral("mEngineComboBox"));
     QVERIFY(mEngine);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));

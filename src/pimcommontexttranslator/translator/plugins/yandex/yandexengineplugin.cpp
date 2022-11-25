@@ -2,32 +2,33 @@
   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
-  Code based on Digikam donlinetranslator
 */
 
-#include "yandextranslator.h"
-#include "translator/misc/translatorutil.h"
-#include "translator/translatorengineaccessmanager.h"
+#include "yandexengineplugin.h"
+
+#include <PimCommonTextTranslator/TranslatorEngineAccessManager>
+
 #include <KLocalizedString>
+
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 
-using namespace PimCommonTextTranslator;
-QString YandexTranslator::sYandexKey;
-YandexTranslator::YandexTranslator(QObject *parent)
-    : TranslatorEngineBase{parent}
+QString YandexEnginePlugin::sYandexKey;
+
+YandexEnginePlugin::YandexEnginePlugin(QObject *parent)
+    : PimCommonTextTranslator::TranslatorEnginePlugin(parent)
 {
 }
 
-YandexTranslator::~YandexTranslator() = default;
+YandexEnginePlugin::~YandexEnginePlugin() = default;
 
-void YandexTranslator::translate()
+void YandexEnginePlugin::translate()
 {
     if (sYandexKey.isEmpty()) {
         const QUrl url(QStringLiteral("https://translate.yandex.com"));
 
-        QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(QNetworkRequest(url));
+        QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->get(QNetworkRequest(url));
         connect(reply, &QNetworkReply::finished, this, [this, reply]() {
             parseCredentials(reply);
         });
@@ -40,26 +41,7 @@ void YandexTranslator::translate()
     }
 }
 
-QVector<QPair<QString, QString>> YandexTranslator::languages()
-{
-    if (mLanguages.isEmpty()) {
-        mLanguages = TranslatorUtil::genericLanguages();
-        mLanguages += TranslatorUtil::yandexSpecificLanguages();
-    }
-    return mLanguages;
-}
-
-QVector<QPair<QString, QString>> YandexTranslator::supportedLanguage()
-{
-    return languages();
-}
-
-QString YandexTranslator::engineName() const
-{
-    return i18n("Yandex");
-}
-
-void YandexTranslator::parseCredentials(QNetworkReply *reply)
+void YandexEnginePlugin::parseCredentials(QNetworkReply *reply)
 {
     // Check availability of service
     const QByteArray webSiteData = reply->readAll();
@@ -101,24 +83,23 @@ void YandexTranslator::parseCredentials(QNetworkReply *reply)
     translateText();
 }
 
-void YandexTranslator::translateText()
+void YandexEnginePlugin::translateText()
 {
-    if (mFrom == mTo) {
-        Q_EMIT translateFailed(false, i18n("You used same language for from and to language."));
+    if (verifyFromAndToLanguage()) {
         return;
     }
 
-    mResult.clear();
+    clear();
     QString lang;
-    if (mFrom == QStringLiteral("auto")) {
-        lang = mTo;
+    if (from() == QStringLiteral("auto")) {
+        lang = to();
     } else {
-        lang = mFrom + QLatin1Char('-') + mTo;
+        lang = from() + QLatin1Char('-') + to();
     }
     // qDebug() << " lang " << lang;
     // Generate API url
     QUrl url(QStringLiteral("https://translate.yandex.net/api/v1/tr.json/translate"));
-    url.setQuery(QStringLiteral("id=%1-2-0&srv=tr-text&text=%2&lang=%3").arg(sYandexKey, QString::fromUtf8(QUrl::toPercentEncoding(mInputText)), lang));
+    url.setQuery(QStringLiteral("id=%1-2-0&srv=tr-text&text=%2&lang=%3").arg(sYandexKey, QString::fromUtf8(QUrl::toPercentEncoding(inputText())), lang));
 
     // Setup request
     QNetworkRequest request;
@@ -126,7 +107,7 @@ void YandexTranslator::translateText()
     request.setUrl(url);
 
     // Make reply
-    QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->post(request, QByteArray());
+    QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->post(request, QByteArray());
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);
         reply->deleteLater();
@@ -138,14 +119,14 @@ void YandexTranslator::translateText()
     });
 }
 
-void YandexTranslator::parseTranslation(QNetworkReply *reply)
+void YandexEnginePlugin::parseTranslation(QNetworkReply *reply)
 {
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
     const QJsonObject jsonData = jsonResponse.object();
     reply->deleteLater();
 
     // Parse language
-    if (mFrom == QStringLiteral("auto")) {
+    if (from() == QStringLiteral("auto")) {
         QString sourceCode = jsonData.value(QStringLiteral("lang")).toString();
         sourceCode = sourceCode.left(sourceCode.indexOf(QLatin1Char('-')));
         // m_sourceLang       = language(Yandex, sourceCode);
@@ -158,6 +139,6 @@ void YandexTranslator::parseTranslation(QNetworkReply *reply)
 #endif
     }
 
-    mResult += jsonData.value(QStringLiteral("text")).toArray().at(0).toString();
+    appendResult(jsonData.value(QStringLiteral("text")).toArray().at(0).toString());
     Q_EMIT translateDone();
 }

@@ -60,37 +60,31 @@ target_sources(KF5PimCommonTextTranslator PRIVATE
     translator/widgets/translatorconfigurelistswidget.h
     translator/widgets/translatorconfigurelanguagelistwidget.cpp
     translator/widgets/translatorconfigurelanguagelistwidget.h
-    translator/widgets/translatorconfigureutil.cpp
-    translator/widgets/translatorconfigureutil.h
     translator/widgets/translatormenu.cpp
     translator/widgets/translatormenu.h
 
 
     translator/networkmanager.cpp
     translator/networkmanager.h
-    translator/translatorenginebase.cpp
-    translator/translatorenginebase.h
     translator/translatorengineaccessmanager.h
     translator/translatorengineaccessmanager.cpp
 
-    translator/engine/googletranslator.h
-    translator/engine/googletranslator.cpp
-    translator/engine/bingtranslator.h
-    translator/engine/bingtranslator.cpp
-    translator/engine/yandextranslator.h
-    translator/engine/yandextranslator.cpp
-    translator/engine/lingvatranslator.h
-    translator/engine/lingvatranslator.cpp
-    translator/engine/libretranslatetranslator.h
-    translator/engine/libretranslatetranslator.cpp
-    translator/engine/deepltranslator.cpp
-    translator/engine/deepltranslator.h
+    translator/translatorengineplugin.cpp
+    translator/translatorengineplugin.h
+
+    translator/translatorengineclient.h
+    translator/translatorengineclient.cpp
+
+    translator/translatorengineloader.cpp
+    translator/translatorengineloader.h
     )
 if (BUILD_TESTING)
     add_subdirectory(translator/autotests)
     add_subdirectory(translator/tests)
     add_subdirectory(translator/widgets/autotests)
 endif()
+add_subdirectory(translator/plugins)
+
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KF5PimCommonTextTranslator PROPERTIES UNITY_BUILD ON)
@@ -146,7 +140,10 @@ ecm_generate_headers(PimCommonTextTranslator_Camelcasetranslatorwidgets_HEADERS
 
 ecm_generate_headers(PimCommonTextTranslator_Camelcasetranslator_HEADERS
     HEADER_NAMES
-    TranslatorEngineBase
+    TranslatorEnginePlugin
+    TranslatorEngineClient
+    TranslatorEngineAccessManager
+    TranslatorEngineLoader
     REQUIRED_HEADERS PimCommonTextTranslator_translator_HEADERS
     PREFIX PimCommonTextTranslator
     RELATIVE translator
@@ -171,6 +168,12 @@ ecm_generate_headers(PimCommonTextTranslator_Camelcasetranslatormisc_HEADERS
 #    )
 
 #install(FILES
+#    ${PimCommonTextTranslator_Camelcasetranslatorwidgets_HEADERS}
+#    ${PimCommonTextTranslator_translatorwidgets_HEADERS}
+
+#    ${PimCommonTextTranslator_Camelcasetranslatormisc_HEADERS}
+#    ${PimCommonTextTranslator_translatormisc_HEADERS}
+
 #    ${PimCommonTextTranslator_translator_HEADERS}
 #    ${PimCommonTextTranslator_Camelcasetranslator_HEADERS}
 #    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonTextTranslator/PimCommonTextTranslator
@@ -180,6 +183,8 @@ ecm_generate_headers(PimCommonTextTranslator_Camelcasetranslatormisc_HEADERS
 #install(FILES
 #    ${CMAKE_CURRENT_BINARY_DIR}/pimcommontexttranslator_export.h
 #    ${PimCommonTextTranslator_translator_HEADERS}
+#    ${PimCommonTextTranslator_translatorwidgets_HEADERS}
+#    ${PimCommonTextTranslator_translatormisc_HEADERS}
 #    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonTextTranslator/pimcommontexttranslator
 #    COMPONENT Devel
 #    )

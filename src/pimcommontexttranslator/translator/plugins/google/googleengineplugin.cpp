@@ -1,58 +1,44 @@
 /*
-  SPDX-FileCopyrightText: 2012-2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include "googletranslator.h"
-#include "translator/misc/translatorutil.h"
-#include "translator/translatorengineaccessmanager.h"
+#include "googleengineplugin.h"
 #include <KLocalizedString>
+#include <PimCommonTextTranslator/TranslatorEngineAccessManager>
+#include <QJsonDocument>
 #include <QJsonParseError>
 #include <QNetworkAccessManager>
+#include <QNetworkReply>
 #include <QNetworkRequest>
-#include <QPointer>
 #include <QUrlQuery>
 
-using namespace PimCommonTextTranslator;
-
-GoogleTranslator::GoogleTranslator(QObject *parent)
-    : TranslatorEngineBase(parent)
+GoogleEnginePlugin::GoogleEnginePlugin(QObject *parent)
+    : PimCommonTextTranslator::TranslatorEnginePlugin(parent)
 {
-    connect(TranslatorEngineAccessManager::self()->networkManager(), &QNetworkAccessManager::finished, this, &GoogleTranslator::slotTranslateFinished);
+    connect(PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager(),
+            &QNetworkAccessManager::finished,
+            this,
+            &GoogleEnginePlugin::slotTranslateFinished);
 }
 
-GoogleTranslator::~GoogleTranslator() = default;
+GoogleEnginePlugin::~GoogleEnginePlugin() = default;
 
-QVector<QPair<QString, QString>> GoogleTranslator::supportedLanguage()
+void GoogleEnginePlugin::translate()
 {
-    return languages();
-}
-
-QVector<QPair<QString, QString>> GoogleTranslator::languages()
-{
-    if (mLanguages.isEmpty()) {
-        mLanguages = TranslatorUtil::genericLanguages();
-        mLanguages += TranslatorUtil::googleSpecificLanguages();
-    }
-    return mLanguages;
-}
-
-void GoogleTranslator::translate()
-{
-    if (mFrom == mTo) {
-        Q_EMIT translateFailed(false, i18n("You used same language for from and to language."));
+    if (verifyFromAndToLanguage()) {
         return;
     }
 
-    mResult.clear();
+    clear();
 
     QUrlQuery urlQuery;
     urlQuery.addQueryItem(QStringLiteral("client"), QStringLiteral("gtx"));
-    urlQuery.addQueryItem(QStringLiteral("sl"), mFrom);
-    urlQuery.addQueryItem(QStringLiteral("tl"), mTo);
+    urlQuery.addQueryItem(QStringLiteral("sl"), from());
+    urlQuery.addQueryItem(QStringLiteral("tl"), to());
     urlQuery.addQueryItem(QStringLiteral("dt"), QStringLiteral("t"));
-    urlQuery.addQueryItem(QStringLiteral("q"), mInputText);
+    urlQuery.addQueryItem(QStringLiteral("q"), inputText());
 
     QUrl url;
     url.setQuery(urlQuery);
@@ -61,21 +47,16 @@ void GoogleTranslator::translate()
     url.setPath(QStringLiteral("/translate_a/single"));
     const QNetworkRequest request(url);
 
-    QNetworkReply *reply = TranslatorEngineAccessManager::self()->networkManager()->get(request);
+    QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->get(request);
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);
         reply->deleteLater();
     });
 }
 
-QString GoogleTranslator::engineName() const
+void GoogleEnginePlugin::slotTranslateFinished(QNetworkReply *reply)
 {
-    return i18n("Google");
-}
-
-void GoogleTranslator::slotTranslateFinished(QNetworkReply *reply)
-{
-    mResult.clear();
+    clear();
     mJsonData = QString::fromUtf8(reply->readAll());
     reply->deleteLater();
     //  jsonData contains arrays like this: ["foo",,"bar"]
@@ -91,9 +72,9 @@ void GoogleTranslator::slotTranslateFinished(QNetworkReply *reply)
         return;
     }
     const QVariantList json = jsonDoc.toVariant().toList();
-    if (mDebug) {
-        mJsonDebug = QString::fromUtf8(jsonDoc.toJson(QJsonDocument::Indented));
-    }
+    //    if (mDebug) {
+    //        mJsonDebug = QString::fromUtf8(jsonDoc.toJson(QJsonDocument::Indented));
+    //    }
     for (const QVariant &level0 : json) {
         const QVariantList listLevel0 = level0.toList();
         if (listLevel0.isEmpty()) {
@@ -103,7 +84,7 @@ void GoogleTranslator::slotTranslateFinished(QNetworkReply *reply)
             if (level1.toList().size() <= 2) {
                 continue;
             }
-            mResult += level1.toList().at(0).toString();
+            appendResult(level1.toList().at(0).toString());
         }
     }
     Q_EMIT translateDone();

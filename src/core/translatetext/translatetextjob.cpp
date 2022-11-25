@@ -8,7 +8,7 @@
 #include "ruqola_debug.h"
 #include "translatetext/translatorenginemanager.h"
 #include <KLocalizedString>
-#include <PimCommonTextTranslator/TranslatorEngineBase>
+#include <PimCommonTextTranslator/TranslatorEnginePlugin>
 
 TranslateTextJob::TranslateTextJob(QObject *parent)
     : QObject(parent)
