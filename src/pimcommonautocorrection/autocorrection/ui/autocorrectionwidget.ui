@@ -135,8 +135,11 @@
          </item>
          <item>
           <widget class="QLineEdit" name="find">
-           <property name="showClearButton" stdset="0">
+           <property name="clearButtonEnabled">
             <bool>true</bool>
+           </property>
+           <property name="showClearButton" stdset="0">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -152,8 +155,11 @@
          </item>
          <item>
           <widget class="QLineEdit" name="replace">
-           <property name="showClearButton" stdset="0">
+           <property name="clearButtonEnabled">
             <bool>true</bool>
+           </property>
+           <property name="showClearButton" stdset="0">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -206,8 +212,11 @@
          </item>
          <item row="1" column="0">
           <widget class="QLineEdit" name="abbreviation">
-           <property name="showClearButton" stdset="0">
+           <property name="clearButtonEnabled">
             <bool>true</bool>
+           </property>
+           <property name="showClearButton" stdset="0">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
@@ -271,8 +280,11 @@
          </item>
          <item row="1" column="0">
           <widget class="QLineEdit" name="twoUpperLetter">
-           <property name="showClearButton" stdset="0">
+           <property name="clearButtonEnabled">
             <bool>true</bool>
+           </property>
+           <property name="showClearButton" stdset="0">
+            <bool>false</bool>
            </property>
           </widget>
          </item>
