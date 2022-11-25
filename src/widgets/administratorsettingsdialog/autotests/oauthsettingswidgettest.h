@@ -14,4 +14,6 @@ class OauthSettingsWidgetTest : public QObject
 public:
     explicit OauthSettingsWidgetTest(QObject *parent = nullptr);
     ~OauthSettingsWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
