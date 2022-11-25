@@ -35,6 +35,7 @@ class TroubleshootSettingsWidget;
 class ConferenceCallSettingsWidget;
 class WebRtcSettingsWidget;
 class CasSettingsWidget;
+class OauthSettingsWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -72,5 +73,6 @@ private:
     ConferenceCallSettingsWidget *const mConferenceCallSettingsWidget;
     WebRtcSettingsWidget *const mWebRtcSettingsWidget;
     CasSettingsWidget *const mCasSettingsWidget;
+    OauthSettingsWidget *const mOauthSettingsWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

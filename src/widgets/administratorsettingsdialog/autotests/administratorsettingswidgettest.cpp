@@ -20,6 +20,7 @@
 #include "administratorsettingsdialog/logs/logssettingswidget.h"
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "administratorsettingsdialog/mobile/mobilesettingswidget.h"
+#include "administratorsettingsdialog/oauth/oauthsettingswidget.h"
 #include "administratorsettingsdialog/password/passwordsettingswidget.h"
 #include "administratorsettingsdialog/ratelimiter/ratelimiterwidget.h"
 #include "administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.h"
@@ -118,4 +119,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mCasSettingsWidget = w.findChild<CasSettingsWidget *>(QStringLiteral("mCasSettingsWidget"));
     QVERIFY(mCasSettingsWidget);
+
+    auto mOauthSettingsWidget = w.findChild<OauthSettingsWidget *>(QStringLiteral("mOauthSettingsWidget"));
+    QVERIFY(mOauthSettingsWidget);
 }

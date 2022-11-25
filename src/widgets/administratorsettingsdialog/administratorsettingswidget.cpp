@@ -19,6 +19,7 @@
 #include "logs/logssettingswidget.h"
 #include "message/messagesettingswidget.h"
 #include "mobile/mobilesettingswidget.h"
+#include "oauth/oauthsettingswidget.h"
 #include "password/passwordsettingswidget.h"
 #include "ratelimiter/ratelimiterwidget.h"
 #include "retentionpolicy/retentionpolicysettingswidget.h"
@@ -61,6 +62,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mConferenceCallSettingsWidget(new ConferenceCallSettingsWidget(account, this))
     , mWebRtcSettingsWidget(new WebRtcSettingsWidget(account, this))
     , mCasSettingsWidget(new CasSettingsWidget(account, this))
+    , mOauthSettingsWidget(new OauthSettingsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -93,6 +95,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mConferenceCallSettingsWidget->setObjectName(QStringLiteral("mConferenceCallSettingsWidget"));
     mWebRtcSettingsWidget->setObjectName(QStringLiteral("mWebRtcSettingsWidget"));
     mCasSettingsWidget->setObjectName(QStringLiteral("mCasSettingsWidget"));
+    mOauthSettingsWidget->setObjectName(QStringLiteral("mOauthSettingsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -116,6 +119,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mConferenceCallSettingsWidget, i18n("Conference Call"));
     mTabWidget->addTab(mWebRtcSettingsWidget, i18n("WebRTC"));
     mTabWidget->addTab(mCasSettingsWidget, i18n("CAS"));
+    mTabWidget->addTab(mOauthSettingsWidget, i18n("Oauth"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -165,6 +169,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mConferenceCallSettingsWidget, mapSettings);
     initializeValues(mWebRtcSettingsWidget, mapSettings);
     initializeValues(mCasSettingsWidget, mapSettings);
+    initializeValues(mOauthSettingsWidget, mapSettings);
     updateState(true);
 }
 
@@ -197,4 +202,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mConferenceCallSettingsWidget->setEnabled(state);
     mWebRtcSettingsWidget->setEnabled(state);
     mCasSettingsWidget->setEnabled(state);
+    mOauthSettingsWidget->setEnabled(state);
 }
