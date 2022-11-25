@@ -36,7 +36,7 @@ TranslatorEngineLoader::~TranslatorEngineLoader() = default;
 void TranslatorEngineLoader::loadPlugins()
 {
     const QStringList libPaths = QCoreApplication::libraryPaths();
-    const QString pathSuffix(QStringLiteral("/kf" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/translator/"));
+    const QString pathSuffix(QStringLiteral("/kf" QT_STRINGIFY(QT_VERSION_MAJOR)) + QStringLiteral("/ruqola-translator/"));
     for (const QString &libPath : libPaths) {
         QDir dir(libPath + pathSuffix);
         if (!dir.exists()) {
