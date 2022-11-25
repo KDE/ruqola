@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-23 07:50+0100\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 07:17+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -567,7 +567,7 @@ msgstr ""
 #: core/messages/message.cpp:567
 #, kde-format
 msgid "Has joined OTR chat."
-msgstr ""
+msgstr "«OTR» berriketara batu da."
 
 #: core/messages/message.cpp:569
 #, kde-format
@@ -1082,7 +1082,7 @@ msgstr "Lanpetuta"
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
-msgstr "Kanpoan"
+msgstr "Aldendua"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
 #: core/utils.cpp:315
@@ -1316,17 +1316,17 @@ msgstr "Ados"
 #: core/otr/otrnotificationjob.cpp:94
 #, kde-format
 msgid "%1 ended the OTR session."
-msgstr "%1(e)k OTR saioa amaitu du."
+msgstr "%1(e)k «OTR» saioa amaitu du."
 
 #: core/otr/otrnotificationjob.cpp:99
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
-msgstr "%1ek OTR hasi nahi du. Onartu nahi duzu?"
+msgstr "%1ek «OTR» hasi nahi du. Onartu nahi duzu?"
 
 #: core/otr/otrnotificationjob.cpp:103
 #, kde-format
 msgid "%1 denied the OTR session."
-msgstr ""
+msgstr "%1(e)k «OTR» saioa ukatu du."
 
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
@@ -1341,7 +1341,7 @@ msgstr "<strong>%1</strong> idaten ari dira..."
 #: core/rocketchataccount.cpp:2832
 #, kde-format
 msgid "Export Messages"
-msgstr "Ezportatu mezuak"
+msgstr "Esportatu mezuak"
 
 #: core/rocketchataccount.cpp:2833
 #, kde-format
@@ -3419,51 +3419,51 @@ msgstr ""
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #: widgets/dialogs/directchannelinfowidget.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Roles:"
-msgstr "Eginkizunak"
+msgstr "Eginkizunak:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
 #, kde-format
 msgid "Search Permissions..."
-msgstr ""
+msgstr "Bilatu baimenak..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
 #, kde-format
 msgid "Search Roles..."
-msgstr ""
+msgstr "Bilatu eginkizuna..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
 #, kde-format
 msgid "Add Users In Role..."
-msgstr ""
+msgstr "Gehitu erabiltzailek eginkizunera..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:224
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
-msgstr ""
+msgstr "Eginkizun hori, '%1', kendu nahi duzu?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:225
 #, kde-format
 msgid "Remove Role"
-msgstr ""
+msgstr "Kendu eginkizuna"
 
 #: widgets/administratordialog/roles/roleeditdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Role"
-msgstr ""
+msgstr "Gehitu eginkizuna"
 
 #: widgets/administratordialog/roles/roleeditdialog.cpp:42
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Role"
-msgstr ""
+msgstr "Editatu eginkizuna"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:19
 #, kde-format
 msgid "Use Two Factor Authentication"
-msgstr ""
+msgstr "Erabili bi faktoreko kautotzea"
 
 #: widgets/administratordialog/roles/roleeditwidget.cpp:35
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
@@ -3489,7 +3489,7 @@ msgstr "Orokorra"
 #, kde-format
 msgctxt "@title:window"
 msgid "Users in Role"
-msgstr ""
+msgstr "Eginkizuneko erabiltzaileak"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:34
 #: widgets/administratordialog/users/administratoruserswidget.cpp:45
@@ -3505,7 +3505,7 @@ msgstr "Bilatu erabiltzaileak..."
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Role"
-msgstr ""
+msgstr "Gehitu erabiltzailek eginkizunera"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:83
 #, kde-format
@@ -3542,15 +3542,15 @@ msgstr "Gogokoa"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:18
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:22
-#, fuzzy, kde-format
+#, kde-format
 msgid "Featured"
-msgstr "Aipagarria"
+msgstr "Ezaugarriak"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Direct Room"
-msgstr ""
+msgstr "Editatu zuzeneko gela"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:31
 #, kde-format
@@ -3640,12 +3640,12 @@ msgstr "Lizentziak"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:129
 #, kde-format
 msgid "Auditing"
-msgstr ""
+msgstr "Auditoretza"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:130
 #, kde-format
 msgid "Canned Responses"
-msgstr ""
+msgstr "Erantzun ontziratuak"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
@@ -3660,17 +3660,17 @@ msgstr "Bertsioa"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:156
 #, kde-format
 msgid "Deployment ID"
-msgstr ""
+msgstr "Hedatzearen ID"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
 #, kde-format
 msgid "Rocket.Chat App Users"
-msgstr ""
+msgstr "Rocket.Chat aplikazio erabiltzaileak"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
 #, kde-format
 msgid "Away Users"
-msgstr ""
+msgstr "Aldendutako erabiltzaileak"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
 #, kde-format
@@ -4194,7 +4194,7 @@ msgstr "WebRTC"
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4206,42 +4206,54 @@ msgstr "CAS"
 msgid "Enabled"
 msgstr "Gaituta"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, kde-format
 msgid "Trust CAS Username"
 msgstr "Konfiantza CAS erabiltzaile-izenean"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Allow User Profile Change"
 msgid "Allow user creation"
 msgstr "Baimendu erabiltzaile-profila aldatzea"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
+#, kde-format
+msgid "Always Sync User Data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Site URL"
 msgid "SSO Base URL"
 msgstr "Gunearen URLa"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
+#, kde-format
+msgid "Protocol"
+msgstr "Protokoloa"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:51
 #, kde-format
 msgid ""
 "When enabled, Rocket.Chat will trust that any username from CAS belongs to "
@@ -4250,14 +4262,43 @@ msgid ""
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
+#, kde-format
+msgid ""
+"Always synchronize external CAS User data into available attributes upon "
+"login.\n"
+"Note: Attributes are always synced upon account creation anyway."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
+#, kde-format
+msgid "Attribute Map"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
+#, kde-format
+msgid ""
+"Use this JSON input to build internal attributes (key) from external "
+"attributes (value).\n"
+"External attribute names enclosed with '%' will interpolated in value "
+"strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"The attribute map is always interpolated. In CAS 1.0 only the username "
+"attribute is available. Available internal attributes are: username, name, "
+"email, rooms;\n"
+"rooms is a comma separated list of rooms to join upon user creation e.g: "
+"{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
+"their team and department channel."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
@@ -4304,12 +4345,6 @@ msgstr "smtp"
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
-#, kde-format
-msgid "Protocol"
-msgstr "Protokoloa"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -4435,6 +4470,10 @@ msgid ""
 "between 2 users. OTR messages are not recorded on the server and exchanged "
 "directly and encrypted between the 2 users."
 msgstr ""
+"Gaitu 2 erabiltzaileren arteko zuzeneko mezuetan erregistrotik kanpoko "
+"(«OTR», «off-the-record») mezuak erabiltzeko aukera. «OTR» mezuak ez dira "
+"zerbitzarian erregistratzen eta 2 erabiltzaileren artean zuzenean eta "
+"zifratuta trukatzen dira."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -7272,34 +7311,34 @@ msgid "Logout From Other Logged In Locations"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgid "Nickname:"
 msgstr "Goitizena:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
 #, kde-format
 msgid "Status Text:"
-msgstr ""
+msgstr "Egoera-testua:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgid "Do you really delete your account ?"
-msgstr ""
+msgstr "Benetan nahi duzu zure kontua ezabatzea?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
 #, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
-msgstr ""
+msgstr "Ezabatu nire kontua"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:105
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:167
-#, fuzzy, kde-format
+#, kde-format
 msgid "Current Password"
-msgstr "Oraingo Sarhitza:"
+msgstr "Uneko pasahitza"
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Notification"
 msgstr "Jakinarazpena"
@@ -7308,18 +7347,18 @@ msgstr "Jakinarazpena"
 #: widgets/room/messagelistview.cpp:449
 #, kde-format
 msgid "Go to Message"
-msgstr ""
+msgstr "Joan mezura"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:234
-#, fuzzy, kde-format
+#, kde-format
 msgid "Copy Message"
 msgstr "Kopiatu mezua"
 
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
 msgid "Otr Activated"
-msgstr ""
+msgstr "«Otr» aktibatu da"
 
 #: widgets/otr/otrwidget.cpp:19
 #, kde-format

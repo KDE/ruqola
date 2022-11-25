@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -4321,7 +4321,7 @@ msgstr ""
 msgid "CAS"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4334,42 +4334,54 @@ msgstr ""
 msgid "Enabled"
 msgstr "E2E habilitado"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "Trust CAS Username"
 msgstr "Nome do usuário"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Allow user creation"
 msgstr "Mensagem excluída"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
+#, kde-format
+msgid "Always Sync User Data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
 msgid "SSO Base URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
+#, kde-format
+msgid "Protocol"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:51
 #, kde-format
 msgid ""
 "When enabled, Rocket.Chat will trust that any username from CAS belongs to "
@@ -4378,14 +4390,43 @@ msgid ""
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
+#, kde-format
+msgid ""
+"Always synchronize external CAS User data into available attributes upon "
+"login.\n"
+"Note: Attributes are always synced upon account creation anyway."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
+#, kde-format
+msgid "Attribute Map"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
+#, kde-format
+msgid ""
+"Use this JSON input to build internal attributes (key) from external "
+"attributes (value).\n"
+"External attribute names enclosed with '%' will interpolated in value "
+"strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"The attribute map is always interpolated. In CAS 1.0 only the username "
+"attribute is available. Available internal attributes are: username, name, "
+"email, rooms;\n"
+"rooms is a comma separated list of rooms to join upon user creation e.g: "
+"{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
+"their team and department channel."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
@@ -4435,12 +4476,6 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
-#, kde-format
-msgid "Protocol"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56

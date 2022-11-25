@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-23 12:34+0100\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 09:37+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4256,7 +4256,7 @@ msgstr "WebRTC"
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4268,42 +4268,55 @@ msgstr "CAS"
 msgid "Enabled"
 msgstr "Activada"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, kde-format
 msgid "Trust CAS Username"
 msgstr "Confiança del nom d'usuari CAS"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Allow User Profile Change"
-msgid "Allow user creation"
-msgstr "Permet el canvi de perfil d'usuari"
-
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Site URL"
-msgid "SSO Base URL"
-msgstr "Adreça del lloc"
-
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
 #, kde-format
-msgid ""
-"The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
+msgid "Allow user creation"
+msgstr "Permet la creació d'usuaris"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
+#, kde-format
+msgid "Always Sync User Data"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
-msgid "SSO Login URL"
-msgstr ""
+msgid "SSO Base URL"
+msgstr "URL base de SSO"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#, kde-format
+msgid ""
+"The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
+msgstr ""
+"L'URL base del servei SSO extern, p. ex. https://sso.example.undef/sso/"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
+#, kde-format
+msgid "SSO Login URL"
+msgstr "URL de SSO d'inici de sessió"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"L'URL d'inici de sessió del servei SSO extern, p. ex. https://sso.example."
+"undef/sso/login"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
+#, kde-format
+msgid "Protocol"
+msgstr "Protocol"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:51
 #, kde-format
 msgid ""
 "When enabled, Rocket.Chat will trust that any username from CAS belongs to "
@@ -4311,15 +4324,52 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Quan s'habilita, el Rocket.Chat confiarà que qualsevol nom d'usuari del CAS "
+"pertanyi al mateix usuari del Rocket.Chat.\n"
+"Això pot ser necessari si un usuari es reanomena a CAS, però també pot "
+"permetre que la gent prengui el control dels comptes del Rocket.Chat "
+"reanomenant els seus propis usuaris CAS."
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"Permet la creació d'usuaris CAS a partir de les dades proporcionades pel "
+"tiquet CAS."
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
+msgstr "Gestió d'atributs"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
+#, kde-format
+msgid ""
+"Always synchronize external CAS User data into available attributes upon "
+"login.\n"
+"Note: Attributes are always synced upon account creation anyway."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
+#, fuzzy, kde-format
+#| msgid "Attribute handling"
+msgid "Attribute Map"
+msgstr "Gestió d'atributs"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
+#, kde-format
+msgid ""
+"Use this JSON input to build internal attributes (key) from external "
+"attributes (value).\n"
+"External attribute names enclosed with '%' will interpolated in value "
+"strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"The attribute map is always interpolated. In CAS 1.0 only the username "
+"attribute is available. Available internal attributes are: username, name, "
+"email, rooms;\n"
+"rooms is a comma separated list of rooms to join upon user creation e.g: "
+"{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
+"their team and department channel."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
@@ -4366,12 +4416,6 @@ msgstr "smtp"
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
-#, kde-format
-msgid "Protocol"
-msgstr "Protocol"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -8465,12 +8509,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "Modern Javanese (Indonesia)"
-#~ msgstr "Javanès modern (Indonèsia)"
-
-#~ msgid "Chinese"
-#~ msgstr "Xinès"
-
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Silencia les mencions de grup"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-24 00:45+0000\n"
-"PO-Revision-Date: 2022-11-22 07:58+0100\n"
+"POT-Creation-Date: 2022-11-25 00:46+0000\n"
+"PO-Revision-Date: 2022-11-24 07:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1329,12 +1329,12 @@ msgstr ""
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
 msgid "<strong>%1</strong> is typing..."
-msgstr ""
+msgstr "<strong>%1</strong> კრეფს..."
 
 #: core/receivetypingnotificationmanager.cpp:72
 #, kde-format
 msgid "<strong>%1</strong> are typing..."
-msgstr ""
+msgstr "<strong>%1</strong> კრეფს..."
 
 #: core/rocketchataccount.cpp:2832
 #, kde-format
@@ -1344,7 +1344,7 @@ msgstr "შეტყობინებების გატანა"
 #: core/rocketchataccount.cpp:2833
 #, kde-format
 msgid "Your email has been queued for sending."
-msgstr ""
+msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
 
 #: core/room.cpp:1131
 #, kde-format
@@ -1413,7 +1413,7 @@ msgstr ""
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "მთარგმნელის ინფორმაცია ვერ ვიპოვე. ეს შეცდომაა"
 
 #: core/user.cpp:199
 #, kde-format
@@ -1638,7 +1638,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:393
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr ""
+msgstr "&URL-ების ავტოფორმატი (HTML რეჟიმი)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:400
@@ -2220,11 +2220,10 @@ msgid "Yiddish"
 msgstr "იდიში"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Libre Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Libre Translate"
+msgstr "თარჯიმანის მორგება"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -2253,18 +2252,15 @@ msgid "Engine:"
 msgstr "ძრავი:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Debug"
-msgstr "თარგმნა"
+msgstr "თარჯიმანის გამართვა"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "შეინახვა &როგორც..."
+msgstr "შენახვა, როგორც..."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:86
 #, kde-format
@@ -2272,17 +2268,18 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"ფაილის ჩაწერა შეიძლებელია %1:\n"
+"\"%2\" შეცდომის დეტალურ აღწერას წარმოადგენს."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "ფაილის შენახვა"
+msgstr "ფაილის შენახვის შეცდომა"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:113
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "ყველა ფაილი (*)"
 
 #: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
 #, kde-format
@@ -2298,18 +2295,16 @@ msgstr ""
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:231
 #, kde-format
 msgid "Close"
-msgstr ""
+msgstr "დაკეტვა"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "საიდან:"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:244
-#, fuzzy, kde-format
-#| msgid "To:"
+#, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "ვის:"
@@ -2318,7 +2313,7 @@ msgstr "ვის:"
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "ინვერსია"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:264
@@ -2330,23 +2325,19 @@ msgstr "გაწმენდა"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:272
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgid "Translate"
 msgstr "თარგმნა"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:279
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "პროგრამის შეცდომის პოვნა"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:297
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgid "Configure"
-msgstr "Ruqola-ის მორგება"
+msgstr "მორგება"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:312
 #, kde-format
@@ -2363,11 +2354,10 @@ msgstr ""
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:392
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "ქსელის გარეშე"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:431
-#, fuzzy, kde-format
-#| msgid "Translator Error"
+#, kde-format
 msgid "Translate error"
 msgstr "მთარგმნელის შეცდომა"
 
@@ -2458,7 +2448,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/groups/getgrouprolesjob.cpp:66
 #, kde-format
 msgid "Extract Roles"
-msgstr ""
+msgstr "როლების გამოტანა"
 
 #: rocketchatrestapi-qt5/chat/deletemessagejob.cpp:115
 #, kde-format
@@ -2910,7 +2900,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:380
 #, kde-format
 msgid "Push is disabled"
-msgstr ""
+msgstr "პუში გატიშულია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:384
 #, kde-format
@@ -2930,7 +2920,7 @@ msgstr "ოთახის დახურული არაა"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:390
 #, kde-format
 msgid "The field __field__ is required."
-msgstr ""
+msgstr "ველი __field__ აუცილებელია."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:392
 #, kde-format
@@ -3611,15 +3601,15 @@ msgstr "ოთახების ძებნა"
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:75
 #, kde-format
 msgid "No room found"
-msgstr ""
+msgstr "ოთახი ვერ ვიპოვე"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:80
 #: widgets/directory/directorywidget.cpp:180
 #, kde-format
 msgid "%1 room (Total: %2)"
 msgid_plural "%1 rooms (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ოთახი (სულ: %2)"
+msgstr[1] "%1 ოთახი (სულl: %2)"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:195
 #, kde-format
@@ -4199,7 +4189,7 @@ msgstr ""
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:23
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:18
@@ -4211,42 +4201,52 @@ msgstr "CAS"
 msgid "Enabled"
 msgstr "ჩართულია"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, kde-format
 msgid "Trust CAS Username"
 msgstr "მომხმარებლის სახელი"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Allow User Profile Change"
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
+#, kde-format
 msgid "Allow user creation"
-msgstr "მომხმარებლის პროფილის ცვლილების უფლება"
+msgstr "მომხმარებლის შექმნის უფლების მიცემა"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Site URL"
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
+#, kde-format
+msgid "Always Sync User Data"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#, kde-format
 msgid "SSO Base URL"
-msgstr "საიტის URL"
+msgstr "SSO-ის საბაზისო URL"
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
 msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
+#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
+#, kde-format
+msgid "Protocol"
+msgstr "ოქმი"
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:51
 #, kde-format
 msgid ""
 "When enabled, Rocket.Chat will trust that any username from CAS belongs to "
@@ -4255,14 +4255,43 @@ msgid ""
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
+#, kde-format
+msgid ""
+"Always synchronize external CAS User data into available attributes upon "
+"login.\n"
+"Note: Attributes are always synced upon account creation anyway."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
+#, kde-format
+msgid "Attribute Map"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
+#, kde-format
+msgid ""
+"Use this JSON input to build internal attributes (key) from external "
+"attributes (value).\n"
+"External attribute names enclosed with '%' will interpolated in value "
+"strings.<br/>Example, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"The attribute map is always interpolated. In CAS 1.0 only the username "
+"attribute is available. Available internal attributes are: username, name, "
+"email, rooms;\n"
+"rooms is a comma separated list of rooms to join upon user creation e.g: "
+"{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
+"their team and department channel."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
@@ -4309,12 +4338,6 @@ msgstr "smtp"
 #, kde-format
 msgid "smtps"
 msgstr "smtps"
-
-#: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
-#: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
-#, kde-format
-msgid "Protocol"
-msgstr "ოქმი"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -4422,7 +4445,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:19
 #, kde-format
 msgid "Enable OTR"
-msgstr ""
+msgstr "OTR-ის ჩართვა"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:22
 #, kde-format
@@ -4449,7 +4472,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:21
 #, kde-format
 msgid "Enterprise License"
-msgstr ""
+msgstr "საწარმოო ლიცენზია"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:19
 #, kde-format
@@ -4464,7 +4487,7 @@ msgstr "ატვირთული ფაილების დაცვა"
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:21
 #, kde-format
 msgid "Rotate images on upload"
-msgstr ""
+msgstr "ატვირთვისას სურათების მოტრიალება"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
@@ -4503,7 +4526,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:62
 #, kde-format
 msgid "Accepted Media Types"
-msgstr ""
+msgstr "მედიის მხარდაჭერილი ტიპები"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:57
 #, kde-format
@@ -4612,7 +4635,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
 #, kde-format
 msgid "Deep Link Url"
-msgstr ""
+msgstr "ღრმა ბმულის URL"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:69
 #, kde-format
