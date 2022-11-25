@@ -608,7 +608,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         if (eventname == QLatin1String("roles")) {
             mRocketChatAccount->updateRoles(contents);
         }
-        qDebug() << " ssssssssssssss " << fields;
     } else {
         qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << " Other collection type changed " << collection << " object " << object;
     }
