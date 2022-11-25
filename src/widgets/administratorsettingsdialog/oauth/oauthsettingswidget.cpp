@@ -5,15 +5,28 @@
 */
 
 #include "oauthsettingswidget.h"
+#include <KLocalizedString>
+#include <QCheckBox>
+#include <QFormLayout>
+#include <QLabel>
 
 OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
+    , mSignWithApple(new QCheckBox(i18n("Sign in with Apple"), this))
 {
+    auto appleLabel = createBoldLabel(i18n("Apple"));
+    appleLabel->setObjectName(QStringLiteral("appleLabel"));
+    mMainLayout->addWidget(appleLabel);
+
+    mSignWithApple->setObjectName(QStringLiteral("mSignWithApple"));
+    mMainLayout->addWidget(mSignWithApple);
+    mSignWithApple->setToolTip(i18n("If you want Apple login enabled only on mobile, you can leave all fields empty."));
+    connectCheckBox(mSignWithApple, QStringLiteral("Accounts_OAuth_Apple"));
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
 
 void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
-    // TODO
+    initializeWidget(mSignWithApple, mapSettings, false);
 }
