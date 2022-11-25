@@ -46,7 +46,7 @@ void RolesManager::updateRoles(const QJsonArray &contents)
             bool found = false;
             RoleInfo info;
             info.parseRoleInfo(roleObject);
-            for (int i = 0; i < mRoleInfo.count(); ++i) {
+            for (int i = 0, total = mRoleInfo.count(); i < total; ++i) {
                 if (mRoleInfo.at(i).identifier() == identifier) {
                     mRoleInfo.removeAt(i);
                     mRoleInfo.append(info);
