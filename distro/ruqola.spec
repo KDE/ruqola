@@ -66,6 +66,8 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/qlogging-categories5/ruqola.renamecategories
 
 %changelog
+* Sat 26 Nov 2022 Allen Winter <allen.winter@kdab.com> 1.8.2.1
+- 1.8.2.1 release
 * Wed 23 Nov 2022 Allen Winter <allen.winter@kdab.com> 1.8.2
 - 1.8.2 release
 * Sun 16 Oct 2022 Allen Winter <allen.winter@kdab.com> 1.8.1

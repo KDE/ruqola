@@ -1,6 +1,6 @@
 Format: 1.0
 Source: ruqola
-Version: 1.8.2-1
+Version: 1.8.2-2
 Binary: ruqola
 Maintainer: Allen Winter <allen.winter@kdab.com>
 Architecture: any
