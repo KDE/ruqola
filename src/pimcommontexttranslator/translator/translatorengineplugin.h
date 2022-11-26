@@ -29,11 +29,13 @@ public:
     void setFrom(const QString &language);
     void setTo(const QString &language);
     void setResult(const QString &result);
+    void setJsonDebug(const QString &debug);
 
     Q_REQUIRED_RESULT QString inputText() const;
     Q_REQUIRED_RESULT QString from() const;
     Q_REQUIRED_RESULT QString to() const;
     Q_REQUIRED_RESULT QString result() const;
+    Q_REQUIRED_RESULT QString jsonDebug() const;
 
     void clear();
 

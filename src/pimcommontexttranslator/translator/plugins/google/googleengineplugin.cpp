@@ -72,9 +72,9 @@ void GoogleEnginePlugin::slotTranslateFinished(QNetworkReply *reply)
         return;
     }
     const QVariantList json = jsonDoc.toVariant().toList();
-    //    if (mDebug) {
-    //        mJsonDebug = QString::fromUtf8(jsonDoc.toJson(QJsonDocument::Indented));
-    //    }
+    if (/*mDebug*/ 1) { // TODO fix me
+        setJsonDebug(QString::fromUtf8(jsonDoc.toJson(QJsonDocument::Indented)));
+    }
     for (const QVariant &level0 : json) {
         const QVariantList listLevel0 = level0.toList();
         if (listLevel0.isEmpty()) {

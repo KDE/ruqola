@@ -15,6 +15,7 @@ public:
     QString mFrom;
     QString mTo;
     QString mResult;
+    QString mJsonDebug;
 };
 
 TranslatorEnginePlugin::TranslatorEnginePlugin(QObject *parent)
@@ -50,6 +51,11 @@ void TranslatorEnginePlugin::setResult(const QString &result)
     d->mResult = result;
 }
 
+void TranslatorEnginePlugin::setJsonDebug(const QString &debug)
+{
+    d->mJsonDebug = debug;
+}
+
 void TranslatorEnginePlugin::clear()
 {
     d->mResult.clear();
@@ -78,6 +84,11 @@ QString TranslatorEnginePlugin::to() const
 QString TranslatorEnginePlugin::result() const
 {
     return d->mResult;
+}
+
+QString TranslatorEnginePlugin::jsonDebug() const
+{
+    return d->mJsonDebug;
 }
 
 void TranslatorEnginePlugin::slotError(QNetworkReply::NetworkError error)

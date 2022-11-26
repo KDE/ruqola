@@ -6,6 +6,7 @@
 */
 
 #include "translatorwidget.h"
+#include "pimcommontexttranslator_debug.h"
 #include "translator/misc/translatorutil.h"
 #include "translator/networkmanager.h"
 #include "translator/translatorengineclient.h"
@@ -347,14 +348,20 @@ void TranslatorWidget::init()
 
 void TranslatorWidget::switchEngine()
 {
-    disconnect(d->translatorPlugin);
-    delete d->translatorPlugin;
+    if (d->translatorPlugin) {
+        disconnect(d->translatorPlugin);
+        delete d->translatorPlugin;
+    }
     d->translatorClient = PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(d->engineName);
-    d->translatorPlugin = d->translatorClient->createTranslator();
-    connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorWidget::slotTranslateDone);
-    connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorWidget::slotTranslateFailed);
-    d->initLanguage();
-    d->engineNameLabel->setText(QStringLiteral("[%1]").arg(d->translatorClient->translatedName()));
+    if (d->translatorClient) {
+        d->translatorPlugin = d->translatorClient->createTranslator();
+        connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorWidget::slotTranslateDone);
+        connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorWidget::slotTranslateFailed);
+        d->initLanguage();
+        d->engineNameLabel->setText(QStringLiteral("[%1]").arg(d->translatorClient->translatedName()));
+    } else {
+        d->translatorPlugin = nullptr;
+    }
 }
 
 void TranslatorWidget::slotConfigChanged()
@@ -393,6 +400,10 @@ void TranslatorWidget::setTextToTranslate(const QString &text)
 
 void TranslatorWidget::slotTranslate()
 {
+    if (!d->translatorPlugin) {
+        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << " Translator plugin invalid";
+        return;
+    }
     if (!PimCommonTextTranslator::NetworkManager::self()->isOnline()) {
         KMessageBox::information(this, i18n("No network connection detected, we cannot translate text."), i18n("No network"));
         return;
@@ -498,12 +509,18 @@ void TranslatorWidget::slotClear()
     d->inputText->clear();
     d->translatorResultTextEdit->clear();
     d->translate->setEnabled(false);
-    d->translatorPlugin->clear();
+    if (d->translatorPlugin) {
+        d->translatorPlugin->clear();
+    }
 }
 
 void TranslatorWidget::slotDebug()
 {
-    TranslatorDebugDialog dlg(this);
-    // TODO dlg.setDebug(d->translatorPlugin->jsonDebug());
-    dlg.exec();
+    if (d->translatorPlugin) {
+        TranslatorDebugDialog dlg(this);
+        dlg.setDebug(d->translatorPlugin->jsonDebug());
+        dlg.exec();
+    } else {
+        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << " Translator plugin invalid";
+    }
 }
