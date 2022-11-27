@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-20 10:32+0100\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 17:57+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1435,6 +1435,88 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Robot"
 
+#: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
+#, kde-format
+msgid "Speech text"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:28
+#: kpimtextedittexttospeech/texttospeechactions.cpp:31
+#, kde-format
+msgid "Stop"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Text-To-Speech"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:58
+#, kde-format
+msgid "Volume:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Rate:"
+msgstr "Privado:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
+#, kde-format
+msgid "Pitch:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#, kde-format
+msgid "Engine:"
+msgstr "Motor:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Idioma:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
+#, kde-format
+msgid "Voice:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
+#, fuzzy, kde-format
+#| msgid "Default"
+msgctxt "Default tts engine"
+msgid "Default"
+msgstr "Por omisión"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#, kde-format
+msgid "Close"
+msgstr "Cerrar"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:81
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgid "Configure..."
+msgstr "Configurar"
+
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
 msgid "Archive cannot be opened in read mode."
@@ -2203,7 +2285,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:87
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2229,19 +2311,16 @@ msgstr ""
 msgid "Error: Unable to parse autodetected language"
 msgstr "Error: no se pudo extraer el idioma auto-detectado"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:95
-#, fuzzy, kde-format
-#| msgid "You used same language for from and to language."
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr "Ha usado el mismo idioma para el idioma origen y destino."
+msgstr "Ha usado el mismo idioma para el idioma «origen» y «destino»."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Configurar traducción automática"
+msgstr "Configurar traductor"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -2263,25 +2342,16 @@ msgstr "De:"
 msgid "To:"
 msgstr "Para:"
 
-#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
-#, kde-format
-msgid "Engine:"
-msgstr "Motor:"
-
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Debug"
-msgstr "Traducir"
+msgstr "Depurar traductor"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:38
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "Gu&ardar como..."
+msgstr "Guardar como..."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:86
 #, kde-format
@@ -2289,104 +2359,95 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"No se pudo escribir el archivo %1:\n"
+"«%2» contiene la descripción detallada del error."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:90
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Guardar archivo"
+msgstr "Guardar archivo de error"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:113
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Todos los archivos (*)"
 
 #: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
 #, kde-format
 msgid "Translate..."
 msgstr "Traducir..."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:130
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Problema al conectar a la página web de traducción."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:232
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:235
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
 #, kde-format
-msgid "Close"
-msgstr ""
-
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:241
-#, fuzzy, kde-format
-#| msgid "From:"
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "De:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:248
-#, fuzzy, kde-format
-#| msgid "To:"
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
+#, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "Para:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:260
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "Invertir"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:265
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:268
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Limpiar"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:273
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:276
-#, fuzzy, kde-format
-#| msgctxt "@title Preferences page name"
-#| msgid "Translate"
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#, kde-format
 msgid "Translate"
 msgstr "Traducir"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:283
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "Depurar"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:301
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
+#, kde-format
 msgid "Configure"
-msgstr "Configurar Ruqola"
+msgstr "Configurar"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:316
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
+"Arrastre el texto que quiere traducir. (Tenga en cuenta que el texto se "
+"mandará a servidores de Google)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr ""
+"No se ha detectado ninguna conexión de red, no pudimos traducir el texto."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "Sin red"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:436
-#, fuzzy, kde-format
-#| msgid "Translator Error"
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
+#, kde-format
 msgid "Translate error"
-msgstr "Error de traductor"
+msgstr "Error de traducción"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -4250,7 +4311,7 @@ msgstr "WebRTC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -4265,38 +4326,37 @@ msgid "Enabled"
 msgstr "Activado"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Trust CAS Username"
-msgstr "Nombre del usuario"
+msgstr "Confiar en nombre de usuario CAS"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Allow User Profile Change"
+#, kde-format
 msgid "Allow user creation"
-msgstr "Permitir cambio de perfil de usuario"
+msgstr "Permitir creación de usuarios"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
 #, kde-format
 msgid "Always Sync User Data"
-msgstr ""
+msgstr "Siempre sincronizar datos de usuarios"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Site URL"
+#, kde-format
 msgid "SSO Base URL"
-msgstr "URL del sitio"
+msgstr "URL base de SSO"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
+"La URL base de su servicio SSO externo. Por ejemplo: https://sso.example."
+"undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "La URL de inicio de sesión SSO"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4304,6 +4364,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"La URL de inicio de sesión de su servicio SSO. Por ejemplo: https://sso."
+"example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
@@ -4320,16 +4382,23 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Cuando está activado, Ricket.Chat confiará en cualquier nombre de usuario de "
+"CAS que pertenezca al mismo usuario en Rocket.Chat.\n"
+"Esto será necesario si un usuario es renombrado en CAS, pero también permite "
+"a la gente tomar control de cuentas de Rocket.Chat al renombrar sus propios "
+"usuarios de CAS."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"Permitir las creación de usuarios CAS desde los datos proporcionados por el "
+"ticket CAS."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "Manejo de atributos"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -4338,11 +4407,15 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Sincronizar siempre los datos de usuarios CAS externos en atributos "
+"disponibles al iniciar sesión.\n"
+"Nota: Los atributos siempre se sincronizan al crear una cuenta de todos "
+"modos."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
 msgid "Attribute Map"
-msgstr ""
+msgstr "Mapa de atributos"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
 #, kde-format
@@ -4359,6 +4432,18 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Usar esta entrada JSON para construir atributos internos (clave) desde "
+"atributos externos (valor).\n"
+"Los nombres de atributos externos rodeados por «%» serán interpolados en "
+"valores de cadenas.<br/>Ejemplo: {\"email\":\"%email%\", \"nombre\":\"%nombre"
+"%, %apellido%\"}\n"
+"El mapa de atributos siempre se interpola. En CAS 1.0 solo el nombre del "
+"usuario está disponible. Los atributos internos disponibles son: nombre de "
+"usuario, nombre, correo electrónico, salas;\n"
+"salas es una lista separada por comas de salas a las que unirse cuando se "
+"crea el usuario, por ejemplo, {\"rooms\": \"%equipo%,%departamento%\"} unirá "
+"a los usuarios CAS durante la creación a los canales de su equipo y su "
+"departamento."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -5247,13 +5332,12 @@ msgstr "Forzar bloque de pantalla después"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Registrarse con Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgid "Apple"
-msgstr "Aplicar"
+msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
 #, kde-format
@@ -5261,11 +5345,13 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"Si quiere iniciar sesión de Apple solo en el móvil, puede dejar todos los "
+"campos vacíos."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "Identificador OAuth de Apple"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6141,11 +6227,6 @@ msgstr "Configurar traducción automática"
 msgid "Auto-Translate"
 msgstr "Traducir automáticamente"
 
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Idioma:"
-
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
@@ -6317,24 +6398,22 @@ msgstr "Ocultar estado no leído de la sala"
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute @all and @here mentions"
-msgstr ""
+msgstr "Silenciar las menciones @all y @here"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Show badge for mentions"
-msgstr "Mostrar menciones..."
+msgstr "Mostrar insignia de menciones"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:36
 #, kde-format
 msgid "Receive alerts"
-msgstr ""
+msgstr "Recibir alertas"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Display badge for direct mentions only"
-msgstr "Mostrar menciones..."
+msgstr "Mostrar insignia solo en el caso de menciones directas"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format

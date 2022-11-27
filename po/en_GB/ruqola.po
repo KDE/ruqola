@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
 "PO-Revision-Date: 2022-09-18 12:15+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -1431,6 +1431,89 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot"
 
+#: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
+#, kde-format
+msgid "Speech text"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:28
+#: kpimtextedittexttospeech/texttospeechactions.cpp:31
+#, kde-format
+msgid "Stop"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Text-To-Speech"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:58
+#, kde-format
+msgid "Volume:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Rate:"
+msgstr "Private:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
+#, kde-format
+msgid "Pitch:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#, kde-format
+msgid "Engine:"
+msgstr "Engine:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Language:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
+#, kde-format
+msgid "Voice:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
+#, fuzzy, kde-format
+#| msgid "Default"
+msgctxt "Default tts engine"
+msgid "Default"
+msgstr "Default"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#, kde-format
+msgid "Close"
+msgstr "Close"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:81
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Configure Ruqola"
+msgid "Configure..."
+msgstr "Configure Ruqola"
+
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
 msgid "Archive cannot be opened in read mode."
@@ -2191,7 +2274,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:87
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2215,7 +2298,7 @@ msgstr "Error: Unable to extract Yandex SID from web version."
 msgid "Error: Unable to parse autodetected language"
 msgstr "Error: Unable to parse auto-detected language"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:95
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
 #, fuzzy, kde-format
 #| msgid "You used same language for from and to language."
 msgid "You used same language for 'from' and 'to' language."
@@ -2248,12 +2331,6 @@ msgstr "From:"
 #, kde-format
 msgid "To:"
 msgstr "To:"
-
-#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
-#, kde-format
-msgid "Engine:"
-msgstr "Engine:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
 #, fuzzy, kde-format
@@ -2292,83 +2369,77 @@ msgstr ""
 msgid "Translate..."
 msgstr "Translate..."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:130
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:232
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:235
-#, kde-format
-msgid "Close"
-msgstr "Close"
-
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:241
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "From:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:248
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
 #, fuzzy, kde-format
 #| msgid "To:"
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "To:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:260
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:265
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:268
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Clear"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:273
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:276
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Translate"
 msgid "Translate"
 msgstr "Translate"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:283
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
 #, kde-format
 msgid "Debug"
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:301
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Ruqola"
 msgid "Configure"
 msgstr "Configure Ruqola"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:316
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network"
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:436
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
 #, fuzzy, kde-format
 #| msgctxt "@title Preferences page name"
 #| msgid "Translate"
@@ -6104,11 +6175,6 @@ msgstr "Configure Auto-Translate"
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Auto-Translate"
-
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Language:"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format

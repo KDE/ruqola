@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-25 19:25+0300\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 18:52+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1431,6 +1431,88 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
+#: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
+#, kde-format
+msgid "Speech text"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:28
+#: kpimtextedittexttospeech/texttospeechactions.cpp:31
+#, kde-format
+msgid "Stop"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Text-To-Speech"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:58
+#, kde-format
+msgid "Volume:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Rate:"
+msgstr "Özel:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
+#, kde-format
+msgid "Pitch:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#, kde-format
+msgid "Engine:"
+msgstr "İşletke:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Dil:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
+#, kde-format
+msgid "Voice:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
+#, fuzzy, kde-format
+#| msgid "Default"
+msgctxt "Default tts engine"
+msgid "Default"
+msgstr "Öntanımlı"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#, kde-format
+msgid "Close"
+msgstr "Kapat"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:81
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgid "Configure..."
+msgstr "Yapılandır"
+
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
 msgid "Archive cannot be opened in read mode."
@@ -2197,7 +2279,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:87
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2221,11 +2303,10 @@ msgstr "Hata: Web sürümünden, Yandex SID çıkarılamadı."
 msgid "Error: Unable to parse autodetected language"
 msgstr "Hata: Otomatik algılanan dil ayrıştırılamadı"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:95
-#, fuzzy, kde-format
-#| msgid "You used same language for from and to language."
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr "Kimden ve kime dilinde aynı dili kullandınız."
+msgstr "'kimden' ve 'kime' dili için aynı dili kullandınız."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
 #, kde-format
@@ -2252,12 +2333,6 @@ msgstr "Nereden:"
 #, kde-format
 msgid "To:"
 msgstr "Nereye:"
-
-#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
-#, kde-format
-msgid "Engine:"
-msgstr "İşletke:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
 #, kde-format
@@ -2294,60 +2369,54 @@ msgstr "Tüm Dosyalar (*)"
 msgid "Translate..."
 msgstr "Çevir..."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:130
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
 msgstr "Çevirmen web sayfasına bağlanırken bir sorun oluştu."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:232
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:235
-#, kde-format
-msgid "Close"
-msgstr "Kapat"
-
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:241
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
 #, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Nereden:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:248
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
 #, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "Nereye:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:260
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Ters Çevir"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:265
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:268
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Temizle"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:273
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:276
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
 #, kde-format
 msgid "Translate"
 msgstr "Çevir"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:283
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
 #, kde-format
 msgid "Debug"
 msgstr "Hata Ayıkla"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:301
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
 #, kde-format
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:316
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2356,17 +2425,17 @@ msgstr ""
 "Çevirmek istediğiniz metni sürükleyin (Metnin Google sunucusuna "
 "gönderileceği aklınızda olsun)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "Bir ağ bağlantısı bulunamadı; metni çeviremiyoruz."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network"
 msgstr "Ağ yok"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:436
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
 #, kde-format
 msgid "Translate error"
 msgstr "Çeviri hatası"
@@ -5223,13 +5292,12 @@ msgstr "Ekranın Kilitlenmeye Zorlanacağı Süre:"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Apple ile giriş yap"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgid "Apple"
-msgstr "Uygula"
+msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
 #, kde-format
@@ -5237,11 +5305,13 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"Apple girişinin yalnızca taşınabilirde etkin kalmasını istiyorsanız tüm "
+"alanları boş bırakabilirsiniz."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "OAuth Apple Kimliği"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6104,11 +6174,6 @@ msgstr "Otomatik Çeviriyi Yapılandır"
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Otomatik Çeviri"
-
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Dil:"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format

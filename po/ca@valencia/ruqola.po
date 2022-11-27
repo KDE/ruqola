@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-26 00:46+0000\n"
-"PO-Revision-Date: 2022-11-24 09:37+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"PO-Revision-Date: 2022-11-26 19:44+0100\n"
+"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -1437,6 +1437,88 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
+#: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
+#, kde-format
+msgid "Speech text"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:28
+#: kpimtextedittexttospeech/texttospeechactions.cpp:31
+#, kde-format
+msgid "Stop"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Pause"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechactions.cpp:72
+#, kde-format
+msgid "Play"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Text-To-Speech"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:58
+#, kde-format
+msgid "Volume:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Private:"
+msgid "Rate:"
+msgstr "Privat:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
+#, kde-format
+msgid "Pitch:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
+#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#, kde-format
+msgid "Engine:"
+msgstr "Motor:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Idioma:"
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
+#, kde-format
+msgid "Voice:"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
+#, fuzzy, kde-format
+#| msgid "Default"
+msgctxt "Default tts engine"
+msgid "Default"
+msgstr "Predeterminat"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:53
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#, kde-format
+msgid "Close"
+msgstr "Tanca"
+
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:81
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgid "Configure..."
+msgstr "Configura"
+
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
 msgid "Archive cannot be opened in read mode."
@@ -2213,7 +2295,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:87
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2242,11 +2324,10 @@ msgstr ""
 "S'ha produït un error: No s'ha pogut analitzar l'idioma detectat "
 "automàticament"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:95
-#, fuzzy, kde-format
-#| msgid "You used same language for from and to language."
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr "Heu utilitzat el mateix idioma per a l'origen i la destinació."
+msgstr "Heu utilitzat el mateix idioma a «Des de» i «A»."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:24
 #, kde-format
@@ -2273,12 +2354,6 @@ msgstr "De:"
 #, kde-format
 msgid "To:"
 msgstr "A:"
-
-#: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
-#, kde-format
-msgid "Engine:"
-msgstr "Motor:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:31
 #, kde-format
@@ -2315,60 +2390,54 @@ msgstr "Tots els fitxers (*)"
 msgid "Translate..."
 msgstr "Traduïx..."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:130
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
 msgstr "Problema en connectar amb el lloc web del traductor."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:232
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:235
-#, kde-format
-msgid "Close"
-msgstr "Tanca"
-
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:241
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
 #, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "De:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:248
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
 #, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "A:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:260
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Invertix"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:265
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:268
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Neteja"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:273
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:276
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
 #, kde-format
 msgid "Translate"
 msgstr "Traduïx"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:283
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
 #, kde-format
 msgid "Debug"
 msgstr "Depura"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:301
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
 #, kde-format
 msgid "Configure"
 msgstr "Configura"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:316
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2377,17 +2446,17 @@ msgstr ""
 "Deixeu anar el text que voleu traduir. (Aneu amb compte, el text s'enviarà "
 "al servidor de Google)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "No s'ha detectat cap connexió de xarxa, no s'ha pogut traduir el text."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:397
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
 #, kde-format
 msgid "No network"
 msgstr "Sense xarxa"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:436
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
 #, kde-format
 msgid "Translate error"
 msgstr "S'ha produït un error de traducció"
@@ -4278,7 +4347,7 @@ msgstr "Permet la creació d'usuaris"
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
 #, kde-format
 msgid "Always Sync User Data"
-msgstr ""
+msgstr "Sincronitza sempre les dades d'usuari"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
 #, kde-format
@@ -4346,13 +4415,17 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Sincronitza sempre les dades externes de l'usuari CAS en els atributs "
+"disponibles en iniciar la sessió.\n"
+"Nota: De totes maneres els atributs sempre se sincronitzen en crear el "
+"compte."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Attribute handling"
+#, kde-format
 msgid "Attribute Map"
-msgstr "Gestió d'atributs"
+msgstr "Mapa d'atributs"
 
+# skip-rule: t-2p_sp
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
 #, kde-format
 msgid ""
@@ -4368,6 +4441,17 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Utilitzeu esta entrada JSON per a construir atributs interns (clau) a partir "
+"d'atributs externs (valor).\n"
+"Els noms d'atributs externs tancats amb «%» s'interpolaran en cadenes de "
+"valors.<br/>Per exemple, {\"email\":\"%email%\", \"name\":\"%firstname%, "
+"%lastname%\"}\n"
+"El mapa d'atributs sempre està interpolat. En CAS 1.0 només hi ha disponible "
+"l'atribut nom d'usuari. Els atributs interns disponibles són: nom d'usuari, "
+"nom, correu electrònic, sales;\n"
+"«sales» és una llista de sales separades per comes a les quals unir-se "
+"durant la creació de l'usuari, p. ex.: {\"rooms\": \"%team%,%department%\"} "
+"s'uniria als usuaris CAS en la creació al seu equip i canal de departament."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
 #, kde-format
@@ -5254,13 +5338,12 @@ msgstr "Força el bloqueig de la pantalla després de"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Inicia la sessió amb Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgid "Apple"
-msgstr "Aplica"
+msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
 #, kde-format
@@ -5268,11 +5351,13 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"Si voleu que l'inici de sessió d'Apple només estiga habilitat en el mòbil, "
+"podeu deixar tots els camps buits."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "ID d'Apple OAuth"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6148,11 +6233,6 @@ msgstr "Configura la traducció automàtica"
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Traducció automàtica"
-
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Idioma:"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
