@@ -23,5 +23,9 @@ private:
     QCheckBox *const mSignWithApple;
     QLineEdit *const mAccountsOAuthAppleId;
     QLineEdit *const mAccountsOAuthAppleIss;
-    QLineEdit *const AccountsOAuthAppleKid;
+    QLineEdit *const mAccountsOAuthAppleKid;
+    QCheckBox *const mTwitterLogin;
+    QLineEdit *const mTwitterId;
+    QLineEdit *const mTwitterSecret;
+    QLineEdit *const mTwitterCallbackURL;
 };

@@ -16,7 +16,11 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mSignWithApple(new QCheckBox(i18n("Sign in with Apple"), this))
     , mAccountsOAuthAppleId(new QLineEdit(this))
     , mAccountsOAuthAppleIss(new QLineEdit(this))
-    , AccountsOAuthAppleKid(new QLineEdit(this))
+    , mAccountsOAuthAppleKid(new QLineEdit(this))
+    , mTwitterLogin(new QCheckBox(i18n("Twitter Login"), this))
+    , mTwitterId(new QLineEdit(this))
+    , mTwitterSecret(new QLineEdit(this))
+    , mTwitterCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -33,8 +37,8 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mAccountsOAuthAppleIss->setObjectName(QStringLiteral("mAccountsOAuthAppleIss"));
     addLineEdit(i18n("OAuth Apple Iss"), mAccountsOAuthAppleIss, QStringLiteral("Accounts_OAuth_Apple_iss"));
 
-    AccountsOAuthAppleKid->setObjectName(QStringLiteral("AccountsOAuthAppleKid"));
-    addLineEdit(i18n("OAuth Apple Kid"), AccountsOAuthAppleKid, QStringLiteral("Accounts_OAuth_Apple_kid"));
+    mAccountsOAuthAppleKid->setObjectName(QStringLiteral("AccountsOAuthAppleKid"));
+    addLineEdit(i18n("OAuth Apple Kid"), mAccountsOAuthAppleKid, QStringLiteral("Accounts_OAuth_Apple_kid"));
 
     auto dolphinLabel = createBoldLabel(i18n("Dolphin"));
     dolphinLabel->setObjectName(QStringLiteral("dolphinLabel"));
@@ -44,6 +48,19 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     auto twitterLabel = createBoldLabel(i18n("Twitter"));
     twitterLabel->setObjectName(QStringLiteral("twitterLabel"));
     mMainLayout->addWidget(twitterLabel);
+
+    mTwitterLogin->setObjectName(QStringLiteral("mTwitterLogin"));
+    mMainLayout->addWidget(mTwitterLogin);
+    connectCheckBox(mTwitterLogin, QStringLiteral("Accounts_OAuth_Twitter"));
+
+    mTwitterId->setObjectName(QStringLiteral("mTwitterId"));
+    addLineEdit(i18n("Twitter Id"), mTwitterId, QStringLiteral("Accounts_OAuth_Twitter_id"));
+
+    mTwitterSecret->setObjectName(QStringLiteral("mTwitterSecret"));
+    addLineEdit(i18n("Twitter Secret"), mTwitterSecret, QStringLiteral("Accounts_OAuth_Twitter_secret"));
+
+    mTwitterCallbackURL->setObjectName(QStringLiteral("mTwitterSecret"));
+    addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -53,5 +70,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mSignWithApple, mapSettings, false);
     initializeWidget(mAccountsOAuthAppleId, mapSettings, QString());
     initializeWidget(mAccountsOAuthAppleIss, mapSettings, QString());
-    initializeWidget(AccountsOAuthAppleKid, mapSettings, QString());
+    initializeWidget(mAccountsOAuthAppleKid, mapSettings, QString());
+    initializeWidget(mTwitterLogin, mapSettings, false);
+    initializeWidget(mTwitterId, mapSettings, QString());
+    initializeWidget(mTwitterSecret, mapSettings, QString());
+    initializeWidget(mTwitterCallbackURL, mapSettings, QStringLiteral("_oauth/twitter"));
 }
