@@ -31,4 +31,16 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAccountsOAuthAppleId->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAccountsOAuthAppleId), QStringLiteral("Accounts_OAuth_Apple_id"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Apple_id"));
+
+    auto mAccountsOAuthAppleIss = w.findChild<QLineEdit *>(QStringLiteral("mAccountsOAuthAppleIss"));
+    QVERIFY(mAccountsOAuthAppleIss);
+    QVERIFY(mAccountsOAuthAppleIss->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAccountsOAuthAppleIss), QStringLiteral("Accounts_OAuth_Apple_iss"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Apple_iss"));
+
+    auto AccountsOAuthAppleKid = w.findChild<QLineEdit *>(QStringLiteral("AccountsOAuthAppleKid"));
+    QVERIFY(AccountsOAuthAppleKid);
+    QVERIFY(AccountsOAuthAppleKid->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(AccountsOAuthAppleKid), QStringLiteral("Accounts_OAuth_Apple_kid"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Apple_kid"));
 }

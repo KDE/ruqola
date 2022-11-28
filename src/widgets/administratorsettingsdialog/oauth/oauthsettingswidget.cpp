@@ -15,6 +15,8 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     : SettingsWidgetBase(account, parent)
     , mSignWithApple(new QCheckBox(i18n("Sign in with Apple"), this))
     , mAccountsOAuthAppleId(new QLineEdit(this))
+    , mAccountsOAuthAppleIss(new QLineEdit(this))
+    , AccountsOAuthAppleKid(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -27,6 +29,16 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mAccountsOAuthAppleId->setObjectName(QStringLiteral("mAccountsOAuthAppleId"));
     addLineEdit(i18n("OAuth Apple Id"), mAccountsOAuthAppleId, QStringLiteral("Accounts_OAuth_Apple_id"));
+
+    mAccountsOAuthAppleIss->setObjectName(QStringLiteral("mAccountsOAuthAppleIss"));
+    addLineEdit(i18n("OAuth Apple Iss"), mAccountsOAuthAppleIss, QStringLiteral("Accounts_OAuth_Apple_iss"));
+
+    AccountsOAuthAppleKid->setObjectName(QStringLiteral("AccountsOAuthAppleKid"));
+    addLineEdit(i18n("OAuth Apple Kid"), AccountsOAuthAppleKid, QStringLiteral("Accounts_OAuth_Apple_kid"));
+
+    auto dolphinLabel = createBoldLabel(i18n("Dolphin"));
+    dolphinLabel->setObjectName(QStringLiteral("dolphinLabel"));
+    mMainLayout->addWidget(dolphinLabel);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -35,4 +47,6 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
 {
     initializeWidget(mSignWithApple, mapSettings, false);
     initializeWidget(mAccountsOAuthAppleId, mapSettings, QString());
+    initializeWidget(mAccountsOAuthAppleIss, mapSettings, QString());
+    initializeWidget(AccountsOAuthAppleKid, mapSettings, QString());
 }

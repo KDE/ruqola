@@ -22,4 +22,6 @@ public:
 private:
     QCheckBox *const mSignWithApple;
     QLineEdit *const mAccountsOAuthAppleId;
+    QLineEdit *const mAccountsOAuthAppleIss;
+    QLineEdit *const AccountsOAuthAppleKid;
 };
