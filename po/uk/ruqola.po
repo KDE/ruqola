@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-27 00:46+0000\n"
-"PO-Revision-Date: 2022-11-26 11:03+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2022-11-27 09:39+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1442,46 +1442,45 @@ msgstr "Бот"
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
-msgstr ""
+msgstr "Озвучити текст"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:28
 #: kpimtextedittexttospeech/texttospeechactions.cpp:31
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Зупинити"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Призупинити"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Відтворити"
 
 #: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Налаштовування синтезу мовлення"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:58
 #, kde-format
 msgid "Volume:"
-msgstr ""
+msgstr "Гучність:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Rate:"
-msgstr "Приватна:"
+msgstr "Швидкість:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Тон:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
@@ -1499,11 +1498,10 @@ msgstr "Мова:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Голос:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgctxt "Default tts engine"
 msgid "Default"
 msgstr "Типовий"
@@ -1516,10 +1514,9 @@ msgid "Close"
 msgstr "Закрити"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Configure..."
-msgstr "Налаштувати"
+msgstr "Налаштувати…"
 
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format

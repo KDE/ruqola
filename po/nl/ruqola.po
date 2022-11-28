@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-27 00:46+0000\n"
-"PO-Revision-Date: 2022-11-26 18:03+0100\n"
+"PO-Revision-Date: 2022-11-27 17:48+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1438,46 +1438,45 @@ msgstr "Bot"
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
-msgstr ""
+msgstr "Spraaktekst"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:28
 #: kpimtextedittexttospeech/texttospeechactions.cpp:31
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Pauzeren"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Afspelen"
 
 #: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Tekst-naar-spraak configureren"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:58
 #, kde-format
 msgid "Volume:"
-msgstr ""
+msgstr "Volume:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Rate:"
-msgstr "Privé:"
+msgstr "Snelheid:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Toonhoogte:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
@@ -1495,11 +1494,10 @@ msgstr "Taal:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Stem:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgctxt "Default tts engine"
 msgid "Default"
 msgstr "Standaard"
@@ -1512,10 +1510,9 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Configure..."
-msgstr "Configureren"
+msgstr "Configureren..."
 
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format

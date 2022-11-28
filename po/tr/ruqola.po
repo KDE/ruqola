@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-27 00:46+0000\n"
-"PO-Revision-Date: 2022-11-26 18:52+0300\n"
+"PO-Revision-Date: 2022-11-27 11:09+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1434,46 +1434,45 @@ msgstr "Bot"
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
-msgstr ""
+msgstr "Metni konuş"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:28
 #: kpimtextedittexttospeech/texttospeechactions.cpp:31
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Durdur"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Duraklat"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Çal"
 
 #: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Konuşmayı Yapılandır"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:58
 #, kde-format
 msgid "Volume:"
-msgstr ""
+msgstr "Ses Düzeyi:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Rate:"
-msgstr "Özel:"
+msgstr "Hız:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Aşama:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
@@ -1491,11 +1490,10 @@ msgstr "Dil:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Ses:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgctxt "Default tts engine"
 msgid "Default"
 msgstr "Öntanımlı"
@@ -1508,10 +1506,9 @@ msgid "Close"
 msgstr "Kapat"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:81
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgid "Configure..."
-msgstr "Yapılandır"
+msgstr "Yapılandır..."
 
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
 #, kde-format
