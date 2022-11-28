@@ -39,6 +39,11 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     auto dolphinLabel = createBoldLabel(i18n("Dolphin"));
     dolphinLabel->setObjectName(QStringLiteral("dolphinLabel"));
     mMainLayout->addWidget(dolphinLabel);
+    // TODO
+
+    auto twitterLabel = createBoldLabel(i18n("Twitter"));
+    twitterLabel->setObjectName(QStringLiteral("twitterLabel"));
+    mMainLayout->addWidget(twitterLabel);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
