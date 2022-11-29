@@ -31,7 +31,7 @@ public:
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
-    void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable);
+    void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly = false);
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
     void addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable);
     void addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable);

@@ -108,7 +108,7 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     mMainLayout->addRow(layout);
 }
 
-void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable)
+void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly)
 {
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
@@ -120,14 +120,18 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
     lineEdit->setProperty(s_property, variable);
+    lineEdit->setReadOnly(readOnly);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
-        updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
-    });
-    connect(lineEdit, &QLineEdit::textChanged, this, [toolButton]() {
-        toolButton->setEnabled(true);
-    });
+    toolButton->setVisible(!readOnly);
+    if (!readOnly) {
+        connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
+            updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+        });
+        connect(lineEdit, &QLineEdit::textChanged, this, [toolButton]() {
+            toolButton->setEnabled(true);
+        });
+    }
 
     mMainLayout->addRow(layout);
 }

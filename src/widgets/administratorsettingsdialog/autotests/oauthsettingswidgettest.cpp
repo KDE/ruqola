@@ -23,7 +23,7 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSignWithApple);
     QVERIFY(!mSignWithApple->isChecked());
     QVERIFY(!mSignWithApple->text().isEmpty());
-    QVERIFY(mSignWithApple->toolTip().isEmpty());
+    QVERIFY(!mSignWithApple->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSignWithApple), QStringLiteral("Accounts_OAuth_Apple"));
 
     auto mAccountsOAuthAppleId = w.findChild<QLineEdit *>(QStringLiteral("mAccountsOAuthAppleId"));
@@ -44,7 +44,7 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(AccountsOAuthAppleKid), QStringLiteral("Accounts_OAuth_Apple_kid"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Apple_kid"));
 
-    auto mTwitterLogin = w.findChild<QCheckBox *>(QStringLiteral("mSignWithApple"));
+    auto mTwitterLogin = w.findChild<QCheckBox *>(QStringLiteral("mTwitterLogin"));
     QVERIFY(mTwitterLogin);
     QVERIFY(!mTwitterLogin->isChecked());
     QVERIFY(!mTwitterLogin->text().isEmpty());
@@ -62,4 +62,11 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTwitterSecret->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTwitterSecret), QStringLiteral("Accounts_OAuth_Twitter_secret"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Twitter_secret"));
+
+    auto mTwitterCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mTwitterCallbackURL"));
+    QVERIFY(mTwitterCallbackURL);
+    QVERIFY(mTwitterCallbackURL->text().isEmpty());
+    QVERIFY(mTwitterCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTwitterCallbackURL), QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
 }

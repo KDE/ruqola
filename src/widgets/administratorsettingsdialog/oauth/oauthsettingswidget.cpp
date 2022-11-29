@@ -59,8 +59,8 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mTwitterSecret->setObjectName(QStringLiteral("mTwitterSecret"));
     addLineEdit(i18n("Twitter Secret"), mTwitterSecret, QStringLiteral("Accounts_OAuth_Twitter_secret"));
 
-    mTwitterCallbackURL->setObjectName(QStringLiteral("mTwitterSecret"));
-    addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
+    mTwitterCallbackURL->setObjectName(QStringLiteral("mTwitterCallbackURL"));
+    addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
