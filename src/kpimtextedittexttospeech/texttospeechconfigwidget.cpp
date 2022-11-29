@@ -8,6 +8,7 @@
 #include "abstracttexttospeechconfiginterface.h"
 #include "texttospeechconfiginterface.h"
 #include "texttospeechlanguagecombobox.h"
+#include "texttospeechsliderwidget.h"
 #include <KLocalizedString>
 
 #include <KConfig>
@@ -22,9 +23,9 @@
 using namespace KPIMTextEditTextToSpeech;
 TextToSpeechConfigWidget::TextToSpeechConfigWidget(QWidget *parent)
     : QWidget(parent)
-    , mVolume(new QSlider(this))
-    , mRate(new QSlider(this))
-    , mPitch(new QSlider(this))
+    , mVolume(new TextToSpeechSliderWidget(QStringLiteral("%1 %"), this))
+    , mRate(new TextToSpeechSliderWidget(QStringLiteral("%1"), this))
+    , mPitch(new TextToSpeechSliderWidget(QStringLiteral("%1"), this))
     , mLanguage(new KPIMTextEditTextToSpeech::TextToSpeechLanguageComboBox(this))
     , mAbstractTextToSpeechConfigInterface(new TextToSpeechConfigInterface(this))
     , mAvailableEngine(new QComboBox(this))
@@ -34,24 +35,18 @@ TextToSpeechConfigWidget::TextToSpeechConfigWidget(QWidget *parent)
     auto layout = new QFormLayout(this);
     mVolume->setObjectName(QStringLiteral("volume"));
     mVolume->setRange(0, 100);
-    mVolume->setOrientation(Qt::Horizontal);
-    mVolume->setTickPosition(QSlider::TicksBelow);
-    connect(mVolume, &QSlider::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
+    connect(mVolume, &TextToSpeechSliderWidget::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
 
     layout->addRow(i18n("Volume:"), mVolume);
 
-    mRate->setTickPosition(QSlider::TicksBelow);
     mRate->setObjectName(QStringLiteral("rate"));
     mRate->setRange(-100, 100);
-    mRate->setOrientation(Qt::Horizontal);
     layout->addRow(i18n("Rate:"), mRate);
-    connect(mRate, &QSlider::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
+    connect(mRate, &TextToSpeechSliderWidget::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
 
     mPitch->setRange(-100, 100);
-    mPitch->setTickPosition(QSlider::TicksBelow);
-    connect(mPitch, &QSlider::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
+    connect(mPitch, &TextToSpeechSliderWidget::valueChanged, this, &TextToSpeechConfigWidget::valueChanged);
     mPitch->setObjectName(QStringLiteral("pitch"));
-    mPitch->setOrientation(Qt::Horizontal);
     layout->addRow(i18n("Pitch:"), mPitch);
 
     mAvailableEngine->setObjectName(QStringLiteral("engine"));

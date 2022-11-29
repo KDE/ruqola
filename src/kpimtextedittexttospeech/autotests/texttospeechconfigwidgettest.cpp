@@ -7,6 +7,7 @@
 #include "texttospeechconfigwidgettest.h"
 #include "abstracttexttospeechconfiginterface.h"
 #include "texttospeechconfigwidget.h"
+#include "texttospeechsliderwidget.h"
 
 #include <QComboBox>
 #include <QPushButton>
@@ -33,13 +34,13 @@ void TextToSpeechConfigWidgetTest::shouldHaveDefaultValue()
 {
     KPIMTextEditTextToSpeech::TextToSpeechConfigWidget textToSpeechConfigWidget;
     addInterface(&textToSpeechConfigWidget);
-    auto volume = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("volume"));
+    auto volume = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("volume"));
     QVERIFY(volume);
 
-    auto rate = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("rate"));
+    auto rate = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("rate"));
     QVERIFY(rate);
 
-    auto pitch = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("pitch"));
+    auto pitch = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("pitch"));
     QVERIFY(pitch);
 
     auto language = textToSpeechConfigWidget.findChild<QComboBox *>(QStringLiteral("language"));
@@ -62,15 +63,15 @@ void TextToSpeechConfigWidgetTest::shouldEmitConfigChangedWhenChangeConfigValue(
     KPIMTextEditTextToSpeech::TextToSpeechConfigWidget textToSpeechConfigWidget;
     addInterface(&textToSpeechConfigWidget);
     QSignalSpy spy(&textToSpeechConfigWidget, &KPIMTextEditTextToSpeech::TextToSpeechConfigWidget::configChanged);
-    auto volume = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("volume"));
+    auto volume = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("volume"));
     volume->setValue(5);
     QCOMPARE(spy.count(), 1);
 
-    auto rate = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("rate"));
+    auto rate = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("rate"));
     rate->setValue(5);
     QCOMPARE(spy.count(), 2);
 
-    auto pitch = textToSpeechConfigWidget.findChild<QSlider *>(QStringLiteral("pitch"));
+    auto pitch = textToSpeechConfigWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("pitch"));
     pitch->setValue(5);
     QCOMPARE(spy.count(), 3);
 

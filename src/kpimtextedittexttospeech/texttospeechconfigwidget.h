@@ -14,6 +14,7 @@ namespace KPIMTextEditTextToSpeech
 {
 class TextToSpeechLanguageComboBox;
 class AbstractTextToSpeechConfigInterface;
+class TextToSpeechSliderWidget;
 class KPIMTEXTEDITTEXTTOSPEECH_EXPORT TextToSpeechConfigWidget : public QWidget
 {
     Q_OBJECT
@@ -43,9 +44,9 @@ private:
     void updateAvailableLocales();
     void updateAvailableEngine();
     void updateAvailableVoices();
-    QSlider *const mVolume;
-    QSlider *const mRate;
-    QSlider *const mPitch;
+    TextToSpeechSliderWidget *const mVolume;
+    TextToSpeechSliderWidget *const mRate;
+    TextToSpeechSliderWidget *const mPitch;
     TextToSpeechLanguageComboBox *const mLanguage;
     AbstractTextToSpeechConfigInterface *mAbstractTextToSpeechConfigInterface = nullptr;
     QComboBox *const mAvailableEngine;

@@ -65,5 +65,6 @@ void TextToSpeechConfigInterface::testEngine(const EngineSettings &engineSetting
     mTextToSpeech->setVolume(engineSettings.volume);
     mTextToSpeech->setLocale(QLocale(engineSettings.localeName));
 
+    // TODO change text ?
     mTextToSpeech->say(i18n("Morning, this is the test for testing settings."));
 }
