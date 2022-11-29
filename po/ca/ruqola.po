@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-27 00:46+0000\n"
+"POT-Creation-Date: 2022-11-29 00:46+0000\n"
 "PO-Revision-Date: 2022-11-27 10:38+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -5325,12 +5325,17 @@ msgstr "Força el bloqueig de la pantalla després de"
 msgid "Sign in with Apple"
 msgstr "Inicia la sessió amb Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
+#, kde-format
+msgid "Twitter Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
 #, kde-format
 msgid "Apple"
 msgstr "Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:31
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
@@ -5339,10 +5344,44 @@ msgstr ""
 "Si voleu que l'inici de sessió d'Apple només estigui habilitat al mòbil, "
 "podeu deixar tots els camps buits."
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:35
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr "ID d'Apple OAuth"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "OAuth Apple Id"
+msgid "OAuth Apple Iss"
+msgstr "ID d'Apple OAuth"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:41
+#, fuzzy, kde-format
+#| msgid "OAuth Apple Id"
+msgid "OAuth Apple Kid"
+msgstr "ID d'Apple OAuth"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:43
+#, kde-format
+msgid "Dolphin"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:48
+#, kde-format
+msgid "Twitter"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:57
+#, kde-format
+msgid "Twitter Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:60
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:63
+#, fuzzy, kde-format
+#| msgid "Client Secret"
+msgid "Twitter Secret"
+msgstr "Secret del client"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
