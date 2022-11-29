@@ -125,6 +125,11 @@ static QString convertChannelType(const QString &str, bool mainTeam)
     }
 }
 
+bool RoomInfo::isTeam() const
+{
+    return mTeamInfo.mainTeam();
+}
+
 void RoomInfo::generateDisplayChannelType()
 {
     mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());

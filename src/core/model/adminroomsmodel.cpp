@@ -43,6 +43,7 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
         case AdminRoomsRoles::ChannelType:
         case AdminRoomsRoles::ChannelTypeStr:
             return i18n("Type");
+        case AdminRoomsRoles::IsTeam:
         case AdminRoomsRoles::Featured:
             return {};
         }
@@ -88,6 +89,8 @@ QVariant AdminRoomsModel::data(const QModelIndex &index, int role) const
         return adminroom.channelTypeStr();
     case AdminRoomsRoles::Featured:
         return adminroom.featured();
+    case AdminRoomsRoles::IsTeam:
+        return adminroom.isTeam();
     }
 
     return {};
@@ -168,7 +171,7 @@ void AdminRoomsModel::updateElement(const QJsonObject &obj)
 
 QList<int> AdminRoomsModel::hideColumns() const
 {
-    return {AdminRoomsRoles::Identifier, AdminRoomsRoles::ChannelType, AdminRoomsRoles::Featured};
+    return {AdminRoomsRoles::Identifier, AdminRoomsRoles::ChannelType, AdminRoomsRoles::Featured, AdminRoomsModel::IsTeam};
 }
 
 void AdminRoomsModel::removeElement(const QString &identifier)

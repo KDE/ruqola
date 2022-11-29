@@ -50,5 +50,10 @@ bool AdminRoomsFilterProxyModel::filterAcceptsRow(int source_row, const QModelIn
             return true;
         }
     }
+    if (mFilters & FilterRoom::TeamRooms) {
+        const QModelIndex sourceIndexIsTeam = sourceModel()->index(source_row, AdminRoomsModel::AdminRoomsRoles::IsTeam, source_parent);
+        const bool isTeam = sourceModel()->data(sourceIndexIsTeam).toBool();
+        return isTeam;
+    }
     return false;
 }

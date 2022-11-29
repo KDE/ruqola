@@ -79,6 +79,8 @@ public:
     Q_REQUIRED_RESULT const QString &ownerName() const;
     void setOwnerName(const QString &newOwnerName);
 
+    Q_REQUIRED_RESULT bool isTeam() const;
+
 private:
     void generateDisplayChannelType();
     TeamInfo mTeamInfo;
