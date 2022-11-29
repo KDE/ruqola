@@ -28,4 +28,9 @@ private:
     QLineEdit *const mTwitterId;
     QLineEdit *const mTwitterSecret;
     QLineEdit *const mTwitterCallbackURL;
+
+    QCheckBox *const mLinkedInLogin;
+    QLineEdit *const mLinkedInId;
+    QLineEdit *const mLinkedInSecret;
+    QLineEdit *const mLinkedInCallbackURL;
 };

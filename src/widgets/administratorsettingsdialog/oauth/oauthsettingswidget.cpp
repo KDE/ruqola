@@ -21,6 +21,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mTwitterId(new QLineEdit(this))
     , mTwitterSecret(new QLineEdit(this))
     , mTwitterCallbackURL(new QLineEdit(this))
+    , mLinkedInLogin(new QCheckBox(i18n("LinkedIn Login"), this))
+    , mLinkedInId(new QLineEdit(this))
+    , mLinkedInSecret(new QLineEdit(this))
+    , mLinkedInCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -61,6 +65,23 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mTwitterCallbackURL->setObjectName(QStringLiteral("mTwitterCallbackURL"));
     addLineEdit(i18n("Twitter Secret"), mTwitterCallbackURL, QStringLiteral("Accounts_OAuth_Twitter_callback_url"), true);
+
+    auto linkedInLabel = createBoldLabel(i18n("LinkedIn"));
+    linkedInLabel->setObjectName(QStringLiteral("linkedInLabel"));
+    mMainLayout->addWidget(linkedInLabel);
+
+    mLinkedInLogin->setObjectName(QStringLiteral("mLinkedInLogin"));
+    mMainLayout->addWidget(mLinkedInLogin);
+    connectCheckBox(mLinkedInLogin, QStringLiteral("Accounts_OAuth_Linkedin"));
+
+    mLinkedInId->setObjectName(QStringLiteral("mLinkedInId"));
+    addLineEdit(i18n("LinkedIn Id"), mLinkedInId, QStringLiteral("Accounts_OAuth_Linkedin_id"));
+
+    mLinkedInSecret->setObjectName(QStringLiteral("mLinkedInSecret"));
+    addLineEdit(i18n("LinkedIn Secret"), mLinkedInSecret, QStringLiteral("Accounts_OAuth_Linkedin_secret"));
+
+    mLinkedInCallbackURL->setObjectName(QStringLiteral("mLinkedInCallbackURL"));
+    addLineEdit(i18n("LinkedIn Secret"), mLinkedInCallbackURL, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -75,4 +96,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTwitterId, mapSettings, QString());
     initializeWidget(mTwitterSecret, mapSettings, QString());
     initializeWidget(mTwitterCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/twitter")));
+
+    initializeWidget(mLinkedInLogin, mapSettings, false);
+    initializeWidget(mLinkedInId, mapSettings, QString());
+    initializeWidget(mLinkedInSecret, mapSettings, QString());
+    initializeWidget(mLinkedInCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/linkedin")));
 }

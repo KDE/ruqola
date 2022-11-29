@@ -69,4 +69,30 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTwitterCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTwitterCallbackURL), QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Twitter_callback_url"));
+
+    auto mLinkedInLogin = w.findChild<QCheckBox *>(QStringLiteral("mLinkedInLogin"));
+    QVERIFY(mLinkedInLogin);
+    QVERIFY(!mLinkedInLogin->isChecked());
+    QVERIFY(!mLinkedInLogin->text().isEmpty());
+    QVERIFY(mLinkedInLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInLogin), QStringLiteral("Accounts_OAuth_Linkedin"));
+
+    auto mLinkedInId = w.findChild<QLineEdit *>(QStringLiteral("mLinkedInId"));
+    QVERIFY(mLinkedInId);
+    QVERIFY(mLinkedInId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInId), QStringLiteral("Accounts_OAuth_Linkedin_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Linkedin_id"));
+
+    auto mLinkedInSecret = w.findChild<QLineEdit *>(QStringLiteral("mLinkedInSecret"));
+    QVERIFY(mLinkedInSecret);
+    QVERIFY(mLinkedInSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInSecret), QStringLiteral("Accounts_OAuth_Linkedin_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Linkedin_secret"));
+
+    auto mLinkedInCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mLinkedInCallbackURL"));
+    QVERIFY(mLinkedInCallbackURL);
+    QVERIFY(mLinkedInCallbackURL->text().isEmpty());
+    QVERIFY(mLinkedInCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInCallbackURL), QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
 }
