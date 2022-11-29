@@ -316,3 +316,11 @@ QLabel *SettingsWidgetBase::createBoldLabel(const QString &text)
     label->setFont(apiRateLimiterLabelFont);
     return label;
 }
+
+QString SettingsWidgetBase::urlFromRelativePath(const QString &relativePath)
+{
+    if (mAccount) {
+        return mAccount->serverUrl() + QLatin1Char('/') + relativePath;
+    }
+    return {};
+}

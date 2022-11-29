@@ -74,5 +74,5 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTwitterLogin, mapSettings, false);
     initializeWidget(mTwitterId, mapSettings, QString());
     initializeWidget(mTwitterSecret, mapSettings, QString());
-    initializeWidget(mTwitterCallbackURL, mapSettings, QStringLiteral("_oauth/twitter"));
+    initializeWidget(mTwitterCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/twitter")));
 }
