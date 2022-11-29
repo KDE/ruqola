@@ -5,7 +5,8 @@
 */
 
 #include "texttospeechwidgettest.h"
-#include "../abstracttexttospeechinterface.h"
+#include "abstracttexttospeechinterface.h"
+#include "texttospeechsliderwidget.h"
 #include "texttospeechwidget.h"
 #include <QHBoxLayout>
 #include <QSignalSpy>
@@ -53,7 +54,7 @@ void TextToSpeechWidgetTest::shouldHaveDefaultValue()
     QVERIFY(!playPauseButton->isEnabled());
     QVERIFY(!playPauseButton->icon().isNull());
 
-    auto volume = textToSpeechWidget.findChild<QSlider *>(QStringLiteral("volumeslider"));
+    auto volume = textToSpeechWidget.findChild<KPIMTextEditTextToSpeech::TextToSpeechSliderWidget *>(QStringLiteral("volumeslider"));
     QVERIFY(volume);
 
     auto configureButton = textToSpeechWidget.findChild<QToolButton *>(QStringLiteral("configurebutton"));

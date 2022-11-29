@@ -8,6 +8,7 @@
 #include "texttospeechactions.h"
 #include "texttospeechconfigdialog.h"
 #include "texttospeechinterface.h"
+#include "texttospeechsliderwidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -32,7 +33,7 @@ public:
     QToolButton *mConfigureButton = nullptr;
     AbstractTextToSpeechInterface *mTextToSpeechInterface = nullptr;
     TextToSpeechActions *mTextToSpeechActions = nullptr;
-    QSlider *mVolume = nullptr;
+    TextToSpeechSliderWidget *mVolume = nullptr;
     bool mNeedToHide = false;
 };
 
@@ -57,13 +58,11 @@ TextToSpeechWidget::TextToSpeechWidget(QWidget *parent)
 
     auto volume = new QLabel(i18n("Volume:"), this);
     hbox->addWidget(volume);
-    d->mVolume = new QSlider(this);
+    d->mVolume = new TextToSpeechSliderWidget(QStringLiteral("%1 %"), this);
     d->mVolume->setMinimumWidth(100);
-    d->mVolume->setOrientation(Qt::Horizontal);
     d->mVolume->setObjectName(QStringLiteral("volumeslider"));
     d->mVolume->setRange(0, 100);
-    d->mVolume->setTickPosition(QSlider::TicksBelow);
-    connect(d->mVolume, &QSlider::valueChanged, this, &TextToSpeechWidget::slotVolumeChanged);
+    connect(d->mVolume, &TextToSpeechSliderWidget::valueChanged, this, &TextToSpeechWidget::slotVolumeChanged);
     hbox->addWidget(d->mVolume);
 
     d->mStopButton = new QToolButton(this);

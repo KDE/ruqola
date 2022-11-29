@@ -37,7 +37,7 @@ TextToSpeechSliderWidget::~TextToSpeechSliderWidget() = default;
 void TextToSpeechSliderWidget::setValue(int value)
 {
     mSlider->setValue(value);
-    Q_EMIT valueChanged();
+    Q_EMIT valueChanged(value);
 }
 
 void TextToSpeechSliderWidget::setRange(int min, int max)

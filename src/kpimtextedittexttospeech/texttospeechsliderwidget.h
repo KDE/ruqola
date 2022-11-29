@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT int value() const;
 
 Q_SIGNALS:
-    void valueChanged();
+    void valueChanged(int value);
 
 private:
     void slotValueChanged(int value);
