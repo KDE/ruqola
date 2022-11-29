@@ -20,6 +20,13 @@ class KPIMTEXTEDITTEXTTOSPEECH_EXPORT AbstractTextToSpeechConfigInterface : publ
 {
     Q_OBJECT
 public:
+    struct EngineSettings {
+        int rate = 0;
+        int pitch = 0;
+        int volume = 0;
+        QString voice;
+        QString localeName;
+    };
     explicit AbstractTextToSpeechConfigInterface(QObject *parent = nullptr);
     ~AbstractTextToSpeechConfigInterface() override;
     Q_REQUIRED_RESULT virtual QVector<QLocale> availableLocales() const;
@@ -29,5 +36,6 @@ public:
     Q_REQUIRED_RESULT virtual QStringList availableEngines() const;
     Q_REQUIRED_RESULT virtual QStringList availableVoices() const;
     virtual void setEngine(const QString &engineName);
+    virtual void testEngine(const EngineSettings &engineSettings);
 };
 }

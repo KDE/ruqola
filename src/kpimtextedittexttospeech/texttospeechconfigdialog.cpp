@@ -37,7 +37,6 @@ TextToSpeechConfigDialog::TextToSpeechConfigDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &TextToSpeechConfigDialog::reject);
     connect(buttonBox->button(QDialogButtonBox::RestoreDefaults), &QPushButton::clicked, this, &TextToSpeechConfigDialog::slotRestoreDefaults);
     mainLayout->addWidget(buttonBox);
-    mTextToSpeechConfigWidget->readConfig();
     readConfig();
 }
 
@@ -58,6 +57,7 @@ void TextToSpeechConfigDialog::readConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myTextToSpeechConfigDialogConfigGroupName);
     KWindowConfig::restoreWindowSize(windowHandle(), group);
     resize(windowHandle()->size()); // workaround for QTBUG-40584
+    mTextToSpeechConfigWidget->readConfig();
 }
 
 void TextToSpeechConfigDialog::writeConfig()

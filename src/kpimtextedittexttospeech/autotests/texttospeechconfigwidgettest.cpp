@@ -9,6 +9,7 @@
 #include "texttospeechconfigwidget.h"
 
 #include <QComboBox>
+#include <QPushButton>
 #include <QSignalSpy>
 #include <QSlider>
 #include <QTest>
@@ -51,6 +52,9 @@ void TextToSpeechConfigWidgetTest::shouldHaveDefaultValue()
 
     auto voice = textToSpeechConfigWidget.findChild<QComboBox *>(QStringLiteral("voice"));
     QVERIFY(voice);
+
+    auto mTestButton = textToSpeechConfigWidget.findChild<QPushButton *>(QStringLiteral("mTestButton"));
+    QVERIFY(mTestButton);
 }
 
 void TextToSpeechConfigWidgetTest::shouldEmitConfigChangedWhenChangeConfigValue()

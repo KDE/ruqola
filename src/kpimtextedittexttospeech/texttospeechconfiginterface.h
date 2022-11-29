@@ -28,6 +28,7 @@ public:
     Q_REQUIRED_RESULT QStringList availableEngines() const override;
     Q_REQUIRED_RESULT QStringList availableVoices() const override;
     void setEngine(const QString &engineName) override;
+    void testEngine(const EngineSettings &engineSettings) override;
     QTextToSpeech *mTextToSpeech = nullptr;
 };
 }

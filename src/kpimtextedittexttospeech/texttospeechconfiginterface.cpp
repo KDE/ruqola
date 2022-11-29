@@ -5,12 +5,13 @@
 */
 
 #include "texttospeechconfiginterface.h"
+#include <KLocalizedString>
+#include <QDebug>
 #include <QTextToSpeech>
 using namespace KPIMTextEditTextToSpeech;
 
 TextToSpeechConfigInterface::TextToSpeechConfigInterface(QObject *parent)
     : AbstractTextToSpeechConfigInterface(parent)
-    , mTextToSpeech(new QTextToSpeech(this))
 {
 }
 
@@ -44,6 +45,25 @@ QLocale TextToSpeechConfigInterface::locale() const
 
 void TextToSpeechConfigInterface::setEngine(const QString &engineName)
 {
-    delete mTextToSpeech;
-    mTextToSpeech = new QTextToSpeech(engineName, this);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
+    if (mTextToSpeech && (mTextToSpeech->engine() != engineName))
+#endif
+    {
+        delete mTextToSpeech;
+        mTextToSpeech = new QTextToSpeech(engineName, this);
+    }
+}
+
+void TextToSpeechConfigInterface::testEngine(const EngineSettings &engineSettings)
+{
+    const int rate = engineSettings.rate;
+    const double rateDouble = rate / 100.0;
+    mTextToSpeech->setRate(rateDouble);
+    const int pitch = engineSettings.pitch;
+    const double pitchDouble = pitch / 100.0;
+    mTextToSpeech->setPitch(pitchDouble);
+    mTextToSpeech->setVolume(engineSettings.volume);
+    mTextToSpeech->setLocale(QLocale(engineSettings.localeName));
+
+    mTextToSpeech->say(i18n("Morning, this is the test for testing settings."));
 }

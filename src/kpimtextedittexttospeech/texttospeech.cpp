@@ -36,9 +36,14 @@ void TextToSpeech::reloadSettings()
     const QString engineName = grp.readEntry("engine");
     if (d->mDefaultEngine != engineName) {
         if (d->mTextToSpeech) {
-            disconnect(d->mTextToSpeech, &QTextToSpeech::stateChanged, this, &TextToSpeech::slotStateChanged);
-            delete d->mTextToSpeech;
-            d->mTextToSpeech = nullptr;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 4, 0)
+            if (d->mTextToSpeech && (d->mTextToSpeech->engine() != engineName))
+#endif
+            {
+                disconnect(d->mTextToSpeech, &QTextToSpeech::stateChanged, this, &TextToSpeech::slotStateChanged);
+                delete d->mTextToSpeech;
+                d->mTextToSpeech = nullptr;
+            }
         }
     }
     if (!d->mTextToSpeech) {
@@ -46,8 +51,12 @@ void TextToSpeech::reloadSettings()
         connect(d->mTextToSpeech, &QTextToSpeech::stateChanged, this, &TextToSpeech::slotStateChanged);
     }
     d->mDefaultEngine = engineName;
-    d->mTextToSpeech->setRate(grp.readEntry("rate", 0.0));
-    d->mTextToSpeech->setPitch(grp.readEntry("pitch", 0.0));
+    const int rate = grp.readEntry("rate", 0);
+    const double rateDouble = rate / 100.0;
+    d->mTextToSpeech->setRate(rateDouble);
+    const int pitch = grp.readEntry("pitch", 0);
+    const double pitchDouble = pitch / 100.0;
+    d->mTextToSpeech->setPitch(pitchDouble);
     d->mTextToSpeech->setVolume(grp.readEntry("volume", 0));
     d->mTextToSpeech->setLocale(QLocale(grp.readEntry("localeName")));
     // It doesn't have api for it d->mTextToSpeech->setVoice(grp.readEntry("voice"));

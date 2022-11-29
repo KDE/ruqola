@@ -29,7 +29,7 @@ void TextToSpeechLanguageComboBox::updateAvailableLocales(const QVector<QLocale>
 {
     clear();
     for (const QLocale &locale : locales) {
-        QVariant localeVariant(locale);
+        const QVariant localeVariant(locale);
         addItem(QLocale::languageToString(locale.language()), localeVariant);
         if (locale.name() == current.name()) {
             setCurrentIndex(count() - 1);

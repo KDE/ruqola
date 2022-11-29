@@ -13,7 +13,9 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <QComboBox>
+#include <QDebug>
 #include <QFormLayout>
+#include <QPushButton>
 #include <QSlider>
 #include <QTimer>
 
@@ -27,6 +29,7 @@ TextToSpeechConfigWidget::TextToSpeechConfigWidget(QWidget *parent)
     , mAbstractTextToSpeechConfigInterface(new TextToSpeechConfigInterface(this))
     , mAvailableEngine(new QComboBox(this))
     , mVoice(new QComboBox(this))
+    , mTestButton(new QPushButton(QIcon::fromTheme(QStringLiteral("player-volume")), i18n("Test"), this))
 {
     auto layout = new QFormLayout(this);
     mVolume->setObjectName(QStringLiteral("volume"));
@@ -55,15 +58,20 @@ TextToSpeechConfigWidget::TextToSpeechConfigWidget(QWidget *parent)
     layout->addRow(i18n("Engine:"), mAvailableEngine);
     connect(mAvailableEngine, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::slotEngineChanged);
     connect(mAvailableEngine, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::valueChanged);
+    connect(mAvailableEngine, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::slotLanguageChanged);
 
     mLanguage->setObjectName(QStringLiteral("language"));
     layout->addRow(i18n("Language:"), mLanguage);
-    connect(mAvailableEngine, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::slotLanguageChanged);
     connect(mLanguage, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::valueChanged);
 
     mVoice->setObjectName(QStringLiteral("voice"));
     layout->addRow(i18n("Voice:"), mVoice);
     connect(mVoice, &QComboBox::currentIndexChanged, this, &TextToSpeechConfigWidget::valueChanged);
+
+    mTestButton->setObjectName(QStringLiteral("mTestButton"));
+    // TODO add icon ?
+    layout->addWidget(mTestButton);
+    connect(mTestButton, &QPushButton::clicked, this, &TextToSpeechConfigWidget::slotTestTextToSpeech);
 
     QTimer::singleShot(0, this, &TextToSpeechConfigWidget::slotUpdateSettings);
 }
@@ -90,10 +98,11 @@ void TextToSpeechConfigWidget::readConfig()
 {
     KConfig config(QStringLiteral("texttospeechrc"));
     KConfigGroup grp = config.group("Settings");
-    mRate->setValue(static_cast<int>(grp.readEntry("rate", 0.0) * 100));
-    mPitch->setValue(static_cast<int>(grp.readEntry("pitch", 0.0) * 100));
+    const auto rate = grp.readEntry("rate", 0);
+    mRate->setValue(rate);
+    const auto pitch = grp.readEntry("pitch", 0);
+    mPitch->setValue(pitch);
     mVolume->setValue(static_cast<int>(grp.readEntry("volume", 50)));
-    updateLocale();
 }
 
 void TextToSpeechConfigWidget::writeConfig()
@@ -101,25 +110,30 @@ void TextToSpeechConfigWidget::writeConfig()
     KConfig config(QStringLiteral("texttospeechrc"));
     KConfigGroup grp = config.group("Settings");
     grp.writeEntry("volume", mVolume->value());
-    grp.writeEntry("rate", (static_cast<int>((static_cast<double>(mRate->value()) / 100.0))));
-    grp.writeEntry("pitch", (static_cast<int>((static_cast<double>(mPitch->value()) / 100.0))));
+    grp.writeEntry("rate", mRate->value());
+    grp.writeEntry("pitch", mPitch->value());
     grp.writeEntry("localeName", mLanguage->currentData().toLocale().name());
     grp.writeEntry("engine", mAvailableEngine->currentData().toString());
     grp.writeEntry("voice", mVoice->currentData().toString());
 }
 
-void TextToSpeechConfigWidget::slotUpdateSettings()
+void TextToSpeechConfigWidget::slotLocalesAndVoices()
 {
     updateAvailableLocales();
-    updateAvailableEngine();
     updateAvailableVoices();
+}
+
+void TextToSpeechConfigWidget::slotUpdateSettings()
+{
+    updateAvailableEngine();
+    slotLocalesAndVoices();
 }
 
 void TextToSpeechConfigWidget::setTextToSpeechConfigInterface(AbstractTextToSpeechConfigInterface *interface)
 {
     delete mAbstractTextToSpeechConfigInterface;
     mAbstractTextToSpeechConfigInterface = interface;
-    slotUpdateSettings();
+    slotLocalesAndVoices();
 }
 
 void TextToSpeechConfigWidget::restoreDefaults()
@@ -131,10 +145,20 @@ void TextToSpeechConfigWidget::restoreDefaults()
     // TODO
 }
 
+void TextToSpeechConfigWidget::slotTestTextToSpeech()
+{
+    TextToSpeechConfigInterface::EngineSettings settings;
+    settings.rate = mRate->value();
+    settings.pitch = mPitch->value();
+    settings.volume = mVolume->value();
+    settings.localeName = mLanguage->currentData().toLocale().name();
+    settings.voice = mVoice->currentData().toString();
+    mAbstractTextToSpeechConfigInterface->testEngine(settings);
+}
+
 void TextToSpeechConfigWidget::updateAvailableEngine()
 {
     mAvailableEngine->clear();
-    mAvailableEngine->addItem(i18nc("Default tts engine", "Default"), QString());
     const QStringList lst = mAbstractTextToSpeechConfigInterface->availableEngines();
     for (const QString &engine : lst) {
         mAvailableEngine->addItem(engine, engine);
@@ -182,7 +206,7 @@ void TextToSpeechConfigWidget::updateAvailableLocales()
 {
     mLanguage->clear();
     const QVector<QLocale> locales = mAbstractTextToSpeechConfigInterface->availableLocales();
-    QLocale current = mAbstractTextToSpeechConfigInterface->locale();
+    const QLocale current = mAbstractTextToSpeechConfigInterface->locale();
     mLanguage->updateAvailableLocales(locales, current);
     updateLocale();
 }
@@ -190,7 +214,6 @@ void TextToSpeechConfigWidget::updateAvailableLocales()
 void TextToSpeechConfigWidget::slotEngineChanged()
 {
     mAbstractTextToSpeechConfigInterface->setEngine(mAvailableEngine->currentData().toString());
-    updateAvailableLocales();
 }
 
 void TextToSpeechConfigWidget::slotLanguageChanged()

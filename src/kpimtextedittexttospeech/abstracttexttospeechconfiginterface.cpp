@@ -44,3 +44,8 @@ void AbstractTextToSpeechConfigInterface::setEngine(const QString &engineName)
 {
     Q_UNUSED(engineName)
 }
+
+void AbstractTextToSpeechConfigInterface::testEngine(const EngineSettings &engineSettings)
+{
+    Q_UNUSED(engineSettings)
+}
