@@ -5,6 +5,7 @@
 */
 
 #include "texttospeech.h"
+#include "texttospeechutil.h"
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -32,8 +33,7 @@ TextToSpeech::~TextToSpeech() = default;
 
 void TextToSpeech::reloadSettings()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     const QString engineName = grp.readEntry("engine");
     if (d->mDefaultEngine != engineName) {
         if (d->mTextToSpeech) {

@@ -36,6 +36,8 @@ if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
         texttospeechactions.h
         texttospeechsliderwidget.h
         texttospeechsliderwidget.cpp
+        texttospeechutil.h
+        texttospeechutil.cpp	
     )
 endif()
 

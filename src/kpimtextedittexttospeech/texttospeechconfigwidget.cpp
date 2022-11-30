@@ -9,6 +9,7 @@
 #include "texttospeechconfiginterface.h"
 #include "texttospeechlanguagecombobox.h"
 #include "texttospeechsliderwidget.h"
+#include "texttospeechutil.h"
 #include <KLocalizedString>
 
 #include <KConfig>
@@ -80,8 +81,7 @@ void TextToSpeechConfigWidget::valueChanged()
 
 void TextToSpeechConfigWidget::updateLocale()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     const QString localeName = grp.readEntry("localeName");
     if (localeName.isEmpty()) {
         return;
@@ -91,8 +91,7 @@ void TextToSpeechConfigWidget::updateLocale()
 
 void TextToSpeechConfigWidget::readConfig()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     const auto rate = grp.readEntry("rate", 0);
     mRate->setValue(rate);
     const auto pitch = grp.readEntry("pitch", 0);
@@ -102,8 +101,7 @@ void TextToSpeechConfigWidget::readConfig()
 
 void TextToSpeechConfigWidget::writeConfig()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     grp.writeEntry("volume", mVolume->value());
     grp.writeEntry("rate", mRate->value());
     grp.writeEntry("pitch", mPitch->value());
@@ -175,8 +173,7 @@ void TextToSpeechConfigWidget::updateAvailableVoices()
 
 void TextToSpeechConfigWidget::updateVoice()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     const QString voice = grp.readEntry("voice");
     int index = mVoice->findData(voice);
     if (index == -1) {
@@ -187,8 +184,7 @@ void TextToSpeechConfigWidget::updateVoice()
 
 void TextToSpeechConfigWidget::updateEngine()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
+    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
     const QString engineName = grp.readEntry("engine");
     int index = mAvailableEngine->findData(engineName);
     if (index == -1) {
