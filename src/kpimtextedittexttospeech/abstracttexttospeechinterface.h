@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT virtual bool isReady() const;
     virtual void say(const QString &text);
     Q_REQUIRED_RESULT virtual double volume() const;
-    virtual void setVolume(int value);
+    virtual void setVolume(double value);
     virtual void reloadSettings();
 };
 }

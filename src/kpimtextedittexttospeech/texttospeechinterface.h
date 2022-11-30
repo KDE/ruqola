@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT bool isReady() const override;
     void say(const QString &text) override;
     Q_REQUIRED_RESULT double volume() const override;
-    void setVolume(int value) override;
+    void setVolume(double value) override;
     void reloadSettings() override;
 
 private:

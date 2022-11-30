@@ -52,7 +52,7 @@ double TextToSpeechInterface::volume() const
     return KPIMTextEditTextToSpeech::TextToSpeech::self()->volume();
 }
 
-void TextToSpeechInterface::setVolume(int value)
+void TextToSpeechInterface::setVolume(double value)
 {
     KPIMTextEditTextToSpeech::TextToSpeech::self()->setVolume(value);
 }

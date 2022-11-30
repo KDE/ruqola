@@ -30,7 +30,7 @@ double AbstractTextToSpeechInterface::volume() const
     return 0.5;
 }
 
-void AbstractTextToSpeechInterface::setVolume(int value)
+void AbstractTextToSpeechInterface::setVolume(double value)
 {
     Q_UNUSED(value)
 }
