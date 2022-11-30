@@ -670,6 +670,7 @@ target_link_libraries(libruqolawidgets
     librocketchatrestapi-qt5
     libruqolacore
     KF5PimCommonAutoCorrection
+    KF5PimTextEditTextToSpeech
 )
 
 if (NOT WIN32 AND NOT APPLE)

@@ -22,6 +22,11 @@ namespace PimCommonTextTranslator
 {
 class TranslatorConfigureListsWidget;
 }
+namespace KPIMTextEditTextToSpeech
+{
+class TextToSpeechConfigWidget;
+}
+
 class ConfigureAutoCorrectionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureSettingsDialog : public KPageDialog
 {
@@ -54,4 +59,8 @@ private:
 #endif
     KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
     PimCommonTextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
+    KPIMTextEditTextToSpeech::TextToSpeechConfigWidget *const mConfigureTextToSpeechWidget;
+#endif
 };

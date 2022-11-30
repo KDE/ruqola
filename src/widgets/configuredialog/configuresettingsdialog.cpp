@@ -20,6 +20,10 @@
 #include <QPushButton>
 #include <QWindow>
 
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <KPIMTextEditTextToSpeech/TextToSpeechConfigWidget>
+#endif
+
 #if HAVE_KUSERFEEDBACK
 #include "configureuserfeedbackwidget.h"
 #endif
@@ -39,6 +43,9 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
     , mConfigureTranslateWidget(new PimCommonTextTranslator::TranslatorConfigureListsWidget(this))
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    , mConfigureTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechConfigWidget(this))
+#endif
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
     setFaceType(KPageDialog::List);
@@ -82,6 +89,13 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    const QString textToSpeechPageName = i18nc("@title Preferences page name", "Accessibility");
+    mConfigureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureTextToSpeechWidget, textToSpeechPageName);
+    mConfigureTextToSpeechWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-accessibility")));
+    addPage(mConfigureTextToSpeechWidgetPage);
+#endif
+
     connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked, this, &ConfigureSettingsDialog::slotAccepted);
     connect(buttonBox()->button(QDialogButtonBox::Cancel), &QPushButton::clicked, this, &ConfigureSettingsDialog::reject);
     readConfig();
@@ -119,6 +133,9 @@ void ConfigureSettingsDialog::slotAccepted()
     mConfigureFontWidget->save();
     mConfigureTranslateWidget->save();
     mConfigureAutoCorrectionWidget->save();
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    mConfigureTextToSpeechWidget->writeConfig();
+#endif
 }
 
 void ConfigureSettingsDialog::load()
@@ -132,4 +149,7 @@ void ConfigureSettingsDialog::load()
     mConfigureFontWidget->load();
     mConfigureTranslateWidget->load();
     mConfigureAutoCorrectionWidget->load();
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    mConfigureTextToSpeechWidget->readConfig();
+#endif
 }
