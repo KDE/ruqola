@@ -89,7 +89,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mLinkedInCallbackURL->setObjectName(QStringLiteral("mLinkedInCallbackURL"));
     addLineEdit(i18n("LinkedIn Secret"), mLinkedInCallbackURL, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"), true);
 
-    auto proxyLabel = createBoldLabel(i18n("Proxy^"));
+    auto proxyLabel = createBoldLabel(i18n("Proxy"));
     proxyLabel->setObjectName(QStringLiteral("proxyLabel"));
     mMainLayout->addWidget(proxyLabel);
 
