@@ -31,6 +31,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mMeteorId(new QLineEdit(this))
     , mMeteorSecret(new QLineEdit(this))
     , mMeteorCallbackURL(new QLineEdit(this))
+    , mFacebookLogin(new QCheckBox(i18n("Facebook Login"), this))
+    , mFacebookId(new QLineEdit(this))
+    , mFacebookSecret(new QLineEdit(this))
+    , mFacebookCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -116,6 +120,24 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mMeteorCallbackURL->setObjectName(QStringLiteral("mMeteorCallbackURL"));
     addLineEdit(i18n("Meteor Secret"), mMeteorCallbackURL, QStringLiteral("Accounts_OAuth_Meteor_callback_url"), true);
+
+    // Facebook
+    auto facebookLabel = createBoldLabel(i18n("Facebook"));
+    facebookLabel->setObjectName(QStringLiteral("facebookLabel"));
+    mMainLayout->addWidget(facebookLabel);
+
+    mFacebookLogin->setObjectName(QStringLiteral("mFacebookLogin"));
+    mMainLayout->addWidget(mFacebookLogin);
+    connectCheckBox(mFacebookLogin, QStringLiteral("Accounts_OAuth_Facebook"));
+
+    mFacebookId->setObjectName(QStringLiteral("mFacebookId"));
+    addLineEdit(i18n("Facebook Id"), mFacebookId, QStringLiteral("Accounts_OAuth_Facebook_id"));
+
+    mFacebookSecret->setObjectName(QStringLiteral("mFacebookSecret"));
+    addLineEdit(i18n("Facebook Secret"), mFacebookSecret, QStringLiteral("Accounts_OAuth_Facebook_secret"));
+
+    mFacebookCallbackURL->setObjectName(QStringLiteral("mFacebookCallbackURL"));
+    addLineEdit(i18n("Facebook Secret"), mFacebookCallbackURL, QStringLiteral("Accounts_OAuth_Facebook_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -143,4 +165,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mMeteorId, mapSettings, QString());
     initializeWidget(mMeteorSecret, mapSettings, QString());
     initializeWidget(mMeteorCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/meteor")));
+
+    initializeWidget(mFacebookLogin, mapSettings, false);
+    initializeWidget(mFacebookId, mapSettings, QString());
+    initializeWidget(mFacebookSecret, mapSettings, QString());
+    initializeWidget(mFacebookCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/facebook")));
 }

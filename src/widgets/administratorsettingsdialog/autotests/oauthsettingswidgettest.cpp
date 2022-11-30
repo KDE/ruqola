@@ -133,4 +133,30 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMeteorCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorCallbackURL), QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
+
+    auto mFacebookLogin = w.findChild<QCheckBox *>(QStringLiteral("mFacebookLogin"));
+    QVERIFY(mFacebookLogin);
+    QVERIFY(!mFacebookLogin->isChecked());
+    QVERIFY(!mFacebookLogin->text().isEmpty());
+    QVERIFY(mFacebookLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookLogin), QStringLiteral("Accounts_OAuth_Facebook"));
+
+    auto mFacebookId = w.findChild<QLineEdit *>(QStringLiteral("mFacebookId"));
+    QVERIFY(mFacebookId);
+    QVERIFY(mFacebookId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookId), QStringLiteral("Accounts_OAuth_Facebook_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Facebook_id"));
+
+    auto mFacebookSecret = w.findChild<QLineEdit *>(QStringLiteral("mFacebookSecret"));
+    QVERIFY(mFacebookSecret);
+    QVERIFY(mFacebookSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookSecret), QStringLiteral("Accounts_OAuth_Facebook_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Facebook_secret"));
+
+    auto mFacebookCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mFacebookCallbackURL"));
+    QVERIFY(mFacebookCallbackURL);
+    QVERIFY(mFacebookCallbackURL->text().isEmpty());
+    QVERIFY(mFacebookCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookCallbackURL), QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
 }

@@ -41,4 +41,9 @@ private:
     QLineEdit *const mMeteorId;
     QLineEdit *const mMeteorSecret;
     QLineEdit *const mMeteorCallbackURL;
+
+    QCheckBox *const mFacebookLogin;
+    QLineEdit *const mFacebookId;
+    QLineEdit *const mFacebookSecret;
+    QLineEdit *const mFacebookCallbackURL;
 };
