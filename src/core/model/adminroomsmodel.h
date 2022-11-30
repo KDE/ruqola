@@ -26,7 +26,7 @@ public:
         Featured,
         Identifier,
         IsTeam,
-        LastColumn = Identifier,
+        LastColumn = IsTeam,
     };
     Q_ENUM(AdminRoomsRoles)
 

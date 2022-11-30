@@ -132,7 +132,7 @@ bool RoomInfo::isTeam() const
 
 void RoomInfo::generateDisplayChannelType()
 {
-    mChannelTypeStr = convertChannelType(mChannelType, mTeamInfo.mainTeam());
+    mChannelTypeStr = convertChannelType(mChannelType, isTeam());
 }
 
 const QString &RoomInfo::ownerName() const
