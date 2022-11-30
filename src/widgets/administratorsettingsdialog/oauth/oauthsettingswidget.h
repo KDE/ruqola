@@ -33,4 +33,12 @@ private:
     QLineEdit *const mLinkedInId;
     QLineEdit *const mLinkedInSecret;
     QLineEdit *const mLinkedInCallbackURL;
+
+    QLineEdit *const mProxyHost;
+    QLineEdit *const mProxyServices;
+
+    QCheckBox *const mMeteorLogin;
+    QLineEdit *const mMeteorId;
+    QLineEdit *const mMeteorSecret;
+    QLineEdit *const mMeteorCallbackURL;
 };

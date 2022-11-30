@@ -25,6 +25,12 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mLinkedInId(new QLineEdit(this))
     , mLinkedInSecret(new QLineEdit(this))
     , mLinkedInCallbackURL(new QLineEdit(this))
+    , mProxyHost(new QLineEdit(this))
+    , mProxyServices(new QLineEdit(this))
+    , mMeteorLogin(new QCheckBox(i18n("Meteor Login"), this))
+    , mMeteorId(new QLineEdit(this))
+    , mMeteorSecret(new QLineEdit(this))
+    , mMeteorCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -82,6 +88,34 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mLinkedInCallbackURL->setObjectName(QStringLiteral("mLinkedInCallbackURL"));
     addLineEdit(i18n("LinkedIn Secret"), mLinkedInCallbackURL, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"), true);
+
+    auto proxyLabel = createBoldLabel(i18n("Proxy^"));
+    proxyLabel->setObjectName(QStringLiteral("proxyLabel"));
+    mMainLayout->addWidget(proxyLabel);
+
+    mProxyHost->setObjectName(QStringLiteral("mProxyHost"));
+    addLineEdit(i18n("Proxy Host"), mProxyHost, QStringLiteral("Accounts_OAuth_Proxy_host"));
+
+    mProxyServices->setObjectName(QStringLiteral("mProxyServices"));
+    addLineEdit(i18n("Proxy Services"), mProxyServices, QStringLiteral("Accounts_OAuth_Proxy_services"));
+
+    // Meteor
+    auto meteorLabel = createBoldLabel(i18n("Meteor"));
+    meteorLabel->setObjectName(QStringLiteral("meteorLabel"));
+    mMainLayout->addWidget(meteorLabel);
+
+    mMeteorLogin->setObjectName(QStringLiteral("mMeteorLogin"));
+    mMainLayout->addWidget(mMeteorLogin);
+    connectCheckBox(mMeteorLogin, QStringLiteral("Accounts_OAuth_Meteor"));
+
+    mMeteorId->setObjectName(QStringLiteral("mMeteorId"));
+    addLineEdit(i18n("Meteor Id"), mMeteorId, QStringLiteral("Accounts_OAuth_Meteor_id"));
+
+    mMeteorSecret->setObjectName(QStringLiteral("mMeteorSecret"));
+    addLineEdit(i18n("Meteor Secret"), mMeteorSecret, QStringLiteral("Accounts_OAuth_Meteor_secret"));
+
+    mMeteorCallbackURL->setObjectName(QStringLiteral("mMeteorCallbackURL"));
+    addLineEdit(i18n("Meteor Secret"), mMeteorCallbackURL, QStringLiteral("Accounts_OAuth_Meteor_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -101,4 +135,12 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mLinkedInId, mapSettings, QString());
     initializeWidget(mLinkedInSecret, mapSettings, QString());
     initializeWidget(mLinkedInCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/linkedin")));
+
+    initializeWidget(mProxyHost, mapSettings, QStringLiteral("https://oauth-proxy.rocket.chat"));
+    initializeWidget(mProxyServices, mapSettings, QString());
+
+    initializeWidget(mMeteorLogin, mapSettings, false);
+    initializeWidget(mMeteorId, mapSettings, QString());
+    initializeWidget(mMeteorSecret, mapSettings, QString());
+    initializeWidget(mMeteorCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/meteor")));
 }

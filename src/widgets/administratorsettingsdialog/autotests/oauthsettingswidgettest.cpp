@@ -95,4 +95,42 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mLinkedInCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLinkedInCallbackURL), QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Linkedin_callback_url"));
+
+    auto mProxyHost = w.findChild<QLineEdit *>(QStringLiteral("mProxyHost"));
+    QVERIFY(mProxyHost);
+    QVERIFY(mProxyHost->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mProxyHost), QStringLiteral("Accounts_OAuth_Proxy_host"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Proxy_host"));
+
+    auto mProxyServices = w.findChild<QLineEdit *>(QStringLiteral("mProxyServices"));
+    QVERIFY(mProxyServices);
+    QVERIFY(mProxyServices->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mProxyServices), QStringLiteral("Accounts_OAuth_Proxy_services"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Proxy_services"));
+
+    auto mMeteorLogin = w.findChild<QCheckBox *>(QStringLiteral("mMeteorLogin"));
+    QVERIFY(mMeteorLogin);
+    QVERIFY(!mMeteorLogin->isChecked());
+    QVERIFY(!mMeteorLogin->text().isEmpty());
+    QVERIFY(mMeteorLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorLogin), QStringLiteral("Accounts_OAuth_Meteor"));
+
+    auto mMeteorId = w.findChild<QLineEdit *>(QStringLiteral("mMeteorId"));
+    QVERIFY(mMeteorId);
+    QVERIFY(mMeteorId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorId), QStringLiteral("Accounts_OAuth_Meteor_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Meteor_id"));
+
+    auto mMeteorSecret = w.findChild<QLineEdit *>(QStringLiteral("mMeteorSecret"));
+    QVERIFY(mMeteorSecret);
+    QVERIFY(mMeteorSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorSecret), QStringLiteral("Accounts_OAuth_Meteor_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Meteor_secret"));
+
+    auto mMeteorCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mMeteorCallbackURL"));
+    QVERIFY(mMeteorCallbackURL);
+    QVERIFY(mMeteorCallbackURL->text().isEmpty());
+    QVERIFY(mMeteorCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMeteorCallbackURL), QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Meteor_callback_url"));
 }
