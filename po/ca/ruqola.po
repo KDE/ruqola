@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:46+0000\n"
-"PO-Revision-Date: 2022-11-27 10:38+0100\n"
+"POT-Creation-Date: 2022-11-30 00:47+0000\n"
+"PO-Revision-Date: 2022-11-29 09:13+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1464,8 +1464,18 @@ msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
 msgstr "Configuració del text a veu"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:38
-#: kpimtextedittexttospeech/texttospeechwidget.cpp:58
+#: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:69
+#, kde-format
+msgid "Morning, this is the test for testing settings."
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:33
+#, kde-format
+msgid "Test"
+msgstr ""
+
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:40
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:59
 #, kde-format
 msgid "Volume:"
 msgstr "Volum:"
@@ -1475,43 +1485,37 @@ msgstr "Volum:"
 msgid "Rate:"
 msgstr "Velocitat:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:52
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:50
 #, kde-format
 msgid "Pitch:"
 msgstr "To:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:55
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:53
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
 #: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
 #, kde-format
 msgid "Engine:"
 msgstr "Motor:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:59
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "Idioma:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:65
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:63
 #, kde-format
 msgid "Voice:"
 msgstr "Veu:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:137
-#, kde-format
-msgctxt "Default tts engine"
-msgid "Default"
-msgstr "Predeterminat"
-
-#: kpimtextedittexttospeech/texttospeechwidget.cpp:53
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
 #, kde-format
 msgid "Close"
 msgstr "Tanca"
 
-#: kpimtextedittexttospeech/texttospeechwidget.cpp:81
+#: kpimtextedittexttospeech/texttospeechwidget.cpp:80
 #, kde-format
 msgid "Configure..."
 msgstr "Configura..."
@@ -5328,14 +5332,19 @@ msgstr "Inicia la sessió amb Apple"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
 msgid "Twitter Login"
+msgstr "Inici de sessió de Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
+#, kde-format
+msgid "LinkedIn Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
 #, kde-format
 msgid "Apple"
 msgstr "Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:35
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
@@ -5344,43 +5353,57 @@ msgstr ""
 "Si voleu que l'inici de sessió d'Apple només estigui habilitat al mòbil, "
 "podeu deixar tots els camps buits."
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:39
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr "ID d'Apple OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "OAuth Apple Id"
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
+#, kde-format
 msgid "OAuth Apple Iss"
-msgstr "ID d'Apple OAuth"
+msgstr "Iss d'Apple OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "OAuth Apple Id"
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:45
+#, kde-format
 msgid "OAuth Apple Kid"
-msgstr "ID d'Apple OAuth"
+msgstr "Kid d'Apple OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
 #, kde-format
 msgid "Twitter Id"
+msgstr "ID de Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:67
+#, kde-format
+msgid "Twitter Secret"
+msgstr "Secret de Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
+#, kde-format
+msgid "LinkedIn"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:60
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
+#, kde-format
+msgid "LinkedIn Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:84
 #, fuzzy, kde-format
 #| msgid "Client Secret"
-msgid "Twitter Secret"
+msgid "LinkedIn Secret"
 msgstr "Secret del client"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
@@ -5680,9 +5703,9 @@ msgstr "Antiguitat màxima dels missatges als missatges directes"
 
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:96
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:155
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:179
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:208
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
 #, kde-format
 msgid "Apply"
 msgstr "Aplica"
@@ -8633,3 +8656,7 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
+
+#~ msgctxt "Default tts engine"
+#~ msgid "Default"
+#~ msgstr "Predeterminat"
