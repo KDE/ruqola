@@ -159,4 +159,30 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mFacebookCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mFacebookCallbackURL), QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Facebook_callback_url"));
+
+    auto mGithubLogin = w.findChild<QCheckBox *>(QStringLiteral("mGithubLogin"));
+    QVERIFY(mGithubLogin);
+    QVERIFY(!mGithubLogin->isChecked());
+    QVERIFY(!mGithubLogin->text().isEmpty());
+    QVERIFY(mGithubLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubLogin), QStringLiteral("Accounts_OAuth_Github"));
+
+    auto mGithubId = w.findChild<QLineEdit *>(QStringLiteral("mGithubId"));
+    QVERIFY(mGithubId);
+    QVERIFY(mGithubId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubId), QStringLiteral("Accounts_OAuth_Github_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Github_id"));
+
+    auto mGithubSecret = w.findChild<QLineEdit *>(QStringLiteral("mGithubSecret"));
+    QVERIFY(mGithubSecret);
+    QVERIFY(mGithubSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubSecret), QStringLiteral("Accounts_OAuth_Github_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Github_secret"));
+
+    auto mGithubCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mGithubCallbackURL"));
+    QVERIFY(mGithubCallbackURL);
+    QVERIFY(mGithubCallbackURL->text().isEmpty());
+    QVERIFY(mGithubCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubCallbackURL), QStringLiteral("Accounts_OAuth_Github_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Github_callback_url"));
 }

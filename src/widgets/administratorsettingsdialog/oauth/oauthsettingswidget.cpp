@@ -35,6 +35,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mFacebookId(new QLineEdit(this))
     , mFacebookSecret(new QLineEdit(this))
     , mFacebookCallbackURL(new QLineEdit(this))
+    , mGithubLogin(new QCheckBox(i18n("Github Login"), this))
+    , mGithubId(new QLineEdit(this))
+    , mGithubSecret(new QLineEdit(this))
+    , mGithubCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -138,6 +142,24 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mFacebookCallbackURL->setObjectName(QStringLiteral("mFacebookCallbackURL"));
     addLineEdit(i18n("Facebook Secret"), mFacebookCallbackURL, QStringLiteral("Accounts_OAuth_Facebook_callback_url"), true);
+
+    // Github
+    auto githubLabel = createBoldLabel(i18n("Github"));
+    githubLabel->setObjectName(QStringLiteral("githubLabel"));
+    mMainLayout->addWidget(githubLabel);
+
+    mGithubLogin->setObjectName(QStringLiteral("mGithubLogin"));
+    mMainLayout->addWidget(mGithubLogin);
+    connectCheckBox(mGithubLogin, QStringLiteral("Accounts_OAuth_Github"));
+
+    mGithubId->setObjectName(QStringLiteral("mGithubId"));
+    addLineEdit(i18n("Github Id"), mGithubId, QStringLiteral("Accounts_OAuth_Github_id"));
+
+    mGithubSecret->setObjectName(QStringLiteral("mGithubSecret"));
+    addLineEdit(i18n("Github Secret"), mGithubSecret, QStringLiteral("Accounts_OAuth_Github_secret"));
+
+    mGithubCallbackURL->setObjectName(QStringLiteral("mGithubCallbackURL"));
+    addLineEdit(i18n("Github Secret"), mGithubCallbackURL, QStringLiteral("Accounts_OAuth_Github_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -170,4 +192,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mFacebookId, mapSettings, QString());
     initializeWidget(mFacebookSecret, mapSettings, QString());
     initializeWidget(mFacebookCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/facebook")));
+
+    initializeWidget(mGithubLogin, mapSettings, false);
+    initializeWidget(mGithubId, mapSettings, QString());
+    initializeWidget(mGithubSecret, mapSettings, QString());
+    initializeWidget(mGithubCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/github")));
 }

@@ -46,4 +46,9 @@ private:
     QLineEdit *const mFacebookId;
     QLineEdit *const mFacebookSecret;
     QLineEdit *const mFacebookCallbackURL;
+
+    QCheckBox *const mGithubLogin;
+    QLineEdit *const mGithubId;
+    QLineEdit *const mGithubSecret;
+    QLineEdit *const mGithubCallbackURL;
 };
