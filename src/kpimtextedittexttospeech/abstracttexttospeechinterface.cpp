@@ -23,10 +23,11 @@ void AbstractTextToSpeechInterface::say(const QString &text)
     Q_UNUSED(text)
 }
 
-int AbstractTextToSpeechInterface::volume() const
+double AbstractTextToSpeechInterface::volume() const
 {
-    // TODO add default value ? 0 ?
-    return 50;
+    // Value between 0.0 and 1.0
+    // => 0.5 => 50% volume.
+    return 0.5;
 }
 
 void AbstractTextToSpeechInterface::setVolume(int value)

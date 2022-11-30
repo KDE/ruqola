@@ -62,7 +62,9 @@ void TextToSpeechConfigInterface::testEngine(const EngineSettings &engineSetting
     const int pitch = engineSettings.pitch;
     const double pitchDouble = pitch / 100.0;
     mTextToSpeech->setPitch(pitchDouble);
-    mTextToSpeech->setVolume(engineSettings.volume);
+    const int volume = engineSettings.volume;
+    const double volumeDouble = volume / 100.0;
+    mTextToSpeech->setVolume(volumeDouble);
     mTextToSpeech->setLocale(QLocale(engineSettings.localeName));
 
     // TODO change text ?

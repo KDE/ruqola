@@ -6,6 +6,7 @@
 
 #include "texttospeechinterface.h"
 #include "texttospeech.h"
+#include <QDebug>
 
 using namespace KPIMTextEditTextToSpeech;
 
@@ -46,7 +47,7 @@ void TextToSpeechInterface::say(const QString &text)
     KPIMTextEditTextToSpeech::TextToSpeech::self()->say(text);
 }
 
-int TextToSpeechInterface::volume() const
+double TextToSpeechInterface::volume() const
 {
     return KPIMTextEditTextToSpeech::TextToSpeech::self()->volume();
 }

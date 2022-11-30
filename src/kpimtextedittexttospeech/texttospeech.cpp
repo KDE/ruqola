@@ -8,6 +8,7 @@
 
 #include <KConfig>
 #include <KConfigGroup>
+#include <QDebug>
 #include <QLocale>
 #include <QTextToSpeech>
 #include <QVector>
@@ -57,7 +58,9 @@ void TextToSpeech::reloadSettings()
     const int pitch = grp.readEntry("pitch", 0);
     const double pitchDouble = pitch / 100.0;
     d->mTextToSpeech->setPitch(pitchDouble);
-    d->mTextToSpeech->setVolume(grp.readEntry("volume", 0));
+    const int volume = grp.readEntry("volume", 0);
+    const double volumeDouble = volume / 100.0;
+    d->mTextToSpeech->setVolume(volumeDouble);
     d->mTextToSpeech->setLocale(QLocale(grp.readEntry("localeName")));
     // It doesn't have api for it d->mTextToSpeech->setVoice(grp.readEntry("voice"));
 }

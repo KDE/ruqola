@@ -97,7 +97,7 @@ void TextToSpeechConfigWidget::readConfig()
     mRate->setValue(rate);
     const auto pitch = grp.readEntry("pitch", 0);
     mPitch->setValue(pitch);
-    mVolume->setValue(static_cast<int>(grp.readEntry("volume", 50)));
+    mVolume->setValue(grp.readEntry("volume", 50));
 }
 
 void TextToSpeechConfigWidget::writeConfig()

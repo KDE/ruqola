@@ -46,6 +46,7 @@ private:
     void slotVolumeChanged(int value);
     void slotCloseTextToSpeechWidget();
     void slotConfigure();
+    void applyVolume();
     std::unique_ptr<TextToSpeechWidgetPrivate> const d;
 };
 }
