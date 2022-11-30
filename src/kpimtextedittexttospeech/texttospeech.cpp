@@ -33,7 +33,8 @@ TextToSpeech::~TextToSpeech() = default;
 
 void TextToSpeech::reloadSettings()
 {
-    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    const KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     const QString engineName = grp.readEntry("engine");
     if (d->mDefaultEngine != engineName) {
         if (d->mTextToSpeech) {

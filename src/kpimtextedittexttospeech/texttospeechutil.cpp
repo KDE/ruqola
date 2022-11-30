@@ -5,11 +5,13 @@
 */
 
 #include "texttospeechutil.h"
-#include <KConfig>
 
-KConfigGroup KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup()
+QString KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName()
 {
-    KConfig config(QStringLiteral("texttospeechrc"));
-    KConfigGroup grp = config.group("Settings");
-    return grp;
+    return QStringLiteral("texttospeechrc");
+}
+
+QString KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName()
+{
+    return QStringLiteral("Settings");
 }

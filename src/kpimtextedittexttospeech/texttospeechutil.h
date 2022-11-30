@@ -12,6 +12,7 @@ namespace KPIMTextEditTextToSpeech
 {
 namespace TextToSpeechUtil
 {
-Q_REQUIRED_RESULT KConfigGroup textToSpeechConfigGroup();
+Q_REQUIRED_RESULT QString textToSpeechConfigFileName();
+Q_REQUIRED_RESULT QString textToSpeechConfigGroupName();
 };
 }

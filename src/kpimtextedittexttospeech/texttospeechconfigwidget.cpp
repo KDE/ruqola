@@ -81,7 +81,8 @@ void TextToSpeechConfigWidget::valueChanged()
 
 void TextToSpeechConfigWidget::updateLocale()
 {
-    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    const KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     const QString localeName = grp.readEntry("localeName");
     if (localeName.isEmpty()) {
         return;
@@ -91,7 +92,8 @@ void TextToSpeechConfigWidget::updateLocale()
 
 void TextToSpeechConfigWidget::readConfig()
 {
-    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    const KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     const auto rate = grp.readEntry("rate", 0);
     mRate->setValue(rate);
     const auto pitch = grp.readEntry("pitch", 0);
@@ -101,7 +103,8 @@ void TextToSpeechConfigWidget::readConfig()
 
 void TextToSpeechConfigWidget::writeConfig()
 {
-    KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     grp.writeEntry("volume", mVolume->value());
     grp.writeEntry("rate", mRate->value());
     grp.writeEntry("pitch", mPitch->value());
@@ -173,7 +176,8 @@ void TextToSpeechConfigWidget::updateAvailableVoices()
 
 void TextToSpeechConfigWidget::updateVoice()
 {
-    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    const KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     const QString voice = grp.readEntry("voice");
     int index = mVoice->findData(voice);
     if (index == -1) {
@@ -184,7 +188,8 @@ void TextToSpeechConfigWidget::updateVoice()
 
 void TextToSpeechConfigWidget::updateEngine()
 {
-    const KConfigGroup grp = KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroup();
+    KConfig config(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigFileName());
+    const KConfigGroup grp = config.group(KPIMTextEditTextToSpeech::TextToSpeechUtil::textToSpeechConfigGroupName());
     const QString engineName = grp.readEntry("engine");
     int index = mAvailableEngine->findData(engineName);
     if (index == -1) {
