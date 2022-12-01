@@ -137,6 +137,8 @@ AutoCorrectionWidget::AutoCorrectionWidget(QWidget *parent)
     connect(d->ui->exportAutoCorrection, &QPushButton::clicked, this, &AutoCorrectionWidget::slotExportAutoCorrection);
     connect(d->ui->tabWidget, &QTabWidget::tabBarClicked, this, &AutoCorrectionWidget::slotChangeComboboxState);
     slotChangeComboboxState(d->ui->tabWidget->currentIndex());
+    d->ui->systemPath->setText(PimCommonAutoCorrection::AutoCorrectionUtils::libreOfficeSystemPath());
+    d->ui->writablePath->setText(PimCommonAutoCorrection::AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath());
 }
 
 AutoCorrectionWidget::~AutoCorrectionWidget() = default;

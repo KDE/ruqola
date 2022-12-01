@@ -8,8 +8,6 @@
 
 #include "autocorrectionsettings.h"
 #include "pimcommonautocorrection_export.h"
-#include <QHash>
-#include <QSet>
 #include <QTextCursor>
 
 namespace PimCommonAutoCorrection

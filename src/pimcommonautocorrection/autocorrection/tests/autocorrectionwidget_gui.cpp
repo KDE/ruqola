@@ -15,7 +15,6 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QDialogButtonBox>
-#include <QKeyEvent>
 #include <QPointer>
 #include <QPushButton>
 #include <QToolBar>

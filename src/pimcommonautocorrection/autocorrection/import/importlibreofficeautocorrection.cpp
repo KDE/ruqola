@@ -7,7 +7,6 @@
 #include "importlibreofficeautocorrection.h"
 #include "pimcommonautocorrection_debug.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <KZip>
 #include <QDomDocument>
 #include <QFile>

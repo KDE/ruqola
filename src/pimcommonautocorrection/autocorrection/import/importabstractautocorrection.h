@@ -7,7 +7,6 @@
 #pragma once
 
 #include <QHash>
-#include <QObject>
 #include <QSet>
 #include <QString>
 

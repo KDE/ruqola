@@ -10,15 +10,11 @@
 #include "autocorrection/autocorrectionutils.h"
 #include "pimcommonautocorrectionautocorrect_debug.h"
 #include <KColorScheme>
-#include <QDir>
 #include <QFile>
-#include <QFileInfo>
 #include <QLocale>
-#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QTextBlock>
 #include <QTextDocument>
-#include <QXmlStreamWriter>
 
 using namespace PimCommonAutoCorrection;
 

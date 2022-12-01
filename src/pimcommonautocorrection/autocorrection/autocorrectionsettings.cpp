@@ -11,12 +11,9 @@
 #include "pimcommonautocorrection_debug.h"
 #include "settings/pimcommonautocorrectionsettings.h"
 
-#include <QDir>
 #include <QFile>
-#include <QFileInfo>
 #include <QRegularExpression>
 #include <QStandardPaths>
-#include <QXmlStreamWriter>
 
 using namespace PimCommonAutoCorrection;
 namespace PimCommonAutoCorrection
