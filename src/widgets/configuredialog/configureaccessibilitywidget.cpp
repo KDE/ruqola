@@ -7,6 +7,7 @@
 #include "configureaccessibilitywidget.h"
 #include <KPIMTextEditTextToSpeech/TextToSpeechConfigWidget>
 
+#include <QShowEvent>
 #include <QVBoxLayout>
 
 ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
@@ -25,10 +26,21 @@ ConfigureAccessibilityWidget::~ConfigureAccessibilityWidget() = default;
 
 void ConfigureAccessibilityWidget::save()
 {
-    // TODO
+    if (mWasInitialized) {
+        mTextToSpeechWidget->writeConfig();
+    }
 }
 
 void ConfigureAccessibilityWidget::load()
 {
-    // TODO
+    // nothing
+}
+
+void ConfigureAccessibilityWidget::showEvent(QShowEvent *event)
+{
+    if (!event->spontaneous() && !mWasInitialized) {
+        mWasInitialized = true;
+        mTextToSpeechWidget->readConfig();
+    }
+    QWidget::showEvent(event);
 }

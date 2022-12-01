@@ -25,6 +25,10 @@ public:
     void save();
     void load();
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 private:
     KPIMTextEditTextToSpeech::TextToSpeechConfigWidget *const mTextToSpeechWidget;
+    bool mWasInitialized = false;
 };
