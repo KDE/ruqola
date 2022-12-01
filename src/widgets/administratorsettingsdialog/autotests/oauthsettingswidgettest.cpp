@@ -211,4 +211,11 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mTokenpassCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassCallbackURL), QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
+
+    auto mTokenpassServerURL = w.findChild<QLineEdit *>(QStringLiteral("mTokenpassServerURL"));
+    QVERIFY(mTokenpassServerURL);
+    QVERIFY(mTokenpassServerURL->text().isEmpty());
+    QVERIFY(!mTokenpassServerURL->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassServerURL), QStringLiteral("API_Tokenpass_URL"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_Tokenpass_URL"));
 }

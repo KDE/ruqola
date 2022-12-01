@@ -56,4 +56,5 @@ private:
     QLineEdit *const mTokenpassId;
     QLineEdit *const mTokenpassSecret;
     QLineEdit *const mTokenpassCallbackURL;
+    QLineEdit *const mTokenpassServerURL;
 };

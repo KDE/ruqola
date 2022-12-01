@@ -43,6 +43,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mTokenpassId(new QLineEdit(this))
     , mTokenpassSecret(new QLineEdit(this))
     , mTokenpassCallbackURL(new QLineEdit(this))
+    , mTokenpassServerURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -170,6 +171,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     tokenpassLabel->setObjectName(QStringLiteral("tokenpassLabel"));
     mMainLayout->addWidget(tokenpassLabel);
 
+    mTokenpassServerURL->setObjectName(QStringLiteral("mTokenpassServerURL"));
+    mTokenpassServerURL->setToolTip(i18n("Example: https://domain.com (excluding trailing slash)"));
+    addLineEdit(i18n("Tokenpass Server URL"), mTokenpassServerURL, QStringLiteral("API_Tokenpass_URL"));
+
     mTokenpassLogin->setObjectName(QStringLiteral("mTokenpassLogin"));
     mMainLayout->addWidget(mTokenpassLogin);
     connectCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
@@ -224,4 +229,5 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTokenpassId, mapSettings, QString());
     initializeWidget(mTokenpassSecret, mapSettings, QString());
     initializeWidget(mTokenpassCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/tokenpass")));
+    initializeWidget(mTokenpassServerURL, mapSettings, QString());
 }
