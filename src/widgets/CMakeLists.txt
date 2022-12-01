@@ -232,8 +232,6 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configureautocorrectionwidget.h
     configuredialog/configureautocorrectionwidget.cpp
 
-    configuredialog/configureaccessibilitywidget.h
-    configuredialog/configureaccessibilitywidget.cpp
 
     delegateutils/messagedelegateutils.cpp
     delegateutils/messagedelegateutils.h
@@ -627,12 +625,16 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messagelistlayout/messagelistcozylayout.cpp
 )
 
+if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
+    target_sources(libruqolawidgets PRIVATE
+        configuredialog/configureaccessibilitywidget.h
+        configuredialog/configureaccessibilitywidget.cpp
+    )
+endif()
 
 ki18n_wrap_ui(libruqolawidgets
     configuredialog/configureaccountserverwidget.ui
 )
-
-
 
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets_debug.h IDENTIFIER RUQOLAWIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets
     DESCRIPTION "ruqola widgets" EXPORT RUQOLA)
@@ -654,7 +656,6 @@ generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 if (TARGET KUserFeedbackWidgets)
     target_link_libraries(libruqolawidgets KUserFeedbackWidgets)
 endif()
-
 
 target_link_libraries(libruqolawidgets
     Qt::Gui

@@ -21,7 +21,7 @@
 #include <QWindow>
 
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <KPIMTextEditTextToSpeech/TextToSpeechConfigWidget>
+#include "configureaccessibilitywidget.h"
 #endif
 
 #if HAVE_KUSERFEEDBACK
@@ -44,7 +44,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #endif
     , mConfigureTranslateWidget(new PimCommonTextTranslator::TranslatorConfigureListsWidget(this))
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mConfigureTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechConfigWidget(this))
+    , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
 #endif
 {
     setWindowTitle(i18nc("@title:window", "Configure Ruqola"));
@@ -134,7 +134,7 @@ void ConfigureSettingsDialog::slotAccepted()
     mConfigureTranslateWidget->save();
     mConfigureAutoCorrectionWidget->save();
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-    mConfigureTextToSpeechWidget->writeConfig();
+    mConfigureTextToSpeechWidget->save();
 #endif
 }
 
@@ -150,6 +150,6 @@ void ConfigureSettingsDialog::load()
     mConfigureTranslateWidget->load();
     mConfigureAutoCorrectionWidget->load();
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-    mConfigureTextToSpeechWidget->readConfig();
+    mConfigureTextToSpeechWidget->load();
 #endif
 }

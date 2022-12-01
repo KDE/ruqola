@@ -10,10 +10,21 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+namespace KPIMTextEditTextToSpeech
+{
+class TextToSpeechConfigWidget;
+}
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAccessibilityWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ConfigureAccessibilityWidget(QWidget *parent = nullptr);
     ~ConfigureAccessibilityWidget() override;
+
+    void save();
+    void load();
+
+private:
+    KPIMTextEditTextToSpeech::TextToSpeechConfigWidget *const mTextToSpeechWidget;
 };

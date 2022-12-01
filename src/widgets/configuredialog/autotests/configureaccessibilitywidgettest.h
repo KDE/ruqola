@@ -14,4 +14,7 @@ class ConfigureAccessibilityWidgetTest : public QObject
 public:
     explicit ConfigureAccessibilityWidgetTest(QObject *parent = nullptr);
     ~ConfigureAccessibilityWidgetTest() override = default;
+
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
