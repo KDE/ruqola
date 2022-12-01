@@ -11,8 +11,9 @@ endif()
 # Remove it when we will split lib
 add_subdirectory(pimcommonautocorrection)
 add_subdirectory(pimcommontexttranslator)
-add_subdirectory(kpimtextedittexttospeech)
-
+if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
+    add_subdirectory(kpimtextedittexttospeech)
+endif()
 add_subdirectory(rocketchatrestapi-qt5)
 
 add_subdirectory(core)
