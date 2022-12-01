@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-27 07:12+0100\n"
+"POT-Creation-Date: 2022-12-01 00:46+0000\n"
+"PO-Revision-Date: 2022-11-30 06:15+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1457,46 +1457,46 @@ msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
 msgstr "ტექსტის-ხმამაღლა-წაკითხვის მორგება"
 
-#: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:69
+#: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
 msgstr ""
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:33
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
 msgid "Test"
-msgstr ""
+msgstr "შემოწმება"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:40
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:41
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:59
 #, kde-format
 msgid "Volume:"
 msgstr "ტომი:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:45
 #, kde-format
 msgid "Rate:"
 msgstr "შეაფასეთ:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:50
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
 msgstr ""
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:53
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
 #: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
 #, kde-format
 msgid "Engine:"
 msgstr "ძრავი:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:59
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "ენა:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:63
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:64
 #, kde-format
 msgid "Voice:"
 msgstr "ხმა:"
@@ -2707,7 +2707,7 @@ msgstr "არასწორი არხი."
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:285
 #, kde-format
 msgid "Invalid channel. Start with @ or #"
-msgstr ""
+msgstr "არასწორი არხი. დაიწყეთ @-ით ან #-ით"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:287
 #, kde-format
@@ -2820,7 +2820,7 @@ msgstr "<strong>__room_name__</strong> ოთახის არასწორ�
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:329
 #, kde-format
 msgid "<strong>__type__</strong> is not a valid room type."
-msgstr ""
+msgstr "<strong>__type__</strong> ოთახის არასწორი ტიპია."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:331
 #, kde-format
@@ -2840,7 +2840,7 @@ msgstr "არასწორი კოდი"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:337
 #, kde-format
 msgid "Invalid triggerWords"
-msgstr ""
+msgstr "არასწორი ტრიგერის სიტყვები"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:339
 #, kde-format
@@ -2885,7 +2885,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:355
 #, kde-format
 msgid "There are no tokens for this user"
-msgstr ""
+msgstr "ამ მომხმარებლისთვის კოდები არ არსებობს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:357
 #, kde-format
@@ -2901,7 +2901,7 @@ msgstr "საჭიროა ავტორიზაცია"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:363
 #, kde-format
 msgid "Password does not meet the server's policy"
-msgstr ""
+msgstr "პაროლი სერვერის პოლიტიკაში არ ჯდება"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:365
 #, kde-format
@@ -2959,7 +2959,7 @@ msgstr "პუში გატიშულია"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:384
 #, kde-format
 msgid "Cannot delete role because it's in use"
-msgstr ""
+msgstr "როლს ვერ წაშლით. ის გამოიყენება"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:386
 #, kde-format
@@ -3048,7 +3048,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:418
 #, kde-format
 msgid "The private group is archived"
-msgstr ""
+msgstr "პირადი ჯგუფი დაარქივებულია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:420
 #, kde-format
@@ -3078,12 +3078,12 @@ msgstr "მომხმარებელი ლიდერი არაა"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:430
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr ""
+msgstr "აპის მომხმარებელს შესვლის უფლება არ აქვს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:432
 #, kde-format
 msgid "Direct Messages can not be archived"
-msgstr ""
+msgstr "პირდაპირი შეტყობინებების დაარქივება შეუძლებელია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:434
 #, kde-format
@@ -3123,7 +3123,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:97
 #, kde-format
 msgid "Channel can not convert to Team."
-msgstr ""
+msgstr "არხს გუნდად ვერ გადააკეთბთ."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -3228,7 +3228,7 @@ msgstr "Oauth"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
-msgstr ""
+msgstr "მითითებული ემოჯის მორგება"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
 #, kde-format
@@ -3269,24 +3269,24 @@ msgstr "ფაილი:"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
 #, kde-format
 msgid "Search Custom Emojis"
-msgstr ""
+msgstr "მორგებული ემოჯიების ძებნა"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
 #, kde-format
 msgid "No custom emoji found"
-msgstr ""
+msgstr "ორგებული ემოჯიები ვერ ვიპოვე"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:51
 #, kde-format
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 მითითებული ემოჯი (სულ: %2)"
+msgstr[1] "%1 მითითებული ემოჯი (სულ: %2)"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:152
 #, kde-format
 msgid "Do you want to remove this emoji?"
-msgstr ""
+msgstr "გნებავთ წაშალოთ ეს ემოჯი?"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:153
 #, kde-format
@@ -3331,42 +3331,42 @@ msgstr "ახალი ხმის შექმნა"
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:29
 #, kde-format
 msgid "Search Custom Sounds"
-msgstr ""
+msgstr "მორგებული ხმების ძებნა"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:61
 #, kde-format
 msgid "No custom sound found"
-msgstr ""
+msgstr "მორგებული ხმები ვერ ვიპოვე"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:66
 #, kde-format
 msgid "%1 custom sound (Total: %2)"
 msgid_plural "%1 custom sounds (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 მორგებული ხმა (სულ: %2)"
+msgstr[1] "%1 custom sounds (Total: %2)"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:131
 #, kde-format
 msgid "Do you want to remove this sound?"
-msgstr ""
+msgstr "გნებავთ, წაშალოთ ეს ხმა?"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:132
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom Sound"
-msgstr ""
+msgstr "მორგებული ხმის წაშლა"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User Status"
-msgstr ""
+msgstr "ახალი მომხმარებლის სტატუსის შექმნა"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatedialog.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User Status"
-msgstr ""
+msgstr "მომხმარებლის სტატუსის ჩასწორება"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/dialogs/directchannelinfowidget.cpp:50
@@ -3390,17 +3390,17 @@ msgstr "მართლა გნებავთ %1 -ის წაშლა?"
 #, kde-format
 msgctxt "@title"
 msgid "Remove Custom User Status"
-msgstr ""
+msgstr "მორგებული მომხმარებლის სტატუსის წაშლა"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
 #, kde-format
 msgid "Search Invite..."
-msgstr ""
+msgstr "მოსაწვევს მოძებნა..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
 #, kde-format
 msgid "Are you sure that you want to delete this invite?"
-msgstr ""
+msgstr "დარწმუნებული ხართ, რომ გსურთ, წაშალოთ ეს მოსაწვევი?"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:58
 #, kde-format
@@ -3453,7 +3453,7 @@ msgstr "მოძებნეთ Oauth პროგრამები..."
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:68
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
-msgstr ""
+msgstr "დარწმუნებული ხართ, რომ გსურთ, წაშალოთ ეს Oauth?"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:69
 #, kde-format
@@ -3491,7 +3491,7 @@ msgstr "დაამატეთ მომხმარებლები რო�
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:224
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
-msgstr ""
+msgstr "გნებავთ წაშალოთ ეს როლი '%1'?"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:225
 #, kde-format
@@ -3560,7 +3560,7 @@ msgstr "დაამატეთ მომხმარებლები რო�
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:83
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
-msgstr ""
+msgstr "გნებავთ წაშალოთ ეს მომხმარებელი \"%1\"?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:84
 #: widgets/administratordialog/users/administratoruserswidget.cpp:155
@@ -3600,7 +3600,7 @@ msgstr "პოპულარული"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Direct Room"
-msgstr ""
+msgstr "პირდაპირი ოთახის ჩასწორება"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:31
 #, kde-format
@@ -4126,7 +4126,7 @@ msgstr "შესვლის წარუმატებელი მცდე�
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr ""
+msgstr "ადმინისტრატორის სერვერის მორგება - %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
 #, kde-format
@@ -4211,7 +4211,7 @@ msgstr "მომხმარებლის მონაცემების �
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Slack -ის ხიდი"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
@@ -4318,7 +4318,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "ატრიბუტების დამუშავება"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -4362,7 +4362,7 @@ msgstr "TLS-ის იგნორი"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
 #, kde-format
 msgid "Show Message in Email Notification"
-msgstr ""
+msgstr "ელფოსტის გაფრთხილებაში შეტყობინების ჩვენება"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
@@ -4460,7 +4460,7 @@ msgstr "პირადი შეტყობინების ელფოს�
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "ელფოსტის თემის ხსენება"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
@@ -4475,7 +4475,7 @@ msgstr "გადამოწმება"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
 #, kde-format
 msgid "Email Address Changed"
-msgstr ""
+msgstr "ელფოსტის მისამართი შეიცვალა"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
 #, kde-format
@@ -5182,72 +5182,150 @@ msgstr ""
 msgid "LinkedIn Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
+#, kde-format
+msgid "Meteor Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
+#, kde-format
+msgid "Facebook Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
+#, kde-format
+msgid "Github Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:43
 #, kde-format
 msgid "Apple"
 msgstr "გამოყენება"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:53
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Oauth Apps"
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
+#, kde-format
 msgid "OAuth Apple Iss"
-msgstr "დაამატეთ Oauth პროგრამები"
+msgstr "OAuth Apple Iss"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:59
 #, kde-format
 msgid "OAuth Apple Kid"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
 #, kde-format
 msgid "Twitter Id"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:64
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
+#, kde-format
 msgid "Twitter Secret"
-msgstr "კლიენტის საიდუმლო ფრაზა"
+msgstr "Twitter-ის საიდუმლო"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:83
 #, kde-format
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "LinkedIn Id"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:98
+#, kde-format
+msgid "LinkedIn Secret"
+msgstr "LinkedIn-ის საიდუმლო"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:100
+#, kde-format
+msgid "Proxy"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:105
+#, kde-format
+msgid "Proxy Host"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:108
+#, fuzzy, kde-format
+#| msgid "&Previous Server"
+msgid "Proxy Services"
+msgstr "&წნა სერვერი"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:111
+#, kde-format
+msgid "Meteor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
+#, kde-format
+msgid "Meteor Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
+#, fuzzy, kde-format
+#| msgid "Twitter Secret"
+msgid "Meteor Secret"
+msgstr "Twitter-ის საიდუმლო"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
+#, kde-format
+msgid "Facebook"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
+#, kde-format
+msgid "Facebook Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Shared Secret"
+msgid "Facebook Secret"
+msgstr "გაზიარებული საიდუმლო ფრაზა"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
+#, kde-format
+msgid "Github"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:156
+#, kde-format
+msgid "Github Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:159
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:162
 #, fuzzy, kde-format
 #| msgid "Client Secret"
-msgid "LinkedIn Secret"
+msgid "Github Secret"
 msgstr "კლიენტის საიდუმლო ფრაზა"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
@@ -5991,53 +6069,59 @@ msgstr "სისტემის კუთხეში ხატულის ჩ
 msgid "Enable logging"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:43
+#: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqola-ის მორგება"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:48
+#: widgets/configuredialog/configuresettingsdialog.cpp:55
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "საერთო"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:53
+#: widgets/configuredialog/configuresettingsdialog.cpp:60
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "ანგარიში"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:58
+#: widgets/configuredialog/configuresettingsdialog.cpp:65
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "ფონტი"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#: widgets/configuredialog/configuresettingsdialog.cpp:70
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "ავტოკორექცია"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:68
+#: widgets/configuredialog/configuresettingsdialog.cpp:75
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "მართლწერის შემოწმება"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:73
+#: widgets/configuredialog/configuresettingsdialog.cpp:80
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "თარგმნა"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:79
+#: widgets/configuredialog/configuresettingsdialog.cpp:86
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "მომხარებლის უკუკავშირი"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:93
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Accessibility"
+msgstr ""
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6579,7 +6663,7 @@ msgstr "შეცდომა: "
 #, kde-format
 msgctxt "@title:window"
 msgid "Report Message"
-msgstr ""
+msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
 
 #: widgets/dialogs/reportmessagewidget.cpp:37
 #, kde-format
@@ -7795,7 +7879,7 @@ msgstr "შეტყობინების თარგმნა"
 #: widgets/room/messagelistview.cpp:463
 #, kde-format
 msgid "Report Message"
-msgstr ""
+msgstr "შეტყობინების შესახებ ანგარიშის გაგზავნა"
 
 #: widgets/room/messagelistview.cpp:626
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-30 00:47+0000\n"
-"PO-Revision-Date: 2022-11-29 09:25+0000\n"
+"POT-Creation-Date: 2022-12-01 00:46+0000\n"
+"PO-Revision-Date: 2022-11-30 09:26+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -39,7 +39,7 @@ msgstr ""
 "X-POFile-SpellExtra: RegExp STMP SMTPS Uniform Resource Locator\n"
 "X-POFile-SpellExtra: LibreOffice KMail dat Mails PIN cloud PErfeito WebRTC\n"
 "X-POFile-SpellExtra: CAS SSO name firstname lastname rooms team department\n"
-"X-POFile-SpellExtra: STUN TURN all Twitter KID\n"
+"X-POFile-SpellExtra: STUN TURN all Twitter KID LinkedIn\n"
 "X-POFile-IgnoreConsistency: Apple\n"
 
 #: apps/main.cpp:53
@@ -1484,46 +1484,46 @@ msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
 msgstr "Configurar o Texto-para-Fala"
 
-#: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:69
+#: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "Bom dia, este é o teste das definições de testes."
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:33
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
 msgid "Test"
-msgstr ""
+msgstr "Testar"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:40
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:41
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:59
 #, kde-format
 msgid "Volume:"
 msgstr "Volume:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:44
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:45
 #, kde-format
 msgid "Rate:"
 msgstr "Taxa:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:50
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
 msgstr "Timbre:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:53
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
 #: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
 #, kde-format
 msgid "Engine:"
 msgstr "Motor:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:59
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
 #, kde-format
 msgid "Language:"
 msgstr "Língua:"
 
-#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:63
+#: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:64
 #, kde-format
 msgid "Voice:"
 msgstr "Voz:"
@@ -5357,14 +5357,31 @@ msgstr "Autenticar-se com o Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgid "LinkedIn Login"
+msgstr "Autenticar-se com o LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
+#, fuzzy, kde-format
+#| msgid "Twitter Login"
+msgid "Meteor Login"
+msgstr "Autenticar-se com o Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
+#, kde-format
+msgid "Facebook Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Twitter Login"
+msgid "Github Login"
+msgstr "Autenticar-se com o Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:43
 #, kde-format
 msgid "Apple"
 msgstr "Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:49
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
@@ -5373,57 +5390,124 @@ msgstr ""
 "Se quiser activar a autenticação da Apple apenas no telemóvel, poderá deixar "
 "todos os campos em branco."
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:53
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr "ID Apple por OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
 msgid "OAuth Apple Iss"
 msgstr "ISS da Apple por OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:59
 #, kde-format
 msgid "OAuth Apple Kid"
 msgstr "KID da Apple por OAuth"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
 #, kde-format
 msgid "Dolphin"
 msgstr "Dolphin"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "Twitter"
 msgstr "Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
 #, kde-format
 msgid "Twitter Id"
 msgstr "ID do Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:64
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Senha do Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:83
 #, kde-format
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "LinkedIn Id"
+msgstr "ID do LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:98
+#, kde-format
+msgid "LinkedIn Secret"
+msgstr "Senha do LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:100
+#, kde-format
+msgid "Proxy"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:105
+#, kde-format
+msgid "Proxy Host"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:108
+#, fuzzy, kde-format
+#| msgid "&Previous Server"
+msgid "Proxy Services"
+msgstr "Servidor &Anterior"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:111
+#, kde-format
+msgid "Meteor"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
+#, fuzzy, kde-format
+#| msgid "Twitter Id"
+msgid "Meteor Id"
+msgstr "ID do Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
+#, fuzzy, kde-format
+#| msgid "Twitter Secret"
+msgid "Meteor Secret"
+msgstr "Senha do Twitter"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
+#, kde-format
+msgid "Facebook"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
+#, kde-format
+msgid "Facebook Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:141
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:144
+#, fuzzy, kde-format
+#| msgid "Shared Secret"
+msgid "Facebook Secret"
+msgstr "Segredo Partilhado"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
+#, kde-format
+msgid "Github"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:156
+#, kde-format
+msgid "Github Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:159
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:162
 #, fuzzy, kde-format
 #| msgid "Client Secret"
-msgid "LinkedIn Secret"
+msgid "Github Secret"
 msgstr "Senha do Cliente"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
@@ -6215,53 +6299,59 @@ msgstr "Activar o ícone na bandeja do sistema"
 msgid "Enable logging"
 msgstr "Activar o registo"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:43
+#: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configurar o Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:48
+#: widgets/configuredialog/configuresettingsdialog.cpp:55
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Geral"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:53
+#: widgets/configuredialog/configuresettingsdialog.cpp:60
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Conta"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:58
+#: widgets/configuredialog/configuresettingsdialog.cpp:65
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Tipo de Letra"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:63
+#: widgets/configuredialog/configuresettingsdialog.cpp:70
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Correcção Automática"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:68
+#: widgets/configuredialog/configuresettingsdialog.cpp:75
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Verificação Ortográfica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:73
+#: widgets/configuredialog/configuresettingsdialog.cpp:80
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Tradução"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:79
+#: widgets/configuredialog/configuresettingsdialog.cpp:86
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Reacção dos Utilizadores"
+
+#: widgets/configuredialog/configuresettingsdialog.cpp:93
+#, kde-format
+msgctxt "@title Preferences page name"
+msgid "Accessibility"
+msgstr ""
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -8683,7 +8773,3 @@ msgstr "Informação da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
-
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Predefinido"
