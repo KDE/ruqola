@@ -65,6 +65,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     auto infoLayout = new QVBoxLayout;
     infoLayout->setObjectName(QStringLiteral("infoLayout"));
     infoLayout->setContentsMargins({});
+    infoLayout->setSpacing(0);
     headerLayout->addLayout(infoLayout);
 
     auto roomNameLayout = new QHBoxLayout;
