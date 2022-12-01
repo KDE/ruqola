@@ -177,9 +177,15 @@ QMenu *MessageTextEdit::mousePopupMenu()
 void MessageTextEdit::slotInsertMarkdownUrl()
 {
     QTextCursor cursor = textCursor();
-    const QString mardownUrlStr{QStringLiteral("[text](url)")};
-    cursor.insertText(mardownUrlStr);
-    cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
+    if (cursor.hasSelection()) {
+        const QString mardownUrlStr{QStringLiteral("[text](%1)").arg(cursor.selectedText())};
+        cursor.insertText(mardownUrlStr);
+        cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
+    } else {
+        const QString mardownUrlStr{QStringLiteral("[text](url)")};
+        cursor.insertText(mardownUrlStr);
+        cursor.setPosition(cursor.position() - mardownUrlStr.length() + 1);
+    }
     setTextCursor(cursor);
 }
 
