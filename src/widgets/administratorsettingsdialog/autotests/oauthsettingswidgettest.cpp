@@ -218,4 +218,30 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mTokenpassServerURL->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassServerURL), QStringLiteral("API_Tokenpass_URL"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("API_Tokenpass_URL"));
+
+    auto mGoogleLogin = w.findChild<QCheckBox *>(QStringLiteral("mGoogleLogin"));
+    QVERIFY(mGoogleLogin);
+    QVERIFY(!mGoogleLogin->isChecked());
+    QVERIFY(!mGoogleLogin->text().isEmpty());
+    QVERIFY(mGoogleLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleLogin), QStringLiteral("Accounts_OAuth_Google"));
+
+    auto mGoogleId = w.findChild<QLineEdit *>(QStringLiteral("mGoogleId"));
+    QVERIFY(mGoogleId);
+    QVERIFY(mGoogleId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleId), QStringLiteral("Accounts_OAuth_Google_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Google_id"));
+
+    auto mGoogleSecret = w.findChild<QLineEdit *>(QStringLiteral("mGoogleSecret"));
+    QVERIFY(mGoogleSecret);
+    QVERIFY(mGoogleSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleSecret), QStringLiteral("Accounts_OAuth_Google_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Google_secret"));
+
+    auto mGoogleCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mGoogleCallbackURL"));
+    QVERIFY(mGoogleCallbackURL);
+    QVERIFY(mGoogleCallbackURL->text().isEmpty());
+    QVERIFY(mGoogleCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleCallbackURL), QStringLiteral("Accounts_OAuth_Google_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Google_callback_url"));
 }

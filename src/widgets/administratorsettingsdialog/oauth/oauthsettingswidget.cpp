@@ -44,6 +44,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mTokenpassSecret(new QLineEdit(this))
     , mTokenpassCallbackURL(new QLineEdit(this))
     , mTokenpassServerURL(new QLineEdit(this))
+    , mGoogleLogin(new QCheckBox(i18n("Google Login"), this))
+    , mGoogleId(new QLineEdit(this))
+    , mGoogleSecret(new QLineEdit(this))
+    , mGoogleCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -187,6 +191,24 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mTokenpassCallbackURL->setObjectName(QStringLiteral("mTokenpassCallbackURL"));
     addLineEdit(i18n("Tokenpass Secret"), mTokenpassCallbackURL, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"), true);
+
+    // Google
+    auto googleLabel = createBoldLabel(i18n("Google"));
+    googleLabel->setObjectName(QStringLiteral("googleLabel"));
+    mMainLayout->addWidget(googleLabel);
+
+    mGoogleLogin->setObjectName(QStringLiteral("mGoogleLogin"));
+    mMainLayout->addWidget(mGoogleLogin);
+    connectCheckBox(mGoogleLogin, QStringLiteral("Accounts_OAuth_Google"));
+
+    mGoogleId->setObjectName(QStringLiteral("mGoogleId"));
+    addLineEdit(i18n("Google Id"), mGoogleId, QStringLiteral("Accounts_OAuth_Google_id"));
+
+    mGoogleSecret->setObjectName(QStringLiteral("mGoogleSecret"));
+    addLineEdit(i18n("Google Secret"), mGoogleSecret, QStringLiteral("Accounts_OAuth_Google_secret"));
+
+    mGoogleCallbackURL->setObjectName(QStringLiteral("mGoogleCallbackURL"));
+    addLineEdit(i18n("Google Secret"), mGoogleCallbackURL, QStringLiteral("Accounts_OAuth_Google_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -230,4 +252,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mTokenpassSecret, mapSettings, QString());
     initializeWidget(mTokenpassCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/tokenpass")));
     initializeWidget(mTokenpassServerURL, mapSettings, QString());
+
+    initializeWidget(mGoogleLogin, mapSettings, false);
+    initializeWidget(mGoogleId, mapSettings, QString());
+    initializeWidget(mGoogleSecret, mapSettings, QString());
+    initializeWidget(mGoogleCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/google")));
 }

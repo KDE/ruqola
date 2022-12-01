@@ -57,4 +57,9 @@ private:
     QLineEdit *const mTokenpassSecret;
     QLineEdit *const mTokenpassCallbackURL;
     QLineEdit *const mTokenpassServerURL;
+
+    QCheckBox *const mGoogleLogin;
+    QLineEdit *const mGoogleId;
+    QLineEdit *const mGoogleSecret;
+    QLineEdit *const mGoogleCallbackURL;
 };
