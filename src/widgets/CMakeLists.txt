@@ -231,6 +231,10 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configureuserfeedbackwidget.h
     configuredialog/configureautocorrectionwidget.h
     configuredialog/configureautocorrectionwidget.cpp
+
+    configuredialog/configureaccessibilitywidget.h
+    configuredialog/configureaccessibilitywidget.cpp
+
     delegateutils/messagedelegateutils.cpp
     delegateutils/messagedelegateutils.h
     delegateutils/textselection.cpp
