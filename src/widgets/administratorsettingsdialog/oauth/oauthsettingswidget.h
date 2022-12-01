@@ -51,4 +51,9 @@ private:
     QLineEdit *const mGithubId;
     QLineEdit *const mGithubSecret;
     QLineEdit *const mGithubCallbackURL;
+
+    QCheckBox *const mTokenpassLogin;
+    QLineEdit *const mTokenpassId;
+    QLineEdit *const mTokenpassSecret;
+    QLineEdit *const mTokenpassCallbackURL;
 };

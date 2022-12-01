@@ -39,6 +39,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mGithubId(new QLineEdit(this))
     , mGithubSecret(new QLineEdit(this))
     , mGithubCallbackURL(new QLineEdit(this))
+    , mTokenpassLogin(new QCheckBox(i18n("Tokenpass Login"), this))
+    , mTokenpassId(new QLineEdit(this))
+    , mTokenpassSecret(new QLineEdit(this))
+    , mTokenpassCallbackURL(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -160,6 +164,24 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
 
     mGithubCallbackURL->setObjectName(QStringLiteral("mGithubCallbackURL"));
     addLineEdit(i18n("Github Secret"), mGithubCallbackURL, QStringLiteral("Accounts_OAuth_Github_callback_url"), true);
+
+    // Tokenpass
+    auto tokenpassLabel = createBoldLabel(i18n("Tokenpass"));
+    tokenpassLabel->setObjectName(QStringLiteral("tokenpassLabel"));
+    mMainLayout->addWidget(tokenpassLabel);
+
+    mTokenpassLogin->setObjectName(QStringLiteral("mTokenpassLogin"));
+    mMainLayout->addWidget(mTokenpassLogin);
+    connectCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
+
+    mTokenpassId->setObjectName(QStringLiteral("mTokenpassId"));
+    addLineEdit(i18n("Tokenpass Id"), mTokenpassId, QStringLiteral("Accounts_OAuth_Tokenpass_id"));
+
+    mTokenpassSecret->setObjectName(QStringLiteral("mTokenpassSecret"));
+    addLineEdit(i18n("Tokenpass Secret"), mTokenpassSecret, QStringLiteral("Accounts_OAuth_Tokenpass_secret"));
+
+    mTokenpassCallbackURL->setObjectName(QStringLiteral("mTokenpassCallbackURL"));
+    addLineEdit(i18n("Tokenpass Secret"), mTokenpassCallbackURL, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"), true);
 }
 
 OauthSettingsWidget::~OauthSettingsWidget() = default;
@@ -197,4 +219,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mGithubId, mapSettings, QString());
     initializeWidget(mGithubSecret, mapSettings, QString());
     initializeWidget(mGithubCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/github")));
+
+    initializeWidget(mTokenpassLogin, mapSettings, false);
+    initializeWidget(mTokenpassId, mapSettings, QString());
+    initializeWidget(mTokenpassSecret, mapSettings, QString());
+    initializeWidget(mTokenpassCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/tokenpass")));
 }

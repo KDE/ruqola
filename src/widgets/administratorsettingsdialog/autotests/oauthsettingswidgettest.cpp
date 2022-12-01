@@ -185,4 +185,30 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mGithubCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGithubCallbackURL), QStringLiteral("Accounts_OAuth_Github_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Github_callback_url"));
+
+    auto mTokenpassLogin = w.findChild<QCheckBox *>(QStringLiteral("mTokenpassLogin"));
+    QVERIFY(mTokenpassLogin);
+    QVERIFY(!mTokenpassLogin->isChecked());
+    QVERIFY(!mTokenpassLogin->text().isEmpty());
+    QVERIFY(mTokenpassLogin->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassLogin), QStringLiteral("Accounts_OAuth_Tokenpass"));
+
+    auto mTokenpassId = w.findChild<QLineEdit *>(QStringLiteral("mTokenpassId"));
+    QVERIFY(mTokenpassId);
+    QVERIFY(mTokenpassId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassId), QStringLiteral("Accounts_OAuth_Tokenpass_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Tokenpass_id"));
+
+    auto mTokenpassSecret = w.findChild<QLineEdit *>(QStringLiteral("mTokenpassSecret"));
+    QVERIFY(mTokenpassSecret);
+    QVERIFY(mTokenpassSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassSecret), QStringLiteral("Accounts_OAuth_Tokenpass_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Tokenpass_secret"));
+
+    auto mTokenpassCallbackURL = w.findChild<QLineEdit *>(QStringLiteral("mTokenpassCallbackURL"));
+    QVERIFY(mTokenpassCallbackURL);
+    QVERIFY(mTokenpassCallbackURL->text().isEmpty());
+    QVERIFY(mTokenpassCallbackURL->isReadOnly());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTokenpassCallbackURL), QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Tokenpass_callback_url"));
 }
