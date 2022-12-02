@@ -15,6 +15,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     , mMessages(new QCheckBox(i18n("Messages"), this))
     , mRooms(new QCheckBox(i18n("Rooms"), this))
     , mUsers(new QCheckBox(i18n("Users"), this))
+    , mGoogleEnabled(new QCheckBox(i18n("Enable"), this))
 {
     auto featuresEnabledLabel = createBoldLabel(i18n("Features Enabled"));
     featuresEnabledLabel->setObjectName(QStringLiteral("featuresEnabledLabel"));
@@ -38,6 +39,10 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     auto googleAnalyticsLabel = createBoldLabel(i18n("Google Analytics"));
     googleAnalyticsLabel->setObjectName(QStringLiteral("googleAnalyticsLabel"));
     mMainLayout->addWidget(googleAnalyticsLabel);
+
+    mGoogleEnabled->setObjectName(QStringLiteral("mGoogleEnabled"));
+    mMainLayout->addWidget(mGoogleEnabled);
+    connectCheckBox(mGoogleEnabled, QStringLiteral("GoogleAnalytics_enabled"));
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;
@@ -47,4 +52,5 @@ void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mMessages, mapSettings, true);
     initializeWidget(mRooms, mapSettings, true);
     initializeWidget(mUsers, mapSettings, true);
+    initializeWidget(mGoogleEnabled, mapSettings, false);
 }

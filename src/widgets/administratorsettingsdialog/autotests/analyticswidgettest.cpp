@@ -38,4 +38,11 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUsers->text().isEmpty());
     QVERIFY(!mUsers->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUsers), QStringLiteral("Analytics_features_users"));
+
+    auto mGoogleEnabled = w.findChild<QCheckBox *>(QStringLiteral("mGoogleEnabled"));
+    QVERIFY(mGoogleEnabled);
+    QVERIFY(!mGoogleEnabled->isChecked());
+    QVERIFY(!mGoogleEnabled->text().isEmpty());
+    QVERIFY(mGoogleEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleEnabled), QStringLiteral("GoogleAnalytics_enabled"));
 }
