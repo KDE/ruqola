@@ -12,6 +12,7 @@
 #include "users/userinfojob.h"
 
 #include <KLocalizedString>
+#include <QApplication>
 #include <QFormLayout>
 #include <QIcon>
 #include <QLabel>
@@ -136,7 +137,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     QSize pixmapAvatarSize{QSize(60, 60)};
-    pixmapAvatarSize /= qreal(physicalDpiX()) / qreal(logicalDpiX());
+    pixmapAvatarSize *= qApp->devicePixelRatio();
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
     const QStringList roles{user.roles()};
     if (roles.isEmpty()) {
