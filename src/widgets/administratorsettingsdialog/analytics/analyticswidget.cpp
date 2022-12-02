@@ -20,6 +20,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
 
     mMessages->setObjectName(QStringLiteral("mMessages"));
     mMainLayout->addWidget(mMessages);
+    mMessages->setToolTip(i18n("Tracks custom events related to actions a user does on messages."));
     connectCheckBox(mMessages, QStringLiteral("Analytics_features_messages"));
 }
 

@@ -17,4 +17,11 @@ AnalyticsWidgetTest::AnalyticsWidgetTest(QObject *parent)
 void AnalyticsWidgetTest::shouldHaveDefaultValues()
 {
     AnalyticsWidget w(nullptr);
+
+    auto mMessages = w.findChild<QCheckBox *>(QStringLiteral("mMessages"));
+    QVERIFY(mMessages);
+    QVERIFY(!mMessages->isChecked());
+    QVERIFY(!mMessages->text().isEmpty());
+    QVERIFY(mMessages->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessages), QStringLiteral("Analytics_features_messages"));
 }
