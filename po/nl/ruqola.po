@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-01 00:46+0000\n"
-"PO-Revision-Date: 2022-11-30 10:41+0100\n"
+"POT-Creation-Date: 2022-12-02 00:46+0000\n"
+"PO-Revision-Date: 2022-12-01 12:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1518,7 +1518,7 @@ msgstr "Sluiten"
 msgid "Configure..."
 msgstr "Configureren..."
 
-#: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:53
+#: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:52
 #, kde-format
 msgid "Archive cannot be opened in read mode."
 msgstr "Openen van archief lukt niet in leesmodus."
@@ -1557,7 +1557,7 @@ msgstr "Gea&vanceerde autocorrectie"
 #. i18n: ectx: property (text), widget (QPushButton, add1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:88
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:228
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:480
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:482
 #, kde-format
 msgid "&Add"
 msgstr "&Toevoegen"
@@ -1853,6 +1853,33 @@ msgstr "'"
 msgid "Ending Quotes:"
 msgstr "Eind-aanhalingsteken:"
 
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:707
+#, kde-format
+msgid "Path"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:713
+#, kde-format
+msgid "System Path:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, systemPath)
+#. i18n: ectx: property (text), widget (QLabel, writablePath)
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:720
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:734
+#, fuzzy, kde-format
+#| msgid "Text"
+msgid "TextLabel"
+msgstr "Tekst"
+
+#. i18n: ectx: property (text), widget (QLabel, label_7)
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:727
+#, kde-format
+msgid "Writable Path:"
+msgstr ""
+
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:127
 #, kde-format
 msgid "LibreOffice Autocorrection"
@@ -1863,64 +1890,64 @@ msgstr "Autocorrectie van LibreOffice"
 msgid "KMail/Calligra Autocorrection"
 msgstr "KMail/Calligra-autocorrectie"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
 msgstr "Vervangende tekenreeks is hetzelfde als de te zoeken tekenreeks."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:398
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
 #, kde-format
 msgid "Add Autocorrection Entry"
 msgstr "Item voor autocorrectie toevoegen"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:477
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:479
 #, kde-format
 msgid "&Modify"
 msgstr "&Wijzigen"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:588
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:590
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
 msgstr "Autocorrectie van LibreOffice importeren"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:589
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:591
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
 msgstr "Autocorrectiebestand van LibreOffice (*.dat)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:592
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:594
 #, kde-format
 msgid "Import KMail Autocorrection"
 msgstr "KMail-autocorrectie importeren"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:593
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:595
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
 msgstr "KMail-autocorrectiebestand (*.xml)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:625
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:627
 #, kde-format
 msgid "Import Autocorrection File"
 msgstr "Autocorrectiebestand importeren"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:648
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:650
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
 "De taal is gewijzigd, wilt u de configuratie opslaan voor de vorige taal?"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:649
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:651
 #, kde-format
 msgid "Save config"
 msgstr "Configuratie opslaan"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr "Wijzigingen opslaan voor opslaan van instellingen."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:684
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:687
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:689
 #, kde-format
 msgid "Export Autocorrection File"
 msgstr "Autocorrectiebestand exporteren"
@@ -2271,6 +2298,7 @@ msgstr "DeepL"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:196
 #, kde-format
 msgid "Google"
 msgstr "Google"
@@ -5345,28 +5373,38 @@ msgid "LinkedIn Login"
 msgstr "Aanmelding bij LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Twitter Login"
+#, kde-format
 msgid "Meteor Login"
-msgstr "Aanmelding bij Twitter"
+msgstr "Aanmelding bij Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr ""
+msgstr "Aanmelden bij Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Twitter Login"
+#, kde-format
 msgid "Github Login"
-msgstr "Aanmelding bij Twitter"
+msgstr "Aanmelding bij GitHub"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:43
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
+#, fuzzy, kde-format
+#| msgid "LinkedIn Login"
+msgid "Tokenpass Login"
+msgstr "Aanmelding bij LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
+#, fuzzy, kde-format
+#| msgid "Google"
+msgid "Google Login"
+msgstr "Google"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Apple"
 msgstr "Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:58
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
@@ -5375,125 +5413,160 @@ msgstr ""
 "Als u aanmelden met Apple inschakelen alleen op het mobiel wilt, dan kunt u "
 "alle velden leeg laten."
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr "OAuth Apple-Id"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:65
 #, kde-format
 msgid "OAuth Apple Iss"
 msgstr "OAuth Apple-Iss"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:68
 #, kde-format
 msgid "OAuth Apple Kid"
 msgstr "OAuth Apple-Kid"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:61
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:70
 #, kde-format
 msgid "Dolphin"
 msgstr "Dolphin"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
 #, kde-format
 msgid "Twitter"
 msgstr "Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:84
 #, kde-format
 msgid "Twitter Id"
 msgstr "Twitter-Id"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:78
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:81
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:90
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Geheim van Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
 msgid "LinkedIn Id"
 msgstr "LinkedIn-Id"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:95
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "Geheim van LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:114
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Proxy-host"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
-msgid "Proxy Services"
-msgstr "Vo&rige server"
-
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:117
 #, kde-format
-msgid "Meteor"
-msgstr ""
+msgid "Proxy Services"
+msgstr "Proxy-services"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
-#, fuzzy, kde-format
-#| msgid "Twitter Id"
-msgid "Meteor Id"
-msgstr "Twitter-Id"
-
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:123
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Twitter Secret"
-msgid "Meteor Secret"
-msgstr "Geheim van Twitter"
+#, kde-format
+msgid "Meteor"
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
-#, fuzzy, kde-format
-#| msgid "Handbook"
-msgid "Facebook"
-msgstr "Handboek"
+#, kde-format
+msgid "Meteor Id"
+msgstr "Meteor-Id"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
+#, kde-format
+msgid "Meteor Secret"
+msgstr "Geheim van Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
 #, kde-format
-msgid "Facebook Id"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:141
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:144
-#, fuzzy, kde-format
-#| msgid "Shared Secret"
-msgid "Facebook Secret"
-msgstr "Gedeeld geheim"
+msgid "Facebook"
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
 #, kde-format
-msgid "Github"
-msgstr ""
+msgid "Facebook Id"
+msgstr "Facebook-Id"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
+#, kde-format
+msgid "Facebook Secret"
+msgstr "Geheim van Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:156
 #, kde-format
+msgid "Github"
+msgstr "Github"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:165
+#, kde-format
 msgid "Github Id"
+msgstr "Github-Id"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:168
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:171
+#, kde-format
+msgid "Github Secret"
+msgstr "Geheim van GitHub"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:174
+#, fuzzy, kde-format
+#| msgid "Token"
+msgid "Tokenpass"
+msgstr "Teken"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:179
+#, kde-format
+msgid "Example: https://domain.com (excluding trailing slash)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:159
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:180
+#, kde-format
+msgid "Tokenpass Server URL"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
+#, kde-format
+msgid "Tokenpass Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:190
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:193
+#, fuzzy, kde-format
+#| msgid "LinkedIn Secret"
+msgid "Tokenpass Secret"
+msgstr "Geheim van LinkedIn"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#, fuzzy, kde-format
+#| msgid "Google"
+msgid "Google Id"
+msgstr "Google"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:208
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:211
 #, fuzzy, kde-format
 #| msgid "Client Secret"
-msgid "Github Secret"
+msgid "Google Secret"
 msgstr "Geheim van client"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
@@ -6337,7 +6410,7 @@ msgstr "Terugkoppeling van gebruiker"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
-msgstr ""
+msgstr "Toegankelijkheid"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
