@@ -21,8 +21,8 @@
 #include "utils.h"
 #include <KLocalizedString>
 
-#include <QApplication>
 #include <QLineEdit>
+#include <QScreen>
 #include <QTabWidget>
 #include <QVBoxLayout>
 
@@ -111,8 +111,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     });
     connect(mCustomEmojiView, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);
 
-    QSize popupMenuSize{QSize(400, 250)};
-    popupMenuSize *= qApp->devicePixelRatio();
+    const QSize popupMenuSize = QSize(400, 250) * screen()->devicePixelRatio();
 
     setMinimumSize(popupMenuSize);
 }

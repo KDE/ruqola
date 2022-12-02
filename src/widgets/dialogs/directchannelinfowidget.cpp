@@ -12,10 +12,10 @@
 #include "users/userinfojob.h"
 
 #include <KLocalizedString>
-#include <QApplication>
 #include <QFormLayout>
 #include <QIcon>
 #include <QLabel>
+#include <QScreen>
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -136,8 +136,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
-    QSize pixmapAvatarSize{QSize(60, 60)};
-    pixmapAvatarSize *= qApp->devicePixelRatio();
+    const QSize pixmapAvatarSize = QSize(60, 60) * screen()->devicePixelRatio();
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
     const QStringList roles{user.roles()};
     if (roles.isEmpty()) {
