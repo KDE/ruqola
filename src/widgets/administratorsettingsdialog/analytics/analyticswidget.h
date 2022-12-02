@@ -21,4 +21,6 @@ public:
 
 private:
     QCheckBox *const mMessages;
+    QCheckBox *const mRooms;
+    QCheckBox *const mUsers;
 };

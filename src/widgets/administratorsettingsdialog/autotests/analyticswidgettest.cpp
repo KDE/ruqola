@@ -22,6 +22,20 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMessages);
     QVERIFY(!mMessages->isChecked());
     QVERIFY(!mMessages->text().isEmpty());
-    QVERIFY(mMessages->toolTip().isEmpty());
+    QVERIFY(!mMessages->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessages), QStringLiteral("Analytics_features_messages"));
+
+    auto mRooms = w.findChild<QCheckBox *>(QStringLiteral("mRooms"));
+    QVERIFY(mRooms);
+    QVERIFY(!mRooms->isChecked());
+    QVERIFY(!mRooms->text().isEmpty());
+    QVERIFY(!mRooms->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRooms), QStringLiteral("Analytics_features_rooms"));
+
+    auto mUsers = w.findChild<QCheckBox *>(QStringLiteral("mUsers"));
+    QVERIFY(mUsers);
+    QVERIFY(!mUsers->isChecked());
+    QVERIFY(!mUsers->text().isEmpty());
+    QVERIFY(!mUsers->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUsers), QStringLiteral("Analytics_features_users"));
 }
