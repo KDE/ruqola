@@ -7,6 +7,7 @@
 #include "administratorsettingswidgettest.h"
 #include "administratorsettingsdialog/accounts/accountsettingswidget.h"
 #include "administratorsettingsdialog/administratorsettingswidget.h"
+#include "administratorsettingsdialog/analytics/analyticswidget.h"
 #include "administratorsettingsdialog/cas/cassettingswidget.h"
 #include "administratorsettingsdialog/conferencecall/conferencecallsettingswidget.h"
 #include "administratorsettingsdialog/email/emailsettingswidget.h"
@@ -122,4 +123,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mOauthSettingsWidget = w.findChild<OauthSettingsWidget *>(QStringLiteral("mOauthSettingsWidget"));
     QVERIFY(mOauthSettingsWidget);
+
+    auto mAnalyticsWidget = w.findChild<AnalyticsWidget *>(QStringLiteral("mAnalyticsWidget"));
+    QVERIFY(mAnalyticsWidget);
 }

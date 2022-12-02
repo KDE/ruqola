@@ -6,6 +6,7 @@
 
 #include "administratorsettingswidget.h"
 #include "accounts/accountsettingswidget.h"
+#include "analytics/analyticswidget.h"
 #include "cas/cassettingswidget.h"
 #include "conferencecall/conferencecallsettingswidget.h"
 #include "email/emailsettingswidget.h"
@@ -63,6 +64,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     , mWebRtcSettingsWidget(new WebRtcSettingsWidget(account, this))
     , mCasSettingsWidget(new CasSettingsWidget(account, this))
     , mOauthSettingsWidget(new OauthSettingsWidget(account, this))
+    , mAnalyticsWidget(new AnalyticsWidget(account, this))
     , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
@@ -96,6 +98,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mWebRtcSettingsWidget->setObjectName(QStringLiteral("mWebRtcSettingsWidget"));
     mCasSettingsWidget->setObjectName(QStringLiteral("mCasSettingsWidget"));
     mOauthSettingsWidget->setObjectName(QStringLiteral("mOauthSettingsWidget"));
+    mAnalyticsWidget->setObjectName(QStringLiteral("mAnalyticsWidget"));
     mTabWidget->addTab(mAccountSettingsWidget, i18n("Accounts"));
     mTabWidget->addTab(mEncryptionSettingsWidget, i18n("Encryption"));
     mTabWidget->addTab(mMessageSettingsWidget, i18n("Message"));
@@ -120,6 +123,7 @@ AdministratorSettingsWidget::AdministratorSettingsWidget(RocketChatAccount *acco
     mTabWidget->addTab(mWebRtcSettingsWidget, i18n("WebRTC"));
     mTabWidget->addTab(mCasSettingsWidget, i18n("CAS"));
     mTabWidget->addTab(mOauthSettingsWidget, i18n("Oauth"));
+    mTabWidget->addTab(mAnalyticsWidget, i18n("Analytics"));
     if (mRocketChatAccount) {
         connect(mRocketChatAccount, &RocketChatAccount::publicSettingLoaded, this, &AdministratorSettingsWidget::initialize);
     }
@@ -170,6 +174,7 @@ void AdministratorSettingsWidget::initialize(const QJsonObject &obj)
     initializeValues(mWebRtcSettingsWidget, mapSettings);
     initializeValues(mCasSettingsWidget, mapSettings);
     initializeValues(mOauthSettingsWidget, mapSettings);
+    initializeValues(mAnalyticsWidget, mapSettings);
     updateState(true);
 }
 
@@ -203,4 +208,5 @@ void AdministratorSettingsWidget::updateState(bool state)
     mWebRtcSettingsWidget->setEnabled(state);
     mCasSettingsWidget->setEnabled(state);
     mOauthSettingsWidget->setEnabled(state);
+    mAnalyticsWidget->setEnabled(state);
 }

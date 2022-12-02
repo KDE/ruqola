@@ -34,6 +34,10 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mMainLayout->addWidget(mUsers);
     mUsers->setToolTip(i18n("Tracks custom events related to actions related to users (password reset times, profile picture change, etc)."));
     connectCheckBox(mUsers, QStringLiteral("Analytics_features_users"));
+
+    auto googleAnalyticsLabel = createBoldLabel(i18n("Google Analytics"));
+    googleAnalyticsLabel->setObjectName(QStringLiteral("googleAnalyticsLabel"));
+    mMainLayout->addWidget(googleAnalyticsLabel);
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;
