@@ -177,8 +177,8 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/oauth/oauthsettingswidget.h
     administratorsettingsdialog/oauth/oauthsettingswidget.cpp
 
-    administratorsettingsdialog/analitics/analiticswidget.cpp
-    administratorsettingsdialog/analitics/analiticswidget.h
+    administratorsettingsdialog/analytics/analyticswidget.cpp
+    administratorsettingsdialog/analytics/analyticswidget.h
 
     bannerinfodialog/bannerinfodialog.h
     bannerinfodialog/bannerinfodialog.cpp

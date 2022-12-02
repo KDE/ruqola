@@ -10,12 +10,15 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT AnaliticsWidget : public SettingsWidgetBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT AnalyticsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
 public:
-    explicit AnaliticsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
-    ~AnaliticsWidget() override;
+    explicit AnalyticsWidget(RocketChatAccount *account, QWidget *parent = nullptr);
+    ~AnalyticsWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QCheckBox *const mMessages;
 };
