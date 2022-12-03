@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:46+0000\n"
-"PO-Revision-Date: 2022-11-30 10:27+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"PO-Revision-Date: 2022-12-02 17:32+0100\n"
+"Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Kate 22.08.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -781,7 +781,7 @@ msgid "UserName"
 msgstr "Nom d'usuari"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
@@ -861,6 +861,7 @@ msgstr "Tipus de canal"
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:16
 #: widgets/directory/directorytabwidget.cpp:19
 #, kde-format
 msgid "Rooms"
@@ -876,7 +877,7 @@ msgstr "Correus electrònics"
 msgid "Join At"
 msgstr "Entra"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
 #, kde-format
 msgid "Custom"
 msgstr "Personalitzat"
@@ -1559,7 +1560,7 @@ msgstr "Correcció automàtica a&vançada"
 #. i18n: ectx: property (text), widget (QPushButton, add1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:88
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:228
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:482
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:483
 #, kde-format
 msgid "&Add"
 msgstr "Afi&g"
@@ -1854,97 +1855,96 @@ msgstr "Cometes finals:"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:707
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Camí"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:713
 #, kde-format
 msgid "System Path:"
-msgstr ""
+msgstr "Camí del sistema:"
 
 #. i18n: ectx: property (text), widget (QLabel, systemPath)
 #. i18n: ectx: property (text), widget (QLabel, writablePath)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:720
-#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:734
-#, fuzzy, kde-format
-#| msgid "Text"
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:737
+#, kde-format
 msgid "TextLabel"
-msgstr "Text"
+msgstr "EtiquetaDeText"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:727
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:730
 #, kde-format
 msgid "Writable Path:"
-msgstr ""
+msgstr "Camí que s'hi pot escriure:"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:127
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:128
 #, kde-format
 msgid "LibreOffice Autocorrection"
 msgstr "Correcció automàtica de LibreOffice"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:131
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
 msgstr "Correcció automàtica de KMail/Calligra"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
 msgstr "La cadena «Substituïx» és la mateixa que la cadena «Busca»."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
 msgid "Add Autocorrection Entry"
 msgstr "Afig una entrada de correcció automàtica"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:479
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:480
 #, kde-format
 msgid "&Modify"
 msgstr "&Modifica"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:590
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:591
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
 msgstr "Importa la correcció automàtica de LibreOffice"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:591
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:592
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
 msgstr "Fitxer de correcció automàtica de LibreOffice (*.dat)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:594
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:595
 #, kde-format
 msgid "Import KMail Autocorrection"
 msgstr "Importa la correcció automàtica de KMail"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:595
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:596
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
 msgstr "Fitxer de correcció automàtica de KMail (*.xml)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:627
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:628
 #, kde-format
 msgid "Import Autocorrection File"
 msgstr "Importa un fitxer de correcció automàtica"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:650
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:655
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
 "L'idioma ha canviat. Voleu guardar la configuració de l'idioma anterior?"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:651
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:656
 #, kde-format
 msgid "Save config"
 msgstr "Guarda la configuració"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr "Guardeu els canvis abans d'exportar la configuració."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:689
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:698
 #, kde-format
 msgid "Export Autocorrection File"
 msgstr "Exporta un fitxer de correcció automàtica"
@@ -2366,7 +2366,7 @@ msgstr "Configuració del traductor"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:45
+#: widgets/misc/emoticonmenuwidget.cpp:46
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #, kde-format
 msgid "Search..."
@@ -3297,6 +3297,7 @@ msgid "Custom Emojis"
 msgstr "Emojis personalitzats"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Users"
@@ -3318,7 +3319,7 @@ msgid "Permissions"
 msgstr "Permisos"
 
 #: widgets/administratordialog/administratorwidget.cpp:78
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
@@ -3347,7 +3348,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:42
+#: widgets/dialogs/directchannelinfowidget.cpp:43
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:49
 #, kde-format
@@ -3469,7 +3470,7 @@ msgid "Edit User Status"
 msgstr "Edita l'estat de l'usuari"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/dialogs/directchannelinfowidget.cpp:50
+#: widgets/dialogs/directchannelinfowidget.cpp:51
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgid "Status:"
@@ -3568,7 +3569,7 @@ msgstr "Edició del permís de «%1»"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:63
 #, kde-format
 msgid "Roles:"
 msgstr "Rols:"
@@ -4042,7 +4043,7 @@ msgid "Set random password and send by email"
 msgstr "Establix una contrasenya aleatòria i l'envia per correu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
-#: widgets/dialogs/directchannelinfowidget.cpp:46
+#: widgets/dialogs/directchannelinfowidget.cpp:47
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
@@ -4055,7 +4056,7 @@ msgid "Status Message:"
 msgstr "Missatge d'estat:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:76
+#: widgets/dialogs/directchannelinfowidget.cpp:77
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4235,121 +4236,168 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuració de l'administració del servidor - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "Accounts"
 msgstr "Comptes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptació"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Pujada de fitxers"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de retenció"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitador de velocitat"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Contrasenya"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "Video Conference"
 msgstr "Conferència de vídeo"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federació d'IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Layout"
 msgstr "Disposició"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "User Data Download"
 msgstr "Baixada de dades d'usuari"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Pont d'Slack"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Logs"
 msgstr "Registres"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #: widgets/dialogs/configurenotificationwidget.cpp:86
 #, kde-format
 msgid "Mobile"
 msgstr "Mòbil"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Resolució de problemes"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
 msgid "Conference Call"
 msgstr "Tocada de conferència"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
 msgstr "WebRTC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
 msgstr "CAS"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
+#, kde-format
+msgid "Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Messages"
+msgstr "Missatge"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Enabled"
+msgid "Enable"
+msgstr "Activada"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Featured"
+msgid "Features Enabled"
+msgstr "Destacada"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#, kde-format
+msgid "Tracks custom events related to actions a user does on messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#, kde-format
+msgid ""
+"Tracks custom events related to actions on a channel or group (create, "
+"leave, delete)."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#, kde-format
+msgid ""
+"Tracks custom events related to actions related to users (password reset "
+"times, profile picture change, etc)."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#, kde-format
+msgid "Google Analytics"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -5380,33 +5428,29 @@ msgid "LinkedIn Login"
 msgstr "Inici de sessió de LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Twitter Login"
+#, kde-format
 msgid "Meteor Login"
-msgstr "Inici de sessió de Twitter"
+msgstr "Inici de sessió de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr ""
+msgstr "Inici de sessió de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Twitter Login"
+#, kde-format
 msgid "Github Login"
-msgstr "Inici de sessió de Twitter"
+msgstr "Inici de sessió de GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "LinkedIn Login"
+#, kde-format
 msgid "Tokenpass Login"
-msgstr "Inici de sessió de LinkedIn"
+msgstr "Inici de sessió de Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Login"
-msgstr "Google"
+msgstr "Inici de sessió de Google"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
@@ -5477,111 +5521,102 @@ msgstr "Secret de LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "Proxy"
-msgstr ""
+msgstr "Servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:114
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:117
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
+#, kde-format
 msgid "Proxy Services"
-msgstr "Servidor an&terior"
+msgstr "Serveis del servidor intermediari"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
-#, fuzzy, kde-format
-#| msgid "Twitter Id"
+#, kde-format
 msgid "Meteor Id"
-msgstr "ID de Twitter"
+msgstr "ID de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
-#, fuzzy, kde-format
-#| msgid "Twitter Secret"
+#, kde-format
 msgid "Meteor Secret"
-msgstr "Secret de Twitter"
+msgstr "Secret de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
 #, kde-format
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
 #, kde-format
 msgid "Facebook Id"
-msgstr ""
+msgstr "ID de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
-#, fuzzy, kde-format
-#| msgid "Shared Secret"
+#, kde-format
 msgid "Facebook Secret"
-msgstr "Secret compartit"
+msgstr "Secret de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:156
 #, kde-format
 msgid "Github"
-msgstr ""
+msgstr "GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:165
 #, kde-format
 msgid "Github Id"
-msgstr ""
+msgstr "ID de GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:168
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:171
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Github Secret"
-msgstr "Secret del client"
+msgstr "Secret de GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:174
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Tokenpass"
-msgstr "Testimoni"
+msgstr "Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:179
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "Exemple: https://domini.com (excloent la barra del final)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:180
 #, kde-format
 msgid "Tokenpass Server URL"
-msgstr ""
+msgstr "URL del servidor Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
 msgid "Tokenpass Id"
-msgstr ""
+msgstr "ID de Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:190
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "LinkedIn Secret"
+#, kde-format
 msgid "Tokenpass Secret"
-msgstr "Secret de LinkedIn"
+msgstr "Secret de Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Id"
-msgstr "Google"
+msgstr "ID de Google"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:208
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Google Secret"
-msgstr "Secret del client"
+msgstr "Secret de Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6422,7 +6457,7 @@ msgstr "Comentaris de l'usuari"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
-msgstr ""
+msgstr "Accessibilitat"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6846,22 +6881,22 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informació d'usuari"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:54
+#: widgets/dialogs/directchannelinfowidget.cpp:55
 #, kde-format
 msgid "Custom Status:"
 msgstr "Estat personalitzat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:58
+#: widgets/dialogs/directchannelinfowidget.cpp:59
 #, kde-format
 msgid "Timezone:"
 msgstr "Zona horària:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:66
+#: widgets/dialogs/directchannelinfowidget.cpp:67
 #, kde-format
 msgid "Created At:"
 msgstr "Creat:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:70
+#: widgets/dialogs/directchannelinfowidget.cpp:71
 #, kde-format
 msgid "Last Login:"
 msgstr "Últim inici de sessió:"
@@ -7174,7 +7209,7 @@ msgid "Save Image"
 msgstr "Guarda la imatge"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:122
+#: widgets/room/roomheaderwidget.cpp:123
 #, kde-format
 msgid "Search Messages..."
 msgstr "Busca en els missatges..."
@@ -7421,12 +7456,12 @@ msgstr "Estat desconegut"
 msgid "(Unnamed)"
 msgstr "(Sense nom)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:72
+#: widgets/misc/emoticonmenuwidget.cpp:73
 #, kde-format
 msgid "Search"
 msgstr "Busca"
 
-#: widgets/misc/emoticonmenuwidget.cpp:96
+#: widgets/misc/emoticonmenuwidget.cpp:97
 #, kde-format
 msgid "Recent"
 msgstr "Recent"
@@ -8295,8 +8330,9 @@ msgid "(Jump to first Unread)"
 msgstr "(Ves al primer no llegit)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, kde-format
-msgid "(Show More Infos...)"
+#, fuzzy, kde-format
+#| msgid "(Show More Infos...)"
+msgid "(Show More Info...)"
 msgstr "(Mostra més informació...)"
 
 #: widgets/room/roomheaderlabel.cpp:99
@@ -8309,22 +8345,22 @@ msgstr "(Mostra menys informació...)"
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:98 widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:99 widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:105
+#: widgets/room/roomheaderwidget.cpp:106
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:113
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"

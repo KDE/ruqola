@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-02 00:46+0000\n"
-"PO-Revision-Date: 2022-12-01 17:20+0300\n"
+"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"PO-Revision-Date: 2022-12-02 19:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -776,7 +776,7 @@ msgid "UserName"
 msgstr "Kullanıcı Adı"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
@@ -856,6 +856,7 @@ msgstr "Kanal Türü"
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:16
 #: widgets/directory/directorytabwidget.cpp:19
 #, kde-format
 msgid "Rooms"
@@ -871,7 +872,7 @@ msgstr "E-postalar"
 msgid "Join At"
 msgstr "Şurada Katıl"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:106
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
 #, kde-format
 msgid "Custom"
 msgstr "Özel"
@@ -1553,7 +1554,7 @@ msgstr "Gelişmiş Otomatik Düzeltme"
 #. i18n: ectx: property (text), widget (QPushButton, add1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:88
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:228
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:482
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:483
 #, kde-format
 msgid "&Add"
 msgstr "&Ekle"
@@ -1845,98 +1846,97 @@ msgstr "Kapanış Tırnakları:"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:707
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Yol"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:713
 #, kde-format
 msgid "System Path:"
-msgstr ""
+msgstr "Sistem Yolu:"
 
 #. i18n: ectx: property (text), widget (QLabel, systemPath)
 #. i18n: ectx: property (text), widget (QLabel, writablePath)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:720
-#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:734
-#, fuzzy, kde-format
-#| msgid "Text"
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:737
+#, kde-format
 msgid "TextLabel"
-msgstr "Metin"
+msgstr "MetinEtiketi"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:727
+#: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:730
 #, kde-format
 msgid "Writable Path:"
-msgstr ""
+msgstr "Yazılabilir Yol:"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:127
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:128
 #, kde-format
 msgid "LibreOffice Autocorrection"
 msgstr "LibreOffice Otomatik Düzeltme"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:131
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
 msgstr "KMail/Calligra Otomatik Düzeltme"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
 msgstr "\"Değiştirilecek\" dizi, \"Bulunacak\" dizi ile aynıdır."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:400
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
 msgid "Add Autocorrection Entry"
 msgstr "Otomatik Düzeltme Girdisi Ekle"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:479
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:480
 #, kde-format
 msgid "&Modify"
 msgstr "&Değiştir"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:590
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:591
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
 msgstr "LibreOffice Otomatik Düzeltmesi İçe Aktar"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:591
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:592
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
 msgstr "LibreOffice Otomatik Düzeltme Dosyası (*.dat)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:594
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:595
 #, kde-format
 msgid "Import KMail Autocorrection"
 msgstr "KMail Otomatik Düzeltmesi İçe Aktar"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:595
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:596
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
 msgstr "KMail Otomatik Düzeltme Dosyası (*.xml)"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:627
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:628
 #, kde-format
 msgid "Import Autocorrection File"
 msgstr "Otomatik Düzeltme Dosyası İçe Aktar"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:650
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:655
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
 "Dil değiştirildi, bir önceki dil için olan yapılandırmayı kaydetmek istiyor "
 "musunuz?"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:651
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:656
 #, kde-format
 msgid "Save config"
 msgstr "Yapılandırmayı kaydet"
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr "Ayarları dışa aktarmadan önce lütfen onları kaydedin."
 
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:686
-#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:689
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
+#: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:698
 #, kde-format
 msgid "Export Autocorrection File"
 msgstr "Otomatik Düzeltme Dosyası Dışa Aktar"
@@ -2345,7 +2345,7 @@ msgstr "Çevirmeni Yapılandır"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:45
+#: widgets/misc/emoticonmenuwidget.cpp:46
 #: widgets/notificationhistory/notificationhistorywidget.cpp:34
 #, kde-format
 msgid "Search..."
@@ -3259,6 +3259,7 @@ msgid "Custom Emojis"
 msgstr "Özel Emojiler"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Users"
@@ -3280,7 +3281,7 @@ msgid "Permissions"
 msgstr "İzinler"
 
 #: widgets/administratordialog/administratorwidget.cpp:78
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #, kde-format
 msgid "Oauth"
 msgstr "Oauth"
@@ -3308,7 +3309,7 @@ msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 #: widgets/dialogs/channelinfoeditablewidget.cpp:53
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:42
+#: widgets/dialogs/directchannelinfowidget.cpp:43
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:49
 #, kde-format
@@ -3430,7 +3431,7 @@ msgid "Edit User Status"
 msgstr "Kullanıcı Durumunu Düzenle"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/dialogs/directchannelinfowidget.cpp:50
+#: widgets/dialogs/directchannelinfowidget.cpp:51
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:482
 #, kde-format
 msgid "Status:"
@@ -3529,7 +3530,7 @@ msgstr "\"%1\" İznini Düzenle"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:62
+#: widgets/dialogs/directchannelinfowidget.cpp:63
 #, kde-format
 msgid "Roles:"
 msgstr "Roller:"
@@ -4003,7 +4004,7 @@ msgid "Set random password and send by email"
 msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
-#: widgets/dialogs/directchannelinfowidget.cpp:46
+#: widgets/dialogs/directchannelinfowidget.cpp:47
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
 #, kde-format
@@ -4016,7 +4017,7 @@ msgid "Status Message:"
 msgstr "Durum İletisi:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:76
+#: widgets/dialogs/directchannelinfowidget.cpp:77
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:58
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4197,121 +4198,168 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Yönetici Sunucu Ayarları - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
 #, kde-format
 msgid "Accounts"
 msgstr "Hesaplar"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
 #, kde-format
 msgid "Encryption"
 msgstr "Şifreleme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
 #: widgets/ruqolamainwindow.cpp:864
 #, kde-format
 msgid "Message"
 msgstr "İleti"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Dosya Karşıya Yükle"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Retention Policy"
 msgstr "Tutma Politikası"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #, kde-format
 msgid "General"
 msgstr "Genel"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Hız Sınırlayıcı"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Parola"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "Video Conference"
 msgstr "Video Konferans"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "IRC Federation"
 msgstr "IRC Yönetimi"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #, kde-format
 msgid "Webdav"
 msgstr "Webdav"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Layout"
 msgstr "Yerleşim"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Enterprise"
 msgstr "Kurumsal"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "User Data Download"
 msgstr "Kullanıcı Verisi İndirme"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Slack Köprüsü"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Logs"
 msgstr "Günlükler"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #: widgets/dialogs/configurenotificationwidget.cpp:86
 #, kde-format
 msgid "Mobile"
 msgstr "Taşınabilir"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Tanılar"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
 msgid "Conference Call"
 msgstr "Video Konferans"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
 msgstr "WebRTC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
 msgstr "CAS"
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
+#, kde-format
+msgid "Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Message"
+msgid "Messages"
+msgstr "İleti"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#, fuzzy, kde-format
+#| msgid "Enabled"
+msgid "Enable"
+msgstr "Etkin"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Featured"
+msgid "Features Enabled"
+msgstr "Öne Çıkan"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#, kde-format
+msgid "Tracks custom events related to actions a user does on messages."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#, kde-format
+msgid ""
+"Tracks custom events related to actions on a channel or group (create, "
+"leave, delete)."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#, kde-format
+msgid ""
+"Tracks custom events related to actions related to users (password reset "
+"times, profile picture change, etc)."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#, kde-format
+msgid "Google Analytics"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -5349,16 +5397,14 @@ msgid "Github Login"
 msgstr "Github Girişi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "LinkedIn Login"
+#, kde-format
 msgid "Tokenpass Login"
-msgstr "LinkedIn Girişi"
+msgstr "Tokenpass Girişi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Login"
-msgstr "Google"
+msgstr "Google Girişi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
@@ -5490,45 +5536,41 @@ msgid "Github Secret"
 msgstr "Github Gizi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:174
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Tokenpass"
-msgstr "Jeton"
+msgstr "Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:179
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "Örnek: https://alanadı.com (sondaki eğik çizgi olmadan)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:180
 #, kde-format
 msgid "Tokenpass Server URL"
-msgstr ""
+msgstr "Tokenpass Sunucu URL'si"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
 #, kde-format
 msgid "Tokenpass Id"
-msgstr ""
+msgstr "Tokenpass Kimliği"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:190
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "LinkedIn Secret"
+#, kde-format
 msgid "Tokenpass Secret"
-msgstr "LinkedIn Gizi"
+msgstr "Tokenpass Gizi"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Id"
-msgstr "Google"
+msgstr "Google Kimliği"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:208
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:211
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Google Secret"
-msgstr "İstemci Gizi"
+msgstr "Google Gizi"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6778,22 +6820,22 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Kullanıcı Bilgisi"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:54
+#: widgets/dialogs/directchannelinfowidget.cpp:55
 #, kde-format
 msgid "Custom Status:"
 msgstr "Özel Durum:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:58
+#: widgets/dialogs/directchannelinfowidget.cpp:59
 #, kde-format
 msgid "Timezone:"
 msgstr "Zaman Dilimi:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:66
+#: widgets/dialogs/directchannelinfowidget.cpp:67
 #, kde-format
 msgid "Created At:"
 msgstr "Oluşturulma:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:70
+#: widgets/dialogs/directchannelinfowidget.cpp:71
 #, kde-format
 msgid "Last Login:"
 msgstr "Son Giriş:"
@@ -7108,7 +7150,7 @@ msgid "Save Image"
 msgstr "Görseli Kaydet"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:122
+#: widgets/room/roomheaderwidget.cpp:123
 #, kde-format
 msgid "Search Messages..."
 msgstr "İletileri Ara..."
@@ -7353,12 +7395,12 @@ msgstr "Bilinmeyen durum"
 msgid "(Unnamed)"
 msgstr "(Adsız)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:72
+#: widgets/misc/emoticonmenuwidget.cpp:73
 #, kde-format
 msgid "Search"
 msgstr "Ara"
 
-#: widgets/misc/emoticonmenuwidget.cpp:96
+#: widgets/misc/emoticonmenuwidget.cpp:97
 #, kde-format
 msgid "Recent"
 msgstr "Son Kullanılan"
@@ -8229,8 +8271,9 @@ msgid "(Jump to first Unread)"
 msgstr "(İlk Okunmamışa Git)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, kde-format
-msgid "(Show More Infos...)"
+#, fuzzy, kde-format
+#| msgid "(Show More Infos...)"
+msgid "(Show More Info...)"
 msgstr "(Daha Fazla Bilgi Göster...)"
 
 #: widgets/room/roomheaderlabel.cpp:99
@@ -8243,22 +8286,22 @@ msgstr "(Daha Az Bilgi Göster...)"
 msgid "E2E Enabled"
 msgstr "Uçtan Uca Şifreleme Etkinleştirildi"
 
-#: widgets/room/roomheaderwidget.cpp:98 widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:99 widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanal Bilgisi"
 
-#: widgets/room/roomheaderwidget.cpp:105
+#: widgets/room/roomheaderwidget.cpp:106
 #, kde-format
 msgid "Team Channels"
 msgstr "Takım Kanalları"
 
-#: widgets/room/roomheaderwidget.cpp:113
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Show List of Users"
 msgstr "Kullanıcı Listesini Göster"
 
-#: widgets/room/roomheaderwidget.cpp:182
+#: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
 msgstr "Takım Bilgisi"
