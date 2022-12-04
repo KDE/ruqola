@@ -24,4 +24,5 @@ private:
     QCheckBox *const mRooms;
     QCheckBox *const mUsers;
     QCheckBox *const mGoogleEnabled;
+    QCheckBox *const mPiwikEnabled;
 };

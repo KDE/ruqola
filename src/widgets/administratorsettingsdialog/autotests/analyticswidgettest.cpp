@@ -45,4 +45,11 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mGoogleEnabled->text().isEmpty());
     QVERIFY(mGoogleEnabled->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleEnabled), QStringLiteral("GoogleAnalytics_enabled"));
+
+    auto mPiwikEnabled = w.findChild<QCheckBox *>(QStringLiteral("mPiwikEnabled"));
+    QVERIFY(mPiwikEnabled);
+    QVERIFY(!mPiwikEnabled->isChecked());
+    QVERIFY(!mPiwikEnabled->text().isEmpty());
+    QVERIFY(mPiwikEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPiwikEnabled), QStringLiteral("PiwikAnalytics_enabled"));
 }

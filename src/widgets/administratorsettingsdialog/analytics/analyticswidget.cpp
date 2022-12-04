@@ -16,6 +16,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     , mRooms(new QCheckBox(i18n("Rooms"), this))
     , mUsers(new QCheckBox(i18n("Users"), this))
     , mGoogleEnabled(new QCheckBox(i18n("Enable"), this))
+    , mPiwikEnabled(new QCheckBox(i18n("Enable"), this))
 {
     auto featuresEnabledLabel = createBoldLabel(i18n("Features Enabled"));
     featuresEnabledLabel->setObjectName(QStringLiteral("featuresEnabledLabel"));
@@ -43,6 +44,14 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mGoogleEnabled->setObjectName(QStringLiteral("mGoogleEnabled"));
     mMainLayout->addWidget(mGoogleEnabled);
     connectCheckBox(mGoogleEnabled, QStringLiteral("GoogleAnalytics_enabled"));
+
+    auto piwikAnalyticsLabel = createBoldLabel(i18n("Piwik Analytics"));
+    piwikAnalyticsLabel->setObjectName(QStringLiteral("piwikAnalyticsLabel"));
+    mMainLayout->addWidget(piwikAnalyticsLabel);
+
+    mPiwikEnabled->setObjectName(QStringLiteral("mPiwikEnabled"));
+    mMainLayout->addWidget(mPiwikEnabled);
+    connectCheckBox(mPiwikEnabled, QStringLiteral("PiwikAnalytics_enabled"));
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;
@@ -53,4 +62,5 @@ void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mRooms, mapSettings, true);
     initializeWidget(mUsers, mapSettings, true);
     initializeWidget(mGoogleEnabled, mapSettings, false);
+    initializeWidget(mPiwikEnabled, mapSettings, false);
 }
