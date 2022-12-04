@@ -95,7 +95,7 @@ bool TeamRoomsModel::setData(const QModelIndex &index, const QVariant &value, in
                 Q_EMIT dataChanged(index, index);
                 const QString roomId = data(index, TeamRoomsModel::Identifier).toString();
                 if (value == Qt::Checked) {
-                    mRoomSelected.append(roomId);
+                    mRoomSelected.append(std::move(roomId));
                 } else {
                     mRoomSelected.removeAll(roomId);
                 }

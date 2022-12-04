@@ -23,56 +23,56 @@ void CustomSoundsManager::initializeDefaultSounds()
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("chime"));
         info.setName(QStringLiteral("Chime"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("door"));
         info.setName(QStringLiteral("Door"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("beep"));
         info.setName(QStringLiteral("Beep"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("chelle"));
         info.setName(QStringLiteral("Chelle"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("ding"));
         info.setName(QStringLiteral("Ding"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("droplet"));
         info.setName(QStringLiteral("Droplet"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("highbell"));
         info.setName(QStringLiteral("Highbell"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     {
         CustomSoundInfo info;
         info.setExtension(QStringLiteral("mp3"));
         info.setIdentifier(QStringLiteral("seasons"));
         info.setName(QStringLiteral("Seasons"));
-        listSounds.append(info);
+        listSounds.append(std::move(info));
     }
     setCustomSoundsInfo(listSounds);
     // TODO download it in customsound repo I think.

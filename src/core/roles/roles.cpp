@@ -54,7 +54,7 @@ void Roles::updateRoles(const QJsonObject &obj)
                 Role r = mRoles.takeAt(i);
                 r.updateRole(id, false);
                 if (r.hasARole()) {
-                    mRoles.append(r);
+                    mRoles.append(std::move(r));
                 }
                 foundUser = true;
                 break;

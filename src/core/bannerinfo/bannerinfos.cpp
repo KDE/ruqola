@@ -23,7 +23,7 @@ void BannerInfos::parseBannerInfos(const QJsonObject &object)
         BannerInfo info;
         info.parseBannerInfo(currentObj);
         if (info.isValid()) {
-            mBanners.append(info);
+            mBanners.append(std::move(info));
         }
     }
 }
@@ -51,7 +51,7 @@ QVector<BannerInfos::UnreadInformation> BannerInfos::bannerUnreadInformations() 
             BannerInfos::UnreadInformation info;
             info.i18nMessage = generateText(banner);
             info.identifier = banner.identifier();
-            infos.append(info);
+            infos.append(std::move(info));
         }
     }
     return infos;

@@ -31,7 +31,7 @@ void CustomUserStatuses::parseListCustomUserStatuses(const QJsonObject &customSt
             const QJsonObject customUserObj = current.toObject();
             CustomUserStatus m;
             m.parseCustomStatus(customUserObj);
-            mCustomUserses.append(m);
+            mCustomUserses.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing customStatusUser" << current;
         }
@@ -139,7 +139,7 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                     CustomUserStatus newStatus;
                     newStatus.parseCustomStatus(customStatusObj, false);
                     if (newStatus.isValid()) {
-                        mCustomUserses.append(newStatus);
+                        mCustomUserses.append(std::move(newStatus));
                     }
                 }
             } else {

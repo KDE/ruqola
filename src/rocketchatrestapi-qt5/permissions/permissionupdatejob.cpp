@@ -90,7 +90,7 @@ QJsonDocument PermissionUpdateJob::json() const
         QJsonObject obj;
         obj[QLatin1String("_id")] = i.key();
         obj[QLatin1String("roles")] = QJsonArray::fromStringList(i.value());
-        array.append(obj);
+        array.append(std::move(obj));
     }
     jsonObj[QLatin1String("permissions")] = array;
     const QJsonDocument postData = QJsonDocument(jsonObj);

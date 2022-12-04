@@ -69,7 +69,7 @@ void Users::parseListUsers(const QJsonObject &obj, ParseType type, const QVector
             const QJsonObject userObject = current.toObject();
             User m;
             m.parseUserRestApi(userObject, roleInfo);
-            mUsers.append(m);
+            mUsers.append(std::move(m));
         } else {
             qCWarning(RUQOLA_LOG) << "Problem when parsing Users" << current;
         }

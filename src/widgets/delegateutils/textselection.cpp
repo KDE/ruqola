@@ -196,7 +196,7 @@ void TextSelection::setStart(const QModelIndex &index, int charPos, const Messag
         AttachmentSelection selection;
         selection.fromCharPos = charPos;
         selection.attachment = msgAttach;
-        mAttachmentSelection.append(selection);
+        mAttachmentSelection.append(std::move(selection));
         // qDebug() << " start selection is in attachment ";
     } else {
         mStartPos = charPos;
@@ -240,7 +240,7 @@ void TextSelection::setEnd(const QModelIndex &index, int charPos, const MessageA
         AttachmentSelection selection;
         selection.toCharPos = charPos;
         selection.attachment = msgAttach;
-        mAttachmentSelection.append(selection);
+        mAttachmentSelection.append(std::move(selection));
     } else {
         mEndPos = charPos;
     }
@@ -272,7 +272,7 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         selection.fromCharPos = mStartPos;
         selection.toCharPos = mEndPos;
         selection.attachment = msgAttach;
-        mAttachmentSelection.append(selection);
+        mAttachmentSelection.append(std::move(selection));
     } else {
         QTextDocument *doc = factory->documentForIndex(index);
         selectWord(index, charPos, doc);
@@ -301,7 +301,7 @@ void TextSelection::selectMessage(const QModelIndex &index)
                     selection.attachment = att;
                     selection.fromCharPos = 0;
                     selection.toCharPos = doc->characterCount() - 1;
-                    mAttachmentSelection.append(selection);
+                    mAttachmentSelection.append(std::move(selection));
                 }
             }
         }

@@ -1479,7 +1479,7 @@ void RocketChatAccount::initializeAuthenticationPlugins()
         info.setName(abstractPlugin->name());
         info.setOauthType(abstractPlugin->type());
         if (info.isValid()) {
-            mLstInfos.append(info);
+            mLstInfos.append(std::move(info));
         }
 
         PluginAuthenticationInterface *interface = abstractPlugin->createInterface(this);
