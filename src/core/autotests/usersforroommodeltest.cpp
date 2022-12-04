@@ -40,7 +40,7 @@ void UsersForRoomModelTest::shouldAddValues()
         user.setStatus(User::PresenceStatus::PresenceAway);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);
@@ -59,7 +59,7 @@ void UsersForRoomModelTest::shouldAddValues()
         user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.clear();
     w.setUsers(users);
@@ -92,7 +92,7 @@ void UsersForRoomModelTest::shouldVerifyData()
         user.setStatus(User::PresenceStatus::PresenceOnline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.setUsers(users);
     QCOMPARE(w.rowCount(), 10);

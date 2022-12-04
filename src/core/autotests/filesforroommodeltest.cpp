@@ -36,7 +36,7 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
-        mFiles.append(f);
+        mFiles.append(std::move(f));
     }
     QSignalSpy rowInsertedSpy(&w, &FilesForRoomModel::rowsInserted);
 
@@ -50,7 +50,7 @@ void FilesForRoomModelTest::shouldAddFiles()
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
-        mFiles.append(f);
+        mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);
     QCOMPARE(w.rowCount(), 3);
@@ -66,7 +66,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
-        mFiles.append(f);
+        mFiles.append(std::move(f));
     }
 
     w.setFiles(mFiles);
@@ -82,7 +82,7 @@ void FilesForRoomModelTest::shouldVerifyData()
         f.setFileName(QStringLiteral("name%1").arg(i));
         f.setDescription(QStringLiteral("description%1").arg(i));
         f.setUserId(QStringLiteral("userid%1").arg(i));
-        mFiles.append(f);
+        mFiles.append(std::move(f));
     }
     w.setFiles(mFiles);
     for (int i = 0; i < 3; ++i) {

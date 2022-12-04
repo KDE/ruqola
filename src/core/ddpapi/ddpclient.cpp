@@ -710,7 +710,7 @@ quint64 DDPClient::subscribe(const QString &collection, const QJsonArray &params
         QJsonObject obj;
         obj[QStringLiteral("useCollection")] = false;
         obj[QStringLiteral("args")] = args;
-        newParams.append(obj);
+        newParams.append(std::move(obj));
     }
 
     json[QStringLiteral("params")] = newParams;

@@ -39,7 +39,7 @@ void UserCompleterModelTest::shouldAddValues()
         user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.insertUsers(users);
     QCOMPARE(w.rowCount(), 10);
@@ -55,7 +55,7 @@ void UserCompleterModelTest::shouldAddValues()
         user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.insertUsers(users);
     QCOMPARE(w.rowCount(), 3);
@@ -75,7 +75,7 @@ void UserCompleterModelTest::shouldVerifyData()
         user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     w.insertUsers(users);
     QCOMPARE(w.rowCount(), 10);

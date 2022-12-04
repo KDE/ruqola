@@ -55,7 +55,7 @@ void AutotranslateLanguages::parseLanguages(const QJsonObject &obj)
         AutotranslateLanguage lang;
         lang.setLanguage(languageObject.value(QLatin1String("language")).toString());
         lang.setDisplayLanguage(languageObject.value(QLatin1String("name")).toString());
-        mAutotranslateLanguages.append(lang);
+        mAutotranslateLanguages.append(std::move(lang));
     }
 }
 

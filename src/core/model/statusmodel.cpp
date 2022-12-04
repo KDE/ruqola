@@ -104,23 +104,23 @@ void StatusModel::fillModel()
     mStatusList.clear();
     {
         const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOnline, 20);
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     {
         const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceBusy, 19);
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     {
         const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceAway, 18);
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     {
         const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::PresenceOffline, 17);
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
     {
         const DisplayStatusInfo statusInfo = createStatusInfo(User::PresenceStatus::Unknown, -1);
-        mStatusList.append(statusInfo);
+        mStatusList.append(std::move(statusInfo));
     }
 }
 

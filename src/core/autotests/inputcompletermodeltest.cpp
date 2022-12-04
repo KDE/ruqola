@@ -39,7 +39,7 @@ void InputCompleterModelTest::shouldAssignValues()
         c.setRoomId(QStringLiteral("roomid%1").arg(i));
         c.setRoomName(QStringLiteral("roomname%1").arg(i));
         c.setRoomType(QStringLiteral("online"));
-        channelList.append(c);
+        channelList.append(std::move(c));
     }
     w.setChannels(channelList);
     QCOMPARE(w.rowCount(), 10);
@@ -97,7 +97,7 @@ void InputCompleterModelTest::shouldAssignValues()
         c.setRoomId(QStringLiteral("roomid%1").arg(i));
         c.setRoomName(QStringLiteral("roomname%1").arg(i));
         c.setRoomType(QStringLiteral("online"));
-        channelList.append(c);
+        channelList.append(std::move(c));
     }
     w.setChannels(channelList);
     QCOMPARE(w.rowCount(), 5);
