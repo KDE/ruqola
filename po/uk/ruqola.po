@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 15:57+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2022-12-03 15:18+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -4354,30 +4354,29 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Аналітика"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
 msgstr "Повідомлення"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgid "Enable"
-msgstr "Увімкнено"
+msgstr "Увімкнути"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Featured"
+#, kde-format
 msgid "Features Enabled"
-msgstr "Рекомендовані"
+msgstr "Увімкнені можливості"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Стежить за нетиповими подіями, пов'язаними із діями, які користувач виконує "
+"з повідомленнями."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
 #, kde-format
@@ -4385,6 +4384,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Стежить за нетиповими подіями, пов'язаними із діями над каналом або групою "
+"(створення, вихід, вилучення)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
 #, kde-format
@@ -4392,11 +4393,13 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Стежить за нетиповими подіями, пов'язаними із користувачами (моменти "
+"скидання паролів, зміни зображення профілю тощо)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Аналітика Google"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -8362,8 +8365,7 @@ msgid "(Jump to first Unread)"
 msgstr "(Перейти до першого непрочитаного)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "(Show More Infos...)"
+#, kde-format
 msgid "(Show More Info...)"
 msgstr "(Показати більше відомостей…)"
 

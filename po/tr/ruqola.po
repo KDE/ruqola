@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 19:06+0300\n"
+"PO-Revision-Date: 2022-12-03 19:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4317,30 +4317,28 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analitikler"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "İleti"
+msgstr "İletiler"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgid "Enable"
-msgstr "Etkin"
+msgstr "Etkinleştir"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Featured"
+#, kde-format
 msgid "Features Enabled"
-msgstr "Öne Çıkan"
+msgstr "Etkinleştirilmiş Özellikler"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Bir kullanıcının iletilerde yaptığı eylemlerle ilgili özel olayları izler."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
 #, kde-format
@@ -4348,6 +4346,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Bir kanal veya gruptaki eylemlerle ilgili özel olayları izler (oluştur, "
+"ayrıl, sil)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
 #, kde-format
@@ -4355,11 +4355,13 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Kullanıcılarla ilgili eylemlerle ilgili özel olayları izler (şifre sıfırlama "
+"süreleri, profil resim değişikliği, vb.)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analitikler"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -8271,8 +8273,7 @@ msgid "(Jump to first Unread)"
 msgstr "(İlk Okunmamışa Git)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "(Show More Infos...)"
+#, kde-format
 msgid "(Show More Info...)"
 msgstr "(Daha Fazla Bilgi Göster...)"
 
