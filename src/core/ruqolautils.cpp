@@ -7,7 +7,6 @@
  */
 
 #include "ruqolautils.h"
-#include "ruqola_debug.h"
 #include "utils.h"
 #include <QDesktopServices>
 #include <QUrl>

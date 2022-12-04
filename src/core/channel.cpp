@@ -5,7 +5,6 @@
 */
 
 #include "channel.h"
-#include "ruqola_debug.h"
 #include "utils.h"
 
 #include <QJsonObject>
