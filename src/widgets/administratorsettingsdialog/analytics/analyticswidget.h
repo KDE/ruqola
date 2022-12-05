@@ -25,4 +25,5 @@ private:
     QCheckBox *const mUsers;
     QCheckBox *const mGoogleEnabled;
     QCheckBox *const mPiwikEnabled;
+    QLineEdit *const mGoogleTrackingId;
 };

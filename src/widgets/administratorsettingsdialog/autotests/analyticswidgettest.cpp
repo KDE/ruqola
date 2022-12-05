@@ -7,6 +7,7 @@
 #include "analyticswidgettest.h"
 #include "administratorsettingsdialog/analytics/analyticswidget.h"
 #include "settingswidgetshelper.h"
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AnalyticsWidgetTest)
 AnalyticsWidgetTest::AnalyticsWidgetTest(QObject *parent)
@@ -45,6 +46,13 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mGoogleEnabled->text().isEmpty());
     QVERIFY(mGoogleEnabled->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleEnabled), QStringLiteral("GoogleAnalytics_enabled"));
+
+    auto mGoogleTrackingId = w.findChild<QLineEdit *>(QStringLiteral("mGoogleTrackingId"));
+    QVERIFY(mGoogleTrackingId);
+    QVERIFY(mGoogleTrackingId->text().isEmpty());
+    QVERIFY(mGoogleTrackingId->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleTrackingId), QStringLiteral("GoogleAnalytics_ID"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("GoogleAnalytics_ID"));
 
     auto mPiwikEnabled = w.findChild<QCheckBox *>(QStringLiteral("mPiwikEnabled"));
     QVERIFY(mPiwikEnabled);
