@@ -10,6 +10,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 
 AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     : SettingsWidgetBase(account, parent)
@@ -21,6 +22,10 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     , mGoogleTrackingId(new QLineEdit(this))
     , mPiwikUrl(new QLineEdit(this))
     , mPiwikClientID(new QLineEdit(this))
+    , mPrependDomain(new QCheckBox(i18n("Prepend Domain"), this))
+    , mAllSubdomains(new QCheckBox(i18n("All Subdomains"), this))
+    , mAdditionalPiwikSites(new QPlainTextEdit(this))
+    , mHideOutgoingLinks(new QPlainTextEdit(this))
 {
     auto featuresEnabledLabel = createBoldLabel(i18n("Features Enabled"));
     featuresEnabledLabel->setObjectName(QStringLiteral("featuresEnabledLabel"));
@@ -67,6 +72,22 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mPiwikClientID->setObjectName(QStringLiteral("mPiwikClientID"));
     mPiwikClientID->setToolTip(i18n("The site id to use for identifying this site. Example: 17"));
     addLineEdit(i18n("Client ID"), mPiwikClientID, QStringLiteral("PiwikAnalytics_siteId"));
+
+    mAdditionalPiwikSites->setObjectName(QStringLiteral("mAdditionalPiwikSites"));
+    addPlainTextEdit(i18n("Additional Piwik Sites"), mAdditionalPiwikSites, QStringLiteral("PiwikAdditionalTrackers"));
+
+    mPrependDomain->setObjectName(QStringLiteral("mPrependDomain"));
+    mPrependDomain->setToolTip(i18n("Prepend the site domain to the page title when tracking"));
+    mMainLayout->addWidget(mPrependDomain);
+    connectCheckBox(mPrependDomain, QStringLiteral("PiwikAnalytics_prependDomain"));
+
+    mAllSubdomains->setObjectName(QStringLiteral("mAllSubdomains"));
+    mAllSubdomains->setToolTip(i18n("Track visitors across all subdomains"));
+    mMainLayout->addWidget(mAllSubdomains);
+    connectCheckBox(mAllSubdomains, QStringLiteral("PiwikAnalytics_cookieDomain"));
+
+    mHideOutgoingLinks->setObjectName(QStringLiteral("mHideOutgoingLinks"));
+    addPlainTextEdit(i18n("Hide Outgoing Links"), mHideOutgoingLinks, QStringLiteral("PiwikAnalytics_domains"));
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;
@@ -81,4 +102,8 @@ void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mPiwikEnabled, mapSettings, false);
     initializeWidget(mPiwikUrl, mapSettings, {});
     initializeWidget(mPiwikClientID, mapSettings, {});
+    initializeWidget(mPrependDomain, mapSettings, false);
+    initializeWidget(mAllSubdomains, mapSettings, false);
+    initializeWidget(mAdditionalPiwikSites, mapSettings, {});
+    initializeWidget(mHideOutgoingLinks, mapSettings, {});
 }

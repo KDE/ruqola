@@ -10,6 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 class QCheckBox;
 class QLineEdit;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AnalyticsWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -28,4 +29,8 @@ private:
     QLineEdit *const mGoogleTrackingId;
     QLineEdit *const mPiwikUrl;
     QLineEdit *const mPiwikClientID;
+    QCheckBox *const mPrependDomain;
+    QCheckBox *const mAllSubdomains;
+    QPlainTextEdit *const mAdditionalPiwikSites;
+    QPlainTextEdit *const mHideOutgoingLinks;
 };

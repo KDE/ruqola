@@ -8,6 +8,7 @@
 #include "administratorsettingsdialog/analytics/analyticswidget.h"
 #include "settingswidgetshelper.h"
 #include <QLineEdit>
+#include <QPlainTextEdit>
 #include <QTest>
 QTEST_MAIN(AnalyticsWidgetTest)
 AnalyticsWidgetTest::AnalyticsWidgetTest(QObject *parent)
@@ -74,4 +75,30 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mPiwikClientID->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPiwikClientID), QStringLiteral("PiwikAnalytics_siteId"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("PiwikAnalytics_siteId"));
+
+    auto mPrependDomain = w.findChild<QCheckBox *>(QStringLiteral("mPrependDomain"));
+    QVERIFY(mPrependDomain);
+    QVERIFY(!mPrependDomain->isChecked());
+    QVERIFY(!mPrependDomain->text().isEmpty());
+    QVERIFY(!mPrependDomain->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPrependDomain), QStringLiteral("PiwikAnalytics_prependDomain"));
+
+    auto mAllSubdomains = w.findChild<QCheckBox *>(QStringLiteral("mAllSubdomains"));
+    QVERIFY(mAllSubdomains);
+    QVERIFY(!mAllSubdomains->isChecked());
+    QVERIFY(!mAllSubdomains->text().isEmpty());
+    QVERIFY(!mAllSubdomains->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllSubdomains), QStringLiteral("PiwikAnalytics_cookieDomain"));
+
+    auto mAdditionalPiwikSites = w.findChild<QPlainTextEdit *>(QStringLiteral("mAdditionalPiwikSites"));
+    QVERIFY(mAdditionalPiwikSites);
+    QVERIFY(mAdditionalPiwikSites->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAdditionalPiwikSites), QStringLiteral("PiwikAdditionalTrackers"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("PiwikAdditionalTrackers"));
+
+    auto mHideOutgoingLinks = w.findChild<QPlainTextEdit *>(QStringLiteral("mHideOutgoingLinks"));
+    QVERIFY(mHideOutgoingLinks);
+    QVERIFY(mHideOutgoingLinks->toPlainText().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHideOutgoingLinks), QStringLiteral("PiwikAnalytics_domains"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("PiwikAnalytics_domains"));
 }
