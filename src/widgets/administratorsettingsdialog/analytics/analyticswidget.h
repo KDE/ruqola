@@ -27,4 +27,5 @@ private:
     QCheckBox *const mPiwikEnabled;
     QLineEdit *const mGoogleTrackingId;
     QLineEdit *const mPiwikUrl;
+    QLineEdit *const mPiwikClientID;
 };
