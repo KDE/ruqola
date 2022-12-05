@@ -19,6 +19,7 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     , mGoogleEnabled(new QCheckBox(i18n("Enable"), this))
     , mPiwikEnabled(new QCheckBox(i18n("Enable"), this))
     , mGoogleTrackingId(new QLineEdit(this))
+    , mPiwikUrl(new QLineEdit(this))
 {
     auto featuresEnabledLabel = createBoldLabel(i18n("Features Enabled"));
     featuresEnabledLabel->setObjectName(QStringLiteral("featuresEnabledLabel"));
@@ -57,6 +58,10 @@ AnalyticsWidget::AnalyticsWidget(RocketChatAccount *account, QWidget *parent)
     mPiwikEnabled->setObjectName(QStringLiteral("mPiwikEnabled"));
     mMainLayout->addWidget(mPiwikEnabled);
     connectCheckBox(mPiwikEnabled, QStringLiteral("PiwikAnalytics_enabled"));
+
+    mPiwikUrl->setObjectName(QStringLiteral("mPiwikUrl"));
+    mPiwikUrl->setToolTip(i18n("The url where the Piwik resides, be sure to include the trailing slash. Example: //piwik.rocket.chat/"));
+    addLineEdit(i18n("URL"), mPiwikUrl, QStringLiteral("PiwikAnalytics_url"));
 }
 
 AnalyticsWidget::~AnalyticsWidget() = default;
@@ -69,4 +74,5 @@ void AnalyticsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mGoogleEnabled, mapSettings, false);
     initializeWidget(mGoogleTrackingId, mapSettings, {});
     initializeWidget(mPiwikEnabled, mapSettings, false);
+    initializeWidget(mPiwikUrl, mapSettings, {});
 }

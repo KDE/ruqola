@@ -60,4 +60,11 @@ void AnalyticsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mPiwikEnabled->text().isEmpty());
     QVERIFY(mPiwikEnabled->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mPiwikEnabled), QStringLiteral("PiwikAnalytics_enabled"));
+
+    auto mPiwikUrl = w.findChild<QLineEdit *>(QStringLiteral("mPiwikUrl"));
+    QVERIFY(mPiwikUrl);
+    QVERIFY(mPiwikUrl->text().isEmpty());
+    QVERIFY(!mPiwikUrl->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleTrackingId), QStringLiteral("PiwikAnalytics_url"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("PiwikAnalytics_url"));
 }
