@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 06:44+0100\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
+"PO-Revision-Date: 2022-12-04 06:07+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1911,7 +1911,7 @@ msgstr "კონფიგურაციის შენახვა"
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
 #, kde-format
 msgid "Please save changes before exporting settings."
-msgstr ""
+msgstr "პარამეტრების გატანამდე, გთხოვთ, შეინახეთ ცვლილებები."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:695
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:698
@@ -2257,6 +2257,7 @@ msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
+"შეცდომა: ვებ ვერსიიდან Bing-ის დამატებითი ინფორმაციის გამოღება შეუძლებელია."
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:26
 #, kde-format
@@ -2296,17 +2297,17 @@ msgstr ""
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
+msgstr "შეცდომა: ვების ვერსიაში Yandex SID ვერ ვიპოვე."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
+msgstr "შეცდომა: ვებ ვერსიიდან Yandex SID-ის ამოღების შეცდომა."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:136
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
-msgstr ""
+msgstr "შეცდომა: ავტომატურად აღმოჩენილი ენის დამუშავების შეცდომა"
 
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
 #, kde-format
@@ -2498,12 +2499,12 @@ msgstr "ოთახი პაროლს საჭიროებს."
 #: rocketchatrestapi-qt5/channels/channelmembersjob.cpp:49
 #, kde-format
 msgid "Get Members not authorized in this room"
-msgstr ""
+msgstr "ამ ოთახში არაავტორიზებული წევრების მიღება"
 
 #: rocketchatrestapi-qt5/channels/channelopenjob.cpp:78
 #, kde-format
 msgid "The required channel is not found."
-msgstr ""
+msgstr "საჭირო არხი ვერ მოიძებნა."
 
 #: rocketchatrestapi-qt5/channels/channelremovemoderatorjob.cpp:101
 #, kde-format
@@ -2518,7 +2519,7 @@ msgstr "მომხმარებელი მფლობელი არა�
 #: rocketchatrestapi-qt5/channels/createchanneljob.cpp:61
 #, kde-format
 msgid "A channel with name '%1' exists"
-msgstr ""
+msgstr "სესია სახელით %1 არსებობს"
 
 #: rocketchatrestapi-qt5/channels/createchanneljob.cpp:63
 #: rocketchatrestapi-qt5/rooms/saveroomsettingsjob.cpp:63
@@ -2535,7 +2536,7 @@ msgstr "როლების გამოტანა"
 #: rocketchatrestapi-qt5/chat/deletemessagejob.cpp:115
 #, kde-format
 msgid "Message deletion is not allowed."
-msgstr ""
+msgstr "შეტყობინებების წაშლა დაშვებული არაა."
 
 #: rocketchatrestapi-qt5/chat/getthreadmessagesjob.cpp:92
 #, kde-format
@@ -2550,7 +2551,7 @@ msgstr "ეს ოთახი დაბლოკილია"
 #: rocketchatrestapi-qt5/chat/postmessagejob.cpp:113
 #, kde-format
 msgid "You have been muted and cannot speak in this room"
-msgstr ""
+msgstr "თქვენ დაგადუმეს და ამ ოთახში ვერ ილაპარაკებთ"
 
 #: rocketchatrestapi-qt5/chat/reactonmessagejob.cpp:123
 #, kde-format
@@ -3007,12 +3008,12 @@ msgstr "ველი __field__ აუცილებელია."
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:392
 #, kde-format
 msgid "This is not a Livechat room"
-msgstr ""
+msgstr "ეს Livechat-ის ოთახი არაა"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:394
 #, kde-format
 msgid "Personal Access Tokens are currently disabled"
-msgstr ""
+msgstr "პირადი წვდომის კოდები ამჟამად გათიშულია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:396
 #, kde-format
@@ -3131,7 +3132,7 @@ msgstr "არასწორი პაროლი"
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
 msgid "This user is not in this role."
-msgstr ""
+msgstr "ეს მომხმარებელი ამ როლში არაა."
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -3141,12 +3142,12 @@ msgstr "არასწორი გამოწერა"
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
 msgid "Unread message not authorized."
-msgstr ""
+msgstr "შეტყობინების წაუკითხავად მონიშვნა დაშვებული არაა."
 
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:63
 #, kde-format
 msgid "There are no messages to mark unread."
-msgstr ""
+msgstr "წაუკითხავად მოსანიშნი შეტყობინებები არ არსებობს."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:97
 #, kde-format
@@ -3819,7 +3820,7 @@ msgstr "სულ მომხმარებლები"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Discussions"
-msgstr ""
+msgstr "სულ კამათები"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
@@ -3834,17 +3835,17 @@ msgstr "შეტყობინებები სულ"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
 #, kde-format
 msgid "Total Messages in Channels"
-msgstr ""
+msgstr "სულ შეტყობინებები არხებში"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
 #, kde-format
 msgid "Total Messages in Private Groups"
-msgstr ""
+msgstr "სულ შეტყობინებები პირად ჯგუფებში"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
 #, kde-format
 msgid "Total Messages in Direct Messages"
-msgstr ""
+msgstr "სულ შეტყობინებები პირდაპირ შეტყობინებებში"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, kde-format
@@ -4025,12 +4026,12 @@ msgstr "ადმინისტრატორად გახდომა"
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
-msgstr ""
+msgstr "E2E გასაღების საწყის მნიშვნელობებზე დაყენება"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:241
 #, kde-format
 msgid "Reset Totp"
-msgstr ""
+msgstr "Totp გასაღების საწყის მნიშვნელობებზე დაყენება"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:315
 #, kde-format
@@ -4045,7 +4046,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:319
 #, kde-format
 msgid "Reset E2E key"
-msgstr ""
+msgstr "E2E გასაღების საწყის მნიშვნელობებზე დაყენება"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:346
 #, kde-format
@@ -4055,7 +4056,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:346
 #, kde-format
 msgid "Reset E2E"
-msgstr ""
+msgstr "E2E -ის საწყის მნიშვნელობებზე დაყენება"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:364
 #, kde-format
@@ -4068,7 +4069,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoruserswidget.cpp:391
 #, kde-format
 msgid "Reset TOTP"
-msgstr ""
+msgstr "Totp -ის საწყის მნიშვნელობებზე დაყენება"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:391
 #, kde-format
@@ -4124,12 +4125,12 @@ msgstr "ანონიმურად კითხვის უფლება"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
 msgid "Allow Password Change for OAuth Users"
-msgstr ""
+msgstr "OAuth-ის მომხმარებლებისთვის პაროლის შეცვლის დაშვება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "უჩინარი სტატუსის პარამეტრის დაშვება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
@@ -4139,7 +4140,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
 msgid "Enable collect log in data"
-msgstr ""
+msgstr "შესვლის ინფორმაციის მოგროვების ჩართვა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
@@ -4276,49 +4277,53 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "ანალიტიკა"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "შეტყობინება"
+msgstr "შეტყობინებები"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#, kde-format
 msgid "Enable"
-msgstr "ჩართულია"
+msgstr "ჩართვა"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Featured"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#, kde-format
 msgid "Features Enabled"
-msgstr "პოპულარული"
+msgstr "ჩართული თვისებები"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google -ის ანალიტიკა"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Analytics"
+msgid "Piwik Analytics"
+msgstr "ანალიტიკა"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -4761,7 +4766,7 @@ msgstr "UTF8 არხის სახელების გადამოწ�
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:63
 #, kde-format
 msgid "First Channel After Login"
-msgstr ""
+msgstr "პირველი არხი შესვლის შემდეგ"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:66
 #, kde-format
@@ -4934,7 +4939,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
 #, kde-format
 msgid "Group channels by type"
-msgstr ""
+msgstr "ჯგუფური არხები ტიპის მიხედვით"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -5246,7 +5251,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Apple-ით შესვლა"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
@@ -5465,22 +5470,22 @@ msgstr ""
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:24
 #, kde-format
 msgid "At Least One Lowercase"
-msgstr ""
+msgstr "ერთი დაბალი რეგისტრის მქონე სიმბოლო მაინც"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:25
 #, kde-format
 msgid "At Least One Uppercase"
-msgstr ""
+msgstr "ერთი მაღალი რეგისტრის მქონე სიმბოლო მაინც"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:26
 #, kde-format
 msgid "At Least One Number"
-msgstr ""
+msgstr "ერთი ციფრი მაინც"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:27
 #, kde-format
 msgid "At Least One Symbol"
-msgstr ""
+msgstr "ერთი სიმბოლო მაინც"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:29
 #, kde-format
@@ -5503,7 +5508,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
 #, kde-format
 msgid "Password History Length"
-msgstr ""
+msgstr "პაროლის ისტორიის სიგრძე"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:42
 #, kde-format
@@ -5550,7 +5555,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
 #, kde-format
 msgid "Max Repeating Characters"
-msgstr ""
+msgstr "გამეორებადი სიმბოლოების მაქსიმალური რაოდენობა"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:71
 #, kde-format
@@ -5925,7 +5930,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr ""
+msgstr "ოთახის სახელის ჰეშის ჩართვა"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -6161,7 +6166,7 @@ msgstr "ანგარიშის წაშლა"
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
 msgid "&Use custom fonts"
-msgstr ""
+msgstr "&ხელით მითითებული ფონტების გამოყენება"
 
 #: widgets/configuredialog/configuregeneralwidget.cpp:15
 #, kde-format
@@ -6186,7 +6191,7 @@ msgstr "სისტემის კუთხეში ხატულის ჩ
 #: widgets/configuredialog/configuregeneralwidget.cpp:19
 #, kde-format
 msgid "Enable logging"
-msgstr ""
+msgstr "ჟურნალის ჩანაწერების ჩართვა"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
@@ -6303,7 +6308,7 @@ msgstr "წაშლა"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:79
 #, kde-format
 msgid "ReadOnly:"
-msgstr ""
+msgstr "მხოლოდ-კითხვადი:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:82
 #, kde-format
@@ -6323,22 +6328,22 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Archive Channel"
-msgstr ""
+msgstr "არხის დაარქივება"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:88
 #, kde-format
 msgid "Unarchive Channel"
-msgstr ""
+msgstr "არხის რეარქივირება"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:99
 #, kde-format
 msgid "Private:"
-msgstr ""
+msgstr "პირადი:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:102
 #, kde-format
 msgid "Encrypted:"
-msgstr ""
+msgstr "დაშიფრული:"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:106
 #, kde-format
@@ -6674,7 +6679,7 @@ msgstr "შექმნის დრო:"
 #: widgets/dialogs/directchannelinfowidget.cpp:71
 #, kde-format
 msgid "Last Login:"
-msgstr ""
+msgstr "ბოლო შესვლა:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
@@ -6684,7 +6689,7 @@ msgstr "დამოწმებულია"
 #: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
 msgid "Not verified"
-msgstr ""
+msgstr "შემოწმებული არა"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:171
 #, kde-format
@@ -6700,7 +6705,7 @@ msgstr "მომხმარებლების მოწვევა"
 #: widgets/dialogs/inviteuserswidget.cpp:41
 #, kde-format
 msgid "Invite Link:"
-msgstr ""
+msgstr "მოსაწვევის ბმული"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
 #, kde-format
@@ -6715,17 +6720,17 @@ msgstr "პარამეტრები"
 #: widgets/dialogs/inviteuserswidget.cpp:72
 #, kde-format
 msgid "Expiration (Days)"
-msgstr ""
+msgstr "ვადა (დღეები)"
 
 #: widgets/dialogs/inviteuserswidget.cpp:75
 #, kde-format
 msgid "Max number of uses"
-msgstr ""
+msgstr "მომხმარებლების მაქს. რაოდენობა"
 
 #: widgets/dialogs/inviteuserswidget.cpp:77
 #, kde-format
 msgid "Generate New Link"
-msgstr ""
+msgstr "ახალი ბმულის გენერაცია"
 
 #: widgets/dialogs/inviteuserswidget.cpp:112
 #, kde-format
@@ -6753,12 +6758,12 @@ msgstr "უსაზღვრო"
 #, kde-format
 msgctxt "@title:window"
 msgid "Modify Status"
-msgstr ""
+msgstr "სტატუსის შეცვლა"
 
 #: widgets/dialogs/modifystatuswidget.cpp:31
 #, kde-format
 msgid "Message Status:"
-msgstr ""
+msgstr "სტატუსის შეტყობინება:"
 
 #: widgets/dialogs/playsounddialog.cpp:17
 #, kde-format
@@ -6770,7 +6775,7 @@ msgstr "ხმის დაკვრა"
 #, kde-format
 msgctxt "@title:window"
 msgid "Sound: %1"
-msgstr ""
+msgstr "ხმა: %1"
 
 #: widgets/dialogs/playsoundwidget.cpp:226
 #: widgets/dialogs/showvideowidget.cpp:226
@@ -6798,13 +6803,13 @@ msgstr ""
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
 #, kde-format
 msgid "Change Picture..."
-msgstr ""
+msgstr "სურათის შეცვლა..."
 
 #: widgets/dialogs/roomavatarwidget.cpp:31
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:101
 #, kde-format
 msgid "Reset Avatar"
-msgstr ""
+msgstr "ავატარის საწყის მნიშვნელობაზე დაყენება"
 
 #: widgets/dialogs/roomavatarwidget.cpp:33
 #: widgets/room/roomquotemessagewidget.cpp:19
@@ -6823,24 +6828,24 @@ msgstr "გამოსახულება"
 #: widgets/dialogs/roomavatarwidget.cpp:48
 #, kde-format
 msgid "Select Room Avatar"
-msgstr ""
+msgstr "აირჩეთ ოთახის ავატარი"
 
 #: widgets/dialogs/searchmessagedialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages"
-msgstr ""
+msgstr "შეტყობინებებში ძებნა"
 
 #: widgets/dialogs/searchmessagedialog.cpp:78
 #, kde-format
 msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
-msgstr ""
+msgstr "'%1'-ის შეტყობინებებში ძებნა (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
 #, kde-format
 msgid "Search Messages"
-msgstr ""
+msgstr "შეტყობინებებში ძებნა"
 
 #: widgets/dialogs/searchmessagewidget.cpp:86
 #: widgets/dialogs/showlistmessagebasewidget.cpp:74
@@ -6855,14 +6860,14 @@ msgstr "ჩატვირთვა..."
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
-msgstr ""
+msgstr "შეტყობინებების გარეშე."
 
 #: widgets/dialogs/searchmessagewidget.cpp:96
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ოთახში %1 შეტყობინებაა"
+msgstr[1] "ოთახში %1 შეტყობინებაა"
 
 #: widgets/dialogs/serverinfo/serverinfodialog.cpp:17
 #, kde-format
@@ -6873,7 +6878,7 @@ msgstr "სერვერის ინფორმაცია"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
 #, kde-format
 msgid "Server Version:"
-msgstr ""
+msgstr "სერვერის ვერსია:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
 #, kde-format
@@ -6921,12 +6926,12 @@ msgstr "მიმაგრებული ფაილების ჩვენ�
 #: widgets/dialogs/showattachmentwidget.cpp:37
 #, kde-format
 msgid "Search Attachments..."
-msgstr ""
+msgstr "მიმაგრებულ ფაილებში ძებნა..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
 #, kde-format
 msgid "No Attachments found"
-msgstr ""
+msgstr "მიმაგრებული ფაილების გარეშე"
 
 #: widgets/dialogs/showattachmentwidget.cpp:97
 #, kde-format
@@ -7064,37 +7069,37 @@ msgstr "გახსნა..."
 #: widgets/directory/directorywidget.cpp:164
 #, kde-format
 msgid "No Room found"
-msgstr ""
+msgstr "ოთახი ვერ ვიპოვე"
 
 #: widgets/directory/directorywidget.cpp:166
 #, kde-format
 msgid "No User found"
-msgstr ""
+msgstr "მომხმარებელი ვერ ვიპოვე"
 
 #: widgets/directory/directorywidget.cpp:168
 #, kde-format
 msgid "No Team found"
-msgstr ""
+msgstr "გუნდივერ ვიპოვე"
 
 #: widgets/directory/directorywidget.cpp:186
 #, kde-format
 msgid "%1 team (Total: %2)"
 msgid_plural "%1 teams (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 გუნდი (სულ: %2)"
+msgstr[1] "%1 გუნდი (სულ: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
 #, kde-format
 msgid "Search Rooms..."
-msgstr ""
+msgstr "ოთახების ძებნა..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
 #, kde-format
 msgid "%1 message"
 msgid_plural "%1 messages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 შეტყობინება"
+msgstr[1] "%1 შეტყობინება"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
@@ -7106,7 +7111,7 @@ msgstr ""
 #: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Select All"
-msgstr ""
+msgstr "ყველას მონიშვნა"
 
 #: widgets/discussions/showdiscussionsdialog.cpp:30
 #, kde-format
@@ -7273,12 +7278,12 @@ msgstr "სერვერი"
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
 msgid "Enter code"
-msgstr ""
+msgstr "შეიყვანეთ კოდი"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:29
 #, kde-format
 msgid "Send new code"
-msgstr ""
+msgstr "ახალი კოდის გაგზავნა"
 
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:28
 #, kde-format
@@ -7393,12 +7398,12 @@ msgstr ""
 #: widgets/myaccount/myaccountconfigurewidget.cpp:52
 #, kde-format
 msgid "E2E Encryption"
-msgstr ""
+msgstr "E2E დაშიფვრა"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:58
 #, kde-format
 msgid "Manage Device"
-msgstr ""
+msgstr "მოწყობილობის მართვა"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
 #, kde-format
@@ -8074,10 +8079,9 @@ msgid "(Jump to first Unread)"
 msgstr ""
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "Server Info..."
+#, kde-format
 msgid "(Show More Info...)"
-msgstr "სერვერის ინფორმაცია..."
+msgstr "(მეტი ინფორმაციის ჩვენება...)"
 
 #: widgets/room/roomheaderlabel.cpp:99
 #, kde-format

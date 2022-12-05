@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
 "PO-Revision-Date: 2022-12-03 15:18+0200\n"
 "Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -4362,23 +4362,24 @@ msgid "Messages"
 msgstr "Повідомлення"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #, kde-format
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #, kde-format
 msgid "Features Enabled"
 msgstr "Увімкнені можливості"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 "Стежить за нетиповими подіями, пов'язаними із діями, які користувач виконує "
 "з повідомленнями."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
@@ -4387,7 +4388,7 @@ msgstr ""
 "Стежить за нетиповими подіями, пов'язаними із діями над каналом або групою "
 "(створення, вихід, вилучення)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
@@ -4396,10 +4397,16 @@ msgstr ""
 "Стежить за нетиповими подіями, пов'язаними із користувачами (моменти "
 "скидання паролів, зміни зображення профілю тощо)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
 msgstr "Аналітика Google"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Analytics"
+msgid "Piwik Analytics"
+msgstr "Аналітика"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -4504,37 +4504,43 @@ msgid "Messages"
 msgstr "訊息："
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #, kde-format
 msgid "Enable"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #, kde-format
 msgid "Features Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, kde-format
+msgid "Piwik Analytics"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20

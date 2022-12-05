@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -4372,39 +4372,45 @@ msgid "Messages"
 msgstr "Сообщение"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "Включено"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Featured"
 msgid "Features Enabled"
 msgstr "Рекомендованное"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, kde-format
+msgid "Piwik Analytics"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20

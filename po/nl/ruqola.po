@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 15:00+0100\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
+"PO-Revision-Date: 2022-12-03 12:01+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4348,49 +4348,59 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analyses"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "Bericht"
+msgstr "Berichten"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#, kde-format
 msgid "Enable"
-msgstr "Ingeschakeld"
+msgstr "Inschakelen"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Featured"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#, kde-format
 msgid "Features Enabled"
-msgstr "Ondersteund"
+msgstr "Mogelijkheden ingeschakeld"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan acties die een gebruiker doet met "
+"berichten."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan een kanaal of groep (aanmaken, "
+"verlaten, verwijderen)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan gebruikers (wachtwoord "
+"resettijden, wijziging in profielplaatje)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analytics"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Analytics"
+msgid "Piwik Analytics"
+msgstr "Analyses"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -8325,8 +8335,7 @@ msgid "(Jump to first Unread)"
 msgstr "(Naar eerste ongelezen gaan)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "(Show More Infos...)"
+#, kde-format
 msgid "(Show More Info...)"
 msgstr "(Meer informatie tonen...)"
 

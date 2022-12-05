@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
 "PO-Revision-Date: 2022-11-30 09:26+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1885,10 +1885,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, writablePath)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:720
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:737
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgid "TextLabel"
-msgstr "Texto"
+msgstr "TextLabel"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:730
@@ -4363,45 +4362,49 @@ msgid "Analytics"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "Mensagem"
+msgstr "Mensagens"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#, kde-format
 msgid "Enable"
-msgstr "Activo"
+msgstr "Activar"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Featured"
 msgid "Features Enabled"
 msgstr "Em Destaque"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, kde-format
+msgid "Piwik Analytics"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
@@ -5534,7 +5537,7 @@ msgstr "Senha do LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "Proxy"
-msgstr ""
+msgstr "'Proxy'"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:114
 #, kde-format
@@ -5568,7 +5571,7 @@ msgstr "Senha do Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
 #, kde-format
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
 #, kde-format

@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:46+0000\n"
-"PO-Revision-Date: 2022-12-02 06:52+0100\n"
+"POT-Creation-Date: 2022-12-05 00:46+0000\n"
+"PO-Revision-Date: 2022-12-04 08:10+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -4334,49 +4334,59 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "Sporočilo"
+msgstr "Sporočila"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#, kde-format
 msgid "Enable"
-msgstr "Omogočeno"
+msgstr "Omogoči"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Featured"
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#, kde-format
 msgid "Features Enabled"
-msgstr "Izpostavljeno"
+msgstr "Omogočene možnosti"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Sledi dogodkom po meri, povezanimi z dejanji, ki jih uporabnik izvaja na "
+"sporočilih."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:31
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Sledi dogodkom po meri povezanimi z dejanji na kanalu ali skupini (ustvari, "
+"zapusti, izbriše)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Sledi dogodkom po meri povezanimi z dejanji do uporabnikov (časi ponovnih "
+"nastavitev gesel, sprememba slike profila, itd.)."
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:39
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analytics"
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Analytics"
+msgid "Piwik Analytics"
+msgstr "Analytics"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -8304,8 +8314,7 @@ msgid "(Jump to first Unread)"
 msgstr "(Skoči na prvo neprebrano)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "(Show More Infos...)"
+#, kde-format
 msgid "(Show More Info...)"
 msgstr "(Pokaži več informacij ...)"
 
