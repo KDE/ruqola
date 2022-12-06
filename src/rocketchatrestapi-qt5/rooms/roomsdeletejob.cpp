@@ -37,7 +37,7 @@ void RoomsDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT roomLeaveDone();
+        Q_EMIT roomDeleteDone();
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

@@ -30,7 +30,7 @@ public:
     void setRoomId(const QString &roomId);
 
 Q_SIGNALS:
-    void roomLeaveDone();
+    void roomDeleteDone();
 
 private:
     Q_DISABLE_COPY(RoomsDeleteJob)
