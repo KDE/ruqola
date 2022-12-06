@@ -59,6 +59,10 @@ void LibreTranslateEnginePlugin::parseTranslation(QNetworkReply *reply)
         return;
     }
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
+    if (hasDebug()) {
+        setJsonDebug(QString::fromUtf8(jsonResponse.toJson(QJsonDocument::Indented)));
+    }
+
     const QJsonObject responseObject = jsonResponse.object();
     setResult(responseObject.value(QStringLiteral("translatedText")).toString());
     reply->deleteLater();

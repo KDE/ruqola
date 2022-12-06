@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
 
-add_library(translator_deepl MODULE ${deepltranslator_PART_SRCS})
+add_library(translator_deepl MODULE)
 target_sources(translator_deepl PRIVATE
     deeplengineclient.cpp
     deeplengineclient.h
@@ -19,3 +19,7 @@ ecm_qt_declare_logging_category(translator_deepl
 target_link_libraries(translator_deepl PRIVATE KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore)
 
 install(TARGETS translator_deepl  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf${QT_MAJOR_VERSION}/ruqola-translator/)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif()
+

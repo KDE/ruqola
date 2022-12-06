@@ -13,10 +13,15 @@ TranslatorEngineClient::TranslatorEngineClient(QObject *parent)
 {
 }
 
+TranslatorEngineClient::~TranslatorEngineClient() = default;
+
 bool TranslatorEngineClient::hasConfigurationDialog() const
 {
     // False by default
     return false;
 }
 
-TranslatorEngineClient::~TranslatorEngineClient() = default;
+void TranslatorEngineClient::showConfigureDialog()
+{
+    // Nothing by default
+}

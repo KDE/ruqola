@@ -8,11 +8,8 @@
 
 #include "pimcommontexttranslator_export.h"
 #include <QWidget>
-class QComboBox;
-class QToolButton;
 namespace PimCommonTextTranslator
 {
-class TranslatorConfigureLanguageListWidget;
 /**
  * @brief The TranslatorConfigureListsWidget class
  * @author Laurent Montel <montel@kde.org>

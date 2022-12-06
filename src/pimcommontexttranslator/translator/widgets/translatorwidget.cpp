@@ -217,6 +217,7 @@ void TranslatorWidget::readConfig()
 void TranslatorWidget::loadEngineSettings()
 {
     d->engineName = TranslatorUtil::loadEngine();
+    // TODO fallback if name is empty ?
     switchEngine();
 }
 
@@ -351,16 +352,21 @@ void TranslatorWidget::switchEngine()
     if (d->translatorPlugin) {
         disconnect(d->translatorPlugin);
         delete d->translatorPlugin;
+        d->translatorPlugin = nullptr;
     }
     d->translatorClient = PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(d->engineName);
+    if (!d->translatorClient) {
+        const QString fallBackEngineName = PimCommonTextTranslator::TranslatorEngineLoader::self()->fallbackFirstEngine();
+        if (!fallBackEngineName.isEmpty()) {
+            d->translatorClient = PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(fallBackEngineName);
+        }
+    }
     if (d->translatorClient) {
         d->translatorPlugin = d->translatorClient->createTranslator();
         connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorWidget::slotTranslateDone);
         connect(d->translatorPlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorWidget::slotTranslateFailed);
         d->initLanguage();
         d->engineNameLabel->setText(QStringLiteral("[%1]").arg(d->translatorClient->translatedName()));
-    } else {
-        d->translatorPlugin = nullptr;
     }
 }
 

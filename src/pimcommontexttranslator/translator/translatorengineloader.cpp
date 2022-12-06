@@ -120,3 +120,22 @@ bool TranslatorEngineLoader::hasConfigurationDialog(const QString &clientName) c
     }
     return (*clientsItr)->hasConfigurationDialog();
 }
+
+void TranslatorEngineLoader::showConfigureDialog(const QString &clientName)
+{
+    auto clientsItr = d->translatorClients.constFind(clientName);
+    if (clientsItr == d->translatorClients.constEnd()) {
+        qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Client name not found: " << clientName;
+        return;
+    }
+    return (*clientsItr)->showConfigureDialog();
+}
+
+QString TranslatorEngineLoader::fallbackFirstEngine() const
+{
+    if (!d->translatorClients.isEmpty()) {
+        return *d->translatorClients.keyBegin();
+    }
+    qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "No plugin found ! ";
+    return QString();
+}

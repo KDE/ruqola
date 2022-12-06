@@ -31,6 +31,10 @@ public:
 
     Q_REQUIRED_RESULT bool hasConfigurationDialog(const QString &clientName) const;
 
+    Q_REQUIRED_RESULT QString fallbackFirstEngine() const;
+
+    void showConfigureDialog(const QString &clientName);
+
 Q_SIGNALS:
     void loadingTranslatorFailed();
 

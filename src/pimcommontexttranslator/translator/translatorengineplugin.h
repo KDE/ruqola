@@ -47,6 +47,7 @@ protected:
     void appendResult(const QString &result);
     void slotError(QNetworkReply::NetworkError error);
     Q_REQUIRED_RESULT bool verifyFromAndToLanguage();
+    Q_REQUIRED_RESULT bool hasDebug() const;
 
 private:
     std::unique_ptr<TranslatorEnginePluginPrivate> const d;

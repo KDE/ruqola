@@ -7,7 +7,6 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
-#include <QMap>
 #include <QPair>
 #include <QString>
 

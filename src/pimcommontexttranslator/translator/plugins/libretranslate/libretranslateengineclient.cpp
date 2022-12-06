@@ -43,3 +43,8 @@ bool LibreTranslateEngineClient::hasConfigurationDialog() const
 {
     return true;
 }
+
+void LibreTranslateEngineClient::showConfigureDialog()
+{
+    // TODO
+}

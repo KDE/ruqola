@@ -72,7 +72,7 @@ void GoogleEnginePlugin::slotTranslateFinished(QNetworkReply *reply)
         return;
     }
     const QVariantList json = jsonDoc.toVariant().toList();
-    if (/*mDebug*/ 1) { // TODO fix me
+    if (hasDebug()) {
         setJsonDebug(QString::fromUtf8(jsonDoc.toJson(QJsonDocument::Indented)));
     }
     for (const QVariant &level0 : json) {

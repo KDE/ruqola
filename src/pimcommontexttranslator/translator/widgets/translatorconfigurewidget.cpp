@@ -7,7 +7,6 @@
 #include "translatorconfigurewidget.h"
 #include "translator/misc/translatorutil.h"
 #include "translator/translatorengineloader.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <QComboBox>

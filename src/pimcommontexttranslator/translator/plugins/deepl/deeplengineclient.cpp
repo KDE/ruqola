@@ -43,3 +43,8 @@ bool DeeplEngineClient::hasConfigurationDialog() const
 {
     return true;
 }
+
+void DeeplEngineClient::showConfigureDialog()
+{
+    // TODO
+}

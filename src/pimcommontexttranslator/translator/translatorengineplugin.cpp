@@ -16,12 +16,14 @@ public:
     QString mTo;
     QString mResult;
     QString mJsonDebug;
+    bool mHasDebug = false;
 };
 
 TranslatorEnginePlugin::TranslatorEnginePlugin(QObject *parent)
     : QObject(parent)
     , d(new PimCommonTextTranslator::TranslatorEnginePluginPrivate)
 {
+    d->mHasDebug = !qEnvironmentVariableIsEmpty("KDEPIM_DEBUGGING");
 }
 
 QString TranslatorEnginePlugin::resultTranslate() const
@@ -107,4 +109,9 @@ bool TranslatorEnginePlugin::verifyFromAndToLanguage()
         return true;
     }
     return false;
+}
+
+bool TranslatorEnginePlugin::hasDebug() const
+{
+    return d->mHasDebug;
 }

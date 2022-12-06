@@ -8,8 +8,6 @@
 
 #include "pimcommontexttranslator_export.h"
 #include <QWidget>
-class QComboBox;
-class QStackedWidget;
 namespace PimCommonTextTranslator
 {
 class PIMCOMMONTEXTTRANSLATOR_EXPORT TranslatorConfigureWidget : public QWidget

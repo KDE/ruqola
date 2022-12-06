@@ -43,3 +43,8 @@ bool LingvaEngineClient::hasConfigurationDialog() const
 {
     return true;
 }
+
+void LingvaEngineClient::showConfigureDialog()
+{
+    // TODO
+}

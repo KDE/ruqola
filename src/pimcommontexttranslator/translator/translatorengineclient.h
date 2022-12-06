@@ -31,6 +31,11 @@ public:
     Q_REQUIRED_RESULT virtual QVector<QPair<QString, QString>> supportedLanguages() = 0;
 
     Q_REQUIRED_RESULT virtual bool hasConfigurationDialog() const;
+
+    virtual void showConfigureDialog();
+
+protected:
+    QVector<QPair<QString, QString>> mLanguages;
 };
 }
 Q_DECLARE_INTERFACE(PimCommonTextTranslator::TranslatorEngineClient, "org.kde.translator.Client")

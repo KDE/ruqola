@@ -8,7 +8,6 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
-#include <KIO/Job>
 #include <QPlainTextEdit>
 namespace PimCommonTextTranslator
 {
