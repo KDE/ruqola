@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-05 00:46+0000\n"
+"POT-Creation-Date: 2022-12-06 00:45+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -903,7 +903,7 @@ msgstr "Kanali nimi"
 #: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:16
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:19
 #, kde-format
 msgid "Rooms"
@@ -3393,7 +3393,7 @@ msgid "Custom Emojis"
 msgstr "Kohandatud olek:"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
 #: widgets/directory/directorytabwidget.cpp:20
 #, fuzzy, kde-format
 #| msgid "Users:"
@@ -4561,50 +4561,107 @@ msgstr ""
 msgid "Analytics"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:15
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Messages"
 msgstr "Sõnum"
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #, kde-format
 msgid "Enable"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
+#, kde-format
+msgid "Prepend Domain"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
+#, kde-format
+msgid "All Subdomains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, kde-format
 msgid "Features Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:27
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:32
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
 msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:37
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
 msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:40
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
 msgid "Google Analytics"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:48
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
+#, kde-format
+msgid "Tracking ID"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
 msgid "Piwik Analytics"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
+#, kde-format
+msgid ""
+"The url where the Piwik resides, be sure to include the trailing slash. "
+"Example: //piwik.rocket.chat/"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
+#, kde-format
+msgid "URL"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
+#, kde-format
+msgid "The site id to use for identifying this site. Example: 17"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
+#, kde-format
+msgid "Client ID"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
+#, kde-format
+msgid "Additional Piwik Sites"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
+#, kde-format
+msgid "Prepend the site domain to the page title when tracking"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
+#, kde-format
+msgid "Track visitors across all subdomains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
+#, kde-format
+msgid "Hide Outgoing Links"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
