@@ -501,6 +501,9 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("oauth-apps.list");
     case RestApiUtil::RestApiUrlType::OauthAppsGet:
         return QStringLiteral("oauth-apps.get");
+    case RestApiUtil::RestApiUrlType::OauthAppsCreate:
+        return QStringLiteral("oauth-apps.create");
+
     case RestApiUtil::RestApiUrlType::SettingsOauth:
         return QStringLiteral("settings.oauth");
     case RestApiUtil::RestApiUrlType::SettingsAddCustomOauth:
