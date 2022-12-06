@@ -306,6 +306,9 @@ enum class RestApiUrlType {
     SessionsInfoAdmin,
 
     UserRequestDataDownload,
+
+    // 5.4.0
+    RoomsDelete,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);

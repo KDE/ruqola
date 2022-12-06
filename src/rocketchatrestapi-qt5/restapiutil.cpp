@@ -353,6 +353,10 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("rooms.info");
     case RestApiUtil::RestApiUrlType::RoomsLeave:
         return QStringLiteral("rooms.leave");
+        // Since 5.4.0
+    case RestApiUtil::RestApiUrlType::RoomsDelete:
+        return QStringLiteral("rooms.delete");
+
     //
     case RestApiUtil::RestApiUrlType::ForgotPassword:
         return QStringLiteral("users.forgotPassword");
