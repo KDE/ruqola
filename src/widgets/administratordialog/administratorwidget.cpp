@@ -45,7 +45,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->addWidget(mTabWidget);
 
     mAdministratorServerInfoWidget->setObjectName(QStringLiteral("mAdministratorServerInfoWidget"));
-    mServerInfoTabIndex = mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
+    mTabWidget->addTab(mAdministratorServerInfoWidget, i18n("Server Info"));
 
     mAdministratorRoomsWidget->setObjectName(QStringLiteral("mAdministratorRoomsWidget"));
     mTabWidget->addTab(mAdministratorRoomsWidget, i18n("Rooms"));
@@ -54,7 +54,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mTabWidget->addTab(mAdministratorCustomUserStatusWidget, i18n("Custom User Status"));
 
     mAdministratorCustomSoundsWidget->setObjectName(QStringLiteral("mAdministratorCustomSoundsWidget"));
-    mCustomSoundsTabIndex = mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
+    mTabWidget->addTab(mAdministratorCustomSoundsWidget, i18n("Custom Sounds"));
 
     mAdministratorCustomEmojiWidget->setObjectName(QStringLiteral("mAdministratorCustomEmojiWidget"));
     mTabWidget->addTab(mAdministratorCustomEmojiWidget, i18n("Custom Emojis"));
@@ -66,7 +66,7 @@ AdministratorWidget::AdministratorWidget(RocketChatAccount *account, QWidget *pa
     mTabWidget->addTab(mAdministratorInvitesWidget, i18n("Invites"));
 
     mViewLogWidget->setObjectName(QStringLiteral("mViewLogWidget"));
-    mViewLogTagIndex = mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
+    mTabWidget->addTab(mViewLogWidget, i18n("View Log"));
 
     mPermissionsWidget->setObjectName(QStringLiteral("mPermissionsWidget"));
     mTabWidget->addTab(mPermissionsWidget, i18n("Permissions"));
@@ -84,25 +84,34 @@ void AdministratorWidget::initialize()
 {
     mAdministratorUsersWidget->initialize();
     mAdministratorRoomsWidget->initialize();
-    mAdministratorCustomSoundsWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
+        mAdministratorCustomSoundsWidget->initialize();
+    }
     mAdministratorCustomEmojiWidget->initialize();
     mPermissionsWidget->initialize();
     mAdministratorCustomUserStatusWidget->initialize();
     mRolesWidget->initialize();
-    mAdministratorServerInfoWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
+        mAdministratorServerInfoWidget->initialize();
+    }
     mAdministratorInvitesWidget->initialize();
-    mOauthWidget->initialize();
+    if (mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
+        mOauthWidget->initialize();
+    }
 }
 
 void AdministratorWidget::updateUiFromPermission()
 {
     if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-sounds"))) {
-        mTabWidget->setTabVisible(mCustomSoundsTabIndex, false);
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorCustomSoundsWidget), false);
     }
     if (!mRocketChatAccount->hasPermission(QStringLiteral("view-statistics"))) {
-        mTabWidget->setTabVisible(mServerInfoTabIndex, false);
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mAdministratorServerInfoWidget), false);
     }
     if (!mRocketChatAccount->hasPermission(QStringLiteral("view-logs"))) {
-        mTabWidget->setTabVisible(mViewLogTagIndex, false);
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mViewLogWidget), false);
+    }
+    if (!mRocketChatAccount->hasPermission(QStringLiteral("manage-oauth-apps"))) {
+        mTabWidget->setTabVisible(mTabWidget->indexOf(mOauthWidget), false);
     }
 }

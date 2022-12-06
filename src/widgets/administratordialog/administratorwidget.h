@@ -46,7 +46,4 @@ private:
     AdministratorRolesWidget *const mRolesWidget;
     AdministratorOauthWidget *const mOauthWidget;
     RocketChatAccount *const mRocketChatAccount;
-    int mCustomSoundsTabIndex = -1;
-    int mServerInfoTabIndex = -1;
-    int mViewLogTagIndex = -1;
 };
