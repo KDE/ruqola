@@ -259,6 +259,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     misc/statisticsjob.h
     misc/stdoutqueuejob.cpp
     misc/stdoutqueuejob.h
+    misc/oauthappscreatejob.h
+    misc/oauthappscreatejob.cpp
     permissions/permissionslistalljob.cpp
     permissions/permissionslistalljob.h
     permissions/permissionupdatejob.cpp
