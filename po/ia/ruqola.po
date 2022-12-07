@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:45+0000\n"
+"POT-Creation-Date: 2022-12-07 00:47+0000\n"
 "PO-Revision-Date: 2022-11-28 16:25+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -1491,7 +1491,7 @@ msgstr "Accorda:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:48
 #, kde-format
 msgid "Engine:"
 msgstr "Motor:"
@@ -1508,8 +1508,8 @@ msgid "Voice:"
 msgstr "Voce:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
 #, fuzzy, kde-format
 msgid "Close"
 msgstr "Claude"
@@ -2311,6 +2311,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Configura Auto-Traduction"
 
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server Url:"
+msgstr "URL de servitor:"
+
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
 #, kde-format
 msgid "Lingva"
@@ -2322,7 +2330,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2339,12 +2347,12 @@ msgstr ""
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:136
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr ""
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, fuzzy, kde-format
 msgid "You used same language for 'from' and 'to' language."
 msgstr "Tu sa le mesme linguage ex e per un linguage"
@@ -2419,53 +2427,53 @@ msgstr "Traduce..."
 msgid "Problem when connecting to the translator web site."
 msgstr "Problema quando on connecteva al sito de traduction web."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Ex"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:250
 #, fuzzy, kde-format
 #| msgid "To:"
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "a"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:262
 #, fuzzy, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Inverte"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Netta"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:275
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:278
 #, kde-format
 msgid "Translate"
 msgstr "Traduce"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:285
 #, fuzzy, kde-format
 msgid "Debug"
 msgstr "Cribra (debug)"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:303
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Ruqola"
 msgid "Configure"
 msgstr "Configura"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:318
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2474,17 +2482,17 @@ msgstr ""
 "Trahe texto que tu vole traducer. (Tu es attente que texto essera inviate al "
 "servitor de Google)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "Il nonrelevava alcun connexion de rete, nos non pote traducer texto."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network"
 msgstr "Necun rete"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:453
 #, kde-format
 msgid "Translate error"
 msgstr "Traduce error"
@@ -6889,13 +6897,6 @@ msgstr "Modifica conto"
 #, kde-format
 msgid "Account Name:"
 msgstr "Nomine de conto:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
-msgstr "URL de servitor:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33

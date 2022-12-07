@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:45+0000\n"
-"PO-Revision-Date: 2022-12-04 06:07+0100\n"
+"POT-Creation-Date: 2022-12-07 00:47+0000\n"
+"PO-Revision-Date: 2022-12-06 06:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -952,22 +952,22 @@ msgstr "პიპინი"
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
-msgstr ""
+msgstr "შელი"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
 msgid "Ding"
-msgstr ""
+msgstr "რეკვა"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:78
 #, kde-format
 msgid "Droplet"
-msgstr ""
+msgstr "წვეთი"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
-msgstr ""
+msgstr "სოდიანი ვისკი"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
@@ -1011,7 +1011,7 @@ msgstr "2FA ავთენტიკაცია"
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "ბოლო კოდის ნაწილი"
 
 #: core/model/roommodel.cpp:496
 #, kde-format
@@ -1026,7 +1026,7 @@ msgstr "პირადი ოთახი"
 #: core/model/roommodel.cpp:504
 #, kde-format
 msgid "Discussion Room"
-msgstr ""
+msgstr "კამათის ოთახი"
 
 #: core/model/roommodel.cpp:508
 #, kde-format
@@ -1054,7 +1054,7 @@ msgstr "გუნდები"
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
-msgstr ""
+msgstr "კამათი"
 
 #: core/model/roommodel.cpp:578
 #, kde-format
@@ -1097,7 +1097,7 @@ msgstr "სტატუსის შეცვლა..."
 #: core/model/systemmessagesmodel.cpp:31
 #, kde-format
 msgid "System Messages"
-msgstr ""
+msgstr "სისტემური შეტყობინებები"
 
 #: core/model/systemmessagesmodel.cpp:34
 #, kde-format
@@ -1409,7 +1409,7 @@ msgstr "პირდაპირი"
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:128
 #, kde-format
 msgid "Omnichannel"
-msgstr ""
+msgstr "ომნიარხი"
 
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
@@ -1461,7 +1461,7 @@ msgstr "ტექსტის-ხმამაღლა-წაკითხვი�
 #: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "დილა მშვიდობა. ეს ტესტირების პარამეტრების ტესტია."
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
@@ -1486,7 +1486,7 @@ msgstr ""
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:48
 #, kde-format
 msgid "Engine:"
 msgstr "ძრავი:"
@@ -1503,8 +1503,8 @@ msgid "Voice:"
 msgstr "ხმა:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
 #, kde-format
 msgid "Close"
 msgstr "დაკეტვა"
@@ -2276,6 +2276,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server Url:"
+msgstr "სერვერის URL:"
+
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
 #, kde-format
 msgid "Lingva"
@@ -2287,7 +2295,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2304,12 +2312,12 @@ msgstr "შეცდომა: ვების ვერსიაში Yandex S
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr "შეცდომა: ვებ ვერსიიდან Yandex SID-ის ამოღების შეცდომა."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:136
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "შეცდომა: ავტომატურად აღმოჩენილი ენის დამუშავების შეცდომა"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
 msgstr ""
@@ -2380,66 +2388,66 @@ msgstr "თარგმნა..."
 msgid "Problem when connecting to the translator web site."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "საიდან:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:250
 #, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "ვის:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:262
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "ინვერსია"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "გაწმენდა"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:275
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:278
 #, kde-format
 msgid "Translate"
 msgstr "თარგმნა"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:285
 #, kde-format
 msgid "Debug"
 msgstr "პროგრამის შეცდომის პოვნა"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:303
 #, kde-format
 msgid "Configure"
 msgstr "მორგება"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:318
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr ""
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network"
 msgstr "ქსელის გარეშე"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:453
 #, kde-format
 msgid "Translate error"
 msgstr "მთარგმნელის შეცდომა"
@@ -4291,10 +4299,9 @@ msgid "Enable"
 msgstr "ჩართვა"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Domain"
+#, kde-format
 msgid "Prepend Domain"
-msgstr "დომენი"
+msgstr "დომენის თავში მიწერა"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
@@ -4336,10 +4343,9 @@ msgid "Tracking ID"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Analytics"
+#, kde-format
 msgid "Piwik Analytics"
-msgstr "ანალიტიკა"
+msgstr "Piwik ანალიტიკა"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
 #, kde-format
@@ -4359,10 +4365,9 @@ msgid "The site id to use for identifying this site. Example: 17"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Client ID:"
+#, kde-format
 msgid "Client ID"
-msgstr "კლიენტის ID:"
+msgstr "კლიენტის ID"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
@@ -6694,13 +6699,6 @@ msgstr "ანგარიშის პარამეტრების შე�
 msgid "Account Name:"
 msgstr "ანგარიშის სახელი:"
 
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
-msgstr "სერვერის URL:"
-
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/ruqolaloginwidget.cpp:51
@@ -6764,7 +6762,7 @@ msgstr "მომხმარებლების მოწვევა"
 #: widgets/dialogs/inviteuserswidget.cpp:41
 #, kde-format
 msgid "Invite Link:"
-msgstr "მოსაწვევის ბმული"
+msgstr "მოსაწვევის ბმული:"
 
 #: widgets/dialogs/inviteuserswidget.cpp:54
 #, kde-format
@@ -7013,7 +7011,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Display Image"
-msgstr ""
+msgstr "გამოსახულების ჩვენება"
 
 #: widgets/dialogs/showimagedialog.cpp:41
 #, kde-format
@@ -7112,13 +7110,13 @@ msgstr "საქაღალდე - %1"
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
 msgid "Search Channels..."
-msgstr ""
+msgstr "არხების ძებნა..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
 #, kde-format
 msgid "Search Teams..."
-msgstr ""
+msgstr "გუნდების ძებნა..."
 
 #: widgets/directory/directorywidget.cpp:68
 #, kde-format
@@ -7163,7 +7161,7 @@ msgstr[1] "%1 შეტყობინება"
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:73
 #, kde-format
 msgid "Open Discussion"
-msgstr ""
+msgstr "კამათის გახსნა"
 
 #: widgets/discussions/discussionlistview.cpp:59
 #: widgets/notificationhistory/notificationhistorylistview.cpp:92
@@ -7176,17 +7174,17 @@ msgstr "ყველას მონიშვნა"
 #, kde-format
 msgctxt "@title:window"
 msgid "Show Discussions - %1"
-msgstr ""
+msgstr "კამათების ჩვენება - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
 #, kde-format
 msgid "Search Discussion..."
-msgstr ""
+msgstr "კამათის ძებნა..."
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
 #, kde-format
 msgid "No Discussion found"
-msgstr ""
+msgstr "კამათი ვერ ვიპოვე"
 
 #: widgets/discussions/showdiscussionswidget.cpp:76
 #, kde-format
@@ -7260,7 +7258,7 @@ msgstr "შესული"
 #: widgets/misc/accountsoverviewwidget.cpp:45
 #, kde-format
 msgid "Logged out"
-msgstr ""
+msgstr "გამოხვედით"
 
 #: widgets/misc/accountsoverviewwidget.cpp:47
 #, kde-format
@@ -7270,7 +7268,7 @@ msgstr ""
 #: widgets/misc/accountsoverviewwidget.cpp:49
 #, kde-format
 msgid "Login failed: generic error"
-msgstr ""
+msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
 #: widgets/misc/accountsoverviewwidget.cpp:51
 #, kde-format
@@ -7290,7 +7288,7 @@ msgstr "უცნობი მდგომარეობა"
 #: widgets/misc/accountsoverviewwidget.cpp:73
 #, kde-format
 msgid "(Unnamed)"
-msgstr ""
+msgstr "(უსახელო)"
 
 #: widgets/misc/emoticonmenuwidget.cpp:73
 #, kde-format
@@ -7386,7 +7384,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
 #, kde-format
 msgid "Enter Authentication Code"
-msgstr ""
+msgstr "შეიყვანეთ ავთენტიკაციის კოდი"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:60
@@ -7397,19 +7395,19 @@ msgstr "შემოწმება"
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
 #, kde-format
 msgid "Regenerate Code"
-msgstr ""
+msgstr "კოდის თავიდან გენერაცია"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:94
 #, kde-format
 msgid "Invalid two factor code."
-msgstr ""
+msgstr "არასწორი 2FA კოდი"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:67
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:94
 #, kde-format
 msgid "Check Two Factor Code"
-msgstr ""
+msgstr "გადაამოწმეთ თქვენი 2FA kodi"
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:39
 #, kde-format
@@ -7431,7 +7429,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
 #, kde-format
 msgid "Backup Codes"
-msgstr ""
+msgstr "მარქაფი კოდები"
 
 #: widgets/myaccount/myaccountconfiguredialog.cpp:26
 #, kde-format
@@ -7452,7 +7450,7 @@ msgstr "მორგება"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:46
 #, kde-format
 msgid "Two Authentication Factor"
-msgstr ""
+msgstr "2FA"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:52
 #, kde-format
@@ -7467,7 +7465,7 @@ msgstr "მოწყობილობის მართვა"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
 #, kde-format
 msgid "Personal Access Token"
-msgstr ""
+msgstr "პირადი წვდომის კოდი"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, kde-format
@@ -7518,27 +7516,27 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
 #, kde-format
 msgid "Personal Token Created"
-msgstr ""
+msgstr "პირადი კოდი შეიქმნა"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, kde-format
 msgid "Personal Token removed."
-msgstr ""
+msgstr "პირადი კოდი წაშლილია."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, kde-format
 msgid "Remove Personal Token"
-msgstr ""
+msgstr "პირადი კოდის წაშლა"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "პირადი კოდი თავიდან შეიქმნა"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:40
 #, kde-format
 msgid "Regenerate..."
-msgstr ""
+msgstr "თავიდან გენერაცია..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:62
 #, kde-format
@@ -7553,7 +7551,7 @@ msgstr "კოდის წაშლა"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Use Emoji"
-msgstr ""
+msgstr "ემოჯის გამოყენება"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
@@ -7635,12 +7633,12 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
 msgid "Download File Requested"
-msgstr ""
+msgstr "ფაილის გადმოწერა მოთხოვნილია"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
 #, kde-format
 msgid "Each Mentions"
-msgstr ""
+msgstr "თითოეული ხსენება"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
 #, kde-format
@@ -7665,7 +7663,7 @@ msgstr "სურათის ამორჩევა"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
 #, kde-format
 msgid "Change Url"
-msgstr ""
+msgstr "ბმულის შეცვლა"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
 #, kde-format
@@ -7700,7 +7698,7 @@ msgstr "სტატუსის ტექსტი:"
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
 msgid "Do you really delete your account ?"
-msgstr ""
+msgstr "მართლა გნებავთ თქვენი ანგარიშის წაშლა?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
 #, kde-format
@@ -7735,23 +7733,23 @@ msgstr "შეტყობინების კოპირება"
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
 msgid "Otr Activated"
-msgstr ""
+msgstr "Otr აქტივირებულია"
 
 #: widgets/otr/otrwidget.cpp:19
 #, kde-format
 msgid "End OTR"
-msgstr ""
+msgstr "OTR-ის დასრულება"
 
 #: widgets/otr/otrwidget.cpp:24
 #, kde-format
 msgid "Refresh Keys"
-msgstr ""
+msgstr "გასაღებების განახლება"
 
 #: widgets/prunemessages/prunemessagesdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Prune Messages"
-msgstr ""
+msgstr "შეტყობინებების შეკვეცა"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:19
 #, kde-format
@@ -7965,7 +7963,7 @@ msgstr ""
 #: widgets/room/messagelinewidget.cpp:110
 #, kde-format
 msgid "Message Too Big"
-msgstr ""
+msgstr "შეტყობინება ძალიან დიდია"
 
 #: widgets/room/messagelinewidget.cpp:290
 #, kde-format
@@ -7980,17 +7978,17 @@ msgstr "ფაილის ატვირთვა"
 #: widgets/room/messagelistview.cpp:76
 #, kde-format
 msgid "Room is Empty."
-msgstr ""
+msgstr "ოთახი ცარიელია."
 
 #: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Unpin Message"
-msgstr ""
+msgstr "შეტყობინების ჩამოხსნა"
 
 #: widgets/room/messagelistview.cpp:242
 #, kde-format
 msgid "Pin Message"
-msgstr ""
+msgstr "შეტყობინების ამაგრება"
 
 #: widgets/room/messagelistview.cpp:251
 #, kde-format

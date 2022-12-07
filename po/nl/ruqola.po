@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:45+0000\n"
-"PO-Revision-Date: 2022-12-05 11:50+0100\n"
+"POT-Creation-Date: 2022-12-07 00:47+0000\n"
+"PO-Revision-Date: 2022-12-06 15:12+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1491,7 +1491,7 @@ msgstr "Toonhoogte:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:48
 #, kde-format
 msgid "Engine:"
 msgstr "Engine:"
@@ -1508,8 +1508,8 @@ msgid "Voice:"
 msgstr "Stem:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
 #, kde-format
 msgid "Close"
 msgstr "Sluiten"
@@ -2308,6 +2308,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server Url:"
+msgstr "URL-adres server:"
+
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
 #, kde-format
 msgid "Lingva"
@@ -2319,7 +2327,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2338,12 +2346,12 @@ msgstr "Fout: kan Yandex SID in webversie niet vinden."
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr "Fout: kan Yandex SID niet uit webversie extraheren."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:136
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "Fout: kon automatisch gedetailleerde taal niet ontleden"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
 msgstr "U gebruikte dezelfde taal voor bron- en doeltaal."
@@ -2414,49 +2422,49 @@ msgstr "Vertalen..."
 msgid "Problem when connecting to the translator web site."
 msgstr "Probleem bij verbinden met de website voor vertalen."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Van:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:250
 #, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "Naar:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:262
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Omkeren"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Wissen"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:275
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:278
 #, kde-format
 msgid "Translate"
 msgstr "Vertalen"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:285
 #, kde-format
 msgid "Debug"
 msgstr "Debuggen"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:303
 #, kde-format
 msgid "Configure"
 msgstr "Configureren"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:318
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2465,17 +2473,17 @@ msgstr ""
 "Tekst verslepen die u wilt vertalen. (Voorzichtig tekst zal naar de server "
 "van Google worden verzonden)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "Geen netwerkverbinding gedetecteerd, vertalen van tekst kan niet."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network"
 msgstr "Geen netwerk"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:453
 #, kde-format
 msgid "Translate error"
 msgstr "Fout in vertalen"
@@ -4362,15 +4370,14 @@ msgid "Enable"
 msgstr "Inschakelen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Domain"
+#, kde-format
 msgid "Prepend Domain"
-msgstr "Domein"
+msgstr "Domein vooraan voegen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr ""
+msgstr "Alle subdomeinen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, kde-format
@@ -4410,7 +4417,7 @@ msgstr "Google Analytics"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Volg-ID"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
@@ -4423,42 +4430,44 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"De url waar de Piwik huist, zorg dat de afsluitende slash meegenomen wordt. "
+"Voorbeeld: //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
 msgstr ""
+"De te gebruiken site-id voor het identificeren van deze site. Voorbeeld: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Client ID:"
+#, kde-format
 msgid "Client ID"
-msgstr "Client-id:"
+msgstr "Client-id"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
 msgid "Additional Piwik Sites"
-msgstr ""
+msgstr "Additionele Piwik sites"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Site-domein vooraan voegen aan de paginatitel bij volgen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Bezoekers volgen over alle subdomeinen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
 msgid "Hide Outgoing Links"
-msgstr ""
+msgstr "Uitgaande koppelingen verbergen"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -6917,13 +6926,6 @@ msgstr "Account wijzigen"
 #, kde-format
 msgid "Account Name:"
 msgstr "Accountnaam:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
-msgstr "URL-adres server:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33

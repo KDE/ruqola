@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-06 00:45+0000\n"
-"PO-Revision-Date: 2022-12-04 08:10+0100\n"
+"POT-Creation-Date: 2022-12-07 00:47+0000\n"
+"PO-Revision-Date: 2022-12-06 08:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -1492,7 +1492,7 @@ msgstr "Višina:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:53
-#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:49
+#: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:48
 #, kde-format
 msgid "Engine:"
 msgstr "Zaledna aplikacija:"
@@ -1509,8 +1509,8 @@ msgid "Voice:"
 msgstr "Glas:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:233
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
 #, kde-format
 msgid "Close"
 msgstr "Zapri"
@@ -2300,6 +2300,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server Url:"
+msgstr "Url strežnika:"
+
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
 #, kde-format
 msgid "Lingva"
@@ -2311,7 +2319,7 @@ msgid "Yandex"
 msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:98
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
@@ -2330,12 +2338,12 @@ msgstr "Napaka: Ni bilo mogoče najti Yandex SID v spletni inačici."
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr "Napaka: Ni bilo mogoče izločiti Yandex SID iz spletne inačice."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:136
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "Napaka: Ni bilo mogoče razčleniti samozaznavnega jezika"
 
-#: pimcommontexttranslator/translator/translatorengineplugin.cpp:106
+#: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
 msgstr "Uporabili ste isti jezik za izvorni in ciljni jezik."
@@ -2406,49 +2414,49 @@ msgstr "Prevedi..."
 msgid "Problem when connecting to the translator web site."
 msgstr "Problem pri povezovanju s spletiščem prevajalnika."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:242
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, kde-format
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Od:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:249
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:250
 #, kde-format
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "Za:"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:261
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:262
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Invertiraj"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:266
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Počisti"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:274
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:275
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:278
 #, kde-format
 msgid "Translate"
 msgstr "Prevedi"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:284
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:285
 #, kde-format
 msgid "Debug"
 msgstr "Razhrošči"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:302
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:303
 #, kde-format
 msgid "Configure"
 msgstr "Konfiguriraj"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:317
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:318
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2457,17 +2465,17 @@ msgstr ""
 "Potegnite besedilo, ki ga želite prevesti. (Bodite previdni, saj bo besedilo "
 "poslano Googlovemu strežniku)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "Ni zaznanih omrežnih povezav, besedila ni mogoče prevesti."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:408
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network"
 msgstr "Ni omrežja"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:447
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:453
 #, kde-format
 msgid "Translate error"
 msgstr "Napaka prevoda"
@@ -4348,15 +4356,14 @@ msgid "Enable"
 msgstr "Omogoči"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Domain"
+#, kde-format
 msgid "Prepend Domain"
-msgstr "Domena"
+msgstr "Predponska domena"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr ""
+msgstr "Vse poddomene"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
 #, kde-format
@@ -4396,13 +4403,12 @@ msgstr "Google Analytics"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Določilnik sledenja"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Analytics"
+#, kde-format
 msgid "Piwik Analytics"
-msgstr "Analytics"
+msgstr "Piwik Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
 #, kde-format
@@ -4410,42 +4416,43 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Spletni naslov url, kjer je Piwik, zagotovite tudi začetno poševno črto. Na "
+"primer //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr ""
+msgstr "Določilnik mesta za identifikacijo tega mesta. Na primer: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Client ID:"
+#, kde-format
 msgid "Client ID"
-msgstr "ID odjemalca:"
+msgstr "ID odjemalca"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
 msgid "Additional Piwik Sites"
-msgstr ""
+msgstr "Dodatna mesta Piwik"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Dodajte predpono domeni mesta do naslova strani ob sledenju"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Zasledujte obiskovalce prek vseh poddomen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
 msgid "Hide Outgoing Links"
-msgstr ""
+msgstr "Skrij povezave navzven"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -6877,13 +6884,6 @@ msgstr "Spremeni račun"
 #, kde-format
 msgid "Account Name:"
 msgstr "Ime računa:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
-msgstr "Url strežnika:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
