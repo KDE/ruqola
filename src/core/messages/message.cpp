@@ -575,6 +575,8 @@ QString Message::systemMessageText() const
         return i18n("User added to team: %1 by %2"); // TODO verify
     } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
         return i18n("User removed to team: %1 by %2"); // TODO verify
+    } else if (mSystemMessageType == QLatin1String("videoconf")) {
+        return i18n("Conference Call");
     } else {
         qCWarning(RUQOLA_LOG) << "Unknown type for message: type: " << mSystemMessageType << " mText " << mText;
         return i18n("Unknown action!");
