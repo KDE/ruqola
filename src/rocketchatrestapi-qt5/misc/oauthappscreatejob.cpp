@@ -44,6 +44,16 @@ void OauthAppsCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
     }
 }
 
+OauthAppsCreateJob::OauthAppsCreateInfo OauthAppsCreateJob::oauthAppsCreateInfo() const
+{
+    return mOauthAppsCreateInfo;
+}
+
+void OauthAppsCreateJob::setOauthAppsCreateInfo(const OauthAppsCreateInfo &newOauthAppsCreateInfo)
+{
+    mOauthAppsCreateInfo = newOauthAppsCreateInfo;
+}
+
 bool OauthAppsCreateJob::requireHttpAuthentication() const
 {
     return true;
@@ -54,10 +64,10 @@ bool OauthAppsCreateJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (mPermissions.isEmpty()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "OauthAppsCreateJob: mPermissions is empty";
-    //        return false;
-    //    }
+    if (!mOauthAppsCreateInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "OauthAppsCreateJob: mOauthAppsCreateInfo is invalid";
+        return false;
+    }
     return true;
 }
 
@@ -73,7 +83,14 @@ QNetworkRequest OauthAppsCreateJob::request() const
 QJsonDocument OauthAppsCreateJob::json() const
 {
     QJsonObject jsonObj;
-    // TODO
+    jsonObj[QLatin1String("name")] = mOauthAppsCreateInfo.name;
+    jsonObj[QLatin1String("redirectUri")] = mOauthAppsCreateInfo.redirectUri;
+    jsonObj[QLatin1String("active")] = mOauthAppsCreateInfo.active;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool OauthAppsCreateJob::OauthAppsCreateInfo::isValid() const
+{
+    return !redirectUri.isEmpty() && !name.isEmpty();
 }

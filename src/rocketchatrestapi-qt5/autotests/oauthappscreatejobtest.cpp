@@ -37,13 +37,14 @@ void OauthAppsCreateJobTest::shouldGenerateRequest()
 void OauthAppsCreateJobTest::shouldGenerateJson()
 {
     OauthAppsCreateJob job;
-    //    QMap<QString, QStringList> lst;
-    //    lst.insert(QStringLiteral("bla"), {QStringLiteral("user"), QStringLiteral("admin")});
-    //    lst.insert(QStringLiteral("team"), {QStringLiteral("user"), QStringLiteral("admin"), QStringLiteral("owner")});
-    //    job.setPermissions(lst);
+    OauthAppsCreateJob::OauthAppsCreateInfo foo;
+    job.setOauthAppsCreateInfo(foo);
+    foo.name = QStringLiteral("bla");
+    foo.redirectUri = QStringLiteral("bl");
+    foo.active = true;
+    job.setOauthAppsCreateInfo(foo);
 
-    //    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-    //             QStringLiteral(R"({"permissions":[{"_id":"bla","roles":["user","admin"]},{"_id":"team","roles":["user","admin","owner"]}]})").toLatin1());
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"active":true,"name":"bla","redirectUri":"bl"})").toLatin1());
 }
 
 void OauthAppsCreateJobTest::shouldNotStarting()
@@ -63,5 +64,20 @@ void OauthAppsCreateJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
+
+    OauthAppsCreateJob::OauthAppsCreateInfo foo;
+    job.setOauthAppsCreateInfo(foo);
+    QVERIFY(!job.canStart());
+
+    foo.name = QStringLiteral("bla");
+    job.setOauthAppsCreateInfo(foo);
+    QVERIFY(!job.canStart());
+
+    foo.redirectUri = QStringLiteral("bl");
+    job.setOauthAppsCreateInfo(foo);
+    QVERIFY(job.canStart());
+
+    foo.active = true;
+    job.setOauthAppsCreateInfo(foo);
     QVERIFY(job.canStart());
 }

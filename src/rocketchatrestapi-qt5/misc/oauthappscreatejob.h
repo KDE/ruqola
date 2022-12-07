@@ -16,6 +16,13 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT OauthAppsCreateJob : public RestApiAbstrac
 {
     Q_OBJECT
 public:
+    struct OauthAppsCreateInfo {
+        QString name;
+        QString redirectUri;
+        bool active = false;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
+
     explicit OauthAppsCreateJob(QObject *parent = nullptr);
     ~OauthAppsCreateJob() override;
 
@@ -26,11 +33,15 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT OauthAppsCreateInfo oauthAppsCreateInfo() const;
+    void setOauthAppsCreateInfo(const OauthAppsCreateInfo &newOauthAppsCreateInfo);
+
 Q_SIGNALS:
     void oauthAppsCreateDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(OauthAppsCreateJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    OauthAppsCreateInfo mOauthAppsCreateInfo;
 };
 }
