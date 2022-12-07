@@ -175,13 +175,13 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     tokenpassLabel->setObjectName(QStringLiteral("tokenpassLabel"));
     mMainLayout->addWidget(tokenpassLabel);
 
-    mTokenpassServerURL->setObjectName(QStringLiteral("mTokenpassServerURL"));
-    mTokenpassServerURL->setToolTip(i18n("Example: https://domain.com (excluding trailing slash)"));
-    addLineEdit(i18n("Tokenpass Server URL"), mTokenpassServerURL, QStringLiteral("API_Tokenpass_URL"));
-
     mTokenpassLogin->setObjectName(QStringLiteral("mTokenpassLogin"));
     mMainLayout->addWidget(mTokenpassLogin);
     connectCheckBox(mTokenpassLogin, QStringLiteral("Accounts_OAuth_Tokenpass"));
+
+    mTokenpassServerURL->setObjectName(QStringLiteral("mTokenpassServerURL"));
+    mTokenpassServerURL->setToolTip(i18n("Example: https://domain.com (excluding trailing slash)"));
+    addLineEdit(i18n("Tokenpass Server URL"), mTokenpassServerURL, QStringLiteral("API_Tokenpass_URL"));
 
     mTokenpassId->setObjectName(QStringLiteral("mTokenpassId"));
     addLineEdit(i18n("Tokenpass Id"), mTokenpassId, QStringLiteral("Accounts_OAuth_Tokenpass_id"));
