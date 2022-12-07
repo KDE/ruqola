@@ -5,7 +5,7 @@
 */
 
 #include "roomsdeletejobtest.h"
-#include "rooms/roomleavejob.h"
+#include "rooms/roomsdeletejob.h"
 #include "ruqola_restapi_helper.h"
 #include <QJsonDocument>
 #include <QTest>
@@ -18,7 +18,7 @@ RoomsDeleteJobTest::RoomsDeleteJobTest(QObject *parent)
 
 void RoomsDeleteJobTest::shouldHaveDefaultValue()
 {
-    RoomLeaveJob job;
+    RoomsDeleteJob job;
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(job.roomId().isEmpty());
@@ -28,7 +28,7 @@ void RoomsDeleteJobTest::shouldHaveDefaultValue()
 
 void RoomsDeleteJobTest::shouldGenerateRequest()
 {
-    RoomLeaveJob job;
+    RoomsDeleteJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
     QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/rooms.delete")));
@@ -37,7 +37,7 @@ void RoomsDeleteJobTest::shouldGenerateRequest()
 
 void RoomsDeleteJobTest::shouldGenerateJson()
 {
-    RoomLeaveJob job;
+    RoomsDeleteJob job;
     const QString roomId = QStringLiteral("foo1");
     job.setRoomId(roomId);
     QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"roomId":"%1"})").arg(roomId).toLatin1());
@@ -45,7 +45,7 @@ void RoomsDeleteJobTest::shouldGenerateJson()
 
 void RoomsDeleteJobTest::shouldNotStarting()
 {
-    RoomLeaveJob job;
+    RoomsDeleteJob job;
 
     RestApiMethod method;
     method.setServerUrl(QStringLiteral("http://www.kde.org"));
