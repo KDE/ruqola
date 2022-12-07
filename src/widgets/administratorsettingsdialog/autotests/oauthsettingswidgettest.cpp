@@ -244,4 +244,29 @@ void OauthSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mGoogleCallbackURL->isReadOnly());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleCallbackURL), QStringLiteral("Accounts_OAuth_Google_callback_url"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Google_callback_url"));
+
+    auto mDolphinUrl = w.findChild<QLineEdit *>(QStringLiteral("mDolphinUrl"));
+    QVERIFY(mDolphinUrl);
+    QVERIFY(mDolphinUrl->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDolphinUrl), QStringLiteral("Accounts_OAuth_Dolphin_URL"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Dolphin_URL"));
+
+    auto mDolphinEnable = w.findChild<QCheckBox *>(QStringLiteral("mDolphinEnable"));
+    QVERIFY(mDolphinEnable);
+    QVERIFY(!mDolphinEnable->isChecked());
+    QVERIFY(!mDolphinEnable->text().isEmpty());
+    QVERIFY(mDolphinEnable->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDolphinEnable), QStringLiteral("Accounts_OAuth_Dolphin"));
+
+    auto mDolphinId = w.findChild<QLineEdit *>(QStringLiteral("mDolphinId"));
+    QVERIFY(mDolphinId);
+    QVERIFY(mDolphinId->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDolphinId), QStringLiteral("Accounts_OAuth_Dolphin_id"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Dolphin_id"));
+
+    auto mDolphinSecret = w.findChild<QLineEdit *>(QStringLiteral("mDolphinSecret"));
+    QVERIFY(mDolphinSecret);
+    QVERIFY(mDolphinSecret->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDolphinSecret), QStringLiteral("Accounts_OAuth_Dolphin_secret"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_OAuth_Dolphin_secret"));
 }

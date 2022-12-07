@@ -48,6 +48,10 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     , mGoogleId(new QLineEdit(this))
     , mGoogleSecret(new QLineEdit(this))
     , mGoogleCallbackURL(new QLineEdit(this))
+    , mDolphinUrl(new QLineEdit(this))
+    , mDolphinEnable(new QCheckBox(i18n("Enable"), this))
+    , mDolphinId(new QLineEdit(this))
+    , mDolphinSecret(new QLineEdit(this))
 {
     auto appleLabel = createBoldLabel(i18n("Apple"));
     appleLabel->setObjectName(QStringLiteral("appleLabel"));
@@ -70,6 +74,19 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     auto dolphinLabel = createBoldLabel(i18n("Dolphin"));
     dolphinLabel->setObjectName(QStringLiteral("dolphinLabel"));
     mMainLayout->addWidget(dolphinLabel);
+
+    mDolphinUrl->setObjectName(QStringLiteral("mDolphinUrl"));
+    addLineEdit(i18n("Url"), mDolphinUrl, QStringLiteral("Accounts_OAuth_Dolphin_URL"));
+
+    mDolphinEnable->setObjectName(QStringLiteral("mDolphinEnable"));
+    mMainLayout->addWidget(mDolphinEnable);
+    connectCheckBox(mDolphinEnable, QStringLiteral("Accounts_OAuth_Dolphin"));
+
+    mDolphinId->setObjectName(QStringLiteral("mTwitterId"));
+    addLineEdit(i18n("Id"), mDolphinId, QStringLiteral("Accounts_OAuth_Dolphin_id"));
+
+    mDolphinSecret->setObjectName(QStringLiteral("mDolphinSecret"));
+    addLineEdit(i18n("Secret"), mDolphinSecret, QStringLiteral("Accounts_OAuth_Dolphin_secret"));
     // TODO
 
     auto twitterLabel = createBoldLabel(i18n("Twitter"));
@@ -257,4 +274,9 @@ void OauthSettingsWidget::initialize(const QMap<QString, QVariant> &mapSettings)
     initializeWidget(mGoogleId, mapSettings, QString());
     initializeWidget(mGoogleSecret, mapSettings, QString());
     initializeWidget(mGoogleCallbackURL, mapSettings, urlFromRelativePath(QStringLiteral("_oauth/google")));
+
+    initializeWidget(mDolphinUrl, mapSettings, QString());
+    initializeWidget(mDolphinEnable, mapSettings, false);
+    initializeWidget(mDolphinId, mapSettings, QString());
+    initializeWidget(mDolphinSecret, mapSettings, QString());
 }

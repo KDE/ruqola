@@ -62,4 +62,9 @@ private:
     QLineEdit *const mGoogleId;
     QLineEdit *const mGoogleSecret;
     QLineEdit *const mGoogleCallbackURL;
+
+    QLineEdit *const mDolphinUrl;
+    QCheckBox *const mDolphinEnable;
+    QLineEdit *const mDolphinId;
+    QLineEdit *const mDolphinSecret;
 };
