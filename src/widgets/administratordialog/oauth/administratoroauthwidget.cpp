@@ -38,6 +38,7 @@ AdministratorOauthWidget::AdministratorOauthWidget(RocketChatAccount *account, Q
     mOauthTreeWidget->setModel(mAdminInviteFilterProxyModel);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &AdministratorOauthWidget::slotTextChanged);
     connect(mOauthTreeWidget, &OauthTreeView::removeOauth, this, &AdministratorOauthWidget::slotRemoveOauth);
+    connect(mOauthTreeWidget, &OauthTreeView::oauthAdded, this, &AdministratorOauthWidget::slotOauthAppAdded);
 
     // Hide not useful columns
     mOauthTreeWidget->setColumnHidden(AdminOauthModel::AdminOauthRoles::ClientId, true);

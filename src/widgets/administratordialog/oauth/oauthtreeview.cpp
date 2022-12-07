@@ -7,8 +7,11 @@
 #include "oauthtreeview.h"
 #include "administratoroauthcreatedialog.h"
 #include "administratoroautheditdialog.h"
+#include "connection.h"
+#include "misc/oauthappscreatejob.h"
 #include "model/adminoauthmodel.h"
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
@@ -78,7 +81,21 @@ void OauthTreeView::addClicked()
     QPointer<AdministratorOauthCreateDialog> dlg = new AdministratorOauthCreateDialog(this);
     if (dlg->exec()) {
         const AdministratorOauthCreateWidget::OauthCreateInfo info = dlg->oauthInfo();
-        mRocketChatAccount->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
+        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
+            RocketChatRestApi::OauthAppsCreateJob::OauthAppsCreateInfo oauthInfo;
+            oauthInfo.active = info.active;
+            oauthInfo.redirectUri = info.redirectUrl;
+            oauthInfo.name = info.applicationName;
+            auto job = new RocketChatRestApi::OauthAppsCreateJob(this);
+            job->setOauthAppsCreateInfo(oauthInfo);
+            mRocketChatAccount->restApi()->initializeRestApiJob(job);
+            connect(job, &RocketChatRestApi::OauthAppsCreateJob::oauthAppsCreateDone, this, &OauthTreeView::oauthAdded);
+            if (!job->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start OauthAppsCreateJob job";
+            }
+        } else {
+            mRocketChatAccount->ddp()->addOAuthApp(info.applicationName, info.active, info.redirectUrl);
+        }
     }
     delete dlg;
 }

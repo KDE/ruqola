@@ -18,6 +18,7 @@ public:
 
 Q_SIGNALS:
     void removeOauth(const QString &identifier);
+    void oauthAdded(const QJsonObject &replyObject);
 
 private:
     void initialize();
