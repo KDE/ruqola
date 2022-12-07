@@ -5,9 +5,11 @@
 */
 
 #include "libretranslateengineclient.h"
+#include "libretranslateengineconfiguredialog.h"
 #include "libretranslateengineplugin.h"
 #include "translator/misc/translatorutil.h"
 #include <KLocalizedString>
+#include <QPointer>
 
 LibreTranslateEngineClient::LibreTranslateEngineClient(QObject *parent)
     : PimCommonTextTranslator::TranslatorEngineClient{parent}
@@ -46,5 +48,7 @@ bool LibreTranslateEngineClient::hasConfigurationDialog() const
 
 void LibreTranslateEngineClient::showConfigureDialog()
 {
-    // TODO
+    QPointer<LibreTranslateEngineConfigureDialog> dlg = new LibreTranslateEngineConfigureDialog();
+    dlg->exec();
+    delete dlg;
 }

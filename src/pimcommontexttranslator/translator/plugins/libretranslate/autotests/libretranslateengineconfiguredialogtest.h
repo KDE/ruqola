@@ -13,4 +13,6 @@ class LibreTranslateEngineConfigureDialogTest : public QObject
 public:
     explicit LibreTranslateEngineConfigureDialogTest(QObject *parent = nullptr);
     ~LibreTranslateEngineConfigureDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
