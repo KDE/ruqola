@@ -6,6 +6,9 @@
 
 #include "administratorinviteuserswidgettest.h"
 #include "administratordialog/users/administratorinviteuserswidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(AdministratorInviteUsersWidgetTest)
 AdministratorInviteUsersWidgetTest::AdministratorInviteUsersWidgetTest(QObject *parent)
@@ -16,5 +19,17 @@ AdministratorInviteUsersWidgetTest::AdministratorInviteUsersWidgetTest(QObject *
 void AdministratorInviteUsersWidgetTest::shouldHaveDefaultValues()
 {
     AdministratorInviteUsersWidget w;
-    // TODO
+
+    auto mListEmails = w.findChild<QLineEdit *>(QStringLiteral("mListEmails"));
+    QVERIFY(mListEmails);
+    QVERIFY(mListEmails->text().isEmpty());
+    QVERIFY(!mListEmails->placeholderText().isEmpty());
+
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("formLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }

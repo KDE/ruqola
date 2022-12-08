@@ -6,6 +6,7 @@
 
 #include "administratoruserswidget.h"
 #include "administratoradduserdialog.h"
+#include "administratorinviteusersdialog.h"
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
 #include "misc/searchwithdelaylineedit.h"
@@ -54,6 +55,15 @@ AdministratorUsersWidget::~AdministratorUsersWidget() = default;
 void AdministratorUsersWidget::slotTextChanged(const QString &str)
 {
     mProxyModelModel->setFilterString(str);
+}
+
+void AdministratorUsersWidget::slotInviteUsers()
+{
+    QPointer<AdministratorInviteUsersDialog> dlg = new AdministratorInviteUsersDialog(this);
+    if (dlg->exec()) {
+        // TODO
+    }
+    delete dlg;
 }
 
 void AdministratorUsersWidget::slotAddUser()
@@ -202,7 +212,13 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
+    if (mRocketChatAccount->hasPermission(QStringLiteral("bulk-register-user"))) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Invite..."), this, &AdministratorUsersWidget::slotInviteUsers);
+    }
     if (mRocketChatAccount->hasPermission(QStringLiteral("create-user"))) {
+        if (!menu.isEmpty()) {
+            menu.addSeparator();
+        }
         menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
     }
     const QModelIndex index = mTreeView->indexAt(pos);

@@ -40,5 +40,6 @@ private:
     void slotResetE2EKey(const QModelIndex &index);
     void slotResetTOTPKey(const QModelIndex &index);
     void slotChangeAdmin(const QModelIndex &index, bool adminStatus);
+    void slotInviteUsers();
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
 };

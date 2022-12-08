@@ -9,6 +9,7 @@
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorInviteUsersWidget : public QWidget
 {
     Q_OBJECT
@@ -20,4 +21,7 @@ public:
 
 Q_SIGNALS:
     void updateButtonOk(bool enabled);
+
+private:
+    QLineEdit *const mListEmails;
 };
