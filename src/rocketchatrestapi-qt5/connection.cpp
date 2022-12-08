@@ -122,8 +122,6 @@
 
 #include "e2e/fetchmykeysjob.h"
 
-#include "video-conference/videoconfupdatejitsitimeoutjob.h"
-
 #include "autotranslate/getsupportedlanguagesjob.h"
 #include "autotranslate/translatesavesettingsjob.h"
 
@@ -1262,17 +1260,6 @@ void Connection::setJoinCodeChannel(const QString &roomId, const QString &joinCo
     connect(job, &SetJoinCodeChannelJob::setJoinCodeDone, this, &Connection::setJoinCodeDone);
     if (!job->start()) {
         qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start setjoincode";
-    }
-}
-
-void Connection::updatejitsiTimeOut(const QString &roomId)
-{
-    auto job = new VideoConfUpdateJitsiTimeOutJob(this);
-    initializeRestApiJob(job);
-    job->setRoomId(roomId);
-    connect(job, &VideoConfUpdateJitsiTimeOutJob::updateJitsiTimeOutDone, this, &Connection::updateJitsiTimeOutDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start VideoConfUpdateJitsiTimeOutJob";
     }
 }
 
