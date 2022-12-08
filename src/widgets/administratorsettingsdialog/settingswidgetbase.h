@@ -32,7 +32,10 @@ protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
     void addLineEdit(const QString &labelStr, QLineEdit *lineEdit, const QString &variable, bool readOnly = false);
+
     void addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable);
+    void fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items);
+
     void addPasswordEdit(const QString &labelStr, KPasswordLineEdit *lineEdit, const QString &variable);
     void addLabel(const QString &labelStr, QLabel *labelElement, const QString &variable);
     void addPlainTextEdit(const QString &labelStr, QPlainTextEdit *lineEdit, const QString &variable);
@@ -51,10 +54,11 @@ protected:
     Q_REQUIRED_RESULT QLabel *createBoldLabel(const QString &text);
     Q_REQUIRED_RESULT QString urlFromRelativePath(const QString &relativePath);
 
+    RocketChatAccount *const mAccount;
+
 private:
     void
     updateSettings(const QString &settingName, const QVariant &value, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue);
     void slotAdminSettingsDone(const QJsonObject &obj);
-    RocketChatAccount *const mAccount;
     void disableTooButton(const QString &variableName);
 };

@@ -195,6 +195,15 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     mMainLayout->addRow(layout);
 }
 
+void SettingsWidgetBase::fillComboBox(QComboBox *comboBox, const QMap<QString, QString> &items)
+{
+    QMapIterator<QString, QString> i(items);
+    while (i.hasNext()) {
+        i.next();
+        comboBox->addItem(i.value(), i.key());
+    }
+}
+
 void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString, QString> &items, QComboBox *comboBox, const QString &variable)
 {
     auto layout = new QHBoxLayout;
@@ -202,11 +211,7 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
     layout->addWidget(label);
     layout->addWidget(comboBox);
-    QMapIterator<QString, QString> i(items);
-    while (i.hasNext()) {
-        i.next();
-        comboBox->addItem(i.value(), i.key());
-    }
+    fillComboBox(comboBox, items);
     auto toolButton = new QToolButton(this);
     toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
