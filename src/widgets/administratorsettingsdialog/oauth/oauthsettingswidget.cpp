@@ -82,7 +82,7 @@ OauthSettingsWidget::OauthSettingsWidget(RocketChatAccount *account, QWidget *pa
     mMainLayout->addWidget(mDolphinEnable);
     connectCheckBox(mDolphinEnable, QStringLiteral("Accounts_OAuth_Dolphin"));
 
-    mDolphinId->setObjectName(QStringLiteral("mTwitterId"));
+    mDolphinId->setObjectName(QStringLiteral("mDolphinId"));
     addLineEdit(i18n("Id"), mDolphinId, QStringLiteral("Accounts_OAuth_Dolphin_id"));
 
     mDolphinSecret->setObjectName(QStringLiteral("mDolphinSecret"));
