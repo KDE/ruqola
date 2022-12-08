@@ -12,3 +12,9 @@ AdministratorInviteUsersWidget::AdministratorInviteUsersWidget(QWidget *parent)
 }
 
 AdministratorInviteUsersWidget::~AdministratorInviteUsersWidget() = default;
+
+QStringList AdministratorInviteUsersWidget::emails() const
+{
+    // TODO
+    return {};
+}

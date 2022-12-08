@@ -15,7 +15,7 @@ AdministratorInviteUsersDialog::AdministratorInviteUsersDialog(QWidget *parent)
     : QDialog(parent)
     , mInviteUsersWidget(new AdministratorInviteUsersWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Create New User"));
+    setWindowTitle(i18nc("@title:window", "Send Emails Invite"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -29,7 +29,12 @@ AdministratorInviteUsersDialog::AdministratorInviteUsersDialog(QWidget *parent)
     connect(button, &QDialogButtonBox::accepted, this, &AdministratorInviteUsersDialog::accept);
     QPushButton *buttonOk = button->button(QDialogButtonBox::Ok);
     buttonOk->setEnabled(false);
-    // connect(mInviteUsersWidget, &AdministratorAddUserWidget::updateButtonOk, buttonOk, &QPushButton::setEnabled);
+    connect(mInviteUsersWidget, &AdministratorInviteUsersWidget::updateButtonOk, buttonOk, &QPushButton::setEnabled);
 }
 
 AdministratorInviteUsersDialog::~AdministratorInviteUsersDialog() = default;
+
+QStringList AdministratorInviteUsersDialog::emails() const
+{
+    return mInviteUsersWidget->emails();
+}

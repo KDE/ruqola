@@ -17,5 +17,6 @@ AdministratorInviteUsersDialogTest::AdministratorInviteUsersDialogTest(QObject *
 void AdministratorInviteUsersDialogTest::shouldHaveDefaultValues()
 {
     AdministratorInviteUsersDialog w;
+    QVERIFY(w.emails().isEmpty());
     // TODO
 }
