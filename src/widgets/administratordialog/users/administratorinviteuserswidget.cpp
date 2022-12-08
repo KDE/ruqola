@@ -35,5 +35,5 @@ AdministratorInviteUsersWidget::~AdministratorInviteUsersWidget() = default;
 
 QStringList AdministratorInviteUsersWidget::emails() const
 {
-    return mListEmails->text().split(QLatin1Char(','));
+    return mListEmails->text().split(QLatin1Char(','), Qt::SkipEmptyParts);
 }
