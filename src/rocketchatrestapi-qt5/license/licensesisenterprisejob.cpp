@@ -31,7 +31,7 @@ bool LicensesIsEnterpriseJob::start()
         return false;
     }
     submitGetRequest();
-    addStartRestApiInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: Ask for server statistics"));
+    addStartRestApiInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: Ask for licenses"));
     return true;
 }
 

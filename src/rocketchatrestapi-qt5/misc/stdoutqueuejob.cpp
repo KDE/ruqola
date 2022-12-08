@@ -32,7 +32,7 @@ bool StdoutQueueJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("StdoutQueueJob: Ask for server statistics"));
+    addStartRestApiInfo(QByteArrayLiteral("StdoutQueueJob: Ask for stdout queue"));
     return true;
 }
 

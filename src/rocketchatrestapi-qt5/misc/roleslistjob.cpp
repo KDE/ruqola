@@ -32,7 +32,7 @@ bool RolesListJob::start()
     }
     submitGetRequest();
 
-    addStartRestApiInfo(QByteArrayLiteral("RolesListJob: Ask for server statistics"));
+    addStartRestApiInfo(QByteArrayLiteral("RolesListJob: Ask for roles"));
     return true;
 }
 
