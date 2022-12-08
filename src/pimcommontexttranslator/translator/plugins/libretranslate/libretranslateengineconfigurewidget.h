@@ -17,6 +17,8 @@ public:
 
     Q_REQUIRED_RESULT QString serverUrl() const;
 
+    void setServerUrl(const QString &serverUrl);
+
 private:
     QLineEdit *const mServerUrl;
 };

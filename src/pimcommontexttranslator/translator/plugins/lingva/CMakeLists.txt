@@ -7,6 +7,10 @@ target_sources(translator_lingva PRIVATE
     lingvaengineclient.h
     lingvaengineplugin.cpp
     lingvaengineplugin.h
+    lingvaenginedialog.h
+    lingvaenginedialog.cpp
+    lingvaenginewidget.h
+    lingvaenginewidget.cpp
 )
 ecm_qt_declare_logging_category(translator_lingva
     HEADER lingvatranslator_debug.h

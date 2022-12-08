@@ -15,6 +15,10 @@ public:
     explicit LibreTranslateEngineConfigureDialog(QWidget *parent = nullptr);
     ~LibreTranslateEngineConfigureDialog() override;
 
+    Q_REQUIRED_RESULT QString serverUrl() const;
+
+    void setServerUrl(const QString &serverUrl);
+
 private:
     LibreTranslateEngineConfigureWidget *const mConfigureWidget;
 };

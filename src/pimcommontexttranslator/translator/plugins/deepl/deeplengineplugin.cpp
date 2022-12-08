@@ -5,6 +5,7 @@
 */
 
 #include "deeplengineplugin.h"
+#include "deeplengineutil.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -67,8 +68,8 @@ void DeeplEnginePlugin::parseTranslation(QNetworkReply *reply)
 
 void DeeplEnginePlugin::loadSettings()
 {
-    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("DeepLTranslator"));
-    mUseFreeLicense = myGroup.readEntry(QStringLiteral("freeLicense"), false);
+    KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
+    mUseFreeLicense = myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), false);
     mServerUrl = mUseFreeLicense ? QStringLiteral("https://api-free.deepl.com/v2/translate") : QStringLiteral("https://api.deepl.com/v2/translate");
     // TODO load API key ? stored in kwallet ?
 }

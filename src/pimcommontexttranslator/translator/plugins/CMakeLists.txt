@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: CC0-1.0
-# SPDX-FileCopyrightText: none
+# SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 add_subdirectory(bing)  
 add_subdirectory(deepl)
 add_subdirectory(google)

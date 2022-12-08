@@ -5,6 +5,7 @@
 */
 
 #include "libretranslateengineplugin.h"
+#include "libretranslateengineutil.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -26,6 +27,11 @@ void LibreTranslateEnginePlugin::translate()
         return;
     }
     translateText();
+}
+
+void LibreTranslateEnginePlugin::slotConfigureChanged()
+{
+    loadSettings();
 }
 
 void LibreTranslateEnginePlugin::translateText()
@@ -71,6 +77,6 @@ void LibreTranslateEnginePlugin::parseTranslation(QNetworkReply *reply)
 
 void LibreTranslateEnginePlugin::loadSettings()
 {
-    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LibreTranslateTranslator"));
-    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QString());
+    KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
+    mServerUrl = myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString());
 }

@@ -27,3 +27,8 @@ QString LibreTranslateEngineConfigureWidget::serverUrl() const
 {
     return mServerUrl->text();
 }
+
+void LibreTranslateEngineConfigureWidget::setServerUrl(const QString &serverUrl)
+{
+    mServerUrl->setText(serverUrl);
+}

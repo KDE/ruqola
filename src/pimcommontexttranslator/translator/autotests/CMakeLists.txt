@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: CC0-1.0
-# SPDX-FileCopyrightText: none
+# SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+# SPDX-License-Identifier: BSD-3-Clause
 macro(add_pimcommon_translator_unittest _source)
     get_filename_component(_name ${_source} NAME_WE)
     ecm_add_test(${_source} ${_name}.h

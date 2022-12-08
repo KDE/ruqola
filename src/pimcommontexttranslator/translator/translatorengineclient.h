@@ -34,6 +34,9 @@ public:
 
     virtual void showConfigureDialog();
 
+Q_SIGNALS:
+    void configureChanged();
+
 protected:
     QVector<QPair<QString, QString>> mLanguages;
 };

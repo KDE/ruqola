@@ -5,9 +5,14 @@
 */
 
 #include "deeplengineclient.h"
+#include "deeplengineconfiguredialog.h"
 #include "deeplengineplugin.h"
+#include "deeplengineutil.h"
 #include "translator/misc/translatorutil.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <QPointer>
 
 DeeplEngineClient::DeeplEngineClient(QObject *parent)
     : PimCommonTextTranslator::TranslatorEngineClient{parent}
@@ -46,5 +51,13 @@ bool DeeplEngineClient::hasConfigurationDialog() const
 
 void DeeplEngineClient::showConfigureDialog()
 {
+    QPointer<DeeplEngineConfigureDialog> dlg = new DeeplEngineConfigureDialog();
+    KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
     // TODO
+    // dlg->setServerUrl(myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), QString()));
+    if (dlg->exec()) {
+        // TODO save
+        Q_EMIT configureChanged();
+    }
+    delete dlg;
 }

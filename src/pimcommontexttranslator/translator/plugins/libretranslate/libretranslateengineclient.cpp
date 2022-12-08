@@ -7,8 +7,11 @@
 #include "libretranslateengineclient.h"
 #include "libretranslateengineconfiguredialog.h"
 #include "libretranslateengineplugin.h"
+#include "libretranslateengineutil.h"
 #include "translator/misc/translatorutil.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <QPointer>
 
 LibreTranslateEngineClient::LibreTranslateEngineClient(QObject *parent)
@@ -30,7 +33,9 @@ QString LibreTranslateEngineClient::translatedName() const
 
 PimCommonTextTranslator::TranslatorEnginePlugin *LibreTranslateEngineClient::createTranslator()
 {
-    return new LibreTranslateEnginePlugin();
+    auto enginePlugin = new LibreTranslateEnginePlugin();
+    connect(this, &LibreTranslateEngineClient::configureChanged, enginePlugin, &LibreTranslateEnginePlugin::slotConfigureChanged);
+    return enginePlugin;
 }
 
 QVector<QPair<QString, QString>> LibreTranslateEngineClient::supportedLanguages()
@@ -49,6 +54,11 @@ bool LibreTranslateEngineClient::hasConfigurationDialog() const
 void LibreTranslateEngineClient::showConfigureDialog()
 {
     QPointer<LibreTranslateEngineConfigureDialog> dlg = new LibreTranslateEngineConfigureDialog();
-    dlg->exec();
+    KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
+    dlg->setServerUrl(myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString()));
+    if (dlg->exec()) {
+        // TODO save
+        Q_EMIT configureChanged();
+    }
     delete dlg;
 }

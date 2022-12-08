@@ -17,6 +17,8 @@ public:
 
     void translate() override;
 
+    void slotConfigureChanged();
+
 private:
     void loadSettings();
     void parseTranslation(QNetworkReply *reply);

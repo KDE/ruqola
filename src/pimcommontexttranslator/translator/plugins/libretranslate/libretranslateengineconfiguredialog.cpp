@@ -26,3 +26,13 @@ LibreTranslateEngineConfigureDialog::LibreTranslateEngineConfigureDialog(QWidget
 }
 
 LibreTranslateEngineConfigureDialog::~LibreTranslateEngineConfigureDialog() = default;
+
+QString LibreTranslateEngineConfigureDialog::serverUrl() const
+{
+    return mConfigureWidget->serverUrl();
+}
+
+void LibreTranslateEngineConfigureDialog::setServerUrl(const QString &serverUrl)
+{
+    mConfigureWidget->setServerUrl(serverUrl);
+}
