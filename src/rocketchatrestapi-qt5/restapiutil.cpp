@@ -539,6 +539,21 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
 
     case RestApiUtil::RestApiUrlType::UserRequestDataDownload:
         return QStringLiteral("users.requestDataDownload");
+
+    case RestApiUtil::RestApiUrlType::VideoConferenceStart:
+        return QStringLiteral("video-conference.start");
+    case RestApiUtil::RestApiUrlType::VideoConferenceJoin:
+        return QStringLiteral("video-conference.join");
+    case RestApiUtil::RestApiUrlType::VideoConferenceCancel:
+        return QStringLiteral("video-conference.cancel");
+    case RestApiUtil::RestApiUrlType::VideoConferenceInfo:
+        return QStringLiteral("video-conference.info");
+    case RestApiUtil::RestApiUrlType::VideoConferenceList:
+        return QStringLiteral("video-conference.list");
+    case RestApiUtil::RestApiUrlType::VideoConferenceProviders:
+        return QStringLiteral("video-conference.providers");
+    case RestApiUtil::RestApiUrlType::VideoConferenceCapabilities:
+        return QStringLiteral("video-conference.capabilities");
     }
     qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Unknown RestApiUtil::RestApiUrlType " << static_cast<int>(type);
     return {};

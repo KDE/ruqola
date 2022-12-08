@@ -337,4 +337,14 @@ void RestApiMethodTest::shouldGenerateUrl()
 
     QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::UserRequestDataDownload),
              QUrl(QStringLiteral("http://www.kde.org/api/v1/users.requestDataDownload")));
+
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceStart), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.start")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceJoin), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.join")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceCancel), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.cancel")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceInfo), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.info")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceList), QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.list")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceProviders),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.providers")));
+    QCOMPARE(rest.generateUrl(RestApiUtil::RestApiUrlType::VideoConferenceCapabilities),
+             QUrl(QStringLiteral("http://www.kde.org/api/v1/video-conference.capabilities")));
 }

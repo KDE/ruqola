@@ -311,6 +311,15 @@ enum class RestApiUrlType {
 
     // 5.4.0
     RoomsDelete,
+
+    // Video Conference
+    VideoConferenceStart,
+    VideoConferenceJoin,
+    VideoConferenceCancel,
+    VideoConferenceInfo,
+    VideoConferenceList,
+    VideoConferenceProviders,
+    VideoConferenceCapabilities,
 };
 LIBROCKETCHATRESTAPI_QT5_EXPORT QString adaptUrl(const QString &url);
 LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QString restUrl(RestApiUtil::RestApiUrlType type);
