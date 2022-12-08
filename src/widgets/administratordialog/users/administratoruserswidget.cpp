@@ -202,7 +202,9 @@ void AdministratorUsersWidget::slotSetUserActiveStatus(const QJsonObject &replyO
 void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
 {
     QMenu menu(this);
-    menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
+    if (mRocketChatAccount->hasPermission(QStringLiteral("create-user"))) {
+        menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add..."), this, &AdministratorUsersWidget::slotAddUser);
+    }
     const QModelIndex index = mTreeView->indexAt(pos);
     if (index.isValid()) {
         const QModelIndex newModelIndex = mProxyModelModel->mapToSource(index);
@@ -251,7 +253,9 @@ void AdministratorUsersWidget::slotCustomContextMenuRequested(const QPoint &pos)
             });
         }
     }
-    menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    if (!menu.isEmpty()) {
+        menu.exec(mTreeView->viewport()->mapToGlobal(pos));
+    }
 }
 
 void AdministratorUsersWidget::updateLabel()
