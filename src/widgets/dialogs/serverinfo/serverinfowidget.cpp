@@ -25,22 +25,22 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mAccountName->setTextFormat(Qt::PlainText);
-    layout->addRow(i18n("Account Name:"), mAccountName);
+    layout->addRow(i18n("Account name:"), mAccountName);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mUserName->setTextFormat(Qt::PlainText);
-    layout->addRow(i18n("User Name:"), mUserName);
+    layout->addRow(i18n("Username:"), mUserName);
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mServerUrl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
     mServerUrl->setTextFormat(Qt::RichText);
-    layout->addRow(i18n("Server Url:"), mServerUrl);
+    layout->addRow(i18n("Server URL:"), mServerUrl);
 
     mServerVersion->setObjectName(QStringLiteral("mServerVersion"));
     mServerVersion->setTextInteractionFlags(Qt::TextSelectableByMouse);
     mServerVersion->setTextFormat(Qt::PlainText);
-    layout->addRow(i18n("Server Version:"), mServerVersion);
+    layout->addRow(i18n("Server version:"), mServerVersion);
 
     if (account) {
         if (account->ruqolaServerConfig()->hasAtLeastVersion(5, 0, 0)) {

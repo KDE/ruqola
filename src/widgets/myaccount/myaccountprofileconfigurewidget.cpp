@@ -64,7 +64,7 @@ MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccou
 
     new LineEditCatchReturnKey(mStatusText, this);
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
-    mainLayout->addRow(i18n("Status Text:"), mStatusText);
+    mainLayout->addRow(i18n("Status text:"), mStatusText);
     mStatusText->setClearButtonEnabled(true);
 
     mPasswordConfirmWidget->setObjectName(QStringLiteral("mPasswordConfirmWidget"));

@@ -29,15 +29,15 @@ QVariant AdminRoomsModel::headerData(int section, Qt::Orientation orientation, i
         case AdminRoomsRoles::Name:
             return i18n("Name");
         case AdminRoomsRoles::MessagesCount:
-            return i18n("Number Of Messages");
+            return i18n("Number of Messages");
         case AdminRoomsRoles::UsersCount:
-            return i18n("Number Of Users");
+            return i18n("Number of Users");
         case AdminRoomsRoles::Topic:
             return i18n("Topic");
         case AdminRoomsRoles::Identifier:
             return i18n("Identifier");
         case AdminRoomsRoles::ReadOnly:
-            return i18n("Read Only");
+            return i18n("Read-only");
         case AdminRoomsRoles::DefaultRoom:
             return i18n("Default Room");
         case AdminRoomsRoles::ChannelType:

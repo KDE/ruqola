@@ -20,7 +20,7 @@ AddUsersInRoomWidget::AddUsersInRoomWidget(RocketChatAccount *account, QWidget *
     mainLayout->setContentsMargins({});
 
     mAddUsersWidget->setObjectName(QStringLiteral("mAddUsersWidget"));
-    mAddUsersWidget->setPlaceholderText(i18n("Search Users..."));
+    mAddUsersWidget->setPlaceholderText(i18n("Search users..."));
     connect(mAddUsersWidget, &AddUsersWidget::userListChanged, this, &AddUsersInRoomWidget::updateOkButton);
     mainLayout->addWidget(mAddUsersWidget);
     mainLayout->addStretch(1);

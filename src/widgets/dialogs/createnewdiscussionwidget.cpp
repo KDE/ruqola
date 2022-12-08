@@ -48,7 +48,7 @@ CreateNewDiscussionWidget::CreateNewDiscussionWidget(RocketChatAccount *account,
     mainLayout->addWidget(usersLabel);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Invite Users..."));
+    mUsers->setPlaceholderText(i18n("Invite users..."));
     mainLayout->addWidget(mUsers);
 
     auto messageLabel = new QLabel(i18n("Message"), this);

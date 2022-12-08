@@ -29,7 +29,7 @@ AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount
 {
     mModel = new AdminCustomEmojiModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Custom Emojis"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search custom emojis"));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));

@@ -52,7 +52,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Encryption Enabled\" messages"), QStringLiteral("room_e2e_enabled"));
     createItem(i18n("Hide \"Encryption Disabled\" messages"), QStringLiteral("room_e2e_disabled"));
     createItem(i18n("Hide \"Room added writing permission\" messages"), QStringLiteral("room-removed-read-only"));
-    createItem(i18n("Hide \"Room set Read Only\" messages"), QStringLiteral("room-set-read-only"));
+    createItem(i18n("Hide \"Room set read-only\" messages"), QStringLiteral("room-set-read-only"));
     createItem(i18n("Hide \"Room disallowed reacting\" messages"), QStringLiteral("room-disallowed-reacting"));
     createItem(i18n("Hide \"Room allowed reacting\" messages"), QStringLiteral("room-allowed-reacting"));
     createItem(i18n("Hide \"User Added Room to Team\" messages"), QStringLiteral("user-added-room-to-team"));

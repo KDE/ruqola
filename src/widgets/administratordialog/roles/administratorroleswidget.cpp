@@ -42,7 +42,7 @@ AdministratorRolesWidget::AdministratorRolesWidget(RocketChatAccount *account, Q
 
     mTreeView->setObjectName(QStringLiteral("mTreeView"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mSearchLineWidget->setPlaceholderText(i18n("Search Roles..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search roles..."));
     mSearchLineWidget->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineWidget, this);
 

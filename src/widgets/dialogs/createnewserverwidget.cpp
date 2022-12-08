@@ -27,17 +27,17 @@ CreateNewServerWidget::CreateNewServerWidget(QWidget *parent)
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mAccountName, this);
-    mainLayout->addRow(i18n("Account Name:"), mAccountName);
+    mainLayout->addRow(i18n("Account name:"), mAccountName);
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mServerUrl->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mServerUrl, this);
-    mainLayout->addRow(i18n("Server Url:"), mServerUrl);
+    mainLayout->addRow(i18n("Server URL:"), mServerUrl);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mUserName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mUserName, this);
-    mainLayout->addRow(i18n("User Name:"), mUserName);
+    mainLayout->addRow(i18n("Username:"), mUserName);
 
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));

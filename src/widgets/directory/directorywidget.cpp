@@ -29,17 +29,17 @@ DirectoryWidget::DirectoryWidget(RocketChatAccount *account, DirectoryType type,
 {
     switch (mType) {
     case Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Channels..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search channels..."));
         mModel = new DirectoryRoomsModel(this);
         mProxyModelModel = new DirectoryRoomsProxyModel(mModel, this);
         break;
     case User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
         mModel = new DirectoryUsersModel(this);
         mProxyModelModel = new DirectoryUsersProxyModel(mModel, this);
         break;
     case Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Teams..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search teams..."));
         mModel = new DirectoryTeamsModel(this);
         mProxyModelModel = new DirectoryTeamsProxyModel(mModel, this);
         break;
@@ -198,13 +198,13 @@ void DirectoryWidget::fillDirectory()
 {
     switch (mType) {
     case Room:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Rooms..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search rooms..."));
         break;
     case User:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
         break;
     case Team:
-        mSearchLineEdit->setPlaceholderText(i18n("Search Teams..."));
+        mSearchLineEdit->setPlaceholderText(i18n("Search teams..."));
         break;
     case Unknown:
         qCWarning(RUQOLAWIDGETS_LOG) << "Invalid type it's a bug";

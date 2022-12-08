@@ -27,7 +27,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mainLayout->setContentsMargins({});
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Messages"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search messages"));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     mainLayout->addWidget(mSearchLineEdit);
     connect(mSearchLineEdit, &SearchWithDelayLineEdit::searchRequested, this, &SearchMessageWidget::slotSearchMessages);

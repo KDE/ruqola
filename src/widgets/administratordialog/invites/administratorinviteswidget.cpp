@@ -34,7 +34,7 @@ AdministratorInvitesWidget::AdministratorInvitesWidget(RocketChatAccount *accoun
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mainLayout->addWidget(mSearchLineWidget);
-    mSearchLineWidget->setPlaceholderText(i18n("Search Invite..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search invite..."));
 
     mInviteTreeView->setObjectName(QStringLiteral("mInviteTreeWidget"));
     mainLayout->addWidget(mInviteTreeView);

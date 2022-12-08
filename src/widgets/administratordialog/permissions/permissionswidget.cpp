@@ -36,7 +36,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
-    mSearchLineWidget->setPlaceholderText(i18n("Search Permissions..."));
+    mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
     new LineEditCatchReturnKey(mSearchLineWidget, this);
     mSearchLineWidget->setClearButtonEnabled(true);
     mainLayout->addWidget(mSearchLineWidget);

@@ -53,7 +53,7 @@ MyAccount2FaTotpWidget::MyAccount2FaTotpWidget(RocketChatAccount *account, QWidg
     mainLayout->addLayout(hboxLayout);
 
     mVerifyQrCode->setObjectName(QStringLiteral("mVerifyQrCode"));
-    mVerifyQrCode->setPlaceholderText(i18n("Enter Authentication Code"));
+    mVerifyQrCode->setPlaceholderText(i18n("Enter authentication code"));
     new LineEditCatchReturnKey(mVerifyQrCode, this);
     hboxLayout->addWidget(mVerifyQrCode);
 

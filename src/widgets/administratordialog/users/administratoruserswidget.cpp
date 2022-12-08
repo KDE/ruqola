@@ -42,7 +42,7 @@ AdministratorUsersWidget::AdministratorUsersWidget(RocketChatAccount *account, Q
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
     mTreeView->setModel(mProxyModelModel);
     connect(mTreeView, &QTreeView::doubleClicked, this, &AdministratorUsersWidget::slotModifyDoubleClickUser);
     hideColumns();

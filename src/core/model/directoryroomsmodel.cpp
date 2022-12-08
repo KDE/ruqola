@@ -119,7 +119,7 @@ QVariant DirectoryRoomsModel::headerData(int section, Qt::Orientation orientatio
         case DirectoryRoomsModel::Identifier:
             return i18n("Identifier");
         case DirectoryRoomsModel::ReadOnly:
-            return i18n("Read Only");
+            return i18n("Read-only");
         case DirectoryRoomsModel::DefaultRoom:
             return i18n("Default Room");
         case DirectoryRoomsModel::LastMessageStr:

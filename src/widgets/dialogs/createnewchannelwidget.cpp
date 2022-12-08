@@ -35,7 +35,7 @@ CreateNewChannelWidget::CreateNewChannelWidget(RocketChatAccount *account, QWidg
     mMainLayout->addRow(i18n("Topic:"), mTopicLineEdit);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Invite Users..."));
+    mUsers->setPlaceholderText(i18n("Invite users..."));
     mMainLayout->addRow(i18n("Users:"), mUsers);
 
     mReadOnly->setObjectName(QStringLiteral("mReadOnly"));

@@ -37,7 +37,7 @@ UsersInRoomWidget::UsersInRoomWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addLayout(hMainLayout);
 
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Users..."));
+    mSearchLineEdit->setPlaceholderText(i18n("Search users..."));
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &UsersInRoomWidget::slotTextChanged);

@@ -29,8 +29,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mViewMode(new QComboBox(this))
     , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
-    , mHideRoles(new QCheckBox(i18n("Hide Roles"), this))
-    , mDisplayAvatars(new QCheckBox(i18n("Display Avatars"), this))
+    , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
+    , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
     , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
     , mRocketChatAccount(account)
 {
@@ -58,21 +58,21 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
     mViewMode->setObjectName(QStringLiteral("mViewMode"));
 
-    auto desktopNotificationLabel = new QLabel(i18n("Desktop Notification:"), this);
+    auto desktopNotificationLabel = new QLabel(i18n("Desktop notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
     desktopNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(desktopNotificationLabel);
 
     mainLayout->addWidget(mDesktopNotification);
 
-    auto emailNotificationLabel = new QLabel(i18n("Offline Email Notification:"), this);
+    auto emailNotificationLabel = new QLabel(i18n("Offline Email notification:"), this);
     emailNotificationLabel->setObjectName(QStringLiteral("emailNotificationLabel"));
     emailNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(emailNotificationLabel);
 
     mainLayout->addWidget(mEmailNotification);
 
-    auto pushNotificationLabel = new QLabel(i18n("Push Notification:"), this);
+    auto pushNotificationLabel = new QLabel(i18n("Push notification:"), this);
     pushNotificationLabel->setObjectName(QStringLiteral("pushNotificationLabel"));
     pushNotificationLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(pushNotificationLabel);
@@ -84,7 +84,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     connect(mReceiveLoginDetectionEmails, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mReceiveLoginDetectionEmails);
 
-    auto viewModeLabel = new QLabel(i18n("View Mode:"), this);
+    auto viewModeLabel = new QLabel(i18n("View mode:"), this);
     viewModeLabel->setObjectName(QStringLiteral("viewModeLabel"));
     viewModeLabel->setTextFormat(Qt::PlainText);
     mainLayout->addWidget(viewModeLabel);
@@ -113,14 +113,14 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     downloadWidgetLayout->addLayout(downloadLayout);
 
-    auto downloadDataButton = new QPushButton(i18n("Download My Data (HTML)"), this);
+    auto downloadDataButton = new QPushButton(i18n("Download my Data (HTML)"), this);
     downloadDataButton->setObjectName(QStringLiteral("downloadDataButton"));
     downloadLayout->addWidget(downloadDataButton);
     connect(downloadDataButton, &QPushButton::clicked, this, [this]() {
         downloadData(false);
     });
 
-    auto exportDataButton = new QPushButton(i18n("Export My Data (JSON)"), this);
+    auto exportDataButton = new QPushButton(i18n("Export my Data (JSON)"), this);
     exportDataButton->setObjectName(QStringLiteral("exportDataButton"));
     downloadLayout->addWidget(exportDataButton);
     connect(exportDataButton, &QPushButton::clicked, this, [this]() {

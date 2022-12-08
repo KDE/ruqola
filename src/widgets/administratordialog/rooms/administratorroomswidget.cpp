@@ -38,7 +38,7 @@ AdministratorRoomsWidget::AdministratorRoomsWidget(RocketChatAccount *account, Q
 
     mProxyModelModel = new AdminRoomsFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mAdminUsersProxyModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search Rooms"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search rooms"));
     mTreeView->setModel(mProxyModelModel);
     mSearchLayout->addWidget(mSelectRoomType);
     hideColumns();

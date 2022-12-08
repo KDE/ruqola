@@ -26,7 +26,7 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     mainLayout->addWidget(label);
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
-    mUsers->setPlaceholderText(i18n("Select Users..."));
+    mUsers->setPlaceholderText(i18n("Select users..."));
     mainLayout->addWidget(mUsers);
     mainLayout->addStretch(1);
     connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::updateOkButton);

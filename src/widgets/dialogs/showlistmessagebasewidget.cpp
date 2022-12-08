@@ -27,7 +27,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     mSearchMessageLineEdit->setObjectName(QStringLiteral("mSearchMessageLineEdit"));
     mSearchMessageLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchMessageLineEdit, this);
-    mSearchMessageLineEdit->setPlaceholderText(i18n("Search Messages..."));
+    mSearchMessageLineEdit->setPlaceholderText(i18n("Search messages..."));
     connect(mSearchMessageLineEdit, &QLineEdit::textChanged, this, &ShowListMessageBaseWidget::slotSearchMessageTextChanged);
     mainLayout->addWidget(mSearchMessageLineEdit);
 

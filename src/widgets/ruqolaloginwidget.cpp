@@ -41,14 +41,14 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mainLayout->addRow(i18n("Account Name:"), mAccountName);
-    mAccountName->setPlaceholderText(i18n("Account Name"));
+    mAccountName->setPlaceholderText(i18n("Account name"));
     connect(mAccountName, &QLineEdit::textChanged, this, &RuqolaLoginWidget::slotUpdateLoginButton);
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
-    mainLayout->addRow(i18n("Server Url:"), mServerUrl);
+    mainLayout->addRow(i18n("Server URL:"), mServerUrl);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
-    mainLayout->addRow(i18n("User Name:"), mUserName);
+    mainLayout->addRow(i18n("Username:"), mUserName);
 
     // Type of account
     mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
