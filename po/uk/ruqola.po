@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-07 00:47+0000\n"
+"POT-Creation-Date: 2022-12-08 00:45+0000\n"
 "PO-Revision-Date: 2022-12-06 18:42+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -483,7 +483,7 @@ msgstr "Цю кімнату було архівовано %1"
 msgid "This room has been unarchived by %1"
 msgstr "Цю кімнату було розархівовано %1"
 
-#: core/messages/message.cpp:531 core/messages/message.cpp:580
+#: core/messages/message.cpp:531 core/messages/message.cpp:582
 #, kde-format
 msgid "Unknown action!"
 msgstr "Невідома дія!"
@@ -597,6 +597,12 @@ msgstr "До кімнати додано користувача %1, %2"
 #, kde-format
 msgid "User removed to team: %1 by %2"
 msgstr "З кімнати вилучено користувача %1, %2"
+
+#: core/messages/message.cpp:579
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#, kde-format
+msgid "Conference Call"
+msgstr "Конференція"
 
 #: core/messages/messageattachment.cpp:244
 #, kde-format
@@ -1576,7 +1582,7 @@ msgstr "&Додати"
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:156
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:138
 #: widgets/administratordialog/invites/invitetreeview.cpp:40
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:51
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:54
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:114
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:113
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
@@ -2296,12 +2302,12 @@ msgstr "DeepL"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:196
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
 msgstr "Google"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:28
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
@@ -3399,7 +3405,7 @@ msgstr "Вилучення емодзі"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:150
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:133
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:45
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:48
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:98
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:109
 #: widgets/administratordialog/users/administratoruserswidget.cpp:205
@@ -3413,7 +3419,7 @@ msgstr "Додати…"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:152
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:136
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:47
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:50
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:100
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:62
@@ -3553,12 +3559,12 @@ msgstr "Адреса жетона доступу:"
 msgid "Search Oauth Apps..."
 msgstr "Шукати програми OAuth…"
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:68
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:71
 #, kde-format
 msgid "Are you sure that you want to delete this Oauth?"
 msgstr "Ви справді хочете вилучити цей OAuth?"
 
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:69
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:72
 #, kde-format
 msgid "Remove OAuth"
 msgstr "Вилучення OAuth"
@@ -4344,11 +4350,6 @@ msgstr "Мобільний"
 msgid "Troubleshoot"
 msgstr "Діагностика проблем"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
-#, kde-format
-msgid "Conference Call"
-msgstr "Конференція"
-
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
@@ -4371,6 +4372,7 @@ msgstr "Повідомлення"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
 #, kde-format
 msgid "Enable"
 msgstr "Увімкнути"
@@ -5529,12 +5531,12 @@ msgstr "Запис Tokenpass"
 msgid "Google Login"
 msgstr "Запис Google"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
 msgid "Apple"
 msgstr "Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
 #, kde-format
 msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
@@ -5543,154 +5545,170 @@ msgstr ""
 "Якщо ви хочете увімкнути вхід за допомогою даних Apple kbit на вашому "
 "мобільному пристрої, можете не заповнювати жодне з цих полів."
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "OAuth Apple Id"
 msgstr "Ід. OAuth Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:65
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
 #, kde-format
 msgid "OAuth Apple Iss"
 msgstr "Вид. OAuth Apple"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:68
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:72
 #, kde-format
 msgid "OAuth Apple Kid"
 msgstr "OAuth Apple Kid"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
 msgid "Dolphin"
 msgstr "Dolphin"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:75
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
+#, kde-format
+msgid "Url"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
+#, kde-format
+msgid "Id"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
+#, fuzzy, kde-format
+#| msgid "Client Secret"
+msgid "Secret"
+msgstr "Ключ клієнта"
+
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "Twitter"
 msgstr "Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
 msgid "Twitter Id"
 msgstr "Ід. Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:87
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
 #, kde-format
 msgid "Twitter Secret"
 msgstr "Ключ Twitter"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "LinkedIn"
 msgstr "LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
 msgid "LinkedIn Id"
 msgstr "Ід. LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
 #, kde-format
 msgid "LinkedIn Secret"
 msgstr "Ключ LinkedIn"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
 #, kde-format
 msgid "Proxy"
 msgstr "Проксі"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:131
 #, kde-format
 msgid "Proxy Host"
 msgstr "Вузол проксі"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:134
 #, kde-format
 msgid "Proxy Services"
 msgstr "Проксі-служби"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
 msgstr "Meteor"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:129
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
 msgstr "Ід. Meteor"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:132
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
 #, kde-format
 msgid "Meteor Secret"
 msgstr "Ключ Meteor"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:155
 #, kde-format
 msgid "Facebook"
 msgstr "Facebook"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:147
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
 msgid "Facebook Id"
 msgstr "Ід. Facebook"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:150
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:153
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
 #, kde-format
 msgid "Facebook Secret"
 msgstr "Ключ Facebook"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:156
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:173
 #, kde-format
 msgid "Github"
 msgstr "Github"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:165
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
 msgstr "Ід. Github"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:168
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:171
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
 #, kde-format
 msgid "Github Secret"
 msgstr "Ключ Github"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:174
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:191
 #, kde-format
 msgid "Tokenpass"
 msgstr "Tokenpass"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:179
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
 msgstr "Приклад: https://domain.com (без завершальної похилої риски)"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:180
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
 msgid "Tokenpass Server URL"
 msgstr "Адреса сервера Tokenpass"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:187
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:204
 #, kde-format
 msgid "Tokenpass Id"
 msgstr "Ід. Tokenpass"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:190
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:193
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:210
 #, kde-format
 msgid "Tokenpass Secret"
 msgstr "Ключ Tokenpass"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:205
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
 #, kde-format
 msgid "Google Id"
 msgstr "Ід. Google"
 
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:208
-#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:211
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:225
+#: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:228
 #, kde-format
 msgid "Google Secret"
 msgstr "Ключ Google"
