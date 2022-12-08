@@ -422,6 +422,10 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     users/usersupdateownbasicinfojob.h
     users/userrequestdatadownloadjob.cpp
     users/userrequestdatadownloadjob.h
+    video-conference/videoconferenceprovidersjob.cpp
+    video-conference/videoconferenceprovidersjob.h
+    video-conference/videoconferencecapabilitiesjob.cpp
+    video-conference/videoconferencecapabilitiesjob.h
 )
 
 
