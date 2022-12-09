@@ -18,7 +18,7 @@ ConferenceCallDialogTest::ConferenceCallDialogTest(QObject *parent)
 
 void ConferenceCallDialogTest::shouldHaveDefaultValues()
 {
-    ConferenceCallDialog d;
+    ConferenceCallDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

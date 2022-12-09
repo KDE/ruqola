@@ -27,6 +27,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     , mChannelAction(new QToolButton(this))
     , mChannelInfoButton(new QToolButton(this))
     , mTeamChannelsButton(new QToolButton(this))
+    , mCallButton(new QToolButton(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -93,6 +94,13 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     buttonLayout->setSpacing(0);
     headerLayout->addLayout(buttonLayout);
 
+    mCallButton->setAutoRaise(true);
+    mCallButton->setObjectName(QStringLiteral("mChannelInfoButton"));
+    mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
+    mCallButton->setToolTip(i18n("Call"));
+    buttonLayout->addWidget(mCallButton, 0, Qt::AlignTop);
+    connect(mCallButton, &QToolButton::clicked, this, &RoomHeaderWidget::callRequested);
+
     mChannelInfoButton->setAutoRaise(true);
     mChannelInfoButton->setObjectName(QStringLiteral("mChannelInfoButton"));
     mChannelInfoButton->setIcon(QIcon::fromTheme(QStringLiteral("documentinfo")));
@@ -138,6 +146,11 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
 }
 
 RoomHeaderWidget::~RoomHeaderWidget() = default;
+
+void RoomHeaderWidget::setCallEnabled(bool b)
+{
+    mCallButton->setVisible(b);
+}
 
 void RoomHeaderWidget::setTeamRoomInfo(const Room::TeamRoomInfo &info)
 {

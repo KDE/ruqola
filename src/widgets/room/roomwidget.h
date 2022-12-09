@@ -92,6 +92,7 @@ private:
     void slotLoginStatusChanged();
     void slotCloseOtr();
     void slotRefreshOtrKeys();
+    void slotCallRequested();
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 

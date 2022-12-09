@@ -10,9 +10,9 @@
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
-ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
+ConferenceCallDialog::ConferenceCallDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mConferenceCallWidget(new ConferenceCallWidget(this))
+    , mConferenceCallWidget(new ConferenceCallWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Start a Call"));
     auto mainLayout = new QVBoxLayout(this);

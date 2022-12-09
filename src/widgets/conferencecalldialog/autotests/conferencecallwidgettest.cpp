@@ -5,9 +5,16 @@
 */
 
 #include "conferencecallwidgettest.h"
+#include "conferencecalldialog/conferencecallwidget.h"
 #include <QTest>
 QTEST_MAIN(ConferenceCallWidgetTest)
 ConferenceCallWidgetTest::ConferenceCallWidgetTest(QObject *parent)
     : QObject{parent}
 {
+}
+
+void ConferenceCallWidgetTest::shouldHaveDefaultValues()
+{
+    ConferenceCallWidget w(nullptr);
+    // TODO
 }

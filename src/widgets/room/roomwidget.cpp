@@ -5,6 +5,7 @@
 */
 
 #include "roomwidget.h"
+#include "conferencecalldialog/conferencecalldialog.h"
 #include "connection.h"
 #include "dialogs/addusersinroomdialog.h"
 #include "dialogs/autotranslateconfiguredialog.h"
@@ -103,6 +104,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
+    connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
     setAcceptDrops(true);
 }
 
@@ -389,6 +391,15 @@ void RoomWidget::slotSearchMessages()
     dlg.setRoom(mRoom);
     dlg.setModel(mCurrentRocketChatAccount->searchMessageFilterProxyModel());
     connect(&dlg, &SearchMessageDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
+    dlg.exec();
+}
+
+void RoomWidget::slotCallRequested()
+{
+    if (!mRoom) {
+        return;
+    }
+    ConferenceCallDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 

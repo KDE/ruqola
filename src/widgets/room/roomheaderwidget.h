@@ -58,6 +58,7 @@ public:
 
     void setIsMainTeam(bool isMainTeam);
     void setTeamRoomInfo(const Room::TeamRoomInfo &name);
+    void setCallEnabled(bool b);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);
@@ -67,6 +68,7 @@ Q_SIGNALS:
     void actionRequested(RoomHeaderWidget::ChannelActionType type);
     void channelInfoRequested();
     void teamChannelsRequested();
+    void callRequested();
     void openTeam(const QString &identifier);
 
 private:
@@ -81,5 +83,6 @@ private:
     QToolButton *const mChannelAction;
     QToolButton *const mChannelInfoButton;
     QToolButton *const mTeamChannelsButton;
+    QToolButton *const mCallButton;
     ChannelActionPopupMenu *mChannelActionPopupMenu = nullptr;
 };

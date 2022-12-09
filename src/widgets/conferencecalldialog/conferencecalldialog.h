@@ -7,13 +7,15 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "rocketchataccount.h"
 #include <QDialog>
 class ConferenceCallWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ConferenceCallDialog(QWidget *parent = nullptr);
+    explicit ConferenceCallDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallDialog() override;
 
 private:

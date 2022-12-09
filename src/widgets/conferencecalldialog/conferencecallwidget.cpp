@@ -8,8 +8,9 @@
 #include <KLocalizedString>
 #include <QVBoxLayout>
 
-ConferenceCallWidget::ConferenceCallWidget(QWidget *parent)
+ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mRocketChatAccount(account)
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
