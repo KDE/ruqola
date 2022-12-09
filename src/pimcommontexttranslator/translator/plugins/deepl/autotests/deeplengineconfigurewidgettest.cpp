@@ -6,6 +6,8 @@
 
 #include "deeplengineconfigurewidgettest.h"
 #include "../deeplengineconfigurewidget.h"
+#include <QCheckBox>
+#include <QFormLayout>
 #include <QTest>
 QTEST_MAIN(DeeplEngineConfigureWidgetTest)
 DeeplEngineConfigureWidgetTest::DeeplEngineConfigureWidgetTest(QObject *parent)
@@ -16,5 +18,12 @@ DeeplEngineConfigureWidgetTest::DeeplEngineConfigureWidgetTest(QObject *parent)
 void DeeplEngineConfigureWidgetTest::shouldHaveDefaultValues()
 {
     DeeplEngineConfigureWidget w;
-    // TODO
+    QVERIFY(!w.useFreeLicenceKey());
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mUseFreeLicense = w.findChild<QCheckBox *>(QStringLiteral("mUseFreeLicense"));
+    QVERIFY(mUseFreeLicense);
+    QVERIFY(!mUseFreeLicense->isChecked());
 }

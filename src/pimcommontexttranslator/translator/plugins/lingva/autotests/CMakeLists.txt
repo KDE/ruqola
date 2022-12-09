@@ -8,14 +8,14 @@ ecm_add_test(lingvaengineclienttest.cpp lingvaengineclienttest.h ../lingvaengine
 )
 
 #######
-ecm_add_test(lingvaenginewidgettest.cpp lingvaenginewidgettest.h
+ecm_add_test(lingvaenginewidgettest.cpp lingvaenginewidgettest.h ../lingvaenginewidget.cpp
     TEST_NAME lingvaenginewidgettest
     NAME_PREFIX pimcommon-
     LINK_LIBRARIES Qt::Test Qt::Gui KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore
 )
 
 #######
-ecm_add_test(lingvaenginedialogtest.cpp lingvaenginedialogtest.h
+ecm_add_test(lingvaenginedialogtest.cpp lingvaenginedialogtest.h ../lingvaenginedialog.cpp ../lingvaenginewidget.cpp
     TEST_NAME lingvaenginedialogtest
     NAME_PREFIX pimcommon-
     LINK_LIBRARIES Qt::Test Qt::Gui KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore

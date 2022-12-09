@@ -14,6 +14,8 @@ LibreTranslateEngineConfigureDialog::LibreTranslateEngineConfigureDialog(QWidget
     : QDialog(parent)
     , mConfigureWidget(new LibreTranslateEngineConfigureWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Configure Engine"));
+
     mConfigureWidget->setObjectName(QStringLiteral("mConfigureWidget"));
 
     auto mainLayout = new QVBoxLayout(this);
@@ -23,6 +25,8 @@ LibreTranslateEngineConfigureDialog::LibreTranslateEngineConfigureDialog(QWidget
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     mainLayout->addWidget(buttonBox);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &LibreTranslateEngineConfigureDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &LibreTranslateEngineConfigureDialog::reject);
 }
 
 LibreTranslateEngineConfigureDialog::~LibreTranslateEngineConfigureDialog() = default;

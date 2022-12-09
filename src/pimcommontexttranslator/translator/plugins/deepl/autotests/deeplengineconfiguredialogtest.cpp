@@ -19,6 +19,7 @@ DeeplEngineConfigureDialogTest::DeeplEngineConfigureDialogTest(QObject *parent)
 void DeeplEngineConfigureDialogTest::shouldHaveDefaultValues()
 {
     DeeplEngineConfigureDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
     auto mConfigureWidget = d.findChild<DeeplEngineConfigureWidget *>(QStringLiteral("mConfigureWidget"));
     QVERIFY(mConfigureWidget);
 

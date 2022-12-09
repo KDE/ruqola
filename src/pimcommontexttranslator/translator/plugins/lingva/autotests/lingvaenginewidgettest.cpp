@@ -5,6 +5,9 @@
 */
 
 #include "lingvaenginewidgettest.h"
+#include "../lingvaenginewidget.h"
+#include <QFormLayout>
+#include <QLineEdit>
 #include <QTest>
 QTEST_MAIN(LingvaEngineWidgetTest)
 LingvaEngineWidgetTest::LingvaEngineWidgetTest(QObject *parent)
@@ -14,5 +17,13 @@ LingvaEngineWidgetTest::LingvaEngineWidgetTest(QObject *parent)
 
 void LingvaEngineWidgetTest::shouldHaveDefaultValues()
 {
-    // TODO
+    LingvaEngineWidget w;
+    QVERIFY(w.serverUrl().isEmpty());
+
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
+    QVERIFY(mServerUrl);
+    QVERIFY(mServerUrl->isClearButtonEnabled());
 }

@@ -6,6 +6,7 @@
 
 #include "deeplengineconfiguredialog.h"
 #include "deeplengineconfigurewidget.h"
+#include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 
@@ -13,6 +14,7 @@ DeeplEngineConfigureDialog::DeeplEngineConfigureDialog(QWidget *parent)
     : QDialog(parent)
     , mConfigureWidget(new DeeplEngineConfigureWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Configure Engine"));
     mConfigureWidget->setObjectName(QStringLiteral("mConfigureWidget"));
 
     auto mainLayout = new QVBoxLayout(this);
@@ -22,6 +24,8 @@ DeeplEngineConfigureDialog::DeeplEngineConfigureDialog(QWidget *parent)
     auto buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     buttonBox->setObjectName(QStringLiteral("buttonBox"));
     mainLayout->addWidget(buttonBox);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &DeeplEngineConfigureDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &DeeplEngineConfigureDialog::reject);
 }
 
 DeeplEngineConfigureDialog::~DeeplEngineConfigureDialog() = default;

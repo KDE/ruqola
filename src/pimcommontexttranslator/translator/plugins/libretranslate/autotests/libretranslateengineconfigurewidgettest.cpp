@@ -25,4 +25,5 @@ void LibreTranslateEngineConfigureWidgetTest::shouldHaveDefaultValues()
 
     auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
     QVERIFY(mServerUrl);
+    QVERIFY(mServerUrl->isClearButtonEnabled());
 }

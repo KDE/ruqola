@@ -18,6 +18,7 @@ LingvaEngineWidget::LingvaEngineWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("Server Url:"), mServerUrl);
 }
 

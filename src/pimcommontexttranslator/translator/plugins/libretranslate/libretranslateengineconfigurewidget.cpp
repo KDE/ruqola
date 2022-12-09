@@ -18,6 +18,7 @@ LibreTranslateEngineConfigureWidget::LibreTranslateEngineConfigureWidget(QWidget
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
+    mServerUrl->setClearButtonEnabled(true);
     mainLayout->addRow(i18n("Server Url:"), mServerUrl);
 }
 

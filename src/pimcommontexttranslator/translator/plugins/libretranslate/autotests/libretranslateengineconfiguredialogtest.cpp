@@ -19,6 +19,7 @@ LibreTranslateEngineConfigureDialogTest::LibreTranslateEngineConfigureDialogTest
 void LibreTranslateEngineConfigureDialogTest::shouldHaveDefaultValues()
 {
     LibreTranslateEngineConfigureDialog d;
+    QVERIFY(!d.windowTitle().isEmpty());
     auto mConfigureWidget = d.findChild<LibreTranslateEngineConfigureWidget *>(QStringLiteral("mConfigureWidget"));
     QVERIFY(mConfigureWidget);
 
