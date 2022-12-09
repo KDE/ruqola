@@ -16,6 +16,8 @@ public:
     explicit ConferenceCallWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallWidget() override;
 
+    void initialize();
+
 private:
     RocketChatAccount *const mRocketChatAccount;
 };
