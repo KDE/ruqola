@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-08 00:45+0000\n"
-"PO-Revision-Date: 2022-12-06 19:26+0300\n"
+"POT-Creation-Date: 2022-12-09 00:46+0000\n"
+"PO-Revision-Date: 2022-12-08 18:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -704,7 +704,7 @@ msgstr "Yeniden Yönlendirme URL'si"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Active"
 msgstr "Etkin"
@@ -747,13 +747,15 @@ msgid "Description"
 msgstr "Açıklama"
 
 #: core/model/adminroomsmodel.cpp:32
-#, kde-format
-msgid "Number Of Messages"
+#, fuzzy, kde-format
+#| msgid "Number Of Messages"
+msgid "Number of Messages"
 msgstr "İleti Sayısı"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
-#, kde-format
-msgid "Number Of Users"
+#: core/model/adminroomsmodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "Number Of Users"
+msgid "Number of Users"
 msgstr "Kullanıcı Sayısı"
 
 #: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
@@ -762,8 +764,9 @@ msgid "Topic"
 msgstr "Konu"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, kde-format
-msgid "Read Only"
+#, fuzzy, kde-format
+#| msgid "Read-Only"
+msgid "Read-only"
 msgstr "Saltokunur"
 
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
@@ -843,6 +846,11 @@ msgstr "IP"
 #, kde-format
 msgid "Login At"
 msgstr "Giriş Tarihi"
+
+#: core/model/directoryroomsmodel.cpp:116
+#, kde-format
+msgid "Number Of Users"
+msgstr "Kullanıcı Sayısı"
 
 #: core/model/directoryroomsmodel.cpp:126
 #, kde-format
@@ -1212,8 +1220,9 @@ msgid "Hide \"Room added writing permission\" messages"
 msgstr "\"Oda, yazma izni ekledi\" iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:55
-#, kde-format
-msgid "Hide \"Room set Read Only\" messages"
+#, fuzzy, kde-format
+#| msgid "Hide \"Room set Read Only\" messages"
+msgid "Hide \"Room set read-only\" messages"
 msgstr "\"Oda, saltokunur yapıldı\" iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:56
@@ -1578,7 +1587,7 @@ msgstr "&Ekle"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:114
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:113
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:248
+#: widgets/administratordialog/users/administratoruserswidget.cpp:267
 #: widgets/configuredialog/configureaccountserverwidget.ui:44
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:45
 #, kde-format
@@ -2286,7 +2295,7 @@ msgstr "Hata: Web sürümünden, Bing jetonu çıkarılamadı."
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr "Hata: Web sürümünden, ek Bing bilgisi çıkarılamadı."
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
@@ -2298,7 +2307,7 @@ msgstr "DeepL"
 msgid "Google"
 msgstr "Google"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:28
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
@@ -2307,8 +2316,9 @@ msgstr "Libre Translate"
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
 msgstr "Sunucu URL'si:"
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
@@ -3343,8 +3353,9 @@ msgid "File:"
 msgstr "Dosya:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
-msgid "Search Custom Emojis"
+#, fuzzy, kde-format
+#| msgid "Search Custom Emojis"
+msgid "Search custom emojis"
 msgstr "Özel Emojileri Ara"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
@@ -3377,7 +3388,7 @@ msgstr "Emojiyi Kaldır"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:48
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:98
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:109
-#: widgets/administratordialog/users/administratoruserswidget.cpp:205
+#: widgets/administratordialog/users/administratoruserswidget.cpp:223
 #: widgets/configuredialog/configureaccountserverwidget.ui:30
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
@@ -3392,7 +3403,7 @@ msgstr "Ekle..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:100
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:62
-#: widgets/administratordialog/users/administratoruserswidget.cpp:211
+#: widgets/administratordialog/users/administratoruserswidget.cpp:230
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
@@ -3469,8 +3480,9 @@ msgid "Remove Custom User Status"
 msgstr "Özel Kullanıcı Durumunu Kaldır"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
-#, kde-format
-msgid "Search Invite..."
+#, fuzzy, kde-format
+#| msgid "Search Invite..."
+msgid "Search invite..."
 msgstr "Davet Ara..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
@@ -3522,8 +3534,9 @@ msgid "Access Token URL:"
 msgstr "Erişim Jetonu URL'si:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
-#, kde-format
-msgid "Search Oauth Apps..."
+#, fuzzy, kde-format
+#| msgid "Search Oauth Apps..."
+msgid "Search Oauth apps..."
 msgstr "Oauth Uygulamalarını Ara..."
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:71
@@ -3550,13 +3563,15 @@ msgid "Roles:"
 msgstr "Roller:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#, kde-format
-msgid "Search Permissions..."
+#, fuzzy, kde-format
+#| msgid "Search Permissions..."
+msgid "Search permissions..."
 msgstr "İzinleri Ara..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
-#, kde-format
-msgid "Search Roles..."
+#, fuzzy, kde-format
+#| msgid "Search Roles..."
+msgid "Search roles..."
 msgstr "Rolleri Ara..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
@@ -3618,13 +3633,14 @@ msgid "Users in Role"
 msgstr "Roldeki Kullanıcılar"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:34
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
-#, kde-format
-msgid "Search Users..."
+#, fuzzy, kde-format
+#| msgid "Search Users..."
+msgid "Search users..."
 msgstr "Kullanıcıları Ara..."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:50
@@ -3639,19 +3655,19 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "\"%1\" kullanıcısını kaldırmak istiyor musunuz?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:84
-#: widgets/administratordialog/users/administratoruserswidget.cpp:155
+#: widgets/administratordialog/users/administratoruserswidget.cpp:166
 #, kde-format
 msgid "Remove User"
 msgstr "Kullanıcıyı Kaldır"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
-#: widgets/administratordialog/users/administratoruserswidget.cpp:259
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, kde-format
 msgid "No user found"
 msgstr "Kullanıcı bulunamadı"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:127
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:285
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3725,8 +3741,9 @@ msgid "Public"
 msgstr "Genel"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, kde-format
-msgid "Search Rooms"
+#, fuzzy, kde-format
+#| msgid "Search Rooms"
+msgid "Search rooms"
 msgstr "Odaları Ara"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:75
@@ -4018,9 +4035,12 @@ msgid "Set random password and send by email"
 msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
+#: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
@@ -4048,38 +4068,62 @@ msgstr "E-posta:"
 msgid "Password:"
 msgstr "Parola:"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:154
+#: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Send Emails Invite"
+msgstr ""
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Emails"
+msgid "Emails:"
+msgstr "E-postalar"
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgid "Use ',' for separate emails"
+msgstr "Sözcükleri ayırmak için ',' kullan"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:165
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Bu kullanıcıyı kaldırmak istiyor musunuz?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:217
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgid "Invite..."
+msgstr "Davetler"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Deactivate"
 msgstr "Pasifleştir"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Remove Admin"
 msgstr "Yöneticiyi Kaldır"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Make Admin"
 msgstr "Yönetici Yap"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:235
+#: widgets/administratordialog/users/administratoruserswidget.cpp:254
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Uçtan Uca Şifreleme Anahtarını Kaldır"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:260
 #, kde-format
 msgid "Reset Totp"
 msgstr "Totp'yi Sıfırla"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:315
+#: widgets/administratordialog/users/administratoruserswidget.cpp:336
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4095,22 +4139,22 @@ msgstr ""
 "Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi geri "
 "sağlayamaz."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:319
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgid "Reset E2E key"
 msgstr "Uçtan Uca Şifreleme Anahtarını Sıfırla"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1 için olan Uçtan Uca Şifreleme anahtarı sıfırlandı."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "Reset E2E"
 msgstr "Uçtan Uca Şifreleme'yi Sıfırla"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:385
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4119,13 +4163,13 @@ msgstr ""
 "Geçerli İki Adımlı TOTP'yi sıfırlamak kullanıcıyı çıkış yapar. Kullanıcı, "
 "yine daha sonra iki adımlı ayarı yapabilecektir."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:365
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:386
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "Reset TOTP"
 msgstr "TOTP'yi Sıfırla"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1 için olan TOTP anahtarı sıfırlandı"
@@ -4565,7 +4609,7 @@ msgstr ""
 "bir listesidir, örneğin: {\"rooms\": \"%team%,%department%\"}, CAS "
 "kullanıcılarının ekip ve departman kanallarına oluşturma sırasında katılır."
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
 msgid "Default Provider"
 msgstr "Öntanımlı Sağlayıcı"
@@ -5520,18 +5564,17 @@ msgstr "Dolphin"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr ""
+msgstr "URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
 #, kde-format
 msgid "Id"
-msgstr ""
+msgstr "Kimlik"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Secret"
-msgstr "İstemci Gizi"
+msgstr "Giz"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -5960,7 +6003,7 @@ msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
 #, kde-format
 msgid "Apply"
 msgstr "Uygula"
@@ -6374,8 +6417,9 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Takıma dönüştürmek istediğinize emin misiniz? Bu işlem geri alınamaz."
 
 #: widgets/channellist/channellistwidget.cpp:48
-#, kde-format
-msgid "Filter Channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter Channels (CTRL + K)"
+msgid "Filter channels (CTRL + K)"
 msgstr "Kanalları Süz (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:55
@@ -6619,8 +6663,9 @@ msgid "Delete Room"
 msgstr "Odayı Sil"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, kde-format
-msgid "This Room has a password"
+#, fuzzy, kde-format
+#| msgid "This Room has a password"
+msgid "This room has a password"
 msgstr "Bu odanın bir parolası var"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
@@ -6766,8 +6811,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
-msgid "Select Users..."
+#, fuzzy, kde-format
+#| msgid "Select Users..."
+msgid "Select users..."
 msgstr "Kullanıcılar Seç..."
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -6783,8 +6829,9 @@ msgstr "Konu:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, kde-format
-msgid "Invite Users..."
+#, fuzzy, kde-format
+#| msgid "Invite Users..."
+msgid "Invite users..."
 msgstr "Kullanıcıları Davet Et..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
@@ -6882,17 +6929,10 @@ msgstr "Hesabı Değiştir"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Account Name:"
+#, fuzzy, kde-format
+#| msgid "Account Name:"
+msgid "Account name:"
 msgstr "Hesap Adı:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "User Name:"
-msgstr "Kullanıcı Adı:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7090,8 +7130,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "'%1'  (%2) İçindeki İletileri Ara"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
-#, kde-format
-msgid "Search Messages"
+#, fuzzy, kde-format
+#| msgid "Search Messages"
+msgid "Search messages"
 msgstr "İletileri Ara"
 
 #: widgets/dialogs/searchmessagewidget.cpp:86
@@ -7123,8 +7164,9 @@ msgid "Server Info"
 msgstr "Sunucu Bilgisi"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
-#, kde-format
-msgid "Server Version:"
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Server version:"
 msgstr "Sunucu Sürümü:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
@@ -7171,8 +7213,9 @@ msgid "Show Attachments - %1"
 msgstr "İlişikleri Göster - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, kde-format
-msgid "Search Attachments..."
+#, fuzzy, kde-format
+#| msgid "Search Attachments..."
+msgid "Search attachments..."
 msgstr "İlişikleri Ara..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
@@ -7236,9 +7279,9 @@ msgid "Save Image"
 msgstr "Görseli Kaydet"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:123
-#, kde-format
-msgid "Search Messages..."
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search messages..."
 msgstr "İletileri Ara..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:82
@@ -7298,14 +7341,16 @@ msgid "Directory - %1"
 msgstr "Dizin - %1"
 
 #: widgets/directory/directorywidget.cpp:32
-#, kde-format
-msgid "Search Channels..."
+#, fuzzy, kde-format
+#| msgid "Search Channels..."
+msgid "Search channels..."
 msgstr "Kanalları Ara..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, kde-format
-msgid "Search Teams..."
+#, fuzzy, kde-format
+#| msgid "Search Teams..."
+msgid "Search teams..."
 msgstr "Takımları Ara..."
 
 #: widgets/directory/directorywidget.cpp:68
@@ -7337,8 +7382,9 @@ msgstr[1] "%1 takım (Toplam: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, kde-format
-msgid "Search Rooms..."
+#, fuzzy, kde-format
+#| msgid "Search Rooms..."
+msgid "Search rooms..."
 msgstr "Odaları Ara..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
@@ -7367,8 +7413,9 @@ msgid "Show Discussions - %1"
 msgstr "Tartışmaları Göster - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
-#, kde-format
-msgid "Search Discussion..."
+#, fuzzy, kde-format
+#| msgid "Search Discussion..."
+msgid "Search discussion..."
 msgstr "Tartışma Ara..."
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
@@ -7588,8 +7635,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
-#, kde-format
-msgid "Enter Authentication Code"
+#, fuzzy, kde-format
+#| msgid "Enter Authentication Code"
+msgid "Enter authentication code"
 msgstr "Kimlik Doğrulama Kodunu Gir"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
@@ -7681,8 +7729,9 @@ msgid "Personal Access Token"
 msgstr "Kişisel Erişim Jetonu"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, kde-format
-msgid "Search Device"
+#, fuzzy, kde-format
+#| msgid "Search Device"
+msgid "Search device"
 msgstr "Aygıt Ara"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
@@ -7775,13 +7824,15 @@ msgid "Convert Ascii to Emoji"
 msgstr "ASCII'yi Emojiye Dönüştür"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, kde-format
-msgid "Hide Roles"
+#, fuzzy, kde-format
+#| msgid "Hide Roles"
+msgid "Hide roles"
 msgstr "Rolleri Gizle"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
-#, kde-format
-msgid "Display Avatars"
+#, fuzzy, kde-format
+#| msgid "Display Avatars"
+msgid "Display avatars"
 msgstr "Avatarları Göster"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
@@ -7805,18 +7856,21 @@ msgid "Separate each word with ','."
 msgstr "Her bir sözcüğü ',' ile ayır."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, kde-format
-msgid "Desktop Notification:"
+#, fuzzy, kde-format
+#| msgid "Desktop Notification:"
+msgid "Desktop notification:"
 msgstr "Masaüstü Bildirimi:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
-#, kde-format
-msgid "Offline Email Notification:"
+#, fuzzy, kde-format
+#| msgid "Offline Email Notification:"
+msgid "Offline Email notification:"
 msgstr "Çevrimdişi E-posta Bildirimi:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, kde-format
-msgid "Push Notification:"
+#, fuzzy, kde-format
+#| msgid "Push Notification:"
+msgid "Push notification:"
 msgstr "Anlık Bildirim:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
@@ -7825,18 +7879,21 @@ msgid "Receive an email each time a new login is detected on your account."
 msgstr "Hesabınıza yeni bir giriş yapıldığında bir e-posta bildirimi alın."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View Mode:"
+#, fuzzy, kde-format
+#| msgid "View Mode:"
+msgid "View mode:"
 msgstr "Görünüm Kipi:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
-#, kde-format
-msgid "Download My Data (HTML)"
+#, fuzzy, kde-format
+#| msgid "Download My Data (HTML)"
+msgid "Download my Data (HTML)"
 msgstr "Verimi İndir (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
-#, kde-format
-msgid "Export My Data (JSON)"
+#, fuzzy, kde-format
+#| msgid "Export My Data (JSON)"
+msgid "Export my Data (JSON)"
 msgstr "Verimi Dışa Aktar (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
@@ -7909,8 +7966,9 @@ msgid "Nickname:"
 msgstr "Takma Ad:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, kde-format
-msgid "Status Text:"
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Status text:"
 msgstr "Durum Metni:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
@@ -8386,6 +8444,11 @@ msgstr "Takım Kanalları"
 msgid "Show List of Users"
 msgstr "Kullanıcı Listesini Göster"
 
+#: widgets/room/roomheaderwidget.cpp:123
+#, kde-format
+msgid "Search Messages..."
+msgstr "İletileri Ara..."
+
 #: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
@@ -8554,9 +8617,15 @@ msgstr "'%1' hesabında hata"
 msgid "Login"
 msgstr "Giriş Yap"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
-msgid "Account Name"
+msgid "Account Name:"
+msgstr "Hesap Adı:"
+
+#: widgets/ruqolaloginwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name"
 msgstr "Hesap Adı"
 
 #: widgets/ruqolaloginwidget.cpp:59
@@ -8811,8 +8880,9 @@ msgstr "Takım Kanalları"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
-msgid "Search Room..."
+#, fuzzy, kde-format
+#| msgid "Search Room..."
+msgid "Search room..."
 msgstr "Oda Ara..."
 
 #: widgets/teams/teamchannelswidget.cpp:114
@@ -8900,6 +8970,12 @@ msgstr "Hesap bilgisi"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Hesabın numarasını döndür."
+
+#~ msgid "Read Only"
+#~ msgstr "Saltokunur"
+
+#~ msgid "User Name:"
+#~ msgstr "Kullanıcı Adı:"
 
 #~ msgctxt "Default tts engine"
 #~ msgid "Default"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-08 00:45+0000\n"
+"POT-Creation-Date: 2022-12-09 00:46+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -728,7 +728,7 @@ msgstr "Server-Adresse:"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Active"
 msgstr "Aktiv"
@@ -774,13 +774,15 @@ msgid "Description"
 msgstr "Beschreibung"
 
 #: core/model/adminroomsmodel.cpp:32
-#, kde-format
-msgid "Number Of Messages"
+#, fuzzy, kde-format
+#| msgid "Number Of Messages"
+msgid "Number of Messages"
 msgstr "Anzahl der Nachrichten"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
-#, kde-format
-msgid "Number Of Users"
+#: core/model/adminroomsmodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "Number Of Users"
+msgid "Number of Users"
 msgstr "Anzahl der Benutzer"
 
 #: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
@@ -789,9 +791,10 @@ msgid "Topic"
 msgstr "Thema"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, kde-format
-msgid "Read Only"
-msgstr "Schreibgeschützt"
+#, fuzzy, kde-format
+#| msgid "Read-Only:"
+msgid "Read-only"
+msgstr "Nur lesen:"
 
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
@@ -873,6 +876,11 @@ msgstr ""
 #| msgid "Join"
 msgid "Login At"
 msgstr "Betreten"
+
+#: core/model/directoryroomsmodel.cpp:116
+#, kde-format
+msgid "Number Of Users"
+msgstr "Anzahl der Benutzer"
 
 #: core/model/directoryroomsmodel.cpp:126
 #, fuzzy, kde-format
@@ -1268,7 +1276,7 @@ msgstr ""
 #: core/model/systemmessagesmodel.cpp:55
 #, fuzzy, kde-format
 #| msgid "Take a Video Message"
-msgid "Hide \"Room set Read Only\" messages"
+msgid "Hide \"Room set read-only\" messages"
 msgstr "Video-Nachricht aufnehmen"
 
 #: core/model/systemmessagesmodel.cpp:56
@@ -1651,7 +1659,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:114
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:113
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:248
+#: widgets/administratordialog/users/administratoruserswidget.cpp:267
 #: widgets/configuredialog/configureaccountserverwidget.ui:44
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:45
 #, kde-format
@@ -2354,7 +2362,7 @@ msgstr ""
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
 msgstr ""
@@ -2366,7 +2374,7 @@ msgstr ""
 msgid "Google"
 msgstr "Google"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:28
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Auto-Translate"
@@ -2377,8 +2385,9 @@ msgstr "Automatisches Übersetzen einrichten"
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
 msgstr "Server-Adresse:"
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
@@ -3433,7 +3442,7 @@ msgstr "Datei:"
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Status:"
-msgid "Search Custom Emojis"
+msgid "Search custom emojis"
 msgstr "Status:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
@@ -3471,7 +3480,7 @@ msgstr "Entfernen"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:48
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:98
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:109
-#: widgets/administratordialog/users/administratoruserswidget.cpp:205
+#: widgets/administratordialog/users/administratoruserswidget.cpp:223
 #: widgets/configuredialog/configureaccountserverwidget.ui:30
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
@@ -3486,7 +3495,7 @@ msgstr "Hinzufügen ..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:100
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:62
-#: widgets/administratordialog/users/administratoruserswidget.cpp:211
+#: widgets/administratordialog/users/administratoruserswidget.cpp:230
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
@@ -3575,7 +3584,7 @@ msgstr "Status:"
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
 #, fuzzy, kde-format
 #| msgid "Search File..."
-msgid "Search Invite..."
+msgid "Search invite..."
 msgstr "Datei suchen ..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
@@ -3632,7 +3641,7 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Search Teams..."
-msgid "Search Oauth Apps..."
+msgid "Search Oauth apps..."
 msgstr "Teams suchen ..."
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:71
@@ -3665,13 +3674,13 @@ msgstr "Rollen:"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Discussion..."
-msgid "Search Permissions..."
+msgid "Search permissions..."
 msgstr "Diskussionen suchen ..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Search Rooms..."
-msgid "Search Roles..."
+msgid "Search roles..."
 msgstr "Räume suchen ..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
@@ -3744,13 +3753,13 @@ msgid "Users in Role"
 msgstr "Benutzer zum Raum hinzufügen"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:34
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
-msgid "Search Users..."
+msgid "Search users..."
 msgstr "Benutzer suchen ..."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:50
@@ -3768,19 +3777,19 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Möchten Sie diesen Benutzer entfernen?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:84
-#: widgets/administratordialog/users/administratoruserswidget.cpp:155
+#: widgets/administratordialog/users/administratoruserswidget.cpp:166
 #, kde-format
 msgid "Remove User"
 msgstr "Benutzer entfernen"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
-#: widgets/administratordialog/users/administratoruserswidget.cpp:259
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, kde-format
 msgid "No user found"
 msgstr "Kein Benutzer gefunden"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:127
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:285
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3860,8 +3869,9 @@ msgid "Public"
 msgstr "Öffentlich"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, kde-format
-msgid "Search Rooms"
+#, fuzzy, kde-format
+#| msgid "Search Rooms"
+msgid "Search rooms"
 msgstr "Räume suchen"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:75
@@ -4172,9 +4182,12 @@ msgid "Set random password and send by email"
 msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
+#: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username:"
 msgstr "Benutzername:"
@@ -4203,41 +4216,64 @@ msgstr "E-Mail:"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:154
+#: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Send Emails Invite"
+msgstr ""
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Emails"
+msgid "Emails:"
+msgstr "E-Mails"
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
+#, kde-format
+msgid "Use ',' for separate emails"
+msgstr ""
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:165
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Möchten Sie diesen Benutzer entfernen?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:217
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgid "Invite..."
+msgstr "Einladungen"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, fuzzy, kde-format
 #| msgid "Deactivated Users"
 msgid "Deactivate"
 msgstr "Deaktivierte Benutzer"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove Admin"
 msgstr "Entfernen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Make Admin"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:235
+#: widgets/administratordialog/users/administratoruserswidget.cpp:254
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:260
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset Totp"
 msgstr "Avatar zurücksetzen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:315
+#: widgets/administratordialog/users/administratoruserswidget.cpp:336
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4247,37 +4283,37 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:319
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgid "Reset E2E key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset E2E"
 msgstr "Avatar zurücksetzen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:385
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:365
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:386
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset TOTP"
 msgstr "Avatar zurücksetzen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -4709,7 +4745,7 @@ msgid ""
 "their team and department channel."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, fuzzy, kde-format
 #| msgid "Default Room"
 msgid "Default Provider"
@@ -6128,7 +6164,7 @@ msgstr "Video-Nachricht aufnehmen"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
 #, kde-format
 msgid "Apply"
 msgstr ""
@@ -6540,8 +6576,9 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
 #: widgets/channellist/channellistwidget.cpp:48
-#, kde-format
-msgid "Filter Channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter Channels (CTRL + K)"
+msgid "Filter channels (CTRL + K)"
 msgstr "Kanäle filtern (Strg+K)"
 
 #: widgets/channellist/channellistwidget.cpp:55
@@ -6794,9 +6831,10 @@ msgid "Delete Room"
 msgstr "Raum löschen"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, kde-format
-msgid "This Room has a password"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "The room required a password."
+msgid "This room has a password"
+msgstr "Der Raum benötigt ein Passwort."
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
@@ -6948,8 +6986,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
-msgid "Select Users..."
+#, fuzzy, kde-format
+#| msgid "Select Users..."
+msgid "Select users..."
 msgstr "Benutzer auswählen ..."
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -6965,8 +7004,9 @@ msgstr "Thema:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, kde-format
-msgid "Invite Users..."
+#, fuzzy, kde-format
+#| msgid "Invite Users..."
+msgid "Invite users..."
 msgstr "Benutzer einladen ..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
@@ -7063,17 +7103,10 @@ msgstr "Zugang bearbeiten"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Account Name:"
-msgstr "Zugangsname:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "User Name:"
-msgstr "Benutzername:"
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name:"
+msgstr "Zugangsname"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7273,8 +7306,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Nachrichten suchen in „%1“"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
-#, kde-format
-msgid "Search Messages"
+#, fuzzy, kde-format
+#| msgid "Search Messages"
+msgid "Search messages"
 msgstr "Nachrichten suchen"
 
 #: widgets/dialogs/searchmessagewidget.cpp:86
@@ -7306,9 +7340,10 @@ msgid "Server Info"
 msgstr "Server-Informationen"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
-#, kde-format
-msgid "Server Version:"
-msgstr "Serverversion:"
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server version:"
+msgstr "Serverversion: %1"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
 #, fuzzy, kde-format
@@ -7357,8 +7392,9 @@ msgid "Show Attachments - %1"
 msgstr "Anhänge anzeigen"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, kde-format
-msgid "Search Attachments..."
+#, fuzzy, kde-format
+#| msgid "Search Attachments..."
+msgid "Search attachments..."
 msgstr "Anhänge suchen ..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
@@ -7422,9 +7458,9 @@ msgid "Save Image"
 msgstr "Bild speichern"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:123
-#, kde-format
-msgid "Search Messages..."
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search messages..."
 msgstr "Nachrichten suchen ..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:82
@@ -7491,14 +7527,15 @@ msgstr "Ordner"
 
 #: widgets/directory/directorywidget.cpp:32
 #, fuzzy, kde-format
-#| msgid "Search Channel..."
-msgid "Search Channels..."
+#| msgid "Search channel..."
+msgid "Search channels..."
 msgstr "Kanal suchen ..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, kde-format
-msgid "Search Teams..."
+#, fuzzy, kde-format
+#| msgid "Search Teams..."
+msgid "Search teams..."
 msgstr "Teams suchen ..."
 
 #: widgets/directory/directorywidget.cpp:68
@@ -7530,8 +7567,9 @@ msgstr[1] "%1 Teams (Gesamt: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, kde-format
-msgid "Search Rooms..."
+#, fuzzy, kde-format
+#| msgid "Search Rooms..."
+msgid "Search rooms..."
 msgstr "Räume suchen ..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
@@ -7562,8 +7600,9 @@ msgid "Show Discussions - %1"
 msgstr "Diskussionen anzeigen"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
-#, kde-format
-msgid "Search Discussion..."
+#, fuzzy, kde-format
+#| msgid "Search Discussion..."
+msgid "Search discussion..."
 msgstr "Diskussionen suchen ..."
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
@@ -7776,7 +7815,7 @@ msgstr ""
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
-msgid "Enter Authentication Code"
+msgid "Enter authentication code"
 msgstr "Anmeldeverfahren"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
@@ -7869,7 +7908,7 @@ msgstr "Diskussionen suchen ..."
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
 #, fuzzy, kde-format
 #| msgid "Search File..."
-msgid "Search Device"
+msgid "Search device"
 msgstr "Datei suchen ..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
@@ -7971,14 +8010,15 @@ msgid "Convert Ascii to Emoji"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, kde-format
-msgid "Hide Roles"
+#, fuzzy, kde-format
+#| msgid "Hide Roles"
+msgid "Hide roles"
 msgstr "Rollen ausblenden"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, fuzzy, kde-format
 #| msgid "Hide Avatars"
-msgid "Display Avatars"
+msgid "Display avatars"
 msgstr "Avatare ausblenden"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
@@ -8002,20 +8042,21 @@ msgid "Separate each word with ','."
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, kde-format
-msgid "Desktop Notification:"
+#, fuzzy, kde-format
+#| msgid "Desktop Notification:"
+msgid "Desktop notification:"
 msgstr "Arbeitsflächen-Benachrichtigungen:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Email Notification:"
-msgid "Offline Email Notification:"
+msgid "Offline Email notification:"
 msgstr "E-Mail-Benachrichtigung:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
 #, fuzzy, kde-format
 #| msgid "Notifications"
-msgid "Push Notification:"
+msgid "Push notification:"
 msgstr "Benachrichtigungen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
@@ -8026,17 +8067,17 @@ msgstr ""
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, fuzzy, kde-format
 #| msgid "View Log"
-msgid "View Mode:"
+msgid "View mode:"
 msgstr "Protokoll anzeigen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
 #, kde-format
-msgid "Download My Data (HTML)"
+msgid "Download my Data (HTML)"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
 #, kde-format
-msgid "Export My Data (JSON)"
+msgid "Export my Data (JSON)"
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
@@ -8109,8 +8150,9 @@ msgid "Nickname:"
 msgstr "Spitzname:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, kde-format
-msgid "Status Text:"
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Status text:"
 msgstr "Statustext:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
@@ -8612,6 +8654,11 @@ msgstr "Team-Kanäle"
 msgid "Show List of Users"
 msgstr "Liste der Benutzer anzeigen"
 
+#: widgets/room/roomheaderwidget.cpp:123
+#, kde-format
+msgid "Search Messages..."
+msgstr "Nachrichten suchen ..."
+
 #: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
@@ -8785,9 +8832,15 @@ msgstr ""
 msgid "Login"
 msgstr "Anmeldung"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
-msgid "Account Name"
+msgid "Account Name:"
+msgstr "Zugangsname:"
+
+#: widgets/ruqolaloginwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name"
 msgstr "Zugangsname"
 
 #: widgets/ruqolaloginwidget.cpp:59
@@ -9057,8 +9110,9 @@ msgstr "Team-Kanäle"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
-msgid "Search Room..."
+#, fuzzy, kde-format
+#| msgid "Search Room..."
+msgid "Search room..."
 msgstr "Raum suchen ..."
 
 #: widgets/teams/teamchannelswidget.cpp:114
@@ -9152,6 +9206,26 @@ msgstr "Zugangsinformationen"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Anzahl der Zugänge zurückgeben."
+
+#~ msgid "Read Only"
+#~ msgstr "Schreibgeschützt"
+
+#~ msgid "Search Users..."
+#~ msgstr "Benutzer suchen ..."
+
+#~ msgid "User Name:"
+#~ msgstr "Benutzername:"
+
+#~ msgid "Server Version:"
+#~ msgstr "Serverversion:"
+
+#, fuzzy
+#~| msgid "Search Channel..."
+#~ msgid "Search Channels..."
+#~ msgstr "Kanal suchen ..."
+
+#~ msgid "Account Name"
+#~ msgstr "Zugangsname"
 
 #, fuzzy
 #~| msgid "Default"
@@ -9285,16 +9359,10 @@ msgstr "Anzahl der Zugänge zurückgeben."
 #~ msgid "Sound File"
 #~ msgstr "Klangdatei"
 
-#~ msgid "Search channel..."
-#~ msgstr "Kanal suchen ..."
-
 #, fuzzy
 #~| msgid "Email"
 #~ msgid "email"
 #~ msgstr "E-Mail"
-
-#~ msgid "Search users..."
-#~ msgstr "Benutzer suchen ..."
 
 #, fuzzy
 #~| msgid "Discussions"
@@ -9490,19 +9558,9 @@ msgstr "Anzahl der Zugänge zurückgeben."
 #~ msgstr "Neuen Kanal erstellen"
 
 #, fuzzy
-#~| msgid "Account Name"
-#~ msgid "Account name:"
-#~ msgstr "Zugangsname"
-
-#, fuzzy
 #~| msgid "User name: %1"
 #~ msgid "User name:"
 #~ msgstr "Benutzername: %1"
-
-#, fuzzy
-#~| msgid "Server version: %1"
-#~ msgid "Server version:"
-#~ msgstr "Serverversion: %1"
 
 #~ msgid "Attachments"
 #~ msgstr "Anhänge"

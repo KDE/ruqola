@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-08 00:45+0000\n"
+"POT-Creation-Date: 2022-12-09 00:46+0000\n"
 "PO-Revision-Date: 2022-12-06 17:46+0100\n"
 "Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -709,7 +709,7 @@ msgstr "URL de redirecció"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Active"
 msgstr "Actiu"
@@ -752,13 +752,15 @@ msgid "Description"
 msgstr "Descripció"
 
 #: core/model/adminroomsmodel.cpp:32
-#, kde-format
-msgid "Number Of Messages"
+#, fuzzy, kde-format
+#| msgid "Number Of Messages"
+msgid "Number of Messages"
 msgstr "Nombre de missatges"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
-#, kde-format
-msgid "Number Of Users"
+#: core/model/adminroomsmodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "Number Of Users"
+msgid "Number of Users"
 msgstr "Nombre d'usuaris"
 
 #: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
@@ -767,8 +769,9 @@ msgid "Topic"
 msgstr "Tema"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, kde-format
-msgid "Read Only"
+#, fuzzy, kde-format
+#| msgid "Read-Only"
+msgid "Read-only"
 msgstr "Només lectura"
 
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
@@ -848,6 +851,11 @@ msgstr "IP"
 #, kde-format
 msgid "Login At"
 msgstr "Inici de sessió a"
+
+#: core/model/directoryroomsmodel.cpp:116
+#, kde-format
+msgid "Number Of Users"
+msgstr "Nombre d'usuaris"
 
 #: core/model/directoryroomsmodel.cpp:126
 #, kde-format
@@ -1217,8 +1225,9 @@ msgid "Hide \"Room added writing permission\" messages"
 msgstr "Oculta els missatges «Ha afegit el permís d'escriptura a la sala»"
 
 #: core/model/systemmessagesmodel.cpp:55
-#, kde-format
-msgid "Hide \"Room set Read Only\" messages"
+#, fuzzy, kde-format
+#| msgid "Hide \"Room set Read Only\" messages"
+msgid "Hide \"Room set read-only\" messages"
 msgstr "Oculta els missatges «Ha establit la sala com de només lectura»"
 
 #: core/model/systemmessagesmodel.cpp:56
@@ -1584,7 +1593,7 @@ msgstr "Afi&g"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:114
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:113
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:248
+#: widgets/administratordialog/users/administratoruserswidget.cpp:267
 #: widgets/configuredialog/configureaccountserverwidget.ui:44
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:45
 #, kde-format
@@ -2302,7 +2311,7 @@ msgstr ""
 "S'ha produït un error: No s'ha pogut extraure la informació addicional de "
 "Bing des de la versió web."
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
@@ -2314,7 +2323,7 @@ msgstr "DeepL"
 msgid "Google"
 msgstr "Google"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:28
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
@@ -2323,8 +2332,9 @@ msgstr "Libre Translate"
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
 msgstr "URL del servidor:"
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
@@ -3382,8 +3392,9 @@ msgid "File:"
 msgstr "Fitxer:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
-msgid "Search Custom Emojis"
+#, fuzzy, kde-format
+#| msgid "Search Custom Emojis"
+msgid "Search custom emojis"
 msgstr "Busca emojis personalitzats"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
@@ -3416,7 +3427,7 @@ msgstr "Eliminació d'emoji"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:48
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:98
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:109
-#: widgets/administratordialog/users/administratoruserswidget.cpp:205
+#: widgets/administratordialog/users/administratoruserswidget.cpp:223
 #: widgets/configuredialog/configureaccountserverwidget.ui:30
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
@@ -3431,7 +3442,7 @@ msgstr "Afig..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:100
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:62
-#: widgets/administratordialog/users/administratoruserswidget.cpp:211
+#: widgets/administratordialog/users/administratoruserswidget.cpp:230
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
@@ -3508,8 +3519,9 @@ msgid "Remove Custom User Status"
 msgstr "Eliminació d'estat personalitzat d'usuari"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
-#, kde-format
-msgid "Search Invite..."
+#, fuzzy, kde-format
+#| msgid "Search Invite..."
+msgid "Search invite..."
 msgstr "Busca una invitació..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
@@ -3561,8 +3573,9 @@ msgid "Access Token URL:"
 msgstr "URL del testimoni d'accés:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
-#, kde-format
-msgid "Search Oauth Apps..."
+#, fuzzy, kde-format
+#| msgid "Search Oauth Apps..."
+msgid "Search Oauth apps..."
 msgstr "Busca aplicacions d'Oauth..."
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:71
@@ -3589,13 +3602,15 @@ msgid "Roles:"
 msgstr "Rols:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#, kde-format
-msgid "Search Permissions..."
+#, fuzzy, kde-format
+#| msgid "Search Permissions..."
+msgid "Search permissions..."
 msgstr "Busca permisos..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
-#, kde-format
-msgid "Search Roles..."
+#, fuzzy, kde-format
+#| msgid "Search Roles..."
+msgid "Search roles..."
 msgstr "Busca rols..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
@@ -3657,13 +3672,14 @@ msgid "Users in Role"
 msgstr "Usuaris al rol"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:34
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
-#, kde-format
-msgid "Search Users..."
+#, fuzzy, kde-format
+#| msgid "Search Users..."
+msgid "Search users..."
 msgstr "Busca usuaris..."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:50
@@ -3678,19 +3694,19 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Voleu eliminar este usuari «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:84
-#: widgets/administratordialog/users/administratoruserswidget.cpp:155
+#: widgets/administratordialog/users/administratoruserswidget.cpp:166
 #, kde-format
 msgid "Remove User"
 msgstr "Elimina l'usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
-#: widgets/administratordialog/users/administratoruserswidget.cpp:259
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, kde-format
 msgid "No user found"
 msgstr "No s'ha trobat cap usuari"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:127
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:285
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3764,8 +3780,9 @@ msgid "Public"
 msgstr "Pública"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, kde-format
-msgid "Search Rooms"
+#, fuzzy, kde-format
+#| msgid "Search Rooms"
+msgid "Search rooms"
 msgstr "Busca sales"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:75
@@ -4057,9 +4074,12 @@ msgid "Set random password and send by email"
 msgstr "Establix una contrasenya aleatòria i l'envia per correu"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
+#: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username:"
 msgstr "Nom d'usuari:"
@@ -4087,38 +4107,62 @@ msgstr "Correu electrònic:"
 msgid "Password:"
 msgstr "Contrasenya:"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:154
+#: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Send Emails Invite"
+msgstr ""
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Emails"
+msgid "Emails:"
+msgstr "Correus electrònics"
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgid "Use ',' for separate emails"
+msgstr "Utilitzeu «,» per a separar paraules"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:165
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Voleu eliminar este usuari?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:217
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgid "Invite..."
+msgstr "Convida"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Deactivate"
 msgstr "Desactiva"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Remove Admin"
 msgstr "Elimina l'administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Make Admin"
 msgstr "Fes-te administrador"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:235
+#: widgets/administratordialog/users/administratoruserswidget.cpp:254
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:260
 #, kde-format
 msgid "Reset Totp"
 msgstr "Reinicia el TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:315
+#: widgets/administratordialog/users/administratoruserswidget.cpp:336
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4133,22 +4177,22 @@ msgstr ""
 "l'essència de l'encriptació E2E, Rocket.Chat no serà capaç de restaurar "
 "l'accés a les sales encriptades que no tinguen cap membre connectat."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:319
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgid "Reset E2E key"
 msgstr "Reinicia la clau E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "S'ha reiniciat la clau E2E per a %1."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "Reset E2E"
 msgstr "Reinicia E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:385
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4157,13 +4201,13 @@ msgstr ""
 "Reiniciar el TOTP de dos factors actual desconnectarà l'usuari. Després, "
 "l'usuari podrà tornar a establir els dos factors una altra vegada."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:365
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:386
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "Reset TOTP"
 msgstr "Reinicia el TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "S'ha reiniciat la clau TOTP per a %1"
@@ -4609,7 +4653,7 @@ msgstr ""
 "durant la creació de l'usuari, p. ex.: {\"rooms\": \"%team%,%department%\"} "
 "s'uniria als usuaris CAS en la creació al seu equip i canal de departament."
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
 msgid "Default Provider"
 msgstr "Proveïdor predeterminat"
@@ -6012,7 +6056,7 @@ msgstr "Antiguitat màxima dels missatges en els missatges directes"
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
 #, kde-format
 msgid "Apply"
 msgstr "Aplica"
@@ -6435,8 +6479,9 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
 
 #: widgets/channellist/channellistwidget.cpp:48
-#, kde-format
-msgid "Filter Channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter Channels (CTRL + K)"
+msgid "Filter channels (CTRL + K)"
 msgstr "Filtre de canals (CTRL + K)"
 
 #: widgets/channellist/channellistwidget.cpp:55
@@ -6680,8 +6725,9 @@ msgid "Delete Room"
 msgstr "Supressió de sala"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, kde-format
-msgid "This Room has a password"
+#, fuzzy, kde-format
+#| msgid "This Room has a password"
+msgid "This room has a password"
 msgstr "Esta sala té una contrasenya"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
@@ -6829,8 +6875,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
-msgid "Select Users..."
+#, fuzzy, kde-format
+#| msgid "Select Users..."
+msgid "Select users..."
 msgstr "Selecciona usuaris..."
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -6846,8 +6893,9 @@ msgstr "Tema:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, kde-format
-msgid "Invite Users..."
+#, fuzzy, kde-format
+#| msgid "Invite Users..."
+msgid "Invite users..."
 msgstr "Convida usuaris..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
@@ -6945,17 +6993,10 @@ msgstr "Modifica el compte"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:43
-#, kde-format
-msgid "Account Name:"
+#, fuzzy, kde-format
+#| msgid "Account Name:"
+msgid "Account name:"
 msgstr "Nom del compte:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "User Name:"
-msgstr "Nom d'usuari:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7151,8 +7192,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Busca missatges a «%1» (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
-#, kde-format
-msgid "Search Messages"
+#, fuzzy, kde-format
+#| msgid "Search Messages"
+msgid "Search messages"
 msgstr "Busca missatges"
 
 #: widgets/dialogs/searchmessagewidget.cpp:86
@@ -7184,8 +7226,9 @@ msgid "Server Info"
 msgstr "Informació del servidor"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
-#, kde-format
-msgid "Server Version:"
+#, fuzzy, kde-format
+#| msgid "Server Version:"
+msgid "Server version:"
 msgstr "Versió del servidor:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
@@ -7232,8 +7275,9 @@ msgid "Show Attachments - %1"
 msgstr "Mostra els adjunts - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, kde-format
-msgid "Search Attachments..."
+#, fuzzy, kde-format
+#| msgid "Search Attachments..."
+msgid "Search attachments..."
 msgstr "Busca els adjunts..."
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
@@ -7297,9 +7341,9 @@ msgid "Save Image"
 msgstr "Guarda la imatge"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:123
-#, kde-format
-msgid "Search Messages..."
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search messages..."
 msgstr "Busca en els missatges..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:82
@@ -7359,14 +7403,16 @@ msgid "Directory - %1"
 msgstr "Directori - %1"
 
 #: widgets/directory/directorywidget.cpp:32
-#, kde-format
-msgid "Search Channels..."
+#, fuzzy, kde-format
+#| msgid "Search Channels..."
+msgid "Search channels..."
 msgstr "Busca de canals..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, kde-format
-msgid "Search Teams..."
+#, fuzzy, kde-format
+#| msgid "Search Teams..."
+msgid "Search teams..."
 msgstr "Busca equips..."
 
 #: widgets/directory/directorywidget.cpp:68
@@ -7398,8 +7444,9 @@ msgstr[1] "%1 equips (Total: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, kde-format
-msgid "Search Rooms..."
+#, fuzzy, kde-format
+#| msgid "Search Rooms..."
+msgid "Search rooms..."
 msgstr "Busca sales..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
@@ -7428,8 +7475,9 @@ msgid "Show Discussions - %1"
 msgstr "Mostra els debats - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
-#, kde-format
-msgid "Search Discussion..."
+#, fuzzy, kde-format
+#| msgid "Search Discussion..."
+msgid "Search discussion..."
 msgstr "Busca un debat..."
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
@@ -7649,8 +7697,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
-#, kde-format
-msgid "Enter Authentication Code"
+#, fuzzy, kde-format
+#| msgid "Enter Authentication Code"
+msgid "Enter authentication code"
 msgstr "Introduïu el codi d'autenticació"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
@@ -7742,8 +7791,9 @@ msgid "Personal Access Token"
 msgstr "Testimoni d'accés personal"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, kde-format
-msgid "Search Device"
+#, fuzzy, kde-format
+#| msgid "Search Device"
+msgid "Search device"
 msgstr "Busca un dispositiu"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
@@ -7835,13 +7885,15 @@ msgid "Convert Ascii to Emoji"
 msgstr "Convertix els ASCII a Emoji"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, kde-format
-msgid "Hide Roles"
+#, fuzzy, kde-format
+#| msgid "Hide Roles"
+msgid "Hide roles"
 msgstr "Oculta els rols"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
-#, kde-format
-msgid "Display Avatars"
+#, fuzzy, kde-format
+#| msgid "Display Avatars"
+msgid "Display avatars"
 msgstr "Mostra els avatars"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
@@ -7865,18 +7917,21 @@ msgid "Separate each word with ','."
 msgstr "Separa cada paraula per «,»."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, kde-format
-msgid "Desktop Notification:"
+#, fuzzy, kde-format
+#| msgid "Desktop Notification:"
+msgid "Desktop notification:"
 msgstr "Notificació a l'escriptori:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
-#, kde-format
-msgid "Offline Email Notification:"
+#, fuzzy, kde-format
+#| msgid "Offline Email Notification:"
+msgid "Offline Email notification:"
 msgstr "Notificació de correu electrònic desconnectat:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, kde-format
-msgid "Push Notification:"
+#, fuzzy, kde-format
+#| msgid "Push Notification:"
+msgid "Push notification:"
 msgstr "Notificació d'inserció:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
@@ -7887,18 +7942,21 @@ msgstr ""
 "en el vostre compte."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View Mode:"
+#, fuzzy, kde-format
+#| msgid "View Mode:"
+msgid "View mode:"
 msgstr "Mode de vista:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
-#, kde-format
-msgid "Download My Data (HTML)"
+#, fuzzy, kde-format
+#| msgid "Download My Data (HTML)"
+msgid "Download my Data (HTML)"
 msgstr "Baixa les meues dades (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
-#, kde-format
-msgid "Export My Data (JSON)"
+#, fuzzy, kde-format
+#| msgid "Export My Data (JSON)"
+msgid "Export my Data (JSON)"
 msgstr "Exporta les meues dades (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
@@ -7971,8 +8029,9 @@ msgid "Nickname:"
 msgstr "Sobrenom:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, kde-format
-msgid "Status Text:"
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Status text:"
 msgstr "Text de l'estat:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
@@ -8447,6 +8506,11 @@ msgstr "Canals de l'equip"
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
+#: widgets/room/roomheaderwidget.cpp:123
+#, kde-format
+msgid "Search Messages..."
+msgstr "Busca en els missatges..."
+
 #: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
@@ -8615,9 +8679,15 @@ msgstr "Error des del compte «%1»"
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
-msgid "Account Name"
+msgid "Account Name:"
+msgstr "Nom del compte:"
+
+#: widgets/ruqolaloginwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Account Name"
+msgid "Account name"
 msgstr "Nom del compte"
 
 #: widgets/ruqolaloginwidget.cpp:59
@@ -8874,8 +8944,9 @@ msgstr "Canals de l'equip"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
-msgid "Search Room..."
+#, fuzzy, kde-format
+#| msgid "Search Room..."
+msgid "Search room..."
 msgstr "Busca una sala..."
 
 #: widgets/teams/teamchannelswidget.cpp:114
@@ -8964,3 +9035,9 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
+
+#~ msgid "Read Only"
+#~ msgstr "Només lectura"
+
+#~ msgid "User Name:"
+#~ msgstr "Nom d'usuari:"

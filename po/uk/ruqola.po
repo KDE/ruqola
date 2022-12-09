@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-08 00:45+0000\n"
-"PO-Revision-Date: 2022-12-06 18:42+0200\n"
+"POT-Creation-Date: 2022-12-09 00:46+0000\n"
+"PO-Revision-Date: 2022-12-08 06:58+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -709,7 +709,7 @@ msgstr "Адреса переспрямовування"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Active"
 msgstr "Активний"
@@ -752,13 +752,15 @@ msgid "Description"
 msgstr "Опис"
 
 #: core/model/adminroomsmodel.cpp:32
-#, kde-format
-msgid "Number Of Messages"
+#, fuzzy, kde-format
+#| msgid "Number Of Messages"
+msgid "Number of Messages"
 msgstr "Кількість повідомлень"
 
-#: core/model/adminroomsmodel.cpp:34 core/model/directoryroomsmodel.cpp:116
-#, kde-format
-msgid "Number Of Users"
+#: core/model/adminroomsmodel.cpp:34
+#, fuzzy, kde-format
+#| msgid "Number Of Users"
+msgid "Number of Users"
 msgstr "Кількість користувачів"
 
 #: core/model/adminroomsmodel.cpp:36 core/model/directoryroomsmodel.cpp:118
@@ -767,8 +769,9 @@ msgid "Topic"
 msgstr "Тема"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, kde-format
-msgid "Read Only"
+#, fuzzy, kde-format
+#| msgid "Read-Only"
+msgid "Read-only"
 msgstr "Лише читання"
 
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
@@ -848,6 +851,11 @@ msgstr "IP"
 #, kde-format
 msgid "Login At"
 msgstr "Час входу"
+
+#: core/model/directoryroomsmodel.cpp:116
+#, kde-format
+msgid "Number Of Users"
+msgstr "Кількість користувачів"
 
 #: core/model/directoryroomsmodel.cpp:126
 #, kde-format
@@ -1220,8 +1228,9 @@ msgid "Hide \"Room added writing permission\" messages"
 msgstr "Приховати повідомлення «Додано права запису у кімнаті»"
 
 #: core/model/systemmessagesmodel.cpp:55
-#, kde-format
-msgid "Hide \"Room set Read Only\" messages"
+#, fuzzy, kde-format
+#| msgid "Hide \"Room set Read Only\" messages"
+msgid "Hide \"Room set read-only\" messages"
 msgstr "Приховати повідомлення «Для кімнати встановлено режим „лише читання“»"
 
 #: core/model/systemmessagesmodel.cpp:56
@@ -1586,7 +1595,7 @@ msgstr "&Додати"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:114
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:113
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:66
-#: widgets/administratordialog/users/administratoruserswidget.cpp:248
+#: widgets/administratordialog/users/administratoruserswidget.cpp:267
 #: widgets/configuredialog/configureaccountserverwidget.ui:44
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:45
 #, kde-format
@@ -2295,7 +2304,7 @@ msgstr "Помилка: не вдалося видобути жетон Bing з 
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr "Помилка: не вдалося видобути додаткові дані Bing з вебверсії."
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
 msgstr "DeepL"
@@ -2307,7 +2316,7 @@ msgstr "DeepL"
 msgid "Google"
 msgstr "Google"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:28
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
 #, kde-format
 msgid "Libre Translate"
 msgstr "Libre Translate"
@@ -2316,8 +2325,9 @@ msgstr "Libre Translate"
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:48
-#, kde-format
-msgid "Server Url:"
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
 msgstr "Адреса сервера:"
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
@@ -3372,8 +3382,9 @@ msgid "File:"
 msgstr "Файл:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, kde-format
-msgid "Search Custom Emojis"
+#, fuzzy, kde-format
+#| msgid "Search Custom Emojis"
+msgid "Search custom emojis"
 msgstr "Шукати нетипові емодзі"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
@@ -3408,7 +3419,7 @@ msgstr "Вилучення емодзі"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:48
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:98
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:109
-#: widgets/administratordialog/users/administratoruserswidget.cpp:205
+#: widgets/administratordialog/users/administratoruserswidget.cpp:223
 #: widgets/configuredialog/configureaccountserverwidget.ui:30
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:38
 #, kde-format
@@ -3423,7 +3434,7 @@ msgstr "Додати…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:100
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:62
-#: widgets/administratordialog/users/administratoruserswidget.cpp:211
+#: widgets/administratordialog/users/administratoruserswidget.cpp:230
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
@@ -3502,8 +3513,9 @@ msgid "Remove Custom User Status"
 msgstr "Вилучення нетипового запису стану користувача"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
-#, kde-format
-msgid "Search Invite..."
+#, fuzzy, kde-format
+#| msgid "Search Invite..."
+msgid "Search invite..."
 msgstr "Шукати запрошення…"
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
@@ -3555,8 +3567,9 @@ msgid "Access Token URL:"
 msgstr "Адреса жетона доступу:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
-#, kde-format
-msgid "Search Oauth Apps..."
+#, fuzzy, kde-format
+#| msgid "Search Oauth Apps..."
+msgid "Search Oauth apps..."
 msgstr "Шукати програми OAuth…"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:71
@@ -3583,13 +3596,15 @@ msgid "Roles:"
 msgstr "Ролі:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#, kde-format
-msgid "Search Permissions..."
+#, fuzzy, kde-format
+#| msgid "Search Permissions..."
+msgid "Search permissions..."
 msgstr "Шукати права доступу…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
-#, kde-format
-msgid "Search Roles..."
+#, fuzzy, kde-format
+#| msgid "Search Roles..."
+msgid "Search roles..."
 msgstr "Шукати ролі…"
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
@@ -3651,13 +3666,13 @@ msgid "Users in Role"
 msgstr "Користувачі у ролі"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:34
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
 #, kde-format
-msgid "Search Users..."
+msgid "Search users..."
 msgstr "Шукати користувачів…"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:50
@@ -3672,19 +3687,19 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Хочете вилучити запис користувача «%1»?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:84
-#: widgets/administratordialog/users/administratoruserswidget.cpp:155
+#: widgets/administratordialog/users/administratoruserswidget.cpp:166
 #, kde-format
 msgid "Remove User"
 msgstr "Вилучити користувача"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:122
-#: widgets/administratordialog/users/administratoruserswidget.cpp:259
+#: widgets/administratordialog/users/administratoruserswidget.cpp:280
 #, kde-format
 msgid "No user found"
 msgstr "Користувача не знайдено"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:127
-#: widgets/administratordialog/users/administratoruserswidget.cpp:264
+#: widgets/administratordialog/users/administratoruserswidget.cpp:285
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3760,8 +3775,9 @@ msgid "Public"
 msgstr "Відкрите"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, kde-format
-msgid "Search Rooms"
+#, fuzzy, kde-format
+#| msgid "Search Rooms"
+msgid "Search rooms"
 msgstr "Пошук кімнат"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:75
@@ -4055,9 +4071,12 @@ msgid "Set random password and send by email"
 msgstr "Встановити випадковий пароль і надіслати його поштою"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
+#: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
@@ -4085,38 +4104,62 @@ msgstr "Ел. пошта:"
 msgid "Password:"
 msgstr "Пароль:"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:154
+#: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Send Emails Invite"
+msgstr ""
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
+#, fuzzy, kde-format
+#| msgid "Emails"
+msgid "Emails:"
+msgstr "Ел. пошта"
+
+#: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
+#, fuzzy, kde-format
+#| msgid "Use ',' for separating words"
+msgid "Use ',' for separate emails"
+msgstr "Скористайтеся «,» для відокремлення слів"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:165
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Хочете вилучити запис цього користувача?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:220
+#: widgets/administratordialog/users/administratoruserswidget.cpp:217
+#, fuzzy, kde-format
+#| msgid "Invites"
+msgid "Invite..."
+msgstr "Запрошення"
+
+#: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
 msgid "Deactivate"
 msgstr "Деактивувати"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Remove Admin"
 msgstr "Вилучення адміністратора"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:229
+#: widgets/administratordialog/users/administratoruserswidget.cpp:248
 #, kde-format
 msgid "Make Admin"
 msgstr "Зробити адміністратором"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:235
+#: widgets/administratordialog/users/administratoruserswidget.cpp:254
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Скинути ключ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:241
+#: widgets/administratordialog/users/administratoruserswidget.cpp:260
 #, kde-format
 msgid "Reset Totp"
 msgstr "Скинути Totp"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:315
+#: widgets/administratordialog/users/administratoruserswidget.cpp:336
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4131,22 +4174,22 @@ msgstr ""
 "перебуває один або декілька учасників. Через природу шифрування E2E, Rocket."
 "Chat не зможе відновити доступ до усіх зашифрованих кімнат, де нікого немає."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:319
+#: widgets/administratordialog/users/administratoruserswidget.cpp:340
 #, kde-format
 msgid "Reset E2E key"
 msgstr "Скинути ключ E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "Ключ E2E для %1 було скинуто."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:346
+#: widgets/administratordialog/users/administratoruserswidget.cpp:367
 #, kde-format
 msgid "Reset E2E"
 msgstr "Скинути E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:364
+#: widgets/administratordialog/users/administratoruserswidget.cpp:385
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
@@ -4156,13 +4199,13 @@ msgstr ""
 "користувача з системи. Користувач зможе знову налаштувати двофакторне "
 "розпізнавання пізніше."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:365
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:386
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "Reset TOTP"
 msgstr "Скинути TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:391
+#: widgets/administratordialog/users/administratoruserswidget.cpp:412
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "Ключ TOTP для %1 було скинуто"
@@ -4609,7 +4652,7 @@ msgstr ""
 "створення запису користувача. Приклад: {\"rooms\": \"%team%,%department%\"} "
 "— долучити користувачів CAS при створенні до їхніх кімнат команд і відділів."
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
 #, kde-format
 msgid "Default Provider"
 msgstr "Типовий надавач послуг"
@@ -5568,18 +5611,17 @@ msgstr "Dolphin"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr ""
+msgstr "Адреса"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
 #, kde-format
 msgid "Id"
-msgstr ""
+msgstr "Ід."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Secret"
-msgstr "Ключ клієнта"
+msgstr "Ключ"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -6014,7 +6056,7 @@ msgstr "Максимальний вік повідомлень у безпосе
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:120
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:159
 #: widgets/administratorsettingsdialog/settingswidgetbase.cpp:183
-#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:212
+#: widgets/administratorsettingsdialog/settingswidgetbase.cpp:217
 #, kde-format
 msgid "Apply"
 msgstr "Застосувати"
@@ -6438,8 +6480,9 @@ msgstr ""
 "скасувати."
 
 #: widgets/channellist/channellistwidget.cpp:48
-#, kde-format
-msgid "Filter Channels (CTRL + K)"
+#, fuzzy, kde-format
+#| msgid "Filter Channels (CTRL + K)"
+msgid "Filter channels (CTRL + K)"
 msgstr "Фільтрувати канали (Ctrl + K)"
 
 #: widgets/channellist/channellistwidget.cpp:55
@@ -6683,8 +6726,9 @@ msgid "Delete Room"
 msgstr "Вилучення кімнати"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, kde-format
-msgid "This Room has a password"
+#, fuzzy, kde-format
+#| msgid "This Room has a password"
+msgid "This room has a password"
 msgstr "Цю кімнату захищено паролем"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
@@ -6833,8 +6877,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, kde-format
-msgid "Select Users..."
+#, fuzzy, kde-format
+#| msgid "Select Users..."
+msgid "Select users..."
 msgstr "Вибрати користувачів…"
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
@@ -6850,8 +6895,9 @@ msgstr "Тема:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, kde-format
-msgid "Invite Users..."
+#, fuzzy, kde-format
+#| msgid "Invite Users..."
+msgid "Invite users..."
 msgstr "Запросити користувачів…"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
@@ -6949,17 +6995,9 @@ msgstr "Зміна облікового запису"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
-msgid "Account Name:"
-msgstr "Назва запису:"
-
-#: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
-#: widgets/ruqolaloginwidget.cpp:51
-#, kde-format
-msgid "User Name:"
-msgstr "Користувач:"
+msgid "Account name:"
+msgstr "Облікова назва:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7165,8 +7203,9 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Шукати повідомлення у «%1» (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
-#, kde-format
-msgid "Search Messages"
+#, fuzzy, kde-format
+#| msgid "Search Messages"
+msgid "Search messages"
 msgstr "Шукати повідомлення"
 
 #: widgets/dialogs/searchmessagewidget.cpp:86
@@ -7201,7 +7240,7 @@ msgstr "Дані щодо сервера"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
 #, kde-format
-msgid "Server Version:"
+msgid "Server version:"
 msgstr "Версія сервера:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
@@ -7248,8 +7287,9 @@ msgid "Show Attachments - %1"
 msgstr "Показ долучень — %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, kde-format
-msgid "Search Attachments..."
+#, fuzzy, kde-format
+#| msgid "Search Attachments..."
+msgid "Search attachments..."
 msgstr "Шукати долучення…"
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
@@ -7315,9 +7355,9 @@ msgid "Save Image"
 msgstr "Збереження зображення"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#: widgets/room/roomheaderwidget.cpp:123
-#, kde-format
-msgid "Search Messages..."
+#, fuzzy, kde-format
+#| msgid "Search Messages..."
+msgid "Search messages..."
 msgstr "Шукати повідомлення…"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:82
@@ -7379,14 +7419,16 @@ msgid "Directory - %1"
 msgstr "Каталог – %1"
 
 #: widgets/directory/directorywidget.cpp:32
-#, kde-format
-msgid "Search Channels..."
-msgstr "Шукати канали…"
+#, fuzzy, kde-format
+#| msgid "Search channel..."
+msgid "Search channels..."
+msgstr "Шукати канал…"
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, kde-format
-msgid "Search Teams..."
+#, fuzzy, kde-format
+#| msgid "Search Teams..."
+msgid "Search teams..."
 msgstr "Шукати команди…"
 
 #: widgets/directory/directorywidget.cpp:68
@@ -7420,8 +7462,9 @@ msgstr[3] "%1 команда (загалом: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, kde-format
-msgid "Search Rooms..."
+#, fuzzy, kde-format
+#| msgid "Search Rooms..."
+msgid "Search rooms..."
 msgstr "Шукати кімнати…"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
@@ -7452,8 +7495,9 @@ msgid "Show Discussions - %1"
 msgstr "Показ обговорень — %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
-#, kde-format
-msgid "Search Discussion..."
+#, fuzzy, kde-format
+#| msgid "Search Discussion..."
+msgid "Search discussion..."
 msgstr "Шукати обговорення…"
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
@@ -7673,8 +7717,9 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
-#, kde-format
-msgid "Enter Authentication Code"
+#, fuzzy, kde-format
+#| msgid "Enter Authentication Code"
+msgid "Enter authentication code"
 msgstr "Введіть код розпізнавання"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
@@ -7766,8 +7811,9 @@ msgid "Personal Access Token"
 msgstr "Особистий жетон доступу"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, kde-format
-msgid "Search Device"
+#, fuzzy, kde-format
+#| msgid "Search Device"
+msgid "Search device"
 msgstr "Шукати пристрій"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
@@ -7862,13 +7908,15 @@ msgid "Convert Ascii to Emoji"
 msgstr "Перетворювати ASCII на емодзі"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, kde-format
-msgid "Hide Roles"
+#, fuzzy, kde-format
+#| msgid "Hide Roles"
+msgid "Hide roles"
 msgstr "Приховати ролі"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
-#, kde-format
-msgid "Display Avatars"
+#, fuzzy, kde-format
+#| msgid "Display Avatars"
+msgid "Display avatars"
 msgstr "Показувати аватари"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
@@ -7892,18 +7940,21 @@ msgid "Separate each word with ','."
 msgstr "Слова слід відокремлювати за допомогою «,»."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, kde-format
-msgid "Desktop Notification:"
+#, fuzzy, kde-format
+#| msgid "Desktop Notification:"
+msgid "Desktop notification:"
 msgstr "Стільничне сповіщення:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
-#, kde-format
-msgid "Offline Email Notification:"
+#, fuzzy, kde-format
+#| msgid "Offline Email Notification:"
+msgid "Offline Email notification:"
 msgstr "Автономне сповіщення електронною поштою:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, kde-format
-msgid "Push Notification:"
+#, fuzzy, kde-format
+#| msgid "Push Notification:"
+msgid "Push notification:"
 msgstr "Пуш-сповіщення:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
@@ -7914,18 +7965,21 @@ msgstr ""
 "облікового запису."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View Mode:"
+#, fuzzy, kde-format
+#| msgid "View Mode:"
+msgid "View mode:"
 msgstr "Режим перегляду:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
-#, kde-format
-msgid "Download My Data (HTML)"
+#, fuzzy, kde-format
+#| msgid "Download My Data (HTML)"
+msgid "Download my Data (HTML)"
 msgstr "Отримання ваших даних (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
-#, kde-format
-msgid "Export My Data (JSON)"
+#, fuzzy, kde-format
+#| msgid "Export My Data (JSON)"
+msgid "Export my Data (JSON)"
 msgstr "Експортування ваших даних (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
@@ -7998,8 +8052,9 @@ msgid "Nickname:"
 msgstr "Псевдонім:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, kde-format
-msgid "Status Text:"
+#, fuzzy, kde-format
+#| msgid "Status Text:"
+msgid "Status text:"
 msgstr "Текст стану:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
@@ -8480,6 +8535,11 @@ msgstr "Канали команди"
 msgid "Show List of Users"
 msgstr "Показувати список користувачів"
 
+#: widgets/room/roomheaderwidget.cpp:123
+#, kde-format
+msgid "Search Messages..."
+msgstr "Шукати повідомлення…"
+
 #: widgets/room/roomheaderwidget.cpp:183
 #, kde-format
 msgid "Team's Information"
@@ -8650,10 +8710,16 @@ msgstr "Помилка з облікового запису «%1»"
 msgid "Login"
 msgstr "Увійти"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
-msgid "Account Name"
-msgstr "Назва запису"
+msgid "Account Name:"
+msgstr "Назва запису:"
+
+#: widgets/ruqolaloginwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Account name:"
+msgid "Account name"
+msgstr "Облікова назва:"
 
 #: widgets/ruqolaloginwidget.cpp:59
 #, kde-format
@@ -8909,8 +8975,9 @@ msgstr "Канали команди"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, kde-format
-msgid "Search Room..."
+#, fuzzy, kde-format
+#| msgid "Search Room..."
+msgid "Search room..."
 msgstr "Шукати кімнату…"
 
 #: widgets/teams/teamchannelswidget.cpp:114
@@ -8999,6 +9066,24 @@ msgstr "Дані щодо облікового запису"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Повернути номер облікового запису."
+
+#~ msgid "Read Only"
+#~ msgstr "Лише читання"
+
+#~ msgid "Search Users..."
+#~ msgstr "Шукати користувачів…"
+
+#~ msgid "User Name:"
+#~ msgstr "Користувач:"
+
+#~ msgid "Server Version:"
+#~ msgstr "Версія сервера:"
+
+#~ msgid "Search Channels..."
+#~ msgstr "Шукати канали…"
+
+#~ msgid "Account Name"
+#~ msgstr "Назва запису"
 
 #~ msgctxt "Default tts engine"
 #~ msgid "Default"
@@ -9127,14 +9212,8 @@ msgstr "Повернути номер облікового запису."
 #~ msgid "Sound File"
 #~ msgstr "Звуковий файл"
 
-#~ msgid "Search channel..."
-#~ msgstr "Шукати канал…"
-
 #~ msgid "email"
 #~ msgstr "ел. пошта"
-
-#~ msgid "Search users..."
-#~ msgstr "Шукати користувачів…"
 
 #~ msgid "Discussion"
 #~ msgstr "Обговорення"
@@ -9374,14 +9453,8 @@ msgstr "Повернути номер облікового запису."
 #~ msgid "Create New Channel"
 #~ msgstr "Створення каналу"
 
-#~ msgid "Account name:"
-#~ msgstr "Облікова назва:"
-
 #~ msgid "User name:"
 #~ msgstr "Користувач:"
-
-#~ msgid "Server version:"
-#~ msgstr "Версія сервера:"
 
 #~ msgid "%1 discussion in room (Total: %2)"
 #~ msgid_plural "%1 discussions in room (Total: %2)"
