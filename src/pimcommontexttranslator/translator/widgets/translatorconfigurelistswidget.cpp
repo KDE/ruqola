@@ -133,6 +133,6 @@ void TranslatorConfigureListsWidget::slotConfigureEngine()
 {
     const QString engine = d->mEngineComboBox->currentData().toString();
     if (PimCommonTextTranslator::TranslatorEngineLoader::self()->hasConfigurationDialog(engine)) {
-        // TODO
+        PimCommonTextTranslator::TranslatorEngineLoader::self()->showConfigureDialog(engine);
     }
 }
