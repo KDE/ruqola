@@ -5,10 +5,15 @@
 */
 
 #include "conferencecallwidget.h"
+#include <KLocalizedString>
+#include <QVBoxLayout>
 
 ConferenceCallWidget::ConferenceCallWidget(QWidget *parent)
     : QWidget{parent}
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 ConferenceCallWidget::~ConferenceCallWidget() = default;

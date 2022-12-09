@@ -14,4 +14,6 @@ class ConferenceCallDialogTest : public QObject
 public:
     explicit ConferenceCallDialogTest(QObject *parent = nullptr);
     ~ConferenceCallDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

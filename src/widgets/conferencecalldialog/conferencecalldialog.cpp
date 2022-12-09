@@ -6,11 +6,26 @@
 
 #include "conferencecalldialog.h"
 #include "conferencecallwidget.h"
+#include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 ConferenceCallDialog::ConferenceCallDialog(QWidget *parent)
     : QDialog(parent)
     , mConferenceCallWidget(new ConferenceCallWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Start a Call"));
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mConferenceCallWidget->setObjectName(QStringLiteral("mConferenceCallWidget"));
+    mainLayout->addWidget(mConferenceCallWidget);
+
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &ConferenceCallDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &ConferenceCallDialog::accept);
 }
 
 ConferenceCallDialog::~ConferenceCallDialog() = default;
