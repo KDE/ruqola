@@ -7,6 +7,8 @@
 #include "conferencecallwidgettest.h"
 #include "conferencecalldialog/conferencecallwidget.h"
 #include <QTest>
+#include <QToolButton>
+#include <QVBoxLayout>
 QTEST_MAIN(ConferenceCallWidgetTest)
 ConferenceCallWidgetTest::ConferenceCallWidgetTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +18,16 @@ ConferenceCallWidgetTest::ConferenceCallWidgetTest(QObject *parent)
 void ConferenceCallWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceCallWidget w(nullptr);
-    // TODO
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mMicroButton = w.findChild<QToolButton *>(QStringLiteral("mMicroButton"));
+    QVERIFY(mMicroButton);
+    QVERIFY(!mMicroButton->isChecked());
+
+    auto mCameraButton = w.findChild<QToolButton *>(QStringLiteral("mCameraButton"));
+    QVERIFY(mCameraButton);
+    QVERIFY(!mCameraButton->isChecked());
 }

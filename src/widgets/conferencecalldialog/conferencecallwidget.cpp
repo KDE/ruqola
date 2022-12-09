@@ -10,15 +10,25 @@
 #include "ruqolawidgets_debug.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"
 #include <KLocalizedString>
+#include <QToolButton>
 #include <QVBoxLayout>
 
 ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
+    , mMicroButton(new QToolButton(this))
+    , mCameraButton(new QToolButton(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mMicroButton->setObjectName(QStringLiteral("mMicroButton"));
+    mCameraButton->setObjectName(QStringLiteral("mCameraButton"));
+
+    mainLayout->addWidget(mMicroButton);
+    mainLayout->addWidget(mCameraButton);
+
     if (mRocketChatAccount) {
         initialize();
     }
@@ -36,7 +46,7 @@ void ConferenceCallWidget::initialize()
         const QJsonObject capabilitiesObj = obj[QLatin1String("capabilities")].toObject();
         const bool useCam = capabilitiesObj[QLatin1String("cam")].toBool();
         const bool useMic = capabilitiesObj[QLatin1String("mic")].toBool();
-        // TODO
+        // TODO verify if system has mic/cam too
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
