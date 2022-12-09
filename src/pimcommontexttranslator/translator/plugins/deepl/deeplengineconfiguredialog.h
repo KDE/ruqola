@@ -15,6 +15,9 @@ public:
     explicit DeeplEngineConfigureDialog(QWidget *parent = nullptr);
     ~DeeplEngineConfigureDialog() override;
 
+    void setUseFreeLicenceKey(bool b);
+    Q_REQUIRED_RESULT bool useFreeLicenceKey() const;
+
 private:
     DeeplEngineConfigureWidget *const mConfigureWidget;
 };

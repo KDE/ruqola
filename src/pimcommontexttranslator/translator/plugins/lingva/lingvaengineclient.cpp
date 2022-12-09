@@ -5,9 +5,14 @@
 */
 
 #include "lingvaengineclient.h"
+#include "lingvaenginedialog.h"
 #include "lingvaengineplugin.h"
+#include "lingvaengineutil.h"
 #include "translator/misc/translatorutil.h"
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
+#include <QPointer>
 
 LingvaEngineClient::LingvaEngineClient(QObject *parent)
     : PimCommonTextTranslator::TranslatorEngineClient{parent}
@@ -28,7 +33,9 @@ QString LingvaEngineClient::translatedName() const
 
 PimCommonTextTranslator::TranslatorEnginePlugin *LingvaEngineClient::createTranslator()
 {
-    return new LingvaEnginePlugin();
+    auto enginePlugin = new LingvaEnginePlugin();
+    connect(this, &LingvaEngineClient::configureChanged, enginePlugin, &LingvaEnginePlugin::slotConfigureChanged);
+    return enginePlugin;
 }
 
 QVector<QPair<QString, QString>> LingvaEngineClient::supportedLanguages()
@@ -46,5 +53,14 @@ bool LingvaEngineClient::hasConfigurationDialog() const
 
 void LingvaEngineClient::showConfigureDialog()
 {
-    // TODO
+    QPointer<LingvaEngineDialog> dlg = new LingvaEngineDialog();
+    KConfigGroup myGroup(KSharedConfig::openConfig(), LingvaEngineUtil::groupName());
+    dlg->setServerUrl(myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), QString()));
+    if (dlg->exec()) {
+        const QString serverUrl = dlg->serverUrl();
+        myGroup.writeEntry(LingvaEngineUtil::serverUrlKey(), serverUrl);
+        myGroup.sync();
+        Q_EMIT configureChanged();
+    }
+    delete dlg;
 }

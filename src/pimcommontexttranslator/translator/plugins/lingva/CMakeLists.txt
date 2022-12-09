@@ -11,6 +11,8 @@ target_sources(translator_lingva PRIVATE
     lingvaenginedialog.cpp
     lingvaenginewidget.h
     lingvaenginewidget.cpp
+    lingvaengineutil.h
+    lingvaengineutil.cpp
 )
 ecm_qt_declare_logging_category(translator_lingva
     HEADER lingvatranslator_debug.h

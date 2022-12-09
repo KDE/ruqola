@@ -25,3 +25,13 @@ DeeplEngineConfigureDialog::DeeplEngineConfigureDialog(QWidget *parent)
 }
 
 DeeplEngineConfigureDialog::~DeeplEngineConfigureDialog() = default;
+
+void DeeplEngineConfigureDialog::setUseFreeLicenceKey(bool b)
+{
+    mConfigureWidget->setUseFreeLicenceKey(b);
+}
+
+bool DeeplEngineConfigureDialog::useFreeLicenceKey() const
+{
+    return mConfigureWidget->useFreeLicenceKey();
+}

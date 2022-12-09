@@ -57,7 +57,9 @@ void LibreTranslateEngineClient::showConfigureDialog()
     KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
     dlg->setServerUrl(myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString()));
     if (dlg->exec()) {
-        // TODO save
+        const QString serverUrl = dlg->serverUrl();
+        myGroup.writeEntry(LibreTranslateEngineUtil::serverUrlKey(), serverUrl);
+        myGroup.sync();
         Q_EMIT configureChanged();
     }
     delete dlg;

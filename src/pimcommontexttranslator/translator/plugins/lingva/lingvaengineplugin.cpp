@@ -5,7 +5,7 @@
 */
 
 #include "lingvaengineplugin.h"
-
+#include "lingvaengineutil.h"
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 
 #include <KConfigGroup>
@@ -70,6 +70,11 @@ void LingvaEnginePlugin::parseTranslation(QNetworkReply *reply)
 
 void LingvaEnginePlugin::loadSettings()
 {
-    KConfigGroup myGroup(KSharedConfig::openConfig(), QStringLiteral("LingvaTranslator"));
-    mServerUrl = myGroup.readEntry(QStringLiteral("ServerUrl"), QStringLiteral("https://lingva.ml"));
+    KConfigGroup myGroup(KSharedConfig::openConfig(), LingvaEngineUtil::groupName());
+    mServerUrl = myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), LingvaEngineUtil::defaultServerUrl());
+}
+
+void LingvaEnginePlugin::slotConfigureChanged()
+{
+    loadSettings();
 }

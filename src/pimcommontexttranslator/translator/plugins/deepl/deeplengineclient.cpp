@@ -33,7 +33,9 @@ QString DeeplEngineClient::translatedName() const
 
 PimCommonTextTranslator::TranslatorEnginePlugin *DeeplEngineClient::createTranslator()
 {
-    return new DeeplEnginePlugin();
+    auto enginePlugin = new DeeplEnginePlugin();
+    connect(this, &DeeplEngineClient::configureChanged, enginePlugin, &DeeplEnginePlugin::slotConfigureChanged);
+    return enginePlugin;
 }
 
 QVector<QPair<QString, QString>> DeeplEngineClient::supportedLanguages()
@@ -53,10 +55,10 @@ void DeeplEngineClient::showConfigureDialog()
 {
     QPointer<DeeplEngineConfigureDialog> dlg = new DeeplEngineConfigureDialog();
     KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
-    // TODO
-    // dlg->setServerUrl(myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), QString()));
+    dlg->setUseFreeLicenceKey(myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), false));
     if (dlg->exec()) {
-        // TODO save
+        myGroup.writeEntry(DeeplEngineUtil::freeLicenseKey(), dlg->useFreeLicenceKey());
+        myGroup.sync();
         Q_EMIT configureChanged();
     }
     delete dlg;

@@ -7,11 +7,16 @@
 #pragma once
 
 #include <QWidget>
-
+class QCheckBox;
 class DeeplEngineConfigureWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit DeeplEngineConfigureWidget(QWidget *parent = nullptr);
     ~DeeplEngineConfigureWidget() override;
+    void setUseFreeLicenceKey(bool b);
+    Q_REQUIRED_RESULT bool useFreeLicenceKey() const;
+
+private:
+    QCheckBox *const mUseFreeLicense;
 };

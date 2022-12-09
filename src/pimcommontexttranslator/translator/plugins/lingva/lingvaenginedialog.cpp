@@ -26,3 +26,13 @@ LingvaEngineDialog::LingvaEngineDialog(QWidget *parent)
 }
 
 LingvaEngineDialog::~LingvaEngineDialog() = default;
+
+QString LingvaEngineDialog::serverUrl() const
+{
+    return mConfigureWidget->serverUrl();
+}
+
+void LingvaEngineDialog::setServerUrl(const QString &serverUrl)
+{
+    mConfigureWidget->setServerUrl(serverUrl);
+}

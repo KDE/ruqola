@@ -73,3 +73,8 @@ void DeeplEnginePlugin::loadSettings()
     mServerUrl = mUseFreeLicense ? QStringLiteral("https://api-free.deepl.com/v2/translate") : QStringLiteral("https://api.deepl.com/v2/translate");
     // TODO load API key ? stored in kwallet ?
 }
+
+void DeeplEnginePlugin::slotConfigureChanged()
+{
+    loadSettings();
+}

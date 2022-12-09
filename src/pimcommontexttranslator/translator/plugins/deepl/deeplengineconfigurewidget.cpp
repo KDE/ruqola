@@ -6,11 +6,28 @@
 
 #include "deeplengineconfigurewidget.h"
 #include <KLocalizedString>
-#include <QVBoxLayout>
+#include <QCheckBox>
+#include <QFormLayout>
 
 DeeplEngineConfigureWidget::DeeplEngineConfigureWidget(QWidget *parent)
     : QWidget{parent}
+    , mUseFreeLicense(new QCheckBox(i18n("Use Free License Key"), this))
 {
+    auto mainLayout = new QFormLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mUseFreeLicense->setObjectName(QStringLiteral("mUseFreeLicense"));
+    mainLayout->addWidget(mUseFreeLicense);
 }
 
 DeeplEngineConfigureWidget::~DeeplEngineConfigureWidget() = default;
+
+void DeeplEngineConfigureWidget::setUseFreeLicenceKey(bool b)
+{
+    mUseFreeLicense->setChecked(b);
+}
+
+bool DeeplEngineConfigureWidget::useFreeLicenceKey() const
+{
+    return mUseFreeLicense->isChecked();
+}
