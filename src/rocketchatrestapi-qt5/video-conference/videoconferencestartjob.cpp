@@ -37,7 +37,7 @@ void VideoConferenceStartJob::onPostRequestResponse(const QJsonDocument &replyJs
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceStartJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT permissionUpdateDone(replyObject);
+        Q_EMIT videoConferenceStartDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceStartJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

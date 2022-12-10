@@ -39,6 +39,7 @@
 #include "teams/teamchannelsdialog.h"
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
+#include "video-conference/videoconferencestartjob.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -399,8 +400,22 @@ void RoomWidget::slotCallRequested()
     if (!mRoom) {
         return;
     }
-    ConferenceCallDialog dlg(mCurrentRocketChatAccount, this);
-    dlg.exec();
+    QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
+    if (dlg->exec()) {
+        const ConferenceCallWidget::ConferenceCallStart startInfo = dlg->startInfo();
+
+        auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this](const QJsonObject &obj) {
+            qDebug() << "obj  " << obj;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
+        }
+
+        // Start
+    }
+    delete dlg;
 }
 
 void RoomWidget::slotOpenTeamRequested(const QString &teamId)

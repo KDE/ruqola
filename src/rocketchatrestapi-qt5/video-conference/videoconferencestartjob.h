@@ -38,7 +38,7 @@ public:
     void setInfo(const VideoConferenceStartInfo &newInfo);
 
 Q_SIGNALS:
-    void permissionUpdateDone(const QJsonObject &replyObject);
+    void videoConferenceStartDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(VideoConferenceStartJob)
