@@ -16,7 +16,7 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT VideoConferenceJoinJob : public RestApiAbs
 {
     Q_OBJECT
 public:
-    struct VideoConferenceJoinInfo {
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT VideoConferenceJoinInfo {
         QString callId;
         bool useMicro = false;
         bool useCamera = false;
