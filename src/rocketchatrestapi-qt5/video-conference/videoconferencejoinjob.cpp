@@ -83,6 +83,12 @@ QNetworkRequest VideoConferenceJoinJob::request() const
 QJsonDocument VideoConferenceJoinJob::json() const
 {
     QJsonObject jsonObj;
+    // {"callId":"639496df4ef3f3baa9658f0c","state":{"mic":false,"cam":false}}
+    jsonObj[QLatin1String("callId")] = mInfo.callId;
+    QJsonObject jsonStateObj;
+    jsonStateObj[QLatin1String("mic")] = mInfo.useMicro;
+    jsonStateObj[QLatin1String("cam")] = mInfo.useCamera;
+    jsonObj[QLatin1String("state")] = jsonStateObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
