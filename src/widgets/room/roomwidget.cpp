@@ -40,12 +40,14 @@
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
 #include "video-conference/videoconferenceinfojob.h"
+#include "video-conference/videoconferencejoinjob.h"
 #include "video-conference/videoconferencestartjob.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <kwidgetsaddons_version.h>
 
+#include <QDesktopServices>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
@@ -423,6 +425,22 @@ void RoomWidget::slotCallRequested()
                 // "messages":{"started":"QDrMfZG9BMtGQz3n6"},"providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6",
                 // "ringing":true,"status":1,"success":true,"title":"ruqola225","type":"videoconference",
                 // "url":"https://<url>/RocketChat6394a19a4ef3f3baa9658f35","users":[]}
+
+                auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
+                RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
+                joinInfo.callId = obj[QLatin1String("_id")].toString();
+                joinInfo.useCamera = callInfo.useCamera;
+                joinInfo.useMicro = callInfo.useMic;
+                conferenceJoinJob->setInfo(joinInfo);
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
+                connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [this](const QJsonObject &obj) {
+                    qDebug() << " join info " << obj;
+                    QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
+                });
+                if (!conferenceJoinJob->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
+                }
+
             });
             if (!conferenceInfoJob->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";
@@ -431,8 +449,6 @@ void RoomWidget::slotCallRequested()
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
         }
-
-        // Start
     }
     delete dlg;
 }
