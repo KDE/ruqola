@@ -22,7 +22,7 @@ void VideoConferenceStartJobTest::shouldHaveDefaultValue()
     verifyDefaultValue(&job);
     QVERIFY(job.requireHttpAuthentication());
     QVERIFY(!job.hasQueryParameterSupport());
-    // QVERIFY(job.permissions().isEmpty());
+    QVERIFY(!job.info().isValid());
 }
 
 void VideoConferenceStartJobTest::shouldGenerateRequest()
