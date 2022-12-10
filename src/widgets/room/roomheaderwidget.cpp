@@ -95,7 +95,7 @@ RoomHeaderWidget::RoomHeaderWidget(QWidget *parent)
     headerLayout->addLayout(buttonLayout);
 
     mCallButton->setAutoRaise(true);
-    mCallButton->setObjectName(QStringLiteral("mChannelInfoButton"));
+    mCallButton->setObjectName(QStringLiteral("mCallButton"));
     mCallButton->setIcon(QIcon::fromTheme(QStringLiteral("call-start-symbolic")));
     mCallButton->setToolTip(i18n("Call"));
     buttonLayout->addWidget(mCallButton, 0, Qt::AlignTop);
