@@ -430,6 +430,8 @@ target_sources(librocketchatrestapi-qt5 PRIVATE
     video-conference/videoconferencestartjob.h
     video-conference/videoconferencejoinjob.cpp
     video-conference/videoconferencejoinjob.h
+    video-conference/videoconferenceinfojob.cpp
+    video-conference/videoconferenceinfojob.h
 )
 
 
