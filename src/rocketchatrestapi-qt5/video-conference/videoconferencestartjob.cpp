@@ -85,12 +85,14 @@ QJsonDocument VideoConferenceStartJob::json() const
     QJsonObject jsonObj;
     jsonObj[QLatin1String("roomId")] = mInfo.roomId;
     jsonObj[QLatin1String("allowRinging")] = mInfo.allowRinging;
-    jsonObj[QLatin1String("title")] = mInfo.title;
+    if (!mInfo.title.isEmpty()) {
+        jsonObj[QLatin1String("title")] = mInfo.title;
+    }
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
 }
 
 bool VideoConferenceStartJob::VideoConferenceStartInfo::isValid() const
 {
-    return !roomId.isEmpty() && !title.isEmpty();
+    return !roomId.isEmpty();
 }

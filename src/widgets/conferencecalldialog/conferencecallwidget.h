@@ -14,10 +14,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallStart {
+        bool useCamera = false;
+        bool useMic = false;
+    };
     explicit ConferenceCallWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallWidget() override;
 
     void initialize();
+
+    Q_REQUIRED_RESULT ConferenceCallStart startInfo() const;
 
 private:
     RocketChatAccount *const mRocketChatAccount;

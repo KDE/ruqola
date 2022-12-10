@@ -6,10 +6,11 @@
 
 #pragma once
 
+#include "conferencecallwidget.h"
 #include "libruqolawidgets_private_export.h"
 #include "rocketchataccount.h"
+
 #include <QDialog>
-class ConferenceCallWidget;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallDialog : public QDialog
 {
@@ -17,6 +18,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceCallDialog : public QDialog
 public:
     explicit ConferenceCallDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceCallDialog() override;
+
+    Q_REQUIRED_RESULT ConferenceCallWidget::ConferenceCallStart startInfo() const;
 
 private:
     ConferenceCallWidget *const mConferenceCallWidget;

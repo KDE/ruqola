@@ -46,9 +46,19 @@ void ConferenceCallWidget::initialize()
         const QJsonObject capabilitiesObj = obj[QLatin1String("capabilities")].toObject();
         const bool useCam = capabilitiesObj[QLatin1String("cam")].toBool();
         const bool useMic = capabilitiesObj[QLatin1String("mic")].toBool();
+        mCameraButton->setChecked(useCam);
+        mMicroButton->setChecked(useMic);
         // TODO verify if system has mic/cam too
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
     }
+}
+
+ConferenceCallWidget::ConferenceCallStart ConferenceCallWidget::startInfo() const
+{
+    ConferenceCallStart info;
+    info.useCamera = mCameraButton->isChecked();
+    info.useMic = mMicroButton->isChecked();
+    return info;
 }
