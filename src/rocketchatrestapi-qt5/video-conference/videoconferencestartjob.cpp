@@ -44,6 +44,16 @@ void VideoConferenceStartJob::onPostRequestResponse(const QJsonDocument &replyJs
     }
 }
 
+VideoConferenceStartJob::VideoConferenceStartInfo VideoConferenceStartJob::info() const
+{
+    return mInfo;
+}
+
+void VideoConferenceStartJob::setInfo(const VideoConferenceStartInfo &newInfo)
+{
+    mInfo = newInfo;
+}
+
 bool VideoConferenceStartJob::requireHttpAuthentication() const
 {
     return true;
@@ -54,10 +64,10 @@ bool VideoConferenceStartJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (mPermissions.isEmpty()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceStartJob: mPermissions is empty";
-    //        return false;
-    //    }
+    if (!mInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceStartJob: mInfo is invalid";
+        return false;
+    }
     return true;
 }
 
@@ -73,6 +83,14 @@ QNetworkRequest VideoConferenceStartJob::request() const
 QJsonDocument VideoConferenceStartJob::json() const
 {
     QJsonObject jsonObj;
+    jsonObj[QLatin1String("roomId")] = mInfo.roomId;
+    jsonObj[QLatin1String("allowRinging")] = mInfo.allowRinging;
+    jsonObj[QLatin1String("title")] = mInfo.title;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool VideoConferenceStartJob::VideoConferenceStartInfo::isValid() const
+{
+    return !roomId.isEmpty() && !title.isEmpty();
 }

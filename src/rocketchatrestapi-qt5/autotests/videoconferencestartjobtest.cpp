@@ -37,14 +37,12 @@ void VideoConferenceStartJobTest::shouldGenerateRequest()
 void VideoConferenceStartJobTest::shouldGenerateJson()
 {
     VideoConferenceStartJob job;
-#if 0
-    QMap<QString, QStringList> lst;
-    lst.insert(QStringLiteral("bla"), {QStringLiteral("user"), QStringLiteral("admin")});
-    lst.insert(QStringLiteral("team"), {QStringLiteral("user"), QStringLiteral("admin"), QStringLiteral("owner")});
-    job.setPermissions(lst);
-#endif
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"permissions":[{"_id":"bla","roles":["user","admin"]},{"_id":"team","roles":["user","admin","owner"]}]})").toLatin1());
+    VideoConferenceStartJob::VideoConferenceStartInfo info;
+    info.allowRinging = false;
+    info.roomId = QStringLiteral("foo");
+    info.title = QStringLiteral("bla");
+    job.setInfo(info);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"allowRinging":false,"roomId":"foo","title":"bla"})").toLatin1());
 }
 
 void VideoConferenceStartJobTest::shouldNotStarting()
@@ -64,7 +62,10 @@ void VideoConferenceStartJobTest::shouldNotStarting()
     QVERIFY(!job.canStart());
     job.setUserId(userId);
     QVERIFY(!job.canStart());
-
-    // TODO
+    VideoConferenceStartJob::VideoConferenceStartInfo info;
+    info.allowRinging = false;
+    info.roomId = QStringLiteral("foo");
+    info.title = QStringLiteral("bla");
+    job.setInfo(info);
     QVERIFY(job.canStart());
 }

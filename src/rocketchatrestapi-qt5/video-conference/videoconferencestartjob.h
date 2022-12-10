@@ -16,6 +16,14 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT VideoConferenceStartJob : public RestApiAb
 {
     Q_OBJECT
 public:
+    struct LIBROCKETCHATRESTAPI_QT5_EXPORT VideoConferenceStartInfo {
+        QString roomId;
+        QString title;
+        bool allowRinging = true;
+
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
+
     explicit VideoConferenceStartJob(QObject *parent = nullptr);
     ~VideoConferenceStartJob() override;
 
@@ -26,11 +34,16 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT VideoConferenceStartInfo info() const;
+    void setInfo(const VideoConferenceStartInfo &newInfo);
+
 Q_SIGNALS:
     void permissionUpdateDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(VideoConferenceStartJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
+
+    VideoConferenceStartInfo mInfo;
 };
 }
