@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-09 00:46+0000\n"
+"POT-Creation-Date: 2022-12-10 00:45+0000\n"
 "PO-Revision-Date: 2022-12-06 17:46+0100\n"
 "Last-Translator: Antoni Bella <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2316,6 +2316,20 @@ msgstr ""
 msgid "DeepL"
 msgstr "DeepL"
 
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@title:window"
+msgid "Configure Engine"
+msgstr "Configura"
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#, kde-format
+msgid "Use Free License Key"
+msgstr ""
+
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
@@ -2328,16 +2342,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Server Url:"
-msgid "Server URL:"
+msgid "Server Url:"
 msgstr "URL del servidor:"
 
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
@@ -3716,7 +3728,7 @@ msgstr[1] "%1 usuaris (Total: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:44
+#: widgets/room/roomheaderwidget.cpp:45
 #, kde-format
 msgid "Favorite"
 msgstr "Preferida"
@@ -6504,6 +6516,12 @@ msgstr "Canal següent"
 msgid "Error saving file"
 msgstr "S'ha produït un error en guardar el fitxer"
 
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Start a Call"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
@@ -6997,6 +7015,14 @@ msgstr "Modifica el compte"
 #| msgid "Account Name:"
 msgid "Account name:"
 msgstr "Nom del compte:"
+
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, fuzzy, kde-format
+#| msgid "Server Url:"
+msgid "Server URL:"
+msgstr "URL del servidor:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -8486,32 +8512,37 @@ msgstr "(Mostra més informació...)"
 msgid "(Show Less Info...)"
 msgstr "(Mostra menys informació...)"
 
-#: widgets/room/roomheaderwidget.cpp:59
+#: widgets/room/roomheaderwidget.cpp:60
 #, kde-format
 msgid "E2E Enabled"
 msgstr "S'ha habilitat E2E"
 
-#: widgets/room/roomheaderwidget.cpp:99 widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:100
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informació del canal"
 
-#: widgets/room/roomheaderwidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Team Channels"
 msgstr "Canals de l'equip"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:122
 #, kde-format
 msgid "Show List of Users"
 msgstr "Mostra la llista d'usuaris"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Search Messages..."
 msgstr "Busca en els missatges..."
 
-#: widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Team's Information"
 msgstr "Informació de l'equip"
@@ -8531,12 +8562,12 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:217
+#: widgets/room/roomwidget.cpp:219
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:218
+#: widgets/room/roomwidget.cpp:220
 #, kde-format
 msgid "Remove History"
 msgstr "Elimina l'historial"

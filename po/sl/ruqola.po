@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-09 00:46+0000\n"
-"PO-Revision-Date: 2022-12-06 08:36+0100\n"
+"POT-Creation-Date: 2022-12-10 00:45+0000\n"
+"PO-Revision-Date: 2022-12-09 09:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -750,14 +750,12 @@ msgid "Description"
 msgstr "Opis"
 
 #: core/model/adminroomsmodel.cpp:32
-#, fuzzy, kde-format
-#| msgid "Number Of Messages"
+#, kde-format
 msgid "Number of Messages"
 msgstr "Število sporočil"
 
 #: core/model/adminroomsmodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "Number Of Users"
+#, kde-format
 msgid "Number of Users"
 msgstr "Število uporabnikov"
 
@@ -767,8 +765,7 @@ msgid "Topic"
 msgstr "Tema"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, fuzzy, kde-format
-#| msgid "Read-Only"
+#, kde-format
 msgid "Read-only"
 msgstr "Samo za branje"
 
@@ -1225,10 +1222,9 @@ msgid "Hide \"Room added writing permission\" messages"
 msgstr "Skrij sporočila »Sobi dodano dovoljenje za pisanje«"
 
 #: core/model/systemmessagesmodel.cpp:55
-#, fuzzy, kde-format
-#| msgid "Hide \"Room set Read Only\" messages"
+#, kde-format
 msgid "Hide \"Room set read-only\" messages"
-msgstr "Skrij sporočila »Soba spremenjena samo za branje«"
+msgstr "Skrij sporočila \"Soba nastavljena samo za branje\""
 
 #: core/model/systemmessagesmodel.cpp:56
 #, kde-format
@@ -2303,6 +2299,20 @@ msgstr ""
 msgid "DeepL"
 msgstr "DeepL"
 
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
+#, fuzzy, kde-format
+#| msgid "Configure"
+msgctxt "@title:window"
+msgid "Configure Engine"
+msgstr "Konfiguriraj"
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#, kde-format
+msgid "Use Free License Key"
+msgstr ""
+
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
@@ -2315,16 +2325,14 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
 #, fuzzy, kde-format
-#| msgid "Server Url:"
-msgid "Server URL:"
+#| msgid "Server URL:"
+msgid "Server Url:"
 msgstr "Url strežnika:"
 
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
 msgstr "Lingva"
@@ -3363,8 +3371,7 @@ msgid "File:"
 msgstr "Datoteka:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Custom Emojis"
+#, kde-format
 msgid "Search custom emojis"
 msgstr "Iskanje emodžijev po meri"
 
@@ -3494,10 +3501,9 @@ msgid "Remove Custom User Status"
 msgstr "Odstrani stanje uporabnika po meri"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Invite..."
+#, kde-format
 msgid "Search invite..."
-msgstr "Išči povabilo ..."
+msgstr "Išči povabilo..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
 #, kde-format
@@ -3548,10 +3554,9 @@ msgid "Access Token URL:"
 msgstr "URL žetona za dostop:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Oauth Apps..."
+#, kde-format
 msgid "Search Oauth apps..."
-msgstr "Išči aplikacije odprtega overjanja (Oauth) …"
+msgstr "Išči aplikacije Oauth…"
 
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:71
 #, kde-format
@@ -3577,16 +3582,14 @@ msgid "Roles:"
 msgstr "Vloge:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search Permissions..."
+#, kde-format
 msgid "Search permissions..."
-msgstr "Išči dovoljenja ..."
+msgstr "Išči dovoljenja..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Search Roles..."
+#, kde-format
 msgid "Search roles..."
-msgstr "Išči vloge ..."
+msgstr "Išči vloge..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:106
 #, kde-format
@@ -3652,10 +3655,9 @@ msgstr "Uporabniki v vlogi"
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Search Users..."
+#, kde-format
 msgid "Search users..."
-msgstr "Išči uporabnike …."
+msgstr "Išči uporabnike…."
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:50
 #, kde-format
@@ -3693,7 +3695,7 @@ msgstr[3] "%1 uporabnikov (skupaj: %2)"
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:44
+#: widgets/room/roomheaderwidget.cpp:45
 #, kde-format
 msgid "Favorite"
 msgstr "Priljubljeni"
@@ -3757,8 +3759,7 @@ msgid "Public"
 msgstr "Javno"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search rooms"
 msgstr "Išči sobe"
 
@@ -4090,19 +4091,17 @@ msgstr "Geslo:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Send Emails Invite"
-msgstr ""
+msgstr "Pošlji sporočila s povabili"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Emails"
+#, kde-format
 msgid "Emails:"
-msgstr "E-pošta"
+msgstr "E-pošta:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use ',' for separating words"
+#, kde-format
 msgid "Use ',' for separate emails"
-msgstr "Uporabi »,« za ločevanje besed"
+msgstr "Uporabi ',' za ločevanje sporočil"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:165
 #, kde-format
@@ -4110,10 +4109,9 @@ msgid "Do you want to remove this user?"
 msgstr "Ali želite odstraniti tega uporabnika?"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:217
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgid "Invite..."
-msgstr "Povabila"
+msgstr "Povabi..."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:239
 #, kde-format
@@ -5580,18 +5578,17 @@ msgstr "Dolphin"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr ""
+msgstr "Url"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
 #, kde-format
 msgid "Id"
-msgstr ""
+msgstr "Določilnik"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Secret"
-msgstr "Skrivnostni ključ odjemalca"
+msgstr "Skrivnost"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -6436,8 +6433,7 @@ msgstr ""
 "razveljaviti."
 
 #: widgets/channellist/channellistwidget.cpp:48
-#, fuzzy, kde-format
-#| msgid "Filter Channels (CTRL + K)"
+#, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtriraj kanale (krmilka+K)"
 
@@ -6460,6 +6456,12 @@ msgstr "Naslednji kanal"
 #, kde-format
 msgid "Error saving file"
 msgstr "Napaka pri shranjevanju datoteke"
+
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Start a Call"
+msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -6682,10 +6684,9 @@ msgid "Delete Room"
 msgstr "Izbriši sobo"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, fuzzy, kde-format
-#| msgid "This Room has a password"
+#, kde-format
 msgid "This room has a password"
-msgstr "Soba ima geslo"
+msgstr "Ta soba ima geslo"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
 #, kde-format
@@ -6830,10 +6831,9 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Select Users..."
+#, kde-format
 msgid "Select users..."
-msgstr "Izberi uporabnike …"
+msgstr "Izberi uporabnike…"
 
 #: widgets/dialogs/createnewchanneldialog.cpp:26
 #, kde-format
@@ -6848,10 +6848,9 @@ msgstr "Tema:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Invite Users..."
+#, kde-format
 msgid "Invite users..."
-msgstr "Povabi uporabnike ..."
+msgstr "Povabi uporabnike..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
@@ -6946,10 +6945,16 @@ msgstr "Spremeni račun"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Account Name:"
+#, kde-format
 msgid "Account name:"
 msgstr "Ime računa:"
+
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server URL:"
+msgstr "Url strežnika:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7147,8 +7152,7 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Iskanje sporočil v '%1' (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search messages"
 msgstr "Išči sporočila"
 
@@ -7183,8 +7187,7 @@ msgid "Server Info"
 msgstr "Podatki o strežniku"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Server Version:"
+#, kde-format
 msgid "Server version:"
 msgstr "Različica strežnika:"
 
@@ -7232,10 +7235,9 @@ msgid "Show Attachments - %1"
 msgstr "Pokaži priponke - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Attachments..."
+#, kde-format
 msgid "Search attachments..."
-msgstr "Poišči priponko …"
+msgstr "Poišči priponke…"
 
 #: widgets/dialogs/showattachmentwidget.cpp:92
 #, kde-format
@@ -7300,10 +7302,9 @@ msgid "Save Image"
 msgstr "Shrani sliko"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Search Messages..."
+#, kde-format
 msgid "Search messages..."
-msgstr "Preišči sporočila ..."
+msgstr "Preišči sporočila..."
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:82
 #, kde-format
@@ -7364,17 +7365,15 @@ msgid "Directory - %1"
 msgstr "Mapa - %1"
 
 #: widgets/directory/directorywidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Channels..."
+#, kde-format
 msgid "Search channels..."
 msgstr "Išči kanale..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, fuzzy, kde-format
-#| msgid "Search Teams..."
+#, kde-format
 msgid "Search teams..."
-msgstr "Išči ekipe …"
+msgstr "Išči ekipe…"
 
 #: widgets/directory/directorywidget.cpp:68
 #, kde-format
@@ -7407,10 +7406,9 @@ msgstr[3] "%1 ekip (skupaj: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, fuzzy, kde-format
-#| msgid "Search Rooms..."
+#, kde-format
 msgid "Search rooms..."
-msgstr "Išči sobe ..."
+msgstr "Išči sobe..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
 #, kde-format
@@ -7440,10 +7438,9 @@ msgid "Show Discussions - %1"
 msgstr "Pokaži razprave - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Search Discussion..."
+#, kde-format
 msgid "Search discussion..."
-msgstr "Poišči razpravo …"
+msgstr "Poišči razpravo…"
 
 #: widgets/discussions/showdiscussionswidget.cpp:69
 #, kde-format
@@ -7661,8 +7658,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Enter Authentication Code"
+#, kde-format
 msgid "Enter authentication code"
 msgstr "Vnesite kodo preverjanja pristnosti"
 
@@ -7756,8 +7752,7 @@ msgid "Personal Access Token"
 msgstr "Žeton osebnega dostopa"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search Device"
+#, kde-format
 msgid "Search device"
 msgstr "Išči napravo"
 
@@ -7852,14 +7847,12 @@ msgid "Convert Ascii to Emoji"
 msgstr "Pretvori ascii v emodži"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Hide Roles"
+#, kde-format
 msgid "Hide roles"
 msgstr "Skrij vloge"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Display Avatars"
+#, kde-format
 msgid "Display avatars"
 msgstr "Prikaži avatarje"
 
@@ -7884,20 +7877,17 @@ msgid "Separate each word with ','."
 msgstr "Ločite vsako besedo z »,«."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Desktop Notification:"
+#, kde-format
 msgid "Desktop notification:"
 msgstr "Obvestilo na namizju:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Offline Email Notification:"
+#, kde-format
 msgid "Offline Email notification:"
 msgstr "Nepovezano e-poštno obvestilo:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Push Notification:"
+#, kde-format
 msgid "Push notification:"
 msgstr "Objavi obvestilo:"
 
@@ -7909,22 +7899,19 @@ msgstr ""
 "računu."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, fuzzy, kde-format
-#| msgid "View Mode:"
+#, kde-format
 msgid "View mode:"
 msgstr "Način pogleda:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
-#, fuzzy, kde-format
-#| msgid "Download My Data (HTML)"
+#, kde-format
 msgid "Download my Data (HTML)"
-msgstr "Prenesi My Data (HTML)"
+msgstr "Prenesi my Data (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Export My Data (JSON)"
+#, kde-format
 msgid "Export my Data (JSON)"
-msgstr "Izvozi My Data (JSON)"
+msgstr "Izvozi my Data (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
@@ -7996,8 +7983,7 @@ msgid "Nickname:"
 msgstr "Vzdevek:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "Status Text:"
+#, kde-format
 msgid "Status text:"
 msgstr "Besedilo stanja:"
 
@@ -8459,32 +8445,37 @@ msgstr "(Pokaži več informacij ...)"
 msgid "(Show Less Info...)"
 msgstr "(Pokaži manj informacij ...)"
 
-#: widgets/room/roomheaderwidget.cpp:59
+#: widgets/room/roomheaderwidget.cpp:60
 #, kde-format
 msgid "E2E Enabled"
 msgstr "E2E omogočeno"
 
-#: widgets/room/roomheaderwidget.cpp:99 widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:100
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Channel's Information"
 msgstr "Podatki o kanalu"
 
-#: widgets/room/roomheaderwidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Team Channels"
 msgstr "Kanali ekipe"
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:122
 #, kde-format
 msgid "Show List of Users"
 msgstr "Pokaži seznam uporabnikov"
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Search Messages..."
 msgstr "Preišči sporočila ..."
 
-#: widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Team's Information"
 msgstr "Podatki o ekipi"
@@ -8504,12 +8495,12 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: »%1«"
 
-#: widgets/room/roomwidget.cpp:217
+#: widgets/room/roomwidget.cpp:219
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:218
+#: widgets/room/roomwidget.cpp:220
 #, kde-format
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
@@ -8660,8 +8651,7 @@ msgid "Account Name:"
 msgstr "Ime računa:"
 
 #: widgets/ruqolaloginwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Account name"
 msgstr "Ime računa"
 
@@ -8917,10 +8907,9 @@ msgstr "Kanali ekipe"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Room..."
+#, kde-format
 msgid "Search room..."
-msgstr "Išči sobo …"
+msgstr "Išči sobo…"
 
 #: widgets/teams/teamchannelswidget.cpp:114
 #, kde-format

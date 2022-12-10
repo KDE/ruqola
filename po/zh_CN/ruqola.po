@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-09 00:46+0000\n"
+"POT-Creation-Date: 2022-12-10 00:45+0000\n"
 "PO-Revision-Date: 2022-12-01 06:53\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2272,6 +2272,19 @@ msgstr ""
 msgid "DeepL"
 msgstr ""
 
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Configure Engine"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#, kde-format
+msgid "Use Free License Key"
+msgstr ""
+
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
@@ -2284,15 +2297,13 @@ msgstr ""
 msgid "Libre Translate"
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:21
-#: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
 #, kde-format
-msgid "Server URL:"
+msgid "Server Url:"
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:26
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
 msgstr ""
@@ -3624,7 +3635,7 @@ msgstr[0] ""
 
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:17
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:21
-#: widgets/room/roomheaderwidget.cpp:44
+#: widgets/room/roomheaderwidget.cpp:45
 #, kde-format
 msgid "Favorite"
 msgstr ""
@@ -6251,6 +6262,12 @@ msgstr ""
 msgid "Error saving file"
 msgstr ""
 
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Start a Call"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
@@ -6731,6 +6748,13 @@ msgstr ""
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
 #, kde-format
 msgid "Account name:"
+msgstr ""
+
+#: widgets/dialogs/createnewserverwidget.cpp:35
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/ruqolaloginwidget.cpp:48
+#, kde-format
+msgid "Server URL:"
 msgstr ""
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
@@ -8160,32 +8184,37 @@ msgstr ""
 msgid "(Show Less Info...)"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:59
+#: widgets/room/roomheaderwidget.cpp:60
 #, kde-format
 msgid "E2E Enabled"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:99 widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:100
+#, kde-format
+msgid "Call"
+msgstr ""
+
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Channel's Information"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:106
+#: widgets/room/roomheaderwidget.cpp:114
 #, kde-format
 msgid "Team Channels"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:114
+#: widgets/room/roomheaderwidget.cpp:122
 #, kde-format
 msgid "Show List of Users"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:123
+#: widgets/room/roomheaderwidget.cpp:131
 #, kde-format
 msgid "Search Messages..."
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:183
+#: widgets/room/roomheaderwidget.cpp:196
 #, kde-format
 msgid "Team's Information"
 msgstr ""
@@ -8205,12 +8234,12 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:217
+#: widgets/room/roomwidget.cpp:219
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:218
+#: widgets/room/roomwidget.cpp:220
 #, kde-format
 msgid "Remove History"
 msgstr ""
