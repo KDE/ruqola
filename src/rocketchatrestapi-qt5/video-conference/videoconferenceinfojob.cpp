@@ -56,7 +56,7 @@ void VideoConferenceInfoJob::onGetRequestResponse(const QJsonDocument &replyJson
 
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT videoConferenceCapabilitiesDone(replyObject);
+        Q_EMIT videoConferenceInfoDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));

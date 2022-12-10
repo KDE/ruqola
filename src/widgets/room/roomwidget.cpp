@@ -413,6 +413,20 @@ void RoomWidget::slotCallRequested()
         connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
             qDebug() << "obj  " << obj;
             // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
+            auto conferenceInfoJob = new RocketChatRestApi::VideoConferenceInfoJob(this);
+            conferenceInfoJob->setCallId(obj[QLatin1String("callId")].toString());
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
+            connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this, callInfo](const QJsonObject &obj) {
+                qDebug() << " info " << obj;
+                // {"_id":"6394a19a4ef3f3baa9658f35","_updatedAt":"2022-12-10T15:11:22.376Z","anonymousUsers":0,"capabilities":{"cam":true,"mic":true,"title":true},"createdAt":"2022-12-10T15:11:22.294Z",
+                // "createdBy":{"_id":"uidH","name":"Laurent Montel","username":"laurent"},
+                // "messages":{"started":"QDrMfZG9BMtGQz3n6"},"providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6",
+                // "ringing":true,"status":1,"success":true,"title":"ruqola225","type":"videoconference",
+                // "url":"https://<url>/RocketChat6394a19a4ef3f3baa9658f35","users":[]}
+            });
+            if (!conferenceInfoJob->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";
+            }
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";

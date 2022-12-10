@@ -16,6 +16,12 @@ class LIBROCKETCHATRESTAPI_QT5_EXPORT VideoConferenceJoinJob : public RestApiAbs
 {
     Q_OBJECT
 public:
+    struct VideoConferenceJoinInfo {
+        QString callId;
+        bool useMicro = false;
+        bool useCamera = false;
+        Q_REQUIRED_RESULT bool isValid() const;
+    };
     explicit VideoConferenceJoinJob(QObject *parent = nullptr);
     ~VideoConferenceJoinJob() override;
 
@@ -26,11 +32,15 @@ public:
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
 
+    Q_REQUIRED_RESULT VideoConferenceJoinInfo info() const;
+    void setInfo(const VideoConferenceJoinInfo &newInfo);
+
 Q_SIGNALS:
-    void permissionUpdateDone(const QJsonObject &replyObject);
+    void videoConferenceJoinDone(const QJsonObject &replyObject);
 
 private:
     Q_DISABLE_COPY(VideoConferenceJoinJob)
     void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    VideoConferenceJoinInfo mInfo;
 };
 }

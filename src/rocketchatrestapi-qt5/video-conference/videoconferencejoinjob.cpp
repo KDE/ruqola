@@ -37,11 +37,21 @@ void VideoConferenceJoinJob::onPostRequestResponse(const QJsonDocument &replyJso
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
-        Q_EMIT permissionUpdateDone(replyObject);
+        Q_EMIT videoConferenceJoinDone(replyObject);
     } else {
         emitFailedMessage(replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceJoinJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
+}
+
+VideoConferenceJoinJob::VideoConferenceJoinInfo VideoConferenceJoinJob::info() const
+{
+    return mInfo;
+}
+
+void VideoConferenceJoinJob::setInfo(const VideoConferenceJoinInfo &newInfo)
+{
+    mInfo = newInfo;
 }
 
 bool VideoConferenceJoinJob::requireHttpAuthentication() const
@@ -54,10 +64,10 @@ bool VideoConferenceJoinJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    //    if (mPermissions.isEmpty()) {
-    //        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mPermissions is empty";
-    //        return false;
-    //    }
+    if (!mInfo.isValid()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "VideoConferenceJoinJob: mInfo is empty";
+        return false;
+    }
     return true;
 }
 
@@ -75,4 +85,9 @@ QJsonDocument VideoConferenceJoinJob::json() const
     QJsonObject jsonObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+bool VideoConferenceJoinJob::VideoConferenceJoinInfo::isValid() const
+{
+    return !callId.isEmpty();
 }

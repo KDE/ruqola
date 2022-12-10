@@ -31,7 +31,7 @@ public:
     void setCallId(const QString &newCallId);
 
 Q_SIGNALS:
-    void videoConferenceCapabilitiesDone(const QJsonObject &obj);
+    void videoConferenceInfoDone(const QJsonObject &obj);
 
 private:
     Q_DISABLE_COPY(VideoConferenceInfoJob)
