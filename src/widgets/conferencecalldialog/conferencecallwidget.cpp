@@ -25,8 +25,16 @@ ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *
 
     mMicroButton->setObjectName(QStringLiteral("mMicroButton"));
     mMicroButton->setCheckable(true);
+    mMicroButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-off")));
     mCameraButton->setObjectName(QStringLiteral("mCameraButton"));
     mCameraButton->setCheckable(true);
+    mCameraButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-on")));
+    connect(mCameraButton, &QToolButton::clicked, this, [this](bool clicked) {
+        mCameraButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("camera-on")) : QIcon::fromTheme(QStringLiteral("camera-off")));
+    });
+    connect(mMicroButton, &QToolButton::clicked, this, [this](bool clicked) {
+        mMicroButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("camera-on")) : QIcon::fromTheme(QStringLiteral("camera-off")));
+    });
 
     mainLayout->addWidget(mMicroButton);
     mainLayout->addWidget(mCameraButton);
