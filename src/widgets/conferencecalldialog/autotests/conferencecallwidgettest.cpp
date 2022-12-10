@@ -26,10 +26,12 @@ void ConferenceCallWidgetTest::shouldHaveDefaultValues()
     auto mMicroButton = w.findChild<QToolButton *>(QStringLiteral("mMicroButton"));
     QVERIFY(mMicroButton);
     QVERIFY(!mMicroButton->isChecked());
+    QVERIFY(mMicroButton->isCheckable());
 
     auto mCameraButton = w.findChild<QToolButton *>(QStringLiteral("mCameraButton"));
     QVERIFY(mCameraButton);
     QVERIFY(!mCameraButton->isChecked());
+    QVERIFY(mCameraButton->isCheckable());
 
     auto info = w.startInfo();
     QVERIFY(!info.useCamera);

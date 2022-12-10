@@ -39,6 +39,7 @@
 #include "teams/teamchannelsdialog.h"
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
+#include "video-conference/videoconferenceinfojob.h"
 #include "video-conference/videoconferencestartjob.h"
 
 #include <KLocalizedString>
@@ -402,12 +403,16 @@ void RoomWidget::slotCallRequested()
     }
     QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
     if (dlg->exec()) {
-        const ConferenceCallWidget::ConferenceCallStart startInfo = dlg->startInfo();
+        const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->startInfo();
 
         auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
+        RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
+        startInfo.roomId = mRoomWidgetBase->roomId();
+        job->setInfo(startInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this](const QJsonObject &obj) {
+        connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
             qDebug() << "obj  " << obj;
+            // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
         });
         if (!job->start()) {
             qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";

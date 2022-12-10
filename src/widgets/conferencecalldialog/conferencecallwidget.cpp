@@ -24,7 +24,9 @@ ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
     mMicroButton->setObjectName(QStringLiteral("mMicroButton"));
+    mMicroButton->setCheckable(true);
     mCameraButton->setObjectName(QStringLiteral("mCameraButton"));
+    mCameraButton->setCheckable(true);
 
     mainLayout->addWidget(mMicroButton);
     mainLayout->addWidget(mCameraButton);
