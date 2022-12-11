@@ -51,7 +51,7 @@ void ConferenceCallWidget::initialize()
     auto job = new RocketChatRestApi::VideoConferenceCapabilitiesJob(this);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::VideoConferenceCapabilitiesJob::videoConferenceCapabilitiesDone, this, [this](const QJsonObject &obj) {
-        qDebug() << "obj  " << obj;
+        // qDebug() << "obj  " << obj;
         // {"capabilities":{"cam":true,"mic":true,"title":true},"providerName":"jitsi","success":true}
         const QJsonObject capabilitiesObj = obj[QLatin1String("capabilities")].toObject();
         const bool useCam = capabilitiesObj[QLatin1String("cam")].toBool();
