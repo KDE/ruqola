@@ -19,9 +19,7 @@ ConferenceCallSettingsWidget::ConferenceCallSettingsWidget(RocketChatAccount *ac
     , mDefaultProvider(new QComboBox(this))
 {
     mDefaultProvider->setObjectName(QStringLiteral("mDefaultProvider"));
-    // TODO ?
-    const QMap<QString, QString> maps = {};
-    addComboBox(i18n("Default Provider"), maps, mDefaultProvider, QStringLiteral("VideoConf_Default_Provider"));
+    addComboBox(i18n("Default Provider"), {}, mDefaultProvider, QStringLiteral("VideoConf_Default_Provider"));
 }
 
 ConferenceCallSettingsWidget::~ConferenceCallSettingsWidget() = default;
