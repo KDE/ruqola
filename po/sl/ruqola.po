@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
 "PO-Revision-Date: 2022-12-09 09:24+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.1.1\n"
 
 #: apps/main.cpp:53
@@ -6463,6 +6463,11 @@ msgctxt "@title:window"
 msgid "Start a Call"
 msgstr ""
 
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
@@ -8495,12 +8500,12 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: »%1«"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Odstrani zgodovino"

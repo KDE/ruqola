@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
-"PO-Revision-Date: 2022-12-09 19:19+0300\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
+"PO-Revision-Date: 2022-12-10 16:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2299,16 +2299,15 @@ msgstr "DeepL"
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Yapılandır"
+msgstr "İşletkeyi Yapılandır"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Ücretsiz Lisans Anahtarı Kullan"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2324,8 +2323,7 @@ msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Server Url:"
 msgstr "Sunucu URL'si:"
 
@@ -6443,6 +6441,11 @@ msgstr "Dosya kaydedilirken hata"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
+msgstr "Bir Arama Başlat"
+
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
 msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
@@ -8419,7 +8422,7 @@ msgstr "Uçtan Uca Şifreleme Etkinleştirildi"
 #: widgets/room/roomheaderwidget.cpp:100
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Ara"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
@@ -8461,12 +8464,12 @@ msgstr "Bir ilmekte yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu iletiyi ilmekte yanıtla: '%1'"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"

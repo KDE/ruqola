@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
-"PO-Revision-Date: 2022-12-09 08:22+0200\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
+"PO-Revision-Date: 2022-12-10 08:25+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -2308,16 +2308,15 @@ msgstr "DeepL"
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Налаштувати"
+msgstr "Налаштовування рушія"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Скористатися безкоштовним ліцензійним ключем"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2333,8 +2332,7 @@ msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Server Url:"
 msgstr "Адреса сервера:"
 
@@ -6507,6 +6505,11 @@ msgstr "Помилка під час збереження файла"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
+msgstr "Почати виклик"
+
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
 msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
@@ -8513,7 +8516,7 @@ msgstr "Увімкнено E2E"
 #: widgets/room/roomheaderwidget.cpp:100
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Виклик"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
@@ -8555,12 +8558,12 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Вилучити журнал"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
 "PO-Revision-Date: 2022-09-18 12:15+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -6479,6 +6479,11 @@ msgctxt "@title:window"
 msgid "Start a Call"
 msgstr ""
 
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
@@ -8512,12 +8517,12 @@ msgstr "Replying in a thread"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Reply in Thread for Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Do you want really remove history?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Remove History"

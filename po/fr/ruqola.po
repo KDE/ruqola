@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
 "PO-Revision-Date: 2022-11-22 19:22+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -2322,8 +2322,7 @@ msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Server Url:"
 msgstr "URL du serveur :"
 
@@ -6505,6 +6504,11 @@ msgctxt "@title:window"
 msgid "Start a Call"
 msgstr ""
 
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
+msgstr ""
+
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
@@ -8552,12 +8556,12 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Supprimer l'historique"

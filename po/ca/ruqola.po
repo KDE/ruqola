@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-10 00:45+0000\n"
-"PO-Revision-Date: 2022-12-09 09:44+0100\n"
+"POT-Creation-Date: 2022-12-11 00:47+0000\n"
+"PO-Revision-Date: 2022-12-10 08:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2308,16 +2308,15 @@ msgstr "DeepL"
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Configura"
+msgstr "Configura el motor"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Usa una clau de llicència lliure"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2333,8 +2332,7 @@ msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
@@ -6491,6 +6489,11 @@ msgstr "Error en desar el fitxer"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
+msgstr "Inicia una trucada"
+
+#: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#, kde-format
+msgid "Start"
 msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
@@ -8467,7 +8470,7 @@ msgstr "S'ha habilitat E2E"
 #: widgets/room/roomheaderwidget.cpp:100
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Truca"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
@@ -8509,12 +8512,12 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:219
+#: widgets/room/roomwidget.cpp:223
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:220
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Remove History"
 msgstr "Elimina l'historial"
