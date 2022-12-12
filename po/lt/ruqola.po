@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-11 00:47+0000\n"
+"POT-Creation-Date: 2022-12-12 00:47+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -4768,7 +4768,7 @@ msgid ""
 "their team and department channel."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Default Provider"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-11 00:47+0000\n"
-"PO-Revision-Date: 2022-12-10 16:49+0300\n"
+"POT-Creation-Date: 2022-12-12 00:47+0000\n"
+"PO-Revision-Date: 2022-12-11 14:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -2043,7 +2043,7 @@ msgstr "İspanyolca"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:160
 #, kde-format
 msgid "Afrikaans"
-msgstr "Afrikaans"
+msgstr "Afrikaanca"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:163
 #, kde-format
@@ -2068,7 +2068,7 @@ msgstr "Azerbaycanca"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:175
 #, kde-format
 msgid "Basque"
-msgstr "Bask"
+msgstr "Baskça"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:178
 #, kde-format
@@ -2083,7 +2083,7 @@ msgstr "Bulgarca"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:184
 #, kde-format
 msgid "Catalan"
-msgstr "Katalonca"
+msgstr "Katalanca"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:193
 #, kde-format
@@ -2153,7 +2153,7 @@ msgstr "İzlandaca"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:232
 #, kde-format
 msgid "Indonesian"
-msgstr "Endonezyaca"
+msgstr "Endonezce"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:235
 #, kde-format
@@ -2178,7 +2178,7 @@ msgstr "Makedonca"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:247
 #, kde-format
 msgid "Malay"
-msgstr "Malay"
+msgstr "Malayca"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:250
 #, kde-format
@@ -2203,7 +2203,7 @@ msgstr "Lehçe"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:262
 #, kde-format
 msgid "Romanian"
-msgstr "Romence"
+msgstr "Rumence"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:265
 #, kde-format
@@ -4605,7 +4605,7 @@ msgstr ""
 "bir listesidir, örneğin: {\"rooms\": \"%team%,%department%\"}, CAS "
 "kullanıcılarının ekip ve departman kanallarına oluşturma sırasında katılır."
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, kde-format
 msgid "Default Provider"
 msgstr "Öntanımlı Sağlayıcı"
@@ -6446,7 +6446,7 @@ msgstr "Bir Arama Başlat"
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Başlat"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format

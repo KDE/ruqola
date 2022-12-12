@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-11 00:47+0000\n"
-"PO-Revision-Date: 2022-12-10 08:39+0100\n"
+"POT-Creation-Date: 2022-12-12 00:47+0000\n"
+"PO-Revision-Date: 2022-12-11 08:50+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4637,7 +4637,7 @@ msgstr ""
 "durant la creació de l'usuari, p. ex.: {\"rooms\": \"%team%,%department%\"} "
 "s'uniria als usuaris CAS en la creació al seu equip i canal de departament."
 
-#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, kde-format
 msgid "Default Provider"
 msgstr "Proveïdor predeterminat"
@@ -6494,7 +6494,7 @@ msgstr "Inicia una trucada"
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Inicia"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
