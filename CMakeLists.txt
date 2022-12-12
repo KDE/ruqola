@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2020-2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 
-set(RUQOLA_VERSION "1.8.81")
+set(RUQOLA_VERSION "1.8.82")
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,7 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
 endif()
 # Do NOT add quote
-set(RUQOLA_DEV_VERSION beta)
+set(RUQOLA_DEV_VERSION beta2)
 
 # add an extra space
 if(DEFINED RUQOLA_DEV_VERSION)
