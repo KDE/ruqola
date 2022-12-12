@@ -300,6 +300,16 @@ void Message::parseChannels(const QJsonArray &channels)
     }
 }
 
+QVector<Block> Message::blocks() const
+{
+    return mBlocks;
+}
+
+void Message::setBlocks(const QVector<Block> &newBlocks)
+{
+    mBlocks = newBlocks;
+}
+
 QString Message::originalMessageOrAttachmentDescription() const
 {
     if (attachments().empty()) {

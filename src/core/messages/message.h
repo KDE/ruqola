@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "block.h"
 #include "libruqolacore_export.h"
 #include "messageattachment.h"
 #include "messagepinned.h"
@@ -203,6 +204,9 @@ public:
 
     Q_REQUIRED_RESULT QString videoConferenceText() const;
 
+    Q_REQUIRED_RESULT QVector<Block> blocks() const;
+    void setBlocks(const QVector<Block> &newBlocks);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -228,6 +232,9 @@ private:
 
     // Message urls object
     QVector<MessageUrl> mUrls;
+
+    // Block
+    QVector<Block> mBlocks;
 
     // Reactions
     Reactions mReactions;
