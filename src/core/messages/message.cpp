@@ -546,7 +546,7 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("added-user-to-team")) {
         return i18n("%1 added @%2 to this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
-        return i18n("%1 removed %2 from this Team", mUsername, mText);
+        return i18n("%1 removed @%2 from this Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-converted-to-team")) {
         return i18n("%1 converted #%2 to a Team", mUsername, mText);
     } else if (mSystemMessageType == QLatin1String("user-converted-to-channel")) {
@@ -571,10 +571,6 @@ QString Message::systemMessageText() const
         return i18n("Has requested key refresh."); // Verify
     } else if (mSystemMessageType == QLatin1String("room_changed_topic")) {
         return i18n("Room topic changed to: %1 by %2", mUsername, mText); // TODO verify
-    } else if (mSystemMessageType == QLatin1String("added-user-to-team")) {
-        return i18n("User added to team: %1 by %2"); // TODO verify
-    } else if (mSystemMessageType == QLatin1String("removed-user-from-team")) {
-        return i18n("User removed to team: %1 by %2"); // TODO verify
     } else if (mSystemMessageType == QLatin1String("videoconf")) {
         return i18n("Conference Call");
     } else {
