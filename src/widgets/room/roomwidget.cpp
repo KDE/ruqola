@@ -574,6 +574,11 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
+        if (mRoom->roomId() == QStringLiteral("%1%1").arg(mCurrentRocketChatAccount->userId())) {
+            mRoomHeaderWidget->setCallEnabled(false);
+        } else {
+            mRoomHeaderWidget->setCallEnabled(true);
+        }
         // TODO Description ?
 
         mRoomWidgetBase->updateRoomReadOnly(mRoom);
