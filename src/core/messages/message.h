@@ -29,6 +29,7 @@ public:
         System,
         Information,
         NormalText,
+        VideoConference,
     };
 
     Q_ENUM(MessageType)
@@ -199,6 +200,8 @@ public:
     void setLocalTranslation(const QString &newLocalTranslation);
 
     Q_REQUIRED_RESULT QString originalMessageOrAttachmentDescription() const;
+
+    Q_REQUIRED_RESULT QString videoConferenceText() const;
 
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);

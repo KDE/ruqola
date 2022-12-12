@@ -73,8 +73,12 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
 
     mMessageType = Message::MessageType::NormalText;
     if (!type.isEmpty()) {
-        mSystemMessageType = type;
-        mMessageType = System;
+        if (type == QStringLiteral("videoconf")) {
+            mMessageType = VideoConference;
+        } else {
+            mSystemMessageType = type;
+            mMessageType = System;
+        }
     }
     parseMentions(o.value(QLatin1String("mentions")).toArray());
 
@@ -461,6 +465,11 @@ void Message::setSystemMessageType(const QString &systemMessageType)
 Message::MessageType Message::messageType() const
 {
     return mMessageType;
+}
+
+QString Message::videoConferenceText() const
+{
+    return i18n("Conference Call");
 }
 
 QString Message::systemMessageText() const

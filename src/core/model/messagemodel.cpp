@@ -403,6 +403,8 @@ QString MessageModel::convertedText(const Message &message, const QString &searc
 {
     if (message.messageType() == Message::System) {
         return message.systemMessageText();
+    } else if (message.messageType() == Message::VideoConference) {
+        return message.videoConferenceText();
     } else {
         QStringList highlightWords;
         if (mRoom) {

@@ -343,9 +343,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    const Message::MessageType messageType = message->messageType();
-    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
-    if (!isSystemMessage && message->showReactionIcon()) {
+    if (!isSystemMessage(message) && message->showReactionIcon()) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
     }
 
@@ -459,6 +457,13 @@ static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
     popup->setGeometry(popupRect);
 }
 
+bool MessageListDelegate::isSystemMessage(const Message *message) const
+{
+    const Message::MessageType messageType = message->messageType();
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) || (messageType == Message::VideoConference);
+    return isSystemMessage;
+}
+
 bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     const QEvent::Type eventType = event->type();
@@ -468,9 +473,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
 
         const MessageListLayoutBase::Layout layout = doLayout(option, index);
 
-        const Message::MessageType messageType = message->messageType();
-        const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information);
-        if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage) {
+        if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message)) {
             auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
             mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);

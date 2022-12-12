@@ -223,8 +223,8 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMessageListDelegate->contextMenu(options, index, info)) {
         return;
     }
-    const bool isSystemMessage = (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::System)
-        || (index.data(MessageModel::MessageType).value<Message::MessageType>() == Message::Information);
+    const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
+    const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) || (messageType == Message::VideoConference);
     if (isSystemMessage) {
         return;
     }

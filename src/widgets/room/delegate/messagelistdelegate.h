@@ -95,8 +95,9 @@ private:
     void slotUpdateColors();
     void switchMessageLayout();
 
-    MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    Q_REQUIRED_RESULT MessageListLayoutBase::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     void drawLastSeenLine(QPainter *painter, qint64 displayLastSeenY, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT bool isSystemMessage(const Message *message) const;
 
     friend class MessageListDelegateTest;
 
