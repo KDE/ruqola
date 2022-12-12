@@ -37,14 +37,22 @@ void VideoConferenceJoinJobTest::shouldGenerateRequest()
 void VideoConferenceJoinJobTest::shouldGenerateJson()
 {
     VideoConferenceJoinJob job;
-#if 0
-    QMap<QString, QStringList> lst;
-    lst.insert(QStringLiteral("bla"), {QStringLiteral("user"), QStringLiteral("admin")});
-    lst.insert(QStringLiteral("team"), {QStringLiteral("user"), QStringLiteral("admin"), QStringLiteral("owner")});
-    job.setPermissions(lst);
-#endif
-    QCOMPARE(job.json().toJson(QJsonDocument::Compact),
-             QStringLiteral(R"({"permissions":[{"_id":"bla","roles":["user","admin"]},{"_id":"team","roles":["user","admin","owner"]}]})").toLatin1());
+    {
+        VideoConferenceJoinJob::VideoConferenceJoinInfo info;
+        info.callId = QStringLiteral("bla");
+        info.useCamera = false;
+        info.useMicro = false;
+        job.setInfo(info);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"bla","state":{"cam":false,"mic":false}})").toLatin1());
+    }
+    {
+        VideoConferenceJoinJob::VideoConferenceJoinInfo info;
+        info.callId = QStringLiteral("foo");
+        info.useCamera = true;
+        info.useMicro = true;
+        job.setInfo(info);
+        QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"callId":"foo","state":{"cam":true,"mic":true}})").toLatin1());
+    }
 }
 
 void VideoConferenceJoinJobTest::shouldNotStarting()
@@ -65,6 +73,10 @@ void VideoConferenceJoinJobTest::shouldNotStarting()
     job.setUserId(userId);
     QVERIFY(!job.canStart());
 
-    // TODO
+    VideoConferenceJoinJob::VideoConferenceJoinInfo info;
+    info.callId = QStringLiteral("foo");
+    info.useCamera = true;
+    info.useMicro = true;
+    job.setInfo(info);
     QVERIFY(job.canStart());
 }
