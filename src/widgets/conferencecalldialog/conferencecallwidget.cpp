@@ -25,15 +25,19 @@ ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *
 
     mMicroButton->setObjectName(QStringLiteral("mMicroButton"));
     mMicroButton->setCheckable(true);
-    mMicroButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-off")));
+    mMicroButton->setAutoRaise(true);
+    mMicroButton->setIcon(QIcon::fromTheme(QStringLiteral("mic-off")));
     mCameraButton->setObjectName(QStringLiteral("mCameraButton"));
     mCameraButton->setCheckable(true);
+    mCameraButton->setAutoRaise(true);
     mCameraButton->setIcon(QIcon::fromTheme(QStringLiteral("camera-on")));
-    connect(mCameraButton, &QToolButton::clicked, this, [this](bool clicked) {
+    connect(mCameraButton, &QToolButton::toggled, this, [this](bool clicked) {
         mCameraButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("camera-on")) : QIcon::fromTheme(QStringLiteral("camera-off")));
+        mCameraButton->setToolTip(clicked ? i18n("Camera On") : i18n("Camera Off"));
     });
-    connect(mMicroButton, &QToolButton::clicked, this, [this](bool clicked) {
-        mMicroButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("camera-on")) : QIcon::fromTheme(QStringLiteral("camera-off")));
+    connect(mMicroButton, &QToolButton::toggled, this, [this](bool clicked) {
+        mMicroButton->setIcon(clicked ? QIcon::fromTheme(QStringLiteral("mic-on")) : QIcon::fromTheme(QStringLiteral("mic-off")));
+        mMicroButton->setToolTip(clicked ? i18n("Micro On") : i18n("Micro Off"));
     });
 
     mainLayout->addWidget(mMicroButton);
