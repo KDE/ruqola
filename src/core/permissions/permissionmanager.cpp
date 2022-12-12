@@ -74,7 +74,8 @@ bool PermissionManager::storePermission(const QString &id)
         || id == QLatin1String("edit-other-user-active-status") || id == QLatin1String("logout-device-management")
         || id == QLatin1String("view-device-management") || id == QLatin1String("create-personal-access-tokens") || id == QLatin1String("manage-oauth-apps")
         || id == QLatin1String("create-user") || id == QLatin1String("bulk-register-user")
-        || id == QLatin1String("view-broadcast-member-list"); /* TODO implement view-broadcast-member-list */
+        || id == QLatin1String("view-broadcast-member-list") /* TODO implement view-broadcast-member-list */
+        || id == QLatin1String("videoconf-ring-users");
 }
 
 void PermissionManager::parseUpdatePermission(const QJsonArray &updateArray)

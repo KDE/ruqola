@@ -410,6 +410,7 @@ void RoomWidget::slotCallRequested()
         auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
         RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
         startInfo.roomId = mRoomWidgetBase->roomId();
+        startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
         job->setInfo(startInfo);
         mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
         connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
