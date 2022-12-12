@@ -11,13 +11,14 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KSharedConfig>
+#include <KWindowConfig>
 #include <QDialogButtonBox>
 #include <QFileDialog>
 #include <QPointer>
 #include <QPushButton>
 #include <QTextStream>
 #include <QVBoxLayout>
-
+#include <QWindow>
 namespace
 {
 const char myTranslatorDebugDialogConfigGroupName[] = "TranslatorDebugDialog";
@@ -59,17 +60,18 @@ void TranslatorDebugDialog::setDebug(const QString &debugStr)
 
 void TranslatorDebugDialog::readConfig()
 {
+    create(); // ensure a window is created
+    windowHandle()->resize(QSize(800, 600));
     KConfigGroup group(KSharedConfig::openStateConfig(), myTranslatorDebugDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(800, 600));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
+    KWindowConfig::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
 void TranslatorDebugDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myTranslatorDebugDialogConfigGroupName);
-    group.writeEntry("Size", size());
+    KWindowConfig::saveWindowSize(windowHandle(), group);
+    group.sync();
 }
 
 void TranslatorDebugDialog::saveTextAs(const QString &text, const QString &filter, QWidget *parent, const QUrl &url, const QString &caption)

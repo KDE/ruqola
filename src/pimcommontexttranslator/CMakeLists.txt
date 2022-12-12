@@ -62,6 +62,8 @@ target_sources(KF5PimCommonTextTranslator PRIVATE
     translator/widgets/translatorconfigurelanguagelistwidget.h
     translator/widgets/translatormenu.cpp
     translator/widgets/translatormenu.h
+    translator/widgets/translatorconfigurecombowidget.h
+    translator/widgets/translatorconfigurecombowidget.cpp
 
 
     translator/networkmanager.cpp
@@ -102,7 +104,7 @@ target_link_libraries(KF5PimCommonTextTranslator
     KF5::I18n
     KF5::WidgetsAddons
     KF5::ItemViews
-    KF5::ConfigCore
+    KF5::ConfigGui
     )
 
 #target_include_directories(KF5PimCommonTextTranslator INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonTextTranslator/>")

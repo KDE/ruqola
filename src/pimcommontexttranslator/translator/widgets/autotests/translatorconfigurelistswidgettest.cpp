@@ -5,12 +5,11 @@
 */
 
 #include "translatorconfigurelistswidgettest.h"
+#include "translator/widgets/translatorconfigurecombowidget.h"
 #include "translator/widgets/translatorconfigurelanguagelistwidget.h"
 #include "translator/widgets/translatorconfigurelistswidget.h"
-#include <QComboBox>
 #include <QStandardPaths>
 #include <QTest>
-#include <QToolButton>
 #include <QVBoxLayout>
 
 QTEST_MAIN(TranslatorConfigureListsWidgetTest)
@@ -26,16 +25,12 @@ void TranslatorConfigureListsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
 
-    auto mEngine = w.findChild<QComboBox *>(QStringLiteral("mEngine"));
-    QVERIFY(mEngine);
+    auto mEngineConfigureComboWidget = w.findChild<PimCommonTextTranslator::TranslatorConfigureComboWidget *>(QStringLiteral("mEngineConfigureComboWidget"));
+    QVERIFY(mEngineConfigureComboWidget);
 
     auto mFromLanguageWidget = w.findChild<PimCommonTextTranslator::TranslatorConfigureLanguageListWidget *>(QStringLiteral("mFromLanguageWidget"));
     QVERIFY(mFromLanguageWidget);
 
     auto mToLanguageWidget = w.findChild<PimCommonTextTranslator::TranslatorConfigureLanguageListWidget *>(QStringLiteral("mToLanguageWidget"));
     QVERIFY(mToLanguageWidget);
-
-    auto mConfigureEngine = w.findChild<QToolButton *>(QStringLiteral("mConfigureEngine"));
-    QVERIFY(mConfigureEngine);
-    QVERIFY(!mConfigureEngine->isEnabled());
 }

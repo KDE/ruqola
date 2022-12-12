@@ -25,9 +25,7 @@ public:
     void load();
 
 private:
-    void fillEngine();
-    void slotEngineChanged(int index);
-    void slotConfigureEngine();
+    void slotEngineChanged(const QString &engine);
     class TranslatorConfigureListsWidgetPrivate;
     std::unique_ptr<TranslatorConfigureListsWidgetPrivate> const d;
 };

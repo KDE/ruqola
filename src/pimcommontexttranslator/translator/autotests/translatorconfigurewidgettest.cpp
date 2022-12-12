@@ -5,10 +5,9 @@
 */
 
 #include "translatorconfigurewidgettest.h"
+#include "translator/widgets/translatorconfigurecombowidget.h"
 #include "translator/widgets/translatorconfigurewidget.h"
-#include <QComboBox>
 #include <QLabel>
-#include <QStackedWidget>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(TranslatorConfigureWidgetTest)
@@ -21,8 +20,8 @@ void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
 {
     PimCommonTextTranslator::TranslatorConfigureWidget w;
 
-    auto mEngine = w.findChild<QComboBox *>(QStringLiteral("mEngineComboBox"));
-    QVERIFY(mEngine);
+    auto mEngineConfigureComboWidget = w.findChild<PimCommonTextTranslator::TranslatorConfigureComboWidget *>(QStringLiteral("mEngineConfigureComboWidget"));
+    QVERIFY(mEngineConfigureComboWidget);
 
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
@@ -31,7 +30,4 @@ void TranslatorConfigureWidgetTest::shouldHaveDefaultValues()
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
-
-    auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
-    QVERIFY(mStackedWidget);
 }

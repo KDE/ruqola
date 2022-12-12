@@ -21,8 +21,6 @@ public:
     void loadSettings();
 
 private:
-    void fillEngine();
-    void switchEngine(int index);
     class TranslatorConfigureWidgetPrivate;
     std::unique_ptr<TranslatorConfigureWidgetPrivate> const d;
 };

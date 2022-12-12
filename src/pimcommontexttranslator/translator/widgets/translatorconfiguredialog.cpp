@@ -6,15 +6,9 @@
 
 #include "translatorconfiguredialog.h"
 #include "translatorconfigurewidget.h"
-#include <KConfigGroup>
 #include <KLocalizedString>
-#include <KSharedConfig>
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
-namespace
-{
-const char myTranslatorConfigureDialogConfigGroupName[] = "TranslatorConfigureDialog";
-}
 
 using namespace PimCommonTextTranslator;
 TranslatorConfigureDialog::TranslatorConfigureDialog(QWidget *parent)
@@ -36,31 +30,12 @@ TranslatorConfigureDialog::TranslatorConfigureDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::accepted, this, &TranslatorConfigureDialog::slotAccept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &TranslatorConfigureDialog::reject);
     mTranslatorConfigureWidget->loadSettings();
-    readConfig();
 }
 
-TranslatorConfigureDialog::~TranslatorConfigureDialog()
-{
-    writeConfig();
-}
+TranslatorConfigureDialog::~TranslatorConfigureDialog() = default;
 
 void TranslatorConfigureDialog::slotAccept()
 {
     mTranslatorConfigureWidget->saveSettings();
     accept();
-}
-
-void TranslatorConfigureDialog::readConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), myTranslatorConfigureDialogConfigGroupName);
-    const QSize sizeDialog = group.readEntry("Size", QSize(600, 400));
-    if (sizeDialog.isValid()) {
-        resize(sizeDialog);
-    }
-}
-
-void TranslatorConfigureDialog::writeConfig()
-{
-    KConfigGroup group(KSharedConfig::openStateConfig(), myTranslatorConfigureDialogConfigGroupName);
-    group.writeEntry("Size", size());
 }
