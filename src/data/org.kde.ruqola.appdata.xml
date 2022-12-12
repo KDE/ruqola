@@ -630,6 +630,13 @@
       <li xml:lang="uk">Експорт повідомлень</li>
       <li xml:lang="x-test">xxExport Messagesxx</li>
       <li>Video Conference</li>
+      <li xml:lang="ca">Conferència de vídeo</li>
+      <li xml:lang="ca-valencia">Conferència de vídeo</li>
+      <li xml:lang="ka">ვიდეო კონფერენცია</li>
+      <li xml:lang="nl">Videoconferentie</li>
+      <li xml:lang="tr">Video Konferans</li>
+      <li xml:lang="uk">Відеоконференція</li>
+      <li xml:lang="x-test">xxVideo Conferencexx</li>
     </ul>
     <p>
       Extra features:
