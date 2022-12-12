@@ -407,6 +407,9 @@ target_sources(libruqolacore PRIVATE
     translatetext/translatorenginemanager.cpp
     translatetext/translatorenginemanager.h
     ruqolacore.qrc
+
+    messages/block.h
+    messages/block.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
