@@ -35,6 +35,7 @@ private:
     void videoConferenceAccepted();
     void videoConferenceConfirmed();
     void videoConferenceCanceled();
+    void videoConferenceRejected();
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

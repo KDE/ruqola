@@ -39,7 +39,15 @@ void VideoConferenceNotificationJob::start()
     case VideoConference::Accepted:
         videoConferenceAccepted();
         break;
+    case VideoConference::Rejected:
+        videoConferenceRejected();
+        break;
     }
+}
+
+void VideoConferenceNotificationJob::videoConferenceRejected()
+{
+    // TODO
 }
 
 void VideoConferenceNotificationJob::videoConferenceAccepted()
@@ -78,10 +86,10 @@ void VideoConferenceNotificationJob::slotActivateNotificationAction(unsigned int
     case 0:
         break;
     case 1:
-        Q_EMIT rejectVideoConference();
+        Q_EMIT acceptVideoConference();
         break;
     case 2:
-        Q_EMIT acceptVideoConference();
+        Q_EMIT rejectVideoConference();
         break;
     }
     deleteLater();
