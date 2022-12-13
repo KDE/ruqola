@@ -410,6 +410,14 @@ target_sources(libruqolacore PRIVATE
 
     messages/block.h
     messages/block.cpp
+
+    videoconference/videoconferencemanager.h
+    videoconference/videoconferencemanager.cpp
+
+    videoconference/videoconferencenotificationjob.h
+    videoconference/videoconferencenotificationjob.cpp
+    videoconference/videoconference.h
+    videoconference/videoconference.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
