@@ -52,9 +52,10 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     }
     mReplies = lst;
 
-    mUsername = o.value(QLatin1String("u")).toObject().value(QLatin1String("username")).toString();
-    mName = o.value(QLatin1String("u")).toObject().value(QLatin1String("name")).toString();
-    mUserId = o.value(QLatin1String("u")).toObject().value(QLatin1String("_id")).toString();
+    const auto userObject = o.value(QLatin1String("u")).toObject();
+    mUsername = userObject.value(QLatin1String("username")).toString();
+    mName = userObject.value(QLatin1String("name")).toString();
+    mUserId = userObject.value(QLatin1String("_id")).toString();
     mEditedByUsername = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("username")).toString();
     mEditedByUserId = o.value(QLatin1String("editedBy")).toObject().value(QLatin1String("_id")).toString();
     mAlias = o.value(QLatin1String("alias")).toString();
