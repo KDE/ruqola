@@ -35,49 +35,47 @@ void OtrNotificationJob::start()
         deleteLater();
         return;
     }
-    if (mOtr.isValid()) {
-        switch (mOtr.type()) {
-        case Otr::OtrType::Unknown:
-            qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
-            deleteLater();
-            break;
-        case Otr::OtrType::End: {
-            auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setIconName(QStringLiteral("network-connect"));
-            notification->setText(generateText());
-            notification->sendEvent();
-            Q_EMIT endOtr(mOtr);
-            deleteLater();
-            break;
-        }
-        case Otr::OtrType::Handshake: {
-            auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setIconName(QStringLiteral("network-connect"));
-            notification->setText(generateText());
-            const QStringList lstActions{i18n("Reject"), i18n("Ok")};
-            notification->setActions(lstActions);
+    switch (mOtr.type()) {
+    case Otr::OtrType::Unknown:
+        qCWarning(RUQOLA_LOG) << "It's a bug we can't have otrtype == Unknown";
+        deleteLater();
+        break;
+    case Otr::OtrType::End: {
+        auto notification = new KNotification(QStringLiteral("Otr-end"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("OTR"));
+        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setText(generateText());
+        notification->sendEvent();
+        Q_EMIT endOtr(mOtr);
+        deleteLater();
+        break;
+    }
+    case Otr::OtrType::Handshake: {
+        auto notification = new KNotification(QStringLiteral("Otr-handshake"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("OTR"));
+        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setText(generateText());
+        const QStringList lstActions{i18n("Reject"), i18n("Ok")};
+        notification->setActions(lstActions);
 
-            connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrNotificationJob::slotActivateNotificationAction);
-            connect(notification, &KNotification::closed, this, &OtrNotificationJob::deleteLater);
-            notification->sendEvent();
-            break;
-        }
-        case Otr::OtrType::Deny: {
-            auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
-            notification->setTitle(i18n("OTR"));
-            notification->setIconName(QStringLiteral("network-connect"));
-            notification->setText(generateText());
-            notification->sendEvent();
-            deleteLater();
-            break;
-        }
-        case Otr::OtrType::AcknowLedge:
-            Q_EMIT acknowLedgeOtr(mOtr);
-            deleteLater();
-            break;
-        }
+        connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrNotificationJob::slotActivateNotificationAction);
+        connect(notification, &KNotification::closed, this, &OtrNotificationJob::deleteLater);
+        notification->sendEvent();
+        break;
+    }
+    case Otr::OtrType::Deny: {
+        auto notification = new KNotification(QStringLiteral("Otr-deny"), KNotification::CloseOnTimeout);
+        notification->setTitle(i18n("OTR"));
+        notification->setIconName(QStringLiteral("network-connect"));
+        notification->setText(generateText());
+        notification->sendEvent();
+        deleteLater();
+        break;
+    }
+    case Otr::OtrType::AcknowLedge:
+        Q_EMIT acknowLedgeOtr(mOtr);
+        deleteLater();
+        break;
     }
 }
 
