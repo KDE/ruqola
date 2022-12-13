@@ -27,7 +27,7 @@ void VideoConferenceTest::shouldExtractVideoConference()
 {
     QFETCH(QString, name);
     QFETCH(VideoConference, videoConference);
-    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/VideoConference/") + name + QLatin1String(".json");
+    const QString originalJsonFile = QLatin1String(RUQOLA_DATA_DIR) + QLatin1String("/videoconference/") + name + QLatin1String(".json");
     const QJsonObject obj = AutoTestHelper::loadJsonObject(originalJsonFile);
 
     VideoConference result;
@@ -44,5 +44,13 @@ void VideoConferenceTest::shouldExtractVideoConference_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<VideoConference>("videoConference");
-    QTest::addRow("deviceinfoempty") << QStringLiteral("deviceinfoempty") << VideoConference();
+    QTest::addRow("conferenceempty") << QStringLiteral("conferenceempty") << VideoConference();
+    {
+        VideoConference conference;
+        conference.setAction(VideoConference::IncomingCall);
+        conference.setCallId(QStringLiteral("6398e61e29673367a61e6f23"));
+        conference.setRoomId(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"));
+        conference.setUserId(QStringLiteral("YbwG4T2uB3wZSZSKB"));
+        QTest::addRow("call") << QStringLiteral("call") << conference;
+    }
 }
