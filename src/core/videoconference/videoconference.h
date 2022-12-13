@@ -19,6 +19,7 @@ public:
         Canceled,
         Confirmed,
         Accepted,
+        Rejected,
     };
     Q_ENUM(Action)
 

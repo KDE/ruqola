@@ -39,6 +39,8 @@ VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
         action = Confirmed;
     } else if (str == QLatin1String("accepted")) {
         action = Accepted;
+    } else if (str == QLatin1String("rejected")) {
+        action = Rejected;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;
     }
