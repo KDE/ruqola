@@ -17,6 +17,8 @@ public:
         Unknown,
         IncomingCall,
         Canceled,
+        Confirmed,
+        Accepted,
     };
     Q_ENUM(Action)
 

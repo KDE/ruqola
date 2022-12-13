@@ -25,6 +25,10 @@ public:
     Q_REQUIRED_RESULT VideoConference videoConference() const;
     void setVideoConference(const VideoConference &newVideoConference);
 
+Q_SIGNALS:
+    void acceptVideoConference();
+    void rejectVideoConference();
+
 private:
     void slotActivateNotificationAction(unsigned int val);
     void inComingCall();

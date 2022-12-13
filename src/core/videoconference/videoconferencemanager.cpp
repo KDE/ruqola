@@ -27,10 +27,8 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
             mVideoConferenceList.append(videoConference);
 
             auto job = new VideoConferenceNotificationJob(this);
-            //            connect(job, &OtrNotificationJob::acceptOtr, this, &OtrManager::slotAcceptOtr);
-            //            connect(job, &OtrNotificationJob::rejectOtr, this, &OtrManager::slotRejectOtr);
-            //            connect(job, &OtrNotificationJob::acknowLedgeOtr, this, &OtrManager::slotAcknowLedgeOtr);
-            //            connect(job, &OtrNotificationJob::endOtr, this, &OtrManager::slotEndOtr);
+            //            connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, &VideoConferenceManager::slotAcceptVideoConference);
+            //            connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, &VideoConferenceManager::slotRejectVideoConference);
 
             job->setRocketChatAccount(mRocketChatAccount);
             job->setVideoConference(videoConference);

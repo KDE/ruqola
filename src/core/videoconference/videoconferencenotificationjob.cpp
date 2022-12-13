@@ -54,12 +54,13 @@ void VideoConferenceNotificationJob::slotActivateNotificationAction(unsigned int
     case 0:
         break;
     case 1:
-        // TODO slotRejectOtr();
+        Q_EMIT rejectVideoConference();
         break;
     case 2:
-        // TODO slotAcceptOtr();
+        Q_EMIT acceptVideoConference();
         break;
     }
+    deleteLater();
 }
 
 bool VideoConferenceNotificationJob::canStart() const

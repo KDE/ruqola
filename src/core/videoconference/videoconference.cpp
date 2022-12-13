@@ -30,6 +30,10 @@ VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
         action = IncomingCall;
     } else if (str == QLatin1String("canceled")) {
         action = Canceled;
+    } else if (str == QLatin1String("confirmed")) {
+        action = Confirmed;
+    } else if (str == QLatin1String("accepted")) {
+        action = Accepted;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;
     }
