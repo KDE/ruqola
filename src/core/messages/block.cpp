@@ -10,13 +10,35 @@ Block::Block() = default;
 
 void Block::parseBlock(const QJsonObject &block)
 {
+    // "blocks":[{"appId":"videoconf-core","blockId":"63981f8a4ef3f3baa965a0d8","callId":"63981f8a4ef3f3baa965a0d8","type":"video_conf"}]
     // TODO
+    mBlockId = block[QLatin1String("blockId")].toString();
+    mCallId = block[QLatin1String("callId")].toString();
+}
+
+QString Block::blockId() const
+{
+    return mBlockId;
+}
+
+void Block::setBlockId(const QString &newBlockId)
+{
+    mBlockId = newBlockId;
+}
+
+QString Block::callId() const
+{
+    return mCallId;
+}
+
+void Block::setCallId(const QString &newCallId)
+{
+    mCallId = newCallId;
 }
 
 bool Block::operator==(const Block &other) const
 {
-    // TODO
-    return true;
+    return mBlockId == other.blockId() && mCallId == other.callId();
 }
 
 QJsonObject Block::serialize(const Block &block)
@@ -33,6 +55,7 @@ Block Block::fromJSon(const QJsonObject &o)
 
 QDebug operator<<(QDebug d, const Block &t)
 {
-    // TODO
+    d << "blockId " << t.blockId();
+    d << "callId " << t.callId();
     return d;
 }

@@ -18,6 +18,16 @@ public:
     static QJsonObject serialize(const Block &block);
     static Block fromJSon(const QJsonObject &o);
     void parseBlock(const QJsonObject &block);
+
+    Q_REQUIRED_RESULT QString blockId() const;
+    void setBlockId(const QString &newBlockId);
+
+    Q_REQUIRED_RESULT QString callId() const;
+    void setCallId(const QString &newCallId);
+
+private:
+    QString mBlockId;
+    QString mCallId;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_MOVABLE_TYPE);
