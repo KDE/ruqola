@@ -15,7 +15,8 @@ class LIBRUQOLACORE_EXPORT VideoConference
 public:
     enum Action {
         Unknown,
-        Call,
+        IncomingCall,
+        Canceled,
     };
     Q_ENUM(Action)
 
@@ -33,6 +34,9 @@ public:
     void setUserId(const QString &newUserId);
 
     Q_REQUIRED_RESULT bool isValid() const;
+
+    Q_REQUIRED_RESULT Action action() const;
+    void setAction(Action newAction);
 
 private:
     Q_REQUIRED_RESULT VideoConference::Action convertActionToEnum(const QString &str);

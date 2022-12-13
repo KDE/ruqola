@@ -5,6 +5,7 @@
 */
 
 #include "videoconferencemanager.h"
+#include "videoconferencenotificationjob.h"
 #include <QJsonObject>
 
 VideoConferenceManager::VideoConferenceManager(RocketChatAccount *account, QObject *parent)
@@ -22,7 +23,18 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
         VideoConference videoConference;
         videoConference.parseVideoConference(videoConfObject);
         if (videoConference.isValid()) {
-            mVideoConferenceList.append(std::move(videoConference));
+            // TODO verify if we already have videoconf
+            mVideoConferenceList.append(videoConference);
+
+            auto job = new VideoConferenceNotificationJob(this);
+            //            connect(job, &OtrNotificationJob::acceptOtr, this, &OtrManager::slotAcceptOtr);
+            //            connect(job, &OtrNotificationJob::rejectOtr, this, &OtrManager::slotRejectOtr);
+            //            connect(job, &OtrNotificationJob::acknowLedgeOtr, this, &OtrManager::slotAcknowLedgeOtr);
+            //            connect(job, &OtrNotificationJob::endOtr, this, &OtrManager::slotEndOtr);
+
+            job->setRocketChatAccount(mRocketChatAccount);
+            job->setVideoConference(videoConference);
+            job->start();
         }
     }
     // [{"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}]

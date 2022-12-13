@@ -26,6 +26,8 @@ public:
     void setVideoConference(const VideoConference &newVideoConference);
 
 private:
+    void slotActivateNotificationAction(unsigned int val);
+    void inComingCall();
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

@@ -27,11 +27,23 @@ VideoConference::Action VideoConference::convertActionToEnum(const QString &str)
 {
     Action action = Unknown;
     if (str == QLatin1String("call")) {
-        action = Call;
+        action = IncomingCall;
+    } else if (str == QLatin1String("canceled")) {
+        action = Canceled;
     } else {
         qCWarning(RUQOLA_LOG) << "Action not implemented! " << str;
     }
     return action;
+}
+
+VideoConference::Action VideoConference::action() const
+{
+    return mAction;
+}
+
+void VideoConference::setAction(Action newAction)
+{
+    mAction = newAction;
 }
 
 QString VideoConference::callId() const

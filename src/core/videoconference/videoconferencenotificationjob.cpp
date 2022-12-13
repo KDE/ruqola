@@ -24,7 +24,42 @@ void VideoConferenceNotificationJob::start()
         deleteLater();
         return;
     }
-    // TODO
+    switch (mVideoConference.action()) {
+    case VideoConference::IncomingCall:
+        inComingCall();
+        break;
+    case VideoConference::Unknown:
+        break;
+    }
+}
+
+void VideoConferenceNotificationJob::inComingCall()
+{
+    auto notification = new KNotification(QStringLiteral("VideoConference-Incoming"), KNotification::CloseOnTimeout);
+    notification->setTitle(i18n("InComing Call"));
+    // notification->setIconName(QStringLiteral("network-connect"));
+    // notification->setText(generateText());
+    const QStringList lstActions{i18n("Accept"), i18n("Reject")};
+    notification->setActions(lstActions);
+
+    connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &VideoConferenceNotificationJob::slotActivateNotificationAction);
+    connect(notification, &KNotification::closed, this, &VideoConferenceNotificationJob::deleteLater);
+    notification->sendEvent();
+}
+
+void VideoConferenceNotificationJob::slotActivateNotificationAction(unsigned int val)
+{
+    // Index == 0 => is the default action. We don't have it.
+    switch (val) {
+    case 0:
+        break;
+    case 1:
+        // TODO slotRejectOtr();
+        break;
+    case 2:
+        // TODO slotAcceptOtr();
+        break;
+    }
 }
 
 bool VideoConferenceNotificationJob::canStart() const
