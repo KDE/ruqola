@@ -480,6 +480,8 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             // TODO update avatar
             qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
 
+        } else if (eventname.endsWith(QLatin1String("/video-conference"))) {
+            qDebug() << " *******************************************************************" << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
@@ -661,6 +663,12 @@ void RocketChatBackend::slotUserIDChanged()
         // Subscribe message
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("webrtc"))));
+        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
+    }
+    {
+        // Subscribe message
+        QJsonArray params;
+        params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("video-conference"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
     }
     {
