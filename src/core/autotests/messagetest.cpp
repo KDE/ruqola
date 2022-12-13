@@ -27,6 +27,9 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(!m.isEditingMode());
     QVERIFY(!m.showReactionIcon());
     QVERIFY(m.localTranslation().isEmpty());
+    QVERIFY(m.blocks().isEmpty());
+    QVERIFY(m.attachments().isEmpty());
+    QCOMPARE(m.discussionCount(), 0);
 }
 
 // TODO add check for default value ???
