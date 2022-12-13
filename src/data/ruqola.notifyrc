@@ -190,3 +190,9 @@ Name[uk]=З'явилося сповіщення
 Name[x-test]=xxA Notification Arrivedxx
 Action=Popup
 Urgency=Normal
+
+[Event/VideoConference-Incoming]
+Name=Incoming Video Conference Call
+Action=Popup
+Urgency=Normal
+
