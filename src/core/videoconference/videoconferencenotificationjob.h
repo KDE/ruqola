@@ -32,6 +32,9 @@ Q_SIGNALS:
 private:
     void slotActivateNotificationAction(unsigned int val);
     void inComingCall();
+    void videoConferenceAccepted();
+    void videoConferenceConfirmed();
+    void videoConferenceCanceled();
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

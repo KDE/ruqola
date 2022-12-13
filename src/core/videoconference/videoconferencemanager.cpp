@@ -23,16 +23,22 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
         VideoConference videoConference;
         videoConference.parseVideoConference(videoConfObject);
         if (videoConference.isValid()) {
-            // TODO verify if we already have videoconf
-            mVideoConferenceList.append(videoConference);
+            if (!mVideoConferenceList.contains(videoConference)) {
+                mVideoConferenceList.append(videoConference);
 
-            auto job = new VideoConferenceNotificationJob(this);
-            //            connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, &VideoConferenceManager::slotAcceptVideoConference);
-            //            connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, &VideoConferenceManager::slotRejectVideoConference);
-
-            job->setRocketChatAccount(mRocketChatAccount);
-            job->setVideoConference(videoConference);
-            job->start();
+                auto job = new VideoConferenceNotificationJob(this);
+                connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, [this, videoConference]() {
+                    qDebug() << " Accept";
+                    // TODO
+                });
+                connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
+                    qDebug() << " REject";
+                    // TODO
+                });
+                job->setRocketChatAccount(mRocketChatAccount);
+                job->setVideoConference(videoConference);
+                job->start();
+            }
         }
     }
     // [{"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}]

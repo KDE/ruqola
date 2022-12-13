@@ -30,7 +30,31 @@ void VideoConferenceNotificationJob::start()
         break;
     case VideoConference::Unknown:
         break;
+    case VideoConference::Canceled:
+        videoConferenceCanceled();
+        break;
+    case VideoConference::Confirmed:
+        videoConferenceConfirmed();
+        break;
+    case VideoConference::Accepted:
+        videoConferenceAccepted();
+        break;
     }
+}
+
+void VideoConferenceNotificationJob::videoConferenceAccepted()
+{
+    // TODO
+}
+
+void VideoConferenceNotificationJob::videoConferenceConfirmed()
+{
+    // TODO
+}
+
+void VideoConferenceNotificationJob::videoConferenceCanceled()
+{
+    // TODO
 }
 
 void VideoConferenceNotificationJob::inComingCall()
