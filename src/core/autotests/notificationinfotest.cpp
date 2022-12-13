@@ -30,6 +30,7 @@ void NotificationInfoTest::shouldHaveDefaultValues()
     QVERIFY(t.tmId().isEmpty());
     QVERIFY(t.pixmap().isNull());
     QVERIFY(t.messageId().isEmpty());
+    QCOMPARE(t.notificationType(), NotificationInfo::NotificationType::StandardMessage);
 }
 
 void NotificationInfoTest::shouldParseNotification_data()

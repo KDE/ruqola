@@ -25,6 +25,7 @@ QDebug operator<<(QDebug d, const NotificationInfo &t)
     d << " pixmap is null ? " << t.pixmap().isNull();
     d << " date time " << t.dateTime();
     d << " messageId " << t.messageId();
+    d << " mNotificationType " << t.notificationType();
     return d;
 }
 
@@ -198,4 +199,14 @@ const QString &NotificationInfo::messageId() const
 void NotificationInfo::setMessageId(const QString &newMessageId)
 {
     mMessageId = newMessageId;
+}
+
+NotificationInfo::NotificationType NotificationInfo::notificationType() const
+{
+    return mNotificationType;
+}
+
+void NotificationInfo::setNotificationType(const NotificationType &newNotificationType)
+{
+    mNotificationType = newNotificationType;
 }

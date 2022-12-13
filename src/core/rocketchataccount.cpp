@@ -2148,27 +2148,34 @@ void RocketChatAccount::parseOtr(const QJsonArray &contents)
 
 void RocketChatAccount::sendNotification(const QJsonArray &contents)
 {
+    // Conference call
+    // NOTIFICATION:  QJsonObject({"collection":"stream-notify-user","fields":
+    // {"args":[{"payload":{"_id":"vD3CXNB2oK5uB8nDT","message":{"msg":"","t":"videoconf"},
+    // "rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","sender":{"_id":"YbwG4T2uB3wZSZSKB",
+    // "name":"laurent","username":"laurent-montel"},"type":"d"},"text":"","title":"laurent"}],
+    // "eventName":"xkNpoB3T98EEPCj2K/notification"},"id":"id","msg":"changed"})
+
     NotificationInfo info;
     info.setAccountName(accountName());
     info.setDateTime(QDateTime::currentDateTime().toString());
     info.parseNotification(contents);
-
-    const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
-    qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
-    QPixmap pix;
-    if (!iconFileName.isEmpty()) {
-        const QUrl url = QUrl::fromLocalFile(iconFileName);
-        qDebug() << "url.toLocalFile()" << url.toLocalFile();
-        const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
-        qDebug() << " load pixmap : " << loaded;
-        qDebug() << " pix " << pix.isNull();
-        Q_UNUSED(loaded)
-        info.setPixmap(pix);
-    }
     if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;
+    } else {
+        const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
+        qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
+        QPixmap pix;
+        if (!iconFileName.isEmpty()) {
+            const QUrl url = QUrl::fromLocalFile(iconFileName);
+            qDebug() << "url.toLocalFile()" << url.toLocalFile();
+            const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+            qDebug() << " load pixmap : " << loaded;
+            qDebug() << " pix " << pix.isNull();
+            Q_UNUSED(loaded)
+            info.setPixmap(pix);
+        }
+        Q_EMIT notification(info);
     }
-    Q_EMIT notification(info);
 }
 
 void RocketChatAccount::inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog)

@@ -13,9 +13,16 @@
 
 class LIBRUQOLACORE_EXPORT NotificationInfo
 {
+    Q_GADGET
 public:
     NotificationInfo();
     ~NotificationInfo() = default;
+
+    enum NotificationType {
+        StandardMessage,
+        ConferenceCall,
+    };
+    Q_ENUM(NotificationType);
 
     Q_REQUIRED_RESULT const QString &accountName() const;
     void setAccountName(const QString &newAccountName);
@@ -61,6 +68,9 @@ public:
     Q_REQUIRED_RESULT const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
+    NotificationType notificationType() const;
+    void setNotificationType(const NotificationType &newNotificationType);
+
 private:
     QString mMessageId;
     QString mAccountName;
@@ -75,6 +85,7 @@ private:
     QString mTmId;
     QString mDateTime;
     QPixmap mPixmap;
+    NotificationType mNotificationType = StandardMessage;
 };
 Q_DECLARE_TYPEINFO(NotificationInfo, Q_MOVABLE_TYPE);
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const NotificationInfo &t);
