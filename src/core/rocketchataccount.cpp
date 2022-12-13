@@ -25,7 +25,6 @@
 #include "model/listmessagesmodelfilterproxymodel.h"
 #include "model/loginmethodmodel.h"
 #include "model/messagemodel.h"
-#include "model/roomfilterproxymodel.h"
 #include "model/searchchannelfilterproxymodel.h"
 #include "model/searchchannelmodel.h"
 #include "model/searchmessagefilterproxymodel.h"
