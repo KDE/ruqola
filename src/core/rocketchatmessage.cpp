@@ -60,6 +60,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
     return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
 }
 
+RocketChatMessage::RocketChatMessageResult RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
+{
+    // return generateMethod(QStringLiteral("license:getModules"), QJsonDocument(params), id);
+    return {};
+}
+
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::licenseGetModules(quint64 id)
 {
     const QJsonArray params{{}};

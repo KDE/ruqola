@@ -85,6 +85,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult licenseGetModules(quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

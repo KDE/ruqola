@@ -201,6 +201,7 @@ public:
     quint64 getRoomById(const QString &roomId);
     quint64 bannerDismiss(const QString &bannerId);
     quint64 licenseGetModules();
+    quint64 videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

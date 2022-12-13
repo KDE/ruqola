@@ -611,6 +611,11 @@ quint64 DDPClient::licenseGetModules()
     return method(result, license_get_modules, DDPClient::Persistent);
 }
 
+quint64 DDPClient::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
+{
+    return {};
+}
+
 quint64 DDPClient::informTypingStatus(const QString &roomId, bool typing, const QString &userName)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->informTypingStatus(roomId, userName, typing, m_uid);
