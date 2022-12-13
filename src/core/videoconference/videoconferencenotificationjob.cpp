@@ -7,6 +7,8 @@
 #include "videoconferencenotificationjob.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
+#include <KNotification>
 
 VideoConferenceNotificationJob::VideoConferenceNotificationJob(QObject *parent)
     : QObject{parent}
@@ -27,11 +29,20 @@ void VideoConferenceNotificationJob::start()
 
 bool VideoConferenceNotificationJob::canStart() const
 {
-    // TODO
-    return false;
+    return mVideoConference.isValid();
 }
 
 void VideoConferenceNotificationJob::setRocketChatAccount(RocketChatAccount *account)
 {
     mRocketChatAccount = account;
+}
+
+VideoConference VideoConferenceNotificationJob::videoConference() const
+{
+    return mVideoConference;
+}
+
+void VideoConferenceNotificationJob::setVideoConference(const VideoConference &newVideoConference)
+{
+    mVideoConference = newVideoConference;
 }

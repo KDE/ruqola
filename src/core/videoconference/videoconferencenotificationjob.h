@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqola_private_export.h"
+#include "videoconference.h"
 #include <QObject>
 #include <QPointer>
 class RocketChatAccount;
@@ -21,6 +22,10 @@ public:
     Q_REQUIRED_RESULT bool canStart() const;
     void setRocketChatAccount(RocketChatAccount *account);
 
+    Q_REQUIRED_RESULT VideoConference videoConference() const;
+    void setVideoConference(const VideoConference &newVideoConference);
+
 private:
+    VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

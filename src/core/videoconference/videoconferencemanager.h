@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "videoconference/videoconference.h"
 #include <QJsonArray>
 #include <QObject>
 class RocketChatAccount;
@@ -20,5 +21,6 @@ public:
     void parseVideoConference(const QJsonArray &contents);
 
 private:
+    QList<VideoConference> mVideoConferenceList;
     RocketChatAccount *const mRocketChatAccount;
 };
