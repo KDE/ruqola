@@ -482,6 +482,15 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
 
         } else if (eventname.endsWith(QLatin1String("/video-conference"))) {
             qDebug() << " *******************************************************************" << eventname << " contents " << contents;
+            if (mRocketChatAccount->ruqolaLogger()) {
+                QJsonDocument d;
+                d.setObject(object);
+                mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: video-conference ") + d.toJson());
+            } else {
+                qCDebug(RUQOLA_LOG) << "stream-notify-user: video-conference " << object;
+            }
+            mRocketChatAccount->parseVideoConference(contents);
+            qCDebug(RUQOLA_LOG) << "stream-notify-user : message event " << eventname << " contents " << contents;
         } else {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;

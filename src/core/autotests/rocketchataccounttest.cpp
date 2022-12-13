@@ -67,4 +67,5 @@ void RocketChatAccountTest::shouldHaveDefaultValue()
     QVERIFY(w.uploadFileManager());
     QVERIFY(!w.allowPasswordReset());
     QVERIFY(w.bannerInfos().isEmpty());
+    QVERIFY(w.videoConferenceManager());
 }

@@ -58,6 +58,7 @@
 #include "receivetypingnotificationmanager.h"
 #include "ruqola_thread_message_debug.h"
 #include "uploadfilemanager.h"
+#include "videoconference/videoconferencemanager.h"
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -93,6 +94,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mAwayManager(new AwayManager(this, this))
     , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
     , mUploadFileManager(new UploadFileManager(this))
+    , mVideoConferenceManager(new VideoConferenceManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2139,6 +2141,12 @@ bool RocketChatAccount::isMessageDeletable(const Message &message) const
     return (message.timeStamp() + ruqolaServerConfig()->blockDeletingMessageInMinutes() * 60 * 1000) > QDateTime::currentMSecsSinceEpoch();
 }
 
+void RocketChatAccount::parseVideoConference(const QJsonArray &contents)
+{
+    qDebug() << " RocketChatAccount::parseVideoConference(const QJsonArray &contents) " << contents;
+    mVideoConferenceManager->parseVideoConference(contents);
+}
+
 void RocketChatAccount::parseOtr(const QJsonArray &contents)
 {
     qDebug() << " void RocketChatAccount::parseOtr(const QJsonArray &contents)" << contents << " account name" << accountName();
@@ -2462,6 +2470,11 @@ void RocketChatAccount::checkLicenses()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
     }
+}
+
+VideoConferenceManager *RocketChatAccount::videoConferenceManager() const
+{
+    return mVideoConferenceManager;
 }
 
 void RocketChatAccount::downloadAppsLanguages()

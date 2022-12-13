@@ -85,6 +85,7 @@ class CustomSoundsManager;
 class AwayManager;
 class SwitchChannelHistoryModel;
 class UploadFileManager;
+class VideoConferenceManager;
 
 namespace RocketChatRestApi
 {
@@ -510,6 +511,9 @@ public:
 
     Q_REQUIRED_RESULT bool sortFavoriteChannels() const;
     void setShowFavoriteRoom(bool checked);
+    void parseVideoConference(const QJsonArray &contents);
+    Q_REQUIRED_RESULT VideoConferenceManager *videoConferenceManager() const;
+
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);
@@ -697,6 +701,7 @@ private:
     LicensesManager mLicensesManager;
     QStringList mSearchListCompletion;
     BannerInfos mBannerInfos;
+    VideoConferenceManager *const mVideoConferenceManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;
