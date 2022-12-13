@@ -13,6 +13,11 @@ VideoConference::VideoConference() = default;
 
 VideoConference::~VideoConference() = default;
 
+bool VideoConference::operator==(const VideoConference &other) const
+{
+    return mAction == other.action() && mCallId == other.callId() && mRoomId == other.roomId() && mUserId == other.userId();
+}
+
 void VideoConference::parseVideoConference(const QJsonObject &content)
 {
     mAction = convertActionToEnum(content[QLatin1String("action")].toString());
@@ -83,4 +88,13 @@ void VideoConference::setUserId(const QString &newUserId)
 bool VideoConference::isValid() const
 {
     return !mCallId.isEmpty() && !mRoomId.isEmpty() && !mUserId.isEmpty() && mAction != Unknown;
+}
+
+QDebug operator<<(QDebug d, const VideoConference &t)
+{
+    d << "mCallId " << t.callId();
+    d << "mRoomId " << t.roomId();
+    d << "mUserId " << t.userId();
+    d << "mAction " << t.action();
+    return d;
 }

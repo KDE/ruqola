@@ -16,4 +16,6 @@ public:
     ~VideoConferenceTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldExtractVideoConference();
+    void shouldExtractVideoConference_data();
 };

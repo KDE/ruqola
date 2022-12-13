@@ -25,6 +25,8 @@ public:
     VideoConference();
     ~VideoConference();
 
+    Q_REQUIRED_RESULT bool operator==(const VideoConference &other) const;
+
     void parseVideoConference(const QJsonObject &content);
     Q_REQUIRED_RESULT QString callId() const;
     void setCallId(const QString &newCallId);
@@ -47,3 +49,6 @@ private:
     QString mUserId;
     Action mAction = Unknown;
 };
+Q_DECLARE_METATYPE(VideoConference)
+Q_DECLARE_TYPEINFO(VideoConference, Q_MOVABLE_TYPE);
+LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const VideoConference &t);
