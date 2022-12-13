@@ -474,7 +474,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 d.setObject(object);
                 mRocketChatAccount->ruqolaLogger()->dataReceived(QByteArrayLiteral("stream-notify-user: userData event: ") + d.toJson());
             } else {
-                qCDebug(RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG) << "Unknown change: " << object;
+                qCDebug(RUQOLA_LOG) << "stream-notify-user: userData event: " << object;
             }
             mRocketChatAccount->updateUserData(contents);
             // TODO update avatar
