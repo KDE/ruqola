@@ -25,8 +25,41 @@ void VideoConferenceInfo::setUrl(const QString &newUrl)
     mUrl = newUrl;
 }
 
+int VideoConferenceInfo::status() const
+{
+    return mStatus;
+}
+
+void VideoConferenceInfo::setStatus(int newStatus)
+{
+    mStatus = newStatus;
+}
+
+bool VideoConferenceInfo::ringing() const
+{
+    return mRinging;
+}
+
+void VideoConferenceInfo::setRinging(bool newRinging)
+{
+    mRinging = newRinging;
+}
+
+QString VideoConferenceInfo::roomId() const
+{
+    return mRoomId;
+}
+
+void VideoConferenceInfo::setRoomId(const QString &newRoomId)
+{
+    mRoomId = newRoomId;
+}
+
 QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
 {
     d << "mUrl " << t.url();
+    d << "mStatus " << t.status();
+    d << "mRinging " << t.ringing();
+    d << "mRoomId " << t.roomId();
     return d;
 }
