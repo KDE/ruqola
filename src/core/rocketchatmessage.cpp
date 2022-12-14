@@ -75,10 +75,7 @@ RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString 
 
     QString videoConferenceId = roomId;
     videoConferenceId.remove(userId);
-    QJsonObject obj{
-        {QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj},
-    };
-    const QJsonArray params{obj};
+    const QJsonArray params{QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj};
     return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 }
 

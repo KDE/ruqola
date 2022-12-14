@@ -33,6 +33,8 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
 
                 auto job = new VideoConferenceNotificationJob(this);
                 connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, [this, videoConference]() {
+                    mRocketChatAccount->ddp()->videoConferenceAccepted(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
+
                     auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
                     RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
                     QJsonObject obj;

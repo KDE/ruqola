@@ -34,7 +34,7 @@ LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 
 void video_conference_accepted(const QJsonObject &root, RocketChatAccount *account)
 {
-    // qDebug() << " root " << root;
+    qDebug() << "video_conference_accepted  root " << root;
     if (account->ruqolaLogger()) {
         account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Video Conference Accepted:") + QJsonDocument(root).toJson());
     }
