@@ -33,6 +33,7 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
 
                 auto job = new VideoConferenceNotificationJob(this);
                 connect(job, &VideoConferenceNotificationJob::acceptVideoConference, this, [this, videoConference]() {
+                    // Send info about accept video conf.
                     mRocketChatAccount->ddp()->videoConferenceAccepted(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
 
                     auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
@@ -43,20 +44,22 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
                     // TODO joinInfo.useMicro = callInfo.useMic;
                     conferenceJoinJob->setInfo(joinInfo);
                     mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
-                    connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &obj) {
-                        // qDebug() << " join info " << obj;
-                        QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
-                    });
+                    connect(conferenceJoinJob,
+                            &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone,
+                            this,
+                            [videoConference, this](const QJsonObject &obj) {
+                                // qDebug() << " join info " << obj;
+                                QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
+                                mVideoConferenceList.removeAll(videoConference);
+                            });
                     if (!conferenceJoinJob->start()) {
                         qCWarning(RUQOLA_LOG) << "Impossible to start VideoConferenceJoinJob job";
                     }
-
-                    qDebug() << " Accept";
-                    // TODO
                 });
                 connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
-                    qDebug() << " REject";
+                    // Send info about reject video conf.
                     mRocketChatAccount->ddp()->videoConferenceRejected(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
+                    mVideoConferenceList.removeAll(videoConference);
                 });
                 job->setRocketChatAccount(mRocketChatAccount);
                 job->setVideoConference(videoConference);
@@ -64,6 +67,4 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
             }
         }
     }
-    // [{"action":"call","params":{"callId":"63983180a7f9e1466a4eedc6","rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K","uid":"YbwG4T2uB3wZSZSKB"}}]
-    // TODO
 }
