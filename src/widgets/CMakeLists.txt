@@ -656,6 +656,8 @@ ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqolawidgets
     DESCRIPTION "ruqola widgets (show image dialog)" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_thread_message_widgets_debug.h IDENTIFIER RUQOLA_THREAD_MESSAGE_WIDGETS_LOG CATEGORY_NAME org.kde.ruqola.threadmessages
     DESCRIPTION "ruqola thread message widgets" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolawidgets_debug_SRCS HEADER ruqola_password_widgets_debug.h IDENTIFIER RUQOLA_PASSWORD_WIDGETS_LOG CATEGORY_NAME org.kde.ruqola.widgets.password
+    DESCRIPTION "ruqola password widget" EXPORT RUQOLA)
 
 target_sources(libruqolawidgets PRIVATE ${libruqolawidgets_debug_SRCS})
 

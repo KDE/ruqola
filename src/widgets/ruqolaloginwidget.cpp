@@ -10,6 +10,7 @@
 #include "misc/passwordlineeditwidget.h"
 #include "misc/twoauthenticationpasswordwidget.h"
 #include "rocketchataccount.h"
+#include "ruqola_password_widgets_debug.h"
 #include <KBusyIndicatorWidget>
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -132,7 +133,10 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     // mLdapCheckBox->setChecked(mRocketChatAccount->useLdap());
     disconnect(mUpdatePasswordConnection);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
+    qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password is empty ? " << mRocketChatAccount->password().isEmpty();
     mUpdatePasswordConnection = connect(mRocketChatAccount, &RocketChatAccount::passwordChanged, mPasswordLineEditWidget, [this]() {
+        qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password has changed => password is empty ? "
+                                             << mRocketChatAccount->password().isEmpty();
         mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
     });
     mAuthenticationCombobox->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
