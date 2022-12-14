@@ -289,3 +289,15 @@ void RocketChatMessageTest::licenseGetModules()
     RocketChatMessage::RocketChatMessageResult r = m.licenseGetModules(43);
     compareFile(r.result, QStringLiteral("licenseGetModules"));
 }
+
+void RocketChatMessageTest::videoConferenceAccepted()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+
+    RocketChatMessage::RocketChatMessageResult r = m.videoConferenceAccepted(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"),
+                                                                             QStringLiteral("639976cb31e2ca494753c439"),
+                                                                             QStringLiteral("YbwG4T2uB3wZSZSKB"),
+                                                                             43);
+    compareFile(r.result, QStringLiteral("videoConferenceAccepted"));
+}

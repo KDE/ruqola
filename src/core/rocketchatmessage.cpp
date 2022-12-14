@@ -60,10 +60,26 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
     return generateMethod(QStringLiteral("deleteOAuthApp"), QJsonDocument(params), id);
 }
 
-RocketChatMessage::RocketChatMessageResult RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    // return generateMethod(QStringLiteral("license:getModules"), QJsonDocument(params), id);
-    return {};
+    QJsonObject actionParamsObj{
+        {QStringLiteral("callId"), callId},
+        {QStringLiteral("uid"), userId},
+        {QStringLiteral("rid"), roomId},
+    };
+    QJsonObject actionObj{
+        {QStringLiteral("action"), QStringLiteral("accepted")},
+        {QStringLiteral("params"), actionParamsObj},
+    };
+
+    QString videoConferenceId = roomId;
+    videoConferenceId.remove(userId);
+    QJsonObject obj{
+        {QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj},
+    };
+    const QJsonArray params{obj};
+    return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
 }
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::licenseGetModules(quint64 id)

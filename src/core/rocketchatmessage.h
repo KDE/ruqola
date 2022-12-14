@@ -85,7 +85,8 @@ public:
 
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult licenseGetModules(quint64 id);
 
-    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
 private:
     Q_DISABLE_COPY(RocketChatMessage)

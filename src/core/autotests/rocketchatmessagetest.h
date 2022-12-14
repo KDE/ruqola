@@ -64,6 +64,8 @@ private Q_SLOTS:
 
     void licenseGetModules();
 
+    void videoConferenceAccepted();
+
 private:
     void compareFile(const QString &data, const QString &name);
 };
