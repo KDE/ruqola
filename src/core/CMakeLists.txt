@@ -418,6 +418,8 @@ target_sources(libruqolacore PRIVATE
     videoconference/videoconferencenotificationjob.cpp
     videoconference/videoconference.h
     videoconference/videoconference.cpp
+    videoconference/videoconferenceinfo.h
+    videoconference/videoconferenceinfo.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
