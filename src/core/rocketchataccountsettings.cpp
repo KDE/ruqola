@@ -7,6 +7,7 @@
 #include "rocketchataccountsettings.h"
 #include "managerdatapaths.h"
 #include "ruqola_debug.h"
+#include "ruqola_password_core_debug.h"
 #include <config-ruqola.h>
 
 #include <QDateTime>
@@ -49,6 +50,7 @@ void RocketChatAccountSettings::initializeSettings(const QString &accountFileNam
     mAccountEnabled = mSetting->value(QStringLiteral("enabled"), true).toBool();
     mDisplayName = mSetting->value(QStringLiteral("displayName")).toString();
     if (mAccountEnabled) {
+        qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "Load password from QKeychain: accountname " << mAccountName;
         auto readJob = new ReadPasswordJob(QStringLiteral("Ruqola"), this);
         connect(readJob, &Job::finished, this, &RocketChatAccountSettings::slotPasswordRead);
         readJob->setKey(mAccountName);
@@ -62,17 +64,17 @@ void RocketChatAccountSettings::slotPasswordRead(QKeychain::Job *baseJob)
     Q_ASSERT(job);
     if (!job->error()) {
         mPassword = job->textData();
-        qCDebug(RUQOLA_LOG) << "OK, we have the password now";
+        qCDebug(RUQOLA_PASSWORD_CORE_LOG) << "OK, we have the password now";
         Q_EMIT passwordChanged();
     } else {
-        qCWarning(RUQOLA_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccountName;
+        qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "We have an error during reading password " << job->errorString() << " Account name " << mAccountName;
     }
 }
 
 void RocketChatAccountSettings::slotPasswordWritten(QKeychain::Job *baseJob)
 {
     if (baseJob->error()) {
-        qCWarning(RUQOLA_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
+        qCWarning(RUQOLA_PASSWORD_CORE_LOG) << "Error writing password using QKeychain:" << baseJob->errorString();
     }
 }
 

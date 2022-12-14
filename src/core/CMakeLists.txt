@@ -448,6 +448,8 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_thread_me
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_translation_debug.h IDENTIFIER RUQOLA_TRANSLATION_LOG
     CATEGORY_NAME org.kde.ruqola.translation DESCRIPTION "ruqola translation" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_password_core_debug.h IDENTIFIER RUQOLA_PASSWORD_CORE_LOG
+    CATEGORY_NAME org.kde.ruqola.password DESCRIPTION "ruqola password support" EXPORT RUQOLA)
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
