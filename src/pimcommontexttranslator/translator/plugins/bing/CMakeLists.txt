@@ -2,18 +2,19 @@
 # SPDX-FileCopyrightText: none
 
 add_library(translator_bing MODULE)
-target_sources(translator_bing PRIVATE
-    bingengineclient.cpp
-    bingengineclient.h
-    bingengineplugin.cpp
-    bingengineplugin.h
-)
-ecm_qt_declare_logging_category(translator_bing
+ecm_qt_declare_logging_category(translator_debug_bing_SRCS
     HEADER bingtranslator_debug.h
     IDENTIFIER TRANSLATOR_bing
     CATEGORY_NAME org.kde.pim.pimcommontexttranslator.bing
     DESCRIPTION "PimCommon bing translator"
     EXPORT PIMCOMMON
+)
+target_sources(translator_bing PRIVATE
+    ${translator_debug_bing_SRCS}
+    bingengineclient.cpp
+    bingengineclient.h
+    bingengineplugin.cpp
+    bingengineplugin.h
 )
 
 target_link_libraries(translator_bing PRIVATE KF5::PimCommonTextTranslator KF5::I18n)

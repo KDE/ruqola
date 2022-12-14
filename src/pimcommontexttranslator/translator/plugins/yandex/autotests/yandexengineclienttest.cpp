@@ -21,4 +21,5 @@ void YandexEngineClientTest::shouldHaveDefaultValues()
     QVERIFY(client.createTranslator());
     QVERIFY(!client.translatedName().isEmpty());
     QVERIFY(!client.supportedLanguages().isEmpty());
+    QVERIFY(!client.hasConfigurationDialog());
 }

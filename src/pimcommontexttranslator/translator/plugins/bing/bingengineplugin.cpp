@@ -5,6 +5,7 @@
 */
 
 #include "bingengineplugin.h"
+#include "translator/plugins/bing/bingtranslator_debug.h"
 #include <KLocalizedString>
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 #include <QCoreApplication>
@@ -95,7 +96,7 @@ void BingEnginePlugin::parseCredentials(QNetworkReply *reply)
 
     sBingIid = QString::fromUtf8(webSiteData.mid(iidBeginPos, iidEndPos - iidBeginPos));
 
-    // qDebug() << "sBingIid " << sBingIid << " sBingIg " << sBingIg << " sBingToken " << sBingToken << " sBingKey " << sBingKey;
+    // qCDebug(TRANSLATOR_bing) << "sBingIid " << sBingIid << " sBingIg " << sBingIg << " sBingToken " << sBingToken << " sBingKey " << sBingKey;
     translateText();
 }
 
@@ -136,7 +137,7 @@ void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
 {
     // Parse translation data
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
-    qDebug() << " jsonResponse " << jsonResponse;
+    qCDebug(TRANSLATOR_bing) << " jsonResponse " << jsonResponse;
     const QJsonObject responseObject = jsonResponse.array().first().toObject();
     if (from() == QStringLiteral("auto")) {
         const QString langCode = responseObject.value(QStringLiteral("detectedLanguage")).toObject().value(QStringLiteral("language")).toString();
@@ -154,7 +155,7 @@ void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
         setJsonDebug(QString::fromUtf8(jsonResponse.toJson(QJsonDocument::Indented)));
     }
 
-    qDebug() << " mResult " << result();
+    qCDebug(TRANSLATOR_bing) << " mResult " << result();
     // m_translationTranslit               += translationsObject.value(QStringLiteral("transliteration")).toObject().value(QStringLiteral("text")).toString();
     reply->deleteLater();
     Q_EMIT translateDone();

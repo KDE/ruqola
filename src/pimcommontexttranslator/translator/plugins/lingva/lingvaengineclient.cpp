@@ -55,7 +55,7 @@ void LingvaEngineClient::showConfigureDialog()
 {
     QPointer<LingvaEngineDialog> dlg = new LingvaEngineDialog();
     KConfigGroup myGroup(KSharedConfig::openConfig(), LingvaEngineUtil::groupName());
-    dlg->setServerUrl(myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), QString()));
+    dlg->setServerUrl(myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), LingvaEngineUtil::defaultServerUrl()));
     if (dlg->exec()) {
         const QString serverUrl = dlg->serverUrl();
         myGroup.writeEntry(LingvaEngineUtil::serverUrlKey(), serverUrl);
