@@ -56,7 +56,7 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
                 });
                 connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
                     qDebug() << " REject";
-                    // TODO
+                    mRocketChatAccount->ddp()->videoConferenceRejected(videoConference.roomId(), videoConference.callId(), mRocketChatAccount->userId());
                 });
                 job->setRocketChatAccount(mRocketChatAccount);
                 job->setVideoConference(videoConference);
