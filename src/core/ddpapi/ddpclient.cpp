@@ -32,6 +32,14 @@ namespace RuqolaTestWebSocket
 LIBRUQOLACORE_EXPORT AbstractWebSocket *_k_ruqola_webSocket = nullptr;
 }
 
+void video_conference_rejected(const QJsonObject &root, RocketChatAccount *account)
+{
+    qDebug() << "video_conference_rejected  root " << root;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Video Conference Rejected:") + QJsonDocument(root).toJson());
+    }
+}
+
 void video_conference_accepted(const QJsonObject &root, RocketChatAccount *account)
 {
     qDebug() << "video_conference_accepted  root " << root;
@@ -622,6 +630,12 @@ quint64 DDPClient::licenseGetModules()
 quint64 DDPClient::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceAccepted(roomId, callId, userId, m_uid);
+    return method(result, video_conference_rejected, DDPClient::Persistent);
+}
+
+quint64 DDPClient::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceRejected(roomId, callId, userId, m_uid);
     return method(result, video_conference_accepted, DDPClient::Persistent);
 }
 

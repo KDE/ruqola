@@ -61,6 +61,25 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
 }
 
 RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
+{
+    QJsonObject actionParamsObj{
+        {QStringLiteral("callId"), callId},
+        {QStringLiteral("uid"), userId},
+        {QStringLiteral("rid"), roomId},
+    };
+    QJsonObject actionObj{
+        {QStringLiteral("action"), QStringLiteral("rejected")},
+        {QStringLiteral("params"), actionParamsObj},
+    };
+
+    QString videoConferenceId = roomId;
+    videoConferenceId.remove(userId);
+    const QJsonArray params{QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj};
+    return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
+}
+
+RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
     QJsonObject actionParamsObj{
