@@ -61,6 +61,12 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
 }
 
 RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
+{
+    return generateVideoConferenceAction(QStringLiteral("confirmed"), roomId, callId, userId, id);
+}
+
+RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
     return generateVideoConferenceAction(QStringLiteral("rejected"), roomId, callId, userId, id);

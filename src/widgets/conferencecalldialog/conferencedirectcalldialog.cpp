@@ -84,12 +84,11 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
 
 void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConference &videoConference)
 {
-    // TODO
     qDebug() << " videoConference " << videoConference;
     if (videoConference.callId() == mCallId) {
-        // TODO
         qDebug() << " CALL REJECTED";
-        // TODO join.
+        cancelCall();
+        reject();
     }
 }
 
@@ -97,9 +96,11 @@ void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConferen
 {
     qDebug() << " videoConference " << videoConference;
     if (videoConference.callId() == mCallId) {
-        // TODO
         qDebug() << " CALL ACCEPTED";
+        // TODO
         // TODO join.
+        // TODO emit confirmed ?
+        accept();
     }
 }
 

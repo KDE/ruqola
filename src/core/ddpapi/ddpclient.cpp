@@ -647,6 +647,12 @@ quint64 DDPClient::videoConferenceRejected(const QString &roomId, const QString 
     return method(result, video_conference_accepted, DDPClient::Persistent);
 }
 
+quint64 DDPClient::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId)
+{
+    const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceConfirmed(roomId, callId, userId, m_uid);
+    return method(result, video_conference_accepted, DDPClient::Persistent);
+}
+
 quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceCall(roomId, callId, userId, m_uid);

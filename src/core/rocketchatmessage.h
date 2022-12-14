@@ -94,6 +94,9 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
     videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);

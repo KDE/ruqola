@@ -204,6 +204,7 @@ public:
     quint64 videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId);
     quint64 videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId);
+    quint64 videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId);
 Q_SIGNALS:
     void connecting();
     void connectedChanged();

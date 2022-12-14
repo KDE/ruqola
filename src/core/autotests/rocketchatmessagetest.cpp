@@ -325,3 +325,15 @@ void RocketChatMessageTest::videoConferenceCall()
                                                                          43);
     compareFile(r.result, QStringLiteral("videoConferenceCall"));
 }
+
+void RocketChatMessageTest::videoConferenceConfirmed()
+{
+    RocketChatMessage m;
+    m.setJsonFormat(QJsonDocument::Indented);
+
+    RocketChatMessage::RocketChatMessageResult r = m.videoConferenceConfirmed(QStringLiteral("YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K"),
+                                                                              QStringLiteral("639976cb31e2ca494753c439"),
+                                                                              QStringLiteral("YbwG4T2uB3wZSZSKB"),
+                                                                              43);
+    compareFile(r.result, QStringLiteral("videoConferenceConfirmed"));
+}
