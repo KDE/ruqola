@@ -56,6 +56,14 @@ void video_conference_accepted(const QJsonObject &root, RocketChatAccount *accou
     }
 }
 
+void video_conference_confirmed(const QJsonObject &root, RocketChatAccount *account)
+{
+    qDebug() << "video_conference_confirmed  root " << root;
+    if (account->ruqolaLogger()) {
+        account->ruqolaLogger()->dataReceived(QByteArrayLiteral("Video Conference Confirmed:") + QJsonDocument(root).toJson());
+    }
+}
+
 void license_get_modules(const QJsonObject &root, RocketChatAccount *account)
 {
     // qDebug() << " root " << root;
@@ -650,7 +658,7 @@ quint64 DDPClient::videoConferenceRejected(const QString &roomId, const QString 
 quint64 DDPClient::videoConferenceConfirmed(const QString &roomId, const QString &callId, const QString &userId)
 {
     const RocketChatMessage::RocketChatMessageResult result = mRocketChatMessage->videoConferenceConfirmed(roomId, callId, userId, m_uid);
-    return method(result, video_conference_accepted, DDPClient::Persistent);
+    return method(result, video_conference_confirmed, DDPClient::Persistent);
 }
 
 quint64 DDPClient::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId)

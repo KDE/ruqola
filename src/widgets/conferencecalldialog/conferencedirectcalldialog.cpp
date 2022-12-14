@@ -100,6 +100,7 @@ void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConferen
         // TODO
         // TODO join.
         // TODO emit confirmed ?
+        mRocketChatAccount->ddp()->videoConferenceConfirmed(mRoomId, mCallId, mRocketChatAccount->userId());
         accept();
     }
 }
