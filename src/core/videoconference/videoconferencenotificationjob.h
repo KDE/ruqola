@@ -36,6 +36,7 @@ private:
     void videoConferenceConfirmed();
     void videoConferenceCanceled();
     void videoConferenceRejected();
+    Q_REQUIRED_RESULT QString generateText() const;
     VideoConference mVideoConference;
     QPointer<RocketChatAccount> mRocketChatAccount;
 };

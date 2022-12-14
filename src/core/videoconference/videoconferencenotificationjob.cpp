@@ -65,12 +65,21 @@ void VideoConferenceNotificationJob::videoConferenceCanceled()
     // TODO
 }
 
+QString VideoConferenceNotificationJob::generateText() const
+{
+    QString str;
+    // TODO improve it.
+    str = mRocketChatAccount->accountName() + QLatin1Char('\n');
+    // Add user name!
+    return str;
+}
+
 void VideoConferenceNotificationJob::inComingCall()
 {
     auto notification = new KNotification(QStringLiteral("VideoConference-Incoming"), KNotification::CloseOnTimeout);
     notification->setTitle(i18n("InComing Call"));
     // notification->setIconName(QStringLiteral("network-connect"));
-    // notification->setText(generateText());
+    notification->setText(generateText());
     const QStringList lstActions{i18n("Accept"), i18n("Reject")};
     notification->setActions(lstActions);
 
