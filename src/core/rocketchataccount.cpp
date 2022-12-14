@@ -40,6 +40,7 @@
 #include "rocketchatcache.h"
 #include "ruqola_debug.h"
 #include "ruqola_notification_debug.h"
+#include "ruqola_reconnect_core_debug.h"
 #include "ruqola_typing_notification_debug.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
@@ -217,6 +218,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
         // If there is a new network connection, log out and back. The uni is "/" when the last primary connection
         // was closed. Do not log out to keep the messages visible. Login only if we were logged in at this point.
         if (uni != QLatin1String("/") && mDdp) {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "Reconnect and logout : " << accountName();
             logOut();
             slotReconnectToServer();
         }
@@ -544,6 +546,7 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::permissionListAllDone, this, &RocketChatAccount::slotPermissionListAllDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersSetPreferencesDone, this, &RocketChatAccount::slotUsersSetPreferencesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::networkSessionFailedError, this, [this]() {
+            qCDebug(RUQOLA_RECONNECT_LOG) << "networkSessionFailedError Reconnect and logout : " << accountName();
             logOut();
             slotReconnectToServer();
         });
@@ -2412,7 +2415,7 @@ void RocketChatAccount::slotReconnectToServer()
     // (e.g. while stopped in gdb, or if network went down for a bit)
     // Let's try connecting in again
     QTimer::singleShot(mDelayReconnect, this, [this]() {
-        qCDebug(RUQOLA_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
+        qCDebug(RUQOLA_RECONNECT_LOG) << "Attempting to reconnect after the server disconnected us: " << accountName();
         if (mDelayReconnect == 100) {
             mDelayReconnect = 1000;
         } else {
