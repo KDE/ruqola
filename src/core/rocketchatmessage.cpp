@@ -63,24 +63,23 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteOAuthApp(con
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
-    QJsonObject actionParamsObj{
-        {QStringLiteral("callId"), callId},
-        {QStringLiteral("uid"), userId},
-        {QStringLiteral("rid"), roomId},
-    };
-    QJsonObject actionObj{
-        {QStringLiteral("action"), QStringLiteral("rejected")},
-        {QStringLiteral("params"), actionParamsObj},
-    };
+    return generateVideoConferenceAction(QStringLiteral("rejected"), roomId, callId, userId, id);
+}
 
-    QString videoConferenceId = roomId;
-    videoConferenceId.remove(userId);
-    const QJsonArray params{QStringLiteral("%1/video-conference").arg(videoConferenceId), actionObj};
-    return generateMethod(QStringLiteral("stream-notify-user"), QJsonDocument(params), id);
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
+{
+    return generateVideoConferenceAction(QStringLiteral("call"), roomId, callId, userId, id);
 }
 
 RocketChatMessage::RocketChatMessageResult
 RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString &callId, const QString &userId, quint64 id)
+{
+    return generateVideoConferenceAction(QStringLiteral("accepted"), roomId, callId, userId, id);
+}
+
+RocketChatMessage::RocketChatMessageResult
+RocketChatMessage::generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id)
 {
     QJsonObject actionParamsObj{
         {QStringLiteral("callId"), callId},
@@ -88,7 +87,7 @@ RocketChatMessage::videoConferenceAccepted(const QString &roomId, const QString 
         {QStringLiteral("rid"), roomId},
     };
     QJsonObject actionObj{
-        {QStringLiteral("action"), QStringLiteral("accepted")},
+        {QStringLiteral("action"), action},
         {QStringLiteral("params"), actionParamsObj},
     };
 

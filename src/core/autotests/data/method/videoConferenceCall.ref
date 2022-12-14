@@ -1,0 +1,16 @@
+{
+    "id": "43",
+    "method": "stream-notify-user",
+    "msg": "method",
+    "params": [
+        "xkNpoB3T98EEPCj2K/video-conference",
+        {
+            "action": "call",
+            "params": {
+                "callId": "639976cb31e2ca494753c439",
+                "rid": "YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K",
+                "uid": "YbwG4T2uB3wZSZSKB"
+            }
+        }
+    ]
+}

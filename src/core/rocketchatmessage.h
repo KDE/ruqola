@@ -91,6 +91,9 @@ public:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
     videoConferenceRejected(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    videoConferenceCall(const QString &roomId, const QString &callId, const QString &userId, quint64 id);
+
 private:
     Q_DISABLE_COPY(RocketChatMessage)
     Q_REQUIRED_RESULT QJsonValue toJsonDateTime(const QDateTime &dateTime);
@@ -98,6 +101,8 @@ private:
     Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
     saveRoomSettings(const QString &key, const QString &roomId, const QJsonValue &value, quint64 id);
     QJsonDocument::JsonFormat mJsonFormat = QJsonDocument::Compact;
+    Q_REQUIRED_RESULT RocketChatMessage::RocketChatMessageResult
+    generateVideoConferenceAction(const QString &action, const QString &roomId, const QString &callId, const QString &userId, quint64 id);
 };
 
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RocketChatMessage::RocketChatMessageResult &t);

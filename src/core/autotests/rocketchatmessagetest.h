@@ -66,6 +66,7 @@ private Q_SLOTS:
 
     void videoConferenceAccepted();
     void videoConferenceRejected();
+    void videoConferenceCall();
 
 private:
     void compareFile(const QString &data, const QString &name);
