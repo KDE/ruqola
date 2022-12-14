@@ -20,7 +20,14 @@ public:
 
     void parseVideoConference(const QJsonArray &contents);
 
+Q_SIGNALS:
+    void videoConferenceCallAccepted(const VideoConference &videoConference);
+    void videoConferenceCallRejected(const VideoConference &videoConference);
+    void videoConferenceCallConfirmed(const VideoConference &videoConference);
+    void videoConferenceCallCanceled(const VideoConference &videoConference);
+
 private:
+    void showNotification(const VideoConference &videoConference);
     QList<VideoConference> mVideoConferenceList;
     RocketChatAccount *const mRocketChatAccount;
 };

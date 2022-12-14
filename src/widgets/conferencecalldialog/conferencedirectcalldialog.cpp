@@ -6,10 +6,12 @@
 
 #include "conferencedirectcalldialog.h"
 #include "connection.h"
+#include "ddpapi/ddpclient.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "video-conference/videoconferencecanceljob.h"
 #include "video-conference/videoconferencestartjob.h"
+#include "videoconference/videoconferencemanager.h"
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
@@ -41,9 +43,10 @@ ConferenceDirectCallDialog::~ConferenceDirectCallDialog() = default;
 void ConferenceDirectCallDialog::slotRejected()
 {
     auto job = new RocketChatRestApi::VideoConferenceCancelJob(this);
+    job->setCallId(mCallId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::VideoConferenceCancelJob::videoConferenceCancelDone, this, [this](const QJsonObject &obj) {
-        qDebug() << "obj  " << obj;
+        qDebug() << "stop obj  ***********************************************" << obj;
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCancelJob job";
@@ -61,12 +64,53 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
     startInfo.allowRinging = mAllowRinging;
     job->setInfo(startInfo);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
-        qDebug() << " obj " << obj;
+    connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this](const QJsonObject &obj) {
+        qDebug() << "start obj ******************************" << obj;
+        mCallId = obj[QLatin1String("callId")].toString();
+        callUser();
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceStartJob job";
     }
+    connect(mRocketChatAccount->videoConferenceManager(),
+            &VideoConferenceManager::videoConferenceCallAccepted,
+            this,
+            &ConferenceDirectCallDialog::slotVideoConferenceAccepted);
+    connect(mRocketChatAccount->videoConferenceManager(),
+            &VideoConferenceManager::videoConferenceCallCanceled,
+            this,
+            &ConferenceDirectCallDialog::slotVideoConferenceCanceled);
+}
+
+void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConference &videoConference)
+{
+    // TODO
+    qDebug() << " videoConference " << videoConference;
+    if (videoConference.callId() == mCallId) {
+        // TODO
+        qDebug() << " CALL REJECTED";
+        // TODO join.
+    }
+}
+
+void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConference &videoConference)
+{
+    qDebug() << " videoConference " << videoConference;
+    if (videoConference.callId() == mCallId) {
+        // TODO
+        qDebug() << " CALL ACCEPTED";
+        // TODO join.
+    }
+}
+
+void ConferenceDirectCallDialog::callUser()
+{
+    mRocketChatAccount->ddp()->videoConferenceCall(mRoomId, mCallId, mRocketChatAccount->userId());
+}
+
+void ConferenceDirectCallDialog::cancelCall()
+{
+    mRocketChatAccount->ddp()->videoConferenceRejected(mRoomId, mCallId, mRocketChatAccount->userId());
 }
 
 bool ConferenceDirectCallDialog::allowRinging() const

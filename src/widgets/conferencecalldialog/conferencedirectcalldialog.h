@@ -8,6 +8,7 @@
 
 #include "conferencecallwidget.h"
 #include "libruqolawidgets_private_export.h"
+#include "videoconference/videoconference.h"
 #include <QDialog>
 class RocketChatAccount;
 class QToolButton;
@@ -26,9 +27,14 @@ public:
     void setAllowRinging(bool newAllowRinging);
 
 private:
+    void cancelCall();
     void slotRejected();
     void slotStartVideoConference();
+    void callUser();
+    void slotVideoConferenceAccepted(const VideoConference &videoConference);
+    void slotVideoConferenceCanceled(const VideoConference &videoConference);
     QString mRoomId;
+    QString mCallId;
     ConferenceCallWidget *const mConferenceCallWidget;
     RocketChatAccount *const mRocketChatAccount;
     bool mAllowRinging = false;
