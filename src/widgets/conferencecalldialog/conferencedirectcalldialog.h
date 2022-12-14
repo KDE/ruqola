@@ -16,7 +16,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceDirectCallDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent);
+    explicit ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceDirectCallDialog() override;
 
 private:

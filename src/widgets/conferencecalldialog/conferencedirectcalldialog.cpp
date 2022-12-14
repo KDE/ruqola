@@ -7,6 +7,8 @@
 #include "conferencedirectcalldialog.h"
 
 #include <KLocalizedString>
+#include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ConferenceDirectCallDialog::ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent)
@@ -19,8 +21,13 @@ ConferenceDirectCallDialog::ConferenceDirectCallDialog(RocketChatAccount *accoun
 
     mConferenceCallWidget->setObjectName(QStringLiteral("mConferenceCallWidget"));
     mainLayout->addWidget(mConferenceCallWidget);
+
+    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    button->setObjectName(QStringLiteral("button"));
+    button->button(QDialogButtonBox::Ok)->setText(i18n("Start"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &ConferenceDirectCallDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &ConferenceDirectCallDialog::accept);
 }
 
-ConferenceDirectCallDialog::~ConferenceDirectCallDialog()
-{
-}
+ConferenceDirectCallDialog::~ConferenceDirectCallDialog() = default;
