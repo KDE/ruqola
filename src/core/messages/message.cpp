@@ -76,11 +76,13 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     if (!type.isEmpty()) {
         if (type == QStringLiteral("videoconf")) {
             mMessageType = VideoConference;
+            qDebug() << " VIDEO " << o;
         } else {
             mSystemMessageType = type;
             mMessageType = System;
         }
     }
+    parseBlocks(o.value(QLatin1String("blocks")).toArray());
     parseMentions(o.value(QLatin1String("mentions")).toArray());
 
     parseAttachment(o.value(QLatin1String("attachments")).toArray());
@@ -88,6 +90,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseReactions(o.value(QLatin1String("reactions")).toObject());
     parseChannels(o.value(QLatin1String("channels")).toArray());
     // TODO unread element
+    // Parse blocks
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
@@ -347,6 +350,19 @@ const QMap<QString, QString> &Message::channels() const
 void Message::setChannels(const QMap<QString, QString> &newChannels)
 {
     mChannels = newChannels;
+}
+
+void Message::parseBlocks(const QJsonArray &blocks)
+{
+    mBlocks.clear();
+    for (int i = 0; i < blocks.count(); i++) {
+        const QJsonObject blockObject = blocks.at(i).toObject();
+        Block b;
+        b.parseBlock(blockObject);
+        if (b.isValid()) {
+            mBlocks.append(b);
+        }
+    }
 }
 
 void Message::parseMentions(const QJsonArray &mentions)

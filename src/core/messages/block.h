@@ -11,7 +11,14 @@
 #include <QJsonObject>
 class LIBRUQOLACORE_TESTS_EXPORT Block
 {
+    Q_GADGET
 public:
+    enum BlockType {
+        Unknown,
+        VideoConf,
+    };
+    Q_ENUM(BlockType)
+
     Block();
     Q_REQUIRED_RESULT bool operator==(const Block &other) const;
 
@@ -25,9 +32,20 @@ public:
     Q_REQUIRED_RESULT QString callId() const;
     void setCallId(const QString &newCallId);
 
+    Q_REQUIRED_RESULT QString appId() const;
+    void setAppId(const QString &newAppId);
+
+    Q_REQUIRED_RESULT BlockType blockType() const;
+    void setBlockType(BlockType newBlockType);
+
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
+    Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;
     QString mCallId;
+    QString mAppId;
+    BlockType mBlockType = Unknown;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_MOVABLE_TYPE);

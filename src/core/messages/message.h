@@ -214,6 +214,7 @@ private:
     void parseUrls(const QJsonArray &urls);
     void parseReactions(const QJsonObject &mentions);
     void parseChannels(const QJsonArray &channels);
+    void parseBlocks(const QJsonArray &blocks);
 
     // Local translation
     QString mLocalTranslation;

@@ -19,4 +19,8 @@ void BlockTest::shouldHaveDefaultValues()
     Block b;
     QVERIFY(b.callId().isEmpty());
     QVERIFY(b.blockId().isEmpty());
+    QVERIFY(b.appId().isEmpty());
+    QCOMPARE(b.blockType(), Block::Unknown);
+
+    QVERIFY(!b.isValid());
 }

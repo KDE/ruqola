@@ -5,6 +5,7 @@
 */
 
 #include "block.h"
+#include "ruqola_debug.h"
 
 Block::Block() = default;
 
@@ -14,6 +15,22 @@ void Block::parseBlock(const QJsonObject &block)
     // TODO
     mBlockId = block[QLatin1String("blockId")].toString();
     mCallId = block[QLatin1String("callId")].toString();
+    mAppId = block[QLatin1String("appId")].toString();
+    mBlockType = convertBlockTypeToEnum(block[QLatin1String("type")].toString());
+}
+
+Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
+{
+    if (typeStr == QLatin1String("video_conf")) {
+        return VideoConf;
+    }
+    qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
+    return Unknown;
+}
+
+bool Block::isValid() const
+{
+    return mBlockType != Unknown;
 }
 
 QString Block::blockId() const
@@ -36,9 +53,29 @@ void Block::setCallId(const QString &newCallId)
     mCallId = newCallId;
 }
 
+QString Block::appId() const
+{
+    return mAppId;
+}
+
+void Block::setAppId(const QString &newAppId)
+{
+    mAppId = newAppId;
+}
+
+Block::BlockType Block::blockType() const
+{
+    return mBlockType;
+}
+
+void Block::setBlockType(BlockType newBlockType)
+{
+    mBlockType = newBlockType;
+}
+
 bool Block::operator==(const Block &other) const
 {
-    return mBlockId == other.blockId() && mCallId == other.callId();
+    return mBlockId == other.blockId() && mCallId == other.callId() && mAppId == other.appId();
 }
 
 QJsonObject Block::serialize(const Block &block)
@@ -57,5 +94,6 @@ QDebug operator<<(QDebug d, const Block &t)
 {
     d << "blockId " << t.blockId();
     d << "callId " << t.callId();
+    d << "appId " << t.appId();
     return d;
 }
