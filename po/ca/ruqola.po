@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-13 09:10+0100\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
+"PO-Revision-Date: 2022-12-14 08:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1310,7 +1310,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Reject"
 msgstr "Rebutja"
@@ -1346,12 +1346,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2851
+#: core/rocketchataccount.cpp:2854
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2852
+#: core/rocketchataccount.cpp:2855
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -1440,15 +1440,15 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:71
+#: core/videoconference/videoconferencenotificationjob.cpp:80
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Trucada entrant"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Accepta"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -2278,23 +2278,23 @@ msgstr "Jiddisch"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:57
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr "Error: No s'han pogut trobar les credencials de Bing en la versió web."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:65
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr "Error: No s'ha pogut extreure la clau de Bing de la versió web."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:74
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr "Error: No s'ha pogut extreure el testimoni de Bing de la versió web."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:83
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:92
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
@@ -4066,7 +4066,7 @@ msgstr "Estableix una contrasenya aleatòria i l'envia per correu"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Nom d'usuari:"
@@ -4089,7 +4089,7 @@ msgstr "Correu electrònic:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:72
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Contrasenya:"
@@ -6493,6 +6493,7 @@ msgid "Start a Call"
 msgstr "Inicia una trucada"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:35
 #, kde-format
 msgid "Start"
 msgstr "Inicia"
@@ -6516,6 +6517,14 @@ msgstr "Micro encès"
 #, kde-format
 msgid "Micro Off"
 msgstr "Micro apagat"
+
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
+msgctxt "@title:window"
+msgid "Start a Direct Call"
+msgstr "Inicia una trucada"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -7009,7 +7018,7 @@ msgstr "Nom del compte:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
 msgstr "URL del servidor:"
@@ -7584,7 +7593,7 @@ msgstr ""
 "Es requereix una contrasenya d'un ús per a completar el procediment d'inici "
 "de sessió."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Ha fallat l'inici de la sessió: codi OTP no vàlid."
@@ -8533,12 +8542,12 @@ msgstr "Resposta a un fil"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Resposta a un fil del missatge: «%1»"
 
-#: widgets/room/roomwidget.cpp:223
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voleu eliminar l'historial?"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:225
 #, kde-format
 msgid "Remove History"
 msgstr "Elimina l'historial"
@@ -8676,27 +8685,27 @@ msgid "Error from '%1' account"
 msgstr "Error des del compte «%1»"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Inici de sessió"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name:"
 msgstr "Nom del compte:"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account name"
 msgstr "Nom del compte"
 
-#: widgets/ruqolaloginwidget.cpp:59
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Mètode d'autenticació"
 
-#: widgets/ruqolaloginwidget.cpp:87
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8705,18 +8714,18 @@ msgstr ""
 "Heu activat un segon factor d'autenticació.\n"
 "Introduïu el codi generat o un codi de reserva."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Ha fallat l'inici de la sessió: nom d'usuari o contrasenya no vàlids"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "S'ha trobat un problema d'instal·lació. Aquí no s'ha trobat cap connector."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Ha fallat l'inici de la sessió: error genèric"

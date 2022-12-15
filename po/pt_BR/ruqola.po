@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:47+0000\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1336,7 +1336,7 @@ msgid "OTR"
 msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Reject"
 msgstr "Rejeitar"
@@ -1371,12 +1371,12 @@ msgstr "<strong>%1</strong> está digitando..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:2851
+#: core/rocketchataccount.cpp:2854
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensagens"
 
-#: core/rocketchataccount.cpp:2852
+#: core/rocketchataccount.cpp:2855
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Seu e-mail está na fila para envio."
@@ -1467,12 +1467,12 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:71
+#: core/videoconference/videoconferencenotificationjob.cpp:80
 #, kde-format
 msgid "InComing Call"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Accept"
 msgstr ""
@@ -2305,23 +2305,23 @@ msgstr ""
 msgid "Bing"
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:57
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:65
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:74
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:83
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:92
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
@@ -4130,7 +4130,7 @@ msgstr "Definir senha aleatória e enviar por e-mail"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Nome do usuário:"
@@ -4153,7 +4153,7 @@ msgstr "E-mail:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:72
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Senha:"
@@ -6574,6 +6574,7 @@ msgid "Start a Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:35
 #, kde-format
 msgid "Start"
 msgstr ""
@@ -6596,6 +6597,12 @@ msgstr ""
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro Off"
+msgstr ""
+
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:26
+#, kde-format
+msgctxt "@title:window"
+msgid "Start a Direct Call"
 msgstr ""
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
@@ -7101,7 +7108,7 @@ msgstr "Nome da conta:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -7702,7 +7709,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Uma senha de uso único é necessária para completar o procedimento de login."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Falha no login: código OTP inválido."
@@ -8661,12 +8668,12 @@ msgstr "Respondendo em um tópico"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Responder no tópico para mensagem: '%1'"
 
-#: widgets/room/roomwidget.cpp:223
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Deseja realmente excluir o histórico?"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:225
 #, kde-format
 msgid "Remove History"
 msgstr "Excluir histórico"
@@ -8805,28 +8812,28 @@ msgid "Error from '%1' account"
 msgstr "Erro da conta '%1'"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Login"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name:"
 msgstr "Nome da conta:"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Account name"
 msgstr "Nome da conta:"
 
-#: widgets/ruqolaloginwidget.cpp:59
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Método de autenticação"
 
-#: widgets/ruqolaloginwidget.cpp:87
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8835,17 +8842,17 @@ msgstr ""
 "Você habilitou a autenticação de dois fatores.\n"
 "Digite o código gerado ou um código de backup."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Falha no login: nome de usuário ou senha inválido"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Encontrado problema na instalação. Nenhum plugin encontrado aqui."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Falha no login: erro genérico"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-11 06:33+0100\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
+"PO-Revision-Date: 2022-12-14 07:52+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -524,10 +524,9 @@ msgid "%1 added @%2 to this Team"
 msgstr ""
 
 #: core/messages/message.cpp:569
-#, fuzzy, kde-format
-#| msgid "%1 joined this Team"
+#, kde-format
 msgid "%1 removed @%2 from this Team"
-msgstr "%1 შემოუერთდა ამ გუნდს"
+msgstr "%1 -მა @%2 ამ გუნდიდან წაშალა"
 
 #: core/messages/message.cpp:571
 #, kde-format
@@ -1305,7 +1304,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Reject"
 msgstr "უარყოფა"
@@ -1340,12 +1339,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2851
+#: core/rocketchataccount.cpp:2854
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2852
+#: core/rocketchataccount.cpp:2855
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -1434,15 +1433,15 @@ msgstr "ადმინისტრატორი"
 msgid "Bot"
 msgstr "ბოტი"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:71
+#: core/videoconference/videoconferencenotificationjob.cpp:80
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "შემომავალი ზარი"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "დასტური"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -1495,7 +1494,7 @@ msgstr "შეაფასეთ:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "ხმის სიმაღლე:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:46
@@ -1767,7 +1766,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:436
 #, kde-format
 msgid "Replace double quotes by french quotes"
-msgstr ""
+msgstr "ორმაგი ბრჭყალების ფრანგული ბრჭყალებთ ჩანაცვლება"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:457
@@ -1779,7 +1778,7 @@ msgstr "&ბრჭყალების მორგება"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:463
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr ""
+msgstr "&ორმაგი ბრჭყალების ტიპოგრაფიულ ბრჭყალებად გადაკეთება"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -1819,7 +1818,7 @@ msgstr "გამხსნელი ბრჭყალი:"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:572
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
-msgstr ""
+msgstr "&ერთმაგი ბრჭყალების ტიპოგრაფიულ ბრჭყალებად გადაკეთება"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -1874,7 +1873,7 @@ msgstr "KMail/Calligra -ის ავტოკორექცია"
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr ""
+msgstr "\"ჩანასაცვლებელი\" სტრიქონი \"მოსაძებნი\" სტრიქონის ტოლია."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:401
 #, kde-format
@@ -1914,7 +1913,7 @@ msgstr "ავტოკორექციის ფაილის შემო�
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:655
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
-msgstr ""
+msgstr "ენა შეიცვალა. გნებავთ კონფიგურაცია წინა ენაში შეინახოთ?"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:656
 #, kde-format
@@ -2250,23 +2249,23 @@ msgstr "იდიში"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:57
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr "შეცდომა: ვებ ვერსიაში Bing-ის ავტორიზაციის დეტალები ვერ ვიპოვე."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:65
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის გასაღების გამოღება შეუძლებელია."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:74
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr "შეცდომა: ვებ ვერსიიდან Bing-ის კოდის გამოღება შეუძლებელია."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:83
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:92
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
@@ -2325,6 +2324,8 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
+"შეცდომა: ძრავის სისტემებმა თქვენი კომპიუტერის ქსელიდან საეჭვო ტრაფიკი "
+"დააფიქსირა. მოთხოვნა მოგვიანებით სცადეთ."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:60
 #, kde-format
@@ -2344,7 +2345,7 @@ msgstr "შეცდომა: ავტომატურად აღმოჩ
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr ""
+msgstr "'საიდან' და 'სადამდე' ენები ერთი და იგივეა."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:18
 #, kde-format
@@ -2410,7 +2411,7 @@ msgstr "თარგმნა..."
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "მთარგმნელ ვებგვერდთან მიერთების პრობლემა."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, kde-format
@@ -2643,7 +2644,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:235
 #, kde-format
 msgid "Can't invite user to direct rooms"
-msgstr ""
+msgstr "პირდაპირ ოთახებში მომხმარებელს ვერ მოიწვევთ"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:237
 #, kde-format
@@ -2825,7 +2826,7 @@ msgstr "ფაილის არასწორი სიგანე"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:307
 #, kde-format
 msgid "You informed an invalid FROM address."
-msgstr "თქვენი შეყვანილი FROM მისამართი არასწორია"
+msgstr "თქვენი შეყვანილი FROM მისამართი არასწორია."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:309
 #, kde-format
@@ -4009,7 +4010,7 @@ msgstr "შემთხვევითი პაროლის დაყენ�
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "მომხმარებელი:"
@@ -4032,7 +4033,7 @@ msgstr "ელფოტა:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:72
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
@@ -6283,6 +6284,7 @@ msgid "Start a Call"
 msgstr "ზარის დაწყება"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:35
 #, kde-format
 msgid "Start"
 msgstr "დაწყება"
@@ -6290,22 +6292,30 @@ msgstr "დაწყება"
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera On"
-msgstr ""
+msgstr "კამერა ჩართ"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera Off"
-msgstr ""
+msgstr "გამერა გამორთ"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro On"
-msgstr ""
+msgstr "მიკროს ჩართ"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro Off"
-msgstr ""
+msgstr "მიკროს გამორთ"
+
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
+msgctxt "@title:window"
+msgid "Start a Direct Call"
+msgstr "ზარის დაწყება"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -6791,7 +6801,7 @@ msgstr "ანგარიშის სახელი:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
 msgstr "სერვერის URL:"
@@ -7364,7 +7374,7 @@ msgstr "შესვლა ვერ მოხერხდა: ზოგად�
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "შესვლის შეცდომა: OTP კოდი არასწორია."
@@ -7848,22 +7858,22 @@ msgstr "ჩათვლით"
 #: widgets/prunemessages/prunemessageswidget.cpp:20
 #, kde-format
 msgid "Do not Prune Pinned Messages"
-msgstr ""
+msgstr "მიმაგრებული შეტყობინებები არ შეიკვეცება"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:21
 #, kde-format
 msgid "Do not Prune Discussion Messages"
-msgstr ""
+msgstr "კამათის შეტყობინებები არ შეიკვეცება"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:22
 #, kde-format
 msgid "Do not Prune Threads"
-msgstr ""
+msgstr "ნაკადები არ შეიკვეცება"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:23
 #, kde-format
 msgid "Only Remove Attached Files. Keep messages"
-msgstr ""
+msgstr "მხოლოდ ფაილების წაშლა. შეტყობინებების დატოვება"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:38
 #, kde-format
@@ -8284,12 +8294,12 @@ msgstr "ნაკადში პასუხი"
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:223
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Do you want really remove history?"
-msgstr ""
+msgstr "მართლა გნებავთ ისტორიის წაშლა?"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:225
 #, kde-format
 msgid "Remove History"
 msgstr "ისტორიის წაშლა"
@@ -8418,8 +8428,8 @@ msgstr "იგნორი"
 #, kde-format
 msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "მომხმარებელი ოთახში: %1 (სულ: %2)"
+msgstr[1] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 
 #: widgets/ruqolacentralwidget.cpp:43
 #, kde-format
@@ -8427,44 +8437,44 @@ msgid "Error from '%1' account"
 msgstr "შეცდომა '%1' ანგარიშიდან"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "შესვლა"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name:"
 msgstr "ანგარიშის სახელი:"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account name"
 msgstr "ანგარიშის სახელი"
 
-#: widgets/ruqolaloginwidget.cpp:59
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "ავთენტიკაციის მეთოდი"
 
-#: widgets/ruqolaloginwidget.cpp:87
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
@@ -8776,7 +8786,7 @@ msgstr "ანგარიშის ინფორმაცია"
 #: widgets/userfeedback/accountinfosource.cpp:27
 #, kde-format
 msgid "Return the number of account."
-msgstr ""
+msgstr "ანგარიშების რაოდენობის დაბრუნება."
 
 #~ msgid "Read Only"
 #~ msgstr "მხოლოდ კითხვისთვის"

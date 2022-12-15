@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-13 14:50+0200\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
+"PO-Revision-Date: 2022-12-14 07:22+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1313,7 +1313,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Reject"
 msgstr "Відмовити"
@@ -1348,12 +1348,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2851
+#: core/rocketchataccount.cpp:2854
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2852
+#: core/rocketchataccount.cpp:2855
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -1442,15 +1442,15 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:71
+#: core/videoconference/videoconferencenotificationjob.cpp:80
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Вхідний виклик"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Прийняти"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -2280,23 +2280,23 @@ msgstr "ідиш"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:57
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr "Помилка: не вдалося знайти реєстраційні дані Bing у вебверсії."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:65
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr "Помилка: не вдалося видобути ключ Bing з вебверсії."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:74
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr "Помилка: не вдалося видобути жетон Bing з вебверсії."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:83
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:92
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr "Помилка: не вдалося видобути додаткові дані Bing з вебверсії."
@@ -4077,7 +4077,7 @@ msgstr "Встановити випадковий пароль і надісла
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Користувач:"
@@ -4100,7 +4100,7 @@ msgstr "Ел. пошта:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:72
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Пароль:"
@@ -6509,6 +6509,7 @@ msgid "Start a Call"
 msgstr "Почати виклик"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:35
 #, kde-format
 msgid "Start"
 msgstr "Почати"
@@ -6532,6 +6533,14 @@ msgstr "Мікрофон увімкнено"
 #, kde-format
 msgid "Micro Off"
 msgstr "Мікрофон вимкнено"
+
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
+msgctxt "@title:window"
+msgid "Start a Direct Call"
+msgstr "Почати виклик"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -7026,7 +7035,7 @@ msgstr "Облікова назва:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
 msgstr "Адреса сервера:"
@@ -7621,7 +7630,7 @@ msgstr "Помилка під час спроби увійти: загальна
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Для завершення процедури входу слід ввести одноразовий пароль."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Помилка під час спроби увійти: некоректний код OTP."
@@ -8579,12 +8588,12 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:223
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:225
 #, kde-format
 msgid "Remove History"
 msgstr "Вилучити журнал"
@@ -8724,27 +8733,27 @@ msgid "Error from '%1' account"
 msgstr "Помилка з облікового запису «%1»"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Увійти"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name:"
 msgstr "Назва запису:"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account name"
 msgstr "Облікова назва"
 
-#: widgets/ruqolaloginwidget.cpp:59
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Спосіб розпізнавання"
 
-#: widgets/ruqolaloginwidget.cpp:87
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8753,17 +8762,17 @@ msgstr ""
 "Вами увімкнено двофакторне розпізнавання.\n"
 "Будь ласка, введіть створений код або резервний код."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Помилка під час спроби увійти: некоректне ім'я користувача або пароль"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Виявлено проблему зі встановленням. Не знайдено додатків."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Помилка під час спроби увійти: загальна помилка"

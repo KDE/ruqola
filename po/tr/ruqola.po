@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-14 00:47+0000\n"
-"PO-Revision-Date: 2022-12-13 19:43+0300\n"
+"POT-Creation-Date: 2022-12-15 00:48+0000\n"
+"PO-Revision-Date: 2022-12-14 16:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1305,7 +1305,7 @@ msgid "OTR"
 msgstr "Kayıt Dışı"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
@@ -1340,12 +1340,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2851
+#: core/rocketchataccount.cpp:2854
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2852
+#: core/rocketchataccount.cpp:2855
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -1434,15 +1434,15 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:71
+#: core/videoconference/videoconferencenotificationjob.cpp:80
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Gelen Arama"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:74
+#: core/videoconference/videoconferencenotificationjob.cpp:83
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Kabul Et"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -2271,23 +2271,23 @@ msgstr "Yidiş"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:57
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr "Hata: Web sürümünde, Bing oturum açma bilgileri bulunamadı."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:65
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr "Hata: Web sürümünden, Bing anahtarı çıkarılamadı."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:74
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr "Hata: Web sürümünden, Bing jetonu çıkarılamadı."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:83
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:92
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr "Hata: Web sürümünden, ek Bing bilgisi çıkarılamadı."
@@ -4040,7 +4040,7 @@ msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:54
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:51
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
@@ -4063,7 +4063,7 @@ msgstr "E-posta:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:76
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:72
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
@@ -6445,6 +6445,7 @@ msgid "Start a Call"
 msgstr "Bir Arama Başlat"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:35
 #, kde-format
 msgid "Start"
 msgstr "Başlat"
@@ -6468,6 +6469,14 @@ msgstr "Mikrofon Açık"
 #, kde-format
 msgid "Micro Off"
 msgstr "Mikrofon Kapalı"
+
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:26
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Start a Call"
+msgctxt "@title:window"
+msgid "Start a Direct Call"
+msgstr "Bir Arama Başlat"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -6959,7 +6968,7 @@ msgstr "Hesap adı:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
-#: widgets/ruqolaloginwidget.cpp:48
+#: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
 msgstr "Sunucu URL'si:"
@@ -7535,7 +7544,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Giriş prosedürlerini tamamlamak için bir adet tek kerelik parola gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:191
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Giriş başarısız: Geçersiz tek kerelik parola."
@@ -8485,12 +8494,12 @@ msgstr "Bir ilmekte yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu iletiyi ilmekte yanıtla: '%1'"
 
-#: widgets/room/roomwidget.cpp:223
+#: widgets/room/roomwidget.cpp:224
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:225
 #, kde-format
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"
@@ -8628,27 +8637,27 @@ msgid "Error from '%1' account"
 msgstr "'%1' hesabında hata"
 
 #. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:31
+#: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
 msgstr "Giriş Yap"
 
-#: widgets/ruqolaloginwidget.cpp:43
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account Name:"
 msgstr "Hesap Adı:"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:45
 #, kde-format
 msgid "Account name"
 msgstr "Hesap adı"
 
-#: widgets/ruqolaloginwidget.cpp:59
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Kimlik Doğrulama Yöntemi"
 
-#: widgets/ruqolaloginwidget.cpp:87
+#: widgets/ruqolaloginwidget.cpp:88
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8657,17 +8666,17 @@ msgstr ""
 "İki adımlı kimlik doğrulamayı etkinleştirdiniz.\n"
 "Üretilen kodu veya bir yedek kodunu girin."
 
-#: widgets/ruqolaloginwidget.cpp:187
+#: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Giriş başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/ruqolaloginwidget.cpp:201
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 
-#: widgets/ruqolaloginwidget.cpp:207
+#: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Giriş başarısız: Genel hata"
