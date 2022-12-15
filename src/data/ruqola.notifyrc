@@ -193,6 +193,14 @@ Urgency=Normal
 
 [Event/VideoConference-Incoming]
 Name=Incoming Video Conference Call
+Name[ca]=Trucada de videoconferència entrant
+Name[ca@valencia]=Tocada de videoconferència entrant
+Name[ka]=შემომავალი ვიდეო-კონფერენციის ზარი
+Name[nl]=Inkomende videoconferentie-oproep
+Name[pt]=Chamada em Videoconferência Recebida
+Name[tr]=Gelen Video Konferans Çağrısı
+Name[uk]=Вхідний виклик відеоконференції
+Name[x-test]=xxIncoming Video Conference Callxx
 Action=Popup
 Urgency=Normal
 
