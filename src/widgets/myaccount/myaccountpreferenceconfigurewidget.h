@@ -32,7 +32,7 @@ private:
     QComboBox *const mEmailNotification;
     QComboBox *const mPushNotification;
     QComboBox *const mViewMode;
-    QCheckBox *const mUseEmoji;
+    QCheckBox *const mUseEmojis;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
     QCheckBox *const mDisplayAvatars;

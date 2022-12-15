@@ -27,14 +27,14 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mEmailNotification(new QComboBox(this))
     , mPushNotification(new QComboBox(this))
     , mViewMode(new QComboBox(this))
-    , mUseEmoji(new QCheckBox(i18n("Use Emoji"), this))
+    , mUseEmojis(new QCheckBox(i18n("Use Emojis"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
     , mDisplayAvatars(new QCheckBox(i18n("Display avatars"), this))
     , mReceiveLoginDetectionEmails(new QCheckBox(i18n("Receive login detection emails"), this))
     , mRocketChatAccount(account)
 {
-    mUseEmoji->setObjectName(QStringLiteral("mUseEmoji"));
+    mUseEmojis->setObjectName(QStringLiteral("mUseEmojis"));
     mConvertAsciiEmoji->setObjectName(QStringLiteral("mConvertAsciiEmoji"));
     mHideRoles->setObjectName(QStringLiteral("mHideRoles"));
     mDisplayAvatars->setObjectName(QStringLiteral("mDisplayAvatars"));
@@ -91,8 +91,8 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
 
     mainLayout->addWidget(mViewMode);
 
-    mainLayout->addWidget(mUseEmoji);
-    connect(mUseEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
+    mainLayout->addWidget(mUseEmojis);
+    connect(mUseEmojis, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mConvertAsciiEmoji);
     connect(mConvertAsciiEmoji, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mHideRoles);
@@ -211,7 +211,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.desktopNotifications = mDesktopNotification->currentData().toString();
         info.emailNotificationMode = mEmailNotification->currentData().toString();
         info.userId = mRocketChatAccount->userId();
-        info.useEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mUseEmoji->isChecked());
+        info.useEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mUseEmojis->isChecked());
         info.hideRoles = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mHideRoles->isChecked());
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
@@ -236,7 +236,7 @@ void MyAccountPreferenceConfigureWidget::load()
     mPushNotification->setCurrentIndex(mPushNotification->findData(ownUserPreferences.pushNotifications()));
     mEmailNotification->setCurrentIndex(mEmailNotification->findData(ownUserPreferences.emailNotificationMode()));
     mDesktopNotification->setCurrentIndex(mDesktopNotification->findData(ownUserPreferences.desktopNotifications()));
-    mUseEmoji->setChecked(ownUserPreferences.useEmojis());
+    mUseEmojis->setChecked(ownUserPreferences.useEmojis());
     mHideRoles->setChecked(ownUserPreferences.hideRoles());
     mDisplayAvatars->setChecked(ownUserPreferences.displayAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());

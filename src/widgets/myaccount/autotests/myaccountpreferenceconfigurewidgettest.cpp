@@ -65,10 +65,10 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     auto mViewMode = w.findChild<QComboBox *>(QStringLiteral("mViewMode"));
     QVERIFY(mViewMode);
 
-    auto mUseEmoji = w.findChild<QCheckBox *>(QStringLiteral("mUseEmoji"));
-    QVERIFY(mUseEmoji);
-    QVERIFY(!mUseEmoji->isChecked()); // False by default as we didn't load values yet
-    QVERIFY(!mUseEmoji->text().isEmpty());
+    auto mUseEmojis = w.findChild<QCheckBox *>(QStringLiteral("mUseEmojis"));
+    QVERIFY(mUseEmojis);
+    QVERIFY(!mUseEmojis->isChecked()); // False by default as we didn't load values yet
+    QVERIFY(!mUseEmojis->text().isEmpty());
 
     auto mConvertAsciiEmoji = w.findChild<QCheckBox *>(QStringLiteral("mConvertAsciiEmoji"));
     QVERIFY(mConvertAsciiEmoji);
