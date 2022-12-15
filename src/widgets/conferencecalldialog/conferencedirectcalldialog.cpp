@@ -62,8 +62,6 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
 {
     // Disable start button
     mOkButton->setEnabled(false);
-    const ConferenceCallWidget::ConferenceCallStart callInfo = mConferenceCallWidget->startInfo();
-
     auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
     RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
     startInfo.roomId = mRoomId;
@@ -106,8 +104,9 @@ void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConferen
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
         RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
         joinInfo.callId = mCallId;
-        // joinInfo.useCamera = callInfo.useCamera;
-        //  joinInfo.useMicro = callInfo.useMic;
+        const auto confCallInfo = mConferenceCallWidget->startInfo();
+        joinInfo.useCamera = confCallInfo.useCamera;
+        joinInfo.useMicro = confCallInfo.useMic;
         conferenceJoinJob->setInfo(joinInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
         connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [this](const QJsonObject &obj) {
