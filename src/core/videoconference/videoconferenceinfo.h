@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QDateTime>
 #include <QDebug>
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfo
@@ -28,7 +29,15 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
+    Q_REQUIRED_RESULT QDateTime createdAtDateTime() const;
+    void setCreatedAtDateTime(const QDateTime &newCreatedAtDateTime);
+
+    Q_REQUIRED_RESULT QDateTime endedAtDateTime() const;
+    void setEndedAtDateTime(const QDateTime &newEndedAtDateTime);
+
 private:
+    QDateTime mCreatedAtDateTime;
+    QDateTime mEndedAtDateTime;
     QString mUrl;
     QString mRoomId;
     int mStatus = -1;
