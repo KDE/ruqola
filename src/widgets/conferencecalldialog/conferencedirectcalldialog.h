@@ -37,5 +37,8 @@ private:
     QString mCallId;
     ConferenceCallWidget *const mConferenceCallWidget;
     RocketChatAccount *const mRocketChatAccount;
+    QPushButton *mOkButton = nullptr;
+    int mNumberOfCall = 0;
     bool mAllowRinging = false;
+    bool mWasAccepted = false;
 };

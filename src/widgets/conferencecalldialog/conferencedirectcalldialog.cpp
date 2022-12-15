@@ -16,6 +16,7 @@
 #include <KLocalizedString>
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QTimer>
 #include <QVBoxLayout>
 
 ConferenceDirectCallDialog::ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent)
@@ -32,7 +33,8 @@ ConferenceDirectCallDialog::ConferenceDirectCallDialog(RocketChatAccount *accoun
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
-    button->button(QDialogButtonBox::Ok)->setText(i18n("Start"));
+    mOkButton = button->button(QDialogButtonBox::Ok);
+    mOkButton->setText(i18n("Start"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceDirectCallDialog::slotRejected);
     connect(button, &QDialogButtonBox::accepted, this, &ConferenceDirectCallDialog::slotStartVideoConference);
@@ -56,6 +58,8 @@ void ConferenceDirectCallDialog::slotRejected()
 
 void ConferenceDirectCallDialog::slotStartVideoConference()
 {
+    // Disable start button
+    mOkButton->setEnabled(false);
     const ConferenceCallWidget::ConferenceCallStart callInfo = mConferenceCallWidget->startInfo();
 
     auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
@@ -65,7 +69,6 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
     job->setInfo(startInfo);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
     connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this](const QJsonObject &obj) {
-        qDebug() << "start obj ******************************" << obj;
         mCallId = obj[QLatin1String("callId")].toString();
         callUser();
     });
@@ -84,7 +87,6 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
 
 void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConference &videoConference)
 {
-    qDebug() << " videoConference " << videoConference;
     if (videoConference.callId() == mCallId) {
         qDebug() << " CALL REJECTED";
         cancelCall();
@@ -99,15 +101,25 @@ void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConferen
         qDebug() << " CALL ACCEPTED";
         // TODO
         // TODO join.
-        // TODO emit confirmed ?
         mRocketChatAccount->ddp()->videoConferenceConfirmed(mRoomId, mCallId, mRocketChatAccount->userId());
+        mWasAccepted = true;
         accept();
     }
 }
 
 void ConferenceDirectCallDialog::callUser()
 {
+    if (mWasAccepted) {
+        return;
+    }
     mRocketChatAccount->ddp()->videoConferenceCall(mRoomId, mCallId, mRocketChatAccount->userId());
+    if (mNumberOfCall < 3) {
+        QTimer::singleShot(3000, this, &ConferenceDirectCallDialog::callUser);
+    } else {
+        cancelCall();
+        reject();
+    }
+    mNumberOfCall++;
 }
 
 void ConferenceDirectCallDialog::cancelCall()
