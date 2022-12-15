@@ -10,10 +10,12 @@
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
 #include "video-conference/videoconferencecanceljob.h"
+#include "video-conference/videoconferencejoinjob.h"
 #include "video-conference/videoconferencestartjob.h"
 #include "videoconference/videoconferencemanager.h"
 
 #include <KLocalizedString>
+#include <QDesktopServices>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QTimer>
@@ -96,14 +98,26 @@ void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConferen
 
 void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConference &videoConference)
 {
-    qDebug() << " videoConference " << videoConference;
     if (videoConference.callId() == mCallId) {
+        qDebug() << " videoConference " << videoConference;
         qDebug() << " CALL ACCEPTED";
-        // TODO
-        // TODO join.
         mRocketChatAccount->ddp()->videoConferenceConfirmed(mRoomId, mCallId, mRocketChatAccount->userId());
         mWasAccepted = true;
-        accept();
+        auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
+        RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
+        joinInfo.callId = mCallId;
+        // joinInfo.useCamera = callInfo.useCamera;
+        //  joinInfo.useMicro = callInfo.useMic;
+        conferenceJoinJob->setInfo(joinInfo);
+        mRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
+        connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [this](const QJsonObject &obj) {
+            // qDebug() << " join info " << obj;
+            QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
+            accept();
+        });
+        if (!conferenceJoinJob->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
+        }
     }
 }
 
@@ -113,7 +127,7 @@ void ConferenceDirectCallDialog::callUser()
         return;
     }
     mRocketChatAccount->ddp()->videoConferenceCall(mRoomId, mCallId, mRocketChatAccount->userId());
-    if (mNumberOfCall < 3) {
+    if (mNumberOfCall <= 3) {
         QTimer::singleShot(3000, this, &ConferenceDirectCallDialog::callUser);
     } else {
         cancelCall();
