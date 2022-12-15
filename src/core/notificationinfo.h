@@ -16,7 +16,7 @@ class LIBRUQOLACORE_EXPORT NotificationInfo
     Q_GADGET
 public:
     NotificationInfo();
-    ~NotificationInfo() = default;
+    ~NotificationInfo();
 
     enum NotificationType {
         StandardMessage,

@@ -64,19 +64,28 @@ void AccountManager::openMessageUrl(const QString &messageUrl)
 void AccountManager::connectToAccount(RocketChatAccount *account)
 {
     connect(account, &RocketChatAccount::notification, this, [this, account](const NotificationInfo &info) {
-        auto job = new NotifierJob;
-        job->setInfo(info);
         NotificationHistoryManager::self()->addNotification(info);
-        connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
-        connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
-            if (tmId.isEmpty()) {
-                account->sendMessage(roomId, str);
-            } else {
-                account->replyOnThread(roomId, tmId, str);
-            }
-            // qDebug() << " str" << str << " Room Name " << roomName;
-        });
-        job->start();
+
+        switch (info.notificationType()) {
+        case NotificationInfo::StandardMessage: {
+            auto job = new NotifierJob;
+            job->setInfo(info);
+            connect(job, &NotifierJob::switchToAccountAndRoomName, this, &AccountManager::slotSwitchToAccountAndRoomName);
+            connect(job, &NotifierJob::sendReply, this, [account](const QString &str, const QString &roomId, const QString &tmId) {
+                if (tmId.isEmpty()) {
+                    account->sendMessage(roomId, str);
+                } else {
+                    account->replyOnThread(roomId, tmId, str);
+                }
+                // qDebug() << " str" << str << " Room Name " << roomName;
+            });
+            job->start();
+            break;
+        }
+        case NotificationInfo::ConferenceCall: {
+            break;
+        }
+        }
     });
     connect(account, &RocketChatAccount::updateNotification, this, &AccountManager::updateNotification);
     connect(account, &RocketChatAccount::roomNeedAttention, this, &AccountManager::roomNeedAttention);

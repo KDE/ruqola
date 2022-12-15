@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorymodel.h"
+#include <KLocalizedString>
 
 NotificationHistoryModel::NotificationHistoryModel(QObject *parent)
     : QAbstractListModel{parent}
@@ -32,7 +33,7 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
     case DateTime:
         return info.dateTime();
     case MessageStr:
-        return info.message();
+        return generateMessage(info);
     case RoomId:
         return info.roomId();
     case ChannelType:
@@ -47,6 +48,17 @@ QVariant NotificationHistoryModel::data(const QModelIndex &index, int role) cons
         return info.messageId();
     case RoomName:
         return info.roomName();
+    }
+    return {};
+}
+
+QString NotificationHistoryModel::generateMessage(const NotificationInfo &info) const
+{
+    switch (info.notificationType()) {
+    case NotificationInfo::StandardMessage:
+        return info.message();
+    case NotificationInfo::ConferenceCall:
+        return i18n("Conference Call");
     }
     return {};
 }

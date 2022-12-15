@@ -43,5 +43,6 @@ public:
     void addNotification(const NotificationInfo &info);
 
 private:
+    Q_REQUIRED_RESULT QString generateMessage(const NotificationInfo &info) const;
     QVector<NotificationInfo> mNotificationInfo;
 };

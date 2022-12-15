@@ -10,6 +10,8 @@
 
 NotificationInfo::NotificationInfo() = default;
 
+NotificationInfo::~NotificationInfo() = default;
+
 QDebug operator<<(QDebug d, const NotificationInfo &t)
 {
     d << " accountName " << t.accountName();
@@ -164,10 +166,14 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
             qCDebug(RUQOLA_LOG) << "Problem with notification json: missing message";
             setMessage(obj[QStringLiteral("text")].toString());
         } else {
-            setMessage(messageObj[QStringLiteral("msg")].toString());
-            if (message().isEmpty()) {
-                // Fallback to text
-                setMessage(obj[QStringLiteral("text")].toString());
+            if (messageObj[QStringLiteral("t")].toString() == QLatin1String("videoconf")) {
+                mNotificationType = ConferenceCall;
+            } else {
+                setMessage(messageObj[QStringLiteral("msg")].toString());
+                if (message().isEmpty()) {
+                    // Fallback to text
+                    setMessage(obj[QStringLiteral("text")].toString());
+                }
             }
         }
     } else {
@@ -178,7 +184,11 @@ void NotificationInfo::parseNotification(const QJsonArray &contents)
 
 bool NotificationInfo::isValid() const
 {
-    return !mSenderId.isEmpty() && !mMessage.isEmpty() && !mChannelType.isEmpty();
+    bool valid = !mSenderId.isEmpty() && !mChannelType.isEmpty();
+    if (mNotificationType == ConferenceCall) {
+        return valid;
+    }
+    return valid && !mMessage.isEmpty();
 }
 
 const QString &NotificationInfo::dateTime() const
