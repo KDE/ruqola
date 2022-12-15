@@ -392,8 +392,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         const QString eventname = fields.value(QLatin1String("eventName")).toString();
         qCDebug(RUQOLA_LOG) << " EVENT " << eventname << "account name: " << mRocketChatAccount->accountName() << " contents " << contents
                             << fields.value(QLatin1String("args")).toArray().toVariantList();
-        qDebug() << " EVENT " << eventname << "account name: " << mRocketChatAccount->accountName() << " contents " << contents
-                 << fields.value(QLatin1String("args")).toArray().toVariantList();
 
         if (eventname.endsWith(QLatin1String("/subscriptions-changed"))) {
             RoomModel *model = mRocketChatAccount->roomModel();
