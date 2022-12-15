@@ -31,6 +31,9 @@ public:
     QSet<QString> mUpperCaseExceptions;
     QSet<QString> mTwoUpperLetterExceptions;
 
+    QString mCustomWritablePath;
+    QString mCustomSystemPath;
+
     QString mAutoCorrectLang;
 
     QChar mNonBreakingSpace;
@@ -230,6 +233,8 @@ void AutoCorrectionSettings::readConfig()
     d->mSuperScriptAppendix = PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->superScript();
     d->mAddNonBreakingSpace = PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->addNonBreakingSpaceInFrench();
     d->mReplaceDoubleQuotesByFrenchQuotes = PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->replaceDoubleQuotesByFrenchQuotes();
+    d->mCustomSystemPath = PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->customSystemPath();
+    d->mCustomWritablePath = PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->customWritablePath();
 
     d->mTypographicSingleQuotes =
         AutoCorrectionUtils::TypographicQuotes::fromString(PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->typographicSingleQuotes());
@@ -262,6 +267,8 @@ void AutoCorrectionSettings::writeConfig()
     PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setTypographicSingleQuotes(d->mTypographicSingleQuotes.toString());
     PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setTypographicDoubleQuotes(d->mTypographicDoubleQuotes.toString());
     PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setReplaceDoubleQuotesByFrenchQuotes(d->mReplaceDoubleQuotesByFrenchQuotes);
+    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setCustomWritablePath(d->mCustomWritablePath);
+    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setCustomSystemPath(d->mCustomSystemPath);
     PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->requestSync();
     writeAutoCorrectionFile();
 }
@@ -382,7 +389,7 @@ void AutoCorrectionSettings::writeAutoCorrectionFile(const QString &filename)
     correct.setUpperCaseExceptions(d->mUpperCaseExceptions);
     correct.setTwoUpperLetterExceptions(d->mTwoUpperLetterExceptions);
     QString message;
-    if (!correct.exportData(d->mAutoCorrectLang, filename, message)) {
+    if (!correct.exportData(d->mAutoCorrectLang, filename, message, d->mCustomWritablePath)) {
         qCDebug(PIMCOMMONAUTOCORRECTION_LOG) << "We can't save in file :" << filename;
     }
 }
@@ -418,7 +425,7 @@ void AutoCorrectionSettings::loadLocalFileName(const QString &localFileName, con
 void AutoCorrectionSettings::loadGlobalFileName(const QString &fname)
 {
     if (fname.isEmpty()) {
-        const QString fileName = AutoCorrectionUtils::containsAutoCorrectionFile(d->mAutoCorrectLang);
+        const QString fileName = containsAutoCorrectionFile(d->mAutoCorrectLang);
         if (!fileName.isEmpty()) {
             QString errorMessage;
             ImportLibreOfficeAutocorrection import;
@@ -531,25 +538,25 @@ void AutoCorrectionSettings::readAutoCorrectionFile(bool forceGlobal)
     if (!forceGlobal) {
         if (d->mAutoCorrectLang.isEmpty()) {
             if (!kdelang.isEmpty()) {
-                localFileName = AutoCorrectionUtils::containsAutoCorrectionFile(kdelang);
+                localFileName = containsAutoCorrectionFile(kdelang);
             }
             if (localFileName.isEmpty() && kdelang.contains(QLatin1Char('_'))) {
                 kdelang.remove(regpath);
-                localFileName = AutoCorrectionUtils::containsAutoCorrectionFile(kdelang);
+                localFileName = containsAutoCorrectionFile(kdelang);
             }
         }
     }
     QString fname;
     // Load Global directly
     if (!d->mAutoCorrectLang.isEmpty()) {
-        localFileName = AutoCorrectionUtils::containsAutoCorrectionFile(d->mAutoCorrectLang);
+        localFileName = containsAutoCorrectionFile(d->mAutoCorrectLang);
     } else {
         if (fname.isEmpty() && !kdelang.isEmpty()) {
-            fname = AutoCorrectionUtils::containsAutoCorrectionFile(kdelang);
+            fname = containsAutoCorrectionFile(kdelang);
         }
         if (fname.isEmpty() && kdelang.contains(QLatin1Char('_'))) {
             kdelang.remove(regpath);
-            fname = AutoCorrectionUtils::containsAutoCorrectionFile(kdelang);
+            fname = containsAutoCorrectionFile(kdelang);
         }
     }
 
@@ -566,6 +573,11 @@ void AutoCorrectionSettings::readAutoCorrectionFile(bool forceGlobal)
     }
 }
 
+QString AutoCorrectionSettings::containsAutoCorrectionFile(const QString &fileName)
+{
+    return AutoCorrectionUtils::containsAutoCorrectionFile(fileName, d->mCustomSystemPath, d->mCustomWritablePath);
+}
+
 AutoCorrectionUtils::TypographicQuotes AutoCorrectionSettings::doubleFrenchQuotes() const
 {
     return d->mDoubleFrenchQuotes;
@@ -574,6 +586,26 @@ AutoCorrectionUtils::TypographicQuotes AutoCorrectionSettings::doubleFrenchQuote
 void AutoCorrectionSettings::setDoubleFrenchQuotes(const AutoCorrectionUtils::TypographicQuotes &newDoubleFrenchQuotes)
 {
     d->mDoubleFrenchQuotes = newDoubleFrenchQuotes;
+}
+
+QString AutoCorrectionSettings::customWritablePath() const
+{
+    return d->mCustomWritablePath;
+}
+
+void AutoCorrectionSettings::setCustomWritablePath(const QString &path)
+{
+    d->mCustomWritablePath = path;
+}
+
+QString AutoCorrectionSettings::customSystemPath() const
+{
+    return d->mCustomSystemPath;
+}
+
+void AutoCorrectionSettings::setCustomSystemPath(const QString &path)
+{
+    d->mCustomSystemPath = path;
 }
 
 QDebug operator<<(QDebug d, const PimCommonAutoCorrection::AutoCorrectionSettings &t)

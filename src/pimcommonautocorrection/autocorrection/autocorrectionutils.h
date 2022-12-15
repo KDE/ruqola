@@ -12,7 +12,7 @@ namespace PimCommonAutoCorrection
 {
 namespace AutoCorrectionUtils
 {
-struct TypographicQuotes {
+struct PIMCOMMONAUTOCORRECTION_EXPORT TypographicQuotes {
     QChar begin;
     QChar end;
     Q_REQUIRED_RESULT QString toString() const;
@@ -28,7 +28,9 @@ Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QStringList libreOfficeAutoCorr
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QStringList searchAutoCorrectLibreOfficeFiles();
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QStringList autoCorrectLibreOfficeLanguageToString(const QStringList &langs);
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QString libreOfficeWritableLocalAutoCorrectionPath();
-Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QString containsAutoCorrectionFile(const QString &lang);
+Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QString containsAutoCorrectionFile(const QString &lang,
+                                                                                    const QString &customSystemPath,
+                                                                                    const QString &customWritablePath);
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QString libreOfficeSystemPath();
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QString libreOfficeLocalPath();
 Q_REQUIRED_RESULT PIMCOMMONAUTOCORRECTION_EXPORT QStringList wordsFromSentence(const QString &string);

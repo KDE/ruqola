@@ -60,17 +60,25 @@ QStringList AutoCorrectionUtils::libreOfficeAutoCorrectionPath()
 
 QString AutoCorrectionUtils::libreOfficeSystemPath()
 {
-    // TODO add path for macos/windows etc.
 #ifdef Q_OS_WIN
     return QStringLiteral("c:/Program Files/LibreOffice/share/autocorr/");
 #else
+#ifdef Q_OS_MACOS
+    return QStringLiteral("/Applications/LibreOffice.app/Contents/Resources/autocorr");
+#else
     return QStringLiteral("/usr/lib64/libreoffice/share/autocorr/");
+#endif
 #endif
 }
 
 QString AutoCorrectionUtils::libreOfficeLocalPath()
 {
+#ifdef Q_OS_MACOS
+    // It seems that they don't use lowercase
+    return QStringLiteral("/LibreOffice/4/user/autocorr/");
+#else
     return QStringLiteral("/libreoffice/4/user/autocorr/");
+#endif
 }
 
 QString AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath()
@@ -80,7 +88,14 @@ QString AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath()
         QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QStringLiteral("ruqola")) + AutoCorrectionUtils::libreOfficeLocalPath();
     return writeablePath;
 #else
-    return QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + libreOfficeLocalPath();
+#ifdef Q_OS_MACOS
+    // $HOME/Library/Application Support/OpenOffice/4/user/autocorr
+    const QString writeablePath =
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QStringLiteral("ruqola")) + AutoCorrectionUtils::libreOfficeLocalPath();
+    return writeablePath;
+#else
+    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + libreOfficeLocalPath();
+#endif
 #endif
 }
 
@@ -155,9 +170,16 @@ AutoCorrectionUtils::TypographicQuotes AutoCorrectionUtils::TypographicQuotes::f
     return quotes;
 }
 
-QString AutoCorrectionUtils::containsAutoCorrectionFile(const QString &lang)
+QString AutoCorrectionUtils::containsAutoCorrectionFile(const QString &lang, const QString &customSystemPath, const QString &customWritablePath)
 {
-    const QStringList libreOfficeAutocorrectPaths = AutoCorrectionUtils::libreOfficeAutoCorrectionPath();
+    QStringList libreOfficeAutocorrectPaths;
+    if (!customWritablePath.isEmpty()) {
+        libreOfficeAutocorrectPaths.append(customWritablePath);
+    }
+    if (!customSystemPath.isEmpty()) {
+        libreOfficeAutocorrectPaths.append(customSystemPath);
+    }
+    libreOfficeAutocorrectPaths += AutoCorrectionUtils::libreOfficeAutoCorrectionPath();
     if (!libreOfficeAutocorrectPaths.isEmpty()) {
         QString fixLangExtension = lang;
         fixLangExtension.replace(QLatin1Char('_'), QLatin1Char('-'));

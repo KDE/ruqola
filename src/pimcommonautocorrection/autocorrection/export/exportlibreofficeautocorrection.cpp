@@ -5,6 +5,7 @@
 */
 
 #include "exportlibreofficeautocorrection.h"
+#include "autocorrection/autocorrectionutils.h"
 #include "pimcommonautocorrection_debug.h"
 #include <KZip>
 #include <QDir>
@@ -20,13 +21,14 @@ ExportLibreOfficeAutocorrection::~ExportLibreOfficeAutocorrection()
     delete mZip;
 }
 
-bool ExportLibreOfficeAutocorrection::exportData(const QString &language, const QString &fileName, QString &errorMessage)
+bool ExportLibreOfficeAutocorrection::exportData(const QString &language, const QString &fileName, QString &errorMessage, const QString &writablePath)
 {
-    QDir().mkpath(AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath());
+    const QString libreOfficeWritableLocalAutoCorrectionPath =
+        writablePath.isEmpty() ? AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath() : writablePath;
+    QDir().mkpath(libreOfficeWritableLocalAutoCorrectionPath);
     QString fixLangExtension = language;
     fixLangExtension.replace(QLatin1Char('_'), QLatin1Char('-'));
-    const QString fname =
-        fileName.isEmpty() ? AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath() + QStringLiteral("acor_%1.dat").arg(fixLangExtension) : fileName;
+    const QString fname = fileName.isEmpty() ? libreOfficeWritableLocalAutoCorrectionPath + QStringLiteral("acor_%1.dat").arg(fixLangExtension) : fileName;
     // qDebug() << " fname " << fname;
     mZip = new KZip(fname);
     const bool result = mZip->open(QIODevice::WriteOnly);

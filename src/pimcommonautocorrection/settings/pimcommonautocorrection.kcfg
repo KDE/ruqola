@@ -57,6 +57,13 @@ xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/sta
     <entry name="TypographicDoubleQuotes" type="String" key="typographic-double-quotes">
       <default></default>
     </entry>
+    <entry name="CustomWritablePath" type="String" key="custom-writable-path">
+      <default></default>
+    </entry>
+    <entry name="CustomSystemPath" type="String" key="custom-system-path">
+      <default></default>
+    </entry>
+
   </group>
 </kcfg>
 

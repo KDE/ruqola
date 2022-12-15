@@ -41,7 +41,7 @@ void ImportExportAutocorrectionLibreOfficeTest::shouldImportExport()
         QTemporaryFile temporaryShareFile;
         temporaryShareFile.open();
 
-        if (!correct.exportData(QString(), temporaryShareFile.fileName(), message)) {
+        if (!correct.exportData(QString(), temporaryShareFile.fileName(), message, QString())) {
             QVERIFY(false);
             qWarning() << "We can't save in file :" << temporaryShareFile.fileName();
         }

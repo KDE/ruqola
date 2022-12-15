@@ -119,6 +119,7 @@ target_link_libraries(KF5PimCommonAutoCorrection
     KF5::I18n
     #KF5::Libkdepim
     KF5::Archive
+    KF5::KIOWidgets
     )
 
 #target_include_directories(KF5PimCommonAutoCorrection INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/PimCommonAutoCorrection/>")
