@@ -25,7 +25,7 @@ void MessageTest::shouldHaveDefaultValues()
     QVERIFY(m.showTranslatedMessage());
     QVERIFY(!m.unread());
     QVERIFY(!m.isEditingMode());
-    QVERIFY(!m.showReactionIcon());
+    QVERIFY(!m.hoverHighlight());
     QVERIFY(m.localTranslation().isEmpty());
     QVERIFY(m.blocks().isEmpty());
     QVERIFY(m.attachments().isEmpty());

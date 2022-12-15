@@ -332,14 +332,14 @@ void Message::setLocalTranslation(const QString &newLocalTranslation)
     mLocalTranslation = newLocalTranslation;
 }
 
-bool Message::showReactionIcon() const
+bool Message::hoverHighlight() const
 {
-    return mShowReactionIcon;
+    return mHoverHighlight;
 }
 
-void Message::setShowReactionIcon(bool newShowReactionIcon)
+void Message::setHoverHighlight(bool newShowReactionIcon)
 {
-    mShowReactionIcon = newShowReactionIcon;
+    mHoverHighlight = newShowReactionIcon;
 }
 
 const QMap<QString, QString> &Message::channels() const

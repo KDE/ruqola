@@ -87,6 +87,7 @@ void MessageListDelegate::slotUpdateColors()
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
+    mHoverHightlightColor = scheme.decoration(KColorScheme::HoverColor).color();
     Q_EMIT updateView();
 }
 
@@ -325,6 +326,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
+    } else if (message->hoverHighlight()) {
+        painter->fillRect(option.rect, mHoverHightlightColor);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
         painter->fillRect(option.rect, mThreadedMessageBackgroundColor);
     } else {
@@ -343,7 +346,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     // Timestamp
     DelegatePaintUtil::drawLighterText(painter, layout.timeStampText, layout.timeStampPos);
-    if (!isSystemMessage(message) && message->showReactionIcon()) {
+    if (!isSystemMessage(message) && message->hoverHighlight()) {
         mAddReactionIcon.paint(painter, layout.addReactionRect, Qt::AlignCenter);
     }
 

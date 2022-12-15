@@ -75,7 +75,7 @@ public:
         ShowIgnoredMessage,
         MessageInEditMode,
         DirectChannels,
-        ShowReactionIcon,
+        HoverHighLight,
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
     };

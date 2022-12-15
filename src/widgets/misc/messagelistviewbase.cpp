@@ -73,11 +73,11 @@ void MessageListViewBase::handleMouseEvent(QMouseEvent *event)
         if (mCurrentIndex != index) {
             if (mCurrentIndex.isValid()) {
                 auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-                lastModel->setData(mCurrentIndex, false, MessageModel::ShowReactionIcon);
+                lastModel->setData(mCurrentIndex, false, MessageModel::HoverHighLight);
             }
             mCurrentIndex = index;
             auto model = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-            model->setData(mCurrentIndex, true, MessageModel::ShowReactionIcon);
+            model->setData(mCurrentIndex, true, MessageModel::HoverHighLight);
         }
 
         QStyleOptionViewItem options = listViewOptions();
@@ -126,7 +126,7 @@ void MessageListViewBase::leaveEvent(QEvent *event)
 {
     if (mCurrentIndex.isValid()) {
         auto lastModel = const_cast<QAbstractItemModel *>(mCurrentIndex.model());
-        lastModel->setData(mCurrentIndex, false, MessageModel::ShowReactionIcon);
+        lastModel->setData(mCurrentIndex, false, MessageModel::HoverHighLight);
         mCurrentIndex = QPersistentModelIndex();
     }
     QListView::leaveEvent(event);

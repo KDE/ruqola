@@ -194,8 +194,8 @@ public:
     const QMap<QString, QString> &channels() const;
     void setChannels(const QMap<QString, QString> &newChannels);
 
-    Q_REQUIRED_RESULT bool showReactionIcon() const;
-    void setShowReactionIcon(bool newShowReactionIcon);
+    Q_REQUIRED_RESULT bool hoverHighlight() const;
+    void setHoverHighlight(bool newShowReactionIcon);
 
     Q_REQUIRED_RESULT const QString &localTranslation() const;
     void setLocalTranslation(const QString &newLocalTranslation);
@@ -325,7 +325,7 @@ private:
 
     bool mIsEditingMode = false;
 
-    bool mShowReactionIcon = false;
+    bool mHoverHighlight = false;
 
     EmojiManager *mEmojiManager = nullptr;
 };

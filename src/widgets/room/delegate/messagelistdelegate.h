@@ -113,6 +113,7 @@ private:
     QColor mThreadedMessageBackgroundColor;
     QColor mOpenDiscussionColorMode;
     QColor mReplyThreadColorMode;
+    QColor mHoverHightlightColor;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QListView *const mListView;
     TextSelectionImpl *const mTextSelectionImpl;

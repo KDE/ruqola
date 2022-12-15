@@ -388,8 +388,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.showIgnoredMessage();
     case MessageModel::MessageInEditMode:
         return message.isEditingMode();
-    case MessageModel::ShowReactionIcon:
-        return message.showReactionIcon();
+    case MessageModel::HoverHighLight:
+        return message.hoverHighlight();
     case MessageModel::LocalTranslation:
         return message.localTranslation();
     case MessageModel::OriginalMessageOrAttachmentDescription:
@@ -459,9 +459,9 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         message.setIsEditingMode(value.toBool());
         Q_EMIT dataChanged(index, index);
         return true;
-    case MessageModel::ShowReactionIcon:
-        message.setShowReactionIcon(value.toBool());
-        Q_EMIT dataChanged(index, index, {MessageModel::ShowReactionIcon});
+    case MessageModel::HoverHighLight:
+        message.setHoverHighlight(value.toBool());
+        Q_EMIT dataChanged(index, index, {MessageModel::HoverHighLight});
         return true;
     case MessageModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
