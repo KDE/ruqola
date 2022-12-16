@@ -6,7 +6,7 @@
 
 #include "videoconferencenotificationjob.h"
 #include "rocketchataccount.h"
-#include "ruqola_debug.h"
+#include "ruqola_videoconference_core_debug.h"
 #include <KLocalizedString>
 #include <KNotification>
 
@@ -20,7 +20,7 @@ VideoConferenceNotificationJob::~VideoConferenceNotificationJob() = default;
 void VideoConferenceNotificationJob::start()
 {
     if (!canStart()) {
-        qCWarning(RUQOLA_LOG) << "Impossible to start VideoConferenceNotificationJob";
+        qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "Impossible to start VideoConferenceNotificationJob";
         deleteLater();
         return;
     }

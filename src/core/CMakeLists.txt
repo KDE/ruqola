@@ -454,6 +454,8 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_password_
     CATEGORY_NAME org.kde.ruqola.password DESCRIPTION "ruqola password support" EXPORT RUQOLA)
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_reconnect_core_debug.h IDENTIFIER RUQOLA_RECONNECT_LOG
     CATEGORY_NAME org.kde.ruqola.reconnect DESCRIPTION "ruqola reconnect support" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_videoconference_core_debug.h IDENTIFIER RUQOLA_VIDEO_CONFERENCE_LOG
+    CATEGORY_NAME org.kde.ruqola.videoconference DESCRIPTION "ruqola video conference support" EXPORT RUQOLA)
 
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 

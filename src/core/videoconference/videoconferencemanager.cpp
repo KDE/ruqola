@@ -7,7 +7,7 @@
 #include "videoconferencemanager.h"
 #include "connection.h"
 #include "rocketchataccount.h"
-#include "ruqola_debug.h"
+#include "ruqola_videoconference_core_debug.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "videoconferencenotificationjob.h"
 #include <QDesktopServices>
@@ -76,7 +76,7 @@ void VideoConferenceManager::showNotification(const VideoConference &videoConfer
             mVideoConferenceList.removeAll(videoConference);
         });
         if (!conferenceJoinJob->start()) {
-            qCWarning(RUQOLA_LOG) << "Impossible to start VideoConferenceJoinJob job";
+            qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "Impossible to start VideoConferenceJoinJob job";
         }
     });
     connect(job, &VideoConferenceNotificationJob::rejectVideoConference, this, [this, videoConference]() {
