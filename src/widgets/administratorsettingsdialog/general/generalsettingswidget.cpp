@@ -32,6 +32,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mDefaultTimeZone(new QComboBox(this))
     , mSendStatisticsRocketChat(new QCheckBox(i18n("Send Statistics to Rocket.Chat"), this))
     , mMaxRoomMembersDisablingMessageNotifications(new QSpinBox(this))
+    , mUpdateLatestAvailableVersion(new QLineEdit(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -88,6 +89,9 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     auto updateLabel = createBoldLabel(i18n("Update"));
     updateLabel->setObjectName(QStringLiteral("updateLabel"));
     mMainLayout->addWidget(updateLabel);
+
+    mUpdateLatestAvailableVersion->setObjectName(QStringLiteral("mUpdateLatestAvailableVersion"));
+    addLineEdit(i18n("Update Latest Available Version"), mUpdateLatestAvailableVersion, QStringLiteral("Update_LatestAvailableVersion"), true);
 
     mEnableUpdateChecker->setObjectName(QStringLiteral("mEnableUpdateChecker"));
     mMainLayout->addWidget(mEnableUpdateChecker);
@@ -152,4 +156,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mUTF8NamesSlugify, mapSettings, true);
     initializeWidget(mSendStatisticsRocketChat, mapSettings, true);
     initializeWidget(mMaxRoomMembersDisablingMessageNotifications, mapSettings, 100);
+    initializeWidget(mUpdateLatestAvailableVersion, mapSettings, QStringLiteral("0.0.0"));
 }

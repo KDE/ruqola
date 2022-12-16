@@ -98,6 +98,11 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableUpdateChecker->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableUpdateChecker), QStringLiteral("Update_EnableChecker"));
 
+    auto mUpdateLatestAvailableVersion = w.findChild<QLineEdit *>(QStringLiteral("mUpdateLatestAvailableVersion"));
+    QVERIFY(mUpdateLatestAvailableVersion);
+    QVERIFY(mUpdateLatestAvailableVersion->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUpdateLatestAvailableVersion), QStringLiteral("Update_LatestAvailableVersion"));
+
     auto updateLabel = w.findChild<QLabel *>(QStringLiteral("updateLabel"));
     QVERIFY(updateLabel);
     QVERIFY(!updateLabel->text().isEmpty());

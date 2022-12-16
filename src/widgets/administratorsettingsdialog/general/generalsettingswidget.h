@@ -37,4 +37,5 @@ private:
     QComboBox *const mDefaultTimeZone;
     QCheckBox *const mSendStatisticsRocketChat;
     QSpinBox *const mMaxRoomMembersDisablingMessageNotifications;
+    QLineEdit *const mUpdateLatestAvailableVersion;
 };
