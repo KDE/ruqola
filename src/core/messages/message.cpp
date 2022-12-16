@@ -90,7 +90,6 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     parseReactions(o.value(QLatin1String("reactions")).toObject());
     parseChannels(o.value(QLatin1String("channels")).toArray());
     // TODO unread element
-    // Parse blocks
 }
 
 void Message::parseReactions(const QJsonObject &reacts)
@@ -471,7 +470,7 @@ bool Message::operator==(const Message &other) const
         && (mDiscussionRoomId == other.discussionRoomId()) && (mThreadMessageId == other.threadMessageId())
         && (mMessageTranslation == other.messageTranslation()) && (mShowTranslatedMessage == other.showTranslatedMessage()) && (mReplies == other.replies())
         && (mEmoji == other.emoji()) && (mPendingMessage == other.pendingMessage()) && (mShowIgnoredMessage == other.showIgnoredMessage())
-        && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation());
+        && (mChannels == other.channels()) && (mLocalTranslation == other.localTranslation()) && (mBlocks == other.blocks());
 }
 
 bool Message::operator<(const Message &other) const
@@ -890,6 +889,8 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     }
     message.setChannels(channels);
 
+    // TODO blocks
+
     // TODO add message translation !
 
     return message;
@@ -1009,6 +1010,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mReplies.isEmpty()) {
         o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
     }
+    // TODO blocks !
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
@@ -1062,5 +1064,9 @@ QDebug operator<<(QDebug d, const Message &t)
     d << "mShowIgnoredMessage " << t.showIgnoredMessage();
     d << "mChannels " << t.channels();
     d << "mLocalTranslation " << t.localTranslation();
+    for (int i = 0, total = t.blocks().count(); i < total; ++i) {
+        d << "block :" << t.blocks().at(i);
+    }
+
     return d;
 }

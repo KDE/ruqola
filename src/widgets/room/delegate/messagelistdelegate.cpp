@@ -416,6 +416,8 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         ++i;
     }
 
+    // Blocks
+
     // Reactions
     const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
     mHelperReactions->draw(painter, reactionsRect, index, option);
