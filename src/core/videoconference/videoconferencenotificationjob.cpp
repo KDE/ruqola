@@ -29,40 +29,12 @@ void VideoConferenceNotificationJob::start()
         inComingCall();
         break;
     case VideoConference::Unknown:
-        break;
     case VideoConference::Canceled:
-        videoConferenceCanceled();
-        break;
     case VideoConference::Confirmed:
-        videoConferenceConfirmed();
-        break;
     case VideoConference::Accepted:
-        videoConferenceAccepted();
-        break;
     case VideoConference::Rejected:
-        videoConferenceRejected();
         break;
     }
-}
-
-void VideoConferenceNotificationJob::videoConferenceRejected()
-{
-    // TODO
-}
-
-void VideoConferenceNotificationJob::videoConferenceAccepted()
-{
-    // TODO
-}
-
-void VideoConferenceNotificationJob::videoConferenceConfirmed()
-{
-    // TODO
-}
-
-void VideoConferenceNotificationJob::videoConferenceCanceled()
-{
-    // TODO
 }
 
 QString VideoConferenceNotificationJob::generateText() const
