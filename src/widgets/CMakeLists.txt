@@ -510,6 +510,8 @@ target_sources(libruqolawidgets PRIVATE
     room/delegate/messageattachmentdelegatehelpertext.h
     room/delegate/messageattachmentdelegatehelpervideo.cpp
     room/delegate/messageattachmentdelegatehelpervideo.h
+    room/delegate/messagedelegatehelperconferencevideo.h
+    room/delegate/messagedelegatehelperconferencevideo.cpp
     room/delegate/messagedelegatehelperbase.cpp
     room/delegate/messagedelegatehelperbase.h
     room/delegate/messagedelegatehelperreactions.cpp

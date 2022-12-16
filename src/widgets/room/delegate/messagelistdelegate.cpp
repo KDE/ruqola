@@ -415,8 +415,17 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
         }
         ++i;
     }
-
     // Blocks
+
+    const auto blocks = message->blocks();
+    int blockIndex = 0;
+    for (const Block &block : blocks) {
+        //        const MessageDelegateHelperBase *helper = attachmentsHelper(att);
+        //        if (helper) {
+        //            helper->draw(att, painter, layout.attachmentsRectList.at(blockIndex), index, option);
+        //        }
+        ++blockIndex;
+    }
 
     // Reactions
     const QRect reactionsRect(layout.senderRect.x(), layout.reactionsY, layout.usableRect.width(), layout.reactionsHeight);
