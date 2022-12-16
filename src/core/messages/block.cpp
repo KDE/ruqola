@@ -12,7 +12,6 @@ Block::Block() = default;
 void Block::parseBlock(const QJsonObject &block)
 {
     // "blocks":[{"appId":"videoconf-core","blockId":"63981f8a4ef3f3baa965a0d8","callId":"63981f8a4ef3f3baa965a0d8","type":"video_conf"}]
-    // TODO
     mBlockId = block[QLatin1String("blockId")].toString();
     mCallId = block[QLatin1String("callId")].toString();
     mAppId = block[QLatin1String("appId")].toString();
