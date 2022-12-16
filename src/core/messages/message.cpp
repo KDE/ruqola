@@ -600,11 +600,11 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("ujt")) {
         return i18n("%1 joined this Team", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_joined_otr")) {
-        return i18n("Has joined OTR chat."); // Verify
+        return i18n("% 1h has joined OTR chat.", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_key_refreshed_successfully")) {
-        return i18n("key refreshed successfully"); // Verify
+        return i18n("%1 key refreshed successfully", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_requested_otr_key_refresh")) {
-        return i18n("Has requested key refresh."); // Verify
+        return i18n("%1 has requested key refresh.", mUsername);
     } else if (mSystemMessageType == QLatin1String("room_changed_topic")) {
         return i18n("Room topic changed to: %1 by %2", mUsername, mText); // TODO verify
     } else if (mSystemMessageType == QLatin1String("videoconf")) {
