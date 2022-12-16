@@ -43,6 +43,7 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mShowEditedStatus);
     QVERIFY(!mShowEditedStatus->isChecked());
     QVERIFY(!mShowEditedStatus->text().isEmpty());
+    QVERIFY(mShowEditedStatus->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mShowEditedStatus), QStringLiteral("Message_ShowEditedStatus"));
 
     auto mShowDeletedStatus = w.findChild<QCheckBox *>(QStringLiteral("mShowDeletedStatus"));

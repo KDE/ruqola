@@ -52,6 +52,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
                QStringLiteral("Message_AllowDeleting_BlockDeleteInMinutes"));
 
     mShowEditedStatus->setObjectName(QStringLiteral("mShowEditedStatus"));
+    mShowEditedStatus->setToolTip(i18n("This is a deprecated feature. It may not work as expected and will not get new updates."));
     mMainLayout->addWidget(mShowEditedStatus);
     connectCheckBox(mShowEditedStatus, QStringLiteral("Message_ShowEditedStatus"));
 
