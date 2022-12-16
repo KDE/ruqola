@@ -41,6 +41,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
 
+    mSearchLineEdit->setDelayMs(100ms);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLineEdit->setClearButtonEnabled(true);
     mSearchLineEdit->setPlaceholderText(i18n("Search..."));
