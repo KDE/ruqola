@@ -12,7 +12,15 @@
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfo
 {
+    Q_GADGET
 public:
+    enum VideoConferenceType {
+        Unknown,
+        Direct,
+        Conference,
+    };
+    Q_ENUM(VideoConferenceType)
+
     VideoConferenceInfo();
     ~VideoConferenceInfo();
     void parse(const QJsonObject &content);
@@ -35,11 +43,16 @@ public:
     Q_REQUIRED_RESULT QDateTime endedAtDateTime() const;
     void setEndedAtDateTime(const QDateTime &newEndedAtDateTime);
 
+    Q_REQUIRED_RESULT VideoConferenceType conferenceType() const;
+    void setConferenceType(VideoConferenceType newConferenceType);
+
 private:
+    Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QDateTime mCreatedAtDateTime;
     QDateTime mEndedAtDateTime;
     QString mUrl;
     QString mRoomId;
+    VideoConferenceType mConferenceType = Unknown;
     int mStatus = -1;
     bool mRinging = false;
 };

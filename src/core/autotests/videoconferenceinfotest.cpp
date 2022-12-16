@@ -20,5 +20,5 @@ void VideoConferenceInfoTest::shouldHaveDefaultValues()
     QCOMPARE(info.status(), -1);
     QVERIFY(!info.ringing());
     QVERIFY(info.roomId().isEmpty());
-    // TODO
+    QCOMPARE(info.conferenceType(), VideoConferenceInfo::VideoConferenceType::Unknown);
 }

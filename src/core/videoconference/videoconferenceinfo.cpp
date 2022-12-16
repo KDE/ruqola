@@ -5,6 +5,7 @@
 */
 
 #include "videoconferenceinfo.h"
+#include "ruqola_videoconference_core_debug.h"
 #include "utils.h"
 
 #include <QJsonObject>
@@ -36,7 +37,19 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     if (content.contains(QLatin1String("endedAt"))) {
         setEndedAtDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("endedAt"), content)));
     }
+    mConferenceType = convertTypeToEnum(content[QLatin1String("type")].toString());
     // Users
+}
+
+VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str) const
+{
+    if (str == QLatin1String("videoconference")) {
+        return VideoConferenceInfo::VideoConferenceType::Conference;
+    } else if (str == QLatin1String("direct")) {
+        return VideoConferenceInfo::VideoConferenceType::Direct;
+    }
+    qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertTypeToEnum invalid " << str;
+    return VideoConferenceInfo::VideoConferenceType::Unknown;
 }
 
 QString VideoConferenceInfo::url() const
@@ -97,6 +110,16 @@ QDateTime VideoConferenceInfo::endedAtDateTime() const
 void VideoConferenceInfo::setEndedAtDateTime(const QDateTime &newEndedAtDateTime)
 {
     mEndedAtDateTime = newEndedAtDateTime;
+}
+
+VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::conferenceType() const
+{
+    return mConferenceType;
+}
+
+void VideoConferenceInfo::setConferenceType(VideoConferenceType newConferenceType)
+{
+    mConferenceType = newConferenceType;
 }
 
 QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
