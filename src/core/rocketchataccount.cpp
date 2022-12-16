@@ -2172,18 +2172,28 @@ void RocketChatAccount::sendNotification(const QJsonArray &contents)
     if (!info.isValid()) {
         qCWarning(RUQOLA_LOG) << " Info is invalid ! " << contents;
     } else {
-        const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
-        qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
-        QPixmap pix;
-        if (!iconFileName.isEmpty()) {
-            const QUrl url = QUrl::fromLocalFile(iconFileName);
-            qDebug() << "url.toLocalFile()" << url.toLocalFile();
-            const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
-            qDebug() << " load pixmap : " << loaded;
-            qDebug() << " pix " << pix.isNull();
-            Q_UNUSED(loaded)
-            info.setPixmap(pix);
+        switch (info.notificationType()) {
+        case NotificationInfo::StandardMessage: {
+            const QString iconFileName = mCache->avatarUrlFromCacheOnly(info.senderUserName());
+            // qDebug() << " iconFileName" << iconFileName << " sender " << info.senderId() << " info.senderUserName() " << info.senderUserName();
+            QPixmap pix;
+            if (!iconFileName.isEmpty()) {
+                const QUrl url = QUrl::fromLocalFile(iconFileName);
+                // qDebug() << "url.toLocalFile()" << url.toLocalFile();
+                const bool loaded = pix.load(url.toLocalFile().remove(QStringLiteral("file://")), "JPEG");
+                // qDebug() << " load pixmap : " << loaded;
+                // qDebug() << " pix " << pix.isNull();
+                Q_UNUSED(loaded)
+                info.setPixmap(pix);
+            }
+            break;
         }
+        case NotificationInfo::ConferenceCall: {
+            // Nothing
+            break;
+        }
+        }
+
         Q_EMIT notification(info);
     }
 }
