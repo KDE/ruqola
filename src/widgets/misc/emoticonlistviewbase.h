@@ -16,6 +16,8 @@ public:
     ~EmoticonListViewBase() override;
     void setFontSize(int newFontSize);
 
+    Q_REQUIRED_RESULT int sizeHintForRow(int row) const override;
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
@@ -26,4 +28,5 @@ Q_SIGNALS:
 private:
     void applyFontSize();
     int mFontSize = 18;
+    int mRowSize = 0;
 };

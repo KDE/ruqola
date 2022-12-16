@@ -11,6 +11,7 @@
 EmoticonListViewBase::EmoticonListViewBase(QWidget *parent)
     : QListView(parent)
 {
+    setUniformItemSizes(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setSelectionMode(QAbstractItemView::SingleSelection);
     setMouseTracking(true);
@@ -22,6 +23,12 @@ EmoticonListViewBase::EmoticonListViewBase(QWidget *parent)
 }
 
 EmoticonListViewBase::~EmoticonListViewBase() = default;
+
+int EmoticonListViewBase::sizeHintForRow(int row) const
+{
+    Q_UNUSED(row)
+    return mRowSize;
+}
 
 void EmoticonListViewBase::keyPressEvent(QKeyEvent *event)
 {
@@ -69,5 +76,7 @@ void EmoticonListViewBase::applyFontSize()
     QFont f = font();
     f.setPointSize(mFontSize);
     f.setFamily(Utils::emojiFontName());
+
+    mRowSize = QFontMetrics(f).height();
     setFont(f);
 }
