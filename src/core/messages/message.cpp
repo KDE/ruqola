@@ -599,7 +599,7 @@ QString Message::systemMessageText() const
     } else if (mSystemMessageType == QLatin1String("ujt")) {
         return i18n("%1 joined this Team", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_joined_otr")) {
-        return i18n("% 1h has joined OTR chat.", mUsername);
+        return i18n("%1 has joined OTR chat.", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_key_refreshed_successfully")) {
         return i18n("%1 key refreshed successfully", mUsername);
     } else if (mSystemMessageType == QLatin1String("user_requested_otr_key_refresh")) {
