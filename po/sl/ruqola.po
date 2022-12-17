@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-12-16 08:46+0100\n"
+"POT-Creation-Date: 2022-12-17 11:09+0000\n"
+"PO-Revision-Date: 2022-12-17 07:18+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -575,21 +575,19 @@ msgstr "%1 se je pridružil tej ekipi"
 
 #: core/messages/message.cpp:602
 #, fuzzy, kde-format
-#| msgid "Has joined OTR chat."
-msgid "% 1h has joined OTR chat."
-msgstr "Se je pridružil(a) klepetu OTR."
+#| msgid "% 1h has joined OTR chat."
+msgid "%1 has joined OTR chat."
+msgstr "% 1h se je pridružil(a) klepetu OTR."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "ključ se je uspešno osvežil"
+msgstr "%1 ključ se je uspešno osvežil"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "Je zahteval(a) osvežitev ključa."
+msgstr "%1 Je zahteval(a) osvežitev ključa."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -1876,10 +1874,9 @@ msgstr "BesediloOznake"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:723
-#, fuzzy, kde-format
-#| msgid "System Path:"
+#, kde-format
 msgid "Custom System Path:"
-msgstr "Sistemska pot:"
+msgstr "Sistemska pot po meri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:780
@@ -1895,10 +1892,9 @@ msgstr "Sistemska pot:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:794
-#, fuzzy, kde-format
-#| msgid "Writable Path:"
+#, kde-format
 msgid "Custom Writable Path:"
-msgstr "Zapisljiva pot:"
+msgstr "Zapisljiva pot po meri:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
@@ -5058,7 +5054,7 @@ msgstr "Posodobitev"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Posodobi zadnjo razpoložljivo inačico"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5428,6 +5424,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"To je zastarela možnost. Lahko, da ne bo delovala kot pričakujete in ne bo "
+"več posodobljena."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format
@@ -7898,8 +7896,7 @@ msgid "Remove Token"
 msgstr "Odstrani žeton"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Use Emoji"
+#, kde-format
 msgid "Use Emojis"
 msgstr "Uporabi emodžije"
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-12-16 08:33+0200\n"
+"POT-Creation-Date: 2022-12-17 11:09+0000\n"
+"PO-Revision-Date: 2022-12-17 08:47+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -576,22 +576,19 @@ msgid "%1 joined this Team"
 msgstr "%1 долучився/долучилася до цієї команди"
 
 #: core/messages/message.cpp:602
-#, fuzzy, kde-format
-#| msgid "Has joined OTR chat."
-msgid "% 1h has joined OTR chat."
-msgstr "Долучається до спілкування OTR."
+#, kde-format
+msgid "%1 has joined OTR chat."
+msgstr "%1 долучається до спілкування OTR."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "ключ успішно оновлено"
+msgstr "Ключ %1 успішно оновлено"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "Надіслано запит на оновлення ключа."
+msgstr "%1 надіслано запит на оновлення ключа."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -5081,7 +5078,7 @@ msgstr "Оновити"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Оновити до найсвіжішої доступної версії"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5455,6 +5452,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Ця можливість є застарілою. Вона може працювати неналежним чином і не "
+"отримуватиме оновлень."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format

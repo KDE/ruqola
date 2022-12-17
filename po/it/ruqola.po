@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 11:09+0000\n"
 "PO-Revision-Date: 2022-12-16 11:06+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -575,7 +575,7 @@ msgstr "%1 si è unito a questa squadra"
 #: core/messages/message.cpp:602
 #, fuzzy, kde-format
 #| msgid "Has joined OTR chat."
-msgid "% 1h has joined OTR chat."
+msgid "%1 has joined OTR chat."
 msgstr "Si è unito alla chat OTR."
 
 #: core/messages/message.cpp:604
