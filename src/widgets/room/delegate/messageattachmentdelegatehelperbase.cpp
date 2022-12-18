@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "messagedelegatehelperbase.h"
+#include "messageattachmentdelegatehelperbase.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
@@ -20,27 +20,27 @@
 #include <QStyleOptionViewItem>
 #include <QToolTip>
 
-MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
+MessageAttachmentDelegateHelperBase::~MessageAttachmentDelegateHelperBase() = default;
 
-MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
+MessageAttachmentDelegateHelperBase::MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : mListView(view)
     , mSelectionImpl(textSelectionImpl)
     , mRocketChatAccount(account)
 {
-    connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperBase::updateView);
+    connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageAttachmentDelegateHelperBase::updateView);
 }
 
-void MessageDelegateHelperBase::updateView(const QModelIndex &index)
+void MessageAttachmentDelegateHelperBase::updateView(const QModelIndex &index)
 {
     // qDebug() << " void MessageDelegateHelperBase::updateView(const QModelIndex &index)" << index;
     mListView->update(index);
 }
 
-bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
-                                                 QMouseEvent *mouseEvent,
-                                                 QRect attachmentsRect,
-                                                 const QStyleOptionViewItem &option,
-                                                 const QModelIndex &index)
+bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
+                                                           QMouseEvent *mouseEvent,
+                                                           QRect attachmentsRect,
+                                                           const QStyleOptionViewItem &option,
+                                                           const QModelIndex &index)
 {
     switch (mouseEvent->type()) {
     case QEvent::MouseMove: {
@@ -126,11 +126,11 @@ bool MessageDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAtt
     return false;
 }
 
-bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttach,
-                                               QMouseEvent *mouseEvent,
-                                               QRect attachmentsRect,
-                                               const QStyleOptionViewItem &option,
-                                               const QModelIndex &index)
+bool MessageAttachmentDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttach,
+                                                         QMouseEvent *mouseEvent,
+                                                         QRect attachmentsRect,
+                                                         const QStyleOptionViewItem &option,
+                                                         const QModelIndex &index)
 {
     if (!mSelectionImpl->mightStartDrag() || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
         return false;
@@ -146,33 +146,33 @@ bool MessageDelegateHelperBase::maybeStartDrag(const MessageAttachment &msgAttac
     return true;
 }
 
-void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
+void MessageAttachmentDelegateHelperBase::removeMessageCache(const QString &messageId)
 {
     mDocumentCache.remove(messageId);
 }
 
-void MessageDelegateHelperBase::clearTextDocumentCache()
+void MessageAttachmentDelegateHelperBase::clearTextDocumentCache()
 {
     mDocumentCache.clear();
 }
 
-int MessageDelegateHelperBase::charPosition(const QTextDocument *doc,
-                                            const MessageAttachment &msgAttach,
-                                            QRect attachmentsRect,
-                                            const QPoint &pos,
-                                            const QStyleOptionViewItem &option)
+int MessageAttachmentDelegateHelperBase::charPosition(const QTextDocument *doc,
+                                                      const MessageAttachment &msgAttach,
+                                                      QRect attachmentsRect,
+                                                      const QPoint &pos,
+                                                      const QStyleOptionViewItem &option)
 {
     const QPoint relativePos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
     const int charPos = doc->documentLayout()->hitTest(relativePos, Qt::FuzzyHit);
     return charPos;
 }
 
-void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
-                                                QRect descriptionRect,
-                                                QPainter *painter,
-                                                int topPos,
-                                                const QModelIndex &index,
-                                                const QStyleOptionViewItem &option) const
+void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachment &msgAttach,
+                                                          QRect descriptionRect,
+                                                          QPainter *painter,
+                                                          int topPos,
+                                                          const QModelIndex &index,
+                                                          const QStyleOptionViewItem &option) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, descriptionRect.width());
     if (!doc) {
@@ -182,31 +182,31 @@ void MessageDelegateHelperBase::drawDescription(const MessageAttachment &msgAtta
     MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
 }
 
-void MessageDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+void MessageAttachmentDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
 {
     mRocketChatAccount = newRocketChatAccount;
 }
 
-QTextDocument *MessageDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
+QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
 {
     return documentDescriptionForIndex(msgAttach, -1);
 }
 
-QTextDocument *MessageDelegateHelperBase::documentForIndex(const QModelIndex &index) const
+QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const QModelIndex &index) const
 {
     Q_UNUSED(index)
     // Unused here
     return nullptr;
 }
 
-QSize MessageDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
+QSize MessageAttachmentDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, width);
     // Add +10 as if we use only doc->idealWidth() it's too small and it creates a new line.
     return doc ? QSize(doc->idealWidth() + 10, doc->size().height()) : QSize();
 }
 
-QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
+QTextDocument *MessageAttachmentDelegateHelperBase::documentDescriptionForIndex(const MessageAttachment &msgAttach, int width) const
 {
     const QString attachmentId = msgAttach.attachmentId();
     auto it = mDocumentCache.find(attachmentId);
@@ -242,10 +242,10 @@ QTextDocument *MessageDelegateHelperBase::documentDescriptionForIndex(const Mess
     return ret;
 }
 
-bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
-                                                QRect messageRect,
-                                                const MessageAttachment &msgAttach,
-                                                const QStyleOptionViewItem &option)
+bool MessageAttachmentDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
+                                                          QRect messageRect,
+                                                          const MessageAttachment &msgAttach,
+                                                          const QStyleOptionViewItem &option)
 {
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
@@ -265,7 +265,7 @@ bool MessageDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent,
     return true;
 }
 
-QString MessageDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
+QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos)
 {
     auto document = documentDescriptionForIndex(msgAttach, attachmentsRect.width() /*, true*/);
     if (!document) {

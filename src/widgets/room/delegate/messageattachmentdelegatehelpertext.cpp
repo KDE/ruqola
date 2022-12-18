@@ -21,7 +21,7 @@
 #include <QToolTip>
 
 MessageAttachmentDelegateHelperText::MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 
@@ -127,7 +127,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
         break;
     }
 
-    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
+    return MessageAttachmentDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperText::TextLayout MessageAttachmentDelegateHelperText::layoutText(const MessageAttachment &msgAttach,

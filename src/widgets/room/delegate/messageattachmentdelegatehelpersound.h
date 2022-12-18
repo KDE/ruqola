@@ -6,12 +6,12 @@
 
 #pragma once
 
-#include "messagedelegatehelperbase.h"
+#include "messageattachmentdelegatehelperbase.h"
 
 #include <QIcon>
 #include <QModelIndex>
 
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperSound : public MessageAttachmentDelegateHelperBase
 {
 public:
     explicit MessageAttachmentDelegateHelperSound(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);

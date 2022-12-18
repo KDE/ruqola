@@ -28,11 +28,11 @@ class QHelpEvent;
 class Message;
 class QListView;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperBase : public QObject, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperBase : public QObject, public DocumentFactoryInterface
 {
 public:
-    explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
-    virtual ~MessageDelegateHelperBase();
+    explicit MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
+    virtual ~MessageAttachmentDelegateHelperBase();
 
     virtual void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect attachmentsRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;

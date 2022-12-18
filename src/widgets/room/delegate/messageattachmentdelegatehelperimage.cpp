@@ -22,7 +22,7 @@
 #include <QStyleOptionViewItem>
 
 MessageAttachmentDelegateHelperImage::MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 
@@ -149,7 +149,7 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
     default:
         break;
     }
-    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
+    return MessageAttachmentDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperImage::ImageLayout MessageAttachmentDelegateHelperImage::layoutImage(const MessageAttachment &msgAttach,

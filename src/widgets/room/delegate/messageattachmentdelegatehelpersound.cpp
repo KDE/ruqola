@@ -19,7 +19,7 @@
 #include <QStyleOptionViewItem>
 
 MessageAttachmentDelegateHelperSound::MessageAttachmentDelegateHelperSound(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
     , mPlayerVolumeIcon(QIcon::fromTheme(QStringLiteral("player-volume")))
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
 {
@@ -99,7 +99,7 @@ bool MessageAttachmentDelegateHelperSound::handleMouseEvent(const MessageAttachm
         break;
     }
 
-    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
+    return MessageAttachmentDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperSound::SoundLayout

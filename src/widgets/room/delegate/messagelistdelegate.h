@@ -16,7 +16,7 @@
 class QListView;
 class RocketChatAccount;
 class Message;
-class MessageDelegateHelperBase;
+class MessageAttachmentDelegateHelperBase;
 class MessageDelegateHelperText;
 class MessageAttachmentDelegateHelperImage;
 class MessageAttachmentDelegateHelperFile;
@@ -75,7 +75,7 @@ public:
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
 
     /// @note Ownership is not transferred
-    Q_REQUIRED_RESULT MessageDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
+    Q_REQUIRED_RESULT MessageAttachmentDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
 
     Q_REQUIRED_RESULT MessageDelegateHelperText *helperText() const;
 

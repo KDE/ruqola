@@ -9,12 +9,12 @@
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselection.h"
+#include "messageattachmentdelegatehelperbase.h"
 #include "messageattachmentdelegatehelperfile.h"
 #include "messageattachmentdelegatehelperimage.h"
 #include "messageattachmentdelegatehelpersound.h"
 #include "messageattachmentdelegatehelpertext.h"
 #include "messageattachmentdelegatehelpervideo.h"
-#include "messagedelegatehelperbase.h"
 #include "messagedelegatehelperconferencevideo.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpertext.h"
@@ -138,7 +138,7 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     }
 }
 
-MessageDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageAttachment &msgAttach) const
+MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageAttachment &msgAttach) const
 {
     switch (msgAttach.attachmentType()) {
     case MessageAttachment::Image:
@@ -259,7 +259,7 @@ QString MessageListDelegate::urlAt(const QStyleOptionViewItem &option, const QMo
         const auto attachments = message->attachments();
         int i = 0;
         for (const MessageAttachment &msgAttach : attachments) {
-            MessageDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
             url = helper->urlAt(option, msgAttach, layout.attachmentsRectList.at(i), pos);
             if (!url.isEmpty()) {
                 return url;
@@ -412,7 +412,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const auto attachments = message->attachments();
     int i = 0;
     for (const MessageAttachment &att : attachments) {
-        const MessageDelegateHelperBase *helper = attachmentsHelper(att);
+        const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
             helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
         }
@@ -549,7 +549,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const auto attachments = message->attachments();
         int i = 0;
         for (const MessageAttachment &att : attachments) {
-            MessageDelegateHelperBase *helper = attachmentsHelper(att);
+            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
                 return true;
             }
@@ -567,7 +567,7 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             const auto attachments = message->attachments();
             int i = 0;
             for (const MessageAttachment &att : attachments) {
-                MessageDelegateHelperBase *helper = attachmentsHelper(att);
+                MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
                 if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
                     return true;
                 }
@@ -589,7 +589,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     const auto attachments = message->attachments();
     int i = 0;
     for (const MessageAttachment &att : attachments) {
-        MessageDelegateHelperBase *helper = attachmentsHelper(att);
+        MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
             return true;
         }
@@ -656,7 +656,7 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         const auto attachments = message->attachments();
         int i = 0;
         for (const MessageAttachment &att : attachments) {
-            MessageDelegateHelperBase *helper = attachmentsHelper(att);
+            MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
             if (helper) {
                 if (layout.attachmentsRectList.at(i).contains(helpEventPos)
                     && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {

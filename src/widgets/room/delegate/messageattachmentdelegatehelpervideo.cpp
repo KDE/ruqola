@@ -19,7 +19,7 @@
 #include <QStyleOptionViewItem>
 
 MessageAttachmentDelegateHelperVideo::MessageAttachmentDelegateHelperVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : MessageAttachmentDelegateHelperBase(account, view, textSelectionImpl)
     , mDownloadIcon(QIcon::fromTheme(QStringLiteral("cloud-download")))
     , mVisibilityIcon(QIcon::fromTheme(QStringLiteral("visibility")))
 {
@@ -91,7 +91,7 @@ bool MessageAttachmentDelegateHelperVideo::handleMouseEvent(const MessageAttachm
         break;
     }
 
-    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
+    return MessageAttachmentDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
 
 MessageAttachmentDelegateHelperVideo::VideoLayout

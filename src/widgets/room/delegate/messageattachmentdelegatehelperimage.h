@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "messagedelegatehelperbase.h"
+#include "messageattachmentdelegatehelperbase.h"
 #include "misc/pixmapcache.h"
 #include "runninganimatedimage.h"
 
@@ -14,7 +14,7 @@
 #include <QPixmap>
 #include <vector>
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperImage : public MessageAttachmentDelegateHelperBase
 {
 public:
     explicit MessageAttachmentDelegateHelperImage(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);

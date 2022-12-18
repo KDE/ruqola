@@ -8,7 +8,7 @@
 #include "delegateutils/messagedelegateutils.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
-#include "room/delegate/messagedelegatehelperbase.h"
+#include "room/delegate/messageattachmentdelegatehelperbase.h"
 #include "room/delegate/messagedelegatehelperreactions.h"
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
@@ -186,7 +186,7 @@ MessageListLayoutBase::Layout MessageListCozyLayout::doLayout(const QStyleOption
         int topAttachment = attachmentsY;
         // TODO add spacing between attachment
         for (const MessageAttachment &msgAttach : attachments) {
-            const MessageDelegateHelperBase *helper = mDelegate->attachmentsHelper(msgAttach);
+            const MessageAttachmentDelegateHelperBase *helper = mDelegate->attachmentsHelper(msgAttach);
             if (attachmentsSize.isEmpty()) {
                 attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
                 layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attachmentsSize.width(), attachmentsSize.height()));

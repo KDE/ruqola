@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "messagedelegatehelperbase.h"
+#include "messageattachmentdelegatehelperbase.h"
 #include <QModelIndex>
 #include <QRect>
 #include <QTextDocument>
 class QHelpEvent;
 class QListView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageAttachmentDelegateHelperBase
 {
 public:
     explicit MessageAttachmentDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
