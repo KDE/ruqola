@@ -7,31 +7,35 @@
 #include "messagedelegatehelperconferencevideo.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
-#include "dialogs/playsounddialog.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
+#include <QListView>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : QObject(view)
+    , mListView(view)
+    , mSelectionImpl(textSelectionImpl)
+    , mRocketChatAccount(account)
 {
 }
 
 MessageDelegateHelperConferenceVideo::~MessageDelegateHelperConferenceVideo() = default;
 
+#if 0
 void MessageDelegateHelperConferenceVideo::draw(const MessageAttachment &msgAttach,
                                                 QPainter *painter,
                                                 QRect messageRect,
                                                 const QModelIndex &index,
                                                 const QStyleOptionViewItem &option) const
 {
-    const SoundLayout layout = layoutSound(msgAttach, option, messageRect.width());
+    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, messageRect.width());
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
@@ -45,7 +49,7 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const MessageAttachment &ms
                                                      const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const SoundLayout layout = layoutSound(msgAttach, option, maxWidth);
+    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -60,7 +64,7 @@ QPoint MessageDelegateHelperConferenceVideo::adaptMousePosition(const QPoint &po
                                                                 QRect attachmentsRect,
                                                                 const QStyleOptionViewItem &option)
 {
-    const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
+    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, attachmentsRect.width());
     const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
 }
@@ -76,7 +80,7 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const MessageAttachm
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
 
-        const SoundLayout layout = layoutSound(msgAttach, option, attachmentsRect.width());
+        const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, attachmentsRect.width());
         if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
             DelegateUtil::saveFile(parentWidget, layout.audioPath, i18n("Save Sound"));
@@ -97,11 +101,12 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const MessageAttachm
 
     return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
 }
-
-MessageDelegateHelperConferenceVideo::SoundLayout
-MessageDelegateHelperConferenceVideo::layoutSound(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
+#endif
+MessageDelegateHelperConferenceVideo::ConferenceCallLayout
+MessageDelegateHelperConferenceVideo::layoutConferenceCall(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
-    SoundLayout layout;
+    ConferenceCallLayout layout;
+#if 0
     const QUrl url = mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link());
     // or we could do layout.attachment = msgAttach; if we need many fields from it
     layout.title = msgAttach.title();
@@ -114,5 +119,6 @@ MessageDelegateHelperConferenceVideo::layoutSound(const MessageAttachment &msgAt
     if (url.isLocalFile()) {
         layout.audioPath = url.toLocalFile();
     }
+#endif
     return layout;
 }
