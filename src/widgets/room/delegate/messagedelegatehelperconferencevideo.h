@@ -35,6 +35,8 @@ public:
     Q_REQUIRED_RESULT bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
 private:
     struct ConferenceCallLayout {
         QString description;
@@ -42,6 +44,9 @@ private:
     };
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
+
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const;
 
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;

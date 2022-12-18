@@ -9,9 +9,6 @@
 #include "libruqolawidgets_private_export.h"
 #include "messagelistlayout/messagelistlayoutbase.h"
 #include "room.h"
-#include "utils.h"
-
-#include "misc/pixmapcache.h"
 
 #include <QItemDelegate>
 #include <QScopedPointer>
@@ -27,10 +24,10 @@ class MessageDelegateHelperReactions;
 class MessageAttachmentDelegateHelperVideo;
 class MessageAttachmentDelegateHelperSound;
 class MessageAttachmentDelegateHelperText;
+class MessageDelegateHelperConferenceVideo;
 class MessageAttachment;
 class AvatarCacheManager;
 class TextSelectionImpl;
-class MessageListLayoutBase;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -125,6 +122,7 @@ private:
     QScopedPointer<MessageAttachmentDelegateHelperVideo> mHelperAttachmentVideo;
     QScopedPointer<MessageAttachmentDelegateHelperSound> mHelperAttachmentSound;
     QScopedPointer<MessageAttachmentDelegateHelperText> mHelperAttachmentText;
+    QScopedPointer<MessageDelegateHelperConferenceVideo> mHelperConferenceVideo;
     AvatarCacheManager *const mAvatarCacheManager;
     MessageListLayoutBase *mMessageListLayoutBase = nullptr;
 };

@@ -92,6 +92,11 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
     return false;
 }
 
+void MessageDelegateHelperConferenceVideo::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
+}
+
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
 MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
@@ -111,4 +116,14 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     }
 #endif
     return layout;
+}
+
+QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QModelIndex &index) const
+{
+    return nullptr;
+}
+
+QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const MessageAttachment &msgAttach) const
+{
+    return nullptr;
 }

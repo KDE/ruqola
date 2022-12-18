@@ -15,6 +15,7 @@
 #include "messageattachmentdelegatehelpertext.h"
 #include "messageattachmentdelegatehelpervideo.h"
 #include "messagedelegatehelperbase.h"
+#include "messagedelegatehelperconferencevideo.h"
 #include "messagedelegatehelperreactions.h"
 #include "messagedelegatehelpertext.h"
 #include "misc/avatarcachemanager.h"
@@ -61,6 +62,7 @@ MessageListDelegate::MessageListDelegate(RocketChatAccount *account, QListView *
     , mHelperAttachmentVideo(new MessageAttachmentDelegateHelperVideo(account, view, mTextSelectionImpl))
     , mHelperAttachmentSound(new MessageAttachmentDelegateHelperSound(account, view, mTextSelectionImpl))
     , mHelperAttachmentText(new MessageAttachmentDelegateHelperText(account, view, mTextSelectionImpl))
+    , mHelperConferenceVideo(new MessageDelegateHelperConferenceVideo(account, view, mTextSelectionImpl))
     , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
     , mMessageListLayoutBase(new MessageListCompactLayout(this))
 {
@@ -115,6 +117,7 @@ void MessageListDelegate::setRocketChatAccount(RocketChatAccount *rcAccount)
     mHelperAttachmentVideo->setRocketChatAccount(mRocketChatAccount);
     mHelperAttachmentSound->setRocketChatAccount(mRocketChatAccount);
     mHelperAttachmentText->setRocketChatAccount(mRocketChatAccount);
+    mHelperConferenceVideo->setRocketChatAccount(mRocketChatAccount);
 }
 
 QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const
