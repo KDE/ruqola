@@ -20,9 +20,9 @@ SearchWithDelayLineEdit::SearchWithDelayLineEdit(QWidget *parent)
 
 SearchWithDelayLineEdit::~SearchWithDelayLineEdit() = default;
 
-void SearchWithDelayLineEdit::setDelayMs(int ms)
+void SearchWithDelayLineEdit::setDelayMs(std::chrono::milliseconds value)
 {
-    mMilliseconds = ms;
+    mMilliseconds = value;
 }
 
 void SearchWithDelayLineEdit::slotSearchTimerFired()

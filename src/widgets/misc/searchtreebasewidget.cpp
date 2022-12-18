@@ -30,7 +30,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     mainLayout->addLayout(mSearchLayout);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLayout->addWidget(mSearchLineEdit);
-    mSearchLineEdit->setDelayMs(500);
+    mSearchLineEdit->setDelayMs(std::chrono::milliseconds(500));
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));

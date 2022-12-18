@@ -14,7 +14,7 @@ ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, Q
     : SearchWithDelayLineEdit(parent)
     , mRocketChatAccount(account)
 {
-    setDelayMs(500);
+    setDelayMs(std::chrono::milliseconds(500));
     setPlaceholderText(QString());
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, &ChannelNameValidLineEdit::clearLineEdit);

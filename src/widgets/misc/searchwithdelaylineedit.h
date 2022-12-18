@@ -17,7 +17,7 @@ public:
     explicit SearchWithDelayLineEdit(QWidget *parent = nullptr);
     ~SearchWithDelayLineEdit() override;
 
-    void setDelayMs(int ms);
+    void setDelayMs(std::chrono::milliseconds value);
 
 Q_SIGNALS:
     void searchRequested(const QString &str);
@@ -27,5 +27,5 @@ private:
     void slotSearchTimerFired();
     void slotSearchTextEdited();
     QTimer *const mSearchTimer;
-    int mMilliseconds = 1000;
+    std::chrono::milliseconds mMilliseconds = std::chrono::milliseconds(1000);
 };
