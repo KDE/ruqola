@@ -40,13 +40,8 @@ public:
 
 private:
     struct ConferenceCallLayout {
-        QString audioPath;
-        QString title;
         QString description;
-        QSize titleSize;
         QSize descriptionSize;
-        QRect playerVolumeButtonRect;
-        QRect downloadButtonRect;
     };
     //    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,
     //                                                const MessageAttachment &msgAttach,
