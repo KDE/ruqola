@@ -8,6 +8,7 @@
 
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
+#include "messages/block.h"
 
 #include <QIcon>
 #include <QModelIndex>
@@ -29,27 +30,18 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : publi
 public:
     explicit MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageDelegateHelperConferenceVideo() override;
-    //    void
-    //    draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const
-    //    override; QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
-    //    override; Q_REQUIRED_RESULT bool handleMouseEvent(const MessageAttachment &msgAttach,
-    //                                            QMouseEvent *mouseEvent,
-    //                                            QRect attachmentsRect,
-    //                                            const QStyleOptionViewItem &option,
-    //                                            const QModelIndex &index) override;
+    void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT bool
+    handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 private:
     struct ConferenceCallLayout {
         QString description;
         QSize descriptionSize;
     };
-    //    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,
-    //                                                const MessageAttachment &msgAttach,
-    //                                                QRect attachmentsRect,
-    //                                                const QStyleOptionViewItem &option) override;
-    Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const MessageAttachment &msgAttach,
-                                                                const QStyleOptionViewItem &option,
-                                                                int attachmentsWidth) const;
+    Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
+    Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
 
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;

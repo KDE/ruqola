@@ -28,28 +28,27 @@ MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(Rocke
 
 MessageDelegateHelperConferenceVideo::~MessageDelegateHelperConferenceVideo() = default;
 
-#if 0
-void MessageDelegateHelperConferenceVideo::draw(const MessageAttachment &msgAttach,
+void MessageDelegateHelperConferenceVideo::draw(const Block &block,
                                                 QPainter *painter,
                                                 QRect messageRect,
                                                 const QModelIndex &index,
                                                 const QStyleOptionViewItem &option) const
 {
-    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, messageRect.width());
+    const ConferenceCallLayout layout = layoutConferenceCall(block, option, messageRect.width());
+#if 0
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     drawDescription(msgAttach, messageRect, painter, nextY, index, option);
+#endif
 }
 
-QSize MessageDelegateHelperConferenceVideo::sizeHint(const MessageAttachment &msgAttach,
-                                                     const QModelIndex &index,
-                                                     int maxWidth,
-                                                     const QStyleOptionViewItem &option) const
+QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, maxWidth);
+#if 0
+    const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -57,19 +56,22 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const MessageAttachment &ms
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
     return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
+#endif
+    return {};
 }
 
-QPoint MessageDelegateHelperConferenceVideo::adaptMousePosition(const QPoint &pos,
-                                                                const MessageAttachment &msgAttach,
-                                                                QRect attachmentsRect,
-                                                                const QStyleOptionViewItem &option)
+QPoint
+MessageDelegateHelperConferenceVideo::adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option)
 {
-    const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, attachmentsRect.width());
+#if 0
+    const ConferenceCallLayout layout = layoutConferenceCall(block, option, attachmentsRect.width());
     const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.titleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
+#endif
+    return {};
 }
 
-bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const MessageAttachment &msgAttach,
+bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
                                                             QMouseEvent *mouseEvent,
                                                             QRect attachmentsRect,
                                                             const QStyleOptionViewItem &option,
@@ -80,30 +82,18 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const MessageAttachm
     case QEvent::MouseButtonRelease: {
         const QPoint pos = mouseEvent->pos();
 
-        const ConferenceCallLayout layout = layoutConferenceCall(msgAttach, option, attachmentsRect.width());
-        if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            DelegateUtil::saveFile(parentWidget, layout.audioPath, i18n("Save Sound"));
-            return true;
-        } else if (QRect(attachmentsRect.topLeft(), layout.titleSize).contains(pos)
-                   || layout.playerVolumeButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            PlaySoundDialog dlg(parentWidget);
-            dlg.setAudioUrl(QUrl::fromLocalFile(layout.audioPath));
-            dlg.exec();
-            return true;
-        }
+        const ConferenceCallLayout layout = layoutConferenceCall(block, option, attachmentsRect.width());
         break;
     }
     default:
         break;
     }
 
-    return MessageDelegateHelperBase::handleMouseEvent(msgAttach, mouseEvent, attachmentsRect, option, index);
+    return false;
 }
-#endif
+
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
-MessageDelegateHelperConferenceVideo::layoutConferenceCall(const MessageAttachment &msgAttach, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {
     ConferenceCallLayout layout;
 #if 0
