@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
+"POT-Creation-Date: 2022-12-17 11:09+0000\n"
 "PO-Revision-Date: 2022-12-17 11:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -576,20 +576,18 @@ msgid "%1 joined this Team"
 msgstr "%1 ha entrat a aquest equip"
 
 #: core/messages/message.cpp:602
-#, kde-format
-#| msgid "Has joined OTR chat."
-msgid "% 1h has joined OTR chat."
+#, fuzzy, kde-format
+#| msgid "% 1h has joined OTR chat."
+msgid "%1 has joined OTR chat."
 msgstr "% 1h ha entrat al xat OTR."
 
 #: core/messages/message.cpp:604
 #, kde-format
-#| msgid "key refreshed successfully"
 msgid "%1 key refreshed successfully"
 msgstr "La clau %1 s'ha actualitzat correctament"
 
 #: core/messages/message.cpp:606
 #, kde-format
-#| msgid "Has requested key refresh."
 msgid "%1 has requested key refresh."
 msgstr "%1 ha sol·licitat l'actualització de la clau."
 

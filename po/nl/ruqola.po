@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 00:50+0000\n"
-"PO-Revision-Date: 2022-12-16 11:17+0100\n"
+"POT-Creation-Date: 2022-12-17 11:09+0000\n"
+"PO-Revision-Date: 2022-12-17 11:44+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -575,20 +575,18 @@ msgstr "%1 doet mee aan dit team"
 #: core/messages/message.cpp:602
 #, fuzzy, kde-format
 #| msgid "Has joined OTR chat."
-msgid "% 1h has joined OTR chat."
+msgid "%1 has joined OTR chat."
 msgstr "Doet mee aan de OTR-chat."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "sleutel met succes vernieuwd"
+msgstr "sleutel %1 met succes vernieuwd"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "Heeft een vernieuwing van de sleutel gevraagd."
+msgstr "%1 heeft vernieuwing van de sleutel gevraagd."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -5073,7 +5071,7 @@ msgstr "Bijwerken"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Element voor bijwerken met de laatst beschikbare versie"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5449,6 +5447,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Dit is een afgekeurde functie. Het kan niet zoals verwacht werken en zal "
+"niet meer worden bijgewerkt."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format

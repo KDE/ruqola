@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-17 11:09+0000\n"
-"PO-Revision-Date: 2022-12-09 18:15+0100\n"
+"PO-Revision-Date: 2022-12-17 17:48+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -530,10 +530,9 @@ msgid "%1 added @%2 to this Team"
 msgstr "%1 añadió @%2 a este equipo"
 
 #: core/messages/message.cpp:584
-#, fuzzy, kde-format
-#| msgid "%1 removed %2 from this Team"
+#, kde-format
 msgid "%1 removed @%2 from this Team"
-msgstr "%1 eliminó %2 de este equipo"
+msgstr "%1 eliminó @%2 de este equipo"
 
 #: core/messages/message.cpp:586
 #, kde-format
@@ -576,22 +575,19 @@ msgid "%1 joined this Team"
 msgstr "%1 se unió a este equipo"
 
 #: core/messages/message.cpp:602
-#, fuzzy, kde-format
-#| msgid "Has joined OTR chat."
+#, kde-format
 msgid "%1 has joined OTR chat."
-msgstr "Se ha unido al chat OTR."
+msgstr "%1 se ha unido al chat OTR."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "clave refrescada con éxito"
+msgstr "%1 clave refrescada con éxito"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "Ha pedido un refresco de la clave."
+msgstr "%1 ha pedido un refresco de la clave."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -1446,12 +1442,12 @@ msgstr "Robot"
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Llamada entrante"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:55
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Aceptar"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -1879,10 +1875,9 @@ msgstr "EtiquetaDeTexto"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:723
-#, fuzzy, kde-format
-#| msgid "System Path:"
+#, kde-format
 msgid "Custom System Path:"
-msgstr "Ruta del sistema:"
+msgstr "Ruta del sistema personalizada:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:780
@@ -1898,10 +1893,9 @@ msgstr "Ruta del sistema:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:794
-#, fuzzy, kde-format
-#| msgid "Writable Path:"
+#, kde-format
 msgid "Custom Writable Path:"
-msgstr "Ruta de escritura:"
+msgstr "Ruta de escritura personalizada:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
@@ -2325,16 +2319,15 @@ msgstr "DeepL"
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Configurar"
+msgstr "Configurar motor"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Usar clave de licencia gratuita"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2350,8 +2343,7 @@ msgstr "Traducción libre"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Server Url:"
 msgstr "URL del servidor:"
 
@@ -5079,7 +5071,7 @@ msgstr "Actualizar"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Actualizar a la última versión disponible"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5455,6 +5447,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Esta es una funcionalidad obsoleta. Puede que no funcione como se espera y "
+"no recibirá nuevas actualizaciones."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format
@@ -6529,39 +6523,39 @@ msgstr "Error guardando archivo"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
-msgstr ""
+msgstr "Iniciar una llamada"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Iniciar"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera On"
-msgstr ""
+msgstr "Cámara activada"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera Off"
-msgstr ""
+msgstr "Cámara desactivada"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro On"
-msgstr ""
+msgstr "Micrófono activado"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro Off"
-msgstr ""
+msgstr "Micrófono desactivado"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Direct Call"
-msgstr ""
+msgstr "Iniciar una llamada directa"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:63
 #, kde-format
@@ -7926,10 +7920,9 @@ msgid "Remove Token"
 msgstr "Eliminar símbolo"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Use Emoji"
+#, kde-format
 msgid "Use Emojis"
-msgstr "Usar emoji"
+msgstr "Usar emojis"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
@@ -8538,7 +8531,7 @@ msgstr "E2E activado"
 #: widgets/room/roomheaderwidget.cpp:100
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Llamar"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
 #, kde-format
@@ -9083,30 +9076,3 @@ msgstr "Información de la cuenta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
-
-#~ msgid "User added to team: %1 by %2"
-#~ msgstr "Usuario añadido al equipo: %1 por %2"
-
-#~ msgid "User removed to team: %1 by %2"
-#~ msgstr "Usuario eliminado del equipo: %1 por %2"
-
-#~ msgid "Read Only"
-#~ msgstr "Solo lectura"
-
-#~ msgid "User Name:"
-#~ msgstr "Nombre del usuario:"
-
-#, fuzzy
-#~| msgid "Default"
-#~ msgctxt "Default tts engine"
-#~ msgid "Default"
-#~ msgstr "Por omisión"
-
-#~ msgid "Modern Javanese (Indonesia)"
-#~ msgstr "Javanés moderno (Indonesia)"
-
-#~ msgid "Chinese"
-#~ msgstr "Chino"
-
-#~ msgid "Mute Group Mentions"
-#~ msgstr "Silenciar menciones de grupos"
