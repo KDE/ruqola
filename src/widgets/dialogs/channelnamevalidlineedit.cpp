@@ -9,12 +9,14 @@
 
 #include <KColorScheme>
 #include <KStatefulBrush>
+#include <chrono>
+using namespace std::chrono_literals;
 
 ChannelNameValidLineEdit::ChannelNameValidLineEdit(RocketChatAccount *account, QWidget *parent)
     : SearchWithDelayLineEdit(parent)
     , mRocketChatAccount(account)
 {
-    setDelayMs(std::chrono::milliseconds(500));
+    setDelayMs(500ms);
     setPlaceholderText(QString());
     connect(this, &ChannelNameValidLineEdit::searchRequested, this, &ChannelNameValidLineEdit::slotSearchChannelRequested);
     connect(this, &ChannelNameValidLineEdit::searchCleared, this, &ChannelNameValidLineEdit::clearLineEdit);

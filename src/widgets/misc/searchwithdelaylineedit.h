@@ -9,6 +9,8 @@
 #include <QLineEdit>
 
 #include "libruqolawidgets_private_export.h"
+#include <chrono>
+using namespace std::chrono_literals;
 class QTimer;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchWithDelayLineEdit : public QLineEdit
 {
@@ -27,5 +29,5 @@ private:
     void slotSearchTimerFired();
     void slotSearchTextEdited();
     QTimer *const mSearchTimer;
-    std::chrono::milliseconds mMilliseconds = std::chrono::milliseconds(1000);
+    std::chrono::milliseconds mMilliseconds = 1000ms;
 };

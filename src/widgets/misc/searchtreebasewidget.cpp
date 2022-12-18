@@ -14,6 +14,8 @@
 #include <QLabel>
 #include <QTreeView>
 #include <QVBoxLayout>
+#include <chrono>
+using namespace std::chrono_literals;
 
 SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -30,7 +32,7 @@ SearchTreeBaseWidget::SearchTreeBaseWidget(RocketChatAccount *account, QWidget *
     mainLayout->addLayout(mSearchLayout);
     mSearchLineEdit->setObjectName(QStringLiteral("mSearchLineEdit"));
     mSearchLayout->addWidget(mSearchLineEdit);
-    mSearchLineEdit->setDelayMs(std::chrono::milliseconds(500));
+    mSearchLineEdit->setDelayMs(500ms);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mLabelResultSearch->setObjectName(QStringLiteral("mLabelResultSearch"));
