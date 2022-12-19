@@ -133,7 +133,7 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
                 if (charPos == -1) {
                     return false;
                 }
-                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this, {});
+                mTextSelectionImpl->textSelection()->selectWordUnderCursor(index, charPos, this);
                 return true;
             }
         }

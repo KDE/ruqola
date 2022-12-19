@@ -258,6 +258,16 @@ void TextSelection::selectWord(const QModelIndex &index, int charPos, QTextDocum
     mEndPos = cursor.selectionEnd();
 }
 
+void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory)
+{
+    if (!factory) {
+        qCWarning(RUQOLAWIDGETS_SELECTION_LOG) << " Factory is null. It's a bug";
+        return;
+    }
+    QTextDocument *doc = factory->documentForIndex(index);
+    selectWord(index, charPos, doc);
+}
+
 void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos, DocumentFactoryInterface *factory, const MessageAttachment &msgAttach)
 {
     if (!factory) {
@@ -273,9 +283,6 @@ void TextSelection::selectWordUnderCursor(const QModelIndex &index, int charPos,
         selection.toCharPos = mEndPos;
         selection.attachment = msgAttach;
         mAttachmentSelection.append(std::move(selection));
-    } else {
-        QTextDocument *doc = factory->documentForIndex(index);
-        selectWord(index, charPos, doc);
     }
 }
 
