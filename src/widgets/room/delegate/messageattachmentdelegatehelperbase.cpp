@@ -164,11 +164,6 @@ void MessageAttachmentDelegateHelperBase::drawDescription(const MessageAttachmen
     MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
 }
 
-void MessageAttachmentDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
-{
-    mRocketChatAccount = newRocketChatAccount;
-}
-
 QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const MessageAttachment &msgAttach) const
 {
     return documentDescriptionForIndex(msgAttach, -1);
