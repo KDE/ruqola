@@ -339,8 +339,3 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
 }
-
-void MessageDelegateHelperText::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
-{
-    mRocketChatAccount = newRocketChatAccount;
-}

@@ -36,8 +36,6 @@ public:
     Q_REQUIRED_RESULT bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
-    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
-
 private:
     struct ConferenceCallLayout {
         QString description;

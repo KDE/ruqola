@@ -17,6 +17,8 @@ public:
     explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     virtual ~MessageDelegateHelperBase();
 
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+
 protected:
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;

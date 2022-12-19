@@ -50,8 +50,6 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
-    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
-
 private:
     friend class TextSelection; // for documentForIndex
     Q_REQUIRED_RESULT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;

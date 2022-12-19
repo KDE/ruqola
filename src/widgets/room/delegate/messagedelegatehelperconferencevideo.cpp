@@ -89,11 +89,6 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
     return false;
 }
 
-void MessageDelegateHelperConferenceVideo::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
-{
-    mRocketChatAccount = newRocketChatAccount;
-}
-
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
 MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const
 {

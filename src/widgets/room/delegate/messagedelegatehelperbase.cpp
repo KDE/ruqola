@@ -17,3 +17,8 @@ MessageDelegateHelperBase::MessageDelegateHelperBase(RocketChatAccount *account,
 }
 
 MessageDelegateHelperBase::~MessageDelegateHelperBase() = default;
+
+void MessageDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mRocketChatAccount = newRocketChatAccount;
+}
