@@ -23,9 +23,7 @@
 MessageAttachmentDelegateHelperBase::~MessageAttachmentDelegateHelperBase() = default;
 
 MessageAttachmentDelegateHelperBase::MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : mListView(view)
-    , mSelectionImpl(textSelectionImpl)
-    , mRocketChatAccount(account)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
     connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageAttachmentDelegateHelperBase::updateView);
 }

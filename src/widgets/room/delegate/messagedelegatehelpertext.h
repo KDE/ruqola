@@ -9,6 +9,8 @@
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 
+#include "messagedelegatehelperbase.h"
+
 #include <QModelIndex>
 #include <QSize>
 #include <QTextDocument>
@@ -24,7 +26,7 @@ class QHelpEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
 
-class MessageDelegateHelperText : public QObject, public DocumentFactoryInterface
+class MessageDelegateHelperText : public MessageDelegateHelperBase
 {
     Q_OBJECT
 public:
@@ -66,10 +68,7 @@ private:
 
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index, int width, bool connectToUpdates) const;
 
-    RocketChatAccount *mRocketChatAccount = nullptr;
     QString mSearchText;
     bool mShowThreadContext = true;
-    QListView *const mListView;
-    TextSelectionImpl *const mSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

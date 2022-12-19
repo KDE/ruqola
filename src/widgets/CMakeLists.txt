@@ -500,6 +500,10 @@ target_sources(libruqolawidgets PRIVATE
     registeruser/registeruserwidget.h
     room/channelactionpopupmenu.cpp
     room/channelactionpopupmenu.h
+
+    room/delegate/messagedelegatehelperbase.h
+    room/delegate/messagedelegatehelperbase.cpp
+
     room/delegate/messageattachmentdelegatehelperfile.cpp
     room/delegate/messageattachmentdelegatehelperfile.h
     room/delegate/messageattachmentdelegatehelperimage.cpp

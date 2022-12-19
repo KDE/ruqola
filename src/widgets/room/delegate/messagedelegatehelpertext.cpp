@@ -27,10 +27,7 @@
 #include <QToolTip>
 
 MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : QObject(view)
-    , mRocketChatAccount(account)
-    , mListView(view)
-    , mSelectionImpl(textSelectionImpl)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
     connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageDelegateHelperText::updateView);
 }

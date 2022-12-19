@@ -19,10 +19,7 @@
 #include <QStyleOptionViewItem>
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : QObject(view)
-    , mListView(view)
-    , mSelectionImpl(textSelectionImpl)
-    , mRocketChatAccount(account)
+    : MessageDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 

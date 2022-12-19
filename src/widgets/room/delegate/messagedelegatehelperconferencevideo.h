@@ -8,6 +8,7 @@
 
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
+#include "messagedelegatehelperbase.h"
 #include "messages/block.h"
 
 #include <QIcon>
@@ -25,7 +26,7 @@ class QMouseEvent;
 class QHelpEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public QObject, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public MessageDelegateHelperBase
 {
 public:
     explicit MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
@@ -47,8 +48,4 @@ private:
 
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const;
-
-    QListView *const mListView;
-    TextSelectionImpl *const mSelectionImpl;
-    RocketChatAccount *mRocketChatAccount = nullptr;
 };

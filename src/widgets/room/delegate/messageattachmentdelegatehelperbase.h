@@ -10,6 +10,7 @@
 #include "delegateutils/textselectionimpl.h"
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
+#include "messagedelegatehelperbase.h"
 #include "messages/messageattachment.h"
 
 #include <QPersistentModelIndex>
@@ -28,7 +29,7 @@ class QHelpEvent;
 class Message;
 class QListView;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperBase : public QObject, public DocumentFactoryInterface
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperBase : public MessageDelegateHelperBase
 {
 public:
     explicit MessageAttachmentDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
@@ -70,10 +71,6 @@ protected:
                          int topPos,
                          const QModelIndex &index,
                          const QStyleOptionViewItem &option) const;
-
-    QListView *const mListView;
-    TextSelectionImpl *const mSelectionImpl;
-    RocketChatAccount *mRocketChatAccount = nullptr;
 
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
