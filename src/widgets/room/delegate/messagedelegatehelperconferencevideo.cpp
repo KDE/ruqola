@@ -19,7 +19,7 @@
 #include <QStyleOptionViewItem>
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
-    : MessageDelegateHelperBase(account, view, textSelectionImpl)
+    : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
 {
 }
 
@@ -117,5 +117,7 @@ QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QMod
 
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const MessageAttachment &msgAttach) const
 {
+    Q_UNUSED(msgAttach);
+    Q_ASSERT(false);
     return nullptr;
 }

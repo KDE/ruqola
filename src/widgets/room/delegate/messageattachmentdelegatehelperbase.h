@@ -9,7 +9,6 @@
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 #include "libruqolawidgets_private_export.h"
-#include "lrucache.h"
 #include "messagedelegatehelperbase.h"
 #include "messages/messageattachment.h"
 

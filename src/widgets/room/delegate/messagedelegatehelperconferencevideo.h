@@ -8,7 +8,7 @@
 
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
-#include "messagedelegatehelperbase.h"
+#include "messageblockdelegatehelperbase.h"
 #include "messages/block.h"
 
 #include <QIcon>
@@ -26,13 +26,13 @@ class QMouseEvent;
 class QHelpEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public MessageDelegateHelperBase
+class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public MessageBlockDelegateHelperBase
 {
 public:
     explicit MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageDelegateHelperConferenceVideo() override;
     void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const;
-    QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 
