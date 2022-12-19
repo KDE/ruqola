@@ -67,6 +67,7 @@ Q_SIGNALS:
     void loadHistoryRequested();
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
     void replyInThreadRequested(const QString &messageId, const QString &text);
+    void textToSpeech(const QString &messageText);
 
 private:
     void slotEditMessage(const QModelIndex &index);
@@ -93,7 +94,7 @@ private:
     void slotUpdateView();
     void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-    void slotTextToSpeech();
+    void slotTextToSpeech(const QModelIndex &index);
 #endif
 
 private:

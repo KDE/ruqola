@@ -1,9 +1,0 @@
-{
-    "KPlugin": {
-        "Id": "texttospeechtextplugin",
-        "ServiceTypes": [
-            "Ruqola/TextPlugin"
-        ],
-        "Version": "1.0"
-    }
-}

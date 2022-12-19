@@ -461,9 +461,10 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
     createSeparator(menu);
     QAction *speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
-    connect(speakAction, &QAction::triggered, this, &MessageListView::slotTextToSpeech);
+    connect(speakAction, &QAction::triggered, this, [=]() {
+        slotTextToSpeech(index);
+    });
 #endif
-
     createSeparator(menu);
     auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
     connect(reportMessageAction, &QAction::triggered, this, [=]() {
@@ -638,10 +639,13 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
 }
 
 #if HAVE_TEXT_TO_SPEECH_SUPPORT
-void MessageListView::slotTextToSpeech()
+void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
-    const QString message = mMessageListDelegate->selectedText();
-    // TODO
+    QString message = mMessageListDelegate->selectedText();
+    if (message.isEmpty()) {
+        message = index.data(MessageModel::OriginalMessage).toString();
+    }
+    Q_EMIT textToSpeech(message);
 }
 #endif
 

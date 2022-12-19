@@ -43,6 +43,7 @@ public:
 Q_SIGNALS:
     void loadHistory();
     void createNewDiscussion(const QString &messageId, const QString &originalMessage);
+    void textToSpeech(const QString &messageText);
 
 private:
     void slotClearNotification();

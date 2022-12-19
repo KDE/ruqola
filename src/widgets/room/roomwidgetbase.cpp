@@ -87,6 +87,8 @@ RoomWidgetBase::RoomWidgetBase(MessageListView::Mode mode, QWidget *parent)
         mMessageLineWidget->setThreadMessageId(messageId, text, false);
     });
 
+    connect(mMessageListView, &MessageListView::textToSpeech, this, &RoomWidgetBase::textToSpeech);
+
     setAcceptDrops(true);
 }
 
