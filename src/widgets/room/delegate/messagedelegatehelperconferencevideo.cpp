@@ -20,6 +20,7 @@
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
+    , mInfoIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
 {
 }
 
@@ -118,6 +119,13 @@ QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QMod
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const MessageAttachment &msgAttach) const
 {
     Q_UNUSED(msgAttach);
+    Q_ASSERT(false);
+    return nullptr;
+}
+
+QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const Block &block) const
+{
+    Q_UNUSED(block);
     Q_ASSERT(false);
     return nullptr;
 }

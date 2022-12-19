@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "messages/block.h"
 #include "messages/messageattachment.h"
 
 #include <QObject>
@@ -27,6 +28,7 @@ public:
      */
     Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const QModelIndex &index) const = 0;
     Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const = 0;
+    Q_REQUIRED_RESULT virtual QTextDocument *documentForIndex(const Block &block) const = 0;
 };
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT TextSelection : public QObject

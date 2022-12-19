@@ -73,6 +73,7 @@ protected:
      */
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
+    Q_REQUIRED_RESULT QTextDocument *documentForIndex(const Block &block) const override;
 
 private:
     QPersistentModelIndex mCurrentIndex;

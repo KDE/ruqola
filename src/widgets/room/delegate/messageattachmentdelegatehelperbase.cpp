@@ -176,6 +176,14 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const QMode
     return nullptr;
 }
 
+QTextDocument *MessageAttachmentDelegateHelperBase::documentForIndex(const Block &block) const
+{
+    Q_UNUSED(block)
+    Q_ASSERT(false);
+    // Unused here
+    return nullptr;
+}
+
 QSize MessageAttachmentDelegateHelperBase::documentDescriptionForIndexSize(const MessageAttachment &msgAttach, int width) const
 {
     auto *doc = documentDescriptionForIndex(msgAttach, width);

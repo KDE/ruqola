@@ -138,6 +138,18 @@ QPixmap MessageListDelegate::makeAvatarPixmap(const QWidget *widget, const QMode
     }
 }
 
+MessageBlockDelegateHelperBase *MessageListDelegate::blocksHelper(const Block &block) const
+{
+    switch (block.blockType()) {
+    case Block::BlockType::Unknown:
+        qCWarning(RUQOLAWIDGETS_LOG) << "It's an unknown block ! It's a bug for sure";
+        return nullptr;
+    case Block::BlockType::VideoConf:
+        return mHelperConferenceVideo.get();
+    }
+    return nullptr;
+}
+
 MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(const MessageAttachment &msgAttach) const
 {
     switch (msgAttach.attachmentType()) {
@@ -423,10 +435,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     const auto blocks = message->blocks();
     int blockIndex = 0;
     for (const Block &block : blocks) {
-        //        const MessageDelegateHelperBase *helper = attachmentsHelper(att);
-        //        if (helper) {
-        //            helper->draw(att, painter, layout.attachmentsRectList.at(blockIndex), index, option);
-        //        }
+        const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+        if (helper) {
+            // FIXME helper->draw(block, painter, layout.attachmentsRectList.at(blockIndex), index, option);
+        }
         ++blockIndex;
     }
 
@@ -555,6 +567,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             ++i;
         }
+        // TODO add support block
+
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
@@ -595,6 +609,7 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         }
         ++i;
     }
+    // TODO add block
     return false;
 }
 
@@ -665,6 +680,8 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             }
             ++i;
         }
+
+        // TODO add block
 
         if (layout.timeStampRect.contains(helpEvent->pos())) {
             const QString dateStr = index.data(MessageModel::Date).toString();

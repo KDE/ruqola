@@ -157,6 +157,14 @@ QTextDocument *MessageListDelegateBase::documentForIndex(const MessageAttachment
     return nullptr;
 }
 
+QTextDocument *MessageListDelegateBase::documentForIndex(const Block &block) const
+{
+    Q_UNUSED(block)
+    Q_ASSERT(false);
+    // Unused here
+    return nullptr;
+}
+
 QSize MessageListDelegateBase::textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const
 {
     Q_UNUSED(option)

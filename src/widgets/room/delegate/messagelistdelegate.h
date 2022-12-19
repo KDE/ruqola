@@ -28,6 +28,8 @@ class MessageDelegateHelperConferenceVideo;
 class MessageAttachment;
 class AvatarCacheManager;
 class TextSelectionImpl;
+class MessageBlockDelegateHelperBase;
+class Block;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageListDelegate : public QItemDelegate
 {
@@ -76,6 +78,8 @@ public:
 
     /// @note Ownership is not transferred
     Q_REQUIRED_RESULT MessageAttachmentDelegateHelperBase *attachmentsHelper(const MessageAttachment &msgAttach) const;
+
+    Q_REQUIRED_RESULT MessageBlockDelegateHelperBase *blocksHelper(const Block &block) const;
 
     Q_REQUIRED_RESULT MessageDelegateHelperText *helperText() const;
 
