@@ -12,7 +12,12 @@
 class NotificationHistoryListView;
 class QLineEdit;
 class NotificationHistoryModelFilterProxyModel;
-
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+namespace KPIMTextEditTextToSpeech
+{
+class TextToSpeechWidget;
+}
+#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryWidget : public QWidget
 {
     Q_OBJECT
@@ -24,10 +29,16 @@ Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 
 private:
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    void slotTextToSpeech(const QString &messageText);
+#endif
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
     void slotTextChanged(const QString &str);
     NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+#endif
 };

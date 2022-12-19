@@ -15,12 +15,18 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#endif
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mListNotificationsListView(new NotificationHistoryListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -37,6 +43,11 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mainLayout->addLayout(searchLayout);
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mainLayout->addWidget(mTextToSpeechWidget);
+#endif
 
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
     mainLayout->addWidget(mListNotificationsListView);
@@ -55,9 +66,19 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    connect(mListNotificationsListView, &NotificationHistoryListView::textToSpeech, this, &NotificationHistoryWidget::slotTextToSpeech);
+#endif
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget() = default;
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+void NotificationHistoryWidget::slotTextToSpeech(const QString &messageText)
+{
+    mTextToSpeechWidget->say(messageText);
+}
+#endif
 
 void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {

@@ -88,6 +88,13 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             if (mListNotificationsDelegate->hasSelection()) {
                 addTextPlugins(&menu, mListNotificationsDelegate->selectedText());
             }
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+            menu.addSeparator();
+            auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+            connect(speakAction, &QAction::triggered, this, [=]() {
+                slotTextToSpeech(index);
+            });
+#endif
             menu.addSeparator();
             menu.addAction(i18n("Select All"), this, [this, index]() {
                 slotSelectAll(index);
@@ -96,6 +103,20 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
         menu.exec(viewport()->mapToGlobal(pos));
     }
 }
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+void NotificationHistoryListView::slotTextToSpeech(const QModelIndex &index)
+{
+    QString messageText = selectedText();
+    if (messageText.isEmpty()) {
+        if (!index.isValid()) {
+            return;
+        }
+        messageText = index.data(NotificationHistoryModel::MessageStr).toString();
+    }
+    Q_EMIT textToSpeech(messageText);
+}
+#endif
 
 void NotificationHistoryListView::slotClearList()
 {
