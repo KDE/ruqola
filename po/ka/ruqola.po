@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 11:09+0000\n"
-"PO-Revision-Date: 2022-12-16 06:31+0100\n"
+"POT-Creation-Date: 2022-12-19 00:46+0000\n"
+"PO-Revision-Date: 2022-12-18 13:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -570,22 +570,19 @@ msgid "%1 joined this Team"
 msgstr "%1 შემოუერთდა ამ გუნდს"
 
 #: core/messages/message.cpp:602
-#, fuzzy, kde-format
-#| msgid "%1 has joined the channel"
+#, kde-format
 msgid "%1 has joined OTR chat."
-msgstr "%1 შემოუერთდა არხს"
+msgstr "%1 შემოუერთდა OTR ჩატს."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "გასაღები წარმატებით განახლდა"
+msgstr "%1 გასაღები წარმატებით განახლდა"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "მოითხოვა გასაღების განახლება."
+msgstr "%1-ma გასაღების განახლება მოითხოვა."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -1646,7 +1643,7 @@ msgstr "&წაშლა"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:277
 #, kde-format
 msgid "Accept two uppercase letters in:"
-msgstr ""
+msgstr "ორი მაღალი რეგისტრის სიმბოლოს მიღება:"
 
 #. i18n: ectx: property (text), widget (QPushButton, add2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:296
@@ -4423,7 +4420,7 @@ msgstr "ვებ-მისამართი"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr ""
+msgstr "ამ საიტის იდენტიფიკაციის ID. მაგ: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4753,7 +4750,7 @@ msgstr "ატვირთვისას სურათების მოტ�
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:23
 #, kde-format
 msgid "File Uploads Enabled in Direct Messages"
-msgstr ""
+msgstr "პირდაპირ შეტყობინებებში ფაილების ატვირთვა ჩართულია"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:34
 #, kde-format
@@ -7126,7 +7123,7 @@ msgstr[1] ""
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:84
 #: widgets/discussions/showdiscussionswidget.cpp:78
-#: widgets/misc/searchtreebasewidget.cpp:69
+#: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
@@ -8031,52 +8028,51 @@ msgid "Save File"
 msgstr "ფაილის შენახვა"
 
 #: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:82
 #, kde-format
 msgid "Save Sound"
 msgstr "ხმის შენახვა"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:280
+#: widgets/room/delegate/messagelistdelegate.cpp:283
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "ინფორმაცია მომხმარებელზე"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:288
+#: widgets/room/delegate/messagelistdelegate.cpp:291
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "კონფიდენციალური საუბრის დაწყება"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 პასუხი"
 msgstr[1] "%1 პასუხი"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:447
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 შეტყობინება"
 msgstr[1] "%1 შეტყობინება"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:447
 #, kde-format
 msgid "No message yet"
 msgstr "შეტყობინებების გარეშე"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:638
+#: widgets/room/delegate/messagelistdelegate.cpp:641
 #, kde-format
 msgid "Following"
 msgstr "გამოწერილია"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:642
+#: widgets/room/delegate/messagelistdelegate.cpp:645
 #, kde-format
 msgid "Message has been pinned"
 msgstr "შეტყობინება მიმაგრდა"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:646
+#: widgets/room/delegate/messagelistdelegate.cpp:649
 #, kde-format
 msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"

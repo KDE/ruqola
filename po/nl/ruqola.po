@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-17 11:09+0000\n"
-"PO-Revision-Date: 2022-12-17 11:44+0100\n"
+"POT-Creation-Date: 2022-12-19 00:46+0000\n"
+"PO-Revision-Date: 2022-12-18 12:35+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -573,10 +573,9 @@ msgid "%1 joined this Team"
 msgstr "%1 doet mee aan dit team"
 
 #: core/messages/message.cpp:602
-#, fuzzy, kde-format
-#| msgid "Has joined OTR chat."
+#, kde-format
 msgid "%1 has joined OTR chat."
-msgstr "Doet mee aan de OTR-chat."
+msgstr "%1 doet mee aan de OTR-chat."
 
 #: core/messages/message.cpp:604
 #, kde-format
@@ -7351,7 +7350,7 @@ msgstr[1] "%1 bijlagen in room (totaal: %2)"
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:84
 #: widgets/discussions/showdiscussionswidget.cpp:78
-#: widgets/misc/searchtreebasewidget.cpp:69
+#: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
 #, kde-format
@@ -8287,52 +8286,51 @@ msgid "Save File"
 msgstr "Bestand opslaan"
 
 #: widgets/room/delegate/messageattachmentdelegatehelpersound.cpp:86
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:82
 #, kde-format
 msgid "Save Sound"
 msgstr "Geluid opslaan"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:280
+#: widgets/room/delegate/messagelistdelegate.cpp:283
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "Gebruikersinformatie"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:288
+#: widgets/room/delegate/messagelistdelegate.cpp:291
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Een privé conversatie beginnen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:437
+#: widgets/room/delegate/messagelistdelegate.cpp:440
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 antwoord"
 msgstr[1] "%1 antwoorden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:447
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 bericht"
 msgstr[1] "%1 berichten"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:444
+#: widgets/room/delegate/messagelistdelegate.cpp:447
 #, kde-format
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:638
+#: widgets/room/delegate/messagelistdelegate.cpp:641
 #, kde-format
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:642
+#: widgets/room/delegate/messagelistdelegate.cpp:645
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:646
+#: widgets/room/delegate/messagelistdelegate.cpp:649
 #, kde-format
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
