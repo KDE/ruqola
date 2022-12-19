@@ -14,6 +14,9 @@
 #include "room/messagelistview.h"
 #include "room/roomwidgetbase.h"
 #include "ruqolawidgets_debug.h"
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#endif
 
 #include <KLocalizedString>
 
@@ -30,6 +33,9 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::ThreadEditing, this))
     , mRocketChatAccount(account)
     , mFollowButton(new QToolButton(this))
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -52,9 +58,17 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     mThreadPreview->setWordWrap(true);
     hboxLayout->addWidget(mThreadPreview);
 
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mainLayout->addWidget(mTextToSpeechWidget);
+#endif
+
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, &ThreadMessageWidget::slotTextToSpeech);
+#endif
     setAcceptDrops(true);
     if (mRocketChatAccount) {
         initialize();
@@ -62,6 +76,13 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
 }
 
 ThreadMessageWidget::~ThreadMessageWidget() = default;
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+void ThreadMessageWidget::slotTextToSpeech(const QString &messageText)
+{
+    mTextToSpeechWidget->say(messageText);
+}
+#endif
 
 void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {
