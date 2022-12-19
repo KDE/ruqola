@@ -92,6 +92,9 @@ private:
     void slotShowUserInfo(const QString &userName);
     void slotUpdateView();
     void slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    void slotTextToSpeech();
+#endif
 
 private:
     void createTranslorMenu();

@@ -458,6 +458,11 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMessageListDelegate->hasSelection()) {
         addTextPlugins(&menu, mMessageListDelegate->selectedText());
     }
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    createSeparator(menu);
+    QAction *speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+    connect(speakAction, &QAction::triggered, this, &MessageListView::slotTextToSpeech);
+#endif
 
     createSeparator(menu);
     auto reportMessageAction = new QAction(QIcon::fromTheme(QStringLiteral("messagebox_warning")), i18n("Report Message"), &menu);
@@ -631,6 +636,14 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
         mCurrentRocketChatAccount->deleteMessage(messageId, mRoom->roomId());
     }
 }
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+void MessageListView::slotTextToSpeech()
+{
+    const QString message = mMessageListDelegate->selectedText();
+    // TODO
+}
+#endif
 
 void MessageListView::slotReportMessage(const QModelIndex &index)
 {
