@@ -44,7 +44,6 @@ public:
         return mShowThreadContext;
     }
 
-    void clearTextDocumentCache();
     void setSearchText(const QString &newSearchText);
 
     Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;

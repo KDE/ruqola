@@ -25,6 +25,8 @@ public:
 
     void removeMessageCache(const QString &messageId);
 
+    void clearTextDocumentCache();
+
 protected:
     void updateView(const QModelIndex &index);
 

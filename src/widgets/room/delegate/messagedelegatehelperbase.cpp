@@ -33,3 +33,8 @@ void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
 {
     mDocumentCache.remove(messageId);
 }
+
+void MessageDelegateHelperBase::clearTextDocumentCache()
+{
+    mDocumentCache.clear();
+}

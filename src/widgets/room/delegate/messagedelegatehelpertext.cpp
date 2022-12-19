@@ -115,11 +115,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
     return text;
 }
 
-void MessageDelegateHelperText::clearTextDocumentCache()
-{
-    mDocumentCache.clear();
-}
-
 void MessageDelegateHelperText::setSearchText(const QString &newSearchText)
 {
     mSearchText = newSearchText;

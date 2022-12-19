@@ -138,11 +138,6 @@ bool MessageAttachmentDelegateHelperBase::maybeStartDrag(const MessageAttachment
     return true;
 }
 
-void MessageAttachmentDelegateHelperBase::clearTextDocumentCache()
-{
-    mDocumentCache.clear();
-}
-
 int MessageAttachmentDelegateHelperBase::charPosition(const QTextDocument *doc,
                                                       const MessageAttachment &msgAttach,
                                                       QRect attachmentsRect,

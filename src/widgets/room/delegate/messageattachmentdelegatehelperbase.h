@@ -49,7 +49,6 @@ public:
 
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const MessageAttachment &msgAttach, const QStyleOptionViewItem &option);
 
-    void clearTextDocumentCache();
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
