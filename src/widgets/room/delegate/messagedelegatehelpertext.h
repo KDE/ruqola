@@ -44,7 +44,6 @@ public:
         return mShowThreadContext;
     }
 
-    void removeMessageCache(const QString &messageId);
     void clearTextDocumentCache();
     void setSearchText(const QString &newSearchText);
 
@@ -53,8 +52,6 @@ public:
 private:
     friend class TextSelection; // for documentForIndex
     Q_REQUIRED_RESULT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;
-    void updateView(const QModelIndex &index);
-
     /**
      * Creates (or retrieves from a cache) the QTextDocument for a given @p index.
      * @param width The width for layouting that QTextDocument. -1 if no layouting is desired (e.g. for converting to text or HTML)
@@ -68,5 +65,4 @@ private:
 
     QString mSearchText;
     bool mShowThreadContext = true;
-    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };

@@ -22,3 +22,14 @@ void MessageDelegateHelperBase::setRocketChatAccount(RocketChatAccount *newRocke
 {
     mRocketChatAccount = newRocketChatAccount;
 }
+
+void MessageDelegateHelperBase::updateView(const QModelIndex &index)
+{
+    // qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
+    mListView->update(index);
+}
+
+void MessageDelegateHelperBase::removeMessageCache(const QString &messageId)
+{
+    mDocumentCache.remove(messageId);
+}

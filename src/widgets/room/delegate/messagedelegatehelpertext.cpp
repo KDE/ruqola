@@ -115,11 +115,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
     return text;
 }
 
-void MessageDelegateHelperText::removeMessageCache(const QString &messageId)
-{
-    mDocumentCache.remove(messageId);
-}
-
 void MessageDelegateHelperText::clearTextDocumentCache()
 {
     mDocumentCache.clear();
@@ -138,12 +133,6 @@ QString MessageDelegateHelperText::urlAt(const QModelIndex &index, QPoint relati
     }
 
     return document->documentLayout()->anchorAt(relativePos);
-}
-
-void MessageDelegateHelperText::updateView(const QModelIndex &index)
-{
-    // qDebug() << " void MessageDelegateHelperText::updateView(const QModelIndex &index)" << index;
-    mListView->update(index);
 }
 
 void MessageDelegateHelperText::draw(QPainter *painter, QRect rect, const QModelIndex &index, const QStyleOptionViewItem &option)

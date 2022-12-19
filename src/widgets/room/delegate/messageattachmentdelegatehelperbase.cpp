@@ -28,12 +28,6 @@ MessageAttachmentDelegateHelperBase::MessageAttachmentDelegateHelperBase(RocketC
     connect(mSelectionImpl->textSelection(), &TextSelection::repaintNeeded, this, &MessageAttachmentDelegateHelperBase::updateView);
 }
 
-void MessageAttachmentDelegateHelperBase::updateView(const QModelIndex &index)
-{
-    // qDebug() << " void MessageDelegateHelperBase::updateView(const QModelIndex &index)" << index;
-    mListView->update(index);
-}
-
 bool MessageAttachmentDelegateHelperBase::handleMouseEvent(const MessageAttachment &msgAttach,
                                                            QMouseEvent *mouseEvent,
                                                            QRect attachmentsRect,
@@ -142,11 +136,6 @@ bool MessageAttachmentDelegateHelperBase::maybeStartDrag(const MessageAttachment
     drag->exec(Qt::CopyAction);
 
     return true;
-}
-
-void MessageAttachmentDelegateHelperBase::removeMessageCache(const QString &messageId)
-{
-    mDocumentCache.remove(messageId);
 }
 
 void MessageAttachmentDelegateHelperBase::clearTextDocumentCache()

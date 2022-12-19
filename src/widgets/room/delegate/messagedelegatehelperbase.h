@@ -8,6 +8,10 @@
 #include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 #include "libruqolawidgets_private_export.h"
+#include <QTextDocument>
+#include <lrucache.h>
+
+#include <memory>
 class QListView;
 class RocketChatAccount;
 
@@ -19,8 +23,13 @@ public:
 
     void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
+    void removeMessageCache(const QString &messageId);
+
 protected:
+    void updateView(const QModelIndex &index);
+
     QListView *const mListView;
     TextSelectionImpl *const mSelectionImpl;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
 };
