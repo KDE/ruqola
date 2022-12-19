@@ -14,6 +14,9 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#endif
 
 SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -21,6 +24,9 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     , mSearchLineEdit(new SearchMessageWithDelayLineEdit(account, this))
     , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mCurrentRocketChatAccount(account)
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -39,10 +45,18 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mSearchLabel->setFont(labFont);
     mainLayout->addWidget(mSearchLabel);
 
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mainLayout->addWidget(mTextToSpeechWidget);
+#endif
+
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+    connect(mResultListWidget, &MessageListView::textToSpeech, this, &SearchMessageWidget::slotTextToSpeech);
+#endif
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -51,6 +65,13 @@ SearchMessageWidget::~SearchMessageWidget()
         mCurrentRocketChatAccount->clearSearchModel();
     }
 }
+
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
+void SearchMessageWidget::slotTextToSpeech(const QString &messageText)
+{
+    mTextToSpeechWidget->say(messageText);
+}
+#endif
 
 void SearchMessageWidget::slotClearedMessages()
 {

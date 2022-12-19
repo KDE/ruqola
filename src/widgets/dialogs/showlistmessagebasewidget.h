@@ -39,7 +39,9 @@ Q_SIGNALS:
 private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
+#if HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
+#endif
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchMessageLineEdit;
     QLabel *const mMessageListInfo;
