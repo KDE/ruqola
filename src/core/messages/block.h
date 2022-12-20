@@ -40,6 +40,8 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT QString generateDescription() const;
+
 private:
     Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;

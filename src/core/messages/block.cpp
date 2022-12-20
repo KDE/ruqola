@@ -32,6 +32,12 @@ bool Block::isValid() const
     return mBlockType != Unknown;
 }
 
+QString Block::generateDescription() const
+{
+    // TODO
+    return {};
+}
+
 QString Block::blockId() const
 {
     return mBlockId;
