@@ -5,6 +5,7 @@
 */
 
 #include "autocorrectionutils.h"
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QStandardPaths>
@@ -85,13 +86,15 @@ QString AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath()
 {
 #ifdef Q_OS_WIN
     const QString writeablePath =
-        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QStringLiteral("ruqola")) + AutoCorrectionUtils::libreOfficeLocalPath();
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatinChar('/'))
+        + AutoCorrectionUtils::libreOfficeLocalPath();
     return writeablePath;
 #else
 #ifdef Q_OS_MACOS
     // $HOME/Library/Application Support/OpenOffice/4/user/autocorr
     const QString writeablePath =
-        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QStringLiteral("ruqola")) + AutoCorrectionUtils::libreOfficeLocalPath();
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatinChar('/'))
+        + AutoCorrectionUtils::libreOfficeLocalPath();
     return writeablePath;
 #else
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + libreOfficeLocalPath();
