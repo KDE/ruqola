@@ -90,7 +90,7 @@ void MessageListDelegate::slotUpdateColors()
     mThreadedMessageBackgroundColor = Colors::self().schemeWindow().background(KColorScheme::AlternateBackground).color();
     mOpenDiscussionColorMode = scheme.foreground(KColorScheme::LinkText).color();
     mReplyThreadColorMode = scheme.foreground(KColorScheme::NegativeText).color();
-    mHoverHightlightColor = scheme.decoration(KColorScheme::HoverColor).color();
+    mHoverHightlightColor = scheme.background(KColorScheme::AlternateBackground).color();
     Q_EMIT updateView();
 }
 
