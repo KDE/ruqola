@@ -9,6 +9,8 @@
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"
 class QStyleOptionViewItem;
+class QMouseEvent;
+class QHelpEvent;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageBlockDelegateHelperBase : public MessageDelegateHelperBase
 {
 public:
@@ -16,4 +18,11 @@ public:
     virtual ~MessageBlockDelegateHelperBase();
 
     virtual void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const = 0;
+    Q_REQUIRED_RESULT virtual bool
+    handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) = 0;
+
+    virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option);
+
+    Q_REQUIRED_RESULT bool
+    maybeStartDrag(const Block &block, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
 };

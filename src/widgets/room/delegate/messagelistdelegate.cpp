@@ -438,7 +438,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     for (const Block &block : blocks) {
         const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
         if (helper) {
-            // FIXME helper->draw(block, painter, layout.attachmentsRectList.at(blockIndex), index, option);
+            helper->draw(block, painter, layout.blocksRectList.at(blockIndex), index, option);
         }
         ++blockIndex;
     }
@@ -572,11 +572,11 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         const auto blocks = message->blocks();
         int blockIndex = 0;
         for (const Block &block : blocks) {
-            const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+            MessageBlockDelegateHelperBase *helper = blocksHelper(block);
             if (helper) {
-                //                if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
-                //                    return true;
-                //                }
+                if (helper && helper->handleMouseEvent(block, mev, layout.blocksRectList.at(blockIndex), option, index)) {
+                    return true;
+                }
             }
             ++blockIndex;
         }
@@ -623,11 +623,11 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
     const auto blocks = message->blocks();
     int blockIndex = 0;
     for (const Block &block : blocks) {
-        const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+        MessageBlockDelegateHelperBase *helper = blocksHelper(block);
         if (helper) {
-            //                if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
-            //                    return true;
-            //                }
+            if (helper && helper->maybeStartDrag(block, event, layout.blocksRectList.at(blockIndex), option, index)) {
+                return true;
+            }
         }
         ++blockIndex;
     }
@@ -705,12 +705,12 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
         const auto blocks = message->blocks();
         int blockIndex = 0;
         for (const Block &block : blocks) {
-            const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+            MessageBlockDelegateHelperBase *helper = blocksHelper(block);
             if (helper) {
-                //                if (layout.attachmentsRectList.at(i).contains(helpEventPos)
-                //                    && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
-                //                    return true;
-                //                }
+                if (layout.blocksRectList.at(blockIndex).contains(helpEventPos)
+                    && helper->handleHelpEvent(helpEvent, layout.blocksRectList.at(blockIndex), block, option)) {
+                    return true;
+                }
             }
             ++blockIndex;
         }
