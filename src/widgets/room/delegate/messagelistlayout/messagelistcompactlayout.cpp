@@ -203,7 +203,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         if (!message->blocks().isEmpty()) {
             const auto blocks = message->blocks();
             QSize blocksSize;
-            int topBlock = attachmentsY;
+            int topBlock = attachmentsY; // FIXME attachmentsY
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = mDelegate->blocksHelper(block);
                 if (blocksSize.isEmpty()) {
@@ -211,12 +211,13 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
                     layout.blocksRectList.append(QRect(layout.senderRect.x(), topBlock, blocksSize.width(), blocksSize.height()));
                     topBlock += blocksSize.height();
                 } else {
-                    const QSize attSize = helper ? helper->sizeHint(block, index, maxWidth, option) : QSize(0, 0);
-                    layout.blocksRectList.append(QRect(layout.senderRect.x(), topBlock, attSize.width(), attSize.height()));
-                    blocksSize = QSize(qMax(blocksSize.width(), attSize.width()), attSize.height() + blocksSize.height());
-                    topBlock += attSize.height();
+                    const QSize blockSize = helper ? helper->sizeHint(block, index, maxWidth, option) : QSize(0, 0);
+                    layout.blocksRectList.append(QRect(layout.senderRect.x(), topBlock, blockSize.width(), blockSize.height()));
+                    blocksSize = QSize(qMax(blocksSize.width(), blockSize.width()), blockSize.height() + blocksSize.height());
+                    topBlock += blockSize.height();
                 }
             }
+            layout.blocksRect = QRect(textLeft, attachmentsY, blocksSize.width(), blocksSize.height()); // FIXME attachmentsY
         }
         layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height();
     }
