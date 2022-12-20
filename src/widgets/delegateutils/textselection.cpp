@@ -104,6 +104,7 @@ QString TextSelection::selectedText(Format format) const
 
 bool TextSelection::contains(const QModelIndex &index, int charPos, const MessageAttachment &att) const
 {
+    Q_UNUSED(att);
     if (!hasSelection())
         return false;
     Q_ASSERT(index.model() == mStartIndex.model());

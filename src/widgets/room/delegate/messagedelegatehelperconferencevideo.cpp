@@ -33,22 +33,22 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
                                                 const QStyleOptionViewItem &option) const
 {
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, messageRect.width());
-#if 0
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
+#if 0
 
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    drawDescription(msgAttach, messageRect, painter, nextY, index, option);
+    drawDescription(block, messageRect, painter, nextY, index, option);
 #endif
 }
 
 QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
-#if 0
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
-    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
+    int height = layout.titleRect.height() + DelegatePaintUtil::margin();
     int descriptionWidth = 0;
+#if 0
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
@@ -118,6 +118,7 @@ QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QMod
 
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const MessageAttachment &msgAttach) const
 {
+    // Unused.
     Q_UNUSED(msgAttach);
     Q_ASSERT(false);
     return nullptr;

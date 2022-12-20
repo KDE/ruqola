@@ -9,6 +9,7 @@
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "room/delegate/messageattachmentdelegatehelperbase.h"
+#include "room/delegate/messageblockdelegatehelperbase.h"
 #include "room/delegate/messagedelegatehelperreactions.h"
 #include "room/delegate/messagedelegatehelpertext.h"
 #include "room/delegate/messagelistdelegate.h"
@@ -201,18 +202,20 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         }
         if (!message->blocks().isEmpty()) {
             const auto blocks = message->blocks();
+            QSize blocksSize;
+            int topBlock = attachmentsY;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = mDelegate->blocksHelper(block);
-                //                if (attachmentsSize.isEmpty()) {
-                //                    attachmentsSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                //                    layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attachmentsSize.width(),
-                //                    attachmentsSize.height())); topAttachment += attachmentsSize.height();
-                //                } else {
-                //                    const QSize attSize = helper ? helper->sizeHint(msgAttach, index, maxWidth, option) : QSize(0, 0);
-                //                    layout.attachmentsRectList.append(QRect(layout.senderRect.x(), topAttachment, attSize.width(), attSize.height()));
-                //                    attachmentsSize = QSize(qMax(attachmentsSize.width(), attSize.width()), attSize.height() + attachmentsSize.height());
-                //                    topAttachment += attSize.height();
-                //                }
+                if (blocksSize.isEmpty()) {
+                    blocksSize = helper ? helper->sizeHint(block, index, maxWidth, option) : QSize(0, 0);
+                    layout.blocksRectList.append(QRect(layout.senderRect.x(), topBlock, blocksSize.width(), blocksSize.height()));
+                    topBlock += blocksSize.height();
+                } else {
+                    const QSize attSize = helper ? helper->sizeHint(block, index, maxWidth, option) : QSize(0, 0);
+                    layout.blocksRectList.append(QRect(layout.senderRect.x(), topBlock, attSize.width(), attSize.height()));
+                    blocksSize = QSize(qMax(blocksSize.width(), attSize.width()), attSize.height() + blocksSize.height());
+                    topBlock += attSize.height();
+                }
             }
         }
         layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height();

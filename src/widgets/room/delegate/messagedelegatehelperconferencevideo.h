@@ -32,7 +32,7 @@ public:
     explicit MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     ~MessageDelegateHelperConferenceVideo() override;
     void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
-    Q_REQUIRED_RESULT QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const;
+    Q_REQUIRED_RESULT QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     Q_REQUIRED_RESULT bool
     handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
@@ -40,6 +40,8 @@ private:
     struct ConferenceCallLayout {
         QString description;
         QSize descriptionSize;
+        QString title;
+        QRectF titleRect;
     };
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;

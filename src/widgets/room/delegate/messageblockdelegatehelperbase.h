@@ -25,4 +25,12 @@ public:
 
     Q_REQUIRED_RESULT bool
     maybeStartDrag(const Block &block, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    void drawDescription(const Block &block, QRect descriptionRect, QPainter *painter, int topPos, const QModelIndex &index, const QStyleOptionViewItem &option)
+        const;
+
+    virtual QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const = 0;
+
+protected:
+    Q_REQUIRED_RESULT QTextDocument *documentDescriptionForIndex(const Block &block, int width) const;
+    Q_REQUIRED_RESULT QSize documentDescriptionForIndexSize(const Block &block, int width) const;
 };
