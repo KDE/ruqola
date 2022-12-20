@@ -25,4 +25,5 @@ private:
     QCheckBox *const mMarkAsReadOnTextClicked;
     QCheckBox *const mEnableSystemTray;
     QCheckBox *const mEnableLogging;
+    QCheckBox *const mShowHoverHightLights;
 };

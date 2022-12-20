@@ -52,4 +52,9 @@ void ConfigureGeneralWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mEnableLogging);
     QVERIFY(mEnableLogging->isChecked());
     QVERIFY(!mEnableLogging->text().isEmpty());
+
+    auto mShowHoverHightLights = w.findChild<QCheckBox *>(QStringLiteral("mShowHoverHightLights"));
+    QVERIFY(mShowHoverHightLights);
+    QVERIFY(mShowHoverHightLights->isChecked());
+    QVERIFY(!mShowHoverHightLights->text().isEmpty());
 }

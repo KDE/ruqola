@@ -23,6 +23,9 @@
        <!-- label and whatsthis are already provided by KStandardAction::showMenubar -->
       <label></label>
       <whatsthis></whatsthis>
+    </entry>
+    <entry name="ShowHoverHighlights" type="Bool">
+      <default>true</default>
     </entry>    
   </group>
 

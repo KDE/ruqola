@@ -26,6 +26,7 @@
 #include "room/delegate/messagelistlayout/messagelistcozylayout.h"
 #include "room/delegate/messagelistlayout/messagelistnormallayout.h"
 #include "ruqola_thread_message_widgets_debug.h"
+#include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
 
 #include <QAbstractItemView>
@@ -341,7 +342,7 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
-    } else if (message->hoverHighlight()) {
+    } else if (message->hoverHighlight() && RuqolaGlobalConfig::self()->showHoverHighlights()) {
         painter->fillRect(option.rect, mHoverHightlightColor);
     } else if (mHelperText->showThreadContext() && !message->threadMessageId().isEmpty()) {
         painter->fillRect(option.rect, mThreadedMessageBackgroundColor);
