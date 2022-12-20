@@ -86,14 +86,14 @@ QString AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath()
 {
 #ifdef Q_OS_WIN
     const QString writeablePath =
-        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatinChar('/'))
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatin1Char('/'))
         + AutoCorrectionUtils::libreOfficeLocalPath();
     return writeablePath;
 #else
 #ifdef Q_OS_MACOS
     // $HOME/Library/Application Support/OpenOffice/4/user/autocorr
     const QString writeablePath =
-        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatinChar('/'))
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation).remove(QCoreApplication::applicationName() + QLatin1Char('/'))
         + AutoCorrectionUtils::libreOfficeLocalPath();
     return writeablePath;
 #else
