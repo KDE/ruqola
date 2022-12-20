@@ -11,6 +11,7 @@
 #include <QDrag>
 #include <QHelpEvent>
 #include <QMimeData>
+#include <QToolTip>
 
 MessageBlockDelegateHelperBase::MessageBlockDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageDelegateHelperBase(account, view, textSelectionImpl)
@@ -24,25 +25,24 @@ bool MessageBlockDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRec
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
-#if 0
-    const auto *doc = documentDescriptionForIndex(msgAttach, messageRect.width());
+    const auto *doc = documentDescriptionForIndex(block, messageRect.width());
     if (!doc) {
         return false;
     }
-
-    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), msgAttach, messageRect, option);
+#if 0
+    const QPoint relativePos = adaptMousePosition(helpEvent->pos(), block, messageRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
         QToolTip::showText(helpEvent->globalPos(), formattedTooltip, mListView);
         return true;
     }
 #endif
-    return true;
+    return false;
 }
 
 bool MessageBlockDelegateHelperBase::maybeStartDrag(const Block &block,
-                                                    QMouseEvent *event,
-                                                    QRect attachmentsRect,
+                                                    QMouseEvent *mouseEvent,
+                                                    QRect blocksRect,
                                                     const QStyleOptionViewItem &option,
                                                     const QModelIndex &index)
 {

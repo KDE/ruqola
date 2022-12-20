@@ -6,6 +6,7 @@
 
 #include "block.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
 
 Block::Block() = default;
 
@@ -34,7 +35,12 @@ bool Block::isValid() const
 
 QString Block::generateDescription() const
 {
-    // TODO
+    switch (mBlockType) {
+    case Block::BlockType::Unknown:
+        break;
+    case Block::BlockType::VideoConf:
+        return i18n("Conference Call");
+    }
     return {};
 }
 

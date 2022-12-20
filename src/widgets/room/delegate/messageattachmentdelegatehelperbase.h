@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 #include "libruqolawidgets_private_export.h"
 #include "messagedelegatehelperbase.h"

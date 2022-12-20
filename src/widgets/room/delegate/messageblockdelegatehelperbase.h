@@ -24,7 +24,7 @@ public:
     virtual bool handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option);
 
     Q_REQUIRED_RESULT bool
-    maybeStartDrag(const Block &block, QMouseEvent *event, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index);
+    maybeStartDrag(const Block &block, QMouseEvent *event, QRect blocksRect, const QStyleOptionViewItem &option, const QModelIndex &index);
     void drawDescription(const Block &block, QRect descriptionRect, QPainter *painter, int topPos, const QModelIndex &index, const QStyleOptionViewItem &option)
         const;
 

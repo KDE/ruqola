@@ -148,6 +148,8 @@ QTextCursor TextSelection::selectionForIndex(const QModelIndex &index, QTextDocu
             }
         }
     }
+    // TODO add block
+
     // qDebug() << "AFTER toCharPos" << toCharPos << " fromCharPos " << fromCharPos;
     const int row = index.row();
     if (row == ordered.fromRow)
