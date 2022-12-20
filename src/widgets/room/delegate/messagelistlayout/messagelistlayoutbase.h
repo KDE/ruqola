@@ -68,6 +68,10 @@ public:
         QRect attachmentsRect;
         QVector<QRect> attachmentsRectList;
 
+        // Blocks
+        QRect blocksRect;
+        QVector<QRect> blocksRectList;
+
         // Reactions
         qreal reactionsY = 0;
         qreal reactionsHeight = 0;
