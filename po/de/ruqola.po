@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:46+0000\n"
+"POT-Creation-Date: 2022-12-20 00:46+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -910,7 +910,7 @@ msgstr "E-Mails"
 msgid "Join At"
 msgstr "Betreten"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:108
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom"
@@ -2465,8 +2465,8 @@ msgstr "Automatisches Übersetzen einrichten"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
-#: widgets/notificationhistory/notificationhistorywidget.cpp:34
+#: widgets/misc/emoticonmenuwidget.cpp:47
+#: widgets/notificationhistory/notificationhistorywidget.cpp:40
 #, kde-format
 msgid "Search..."
 msgstr "Suchen ..."
@@ -2626,11 +2626,6 @@ msgstr "Die Datei ist zu groß"
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
-
-#: plugins/textplugin/texttospeech/texttospeechtextinterface.cpp:28
-#, kde-format
-msgid "Speak Text"
-msgstr "Text vorlesen"
 
 #: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
 #, fuzzy, kde-format
@@ -7391,28 +7386,28 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Nachrichten suchen in „%1“"
 
-#: widgets/dialogs/searchmessagewidget.cpp:30
+#: widgets/dialogs/searchmessagewidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Search Messages"
 msgid "Search messages"
 msgstr "Nachrichten suchen"
 
-#: widgets/dialogs/searchmessagewidget.cpp:86
-#: widgets/dialogs/showlistmessagebasewidget.cpp:74
+#: widgets/dialogs/searchmessagewidget.cpp:107
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
 #: widgets/discussions/showdiscussionswidget.cpp:67
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
 msgstr "Wird geladen ..."
 
-#: widgets/dialogs/searchmessagewidget.cpp:90
-#: widgets/dialogs/showlistmessagebasewidget.cpp:76
+#: widgets/dialogs/searchmessagewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
 msgstr "Es wurde keine Nachricht gefunden"
 
-#: widgets/dialogs/searchmessagewidget.cpp:96
+#: widgets/dialogs/searchmessagewidget.cpp:117
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7496,7 +7491,7 @@ msgstr[0] "%1 Anhang im Raum (Gesamt: %2)"
 msgstr[1] "%1 Anhänge im Raum (Gesamt: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:84
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:78
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -7543,13 +7538,13 @@ msgstr ""
 msgid "Save Image"
 msgstr "Bild speichern"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:30
+#: widgets/dialogs/showlistmessagebasewidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search messages..."
 msgstr "Nachrichten suchen ..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:82
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7671,7 +7666,7 @@ msgid "Open Discussion"
 msgstr ""
 
 #: widgets/discussions/discussionlistview.cpp:59
-#: widgets/notificationhistory/notificationhistorylistview.cpp:92
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Select All"
@@ -7803,12 +7798,12 @@ msgstr "Unbekannter Status"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:74
 #, kde-format
 msgid "Search"
 msgstr "Suchen"
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:98
 #, kde-format
 msgid "Recent"
 msgstr "Zuletzt verwendet"
@@ -8279,6 +8274,12 @@ msgstr "Nachricht"
 msgid "Copy Message"
 msgstr "Nachricht kopieren"
 
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:463
+#, kde-format
+msgid "Speak Text"
+msgstr "Text vorlesen"
+
 #: widgets/otr/otrwidget.cpp:18
 #, fuzzy, kde-format
 #| msgid "User is not activated"
@@ -8470,51 +8471,51 @@ msgstr "Datei speichern"
 msgid "Save Sound"
 msgstr "Sound:"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:283
+#: widgets/room/delegate/messagelistdelegate.cpp:295
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "Benutzerinformation"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:291
+#: widgets/room/delegate/messagelistdelegate.cpp:303
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Start a Private Conversation"
 msgstr "Serverversion: %1"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:452
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 Antwort"
 msgstr[1] "%1 Antworten"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 Nachricht"
 msgstr[1] "%1 Nachrichten"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, fuzzy, kde-format
 #| msgid "1 message"
 #| msgid_plural "%1 messages"
 msgid "No message yet"
 msgstr "1 Nachricht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:641
+#: widgets/room/delegate/messagelistdelegate.cpp:656
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:645
+#: widgets/room/delegate/messagelistdelegate.cpp:660
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Nachricht angeheftet"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:649
+#: widgets/room/delegate/messagelistdelegate.cpp:664
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -8592,14 +8593,14 @@ msgid "Copy Link To Message"
 msgstr "Nachricht"
 
 #: widgets/room/messagelistview.cpp:302
-#: widgets/threadwidget/threadmessagewidget.cpp:99
+#: widgets/threadwidget/threadmessagewidget.cpp:120
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Unfollow Message"
 msgstr "Alle Nachrichten"
 
 #: widgets/room/messagelistview.cpp:302
-#: widgets/threadwidget/threadmessagewidget.cpp:99
+#: widgets/threadwidget/threadmessagewidget.cpp:120
 #, fuzzy, kde-format
 #| msgid "All Messages"
 msgid "Follow Message"
@@ -8630,23 +8631,23 @@ msgstr "Originalnachricht anzeigen"
 msgid "Translate Message"
 msgstr "Nachrichten übersetzen"
 
-#: widgets/room/messagelistview.cpp:463
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:626
+#: widgets/room/messagelistview.cpp:632
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Möchten Sie diese Nachricht löschen?"
 
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:633
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Nachricht löschen"
 
-#: widgets/room/messagelistview.cpp:744
+#: widgets/room/messagelistview.cpp:761
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
@@ -8772,12 +8773,12 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Nachricht"
 
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Möchten Sie den Verlauf wirklich öffnen?"
 
-#: widgets/room/roomwidget.cpp:225
+#: widgets/room/roomwidget.cpp:246
 #, kde-format
 msgid "Remove History"
 msgstr "Verlauf löschen"

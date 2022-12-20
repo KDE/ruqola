@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-19 00:46+0000\n"
+"POT-Creation-Date: 2022-12-20 00:46+0000\n"
 "PO-Revision-Date: 2022-06-28 14:39+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -878,7 +878,7 @@ msgstr "E-maily"
 msgid "Join At"
 msgstr ""
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:107
+#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:108
 #, kde-format
 msgid "Custom"
 msgstr "Vlastní"
@@ -2396,8 +2396,8 @@ msgstr "Nastavení automatického překladu"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:30
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:46
-#: widgets/notificationhistory/notificationhistorywidget.cpp:34
+#: widgets/misc/emoticonmenuwidget.cpp:47
+#: widgets/notificationhistory/notificationhistorywidget.cpp:40
 #, kde-format
 msgid "Search..."
 msgstr "Hledat..."
@@ -2554,11 +2554,6 @@ msgstr "Soubor byl sdílen."
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Nový požadavek naleznete na:<br /><a href='%1'>%1</a> </qt>"
-
-#: plugins/textplugin/texttospeech/texttospeechtextinterface.cpp:28
-#, kde-format
-msgid "Speak Text"
-msgstr "Přečíst text"
 
 #: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
 #, kde-format
@@ -7143,28 +7138,28 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Hledat zprávy v '%1' (%2)"
 
-#: widgets/dialogs/searchmessagewidget.cpp:30
+#: widgets/dialogs/searchmessagewidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Search Messages"
 msgid "Search messages"
 msgstr "Hledat zprávy"
 
-#: widgets/dialogs/searchmessagewidget.cpp:86
-#: widgets/dialogs/showlistmessagebasewidget.cpp:74
+#: widgets/dialogs/searchmessagewidget.cpp:107
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
 #: widgets/discussions/showdiscussionswidget.cpp:67
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
 msgstr "Probíhá načítání..."
 
-#: widgets/dialogs/searchmessagewidget.cpp:90
-#: widgets/dialogs/showlistmessagebasewidget.cpp:76
+#: widgets/dialogs/searchmessagewidget.cpp:111
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
 msgstr "Nenalezena žádná zpráva"
 
-#: widgets/dialogs/searchmessagewidget.cpp:96
+#: widgets/dialogs/searchmessagewidget.cpp:117
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -7248,7 +7243,7 @@ msgstr[1] "%1 přílohy v místnosti (celkem: %2)"
 msgstr[2] "%1 příloh v místnosti (celkem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:84
+#: widgets/dialogs/showlistmessagebasewidget.cpp:105
 #: widgets/discussions/showdiscussionswidget.cpp:78
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -7295,13 +7290,13 @@ msgstr ""
 msgid "Save Image"
 msgstr "Uložit obrázek"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:30
+#: widgets/dialogs/showlistmessagebasewidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search messages..."
 msgstr "Hledat zprávy..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:82
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7420,7 +7415,7 @@ msgid "Open Discussion"
 msgstr "Otevřít diskuzi"
 
 #: widgets/discussions/discussionlistview.cpp:59
-#: widgets/notificationhistory/notificationhistorylistview.cpp:92
+#: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Select All"
@@ -7549,12 +7544,12 @@ msgstr "Neznámý stav"
 msgid "(Unnamed)"
 msgstr "(Nepojmenované)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:73
+#: widgets/misc/emoticonmenuwidget.cpp:74
 #, kde-format
 msgid "Search"
 msgstr "Hledat"
 
-#: widgets/misc/emoticonmenuwidget.cpp:97
+#: widgets/misc/emoticonmenuwidget.cpp:98
 #, kde-format
 msgid "Recent"
 msgstr "Nedávné"
@@ -8003,6 +7998,12 @@ msgstr "Přejít na zprávu"
 msgid "Copy Message"
 msgstr "Kopírovat zprávu"
 
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:463
+#, kde-format
+msgid "Speak Text"
+msgstr "Přečíst text"
+
 #: widgets/otr/otrwidget.cpp:18
 #, kde-format
 msgid "Otr Activated"
@@ -8183,18 +8184,18 @@ msgstr "Uložit soubor"
 msgid "Save Sound"
 msgstr "Uložit zvuk"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:283
+#: widgets/room/delegate/messagelistdelegate.cpp:295
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "Informace o uživateli"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:291
+#: widgets/room/delegate/messagelistdelegate.cpp:303
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Začít soukromou konverzaci"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:440
+#: widgets/room/delegate/messagelistdelegate.cpp:452
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -8202,7 +8203,7 @@ msgstr[0] "1 odpověď"
 msgstr[1] "%1 odpovědi"
 msgstr[2] "%1 odpovědí"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -8210,22 +8211,22 @@ msgstr[0] "1 Zpráva"
 msgstr[1] "%1 zprávy"
 msgstr[2] "%1 zpráv"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:447
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "No message yet"
 msgstr "Zatím žádné zprávy"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:641
+#: widgets/room/delegate/messagelistdelegate.cpp:656
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:645
+#: widgets/room/delegate/messagelistdelegate.cpp:660
 #, kde-format
 msgid "Message has been pinned"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:649
+#: widgets/room/delegate/messagelistdelegate.cpp:664
 #, kde-format
 msgid "Message has been starred"
 msgstr ""
@@ -8296,13 +8297,13 @@ msgid "Copy Link To Message"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:302
-#: widgets/threadwidget/threadmessagewidget.cpp:99
+#: widgets/threadwidget/threadmessagewidget.cpp:120
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Přestat sledovat zprávu"
 
 #: widgets/room/messagelistview.cpp:302
-#: widgets/threadwidget/threadmessagewidget.cpp:99
+#: widgets/threadwidget/threadmessagewidget.cpp:120
 #, kde-format
 msgid "Follow Message"
 msgstr "Sledovat zprávu"
@@ -8332,23 +8333,23 @@ msgstr "Zobrazit původní zprávu"
 msgid "Translate Message"
 msgstr "Přeložit zprávu"
 
-#: widgets/room/messagelistview.cpp:463
+#: widgets/room/messagelistview.cpp:469
 #, kde-format
 msgid "Report Message"
 msgstr "Nahlásit zprávu"
 
-#: widgets/room/messagelistview.cpp:626
+#: widgets/room/messagelistview.cpp:632
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Chcete tuto zprávu odstranit?"
 
-#: widgets/room/messagelistview.cpp:627
+#: widgets/room/messagelistview.cpp:633
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Smazat zprávu"
 
-#: widgets/room/messagelistview.cpp:744
+#: widgets/room/messagelistview.cpp:761
 #, kde-format
 msgid "Translator Error"
 msgstr ""
@@ -8473,12 +8474,12 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:224
+#: widgets/room/roomwidget.cpp:245
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:225
+#: widgets/room/roomwidget.cpp:246
 #, kde-format
 msgid "Remove History"
 msgstr "Odstranit historii"
