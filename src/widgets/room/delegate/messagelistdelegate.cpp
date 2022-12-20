@@ -568,8 +568,18 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
             }
             ++i;
         }
-        // TODO add support block
 
+        const auto blocks = message->blocks();
+        int blockIndex = 0;
+        for (const Block &block : blocks) {
+            const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+            if (helper) {
+                //                if (helper && helper->handleMouseEvent(att, mev, layout.attachmentsRectList.at(i), option, index)) {
+                //                    return true;
+                //                }
+            }
+            ++blockIndex;
+        }
     } else if (eventType == QEvent::MouseButtonPress || eventType == QEvent::MouseMove || eventType == QEvent::MouseButtonDblClick) {
         auto mev = static_cast<QMouseEvent *>(event);
         if (mev->buttons() & Qt::LeftButton) {
@@ -610,7 +620,17 @@ bool MessageListDelegate::maybeStartDrag(QMouseEvent *event, const QStyleOptionV
         }
         ++i;
     }
-    // TODO add block
+    const auto blocks = message->blocks();
+    int blockIndex = 0;
+    for (const Block &block : blocks) {
+        const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+        if (helper) {
+            //                if (helper && helper->maybeStartDrag(att, event, layout.attachmentsRectList.at(i), option, index)) {
+            //                    return true;
+            //                }
+        }
+        ++blockIndex;
+    }
     return false;
 }
 
@@ -682,7 +702,18 @@ bool MessageListDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItemView *vi
             ++i;
         }
 
-        // TODO add block
+        const auto blocks = message->blocks();
+        int blockIndex = 0;
+        for (const Block &block : blocks) {
+            const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
+            if (helper) {
+                //                if (layout.attachmentsRectList.at(i).contains(helpEventPos)
+                //                    && helper->handleHelpEvent(helpEvent, layout.attachmentsRectList.at(i), att, option)) {
+                //                    return true;
+                //                }
+            }
+            ++blockIndex;
+        }
 
         if (layout.timeStampRect.contains(helpEvent->pos())) {
             const QString dateStr = index.data(MessageModel::Date).toString();
