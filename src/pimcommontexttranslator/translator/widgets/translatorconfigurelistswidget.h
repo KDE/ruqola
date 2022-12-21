@@ -25,6 +25,8 @@ public:
     void load();
 
 private:
+    void loadLanguagesList();
+    void fillLanguages(const QVector<QPair<QString, QString>> &listLanguage);
     void slotEngineChanged(const QString &engine);
     class TranslatorConfigureListsWidgetPrivate;
     std::unique_ptr<TranslatorConfigureListsWidgetPrivate> const d;

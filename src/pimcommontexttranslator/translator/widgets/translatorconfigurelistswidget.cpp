@@ -25,6 +25,7 @@ public:
         , mToLanguageWidget(new TranslatorConfigureLanguageListWidget(i18n("To:"), parent))
     {
     }
+    bool mLanguageListLoaded = false;
     TranslatorConfigureComboWidget *const mEngineConfigureComboWidget;
     PimCommonTextTranslator::TranslatorConfigureLanguageListWidget *const mFromLanguageWidget;
     PimCommonTextTranslator::TranslatorConfigureLanguageListWidget *const mToLanguageWidget;
@@ -74,21 +75,20 @@ void TranslatorConfigureListsWidget::save()
 
 void TranslatorConfigureListsWidget::load()
 {
-    KConfigGroup groupTranslate(KSharedConfig::openConfig(), TranslatorUtil::groupTranslateName());
-    d->mFromLanguageWidget->setSelectedLanguages(groupTranslate.readEntry(QStringLiteral("From"), QStringList()));
-    d->mToLanguageWidget->setSelectedLanguages(groupTranslate.readEntry(QStringLiteral("To"), QStringList()));
     d->mEngineConfigureComboWidget->load();
 }
 
-void TranslatorConfigureListsWidget::slotEngineChanged(const QString &engine)
+void TranslatorConfigureListsWidget::loadLanguagesList()
 {
-    const QStringList fromLanguages = d->mFromLanguageWidget->selectedLanguages();
-    const QStringList toLanguages = d->mToLanguageWidget->selectedLanguages();
+    KConfigGroup groupTranslate(KSharedConfig::openConfig(), TranslatorUtil::groupTranslateName());
+    const auto fromLanguages = groupTranslate.readEntry(QStringLiteral("From"), QStringList());
+    const auto toLanguages = groupTranslate.readEntry(QStringLiteral("To"), QStringList());
+    d->mFromLanguageWidget->setSelectedLanguages(fromLanguages);
+    d->mToLanguageWidget->setSelectedLanguages(toLanguages);
+}
 
-    const QVector<QPair<QString, QString>> listLanguage = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
-    d->mFromLanguageWidget->clear();
-    d->mToLanguageWidget->clear();
-
+void TranslatorConfigureListsWidget::fillLanguages(const QVector<QPair<QString, QString>> &listLanguage)
+{
     const int fullListLanguageSize(listLanguage.count());
     for (int i = 0; i < fullListLanguageSize; ++i) {
         const QPair<QString, QString> currentLanguage = listLanguage.at(i);
@@ -97,7 +97,25 @@ void TranslatorConfigureListsWidget::slotEngineChanged(const QString &engine)
             d->mToLanguageWidget->addItem(currentLanguage);
         }
     }
-    // Restore if possible
-    d->mFromLanguageWidget->setSelectedLanguages(fromLanguages);
-    d->mToLanguageWidget->setSelectedLanguages(toLanguages);
+}
+void TranslatorConfigureListsWidget::slotEngineChanged(const QString &engine)
+{
+    const QVector<QPair<QString, QString>> listLanguage = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
+
+    if (!d->mLanguageListLoaded) {
+        fillLanguages(listLanguage);
+        loadLanguagesList();
+        d->mLanguageListLoaded = true;
+    } else {
+        const QStringList fromLanguages = d->mFromLanguageWidget->selectedLanguages();
+        const QStringList toLanguages = d->mToLanguageWidget->selectedLanguages();
+
+        d->mFromLanguageWidget->clear();
+        d->mToLanguageWidget->clear();
+        fillLanguages(listLanguage);
+
+        // Restore if possible
+        d->mFromLanguageWidget->setSelectedLanguages(fromLanguages);
+        d->mToLanguageWidget->setSelectedLanguages(toLanguages);
+    }
 }
