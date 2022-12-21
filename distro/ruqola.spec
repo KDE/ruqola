@@ -53,10 +53,13 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/bin/ruqola
 %{_libdir}/libruqolacore.*
 %{_libdir}/libruqolawidgets.*
+%{_libdir}/libruqola-*.*
 %{_libdir}/librocketchatrestapi-qt5.*
 %dir %{_libdir}/qt5/plugins/ruqolaplugins/
 %{_libdir}/qt5/plugins/ruqolaplugins/authentication/
 %{_libdir}/qt5/plugins/ruqolaplugins/textplugins/
+%dir %{_libdir}/qt5/plugins/kf5/
+%{_libdir}/qt5/plugins/kf5/ruqola-translator
 %{_prefix}/share/applications/org.kde.ruqola.desktop
 %{_prefix}/share/icons/hicolor
 %{_prefix}/share/doc/HTML/en/ruqola/
@@ -64,6 +67,7 @@ cmake . -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=F
 %{_prefix}/share/metainfo/org.kde.ruqola.appdata.xml
 %{_prefix}/share/qlogging-categories5/ruqola.categories
 %{_prefix}/share/qlogging-categories5/ruqola.renamecategories
+%{_prefix}/share/locale
 
 %changelog
 * Wed 21 Dec 2022 Allen Winter <allen.winter@kdab.com> 1.9.0
