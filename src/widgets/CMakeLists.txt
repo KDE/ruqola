@@ -647,6 +647,11 @@ target_sources(libruqolawidgets PRIVATE
     conferencecalldialog/conferencecallwidget.cpp
     conferencecalldialog/conferencedirectcalldialog.h
     conferencecalldialog/conferencedirectcalldialog.cpp
+
+    conferencecalldialog/conferenceinfodialog.h
+    conferencecalldialog/conferenceinfodialog.cpp
+    conferencecalldialog/conferenceinfowidget.h
+    conferencecalldialog/conferenceinfowidget.cpp
 )
 
 if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
