@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-20 00:46+0000\n"
+"POT-Creation-Date: 2022-12-21 00:46+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -353,8 +353,8 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
-#: core/messages/message.cpp:498 core/messages/message.cpp:610
-#: core/model/notificationhistorymodel.cpp:61
+#: core/messages/block.cpp:42 core/messages/message.cpp:498
+#: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
 msgid "Conference Call"
@@ -6790,6 +6790,11 @@ msgstr ""
 msgid "Enable logging"
 msgstr ""
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:20
+#, kde-format
+msgid "Show hover highlights"
+msgstr ""
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
@@ -8579,48 +8584,48 @@ msgstr "Faili salvestamine"
 msgid "Save Sound"
 msgstr "Salvesta heli"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:295
+#: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "Kasutaja teave"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:303
+#: widgets/room/delegate/messagelistdelegate.cpp:304
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Alusta privaatvestlust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/delegate/messagelistdelegate.cpp:453
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastus"
 msgstr[1] "%1 vastust"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:459
+#: widgets/room/delegate/messagelistdelegate.cpp:460
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 sõnum"
 msgstr[1] "%1 sõnumit"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:459
+#: widgets/room/delegate/messagelistdelegate.cpp:460
 #, kde-format
 msgid "No message yet"
 msgstr "Ühtegi sõnumit pole veel"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:656
+#: widgets/room/delegate/messagelistdelegate.cpp:677
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:660
+#: widgets/room/delegate/messagelistdelegate.cpp:681
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Sõnum kinnistatud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:664
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"

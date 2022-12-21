@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-20 00:46+0000\n"
+"POT-Creation-Date: 2022-12-21 00:46+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -343,8 +343,8 @@ msgstr "Regionalt"
 msgid "Flags"
 msgstr "Flaggor"
 
-#: core/messages/message.cpp:498 core/messages/message.cpp:610
-#: core/model/notificationhistorymodel.cpp:61
+#: core/messages/block.cpp:42 core/messages/message.cpp:498
+#: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, fuzzy, kde-format
 #| msgid "Video Conference"
@@ -6565,6 +6565,11 @@ msgstr "Aktivera ikon i systembrickan"
 msgid "Enable logging"
 msgstr "Aktivera loggning"
 
+#: widgets/configuredialog/configuregeneralwidget.cpp:20
+#, kde-format
+msgid "Show hover highlights"
+msgstr ""
+
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
 msgctxt "@title:window"
@@ -8276,47 +8281,47 @@ msgstr "Spara fil"
 msgid "Save Sound"
 msgstr "Spara ljud"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:295
+#: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:97
 #, kde-format
 msgid "User Info"
 msgstr "Användarinformation"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:303
+#: widgets/room/delegate/messagelistdelegate.cpp:304
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Starta ett privat samtal"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:452
+#: widgets/room/delegate/messagelistdelegate.cpp:453
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 svar"
 msgstr[1] "%1 svar"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:459
+#: widgets/room/delegate/messagelistdelegate.cpp:460
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 meddelande"
 msgstr[1] "%1 meddelanden"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:459
+#: widgets/room/delegate/messagelistdelegate.cpp:460
 #, kde-format
 msgid "No message yet"
 msgstr "Inget meddelande ännu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:656
+#: widgets/room/delegate/messagelistdelegate.cpp:677
 #, kde-format
 msgid "Following"
 msgstr "Följer"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:660
+#: widgets/room/delegate/messagelistdelegate.cpp:681
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Meddelandet är uppsatt"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:664
+#: widgets/room/delegate/messagelistdelegate.cpp:685
 #, kde-format
 msgid "Message has been starred"
 msgstr "Meddelande är stjärnmärkt"
