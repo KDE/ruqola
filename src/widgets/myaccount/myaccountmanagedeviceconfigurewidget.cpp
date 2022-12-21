@@ -25,7 +25,7 @@ MyAccountManageDeviceConfigureWidget::MyAccountManageDeviceConfigureWidget(Rocke
 {
     mModel = new DeviceInfoModel(this);
     mModel->setObjectName(QStringLiteral("mModel"));
-    mSearchLineEdit->setPlaceholderText(i18n("Search device"));
+    mSearchLineEdit->setPlaceholderText(i18n("Search device..."));
 
     mProxyModelModel = new SearchTreeBaseFilterProxyModel(mModel, this);
     mProxyModelModel->setObjectName(QStringLiteral("mProxyModelModel"));
