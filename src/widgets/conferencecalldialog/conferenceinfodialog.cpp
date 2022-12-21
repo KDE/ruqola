@@ -29,3 +29,18 @@ ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *
 }
 
 ConferenceInfoDialog::~ConferenceInfoDialog() = default;
+
+void ConferenceInfoDialog::initializeInfo()
+{
+    mConferenceInfoWidget->initializeInfo();
+}
+
+QString ConferenceInfoDialog::conferenceId() const
+{
+    return mConferenceInfoWidget->conferenceId();
+}
+
+void ConferenceInfoDialog::setConferenceId(const QString &newConferenceId)
+{
+    mConferenceInfoWidget->setConferenceId(newConferenceId);
+}

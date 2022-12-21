@@ -28,4 +28,6 @@ void ConferenceInfoDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    QVERIFY(d.conferenceId().isEmpty());
 }

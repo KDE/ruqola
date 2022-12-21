@@ -17,5 +17,6 @@ ConferenceInfoWidgetTest::ConferenceInfoWidgetTest(QObject *parent)
 void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceInfoWidget w(nullptr);
+    QVERIFY(w.conferenceId().isEmpty());
     // TODO
 }

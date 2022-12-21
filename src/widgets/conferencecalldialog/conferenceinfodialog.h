@@ -17,6 +17,11 @@ public:
     explicit ConferenceInfoDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceInfoDialog() override;
 
+    void initializeInfo();
+
+    Q_REQUIRED_RESULT QString conferenceId() const;
+    void setConferenceId(const QString &newConferenceId);
+
 private:
     ConferenceInfoWidget *const mConferenceInfoWidget;
 };
