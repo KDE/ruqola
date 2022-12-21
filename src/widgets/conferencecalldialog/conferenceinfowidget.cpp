@@ -13,6 +13,7 @@
 #include <KLocalizedString>
 #include <QFormLayout>
 #include <QLabel>
+
 ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mFormLayout(new QFormLayout(this))
@@ -40,13 +41,6 @@ void ConferenceInfoWidget::initializeInfo()
         mFormLayout->addRow(i18n("Meeting URL:"), meetingUrlLabel);
         mFormLayout->addRow(i18n("Provider:"), new QLabel(info.providerName(), this));
         // TODO add users.
-
-        // {"_id":"6394a19a4ef3f3baa9658f35","_updatedAt":"2022-12-10T15:11:22.376Z","anonymousUsers":0,"capabilities":{"cam":true,"mic":true,"title":true},
-        // "createdAt":"2022-12-10T15:11:22.294Z",
-        // "createdBy":{"_id":"uidH","name":"Laurent Montel","username":"laurent"},
-        // "messages":{"started":"QDrMfZG9BMtGQz3n6"},"providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6",
-        // "ringing":true,"status":1,"success":true,"title":"ruqola225","type":"videoconference",
-        // "url":"https://<url>/RocketChat6394a19a4ef3f3baa9658f35","users":[]}
     });
     if (!conferenceInfoJob->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";

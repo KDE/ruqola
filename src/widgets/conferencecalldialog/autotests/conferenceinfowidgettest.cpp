@@ -6,6 +6,7 @@
 
 #include "conferenceinfowidgettest.h"
 #include "conferencecalldialog/conferenceinfowidget.h"
+#include <QFormLayout>
 #include <QTest>
 
 QTEST_MAIN(ConferenceInfoWidgetTest)
@@ -18,5 +19,7 @@ void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceInfoWidget w(nullptr);
     QVERIFY(w.conferenceId().isEmpty());
-    // TODO
+    auto mFormLayout = w.findChild<QFormLayout *>(QStringLiteral("mFormLayout"));
+    QVERIFY(mFormLayout);
+    QCOMPARE(mFormLayout->contentsMargins(), QMargins{});
 }
