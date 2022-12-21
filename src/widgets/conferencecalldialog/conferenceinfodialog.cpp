@@ -14,7 +14,7 @@ ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *
     : QDialog(parent)
     , mConferenceInfoWidget(new ConferenceInfoWidget(account, this))
 {
-    setWindowTitle(i18nc("@title:window", "Start a Direct Call"));
+    setWindowTitle(i18nc("@title:window", "Conference Call Information"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 

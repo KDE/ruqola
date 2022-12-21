@@ -7,6 +7,7 @@
 #include "messagedelegatehelperconferencevideo.h"
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
+#include "conferencecalldialog/conferenceinfodialog.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -74,7 +75,10 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
         const ConferenceCallLayout layout = layoutConferenceCall(block, option, blocksRect.width());
         if (layout.infoButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
-            // DelegateUtil::saveFile(parentWidget, layout.videoPath, i18n("Save Image"));
+            ConferenceInfoDialog dlg(mRocketChatAccount, parentWidget);
+            dlg.setConferenceId(block.callId());
+            dlg.initializeInfo();
+            dlg.exec();
             return true;
         }
         break;

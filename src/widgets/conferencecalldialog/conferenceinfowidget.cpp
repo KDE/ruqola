@@ -31,7 +31,11 @@ void ConferenceInfoWidget::initializeInfo()
     connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this](const QJsonObject &obj) {
         qDebug() << " info " << obj;
         const QString meetingUrl = obj[QLatin1String("url")].toString();
-        mFormLayout->addRow(i18n("Meeting URL:"), new QLabel(meetingUrl, this));
+        auto meetingUrlLabel = new QLabel(this);
+        meetingUrlLabel->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(meetingUrl));
+        meetingUrlLabel->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::LinksAccessibleByMouse);
+        meetingUrlLabel->setOpenExternalLinks(true);
+        mFormLayout->addRow(i18n("Meeting URL:"), meetingUrlLabel);
         const QString providerName = obj[QLatin1String("providerName")].toString();
         mFormLayout->addRow(i18n("Provider:"), new QLabel(providerName, this));
 
