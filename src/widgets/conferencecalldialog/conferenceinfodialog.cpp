@@ -21,7 +21,7 @@ ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *
     mConferenceInfoWidget->setObjectName(QStringLiteral("mConferenceInfoWidget"));
     mainLayout->addWidget(mConferenceInfoWidget);
 
-    auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
     connect(button, &QDialogButtonBox::rejected, this, &ConferenceInfoDialog::accept);
