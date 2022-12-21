@@ -5,10 +5,17 @@
 */
 
 #include "conferenceinfowidget.h"
-
-ConferenceInfoWidget::ConferenceInfoWidget(QWidget *parent)
+#include "rocketchataccount.h"
+#include <KLocalizedString>
+#include <QLabel>
+#include <QVBoxLayout>
+ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mRocketChatAccount(account)
 {
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins({});
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
 }
 
 ConferenceInfoWidget::~ConferenceInfoWidget() = default;

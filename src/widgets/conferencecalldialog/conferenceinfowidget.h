@@ -8,11 +8,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ConferenceInfoWidget(QWidget *parent = nullptr);
+    explicit ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ConferenceInfoWidget() override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };

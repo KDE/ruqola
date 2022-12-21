@@ -12,7 +12,7 @@
 
 ConferenceInfoDialog::ConferenceInfoDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mConferenceInfoWidget(new ConferenceInfoWidget(this))
+    , mConferenceInfoWidget(new ConferenceInfoWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Start a Direct Call"));
     auto mainLayout = new QVBoxLayout(this);

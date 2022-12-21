@@ -16,6 +16,6 @@ ConferenceInfoWidgetTest::ConferenceInfoWidgetTest(QObject *parent)
 
 void ConferenceInfoWidgetTest::shouldHaveDefaultValues()
 {
-    ConferenceInfoWidget w;
+    ConferenceInfoWidget w(nullptr);
     // TODO
 }
