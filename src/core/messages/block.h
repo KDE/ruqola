@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 #include <QDebug>
 #include <QJsonObject>
-class LIBRUQOLACORE_TESTS_EXPORT Block
+class LIBRUQOLACORE_EXPORT Block
 {
     Q_GADGET
 public:
