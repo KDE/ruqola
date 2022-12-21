@@ -14,7 +14,6 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
-#include <kwidgetsaddons_version.h>
 
 ListAttachmentDelegate::ListAttachmentDelegate(RocketChatAccount *account, QObject *parent)
     : QItemDelegate(parent)
@@ -102,13 +101,8 @@ bool ListAttachmentDelegate::editorEvent(QEvent *event, QAbstractItemModel *mode
         }
         if (layout.deleteAttachmentRect.contains(mev->pos()) && (file->userId() == mRocketChatAccount->userId())) {
             auto parentWidget = const_cast<QWidget *>(option.widget);
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             if (KMessageBox::ButtonCode::PrimaryAction
                 == KMessageBox::questionTwoActions(parentWidget,
-#else
-            if (KMessageBox::Yes
-                == KMessageBox::questionYesNo(parentWidget,
-#endif
                                                    i18n("Do you want to Delete this File?"),
                                                    i18nc("@title", "Delete File"),
                                                    KStandardGuiItem::del(),

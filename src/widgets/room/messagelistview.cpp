@@ -19,7 +19,6 @@
 #include "threadwidget/threadmessagedialog.h"
 #include "translatetext/translatetextjob.h"
 #include <PimCommonTextTranslator/TranslatorMenu>
-#include <kwidgetsaddons_version.h>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -622,13 +621,8 @@ void MessageListView::slotMarkMessageAsUnread(const QModelIndex &index)
 
 void MessageListView::slotDeleteMessage(const QModelIndex &index)
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this,
-#endif
                                            i18n("Do you want to delete this message?"),
                                            i18nc("@title", "Delete Message"),
                                            KStandardGuiItem::del(),

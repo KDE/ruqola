@@ -16,7 +16,6 @@
 #include <KMessageBox>
 #include <QMenu>
 #include <QPointer>
-#include <kwidgetsaddons_version.h>
 
 OauthTreeView::OauthTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
@@ -61,13 +60,8 @@ void OauthTreeView::slotCustomContextMenuRequested(const QPoint &pos)
 
 void OauthTreeView::removeClicked(const QString &identifier)
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::warningYesNo(this,
-#endif
                                            i18n("Are you sure that you want to delete this Oauth?"),
                                            i18n("Remove OAuth"),
                                            KStandardGuiItem::remove(),

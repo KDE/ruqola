@@ -13,7 +13,6 @@
 #include <KMessageBox>
 #include <QAction>
 #include <QMenu>
-#include <kwidgetsaddons_version.h>
 
 UsersInRoomMenu::UsersInRoomMenu(QObject *parent)
     : QObject(parent)
@@ -31,13 +30,8 @@ void UsersInRoomMenu::slotBlockUser()
 {
     const bool userIsBlocked = mRoom->blocker();
     if (!userIsBlocked) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (KMessageBox::ButtonCode::SecondaryAction
             == KMessageBox::questionTwoActions(mParentWidget,
-#else
-        if (KMessageBox::No
-            == KMessageBox::questionYesNo(mParentWidget,
-#endif
                                                i18n("Do you want to block this user?"),
                                                i18nc("@title", "Block User"),
                                                KGuiItem(i18nc("@action:button", "Block User"), QStringLiteral("dialog-ok")),
@@ -52,13 +46,8 @@ void UsersInRoomMenu::slotIgnoreUser()
 {
     const bool userIsIgnored = mRoom->userIsIgnored(mUserId);
     if (!userIsIgnored) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (KMessageBox::ButtonCode::SecondaryAction
             == KMessageBox::questionTwoActions(mParentWidget,
-#else
-        if (KMessageBox::No
-            == KMessageBox::questionYesNo(mParentWidget,
-#endif
                                                i18n("Do you want to ignore this user?"),
                                                i18nc("@title", "Ignore User"),
                                                KGuiItem(i18nc("@action:button", "Ignore User"), QStringLiteral("dialog-ok")),

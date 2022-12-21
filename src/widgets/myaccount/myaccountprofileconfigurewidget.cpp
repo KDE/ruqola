@@ -18,7 +18,6 @@
 #include <QLineEdit>
 #include <QPointer>
 #include <QPushButton>
-#include <kwidgetsaddons_version.h>
 
 MyAccountProfileConfigureWidget::MyAccountProfileConfigureWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -89,13 +88,8 @@ void MyAccountProfileConfigureWidget::slotLogoutFromOtherLocation()
 
 void MyAccountProfileConfigureWidget::slotDeleteMyAccount()
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this,
-#endif
                                            i18n("Do you really delete your account ?"),
                                            i18nc("@title", "Delete my Account"),
                                            KStandardGuiItem::del(),

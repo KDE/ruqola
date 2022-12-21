@@ -25,7 +25,6 @@
 #include <QFormLayout>
 #include <QPointer>
 #include <QPushButton>
-#include <kwidgetsaddons_version.h>
 
 ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
@@ -86,11 +85,7 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account,
     connect(mArchive, &QCheckBox::clicked, this, [this](bool checked) {
         const QString text = checked ? i18n("Do you want to archive this room?") : i18n("Do you want to unarchive this room?");
         const QString title = checked ? i18n("Archive Channel") : i18n("Unarchive Channel");
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         if (KMessageBox::ButtonCode::PrimaryAction == KMessageBox::questionTwoActions(this, text, title, KStandardGuiItem::ok(), KStandardGuiItem::cancel())) {
-#else
-        if (KMessageBox::Yes == KMessageBox::questionYesNo(this, text, title)) {
-#endif
             // mRocketChatAccount->changeChannelSettings(mRoom->roomId(), RocketChatAccount::Archive, checked, mRoom->channelType());
         }
     });
@@ -115,13 +110,8 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account,
     layout->addRow(QStringLiteral(" "), mDeleteChannel);
     connect(mDeleteChannel, &QPushButton::clicked, this, [this]() {
         if (mRoom->teamInfo().mainTeam()) {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             if (KMessageBox::ButtonCode::PrimaryAction
                 == KMessageBox::questionTwoActions(this,
-#else
-            if (KMessageBox::Yes
-                == KMessageBox::questionYesNo(this,
-#endif
                                                    i18n("Do you want to delete this Team?"),
                                                    i18nc("@title", "Delete Team"),
                                                    KStandardGuiItem::del(),
@@ -129,13 +119,8 @@ ChannelInfoEditableWidget::ChannelInfoEditableWidget(RocketChatAccount *account,
                 selectRoomToDelete(mRoom->teamInfo().teamId());
             }
         } else {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
             if (KMessageBox::ButtonCode::PrimaryAction
                 == KMessageBox::questionTwoActions(this,
-#else
-            if (KMessageBox::Yes
-                == KMessageBox::questionYesNo(this,
-#endif
                                                    i18n("Do you want to delete this room?"),
                                                    i18nc("@title", "Delete Room"),
                                                    KStandardGuiItem::del(),

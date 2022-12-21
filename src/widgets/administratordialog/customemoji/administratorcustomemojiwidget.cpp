@@ -22,7 +22,6 @@
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
-#include <kwidgetsaddons_version.h>
 
 AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
@@ -144,20 +143,12 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 
 void AdministratorCustomEmojiWidget::slotRemoveCustomEmoji(const QModelIndex &index)
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::questionYesNo(this,
-#endif
                                         i18n("Do you want to remove this emoji?"),
                                         i18nc("@title", "Remove Emoji"),
                                         KStandardGuiItem::remove(),
                                         KStandardGuiItem::cancel())
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
         == KMessageBox::ButtonCode::PrimaryAction) {
-#else
-        == KMessageBox::ButtonCode::Yes) {
-#endif
         auto job = new RocketChatRestApi::EmojiCustomDeleteJob(this);
         const QString emojiId = index.data().toString();
         job->setEmojiId(emojiId);

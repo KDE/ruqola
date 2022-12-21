@@ -11,7 +11,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QMenu>
-#include <kwidgetsaddons_version.h>
 
 MyAccountPersonalAccessTokenTreeView::MyAccountPersonalAccessTokenTreeView(RocketChatAccount *account, QWidget *parent)
     : QTreeView(parent)
@@ -52,13 +51,8 @@ void MyAccountPersonalAccessTokenTreeView::slotCustomContextMenuRequested(const 
 
 void MyAccountPersonalAccessTokenTreeView::removeClicked(const QString &tokenName)
 {
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this,
-#endif
                                            i18n("Are you sure that you want to delete \"%1\" Token?", tokenName),
                                            i18n("Remove Token"),
                                            KStandardGuiItem::remove(),

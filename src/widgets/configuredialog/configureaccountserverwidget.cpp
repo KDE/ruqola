@@ -8,7 +8,6 @@
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <kwidgetsaddons_version.h>
 
 ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     : QWidget(parent)
@@ -53,13 +52,8 @@ void ConfigureAccountServerWidget::slotDeleteServer()
     if (!item) {
         return;
     }
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this,
-#endif
                                            i18n("Do you want to remove this account \'%1\'?", item->text()),
                                            i18nc("@title:window", "Remove Account"),
                                            KStandardGuiItem::remove(),

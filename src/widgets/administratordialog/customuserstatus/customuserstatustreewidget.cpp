@@ -13,7 +13,6 @@
 #include <QHeaderView>
 #include <QMenu>
 #include <QPointer>
-#include <kwidgetsaddons_version.h>
 
 CustomUserStatusTreeWidgetItem::CustomUserStatusTreeWidgetItem(QTreeWidget *parent)
     : QTreeWidgetItem(parent)
@@ -112,13 +111,8 @@ void CustomUserStatusTreeWidget::removeClicked()
     }
     auto customUserStatusItem = static_cast<CustomUserStatusTreeWidgetItem *>(currentItem());
     const CustomUserStatus userStatus = customUserStatusItem->userStatus();
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::ButtonCode::PrimaryAction
         == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes
-        == KMessageBox::questionYesNo(this,
-#endif
                                            i18n("Do you want to remove \"%1\"?", userStatus.name()),
                                            i18nc("@title", "Remove Custom User Status"),
                                            KStandardGuiItem::remove(),
