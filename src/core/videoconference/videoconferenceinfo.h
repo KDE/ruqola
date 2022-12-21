@@ -46,12 +46,18 @@ public:
     Q_REQUIRED_RESULT VideoConferenceType conferenceType() const;
     void setConferenceType(VideoConferenceType newConferenceType);
 
+    Q_REQUIRED_RESULT QString providerName() const;
+    void setProviderName(const QString &newProviderName);
+
+    Q_REQUIRED_RESULT bool operator==(const VideoConferenceInfo &other) const;
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QDateTime mCreatedAtDateTime;
     QDateTime mEndedAtDateTime;
     QString mUrl;
     QString mRoomId;
+    QString mProviderName;
     VideoConferenceType mConferenceType = Unknown;
     int mStatus = -1;
     bool mRinging = false;
