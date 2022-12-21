@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 class RocketChatAccount;
+class QFormLayout;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceInfoWidget : public QWidget
 {
     Q_OBJECT
@@ -23,5 +24,6 @@ public:
 
 private:
     QString mConferenceId;
+    QFormLayout *const mFormLayout;
     RocketChatAccount *const mRocketChatAccount;
 };
