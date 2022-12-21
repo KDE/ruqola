@@ -5,7 +5,11 @@
 */
 #include "conferenceinfodialogtest.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
+#include "conferencecalldialog/conferenceinfowidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
+
 QTEST_MAIN(ConferenceInfoDialogTest)
 ConferenceInfoDialogTest::ConferenceInfoDialogTest(QObject *parent)
     : QObject{parent}
@@ -15,5 +19,13 @@ ConferenceInfoDialogTest::ConferenceInfoDialogTest(QObject *parent)
 void ConferenceInfoDialogTest::shouldHaveDefaultValues()
 {
     ConferenceInfoDialog d(nullptr);
-    // TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mConferenceInfoWidget = d.findChild<ConferenceInfoWidget *>(QStringLiteral("mConferenceInfoWidget"));
+    QVERIFY(mConferenceInfoWidget);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }
