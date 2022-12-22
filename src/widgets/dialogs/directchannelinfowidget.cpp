@@ -19,16 +19,7 @@
 
 DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
-    , mName(new QLabel(this))
-    , mUserName(new QLabel(this))
-    , mCustomStatus(new QLabel(this))
-    , mStatus(new QLabel(this))
-    , mTimeZone(new QLabel(this))
     , mAvatar(new QLabel(this))
-    , mRoles(new QLabel(this))
-    , mCreateAt(new QLabel(this))
-    , mLastLogin(new QLabel(this))
-    , mEmailsInfo(new QLabel(this))
     , mMainLayout(new QFormLayout(this))
     , mRocketChatAccount(account)
 {
@@ -37,44 +28,6 @@ DirectChannelInfoWidget::DirectChannelInfoWidget(RocketChatAccount *account, QWi
 
     mAvatar->setObjectName(QStringLiteral("mAvatar"));
     mMainLayout->addWidget(mAvatar);
-
-    mName->setObjectName(QStringLiteral("mName"));
-    mName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Name:"), mName);
-
-    mUserName->setObjectName(QStringLiteral("mUserName"));
-    mUserName->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Username:"), mUserName);
-
-    mStatus->setObjectName(QStringLiteral("mStatus"));
-    mStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Status:"), mStatus);
-
-    mCustomStatus->setObjectName(QStringLiteral("mCustomStatus"));
-    mCustomStatus->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Custom Status:"), mCustomStatus);
-
-    mTimeZone->setObjectName(QStringLiteral("mTimeZone"));
-    mTimeZone->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Timezone:"), mTimeZone);
-
-    mRoles->setObjectName(QStringLiteral("mRoles"));
-    mRoles->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Roles:"), mRoles);
-
-    mCreateAt->setObjectName(QStringLiteral("mCreateAt"));
-    mCreateAt->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Created At:"), mCreateAt);
-
-    mLastLogin->setObjectName(QStringLiteral("mLastLogin"));
-    mLastLogin->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mMainLayout->addRow(i18n("Last Login:"), mLastLogin);
-
-    mEmailsInfo->setObjectName(QStringLiteral("mEmailsInfo"));
-    mEmailsInfo->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    mEmailsInfo->setTextFormat(Qt::RichText);
-    mEmailsInfo->setOpenExternalLinks(true);
-    mMainLayout->addRow(i18n("Email:"), mEmailsInfo);
 }
 
 DirectChannelInfoWidget::~DirectChannelInfoWidget() = default;
@@ -117,20 +70,6 @@ void DirectChannelInfoWidget::slotUserInfoDone(const QJsonObject &obj)
 
 void DirectChannelInfoWidget::setUser(const User &user)
 {
-    const QString name = user.name();
-    if (name.isEmpty()) {
-        hideWidget(mName);
-    } else {
-        mName->setText(name);
-    }
-    mUserName->setText(user.userName());
-    if (user.statusText().isEmpty()) {
-        hideWidget(mCustomStatus);
-    } else {
-        mCustomStatus->setText(user.statusText());
-    }
-    mStatus->setText(Utils::displaytextFromPresenceStatus(user.status()));
-    mTimeZone->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
     // Download avatar ?
     Utils::AvatarInfo info;
     info.avatarType = Utils::AvatarType::User;
@@ -138,10 +77,42 @@ void DirectChannelInfoWidget::setUser(const User &user)
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
     const QSize pixmapAvatarSize = QSize(60, 60) * screen()->devicePixelRatio();
     mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+
+    const QString name = user.name();
+    if (!name.isEmpty()) {
+        auto nameLabel = new QLabel(this);
+        nameLabel->setText(name);
+        nameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Name:"), nameLabel);
+    }
+
+    const QString userName = user.userName();
+    if (!userName.isEmpty()) {
+        auto userNameLabel = new QLabel(userName, this);
+        userNameLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Username:"), userNameLabel);
+    }
+
+    auto statusLabel = new QLabel(Utils::displaytextFromPresenceStatus(user.status()), this);
+    statusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mMainLayout->addRow(i18n("Status:"), statusLabel);
+
+    const QString statusText = user.statusText();
+    if (!statusText.isEmpty()) {
+        auto customStatusLabel = new QLabel(statusText, this);
+        customStatusLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Custom Status:"), customStatusLabel);
+    }
+
+    auto timeZoneLabel = new QLabel(this);
+    timeZoneLabel->setText((user.utcOffset() >= 0 ? QStringLiteral("UTC+") : QStringLiteral("UTC")) + QString::number(user.utcOffset()));
+    timeZoneLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    mMainLayout->addRow(i18n("Timezone:"), timeZoneLabel);
+
     const QStringList roles{user.roles()};
-    if (roles.isEmpty()) {
-        hideWidget(mRoles);
-    } else {
+
+    if (!roles.isEmpty()) {
+        auto rolesLabel = new QLabel(this);
         QStringList newRolesList;
         for (const QString &rolestr : roles) {
             for (const RoleInfo &roleInfo : std::as_const(mListRoleInfos)) {
@@ -151,27 +122,34 @@ void DirectChannelInfoWidget::setUser(const User &user)
                 }
             }
         }
-        mRoles->setText(newRolesList.join(QStringLiteral(", ")));
+        rolesLabel->setText(newRolesList.join(QStringLiteral(", ")));
+        rolesLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Roles:"), rolesLabel);
     }
 
-    if (user.createdAt().isValid()) {
-        mCreateAt->setText(user.createdAt().date().toString());
-    } else {
-        hideWidget(mCreateAt);
+    const auto createdAt = user.createdAt();
+    if (createdAt.isValid()) {
+        auto createAtLabel = new QLabel(createdAt.date().toString(), this);
+        createAtLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Created At:"), createAtLabel);
     }
 
-    if (user.lastLogin().isValid()) {
-        mLastLogin->setText(user.lastLogin().date().toString());
-    } else {
-        hideWidget(mLastLogin);
+    const auto lastLogin = user.lastLogin();
+    if (lastLogin.isValid()) {
+        auto lastLoginLabel = new QLabel(lastLogin.date().toString(), this);
+        lastLoginLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        mMainLayout->addRow(i18n("Last Login:"), lastLoginLabel);
     }
 
-    if (user.userEmailsInfo().isValid()) {
+    const auto userEmailsInfo = user.userEmailsInfo();
+    if (userEmailsInfo.isValid()) {
         const QString generateEmail = QStringLiteral("<a href=\'mailto:%1\'>%1</a>").arg(user.userEmailsInfo().email);
         const QString infoStr = i18n("%1 [%2]", generateEmail, user.userEmailsInfo().verified ? i18n("Verified") : i18n("Not verified"));
-        mEmailsInfo->setText(infoStr);
-    } else {
-        hideWidget(mEmailsInfo);
+        auto emailsInfoLabel = new QLabel(infoStr, this);
+        emailsInfoLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        emailsInfoLabel->setTextFormat(Qt::RichText);
+        emailsInfoLabel->setOpenExternalLinks(true);
+        mMainLayout->addRow(i18n("Email:"), emailsInfoLabel);
     }
 }
 
