@@ -15,7 +15,7 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 #include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
@@ -24,7 +24,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     , mListNotificationsListView(new NotificationHistoryListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
@@ -44,7 +44,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mainLayout->addLayout(searchLayout);
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
 #endif
@@ -66,14 +66,14 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mListNotificationsListView, &NotificationHistoryListView::textToSpeech, this, &NotificationHistoryWidget::slotTextToSpeech);
 #endif
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget() = default;
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void NotificationHistoryWidget::slotTextToSpeech(const QString &messageText)
 {
     mTextToSpeechWidget->say(messageText);

@@ -56,7 +56,7 @@ private:
 #endif
     KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
     PimCommonTextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget;
 #endif

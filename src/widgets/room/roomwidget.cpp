@@ -54,7 +54,7 @@
 #include <QPushButton>
 #include <QScrollBar>
 #include <QVBoxLayout>
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 #include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
@@ -66,7 +66,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
     , mOtrWidget(new OtrWidget(this))
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
@@ -99,7 +99,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     roomWidgetLayout->addWidget(mTextToSpeechWidget);
 #endif
@@ -117,7 +117,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
     connect(mRoomWidgetBase, &RoomWidgetBase::loadHistory, this, &RoomWidget::slotLoadHistory);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, &RoomWidget::slotTextToSpeech);
 #endif
     connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
@@ -131,7 +131,7 @@ RoomWidget::~RoomWidget()
     delete mRoom;
 }
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void RoomWidget::slotTextToSpeech(const QString &messageText)
 {
     mTextToSpeechWidget->say(messageText);

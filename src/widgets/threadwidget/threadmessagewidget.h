@@ -14,7 +14,7 @@ class Room;
 class QLabel;
 class RoomWidgetBase;
 class QToolButton;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace KPIMTextEditTextToSpeech
 {
 class TextToSpeechWidget;
@@ -41,7 +41,7 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
 #endif
     void initialize();
@@ -54,7 +54,7 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     QToolButton *const mFollowButton;
     QPointer<Room> mRoom;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
 };

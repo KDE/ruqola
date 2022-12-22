@@ -13,7 +13,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 #include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
@@ -22,7 +22,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     , mSearchMessageLineEdit(new QLineEdit(this))
     , mMessageListInfo(new QLabel(this))
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
@@ -48,21 +48,21 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
 
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
 #endif
 
     mainLayout->addWidget(mMessageListView);
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mMessageListView, &MessageListView::textToSpeech, this, &ShowListMessageBaseWidget::slotTextToSpeech);
 #endif
 }
 
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget() = default;
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void ShowListMessageBaseWidget::slotTextToSpeech(const QString &messageText)
 {
     mTextToSpeechWidget->say(messageText);
