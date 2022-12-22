@@ -32,16 +32,7 @@ private:
     void setUser(const User &user);
     void hideWidget(QLabel *label);
     QVector<RoleInfo> mListRoleInfos;
-    QLabel *const mName;
-    QLabel *const mUserName;
-    QLabel *const mCustomStatus;
-    QLabel *const mStatus;
-    QLabel *const mTimeZone;
     QLabel *const mAvatar;
-    QLabel *const mRoles;
-    QLabel *const mCreateAt;
-    QLabel *const mLastLogin;
-    QLabel *const mEmailsInfo;
     QFormLayout *const mMainLayout;
     RocketChatAccount *const mRocketChatAccount;
 };
