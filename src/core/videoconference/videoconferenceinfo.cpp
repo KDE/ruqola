@@ -39,6 +39,20 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     mConferenceType = convertTypeToEnum(content[QLatin1String("type")].toString());
     mProviderName = content[QLatin1String("providerName")].toString();
     // Users
+    const QJsonArray usersArray = content[QLatin1String("users")].toArray();
+    mUsers.reserve(usersArray.count());
+    for (const QJsonValue &current : usersArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject userObject = current.toObject();
+            User m;
+            m.parseUserRestApi(userObject, {});
+            if (m.isValid()) {
+                mUsers.append(std::move(m));
+            }
+        } else {
+            qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "Problem when parsing Users" << current;
+        }
+    }
 }
 
 VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(const QString &str) const
@@ -50,6 +64,16 @@ VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(
     }
     qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertTypeToEnum invalid " << str;
     return VideoConferenceInfo::VideoConferenceType::Unknown;
+}
+
+QVector<User> VideoConferenceInfo::users() const
+{
+    return mUsers;
+}
+
+void VideoConferenceInfo::setUsers(const QVector<User> &newUsers)
+{
+    mUsers = newUsers;
 }
 
 QString VideoConferenceInfo::providerName() const
@@ -141,11 +165,13 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
     d << "mCreatedAtDateTime " << t.createdAtDateTime();
     d << "mEndedAtDateTime " << t.endedAtDateTime();
     d << "mProviderName " << t.providerName();
+    d << "mUsers " << t.users();
     return d;
 }
 
 bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
 {
     return mCreatedAtDateTime == other.createdAtDateTime() && mEndedAtDateTime == other.endedAtDateTime() && mUrl == other.url() && mRoomId == other.roomId()
-        && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing();
+        && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing()
+        && mUsers == other.users();
 }
