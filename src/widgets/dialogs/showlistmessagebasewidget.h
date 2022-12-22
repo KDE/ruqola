@@ -15,7 +15,7 @@ class QLabel;
 class ListMessagesModelFilterProxyModel;
 class RocketChatAccount;
 class Room;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace KPIMTextEditTextToSpeech
 {
 class TextToSpeechWidget;
@@ -39,7 +39,7 @@ Q_SIGNALS:
 private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
 #endif
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
@@ -47,7 +47,7 @@ private:
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;
     ListMessagesModelFilterProxyModel *mModel = nullptr;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
 };

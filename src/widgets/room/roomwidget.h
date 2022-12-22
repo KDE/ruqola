@@ -22,7 +22,7 @@ class Room;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace KPIMTextEditTextToSpeech
 {
 class TextToSpeechWidget;
@@ -99,7 +99,7 @@ private:
     void slotCloseOtr();
     void slotRefreshOtrKeys();
     void slotCallRequested();
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
 #endif
 
@@ -113,7 +113,7 @@ private:
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
     OtrWidget *const mOtrWidget;
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;

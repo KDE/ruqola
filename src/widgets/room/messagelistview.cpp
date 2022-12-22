@@ -458,7 +458,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     if (mMessageListDelegate->hasSelection()) {
         addTextPlugins(&menu, mMessageListDelegate->selectedText());
     }
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     createSeparator(menu);
     QAction *speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
     connect(speakAction, &QAction::triggered, this, [=]() {
@@ -638,7 +638,7 @@ void MessageListView::slotDeleteMessage(const QModelIndex &index)
     }
 }
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void MessageListView::slotTextToSpeech(const QModelIndex &index)
 {
     QString message = mMessageListDelegate->selectedText();

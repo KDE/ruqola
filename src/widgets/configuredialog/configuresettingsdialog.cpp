@@ -20,7 +20,7 @@
 #include <QPushButton>
 #include <QWindow>
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 #include "configureaccessibilitywidget.h"
 #endif
 
@@ -43,7 +43,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
     , mConfigureTranslateWidget(new PimCommonTextTranslator::TranslatorConfigureListsWidget(this))
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
 #endif
 {
@@ -89,7 +89,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureUserFeedBackWidgetPage);
 #endif
 
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     const QString textToSpeechPageName = i18nc("@title Preferences page name", "Accessibility");
     mConfigureTextToSpeechWidgetPage = new KPageWidgetItem(mConfigureTextToSpeechWidget, textToSpeechPageName);
     mConfigureTextToSpeechWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-accessibility")));
@@ -133,7 +133,7 @@ void ConfigureSettingsDialog::slotAccepted()
     mConfigureFontWidget->save();
     mConfigureTranslateWidget->save();
     mConfigureAutoCorrectionWidget->save();
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     mConfigureTextToSpeechWidget->save();
 #endif
 }
@@ -149,7 +149,7 @@ void ConfigureSettingsDialog::load()
     mConfigureFontWidget->load();
     mConfigureTranslateWidget->load();
     mConfigureAutoCorrectionWidget->load();
-#if HAVE_TEXT_TO_SPEECH_SUPPORT
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     mConfigureTextToSpeechWidget->load();
 #endif
 }
