@@ -8,6 +8,8 @@
 #include "ruqola_videoconference_core_debug.h"
 #include "utils.h"
 
+#include <KLocalizedString>
+
 #include <QJsonObject>
 
 VideoConferenceInfo::VideoConferenceInfo() = default;
@@ -175,4 +177,22 @@ bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
     return mCreatedAtDateTime == other.createdAtDateTime() && mEndedAtDateTime == other.endedAtDateTime() && mUrl == other.url() && mRoomId == other.roomId()
         && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing()
         && mUsers == other.users();
+}
+
+QString VideoConferenceInfo::statusInformation() const
+{
+    if (endedAtDateTime().isValid()) {
+        if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct) {
+            return i18n("Call was not answered");
+        } else if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Conference && users().isEmpty()) {
+            return i18n("Call was not answered");
+        }
+    } else {
+        if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct && status() == 0) {
+            return i18n("Waiting for answer");
+        } else {
+            return i18n("Call ongoing");
+        }
+    }
+    return {};
 }

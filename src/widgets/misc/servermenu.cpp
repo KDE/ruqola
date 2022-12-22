@@ -32,20 +32,23 @@ void ServerMenu::slotUpdateAccountMenu()
 {
     menu()->clear();
     auto accountManager = Ruqola::self()->accountManager();
-    RocketChatAccountModel *model = accountManager->rocketChatAccountModel();
+    auto *model = accountManager->rocketChatAccountProxyModel();
     const QString currentAccountName = accountManager->currentAccount();
-    const int accountNumber = model->accountNumber();
+    const int accountNumber = model->rowCount();
     if (accountNumber == 0) {
         // Nothing
     } else if (accountNumber == 1) {
-        auto action = new QAction(model->account(0)->displayName(), this);
+        const auto index = model->index(0, 0);
+        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
+        auto action = new QAction(account->displayName(), this);
         menu()->addAction(action);
         action->setEnabled(false);
     } else {
         auto group = new QActionGroup(this);
         group->setExclusive(true);
         for (int i = 0; i < accountNumber; ++i) {
-            RocketChatAccount *account = model->account(i);
+            const auto index = model->index(i, 0);
+            auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
             if (account->accountEnabled()) {
                 const QString accountName = account->accountName();
                 const QString displayName = account->displayName();

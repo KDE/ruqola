@@ -41,20 +41,17 @@ void ConferenceInfoWidget::initializeInfo()
         mFormLayout->addRow(i18n("Meeting URL:"), meetingUrlLabel);
         mFormLayout->addRow(i18n("Provider:"), new QLabel(info.providerName(), this));
 
-        if (info.endedAtDateTime().isValid()) {
-            if (info.conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct) {
-                mFormLayout->addRow(i18n("Status:"), new QLabel(i18n("Call was not answered"), this));
-            } else if (info.conferenceType() == VideoConferenceInfo::VideoConferenceType::Conference && info.users().isEmpty()) {
-                mFormLayout->addRow(i18n("Status:"), new QLabel(i18n("Call was not answered"), this));
-            }
-        } else {
-            if (info.conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct && info.status() == 0) {
-                mFormLayout->addRow(i18n("Status:"), new QLabel(i18n("Waiting for answer"), this));
-            } else {
-                mFormLayout->addRow(i18n("Status:"), new QLabel(i18n("Call ongoing"), this));
-            }
+        const QString statusInformation = info.statusInformation();
+        if (!statusInformation.isEmpty()) {
+            mFormLayout->addRow(i18n("Status:"), new QLabel(statusInformation, this));
         }
         // TODO add users.
+        const auto users = info.users();
+        for (const auto &user : users) {
+            // Add layout flowlayout ?
+            // TODO => show avatar
+            // Add tooltip
+        }
     });
     if (!conferenceInfoJob->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";

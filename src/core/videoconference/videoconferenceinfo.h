@@ -56,6 +56,8 @@ public:
     Q_REQUIRED_RESULT QVector<User> users() const;
     void setUsers(const QVector<User> &newUsers);
 
+    Q_REQUIRED_RESULT QString statusInformation() const;
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
