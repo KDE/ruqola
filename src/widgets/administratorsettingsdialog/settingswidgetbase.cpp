@@ -152,14 +152,14 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     auto layout = new QHBoxLayout;
     auto label = new QLabel(labelStr, this);
     label->setObjectName(QStringLiteral("label_%1").arg(variable));
-    layout->addWidget(label);
+    layout->addWidget(label, 0, Qt::AlignTop);
     layout->addWidget(lineEdit);
     auto toolButton = new QToolButton(this);
     toolButton->setObjectName(QStringLiteral("toolbutton_%1").arg(variable));
     toolButton->setText(i18n("Apply"));
     toolButton->setProperty(s_property, variable);
     lineEdit->setProperty(s_property, variable);
-    layout->addWidget(toolButton);
+    layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
     connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
         updateSettings(variable, lineEdit->toPlainText(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
