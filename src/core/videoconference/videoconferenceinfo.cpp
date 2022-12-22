@@ -16,6 +16,7 @@ VideoConferenceInfo::~VideoConferenceInfo() = default;
 
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
+    qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;
     //{"_id":"63997dd831e2ca494753c544","type":"videoconference","users":[{"_id":"YbwG4T2uB3wZSZSKB","username":"laurent-montel",
     // "name":"laurent","ts":"2022-12-14T07:40:08.973Z"}],"messages":{"started":"ka85EtarYSjjt59w4"},"status":2,
     // "anonymousUsers":0,"createdAt":"2022-12-14T07:40:08.262Z","providerName":"jitsi","ringing":true,"title":"ruqola252",
