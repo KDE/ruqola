@@ -30,7 +30,6 @@ private:
     void slotUserInfoDone(const QJsonObject &obj);
     void fetchUserInfo(const QString &userName);
     void setUser(const User &user);
-    void hideWidget(QLabel *label);
     QVector<RoleInfo> mListRoleInfos;
     QLabel *const mAvatar;
     QFormLayout *const mMainLayout;
