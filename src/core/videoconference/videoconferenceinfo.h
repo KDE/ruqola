@@ -7,8 +7,10 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "user.h"
 #include <QDateTime>
 #include <QDebug>
+#include <QVector>
 
 class LIBRUQOLACORE_EXPORT VideoConferenceInfo
 {
@@ -51,8 +53,12 @@ public:
 
     Q_REQUIRED_RESULT bool operator==(const VideoConferenceInfo &other) const;
 
+    Q_REQUIRED_RESULT QVector<User> users() const;
+    void setUsers(const QVector<User> &newUsers);
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
+    QVector<User> mUsers;
     QDateTime mCreatedAtDateTime;
     QDateTime mEndedAtDateTime;
     QString mUrl;
