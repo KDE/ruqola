@@ -61,6 +61,8 @@ void AdministratorUsersWidget::slotInviteUsers()
     QPointer<AdministratorInviteUsersDialog> dlg = new AdministratorInviteUsersDialog(this);
     if (dlg->exec()) {
         const QStringList emails = dlg->emails();
+        qDebug() << " emails invitation " << emails;
+        qWarning() << " Still not implemented !";
         // TODO
     }
     delete dlg;
