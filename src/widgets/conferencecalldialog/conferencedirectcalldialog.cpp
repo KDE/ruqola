@@ -49,8 +49,8 @@ void ConferenceDirectCallDialog::slotRejected()
     auto job = new RocketChatRestApi::VideoConferenceCancelJob(this);
     job->setCallId(mCallId);
     mRocketChatAccount->restApi()->initializeRestApiJob(job);
-    connect(job, &RocketChatRestApi::VideoConferenceCancelJob::videoConferenceCancelDone, this, [this](const QJsonObject &obj) {
-        qDebug() << "stop obj  ***********************************************" << obj;
+    connect(job, &RocketChatRestApi::VideoConferenceCancelJob::videoConferenceCancelDone, this, [](const QJsonObject &obj) {
+        qDebug() << "stop obj " << obj;
     });
     if (!job->start()) {
         qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCancelJob job";
@@ -88,7 +88,6 @@ void ConferenceDirectCallDialog::slotStartVideoConference()
 void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConference &videoConference)
 {
     if (videoConference.callId() == mCallId) {
-        qDebug() << " CALL REJECTED";
         cancelCall();
         reject();
     }
@@ -97,8 +96,7 @@ void ConferenceDirectCallDialog::slotVideoConferenceCanceled(const VideoConferen
 void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConference &videoConference)
 {
     if (videoConference.callId() == mCallId) {
-        qDebug() << " videoConference " << videoConference;
-        qDebug() << " CALL ACCEPTED";
+        // qDebug() << " videoConference " << videoConference;
         mRocketChatAccount->ddp()->videoConferenceConfirmed(mRoomId, mCallId, mRocketChatAccount->userId());
         mWasAccepted = true;
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);

@@ -29,9 +29,9 @@ ConferenceCallDialog::ConferenceCallDialog(RocketChatAccount *account, QWidget *
     connect(button, &QDialogButtonBox::accepted, this, &ConferenceCallDialog::accept);
 }
 
+ConferenceCallDialog::~ConferenceCallDialog() = default;
+
 ConferenceCallWidget::ConferenceCallStart ConferenceCallDialog::startInfo() const
 {
     return mConferenceCallWidget->startInfo();
 }
-
-ConferenceCallDialog::~ConferenceCallDialog() = default;
