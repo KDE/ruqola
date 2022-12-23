@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:46+0000\n"
+"POT-Creation-Date: 2022-12-23 00:46+0000\n"
 "PO-Revision-Date: 2022-12-19 21:17+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -1443,6 +1443,23 @@ msgstr "Administrateur"
 #, kde-format
 msgid "Bot"
 msgstr "Robot"
+
+#: core/videoconference/videoconferenceinfo.cpp:186
+#: core/videoconference/videoconferenceinfo.cpp:188
+#, kde-format
+msgid "Call was not answered"
+msgstr ""
+
+#: core/videoconference/videoconferenceinfo.cpp:192
+#, fuzzy, kde-format
+#| msgid "Your answer:"
+msgid "Waiting for answer"
+msgstr "Votre réponse :"
+
+#: core/videoconference/videoconferenceinfo.cpp:194
+#, kde-format
+msgid "Call ongoing"
+msgstr ""
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -3375,7 +3392,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:43
+#: widgets/dialogs/directchannelinfowidget.cpp:86
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
 #, kde-format
@@ -3497,7 +3514,8 @@ msgid "Edit User Status"
 msgstr "Modifier l'état de l'utilisateur"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/dialogs/directchannelinfowidget.cpp:51
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:46
+#: widgets/dialogs/directchannelinfowidget.cpp:98
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Status:"
@@ -3597,7 +3615,7 @@ msgstr "Modifier la permission « %1 »"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:63
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Roles:"
 msgstr "Rôles :"
@@ -4074,7 +4092,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
 #: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/directchannelinfowidget.cpp:93
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
@@ -4089,7 +4107,7 @@ msgid "Status Message:"
 msgstr "Message d'état :"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:77
+#: widgets/dialogs/directchannelinfowidget.cpp:152
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -7050,43 +7068,43 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Créer un message vidéo"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:25
+#: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "Informations concernant l'utilisateur"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:55
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #, kde-format
 msgid "Custom Status:"
 msgstr "État personnalisé :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:59
+#: widgets/dialogs/directchannelinfowidget.cpp:110
 #, kde-format
 msgid "Timezone:"
 msgstr "Fuseau horaire :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:67
+#: widgets/dialogs/directchannelinfowidget.cpp:134
 #, kde-format
 msgid "Created At:"
 msgstr "Créer à :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Last Login:"
 msgstr "Dernière connexion :"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Verified"
 msgstr "Vérifié"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Not verified"
 msgstr "Non vérifié"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -9342,9 +9360,6 @@ msgstr "Renvoyer le numéro du compte."
 
 #~ msgid "Discussion Name:"
 #~ msgstr "Nom de la discussion :"
-
-#~ msgid "Your answer:"
-#~ msgstr "Votre réponse :"
 
 #~ msgid "john.doe"
 #~ msgstr "Jean Dupont"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-12-18 08:50+0100\n"
+"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"PO-Revision-Date: 2022-12-22 07:48+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -1439,6 +1439,22 @@ msgstr "Skrbnik"
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
+
+#: core/videoconference/videoconferenceinfo.cpp:186
+#: core/videoconference/videoconferenceinfo.cpp:188
+#, kde-format
+msgid "Call was not answered"
+msgstr ""
+
+#: core/videoconference/videoconferenceinfo.cpp:192
+#, kde-format
+msgid "Waiting for answer"
+msgstr ""
+
+#: core/videoconference/videoconferenceinfo.cpp:194
+#, kde-format
+msgid "Call ongoing"
+msgstr ""
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -3358,7 +3374,7 @@ msgstr "Ime emodžija po meri in njegovi vzdevki morajo biti različni."
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:43
+#: widgets/dialogs/directchannelinfowidget.cpp:86
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
 #, kde-format
@@ -3484,7 +3500,8 @@ msgid "Edit User Status"
 msgstr "Uredi stanje uporabnika"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/dialogs/directchannelinfowidget.cpp:51
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:46
+#: widgets/dialogs/directchannelinfowidget.cpp:98
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Status:"
@@ -3583,7 +3600,7 @@ msgstr "Urejanje dovoljenja »%1«"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:63
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Roles:"
 msgstr "Vloge:"
@@ -4062,7 +4079,7 @@ msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
 #: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/directchannelinfowidget.cpp:93
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
@@ -4077,7 +4094,7 @@ msgid "Status Message:"
 msgstr "Sporočilo o stanju:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:77
+#: widgets/dialogs/directchannelinfowidget.cpp:152
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -6517,23 +6534,20 @@ msgid "Start a Direct Call"
 msgstr "Začni neposredni klic"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Conference Call"
+#, kde-format
 msgctxt "@title:window"
 msgid "Conference Call Information"
-msgstr "Konferenčni klic"
+msgstr "Informacija o konferenčnem klicu"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "Url strežnika:"
+msgstr "Url srečanja:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Default Provider"
+#, kde-format
 msgid "Provider:"
-msgstr "Privzeti dobavitelj"
+msgstr "Dobavitelj:"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:57
 #, kde-format
@@ -6579,7 +6593,7 @@ msgstr "Omogoči zapisovanje v dnevnik"
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
 msgid "Show hover highlights"
-msgstr ""
+msgstr "Prikazuj osvetlitve pod miško"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
@@ -7039,43 +7053,43 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Ustvari video sporočilo"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:25
+#: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "Podatki o uporabniku"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:55
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #, kde-format
 msgid "Custom Status:"
 msgstr "Stanje po meri:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:59
+#: widgets/dialogs/directchannelinfowidget.cpp:110
 #, kde-format
 msgid "Timezone:"
 msgstr "Časovni pas:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:67
+#: widgets/dialogs/directchannelinfowidget.cpp:134
 #, kde-format
 msgid "Created At:"
 msgstr "Ustvarjeno:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Last Login:"
 msgstr "Zadnja prijava:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Verified"
 msgstr "Preverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Not verified"
 msgstr "Nepreverjeno"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -7829,10 +7843,9 @@ msgid "Personal Access Token"
 msgstr "Žeton osebnega dostopa"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search device"
+#, kde-format
 msgid "Search device..."
-msgstr "Išči napravo"
+msgstr "Išči napravo..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format

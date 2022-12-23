@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-22 00:46+0000\n"
-"PO-Revision-Date: 2022-12-21 08:04+0200\n"
+"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"PO-Revision-Date: 2022-12-22 05:26+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1442,6 +1442,23 @@ msgstr "Адміністратор"
 #, kde-format
 msgid "Bot"
 msgstr "Бот"
+
+#: core/videoconference/videoconferenceinfo.cpp:186
+#: core/videoconference/videoconferenceinfo.cpp:188
+#, kde-format
+msgid "Call was not answered"
+msgstr ""
+
+#: core/videoconference/videoconferenceinfo.cpp:192
+#, fuzzy, kde-format
+#| msgid "Your answer:"
+msgid "Waiting for answer"
+msgstr "Ваша відповідь:"
+
+#: core/videoconference/videoconferenceinfo.cpp:194
+#, kde-format
+msgid "Call ongoing"
+msgstr ""
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -3377,7 +3394,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:43
+#: widgets/dialogs/directchannelinfowidget.cpp:86
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
 #, kde-format
@@ -3503,7 +3520,8 @@ msgid "Edit User Status"
 msgstr "Редагування запису стану користувача"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/dialogs/directchannelinfowidget.cpp:51
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:46
+#: widgets/dialogs/directchannelinfowidget.cpp:98
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Status:"
@@ -3602,7 +3620,7 @@ msgstr "Редагування прав доступу «%1»"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:63
+#: widgets/dialogs/directchannelinfowidget.cpp:127
 #, kde-format
 msgid "Roles:"
 msgstr "Ролі:"
@@ -4081,7 +4099,7 @@ msgstr "Встановити випадковий пароль і надісла
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
 #: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/directchannelinfowidget.cpp:47
+#: widgets/dialogs/directchannelinfowidget.cpp:93
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
@@ -4096,7 +4114,7 @@ msgid "Status Message:"
 msgstr "Повідомлення стану:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:77
+#: widgets/dialogs/directchannelinfowidget.cpp:152
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -6563,23 +6581,20 @@ msgid "Start a Direct Call"
 msgstr "Почати безпосередній виклик"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Conference Call"
+#, kde-format
 msgctxt "@title:window"
 msgid "Conference Call Information"
-msgstr "Конференція"
+msgstr "Відомості щодо виклику конференції"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "Адреса сервера:"
+msgstr "Адреса засідання:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Default Provider"
+#, kde-format
 msgid "Provider:"
-msgstr "Типовий надавач послуг"
+msgstr "Надавач:"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:57
 #, kde-format
@@ -7090,43 +7105,43 @@ msgctxt "@title:window"
 msgid "Create Video Message"
 msgstr "Створення відеоповідомлення"
 
-#: widgets/dialogs/directchannelinfodialog.cpp:25
+#: widgets/dialogs/directchannelinfodialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "User Info"
 msgstr "Інформація про користувача"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:55
+#: widgets/dialogs/directchannelinfowidget.cpp:104
 #, kde-format
 msgid "Custom Status:"
 msgstr "Нетиповий стан:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:59
+#: widgets/dialogs/directchannelinfowidget.cpp:110
 #, kde-format
 msgid "Timezone:"
 msgstr "Часовий пояс:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:67
+#: widgets/dialogs/directchannelinfowidget.cpp:134
 #, kde-format
 msgid "Created At:"
 msgstr "Створено:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:71
+#: widgets/dialogs/directchannelinfowidget.cpp:141
 #, kde-format
 msgid "Last Login:"
 msgstr "Останній вхід:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Verified"
 msgstr "Перевірено"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "Not verified"
 msgstr "Не перевірено"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:171
+#: widgets/dialogs/directchannelinfowidget.cpp:147
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -7888,10 +7903,9 @@ msgid "Personal Access Token"
 msgstr "Особистий жетон доступу"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search device"
+#, kde-format
 msgid "Search device..."
-msgstr "Шукати пристрій"
+msgstr "Шукати пристрій…"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format
@@ -9390,9 +9404,6 @@ msgstr "Повернути номер облікового запису."
 
 #~ msgid "Discussion Name:"
 #~ msgstr "Назва обговорення:"
-
-#~ msgid "Your answer:"
-#~ msgstr "Ваша відповідь:"
 
 #~ msgid "john.doe"
 #~ msgstr "ivan.ivanenko"
