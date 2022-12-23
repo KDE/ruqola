@@ -5,6 +5,7 @@
 */
 
 #include "conferenceinfowidget.h"
+#include "common/flowlayout.h"
 #include "connection.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -12,7 +13,9 @@
 #include "videoconference/videoconferenceinfo.h"
 #include <KLocalizedString>
 #include <QFormLayout>
+#include <QIcon>
 #include <QLabel>
+#include <QScreen>
 
 ConferenceInfoWidget::ConferenceInfoWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -47,10 +50,20 @@ void ConferenceInfoWidget::initializeInfo()
         }
         // TODO add users.
         const auto users = info.users();
-        for (const auto &user : users) {
-            // Add layout flowlayout ?
-            // TODO => show avatar
-            // Add tooltip
+        if (!users.isEmpty()) {
+            auto avatarLayout = new FlowLayout;
+            mFormLayout->addItem(avatarLayout);
+            for (const auto &user : users) {
+                auto avatarLabel = new QLabel(this);
+                mFormLayout->addWidget(avatarLabel);
+                Utils::AvatarInfo info;
+                info.avatarType = Utils::AvatarType::User;
+                info.identifier = user.userName();
+                const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
+                const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
+                avatarLabel->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+                avatarLabel->setToolTip(user.userName());
+            }
         }
     });
     if (!conferenceInfoJob->start()) {
