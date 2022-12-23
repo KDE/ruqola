@@ -48,7 +48,6 @@ void ConferenceInfoWidget::initializeInfo()
         if (!statusInformation.isEmpty()) {
             mFormLayout->addRow(i18n("Status:"), new QLabel(statusInformation, this));
         }
-        // TODO add users.
         const auto users = info.users();
         if (!users.isEmpty()) {
             auto avatarLayout = new FlowLayout;
