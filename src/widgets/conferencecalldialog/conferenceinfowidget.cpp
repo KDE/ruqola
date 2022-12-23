@@ -59,8 +59,10 @@ void ConferenceInfoWidget::initializeInfo()
                 info.avatarType = Utils::AvatarType::User;
                 info.identifier = user.userName();
                 const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
-                const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
-                avatarLabel->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+                if (!iconUrlStr.isEmpty()) {
+                    const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
+                    avatarLabel->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+                }
                 avatarLabel->setToolTip(user.userName());
             }
         }
