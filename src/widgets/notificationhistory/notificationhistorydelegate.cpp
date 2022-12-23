@@ -222,6 +222,23 @@ bool NotificationHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractItem
         return false;
     }
 
+    const QPoint helpEventPos{helpEvent->pos()};
+    if (layout.senderRect.contains(helpEventPos)) {
+        auto account = rocketChatAccount(index);
+        if (account) {
+            const QString senderName = index.data(NotificationHistoryModel::SenderName).toString();
+            QString tooltip = senderName;
+            if (account->useRealName() && !tooltip.isEmpty()) {
+                const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
+                tooltip = QLatin1Char('@') + senderUserName;
+            }
+            if (!tooltip.isEmpty()) {
+                QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+                return true;
+            }
+        }
+    }
+
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
     QString formattedTooltip;
     if (MessageDelegateUtils::generateToolTip(doc, relativePos, formattedTooltip)) {
