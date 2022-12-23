@@ -75,8 +75,10 @@ void DirectChannelInfoWidget::setUser(const User &user)
     info.avatarType = Utils::AvatarType::User;
     info.identifier = user.userName();
     const QUrl iconUrlStr = QUrl(mRocketChatAccount->avatarUrl(info));
-    const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
-    mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+    if (!iconUrlStr.isEmpty()) {
+        const QSize pixmapAvatarSize = QSize(80, 80) * screen()->devicePixelRatio();
+        mAvatar->setPixmap(QIcon(iconUrlStr.toLocalFile()).pixmap(pixmapAvatarSize));
+    }
 
     const QString name = user.name();
     if (!name.isEmpty()) {
