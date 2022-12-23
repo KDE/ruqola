@@ -24,6 +24,7 @@ MessageListCompactLayout::~MessageListCompactLayout() = default;
 // [Optional date header]
 // [margin] <pixmap> [margin] <sender> [margin] <editicon> [margin] <text message> [margin] <add reaction> [margin] <timestamp> [margin/2]
 //                                                                  <attachments>
+//                                                                  <blocks>
 //                                                                  <reactions>
 //                                                                  <N replies>
 MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -131,7 +132,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
     const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &layout.baseLine);
-    int attachmentsY;
+    int attachmentsY = 0;
     const int textVMargin = 3; // adjust this for "compactness"
     if (textSize.isValid()) {
         layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
@@ -180,10 +181,10 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
     if (message->attachments().isEmpty() && message->blocks().isEmpty()) {
         layout.reactionsY = attachmentsY;
     } else {
+        int topAttachment = attachmentsY;
         if (!message->attachments().isEmpty()) {
             const auto attachments = message->attachments();
             QSize attachmentsSize;
-            int topAttachment = attachmentsY;
             // TODO add spacing between attachment
             for (const MessageAttachment &msgAttach : attachments) {
                 const MessageAttachmentDelegateHelperBase *helper = mDelegate->attachmentsHelper(msgAttach);
@@ -203,7 +204,7 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         if (!message->blocks().isEmpty()) {
             const auto blocks = message->blocks();
             QSize blocksSize;
-            int topBlock = attachmentsY; // FIXME attachmentsY
+            int topBlock = topAttachment;
             for (const Block &block : blocks) {
                 const MessageBlockDelegateHelperBase *helper = mDelegate->blocksHelper(block);
                 if (blocksSize.isEmpty()) {
@@ -217,7 +218,8 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
                     topBlock += blockSize.height();
                 }
             }
-            layout.blocksRect = QRect(textLeft, attachmentsY, blocksSize.width(), blocksSize.height()); // FIXME attachmentsY
+            // qDebug() << " topBlock " << topBlock;
+            layout.blocksRect = QRect(textLeft, topBlock, blocksSize.width(), blocksSize.height());
         }
         layout.reactionsY = attachmentsY + layout.attachmentsRect.height() + layout.blocksRect.height();
     }
