@@ -17,6 +17,9 @@ void Block::parseBlock(const QJsonObject &block)
     mCallId = block[QLatin1String("callId")].toString();
     mAppId = block[QLatin1String("appId")].toString();
     mBlockType = convertBlockTypeToEnum(block[QLatin1String("type")].toString());
+    if (mBlockType == Unknown) {
+        qDebug() << " Unknown type " << block;
+    }
 }
 
 Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
