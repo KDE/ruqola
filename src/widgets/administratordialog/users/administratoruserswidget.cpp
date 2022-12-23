@@ -125,10 +125,15 @@ void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
         const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            bool accepted = false;
             if (dialog->exec()) {
                 password = dialog->password();
+                accepted = true;
             }
             delete dialog;
+            if (!accepted) {
+                return;
+            }
         }
         RocketChatRestApi::UpdateUserInfo info = dlg->updateInfo();
         info.mUserId = user.userId();
@@ -344,10 +349,15 @@ void AdministratorUsersWidget::slotResetE2EKey(const QModelIndex &index)
         const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            bool accepted = false;
             if (dialog->exec()) {
                 password = dialog->password();
+                accepted = true;
             }
             delete dialog;
+            if (!accepted) {
+                return;
+            }
         }
 
         auto job = new RocketChatRestApi::ResetE2EKeyJob(this);
@@ -390,10 +400,15 @@ void AdministratorUsersWidget::slotResetTOTPKey(const QModelIndex &index)
         const bool twoFactorAuthenticationEnforcePasswordFallback = mRocketChatAccount->twoFactorAuthenticationEnforcePasswordFallback();
         if (twoFactorAuthenticationEnforcePasswordFallback) {
             QPointer<ConfirmPasswordDialog> dialog(new ConfirmPasswordDialog(this));
+            bool accepted = false;
             if (dialog->exec()) {
                 password = dialog->password();
+                accepted = true;
             }
             delete dialog;
+            if (!accepted) {
+                return;
+            }
         }
         auto job = new RocketChatRestApi::ResetTOTPJob(this);
         const QModelIndex modelIndex = mModel->index(index.row(), AdminUsersModel::UserId);
