@@ -427,6 +427,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     for (const MessageAttachment &att : attachments) {
         const MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(att);
         if (helper) {
+#if 0
+            painter->save();
+            painter->setPen(QPen(Qt::green));
+            painter->drawRect(layout.attachmentsRectList.at(i));
+            painter->restore();
+#endif
             helper->draw(att, painter, layout.attachmentsRectList.at(i), index, option);
         }
         ++i;
@@ -438,6 +444,12 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     for (const Block &block : blocks) {
         const MessageBlockDelegateHelperBase *helper = blocksHelper(block);
         if (helper) {
+#if 0
+            painter->save();
+            painter->setPen(QPen(Qt::red));
+            painter->drawRect(layout.blocksRectList.at(blockIndex));
+            painter->restore();
+#endif
             helper->draw(block, painter, layout.blocksRectList.at(blockIndex), index, option);
         }
         ++blockIndex;
