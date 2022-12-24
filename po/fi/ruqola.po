@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-23 00:46+0000\n"
+"POT-Creation-Date: 2022-12-24 00:49+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
-#: core/messages/block.cpp:42 core/messages/message.cpp:498
+#: core/messages/block.cpp:45 core/messages/message.cpp:498
 #: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, fuzzy, kde-format
@@ -719,7 +719,7 @@ msgstr "Palvelimen osoite:"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:233
+#: widgets/administratordialog/users/administratoruserswidget.cpp:240
 #, kde-format
 msgid "Active"
 msgstr ""
@@ -1682,7 +1682,7 @@ msgstr ""
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:113
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:107
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:261
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #: widgets/configuredialog/configureaccountserverwidget.ui:44
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
@@ -3480,7 +3480,7 @@ msgstr ""
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
-#: widgets/dialogs/directchannelinfowidget.cpp:86
+#: widgets/dialogs/directchannelinfowidget.cpp:88
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:28
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:48
 #, kde-format
@@ -3540,7 +3540,7 @@ msgstr "Poista automaattiliittyminen"
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:97
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:103
-#: widgets/administratordialog/users/administratoruserswidget.cpp:217
+#: widgets/administratordialog/users/administratoruserswidget.cpp:224
 #: widgets/configuredialog/configureaccountserverwidget.ui:30
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -3555,7 +3555,7 @@ msgstr "Lisää…"
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:99
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
-#: widgets/administratordialog/users/administratoruserswidget.cpp:224
+#: widgets/administratordialog/users/administratoruserswidget.cpp:231
 #: widgets/configuredialog/configureaccountserverwidget.ui:37
 #, kde-format
 msgid "Modify..."
@@ -3617,8 +3617,8 @@ msgid "Edit User Status"
 msgstr "Muokkaa käyttäjän tilaa"
 
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
-#: widgets/conferencecalldialog/conferenceinfowidget.cpp:46
-#: widgets/dialogs/directchannelinfowidget.cpp:98
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
+#: widgets/dialogs/directchannelinfowidget.cpp:100
 #: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "Status:"
@@ -3729,7 +3729,7 @@ msgstr "Versio"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
-#: widgets/dialogs/directchannelinfowidget.cpp:127
+#: widgets/dialogs/directchannelinfowidget.cpp:129
 #, kde-format
 msgid "Roles:"
 msgstr "Roolit:"
@@ -3837,21 +3837,21 @@ msgid "Do you want to remove this user \"%1\"?"
 msgstr "Haluatko sivuuttaa tämän käyttäjän?"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:78
-#: widgets/administratordialog/users/administratoruserswidget.cpp:160
+#: widgets/administratordialog/users/administratoruserswidget.cpp:167
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
 msgid "Remove User"
 msgstr "Poista omistajista"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:116
-#: widgets/administratordialog/users/administratoruserswidget.cpp:274
+#: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No user found"
 msgstr "Viestejä ei löytynyt"
 
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:279
+#: widgets/administratordialog/users/administratoruserswidget.cpp:286
 #: widgets/directory/directorywidget.cpp:183
 #, fuzzy, kde-format
 #| msgid "%1 User in room (Total: %2)"
@@ -4245,7 +4245,7 @@ msgstr ""
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:49
 #: widgets/dialogs/createnewserverwidget.cpp:40
-#: widgets/dialogs/directchannelinfowidget.cpp:93
+#: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
@@ -4261,7 +4261,7 @@ msgid "Status Message:"
 msgstr "Tilaviesti"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:51
-#: widgets/dialogs/directchannelinfowidget.cpp:152
+#: widgets/dialogs/directchannelinfowidget.cpp:154
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
 #: widgets/registeruser/registeruserwidget.cpp:34
@@ -4296,48 +4296,48 @@ msgstr "Sähköposti"
 msgid "Use ',' for separate emails"
 msgstr "Erota sanat pilkuin (”,”)"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:159
+#: widgets/administratordialog/users/administratoruserswidget.cpp:166
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this user?"
 msgstr "Haluatko sivuuttaa tämän käyttäjän?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:211
+#: widgets/administratordialog/users/administratoruserswidget.cpp:218
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgid "Invite..."
 msgstr "Kutsut"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:233
+#: widgets/administratordialog/users/administratoruserswidget.cpp:240
 #, fuzzy, kde-format
 #| msgid "Deactivated Users"
 msgid "Deactivate"
 msgstr "Passivoidut käyttäjät"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:242
+#: widgets/administratordialog/users/administratoruserswidget.cpp:249
 #, fuzzy, kde-format
 #| msgid "Remove Autojoin"
 msgid "Remove Admin"
 msgstr "Poista automaattiliittyminen"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:242
+#: widgets/administratordialog/users/administratoruserswidget.cpp:249
 #, kde-format
 msgid "Make Admin"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:248
+#: widgets/administratordialog/users/administratoruserswidget.cpp:255
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:254
+#: widgets/administratordialog/users/administratoruserswidget.cpp:261
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset Totp"
 msgstr "Tyhjennä avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:325
+#: widgets/administratordialog/users/administratoruserswidget.cpp:332
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -4347,37 +4347,37 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:329
+#: widgets/administratordialog/users/administratoruserswidget.cpp:336
 #, kde-format
 msgid "Reset E2E key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:356
+#: widgets/administratordialog/users/administratoruserswidget.cpp:368
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:356
+#: widgets/administratordialog/users/administratoruserswidget.cpp:368
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset E2E"
 msgstr "Tyhjennä avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:369
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:370
-#: widgets/administratordialog/users/administratoruserswidget.cpp:396
+#: widgets/administratordialog/users/administratoruserswidget.cpp:382
+#: widgets/administratordialog/users/administratoruserswidget.cpp:413
 #, fuzzy, kde-format
 #| msgid "Reset Avatar"
 msgid "Reset TOTP"
 msgstr "Tyhjennä avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:396
+#: widgets/administratordialog/users/administratoruserswidget.cpp:413
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
@@ -6735,13 +6735,13 @@ msgctxt "@title:window"
 msgid "Conference Call Information"
 msgstr "Suosio"
 
-#: widgets/conferencecalldialog/conferenceinfowidget.cpp:41
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Meeting URL:"
 msgstr "Palvelimen osoite:"
 
-#: widgets/conferencecalldialog/conferenceinfowidget.cpp:42
+#: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Default Room"
 msgid "Provider:"
@@ -7281,37 +7281,37 @@ msgctxt "@title:window"
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:104
+#: widgets/dialogs/directchannelinfowidget.cpp:106
 #, kde-format
 msgid "Custom Status:"
 msgstr "Mukautettu tila:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:110
+#: widgets/dialogs/directchannelinfowidget.cpp:112
 #, kde-format
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:134
+#: widgets/dialogs/directchannelinfowidget.cpp:136
 #, kde-format
 msgid "Created At:"
 msgstr "Luotu:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:141
+#: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Last Login:"
 msgstr "Viimeisin kirjautuminen:"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Verified"
 msgstr "Vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "Not verified"
 msgstr "Ei vahvistettu"
 
-#: widgets/dialogs/directchannelinfowidget.cpp:147
+#: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
 msgid "%1 [%2]"
 msgstr "%1 [%2]"
@@ -8557,37 +8557,37 @@ msgstr "Käyttäjän tiedot"
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:453
+#: widgets/room/delegate/messagelistdelegate.cpp:465
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:460
+#: widgets/room/delegate/messagelistdelegate.cpp:472
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:460
+#: widgets/room/delegate/messagelistdelegate.cpp:472
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:677
+#: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:681
+#: widgets/room/delegate/messagelistdelegate.cpp:693
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:685
+#: widgets/room/delegate/messagelistdelegate.cpp:697
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
