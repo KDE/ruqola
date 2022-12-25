@@ -27,7 +27,7 @@ public:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index);
 
 protected:
-    RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount(const QModelIndex &index) const override;
 
 private:
     struct Layout {
