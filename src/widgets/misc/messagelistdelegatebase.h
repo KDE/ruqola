@@ -32,6 +32,8 @@ public:
 
     Q_REQUIRED_RESULT QString selectedText() const;
 
+    Q_REQUIRED_RESULT bool hasSelection() const;
+
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 

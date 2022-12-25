@@ -67,6 +67,10 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
             slotTextToSpeech(index);
         });
 #endif
+        menu.addSeparator();
+        if (mListDiscussionDelegate->hasSelection()) {
+            addTextPlugins(&menu, mListDiscussionDelegate->selectedText());
+        }
     }
     if (!menu.isEmpty()) {
         menu.exec(viewport()->mapToGlobal(pos));
