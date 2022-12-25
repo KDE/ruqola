@@ -185,6 +185,11 @@ QString MessageListDelegateBase::selectedText() const
     return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
 }
 
+bool MessageListDelegateBase::hasSelection() const
+{
+    return mTextSelectionImpl->textSelection()->hasSelection();
+}
+
 const QString &MessageListDelegateBase::searchText() const
 {
     return mSearchText;
