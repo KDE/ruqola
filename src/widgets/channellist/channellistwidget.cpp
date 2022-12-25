@@ -63,7 +63,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     previousRoomAction->setShortcut(Qt::CTRL | Qt::Key_Up);
     connect(previousRoomAction, &QAction::triggered, this, [this]() {
         mChannelView->selectNextChannel(ChannelListView::Direction::Up);
-        applyChannelSelection();
+        mSearchRoomLineEdit->clear();
     });
     addAction(previousRoomAction); // TODO: Add to MainWindow's action collection instead?
 
@@ -71,7 +71,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
     nextRoomAction->setShortcut(Qt::CTRL | Qt::Key_Down);
     connect(nextRoomAction, &QAction::triggered, this, [this]() {
         mChannelView->selectNextChannel(ChannelListView::Direction::Down);
-        applyChannelSelection();
+        mSearchRoomLineEdit->clear();
     });
     addAction(nextRoomAction); // TODO: Add to MainWindow's action collection instead?
     // END: Actions
@@ -115,6 +115,9 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
         const auto keyEvent = static_cast<QKeyEvent *>(event);
         const int keyValue = keyEvent->key();
         if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
+            // The search line edit wants to restore focus to itself, but Enter is supposed to 
+            // explicitely switch to the messag line edit, so distract it from doint that
+            setFocus();
             applyChannelSelection();
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
             mChannelView->selectNextChannel(keyValue == Qt::Key_Up ? ChannelListView::Direction::Up : ChannelListView::Direction::Down);
@@ -291,14 +294,7 @@ void ChannelListWidget::applyChannelSelection()
 {
     const auto selectedIndex = mChannelView->selectionModel()->currentIndex();
     if (selectedIndex.isValid()) {
-        // retain focus on the search line edit when this is triggering the room change
-        const auto wasFocused = mSearchRoomLineEdit->hasFocus();
-
         mChannelView->channelSelected(selectedIndex);
-        mSearchRoomLineEdit->setText({});
-
-        if (wasFocused) {
-            setFocus();
-        }
+        mSearchRoomLineEdit->clear();
     }
 }
