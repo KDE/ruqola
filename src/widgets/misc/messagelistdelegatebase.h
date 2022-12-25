@@ -44,7 +44,7 @@ protected:
     Q_REQUIRED_RESULT QSize textSizeHint(const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option, qreal *pBaseLine) const;
 
     virtual QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const = 0;
-    virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
+    Q_REQUIRED_RESULT virtual RocketChatAccount *rocketChatAccount(const QModelIndex &index) const = 0;
 
     TextSelectionImpl *const mTextSelectionImpl;
     mutable LRUCache<QString, std::unique_ptr<QTextDocument>, 32> mDocumentCache;
