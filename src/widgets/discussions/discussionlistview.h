@@ -18,6 +18,9 @@ public:
 
     void setSearchText(const QString &str);
 
+Q_SIGNALS:
+    void textToSpeech(const QString &messageStr);
+
 protected:
     Q_REQUIRED_RESULT bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
@@ -25,6 +28,7 @@ protected:
 private:
     void slotOpenDiscussion(const QString &roomDiscussionId);
     void slotCustomContextMenuRequested(const QPoint &pos);
+    void slotTextToSpeech(const QModelIndex &index);
     void slotSelectAll(const QModelIndex &index);
     ListDiscussionDelegate *const mListDiscussionDelegate;
     RocketChatAccount *const mRocketChatAccount;
