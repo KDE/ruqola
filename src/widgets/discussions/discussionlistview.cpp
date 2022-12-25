@@ -57,9 +57,9 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
     QMenu menu(this);
     const QModelIndex index = indexAt(pos);
     if (index.isValid()) {
-        menu.addAction(i18n("Select All"), this, [this, index]() {
-            slotSelectAll(index);
-        });
+        if (mListDiscussionDelegate->hasSelection()) {
+            addTextPlugins(&menu, mListDiscussionDelegate->selectedText());
+        }
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
         menu.addSeparator();
         auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
@@ -68,9 +68,9 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
         });
 #endif
         menu.addSeparator();
-        if (mListDiscussionDelegate->hasSelection()) {
-            addTextPlugins(&menu, mListDiscussionDelegate->selectedText());
-        }
+        menu.addAction(i18n("Select All"), this, [this, index]() {
+            slotSelectAll(index);
+        });
     }
     if (!menu.isEmpty()) {
         menu.exec(viewport()->mapToGlobal(pos));
