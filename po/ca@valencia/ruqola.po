@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-24 00:49+0000\n"
-"PO-Revision-Date: 2022-12-21 10:22+0100\n"
+"POT-Creation-Date: 2022-12-25 00:49+0000\n"
+"PO-Revision-Date: 2022-12-23 14:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -157,7 +157,7 @@ msgstr "Estan disponibles els comptes següents:"
 msgid "Server not found: %1"
 msgstr "No s'ha trobat el servidor: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:42
+#: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
 msgstr "Hi ha disponible una versió nova %1"
@@ -1445,17 +1445,17 @@ msgstr "Bot"
 #: core/videoconference/videoconferenceinfo.cpp:188
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "La tocada no s'ha contestat"
 
 #: core/videoconference/videoconferenceinfo.cpp:192
 #, kde-format
 msgid "Waiting for answer"
-msgstr ""
+msgstr "En espera de contestació"
 
 #: core/videoconference/videoconferenceinfo.cpp:194
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Tocada en curs"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -5422,7 +5422,7 @@ msgstr "Permet convertir els missatges llargs en un adjunt"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Video Recorder Enabled"
-msgstr "Enregistrador de vídeo activat"
+msgstr "Gravador de vídeo activat"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
 #, kde-format
@@ -5437,7 +5437,7 @@ msgstr "Activa les miniatures d'imatges per a estalviar amplada de banda"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
 #, kde-format
 msgid "Audio Recorder Enabled"
-msgstr "Enregistrador d'àudio activat"
+msgstr "Gravador d'àudio activat"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
 #, kde-format
@@ -6577,23 +6577,20 @@ msgid "Start a Direct Call"
 msgstr "Inicia una tocada directa"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Conference Call"
+#, kde-format
 msgctxt "@title:window"
 msgid "Conference Call Information"
-msgstr "Tocada de conferència"
+msgstr "Informació de la tocada de conferència"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "URL del servidor:"
+msgstr "URL de la reunió:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Default Provider"
+#, kde-format
 msgid "Provider:"
-msgstr "Proveïdor predeterminat"
+msgstr "Proveïdor:"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:57
 #, kde-format
@@ -7881,10 +7878,9 @@ msgid "Personal Access Token"
 msgstr "Testimoni d'accés personal"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search device"
+#, kde-format
 msgid "Search device..."
-msgstr "Busca un dispositiu"
+msgstr "Busca un dispositiu..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format

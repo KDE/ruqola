@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-24 00:49+0000\n"
+"POT-Creation-Date: 2022-12-25 00:49+0000\n"
 "PO-Revision-Date: 2022-12-23 06:21+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -154,7 +154,7 @@ msgstr "ხელმისაწვდომია შემდეგი ან�
 msgid "Server not found: %1"
 msgstr "სერვერი ვერ ვიპოვე: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:42
+#: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
 msgstr "ხელმისაწვდომია ახალი ვერსია: %1"

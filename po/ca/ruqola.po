@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-24 00:49+0000\n"
+"POT-Creation-Date: 2022-12-25 00:49+0000\n"
 "PO-Revision-Date: 2022-12-23 14:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -157,7 +157,7 @@ msgstr "Estan disponibles els comptes següents:"
 msgid "Server not found: %1"
 msgstr "No s'ha trobat el servidor: %1"
 
-#: core/bannerinfo/bannerinfo.cpp:42
+#: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
 msgstr "Hi ha disponible una versió nova %1"

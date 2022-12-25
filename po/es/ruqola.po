@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-24 00:49+0000\n"
-"PO-Revision-Date: 2022-12-17 17:48+0100\n"
+"POT-Creation-Date: 2022-12-25 00:49+0000\n"
+"PO-Revision-Date: 2022-12-23 17:41+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -157,7 +157,7 @@ msgstr "Las siguientes cuentas están disponibles:"
 msgid "Server not found: %1"
 msgstr "Servidor no encontrado %1"
 
-#: core/bannerinfo/bannerinfo.cpp:42
+#: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
 msgstr "Nueva versión disponible %1"
@@ -1443,17 +1443,17 @@ msgstr "Robot"
 #: core/videoconference/videoconferenceinfo.cpp:188
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "No se contestó la llamada"
 
 #: core/videoconference/videoconferenceinfo.cpp:192
 #, kde-format
 msgid "Waiting for answer"
-msgstr ""
+msgstr "Esperando respuesta"
 
 #: core/videoconference/videoconferenceinfo.cpp:194
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Llamada en curso"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -6570,23 +6570,20 @@ msgid "Start a Direct Call"
 msgstr "Iniciar una llamada directa"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Conference Call"
+#, kde-format
 msgctxt "@title:window"
 msgid "Conference Call Information"
-msgstr "Llamada de conferencia"
+msgstr "Información de la llamada de conferencia"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Server URL:"
+#, kde-format
 msgid "Meeting URL:"
-msgstr "URL del servidor:"
+msgstr "URL de la reunión:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Default Provider"
+#, kde-format
 msgid "Provider:"
-msgstr "Proveedor por omisión"
+msgstr "Proveedor:"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:57
 #, kde-format
@@ -6632,7 +6629,7 @@ msgstr "Habilitar registros"
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
 msgid "Show hover highlights"
-msgstr ""
+msgstr "Mostrar información más destacada al pasar por encima"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
@@ -7873,10 +7870,9 @@ msgid "Personal Access Token"
 msgstr "Símbolo de acceso personal"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search device"
+#, kde-format
 msgid "Search device..."
-msgstr "Dispositivo de búsqueda"
+msgstr "Dispositivo de búsqueda..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format
