@@ -13,6 +13,12 @@ class QLabel;
 class DiscussionListView;
 class DiscussionsFilterProxyModel;
 class RocketChatAccount;
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+namespace KPIMTextEditTextToSpeech
+{
+class TextToSpeechWidget;
+}
+#endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
 {
     Q_OBJECT
@@ -26,6 +32,9 @@ Q_SIGNALS:
     void loadMoreDiscussion();
 
 private:
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    void slotTextToSpeech(const QString &messageText);
+#endif
     void slotSearchMessageTextChanged(const QString &str);
     void updateLabel();
     Q_REQUIRED_RESULT QString displayShowDiscussionInRoom() const;
@@ -33,4 +42,7 @@ private:
     QLabel *const mDiscussionInfoLabel;
     DiscussionListView *const mListDiscussionsListView;
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+#endif
 };

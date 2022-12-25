@@ -180,6 +180,11 @@ void MessageListDelegateBase::selectAll(const QStyleOptionViewItem &option, cons
     MessageDelegateUtils::setClipboardSelection(mTextSelectionImpl->textSelection());
 }
 
+QString MessageListDelegateBase::selectedText() const
+{
+    return mTextSelectionImpl->textSelection()->selectedText(TextSelection::Format::Text);
+}
+
 const QString &MessageListDelegateBase::searchText() const
 {
     return mSearchText;

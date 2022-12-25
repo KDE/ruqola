@@ -30,6 +30,8 @@ public:
     Q_REQUIRED_RESULT const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
+    Q_REQUIRED_RESULT QString selectedText() const;
+
 Q_SIGNALS:
     void updateView(const QModelIndex &index);
 

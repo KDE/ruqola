@@ -6,6 +6,7 @@
 
 #include "discussionlistview.h"
 #include "discussion/listdiscussiondelegate.h"
+#include "model/discussionsmodel.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -59,11 +60,29 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
         menu.addAction(i18n("Select All"), this, [this, index]() {
             slotSelectAll(index);
         });
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+        menu.addSeparator();
+        auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
+        connect(speakAction, &QAction::triggered, this, [=]() {
+            slotTextToSpeech(index);
+        });
+#endif
     }
     if (!menu.isEmpty()) {
         menu.exec(viewport()->mapToGlobal(pos));
     }
 }
+
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+void DiscussionListView::slotTextToSpeech(const QModelIndex &index)
+{
+    QString message = mListDiscussionDelegate->selectedText();
+    if (message.isEmpty()) {
+        message = index.data(DiscussionsModel::LastMessage).toString();
+    }
+    Q_EMIT textToSpeech(message);
+}
+#endif
 
 void DiscussionListView::slotSelectAll(const QModelIndex &index)
 {
