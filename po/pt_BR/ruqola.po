@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-25 00:49+0000\n"
+"POT-Creation-Date: 2022-12-26 00:53+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -7382,7 +7382,7 @@ msgstr "Pesquisar mensagens"
 
 #: widgets/dialogs/searchmessagewidget.cpp:107
 #: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:67
+#: widgets/discussions/showdiscussionswidget.cpp:88
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
@@ -7479,7 +7479,7 @@ msgstr[1] "%1 anexos na sala (total: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
 #: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/discussions/showdiscussionswidget.cpp:78
+#: widgets/discussions/showdiscussionswidget.cpp:99
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -7654,7 +7654,14 @@ msgstr[1] "%1 mensagens"
 msgid "Open Discussion"
 msgstr "Abrir discussão"
 
-#: widgets/discussions/discussionlistview.cpp:59
+#: widgets/discussions/discussionlistview.cpp:65
+#: widgets/notificationhistory/notificationhistorylistview.cpp:93
+#: widgets/room/messagelistview.cpp:462
+#, kde-format
+msgid "Speak Text"
+msgstr "Falar texto"
+
+#: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:263
 #, kde-format
@@ -7669,18 +7676,18 @@ msgctxt "@title:window"
 msgid "Show Discussions - %1"
 msgstr "Mostrar discussões"
 
-#: widgets/discussions/showdiscussionswidget.cpp:30
+#: widgets/discussions/showdiscussionswidget.cpp:36
 #, fuzzy, kde-format
 #| msgid "Search Discussion..."
 msgid "Search discussion..."
 msgstr "Pesquisar discussão..."
 
-#: widgets/discussions/showdiscussionswidget.cpp:69
+#: widgets/discussions/showdiscussionswidget.cpp:90
 #, kde-format
 msgid "No Discussion found"
 msgstr "Nenhuma discussão encontrada"
 
-#: widgets/discussions/showdiscussionswidget.cpp:76
+#: widgets/discussions/showdiscussionswidget.cpp:97
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -8256,12 +8263,6 @@ msgstr "Ir para mensagem"
 #, kde-format
 msgid "Copy Message"
 msgstr "Copiar mensagem"
-
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:462
-#, kde-format
-msgid "Speak Text"
-msgstr "Falar texto"
 
 #: widgets/otr/otrwidget.cpp:18
 #, fuzzy, kde-format
