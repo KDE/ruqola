@@ -13,7 +13,6 @@
 #include <QPointer>
 
 class QNetworkAccessManager;
-class QNetworkReply;
 
 namespace RocketChatRestApi
 {

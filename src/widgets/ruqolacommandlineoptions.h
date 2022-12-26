@@ -10,8 +10,6 @@
 #include <KLocalizedString>
 #include <QCommandLineParser>
 
-class QCommandLineParser;
-
 static void ruqolaOptions(QCommandLineParser *parser)
 {
     parser->addOption(QCommandLineOption(QStringList() << QStringLiteral("list-accounts"), i18n("Return lists of accounts")));
