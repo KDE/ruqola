@@ -556,6 +556,9 @@ void RoomWidget::clearBeforeSwitching()
 
 void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomType)
 {
+    mRoomWidgetBase->messageLineWidget()->setFocus();
+    if (this->roomId() == roomId)
+        return;
     storeRoomSettings();
     setRoomId(roomId);
     setRoomType(roomType);
@@ -575,8 +578,6 @@ void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomTy
     mRoomWidgetBase->messageLineWidget()->setMode(mRoomWidgetBase->messageLineWidget()->messageIdBeingEdited().isEmpty()
                                                       ? MessageLineWidget::EditingMode::NewMessage
                                                       : MessageLineWidget::EditingMode::EditMessage);
-
-    mRoomWidgetBase->messageLineWidget()->setFocus();
 }
 
 void RoomWidget::slotUpdateRoomCounterInfoWidget()
