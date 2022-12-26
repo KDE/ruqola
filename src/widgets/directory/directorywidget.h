@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <QWidget>
+class QWidget;
 
 #include "misc/searchtreebasewidget.h"
 

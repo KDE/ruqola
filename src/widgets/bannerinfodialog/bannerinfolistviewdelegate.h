@@ -8,7 +8,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include "misc/messagelistdelegatebase.h"
-#include <QTextDocument>
+class QTextDocument;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT BannerInfoListViewDelegate : public MessageListDelegateBase
 {

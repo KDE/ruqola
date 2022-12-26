@@ -11,7 +11,7 @@
 #include "room.h"
 #include "user.h"
 #include <QAbstractListModel>
-#include <QObject>
+class QObject;
 class RocketChatAccount;
 class MessageModel;
 

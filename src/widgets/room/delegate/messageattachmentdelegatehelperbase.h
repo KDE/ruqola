@@ -13,7 +13,7 @@
 
 #include <QPersistentModelIndex>
 #include <QSize>
-#include <QTextDocument>
+class QTextDocument;
 
 #include <memory>
 

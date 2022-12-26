@@ -10,7 +10,7 @@
 #include "libruqolawidgets_private_export.h"
 #include "lrucache.h"
 #include <QItemDelegate>
-#include <QTextDocument>
+class QTextDocument;
 class TextSelectionImpl;
 class RocketChatAccount;
 class QListView;

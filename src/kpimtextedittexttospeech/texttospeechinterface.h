@@ -9,7 +9,7 @@
 #include "kpimtextedittexttospeech_export.h"
 #include <KPIMTextEditTextToSpeech/AbstractTextToSpeechInterface>
 #include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
-#include <QObject>
+class QObject;
 namespace KPIMTextEditTextToSpeech
 {
 class TextToSpeechWidget;

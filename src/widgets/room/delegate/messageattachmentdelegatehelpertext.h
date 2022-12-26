@@ -9,7 +9,7 @@
 #include "messageattachmentdelegatehelperbase.h"
 #include <QModelIndex>
 #include <QRect>
-#include <QTextDocument>
+class QTextDocument;
 class QHelpEvent;
 class QListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageAttachmentDelegateHelperText : public MessageAttachmentDelegateHelperBase

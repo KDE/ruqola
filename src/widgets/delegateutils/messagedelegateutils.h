@@ -9,7 +9,7 @@
 
 #include <QAbstractTextDocumentLayout>
 #include <QString>
-#include <QTextDocument>
+class QTextDocument;
 #include <QVector>
 #include <memory>
 

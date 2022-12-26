@@ -7,7 +7,7 @@
 #pragma once
 
 #include "room/plugins/plugintext.h"
-#include <QObject>
+class QObject;
 #include <QVariant>
 
 class ShareTextPlugin : public PluginText

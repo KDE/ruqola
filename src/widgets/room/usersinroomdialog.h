@@ -7,7 +7,7 @@
 #pragma once
 
 #include <QDialog>
-#include <QWidget>
+class QWidget;
 
 #include "libruqolawidgets_private_export.h"
 class UsersInRoomWidget;

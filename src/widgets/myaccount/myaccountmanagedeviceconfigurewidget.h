@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include "misc/searchtreebasewidget.h"
-#include <QWidget>
+class QWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MyAccountManageDeviceConfigureWidget : public SearchTreeBaseWidget
 {
     Q_OBJECT

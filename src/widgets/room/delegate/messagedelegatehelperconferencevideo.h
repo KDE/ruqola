@@ -14,7 +14,7 @@
 #include <QIcon>
 #include <QModelIndex>
 #include <QSize>
-#include <QTextDocument>
+class QTextDocument;
 #include <lrucache.h>
 
 #include <memory>
