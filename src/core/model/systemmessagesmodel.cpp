@@ -56,7 +56,7 @@ void SystemMessagesModel::fillModel()
     createItem(i18n("Hide \"Room disallowed reacting\" messages"), QStringLiteral("room-disallowed-reacting"));
     createItem(i18n("Hide \"Room allowed reacting\" messages"), QStringLiteral("room-allowed-reacting"));
     createItem(i18n("Hide \"User Added Room to Team\" messages"), QStringLiteral("user-added-room-to-team"));
-    createItem(i18n("Hide \"User converted team to a Channel\" messages"), QStringLiteral("user-converted-to-channel"));
+    createItem(i18n("Hide \"User converted team to channel\" messages"), QStringLiteral("user-converted-to-channel"));
     createItem(i18n("Hide \"User converted channel to a Team\" messages"), QStringLiteral("user-converted-to-team"));
     createItem(i18n("Hide \"User deleted room from Team\" messages"), QStringLiteral("user-deleted-room-from-team"));
     createItem(i18n("Hide \"User removed room from Team\" messages"), QStringLiteral("user-removed-room-from-team"));
