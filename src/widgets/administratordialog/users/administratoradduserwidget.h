@@ -18,6 +18,7 @@ class QCheckBox;
 class User;
 class KPasswordLineEdit;
 class RolesComboBox;
+class QPlainTextEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
@@ -54,4 +55,5 @@ private:
     QCheckBox *const mRequirePassword;
     QCheckBox *const mSetRandowPassword;
     RolesComboBox *const mRolesComboBox;
+    QPlainTextEdit *const mBioPlainTextEdit;
 };
