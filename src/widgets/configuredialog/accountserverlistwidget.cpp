@@ -23,11 +23,12 @@ AccountServerListWidget::~AccountServerListWidget() = default;
 
 void AccountServerListWidget::load()
 {
-    RocketChatAccountModel *model = Ruqola::self()->accountManager()->rocketChatAccountModel();
-    const int accountNumber = model->accountNumber();
+    auto model = Ruqola::self()->accountManager()->rocketChatAccountProxyModel();
+    const auto accountNumber = model->rowCount();
     for (int i = 0; i < accountNumber; ++i) {
         auto item = new AccountServerListWidgetItem(this);
-        auto account = model->account(i);
+        const auto index = model->index(i, 0);
+        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
         AccountManager::AccountManagerInfo info;
         info.displayName = account->displayName();
         info.accountName = account->accountName();
