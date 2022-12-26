@@ -13,6 +13,7 @@
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
+#include <QPlainTextEdit>
 
 AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     : QWidget(parent)
@@ -26,6 +27,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mRequirePassword(new QCheckBox(i18n("Require Password Change"), this))
     , mSetRandowPassword(new QCheckBox(i18n("Set random password and send by email"), this))
     , mRolesComboBox(new RolesComboBox(this))
+    , mBioPlainTextEdit(new QPlainTextEdit(this))
 {
     auto formLayout = new QFormLayout(this);
     formLayout->setObjectName(QStringLiteral("formLayout"));
@@ -33,6 +35,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     mUserName->setObjectName(QStringLiteral("mUserName"));
     mEmail->setObjectName(QStringLiteral("mEmail"));
     mStatusText->setObjectName(QStringLiteral("mStatusText"));
+    mBioPlainTextEdit->setObjectName(QStringLiteral("mBioPlainTextEdit"));
     new LineEditCatchReturnKey(mName, this);
     new LineEditCatchReturnKey(mUserName, this);
     new LineEditCatchReturnKey(mEmail, this);
@@ -50,6 +53,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     formLayout->addRow(i18n("Status Message:"), mStatusText);
     formLayout->addRow(i18n("Email:"), mEmail);
     formLayout->addRow(i18n("Password:"), mPasswordLineEdit);
+    formLayout->addRow(i18n("Bio:"), mBioPlainTextEdit);
     formLayout->addWidget(mJoinDefaultChannels);
     formLayout->addWidget(mSendWelcomeEmails);
     formLayout->addWidget(mRequirePassword);
@@ -86,6 +90,7 @@ RocketChatRestApi::UpdateUserInfo AdministratorAddUserWidget::updateInfo() const
     info.mRequirePasswordChange = mRequirePassword->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
+    info.mBio = mBioPlainTextEdit->toPlainText();
     return info;
 }
 
@@ -107,6 +112,7 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mRequirePasswordChange = mRequirePassword->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
+    info.mBio = mBioPlainTextEdit->toPlainText();
 
     return info;
 }
@@ -120,6 +126,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     mRolesComboBox->setRoles(user.roles());
     mStatusText->setText(user.statusText());
     mSetRandowPassword->setChecked(user.requirePasswordChange());
+    mBioPlainTextEdit->setPlainText(user.bio());
 
     mJoinDefaultChannels->setVisible(false);
     mSendWelcomeEmails->setVisible(false);

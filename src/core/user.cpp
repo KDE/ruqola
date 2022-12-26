@@ -52,7 +52,8 @@ bool User::operator==(const User &other) const
 {
     return (mName == other.name()) && (mUserId == other.userId()) && (mStatus == other.status()) && (mUserName == other.userName())
         && (mUtcOffset == other.utcOffset()) && (mStatusText == other.statusText()) && (mRoles == other.roles()) && (mCreatedAt == other.createdAt())
-        && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange());
+        && (mLastLogin == other.lastLogin()) && (mActive == other.active()) && (mRequirePasswordChange == other.requirePasswordChange())
+        && (mBio == other.bio());
 }
 
 bool User::operator!=(const User &other) const
@@ -116,6 +117,7 @@ QDebug operator<<(QDebug d, const User &t)
     d << "userEmailsInfo " << t.userEmailsInfo();
     d << "active " << t.active();
     d << "mRequirePasswordChange " << t.requirePasswordChange();
+    d << "mBio " << t.bio();
     return d;
 }
 
@@ -129,6 +131,7 @@ void User::parseUserRestApi(const QJsonObject &object, const QVector<RoleInfo> &
     setStatusText(object.value(QLatin1String("statusText")).toString());
     setUtcOffset(object.value(QLatin1String("utcOffset")).toDouble());
     setActive(object.value(QLatin1String("active")).toBool(true)); // By default it's active
+    setBio(object.value(QLatin1String("bio")).toString());
     const QJsonArray rolesArray = object.value(QStringLiteral("roles")).toArray();
     QStringList roles;
     const int total = rolesArray.size();
@@ -213,6 +216,16 @@ QString User::roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo
         }
     }
     return ri18n;
+}
+
+QString User::bio() const
+{
+    return mBio;
+}
+
+void User::setBio(const QString &newBio)
+{
+    mBio = newBio;
 }
 
 void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)

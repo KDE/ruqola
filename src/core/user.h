@@ -96,6 +96,9 @@ public:
 
     Q_REQUIRED_RESULT static QString roleI18n(const QString &roleStr, const QVector<RoleInfo> &roleInfo);
 
+    Q_REQUIRED_RESULT QString bio() const;
+    void setBio(const QString &newBio);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
@@ -106,6 +109,7 @@ private:
     QString mName;
     QString mUserName;
     QString mStatusText;
+    QString mBio;
     QStringList mRoles;
     QStringList mI18nRoles;
     double mUtcOffset = 0.0;
