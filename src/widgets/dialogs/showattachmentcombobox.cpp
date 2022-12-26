@@ -17,9 +17,9 @@ ShowAttachmentComboBox::~ShowAttachmentComboBox() = default;
 void ShowAttachmentComboBox::fillCombobox()
 {
     addItem(i18n("All"), QString());
-    addItem(i18n("Video"), QStringLiteral("video"));
-    addItem(i18n("Image"), QStringLiteral("image"));
-    addItem(i18n("Audio"), QStringLiteral("audio"));
-    addItem(i18n("Text"), QStringLiteral("text"));
+    addItem(i18n("Videos"), QStringLiteral("video"));
+    addItem(i18n("Images"), QStringLiteral("image"));
+    addItem(i18n("Audios"), QStringLiteral("audio"));
+    addItem(i18n("Texts"), QStringLiteral("text"));
     addItem(i18n("Files"), QStringLiteral("application"));
 }
