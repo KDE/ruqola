@@ -15,11 +15,12 @@
 #include "libruqolawidgets_private_export.h"
 class AdministratorAddUserWidget;
 class User;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit AdministratorAddUserDialog(QWidget *parent = nullptr);
+    explicit AdministratorAddUserDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorAddUserDialog() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;

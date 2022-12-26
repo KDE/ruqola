@@ -20,7 +20,7 @@ AdministratorAddUserWidgetTest::AdministratorAddUserWidgetTest(QObject *parent)
 
 void AdministratorAddUserWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorAddUserWidget w;
+    AdministratorAddUserWidget w(nullptr);
     auto formLayout = w.findChild<QFormLayout *>(QStringLiteral("formLayout"));
     QVERIFY(formLayout);
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));

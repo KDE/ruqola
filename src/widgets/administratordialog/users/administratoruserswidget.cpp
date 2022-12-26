@@ -71,7 +71,7 @@ void AdministratorUsersWidget::slotInviteUsers()
 
 void AdministratorUsersWidget::slotAddUser()
 {
-    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(mRocketChatAccount, this);
     dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     if (dlg->exec()) {
         const RocketChatRestApi::CreateUpdateUserInfo info = dlg->createInfo();
@@ -117,7 +117,7 @@ void AdministratorUsersWidget::slotModifyUser(const QModelIndex &index)
 
 void AdministratorUsersWidget::slotUserInfoDone(const QJsonObject &obj)
 {
-    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(this);
+    QPointer<AdministratorAddUserDialog> dlg = new AdministratorAddUserDialog(mRocketChatAccount, this);
     dlg->setRoleInfo(mRocketChatAccount->roleInfo());
     User user;
     user.parseUserRestApi(obj[QLatin1String("user")].toObject(), mRocketChatAccount->roleInfo());

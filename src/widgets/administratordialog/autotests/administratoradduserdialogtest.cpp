@@ -19,7 +19,7 @@ AdministratorAddUserDialogTest::AdministratorAddUserDialogTest(QObject *parent)
 
 void AdministratorAddUserDialogTest::shouldHaveDefaultValues()
 {
-    AdministratorAddUserDialog d;
+    AdministratorAddUserDialog d(nullptr);
     QVERIFY(!d.windowTitle().isEmpty());
     auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);

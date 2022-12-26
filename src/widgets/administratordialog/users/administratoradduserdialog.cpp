@@ -11,9 +11,9 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
-AdministratorAddUserDialog::AdministratorAddUserDialog(QWidget *parent)
+AdministratorAddUserDialog::AdministratorAddUserDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mAdministratorWidget(new AdministratorAddUserWidget(this))
+    , mAdministratorWidget(new AdministratorAddUserWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Create New User"));
     auto mainLayout = new QVBoxLayout(this);
