@@ -6,6 +6,7 @@
 
 #include "rolesmodel.h"
 #include "ruqola_debug.h"
+#include <KLocalizedString>
 RolesModel::RolesModel(QObject *parent)
     : QStandardItemModel(parent)
 {
@@ -25,6 +26,9 @@ void RolesModel::createItem(const QString &displayStr, const QString &identifier
 
 void RolesModel::setRoles(const QVector<RoleInfo> &newRoles)
 {
+    auto item = new QStandardItem(i18n("Roles"));
+    item->setSelectable(false);
+    appendRow(item);
     for (const RoleInfo &info : newRoles) {
         createItem(info.name(), info.identifier());
     }
