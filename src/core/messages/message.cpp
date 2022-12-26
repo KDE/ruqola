@@ -359,7 +359,7 @@ void Message::parseBlocks(const QJsonArray &blocks)
         Block b;
         b.parseBlock(blockObject);
         if (b.isValid()) {
-            mBlocks.append(b);
+            mBlocks.append(std::move(b));
         }
     }
 }

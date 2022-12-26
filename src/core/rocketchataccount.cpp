@@ -1802,7 +1802,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
             QJsonObject dateObjectStart;
             // qDebug() << "roomModel->lastTimestamp()" << roomModel->lastTimestamp() << " ROOMID " << roomID;
             dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
-            params.append(dateObjectStart);
+            params.append(std::move(dateObjectStart));
         }
         ddp()->loadHistory(params);
     } else {

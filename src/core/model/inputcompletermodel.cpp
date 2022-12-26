@@ -28,13 +28,13 @@ void InputCompleterModel::setDefaultUserCompletion()
     here.setUserName(QStringLiteral("here"));
     here.setStatus(QStringLiteral("online"));
     here.setType(Channel::ChannelType::DirectChannel);
-    customCompletion.append(here);
+    customCompletion.append(std::move(here));
 
     Channel all;
     all.setUserName(QStringLiteral("all"));
     all.setStatus(QStringLiteral("online"));
     all.setType(Channel::ChannelType::DirectChannel);
-    customCompletion.append(all);
+    customCompletion.append(std::move(all));
 
     setChannels(customCompletion);
 }
@@ -63,7 +63,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::Room);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     const QJsonArray users = obj.value(QLatin1String("users")).toArray();
     for (int i = 0; i < users.size(); i++) {
@@ -71,7 +71,7 @@ void InputCompleterModel::parseChannels(const QJsonObject &obj)
         Channel channel;
         channel.parseChannel(o, Channel::ChannelType::DirectChannel);
         // Verify that it's valid
-        channelList.append(channel);
+        channelList.append(std::move(channel));
     }
     setChannels(channelList);
 }
