@@ -8,6 +8,7 @@
 
 #include <QWidget>
 
+#include "rocketchataccount.h"
 #include "roles/roleinfo.h"
 
 #include "users/userscreatejob.h"
@@ -19,6 +20,7 @@ class User;
 class KPasswordLineEdit;
 class RolesComboBox;
 class QPlainTextEdit;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorAddUserWidget : public QWidget
 {
     Q_OBJECT
@@ -29,7 +31,7 @@ public:
         Edit,
     };
 
-    explicit AdministratorAddUserWidget(QWidget *parent = nullptr);
+    explicit AdministratorAddUserWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~AdministratorAddUserWidget() override;
 
     Q_REQUIRED_RESULT RocketChatRestApi::CreateUpdateUserInfo createInfo() const;
@@ -56,4 +58,5 @@ private:
     QCheckBox *const mSetRandowPassword;
     RolesComboBox *const mRolesComboBox;
     QPlainTextEdit *const mBioPlainTextEdit;
+    RocketChatAccount *const mRocketChatAccount;
 };

@@ -15,7 +15,7 @@
 #include <QLineEdit>
 #include <QPlainTextEdit>
 
-AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
+AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
@@ -28,6 +28,7 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(QWidget *parent)
     , mSetRandowPassword(new QCheckBox(i18n("Set random password and send by email"), this))
     , mRolesComboBox(new RolesComboBox(this))
     , mBioPlainTextEdit(new QPlainTextEdit(this))
+    , mRocketChatAccount(account)
 {
     auto formLayout = new QFormLayout(this);
     formLayout->setObjectName(QStringLiteral("formLayout"));
@@ -108,7 +109,9 @@ RocketChatRestApi::CreateUpdateUserInfo AdministratorAddUserWidget::createInfo()
     info.mStatusText = mStatusText->text().trimmed();
     info.mSendWelcomeEmail = mSendWelcomeEmails->isChecked();
     info.mJoinDefaultChannels = mJoinDefaultChannels->isChecked();
-    info.mPassword = mPasswordLineEdit->password();
+    if (mRocketChatAccount && mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password"))) {
+        info.mPassword = mPasswordLineEdit->password();
+    }
     info.mRequirePasswordChange = mRequirePassword->isChecked();
     info.mSetRandomPassword = mSetRandowPassword->isChecked();
     info.mRoles = mRolesComboBox->roles();
@@ -134,4 +137,7 @@ void AdministratorAddUserWidget::setUser(const User &user)
     // mRequirePasswordChange
     // TODO add mSendWelcomeEmail and mJoinDefaultChannels
     // mJoinDefaultChannels->setChecked(user.jo)
+    if (mRocketChatAccount) {
+        mPasswordLineEdit->setEnabled(mRocketChatAccount->hasPermission(QStringLiteral("edit-other-user-password")));
+    }
 }
