@@ -307,23 +307,23 @@ void MessageTest::shouldSerializeData()
     attachment.setDescription(QStringLiteral("foo1"));
     attachment.setTitle(QStringLiteral("foo2"));
     attachment.setLink(QStringLiteral("foo3"));
-    lstAttachement.append(attachment);
+    lstAttachement.append(std::move(attachment));
     MessageAttachment attachment2;
     attachment2.setDescription(QStringLiteral("foo5"));
     attachment2.setTitle(QStringLiteral("foo6"));
     attachment2.setLink(QStringLiteral("foo7"));
-    lstAttachement.append(attachment2);
+    lstAttachement.append(std::move(attachment2));
     input.setAttachments(lstAttachement);
 
     QVector<MessageUrl> lstUrls;
     MessageUrl url1;
     url1.setUrl(QStringLiteral("foo1"));
     url1.setPageTitle(QStringLiteral("foo2"));
-    lstUrls.append(url1);
+    lstUrls.append(std::move(url1));
     MessageUrl url2;
     url2.setUrl(QStringLiteral("foo5"));
     url2.setPageTitle(QStringLiteral("foo6"));
-    lstUrls.append(url2);
+    lstUrls.append(std::move(url2));
     input.setUrls(lstUrls);
 
     const QByteArray ba = Message::serialize(input);

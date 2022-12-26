@@ -41,27 +41,27 @@ void PermissionManagerTest::shouldLoadPermissions_data()
             p.setIdentifier(QStringLiteral("access-permissions"));
             p.setRoles({QStringLiteral("admin")});
             p.setUpdatedAt(1533550243852);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
             p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
             p.setUpdatedAt(1533550243869);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
             p.setRoles({QStringLiteral("admin")});
             p.setUpdatedAt(1533550243881);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
             p.setUpdatedAt(1533550243889);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         QTest::addRow("permissions1") << QStringLiteral("permissions1") << 5 << 4 << permissions;
     }
@@ -108,27 +108,27 @@ void PermissionManagerTest::shouldUpdatePermissions_data()
             p.setIdentifier(QStringLiteral("access-permissions"));
             p.setRoles({QStringLiteral("admin")});
             p.setUpdatedAt(1533550243852);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-joined-room"));
             p.setRoles({QStringLiteral("admin"), QStringLiteral("owner"), QStringLiteral("moderator")});
             p.setUpdatedAt(1533550243869);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-any-c-room"));
             p.setRoles({QStringLiteral("admin")});
             p.setUpdatedAt(1533550243881);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         {
             Permission p;
             p.setIdentifier(QStringLiteral("add-user-to-any-p-room"));
             p.setUpdatedAt(1533550243889);
-            permissions.append(p);
+            permissions.append(std::move(p));
         }
         QTest::addRow("permissions1") << QStringLiteral("permissions1") << QStringLiteral("update-permissions1") << permissions << permissions << false;
     }

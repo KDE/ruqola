@@ -40,7 +40,7 @@ void UsersForRoomFilterProxyModelTest::shouldAssignValue()
         user.setStatus(User::PresenceStatus::PresenceOffline);
         user.setUserId(QStringLiteral("userId%1").arg(i));
         user.setUserName(QStringLiteral("username%1").arg(i));
-        users.append(user);
+        users.append(std::move(user));
     }
     model.setUsers(users);
     QCOMPARE(proxy.rowCount(), 10);

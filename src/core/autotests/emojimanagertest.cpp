@@ -62,7 +62,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         val.setExtension(QStringLiteral("png"));
         val.setEmojiIdentifier(QStringLiteral(":kdab:"));
         val.setUpdatedAt(1529303015003);
-        emojiList.append(val);
+        emojiList.append(std::move(val));
 
         CustomEmoji val1;
         val1.setName(QStringLiteral("vader"));
@@ -95,8 +95,8 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         val1.setUpdatedAt(1560497261506);
         val1.setAliases({QStringLiteral(":darth:")});
 
-        emojiList.append(val);
-        emojiList.append(val1);
+        emojiList.append(std::move(val));
+        emojiList.append(std::move(val1));
         // We can't delete emoji which is not in liste.
         QTest::addRow("delete2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("emojicustomdelete2") << emojiList << emojiList;
     }
@@ -148,8 +148,8 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         val1.setUpdatedAt(1560497261506);
         val1.setAliases({QStringLiteral(":darth:")});
 
-        emojiList.append(val);
-        emojiList.append(val1);
+        emojiList.append(std::move(val));
+        emojiList.append(std::move(val1));
 
         QVector<CustomEmoji> emojiListAfterDeleting = emojiList;
         CustomEmoji val2;
@@ -159,7 +159,7 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         val2.setEmojiIdentifier(QStringLiteral(":ruqola:"));
         val2.setUpdatedAt(1631885946222);
         val2.setAliases({QStringLiteral(":roo:")});
-        emojiList.append(val2);
+        emojiList.append(std::move(val2));
         QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("addemojicustom1") << emojiListAfterDeleting << emojiList;
     }
 }
@@ -215,8 +215,8 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         val1.setUpdatedAt(1560497261506);
         val1.setAliases({QStringLiteral(":darth:")});
 
-        emojiList.append(val);
-        emojiList.append(val1);
+        emojiList.append(std::move(val));
+        emojiList.append(std::move(val1));
 
         QVector<CustomEmoji> emojiListAfterDeleting;
         CustomEmoji val2;

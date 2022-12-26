@@ -32,13 +32,13 @@ void RolesTest::shouldFindRoles()
     r1.setIsOwner(true);
     r1.setIsLeader(true);
     r1.setUserId(QStringLiteral("r1"));
-    v.append(r1);
+    v.append(std::move(r1));
 
     Role r2;
     r2.setIsOwner(true);
     r2.setIsLeader(false);
     r2.setUserId(QStringLiteral("r2"));
-    v.append(r2);
+    v.append(std::move(r2));
 
     r.setRoles(v);
 

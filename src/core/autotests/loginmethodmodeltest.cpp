@@ -39,7 +39,7 @@ void LoginMethodModelTest::shouldClearModel()
         info.setName(QStringLiteral("name%1").arg(i));
         info.setIconName(QStringLiteral("iconname%1").arg(i));
         info.setOauthType(AuthenticationManager::FaceBook);
-        lst.append(info);
+        lst.append(std::move(info));
     }
     w.setAuthenticationInfos(lst);
 
@@ -80,7 +80,7 @@ void LoginMethodModelTest::shouldAssignValues()
         info.setName(QStringLiteral("name%1").arg(i));
         info.setIconName(QStringLiteral("iconname%1").arg(i));
         info.setOauthType(AuthenticationManager::FaceBook);
-        lst.append(info);
+        lst.append(std::move(info));
     }
     w.setAuthenticationInfos(lst);
     QCOMPARE(w.rowCount(), 10);
@@ -138,7 +138,7 @@ void LoginMethodModelTest::shouldAssignValues()
         info.setName(QStringLiteral("name%1").arg(i));
         info.setIconName(QStringLiteral("iconname%1").arg(i));
         info.setOauthType(AuthenticationManager::FaceBook);
-        lst.append(info);
+        lst.append(std::move(info));
     }
     w.setAuthenticationInfos(lst);
 

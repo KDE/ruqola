@@ -248,7 +248,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::userAutocomplete(c
     }
     firstParam[QStringLiteral("exceptions")] = exceptionEntries;
     firstParam[QStringLiteral("term")] = searchText;
-    params.append(firstParam);
+    params.append(std::move(firstParam));
     return subscribe(QStringLiteral("userAutocomplete"), QJsonDocument(params), id);
 }
 
@@ -269,12 +269,12 @@ RocketChatMessage::searchRoomUsers(const QString &pattern, const QString &except
     params.append(pattern);
 
     const QJsonArray exceptionJson = QJsonArray::fromStringList(exceptions.split(QLatin1Char(',')));
-    params.append(exceptionJson);
+    params.append(std::move(exceptionJson));
 
     QJsonObject secondParams;
     secondParams[QStringLiteral("rooms")] = searchRoom;
     secondParams[QStringLiteral("users")] = searchUser;
-    params.append(secondParams);
+    params.append(std::move(secondParams));
     return generateMethod(QStringLiteral("spotlight"), QJsonDocument(params), id);
 }
 

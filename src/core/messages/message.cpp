@@ -959,7 +959,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
             QJsonObject mention;
             mention.insert(QLatin1String("_id"), i.value());
             mention.insert(QLatin1String("username"), i.key());
-            array.append(mention);
+            array.append(std::move(mention));
         }
         o[QStringLiteral("mentions")] = array;
     }
@@ -973,7 +973,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
             QJsonObject channel;
             channel.insert(QLatin1String("_id"), j.value());
             channel.insert(QLatin1String("channel"), j.key());
-            array.append(channel);
+            array.append(std::move(channel));
         }
         o[QStringLiteral("channels")] = array;
     }

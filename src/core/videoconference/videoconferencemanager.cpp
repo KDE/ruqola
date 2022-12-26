@@ -29,7 +29,7 @@ void VideoConferenceManager::parseVideoConference(const QJsonArray &contents)
         videoConference.parseVideoConference(videoConfObject);
         if (videoConference.isValid()) {
             if (!mVideoConferenceList.contains(videoConference)) {
-                mVideoConferenceList.append(videoConference);
+                mVideoConferenceList.append(std::move(videoConference));
 
                 switch (videoConference.action()) {
                 case VideoConference::Unknown:
