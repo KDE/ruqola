@@ -429,7 +429,9 @@ void RoomWidget::slotCallRequested()
         QPointer<ConferenceDirectCallDialog> dlg = new ConferenceDirectCallDialog(mCurrentRocketChatAccount, this);
         dlg->setRoomId(mRoomWidgetBase->roomId());
         dlg->setAllowRinging(mRoom->hasPermission(QStringLiteral("videoconf-ring-users")));
-        if (dlg->exec()) { }
+        if (dlg->exec()) {
+            // TODO show conf call info
+        }
         delete dlg;
     } else {
         QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
