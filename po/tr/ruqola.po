@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-26 00:53+0000\n"
+"POT-Creation-Date: 2022-12-27 00:48+0000\n"
 "PO-Revision-Date: 2022-12-23 20:49+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -710,7 +710,7 @@ msgstr "Oluşturulma:"
 msgid "Created By"
 msgstr "Oluşturan:"
 
-#: core/model/adminpermissionsmodel.cpp:33
+#: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
 #, kde-format
 msgid "Roles"
@@ -1228,8 +1228,9 @@ msgid "Hide \"User Added Room to Team\" messages"
 msgstr "\"Kullanıcı, odaya eklendi\" iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:59
-#, kde-format
-msgid "Hide \"User converted team to a Channel\" messages"
+#, fuzzy, kde-format
+#| msgid "Hide \"User converted team to a Channel\" messages"
+msgid "Hide \"User converted team to channel\" messages"
 msgstr "\"Kullanıcı, takımı kanala dönüştürdü\" iletilerini gizle"
 
 #: core/model/systemmessagesmodel.cpp:60
@@ -1420,17 +1421,17 @@ msgstr "Tek Kanal"
 msgid "Missing translator info. It's a bug"
 msgstr "Çevirmen bilgisi eksik. Bu bir hata"
 
-#: core/user.cpp:199
+#: core/user.cpp:202
 #, kde-format
 msgid "User"
 msgstr "Kullanıcı"
 
-#: core/user.cpp:201 widgets/ruqolamainwindow.cpp:425
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:425
 #, kde-format
 msgid "Administrator"
 msgstr "Yönetici"
 
-#: core/user.cpp:203
+#: core/user.cpp:206
 #, kde-format
 msgid "Bot"
 msgstr "Bot"
@@ -3360,7 +3361,7 @@ msgstr "Özel emoji adı ve armaları ayrımlı olmalıdır."
 #: widgets/administratordialog/roles/roleeditwidget.cpp:34
 #: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:24
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:43
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:48
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:52
 #: widgets/dialogs/channelinfoeditablewidget.cpp:52
 #: widgets/dialogs/channelinforeadonlywidget.cpp:36
 #: widgets/dialogs/createnewchannelwidget.cpp:32
@@ -3585,7 +3586,7 @@ msgid "Edit '%1' Permission"
 msgstr "\"%1\" İznini Düzenle"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:62
 #: widgets/dialogs/directchannelinfowidget.cpp:129
 #, kde-format
 msgid "Roles:"
@@ -4039,27 +4040,27 @@ msgctxt "@title:window"
 msgid "Edit User"
 msgstr "Kullanıcıyı Düzenle"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:24
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:25
 #, kde-format
 msgid "Join Default Channels"
 msgstr "Öntanımlı Kanallara Katıl"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:25
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
 #, kde-format
 msgid "Send Welcome Email"
 msgstr "Hoş Geldiniz E-postası Gönder"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:26
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
 #, kde-format
 msgid "Require Password Change"
 msgstr "Parola Değişikliği Gerektir"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:27
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:28
 #, kde-format
 msgid "Set random password and send by email"
 msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:49
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
@@ -4070,12 +4071,12 @@ msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:50
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:54
 #, kde-format
 msgid "Status Message:"
 msgstr "Durum İletisi:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:51
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #: widgets/dialogs/directchannelinfowidget.cpp:154
 #: widgets/misc/passwordlineeditwidget.cpp:49
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:57
@@ -4084,7 +4085,7 @@ msgstr "Durum İletisi:"
 msgid "Email:"
 msgstr "E-posta:"
 
-#: widgets/administratordialog/users/administratoradduserwidget.cpp:52
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:56
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
@@ -4092,6 +4093,11 @@ msgstr "E-posta:"
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
+
+#: widgets/administratordialog/users/administratoradduserwidget.cpp:57
+#, kde-format
+msgid "Bio:"
+msgstr ""
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -7203,7 +7209,6 @@ msgid "Cancel"
 msgstr "İptal"
 
 #: widgets/dialogs/roomavatarwidget.cpp:47
-#: widgets/dialogs/showattachmentcombobox.cpp:21
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:73
 #, kde-format
 msgid "Image"
@@ -7282,18 +7287,27 @@ msgid "All"
 msgstr "Tümü"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
-#, kde-format
-msgid "Video"
+#, fuzzy, kde-format
+#| msgid "Video"
+msgid "Videos"
 msgstr "Video"
 
+#: widgets/dialogs/showattachmentcombobox.cpp:21
+#, fuzzy, kde-format
+#| msgid "Image"
+msgid "Images"
+msgstr "Görsel"
+
 #: widgets/dialogs/showattachmentcombobox.cpp:22
-#, kde-format
-msgid "Audio"
+#, fuzzy, kde-format
+#| msgid "Audio"
+msgid "Audios"
 msgstr "Ses"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
-#, kde-format
-msgid "Text"
+#, fuzzy, kde-format
+#| msgid "Text"
+msgid "Texts"
 msgstr "Metin"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:24
