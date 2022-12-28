@@ -64,7 +64,7 @@ void ImportLibreOfficeAutocorrection::importAutoCorrectionFile()
         return;
     }
 
-    // Not read as end of line
+    // No tread as end of line
     if (!importFile(SENTENCE, archiveDirectory)) {
         qCWarning(PIMCOMMONAUTOCORRECTION_LOG) << " Impossible to import SENTENCE";
         return;

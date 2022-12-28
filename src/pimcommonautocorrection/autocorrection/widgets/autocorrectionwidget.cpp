@@ -119,8 +119,18 @@ AutoCorrectionWidget::AutoCorrectionWidget(QWidget *parent)
     connect(d->ui->abbreviation, &QLineEdit::returnPressed, this, &AutoCorrectionWidget::addAbbreviationEntry);
     connect(d->ui->replaceDoubleQuotesByFrenchQuotes, &QCheckBox::clicked, this, &AutoCorrectionWidget::emitChanged);
 
-    connect(d->ui->customWritablePath, &KUrlRequester::textChanged, this, &AutoCorrectionWidget::emitChanged);
-    connect(d->ui->customSystemPath, &KUrlRequester::textChanged, this, &AutoCorrectionWidget::emitChanged);
+    connect(d->ui->customWritablePath, &QLineEdit::textChanged, this, &AutoCorrectionWidget::emitChanged);
+    connect(d->ui->customSystemPath, &QLineEdit::textChanged, this, &AutoCorrectionWidget::emitChanged);
+
+    connect(d->ui->customWritablePathToolButton, &QToolButton::clicked, this, [this]() {
+        const QString path = QFileDialog::getExistingDirectory(this, i18n("Select Custom Writable Path"));
+        d->ui->customWritablePath->setText(path);
+    });
+
+    connect(d->ui->customSystemPathToolButton, &QToolButton::clicked, this, [this]() {
+        const QString path = QFileDialog::getExistingDirectory(this, i18n("Select Custom System Path"));
+        d->ui->customSystemPath->setText(path);
+    });
 
     slotEnableDisableAbreviationList();
     slotEnableDisableTwoUpperEntry();
@@ -141,6 +151,7 @@ AutoCorrectionWidget::AutoCorrectionWidget(QWidget *parent)
     connect(d->ui->exportAutoCorrection, &QPushButton::clicked, this, &AutoCorrectionWidget::slotExportAutoCorrection);
     connect(d->ui->tabWidget, &QTabWidget::tabBarClicked, this, &AutoCorrectionWidget::slotChangeComboboxState);
     slotChangeComboboxState(d->ui->tabWidget->currentIndex());
+
     d->ui->systemPath->setText(PimCommonAutoCorrection::AutoCorrectionUtils::libreOfficeSystemPath());
     d->ui->writablePath->setText(PimCommonAutoCorrection::AutoCorrectionUtils::libreOfficeWritableLocalAutoCorrectionPath());
 }
