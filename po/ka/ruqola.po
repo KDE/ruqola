@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-27 00:48+0000\n"
-"PO-Revision-Date: 2022-12-23 06:21+0100\n"
+"PO-Revision-Date: 2022-12-27 07:20+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1227,8 +1227,7 @@ msgid "Hide \"User Added Room to Team\" messages"
 msgstr "\"მომხმარებელმა ოთახი გუნდში დაამატა\" შეტყობინებების დამალვა"
 
 #: core/model/systemmessagesmodel.cpp:59
-#, fuzzy, kde-format
-#| msgid "Hide \"User converted team to a Channel\" messages"
+#, kde-format
 msgid "Hide \"User converted team to channel\" messages"
 msgstr "\"მომხმარებელმა გუნდი არხად გადააკეთა\" შეტყობინებების დამალვა"
 
@@ -1681,6 +1680,8 @@ msgid ""
 "Detect when a new sentence is started and always ensure that the first "
 "character is an uppercase character"
 msgstr ""
+"ახალი წინადადების დაწყების პოვნა და დარწმუნება, რომ ის მაღალი რეგისტრის "
+"სიმბოლოთი იწყება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:354
@@ -1689,6 +1690,9 @@ msgid ""
 "Convert &first letter of a sentence automatically to uppercase\n"
 "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 msgstr ""
+"წინადადების &პირველი სიმბოლოს მაღალ რეგისტრში გადაყვანა\n"
+"(არ ეხება ქართულს. ინგლისური: \"my house. in this town\" გარდაიქმნება \"my "
+"house. In this town\")"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:364
@@ -1698,6 +1702,9 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"ყველა სიტყვა მოწმდება ზოგად შეცდომაზე, როცა Shift ღილაკზე საჭიროზე მეტხანს "
+"უჭირავთ. თუ რომელიმე სიტყვას ორი მაღალი რეგისტრის სიმბოლო გააჩნია, ეს "
+"გამონაკლისები 'გამონაკლისების ჩანართზე' შეგიძლიათ დაამატოთ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:368
@@ -1707,6 +1714,9 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"გადაიყვანეთ &ორი მაღალი რეგისტრის სიმბოლო ერთი მაღალი და ერთ დაბალი "
+"რეგისტრის მქონე სიმბოლოებში\n"
+"(მაგ: PErfect ->Perfect)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:375
@@ -1715,6 +1725,8 @@ msgid ""
 "Make sure that more than one space cannot be typed, as this is a common "
 "mistake which is quite hard to find in formatted text."
 msgstr ""
+"დარწმუნდით, რომ ერთზე მეტი ჰარე არ აგიკრეფიათ, რადგან ეს გავრცელებული "
+"შეცდომაა, რომლის პოვნაც ფორმატირებულ ტექსტში ძალიან რთულია."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:378
@@ -1727,6 +1739,7 @@ msgstr "&ორმაგი ჰარეების შეკვეცა"
 #, kde-format
 msgid "Most standard fraction notations will be converted when available"
 msgstr ""
+"სტანდარტული ფრაქციის ნოტაციების უმეტესობა გადაკეთდება, როდესაც ხელმისაწვდომია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:388
@@ -1747,6 +1760,8 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"აღმოჩენა, როცა ბმულს კრეფთ და მოგეწოდებათ ფორმატირება, რომელსაც ბრაუზერი "
+"იყენებს, როცა URL-ს კრეფთ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:405
@@ -1761,24 +1776,27 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"როცა იყენებთ _ხაზგასმას_ ან *გასქელებას*, ტექსტი ქვედა ხაზებს ან "
+"ვარსკვლავებს შორის ხაზგასმულ ან სქელ ტექსტად გამოჩნდება."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:415
 #, kde-format
 msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
 msgstr ""
+"ფორმატირებისას ავტომატური &გასქელება, გადასმა და ხაზგასმა (HTML რეჟიმი)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:422
 #, kde-format
 msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr ""
+msgstr "1st-ის ... 1^st-ით ჩანაცვლება... (HTML რეჟიმი)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:429
 #, kde-format
 msgid "Add non breaking space before specific punctuation marks in French text"
-msgstr ""
+msgstr "ფრანგულ ტექსტში პუნქტუაციის ნიშნებამდე არაგადატანადი ჰარეების დამატება"
 
 #. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:436
@@ -2491,6 +2509,8 @@ msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
+"გადმოათრიეთ ტექსტი, რომელიც გნებავთ თარგმნოთ. (ფრთხილად, ის Google -ის "
+"სერვერებზე იქნება გადაგზავნილი)."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
@@ -4071,7 +4091,7 @@ msgstr "პაროლი:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "ბიოგრაფია:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -7121,28 +7141,24 @@ msgid "All"
 msgstr "&ყველა"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgid "Videos"
 msgstr "ვიდეო"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Image"
+#, kde-format
 msgid "Images"
-msgstr "გამოსახულება"
+msgstr "გამოსახულებები"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Audio"
+#, kde-format
 msgid "Audios"
 msgstr "აუდიო"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgid "Texts"
-msgstr "ტექსტი"
+msgstr "ტექსტები"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:24
 #, kde-format
@@ -8554,7 +8570,7 @@ msgstr "შესვლის შეცდომა: მომხმარებ
 #: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
-msgstr "დაყენების შეცდომა. დამატებები ვერ ვიპოვე"
+msgstr "დაყენების შეცდომა. დამატებები ვერ ვიპოვე."
 
 #: widgets/ruqolaloginwidget.cpp:211
 #, kde-format

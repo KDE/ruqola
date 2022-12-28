@@ -1,13 +1,14 @@
 # Simon Depiets <sdepiets@gmail.com>, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-27 00:48+0000\n"
-"PO-Revision-Date: 2022-12-19 21:17+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2022-12-27 17:58+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1541,7 +1542,7 @@ msgstr "Langue :"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:64
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Voix :"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
@@ -2480,7 +2481,7 @@ msgstr "À :"
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "Inverser"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
@@ -4128,7 +4129,7 @@ msgstr "Mot de passe :"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "Bio :"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
@@ -4431,7 +4432,7 @@ msgstr "CAS"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #, kde-format
@@ -4488,7 +4489,7 @@ msgstr "Google Analytics"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Identifiant de traçage"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
@@ -4579,7 +4580,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "URL de connexion « SSO »"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4612,7 +4613,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "Gestion des attributs"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -5064,7 +5065,7 @@ msgstr "Mettre à jour"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Mettre à jour ultérieurement vers la dernière version disponible"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
 #, kde-format
@@ -5607,7 +5608,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "Identifiant « OAuth » Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
 #, fuzzy, kde-format
@@ -5624,7 +5625,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
@@ -5682,7 +5683,7 @@ msgstr "Serveur mandataire"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:131
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Hôte du serveur mandataire"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:134
 #, kde-format
@@ -5692,12 +5693,12 @@ msgstr "Service du serveur mandataire"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
-msgstr ""
+msgstr "Identifiant Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
