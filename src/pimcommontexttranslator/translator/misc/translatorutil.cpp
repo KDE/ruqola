@@ -5,7 +5,6 @@
 */
 
 #include "translatorutil.h"
-#include "pimcommontexttranslator_debug.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>

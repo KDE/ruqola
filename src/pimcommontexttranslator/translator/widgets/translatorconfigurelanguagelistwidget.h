@@ -8,9 +8,10 @@
 
 #include "pimcommontexttranslator_export.h"
 #include <QWidget>
-class QListWidget;
-class KListWidgetSearchLine;
+class QListView;
+class QLineEdit;
 class QLabel;
+class QStandardItemModel;
 namespace PimCommonTextTranslator
 {
 /**
@@ -35,8 +36,9 @@ private:
     enum LanguageData {
         LanguageCode = Qt::UserRole + 1,
     };
-    QListWidget *const mLanguageListWidget;
-    KListWidgetSearchLine *const mListSearchLine;
+    QListView *const mLanguageListWidget;
+    QLineEdit *const mListSearchLine;
     QLabel *const mLabel;
+    QStandardItemModel *const mModel;
 };
 }
