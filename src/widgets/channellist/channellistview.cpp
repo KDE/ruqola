@@ -48,7 +48,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     setItemsExpandable(false);
     setIndentation(0);
 
-    connect(this, &ChannelListView::pressed, this, &ChannelListView::slotClicked);
+    connect(selectionModel(), &QItemSelectionModel::currentChanged, this, &ChannelListView::slotClicked);
     connect(model(), &QAbstractItemModel::rowsInserted, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
