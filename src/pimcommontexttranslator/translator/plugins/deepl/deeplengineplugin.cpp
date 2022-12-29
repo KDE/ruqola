@@ -33,11 +33,13 @@ void DeeplEnginePlugin::translateText()
 {
     clear();
 
-    const QUrl url(QStringLiteral("%1/api/v1/%2/%3/%4").arg(mServerUrl, from(), to(), QString::fromUtf8(QUrl::toPercentEncoding(inputText()))));
+    QUrl url(QStringLiteral("%1").arg(mServerUrl));
+    url.setQuery(QStringLiteral("text=%1&target_lang=%2").arg(QString::fromUtf8(QUrl::toPercentEncoding(inputText())), to()));
 
-    const QNetworkRequest request(url);
+    QNetworkRequest request(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
-    QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->get(request);
+    QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->post(request, QByteArray());
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
         slotError(error);
         reply->deleteLater();
