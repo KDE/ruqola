@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-30 00:52+0000\n"
-"PO-Revision-Date: 2022-12-29 10:21+0100\n"
+"PO-Revision-Date: 2022-12-30 07:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4500,7 +4500,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "მნახველის ყველა ქვედომენზე ტრეკინგი"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
@@ -7059,7 +7059,7 @@ msgstr "შეტყობინება:"
 #: widgets/dialogs/reportmessagewidget.cpp:43
 #, kde-format
 msgid "Why you signal this message?"
-msgstr ""
+msgstr "რატომ მიუთითებთ ამ შეტყობინებაზე?"
 
 #: widgets/dialogs/roomavatarwidget.cpp:29
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:98
@@ -8408,7 +8408,7 @@ msgstr "ნაკადში პასუხი"
 #: widgets/room/roomreplythreadwidget.cpp:34
 #, kde-format
 msgid "Reply in Thread for Message: '%1'"
-msgstr ""
+msgstr "ნაკადში პასუხი შეტყობინებაზე: '%1'"
 
 #: widgets/room/roomwidget.cpp:239
 #, kde-format
