@@ -369,7 +369,6 @@ bool ChannelListView::selectChannelByRoomIdOrRoomName(const QString &id, bool ro
             const auto roomModelIndex = filterModel()->index(roomIdx, 0, section);
             const auto identifier = roomId ? roomModelIndex.data(RoomModel::RoomId).toString() : roomModelIndex.data(RoomModel::RoomName).toString();
             if (identifier == id) {
-                channelSelected(roomModelIndex);
                 selectionModel()->setCurrentIndex(roomModelIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
                 return true;
             }
@@ -444,7 +443,6 @@ void ChannelListView::selectNextChannel(Direction direction, bool switchToNextUn
     } while (currentIndex != initialIndex && !matchesFilter(currentIndex));
 
     if (currentIndex.isValid()) {
-        channelSelected(currentIndex);
         selectionModel()->setCurrentIndex(currentIndex, QItemSelectionModel::ClearAndSelect | QItemSelectionModel::Rows);
     }
 }
