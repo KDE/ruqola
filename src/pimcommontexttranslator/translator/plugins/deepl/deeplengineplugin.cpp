@@ -12,6 +12,7 @@
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QUrlQuery>
 
 DeeplEnginePlugin::DeeplEnginePlugin(QObject *parent)
     : PimCommonTextTranslator::TranslatorEnginePlugin(parent)
@@ -33,8 +34,11 @@ void DeeplEnginePlugin::translateText()
 {
     clear();
 
-    QUrl url(QStringLiteral("%1").arg(mServerUrl));
-    url.setQuery(QStringLiteral("text=%1&target_lang=%2").arg(QString::fromUtf8(QUrl::toPercentEncoding(inputText())), to()));
+    QUrl url(mServerUrl);
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("text"), inputText());
+    query.addQueryItem(QStringLiteral("target_lang"), to());
+    url.setQuery(query);
 
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
