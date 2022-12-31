@@ -13,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QUrlQuery>
 
 QString YandexEnginePlugin::sYandexKey;
 
@@ -99,7 +100,12 @@ void YandexEnginePlugin::translateText()
     // qDebug() << " lang " << lang;
     // Generate API url
     QUrl url(QStringLiteral("https://translate.yandex.net/api/v1/tr.json/translate"));
-    url.setQuery(QStringLiteral("id=%1-2-0&srv=tr-text&text=%2&lang=%3").arg(sYandexKey, QString::fromUtf8(QUrl::toPercentEncoding(inputText())), lang));
+    QUrlQuery query;
+    query.addQueryItem(QStringLiteral("id"), sYandexKey);
+    query.addQueryItem(QStringLiteral("srv"), QStringLiteral("tr-text"));
+    query.addQueryItem(QStringLiteral("text"), inputText());
+    query.addQueryItem(QStringLiteral("lang"), lang);
+    url.setQuery(query);
 
     // Setup request
     QNetworkRequest request;
