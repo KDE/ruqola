@@ -45,7 +45,6 @@ if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
     target_link_libraries(KF5PimTextEditTextToSpeech
         PRIVATE
         KF5::WidgetsAddons
-        KF5::KIOWidgets
         KF5::ConfigWidgets
         KF5::XmlGui
         KF5::I18n
