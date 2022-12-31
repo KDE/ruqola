@@ -38,6 +38,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     , mRoomFilterProxyModel(new RoomFilterProxyModel(this))
 {
     mChannelListDelegate->setObjectName(QStringLiteral("mChannelListDelegate"));
+    mRoomFilterProxyModel->setObjectName(QStringLiteral("mRoomFilterProxyModel"));
     setItemDelegate(mChannelListDelegate);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     mRoomFilterProxyModel->setSourceModel(mRoomListHeadingsProxyModel);
