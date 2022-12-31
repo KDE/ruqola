@@ -6,6 +6,7 @@
 
 #include "channellistviewtest.h"
 #include "channellist/channellistview.h"
+#include "model/roomfilterproxymodel.h"
 #include <QTest>
 
 QTEST_MAIN(ChannelListViewTest)
@@ -24,4 +25,6 @@ void ChannelListViewTest::shouldHaveDefaultValues()
     QCOMPARE(w.uniformRowHeights(), true);
     QCOMPARE(w.itemsExpandable(), false);
     QCOMPARE(w.indentation(), 0);
+    QVERIFY(w.filterModel());
+    QCOMPARE(w.filterModel()->objectName(), QStringLiteral("mRoomFilterProxyModel"));
 }
