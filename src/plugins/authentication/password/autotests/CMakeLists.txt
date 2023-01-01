@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020-2022 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 ecm_qt_declare_logging_category(ruqola_passwordauthenticationplugin_test_SRCS HEADER passwordauthenticationplugin_debug.h
     IDENTIFIER RUQOLA_PASSWORDAUTHENTICATION_PLUGIN_LOG CATEGORY_NAME org.kde.ruqola_passwordauthenticationplugin)

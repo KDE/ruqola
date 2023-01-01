@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020-2022 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 if(OPTION_BUILD_PYTHON_BINDINGS)
    set(PYTHON_VERSION "3.7" CACHE STRING  "Use specific python version to build the project.")

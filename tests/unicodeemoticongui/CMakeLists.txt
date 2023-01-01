@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2020-2022 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 add_executable(unicodeemoticongui)
 target_sources(unicodeemoticongui PRIVATE unicodeemoticongui.cpp unicodeemoticongui.h ../../src/core/ruqolacore.qrc)
