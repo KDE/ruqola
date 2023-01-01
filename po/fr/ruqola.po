@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-30 00:52+0000\n"
+"POT-Creation-Date: 2023-01-01 00:57+0000\n"
 "PO-Revision-Date: 2022-12-27 22:34+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2378,7 +2378,7 @@ msgstr "Lingva"
 msgid "Yandex"
 msgstr "Yandex"
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:52
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
@@ -2388,20 +2388,20 @@ msgstr ""
 "Erreur : . le système de moteur a détecté un trafic suspect à partir du "
 "réseau de votre ordinateur. Veuillez relancer votre demande plus tard."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:60
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:61
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr ""
 "Erreur : impossible de trouver des « Yandex SID » dans la version Internet."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:68
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:69
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
 "Erreur : impossible d'extraire un « Yandex SID » à partir de la version "
 "Internet."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:145
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr "Erreur : impossible d'analyser la langue détectée automatiquement"
@@ -6409,70 +6409,70 @@ msgstr "Afficher les messages non lus"
 msgid "Mark as Read"
 msgstr "Marquer comme lu"
 
-#: widgets/channellist/channellistview.cpp:101
+#: widgets/channellist/channellistview.cpp:102
 #, kde-format
 msgid "Mark As Read"
 msgstr "Marquer comme lu"
 
-#: widgets/channellist/channellistview.cpp:101
+#: widgets/channellist/channellistview.cpp:102
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Marquer comme non lu"
 
-#: widgets/channellist/channellistview.cpp:109
+#: widgets/channellist/channellistview.cpp:110
 #: widgets/room/messagelistview.cpp:250
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Marquer comme favori"
 
-#: widgets/channellist/channellistview.cpp:109
+#: widgets/channellist/channellistview.cpp:110
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Supprimer de la liste des favoris"
 
-#: widgets/channellist/channellistview.cpp:116
+#: widgets/channellist/channellistview.cpp:117
 #, kde-format
 msgid "Hide Channel"
 msgstr "Masquer le canal"
 
-#: widgets/channellist/channellistview.cpp:131
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:132
+#: widgets/channellist/channellistview.cpp:264
 #, kde-format
 msgid "Convert to Team"
 msgstr "Convertir en équipe"
 
-#: widgets/channellist/channellistview.cpp:140
+#: widgets/channellist/channellistview.cpp:141
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Convertir en un canal"
 
-#: widgets/channellist/channellistview.cpp:150
+#: widgets/channellist/channellistview.cpp:151
 #, kde-format
 msgid "Move to Team"
 msgstr "Déplacer vers une équipe"
 
-#: widgets/channellist/channellistview.cpp:165
+#: widgets/channellist/channellistview.cpp:166
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Configurer une notification..."
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:173
 #, kde-format
 msgid "Quit Channel"
 msgstr "Quitter un canal"
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:214
 #, kde-format
 msgid "Any team selected."
 msgstr "N'importe quelle équipe sélectionnée."
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:214
 #, kde-format
 msgid "Move To Team"
 msgstr "Déplacer vers une équipe"
 
-#: widgets/channellist/channellistview.cpp:262
+#: widgets/channellist/channellistview.cpp:263
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""

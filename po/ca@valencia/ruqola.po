@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-30 00:52+0000\n"
-"PO-Revision-Date: 2022-12-27 14:01+0100\n"
+"POT-Creation-Date: 2023-01-01 00:57+0000\n"
+"PO-Revision-Date: 2022-12-29 06:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1916,10 +1916,9 @@ msgstr "Camí personalitzat del sistema:"
 #. i18n: ectx: property (text), widget (QToolButton, customWritablePathToolButton)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:785
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:806
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "..."
-msgstr "Afig..."
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:794
@@ -1928,16 +1927,14 @@ msgid "Custom Writable Path:"
 msgstr "Camí personalitzat que s'hi pot escriure:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Custom Writable Path:"
+#, kde-format
 msgid "Select Custom Writable Path"
-msgstr "Camí personalitzat que s'hi pot escriure:"
+msgstr "Seleccioneu el camí personalitzat que s'hi pot escriure"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:131
-#, fuzzy, kde-format
-#| msgid "Custom System Path:"
+#, kde-format
 msgid "Select Custom System Path"
-msgstr "Camí personalitzat del sistema:"
+msgstr "Seleccioneu el camí personalitzat del sistema"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:141
 #, kde-format
@@ -2404,7 +2401,7 @@ msgstr "Lingva"
 msgid "Yandex"
 msgstr "Yandex"
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:51
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:52
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
@@ -2414,20 +2411,20 @@ msgstr ""
 "S'ha produït un error: Els sistemes del motor han detectat trànsit sospitós "
 "des de la xarxa d'este ordinador. Torneu-ho a provar més tard."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:60
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:61
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr ""
 "S'ha produït un error: No s'ha pogut trobar l'SID de Yandex en la versió web."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:68
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:69
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
 "S'ha produït un error: No s'ha pogut extraure l'SID de Yandex de la versió "
 "web."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:139
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:145
 #, kde-format
 msgid "Error: Unable to parse autodetected language"
 msgstr ""
@@ -4881,7 +4878,7 @@ msgid ""
 msgstr ""
 "Activa l'opció per a utilitzar els missatges «off-the-record» (OTR) en els "
 "missatges directes entre 2 usuaris. Els missatges OTR no s'enregistren en el "
-"servidor i s'intercanvien directa i de manera encriptada entre els 2 usuaris."
+"servidor i s'intercanvien de manera directa i encriptada entre els 2 usuaris."
 
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:20
 #, kde-format
@@ -6471,70 +6468,70 @@ msgstr "Mostra els no llegits"
 msgid "Mark as Read"
 msgstr "Marca com a llegit"
 
-#: widgets/channellist/channellistview.cpp:101
+#: widgets/channellist/channellistview.cpp:102
 #, kde-format
 msgid "Mark As Read"
 msgstr "Marca com a llegit"
 
-#: widgets/channellist/channellistview.cpp:101
+#: widgets/channellist/channellistview.cpp:102
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Marca com a sense llegir"
 
-#: widgets/channellist/channellistview.cpp:109
+#: widgets/channellist/channellistview.cpp:110
 #: widgets/room/messagelistview.cpp:250
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Establix com a preferit"
 
-#: widgets/channellist/channellistview.cpp:109
+#: widgets/channellist/channellistview.cpp:110
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Desmarca com a preferit"
 
-#: widgets/channellist/channellistview.cpp:116
+#: widgets/channellist/channellistview.cpp:117
 #, kde-format
 msgid "Hide Channel"
 msgstr "Oculta el canal"
 
-#: widgets/channellist/channellistview.cpp:131
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:132
+#: widgets/channellist/channellistview.cpp:264
 #, kde-format
 msgid "Convert to Team"
 msgstr "Convertix a un equip"
 
-#: widgets/channellist/channellistview.cpp:140
+#: widgets/channellist/channellistview.cpp:141
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Convertix a un canal"
 
-#: widgets/channellist/channellistview.cpp:150
+#: widgets/channellist/channellistview.cpp:151
 #, kde-format
 msgid "Move to Team"
 msgstr "Mou a un equip"
 
-#: widgets/channellist/channellistview.cpp:165
+#: widgets/channellist/channellistview.cpp:166
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Configura la notificació..."
 
-#: widgets/channellist/channellistview.cpp:172
+#: widgets/channellist/channellistview.cpp:173
 #, kde-format
 msgid "Quit Channel"
 msgstr "Ix de canal"
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:214
 #, kde-format
 msgid "Any team selected."
 msgstr "Qualsevol equip seleccionat."
 
-#: widgets/channellist/channellistview.cpp:213
+#: widgets/channellist/channellistview.cpp:214
 #, kde-format
 msgid "Move To Team"
 msgstr "Mou a un equip"
 
-#: widgets/channellist/channellistview.cpp:262
+#: widgets/channellist/channellistview.cpp:263
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
