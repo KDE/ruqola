@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
                          QStringLiteral(RUQOLA_VERSION),
                          i18n("Rocket Chat Client"),
                          KAboutLicense::GPL_V2,
-                         i18n("Copyright © 2020-2022 Ruqola authors"));
+                         i18n("Copyright © 2020-2023 Ruqola authors"));
 
     aboutData.addAuthor(i18n("Laurent Montel"), i18n("Maintainer"), QStringLiteral("montel@kde.org"));
     aboutData.addAuthor(i18n("Riccardo Iaconelli"), i18n("Original Author"), QStringLiteral("riccardo@kde.org"));
