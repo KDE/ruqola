@@ -5,8 +5,6 @@
 */
 
 #include "translatorconfigurewidget.h"
-#include "translator/misc/translatorutil.h"
-#include "translator/translatorengineloader.h"
 #include "translatorconfigurecombowidget.h"
 #include <KLocalizedString>
 #include <KSharedConfig>
