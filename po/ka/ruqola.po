@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:57+0000\n"
-"PO-Revision-Date: 2022-12-30 07:49+0100\n"
+"POT-Creation-Date: 2023-01-02 01:01+0000\n"
+"PO-Revision-Date: 2023-01-01 07:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -29,8 +29,9 @@ msgid "Rocket Chat Client"
 msgstr "Rocket Chat -ის კლიენტი"
 
 #: apps/main.cpp:57
-#, kde-format
-msgid "Copyright © 2020-2022 Ruqola authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2022 Ruqola authors"
+msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "© 2020-2022 Ruqola -ის ავტორები. ყველა უფლება დაცულია"
 
 #: apps/main.cpp:59
@@ -522,7 +523,7 @@ msgstr "ოთახს დაემატა ჩაწერის უფლე
 #: core/messages/message.cpp:582
 #, kde-format
 msgid "%1 added @%2 to this Team"
-msgstr ""
+msgstr "%1 -მა დაამატა @%2 ამ გუნდში"
 
 #: core/messages/message.cpp:584
 #, kde-format
@@ -532,17 +533,17 @@ msgstr "%1 -მა @%2 ამ გუნდიდან წაშალა"
 #: core/messages/message.cpp:586
 #, kde-format
 msgid "%1 converted #%2 to a Team"
-msgstr ""
+msgstr "%1 -მა #%2 გუნდად გადააკეთა"
 
 #: core/messages/message.cpp:588
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
-msgstr ""
+msgstr "%1-მა #%2 არხად გადააკეთა"
 
 #: core/messages/message.cpp:590
 #, kde-format
 msgid "%1 removed #%2 from this Team"
-msgstr ""
+msgstr "%1 -მა #%2 ამ გუნდიდან წაშალა"
 
 #: core/messages/message.cpp:592
 #, kde-format
@@ -552,17 +553,17 @@ msgstr "%1 წაშალა #%2"
 #: core/messages/message.cpp:594
 #, kde-format
 msgid "%1 added #%2 to this Team"
-msgstr ""
+msgstr "%1 -მა #%2 ამ გუნდში დაამატა"
 
 #: core/messages/message.cpp:596
 #, kde-format
 msgid "Room allowed reacting by %1"
-msgstr ""
+msgstr "ოთახში %1-ით რეაქცია დაშვებულია"
 
 #: core/messages/message.cpp:598
 #, kde-format
 msgid "Room disallowed reacting by %1"
-msgstr ""
+msgstr "ოთახში %1-ით რეაქცია დაშვებული არაა"
 
 #: core/messages/message.cpp:600
 #, kde-format
@@ -587,7 +588,7 @@ msgstr "%1-ma გასაღების განახლება მოი�
 #: core/messages/message.cpp:608
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
-msgstr ""
+msgstr "ოთახის თემა შეიცვალა %1-ზე %2-ის მიერ"
 
 #: core/messages/messageattachment.cpp:244
 #, kde-format

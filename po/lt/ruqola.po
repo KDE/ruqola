@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:57+0000\n"
+"POT-Creation-Date: 2023-01-02 01:01+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: apps/main.cpp:57
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020 Ruqola authors"
-msgid "Copyright © 2020-2022 Ruqola authors"
+msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "Autorių teisės © 2020 Ruqola autoriai"
 
 #: apps/main.cpp:59

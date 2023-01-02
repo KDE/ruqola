@@ -1,12 +1,12 @@
 # Simon Depiets <sdepiets@gmail.com>, 2019.
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2020, 2021, 2022.
-# Xavier BESNARD <xavier.besnard]neuf.fr>, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-01 00:57+0000\n"
-"PO-Revision-Date: 2022-12-27 22:34+0100\n"
+"POT-Creation-Date: 2023-01-02 01:01+0000\n"
+"PO-Revision-Date: 2023-01-01 11:38+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -27,8 +27,9 @@ msgid "Rocket Chat Client"
 msgstr "Client de discussion Rocket"
 
 #: apps/main.cpp:57
-#, kde-format
-msgid "Copyright © 2020-2022 Ruqola authors"
+#, fuzzy, kde-format
+#| msgid "Copyright © 2020-2022 Ruqola authors"
+msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "Copyright © 2017 - 2022 Les auteurs de Ruqola"
 
 #: apps/main.cpp:59
@@ -1496,7 +1497,7 @@ msgstr "Configurer la synthèse vocale"
 #: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "Bonjour, ceci est un test concernant la configuration."
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
@@ -1801,7 +1802,7 @@ msgstr "Personnaliser les &quotes"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:463
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr ""
+msgstr "Remplacer les &doubles  quotes avec les quotes typographiques"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -1841,7 +1842,7 @@ msgstr "Quote de début :"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:572
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
-msgstr ""
+msgstr "Remplacer les &simples  quotes avec les quotes typographiques"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -1980,6 +1981,8 @@ msgstr "Enregistrer une configuration"
 #, kde-format
 msgid "Please save changes before exporting settings."
 msgstr ""
+"Veuillez enregistrer les modifications avant l'exportation de la "
+"configuration."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:709
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:712
@@ -2474,7 +2477,7 @@ msgstr "Traduire..."
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Problème lors de la connexion au site Internet des traducteurs."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
 #, kde-format
@@ -2528,7 +2531,7 @@ msgstr ""
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
-msgstr ""
+msgstr "Aucune connexion détectée. Impossible de traduite le texte."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
 #, kde-format
@@ -4501,7 +4504,7 @@ msgstr "Identifiant de traçage"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
 msgid "Piwik Analytics"
-msgstr ""
+msgstr "Piwik Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
 #, kde-format
@@ -4518,7 +4521,7 @@ msgstr "URL"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr ""
+msgstr "L'identifiant du site  pour être identifié sur ce site. Exemple : 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -5747,7 +5750,7 @@ msgstr "Jeton"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "Exemple : https://domain.com (hormis les barres obliques superflus)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
