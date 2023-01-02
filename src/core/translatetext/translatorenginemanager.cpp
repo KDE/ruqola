@@ -32,8 +32,9 @@ void TranslatorEngineManager::translatorConfigChanged()
 void TranslatorEngineManager::initializeTranslateEngine()
 {
     delete mTranslatorEnginePlugin;
+    const QString engineName = PimCommonTextTranslator::TranslatorUtil::loadEngine();
     PimCommonTextTranslator::TranslatorEngineClient *translatorClient =
-        PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(PimCommonTextTranslator::TranslatorUtil::loadEngine());
+        PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
     if (translatorClient) {
         mTranslatorEnginePlugin = translatorClient->createTranslator();
         connect(mTranslatorEnginePlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
