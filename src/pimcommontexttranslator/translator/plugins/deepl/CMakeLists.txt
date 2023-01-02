@@ -1,8 +1,16 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
-
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/)
 add_library(translator_deepl MODULE)
+ecm_qt_declare_logging_category(translator_debug_deepl_SRCS
+    HEADER deepltranslator_debug.h
+    IDENTIFIER TRANSLATOR_DEEPL_LOG
+    CATEGORY_NAME org.kde.pim.pimcommontexttranslator.deepl
+    DESCRIPTION "PimCommon deepl translator"
+    EXPORT PIMCOMMON
+)
 target_sources(translator_deepl PRIVATE
+    ${translator_debug_deepl_SRCS}
     deeplengineclient.cpp
     deeplengineclient.h
     deeplengineplugin.cpp
@@ -13,13 +21,6 @@ target_sources(translator_deepl PRIVATE
     deeplengineconfigurewidget.cpp
     deeplengineutil.h
     deeplengineutil.cpp
-)
-ecm_qt_declare_logging_category(translator_deepl
-    HEADER deepltranslator_debug.h
-    IDENTIFIER TRANSLATOR_deepl
-    CATEGORY_NAME org.kde.pim.pimcommontexttranslator.deepl
-    DESCRIPTION "PimCommon deepl translator"
-    EXPORT PIMCOMMON
 )
 
 target_link_libraries(translator_deepl PRIVATE KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore)

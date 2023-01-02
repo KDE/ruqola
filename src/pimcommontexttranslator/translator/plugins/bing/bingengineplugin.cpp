@@ -96,7 +96,7 @@ void BingEnginePlugin::parseCredentials(QNetworkReply *reply)
 
     sBingIid = QString::fromUtf8(webSiteData.mid(iidBeginPos, iidEndPos - iidBeginPos));
 
-    // qCDebug(TRANSLATOR_bing) << "sBingIid " << sBingIid << " sBingIg " << sBingIg << " sBingToken " << sBingToken << " sBingKey " << sBingKey;
+    // qCDebug(TRANSLATOR_BING_LOG) << "sBingIid " << sBingIid << " sBingIg " << sBingIg << " sBingToken " << sBingToken << " sBingKey " << sBingKey;
     translateText();
 }
 
@@ -110,11 +110,13 @@ void BingEnginePlugin::translateText()
     const QByteArray postData =
         "&text=" + QUrl::toPercentEncoding(inputText()) + "&fromLang=" + from().toUtf8() + "&to=" + to().toUtf8() + "&token=" + sBingToken + "&key=" + sBingKey;
 
+    qCDebug(TRANSLATOR_BING_LOG) << " postData " << postData;
     QUrlQuery urlQuery;
     urlQuery.addQueryItem(QStringLiteral("IG"), sBingIg);
     urlQuery.addQueryItem(QStringLiteral("IDD"), sBingIid);
     QUrl url(QStringLiteral("https://www.bing.com/ttranslatev3"));
     url.setQuery(urlQuery);
+    qCDebug(TRANSLATOR_BING_LOG) << " url " << url;
 
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/x-www-form-urlencoded"));
@@ -137,7 +139,7 @@ void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
 {
     // Parse translation data
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
-    qCDebug(TRANSLATOR_bing) << " jsonResponse " << jsonResponse;
+    qCDebug(TRANSLATOR_BING_LOG) << " jsonResponse " << jsonResponse;
     const QJsonObject responseObject = jsonResponse.array().first().toObject();
     if (from() == QStringLiteral("auto")) {
         const QString langCode = responseObject.value(QStringLiteral("detectedLanguage")).toObject().value(QStringLiteral("language")).toString();
@@ -155,7 +157,7 @@ void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
         setJsonDebug(QString::fromUtf8(jsonResponse.toJson(QJsonDocument::Indented)));
     }
 
-    qCDebug(TRANSLATOR_bing) << " mResult " << result();
+    qCDebug(TRANSLATOR_BING_LOG) << " mResult " << result();
     // m_translationTranslit               += translationsObject.value(QStringLiteral("transliteration")).toObject().value(QStringLiteral("text")).toString();
     reply->deleteLater();
     Q_EMIT translateDone();

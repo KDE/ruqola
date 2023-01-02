@@ -13,37 +13,6 @@ using namespace PimCommonTextTranslator;
 
 TranslatorUtil::TranslatorUtil() = default;
 
-QVector<QPair<QString, QString>> TranslatorUtil::bingSpecificLanguages()
-{
-    TranslatorUtil translatorUtil;
-    QVector<QPair<QString, QString>> langLanguage;
-#if 0
-    { QLatin1String("bs-BG"),  QLatin1String("bs-Latn")  },         //                                            NOTE: Bing translator only
-    { QLatin1String("sr-RS"),  QLatin1String("sr-Cyrl")  },         //                                            NOTE: Bing translator only
-    { QLatin1String("zh-CN"),  QLatin1String("zh-Hans")  },         // SimplifiedChinese                        ; NOTE: Bing translator only
-    { QLatin1String("zh-TW"),  QLatin1String("zh-Hant")  }          // TraditionalChinese                       ; NOTE: Bing translator only
-#endif
-    return langLanguage;
-}
-
-QVector<QPair<QString, QString>> TranslatorUtil::googleSpecificLanguages()
-{
-    TranslatorUtil translatorUtil;
-    QVector<QPair<QString, QString>> langLanguage;
-    langLanguage.append(translatorUtil.pair(TranslatorUtil::zh_cn_google)); // For google only
-    langLanguage.append(translatorUtil.pair(TranslatorUtil::zh_tw_google)); // For google only
-    return langLanguage;
-}
-
-QVector<QPair<QString, QString>> TranslatorUtil::yandexSpecificLanguages()
-{
-    TranslatorUtil translatorUtil;
-    QVector<QPair<QString, QString>> langLanguage;
-    langLanguage.append(translatorUtil.pair(TranslatorUtil::jv_yandex));
-    langLanguage.append(translatorUtil.pair(TranslatorUtil::zn_yandex));
-    return langLanguage;
-}
-
 QVector<QPair<QString, QString>> TranslatorUtil::genericLanguages()
 {
     TranslatorUtil translatorUtil;

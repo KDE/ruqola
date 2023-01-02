@@ -1,10 +1,10 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
-
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/)
 add_library(translator_bing MODULE)
 ecm_qt_declare_logging_category(translator_debug_bing_SRCS
     HEADER bingtranslator_debug.h
-    IDENTIFIER TRANSLATOR_bing
+    IDENTIFIER TRANSLATOR_BING_LOG
     CATEGORY_NAME org.kde.pim.pimcommontexttranslator.bing
     DESCRIPTION "PimCommon bing translator"
     EXPORT PIMCOMMON

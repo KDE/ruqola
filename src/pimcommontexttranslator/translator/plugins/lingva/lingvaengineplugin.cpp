@@ -6,6 +6,7 @@
 
 #include "lingvaengineplugin.h"
 #include "lingvaengineutil.h"
+#include "lingvatranslator_debug.h"
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 
 #include <KConfigGroup>
@@ -36,6 +37,7 @@ void LingvaEnginePlugin::translateText()
 
     const QUrl url(QStringLiteral("%1/api/v1/%2/%3/%4").arg(mServerUrl, from(), to(), QString::fromUtf8(QUrl::toPercentEncoding(inputText()))));
 
+    qCDebug(TRANSLATOR_LINGVA_LOG) << " url " << url;
     const QNetworkRequest request(url);
 
     QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->get(request);
@@ -65,6 +67,7 @@ void LingvaEnginePlugin::parseTranslation(QNetworkReply *reply)
     const QJsonObject responseObject = jsonResponse.object();
     setResult(responseObject.value(QStringLiteral("translation")).toString());
     reply->deleteLater();
+    qCDebug(TRANSLATOR_LINGVA_LOG) << " result " << result();
     Q_EMIT translateDone();
 }
 

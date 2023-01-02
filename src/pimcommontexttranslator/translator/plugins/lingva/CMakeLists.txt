@@ -1,8 +1,18 @@
 # SPDX-License-Identifier: CC0-1.0
 # SPDX-FileCopyrightText: none
-
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/)
 add_library(translator_lingva MODULE)
+
+ecm_qt_declare_logging_category(translator_lingva_debug_SRCS
+    HEADER lingvatranslator_debug.h
+    IDENTIFIER TRANSLATOR_LINGVA_LOG
+    CATEGORY_NAME org.kde.pim.pimcommontexttranslator.lingva
+    DESCRIPTION "PimCommon lingva translator"
+    EXPORT PIMCOMMON
+)
+
 target_sources(translator_lingva PRIVATE
+    ${translator_lingva_debug_SRCS}
     lingvaengineclient.cpp
     lingvaengineclient.h
     lingvaengineplugin.cpp
@@ -13,13 +23,6 @@ target_sources(translator_lingva PRIVATE
     lingvaenginewidget.cpp
     lingvaengineutil.h
     lingvaengineutil.cpp
-)
-ecm_qt_declare_logging_category(translator_lingva
-    HEADER lingvatranslator_debug.h
-    IDENTIFIER TRANSLATOR_lingva
-    CATEGORY_NAME org.kde.pim.pimcommontexttranslator.lingva
-    DESCRIPTION "PimCommon lingva translator"
-    EXPORT PIMCOMMON
 )
 
 target_link_libraries(translator_lingva PRIVATE KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore)

@@ -5,6 +5,7 @@
 */
 
 #include "googleengineplugin.h"
+#include "googletranslator_debug.h"
 #include <KLocalizedString>
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 #include <QJsonDocument>
@@ -63,7 +64,7 @@ void GoogleEnginePlugin::slotTranslateFinished(QNetworkReply *reply)
     //  but this is not valid JSON for QJSON, it expects empty strings: ["foo","","bar"]
     mJsonData.replace(QRegularExpression(QStringLiteral(",{3,3}")), QStringLiteral(",\"\",\"\","));
     mJsonData.replace(QRegularExpression(QStringLiteral(",{2,2}")), QStringLiteral(",\"\","));
-    // qCDebug(PIMCOMMON_LOG) << mJsonData;
+    qCDebug(TRANSLATOR_GOOGLE_LOG) << mJsonData;
 
     QJsonParseError parsingError;
     const QJsonDocument jsonDoc = QJsonDocument::fromJson(mJsonData.toUtf8(), &parsingError);
