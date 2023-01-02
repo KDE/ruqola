@@ -6,6 +6,7 @@
 
 #include "deeplengineplugin.h"
 #include "deeplengineutil.h"
+#include "deepltranslator_debug.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -69,6 +70,7 @@ void DeeplEnginePlugin::parseTranslation(QNetworkReply *reply)
     const QJsonObject responseObject = jsonResponse.object();
     setResult(responseObject.value(QStringLiteral("translation")).toString());
     reply->deleteLater();
+    qCDebug(TRANSLATOR_DEEPL_LOG) << " result " << result();
     Q_EMIT translateDone();
 }
 

@@ -53,7 +53,7 @@ void YandexEnginePlugin::parseCredentials(QNetworkReply *reply)
                                     "from your computer network. Please try your request again later."));
         return;
     }
-    // qCDebug(PIMCOMMON_LOG) << "webSiteData  " << webSiteData;
+    // qCDebug(TRANSLATOR_YANDEX_LOG) << "webSiteData  " << webSiteData;
     const QByteArray sidBeginString = "SID: '";
     const int sidBeginStringPos = webSiteData.indexOf(sidBeginString);
 

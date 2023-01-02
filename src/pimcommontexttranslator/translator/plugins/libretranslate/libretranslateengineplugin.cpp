@@ -6,6 +6,7 @@
 
 #include "libretranslateengineplugin.h"
 #include "libretranslateengineutil.h"
+#include "libretranslatetranslator_debug.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -42,9 +43,12 @@ void LibreTranslateEnginePlugin::translateText()
     if (!mApiKey.isEmpty()) {
         postData += "&api_key=" + mApiKey.toUtf8();
     }
+    const auto url = QUrl(QStringLiteral("%1/translate").arg(mServerUrl));
     QNetworkRequest request;
     request.setHeader(QNetworkRequest::ContentTypeHeader, QLatin1String("application/x-www-form-urlencoded"));
-    request.setUrl(QUrl(QStringLiteral("%1/translate").arg(mServerUrl)));
+    request.setUrl(url);
+
+    qCDebug(TRANSLATOR_LIBRETRANSLATE_LOG) << " url " << url;
 
     QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->post(request, postData);
     connect(reply, &QNetworkReply::errorOccurred, this, [this, reply](QNetworkReply::NetworkError error) {
@@ -72,6 +76,7 @@ void LibreTranslateEnginePlugin::parseTranslation(QNetworkReply *reply)
     const QJsonObject responseObject = jsonResponse.object();
     setResult(responseObject.value(QStringLiteral("translatedText")).toString());
     reply->deleteLater();
+    qCDebug(TRANSLATOR_LIBRETRANSLATE_LOG) << " result " << result();
     Q_EMIT translateDone();
 }
 

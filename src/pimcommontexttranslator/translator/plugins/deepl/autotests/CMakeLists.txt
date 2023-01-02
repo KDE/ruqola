@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
-ecm_add_test(deeplengineclienttest.cpp deeplengineclienttest.h ../deeplengineclient.cpp ../deeplengineplugin.cpp ../deeplengineutil.cpp
+ecm_add_test(deeplengineclienttest.cpp deeplengineclienttest.h ../deeplengineclient.cpp ../deeplengineplugin.cpp ../deeplengineutil.cpp ${translator_debug_deepl_SRCS}
     ../deeplengineconfiguredialog.cpp
     ../deeplengineconfigurewidget.cpp
     TEST_NAME deeplengineclienttest
@@ -9,7 +9,7 @@ ecm_add_test(deeplengineclienttest.cpp deeplengineclienttest.h ../deeplenginecli
 )
 
 #####
-ecm_add_test(deeplengineconfiguredialogtest.cpp deeplengineconfiguredialogtest.h ../deeplengineconfiguredialog.cpp ../deeplengineconfigurewidget.cpp
+ecm_add_test(deeplengineconfiguredialogtest.cpp deeplengineconfiguredialogtest.h ../deeplengineconfiguredialog.cpp ../deeplengineconfigurewidget.cpp ${translator_debug_deepl_SRCS}
     TEST_NAME deeplengineconfiguredialogtest
     NAME_PREFIX pimcommon-
     LINK_LIBRARIES Qt::Test Qt::Gui KF5::PimCommonTextTranslator KF5::I18n KF5::ConfigCore

@@ -10,7 +10,7 @@ target_sources(translator_yandex PRIVATE
 )
 ecm_qt_declare_logging_category(translator_yandex
     HEADER yandextranslator_debug.h
-    IDENTIFIER TRANSLATOR_yandex
+    IDENTIFIER TRANSLATOR_YANDEX_LOG
     CATEGORY_NAME org.kde.pim.pimcommontexttranslator.yandex
     DESCRIPTION "PimCommon yandex translator"
     EXPORT PIMCOMMON
