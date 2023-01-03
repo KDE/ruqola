@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -38,12 +38,25 @@ PimCommonTextTranslator::TranslatorEnginePlugin *DeeplEngineClient::createTransl
     return enginePlugin;
 }
 
-QVector<QPair<QString, QString>> DeeplEngineClient::supportedLanguages()
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> DeeplEngineClient::supportedLanguages()
 {
     if (mLanguages.isEmpty()) {
-        mLanguages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
+        mLanguages = fillLanguages();
     }
     return mLanguages;
+}
+
+bool DeeplEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
+{
+#if 0
+    switch (lang) {
+    case PimCommonTextTranslator::TranslatorUtil:::
+        return false;
+    default:
+        break;
+    }
+#endif
+    return true;
 }
 
 bool DeeplEngineClient::hasConfigurationDialog() const

@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -99,9 +99,9 @@ QMap<QString, QString> TranslatorEngineLoader::translatorEngineInfos() const
     return map;
 }
 
-QVector<QPair<QString, QString>> TranslatorEngineLoader::supportedLanguages(const QString &clientName) const
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> TranslatorEngineLoader::supportedLanguages(const QString &clientName) const
 {
-    QVector<QPair<QString, QString>> supportedLanguages;
+    QMap<TranslatorUtil::Language, QString> supportedLanguages;
     auto clientsItr = d->translatorClients.constFind(clientName);
     if (clientsItr == d->translatorClients.constEnd()) {
         qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Client name not found: " << clientName;

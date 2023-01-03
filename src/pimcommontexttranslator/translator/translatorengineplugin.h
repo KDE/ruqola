@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -7,6 +7,7 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 #include <QNetworkReply>
 #include <QObject>
 #include <QString>
@@ -48,6 +49,8 @@ protected:
     void slotError(QNetworkReply::NetworkError error);
     Q_REQUIRED_RESULT bool verifyFromAndToLanguage();
     Q_REQUIRED_RESULT bool hasDebug() const;
+
+    Q_REQUIRED_RESULT virtual QString languageCode(const QString &langStr);
 
 private:
     std::unique_ptr<TranslatorEnginePluginPrivate> const d;

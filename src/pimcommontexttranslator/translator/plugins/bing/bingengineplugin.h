@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -16,6 +16,8 @@ public:
     ~BingEnginePlugin() override;
 
     void translate() override;
+
+    Q_REQUIRED_RESULT QString languageCode(const QString &langStr) override;
 
 private:
     void parseCredentials(QNetworkReply *reply);

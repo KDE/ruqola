@@ -1,12 +1,10 @@
 /*
-   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: GPL-2.0-or-later
 */
 
 #include "translatorconfigurewidget.h"
-#include "translator/misc/translatorutil.h"
-#include "translator/translatorengineloader.h"
 #include "translatorconfigurecombowidget.h"
 #include <KLocalizedString>
 #include <KSharedConfig>

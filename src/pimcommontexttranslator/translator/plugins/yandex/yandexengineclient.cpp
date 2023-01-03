@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -31,13 +31,21 @@ PimCommonTextTranslator::TranslatorEnginePlugin *YandexEngineClient::createTrans
     return new YandexEnginePlugin();
 }
 
-QVector<QPair<QString, QString>> YandexEngineClient::supportedLanguages()
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> YandexEngineClient::supportedLanguages()
 {
     if (mLanguages.isEmpty()) {
-        mLanguages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
-        PimCommonTextTranslator::TranslatorUtil translatorUtil;
-        mLanguages.append(translatorUtil.pair(PimCommonTextTranslator::TranslatorUtil::TranslatorUtil::jv_yandex));
-        mLanguages.append(translatorUtil.pair(PimCommonTextTranslator::TranslatorUtil::TranslatorUtil::zn_yandex));
+        mLanguages = fillLanguages();
     }
     return mLanguages;
+}
+
+bool YandexEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
+{
+    switch (lang) {
+    case PimCommonTextTranslator::TranslatorUtil::tl:
+        return false;
+    default:
+        break;
+    }
+    return true;
 }

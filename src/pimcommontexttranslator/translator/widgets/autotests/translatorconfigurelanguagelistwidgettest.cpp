@@ -1,14 +1,14 @@
 /*
-   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include "translatorconfigurelanguagelistwidgettest.h"
 #include "translator/widgets/translatorconfigurelanguagelistwidget.h"
-#include <KListWidgetSearchLine>
 #include <QLabel>
-#include <QListWidget>
+#include <QLineEdit>
+#include <QListView>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(TranslatorConfigureLanguageListWidgetTest)
@@ -24,14 +24,12 @@ void TranslatorConfigureLanguageListWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mLanguageListWidget = w.findChild<QListWidget *>(QStringLiteral("mLanguageListWidget"));
+    auto mLanguageListWidget = w.findChild<QListView *>(QStringLiteral("mLanguageListWidget"));
     QVERIFY(mLanguageListWidget);
-    QCOMPARE(mLanguageListWidget->count(), 0);
 
-    auto mListSearchLine = w.findChild<KListWidgetSearchLine *>(QStringLiteral("mListSearchLine"));
+    auto mListSearchLine = w.findChild<QLineEdit *>(QStringLiteral("mListSearchLine"));
     QVERIFY(mListSearchLine);
     QVERIFY(!mListSearchLine->placeholderText().isEmpty());
-    QCOMPARE(mListSearchLine->listWidget(), mLanguageListWidget);
 
     auto mLabel = w.findChild<QLabel *>(QStringLiteral("mLabel"));
     QVERIFY(mLabel);

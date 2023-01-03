@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -7,6 +7,7 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 #include <QObject>
 #include <memory>
 namespace PimCommonTextTranslator
@@ -27,7 +28,7 @@ public:
     // engine name, i18n
     Q_REQUIRED_RESULT QMap<QString, QString> translatorEngineInfos() const;
 
-    Q_REQUIRED_RESULT QVector<QPair<QString, QString>> supportedLanguages(const QString &clientName) const;
+    Q_REQUIRED_RESULT QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> supportedLanguages(const QString &clientName) const;
 
     Q_REQUIRED_RESULT bool hasConfigurationDialog(const QString &clientName) const;
 

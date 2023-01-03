@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -114,4 +114,9 @@ bool TranslatorEnginePlugin::verifyFromAndToLanguage()
 bool TranslatorEnginePlugin::hasDebug() const
 {
     return d->mHasDebug;
+}
+
+QString TranslatorEnginePlugin::languageCode(const QString &langStr)
+{
+    return langStr;
 }

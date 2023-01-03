@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -8,9 +8,10 @@
 
 #include "pimcommontexttranslator_export.h"
 #include <QWidget>
-class QListWidget;
-class KListWidgetSearchLine;
+class QListView;
+class QLineEdit;
 class QLabel;
+class QStandardItemModel;
 namespace PimCommonTextTranslator
 {
 /**
@@ -26,7 +27,7 @@ public:
 
     void clear();
 
-    void addItem(const QPair<QString, QString> &lang);
+    void addItem(const QString &translatedStr, const QString &languageCode);
 
     Q_REQUIRED_RESULT QStringList selectedLanguages() const;
     void setSelectedLanguages(const QStringList &list);
@@ -35,8 +36,9 @@ private:
     enum LanguageData {
         LanguageCode = Qt::UserRole + 1,
     };
-    QListWidget *const mLanguageListWidget;
-    KListWidgetSearchLine *const mListSearchLine;
+    QListView *const mLanguageListWidget;
+    QLineEdit *const mListSearchLine;
     QLabel *const mLabel;
+    QStandardItemModel *const mModel;
 };
 }

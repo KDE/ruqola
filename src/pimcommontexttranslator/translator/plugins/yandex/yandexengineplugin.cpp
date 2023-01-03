@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -93,9 +93,9 @@ void YandexEnginePlugin::translateText()
     clear();
     QString lang;
     if (from() == QStringLiteral("auto")) {
-        lang = to();
+        lang = languageCode(to());
     } else {
-        lang = from() + QLatin1Char('-') + to();
+        lang = languageCode(from()) + QLatin1Char('-') + languageCode(to());
     }
     // qDebug() << " lang " << lang;
     // Generate API url
@@ -150,4 +150,14 @@ void YandexEnginePlugin::parseTranslation(QNetworkReply *reply)
 
     appendResult(jsonData.value(QStringLiteral("text")).toArray().at(0).toString());
     Q_EMIT translateDone();
+}
+
+QString YandexEnginePlugin::languageCode(const QString &langStr)
+{
+    if (langStr == QLatin1String("zh")) {
+        return QStringLiteral("zn");
+    } else if (langStr == QLatin1String("ja")) {
+        return QStringLiteral("jv");
+    }
+    return langStr;
 }

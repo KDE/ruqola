@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -33,7 +33,6 @@ Q_SIGNALS:
     void translate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex);
 
 private:
-    Q_REQUIRED_RESULT static QString searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang);
     QPersistentModelIndex mModelIndex;
     QMenu *const mMenu;
 };

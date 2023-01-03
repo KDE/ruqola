@@ -1,5 +1,5 @@
 /*
-  SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+  SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
   SPDX-License-Identifier: GPL-2.0-or-later
 */
@@ -31,16 +31,30 @@ PimCommonTextTranslator::TranslatorEnginePlugin *BingEngineClient::createTransla
     return new BingEnginePlugin();
 }
 
-QVector<QPair<QString, QString>> BingEngineClient::supportedLanguages()
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> BingEngineClient::supportedLanguages()
 {
     if (mLanguages.isEmpty()) {
-        mLanguages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
-#if 0
-    { QLatin1String("bs-BG"),  QLatin1String("bs-Latn")  },         //                                            NOTE: Bing translator only
-    { QLatin1String("sr-RS"),  QLatin1String("sr-Cyrl")  },         //                                            NOTE: Bing translator only
-    { QLatin1String("zh-CN"),  QLatin1String("zh-Hans")  },         // SimplifiedChinese                        ; NOTE: Bing translator only
-    { QLatin1String("zh-TW"),  QLatin1String("zh-Hant")  }          // TraditionalChinese                       ; NOTE: Bing translator only
-#endif
+        mLanguages = fillLanguages();
     }
     return mLanguages;
+}
+
+bool BingEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
+{
+    switch (lang) {
+    case PimCommonTextTranslator::TranslatorUtil::sq:
+    case PimCommonTextTranslator::TranslatorUtil::hy:
+    case PimCommonTextTranslator::TranslatorUtil::az:
+    case PimCommonTextTranslator::TranslatorUtil::eu:
+    case PimCommonTextTranslator::TranslatorUtil::be:
+    case PimCommonTextTranslator::TranslatorUtil::gl:
+    case PimCommonTextTranslator::TranslatorUtil::ka:
+    case PimCommonTextTranslator::TranslatorUtil::ga:
+    case PimCommonTextTranslator::TranslatorUtil::mk:
+    case PimCommonTextTranslator::TranslatorUtil::yi:
+        return false;
+    default:
+        break;
+    }
+    return true;
 }

@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -87,20 +87,24 @@ void TranslatorConfigureListsWidget::loadLanguagesList()
     d->mToLanguageWidget->setSelectedLanguages(toLanguages);
 }
 
-void TranslatorConfigureListsWidget::fillLanguages(const QVector<QPair<QString, QString>> &listLanguage)
+void TranslatorConfigureListsWidget::fillLanguages(const QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> &listLanguage)
 {
-    const int fullListLanguageSize(listLanguage.count());
-    for (int i = 0; i < fullListLanguageSize; ++i) {
-        const QPair<QString, QString> currentLanguage = listLanguage.at(i);
-        d->mFromLanguageWidget->addItem(currentLanguage);
-        if ((i != 0)) { // Remove auto
-            d->mToLanguageWidget->addItem(currentLanguage);
+    QMapIterator<TranslatorUtil::Language, QString> i(listLanguage);
+    TranslatorUtil translatorUtil;
+    while (i.hasNext()) {
+        i.next();
+        const QString languageCode = TranslatorUtil::languageCode(i.key());
+        d->mFromLanguageWidget->addItem(i.value(), languageCode);
+        if ((i.key() != TranslatorUtil::automatic)) {
+            d->mToLanguageWidget->addItem(i.value(), languageCode);
         }
     }
 }
+
 void TranslatorConfigureListsWidget::slotEngineChanged(const QString &engine)
 {
-    const QVector<QPair<QString, QString>> listLanguage = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
+    const QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> listLanguage =
+        PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
 
     if (!d->mLanguageListLoaded) {
         fillLanguages(listLanguage);

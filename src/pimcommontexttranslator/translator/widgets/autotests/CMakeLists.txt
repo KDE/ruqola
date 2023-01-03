@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2022 Laurent Montel <montel@kde.org>
+# SPDX-FileCopyrightText: 2022-2023 Laurent Montel <montel@kde.org>
 # SPDX-License-Identifier: BSD-3-Clause
 macro(add_pimcommontranslatorwidget_test _source)
     set( _sources ${_source} ${ARGN} )
@@ -6,7 +6,7 @@ macro(add_pimcommontranslatorwidget_test _source)
     add_executable( ${_name} ${_sources} ${_name}.h)
     add_test(NAME ${_name} COMMAND ${_name} )
     ecm_mark_as_test(${_name})
-    target_link_libraries( ${_name} Qt::Test KF5::PimCommonTextTranslator KF5::ItemViews)
+    target_link_libraries( ${_name} Qt::Test KF5::PimCommonTextTranslator)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
