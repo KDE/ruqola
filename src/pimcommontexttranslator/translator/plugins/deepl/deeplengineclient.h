@@ -22,7 +22,7 @@ public:
     Q_REQUIRED_RESULT PimCommonTextTranslator::TranslatorEnginePlugin *createTranslator() override;
     Q_REQUIRED_RESULT QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> supportedLanguages() override;
     Q_REQUIRED_RESULT bool hasConfigurationDialog() const override;
-    void showConfigureDialog() override;
+    void showConfigureDialog(QWidget *parentWidget) override;
 
 protected:
     Q_REQUIRED_RESULT bool isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const override;

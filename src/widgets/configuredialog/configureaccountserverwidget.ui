@@ -16,7 +16,16 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="0" column="0" rowspan="2">
@@ -45,6 +54,23 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="KSeparator" name="kseparator"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="moveUpServer">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="moveDownServer">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="1" column="1">
@@ -63,6 +89,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>KSeparator</class>
+   <extends>QFrame</extends>
+   <header>kseparator.h</header>
+  </customwidget>
   <customwidget>
    <class>AccountServerListWidget</class>
    <extends>QListWidget</extends>

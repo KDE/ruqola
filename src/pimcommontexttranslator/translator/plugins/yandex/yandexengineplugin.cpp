@@ -101,7 +101,7 @@ void YandexEnginePlugin::translateText()
     // Generate API url
     QUrl url(QStringLiteral("https://translate.yandex.net/api/v1/tr.json/translate"));
     QUrlQuery query;
-    query.addQueryItem(QStringLiteral("id"), sYandexKey);
+    query.addQueryItem(QStringLiteral("id"), sYandexKey + QLatin1String("-2-0"));
     query.addQueryItem(QStringLiteral("srv"), QStringLiteral("tr-text"));
     query.addQueryItem(QStringLiteral("text"), inputText());
     query.addQueryItem(QStringLiteral("lang"), lang);
@@ -138,16 +138,10 @@ void YandexEnginePlugin::parseTranslation(QNetworkReply *reply)
     if (from() == QStringLiteral("auto")) {
         QString sourceCode = jsonData.value(QStringLiteral("lang")).toString();
         sourceCode = sourceCode.left(sourceCode.indexOf(QLatin1Char('-')));
-        // m_sourceLang       = language(Yandex, sourceCode);
-#if 0
-        if (m_sourceLang == NoLanguage)
-        {
-            Q_EMIT translateFailed(false, i18n("Error: Unable to parse autodetected language"));
-            return;
-        }
-#endif
+        qDebug() << " sourceCode " << sourceCode;
     }
 
+    // qDebug() << "jsonData  " << jsonData;
     appendResult(jsonData.value(QStringLiteral("text")).toArray().at(0).toString());
     Q_EMIT translateDone();
 }

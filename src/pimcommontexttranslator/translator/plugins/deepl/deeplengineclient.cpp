@@ -64,9 +64,9 @@ bool DeeplEngineClient::hasConfigurationDialog() const
     return true;
 }
 
-void DeeplEngineClient::showConfigureDialog()
+void DeeplEngineClient::showConfigureDialog(QWidget *parentWidget)
 {
-    QPointer<DeeplEngineConfigureDialog> dlg = new DeeplEngineConfigureDialog();
+    QPointer<DeeplEngineConfigureDialog> dlg = new DeeplEngineConfigureDialog(parentWidget);
     KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
     dlg->setUseFreeLicenceKey(myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), false));
     if (dlg->exec()) {

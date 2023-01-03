@@ -18,6 +18,23 @@ ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     connect(ui->addServer, &QPushButton::clicked, this, &ConfigureAccountServerWidget::slotAddServer);
     connect(ui->removeServer, &QPushButton::clicked, this, &ConfigureAccountServerWidget::slotDeleteServer);
     connect(ui->accountServerListwidget, &AccountServerListWidget::itemSelectionChanged, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
+    connect(ui->accountServerListwidget->model(), &QAbstractItemModel::rowsMoved, this, &ConfigureAccountServerWidget::slotItemSelectionChanged);
+
+    ui->moveUpServer->setIcon(QIcon::fromTheme(QStringLiteral("go-up")));
+    ui->moveUpServer->setToolTip(i18nc("Move selected account up.", "Up"));
+    ui->moveUpServer->setEnabled(false); // b/c no item is selected yet
+    ui->moveUpServer->setFocusPolicy(Qt::StrongFocus);
+    ui->moveUpServer->setAutoRepeat(true);
+
+    ui->moveDownServer->setIcon(QIcon::fromTheme(QStringLiteral("go-down")));
+    ui->moveDownServer->setToolTip(i18nc("Move selected account down.", "Down"));
+    ui->moveDownServer->setEnabled(false); // b/c no item is selected yet
+    ui->moveDownServer->setFocusPolicy(Qt::StrongFocus);
+    ui->moveDownServer->setAutoRepeat(true);
+
+    connect(ui->moveUpServer, &QPushButton::clicked, ui->accountServerListwidget, &AccountServerListWidget::slotMoveAccountUp);
+    connect(ui->moveDownServer, &QPushButton::clicked, ui->accountServerListwidget, &AccountServerListWidget::slotMoveAccountDown);
+
     slotItemSelectionChanged();
 }
 
@@ -69,4 +86,7 @@ void ConfigureAccountServerWidget::slotItemSelectionChanged()
     const bool hasItemSelected = ui->accountServerListwidget->currentItem();
     ui->modifyServer->setEnabled(hasItemSelected);
     ui->removeServer->setEnabled(hasItemSelected);
+
+    ui->moveUpServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != 0);
+    ui->moveDownServer->setEnabled(hasItemSelected && ui->accountServerListwidget->currentRow() != ui->accountServerListwidget->count() - 1);
 }
