@@ -39,6 +39,9 @@ public:
 
     void modifyAccountConfig();
 
+    void slotMoveAccountUp();
+    void slotMoveAccountDown();
+
 private:
     QStringList mListRemovedAccount;
 };

@@ -9,6 +9,7 @@
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "ruqolaglobalconfig.h"
 
 #include <QListWidgetItem>
 #include <QPointer>
@@ -16,6 +17,7 @@
 AccountServerListWidget::AccountServerListWidget(QWidget *parent)
     : QListWidget(parent)
 {
+    setDragDropMode(QAbstractItemView::InternalMove);
     connect(this, &AccountServerListWidget::itemDoubleClicked, this, &AccountServerListWidget::modifyAccountConfig);
 }
 
@@ -49,8 +51,11 @@ void AccountServerListWidget::save()
         accountManager->removeAccount(accountName);
     }
 
+    QStringList order;
+    const int numberOfItems(count());
+    order.reserve(numberOfItems);
     // Add account or modify it
-    for (int i = 0; i < count(); ++i) {
+    for (int i = 0; i < numberOfItems; ++i) {
         QListWidgetItem *it = item(i);
         auto serverListItem = static_cast<AccountServerListWidgetItem *>(it);
         AccountManager::AccountManagerInfo info = serverListItem->accountInfo();
@@ -61,7 +66,10 @@ void AccountServerListWidget::save()
         } else {
             accountManager->modifyAccount(info);
         }
+        order << info.accountName;
     }
+    Ruqola::self()->accountManager()->rocketChatAccountProxyModel()->setAccountOrder(order);
+    RuqolaGlobalConfig::self()->setAccountOrder(order);
 }
 
 void AccountServerListWidget::modifyAccountConfig()
@@ -115,6 +123,36 @@ void AccountServerListWidget::addAccountConfig()
         accountServeritem->setNewAccount(true);
     }
     delete dlg;
+}
+
+void AccountServerListWidget::slotMoveAccountUp()
+{
+    if (!currentItem()) {
+        return;
+    }
+    const int pos = row(currentItem());
+    blockSignals(true);
+    QListWidgetItem *item = takeItem(pos);
+    // now selected item is at idx(idx-1), so
+    // insert the other item at idx, ie. above(below).
+    insertItem(pos - 1, item);
+    blockSignals(false);
+    setCurrentRow(pos - 1);
+}
+
+void AccountServerListWidget::slotMoveAccountDown()
+{
+    if (!currentItem()) {
+        return;
+    }
+    const int pos = row(currentItem());
+    blockSignals(true);
+    QListWidgetItem *item = takeItem(pos);
+    // now selected item is at idx(idx-1), so
+    // insert the other item at idx, ie. above(below).
+    insertItem(pos + 1, item);
+    blockSignals(false);
+    setCurrentRow(pos + 1);
 }
 
 AccountServerListWidgetItem::AccountServerListWidgetItem(QListWidget *parent)

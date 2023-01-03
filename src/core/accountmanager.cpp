@@ -10,6 +10,7 @@
 #include "notifications/notifierjob.h"
 #include "parsemessageurlutils.h"
 #include "ruqola_debug.h"
+#include "ruqolaglobalconfig.h"
 #include <KLocalizedString>
 #include <QDir>
 #include <QDirIterator>
@@ -145,6 +146,7 @@ void AccountManager::loadAccount()
             mCurrentAccount = mRocketChatAccountModel->account(0);
         }
     }
+    mRocketChatAccountProxyModel->setAccountOrder(RuqolaGlobalConfig::self()->accountOrder());
 }
 
 RocketChatAccountFilterProxyModel *AccountManager::rocketChatAccountProxyModel() const
