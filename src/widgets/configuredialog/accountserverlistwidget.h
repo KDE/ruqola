@@ -8,7 +8,6 @@
 
 #include "dialogs/createnewserverdialog.h"
 #include "libruqolawidgets_private_export.h"
-#include "user.h"
 #include <QListWidget>
 class AccountServerListWidgetItem : public QListWidgetItem
 {
