@@ -51,11 +51,15 @@ bool LingvaEngineClient::hasConfigurationDialog() const
     return true;
 }
 
-void LingvaEngineClient::showConfigureDialog()
+void LingvaEngineClient::showConfigureDialog(QWidget *parentWidget)
 {
-    QPointer<LingvaEngineDialog> dlg = new LingvaEngineDialog();
+    QPointer<LingvaEngineDialog> dlg = new LingvaEngineDialog(parentWidget);
     KConfigGroup myGroup(KSharedConfig::openConfig(), LingvaEngineUtil::groupName());
-    dlg->setServerUrl(myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), LingvaEngineUtil::defaultServerUrl()));
+    QString lingvaUrl = myGroup.readEntry(LingvaEngineUtil::serverUrlKey(), LingvaEngineUtil::defaultServerUrl());
+    if (lingvaUrl.isEmpty()) {
+        lingvaUrl = LingvaEngineUtil::defaultServerUrl();
+    }
+    dlg->setServerUrl(lingvaUrl);
     if (dlg->exec()) {
         const QString serverUrl = dlg->serverUrl();
         myGroup.writeEntry(LingvaEngineUtil::serverUrlKey(), serverUrl);

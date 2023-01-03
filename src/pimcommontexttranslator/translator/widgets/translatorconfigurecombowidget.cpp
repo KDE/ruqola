@@ -42,7 +42,7 @@ void TranslatorConfigureComboWidget::slotConfigureEngine()
 {
     const QString engine = mEngineComboBox->currentData().toString();
     if (PimCommonTextTranslator::TranslatorEngineLoader::self()->hasConfigurationDialog(engine)) {
-        PimCommonTextTranslator::TranslatorEngineLoader::self()->showConfigureDialog(engine);
+        PimCommonTextTranslator::TranslatorEngineLoader::self()->showConfigureDialog(engine, this);
     }
 }
 

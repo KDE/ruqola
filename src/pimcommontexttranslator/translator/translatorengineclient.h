@@ -34,7 +34,7 @@ public:
 
     Q_REQUIRED_RESULT virtual bool hasConfigurationDialog() const;
 
-    virtual void showConfigureDialog();
+    virtual void showConfigureDialog(QWidget *parentWidget);
 
 Q_SIGNALS:
     void configureChanged();

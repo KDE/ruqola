@@ -21,8 +21,9 @@ bool TranslatorEngineClient::hasConfigurationDialog() const
     return false;
 }
 
-void TranslatorEngineClient::showConfigureDialog()
+void TranslatorEngineClient::showConfigureDialog(QWidget *parentWidget)
 {
+    Q_UNUSED(parentWidget);
     // Nothing by default
 }
 

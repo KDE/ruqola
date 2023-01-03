@@ -51,9 +51,9 @@ bool LibreTranslateEngineClient::hasConfigurationDialog() const
     return true;
 }
 
-void LibreTranslateEngineClient::showConfigureDialog()
+void LibreTranslateEngineClient::showConfigureDialog(QWidget *parentWidget)
 {
-    QPointer<LibreTranslateEngineConfigureDialog> dlg = new LibreTranslateEngineConfigureDialog();
+    QPointer<LibreTranslateEngineConfigureDialog> dlg = new LibreTranslateEngineConfigureDialog(parentWidget);
     KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
     dlg->setServerUrl(myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString()));
     if (dlg->exec()) {
