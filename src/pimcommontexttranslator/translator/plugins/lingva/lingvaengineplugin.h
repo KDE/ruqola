@@ -19,6 +19,8 @@ public:
 
     void slotConfigureChanged();
 
+    Q_REQUIRED_RESULT QString languageCode(const QString &langStr) override;
+
 private:
     void loadSettings();
     void translateText();

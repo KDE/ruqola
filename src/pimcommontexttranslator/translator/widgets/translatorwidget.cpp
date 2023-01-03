@@ -53,7 +53,7 @@ public:
     void initLanguage();
     void fillToCombobox(const QString &lang);
 
-    QVector<QPair<QString, QString>> listLanguage;
+    QMap<TranslatorUtil::Language, QString> listLanguage;
     QByteArray data;
     TranslatorTextEdit *inputText = nullptr;
     TranslatorResultTextEdit *translatorResultTextEdit = nullptr;
@@ -76,12 +76,13 @@ void TranslatorWidget::TranslatorWidgetPrivate::fillToCombobox(const QString &la
 {
     toCombobox->clear();
 
-    const int fullListLanguageSize(listLanguage.count());
     TranslatorUtil translatorUtil;
-    for (int i = 0; i < fullListLanguageSize; ++i) {
-        const QPair<QString, QString> currentLanguage = listLanguage.at(i);
-        if ((i != 0) && currentLanguage.second != lang) {
-            translatorUtil.addItemToFromComboBox(toCombobox, currentLanguage);
+    QMapIterator<TranslatorUtil::Language, QString> i(listLanguage);
+    while (i.hasNext()) {
+        i.next();
+        const QString languageCode = TranslatorUtil::languageCode(i.key());
+        if ((i.key() != TranslatorUtil::automatic) && languageCode != lang) {
+            translatorUtil.addItemToFromComboBox(toCombobox, languageCode, i.value());
         }
     }
 }
@@ -95,11 +96,12 @@ void TranslatorWidget::TranslatorWidgetPrivate::initLanguage()
     fromCombobox->clear();
     listLanguage = translatorClient->supportedLanguages();
 
-    const int fullListLanguageSize(listLanguage.count());
+    QMapIterator<TranslatorUtil::Language, QString> i(listLanguage);
     TranslatorUtil translatorUtil;
-    for (int i = 0; i < fullListLanguageSize; ++i) {
-        const QPair<QString, QString> currentLanguage = listLanguage.at(i);
-        translatorUtil.addItemToFromComboBox(fromCombobox, currentLanguage);
+    while (i.hasNext()) {
+        i.next();
+        const QString languageCode = TranslatorUtil::languageCode(i.key());
+        translatorUtil.addItemToFromComboBox(fromCombobox, languageCode, i.value());
     }
 }
 

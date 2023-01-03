@@ -25,3 +25,15 @@ void TranslatorEngineClient::showConfigureDialog()
 {
     // Nothing by default
 }
+
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> TranslatorEngineClient::fillLanguages()
+{
+    QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> map;
+    for (int i = PimCommonTextTranslator::TranslatorUtil::Language::automatic; i < PimCommonTextTranslator::TranslatorUtil::Language::lastLanguage; ++i) {
+        if (isSupported(static_cast<PimCommonTextTranslator::TranslatorUtil::Language>(i))) {
+            map.insert(static_cast<PimCommonTextTranslator::TranslatorUtil::Language>(i),
+                       PimCommonTextTranslator::TranslatorUtil::translatedLanguage(static_cast<PimCommonTextTranslator::TranslatorUtil::Language>(i)));
+        }
+    }
+    return map;
+}

@@ -115,3 +115,8 @@ bool TranslatorEnginePlugin::hasDebug() const
 {
     return d->mHasDebug;
 }
+
+QString TranslatorEnginePlugin::languageCode(const QString &langStr)
+{
+    return langStr;
+}

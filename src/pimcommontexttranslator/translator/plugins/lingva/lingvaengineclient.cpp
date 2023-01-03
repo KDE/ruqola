@@ -38,10 +38,10 @@ PimCommonTextTranslator::TranslatorEnginePlugin *LingvaEngineClient::createTrans
     return enginePlugin;
 }
 
-QVector<QPair<QString, QString>> LingvaEngineClient::supportedLanguages()
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> LingvaEngineClient::supportedLanguages()
 {
     if (mLanguages.isEmpty()) {
-        mLanguages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
+        mLanguages = fillLanguages();
     }
     return mLanguages;
 }
@@ -63,4 +63,16 @@ void LingvaEngineClient::showConfigureDialog()
         Q_EMIT configureChanged();
     }
     delete dlg;
+}
+
+bool LingvaEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
+{
+    switch (lang) {
+    case PimCommonTextTranslator::TranslatorUtil::ka:
+    case PimCommonTextTranslator::TranslatorUtil::tl:
+        return false;
+    default:
+        break;
+    }
+    return true;
 }

@@ -35,7 +35,8 @@ void LingvaEnginePlugin::translateText()
 {
     clear();
 
-    const QUrl url(QStringLiteral("%1/api/v1/%2/%3/%4").arg(mServerUrl, from(), to(), QString::fromUtf8(QUrl::toPercentEncoding(inputText()))));
+    const QUrl url(QStringLiteral("%1/api/v1/%2/%3/%4")
+                       .arg(mServerUrl, languageCode(from()), languageCode(to()), QString::fromUtf8(QUrl::toPercentEncoding(inputText()))));
 
     qCDebug(TRANSLATOR_LINGVA_LOG) << " url " << url;
     const QNetworkRequest request(url);
@@ -80,4 +81,14 @@ void LingvaEnginePlugin::loadSettings()
 void LingvaEnginePlugin::slotConfigureChanged()
 {
     loadSettings();
+}
+
+QString LingvaEnginePlugin::languageCode(const QString &langStr)
+{
+    if (langStr == QLatin1String("zh")) {
+        return QStringLiteral("zh");
+    } else if (langStr == QLatin1String("zt")) {
+        return QStringLiteral("zh_HANT");
+    }
+    return langStr;
 }

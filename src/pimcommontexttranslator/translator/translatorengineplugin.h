@@ -7,6 +7,7 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 #include <QNetworkReply>
 #include <QObject>
 #include <QString>
@@ -48,6 +49,8 @@ protected:
     void slotError(QNetworkReply::NetworkError error);
     Q_REQUIRED_RESULT bool verifyFromAndToLanguage();
     Q_REQUIRED_RESULT bool hasDebug() const;
+
+    Q_REQUIRED_RESULT virtual QString languageCode(const QString &langStr);
 
 private:
     std::unique_ptr<TranslatorEnginePluginPrivate> const d;

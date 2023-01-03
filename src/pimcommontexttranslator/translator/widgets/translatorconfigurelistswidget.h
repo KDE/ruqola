@@ -7,6 +7,7 @@
 #pragma once
 
 #include "pimcommontexttranslator_export.h"
+#include <PimCommonTextTranslator/TranslatorUtil>
 #include <QWidget>
 namespace PimCommonTextTranslator
 {
@@ -26,7 +27,7 @@ public:
 
 private:
     void loadLanguagesList();
-    void fillLanguages(const QVector<QPair<QString, QString>> &listLanguage);
+    void fillLanguages(const QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> &listLanguage);
     void slotEngineChanged(const QString &engine);
     class TranslatorConfigureListsWidgetPrivate;
     std::unique_ptr<TranslatorConfigureListsWidgetPrivate> const d;

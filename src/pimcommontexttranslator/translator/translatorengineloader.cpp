@@ -99,9 +99,9 @@ QMap<QString, QString> TranslatorEngineLoader::translatorEngineInfos() const
     return map;
 }
 
-QVector<QPair<QString, QString>> TranslatorEngineLoader::supportedLanguages(const QString &clientName) const
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> TranslatorEngineLoader::supportedLanguages(const QString &clientName) const
 {
-    QVector<QPair<QString, QString>> supportedLanguages;
+    QMap<TranslatorUtil::Language, QString> supportedLanguages;
     auto clientsItr = d->translatorClients.constFind(clientName);
     if (clientsItr == d->translatorClients.constEnd()) {
         qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Client name not found: " << clientName;

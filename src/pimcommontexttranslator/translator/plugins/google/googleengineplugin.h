@@ -7,6 +7,7 @@
 #pragma once
 
 #include <PimCommonTextTranslator/TranslatorEnginePlugin>
+#include <PimCommonTextTranslator/TranslatorUtil>
 class QNetworkReply;
 class GoogleEnginePlugin : public PimCommonTextTranslator::TranslatorEnginePlugin
 {
@@ -15,6 +16,8 @@ public:
     ~GoogleEnginePlugin() override;
 
     void translate() override;
+
+    Q_REQUIRED_RESULT QString languageCode(const QString &langStr) override;
 
 private:
     void slotTranslateFinished(QNetworkReply *reply);

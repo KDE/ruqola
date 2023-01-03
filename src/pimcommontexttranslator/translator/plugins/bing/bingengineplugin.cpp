@@ -107,15 +107,12 @@ void BingEnginePlugin::translateText()
     }
     clear();
 
-    const QByteArray postData =
-        "&text=" + QUrl::toPercentEncoding(inputText()) + "&fromLang=" + from().toUtf8() + "&to=" + to().toUtf8() + "&token=" + sBingToken + "&key=" + sBingKey;
+    const QByteArray postData = "&text=" + QUrl::toPercentEncoding(inputText()) + "&fromLang=" + languageCode(from()).toUtf8()
+        + "&to=" + languageCode(to()).toUtf8() + "&token=" + sBingToken + "&key=" + sBingKey;
 
     qCDebug(TRANSLATOR_BING_LOG) << " postData " << postData;
-    QUrlQuery urlQuery;
-    urlQuery.addQueryItem(QStringLiteral("IG"), sBingIg);
-    urlQuery.addQueryItem(QStringLiteral("IDD"), sBingIid);
     QUrl url(QStringLiteral("https://www.bing.com/ttranslatev3"));
-    url.setQuery(urlQuery);
+    url.setQuery(QStringLiteral("IG=%1&IID=%2").arg(sBingIg, sBingIid));
     qCDebug(TRANSLATOR_BING_LOG) << " url " << url;
 
     QNetworkRequest request(url);
@@ -161,4 +158,22 @@ void BingEnginePlugin::parseTranslation(QNetworkReply *reply)
     // m_translationTranslit               += translationsObject.value(QStringLiteral("transliteration")).toObject().value(QStringLiteral("text")).toString();
     reply->deleteLater();
     Q_EMIT translateDone();
+}
+
+QString BingEnginePlugin::languageCode(const QString &langStr)
+{
+    if (langStr == QLatin1String("auto")) {
+        return QStringLiteral("auto-detect");
+    } else if (langStr == QLatin1String("sr")) {
+        return QStringLiteral("sr-Cyrl");
+    } else if (langStr == QLatin1String("bs")) {
+        return QStringLiteral("bs-Latn");
+    } else if (langStr == QLatin1String("hmn")) {
+        return QStringLiteral("mww");
+    } else if (langStr == QLatin1String("zh")) {
+        return QStringLiteral("zh-Hans");
+    } else if (langStr == QLatin1String("zt")) {
+        return QStringLiteral("zh-Hant");
+    }
+    return langStr;
 }

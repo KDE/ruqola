@@ -13,265 +13,409 @@ using namespace PimCommonTextTranslator;
 
 TranslatorUtil::TranslatorUtil() = default;
 
-QVector<QPair<QString, QString>> TranslatorUtil::genericLanguages()
+QMap<TranslatorUtil::Language, QString> TranslatorUtil::translatedLanguages()
 {
-    TranslatorUtil translatorUtil;
-    QVector<QPair<QString, QString>> fullListLanguage;
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::automatic));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::en));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::nl));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::fr));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::de));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::el));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::it));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ja));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ko));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::pt));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ru));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::es));
-
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::af));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sq));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ar));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::hy));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::az));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::eu));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::be));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::bg));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ca));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::hr));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::cs));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::da));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::et));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::tl));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::fi));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::gl));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ka));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ht));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::iw));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::hi));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::hu));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::is));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::id));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ga));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::lv));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::lt));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::mk));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ms));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::mt));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::no));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::fa));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::pl));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ro));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sr));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sk));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sl));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sw));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::sv));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::th));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::tr));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::uk));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::ur));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::vi));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::cy));
-    fullListLanguage.append(translatorUtil.pair(TranslatorUtil::yi));
-    return fullListLanguage;
+    QMap<TranslatorUtil::Language, QString> map;
+    for (int i = TranslatorUtil::Language::automatic; i < TranslatorUtil::Language::lastLanguage; ++i) {
+        map.insert(static_cast<TranslatorUtil::Language>(i), translatedLanguage(static_cast<TranslatorUtil::Language>(i)));
+    }
+    return map;
 }
 
-QPair<QString, QString> TranslatorUtil::pair(TranslatorUtil::languages lang)
+QString TranslatorUtil::translatedLanguage(TranslatorUtil::Language lang)
 {
-    QPair<QString, QString> ret;
+    QString ret;
     switch (lang) {
     case automatic:
-        ret = QPair<QString, QString>(i18n("Detect language"), QStringLiteral("auto"));
+        ret = i18n("Detect language");
+        break;
+    case hmong:
+        ret = i18n("Hmong");
+        break;
+    case bs:
+        ret = i18n("Bosnian");
         break;
     case en:
-        ret = QPair<QString, QString>(i18n("English"), QStringLiteral("en"));
+        ret = i18n("English");
         break;
     case zh:
-        ret = QPair<QString, QString>(i18n("Chinese (Simplified)"), QStringLiteral("zh"));
+        ret = i18n("Chinese (Simplified)");
         break;
     case zt:
-        ret = QPair<QString, QString>(i18n("Chinese (Traditional)"), QStringLiteral("zt"));
+        ret = i18n("Chinese (Traditional)");
         break;
     case nl:
-        ret = QPair<QString, QString>(i18n("Dutch"), QStringLiteral("nl"));
+        ret = i18n("Dutch");
         break;
     case fr:
-        ret = QPair<QString, QString>(i18n("French"), QStringLiteral("fr"));
+        ret = i18n("French");
         break;
     case de:
-        ret = QPair<QString, QString>(i18n("German"), QStringLiteral("de"));
+        ret = i18n("German");
         break;
     case el:
-        ret = QPair<QString, QString>(i18n("Greek"), QStringLiteral("el"));
+        ret = i18n("Greek");
         break;
     case it:
-        ret = QPair<QString, QString>(i18n("Italian"), QStringLiteral("it"));
+        ret = i18n("Italian");
         break;
     case ja:
-        ret = QPair<QString, QString>(i18n("Japanese"), QStringLiteral("ja"));
+        ret = i18n("Japanese");
         break;
     case ko:
-        ret = QPair<QString, QString>(i18n("Korean"), QStringLiteral("ko"));
+        ret = i18n("Korean");
         break;
     case pt:
-        ret = QPair<QString, QString>(i18n("Portuguese"), QStringLiteral("pt"));
+        ret = i18n("Portuguese");
         break;
     case ru:
-        ret = QPair<QString, QString>(i18n("Russian"), QStringLiteral("ru"));
+        ret = i18n("Russian");
         break;
     case es:
-        ret = QPair<QString, QString>(i18n("Spanish"), QStringLiteral("es"));
+        ret = i18n("Spanish");
         break;
     case af:
-        ret = QPair<QString, QString>(i18n("Afrikaans"), QStringLiteral("af"));
+        ret = i18n("Afrikaans");
         break;
     case sq:
-        ret = QPair<QString, QString>(i18n("Albanian"), QStringLiteral("sq"));
+        ret = i18n("Albanian");
         break;
     case ar:
-        ret = QPair<QString, QString>(i18n("Arabic"), QStringLiteral("ar"));
+        ret = i18n("Arabic");
         break;
     case hy:
-        ret = QPair<QString, QString>(i18n("Armenian"), QStringLiteral("hy"));
+        ret = i18n("Armenian");
         break;
     case az:
-        ret = QPair<QString, QString>(i18n("Azerbaijani"), QStringLiteral("az"));
+        ret = i18n("Azerbaijani");
         break;
     case eu:
-        ret = QPair<QString, QString>(i18n("Basque"), QStringLiteral("eu"));
+        ret = i18n("Basque");
         break;
     case be:
-        ret = QPair<QString, QString>(i18n("Belarusian"), QStringLiteral("be"));
+        ret = i18n("Belarusian");
         break;
     case bg:
-        ret = QPair<QString, QString>(i18n("Bulgarian"), QStringLiteral("bg"));
+        ret = i18n("Bulgarian");
         break;
     case ca:
-        ret = QPair<QString, QString>(i18n("Catalan"), QStringLiteral("ca"));
-        break;
-    case zh_cn_google: // For google only
-        ret = QPair<QString, QString>(i18n("Chinese (Simplified)"), QStringLiteral("zh-CN")); // For google only
-        break;
-    case zh_tw_google: // For google only
-        ret = QPair<QString, QString>(i18n("Chinese (Traditional)"), QStringLiteral("zh-TW")); // For google only
+        ret = i18n("Catalan");
         break;
     case hr:
-        ret = QPair<QString, QString>(i18n("Croatian"), QStringLiteral("hr"));
+        ret = i18n("Croatian");
         break;
     case cs:
-        ret = QPair<QString, QString>(i18n("Czech"), QStringLiteral("cs"));
+        ret = i18n("Czech");
         break;
     case da:
-        ret = QPair<QString, QString>(i18n("Danish"), QStringLiteral("da"));
+        ret = i18n("Danish");
         break;
     case et:
-        ret = QPair<QString, QString>(i18n("Estonian"), QStringLiteral("et"));
+        ret = i18n("Estonian");
         break;
     case tl:
-        ret = QPair<QString, QString>(i18n("Filipino"), QStringLiteral("tl"));
+        ret = i18n("Filipino");
         break;
     case fi:
-        ret = QPair<QString, QString>(i18n("Finnish"), QStringLiteral("fi"));
+        ret = i18n("Finnish");
         break;
     case gl:
-        ret = QPair<QString, QString>(i18n("Galician"), QStringLiteral("gl"));
+        ret = i18n("Galician");
         break;
     case ka:
-        ret = QPair<QString, QString>(i18n("Georgian"), QStringLiteral("ka"));
+        ret = i18n("Georgian");
         break;
     case ht:
-        ret = QPair<QString, QString>(i18n("Haitian Creole"), QStringLiteral("ht"));
+        ret = i18n("Haitian Creole");
         break;
     case iw:
-        ret = QPair<QString, QString>(i18n("Hebrew"), QStringLiteral("iw"));
+        ret = i18n("Hebrew");
         break;
     case hi:
-        ret = QPair<QString, QString>(i18n("Hindi"), QStringLiteral("hi"));
+        ret = i18n("Hindi");
         break;
     case hu:
-        ret = QPair<QString, QString>(i18n("Hungarian"), QStringLiteral("hu"));
+        ret = i18n("Hungarian");
         break;
     case is:
-        ret = QPair<QString, QString>(i18n("Icelandic"), QStringLiteral("is"));
+        ret = i18n("Icelandic");
         break;
     case id:
-        ret = QPair<QString, QString>(i18n("Indonesian"), QStringLiteral("id"));
+        ret = i18n("Indonesian");
         break;
     case ga:
-        ret = QPair<QString, QString>(i18n("Irish"), QStringLiteral("ga"));
+        ret = i18n("Irish");
         break;
     case lv:
-        ret = QPair<QString, QString>(i18n("Latvian"), QStringLiteral("lv"));
+        ret = i18n("Latvian");
         break;
     case lt:
-        ret = QPair<QString, QString>(i18n("Lithuanian"), QStringLiteral("lt"));
+        ret = i18n("Lithuanian");
         break;
     case mk:
-        ret = QPair<QString, QString>(i18n("Macedonian"), QStringLiteral("mk"));
+        ret = i18n("Macedonian");
         break;
     case ms:
-        ret = QPair<QString, QString>(i18n("Malay"), QStringLiteral("ms"));
+        ret = i18n("Malay");
         break;
     case mt:
-        ret = QPair<QString, QString>(i18n("Maltese"), QStringLiteral("mt"));
+        ret = i18n("Maltese");
         break;
     case no:
-        ret = QPair<QString, QString>(i18n("Norwegian"), QStringLiteral("no"));
+        ret = i18n("Norwegian");
         break;
     case fa:
-        ret = QPair<QString, QString>(i18n("Persian"), QStringLiteral("fa"));
+        ret = i18n("Persian");
         break;
     case pl:
-        ret = QPair<QString, QString>(i18n("Polish"), QStringLiteral("pl"));
+        ret = i18n("Polish");
         break;
     case ro:
-        ret = QPair<QString, QString>(i18n("Romanian"), QStringLiteral("ro"));
+        ret = i18n("Romanian");
         break;
     case sr:
-        ret = QPair<QString, QString>(i18n("Serbian"), QStringLiteral("sr"));
+        ret = i18n("Serbian");
         break;
     case sk:
-        ret = QPair<QString, QString>(i18n("Slovak"), QStringLiteral("sk"));
+        ret = i18n("Slovak");
         break;
     case sl:
-        ret = QPair<QString, QString>(i18n("Slovenian"), QStringLiteral("sl"));
+        ret = i18n("Slovenian");
         break;
     case sw:
-        ret = QPair<QString, QString>(i18n("Swahili"), QStringLiteral("sw"));
+        ret = i18n("Swahili");
         break;
     case sv:
-        ret = QPair<QString, QString>(i18n("Swedish"), QStringLiteral("sv"));
+        ret = i18n("Swedish");
         break;
     case th:
-        ret = QPair<QString, QString>(i18n("Thai"), QStringLiteral("th"));
+        ret = i18n("Thai");
         break;
     case tr:
-        ret = QPair<QString, QString>(i18n("Turkish"), QStringLiteral("tr"));
+        ret = i18n("Turkish");
         break;
     case uk:
-        ret = QPair<QString, QString>(i18n("Ukrainian"), QStringLiteral("uk"));
+        ret = i18n("Ukrainian");
         break;
     case ur:
-        ret = QPair<QString, QString>(i18n("Urdu"), QStringLiteral("ur"));
+        ret = i18n("Urdu");
         break;
     case vi:
-        ret = QPair<QString, QString>(i18n("Vietnamese"), QStringLiteral("vi"));
+        ret = i18n("Vietnamese");
         break;
     case cy:
-        ret = QPair<QString, QString>(i18n("Welsh"), QStringLiteral("cy"));
+        ret = i18n("Welsh");
         break;
     case yi:
-        ret = QPair<QString, QString>(i18n("Yiddish"), QStringLiteral("yi"));
+        ret = i18n("Yiddish");
         break;
     }
     return ret;
 }
 
-void TranslatorUtil::addItemToFromComboBox(QComboBox *combo, const QPair<QString, QString> &pair)
+QString TranslatorUtil::searchI18nFromLanguage(const QString &langCode)
 {
-    combo->addItem(pair.first, pair.second);
+    for (int i = TranslatorUtil::Language::automatic; i < TranslatorUtil::Language::lastLanguage; ++i) {
+        if (langCode == languageCode(static_cast<TranslatorUtil::Language>(i))) {
+            return translatedLanguage(static_cast<TranslatorUtil::Language>(i));
+        }
+    }
+    return {};
+}
+
+QString TranslatorUtil::languageCode(TranslatorUtil::Language lang)
+{
+    QString ret;
+    switch (lang) {
+    case automatic:
+        ret = QStringLiteral("auto");
+        break;
+    case hmong:
+        ret = QStringLiteral("hmn");
+        break;
+    case en:
+        ret = QStringLiteral("en");
+        break;
+    case zh:
+        ret = QStringLiteral("zh-CN");
+        break;
+    case zt:
+        ret = QStringLiteral("zh-TW");
+        break;
+    case nl:
+        ret = QStringLiteral("nl");
+        break;
+    case fr:
+        ret = QStringLiteral("fr");
+        break;
+    case de:
+        ret = QStringLiteral("de");
+        break;
+    case el:
+        ret = QStringLiteral("el");
+        break;
+    case it:
+        ret = QStringLiteral("it");
+        break;
+    case ja:
+        ret = QStringLiteral("ja");
+        break;
+    case ko:
+        ret = QStringLiteral("ko");
+        break;
+    case pt:
+        ret = QStringLiteral("pt");
+        break;
+    case ru:
+        ret = QStringLiteral("ru");
+        break;
+    case es:
+        ret = QStringLiteral("es");
+        break;
+    case af:
+        ret = QStringLiteral("af");
+        break;
+    case sq:
+        ret = QStringLiteral("sq");
+        break;
+    case ar:
+        ret = QStringLiteral("ar");
+        break;
+    case hy:
+        ret = QStringLiteral("hy");
+        break;
+    case az:
+        ret = QStringLiteral("az");
+        break;
+    case eu:
+        ret = QStringLiteral("eu");
+        break;
+    case be:
+        ret = QStringLiteral("be");
+        break;
+    case bg:
+        ret = QStringLiteral("bg");
+        break;
+    case ca:
+        ret = QStringLiteral("ca");
+        break;
+    case hr:
+        ret = QStringLiteral("hr");
+        break;
+    case cs:
+        ret = QStringLiteral("cs");
+        break;
+    case da:
+        ret = QStringLiteral("da");
+        break;
+    case et:
+        ret = QStringLiteral("et");
+        break;
+    case tl:
+        ret = QStringLiteral("tl");
+        break;
+    case fi:
+        ret = QStringLiteral("fi");
+        break;
+    case gl:
+        ret = QStringLiteral("gl");
+        break;
+    case ka:
+        ret = QStringLiteral("ka");
+        break;
+    case ht:
+        ret = QStringLiteral("ht");
+        break;
+    case iw:
+        ret = QStringLiteral("he");
+        break;
+    case hi:
+        ret = QStringLiteral("hi");
+        break;
+    case hu:
+        ret = QStringLiteral("hu");
+        break;
+    case is:
+        ret = QStringLiteral("is");
+        break;
+    case id:
+        ret = QStringLiteral("id");
+        break;
+    case ga:
+        ret = QStringLiteral("ga");
+        break;
+    case lv:
+        ret = QStringLiteral("lv");
+        break;
+    case lt:
+        ret = QStringLiteral("lt");
+        break;
+    case mk:
+        ret = QStringLiteral("mk");
+        break;
+    case ms:
+        ret = QStringLiteral("ms");
+        break;
+    case mt:
+        ret = QStringLiteral("mt");
+        break;
+    case no:
+        ret = QStringLiteral("no");
+        break;
+    case fa:
+        ret = QStringLiteral("fa");
+        break;
+    case pl:
+        ret = QStringLiteral("pl");
+        break;
+    case ro:
+        ret = QStringLiteral("ro");
+        break;
+    case sr:
+        ret = QStringLiteral("sr");
+        break;
+    case sk:
+        ret = QStringLiteral("sk");
+        break;
+    case sl:
+        ret = QStringLiteral("sl");
+        break;
+    case sw:
+        ret = QStringLiteral("sw");
+        break;
+    case sv:
+        ret = QStringLiteral("sv");
+        break;
+    case th:
+        ret = QStringLiteral("th");
+        break;
+    case tr:
+        ret = QStringLiteral("tr");
+        break;
+    case uk:
+        ret = QStringLiteral("uk");
+        break;
+    case ur:
+        ret = QStringLiteral("ur");
+        break;
+    case vi:
+        ret = QStringLiteral("vi");
+        break;
+    case cy:
+        ret = QStringLiteral("cy");
+        break;
+    case yi:
+        ret = QStringLiteral("yi");
+        break;
+    case bs:
+        return QStringLiteral("bs");
+    }
+    return ret;
+}
+
+void TranslatorUtil::addItemToFromComboBox(QComboBox *combo, const QString &languageCode, const QString &translatedStr)
+{
+    combo->addItem(translatedStr, languageCode);
 }
 
 QString TranslatorUtil::groupTranslateName()

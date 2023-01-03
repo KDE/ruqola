@@ -29,11 +29,14 @@ TranslatorConfigureLanguageListWidget_gui::TranslatorConfigureLanguageListWidget
         qDebug() << " select " << w->selectedLanguages();
     });
     connect(buttonBox, &QDialogButtonBox::accepted, this, &TranslatorConfigureLanguageListWidget_gui::accept);
-    auto languages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
-    const int fullListLanguageSize(languages.count());
-    for (int i = 0; i < fullListLanguageSize; ++i) {
-        const QPair<QString, QString> currentLanguage = languages.at(i);
-        w->addItem(currentLanguage);
+    const QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> languages; // = PimCommonTextTranslator::TranslatorUtil::translatedLanguages();
+
+    QMapIterator<PimCommonTextTranslator::TranslatorUtil::Language, QString> i(languages);
+    PimCommonTextTranslator::TranslatorUtil translatorUtil;
+    while (i.hasNext()) {
+        i.next();
+        const QString languageCode = PimCommonTextTranslator::TranslatorUtil::languageCode(i.key());
+        w->addItem(i.value(), languageCode);
     }
 }
 

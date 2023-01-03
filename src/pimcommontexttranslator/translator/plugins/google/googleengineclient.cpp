@@ -31,14 +31,22 @@ PimCommonTextTranslator::TranslatorEnginePlugin *GoogleEngineClient::createTrans
     return new GoogleEnginePlugin();
 }
 
-QVector<QPair<QString, QString>> GoogleEngineClient::supportedLanguages()
+QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> GoogleEngineClient::supportedLanguages()
 {
     if (mLanguages.isEmpty()) {
-        mLanguages = PimCommonTextTranslator::TranslatorUtil::genericLanguages();
-        PimCommonTextTranslator::TranslatorUtil translatorUtil;
-        QVector<QPair<QString, QString>> langLanguage;
-        mLanguages.append(translatorUtil.pair(PimCommonTextTranslator::TranslatorUtil::zh_cn_google)); // For google only
-        mLanguages.append(translatorUtil.pair(PimCommonTextTranslator::TranslatorUtil::zh_tw_google)); // For google only
+        mLanguages = fillLanguages();
     }
     return mLanguages;
+}
+
+bool GoogleEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
+{
+    switch (lang) {
+    case PimCommonTextTranslator::TranslatorUtil::ka:
+    case PimCommonTextTranslator::TranslatorUtil::tl:
+        return false;
+    default:
+        break;
+    }
+    return true;
 }

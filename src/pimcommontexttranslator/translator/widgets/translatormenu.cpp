@@ -41,14 +41,14 @@ void TranslatorMenu::updateMenu()
     const QString engine = groupTranslate.readEntry(QStringLiteral("engine"), QStringLiteral("google")); // Google by default
     const auto fromList = groupTranslate.readEntry(QStringLiteral("From"), QStringList());
     const auto toList = groupTranslate.readEntry(QStringLiteral("To"), QStringList());
-    const QVector<QPair<QString, QString>> languagesList = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
+    const QMap<TranslatorUtil::Language, QString> languagesList = PimCommonTextTranslator::TranslatorEngineLoader::self()->supportedLanguages(engine);
     for (const auto &fromLang : fromList) {
-        const QString fromLangI18n = searchI18nFromLanguage(languagesList, fromLang);
+        const QString fromLangI18n = TranslatorUtil::searchI18nFromLanguage(fromLang);
         if (fromLangI18n.isEmpty()) {
             qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Impossible to find \"from\" language " << fromLangI18n;
         } else {
             for (const auto &toLang : toList) {
-                const QString toLangI18n = searchI18nFromLanguage(languagesList, toLang);
+                const QString toLangI18n = TranslatorUtil::searchI18nFromLanguage(toLang);
                 if (toLangI18n.isEmpty()) {
                     qCWarning(PIMCOMMONTEXTTRANSLATOR_LOG) << "Impossible to find \"to\" language " << fromLangI18n;
                 } else {
@@ -74,16 +74,6 @@ const QPersistentModelIndex &TranslatorMenu::modelIndex() const
 void TranslatorMenu::setModelIndex(const QPersistentModelIndex &newModelIndex)
 {
     mModelIndex = newModelIndex;
-}
-
-QString TranslatorMenu::searchI18nFromLanguage(const QVector<QPair<QString, QString>> &languagesList, const QString &lang)
-{
-    for (const QPair<QString, QString> &pair : languagesList) {
-        if (pair.second == lang) {
-            return pair.first;
-        }
-    }
-    return {};
 }
 
 QMenu *TranslatorMenu::menu() const

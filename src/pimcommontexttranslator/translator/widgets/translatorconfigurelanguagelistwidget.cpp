@@ -52,11 +52,11 @@ void TranslatorConfigureLanguageListWidget::clear()
     mModel->clear();
 }
 
-void TranslatorConfigureLanguageListWidget::addItem(const QPair<QString, QString> &lang)
+void TranslatorConfigureLanguageListWidget::addItem(const QString &translatedStr, const QString &languageCode)
 {
     QStandardItem *item = new QStandardItem();
-    item->setText(lang.first);
-    item->setData(lang.second, LanguageCode);
+    item->setText(translatedStr);
+    item->setData(languageCode, LanguageCode);
     item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
     item->setEditable(false);
     item->setCheckState(Qt::Unchecked);
