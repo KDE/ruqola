@@ -17,4 +17,13 @@ public:
     explicit RocketChatAccountFilterProxyModel(QObject *parent = nullptr);
 
     ~RocketChatAccountFilterProxyModel() override;
+
+    Q_REQUIRED_RESULT QStringList accountOrder() const;
+    void setAccountOrder(const QStringList &newAccountOrder);
+
+protected:
+    Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
+
+private:
+    QStringList mAccountOrder;
 };

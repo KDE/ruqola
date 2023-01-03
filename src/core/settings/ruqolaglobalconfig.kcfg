@@ -26,7 +26,10 @@
     </entry>
     <entry name="ShowHoverHighlights" type="Bool">
       <default>true</default>
-    </entry>    
+    </entry>
+    <entry name="AccountOrder" type="StringList">
+      <default></default>
+    </entry>
   </group>
 
   <group name="Behavior">
