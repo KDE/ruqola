@@ -18,6 +18,7 @@ public:
         SiteUrl,
         UserName,
         Account,
+        AccountName,
     };
     Q_ENUM(AccountRoles)
 
