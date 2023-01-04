@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-03 00:47+0000\n"
+"POT-Creation-Date: 2023-01-04 00:48+0000\n"
 "PO-Revision-Date: 2022-12-16 21:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -149,7 +149,7 @@ msgstr "Optimistion, corrige supporto de windows/mac"
 msgid "The following accounts are available:"
 msgstr "Le sequente contos es disponibile:"
 
-#: core/accountmanager.cpp:60
+#: core/accountmanager.cpp:61
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Servitor non trovate: %1"
@@ -1547,8 +1547,8 @@ msgid "Voice:"
 msgstr "Voce:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:234
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:237
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:239
 #, fuzzy, kde-format
 msgid "Close"
 msgstr "Claude"
@@ -1619,7 +1619,7 @@ msgstr "&Adde"
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:107
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:268
-#: widgets/configuredialog/configureaccountserverwidget.ui:44
+#: widgets/configuredialog/configureaccountserverwidget.ui:53
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
 msgid "Remove"
@@ -2043,299 +2043,307 @@ msgstr "Inserta"
 msgid "Select"
 msgstr "Selige"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:86
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:30
 #, kde-format
 msgid "Detect language"
 msgstr "Releva linguage"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:89
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:33
+#, kde-format
+msgid "Hmong"
+msgstr ""
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:36
+#, fuzzy, kde-format
+msgid "Bosnian"
+msgstr "Estonian "
+
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:39
 #, kde-format
 msgid "English"
 msgstr "Anglese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:92
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:155
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:42
 #, fuzzy, kde-format
 msgid "Chinese (Simplified)"
 msgstr "Chinese Simplificate)"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:95
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:158
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:45
 #, fuzzy, kde-format
 msgid "Chinese (Traditional)"
 msgstr "Chinese Traditional)"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:98
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:48
 #, fuzzy, kde-format
 msgid "Dutch"
 msgstr "Hollandese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:101
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:51
 #, kde-format
 msgid "French"
 msgstr "Francese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:104
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:54
 #, fuzzy, kde-format
 msgid "German"
 msgstr "Germano "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:107
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:57
 #, fuzzy, kde-format
 msgid "Greek"
 msgstr "Greco"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:110
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:60
 #, kde-format
 msgid "Italian"
 msgstr "Italiano "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:113
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:63
 #, fuzzy, kde-format
 msgid "Japanese"
 msgstr "Japonese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:116
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:66
 #, fuzzy, kde-format
 msgid "Korean"
 msgstr "Coreano "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:119
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:69
 #, fuzzy, kde-format
 msgid "Portuguese"
 msgstr "Portugese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:122
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:72
 #, kde-format
 msgid "Russian"
 msgstr "Russo"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:125
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:75
 #, fuzzy, kde-format
 msgid "Spanish"
 msgstr "Espaniol "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:128
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:78
 #, fuzzy, kde-format
 msgid "Afrikaans"
 msgstr "Afrikaans"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:131
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:81
 #, fuzzy, kde-format
 msgid "Albanian"
 msgstr "Albanese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:134
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:84
 #, fuzzy, kde-format
 msgid "Arabic"
 msgstr "Arabic"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:137
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:87
 #, fuzzy, kde-format
 msgid "Armenian"
 msgstr "Armenio "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:140
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:90
 #, kde-format
 msgid "Azerbaijani"
 msgstr "Azerbaijano"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:143
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:93
 #, kde-format
 msgid "Basque"
 msgstr "Basco "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:146
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:96
 #, fuzzy, kde-format
 msgid "Belarusian"
 msgstr "Bielorusso"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:149
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:99
 #, kde-format
 msgid "Bulgarian"
 msgstr "Bulgaro "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:152
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:102
 #, fuzzy, kde-format
 msgid "Catalan"
 msgstr "Catalan "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:161
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:105
 #, fuzzy, kde-format
 msgid "Croatian"
 msgstr "Croato "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:164
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:108
 #, fuzzy, kde-format
 msgid "Czech"
 msgstr "Tchech "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:167
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:111
 #, fuzzy, kde-format
 msgid "Danish"
 msgstr "Danese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:170
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:114
 #, fuzzy, kde-format
 msgid "Estonian"
 msgstr "Estonian "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:173
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:117
 #, kde-format
 msgid "Filipino"
 msgstr "Filipino"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:176
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:120
 #, fuzzy, kde-format
 msgid "Finnish"
 msgstr "Finnese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:179
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:123
 #, fuzzy, kde-format
 msgid "Galician"
 msgstr "Galleco "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:182
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:126
 #, fuzzy, kde-format
 msgid "Georgian"
 msgstr "Georgian "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:185
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:129
 #, kde-format
 msgid "Haitian Creole"
 msgstr "Creolo Haitiano"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:188
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:132
 #, fuzzy, kde-format
 msgid "Hebrew"
 msgstr "Hebreo"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:191
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:135
 #, fuzzy, kde-format
 msgid "Hindi"
 msgstr "Hindi "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:194
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:138
 #, fuzzy, kde-format
 msgid "Hungarian"
 msgstr "Hungaro "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:197
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:141
 #, fuzzy, kde-format
 msgid "Icelandic"
 msgstr "Islandese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:200
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:144
 #, kde-format
 msgid "Indonesian"
 msgstr "Indonesiano "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:203
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:147
 #, fuzzy, kde-format
 msgid "Irish"
 msgstr "Irlandese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:206
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:150
 #, kde-format
 msgid "Latvian"
 msgstr "Letton"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:209
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:153
 #, fuzzy, kde-format
 msgid "Lithuanian"
 msgstr "Lituano "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:212
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:156
 #, fuzzy, kde-format
 msgid "Macedonian"
 msgstr "Macedone "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:215
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:159
 #, kde-format
 msgid "Malay"
 msgstr "Malay"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:218
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:162
 #, kde-format
 msgid "Maltese"
 msgstr "Maltese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:221
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:165
 #, kde-format
 msgid "Norwegian"
 msgstr "Norvegiano"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:224
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:168
 #, kde-format
 msgid "Persian"
 msgstr "Farsi (Perse)"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:227
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:171
 #, fuzzy, kde-format
 msgid "Polish"
 msgstr "Polonese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:230
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:174
 #, kde-format
 msgid "Romanian"
 msgstr "Romaniano"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:233
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:177
 #, kde-format
 msgid "Serbian"
 msgstr "Serbo"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:236
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:180
 #, fuzzy, kde-format
 msgid "Slovak"
 msgstr "Slovaco "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:239
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:183
 #, kde-format
 msgid "Slovenian"
 msgstr "Sloveno"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:242
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:186
 #, kde-format
 msgid "Swahili"
 msgstr "Swahili"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:245
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:189
 #, fuzzy, kde-format
 msgid "Swedish"
 msgstr "Svedo"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:248
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:192
 #, kde-format
 msgid "Thai"
 msgstr "Thai"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:251
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:195
 #, fuzzy, kde-format
 msgid "Turkish"
 msgstr "Turc"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:254
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:198
 #, kde-format
 msgid "Ukrainian"
 msgstr "Ucrainiano"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:257
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:201
 #, fuzzy, kde-format
 msgid "Urdu"
 msgstr "Hurdu"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:260
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:204
 #, kde-format
 msgid "Vietnamese"
 msgstr "Vietnamese"
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:263
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:207
 #, kde-format
 msgid "Welsh"
 msgstr "Gallese "
 
-#: pimcommontexttranslator/translator/misc/translatorutil.cpp:266
+#: pimcommontexttranslator/translator/misc/translatorutil.cpp:210
 #, kde-format
 msgid "Yiddish"
 msgstr "Yiddish"
@@ -2435,11 +2443,6 @@ msgstr ""
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:145
-#, kde-format
-msgid "Error: Unable to parse autodetected language"
-msgstr ""
-
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, fuzzy, kde-format
 msgid "You used same language for 'from' and 'to' language."
@@ -2510,58 +2513,58 @@ msgstr "Omne files (*)"
 msgid "Translate..."
 msgstr "Traduce..."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:131
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:133
 #, kde-format
 msgid "Problem when connecting to the translator web site."
 msgstr "Problema quando on connecteva al sito de traduction web."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:243
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:245
 #, fuzzy, kde-format
 #| msgid "From:"
 msgctxt "Translate from language"
 msgid "From:"
 msgstr "Ex"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:250
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:252
 #, fuzzy, kde-format
 #| msgid "To:"
 msgctxt "Translate to language"
 msgid "To:"
 msgstr "a"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:262
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:264
 #, fuzzy, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
 msgstr "Inverte"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:267
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:270
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:272
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
 #: widgets/notificationhistory/notificationhistorylistview.cpp:74
 #, kde-format
 msgid "Clear"
 msgstr "Netta"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:275
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:278
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:280
 #, kde-format
 msgid "Translate"
 msgstr "Traduce"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:285
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:287
 #, fuzzy, kde-format
 msgid "Debug"
 msgstr "Cribra (debug)"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:303
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:305
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Ruqola"
 msgid "Configure"
 msgstr "Configura"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:318
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:320
 #, kde-format
 msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
@@ -2570,17 +2573,17 @@ msgstr ""
 "Trahe texto que tu vole traducer. (Tu es attente que texto essera inviate al "
 "servitor de Google)."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
 msgstr "Il nonrelevava alcun connexion de rete, nos non pote traducer texto."
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:414
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network"
 msgstr "Necun rete"
 
-#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:453
+#: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:455
 #, kde-format
 msgid "Translate error"
 msgstr "Traduce error"
@@ -3496,7 +3499,7 @@ msgstr "Remove Emoji"
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:97
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:103
 #: widgets/administratordialog/users/administratoruserswidget.cpp:224
-#: widgets/configuredialog/configureaccountserverwidget.ui:30
+#: widgets/configuredialog/configureaccountserverwidget.ui:39
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
 msgid "Add..."
@@ -3511,7 +3514,7 @@ msgstr "Adde..."
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:99
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
 #: widgets/administratordialog/users/administratoruserswidget.cpp:231
-#: widgets/configuredialog/configureaccountserverwidget.ui:37
+#: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
 msgid "Modify..."
 msgstr "Modifica..."
@@ -6610,12 +6613,24 @@ msgstr "URL de servitor:"
 msgid "Provider:"
 msgstr "Sala predefinite"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:57
+#: widgets/configuredialog/configureaccountserverwidget.cpp:24
+#, kde-format
+msgctxt "Move selected account up."
+msgid "Up"
+msgstr ""
+
+#: widgets/configuredialog/configureaccountserverwidget.cpp:30
+#, kde-format
+msgctxt "Move selected account down."
+msgid "Down"
+msgstr ""
+
+#: widgets/configuredialog/configureaccountserverwidget.cpp:74
 #, kde-format
 msgid "Do you want to remove this account '%1'?"
 msgstr "Tu vole remover iste conto '%1''"
 
-#: widgets/configuredialog/configureaccountserverwidget.cpp:58
+#: widgets/configuredialog/configureaccountserverwidget.cpp:75
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Account"
