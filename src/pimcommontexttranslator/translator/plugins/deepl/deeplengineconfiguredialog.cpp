@@ -39,3 +39,13 @@ bool DeeplEngineConfigureDialog::useFreeLicenceKey() const
 {
     return mConfigureWidget->useFreeLicenceKey();
 }
+
+QString DeeplEngineConfigureDialog::apiKey() const
+{
+    return mConfigureWidget->apiKey();
+}
+
+void DeeplEngineConfigureDialog::setApiKey(const QString &key)
+{
+    mConfigureWidget->setApiKey(key);
+}

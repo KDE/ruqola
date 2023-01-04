@@ -22,6 +22,7 @@ void LingvaEngineWidgetTest::shouldHaveDefaultValues()
 
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
     QVERIFY(mServerUrl);

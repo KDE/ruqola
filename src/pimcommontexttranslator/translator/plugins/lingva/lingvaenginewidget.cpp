@@ -16,6 +16,7 @@ LingvaEngineWidget::LingvaEngineWidget(QWidget *parent)
 {
     auto mainLayout = new QFormLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 
     mServerUrl->setObjectName(QStringLiteral("mServerUrl"));
     mServerUrl->setClearButtonEnabled(true);

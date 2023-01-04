@@ -8,6 +8,7 @@
 
 #include <QWidget>
 class QCheckBox;
+class QLineEdit;
 class DeeplEngineConfigureWidget : public QWidget
 {
     Q_OBJECT
@@ -17,6 +18,10 @@ public:
     void setUseFreeLicenceKey(bool b);
     Q_REQUIRED_RESULT bool useFreeLicenceKey() const;
 
+    Q_REQUIRED_RESULT QString apiKey() const;
+    void setApiKey(const QString &key);
+
 private:
     QCheckBox *const mUseFreeLicense;
+    QLineEdit *const mApiKey;
 };
