@@ -59,6 +59,7 @@ void LibreTranslateEngineClient::showConfigureDialog(QWidget *parentWidget)
     if (serverUrl.isEmpty()) {
         serverUrl = LibreTranslateEngineUtil::defaultServerUrl();
     }
+    serverUrl = LibreTranslateEngineUtil::adaptUrl(serverUrl);
     dlg->setServerUrl(serverUrl);
     dlg->setServerRequiredApiKey(myGroup.readEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), false));
     // TODO add api key

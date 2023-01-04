@@ -97,5 +97,6 @@ void LibreTranslateEnginePlugin::loadSettings()
     if (mServerUrl.isEmpty()) {
         mServerUrl = LibreTranslateEngineUtil::defaultServerUrl();
     }
+    mServerUrl = LibreTranslateEngineUtil::adaptUrl(mServerUrl);
     mRequiredApiKey = myGroup.readEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), false);
 }
