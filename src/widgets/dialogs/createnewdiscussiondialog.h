@@ -30,7 +30,7 @@ public:
     void setChannelInfo(const QString &name, const QString &channelId);
     void setDiscussionName(const QString &name);
 
-    const QString &messageId() const;
+    Q_REQUIRED_RESULT const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
 private:
