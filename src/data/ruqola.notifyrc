@@ -195,6 +195,7 @@ Urgency=Normal
 Name=Incoming Video Conference Call
 Name[ca]=Trucada de videoconferència entrant
 Name[ca@valencia]=Tocada de videoconferència entrant
+Name[cs]=Příchozí videokonferenční hovor
 Name[en_GB]=Incoming Video Conference Call
 Name[es]=Conferencia de vídeo entrante
 Name[fr]=Appel entrant de vidéo-conférence
