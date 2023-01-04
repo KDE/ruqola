@@ -10,7 +10,6 @@
 #include "model/rocketchataccountfilterproxymodel.h"
 #include "model/rocketchataccountmodel.h"
 #include "rocketchataccount.h"
-#include "utils.h"
 
 #include <QObject>
 
