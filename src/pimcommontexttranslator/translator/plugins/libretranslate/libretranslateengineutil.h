@@ -11,4 +11,6 @@ namespace LibreTranslateEngineUtil
 {
 Q_REQUIRED_RESULT QString groupName();
 Q_REQUIRED_RESULT QString serverUrlKey();
+Q_REQUIRED_RESULT QString defaultServerUrl();
+Q_REQUIRED_RESULT QString serverRequiredApiKey();
 };

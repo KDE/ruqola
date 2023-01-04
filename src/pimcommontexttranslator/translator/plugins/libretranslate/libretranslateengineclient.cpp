@@ -55,10 +55,19 @@ void LibreTranslateEngineClient::showConfigureDialog(QWidget *parentWidget)
 {
     QPointer<LibreTranslateEngineConfigureDialog> dlg = new LibreTranslateEngineConfigureDialog(parentWidget);
     KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
-    dlg->setServerUrl(myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString()));
+    QString serverUrl = myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), LibreTranslateEngineUtil::defaultServerUrl());
+    if (serverUrl.isEmpty()) {
+        serverUrl = LibreTranslateEngineUtil::defaultServerUrl();
+    }
+    dlg->setServerUrl(serverUrl);
+    dlg->setServerRequiredApiKey(myGroup.readEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), false));
+    // TODO add api key
     if (dlg->exec()) {
         const QString serverUrl = dlg->serverUrl();
+        const bool requiredApiKey = dlg->serverRequiredApiKey();
+        // TODO get api key
         myGroup.writeEntry(LibreTranslateEngineUtil::serverUrlKey(), serverUrl);
+        myGroup.writeEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), requiredApiKey);
         myGroup.sync();
         Q_EMIT configureChanged();
     }

@@ -40,3 +40,23 @@ void LibreTranslateEngineConfigureDialog::setServerUrl(const QString &serverUrl)
 {
     mConfigureWidget->setServerUrl(serverUrl);
 }
+
+QString LibreTranslateEngineConfigureDialog::apiKey() const
+{
+    return mConfigureWidget->apiKey();
+}
+
+void LibreTranslateEngineConfigureDialog::setApiKey(const QString &key)
+{
+    mConfigureWidget->setApiKey(key);
+}
+
+bool LibreTranslateEngineConfigureDialog::serverRequiredApiKey() const
+{
+    return mConfigureWidget->serverRequiredApiKey();
+}
+
+void LibreTranslateEngineConfigureDialog::setServerRequiredApiKey(bool state)
+{
+    mConfigureWidget->setServerRequiredApiKey(state);
+}
