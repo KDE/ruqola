@@ -9,6 +9,7 @@
 #include "libretranslatetranslator_debug.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
 #include <QJsonDocument>
@@ -25,6 +26,14 @@ LibreTranslateEnginePlugin::~LibreTranslateEnginePlugin() = default;
 void LibreTranslateEnginePlugin::translate()
 {
     if (verifyFromAndToLanguage()) {
+        return;
+    }
+    if (mServerUrl.isEmpty()) {
+        Q_EMIT translateFailed(false, i18n("Server url is not defined."));
+        return;
+    }
+    if (mRequiredApiKey && mApiKey.isEmpty()) {
+        Q_EMIT translateFailed(false, i18n("Server needs Api Key."));
         return;
     }
     translateText();
@@ -83,5 +92,10 @@ void LibreTranslateEnginePlugin::parseTranslation(QNetworkReply *reply)
 void LibreTranslateEnginePlugin::loadSettings()
 {
     KConfigGroup myGroup(KSharedConfig::openConfig(), LibreTranslateEngineUtil::groupName());
-    mServerUrl = myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), QString());
+    mServerUrl = myGroup.readEntry(LibreTranslateEngineUtil::serverUrlKey(), LibreTranslateEngineUtil::defaultServerUrl());
+    // Fallback
+    if (mServerUrl.isEmpty()) {
+        mServerUrl = LibreTranslateEngineUtil::defaultServerUrl();
+    }
+    mRequiredApiKey = myGroup.readEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), false);
 }

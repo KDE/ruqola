@@ -27,4 +27,5 @@ private:
     QString mResult;
     // TODO load it ? kwallet ?
     QString mApiKey;
+    bool mRequiredApiKey = false;
 };

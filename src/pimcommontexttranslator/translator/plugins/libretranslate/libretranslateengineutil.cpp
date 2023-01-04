@@ -15,3 +15,13 @@ QString LibreTranslateEngineUtil::serverUrlKey()
 {
     return QStringLiteral("ServerUrl");
 }
+
+QString LibreTranslateEngineUtil::serverRequiredApiKey()
+{
+    return QStringLiteral("RequiredApiKey");
+}
+
+QString LibreTranslateEngineUtil::defaultServerUrl()
+{
+    return QStringLiteral("https://libretranslate.com");
+}

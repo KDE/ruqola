@@ -6,6 +6,7 @@
 
 #include "libretranslateengineconfigurewidgettest.h"
 #include "../libretranslateengineconfigurewidget.h"
+#include <QCheckBox>
 #include <QFormLayout>
 #include <QLineEdit>
 #include <QTest>
@@ -26,4 +27,16 @@ void LibreTranslateEngineConfigureWidgetTest::shouldHaveDefaultValues()
     auto mServerUrl = w.findChild<QLineEdit *>(QStringLiteral("mServerUrl"));
     QVERIFY(mServerUrl);
     QVERIFY(mServerUrl->isClearButtonEnabled());
+
+    auto mApiKey = w.findChild<QLineEdit *>(QStringLiteral("mApiKey"));
+    QVERIFY(mApiKey);
+    QVERIFY(mApiKey->isClearButtonEnabled());
+
+    QVERIFY(w.apiKey().isEmpty());
+    QVERIFY(w.serverUrl().isEmpty());
+    QVERIFY(!w.serverRequiredApiKey());
+
+    auto mRequiredApiKey = w.findChild<QCheckBox *>(QStringLiteral("mRequiredApiKey"));
+    QVERIFY(mRequiredApiKey);
+    QVERIFY(!mRequiredApiKey->isChecked());
 }
