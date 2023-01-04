@@ -92,7 +92,10 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     ItemViews
     IdleTime
     Prison
-    # need by pimcommonautocorrection. Remove it after creating lib
+)
+
+# need by pimcommonautocorrection. Remove it after creating lib
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Archive
 )
 
