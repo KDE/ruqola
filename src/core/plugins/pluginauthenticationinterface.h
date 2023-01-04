@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "ddpapi/ddpclient.h"
 #include "libruqolacore_export.h"
 #include <QObject>
 class RocketChatAccount;

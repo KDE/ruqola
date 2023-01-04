@@ -6,7 +6,6 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
-#include "roleeditwidget.h"
 #include <QDialog>
 class UsersInRoleWidget;
 class RocketChatAccount;
