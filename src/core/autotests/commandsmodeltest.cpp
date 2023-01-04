@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2020 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -14,4 +14,8 @@ CommandsModelTest::CommandsModelTest(QObject *parent)
 {
 }
 
-// TODO
+void CommandsModelTest::shouldHaveDefaultValues()
+{
+    CommandsModel d;
+    QCOMPARE(d.rowCount(), 0);
+}

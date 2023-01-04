@@ -1,5 +1,5 @@
 /*
-   SPDX-FileCopyrightText: 2020-2021 Laurent Montel <montel@kde.org>
+   SPDX-FileCopyrightText: 2020-2023 Laurent Montel <montel@kde.org>
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
@@ -14,4 +14,6 @@ class CommandsModelTest : public QObject
 public:
     explicit CommandsModelTest(QObject *parent = nullptr);
     ~CommandsModelTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
