@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "dialogs/createnewserverdialog.h"
+#include "accountmanager.h"
 #include "libruqolawidgets_private_export.h"
 #include <QListWidget>
 class AccountServerListWidgetItem : public QListWidgetItem
