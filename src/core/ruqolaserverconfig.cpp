@@ -504,9 +504,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setDeviceManagementEnableLoginEmails(value.toBool());
     } else if (id == QLatin1String("Device_Management_Allow_Login_Email_preference")) {
         setDeviceManagementAllowLoginEmailpreference(value.toBool());
+    } else if (id == QLatin1String("Message_GroupingPeriod")) {
+        setMessageGroupingPeriod(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+int RuqolaServerConfig::messageGroupingPeriod() const
+{
+    return mMessageGroupingPeriod;
+}
+
+void RuqolaServerConfig::setMessageGroupingPeriod(int newMessageGroupingPeriod)
+{
+    mMessageGroupingPeriod = newMessageGroupingPeriod;
 }
 
 bool RuqolaServerConfig::deviceManagementAllowLoginEmailpreference() const

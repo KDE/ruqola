@@ -45,6 +45,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(config.userDataDownloadEnabled());
     QVERIFY(!config.deviceManagementEnableLoginEmails());
     QVERIFY(!config.deviceManagementAllowLoginEmailpreference());
+    QCOMPARE(config.messageGroupingPeriod(), -1);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

@@ -157,6 +157,9 @@ public:
     Q_REQUIRED_RESULT bool deviceManagementAllowLoginEmailpreference() const;
     void setDeviceManagementAllowLoginEmailpreference(bool newDeviceManagementAllowLoginEmailpreference);
 
+    Q_REQUIRED_RESULT int messageGroupingPeriod() const;
+    void setMessageGroupingPeriod(int newMessageGroupingPeriod);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -191,6 +194,7 @@ private:
     QString mFaviconUrl;
     int mLoginExpiration = -1;
     int mMessageMaximumAllowedSize = -1;
+    int mMessageGroupingPeriod = -1;
 
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true
