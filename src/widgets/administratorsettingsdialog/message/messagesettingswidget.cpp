@@ -36,6 +36,8 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mAutoTranslateEnabled(new QCheckBox(i18n("Enable Auto-Translate"), this))
     , mAutoTranslateServiceProvider(new QComboBox(this))
     , mDeeplApiKey(new QLineEdit(this))
+    , mGoogleApiKey(new QLineEdit(this))
+    , mMicrosoftApiKey(new QLineEdit(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -142,6 +144,15 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mDeeplApiKey->setObjectName(QStringLiteral("mDeeplApiKey"));
     addLineEdit(i18n("DeepL API Key"), mDeeplApiKey, QStringLiteral("AutoTranslate_DeepLAPIKey"));
+
+    mGoogleApiKey->setObjectName(QStringLiteral("mGoogleApiKey"));
+    addLineEdit(i18n("Google API Key"), mGoogleApiKey, QStringLiteral("AutoTranslate_GoogleAPIKey"));
+
+    mGoogleApiKey->setObjectName(QStringLiteral("mGoogleApiKey"));
+    addLineEdit(i18n("Google API Key"), mGoogleApiKey, QStringLiteral("AutoTranslate_GoogleAPIKey"));
+
+    mMicrosoftApiKey->setObjectName(QStringLiteral("mMicrosoftApiKey"));
+    addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -169,4 +180,6 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAutoTranslateEnabled, mapSettings, false);
     initializeWidget(mAutoTranslateServiceProvider, mapSettings, QStringLiteral("google-translate"));
     initializeWidget(mDeeplApiKey, mapSettings, {});
+    initializeWidget(mGoogleApiKey, mapSettings, {});
+    initializeWidget(mMicrosoftApiKey, mapSettings, {});
 }

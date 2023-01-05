@@ -164,4 +164,14 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDeeplApiKey);
     QVERIFY(mDeeplApiKey->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeeplApiKey), QStringLiteral("AutoTranslate_DeepLAPIKey"));
+
+    auto mGoogleApiKey = w.findChild<QLineEdit *>(QStringLiteral("mGoogleApiKey"));
+    QVERIFY(mGoogleApiKey);
+    QVERIFY(mGoogleApiKey->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGoogleApiKey), QStringLiteral("AutoTranslate_GoogleAPIKey"));
+
+    auto mMicrosoftApiKey = w.findChild<QLineEdit *>(QStringLiteral("mMicrosoftApiKey"));
+    QVERIFY(mMicrosoftApiKey);
+    QVERIFY(mMicrosoftApiKey->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMicrosoftApiKey), QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
 }

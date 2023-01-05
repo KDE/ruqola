@@ -42,4 +42,6 @@ private:
     QCheckBox *const mAutoTranslateEnabled;
     QComboBox *const mAutoTranslateServiceProvider;
     QLineEdit *const mDeeplApiKey;
+    QLineEdit *const mGoogleApiKey;
+    QLineEdit *const mMicrosoftApiKey;
 };
