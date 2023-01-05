@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:48+0000\n"
-"PO-Revision-Date: 2023-01-02 12:16+0100\n"
+"POT-Creation-Date: 2023-01-05 00:48+0000\n"
+"PO-Revision-Date: 2023-01-04 15:24+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -2035,13 +2035,12 @@ msgstr "Taal detecteren"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
 msgid "Hmong"
-msgstr ""
+msgstr "Hmong"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:36
-#, fuzzy, kde-format
-#| msgid "Estonian"
+#, kde-format
 msgid "Bosnian"
-msgstr "Ests"
+msgstr "Bosnisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:39
 #, kde-format
@@ -2372,10 +2371,16 @@ msgctxt "@title:window"
 msgid "Configure Engine"
 msgstr "Configuratie-engine"
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
 msgstr "Vrije licentiesleutel gebruiken"
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
+#, kde-format
+msgid "Api Key:"
+msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2389,11 +2394,27 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Libre Translate"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
+#, kde-format
+msgid "Server required Api Key"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
 #, kde-format
 msgid "Server Url:"
 msgstr "URL-adres server:"
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:32
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server url is not defined."
+msgstr "Server niet gevonden: %1"
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:36
+#, kde-format
+msgid "Server needs Api Key."
+msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
@@ -6618,13 +6639,13 @@ msgstr "Leverancier:"
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
-msgstr ""
+msgstr "Omhoog"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:30
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
+msgstr "Omlaag"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:74
 #, kde-format

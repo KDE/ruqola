@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:48+0000\n"
+"POT-Creation-Date: 2023-01-05 00:48+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2440,9 +2440,15 @@ msgctxt "@title:window"
 msgid "Configure Engine"
 msgstr "Ruqola einrichten"
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
+#, kde-format
+msgid "Api Key:"
 msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
@@ -2459,11 +2465,27 @@ msgstr "Google"
 msgid "Libre Translate"
 msgstr "Automatisches Übersetzen einrichten"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
+#, kde-format
+msgid "Server required Api Key"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
 #, kde-format
 msgid "Server Url:"
 msgstr "Server-Adresse:"
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:32
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server url is not defined."
+msgstr "Server nicht gefunden: %1"
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:36
+#, kde-format
+msgid "Server needs Api Key."
+msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format

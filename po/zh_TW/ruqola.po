@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-04 00:48+0000\n"
+"POT-Creation-Date: 2023-01-05 00:48+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2438,9 +2438,15 @@ msgctxt "@title:window"
 msgid "Configure Engine"
 msgstr "設定帳戶"
 
-#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:14
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
+#, kde-format
+msgid "Api Key:"
 msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
@@ -2456,12 +2462,28 @@ msgstr ""
 msgid "Libre Translate"
 msgstr "自動翻譯"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:22
-#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:22
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
+#, kde-format
+msgid "Server required Api Key"
+msgstr ""
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
+#: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server Url:"
 msgstr "伺服器網址："
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:32
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Server url is not defined."
+msgstr "伺服器資訊"
+
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:36
+#, kde-format
+msgid "Server needs Api Key."
+msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
