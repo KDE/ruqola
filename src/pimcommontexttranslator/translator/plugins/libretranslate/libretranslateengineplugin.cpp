@@ -99,4 +99,5 @@ void LibreTranslateEnginePlugin::loadSettings()
     }
     mServerUrl = LibreTranslateEngineUtil::adaptUrl(mServerUrl);
     mRequiredApiKey = myGroup.readEntry(LibreTranslateEngineUtil::serverRequiredApiKey(), false);
+    mApiKey = myGroup.readEntry(LibreTranslateEngineUtil::apiGroupName(), QString());
 }

@@ -92,7 +92,8 @@ void DeeplEnginePlugin::loadSettings()
     KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
     mUseFreeLicense = myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), false);
     mServerUrl = mUseFreeLicense ? QStringLiteral("https://api-free.deepl.com/v2/translate") : QStringLiteral("https://api.deepl.com/v2/translate");
-    // TODO load API key ? stored in kwallet ?
+    // TODO stored in kwallet ?
+    mApiKey = myGroup.readEntry(DeeplEngineUtil::apiGroupName(), QString());
 }
 
 void DeeplEnginePlugin::slotConfigureChanged()
