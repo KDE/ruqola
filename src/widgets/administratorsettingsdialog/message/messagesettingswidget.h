@@ -44,4 +44,5 @@ private:
     QLineEdit *const mDeeplApiKey;
     QLineEdit *const mGoogleApiKey;
     QLineEdit *const mMicrosoftApiKey;
+    QSpinBox *const mGroupingPeriod;
 };

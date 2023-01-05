@@ -158,7 +158,7 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     auto mAutoTranslateServiceProvider = w.findChild<QComboBox *>(QStringLiteral("mAutoTranslateServiceProvider"));
     QVERIFY(mAutoTranslateServiceProvider);
     QCOMPARE(mAutoTranslateServiceProvider->count(), 3);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), QStringLiteral("Unread_Count_DM"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), QStringLiteral("AutoTranslate_ServiceProvider"));
 
     auto mDeeplApiKey = w.findChild<QLineEdit *>(QStringLiteral("mDeeplApiKey"));
     QVERIFY(mDeeplApiKey);
@@ -174,4 +174,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMicrosoftApiKey);
     QVERIFY(mMicrosoftApiKey->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMicrosoftApiKey), QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
+
+    auto mGroupingPeriod = w.findChild<QSpinBox *>(QStringLiteral("mGroupingPeriod"));
+    QVERIFY(mGroupingPeriod);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupingPeriod), QStringLiteral("Message_GroupingPeriod"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_GroupingPeriod"));
 }

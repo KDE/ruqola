@@ -38,6 +38,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mDeeplApiKey(new QLineEdit(this))
     , mGoogleApiKey(new QLineEdit(this))
     , mMicrosoftApiKey(new QLineEdit(this))
+    , mGroupingPeriod(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -90,6 +91,11 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mSafePort->setObjectName(QStringLiteral("mSafePort"));
     addLineEdit(i18n("Safe Ports"), mSafePort, QStringLiteral("API_EmbedSafePorts"));
+
+    mGroupingPeriod->setObjectName(QStringLiteral("mGroupingPeriod"));
+    mGroupingPeriod->setToolTip(
+        i18n("Messages will be grouped with previous message if both are from the same user and the elapsed time was less than the informed time in seconds."));
+    addSpinbox(i18n("Grouping Period (in seconds)"), mGroupingPeriod, QStringLiteral("Message_GroupingPeriod"));
 
     auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
     messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
@@ -182,4 +188,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mDeeplApiKey, mapSettings, {});
     initializeWidget(mGoogleApiKey, mapSettings, {});
     initializeWidget(mMicrosoftApiKey, mapSettings, {});
+    initializeWidget(mGroupingPeriod, mapSettings, 300);
 }
