@@ -9,8 +9,10 @@
 #include "deepltranslator_debug.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <PimCommonTextTranslator/TranslatorEngineAccessManager>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrlQuery>
@@ -28,6 +30,10 @@ void DeeplEnginePlugin::translate()
     if (verifyFromAndToLanguage()) {
         return;
     }
+    if (mApiKey.isEmpty()) {
+        Q_EMIT translateFailed(false, i18n("Server needs Api Key."));
+        return;
+    }
     translateText();
 }
 
@@ -42,6 +48,7 @@ void DeeplEnginePlugin::translateText()
     url.setQuery(query);
 
     QNetworkRequest request(url);
+    request.setRawHeader(QByteArrayLiteral("Authorization"), "DeepL-Auth-Key " + mApiKey.toLocal8Bit());
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/x-www-form-urlencoded"));
 
     QNetworkReply *reply = PimCommonTextTranslator::TranslatorEngineAccessManager::self()->networkManager()->post(request, QByteArray());
@@ -68,7 +75,13 @@ void DeeplEnginePlugin::parseTranslation(QNetworkReply *reply)
         setJsonDebug(QString::fromUtf8(jsonResponse.toJson(QJsonDocument::Indented)));
     }
     const QJsonObject responseObject = jsonResponse.object();
-    setResult(responseObject.value(QStringLiteral("translation")).toString());
+    // QJsonObject({"translations":[{"detected_source_language":"EN","text":"Bonjour le monde"}]})
+    qCDebug(TRANSLATOR_DEEPL_LOG) << " responseObject " << responseObject;
+    const QJsonArray arrayTranslation = responseObject.value(QStringLiteral("translations")).toArray();
+    qCDebug(TRANSLATOR_DEEPL_LOG) << " arrayTranslation " << arrayTranslation;
+    const QJsonObject obj = arrayTranslation.at(0).toObject();
+
+    setResult(obj.value(QStringLiteral("text")).toString());
     reply->deleteLater();
     qCDebug(TRANSLATOR_DEEPL_LOG) << " result " << result();
     Q_EMIT translateDone();
