@@ -7,6 +7,7 @@
 #include "administratorsettingsdialog/message/messagesettingswidget.h"
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
+#include <QComboBox>
 #include <QFormLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -142,4 +143,25 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mAudioMessageBitRate);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAudioMessageBitRate), QStringLiteral("Message_Audio_bitRate"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_Audio_bitRate"));
+
+    auto autoTranslateLabel = w.findChild<QLabel *>(QStringLiteral("autoTranslateLabel"));
+    QVERIFY(autoTranslateLabel);
+    QVERIFY(!autoTranslateLabel->text().isEmpty());
+
+    auto mAutoTranslateEnabled = w.findChild<QCheckBox *>(QStringLiteral("mAutoTranslateEnabled"));
+    QVERIFY(mAutoTranslateEnabled);
+    QVERIFY(!mAutoTranslateEnabled->isChecked());
+    QVERIFY(!mAutoTranslateEnabled->text().isEmpty());
+    QVERIFY(mAutoTranslateEnabled->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateEnabled), QStringLiteral("AutoTranslate_Enabled"));
+
+    auto mAutoTranslateServiceProvider = w.findChild<QComboBox *>(QStringLiteral("mAutoTranslateServiceProvider"));
+    QVERIFY(mAutoTranslateServiceProvider);
+    QCOMPARE(mAutoTranslateServiceProvider->count(), 3);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAutoTranslateServiceProvider), QStringLiteral("Unread_Count_DM"));
+
+    auto mDeeplApiKey = w.findChild<QLineEdit *>(QStringLiteral("mDeeplApiKey"));
+    QVERIFY(mDeeplApiKey);
+    QVERIFY(mDeeplApiKey->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDeeplApiKey), QStringLiteral("AutoTranslate_DeepLAPIKey"));
 }

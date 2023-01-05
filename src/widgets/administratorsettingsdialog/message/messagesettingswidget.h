@@ -39,4 +39,7 @@ private:
     QSpinBox *const mThumbnailMaxHeight;
     QCheckBox *const mAudioRecorderEnabled;
     QSpinBox *const mAudioMessageBitRate;
+    QCheckBox *const mAutoTranslateEnabled;
+    QComboBox *const mAutoTranslateServiceProvider;
+    QLineEdit *const mDeeplApiKey;
 };

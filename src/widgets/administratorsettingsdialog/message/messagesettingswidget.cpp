@@ -8,6 +8,7 @@
 #include <QFormLayout>
 
 #include <KLocalizedString>
+#include <QComboBox>
 #include <QLabel>
 #include <QLineEdit>
 #include <QSpinBox>
@@ -32,6 +33,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mThumbnailMaxHeight(new QSpinBox(this))
     , mAudioRecorderEnabled(new QCheckBox(i18n("Audio Recorder Enabled"), this))
     , mAudioMessageBitRate(new QSpinBox(this))
+    , mAutoTranslateEnabled(new QCheckBox(i18n("Enable Auto-Translate"), this))
+    , mAutoTranslateServiceProvider(new QComboBox(this))
+    , mDeeplApiKey(new QLineEdit(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -119,6 +123,25 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mAudioMessageBitRate->setObjectName(QStringLiteral("mAudioMessageBitRate"));
     mAudioMessageBitRate->setMaximum(1000);
     addSpinbox(i18n("Audio Message Bit Rate"), mAudioMessageBitRate, QStringLiteral("Message_Audio_bitRate"));
+
+    auto autoTranslateLabel = createBoldLabel(i18n("Auto-Translate"));
+    autoTranslateLabel->setObjectName(QStringLiteral("autoTranslateLabel"));
+    mMainLayout->addWidget(autoTranslateLabel);
+
+    mAutoTranslateEnabled->setObjectName(QStringLiteral("mAutoTranslateEnabled"));
+    mMainLayout->addWidget(mAutoTranslateEnabled);
+    connectCheckBox(mAutoTranslateEnabled, QStringLiteral("AutoTranslate_Enabled"));
+
+    mAutoTranslateServiceProvider->setObjectName(QStringLiteral("mAutoTranslateServiceProvider"));
+    const QMap<QString, QString> maps = {
+        {QStringLiteral("google-translate"), i18n("Google")},
+        {QStringLiteral("deepl-translate"), i18n("Deepl")},
+        {QStringLiteral("microsoft-translate"), i18n("Microsoft")},
+    };
+    addComboBox(i18n("Service Provider"), maps, mAutoTranslateServiceProvider, QStringLiteral("AutoTranslate_ServiceProvider"));
+
+    mDeeplApiKey->setObjectName(QStringLiteral("mDeeplApiKey"));
+    addLineEdit(i18n("DeepL API Key"), mDeeplApiKey, QStringLiteral("AutoTranslate_DeepLAPIKey"));
 }
 
 MessageSettingsWidget::~MessageSettingsWidget() = default;
@@ -143,4 +166,7 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mThumbnailMaxHeight, mapSettings, 360);
     initializeWidget(mAudioRecorderEnabled, mapSettings, true);
     initializeWidget(mAudioMessageBitRate, mapSettings, 32);
+    initializeWidget(mAutoTranslateEnabled, mapSettings, false);
+    initializeWidget(mAutoTranslateServiceProvider, mapSettings, QStringLiteral("google-translate"));
+    initializeWidget(mDeeplApiKey, mapSettings, {});
 }
