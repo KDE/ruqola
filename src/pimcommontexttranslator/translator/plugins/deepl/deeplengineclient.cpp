@@ -48,15 +48,40 @@ QMap<PimCommonTextTranslator::TranslatorUtil::Language, QString> DeeplEngineClie
 
 bool DeeplEngineClient::isSupported(PimCommonTextTranslator::TranslatorUtil::Language lang) const
 {
-#if 0
     switch (lang) {
-    case PimCommonTextTranslator::TranslatorUtil:::
-        return false;
+    case PimCommonTextTranslator::TranslatorUtil::automatic:
+    case PimCommonTextTranslator::TranslatorUtil::bg:
+    case PimCommonTextTranslator::TranslatorUtil::cs:
+    case PimCommonTextTranslator::TranslatorUtil::da:
+    case PimCommonTextTranslator::TranslatorUtil::de:
+    case PimCommonTextTranslator::TranslatorUtil::en:
+    case PimCommonTextTranslator::TranslatorUtil::el:
+    case PimCommonTextTranslator::TranslatorUtil::es:
+    case PimCommonTextTranslator::TranslatorUtil::et:
+    case PimCommonTextTranslator::TranslatorUtil::fi:
+    case PimCommonTextTranslator::TranslatorUtil::fr:
+    case PimCommonTextTranslator::TranslatorUtil::hu:
+    case PimCommonTextTranslator::TranslatorUtil::id:
+    case PimCommonTextTranslator::TranslatorUtil::it:
+    case PimCommonTextTranslator::TranslatorUtil::ja:
+    case PimCommonTextTranslator::TranslatorUtil::lt:
+    case PimCommonTextTranslator::TranslatorUtil::lv:
+    case PimCommonTextTranslator::TranslatorUtil::nl:
+    case PimCommonTextTranslator::TranslatorUtil::pl:
+    case PimCommonTextTranslator::TranslatorUtil::pt:
+    case PimCommonTextTranslator::TranslatorUtil::ro:
+    case PimCommonTextTranslator::TranslatorUtil::ru:
+    case PimCommonTextTranslator::TranslatorUtil::sk:
+    case PimCommonTextTranslator::TranslatorUtil::sl:
+    case PimCommonTextTranslator::TranslatorUtil::sv:
+    case PimCommonTextTranslator::TranslatorUtil::tr:
+    case PimCommonTextTranslator::TranslatorUtil::uk:
+    case PimCommonTextTranslator::TranslatorUtil::zh:
+        return true;
     default:
         break;
     }
-#endif
-    return true;
+    return false;
 }
 
 bool DeeplEngineClient::hasConfigurationDialog() const
