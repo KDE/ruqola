@@ -33,3 +33,8 @@ QString LibreTranslateEngineUtil::adaptUrl(QString serverUrl)
     }
     return serverUrl;
 }
+
+QString LibreTranslateEngineUtil::apiGroupName()
+{
+    return QStringLiteral("apiKey");
+}

@@ -69,10 +69,10 @@ void DeeplEngineClient::showConfigureDialog(QWidget *parentWidget)
     QPointer<DeeplEngineConfigureDialog> dlg = new DeeplEngineConfigureDialog(parentWidget);
     KConfigGroup myGroup(KSharedConfig::openConfig(), DeeplEngineUtil::groupName());
     dlg->setUseFreeLicenceKey(myGroup.readEntry(DeeplEngineUtil::freeLicenseKey(), false));
-    // TODO add support for apikey
+    dlg->setApiKey(myGroup.readEntry(DeeplEngineUtil::apiGroupName(), QString()));
     if (dlg->exec()) {
         myGroup.writeEntry(DeeplEngineUtil::freeLicenseKey(), dlg->useFreeLicenceKey());
-        // TODO Save api key
+        myGroup.writeEntry(DeeplEngineUtil::apiGroupName(), dlg->apiKey());
         myGroup.sync();
         Q_EMIT configureChanged();
     }

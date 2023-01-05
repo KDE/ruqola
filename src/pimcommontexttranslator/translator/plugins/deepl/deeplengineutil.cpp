@@ -15,3 +15,8 @@ QString DeeplEngineUtil::freeLicenseKey()
 {
     return QStringLiteral("freeLicense");
 }
+
+QString DeeplEngineUtil::apiGroupName()
+{
+    return QStringLiteral("apiKey");
+}
