@@ -179,4 +179,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mGroupingPeriod);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mGroupingPeriod), QStringLiteral("Message_GroupingPeriod"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_GroupingPeriod"));
+
+    auto mDirectMessageMaxUsers = w.findChild<QSpinBox *>(QStringLiteral("mDirectMessageMaxUsers"));
+    QVERIFY(mDirectMessageMaxUsers);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), QStringLiteral("DirectMesssage_maxUsers"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DirectMesssage_maxUsers"));
 }

@@ -45,4 +45,5 @@ private:
     QLineEdit *const mGoogleApiKey;
     QLineEdit *const mMicrosoftApiKey;
     QSpinBox *const mGroupingPeriod;
+    QSpinBox *const mDirectMessageMaxUsers;
 };

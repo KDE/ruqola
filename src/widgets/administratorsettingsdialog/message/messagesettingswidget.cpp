@@ -39,6 +39,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mGoogleApiKey(new QLineEdit(this))
     , mMicrosoftApiKey(new QLineEdit(this))
     , mGroupingPeriod(new QSpinBox(this))
+    , mDirectMessageMaxUsers(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -96,6 +97,10 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mGroupingPeriod->setToolTip(
         i18n("Messages will be grouped with previous message if both are from the same user and the elapsed time was less than the informed time in seconds."));
     addSpinbox(i18n("Grouping Period (in seconds)"), mGroupingPeriod, QStringLiteral("Message_GroupingPeriod"));
+
+    mDirectMessageMaxUsers->setObjectName(QStringLiteral("mDirectMessageMaxUsers"));
+    // Typo in RC => 3 "s"
+    addSpinbox(i18n("Direct Messsage Maximum Users"), mDirectMessageMaxUsers, QStringLiteral("DirectMesssage_maxUsers"));
 
     auto messageAttachmentsLabel = createBoldLabel(i18n("Message Attachments"));
     messageAttachmentsLabel->setObjectName(QStringLiteral("messageAttachmentsLabel"));
@@ -189,4 +194,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mGoogleApiKey, mapSettings, {});
     initializeWidget(mMicrosoftApiKey, mapSettings, {});
     initializeWidget(mGroupingPeriod, mapSettings, 300);
+    initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
 }
