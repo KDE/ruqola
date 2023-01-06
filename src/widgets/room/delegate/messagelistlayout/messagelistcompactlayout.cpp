@@ -42,10 +42,11 @@ MessageListLayoutBase::Layout MessageListCompactLayout::doLayout(const QStyleOpt
         const auto previousMessage = previousIndex.data(MessageModel::MessagePointer).value<Message *>();
         Q_ASSERT(previousMessage);
 
-        auto toTuple = [](const Message *message) {
-            return std::make_tuple(message->userId(), message->threadMessageId(), QDateTime::fromMSecsSinceEpoch(message->timeStamp()).date());
-        };
-        return toTuple(message) == toTuple(previousMessage);
+        const int diffDate = mRocketChatAccount ? mRocketChatAccount->ruqolaServerConfig()->messageGroupingPeriod() * 1000 : 0;
+        if ((message->userId() == previousMessage->userId()) && (message->threadMessageId() == previousMessage->threadMessageId())
+            && (message->timeStamp() <= (previousMessage->timeStamp() + diffDate)))
+            return true;
+        return false;
     }();
 
     Layout layout;
