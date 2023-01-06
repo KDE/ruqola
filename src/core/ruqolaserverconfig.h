@@ -160,6 +160,9 @@ public:
     Q_REQUIRED_RESULT int messageGroupingPeriod() const;
     void setMessageGroupingPeriod(int newMessageGroupingPeriod);
 
+    Q_REQUIRED_RESULT int directMessageMaximumUser() const;
+    void setDirectMessageMaximumUser(int newDirectMessageMaximumUser);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -195,6 +198,7 @@ private:
     int mLoginExpiration = -1;
     int mMessageMaximumAllowedSize = -1;
     int mMessageGroupingPeriod = -1;
+    int mDirectMessageMaximumUser = -1;
 
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true
