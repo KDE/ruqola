@@ -90,3 +90,8 @@ QString AddUsersWidget::placeHolderText() const
 {
     return mSearchUserLineEdit->placeholderText();
 }
+
+int AddUsersWidget::numberOfUsers() const
+{
+    return mMap.count();
+}

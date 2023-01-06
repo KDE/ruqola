@@ -6,6 +6,7 @@
 
 #include "createdirectmessageswidget.h"
 #include "misc/adduserswidget.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -29,7 +30,15 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
     mUsers->setPlaceholderText(i18n("Select users..."));
     mainLayout->addWidget(mUsers);
     mainLayout->addStretch(1);
-    connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::updateOkButton);
+    connect(mUsers, &AddUsersWidget::userListChanged, this, [this, account](bool state) {
+        bool result = state;
+        if (account) {
+            if (account->ruqolaServerConfig()->directMessageMaximumUser() >= mUsers->numberOfUsers()) {
+                result = false;
+            }
+        }
+        Q_EMIT updateOkButton(result);
+    });
 }
 
 CreateDirectMessagesWidget::~CreateDirectMessagesWidget() = default;
