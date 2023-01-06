@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:48+0000\n"
-"PO-Revision-Date: 2023-01-02 21:03+0100\n"
+"POT-Creation-Date: 2023-01-06 00:47+0000\n"
+"PO-Revision-Date: 2023-01-05 09:13+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:53
@@ -2025,13 +2025,12 @@ msgstr "Zaznaj jezik"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
 msgid "Hmong"
-msgstr ""
+msgstr "Hmong"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:36
-#, fuzzy, kde-format
-#| msgid "Estonian"
+#, kde-format
 msgid "Bosnian"
-msgstr "estonsko"
+msgstr "bosansko"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:39
 #, kde-format
@@ -2328,23 +2327,23 @@ msgstr "Jidiš"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr "Napaka: Ni bilo mogoče najti Bingovih poverilnic v spletni inačici."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr "Napaka: Ni bilo mogoče izločiti Bingovega ključa iz spletne inačice."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr "Napaka: Ni bilo mogoče izločiti Bingovega žetona iz spletne inačice."
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:86
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
@@ -2373,10 +2372,17 @@ msgstr "Uporabi ključ prostega dovoljenja"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
 #, kde-format
 msgid "Api Key:"
-msgstr ""
+msgstr "Ključ api:"
+
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
+#, kde-format
+msgid "Server needs Api Key."
+msgstr "Strežnik potrebuje ključ api."
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2390,7 +2396,7 @@ msgstr "Libre Translate"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr ""
+msgstr "Strežnik je potreboval ključ api"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -2398,16 +2404,10 @@ msgstr ""
 msgid "Server Url:"
 msgstr "Url strežnika:"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:32
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
-msgid "Server url is not defined."
-msgstr "Strežnika ni mogoče najti: %1"
-
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:36
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
 #, kde-format
-msgid "Server needs Api Key."
-msgstr ""
+msgid "Server url is not defined."
+msgstr "Url strežnika ni določen."
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
@@ -2419,7 +2419,7 @@ msgstr "Lingva"
 msgid "Yandex"
 msgstr "Yandex"
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:52
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
@@ -2429,12 +2429,12 @@ msgstr ""
 "Napaka: Sistemi računalnika so zaznali sumljiv promet iz vaše računalniške "
 "mreže. Poskusite z zahtevkom zopet kasneje."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:61
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr "Napaka: Ni bilo mogoče najti Yandex SID v spletni inačici."
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:69
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr "Napaka: Ni bilo mogoče izločiti Yandex SID iz spletne inačice."
@@ -5402,83 +5402,89 @@ msgstr ""
 msgid "Trace method filter"
 msgstr "Filter sledi metod"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
 #, kde-format
 msgid "Allow Message Editing"
 msgstr "Dovoli urejanje sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Dovoli brisanje sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Prikaži stanje urejanja"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
 #, kde-format
 msgid "Show Deleted Status"
 msgstr "Prikaži stanja izbrisanega"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:71
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Dovoli pripenjanje sporočil"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr "Dovoli fragmentiranje sporočil"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Dovoli pretvorbo dolgih sporočil kot prilogo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr "Video snemalnik omogočen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
 #, kde-format
 msgid "Remove EXIF metadata from supported files"
 msgstr "Odstrani metapodatke EXIF iz podprtih datotek"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
 msgstr "Omogoči predogledne sličice za varčevanje na komunikaciji"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
 msgid "Audio Recorder Enabled"
 msgstr "Video snemalnik omogočen"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
+msgid "Enable Auto-Translate"
+msgstr "Samodejno prevedi"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:48
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "Vnesite 0, da bi prepovedali blokiranje."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Blokiraj urejanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:56
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Blokiraj brisanje sporočila po (n) minutah."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Blokiraj brisanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
@@ -5487,7 +5493,7 @@ msgstr ""
 "To je zastarela možnost. Lahko, da ne bo delovala kot pričakujete in ne bo "
 "več posodobljena."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:84
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -5496,22 +5502,34 @@ msgstr ""
 "Zahteva, da so datoteke 'video/webm' sprejeta vrsta medijev v nastavitvah "
 "'Prenos datoteke tja'."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:90
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Največje dovoljeno število znakov na sporočilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
 msgid "Safe Ports"
 msgstr "Varna vrata"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#, kde-format
+msgid ""
+"Messages will be grouped with previous message if both are from the same "
+"user and the elapsed time was less than the informed time in seconds."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#, kde-format
+msgid "Grouping Period (in seconds)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
 msgid "Message Attachments"
 msgstr "Priponke sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
@@ -5521,7 +5539,7 @@ msgstr ""
 "nastavitev ne velja za nazaj, tako bodo datoteke prenesene med onemogočanjem "
 "te možnosti imele podatke EXIF"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5532,25 +5550,66 @@ msgstr ""
 "pasovne širine. Slike v izvirni ločljivosti lahko prenesete s pomočjo ikone "
 "zraven imena priloge."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Maksimalna širina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Maksimalna višina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
 msgid "Audio Message"
 msgstr "Zvočno sporočilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:133
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Bitna hitrost zvočnega sporočila"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
+#, kde-format
+msgid "Auto-Translate"
+msgstr "Samodejno prevedi"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
+#, fuzzy, kde-format
+#| msgid "DeepL"
+msgid "Deepl"
+msgstr "DeepL"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
+#, fuzzy, kde-format
+#| msgid "Micro Off"
+msgid "Microsoft"
+msgstr "Mikrofon je izklopljen"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Provider:"
+msgid "Service Provider"
+msgstr "Dobavitelj:"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
+#, kde-format
+msgid "DeepL API Key"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid "Google Id"
+msgid "Google API Key"
+msgstr "Določilnik Google"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#, kde-format
+msgid "Microsoft API Key"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6602,13 +6661,13 @@ msgstr "Dobavitelj:"
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
-msgstr ""
+msgstr "Gor"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:30
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
+msgstr "Dol"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:74
 #, kde-format
@@ -6744,11 +6803,6 @@ msgstr "Izbriši datoteko"
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Prilagodi samodejno prevajanje"
-
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
-#, kde-format
-msgid "Auto-Translate"
-msgstr "Samodejno prevedi"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format

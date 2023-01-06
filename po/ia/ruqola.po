@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-05 00:48+0000\n"
+"POT-Creation-Date: 2023-01-06 00:47+0000\n"
 "PO-Revision-Date: 2022-12-16 21:41+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2353,23 +2353,23 @@ msgstr "Yiddish"
 msgid "Bing"
 msgstr "Bing"
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:58
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:66
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:75
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:84
-#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:93
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:86
+#: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
 msgstr ""
@@ -2400,8 +2400,15 @@ msgstr ""
 msgid "Api Key:"
 msgstr ""
 
+#: pimcommontexttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
+#, kde-format
+msgid "Server needs Api Key."
+msgstr ""
+
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2426,16 +2433,11 @@ msgstr ""
 msgid "Server Url:"
 msgstr "URL de servitor:"
 
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:32
+#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
 #, fuzzy, kde-format
 #| msgid "Server not found: %1"
 msgid "Server url is not defined."
 msgstr "Servitor non trovate: %1"
-
-#: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:36
-#, kde-format
-msgid "Server needs Api Key."
-msgstr ""
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
@@ -2447,7 +2449,7 @@ msgstr ""
 msgid "Yandex"
 msgstr "Yandex"
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:52
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
 #, kde-format
 msgid ""
@@ -2455,12 +2457,12 @@ msgid ""
 "network. Please try your request again later."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:61
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
 msgstr ""
 
-#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:69
+#: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
 msgstr ""
@@ -5407,123 +5409,141 @@ msgstr ""
 msgid "Trace method filter"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
 #, kde-format
 msgid "Allow Message Editing"
 msgstr "Permitte Modificationes de Message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
 #, kde-format
 msgid "Allow Message Deleting"
 msgstr "Permitte deletion de message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
 #, kde-format
 msgid "Show Edited Status"
 msgstr "Monstra Stat Modificate"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
 #, kde-format
 msgid "Show Deleted Status"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:21
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:71
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permitte Message appunctate"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
 #, kde-format
 msgid "Allow Message Snippeting"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
 #, kde-format
 msgid "Allow converting long messages to attachment"
 msgstr "Permitte Converter Message longe a Attachamento"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:25
 #, kde-format
 msgid "Video Recorder Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
 #, kde-format
 msgid "Remove EXIF metadata from supported files"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:31
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:34
 #, kde-format
 msgid "Audio Recorder Enabled"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
+#, fuzzy, kde-format
+#| msgid "Auto-Translate"
+msgid "Enable Auto-Translate"
+msgstr "Auto-Traduction"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:48
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Allow Message Editing"
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Permitte Modificationes de Message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Allow Message Editing"
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Permitte Modificationes de Message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Allow Message Editing"
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Permitte Modificationes de Message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:55
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:84
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:83
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:90
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
 msgid "Safe Ports"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#, kde-format
+msgid ""
+"Messages will be grouped with previous message if both are from the same "
+"user and the elapsed time was less than the informed time in seconds."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#, kde-format
+msgid "Grouping Period (in seconds)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgid "Message Attachments"
 msgstr "Salveguarda attachamento"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5531,27 +5551,67 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message"
 msgstr "Appuncta Message"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:133
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message Bit Rate"
 msgstr "Appuncta Message"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
+#, kde-format
+msgid "Auto-Translate"
+msgstr "Auto-Traduction"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
+#, fuzzy, kde-format
+#| msgid "DeepL"
+msgid "Deepl"
+msgstr "DeepL"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
+#, kde-format
+msgid "Microsoft"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:149
+#, fuzzy, kde-format
+#| msgid "Default Room"
+msgid "Service Provider"
+msgstr "Sala predefinite"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
+#, kde-format
+msgid "DeepL API Key"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#, fuzzy, kde-format
+#| msgid "Google"
+msgid "Google API Key"
+msgstr "Google"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#, kde-format
+msgid "Microsoft API Key"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -6782,11 +6842,6 @@ msgstr "Dele file"
 msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Configura Auto-Traduction"
-
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:20
-#, kde-format
-msgid "Auto-Translate"
-msgstr "Auto-Traduction"
 
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
