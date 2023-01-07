@@ -506,7 +506,7 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setDeviceManagementAllowLoginEmailpreference(value.toBool());
     } else if (id == QLatin1String("Message_GroupingPeriod")) {
         setMessageGroupingPeriod(value.toInt());
-    } else if (id == QLatin1String("DirectMessage_maxUsers")) {
+    } else if (id == QLatin1String("DirectMesssage_maxUsers")) {
         setDirectMessageMaximumUser(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
