@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-06 00:47+0000\n"
-"PO-Revision-Date: 2023-01-05 05:11+0100\n"
+"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"PO-Revision-Date: 2023-01-06 06:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1323,7 +1323,7 @@ msgstr "%1 -მა OTR სესია დაასრულა."
 #: core/otr/otrnotificationjob.cpp:97
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
-msgstr ""
+msgstr "%1-ს   OTR-ის დაწყება უნდა. ეთანხმებით?"
 
 #: core/otr/otrnotificationjob.cpp:101
 #, kde-format
@@ -2377,7 +2377,7 @@ msgstr "სერვერს API გასაღები ესაჭირო
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:145
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:150
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2743,7 +2743,7 @@ msgstr ""
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:239
 #, kde-format
 msgid "The bodyParam 'default' is required"
-msgstr ""
+msgstr "BodyParam 'default' -ის მითითება აუცილებელია"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:241
 #, kde-format
@@ -2823,7 +2823,7 @@ msgstr "როგორც ჩანს, შემოტანილი ფა�
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:271
 #, kde-format
 msgid "The file to be imported was not found on the specified path."
-msgstr ""
+msgstr "შემოსატანი ფაილი მითითებულ ბილიკზე აღმოჩენილი არაა."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:273
 #, kde-format
@@ -3011,7 +3011,7 @@ msgstr "არასწორი მომხმარებელი"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:345
 #, kde-format
 msgid "The webhook URL responded with a status other than 200"
-msgstr ""
+msgstr "ვებ-გადამჭერის URL-ის პასუხი 200 არაა"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:347
 #, kde-format
@@ -3078,19 +3078,23 @@ msgid ""
 "Password does not meet the server's policy of at least one lowercase "
 "character"
 msgstr ""
+"პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთი დაბალი რეგისტრის მქონე "
+"სიმბოლოს მაინც შეიცავდეს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:371
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one numerical "
 "character"
-msgstr ""
+msgstr "პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთ ციფრს მაინც შეიცავდეს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:373
 #, kde-format
 msgid ""
 "Password does not meet the server's policy of at least one special character"
 msgstr ""
+"პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთ სპეციალურ სიმბოლოს მაინც "
+"შეიცავდეს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:375
 #, kde-format
@@ -3098,6 +3102,8 @@ msgid ""
 "Password does not meet the server's policy of at least one uppercase "
 "character"
 msgstr ""
+"პაროლი არ ემთხვევა სერვერის პოლიტიკას, რომ ერთი დაბალი რეგისტრის მქონე "
+"სიმბოლოს მაინც შეიცავდეს"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:378
 #, kde-format
@@ -4207,7 +4213,7 @@ msgstr "E2E გასაღების საწყის მნიშვნე
 #: widgets/administratordialog/users/administratoruserswidget.cpp:368
 #, kde-format
 msgid "E2E key for %1 has been reset."
-msgstr ""
+msgstr "%1-ის გამჭოლი გასაღები საწყის მნიშვნელობაზე დაბრუნდა."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:368
 #, kde-format
@@ -4230,7 +4236,7 @@ msgstr "Totp -ის საწყის მნიშვნელობებზ�
 #: widgets/administratordialog/users/administratoruserswidget.cpp:413
 #, kde-format
 msgid "TOTP key for %1 has been reset"
-msgstr ""
+msgstr "TOTP გასაღები %1-თვის საწყის მნიშვნელობაზე დაბრუნდა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
 #, kde-format
@@ -4569,7 +4575,7 @@ msgstr "SSO-ის საბაზისო URL"
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
-msgstr ""
+msgstr "გარე SSO სერვისის საბაზისო URL. მაგ: https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
@@ -4582,6 +4588,7 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"გარე SSO სერვისის შესვლის URL. მაგ: https://sso.example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
@@ -5316,7 +5323,7 @@ msgid "Show Deleted Status"
 msgstr "წაშლილი სტატუსის ჩვენება"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:71
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "შეტყობინების მიჭკარტების დაშვება"
@@ -5352,80 +5359,85 @@ msgid "Audio Recorder Enabled"
 msgstr "ხმის ჩამწერი ჩართულია"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
-msgstr "ავტომატური თარგმანი"
+msgstr "ავტომატური თარგმანის ჩართვა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:48
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "დაბლოკვის გასათიშად შეიყვანეთ 0."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "შეტყობინებების ჩასწორების დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:62
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:85
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:90
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:91
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "შეტყობინებებში დაშვებული სიმბოლოების მაქსიმალური რაოდენობა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
 #, kde-format
 msgid "Safe Ports"
 msgstr "უსაფრთხო პორტები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#, fuzzy, kde-format
+#| msgid "Direct Message Email Subject"
+msgid "Direct Messsage Maximum Users"
+msgstr "პირადი შეტყობინების ელფოსტის სათაური"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Message Attachments"
 msgstr "შეტყობინებაზე მიმაგრებული ფაილები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5433,63 +5445,59 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიგანე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:126
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიმაღლე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:128
 #, kde-format
 msgid "Audio Message"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:133
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:138
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "ავტომატური თარგმანი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
+#, kde-format
 msgid "Deepl"
-msgstr "DeepL"
-
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:147
-#, fuzzy, kde-format
-#| msgid "Micro Off"
-msgid "Microsoft"
-msgstr "მიკროს გამორთ"
-
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "Provider:"
-msgid "Service Provider"
-msgstr "მომწოდებელი:"
+msgstr "Deepl"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
+#, kde-format
+msgid "Microsoft"
+msgstr "Microsoft"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
+#, kde-format
+msgid "Service Provider"
+msgstr "სერვისის მომწოდებელი"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
 #, kde-format
 msgid "DeepL API Key"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
+#, kde-format
 msgid "Google API Key"
-msgstr "Google-ის ID"
+msgstr "Google API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:166
 #, kde-format
 msgid "Microsoft API Key"
 msgstr ""
@@ -6871,14 +6879,14 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "შექმენით პირდაპირი შეტყობინებები - %1"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:21
+#: widgets/dialogs/createdirectmessageswidget.cpp:22
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
 "like to talk, everyone in the same place, using direct messages."
 msgstr ""
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:29
+#: widgets/dialogs/createdirectmessageswidget.cpp:30
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."
