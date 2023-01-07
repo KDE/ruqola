@@ -182,6 +182,6 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mDirectMessageMaxUsers = w.findChild<QSpinBox *>(QStringLiteral("mDirectMessageMaxUsers"));
     QVERIFY(mDirectMessageMaxUsers);
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), QStringLiteral("DirectMesssage_maxUsers"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DirectMesssage_maxUsers"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), QStringLiteral("DirectMessage_maxUsers"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DirectMessage_maxUsers"));
 }
