@@ -28,6 +28,8 @@ public:
 
     Q_REQUIRED_RESULT QStringList userNames() const;
     Q_REQUIRED_RESULT int numberOfUsers() const;
+
+    Q_REQUIRED_RESULT QLineEdit *lineEdit() const;
 Q_SIGNALS:
     void textChanged(const QString &str);
     void userListChanged(bool isNotEmpty);

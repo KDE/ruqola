@@ -34,4 +34,9 @@ void CreateDirectMessagesWidgetTest::shouldHaveDefaultValues()
     QVERIFY(label->wordWrap());
 
     QVERIFY(w.userNames().isEmpty());
+
+    auto mTooManyUsers = w.findChild<QLabel *>(QStringLiteral("mTooManyUsers"));
+    QVERIFY(mTooManyUsers);
+    QVERIFY(!mTooManyUsers->text().isEmpty());
+    QVERIFY(!mTooManyUsers->isVisible());
 }

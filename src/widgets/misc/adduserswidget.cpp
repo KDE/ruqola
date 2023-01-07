@@ -95,3 +95,8 @@ int AddUsersWidget::numberOfUsers() const
 {
     return mMap.count();
 }
+
+QLineEdit *AddUsersWidget::lineEdit() const
+{
+    return mSearchUserLineEdit;
+}

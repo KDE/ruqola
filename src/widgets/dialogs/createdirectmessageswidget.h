@@ -11,6 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class AddUsersWidget;
 class RocketChatAccount;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT CreateDirectMessagesWidget : public QWidget
 {
     Q_OBJECT
@@ -22,5 +23,8 @@ Q_SIGNALS:
     void updateOkButton(bool state);
 
 private:
+    void checkMaximumUsers(bool state);
     AddUsersWidget *const mUsers;
+    RocketChatAccount *const mRocketChatAccount;
+    QLabel *const mTooManyUsers;
 };

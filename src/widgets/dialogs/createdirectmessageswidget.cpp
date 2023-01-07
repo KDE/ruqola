@@ -8,12 +8,15 @@
 #include "misc/adduserswidget.h"
 #include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <KStatefulBrush>
 #include <QLabel>
 #include <QVBoxLayout>
 
 CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mUsers(new AddUsersWidget(account, this))
+    , mRocketChatAccount(account)
+    , mTooManyUsers(new QLabel(i18n("Too many users selected."), this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -28,17 +31,17 @@ CreateDirectMessagesWidget::CreateDirectMessagesWidget(RocketChatAccount *accoun
 
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mUsers->setPlaceholderText(i18n("Select users..."));
+
+    mTooManyUsers->setObjectName(QStringLiteral("mTooManyUsers"));
     mainLayout->addWidget(mUsers);
+    mainLayout->addWidget(mTooManyUsers);
     mainLayout->addStretch(1);
-    connect(mUsers, &AddUsersWidget::userListChanged, this, [this, account](bool state) {
-        bool result = state;
-        if (account) {
-            if (account->ruqolaServerConfig()->directMessageMaximumUser() >= mUsers->numberOfUsers()) {
-                result = false;
-            }
-        }
-        Q_EMIT updateOkButton(result);
-    });
+    connect(mUsers, &AddUsersWidget::userListChanged, this, &CreateDirectMessagesWidget::checkMaximumUsers);
+    mTooManyUsers->setVisible(false);
+
+    const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
+    const QString negativeTextColor = QStringLiteral("QLabel{ color:%1 }").arg(bgBrush.brush(palette()).color().name());
+    mTooManyUsers->setStyleSheet(negativeTextColor);
 }
 
 CreateDirectMessagesWidget::~CreateDirectMessagesWidget() = default;
@@ -46,4 +49,20 @@ CreateDirectMessagesWidget::~CreateDirectMessagesWidget() = default;
 QStringList CreateDirectMessagesWidget::userNames() const
 {
     return mUsers->userNames();
+}
+
+void CreateDirectMessagesWidget::checkMaximumUsers(bool state)
+{
+    bool result = state;
+    if (mRocketChatAccount) {
+        if (mUsers->numberOfUsers() < mRocketChatAccount->ruqolaServerConfig()->directMessageMaximumUser()) {
+            mUsers->lineEdit()->setEnabled(true);
+            mTooManyUsers->setVisible(false);
+        } else {
+            result = false;
+            mUsers->lineEdit()->setEnabled(false);
+            mTooManyUsers->setVisible(true);
+        }
+    }
+    Q_EMIT updateOkButton(result);
 }
