@@ -48,6 +48,7 @@ if (OPTION_BUILD_PYTHON_BINDINGS)
    set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
 endif()   
 
+option(USE_KTEXTADDONS_LIB "Use ktextaddons lib (experimental)" OFF)
 
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" FALSE)
 
@@ -94,10 +95,17 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Prison
 )
 
-# need by TextAutoCorrection. Remove it after creating lib
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-    Archive
-)
+
+if (USE_KTEXTADDONS_LIB)
+    find_package(KF5TextTranslator ${KF5_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF5TextEditTextToSpeech ${KF5_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF5TextAutoCorrection ${KF5_MIN_VERSION} CONFIG REQUIRED)
+else()
+    # need by TextAutoCorrection. Remove it after creating lib
+    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+        Archive
+    )
+endif()
 
 if (NOT WIN32 AND NOT APPLE)
     find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
