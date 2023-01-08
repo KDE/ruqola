@@ -39,7 +39,7 @@ include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(KDEClangFormat)
-# remove when created a lib for libpimcommonautocorrection
+# remove when created a lib for libTextAutoCorrection
 include(ECMGenerateHeaders)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
@@ -94,7 +94,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Prison
 )
 
-# need by pimcommonautocorrection. Remove it after creating lib
+# need by TextAutoCorrection. Remove it after creating lib
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Archive
 )

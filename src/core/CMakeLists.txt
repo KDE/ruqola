@@ -490,7 +490,7 @@ target_link_libraries(libruqolacore
     KF5::ConfigWidgets
     KF5::IdleTime
     KF5::WindowSystem
-    KF5PimCommonAutoCorrection
+    KF5::TextAutoCorrection
     KF5PimCommonTextTranslator
 )
 

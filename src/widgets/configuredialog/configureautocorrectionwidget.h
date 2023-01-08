@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-namespace PimCommonAutoCorrection
+namespace TextAutoCorrection
 {
 class AutoCorrectionWidget;
 }
@@ -23,5 +23,5 @@ public:
     void load();
 
 private:
-    PimCommonAutoCorrection::AutoCorrectionWidget *const mAutoCorrectionWidget;
+    TextAutoCorrection::AutoCorrectionWidget *const mAutoCorrectionWidget;
 };

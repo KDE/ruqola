@@ -705,7 +705,7 @@ target_link_libraries(libruqolawidgets
     KF5::KIOFileWidgets
     librocketchatrestapi-qt5
     libruqolacore
-    KF5PimCommonAutoCorrection
+    KF5::TextAutoCorrection
 )
 
 if (KPIMTEXTEDIT_TEXT_TO_SPEECH)

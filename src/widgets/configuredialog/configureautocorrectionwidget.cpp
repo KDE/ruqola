@@ -5,15 +5,15 @@
 */
 
 #include "configureautocorrectionwidget.h"
-#include "autocorrection/widgets/autocorrectionwidget.h"
-#include "pimcommonautocorrection/autocorrection/autocorrection.h"
-#include "pimcommonautocorrection/settings/pimcommonautocorrectionsettings.h"
 #include "ruqola.h"
+#include "textautocorrection/autocorrection.h"
+#include "textautocorrection/autocorrectionwidget.h"
+#include "textautocorrection/textautocorrectionsettings.h"
 #include <QVBoxLayout>
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     : QWidget{parent}
-    , mAutoCorrectionWidget(new PimCommonAutoCorrection::AutoCorrectionWidget(this))
+    , mAutoCorrectionWidget(new TextAutoCorrection::AutoCorrectionWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -29,7 +29,7 @@ ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 void ConfigureAutoCorrectionWidget::save()
 {
     mAutoCorrectionWidget->writeConfig();
-    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->save();
+    TextAutoCorrection::TextAutoCorrectionSettings::self()->save();
 }
 
 void ConfigureAutoCorrectionWidget::load()

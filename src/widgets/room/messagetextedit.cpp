@@ -9,10 +9,10 @@
 #include "common/completionlistview.h"
 #include "common/emojicompletiondelegate.h"
 #include "model/inputcompletermodel.h"
-#include "pimcommonautocorrection/autocorrection/autocorrection.h"
-#include "pimcommonautocorrection/settings/pimcommonautocorrectionsettings.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
+#include "textautocorrection/autocorrection.h"
+#include "textautocorrection/textautocorrectionsettings.h"
 
 #include <KLocalizedString>
 

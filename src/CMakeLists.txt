@@ -9,7 +9,7 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
 endif()
 
 # Remove it when we will split lib
-add_subdirectory(pimcommonautocorrection)
+add_subdirectory(autocorrection)
 add_subdirectory(pimcommontexttranslator)
 if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
     add_subdirectory(kpimtextedittexttospeech)

@@ -9,9 +9,9 @@
 #include "ruqola.h"
 #include "accountmanager.h"
 #include "managerdatapaths.h"
-#include "pimcommonautocorrection/autocorrection/autocorrection.h"
-#include "pimcommonautocorrection/settings/pimcommonautocorrectionsettings.h"
 #include "rocketchataccount.h"
+#include "textautocorrection/autocorrection.h"
+#include "textautocorrection/textautocorrectionsettings.h"
 
 #include <KSharedConfig>
 
@@ -19,13 +19,13 @@ static Ruqola *s_self = nullptr;
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
-    , mAutoCorrection(new PimCommonAutoCorrection::AutoCorrection())
+    , mAutoCorrection(new TextAutoCorrection::AutoCorrection())
 {
     // Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
-    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->setSharedConfig(KSharedConfig::openConfig());
-    PimCommonAutoCorrection::PimCommonAutoCorrectionSettings::self()->load();
+    TextAutoCorrection::TextAutoCorrectionSettings::self()->setSharedConfig(KSharedConfig::openConfig());
+    TextAutoCorrection::TextAutoCorrectionSettings::self()->load();
     mAutoCorrection->readConfig();
 }
 
@@ -53,7 +53,7 @@ void Ruqola::openMessageUrl(const QString &url)
     mAccountManager->openMessageUrl(url);
 }
 
-PimCommonAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
+TextAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
 {
     return mAutoCorrection;
 }
