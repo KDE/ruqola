@@ -9,10 +9,12 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
 endif()
 
 # Remove it when we will split lib
-add_subdirectory(autocorrection)
-add_subdirectory(texttranslator)
-if (TEXTEDIT_TEXT_TO_SPEECH)
-    add_subdirectory(textedittexttospeech)
+if (NOT USE_KTEXTADDONS_LIB)
+    add_subdirectory(autocorrection)
+    add_subdirectory(texttranslator)
+    if (TEXTEDIT_TEXT_TO_SPEECH)
+        add_subdirectory(textedittexttospeech)
+    endif()
 endif()
 add_subdirectory(rocketchatrestapi-qt5)
 

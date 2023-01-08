@@ -491,7 +491,7 @@ target_link_libraries(libruqolacore
     KF5::IdleTime
     KF5::WindowSystem
     KF5::TextAutoCorrection
-    KF5TextTranslator
+    KF5::TextTranslator
 )
 
 if (WIN32 OR APPLE)
