@@ -710,7 +710,7 @@ target_link_libraries(libruqolawidgets
 
 if (TEXTEDIT_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
-        KF5TextEditTextToSpeech
+        KF5::TextEditTextToSpeech
     )
 endif()
 
