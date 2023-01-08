@@ -5,10 +5,10 @@
 */
 
 #include "translatorenginemanager.h"
-#include <PimCommonTextTranslator/TranslatorEngineClient>
-#include <PimCommonTextTranslator/TranslatorEngineLoader>
-#include <PimCommonTextTranslator/TranslatorEnginePlugin>
-#include <PimCommonTextTranslator/TranslatorUtil>
+#include <TextTranslator/TranslatorEngineClient>
+#include <TextTranslator/TranslatorEngineLoader>
+#include <TextTranslator/TranslatorEnginePlugin>
+#include <TextTranslator/TranslatorUtil>
 TranslatorEngineManager::TranslatorEngineManager(QObject *parent)
     : QObject{parent}
 {
@@ -32,19 +32,18 @@ void TranslatorEngineManager::translatorConfigChanged()
 void TranslatorEngineManager::initializeTranslateEngine()
 {
     delete mTranslatorEnginePlugin;
-    const QString engineName = PimCommonTextTranslator::TranslatorUtil::loadEngine();
-    PimCommonTextTranslator::TranslatorEngineClient *translatorClient =
-        PimCommonTextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
+    const QString engineName = TextTranslator::TranslatorUtil::loadEngine();
+    TextTranslator::TranslatorEngineClient *translatorClient = TextTranslator::TranslatorEngineLoader::self()->createTranslatorClient(engineName);
     if (translatorClient) {
         mTranslatorEnginePlugin = translatorClient->createTranslator();
-        connect(mTranslatorEnginePlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
-        connect(mTranslatorEnginePlugin, &PimCommonTextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorEngineManager::translateFailed);
+        connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateDone, this, &TranslatorEngineManager::slotTranslateDone);
+        connect(mTranslatorEnginePlugin, &TextTranslator::TranslatorEnginePlugin::translateFailed, this, &TranslatorEngineManager::translateFailed);
     } else {
         mTranslatorEnginePlugin = nullptr;
     }
 }
 
-PimCommonTextTranslator::TranslatorEnginePlugin *TranslatorEngineManager::translatorEngineBase() const
+TextTranslator::TranslatorEnginePlugin *TranslatorEngineManager::translatorEngineBase() const
 {
     return mTranslatorEnginePlugin;
 }

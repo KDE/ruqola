@@ -654,7 +654,7 @@ target_sources(libruqolawidgets PRIVATE
     conferencecalldialog/conferenceinfowidget.cpp
 )
 
-if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
+if (TEXTEDIT_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureaccessibilitywidget.h
         configuredialog/configureaccessibilitywidget.cpp
@@ -708,9 +708,9 @@ target_link_libraries(libruqolawidgets
     KF5::TextAutoCorrection
 )
 
-if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
+if (TEXTEDIT_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
-        KF5PimTextEditTextToSpeech
+        KF5TextEditTextToSpeech
     )
 endif()
 

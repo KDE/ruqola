@@ -5,14 +5,14 @@
 */
 
 #include "configureaccessibilitywidget.h"
-#include <KPIMTextEditTextToSpeech/TextToSpeechConfigWidget>
+#include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 #include <QShowEvent>
 #include <QVBoxLayout>
 
 ConfigureAccessibilityWidget::ConfigureAccessibilityWidget(QWidget *parent)
     : QWidget{parent}
-    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechConfigWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechConfigWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));

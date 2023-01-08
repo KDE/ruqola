@@ -15,7 +15,7 @@
 #include "room/roomwidgetbase.h"
 #include "ruqolawidgets_debug.h"
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
 #include <KLocalizedString>
@@ -34,7 +34,7 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     , mRocketChatAccount(account)
     , mFollowButton(new QToolButton(this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

@@ -12,7 +12,7 @@
 class MessageListDelegate;
 class RocketChatAccount;
 class Room;
-namespace PimCommonTextTranslator
+namespace TextTranslator
 {
 class TranslatorMenu;
 }
@@ -102,7 +102,7 @@ private:
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
     MessageListDelegate *const mMessageListDelegate;
-    PimCommonTextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
+    TextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     bool mDebug = false;
 };

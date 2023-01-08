@@ -10,7 +10,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-namespace KPIMTextEditTextToSpeech
+namespace TextEditTextToSpeech
 {
 class TextToSpeechConfigWidget;
 }
@@ -29,6 +29,6 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    KPIMTextEditTextToSpeech::TextToSpeechConfigWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechConfigWidget *const mTextToSpeechWidget;
     bool mWasInitialized = false;
 };

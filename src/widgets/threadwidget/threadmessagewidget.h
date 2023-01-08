@@ -15,7 +15,7 @@ class QLabel;
 class RoomWidgetBase;
 class QToolButton;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-namespace KPIMTextEditTextToSpeech
+namespace TextEditTextToSpeech
 {
 class TextToSpeechWidget;
 }
@@ -55,6 +55,6 @@ private:
     QToolButton *const mFollowButton;
     QPointer<Room> mRoom;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
 };

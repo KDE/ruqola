@@ -14,7 +14,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
 ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account, QWidget *parent)
@@ -23,7 +23,7 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     , mMessageListInfo(new QLabel(this))
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

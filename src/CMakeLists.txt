@@ -10,9 +10,9 @@ endif()
 
 # Remove it when we will split lib
 add_subdirectory(autocorrection)
-add_subdirectory(pimcommontexttranslator)
-if (KPIMTEXTEDIT_TEXT_TO_SPEECH)
-    add_subdirectory(kpimtextedittexttospeech)
+add_subdirectory(texttranslator)
+if (TEXTEDIT_TEXT_TO_SPEECH)
+    add_subdirectory(textedittexttospeech)
 endif()
 add_subdirectory(rocketchatrestapi-qt5)
 

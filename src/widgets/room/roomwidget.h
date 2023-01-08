@@ -23,7 +23,7 @@ class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-namespace KPIMTextEditTextToSpeech
+namespace TextEditTextToSpeech
 {
 class TextToSpeechWidget;
 }
@@ -114,7 +114,7 @@ private:
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
     OtrWidget *const mOtrWidget;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

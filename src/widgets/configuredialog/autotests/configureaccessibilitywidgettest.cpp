@@ -6,9 +6,9 @@
 
 #include "configureaccessibilitywidgettest.h"
 #include "configuredialog/configureaccessibilitywidget.h"
-#include <KPIMTextEditTextToSpeech/TextToSpeechConfigWidget>
 #include <QTest>
 #include <QVBoxLayout>
+#include <TextEditTextToSpeech/TextToSpeechConfigWidget>
 
 QTEST_MAIN(ConfigureAccessibilityWidgetTest)
 ConfigureAccessibilityWidgetTest::ConfigureAccessibilityWidgetTest(QObject *parent)
@@ -23,6 +23,6 @@ void ConfigureAccessibilityWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mTextToSpeechWidget = w.findChild<KPIMTextEditTextToSpeech::TextToSpeechConfigWidget *>(QStringLiteral("mTextToSpeechWidget"));
+    auto mTextToSpeechWidget = w.findChild<TextEditTextToSpeech::TextToSpeechConfigWidget *>(QStringLiteral("mTextToSpeechWidget"));
     QVERIFY(mTextToSpeechWidget);
 }

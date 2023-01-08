@@ -19,7 +19,7 @@
 #include "threadwidget/threadmessagedialog.h"
 #include "translatetext/translatetextjob.h"
 #include "translatetext/translatorenginemanager.h"
-#include <PimCommonTextTranslator/TranslatorMenu>
+#include <TextTranslator/TranslatorMenu>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -199,8 +199,8 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
 void MessageListView::createTranslorMenu()
 {
     if (!mTranslatorMenu) {
-        mTranslatorMenu = new PimCommonTextTranslator::TranslatorMenu(this);
-        connect(mTranslatorMenu, &PimCommonTextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
+        mTranslatorMenu = new TextTranslator::TranslatorMenu(this);
+        connect(mTranslatorMenu, &TextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
         connect(Ruqola::self(), &Ruqola::translatorMenuChanged, this, [this]() {
             TranslatorEngineManager::self()->translatorConfigChanged();
             mTranslatorMenu->updateMenu();

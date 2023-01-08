@@ -16,7 +16,7 @@
 #include <QListView>
 #include <QVBoxLayout>
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
 NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
@@ -25,7 +25,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

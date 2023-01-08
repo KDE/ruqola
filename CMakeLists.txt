@@ -124,7 +124,7 @@ set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES DESCRIPTION
 # remove it when we will split lib
 if(TARGET Qt${QT_MAJOR_VERSION}::TextToSpeech)
     add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-    set(KPIMTEXTEDIT_TEXT_TO_SPEECH TRUE)
+    set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
 endif()
 
 find_package(Qt${QT_MAJOR_VERSION}Keychain CONFIG)

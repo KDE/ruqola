@@ -16,7 +16,7 @@ class SearchMessageFilterProxyModel;
 class RocketChatAccount;
 class Room;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-namespace KPIMTextEditTextToSpeech
+namespace TextEditTextToSpeech
 {
 class TextToSpeechWidget;
 }
@@ -52,6 +52,6 @@ private:
     SearchMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    KPIMTextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
 #endif
 };

@@ -14,7 +14,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <KPIMTextEditTextToSpeech/TextToSpeechWidget>
+#include <TextEditTextToSpeech/TextToSpeechWidget>
 #endif
 
 ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget *parent)
@@ -23,7 +23,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     , mDiscussionInfoLabel(new QLabel(this))
     , mListDiscussionsListView(new DiscussionListView(account, this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mTextToSpeechWidget(new KPIMTextEditTextToSpeech::TextToSpeechWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

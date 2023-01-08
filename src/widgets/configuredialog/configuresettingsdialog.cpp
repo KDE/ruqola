@@ -14,11 +14,11 @@
 #include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
-#include <PimCommonTextTranslator/TranslatorConfigureListsWidget>
 #include <QDialogButtonBox>
 #include <QIcon>
 #include <QPushButton>
 #include <QWindow>
+#include <TextTranslator/TranslatorConfigureListsWidget>
 
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 #include "configureaccessibilitywidget.h"
@@ -42,7 +42,7 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
 #if HAVE_KUSERFEEDBACK
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
-    , mConfigureTranslateWidget(new PimCommonTextTranslator::TranslatorConfigureListsWidget(this))
+    , mConfigureTranslateWidget(new TextTranslator::TranslatorConfigureListsWidget(this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
 #endif

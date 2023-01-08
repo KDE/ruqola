@@ -19,7 +19,7 @@ class ConfigureUserFeedbackWidget;
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
 class ConfigureAccessibilityWidget;
-namespace PimCommonTextTranslator
+namespace TextTranslator
 {
 class TranslatorConfigureListsWidget;
 }
@@ -55,7 +55,7 @@ private:
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
 #endif
     KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
-    PimCommonTextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
+    TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
     ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget;
