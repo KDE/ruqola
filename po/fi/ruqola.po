@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-08 00:59+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -7251,7 +7251,12 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Luo suoraviestejä"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:22
+#: widgets/dialogs/createdirectmessageswidget.cpp:19
+#, kde-format
+msgid "Too many users selected."
+msgstr ""
+
+#: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
@@ -7260,7 +7265,7 @@ msgstr ""
 "Olet luomassa useamman käyttäjän keskustelua. Lisää ne, joille haluat puhua "
 "suoraviestein, kaikki samaan paikkaan."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:30
+#: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Select Users..."

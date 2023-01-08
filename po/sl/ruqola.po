@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-05 09:13+0100\n"
+"POT-Creation-Date: 2023-01-08 00:59+0000\n"
+"PO-Revision-Date: 2023-01-07 12:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:53
@@ -5459,10 +5459,9 @@ msgid "Audio Recorder Enabled"
 msgstr "Video snemalnik omogočen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
-msgstr "Samodejno prevedi"
+msgstr "Omogoči samodejno prevajanje"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, kde-format
@@ -5518,6 +5517,8 @@ msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
+"Sporočila bodo združena s prejšnjim sporočilom, če sta oba od istega "
+"uporabnika in je bil pretečeni čas krajši od časa informacije v sekundah."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
@@ -7032,7 +7033,13 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Ustvari neposredna sporočila - %1"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:22
+#: widgets/dialogs/createdirectmessageswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Any team selected."
+msgid "Too many users selected."
+msgstr "Katerakoli izbrana ekipa."
+
+#: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
@@ -7041,7 +7048,7 @@ msgstr ""
 "Ustvarili boste klepet z več uporabniki. Dodajte te, s katerimi želite "
 "govoriti, z vsemi na istem mestu, z neposrednimi sporočili."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:30
+#: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
+"POT-Creation-Date: 2023-01-08 00:59+0000\n"
 "PO-Revision-Date: 2022-12-29 06:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -7078,7 +7078,13 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Crea missatges directes - %1"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:22
+#: widgets/dialogs/createdirectmessageswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Any team selected."
+msgid "Too many users selected."
+msgstr "Qualsevol equip seleccionat."
+
+#: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
@@ -7087,7 +7093,7 @@ msgstr ""
 "Esteu a punt de crear un xat amb diversos usuaris. Afegiu els que vulgueu "
 "parlar-hi, cadascun al mateix lloc, utilitzant missatges directes."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:30
+#: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."

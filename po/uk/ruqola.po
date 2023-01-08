@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-06 09:42+0200\n"
+"POT-Creation-Date: 2023-01-08 00:59+0000\n"
+"PO-Revision-Date: 2023-01-07 09:01+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5556,10 +5556,9 @@ msgid "Grouping Period (in seconds)"
 msgstr "Період групування (у секундах)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Direct Message Email Subject"
+#, kde-format
 msgid "Direct Messsage Maximum Users"
-msgstr "Тема безпосереднього повідомлення"
+msgstr "Максимальна кількість користувачів безпосереднього повідомлення"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -7078,7 +7077,13 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Створення безпосередніх повідомлень – %1"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:22
+#: widgets/dialogs/createdirectmessageswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Any team selected."
+msgid "Too many users selected."
+msgstr "Не вибрано жодної команди."
+
+#: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
@@ -7088,7 +7093,7 @@ msgstr ""
 "Додайте користувачів, із якими ви хочете спілкуватися, усіх до спільного "
 "місця, використовуючи безпосередні повідомлення."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:30
+#: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."

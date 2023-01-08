@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-07 00:49+0000\n"
-"PO-Revision-Date: 2023-01-05 05:21+0100\n"
+"POT-Creation-Date: 2023-01-08 00:59+0000\n"
+"PO-Revision-Date: 2023-01-07 10:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -5477,10 +5477,9 @@ msgid "Audio Recorder Enabled"
 msgstr "Enregistrador d'àudio activat"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
-msgstr "Traducció automàtica"
+msgstr "Activa la traducció automàtica"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
 #, kde-format
@@ -5536,17 +5535,18 @@ msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
+"Els missatges s'agruparan amb el missatge anterior si tots són del mateix "
+"usuari i el temps transcorregut és inferior al temps informat en segons."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, kde-format
 msgid "Grouping Period (in seconds)"
-msgstr ""
+msgstr "Període d'agrupació (en segons)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Direct Message Email Subject"
+#, kde-format
 msgid "Direct Messsage Maximum Users"
-msgstr "Missatge directe de l'assumpte del correu electrònic"
+msgstr "Màxim d'usuaris d'un missatge directe"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -5601,39 +5601,35 @@ msgid "Auto-Translate"
 msgstr "Traducció automàtica"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#, kde-format
 msgid "Deepl"
 msgstr "DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid "Micro Off"
+#, kde-format
 msgid "Microsoft"
-msgstr "Micro apagat"
+msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid "Provider:"
+#, kde-format
 msgid "Service Provider"
-msgstr "Proveïdor:"
+msgstr "Proveïdor de serveis"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
 #, kde-format
 msgid "DeepL API Key"
-msgstr ""
+msgstr "Clau de l'API de DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#, kde-format
 msgid "Google API Key"
-msgstr "ID de Google"
+msgstr "Clau de l'API de Google"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:166
 #, kde-format
 msgid "Microsoft API Key"
-msgstr ""
+msgstr "Clau de l'API de Microsoft"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -7064,7 +7060,13 @@ msgctxt "@title:window"
 msgid "Create Direct Messages - %1"
 msgstr "Crea missatges directes - %1"
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:22
+#: widgets/dialogs/createdirectmessageswidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Any team selected."
+msgid "Too many users selected."
+msgstr "Qualsevol equip seleccionat."
+
+#: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
 msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
@@ -7073,7 +7075,7 @@ msgstr ""
 "Esteu a punt de crear un xat amb diversos usuaris. Afegiu els que vulgueu "
 "parlar-hi, cadascun al mateix lloc, usant missatges directes."
 
-#: widgets/dialogs/createdirectmessageswidget.cpp:30
+#: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
 #, kde-format
 msgid "Select users..."
