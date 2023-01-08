@@ -1,0 +1,11 @@
+#SPDX-License-Identifier: GPL-2.0-or-later
+#SPDX-FileCopyrightText: none
+File=textautocorrection.kcfg
+ClassName=TextAutoCorrectionSettingsBase
+NameSpace=TextAutoCorrection
+Visibility=TEXTAUTOCORRECTION_EXPORT
+Mutators=true
+Singleton=true
+ItemAccessors=true
+IncludeFiles=qapplication.h,textautocorrection_export.h
+
