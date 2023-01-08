@@ -86,10 +86,12 @@ target_link_libraries(KF5TextAutoCorrection
 target_include_directories(KF5TextAutoCorrection INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KTextAutoCorrection/>")
 
 set_target_properties(KF5TextAutoCorrection PROPERTIES
-    VERSION ${TEXTAUTOCORRECTION_VERSION}
-    SOVERSION ${TEXTAUTOCORRECTION_SOVERSION}
+    VERSION ${RUQOLA_LIB_VERSION}
+    SOVERSION ${RUQOLA_LIB_SOVERSION}
     EXPORT_NAME TextAutoCorrection
     )
+
+install(TARGETS KF5TextAutoCorrection ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
 
 install(TARGETS
     KF5TextAutoCorrection

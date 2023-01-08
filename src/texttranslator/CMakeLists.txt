@@ -108,10 +108,13 @@ target_link_libraries(KF5TextTranslator
 target_include_directories(KF5TextTranslator INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/TextTranslator/>")
 
 set_target_properties(KF5TextTranslator PROPERTIES
-    VERSION ${TEXTTRANSLATE_VERSION}
-    SOVERSION ${TEXTTRANSLATE_SOVERSION}
+    VERSION ${RUQOLA_LIB_VERSION}
+    SOVERSION ${RUQOLA_LIB_SOVERSION}
     EXPORT_NAME TextTranslator
     )
+
+install(TARGETS KF5TextTranslator ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
+
 
 install(TARGETS
     KF5TextTranslator
