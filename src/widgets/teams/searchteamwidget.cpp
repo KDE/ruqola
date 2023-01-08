@@ -5,7 +5,6 @@
 */
 
 #include "searchteamwidget.h"
-#include "ruqolawidgets_debug.h"
 #include "searchteamcompletionlineedit.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
