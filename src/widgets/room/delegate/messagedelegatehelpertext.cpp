@@ -90,6 +90,20 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
 
                 QString needUpdateMessageId;
+#if 0
+                const TextConverter::convertMessageTextSettings settings(contextText,
+                                                                         mRocketChatAccount->userName(),
+                                                                         {},
+                                                                         mRocketChatAccount->highlightWords(),
+                                                                         mRocketChatAccount->emojiManager(),
+                                                                         mRocketChatAccount->messageCache(),
+                                                                         contextMessage.mentions(),
+                                                                         contextMessage.channels(),
+                                                                         mSearchText);
+
+                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+#endif
+
                 const QString contextString = TextConverter::convertMessageText(contextText,
                                                                                 mRocketChatAccount->userName(),
                                                                                 {},

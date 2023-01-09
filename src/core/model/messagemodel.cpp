@@ -504,6 +504,19 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     }
 
     QString needUpdateMessageId;
+#if 0
+    const TextConverter::convertMessageTextSettings settings(messageStr,
+                                                             userName,
+                                                             mAllMessages,
+                                                             highlightWords,
+                                                             emojiManager,
+                                                             messageCache,
+                                                             message.mentions(),
+                                                             message.channels(),
+                                                             searchedTex);
+
+    return TextConverter::convertMessageText(settings, needUpdateMessageId);
+#endif
     return TextConverter::convertMessageText(messageStr,
                                              userName,
                                              mAllMessages,
