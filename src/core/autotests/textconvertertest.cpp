@@ -117,6 +117,9 @@ void TextConverterTest::shouldConvertText()
     QEXPECT_FAIL("Remove <br/>", "Bug in kf5", Continue);
 
     QString needUpdateMessageId;
+#if 0
+    const TextConverter::convertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
+#endif
     QCOMPARE(TextConverter::convertMessageText(input, QString(), {}, {}, nullptr, nullptr, needUpdateMessageId, {}, {}),
              output); // TODO add autotests for highlightwords
 }
@@ -194,6 +197,9 @@ void TextConverterTest::shouldHighlightText()
 
     output = prepareExpectedOutput(output);
     QString needUpdateMessageId;
+#if 0
+    const TextConverter::convertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {});
+#endif
     QCOMPARE(TextConverter::convertMessageText(input, username, {}, {}, nullptr, nullptr, needUpdateMessageId, {}, {}), output);
 }
 
@@ -404,6 +410,10 @@ void TextConverterTest::shouldShowUsers()
 
     output = prepareExpectedOutput(output);
     QString needUpdateMessageId;
+#if 0
+    const TextConverter::convertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
+#endif
+
     QCOMPARE(TextConverter::convertMessageText(input, {}, {}, {}, nullptr, nullptr, needUpdateMessageId, mentions, channels), output);
 }
 
@@ -485,5 +495,8 @@ void TextConverterTest::shouldShowSearchedText()
     output = prepareExpectedOutput(output);
 
     QString needUpdateMessageId;
+#if 0
+    const TextConverter::convertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, searchedText);
+#endif
     QCOMPARE(TextConverter::convertMessageText(input, username, {}, highlightWords, nullptr, nullptr, needUpdateMessageId, {}, {}, searchedText), output);
 }
