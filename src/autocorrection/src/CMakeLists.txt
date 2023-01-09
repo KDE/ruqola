@@ -22,7 +22,7 @@ ecm_qt_declare_logging_category(KF5TextAutoCorrection HEADER textautocorrection_
 ecm_qt_declare_logging_category(KF5TextAutoCorrection HEADER textautocorrectionautocorrect_debug.h
 	IDENTIFIER TEXTAUTOCORRECTION_AUTOCORRECT_LOG CATEGORY_NAME org.kde.kf5.textautocorrection.autocorrect
 	DESCRIPTION "KF5 (AutoCorrection autocorrect text)"
-	EXPORT KTEXTADDONS
+        EXPORT RUQOLA
     )
 
 target_sources(KF5TextAutoCorrection PRIVATE

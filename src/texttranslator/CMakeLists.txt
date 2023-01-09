@@ -39,7 +39,7 @@ add_library(KF5::TextTranslator ALIAS KF5TextTranslator)
 ecm_qt_declare_logging_category(KF5TextTranslator HEADER texttranslator_debug.h
     IDENTIFIER TEXTTRANSLATOR_LOG CATEGORY_NAME org.kde.kf5.texttranslator
         DESCRIPTION "kf5 (TextTranslator)"
-        EXPORT KTEXTADDONS
+        EXPORT RUQOLA
     )
 
 target_sources(KF5TextTranslator PRIVATE

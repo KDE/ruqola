@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(translator_debug_bing_SRCS
     IDENTIFIER TRANSLATOR_BING_LOG
     CATEGORY_NAME org.kde.kf5.texttranslator.bing
     DESCRIPTION "bing translator"
-    EXPORT KTEXTADDONS
+    EXPORT RUQOLA
 )
 target_sources(translator_bing PRIVATE
     ${translator_debug_bing_SRCS}

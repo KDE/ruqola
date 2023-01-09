@@ -13,7 +13,7 @@ ecm_qt_declare_logging_category(translator_yandex
     IDENTIFIER TRANSLATOR_YANDEX_LOG
     CATEGORY_NAME org.kde.kf5.texttranslator.yandex
     DESCRIPTION "yandex translator"
-    EXPORT KTEXTADDONS
+    EXPORT RUQOLA
 )
 
 target_link_libraries(translator_yandex PRIVATE KF5::TextTranslator KF5::I18n)

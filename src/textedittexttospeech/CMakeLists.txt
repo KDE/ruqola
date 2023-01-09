@@ -56,7 +56,7 @@ endif()
 
 ecm_qt_declare_logging_category(KF5TextEditTextToSpeech HEADER TextEditTextToSpeech_debug.h
     IDENTIFIER TextEditTextToSpeech_LOG CATEGORY_NAME org.kde.kf5.textedittexttospeech
-        DESCRIPTION "kf5 (textedit text to speech)" EXPORT KTEXTADDONS)
+        DESCRIPTION "kf5 (textedit text to speech)" EXPORT RUQOLA)
 
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(KF5TextEditTextToSpeech PROPERTIES UNITY_BUILD ON)

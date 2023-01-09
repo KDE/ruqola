@@ -8,7 +8,7 @@ ecm_qt_declare_logging_category(translator_lingva_debug_SRCS
     IDENTIFIER TRANSLATOR_LINGVA_LOG
     CATEGORY_NAME org.kde.kf5.texttranslator.lingva
     DESCRIPTION "lingva translator"
-    EXPORT KTEXTADDONS
+    EXPORT RUQOLA
 )
 
 target_sources(translator_lingva PRIVATE

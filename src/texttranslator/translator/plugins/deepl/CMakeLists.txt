@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(translator_debug_deepl_SRCS
     IDENTIFIER TRANSLATOR_DEEPL_LOG
     CATEGORY_NAME org.kde.kf5.texttranslator.deepl
     DESCRIPTION "deepl translator"
-    EXPORT KTEXTADDONS
+    EXPORT RUQOLA
 )
 target_sources(translator_deepl PRIVATE
     ${translator_debug_deepl_SRCS}

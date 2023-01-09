@@ -7,7 +7,7 @@ ecm_qt_declare_logging_category(translator_debug_google_SRCS
     IDENTIFIER TRANSLATOR_GOOGLE_LOG
     CATEGORY_NAME org.kde.kf5.texttranslator.google
     DESCRIPTION "google translator"
-    EXPORT KTEXTADDONS
+    EXPORT RUQOLA
 )
 target_sources(translator_google PRIVATE
     ${translator_debug_google_SRCS}
