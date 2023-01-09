@@ -98,13 +98,32 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 if (USE_KTEXTADDONS_LIB)
     find_package(KF5TextTranslator ${KF5_MIN_VERSION} CONFIG REQUIRED)
-    find_package(KF5TextEditTextToSpeech ${KF5_MIN_VERSION} CONFIG REQUIRED)
     find_package(KF5TextAutoCorrection ${KF5_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF5TextEditTextToSpeech ${KF5_MIN_VERSION} CONFIG)
+    set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
+        "Add support for text to speech"
+        TYPE OPTIONAL
+    )
+    if (TARGET KF5TextEditTextToSpeech)
+        add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
+        set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
+    endif()
 else()
     # need by TextAutoCorrection. Remove it after creating lib
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
         Archive
     )
+    find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} CONFIG)
+    set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES DESCRIPTION
+        "Add support for text to speech"
+        TYPE OPTIONAL
+    )
+    # remove it when we will split lib
+    if(TARGET Qt${QT_MAJOR_VERSION}::TextToSpeech)
+        add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
+        set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
+    endif()
+
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
@@ -124,16 +143,6 @@ set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 
-find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} CONFIG)
-set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES DESCRIPTION
-    "Add support for text to speech"
-    TYPE OPTIONAL
-)
-# remove it when we will split lib
-if(TARGET Qt${QT_MAJOR_VERSION}::TextToSpeech)
-    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-    set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
-endif()
 
 find_package(Qt${QT_MAJOR_VERSION}Keychain CONFIG)
 set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
