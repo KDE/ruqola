@@ -118,12 +118,10 @@ else()
         "Add support for text to speech"
         TYPE OPTIONAL
     )
-    # remove it when we will split lib
     if(TARGET Qt${QT_MAJOR_VERSION}::TextToSpeech)
         add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
         set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
     endif()
-
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
