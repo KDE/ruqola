@@ -48,8 +48,6 @@ if (OPTION_BUILD_PYTHON_BINDINGS)
    set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/Python ${ECM_MODULE_PATH})
 endif()   
 
-option(USE_KTEXTADDONS_LIB "Use ktextaddons lib (experimental)" OFF)
-
 option(USE_UNITY_CMAKE_SUPPORT "Use UNITY cmake support (speedup compile time)" FALSE)
 
 set(COMPILE_WITH_UNITY_CMAKE_SUPPORT false)
@@ -96,8 +94,13 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-if (USE_KTEXTADDONS_LIB)
-    find_package(KF5TextTranslator ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5TextTranslator ${KF5_MIN_VERSION} CONFIG)
+set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
+    "ktextaddons, translator lib"
+    TYPE OPTIONAL
+)
+
+if (TARGET KF5::TextTranslator)
     find_package(KF5TextAutoCorrection ${KF5_MIN_VERSION} CONFIG REQUIRED)
     find_package(KF5TextEditTextToSpeech ${KF5_MIN_VERSION} CONFIG)
     set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
