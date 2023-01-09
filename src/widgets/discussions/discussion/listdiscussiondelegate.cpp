@@ -252,7 +252,8 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
                                                              {},
                                                              mSearchText);
 
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(discussionRoomId, std::move(doc));

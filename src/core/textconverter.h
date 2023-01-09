@@ -27,7 +27,8 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
                                MessageCache *_messageCache,
                                const QMap<QString, QString> &_mentions,
                                const QMap<QString, QString> &_channels,
-                               const QString &_searchedText = {})
+                               const QString &_searchedText = {},
+                               int _maximumRecursiveQuotedText = -1)
         : str(_str)
         , userName(_userName)
         , allMessages(_allMessages)
@@ -37,6 +38,7 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
         , mentions(_mentions)
         , channels(_channels)
         , searchedText(_searchedText)
+        , maximumRecursiveQuotedText(_maximumRecursiveQuotedText)
     {
     }
     QString str;
@@ -48,7 +50,8 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
     QMap<QString, QString> mentions;
     QMap<QString, QString> channels;
     QString searchedText;
+    int maximumRecursiveQuotedText = -1;
 };
 
-Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId);
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex);
 }

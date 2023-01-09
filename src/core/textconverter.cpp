@@ -255,7 +255,7 @@ QString generateRichText(const QString &str,
 }
 }
 
-QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId)
+QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex)
 {
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
@@ -265,7 +265,8 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
 
     QString str = settings.str;
     // TODO we need to look at room name too as we can have it when we use "direct reply"
-    if (str.contains(QLatin1String("[ ](http"))) { // ## is there a better way?
+    if (str.contains(QLatin1String("[ ](http"))
+        && (settings.maximumRecursiveQuotedText == -1 || (settings.maximumRecursiveQuotedText > recusiveIndex))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
         const int endPos = str.indexOf(QLatin1Char(')'));
         const QString url = str.mid(startPos + 1, endPos - startPos - 1);
@@ -284,8 +285,10 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                         settings.messageCache,
                                                         (*it).mentions(),
                                                         (*it).channels(),
-                                                        settings.searchedText);
-            const QString text = convertMessageText(newSetting, needUpdateMessageId);
+                                                        settings.searchedText,
+                                                        settings.maximumRecursiveQuotedText);
+            recusiveIndex++;
+            const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
@@ -301,8 +304,10 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                                 settings.messageCache,
                                                                 msg->mentions(),
                                                                 msg->channels(),
-                                                                settings.searchedText);
-                    const QString text = convertMessageText(newSetting, needUpdateMessageId);
+                                                                settings.searchedText,
+                                                                settings.maximumRecursiveQuotedText);
+                    recusiveIndex++;
+                    const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {

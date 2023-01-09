@@ -191,11 +191,24 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = mRocketChatAccount;
         QString needUpdateMessageId;
-        const TextConverter::ConvertMessageTextSettings
-            settings(text, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager(), rcAccount->messageCache(), {}, {});
+        int maximumRecursiveQuotedText = -1;
+        if (rcAccount) {
+            maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+        }
+        const TextConverter::ConvertMessageTextSettings settings(text,
+                                                                 rcAccount->userName(),
+                                                                 {},
+                                                                 rcAccount->highlightWords(),
+                                                                 rcAccount->emojiManager(),
+                                                                 rcAccount->messageCache(),
+                                                                 {},
+                                                                 {},
+                                                                 {},
+                                                                 maximumRecursiveQuotedText);
 
         // TODO use needUpdateIndex ?
-        const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId) + msgAttach.attachmentFieldsText();
+        int recursiveIndex = 0;
+        const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex) + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();
         mDocumentCache.insert(attachmentId, std::move(doc));

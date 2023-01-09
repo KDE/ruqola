@@ -212,10 +212,23 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentDescriptionForIndex(
     QString needUpdateMessageId; // TODO use it ?
     // Laurent Ruqola::self()->rocketChatAccount() only for test.
     auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
-    const TextConverter::ConvertMessageTextSettings
-        settings(description, account->userName(), {}, account->highlightWords(), account->emojiManager(), account->messageCache(), {}, {});
+    int maximumRecursiveQuotedText = -1;
+    if (account) {
+        maximumRecursiveQuotedText = account->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
+    const TextConverter::ConvertMessageTextSettings settings(description,
+                                                             account->userName(),
+                                                             {},
+                                                             account->highlightWords(),
+                                                             account->emojiManager(),
+                                                             account->messageCache(),
+                                                             {},
+                                                             {},
+                                                             {},
+                                                             maximumRecursiveQuotedText);
 
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));

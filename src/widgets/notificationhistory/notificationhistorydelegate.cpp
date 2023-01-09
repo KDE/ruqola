@@ -190,6 +190,10 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
     auto *rcAccount = rocketChatAccount(index);
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
+    int maximumRecursiveQuotedText = -1;
+    if (rcAccount) {
+        maximumRecursiveQuotedText = rcAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
     const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              rcAccount ? rcAccount->userName() : QString(),
                                                              {},
@@ -198,9 +202,11 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
                                                              rcAccount ? rcAccount->messageCache() : nullptr,
                                                              {},
                                                              {},
-                                                             mSearchText);
+                                                             mSearchText,
+                                                             maximumRecursiveQuotedText);
 
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));

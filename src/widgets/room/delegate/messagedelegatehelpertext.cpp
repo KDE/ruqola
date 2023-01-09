@@ -90,6 +90,10 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
 
                 QString needUpdateMessageId;
+                int maximumRecursiveQuotedText = -1;
+                if (mRocketChatAccount) {
+                    maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+                }
                 const TextConverter::ConvertMessageTextSettings settings(contextText,
                                                                          mRocketChatAccount->userName(),
                                                                          {},
@@ -98,9 +102,11 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                                                          mRocketChatAccount->messageCache(),
                                                                          contextMessage.mentions(),
                                                                          contextMessage.channels(),
-                                                                         mSearchText);
+                                                                         mSearchText,
+                                                                         maximumRecursiveQuotedText);
 
-                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+                int recursiveIndex = 0;
+                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                         if (msgId == needUpdateMessageId) {

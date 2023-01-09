@@ -170,6 +170,10 @@ QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelInd
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
+    int maximumRecursiveQuotedText = -1;
+    if (mRocketChatAccount) {
+        maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+    }
     const TextConverter::ConvertMessageTextSettings settings(messageBannerStr,
                                                              mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
                                                              {},
@@ -178,9 +182,11 @@ QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelInd
                                                              mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
                                                              {},
                                                              {},
-                                                             mSearchText);
+                                                             mSearchText,
+                                                             maximumRecursiveQuotedText);
 
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();

@@ -484,9 +484,11 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     QString messageStr = message.text();
     EmojiManager *emojiManager = nullptr;
     MessageCache *messageCache = nullptr;
+    int maximumRecursiveQuotedText = -1;
     if (mRocketChatAccount) {
         emojiManager = mRocketChatAccount->emojiManager();
         messageCache = mRocketChatAccount->messageCache();
+        maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
         if (mRocketChatAccount->hasAutotranslateSupport()) {
             if (message.showTranslatedMessage()) {
                 if (mRoom && mRoom->autoTranslate() && !mRoom->autoTranslateLanguage().isEmpty()) {
@@ -504,10 +506,19 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     }
 
     QString needUpdateMessageId;
-    const TextConverter::ConvertMessageTextSettings
-        settings(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache, message.mentions(), message.channels(), searchedText);
+    const TextConverter::ConvertMessageTextSettings settings(messageStr,
+                                                             userName,
+                                                             mAllMessages,
+                                                             highlightWords,
+                                                             emojiManager,
+                                                             messageCache,
+                                                             message.mentions(),
+                                                             message.channels(),
+                                                             searchedText,
+                                                             maximumRecursiveQuotedText);
 
-    return TextConverter::convertMessageText(settings, needUpdateMessageId);
+    int recursiveIndex = 0;
+    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
 void MessageModel::setRoomId(const QString &roomId)
