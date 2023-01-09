@@ -508,9 +508,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageGroupingPeriod(value.toInt());
     } else if (id == QLatin1String("DirectMesssage_maxUsers")) {
         setDirectMessageMaximumUser(value.toInt());
+    } else if (id == QLatin1String("Message_QuoteChainLimit")) {
+        setMessageQuoteChainLimit(value.toInt());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+int RuqolaServerConfig::messageQuoteChainLimit() const
+{
+    return mMessageQuoteChainLimit;
+}
+
+void RuqolaServerConfig::setMessageQuoteChainLimit(int newMessageQuoteChainLimit)
+{
+    mMessageQuoteChainLimit = newMessageQuoteChainLimit;
 }
 
 int RuqolaServerConfig::directMessageMaximumUser() const

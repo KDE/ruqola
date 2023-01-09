@@ -46,4 +46,5 @@ private:
     QLineEdit *const mMicrosoftApiKey;
     QSpinBox *const mGroupingPeriod;
     QSpinBox *const mDirectMessageMaxUsers;
+    QSpinBox *const mMaximumNumberChainedQuotes;
 };

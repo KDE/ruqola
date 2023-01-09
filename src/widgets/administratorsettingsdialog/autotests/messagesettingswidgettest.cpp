@@ -184,4 +184,9 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDirectMessageMaxUsers);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDirectMessageMaxUsers), QStringLiteral("DirectMesssage_maxUsers"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("DirectMesssage_maxUsers"));
+
+    auto mMaximumNumberChainedQuotes = w.findChild<QSpinBox *>(QStringLiteral("mMaximumNumberChainedQuotes"));
+    QVERIFY(mMaximumNumberChainedQuotes);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumNumberChainedQuotes), QStringLiteral("Message_QuoteChainLimit"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_QuoteChainLimit"));
 }

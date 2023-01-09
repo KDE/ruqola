@@ -163,6 +163,9 @@ public:
     Q_REQUIRED_RESULT int directMessageMaximumUser() const;
     void setDirectMessageMaximumUser(int newDirectMessageMaximumUser);
 
+    Q_REQUIRED_RESULT int messageQuoteChainLimit() const;
+    void setMessageQuoteChainLimit(int newMessageQuoteChainLimit);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -199,6 +202,7 @@ private:
     int mMessageMaximumAllowedSize = -1;
     int mMessageGroupingPeriod = -1;
     int mDirectMessageMaximumUser = -1;
+    int mMessageQuoteChainLimit = -1;
 
     bool mHasEnterpriseSupport = false;
     bool mAccountsAllowInvisibleStatusOption = true; // Default true

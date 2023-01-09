@@ -40,6 +40,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mMicrosoftApiKey(new QLineEdit(this))
     , mGroupingPeriod(new QSpinBox(this))
     , mDirectMessageMaxUsers(new QSpinBox(this))
+    , mMaximumNumberChainedQuotes(new QSpinBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -92,6 +93,9 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mSafePort->setObjectName(QStringLiteral("mSafePort"));
     addLineEdit(i18n("Safe Ports"), mSafePort, QStringLiteral("API_EmbedSafePorts"));
+
+    mMaximumNumberChainedQuotes->setObjectName(QStringLiteral("mMaximumNumberChainedQuotes"));
+    addSpinbox(i18n("Maximum Number of Chained Quotes"), mMaximumNumberChainedQuotes, QStringLiteral("Message_QuoteChainLimit"));
 
     mGroupingPeriod->setObjectName(QStringLiteral("mGroupingPeriod"));
     mGroupingPeriod->setToolTip(
@@ -195,4 +199,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMicrosoftApiKey, mapSettings, {});
     initializeWidget(mGroupingPeriod, mapSettings, 300);
     initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
+    initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
 }

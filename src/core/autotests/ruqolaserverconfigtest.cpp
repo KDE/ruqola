@@ -47,6 +47,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QVERIFY(!config.deviceManagementAllowLoginEmailpreference());
     QCOMPARE(config.messageGroupingPeriod(), -1);
     QCOMPARE(config.directMessageMaximumUser(), -1);
+    QCOMPARE(config.messageQuoteChainLimit(), -1);
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()
