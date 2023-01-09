@@ -7,7 +7,9 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include <QMap>
 #include <QString>
+#include <QStringList>
 #include <QVector>
 
 class EmojiManager;
@@ -16,6 +18,18 @@ class MessageCache;
 
 namespace TextConverter
 {
+struct LIBRUQOLACORE_EXPORT convertMessageTextSettings {
+    QString str;
+    QString userName;
+    QVector<Message> allMessages;
+    QStringList highlightWords;
+    EmojiManager *emojiManager = nullptr;
+    MessageCache *messageCache = nullptr;
+    QMap<QString, QString> mentions;
+    QMap<QString, QString> channels;
+    QString searchedText;
+};
+
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString convertMessageText(const QString &str,
                                                                   const QString &userName,
                                                                   const QVector<Message> &allMessages,
