@@ -431,22 +431,37 @@ if (UNITY_SUPPORT)
 endif()
 
 
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.message DESCRIPTION "ruqola (show message debug)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG CATEGORY_NAME org.kde.ruqola.ddpapi DESCRIPTION "ruqola (ddpapi)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG CATEGORY_NAME org.kde.ruqola.ddpapi.command DESCRIPTION "ruqola (ddpapi command)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG CATEGORY_NAME org.kde.ruqola.ddp.collectiontype DESCRIPTION "ruqola ddp unknown collection" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG CATEGORY_NAME org.kde.ruqola.completion DESCRIPTION "ruqola (completion)" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_notification_debug.h IDENTIFIER RUQOLA_NOTIFICATION_LOG CATEGORY_NAME org.kde.ruqola.notification DESCRIPTION "ruqola notification" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_custom_sounds_debug.h IDENTIFIER RUQOLA_CUSTOMSOUNDS_LOG CATEGORY_NAME org.kde.ruqola.customsounds DESCRIPTION "ruqola custom sounds" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_away_debug.h IDENTIFIER RUQOLA_AWAY_LOG CATEGORY_NAME org.kde.ruqola.away DESCRIPTION "ruqola away manager" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_texttohtml_debug.h IDENTIFIER RUQOLA_TEXTTOHTML_LOG CATEGORY_NAME org.kde.ruqola.texttohtml DESCRIPTION "ruqola text to html support" EXPORT RUQOLA)
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_specialwarning_debug.h IDENTIFIER RUQOLA_SPECIALWARNING_LOG CATEGORY_NAME org.kde.ruqola.specialwarning DESCRIPTION "ruqola special warning" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_debug.h IDENTIFIER RUQOLA_LOG
+    CATEGORY_NAME org.kde.ruqola DESCRIPTION "ruqola" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_message_debug.h IDENTIFIER RUQOLA_MESSAGE_LOG
+    CATEGORY_NAME org.kde.ruqola.message DESCRIPTION "ruqola (show message debug)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_ddpapi_debug.h IDENTIFIER RUQOLA_DDPAPI_LOG
+    CATEGORY_NAME org.kde.ruqola.ddpapi DESCRIPTION "ruqola (ddpapi)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_ddpapi_command_debug.h IDENTIFIER RUQOLA_DDPAPI_COMMAND_LOG
+    CATEGORY_NAME org.kde.ruqola.ddpapi.command DESCRIPTION "ruqola (ddpapi command)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_unknown_collectiontype_debug.h IDENTIFIER RUQOLA_UNKNOWN_COLLECTIONTYPE_LOG
+    CATEGORY_NAME org.kde.ruqola.ddp.collectiontype DESCRIPTION "ruqola ddp unknown collection" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_typing_notification_debug.h IDENTIFIER RUQOLA_TYPING_NOTIFICATION_LOG
+    CATEGORY_NAME org.kde.ruqola.typingnotification DESCRIPTION "ruqola typingnotification" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_completion_debug.h IDENTIFIER RUQOLA_COMPLETION_LOG
+    CATEGORY_NAME org.kde.ruqola.completion DESCRIPTION "ruqola (completion)" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_notification_debug.h IDENTIFIER RUQOLA_NOTIFICATION_LOG
+    CATEGORY_NAME org.kde.ruqola.notification DESCRIPTION "ruqola notification" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_commands_debug.h IDENTIFIER RUQOLA_COMMANDS_LOG
+    CATEGORY_NAME org.kde.ruqola.commands DESCRIPTION "ruqola command" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_rooms_debug.h IDENTIFIER RUQOLA_ROOMS_LOG
+    CATEGORY_NAME org.kde.ruqola.rooms DESCRIPTION "ruqola rooms" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_custom_sounds_debug.h IDENTIFIER RUQOLA_CUSTOMSOUNDS_LOG
+    CATEGORY_NAME org.kde.ruqola.customsounds DESCRIPTION "ruqola custom sounds" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_away_debug.h IDENTIFIER RUQOLA_AWAY_LOG
+    CATEGORY_NAME org.kde.ruqola.away DESCRIPTION "ruqola away manager" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_texttohtml_debug.h IDENTIFIER RUQOLA_TEXTTOHTML_LOG
+    CATEGORY_NAME org.kde.ruqola.texttohtml DESCRIPTION "ruqola text to html support" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_specialwarning_debug.h IDENTIFIER RUQOLA_SPECIALWARNING_LOG
+    CATEGORY_NAME org.kde.ruqola.specialwarning DESCRIPTION "ruqola special warning" EXPORT RUQOLA)
 
-ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_thread_message_debug.h IDENTIFIER RUQOLA_THREAD_MESSAGE_LOG CATEGORY_NAME org.kde.ruqola.threadmessages DESCRIPTION "ruqola thread message" EXPORT RUQOLA)
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_thread_message_debug.h IDENTIFIER RUQOLA_THREAD_MESSAGE_LOG
+    CATEGORY_NAME org.kde.ruqola.threadmessages DESCRIPTION "ruqola thread message" EXPORT RUQOLA)
 
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_translation_debug.h IDENTIFIER RUQOLA_TRANSLATION_LOG
     CATEGORY_NAME org.kde.ruqola.translation DESCRIPTION "ruqola translation" EXPORT RUQOLA)
