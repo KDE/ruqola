@@ -19,6 +19,26 @@ class MessageCache;
 namespace TextConverter
 {
 struct LIBRUQOLACORE_EXPORT convertMessageTextSettings {
+    convertMessageTextSettings(const QString &_str,
+                               const QString &_userName,
+                               const QVector<Message> &_allMessages,
+                               const QStringList &_highlightWords,
+                               EmojiManager *_emojiManager,
+                               MessageCache *_messageCache,
+                               const QMap<QString, QString> &_mentions,
+                               const QMap<QString, QString> &_channels,
+                               const QString &_searchedText = {})
+        : str(_str)
+        , userName(_userName)
+        , allMessages(_allMessages)
+        , highlightWords(_highlightWords)
+        , emojiManager(_emojiManager)
+        , messageCache(_messageCache)
+        , mentions(_mentions)
+        , channels(_channels)
+        , searchedText(_searchedText)
+    {
+    }
     QString str;
     QString userName;
     QVector<Message> allMessages;

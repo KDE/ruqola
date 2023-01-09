@@ -170,6 +170,19 @@ QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelInd
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
+#if 0
+    const TextConverter::convertMessageTextSettings settings(messageBannerStr,
+                                                       mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
+                                                       {},
+                                                       mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
+                                                       mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
+                                                       mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
+                                                       {},
+                                                       {},
+                                                       mSearchText);
+
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
+#endif
     const QString contextString = TextConverter::convertMessageText(messageBannerStr,
                                                                     mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
                                                                     {},
@@ -180,6 +193,7 @@ QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelInd
                                                                     {},
                                                                     {},
                                                                     mSearchText);
+
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(identifier, std::move(doc));
