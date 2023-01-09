@@ -104,7 +104,7 @@ if (USE_KTEXTADDONS_LIB)
         "Add support for text to speech"
         TYPE OPTIONAL
     )
-    if (TARGET KF5TextEditTextToSpeech)
+    if (TARGET KF5::TextEditTextToSpeech)
         add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
         set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
     endif()
