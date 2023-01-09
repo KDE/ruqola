@@ -242,8 +242,7 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
     }
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
-#if 0
-    const TextConverter::convertMessageTextSettings settings(messageStr,
+    const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
                                                              {},
                                                              mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
@@ -254,17 +253,6 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
                                                              mSearchText);
 
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-    const QString contextString = TextConverter::convertMessageText(messageStr,
-                                                                    mRocketChatAccount ? mRocketChatAccount->userName() : QString(),
-                                                                    {},
-                                                                    mRocketChatAccount ? mRocketChatAccount->highlightWords() : QStringList(),
-                                                                    mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr,
-                                                                    mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr,
-                                                                    needUpdateMessageId,
-                                                                    {},
-                                                                    {},
-                                                                    mSearchText);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(discussionRoomId, std::move(doc));

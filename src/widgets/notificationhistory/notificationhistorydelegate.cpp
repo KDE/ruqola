@@ -190,8 +190,7 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
     auto *rcAccount = rocketChatAccount(index);
     // Use TextConverter in case it starts with a [](URL) reply marker
     QString needUpdateMessageId; // TODO use it ?
-#if 0
-    const TextConverter::convertMessageTextSettings settings(messageStr,
+    const TextConverter::ConvertMessageTextSettings settings(messageStr,
                                                              rcAccount ? rcAccount->userName() : QString(),
                                                              {},
                                                              rcAccount ? rcAccount->highlightWords() : QStringList(),
@@ -202,17 +201,6 @@ QTextDocument *NotificationHistoryDelegate::documentForModelIndex(const QModelIn
                                                              mSearchText);
 
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-    const QString contextString = TextConverter::convertMessageText(messageStr,
-                                                                    rcAccount ? rcAccount->userName() : QString(),
-                                                                    {},
-                                                                    rcAccount ? rcAccount->highlightWords() : QStringList(),
-                                                                    rcAccount ? rcAccount->emojiManager() : nullptr,
-                                                                    rcAccount ? rcAccount->messageCache() : nullptr,
-                                                                    needUpdateMessageId,
-                                                                    {},
-                                                                    {},
-                                                                    mSearchText);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(messageId, std::move(doc));

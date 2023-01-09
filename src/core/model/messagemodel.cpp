@@ -504,29 +504,10 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
     }
 
     QString needUpdateMessageId;
-#if 0
-    const TextConverter::convertMessageTextSettings settings(messageStr,
-                                                             userName,
-                                                             mAllMessages,
-                                                             highlightWords,
-                                                             emojiManager,
-                                                             messageCache,
-                                                             message.mentions(),
-                                                             message.channels(),
-                                                             searchedTex);
+    const TextConverter::ConvertMessageTextSettings
+        settings(messageStr, userName, mAllMessages, highlightWords, emojiManager, messageCache, message.mentions(), message.channels(), searchedText);
 
     return TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-    return TextConverter::convertMessageText(messageStr,
-                                             userName,
-                                             mAllMessages,
-                                             highlightWords,
-                                             emojiManager,
-                                             messageCache,
-                                             needUpdateMessageId,
-                                             message.mentions(),
-                                             message.channels(),
-                                             searchedText);
 }
 
 void MessageModel::setRoomId(const QString &roomId)

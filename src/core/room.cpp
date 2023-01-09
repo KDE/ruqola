@@ -520,12 +520,8 @@ QString Room::displayTopic() const
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
     QString needUpdateMessageId;
-#if 0
-    const TextConverter::convertMessageTextSettings settings(mTopic, {}, {}, {}, emojiManager, messageCache, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(mTopic, {}, {}, {}, emojiManager, messageCache, {}, {});
     return TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-
-    return TextConverter::convertMessageText(mTopic, {}, {}, {}, emojiManager, messageCache, needUpdateMessageId, {}, {});
 }
 
 void Room::setTopic(const QString &topic)
@@ -575,11 +571,8 @@ QString Room::displayAnnouncement() const
     auto emojiManager = mRocketChatAccount ? mRocketChatAccount->emojiManager() : nullptr;
     auto messageCache = mRocketChatAccount ? mRocketChatAccount->messageCache() : nullptr;
     QString needUpdateMessageId;
-#if 0
-    const TextConverter::convertMessageTextSettings settings(mAnnouncement, {}, {}, {}, emojiManager, messageCache, {}, {});
+    const TextConverter::ConvertMessageTextSettings settings(mAnnouncement, {}, {}, {}, emojiManager, messageCache, {}, {});
     return TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-    return TextConverter::convertMessageText(mAnnouncement, {}, {}, {}, emojiManager, messageCache, needUpdateMessageId, {}, {});
 }
 
 void Room::setAnnouncement(const QString &announcement)

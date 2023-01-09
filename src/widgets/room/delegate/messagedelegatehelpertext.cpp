@@ -90,8 +90,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
 
                 QString needUpdateMessageId;
-#if 0
-                const TextConverter::convertMessageTextSettings settings(contextText,
+                const TextConverter::ConvertMessageTextSettings settings(contextText,
                                                                          mRocketChatAccount->userName(),
                                                                          {},
                                                                          mRocketChatAccount->highlightWords(),
@@ -102,18 +101,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                                                          mSearchText);
 
                 const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-
-                const QString contextString = TextConverter::convertMessageText(contextText,
-                                                                                mRocketChatAccount->userName(),
-                                                                                {},
-                                                                                mRocketChatAccount->highlightWords(),
-                                                                                mRocketChatAccount->emojiManager(),
-                                                                                mRocketChatAccount->messageCache(),
-                                                                                needUpdateMessageId,
-                                                                                contextMessage.mentions(),
-                                                                                contextMessage.channels(),
-                                                                                mSearchText);
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                         if (msgId == needUpdateMessageId) {

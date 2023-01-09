@@ -255,24 +255,15 @@ QString generateRichText(const QString &str,
 }
 }
 
-QString TextConverter::convertMessageText(const QString &_str,
-                                          const QString &userName,
-                                          const QVector<Message> &allMessages,
-                                          const QStringList &highlightWords,
-                                          EmojiManager *emojiManager,
-                                          MessageCache *messageCache,
-                                          QString &needUpdateMessageId,
-                                          const QMap<QString, QString> &mentions,
-                                          const QMap<QString, QString> &channels,
-                                          const QString &searchedText)
+QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId)
 {
-    if (!emojiManager) {
+    if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
 
     QString quotedMessage;
 
-    QString str = _str;
+    QString str = settings.str;
     // TODO we need to look at room name too as we can have it when we use "direct reply"
     if (str.contains(QLatin1String("[ ](http"))) { // ## is there a better way?
         const int startPos = str.indexOf(QLatin1Char('('));
@@ -281,37 +272,37 @@ QString TextConverter::convertMessageText(const QString &_str,
         // URL example https://HOSTNAME/channel/all?msg=3BR34NSG5x7ZfBa22
         const QString messageId = url.mid(url.indexOf(QLatin1String("msg=")) + 4);
         // qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Extracted messageId" << messageId;
-        auto it = std::find_if(allMessages.cbegin(), allMessages.cend(), [messageId](const Message &msg) {
+        auto it = std::find_if(settings.allMessages.cbegin(), settings.allMessages.cend(), [messageId](const Message &msg) {
             return msg.messageId() == messageId;
         });
-        if (it != allMessages.cend()) {
-            const QString text = convertMessageText(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
-                                                    userName,
-                                                    allMessages,
-                                                    highlightWords,
-                                                    emojiManager,
-                                                    messageCache,
-                                                    needUpdateMessageId,
-                                                    (*it).mentions(),
-                                                    (*it).channels(),
-                                                    searchedText);
+        if (it != settings.allMessages.cend()) {
+            const ConvertMessageTextSettings newSetting(QLatin1Char('@') + (*it).username() + QStringLiteral(": ") + (*it).text(),
+                                                        settings.userName,
+                                                        settings.allMessages,
+                                                        settings.highlightWords,
+                                                        settings.emojiManager,
+                                                        settings.messageCache,
+                                                        (*it).mentions(),
+                                                        (*it).channels(),
+                                                        settings.searchedText);
+            const QString text = convertMessageText(newSetting, needUpdateMessageId);
             quotedMessage = Utils::formatQuotedRichText(text);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
-            if (messageCache) {
+            if (settings.messageCache) {
                 // TODO allow to reload index when we loaded message
-                Message *msg = messageCache->messageForId(messageId);
+                Message *msg = settings.messageCache->messageForId(messageId);
                 if (msg) {
-                    const QString text = convertMessageText(msg->text(),
-                                                            userName,
-                                                            allMessages,
-                                                            highlightWords,
-                                                            emojiManager,
-                                                            messageCache,
-                                                            needUpdateMessageId,
-                                                            msg->mentions(),
-                                                            msg->channels(),
-                                                            searchedText);
+                    const ConvertMessageTextSettings newSetting(msg->text(),
+                                                                settings.userName,
+                                                                settings.allMessages,
+                                                                settings.highlightWords,
+                                                                settings.emojiManager,
+                                                                settings.messageCache,
+                                                                msg->mentions(),
+                                                                msg->channels(),
+                                                                settings.searchedText);
+                    const QString text = convertMessageText(newSetting, needUpdateMessageId);
                     quotedMessage = Utils::formatQuotedRichText(text);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
@@ -377,9 +368,9 @@ QString TextConverter::convertMessageText(const QString &_str,
     };
 
     auto addTextChunk = [&](const QString &chunk) {
-        auto htmlChunk = generateRichText(chunk, userName, highlightWords, mentions, channels, searchedText);
-        if (emojiManager) {
-            emojiManager->replaceEmojis(&htmlChunk);
+        auto htmlChunk = generateRichText(chunk, settings.userName, settings.highlightWords, settings.mentions, settings.channels, settings.searchedText);
+        if (settings.emojiManager) {
+            settings.emojiManager->replaceEmojis(&htmlChunk);
         }
         richTextStream << htmlChunk;
     };

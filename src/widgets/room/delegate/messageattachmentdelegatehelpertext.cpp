@@ -191,29 +191,11 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
         // Use TextConverter in case it starts with a [](URL) reply marker
         auto *rcAccount = mRocketChatAccount;
         QString needUpdateMessageId;
-#if 0
-    const TextConverter::convertMessageTextSettings settings(text,
-                                                             rcAccount->userName(),
-                                                             {},
-                                                             rcAccount->highlightWords(),
-                                                             rcAccount->emojiManager(),
-                                                             rcAccount->messageCache(),
-                                                             {},
-                                                             {});
+        const TextConverter::ConvertMessageTextSettings
+            settings(text, rcAccount->userName(), {}, rcAccount->highlightWords(), rcAccount->emojiManager(), rcAccount->messageCache(), {}, {});
 
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
         // TODO use needUpdateIndex ?
-        const QString contextString = TextConverter::convertMessageText(text,
-                                                                        rcAccount->userName(),
-                                                                        {},
-                                                                        rcAccount->highlightWords(),
-                                                                        rcAccount->emojiManager(),
-                                                                        rcAccount->messageCache(),
-                                                                        needUpdateMessageId,
-                                                                        {},
-                                                                        {})
-            + msgAttach.attachmentFieldsText();
+        const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId) + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();
         mDocumentCache.insert(attachmentId, std::move(doc));

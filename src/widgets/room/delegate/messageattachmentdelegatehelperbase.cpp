@@ -212,27 +212,10 @@ QTextDocument *MessageAttachmentDelegateHelperBase::documentDescriptionForIndex(
     QString needUpdateMessageId; // TODO use it ?
     // Laurent Ruqola::self()->rocketChatAccount() only for test.
     auto account = mRocketChatAccount ? mRocketChatAccount : Ruqola::self()->rocketChatAccount();
-#if 0
-    const TextConverter::convertMessageTextSettings settings(description,
-                                                             account->userName(),
-                                                             {},
-                                                             account->highlightWords(),
-                                                             account->emojiManager(),
-                                                             account->messageCache(),
-                                                             {},
-                                                             {});
+    const TextConverter::ConvertMessageTextSettings
+        settings(description, account->userName(), {}, account->highlightWords(), account->emojiManager(), account->messageCache(), {}, {});
 
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId);
-#endif
-    const QString contextString = TextConverter::convertMessageText(description,
-                                                                    account->userName(),
-                                                                    {},
-                                                                    account->highlightWords(),
-                                                                    account->emojiManager(),
-                                                                    account->messageCache(),
-                                                                    needUpdateMessageId,
-                                                                    {},
-                                                                    {});
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(attachmentId, std::move(doc));
