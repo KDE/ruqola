@@ -39,8 +39,6 @@ include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(KDEClangFormat)
-# remove when created a lib for libTextAutoCorrection
-include(ECMGenerateHeaders)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
@@ -112,6 +110,8 @@ if (TARGET KF5::TextTranslator)
         set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
     endif()
 else()
+    # remove when created a lib for libTextAutoCorrection
+    include(ECMGenerateHeaders)
     # need by TextAutoCorrection. Remove it after creating lib
     find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
         Archive
