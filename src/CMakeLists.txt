@@ -9,7 +9,7 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
 endif()
 
 # Remove it when we will split lib
-if (NOT USE_KTEXTADDONS_LIB)
+if (NOT TARGET KF5::TextTranslator)
     add_subdirectory(autocorrection)
     add_subdirectory(texttranslator)
     if (TEXTEDIT_TEXT_TO_SPEECH)
