@@ -8,6 +8,7 @@
 #include "common/delegatepaintutil.h"
 #include "common/delegateutil.h"
 #include "dialogs/showimagedialog.h"
+#include "messageimagedownloadjob.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 
@@ -123,8 +124,14 @@ bool MessageAttachmentDelegateHelperImage::handleMouseEvent(const MessageAttachm
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         } else if (layout.downloadButtonRect.translated(attachmentsRect.topLeft()).contains(pos)) {
-            auto parentWidget = const_cast<QWidget *>(option.widget);
-            DelegateUtil::saveFile(parentWidget, layout.imagePreviewPath, i18n("Save Image"));
+            MessageImageDownloadJob::MessageImageDownloadJobInfo info;
+            info.needToDownloadBigImage = !mRocketChatAccount->attachmentIsInLocalCache(layout.imageBigPath);
+            info.parentWidget = const_cast<QWidget *>(option.widget);
+            info.bigImagePath = layout.imageBigPath;
+            auto job = new MessageImageDownloadJob(this);
+            job->setRocketChatAccount(mRocketChatAccount);
+            job->setInfo(info);
+            job->start();
             return true;
         } else if (!layout.pixmap.isNull()) {
             const int imageY = attachmentsRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
