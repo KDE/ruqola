@@ -31,6 +31,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
+    connect(mChannelView, &ChannelListView::roomPressed, this, &ChannelListWidget::roomPressed);
     connect(mChannelView, &ChannelListView::roomSelected, this, [this](const QString &roomName, const QString &roomId, Room::RoomType roomType) {
         // retain focus on the search line edit when this is triggering the room change
         const auto wasFocused = mSearchRoomLineEdit->hasFocus();

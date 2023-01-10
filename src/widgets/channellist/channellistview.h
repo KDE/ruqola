@@ -43,6 +43,7 @@ public:
 
 Q_SIGNALS:
     void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
+    void roomPressed(const QString &roomId);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;
@@ -61,6 +62,7 @@ private:
     void slotConfigureNotification(Room *room);
     Q_REQUIRED_RESULT bool selectChannelByRoomIdOrRoomName(const QString &id, bool roomId);
     void slotRoomRemoved(const QString &roomId);
+    void slotPressed(const QModelIndex &index);
 
     ChannelListDelegate *const mChannelListDelegate;
     RoomListHeadingsProxyModel *const mRoomListHeadingsProxyModel;

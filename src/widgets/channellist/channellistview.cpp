@@ -54,6 +54,7 @@ ChannelListView::ChannelListView(QWidget *parent)
     connect(model(), &QAbstractItemModel::modelReset, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::rowsMoved, this, &QTreeView::expandAll);
     connect(model(), &QAbstractItemModel::layoutChanged, this, &QTreeView::expandAll);
+    connect(this, &QTreeView::pressed, this, &ChannelListView::slotPressed);
 }
 
 ChannelListView::~ChannelListView() = default;
@@ -77,6 +78,17 @@ void ChannelListView::setCurrentRocketChatAccount(RocketChatAccount *currentRock
 RoomFilterProxyModel *ChannelListView::filterModel() const
 {
     return mRoomFilterProxyModel;
+}
+
+void ChannelListView::slotPressed(const QModelIndex &index)
+{
+    if (index.isValid()) {
+        if (!index.parent().isValid())
+            return;
+
+        const QString roomId = index.data(RoomModel::RoomId).toString();
+        Q_EMIT roomPressed(roomId);
+    }
 }
 
 void ChannelListView::slotClicked(const QModelIndex &index)
