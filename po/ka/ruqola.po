@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:55+0000\n"
-"PO-Revision-Date: 2023-01-07 07:09+0100\n"
+"POT-Creation-Date: 2023-01-10 00:56+0000\n"
+"PO-Revision-Date: 2023-01-09 07:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1822,32 +1822,32 @@ msgstr "შეტყობინებების გატანა"
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
 
-#: core/room.cpp:1131
+#: core/room.cpp:1135
 #, kde-format
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: core/room.cpp:1134
+#: core/room.cpp:1138
 #, kde-format
 msgid "Leader"
 msgstr "ლიდერი"
 
-#: core/room.cpp:1137
+#: core/room.cpp:1141
 #, kde-format
 msgid "Moderator"
 msgstr "მოდერატორი"
 
-#: core/room.cpp:1491
+#: core/room.cpp:1495
 #, kde-format
 msgid "Channel is read only."
 msgstr "არხი მხოლოდ-კითხვადია."
 
-#: core/room.cpp:1494
+#: core/room.cpp:1498
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "თქვენ დაბლოკეთ ეს არხი."
 
-#: core/room.cpp:1497
+#: core/room.cpp:1501
 #, kde-format
 msgid "Channel was blocked."
 msgstr "არხი დაბლოკილია."
@@ -1934,7 +1934,7 @@ msgstr "დასტური"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: texttranslator/translator/plugins/google/googleengineclient.cpp:26
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2097,7 +2097,7 @@ msgstr "აპლიკაცია არ არსებობს"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:233
 #, kde-format
 msgid "There's an archived channel with name '__room_name__'"
-msgstr ""
+msgstr "არსებობს დაარქივებული არხი სახელით '__room_name__'"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:235
 #, kde-format
@@ -2107,7 +2107,7 @@ msgstr "პირდაპირ ოთახებში მომხმარ�
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:237
 #, kde-format
 msgid "The channel default setting is the same as what it would be changed to."
-msgstr ""
+msgstr "არხის ნაგულისხმები პარამეტრი იგივეა, რაზეც შეცვლას აპირებდით."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:239
 #, kde-format
@@ -2240,6 +2240,8 @@ msgid ""
 "Invalid custom field name. Use only letters, numbers, hyphens and "
 "underscores."
 msgstr ""
+"ხელით მითითებული ველის არასწორი სახელი. შეგიძლიათ გამოიყენოთ მხოლოდ ასოები, "
+"ციფრები, გამოტოვება და ქვედა ხაზები."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:291
 #, kde-format
@@ -2480,6 +2482,8 @@ msgid ""
 "Password does not meet the server's policy of forbidden repeating characters "
 "(you have too many of the same characters next to each other)"
 msgstr ""
+"პაროლი არ ჯდება სერვერის გამეორებადი სიმბოლოების პოლიტიკაში (ძალიან ბევრ "
+"ერთნაირი სიმბოლო ახლომახლოს)"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:380
 #, kde-format
@@ -2532,6 +2536,8 @@ msgid ""
 "Error, too many requests. Please slow down. You must wait __seconds__ "
 "seconds before trying again."
 msgstr ""
+"შეცდომა. მეტისმეტად ბევრი მოთხოვნა. ცოტა დაწყნარდით. ახალი მოთხოვნების "
+"გასაგზავნად საჭიროა __seconds__ წამი მოითმინოთ."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:402
 #, kde-format
@@ -2549,6 +2555,8 @@ msgid ""
 "The number of users you are trying to invite to #channel_name exceeds the "
 "limit set by the administrator"
 msgstr ""
+"მომხმარებლების რაოდენობა, რომელსაც ცდილობთ, ამ არხზე #channel_name მოიწვიოთ, "
+"ადმინისტრატორის მიერ დაყენებულ ლიმიტს ცდება"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:408
 #, kde-format
@@ -2574,6 +2582,8 @@ msgstr "მომხმარებლის რეგისტრაცია �
 #, kde-format
 msgid "You are the last owner. Please set new owner before leaving the room."
 msgstr ""
+"თქვენ ბოლო მფლობელი ბრძანდებით. ოთახიდან გასვლამდე საჭიროა, ახალი მფლობელი "
+"დააყენოთ."
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:418
 #, kde-format
@@ -4529,7 +4539,7 @@ msgstr "დამატებითი Piwik საიტები"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "ტრეკინგისას მიამატეთ საიტის დომენი გვერდის სათაურს"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
@@ -5326,7 +5336,7 @@ msgid "Show Deleted Status"
 msgstr "წაშლილი სტატუსის ჩვენება"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:73
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "შეტყობინების მიჭკარტების დაშვება"
@@ -5366,80 +5376,86 @@ msgstr "ხმის ჩამწერი ჩართულია"
 msgid "Enable Auto-Translate"
 msgstr "ავტომატური თარგმანის ჩართვა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "დაბლოკვის გასათიშად შეიყვანეთ 0."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "შეტყობინებების ჩასწორების დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "შეტყობინებების წაშლის დაბლოკვა (n) წუთის შემდეგ"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "შეტყობინებებში დაშვებული სიმბოლოების მაქსიმალური რაოდენობა"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Safe Ports"
 msgstr "უსაფრთხო პორტები"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Maximum Number of Chained Quotes"
+msgstr "მომხმარებლების მაქს. რაოდენობა"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "დაჯგუფების პეროდი (წამებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
 #, kde-format
 msgid "Direct Messsage Maximum Users"
 msgstr "პირადი შეტყობინების მაქსიმალური მომხმარებლები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
 #, kde-format
 msgid "Message Attachments"
 msgstr "შეტყობინებაზე მიმაგრებული ფაილები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5447,59 +5463,59 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:127
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიგანე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "მინიატურის მაქსიმალური სიმაღლე (პიქსელებში)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
 #, kde-format
 msgid "Audio Message"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "აუდიო შეტყობინება"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "ავტომატური თარგმანი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
 #, kde-format
 msgid "Deepl"
 msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #, kde-format
 msgid "Service Provider"
 msgstr "სერვისის მომწოდებელი"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
 #, kde-format
 msgid "DeepL API Key"
 msgstr "DeepL API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
 #, kde-format
 msgid "Google API Key"
 msgstr "Google API-ის გასაღები"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Microsoft API-ის გასაღები"
@@ -6882,10 +6898,9 @@ msgid "Create Direct Messages - %1"
 msgstr "შექმენით პირდაპირი შეტყობინებები - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Any team selected."
+#, kde-format
 msgid "Too many users selected."
-msgstr "ნებისმიერი მონიშნული გუნდი."
+msgstr "მონიშნულია მეტისმეტად ბევრი მომხმარებელი."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format

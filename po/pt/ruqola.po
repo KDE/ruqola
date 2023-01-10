@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-09 00:55+0000\n"
-"PO-Revision-Date: 2022-12-29 06:20+0000\n"
+"POT-Creation-Date: 2023-01-10 00:56+0000\n"
+"PO-Revision-Date: 2023-01-09 18:51+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -42,7 +42,7 @@ msgstr ""
 "X-POFile-SpellExtra: STUN TURN all Twitter KID LinkedIn TextLabel\n"
 "X-POFile-IgnoreConsistency: Apple\n"
 "X-POFile-SpellExtra: Analytics Piwik Meteor Facebook Github Tokenpass\n"
-"X-POFile-SpellExtra: GitHub avatares Áudios\n"
+"X-POFile-SpellExtra: GitHub avatares Áudios Hmong Video Deepl\n"
 "X-POFile-IgnoreConsistency: Secret\n"
 
 #: apps/main.cpp:53
@@ -56,10 +56,9 @@ msgid "Rocket Chat Client"
 msgstr "Cliente de Rocket Chat"
 
 #: apps/main.cpp:57
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2022 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Copyright © 2020-2022 dos autores do Ruqola"
+msgstr "Copyright © 2020-2023 dos autores do Ruqola"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -565,16 +564,14 @@ msgid "Custom Writable Path:"
 msgstr "Localização Personalizada de Escrita:"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:123
-#, fuzzy, kde-format
-#| msgid "Custom Writable Path:"
+#, kde-format
 msgid "Select Custom Writable Path"
-msgstr "Localização Personalizada de Escrita:"
+msgstr "Seleccionar a Localização Personalizada de Escrita"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:128
-#, fuzzy, kde-format
-#| msgid "Custom System Path:"
+#, kde-format
 msgid "Select Custom System Path"
-msgstr "Localização Personalizada no Sistema:"
+msgstr "Seleccionar a Localização Personalizada no Sistema"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:138
 #, kde-format
@@ -1855,32 +1852,32 @@ msgstr "Exportar as Mensagens"
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
 
-#: core/room.cpp:1131
+#: core/room.cpp:1135
 #, kde-format
 msgid "Owner"
 msgstr "Dono"
 
-#: core/room.cpp:1134
+#: core/room.cpp:1138
 #, kde-format
 msgid "Leader"
 msgstr "Chefe"
 
-#: core/room.cpp:1137
+#: core/room.cpp:1141
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1491
+#: core/room.cpp:1495
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal está apenas para leitura."
 
-#: core/room.cpp:1494
+#: core/room.cpp:1498
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1497
+#: core/room.cpp:1501
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
@@ -1967,7 +1964,7 @@ msgstr "Aceitar"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: texttranslator/translator/plugins/google/googleengineclient.cpp:26
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2832,13 +2829,12 @@ msgstr "Detectar a língua"
 #: texttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
 msgid "Hmong"
-msgstr ""
+msgstr "Hmong"
 
 #: texttranslator/translator/misc/translatorutil.cpp:36
-#, fuzzy, kde-format
-#| msgid "Estonian"
+#, kde-format
 msgid "Bosnian"
-msgstr "Estoniano"
+msgstr "Bósnio"
 
 #: texttranslator/translator/misc/translatorutil.cpp:39
 #, kde-format
@@ -3180,13 +3176,13 @@ msgstr "Usar uma Chave de Licença Gratuita"
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
 #, kde-format
 msgid "Api Key:"
-msgstr ""
+msgstr "Chave da API:"
 
 #: texttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr ""
+msgstr "O servidor necessita de uma chave da API."
 
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
 #, kde-format
@@ -3196,7 +3192,7 @@ msgstr "Libre Translate"
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr ""
+msgstr "O servidor necessita de uma Chave da API"
 
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: texttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -3205,10 +3201,9 @@ msgid "Server Url:"
 msgstr "URL do Servidor:"
 
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#, kde-format
 msgid "Server url is not defined."
-msgstr "Servidor não encontrado: %1"
+msgstr "O URL do servidor não está definido."
 
 #: texttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
@@ -5468,7 +5463,7 @@ msgid "Show Deleted Status"
 msgstr "Mostrar o Estado Removido"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:72
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:73
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Permitir a Fixação de Mensagens"
@@ -5504,32 +5499,31 @@ msgid "Audio Recorder Enabled"
 msgstr "Gravador de Áudio Activo"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Auto-Translate"
+#, kde-format
 msgid "Enable Auto-Translate"
-msgstr "Auto-Tradução"
+msgstr "Activar a Auto-Tradução"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:49
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "Indique 0 para desactivar o bloqueio."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Bloquear a Edição de Mensagens ao Fim de (n) Minutos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Bloquear a Remoção de Mensagens ao Fim de (n) Minutos."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Bloquear a Remoção de Mensagens ao Fim de (n) Minutos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:63
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
@@ -5538,7 +5532,7 @@ msgstr ""
 "Esta é uma funcionalidade obsoleta. Poderá não funcionar como seria de "
 "esperar e não irá receber actualizações novas."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -5547,40 +5541,47 @@ msgstr ""
 "Necessita que os ficheiros 'video/webm' sejam um tipo de conteúdo aceite "
 "dentro da configuração do 'Envio de Ficheiros'."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Máximo de Caracteres Permitido por Mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
 #, kde-format
 msgid "Safe Ports"
 msgstr "Portos Seguros"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#, fuzzy, kde-format
+#| msgid "Max number of uses"
+msgid "Maximum Number of Chained Quotes"
+msgstr "Número máx. de utilizações"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
-
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
-#, kde-format
-msgid "Grouping Period (in seconds)"
-msgstr ""
+"As mensagens serão agrupadas com a mensagem anterior, caso sejam do mesmo "
+"utilizador e o tempo decorrido for inferior ao tempo indicado em segundos."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Direct Message Email Subject"
-msgid "Direct Messsage Maximum Users"
-msgstr "Assunto do E-Mail da Mensagem Directa"
+#, kde-format
+msgid "Grouping Period (in seconds)"
+msgstr "Período de Agrupamento (em segundos)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
+#, kde-format
+msgid "Direct Messsage Maximum Users"
+msgstr "Máximo de Utilizadores das Mensagens Directas"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
 #, kde-format
 msgid "Message Attachments"
 msgstr "Anexos da Mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
@@ -5590,7 +5591,7 @@ msgstr ""
 "Esta opção não é retroactiva, pelo que os ficheiros enviados quando estava "
 "desactivada terão dados em EXIF"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5601,66 +5602,62 @@ msgstr ""
 "utilização da largura de banda. As imagens na resolução original poderão ser "
 "transferidas com o ícone a seguir ao nome do anexo."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:127
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Largura máxima da miniatura (em pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Altura máxima da miniatura (em pixels)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
 #, kde-format
 msgid "Audio Message"
 msgstr "Mensagem de Áudio"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:138
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Taxa de Dados da Mensagem de Áudio"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:140
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Auto-Tradução"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:151
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
+#, kde-format
 msgid "Deepl"
-msgstr "DeepL"
+msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid "Micro Off"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
+#, kde-format
 msgid "Microsoft"
-msgstr "Microfone Desligado"
+msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
-#, fuzzy, kde-format
-#| msgid "Provider:"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#, kde-format
 msgid "Service Provider"
-msgstr "Fornecedor:"
+msgstr "Fornecedor do Serviço"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:157
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
 #, kde-format
 msgid "DeepL API Key"
-msgstr ""
+msgstr "Chave da API do DeepL"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:160
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:163
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
+#, kde-format
 msgid "Google API Key"
-msgstr "ID do Google"
+msgstr "Chave da API do Google"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:166
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "Microsoft API Key"
-msgstr ""
+msgstr "Chave da API da Microsoft"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
@@ -7093,10 +7090,9 @@ msgid "Create Direct Messages - %1"
 msgstr "Criar Mensagens Directas - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Any team selected."
+#, kde-format
 msgid "Too many users selected."
-msgstr "Qualquer equipa seleccionada."
+msgstr "Foram seleccionados demasiados utilizadores."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
@@ -9273,6 +9269,3 @@ msgstr "Informação da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
-
-#~ msgid "Error: Unable to parse autodetected language"
-#~ msgstr "Erro: Não foi possível processar a língua detectada automaticamente"
