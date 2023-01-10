@@ -152,6 +152,11 @@ void RoomHeaderWidget::setCallEnabled(bool b)
     mCallButton->setVisible(b);
 }
 
+void RoomHeaderWidget::setIsDirectGroup(bool state)
+{
+    mChannelInfoButton->setVisible(!state);
+}
+
 void RoomHeaderWidget::setTeamRoomInfo(const Room::TeamRoomInfo &info)
 {
     mTeamName->setTeamRoomInfo(info);

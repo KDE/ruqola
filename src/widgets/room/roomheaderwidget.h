@@ -59,6 +59,7 @@ public:
     void setIsMainTeam(bool isMainTeam);
     void setTeamRoomInfo(const Room::TeamRoomInfo &name);
     void setCallEnabled(bool b);
+    void setIsDirectGroup(bool state);
 Q_SIGNALS:
     void favoriteChanged(bool b);
     void encryptedChanged(bool b);

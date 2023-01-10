@@ -604,6 +604,7 @@ void RoomWidget::updateRoomHeader()
         mRoomHeaderWidget->setIsDiscussion(mRoom->isDiscussionRoom());
         mRoomHeaderWidget->setIsMainTeam(mRoom->teamInfo().mainTeam());
         mRoomHeaderWidget->setTeamRoomInfo(mRoom->teamRoomInfo());
+        mRoomHeaderWidget->setIsDirectGroup((mRoom->channelType() == Room::RoomType::Direct) && mRoom->userNames().count() > 2);
         if (mRoom->roomId() == QStringLiteral("%1%1").arg(mCurrentRocketChatAccount->userId())) {
             mRoomHeaderWidget->setCallEnabled(false);
         } else {
