@@ -50,6 +50,8 @@ public:
     void setLayoutSpacing(int spacing);
     void scrollToMessageId(const QString &messageId);
 
+    void forceLineEditFocus();
+
 Q_SIGNALS:
     void selectChannelRequested(const QString &channelId);
 

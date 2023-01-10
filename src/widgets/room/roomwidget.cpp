@@ -556,6 +556,11 @@ void RoomWidget::clearBeforeSwitching()
     mRoomWidgetBase->messageLineWidget()->setQuoteMessage({}, {});
 }
 
+void RoomWidget::forceLineEditFocus()
+{
+    mRoomWidgetBase->messageLineWidget()->setFocus();
+}
+
 void RoomWidget::setChannelSelected(const QString &roomId, Room::RoomType roomType)
 {
     storeRoomSettings();

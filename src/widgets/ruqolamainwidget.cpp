@@ -74,6 +74,7 @@ RuqolaMainWidget::RuqolaMainWidget(QWidget *parent)
     mStackedRoomWidget->setCurrentWidget(mEmptyRoomWidget);
 
     connect(mChannelList, &ChannelListWidget::roomSelected, this, &RuqolaMainWidget::selectChannelRoom);
+    connect(mChannelList, &ChannelListWidget::roomPressed, this, &RuqolaMainWidget::slotRoomPressed);
     connect(mChannelList, &ChannelListWidget::selectMessageIdRequested, mRoomWidget, &RoomWidget::scrollToMessageId);
 
     KConfigGroup group(KSharedConfig::openConfig(), myRuqolaMainWidgetGroupName);
@@ -87,6 +88,14 @@ RuqolaMainWidget::~RuqolaMainWidget()
     group.writeEntry("SplitterSizes", mSplitter->saveState());
     if (mCurrentRocketChatAccount) {
         mCurrentRocketChatAccount->settings()->setLastSelectedRoom(mRoomWidget->roomId());
+    }
+}
+
+void RuqolaMainWidget::slotRoomPressed(const QString &roomId)
+{
+    if (mRoomWidget->roomId() == roomId) {
+        // force select lineedit
+        mRoomWidget->forceLineEditFocus();
     }
 }
 

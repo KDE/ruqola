@@ -39,6 +39,7 @@ private:
     void updateBannerInfo();
     void slotBannerDismissDone();
     void slotMarkBannerAsRead(const QString &identifier);
+    void slotRoomPressed(const QString &roomId);
 
     QSplitter *const mSplitter;
     ChannelListWidget *const mChannelList;
