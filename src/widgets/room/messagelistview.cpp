@@ -487,7 +487,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
         auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
         connect(debugRoomAction, &QAction::triggered, this, [=]() {
             // Dump info about room => don't use qCDebug here.
-            qDebug() << " *mRoom " << *mRoom;
+            qDebug() << " mRoom " << *mRoom;
         });
         menu.addAction(debugRoomAction);
     }
