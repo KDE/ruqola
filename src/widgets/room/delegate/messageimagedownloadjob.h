@@ -8,6 +8,7 @@
 
 #include <QObject>
 class RocketChatAccount;
+class QProgressDialog;
 class MessageImageDownloadJob : public QObject
 {
     Q_OBJECT
@@ -33,7 +34,9 @@ public:
     void start();
 
 private:
+    void slotDownloadCancel();
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     MessageImageDownloadJobInfo mInfo;
     RocketChatAccount *mRocketChatAccount = nullptr;
+    QProgressDialog *mProgressDialogBox = nullptr;
 };
