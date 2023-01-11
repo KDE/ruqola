@@ -163,9 +163,6 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     mGoogleApiKey->setObjectName(QStringLiteral("mGoogleApiKey"));
     addLineEdit(i18n("Google API Key"), mGoogleApiKey, QStringLiteral("AutoTranslate_GoogleAPIKey"));
 
-    mGoogleApiKey->setObjectName(QStringLiteral("mGoogleApiKey"));
-    addLineEdit(i18n("Google API Key"), mGoogleApiKey, QStringLiteral("AutoTranslate_GoogleAPIKey"));
-
     mMicrosoftApiKey->setObjectName(QStringLiteral("mMicrosoftApiKey"));
     addLineEdit(i18n("Microsoft API Key"), mMicrosoftApiKey, QStringLiteral("AutoTranslate_MicrosoftAPIKey"));
 }
