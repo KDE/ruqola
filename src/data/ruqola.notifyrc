@@ -50,7 +50,6 @@ Comment[pl]=Powiadomienie
 Comment[pt]=Notificação
 Comment[pt_BR]=Notificação
 Comment[ru]=Уведомление
-Comment[sk]=Upozornenie
 Comment[sl]=Obvestilo
 Comment[sv]=Underrättelse
 Comment[tr]=Bildirim
@@ -193,18 +192,6 @@ Urgency=Normal
 
 [Event/VideoConference-Incoming]
 Name=Incoming Video Conference Call
-Name[ca]=Trucada de videoconferència entrant
-Name[ca@valencia]=Tocada de videoconferència entrant
-Name[es]=Conferencia de vídeo entrante
-Name[fr]=Appel entrant de vidéo-conférence
-Name[it]=Chiamata in videoconferenza in arrivo
-Name[ka]=შემომავალი ვიდეო-კონფერენციის ზარი
-Name[nl]=Inkomende videoconferentie-oproep
-Name[pt]=Chamada em Videoconferência Recebida
-Name[sl]=Dohodni videokonferenčni klic
-Name[tr]=Gelen Video Konferans Çağrısı
-Name[uk]=Вхідний виклик відеоконференції
-Name[x-test]=xxIncoming Video Conference Callxx
 Action=Popup
 Urgency=Normal
 
