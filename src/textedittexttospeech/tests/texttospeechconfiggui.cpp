@@ -5,7 +5,6 @@
 */
 
 #include "texttospeechconfiggui.h"
-#include "texttospeech.h"
 #include "texttospeechconfigwidget.h"
 #include <QApplication>
 #include <QCommandLineParser>

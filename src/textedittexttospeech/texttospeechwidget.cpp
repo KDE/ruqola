@@ -85,7 +85,7 @@ TextToSpeechWidget::TextToSpeechWidget(QWidget *parent)
     d->mTextToSpeechInterface = new TextToSpeechInterface(this, this);
     applyVolume();
     setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed));
-    hide();
+    hideWidget();
 }
 
 TextToSpeechWidget::~TextToSpeechWidget() = default;
@@ -93,7 +93,7 @@ TextToSpeechWidget::~TextToSpeechWidget() = default;
 void TextToSpeechWidget::slotCloseTextToSpeechWidget()
 {
     d->mTextToSpeechActions->slotStop();
-    hide();
+    hideWidget();
 }
 
 void TextToSpeechWidget::slotConfigure()
@@ -107,7 +107,7 @@ void TextToSpeechWidget::slotConfigure()
         }
         delete d->mConfigDialog;
         if (d->mNeedToHide) {
-            hide();
+            hideWidget();
             d->mNeedToHide = false;
         }
     }
@@ -144,7 +144,7 @@ void TextToSpeechWidget::slotStateChanged(TextEditTextToSpeech::TextToSpeech::St
             if (d->mConfigDialog) {
                 d->mNeedToHide = true;
             } else {
-                QTimer::singleShot(2s, this, &TextToSpeechWidget::hide);
+                QTimer::singleShot(2s, this, &TextToSpeechWidget::hideWidget);
             }
         }
         break;
@@ -152,6 +152,18 @@ void TextToSpeechWidget::slotStateChanged(TextEditTextToSpeech::TextToSpeech::St
         // TODO
         break;
     }
+}
+
+void TextToSpeechWidget::showWidget()
+{
+    show();
+    Q_EMIT changeVisibility(true);
+}
+
+void TextToSpeechWidget::hideWidget()
+{
+    hide();
+    Q_EMIT changeVisibility(false);
 }
 
 void TextToSpeechWidget::setState(TextToSpeechWidget::State state)

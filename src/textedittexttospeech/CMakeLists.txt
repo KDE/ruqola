@@ -40,6 +40,8 @@ if (TEXTEDIT_TEXT_TO_SPEECH)
         texttospeechsliderwidget.cpp
         texttospeechutil.h
         texttospeechutil.cpp
+        texttospeechcontainerwidget.h
+        texttospeechcontainerwidget.cpp
     )
 endif()
 
@@ -100,6 +102,7 @@ if (TEXTEDIT_TEXT_TO_SPEECH)
         TextToSpeechConfigDialog
         AbstractTextToSpeechInterface
         AbstractTextToSpeechConfigInterface
+        TextToSpeechContainerWidget
         REQUIRED_HEADERS TextEdit_texttospeechs_HEADERS
         PREFIX TextEditTextToSpeech
     )

@@ -43,7 +43,7 @@ bool TextToSpeechInterface::isReady() const
 void TextToSpeechInterface::say(const QString &text)
 {
     d->mTextToSpeechWidget->setState(TextEditTextToSpeech::TextToSpeechWidget::Play);
-    d->mTextToSpeechWidget->show();
+    d->mTextToSpeechWidget->showWidget();
     TextEditTextToSpeech::TextToSpeech::self()->say(text);
 }
 

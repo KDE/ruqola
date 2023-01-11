@@ -34,6 +34,8 @@ public:
 
     Q_REQUIRED_RESULT bool isReady() const;
 
+    void showWidget();
+
 public Q_SLOTS:
     void say(const QString &text);
 
@@ -41,12 +43,14 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void stateChanged(TextEditTextToSpeech::TextToSpeechWidget::State state);
+    void changeVisibility(bool state);
 
 private:
     void slotVolumeChanged(int value);
     void slotCloseTextToSpeechWidget();
     void slotConfigure();
     void applyVolume();
+    void hideWidget();
     std::unique_ptr<TextToSpeechWidgetPrivate> const d;
 };
 }

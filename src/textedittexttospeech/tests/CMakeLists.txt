@@ -5,18 +5,26 @@ target_link_libraries(texttospeechwidget_gui
     KF5::TextEditTextToSpeech KF5::CoreAddons Qt::Widgets KF5::I18n
     )
 
+#####
 add_executable(texttospeechgui texttospeechgui.cpp)
 target_link_libraries(texttospeechgui
     KF5::TextEditTextToSpeech KF5::CoreAddons Qt::Widgets KF5::I18n
     )
 
+#####
 add_executable(texttospeechconfiggui texttospeechconfiggui.cpp)
 target_link_libraries(texttospeechconfiggui
     KF5::TextEditTextToSpeech KF5::CoreAddons Qt::Widgets KF5::I18n
     )
 
+#####
 add_executable(texttospeechconfigdialoggui texttospeechconfigdialoggui.cpp)
 target_link_libraries(texttospeechconfigdialoggui
     KF5::TextEditTextToSpeech KF5::CoreAddons Qt::Widgets KF5::I18n
     )
 
+#####
+add_executable(texttospeechcontainergui texttospeechcontainergui.cpp texttospeechcontainergui.h)
+target_link_libraries(texttospeechcontainergui
+    KF5::TextEditTextToSpeech KF5::CoreAddons Qt::Widgets KF5::I18n
+    )
