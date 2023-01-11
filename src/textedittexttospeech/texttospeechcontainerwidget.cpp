@@ -15,6 +15,8 @@ public:
     TextToSpeechContainerWidgetPrivate(TextToSpeechContainerWidget *q)
         : mainLayout(new QHBoxLayout(q))
     {
+        mainLayout->setObjectName(QStringLiteral("mainLayout"));
+        mainLayout->setContentsMargins({});
     }
     TextToSpeechWidget *textToSpeechWidget = nullptr;
     QHBoxLayout *const mainLayout;
