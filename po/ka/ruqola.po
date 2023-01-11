@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:57+0000\n"
 "PO-Revision-Date: 2023-01-09 07:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6380,91 +6380,91 @@ msgstr "წაუკითხავის ჩვენება"
 msgid "Mark as Read"
 msgstr "მონიშნე როგორც წაკითხული"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Read"
 msgstr "წაკითხულად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Unread"
 msgstr "წაუკითხავად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Set as Favorite"
 msgstr "რჩეულად მონიშვნა"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "რჩეულად მონიშვნის მოხსნა"
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:129
 #, kde-format
 msgid "Hide Channel"
 msgstr "არხის დამალვა"
 
-#: widgets/channellist/channellistview.cpp:132
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:144
+#: widgets/channellist/channellistview.cpp:276
 #, kde-format
 msgid "Convert to Team"
 msgstr "გუნდად გადაკეთება"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:153
 #, kde-format
 msgid "Convert to Channel"
 msgstr "არხად გადაკეთბა"
 
-#: widgets/channellist/channellistview.cpp:151
+#: widgets/channellist/channellistview.cpp:163
 #, kde-format
 msgid "Move to Team"
 msgstr "გუნდში გადატანა"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:178
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "გაფრთხილების მორგება..."
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgid "Quit Channel"
 msgstr "არხიდან გასვლა"
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Any team selected."
 msgstr "ნებისმიერი მონიშნული გუნდი."
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Move To Team"
 msgstr "გუნდში გადატანა"
 
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:275
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, გუნდად გარდაქმნათ? ქმედება შეუქცევადია."
 
-#: widgets/channellist/channellistwidget.cpp:48
+#: widgets/channellist/channellistwidget.cpp:49
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "არხების გაფილტვრა (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:55
+#: widgets/channellist/channellistwidget.cpp:56
 #, kde-format
 msgid "Search Channels"
 msgstr "არხების ძებნა"
 
-#: widgets/channellist/channellistwidget.cpp:62
+#: widgets/channellist/channellistwidget.cpp:63
 #, kde-format
 msgid "Previous Channel"
 msgstr "წინა არხი"
 
-#: widgets/channellist/channellistwidget.cpp:70
+#: widgets/channellist/channellistwidget.cpp:71
 #, kde-format
 msgid "Next Channel"
 msgstr "შემდეგი არხი"
@@ -7371,8 +7371,9 @@ msgid "Fit to View"
 msgstr "ხედში ჩატევა"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
+#: widgets/room/delegate/messageimagedownloadjob.cpp:30
+#: widgets/room/delegate/messageimagedownloadjob.cpp:48
 #, kde-format
 msgid "Save Image"
 msgstr "გამოსახულების შენახვა"
@@ -8493,7 +8494,7 @@ msgstr "E2E ჩართულია"
 msgid "Call"
 msgstr "ზარი"
 
-#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Channel's Information"
 msgstr "ინფორმაცია არხზე"
@@ -8513,7 +8514,7 @@ msgstr "მომხმარებლების სიის ჩვენე�
 msgid "Search Messages..."
 msgstr "შეტყობინებებში ძებნა..."
 
-#: widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Team's Information"
 msgstr "გუნდის ინფორმაცია"

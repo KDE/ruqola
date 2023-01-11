@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:56+0000\n"
-"PO-Revision-Date: 2023-01-09 20:52+0300\n"
+"POT-Creation-Date: 2023-01-11 00:57+0000\n"
+"PO-Revision-Date: 2023-01-10 21:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -552,7 +552,7 @@ msgstr "LibreOffice Otomatik Düzeltme"
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:142
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
-msgstr "KMail/Calligra Otomatik Düzeltme"
+msgstr "K Posta/Calligra Otomatik Düzeltme"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:420
 #, kde-format
@@ -582,12 +582,12 @@ msgstr "LibreOffice Otomatik Düzeltme Dosyası (*.dat)"
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:614
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr "KMail Otomatik Düzeltmesi İçe Aktar"
+msgstr "K Posta Otomatik Düzeltmesi İçe Aktar"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:615
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr "KMail Otomatik Düzeltme Dosyası (*.xml)"
+msgstr "K Posta Otomatik Düzeltme Dosyası (*.xml)"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:647
 #, kde-format
@@ -5494,10 +5494,9 @@ msgid "Safe Ports"
 msgstr "Güvenli Kapılar"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Maximum Number of Chained Quotes"
-msgstr "En çok kullanım sayısı"
+msgstr "En Çok Zincirlenen Alıntı Sayısı"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
 #, kde-format
@@ -6500,90 +6499,90 @@ msgstr "Okunmamışları Göster"
 msgid "Mark as Read"
 msgstr "Okundu Olarak İmle"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Read"
 msgstr "Okundu Olarak İmle"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Okunmamış Olarak İmle"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Sık Kullanılan Olarak Ayarla"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Sık Kullanılanlardan Kaldır"
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:129
 #, kde-format
 msgid "Hide Channel"
 msgstr "Kanalı Gizle"
 
-#: widgets/channellist/channellistview.cpp:132
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:144
+#: widgets/channellist/channellistview.cpp:276
 #, kde-format
 msgid "Convert to Team"
 msgstr "Takıma Dönüştür"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:153
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Kanala Dönüştür"
 
-#: widgets/channellist/channellistview.cpp:151
+#: widgets/channellist/channellistview.cpp:163
 #, kde-format
 msgid "Move to Team"
 msgstr "Takıma Taşı"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:178
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Bildirimleri Yapılandır..."
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgid "Quit Channel"
 msgstr "Kanaldan Çık"
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Any team selected."
 msgstr "Herhangi bir takım seçili."
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Move To Team"
 msgstr "Takıma Taşı"
 
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:275
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Takıma dönüştürmek istediğinize emin misiniz? Bu işlem geri alınamaz."
 
-#: widgets/channellist/channellistwidget.cpp:48
+#: widgets/channellist/channellistwidget.cpp:49
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Kanalları süz (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:55
+#: widgets/channellist/channellistwidget.cpp:56
 #, kde-format
 msgid "Search Channels"
 msgstr "Kanalları Ara"
 
-#: widgets/channellist/channellistwidget.cpp:62
+#: widgets/channellist/channellistwidget.cpp:63
 #, kde-format
 msgid "Previous Channel"
 msgstr "Önceki Kanal"
 
-#: widgets/channellist/channellistwidget.cpp:70
+#: widgets/channellist/channellistwidget.cpp:71
 #, kde-format
 msgid "Next Channel"
 msgstr "Sonraki Kanal"
@@ -7498,8 +7497,9 @@ msgid "Fit to View"
 msgstr "Görünüme Sığdır"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
+#: widgets/room/delegate/messageimagedownloadjob.cpp:30
+#: widgets/room/delegate/messageimagedownloadjob.cpp:48
 #, kde-format
 msgid "Save Image"
 msgstr "Görseli Kaydet"
@@ -8651,7 +8651,7 @@ msgstr "Uçtan Uca Şifreleme Etkinleştirildi"
 msgid "Call"
 msgstr "Ara"
 
-#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Channel's Information"
 msgstr "Kanal Bilgisi"
@@ -8671,7 +8671,7 @@ msgstr "Kullanıcı Listesini Göster"
 msgid "Search Messages..."
 msgstr "İletileri Ara..."
 
-#: widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Team's Information"
 msgstr "Takım Bilgisi"

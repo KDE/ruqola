@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:56+0000\n"
+"POT-Creation-Date: 2023-01-11 00:57+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -6657,100 +6657,100 @@ msgstr "Gijos"
 msgid "Mark as Read"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark As Read"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark As Unread"
 msgstr "Nerasta jokių žinučių"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #, kde-format
 msgid "Unset as Favorite"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:129
 #, kde-format
 msgid "Hide Channel"
 msgstr "Slėpti kanalą"
 
-#: widgets/channellist/channellistview.cpp:132
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:144
+#: widgets/channellist/channellistview.cpp:276
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Convert to Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:153
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
 msgid "Convert to Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistview.cpp:151
+#: widgets/channellist/channellistview.cpp:163
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Move to Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:178
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgid "Quit Channel"
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Any team selected."
 msgstr ""
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Move To Team"
 msgstr "Šalinti iš kambario"
 
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:275
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:48
+#: widgets/channellist/channellistwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Filter channels (CTRL + K)"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:55
+#: widgets/channellist/channellistwidget.cpp:56
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search Channels"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:62
+#: widgets/channellist/channellistwidget.cpp:63
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistwidget.cpp:70
+#: widgets/channellist/channellistwidget.cpp:71
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Channel"
@@ -7709,8 +7709,9 @@ msgid "Fit to View"
 msgstr ""
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
+#: widgets/room/delegate/messageimagedownloadjob.cpp:30
+#: widgets/room/delegate/messageimagedownloadjob.cpp:48
 #, kde-format
 msgid "Save Image"
 msgstr "Įrašyti paveikslą"
@@ -8934,7 +8935,7 @@ msgstr ""
 msgid "Call"
 msgstr ""
 
-#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Channel's Information"
@@ -8956,7 +8957,7 @@ msgstr "Rodyti naudotojų sąrašą"
 msgid "Search Messages..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Team's Information"
 msgstr ""

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-10 00:56+0000\n"
-"PO-Revision-Date: 2023-01-08 23:11+0100\n"
+"POT-Creation-Date: 2023-01-11 00:57+0000\n"
+"PO-Revision-Date: 2023-01-10 13:59+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -5535,10 +5535,9 @@ msgid "Safe Ports"
 msgstr "Veilige poorten"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#, kde-format
 msgid "Maximum Number of Chained Quotes"
-msgstr "Max aantal keer gebruikt"
+msgstr "Max aantal gekoppelde aanhalingen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
 #, kde-format
@@ -6557,90 +6556,90 @@ msgstr "Ongelezen tonen"
 msgid "Mark as Read"
 msgstr "Als gelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Read"
 msgstr "Als gelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:102
+#: widgets/channellist/channellistview.cpp:114
 #, kde-format
 msgid "Mark As Unread"
 msgstr "Als ongelezen markeren"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Als favoriet instellen"
 
-#: widgets/channellist/channellistview.cpp:110
+#: widgets/channellist/channellistview.cpp:122
 #, kde-format
 msgid "Unset as Favorite"
 msgstr "Instelling als favoriet ongedaan maken"
 
-#: widgets/channellist/channellistview.cpp:117
+#: widgets/channellist/channellistview.cpp:129
 #, kde-format
 msgid "Hide Channel"
 msgstr "Kanaal verbergen"
 
-#: widgets/channellist/channellistview.cpp:132
-#: widgets/channellist/channellistview.cpp:264
+#: widgets/channellist/channellistview.cpp:144
+#: widgets/channellist/channellistview.cpp:276
 #, kde-format
 msgid "Convert to Team"
 msgstr "Naar team converteren"
 
-#: widgets/channellist/channellistview.cpp:141
+#: widgets/channellist/channellistview.cpp:153
 #, kde-format
 msgid "Convert to Channel"
 msgstr "Naar kanaal converteren"
 
-#: widgets/channellist/channellistview.cpp:151
+#: widgets/channellist/channellistview.cpp:163
 #, kde-format
 msgid "Move to Team"
 msgstr "Naar team verplaatsen"
 
-#: widgets/channellist/channellistview.cpp:166
+#: widgets/channellist/channellistview.cpp:178
 #: widgets/room/channelactionpopupmenu.cpp:81
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Meldingen configureren..."
 
-#: widgets/channellist/channellistview.cpp:173
+#: widgets/channellist/channellistview.cpp:185
 #, kde-format
 msgid "Quit Channel"
 msgstr "Kanaal verlaten"
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Any team selected."
 msgstr "Elk geselecteerd team."
 
-#: widgets/channellist/channellistview.cpp:214
+#: widgets/channellist/channellistview.cpp:226
 #, kde-format
 msgid "Move To Team"
 msgstr "Naar team verplaatsen"
 
-#: widgets/channellist/channellistview.cpp:263
+#: widgets/channellist/channellistview.cpp:275
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Naar team converteren? Het kan niet ongedaan worden gemaakt."
 
-#: widgets/channellist/channellistwidget.cpp:48
+#: widgets/channellist/channellistwidget.cpp:49
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Kanalen filteren (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:55
+#: widgets/channellist/channellistwidget.cpp:56
 #, kde-format
 msgid "Search Channels"
 msgstr "Kanalen doorzoeken"
 
-#: widgets/channellist/channellistwidget.cpp:62
+#: widgets/channellist/channellistwidget.cpp:63
 #, kde-format
 msgid "Previous Channel"
 msgstr "Vorig kanaal"
 
-#: widgets/channellist/channellistwidget.cpp:70
+#: widgets/channellist/channellistwidget.cpp:71
 #, kde-format
 msgid "Next Channel"
 msgstr "Volgend kanaal"
@@ -7555,8 +7554,9 @@ msgid "Fit to View"
 msgstr "Laten passen om te bekijken"
 
 #: widgets/dialogs/showimagewidget.cpp:359
-#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:127
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
+#: widgets/room/delegate/messageimagedownloadjob.cpp:30
+#: widgets/room/delegate/messageimagedownloadjob.cpp:48
 #, kde-format
 msgid "Save Image"
 msgstr "Afbeelding opslaan"
@@ -8708,7 +8708,7 @@ msgstr "E2E ingeschakeld"
 msgid "Call"
 msgstr "Oproep"
 
-#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Channel's Information"
 msgstr "Informatie over kanaal"
@@ -8728,7 +8728,7 @@ msgstr "Lijst van gebruikers tonen"
 msgid "Search Messages..."
 msgstr "Berichten doorzoeken..."
 
-#: widgets/room/roomheaderwidget.cpp:196
+#: widgets/room/roomheaderwidget.cpp:201
 #, kde-format
 msgid "Team's Information"
 msgstr "Informatie over team"
