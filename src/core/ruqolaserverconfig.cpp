@@ -510,9 +510,21 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setDirectMessageMaximumUser(value.toInt());
     } else if (id == QLatin1String("Message_QuoteChainLimit")) {
         setMessageQuoteChainLimit(value.toInt());
+    } else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
+        setAllowCustomStatusMessage(value.toBool());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+bool RuqolaServerConfig::allowCustomStatusMessage() const
+{
+    return mAllowCustomStatusMessage;
+}
+
+void RuqolaServerConfig::setAllowCustomStatusMessage(bool newAllowCustomStatusMessage)
+{
+    mAllowCustomStatusMessage = newAllowCustomStatusMessage;
 }
 
 int RuqolaServerConfig::messageQuoteChainLimit() const
@@ -614,5 +626,4 @@ void RuqolaServerConfig::parsePublicSettings(const QJsonObject &obj)
         const QJsonObject currentConfObject = currentConfig.toObject();
         loadSettings(currentConfObject);
     }
-    // TODO add Accounts_AllowUserStatusMessageChange when we will have a RestAPI method for it.
 }

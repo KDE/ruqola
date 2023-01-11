@@ -48,6 +48,7 @@ void RuqolaServerConfigTest::shouldHaveDefaultValues()
     QCOMPARE(config.messageGroupingPeriod(), -1);
     QCOMPARE(config.directMessageMaximumUser(), -1);
     QCOMPARE(config.messageQuoteChainLimit(), -1);
+    QVERIFY(!config.allowCustomStatusMessage());
 }
 
 void RuqolaServerConfigTest::shouldAssignValues()

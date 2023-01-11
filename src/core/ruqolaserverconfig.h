@@ -166,6 +166,9 @@ public:
     Q_REQUIRED_RESULT int messageQuoteChainLimit() const;
     void setMessageQuoteChainLimit(int newMessageQuoteChainLimit);
 
+    Q_REQUIRED_RESULT bool allowCustomStatusMessage() const;
+    void setAllowCustomStatusMessage(bool newAllowCustomStatusMessage);
+
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
     void adaptToServerVersion();
@@ -209,5 +212,6 @@ private:
     bool mUserDataDownloadEnabled = true;
     bool mDeviceManagementEnableLoginEmails = false;
     bool mDeviceManagementAllowLoginEmailpreference = false;
+    bool mAllowCustomStatusMessage = false;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const RuqolaServerConfig &t);
