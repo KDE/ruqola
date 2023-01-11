@@ -118,4 +118,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mEnableCollectLog->isChecked());
     QVERIFY(!mEnableCollectLog->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mEnableCollectLog), QStringLiteral("Block_Multiple_Failed_Logins_Enabled"));
+
+    auto mAllowCustomStatusMessage = w.findChild<QCheckBox *>(QStringLiteral("mAllowCustomStatusMessage"));
+    QVERIFY(mAllowCustomStatusMessage);
+    QVERIFY(!mAllowCustomStatusMessage->isChecked());
+    QVERIFY(!mAllowCustomStatusMessage->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowCustomStatusMessage), QStringLiteral("Accounts_AllowUserStatusMessageChange"));
 }

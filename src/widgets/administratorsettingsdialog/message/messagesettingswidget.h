@@ -47,4 +47,5 @@ private:
     QSpinBox *const mGroupingPeriod;
     QSpinBox *const mDirectMessageMaxUsers;
     QSpinBox *const mMaximumNumberChainedQuotes;
+    QComboBox *const mMessageErasureType;
 };

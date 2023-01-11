@@ -41,6 +41,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
     , mGroupingPeriod(new QSpinBox(this))
     , mDirectMessageMaxUsers(new QSpinBox(this))
     , mMaximumNumberChainedQuotes(new QSpinBox(this))
+    , mMessageErasureType(new QComboBox(this))
 {
     mAllowMessageEditing->setObjectName(QStringLiteral("mAllowMessageEditing"));
     mMainLayout->addWidget(mAllowMessageEditing);
@@ -96,6 +97,19 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
 
     mMaximumNumberChainedQuotes->setObjectName(QStringLiteral("mMaximumNumberChainedQuotes"));
     addSpinbox(i18n("Maximum Number of Chained Quotes"), mMaximumNumberChainedQuotes, QStringLiteral("Message_QuoteChainLimit"));
+
+    mMessageErasureType->setObjectName(QStringLiteral("mMessageErasureType"));
+    const QMap<QString, QString> messageErasureTypeMaps = {
+        {QStringLiteral("Keep"), i18n("Keep Messages and User Name")},
+        {QStringLiteral("Delete"), i18n("Delete All Messages")},
+        {QStringLiteral("Unlink"), i18n("Remove Link Between User and Messages")},
+    };
+    mMessageErasureType->setToolTip(
+        i18n("Determine what to do with messages of users who remove their account. Keep Messages and User Name: The message and files history of the user "
+             "will be deleted from Direct Messages and will be kept in other rooms. Delete All Messages: All messages and files from the user will be deleted "
+             "from the database and it will not be possible to locate the user anymore. Remove link between user and messages: This option will assign all "
+             "messages and fles of the user to Rocket.Cat bot and Direct Messages are going to be deleted."));
+    addComboBox(i18n("Message Erasure Type"), messageErasureTypeMaps, mMessageErasureType, QStringLiteral("Message_ErasureType"));
 
     mGroupingPeriod->setObjectName(QStringLiteral("mGroupingPeriod"));
     mGroupingPeriod->setToolTip(
@@ -197,4 +211,5 @@ void MessageSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mGroupingPeriod, mapSettings, 300);
     initializeWidget(mDirectMessageMaxUsers, mapSettings, 8);
     initializeWidget(mMaximumNumberChainedQuotes, mapSettings, 2);
+    initializeWidget(mMessageErasureType, mapSettings, QStringLiteral("Delete"));
 }

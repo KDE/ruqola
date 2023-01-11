@@ -189,4 +189,10 @@ void MessageSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mMaximumNumberChainedQuotes);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaximumNumberChainedQuotes), QStringLiteral("Message_QuoteChainLimit"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Message_QuoteChainLimit"));
+
+    auto mMessageErasureType = w.findChild<QComboBox *>(QStringLiteral("mMessageErasureType"));
+    QVERIFY(mMessageErasureType);
+    QCOMPARE(mMessageErasureType->count(), 3);
+    QVERIFY(!mMessageErasureType->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMessageErasureType), QStringLiteral("Message_ErasureType"));
 }

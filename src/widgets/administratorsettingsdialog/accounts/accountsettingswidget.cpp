@@ -28,10 +28,15 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowInvisibleStatusOption(new QCheckBox(i18n("Allow Invisible status option"), this))
     , mForgetUserSessionWindowClose(new QCheckBox(i18n("Forget User Session on Window Close"), this))
     , mEnableCollectLog(new QCheckBox(i18n("Enable collect log in data"), this))
+    , mAllowCustomStatusMessage(new QCheckBox(i18n("Allow Custom Status Message"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
     connectCheckBox(mAllowChangeName, QStringLiteral("Accounts_AllowRealNameChange"));
+
+    mAllowCustomStatusMessage->setObjectName(QStringLiteral("mAllowCustomStatusMessage"));
+    mMainLayout->addWidget(mAllowCustomStatusMessage);
+    connectCheckBox(mAllowCustomStatusMessage, QStringLiteral("Accounts_AllowUserStatusMessageChange"));
 
     mAllowChangeUserProfile->setObjectName(QStringLiteral("mAllowChangeUserProfile"));
     mMainLayout->addWidget(mAllowChangeUserProfile);
@@ -112,4 +117,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowInvisibleStatusOption, mapSettings, true);
     initializeWidget(mForgetUserSessionWindowClose, mapSettings, false);
     initializeWidget(mEnableCollectLog, mapSettings, false);
+    initializeWidget(mAllowCustomStatusMessage, mapSettings, true);
 }

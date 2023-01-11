@@ -36,4 +36,5 @@ private:
     QCheckBox *const mAllowInvisibleStatusOption;
     QCheckBox *const mForgetUserSessionWindowClose;
     QCheckBox *const mEnableCollectLog;
+    QCheckBox *const mAllowCustomStatusMessage;
 };
