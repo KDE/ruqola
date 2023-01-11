@@ -7,6 +7,7 @@ project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(KTEXTADDONS_MIN_VERSION "1.0.0")
 set(KF5_MIN_VERSION "5.100.0")
 set(REQUIRED_QT_VERSION "5.15.2")
 if (QT_MAJOR_VERSION STREQUAL "6")
@@ -92,15 +93,15 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-find_package(KF5TextTranslator ${KF5_MIN_VERSION} CONFIG)
+find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
     "ktextaddons, translator lib"
     TYPE OPTIONAL
 )
 
 if (TARGET KF5::TextTranslator)
-    find_package(KF5TextAutoCorrection ${KF5_MIN_VERSION} CONFIG REQUIRED)
-    find_package(KF5TextEditTextToSpeech ${KF5_MIN_VERSION} CONFIG)
+    find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
     set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
         "Add support for text to speech"
         TYPE OPTIONAL
