@@ -16,7 +16,7 @@ class RocketChatAccount;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace TextEditTextToSpeech
 {
-class TextToSpeechWidget;
+class TextToSpeechContainerWidget;
 }
 #endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowDiscussionsWidget : public QWidget
@@ -43,6 +43,6 @@ private:
     DiscussionListView *const mListDiscussionsListView;
     DiscussionsFilterProxyModel *mDiscussionModel = nullptr;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
 #endif
 };

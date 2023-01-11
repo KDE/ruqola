@@ -55,7 +55,7 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <TextEditTextToSpeech/TextToSpeechWidget>
+#include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
 RoomWidget::RoomWidget(QWidget *parent)
@@ -67,7 +67,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
     , mOtrWidget(new OtrWidget(this))
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechWidget(this))
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
     auto mainLayout = new QVBoxLayout(this);

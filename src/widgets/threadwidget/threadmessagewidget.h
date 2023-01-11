@@ -17,7 +17,7 @@ class QToolButton;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace TextEditTextToSpeech
 {
-class TextToSpeechWidget;
+class TextToSpeechContainerWidget;
 }
 #endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
@@ -55,6 +55,6 @@ private:
     QToolButton *const mFollowButton;
     QPointer<Room> mRoom;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
 #endif
 };

@@ -18,7 +18,7 @@ class Room;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace TextEditTextToSpeech
 {
-class TextToSpeechWidget;
+class TextToSpeechContainerWidget;
 }
 #endif
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SearchMessageWidget : public QWidget
@@ -52,6 +52,6 @@ private:
     SearchMessageFilterProxyModel *mModel = nullptr;
     RocketChatAccount *const mCurrentRocketChatAccount;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechWidget *const mTextToSpeechWidget;
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
 #endif
 };
