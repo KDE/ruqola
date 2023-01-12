@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-11 00:57+0000\n"
-"PO-Revision-Date: 2023-01-08 10:12+0100\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
+"PO-Revision-Date: 2023-01-11 07:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -1936,7 +1936,7 @@ msgstr "Sprejmi"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: texttranslator/translator/plugins/google/googleengineclient.cpp:26
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2706,6 +2706,7 @@ msgstr "Neveljavni parametri"
 msgid "Error trying to send email %1"
 msgstr "Napaka pri poskusu pošiljanja e-pošte %1"
 
+#: textedittexttospeech/tests/texttospeechcontainergui.cpp:36
 #: textedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
@@ -4328,12 +4329,18 @@ msgstr "Pozabi uporabnikovo sejo ob zaprtju okna"
 msgid "Enable collect log in data"
 msgstr "Omogoči zapisovanje dnevnika"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Status Message:"
+msgid "Allow Custom Status Message"
+msgstr "Sporočilo o stanju:"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Potek prijave v dnevih"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Zgrešeni poskusi prijav"
@@ -5423,7 +5430,7 @@ msgid "Show Deleted Status"
 msgstr "Prikaži stanja izbrisanega"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
 #, kde-format
 msgid "Allow Message Pinning"
 msgstr "Dovoli pripenjanje sporočil"
@@ -5463,27 +5470,27 @@ msgstr "Video snemalnik omogočen"
 msgid "Enable Auto-Translate"
 msgstr "Omogoči samodejno prevajanje"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr "Vnesite 0, da bi prepovedali blokiranje."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, kde-format
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Blokiraj urejanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Blokiraj brisanje sporočila po (n) minutah."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
 #, kde-format
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Blokiraj brisanje sporočila po (n) minutah"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
@@ -5492,7 +5499,7 @@ msgstr ""
 "To je zastarela možnost. Lahko, da ne bo delovala kot pričakujete in ne bo "
 "več posodobljena."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
@@ -5501,23 +5508,57 @@ msgstr ""
 "Zahteva, da so datoteke 'video/webm' sprejeta vrsta medijev v nastavitvah "
 "'Prenos datoteke tja'."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr "Največje dovoljeno število znakov na sporočilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:96
 #, kde-format
 msgid "Safe Ports"
 msgstr "Varna vrata"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
-#, fuzzy, kde-format
-#| msgid "Max number of uses"
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
+#, kde-format
 msgid "Maximum Number of Chained Quotes"
-msgstr "Največje število uporabnikov"
+msgstr "Največje število veriženih navednic"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#, kde-format
+msgid "Keep Messages and User Name"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Delete All Messages"
+msgstr "Izbriši sporočilo"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#, kde-format
+msgid "Remove Link Between User and Messages"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
+#, kde-format
+msgid ""
+"Determine what to do with messages of users who remove their account. Keep "
+"Messages and User Name: The message and files history of the user will be "
+"deleted from Direct Messages and will be kept in other rooms. Delete All "
+"Messages: All messages and files from the user will be deleted from the "
+"database and it will not be possible to locate the user anymore. Remove link "
+"between user and messages: This option will assign all messages and fles of "
+"the user to Rocket.Cat bot and Direct Messages are going to be deleted."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
+#, fuzzy, kde-format
+#| msgid "Message has been pinned"
+msgid "Message Erasure Type"
+msgstr "Sporočilo pripeto"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
@@ -5526,22 +5567,22 @@ msgstr ""
 "Sporočila bodo združena s prejšnjim sporočilom, če sta oba od istega "
 "uporabnika in je bil pretečeni čas krajši od časa informacije v sekundah."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr "Perioda grupiranja (v sekundah)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, kde-format
 msgid "Direct Messsage Maximum Users"
 msgstr "Največ uporabnikov neposrednega sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, kde-format
 msgid "Message Attachments"
 msgstr "Priponke sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:129
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
@@ -5551,7 +5592,7 @@ msgstr ""
 "nastavitev ne velja za nazaj, tako bodo datoteke prenesene med onemogočanjem "
 "te možnosti imele podatke EXIF"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5562,59 +5603,58 @@ msgstr ""
 "pasovne širine. Slike v izvirni ločljivosti lahko prenesete s pomočjo ikone "
 "zraven imena priloge."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr "Maksimalna širina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr "Maksimalna višina predoglednih sličic (v pikslih)"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, kde-format
 msgid "Audio Message"
 msgstr "Zvočno sporočilo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
 #, kde-format
 msgid "Audio Message Bit Rate"
 msgstr "Bitna hitrost zvočnega sporočila"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Samodejno prevedi"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
 #, kde-format
 msgid "Deepl"
 msgstr "Deepl"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "Microsoft"
 msgstr "Microsoft"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
 msgid "Service Provider"
 msgstr "Dobavitelj storitev"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
 msgid "DeepL API Key"
 msgstr "Ključ api DeepL"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
 #, kde-format
 msgid "Google API Key"
 msgstr "Ključ Google api"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
 msgid "Microsoft API Key"
 msgstr "Ključ Microsoft api"
@@ -7519,8 +7559,8 @@ msgstr "Prilagodi pogledu"
 
 #: widgets/dialogs/showimagewidget.cpp:359
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:30
-#: widgets/room/delegate/messageimagedownloadjob.cpp:48
+#: widgets/room/delegate/messageimagedownloadjob.cpp:31
+#: widgets/room/delegate/messageimagedownloadjob.cpp:70
 #, kde-format
 msgid "Save Image"
 msgstr "Shrani sliko"
@@ -8434,6 +8474,19 @@ msgstr "Shrani datoteko"
 #, kde-format
 msgid "Save Sound"
 msgstr "Shrani zvok"
+
+#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Pokaži sliko"
+
+#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#, kde-format
+msgid "Download Image..."
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:86

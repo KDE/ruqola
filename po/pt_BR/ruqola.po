@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-11 00:57+0000\n"
+"POT-Creation-Date: 2023-01-12 00:55+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1970,7 +1970,7 @@ msgstr ""
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: texttranslator/translator/plugins/google/googleengineclient.cpp:26
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:154
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
 msgid "Google"
@@ -2759,6 +2759,7 @@ msgstr "Argumentos inválidos"
 msgid "Error trying to send email %1"
 msgstr "Erro ao tentar enviar o e-mail: __message__"
 
+#: textedittexttospeech/tests/texttospeechcontainergui.cpp:36
 #: textedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
@@ -4413,13 +4414,19 @@ msgstr ""
 msgid "Enable collect log in data"
 msgstr "Habilitar registro de logs"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#, fuzzy, kde-format
+#| msgid "Status Message:"
+msgid "Allow Custom Status Message"
+msgstr "Mensagem de status:"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Expiração (dias)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
@@ -5500,7 +5507,7 @@ msgid "Show Deleted Status"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:73
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:74
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Allow Message Pinning"
@@ -5544,91 +5551,126 @@ msgstr ""
 msgid "Enable Auto-Translate"
 msgstr "Tradução automática"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:50
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
 #, kde-format
 msgid "Enter 0 to disable blocking."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:51
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Block Message Editing After (n) Minutes"
 msgstr "Seguir mensagem..."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:58
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Block Message Deleting After (n) Minutes."
 msgstr "Seguir mensagem..."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:59
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:60
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Block Message Deleting After (n) Minutes"
 msgstr "Seguir mensagem..."
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:65
 #, kde-format
 msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
 msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
 msgid "Maximum Allowed Characters Per Message"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:95
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:96
 #, kde-format
 msgid "Safe Ports"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:99
 #, fuzzy, kde-format
 #| msgid "Max number of uses"
 msgid "Maximum Number of Chained Quotes"
 msgstr "Número máximo de usos"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#, kde-format
+msgid "Keep Messages and User Name"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Delete Message"
+msgid "Delete All Messages"
+msgstr "Excluir mensagem"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
+#, kde-format
+msgid "Remove Link Between User and Messages"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
+#, kde-format
+msgid ""
+"Determine what to do with messages of users who remove their account. Keep "
+"Messages and User Name: The message and files history of the user will be "
+"deleted from Direct Messages and will be kept in other rooms. Delete All "
+"Messages: All messages and files from the user will be deleted from the "
+"database and it will not be possible to locate the user anymore. Remove link "
+"between user and messages: This option will assign all messages and fles of "
+"the user to Rocket.Cat bot and Direct Messages are going to be deleted."
+msgstr ""
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
+#, fuzzy, kde-format
+#| msgid "Message Pinned"
+msgid "Message Erasure Type"
+msgstr "Mensagem fixada"
+
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
 msgid ""
 "Messages will be grouped with previous message if both are from the same "
 "user and the elapsed time was less than the informed time in seconds."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:117
 #, kde-format
 msgid "Grouping Period (in seconds)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Direct message someone"
 msgid "Direct Messsage Maximum Users"
 msgstr "Mensagem direta para alguém"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:123
 #, fuzzy, kde-format
 #| msgid "Save Attachment"
 msgid "Message Attachments"
 msgstr "Salvar anexo"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:129
 #, kde-format
 msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
 #, kde-format
 msgid ""
 "Thumbnails will be served instead of the original image to reduce bandwidth "
@@ -5636,63 +5678,62 @@ msgid ""
 "to the attachment's name."
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:127
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:130
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:146
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message"
 msgstr "Fixar mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:142
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
 #, fuzzy, kde-format
 #| msgid "Pin Message"
 msgid "Audio Message Bit Rate"
 msgstr "Fixar mensagem"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:144
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:20
 #, kde-format
 msgid "Auto-Translate"
 msgstr "Tradução automática"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:155
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
 #, kde-format
 msgid "Deepl"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:156
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
 #, kde-format
 msgid "Microsoft"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, fuzzy, kde-format
 #| msgid "Default Room"
 msgid "Service Provider"
 msgstr "Sala padrão"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:161
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
 msgid "DeepL API Key"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:164
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:167
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
 #, fuzzy, kde-format
 #| msgid "Google"
 msgid "Google API Key"
 msgstr "Google"
 
-#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
+#: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
 msgid "Microsoft API Key"
 msgstr ""
@@ -7663,8 +7704,8 @@ msgstr "Ajustar a visualização"
 
 #: widgets/dialogs/showimagewidget.cpp:359
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
-#: widgets/room/delegate/messageimagedownloadjob.cpp:30
-#: widgets/room/delegate/messageimagedownloadjob.cpp:48
+#: widgets/room/delegate/messageimagedownloadjob.cpp:31
+#: widgets/room/delegate/messageimagedownloadjob.cpp:70
 #, kde-format
 msgid "Save Image"
 msgstr "Salvar imagem"
@@ -8590,6 +8631,19 @@ msgstr "Salvar arquivo"
 #, kde-format
 msgid "Save Sound"
 msgstr "Salvar som"
+
+#: widgets/room/delegate/messageimagedownloadjob.cpp:56
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
+msgctxt "@title:window"
+msgid "Download Image"
+msgstr "Exibir imagem"
+
+#: widgets/room/delegate/messageimagedownloadjob.cpp:57
+#, kde-format
+msgid "Download Image..."
+msgstr ""
 
 #: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:86
