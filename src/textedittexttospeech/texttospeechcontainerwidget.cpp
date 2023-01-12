@@ -35,17 +35,8 @@ void TextToSpeechContainerWidget::say(const QString &text)
 {
     if (!d->textToSpeechWidget) {
         d->textToSpeechWidget = new TextToSpeechWidget(this);
-        connect(d->textToSpeechWidget, &TextToSpeechWidget::changeVisibility, this, &TextToSpeechContainerWidget::slotChangeVisibility);
+        connect(d->textToSpeechWidget, &TextToSpeechWidget::changeVisibility, this, &TextToSpeechContainerWidget::setVisible);
         d->mainLayout->addWidget(d->textToSpeechWidget);
     }
     d->textToSpeechWidget->say(text);
-}
-
-void TextToSpeechContainerWidget::slotChangeVisibility(bool state)
-{
-    if (state) {
-        show();
-    } else {
-        hide();
-    }
 }

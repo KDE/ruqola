@@ -20,7 +20,6 @@ public:
     void say(const QString &text);
 
 private:
-    void slotChangeVisibility(bool state);
     std::unique_ptr<TextToSpeechContainerWidgetPrivate> const d;
 };
 }
