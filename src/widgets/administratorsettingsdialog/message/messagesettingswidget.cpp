@@ -108,7 +108,7 @@ MessageSettingsWidget::MessageSettingsWidget(RocketChatAccount *account, QWidget
         i18n("Determine what to do with messages of users who remove their account. Keep Messages and User Name: The message and files history of the user "
              "will be deleted from Direct Messages and will be kept in other rooms. Delete All Messages: All messages and files from the user will be deleted "
              "from the database and it will not be possible to locate the user anymore. Remove link between user and messages: This option will assign all "
-             "messages and fles of the user to Rocket.Cat bot and Direct Messages are going to be deleted."));
+             "messages and files of the user to Rocket.Chat bot and Direct Messages are going to be deleted."));
     addComboBox(i18n("Message Erasure Type"), messageErasureTypeMaps, mMessageErasureType, QStringLiteral("Message_ErasureType"));
 
     mGroupingPeriod->setObjectName(QStringLiteral("mGroupingPeriod"));
