@@ -25,8 +25,8 @@ public:
     Q_REQUIRED_RESULT QUrl url() const;
     void setUrl(const QUrl &url);
 
-    Q_REQUIRED_RESULT QString mimeType() const;
-    void setMimeType(const QString &mimeType);
+    Q_REQUIRED_RESULT QByteArray mimeType() const;
+    void setMimeType(const QByteArray &mimeType);
 
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
@@ -40,7 +40,7 @@ private:
     Q_DISABLE_COPY(DownloadFileJob)
     void slotDownloadDone();
     QUrl mUrl;
-    QString mMimeType;
+    QByteArray mMimeType;
     QUrl mLocalFileUrl;
 };
 }

@@ -28,7 +28,7 @@ bool DownloadFileJob::start()
     }
 
     mReply = networkAccessManager()->get(request());
-    addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType.toLatin1() + " saveAs " + mLocalFileUrl.toEncoded());
+    addStartRestApiInfo("DownloadFileJob: url:" + mUrl.toEncoded() + " mimetype " + mMimeType + " saveAs " + mLocalFileUrl.toEncoded());
     connect(mReply.data(), &QNetworkReply::finished, this, &DownloadFileJob::slotDownloadDone);
     return true;
 }
@@ -110,12 +110,12 @@ void DownloadFileJob::setUrl(const QUrl &url)
     mUrl = url;
 }
 
-QString DownloadFileJob::mimeType() const
+QByteArray DownloadFileJob::mimeType() const
 {
     return mMimeType;
 }
 
-void DownloadFileJob::setMimeType(const QString &mimeType)
+void DownloadFileJob::setMimeType(const QByteArray &mimeType)
 {
     mMimeType = mimeType;
 }

@@ -371,7 +371,7 @@ void Connection::starMessage(const QString &messageId, bool starred)
     }
 }
 
-DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QString &mimeType)
+DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType)
 {
     auto job = new DownloadFileJob(this);
     connect(job, &DownloadFileJob::downloadFileDone, this, &Connection::downloadFileDone);

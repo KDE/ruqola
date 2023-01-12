@@ -85,7 +85,7 @@ void RocketChatCache::downloadFile(const QString &url, const QUrl &localFile)
         // Not in cache. We need to download it (e.g. file attachment).
         const QUrl downloadUrl = mAccount->urlForLink(url);
         // const QUrl destUrl = storeInCache ? QUrl::fromLocalFile(fileCachePath(downloadUrl)) : localFile;
-        mAccount->restApi()->downloadFile(downloadUrl, localFile, QStringLiteral("text/plain"));
+        mAccount->restApi()->downloadFile(downloadUrl, localFile, QByteArray("text/plain"));
         // this will call slotDataDownloaded
     }
 }

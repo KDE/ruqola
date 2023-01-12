@@ -69,7 +69,7 @@ public:
     void getPrivateSettings();
     void getOwnInfo();
     void starMessage(const QString &messageId, bool starred);
-    RocketChatRestApi::DownloadFileJob *downloadFile(const QUrl &url, const QUrl &localFileUrl, const QString &mimeType = QStringLiteral("text/plain"));
+    RocketChatRestApi::DownloadFileJob *downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType = "text/plain");
     void changeChannelTopic(const QString &roomId, const QString &topic);
     void changeGroupsTopic(const QString &roomId, const QString &topic);
     void changeChannelAnnouncement(const QString &roomId, const QString &announcement);
