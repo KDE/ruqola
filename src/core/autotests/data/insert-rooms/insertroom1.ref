@@ -12,10 +12,10 @@
     "name": "bla1",
     "notifications": {
         "audioNotificationValue": "",
-        "audioNotifications": "",
         "desktopNotifications": "",
         "disableNotifications": false,
         "emailNotifications": "",
+        "hideMentionStatus": false,
         "hideUnreadStatus": false,
         "mobilePushNotifications": "",
         "muteGroupMentions": false,
