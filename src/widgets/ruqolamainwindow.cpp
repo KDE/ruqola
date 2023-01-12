@@ -274,6 +274,7 @@ void RuqolaMainWindow::slotAccountChanged()
 void RuqolaMainWindow::slotPrivateSettingsChanged()
 {
     mStatusProxyModel->setAllowOfflineSupport(mCurrentRocketChatAccount->ruqolaServerConfig()->accountsAllowInvisibleStatusOption());
+    mStatusProxyModel->setUseOnlyStandardStatus(!mCurrentRocketChatAccount->ruqolaServerConfig()->allowCustomStatusMessage());
 }
 
 void RuqolaMainWindow::slotRaiseWindow()
