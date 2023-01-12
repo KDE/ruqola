@@ -139,6 +139,9 @@ target_sources(libruqolawidgets PRIVATE
     administratorsettingsdialog/ircfederation/ircfederationwidget.h
     administratorsettingsdialog/ircfederation/ircfederationwidget.cpp
 
+    administratorsettingsdialog/irc/ircwidget.h
+    administratorsettingsdialog/irc/ircwidget.cpp
+
     administratorsettingsdialog/webdav/webdavsettingswidget.h
     administratorsettingsdialog/webdav/webdavsettingswidget.cpp
 
