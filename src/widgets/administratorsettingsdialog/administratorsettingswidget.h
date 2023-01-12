@@ -37,6 +37,7 @@ class WebRtcSettingsWidget;
 class CasSettingsWidget;
 class OauthSettingsWidget;
 class AnalyticsWidget;
+class IrcWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT AdministratorSettingsWidget : public QWidget
 {
     Q_OBJECT
@@ -76,5 +77,6 @@ private:
     CasSettingsWidget *const mCasSettingsWidget;
     OauthSettingsWidget *const mOauthSettingsWidget;
     AnalyticsWidget *const mAnalyticsWidget;
+    IrcWidget *const mIrcWidget;
     RocketChatAccount *const mRocketChatAccount;
 };

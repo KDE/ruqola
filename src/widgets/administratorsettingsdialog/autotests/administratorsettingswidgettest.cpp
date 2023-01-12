@@ -15,6 +15,7 @@
 #include "administratorsettingsdialog/enterprise/enterprisesettingswidget.h"
 #include "administratorsettingsdialog/fileupload/fileuploadsettingswidget.h"
 #include "administratorsettingsdialog/general/generalsettingswidget.h"
+#include "administratorsettingsdialog/irc/ircwidget.h"
 #include "administratorsettingsdialog/ircfederation/ircfederationwidget.h"
 #include "administratorsettingsdialog/layout/layoutsettingswidget.h"
 #include "administratorsettingsdialog/ldap/ldapsettingswidget.h"
@@ -126,4 +127,7 @@ void AdministratorSettingsWidgetTest::shouldHaveDefaultValues()
 
     auto mAnalyticsWidget = w.findChild<AnalyticsWidget *>(QStringLiteral("mAnalyticsWidget"));
     QVERIFY(mAnalyticsWidget);
+
+    auto mIrcWidget = w.findChild<IrcWidget *>(QStringLiteral("mIrcWidget"));
+    QVERIFY(mIrcWidget);
 }
