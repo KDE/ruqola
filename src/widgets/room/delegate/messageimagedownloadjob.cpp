@@ -30,7 +30,6 @@ void MessageImageDownloadJob::slotFileDownloaded(const QString &filePath, const 
         const QString cacheImageUrlPath{cacheImageUrl.toLocalFile()};
         DelegateUtil::saveFile(mInfo.parentWidget, cacheImageUrlPath, i18n("Save Image"));
         slotDownloadCancel();
-        deleteLater();
     }
 }
 
@@ -41,6 +40,7 @@ void MessageImageDownloadJob::slotDownloadCancel()
         mProgressDialogBox->deleteLater();
     }
     mProgressDialogBox = nullptr;
+    deleteLater();
 }
 
 void MessageImageDownloadJob::start()
