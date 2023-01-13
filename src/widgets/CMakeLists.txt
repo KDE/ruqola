@@ -658,6 +658,9 @@ target_sources(libruqolawidgets PRIVATE
     conferencecalldialog/conferenceinfodialog.cpp
     conferencecalldialog/conferenceinfowidget.h
     conferencecalldialog/conferenceinfowidget.cpp
+
+    servererrorinfohistory/servererrorinfomessagewidget.h
+    servererrorinfohistory/servererrorinfomessagewidget.cpp
 )
 
 if (TEXTEDIT_TEXT_TO_SPEECH)
@@ -753,6 +756,7 @@ if (BUILD_TESTING)
     add_subdirectory(administratorsettingsdialog/autotests/)
     add_subdirectory(bannerinfodialog/autotests)
     add_subdirectory(conferencecalldialog/autotests)
+    add_subdirectory(servererrorinfohistory/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
