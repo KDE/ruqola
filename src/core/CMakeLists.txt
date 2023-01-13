@@ -288,6 +288,10 @@ target_sources(libruqolacore PRIVATE
     model/usersinrolemodel.h
     model/usersmodel.cpp
     model/usersmodel.h
+    model/servererrorinfohistorymodel.h
+    model/servererrorinfohistorymodel.cpp
+
+
     notificationinfo.cpp
     notificationinfo.h
     notifications/notification.cpp
@@ -420,6 +424,9 @@ target_sources(libruqolacore PRIVATE
     videoconference/videoconference.cpp
     videoconference/videoconferenceinfo.h
     videoconference/videoconferenceinfo.cpp
+
+    servererrorinfo.h
+    servererrorinfo.cpp
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
