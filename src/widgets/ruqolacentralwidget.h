@@ -15,6 +15,7 @@ class QStackedWidget;
 class RuqolaMainWidget;
 class RuqolaLoginWidget;
 class RocketChatAccount;
+class ServerErrorInfoMessageWidget;
 class Room;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RuqolaCentralWidget : public QWidget
@@ -41,5 +42,6 @@ private:
     QStackedWidget *const mStackedWidget;
     RuqolaMainWidget *const mRuqolaMainWidget;
     RuqolaLoginWidget *const mRuqolaLoginWidget;
+    ServerErrorInfoMessageWidget *const mServerErrorInfoMessageWidget;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

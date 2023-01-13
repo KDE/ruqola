@@ -8,6 +8,7 @@
 #include "rocketchataccount.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
+#include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QHBoxLayout>
@@ -18,10 +19,14 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mStackedWidget(new QStackedWidget(this))
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
+    , mServerErrorInfoMessageWidget(new ServerErrorInfoMessageWidget(this))
 {
-    auto mainLayout = new QHBoxLayout(this);
+    auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainlayout"));
+
+    mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
+    mainLayout->addWidget(mServerErrorInfoMessageWidget);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);

@@ -6,6 +6,7 @@
 
 #include "ruqolacentralwidgettest.h"
 #include "ruqolacentralwidget.h"
+#include "servererrorinfohistory/servererrorinfomessagewidget.h"
 
 #include <QHBoxLayout>
 #include <QStackedWidget>
@@ -22,11 +23,13 @@ RuqolaCentralWidgetTest::RuqolaCentralWidgetTest(QObject *parent)
 void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 {
     RuqolaCentralWidget w;
-    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainlayout"));
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainlayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
     auto mStackedWidget = w.findChild<QStackedWidget *>(QStringLiteral("mStackedWidget"));
     QVERIFY(mStackedWidget);
-    // TODO
+
+    auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(QStringLiteral("mServerErrorInfoMessageWidget"));
+    QVERIFY(mServerErrorInfoMessageWidget);
 }
