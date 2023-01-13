@@ -9,6 +9,9 @@
 ServerErrorInfoMessageWidget::ServerErrorInfoMessageWidget(QWidget *parent)
     : KMessageWidget(parent)
 {
+    setVisible(false);
+    setCloseButtonVisible(true);
+    setMessageType(Error);
 }
 
 ServerErrorInfoMessageWidget::~ServerErrorInfoMessageWidget() = default;
