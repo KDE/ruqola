@@ -8,8 +8,7 @@
 
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
-class QCheckBox;
-class QComboBox;
+class QSpinBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT IrcWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -18,4 +17,7 @@ public:
     ~IrcWidget() override;
 
     void initialize(const QMap<QString, QVariant> &mapSettings) override;
+
+private:
+    QSpinBox *const mCacheLimitOutBoundMessage;
 };
