@@ -8,10 +8,16 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
+class ServerErrorInfoMessageHistoryWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryDialog : public QDialog
 {
     Q_OBJECT
 public:
     explicit ServerErrorInfoMessageHistoryDialog(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryDialog() override;
+
+private:
+    void readConfig();
+    void writeConfig();
+    ServerErrorInfoMessageHistoryWidget *const mServerErrorInfoMessageHistoryWidget;
 };
