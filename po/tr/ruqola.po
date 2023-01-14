@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:56+0000\n"
-"PO-Revision-Date: 2023-01-13 00:25+0300\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"PO-Revision-Date: 2023-01-13 19:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4390,7 +4390,7 @@ msgstr "IRC Yönetimi"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -5183,6 +5183,12 @@ msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 "Tüm İleti Bildirimlerini Devre Dışı Bırakmadan Önce En Çok Oda Üyesi Sayısı"
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -5525,16 +5531,7 @@ msgid "Remove Link Between User and Messages"
 msgstr "Kullanıcı ve İletiler Arasındaki Bağlantıyı Kaldır"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Determine what to do with messages of users who remove their account. "
-#| "Keep Messages and User Name: The message and files history of the user "
-#| "will be deleted from Direct Messages and will be kept in other rooms. "
-#| "Delete All Messages: All messages and files from the user will be deleted "
-#| "from the database and it will not be possible to locate the user anymore. "
-#| "Remove link between user and messages: This option will assign all "
-#| "messages and fles of the user to Rocket.Cat bot and Direct Messages are "
-#| "going to be deleted."
+#, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
 "Messages and User Name: The message and files history of the user will be "
@@ -8897,7 +8894,7 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Odada %1 kullanıcı (Toplam: %2)"
 msgstr[1] "Odada %1 kullanıcı (Toplam: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "'%1' hesabında hata"

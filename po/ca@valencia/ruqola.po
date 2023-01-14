@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2023-01-12 15:42+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -5228,6 +5228,12 @@ msgstr ""
 "Nombre màxim de membres per sala abans de desactivar les notificacions de "
 "tots els missatges"
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -8957,7 +8963,7 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuari a la sala (Total: %2)"
 msgstr[1] "%1 usuaris a la sala (Total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Error des del compte «%1»"

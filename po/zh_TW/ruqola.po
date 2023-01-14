@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -5344,6 +5344,12 @@ msgstr ""
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -9173,7 +9179,7 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr ""

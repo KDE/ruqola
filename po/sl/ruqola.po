@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
 "PO-Revision-Date: 2023-01-11 07:53+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -5204,6 +5204,12 @@ msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 "Največje število članov sobe pred onemogočenjem vseh obvestil o sporočilih"
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -8923,7 +8929,7 @@ msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
 msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Napaka iz računa »%1«"

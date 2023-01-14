@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-12 00:55+0000\n"
-"PO-Revision-Date: 2023-01-10 10:43+0000\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"PO-Revision-Date: 2023-01-13 01:35+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -44,6 +44,7 @@ msgstr ""
 "X-POFile-SpellExtra: Analytics Piwik Meteor Facebook Github Tokenpass\n"
 "X-POFile-SpellExtra: GitHub avatares Áudios Hmong Video Deepl\n"
 "X-POFile-IgnoreConsistency: Secret\n"
+"X-POFile-SpellExtra: UtilizadorKeep Messages\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -858,7 +859,7 @@ msgstr "Bandeiras"
 
 #: core/messages/block.cpp:45 core/messages/message.cpp:498
 #: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "Chamada em Conferência"
@@ -1286,7 +1287,7 @@ msgid "UserName"
 msgstr "Nome do Utilizador"
 
 #: core/model/adminusersmodel.cpp:110
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #: widgets/dialogs/configurenotificationwidget.cpp:102
 #, kde-format
 msgid "Email"
@@ -1305,7 +1306,7 @@ msgstr "Desactivada"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:470
+#: widgets/ruqolamainwindow.cpp:471
 #, kde-format
 msgid "Status"
 msgstr "Estado"
@@ -1926,7 +1927,7 @@ msgstr "Faltam dados do tradutor. Isto é um erro"
 msgid "User"
 msgstr "Utilizador"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:425
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
@@ -3424,7 +3425,7 @@ msgid "Permissions"
 msgstr "Permissões"
 
 #: widgets/administratordialog/administratorwidget.cpp:78
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:129
 #, kde-format
 msgid "Oauth"
 msgstr "OAuth"
@@ -3578,7 +3579,7 @@ msgstr "Editar o Estado do Utilizador"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:477
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "Status:"
 msgstr "Estado:"
@@ -4358,10 +4359,9 @@ msgid "Enable collect log in data"
 msgstr "Activar a recolha em registo dos dados"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Mensagem de Estado:"
+msgstr "Permitir uma Mensagem de Estado Personalizada"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, kde-format
@@ -4379,118 +4379,123 @@ msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
 msgstr "Configuração do Servidor de Administração - %1"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #, kde-format
 msgid "Accounts"
 msgstr "Contas"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
 #, kde-format
 msgid "Encryption"
 msgstr "Encriptação"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:855
+#: widgets/ruqolamainwindow.cpp:856
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:19
 #, kde-format
 msgid "File Upload"
 msgstr "Envio de Ficheiros"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:106
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
 #, kde-format
 msgid "Retention Policy"
 msgstr "Política de Retenção"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
 #, kde-format
 msgid "General"
 msgstr "Geral"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
 #, kde-format
 msgid "Rate Limiter"
 msgstr "Limitação por Taxa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:63
 #, kde-format
 msgid "Password"
 msgstr "Senha"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
 #, kde-format
 msgid "Video Conference"
 msgstr "Video-Conferência"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "IRC Federation"
 msgstr "Federação do IRC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#, kde-format
+msgid "IRC"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
 msgid "Webdav"
 msgstr "WebDAV"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "LDAP"
 msgstr "LDAP"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Layout"
 msgstr "Disposição"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
 #, kde-format
 msgid "Enterprise"
 msgstr "Empresa"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #, kde-format
 msgid "User Data Download"
 msgstr "Transferência dos Dados do Utilizador"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Slack Bridge"
 msgstr "Interface com Slack"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
 msgid "Logs"
 msgstr "Registos"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #: widgets/dialogs/configurenotificationwidget.cpp:86
 #, kde-format
 msgid "Mobile"
 msgstr "Telemóvel"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #, kde-format
 msgid "Troubleshoot"
 msgstr "Resolução de Problemas"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:127
 #, kde-format
 msgid "WebRTC"
 msgstr "WebRTC"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "CAS"
 msgstr "CAS"
 
-#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
 #, kde-format
 msgid "Analytics"
 msgstr "Analítica"
@@ -5235,6 +5240,12 @@ msgstr ""
 "Máx. de Membros da Sala antes de Desactivar Todas as Notificações de "
 "Mensagens"
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -5566,37 +5577,51 @@ msgstr "Número Máx. de Citações em Cadeia"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Keep Messages and User Name"
-msgstr ""
+msgstr "Manter as Mensagens e o Utilizador"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "Remover a Mensagem"
+msgstr "Apagsr Todas as Mensagens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr ""
+msgstr "Remover a Ligação entre o Utilizador e as Mensagens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Determine what to do with messages of users who remove their account. "
+#| "Keep Messages and User Name: The message and files history of the user "
+#| "will be deleted from Direct Messages and will be kept in other rooms. "
+#| "Delete All Messages: All messages and files from the user will be deleted "
+#| "from the database and it will not be possible to locate the user anymore. "
+#| "Remove link between user and messages: This option will assign all "
+#| "messages and fles of the user to Rocket.Cat bot and Direct Messages are "
+#| "going to be deleted."
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
 "Messages and User Name: The message and files history of the user will be "
 "deleted from Direct Messages and will be kept in other rooms. Delete All "
 "Messages: All messages and files from the user will be deleted from the "
 "database and it will not be possible to locate the user anymore. Remove link "
-"between user and messages: This option will assign all messages and fles of "
-"the user to Rocket.Cat bot and Direct Messages are going to be deleted."
+"between user and messages: This option will assign all messages and files of "
+"the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
+"Determina o que fazer com as mensagens dos utilizadores que removem as suas "
+"contas. Manter as Mensagens e o Utilizador: O histórico de mensagens e "
+"ficheiros do utilizador serão removidos das Mensagens Directas e serão "
+"mantidos nas outras salas. Apagar Todas as Mensagens: Todas as mensagens e "
+"ficheiros do utilizador serão removidos da base de dados e não será mais "
+"possível localizar o utilizador. Remover a ligação entre o utilizador e as "
+"mensagens: Esta opção irá atribuir todas as mensagens e ficheiros do "
+"utilizador ao motor do Rocket.Chat e as Mensagens Directas serão removidas."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message Erasure Type"
-msgstr "A mensagem ficou fixa"
+msgstr "Tipo de Remoção das Mensagens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -8524,17 +8549,15 @@ msgid "Save Sound"
 msgstr "Gravar o Som"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Mostrar a Imagem"
+msgstr "Obter a Imagem"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Obter a Imagem..."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:86
@@ -8958,7 +8981,7 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 utilizador na sala (Total: %2)"
 msgstr[1] "%1 utilizadores na sala (Total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Erro da conta '%1'"
@@ -9015,143 +9038,143 @@ msgstr "A Autenticação Falhou: erro genérico"
 msgid "Show New Notifications"
 msgstr "Mostrar as Notificações Novas"
 
-#: widgets/ruqolamainwindow.cpp:350
+#: widgets/ruqolamainwindow.cpp:351
 #, kde-format
 msgid "Add Server..."
 msgstr "Adicionar um Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:355
+#: widgets/ruqolamainwindow.cpp:356
 #, kde-format
 msgid "Server Info..."
 msgstr "Informação do Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:359
+#: widgets/ruqolamainwindow.cpp:360
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Sair do Servidor Actual"
 
-#: widgets/ruqolamainwindow.cpp:363
+#: widgets/ruqolamainwindow.cpp:364
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Ir para o Canal Não-Lido Seguinte"
 
-#: widgets/ruqolamainwindow.cpp:368
+#: widgets/ruqolamainwindow.cpp:369
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Criar um Novo Canal..."
 
-#: widgets/ruqolamainwindow.cpp:372
+#: widgets/ruqolamainwindow.cpp:373
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Criar Mensagens Directas..."
 
-#: widgets/ruqolamainwindow.cpp:376
+#: widgets/ruqolamainwindow.cpp:377
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Criar uma Discussão..."
 
-#: widgets/ruqolamainwindow.cpp:380
+#: widgets/ruqolamainwindow.cpp:381
 #, kde-format
 msgid "Create Team..."
 msgstr "Criar uma Equipa..."
 
-#: widgets/ruqolamainwindow.cpp:388
+#: widgets/ruqolamainwindow.cpp:389
 #, kde-format
 msgid "Unread on Top"
 msgstr "Não-Lidas no Topo"
 
-#: widgets/ruqolamainwindow.cpp:396
+#: widgets/ruqolamainwindow.cpp:397
 #, kde-format
 msgid "By Last Message"
 msgstr "Pela Última Mensagem"
 
-#: widgets/ruqolamainwindow.cpp:402
+#: widgets/ruqolamainwindow.cpp:403
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alfabeticamente"
 
-#: widgets/ruqolamainwindow.cpp:408
+#: widgets/ruqolamainwindow.cpp:409
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostrar o Registo do Canal"
 
-#: widgets/ruqolamainwindow.cpp:412
+#: widgets/ruqolamainwindow.cpp:413
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marcar Todos os Canais como Lidos"
 
-#: widgets/ruqolamainwindow.cpp:417
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registar um Novo Utilizador..."
 
-#: widgets/ruqolamainwindow.cpp:421
+#: widgets/ruqolamainwindow.cpp:422
 #, kde-format
 msgid "My Account..."
 msgstr "A Minha Conta..."
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrador..."
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:433
 #, kde-format
 msgid "Server Settings..."
 msgstr "Configuração do Servidor..."
 
-#: widgets/ruqolamainwindow.cpp:437
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Directory..."
 msgstr "Directório..."
 
-#: widgets/ruqolamainwindow.cpp:458
+#: widgets/ruqolamainwindow.cpp:459
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor Segui&nte"
 
-#: widgets/ruqolamainwindow.cpp:463
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor &Anterior"
 
-#: widgets/ruqolamainwindow.cpp:493
+#: widgets/ruqolamainwindow.cpp:494
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Canal Seleccionado Anterior"
 
-#: widgets/ruqolamainwindow.cpp:500
+#: widgets/ruqolamainwindow.cpp:501
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Canal Seleccionado Seguinte"
 
-#: widgets/ruqolamainwindow.cpp:534
+#: widgets/ruqolamainwindow.cpp:535
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostrar o Histórico de Notificações"
 
-#: widgets/ruqolamainwindow.cpp:538
+#: widgets/ruqolamainwindow.cpp:539
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Mostrar a Informação do Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:542
+#: widgets/ruqolamainwindow.cpp:543
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Mostrar o Avatar da Sala"
 
-#: widgets/ruqolamainwindow.cpp:547
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Mostrar a Sala Favorita"
 
-#: widgets/ruqolamainwindow.cpp:573
+#: widgets/ruqolamainwindow.cpp:574
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Criar uma Equipa"
 
-#: widgets/ruqolamainwindow.cpp:757
+#: widgets/ruqolamainwindow.cpp:758
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -9160,12 +9183,12 @@ msgstr ""
 "Enviámos-lhe um e-mail para confirmar o seu registo.\n"
 "Se não receber em breve um e-mail, por favor regresse e tente de novo."
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:759
 #, kde-format
 msgid "Register New User"
 msgstr "Registar um Novo Utilizador"
 
-#: widgets/ruqolamainwindow.cpp:882
+#: widgets/ruqolamainwindow.cpp:883
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9174,7 +9197,7 @@ msgstr ""
 "<qt>Isto irá esconder a barra do menu por completo. Podê-la-á mostrar de "
 "novo se escrever %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:885
+#: widgets/ruqolamainwindow.cpp:886
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Esconder o menu"

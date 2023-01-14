@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-13 00:56+0000\n"
-"PO-Revision-Date: 2023-01-11 10:03+0100\n"
+"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"PO-Revision-Date: 2023-01-13 06:45+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2688,7 +2688,7 @@ msgstr "არასწორი ავატარის URL: %1"
 #: rocketchatrestapi-qt5/users/setavatarjob.cpp:114
 #, kde-format
 msgid "Error while handling avatar setting from a URL \"%1\" for %2"
-msgstr ""
+msgstr "შეცდომა ავატარის პარამეტრის დამუშავებისას URL-დან \"%1\" %2-სთვის"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
 #, kde-format
@@ -3408,7 +3408,7 @@ msgstr "მითითებული ემოჯის მორგება"
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
-msgstr ""
+msgstr "ემოჯუს სახელი და მისი მეტსახელები უნდა განსხვავდებოდნენ."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:45
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
@@ -4318,10 +4318,9 @@ msgid "Enable collect log in data"
 msgstr "შესვლის ინფორმაციის მოგროვების ჩართვა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "სტატუსის შეტყობინება:"
+msgstr "სტატუსის მორგებული შეტყობინების დაშვება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, kde-format
@@ -4396,7 +4395,7 @@ msgstr "IRC ფედერაცია"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -5130,6 +5129,12 @@ msgstr ""
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr ""
 
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
+#: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
+#, kde-format
+msgid "The cache limit for outbound message handling."
+msgstr ""
+
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
 msgid ""
@@ -5440,19 +5445,17 @@ msgstr "გადაბმული ციტატების მაქს. �
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Keep Messages and User Name"
-msgstr ""
+msgstr "შეტყობინებებისა და მომხმარებლის სახელის შენარჩუნება"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "შეტყობინების წაშლა"
+msgstr "ყველა შეტყობინების წაშლა"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr ""
+msgstr "მომხმარებელსა და მის შეტყობინებებს შორის ბმულის წაშლა"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
@@ -5467,10 +5470,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message Erasure Type"
-msgstr "შეტყობინება მიმაგრდა"
+msgstr "შეტყობინება წაშლის ტიპი"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -8295,12 +8297,10 @@ msgid "Save Sound"
 msgstr "ხმის შენახვა"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "გამოსახულების ჩვენება"
+msgstr "გამოსახულების გადმოწერა"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
@@ -8729,7 +8729,7 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 msgstr[1] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:43
+#: widgets/ruqolacentralwidget.cpp:48
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "შეცდომა '%1' ანგარიშიდან"
