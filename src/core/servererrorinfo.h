@@ -15,6 +15,16 @@ class LIBRUQOLACORE_EXPORT ServerErrorInfo
 public:
     ServerErrorInfo();
     ~ServerErrorInfo();
+
+    Q_REQUIRED_RESULT QString accountName() const;
+    void setAccountName(const QString &newAccountName);
+
+    Q_REQUIRED_RESULT QString message() const;
+    void setMessage(const QString &newMessage);
+
+private:
+    QString mAccountName;
+    QString mMessage;
 };
 
 Q_DECLARE_METATYPE(ServerErrorInfo)
