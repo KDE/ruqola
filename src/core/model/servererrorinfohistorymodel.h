@@ -16,6 +16,11 @@ class LIBRUQOLACORE_EXPORT ServerErrorInfoHistoryModel : public QAbstractListMod
 {
     Q_OBJECT
 public:
+    enum ServerErrorInfoHistoryRoles {
+        AccountName = Qt::UserRole + 1,
+        MessageStr,
+    };
+    Q_ENUM(ServerErrorInfoHistoryRoles)
     explicit ServerErrorInfoHistoryModel(QObject *parent = nullptr);
     ~ServerErrorInfoHistoryModel() override;
 
@@ -24,9 +29,9 @@ public:
 
     void clear();
 
-    //    void insertNotifications(const QVector<NotificationInfo> &infos);
+    void insertServerErrorInfos(const QVector<ServerErrorInfo> &infos);
 
-    //    void addNotification(const NotificationInfo &info);
+    void addServerErrorInfo(const ServerErrorInfo &info);
 
 private:
     QVector<ServerErrorInfo> mServerErrorInfo;

@@ -26,31 +26,13 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
         return {};
     }
     const auto info = mServerErrorInfo.at(index.row());
-#if 0
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:
         return info.accountName();
-    case DateTime:
-        return info.dateTime();
     case MessageStr:
-        return generateMessage(info);
-    case RoomId:
-        return info.roomId();
-    case ChannelType:
-        return info.channelType();
-    case Pixmap:
-        return info.pixmap();
-    case SenderName:
-        return info.senderName();
-    case SenderUserName:
-        return info.senderUserName();
-    case MessageId:
-        return info.messageId();
-    case RoomName:
-        return info.roomName();
+        return info.message();
     }
-#endif
     return {};
 }
 
@@ -62,28 +44,25 @@ void ServerErrorInfoHistoryModel::clear()
         endRemoveRows();
     }
 }
-#if 0
-void ServerErrorInfoHistoryModel::insertNotifications(const QVector<NotificationInfo> &infos)
+
+void ServerErrorInfoHistoryModel::insertServerErrorInfos(const QVector<ServerErrorInfo> &infos)
 {
-#if 0
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
-        mNotificationInfo.clear();
+        beginRemoveRows(QModelIndex(), 0, mServerErrorInfo.count() - 1);
+        mServerErrorInfo.clear();
         endRemoveRows();
     }
     if (!infos.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, infos.count() - 1);
-        mNotificationInfo = infos;
+        mServerErrorInfo = infos;
         endInsertRows();
     }
-#endif
 }
 
-void ServerErrorInfoHistoryModel::addNotification(const NotificationInfo &info)
+void ServerErrorInfoHistoryModel::addServerErrorInfo(const ServerErrorInfo &info)
 {
-    const int numberOfElement = mNotificationInfo.count();
-    mNotificationInfo.append(info);
-    beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
+    const int numberOfElement = mServerErrorInfo.count();
+    mServerErrorInfo.append(info);
+    beginInsertRows(QModelIndex(), numberOfElement, mServerErrorInfo.count() - 1);
     endInsertRows();
 }
-#endif
