@@ -11,3 +11,4 @@ macro(add_ruqola_servererrorinfohistory_test _source)
 endmacro()
 
 add_ruqola_servererrorinfohistory_test(servererrorinfomessagewidgettest.cpp)
+add_ruqola_servererrorinfohistory_test(servererrorinfomessagehistorydialogtest.cpp)
