@@ -30,4 +30,4 @@ Dependencies:
     'frameworks/purpose': '@stable'
     'frameworks/karchive': '@stable'
     'third-party/qtkeychain': '@latest'
-    'playground/libs/ktextaddons': '@stable'
+    'libraries/ktextaddons': '@stable'
