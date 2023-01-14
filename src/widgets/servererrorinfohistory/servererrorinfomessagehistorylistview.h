@@ -15,4 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryListView : publ
 public:
     explicit ServerErrorInfoMessageHistoryListView(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryListView() override;
+
+private:
+    void slotCustomContextMenuRequested(const QPoint &pos);
 };
