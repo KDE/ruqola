@@ -1603,7 +1603,8 @@ msgstr ""
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:239
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Close"
 msgid "Close"
 msgstr "Schließen"
 
@@ -3816,7 +3817,8 @@ msgstr "Benutzer zum Raum hinzufügen"
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
 #: widgets/room/usersinroomwidget.cpp:40
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Search users..."
 msgid "Search users..."
 msgstr "Benutzer suchen ..."
 

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-01-13 12:48+0100\n"
+"PO-Revision-Date: 2023-01-14 03:37+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5102,7 +5102,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
-msgstr ""
+msgstr "მაქსიმალური ოთახის წევრები გაფრთხილების ყველა შეტყობინების გამორთვამდე"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5263,6 +5263,8 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"არხი, რომელიც ყველა ჩაჭერილ გამონაკლისს მიიღებს. გამონაკლისების "
+"გამოსატოვებლად დატოვეთ ცარიელი."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
@@ -6000,12 +6002,12 @@ msgstr "გადატარება"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "გამავალი SlackBridge ჩართულია"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "სრული SlackBridge"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
 #, kde-format
@@ -6015,7 +6017,7 @@ msgstr "მოხსენებები"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Rocket.Chat-ის Slack-თან პირდაპირი კომუნიკაციის ჩართვა."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
@@ -6103,6 +6105,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"ეს პარამეტრი სრულად გამორთავს გაფრთხილებების სისტემას. შეწყდება ხმები, "
+"სამუშაო მაგიდისა და მობილური გაფრთხილებები და ელფოსტები!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -7885,7 +7889,7 @@ msgstr "პუშ გაფრთხილება:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
-msgstr ""
+msgstr "მიიღეთ ელფოსტა ყოველ ჯერზე, როცა თქვენს ანგარიშში ვინმე შევა."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7908,6 +7912,7 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"თქვენი მონაცემების ფაილის ბმული ელფოსტაზე გამოგეგზავნებათ, როცა ის შეიქმნება."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
