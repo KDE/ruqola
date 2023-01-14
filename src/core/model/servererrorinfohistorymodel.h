@@ -9,6 +9,7 @@
 #include <QAbstractListModel>
 
 #include "libruqolacore_export.h"
+#include "servererrorinfo.h"
 #include <QVector>
 
 class LIBRUQOLACORE_EXPORT ServerErrorInfoHistoryModel : public QAbstractListModel
@@ -28,6 +29,5 @@ public:
     //    void addNotification(const NotificationInfo &info);
 
 private:
-    //    Q_REQUIRED_RESULT QString generateMessage(const NotificationInfo &info) const;
-    //    QVector<NotificationInfo> mNotificationInfo;
+    QVector<ServerErrorInfo> mServerErrorInfo;
 };
