@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
 "PO-Revision-Date: 2023-01-05 11:41+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -8978,6 +8978,13 @@ msgstr "Pohled"
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Hlavní panel nástrojů"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "Informace o serveru"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
-"PO-Revision-Date: 2023-01-13 08:29+0200\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
+"PO-Revision-Date: 2023-01-14 09:19+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -5233,7 +5233,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Обмеження кешу для обробки вихідних повідомлень."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -9242,6 +9242,13 @@ msgstr "Перегляд"
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Головна панель"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "Помилки і відомості"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

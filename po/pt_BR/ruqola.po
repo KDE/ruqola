@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -9345,6 +9345,13 @@ msgstr "Visualizar log"
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Channel's Information"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "Informações do canal"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

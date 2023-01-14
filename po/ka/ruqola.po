@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
-"PO-Revision-Date: 2023-01-13 06:45+0100\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
+"PO-Revision-Date: 2023-01-14 11:58+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4895,6 +4895,7 @@ msgid ""
 "Comma-separated list of media types. Leave it blank for accepting all media "
 "types."
 msgstr ""
+"მედიის ტიპების მძიმით გამოყოფილი სია. ყველა მედიის მისაღებად ცარიელი დატოვეთ."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:54
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:58
@@ -4909,6 +4910,8 @@ msgid ""
 "Comma-separated list of media types. This setting has priority over the "
 "Accepted Media Types."
 msgstr ""
+"მედიის ტიპების მძიმით გამოყოფილი სია. ამ პარამეტრს აქვს პრიორიტეტი მიღებული "
+"მედიის ტიპებზე."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:61
 #, kde-format
@@ -4916,6 +4919,8 @@ msgid ""
 "File Upload Json Web Token Secret (Used to be able to access uploaded files "
 "without authentication)."
 msgstr ""
+"ფაილის ატვირთვის JSON კოდის საიდუმლო (გამოიყენება ავთენტიკაციის გარეშე "
+"ასატვირთად)."
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
@@ -5127,7 +5132,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
-msgstr ""
+msgstr "მაქსიმალური ოთახის წევრები გაფრთხილების ყველა შეტყობინების გამორთვამდე"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:17
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
@@ -5141,6 +5146,8 @@ msgid ""
 "Attempt to integrate IRC support. Changing this value requires restarting "
 "Rocket.Chat."
 msgstr ""
+"IRC-ის მხარდაჭერის მცდელობა. ამ მნიშვნელობის შევლა Rocket.Chat-ის "
+"გადატვირთვას მოითხოვს."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
@@ -5176,6 +5183,7 @@ msgstr "რეალური სახელის გამოყენებ�
 #, kde-format
 msgid "Use Full Name Initials to Generate Default Avatar"
 msgstr ""
+"ნაგულისხმები ავატარის გენერაციისას სრული სახელის ინიციალების გამოყენება"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:17
 #, kde-format
@@ -5218,6 +5226,8 @@ msgid ""
 "Try to reconnect automatically when connection is interrupted by some reason "
 "while executing operations."
 msgstr ""
+"ოპერაციების შესრულებისას რაიმე მიზეზით კავშირის გაწყვეტისას თავიდან "
+"მიერთების მცდელობა."
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:48
 #, kde-format
@@ -5247,7 +5257,7 @@ msgstr "მოლოდინის დროები"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:79
 #, kde-format
 msgid "How many milliseconds wait for a search result before return an error"
-msgstr ""
+msgstr "რამდენი მილიწამი დაველოდო სერვერიდან შედეგს, სანამ შეცდომას დავაბრუნებ"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:75
 #, kde-format
@@ -5265,6 +5275,8 @@ msgid ""
 "How many milliseconds wait after the latest LDAP operation until close the "
 "connection. (Each operation will open a new connection)"
 msgstr ""
+"რამდენი მილიწამი დაველოდო უახლესი LDAP ოპერაციას, სანამ მიერთებას დავხურავ. "
+"(თითოეულ ოპერაციას ცალკე მიერთება ესაჭიროება)"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:86
 #, kde-format
@@ -5287,6 +5299,8 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"არხი, რომელიც ყველა ჩაჭერილ გამონაკლისს მიიღებს. გამონაკლისების "
+"გამოსატოვებლად დატოვეთ ცარიელი."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, kde-format
@@ -5426,6 +5440,8 @@ msgid ""
 "Requires 'video/webm' files to be an accepted media type within 'File "
 "Upload' settings."
 msgstr ""
+"მოითხოვს 'ფაილის ატვირთვის' მორგების ფანჯარაში მედიის ტიპებში 'video/webm' "
+"ფაილების დაშვებას."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:93
 #, kde-format
@@ -5867,11 +5883,13 @@ msgid ""
 "When enabled, users won't be able to update their passwords to some of their "
 "most recently used passwords."
 msgstr ""
+"როცა ჩართულია, მომხმარებლებს რამდენიმე უახლესი პაროლის თავიდან გამოყენება "
+"აეკრძალებათ."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:39
 #, kde-format
 msgid "Amount of most recently used passwords to prevent users from reusing."
-msgstr ""
+msgstr "რამდენი უახლესი პაროლი აიკრძალება ხელახლა გამოსაყენებლად."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:40
 #, kde-format
@@ -5888,7 +5906,7 @@ msgstr "პაროლის პოლიტიკა"
 msgid ""
 "Ensures that passwords must have at least this amount of characters. Use -1 "
 "to disable."
-msgstr ""
+msgstr "პაროლის სიმბოლოების მინიმალური რაოდენობა. გასათიშად გამოიყენეთ -1."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:54
 #, kde-format
@@ -5900,7 +5918,7 @@ msgstr "მინიმალური სიგრძე"
 msgid ""
 "Ensures that passwords do not have more than this amount of characters. Use "
 "-1 to disable."
-msgstr ""
+msgstr "პაროლში სიმბოლოების მაქსიმალური რაოდენობა. გასათიშად გამოიყენეთ -1."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
 #, kde-format
@@ -5912,13 +5930,13 @@ msgstr "მაქსიმალური სიგრძე"
 msgid ""
 "Ensures passwords do not contain the same character repeating next to each "
 "other."
-msgstr ""
+msgstr "პაროლში იგივე სიმბოლოების ზედიზედ გამოყენების აკრძალვა."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:67
 #, kde-format
 msgid ""
 "The amount of times a character can be repeating before it is not allowed."
-msgstr ""
+msgstr "რამდენჯერ შეიძლება სიმბოლო განმეორდეს, სანამ ის აიკრძალება."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:68
 #, kde-format
@@ -5928,22 +5946,22 @@ msgstr "გამეორებადი სიმბოლოების მ�
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:71
 #, kde-format
 msgid "Enforce that a password contain at least one lowercase character."
-msgstr ""
+msgstr "პაროლში ერთი პატარა სიმბოლოს არსებობის მოთხოვნა."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:76
 #, kde-format
 msgid "Enforce that a password contain at least one uppercase character."
-msgstr ""
+msgstr "პაროლში ერთზე მეტი დიდი სიმბოლოს მოთხოვნა."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:81
 #, kde-format
 msgid "Enforce that a password contain at least one numerical character."
-msgstr ""
+msgstr "პაროლში ერთზე მეტი ციფრის არსებობის მოთხოვნა."
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:86
 #, kde-format
 msgid "Enforce that a password contain at least one special character."
-msgstr ""
+msgstr "პაროლში ერთზე მეტი სპეციალური სიმბოლოს მოთხოვნა."
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:15
 #, kde-format
@@ -6014,7 +6032,7 @@ msgstr "მომხმარებლით შეზღუდვა: ინტ
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
 #, kde-format
 msgid "Use Advanced Retention Policy configuration"
-msgstr ""
+msgstr "შენახვის პოლიტიკის დამატებითი პარამეტრები"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:20
 #, kde-format
@@ -6079,14 +6097,14 @@ msgstr "წამმზომის სიზუსტე"
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:62
 #, kde-format
 msgid "Only files will be deleted, the messages themselves will stay in place."
-msgstr ""
+msgstr "წაიშლება მხოლოდ ფაილები. შეტყობინებები დარჩება."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:72
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:82
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:92
 #, kde-format
 msgid "Prune all messages older than this value, in days."
-msgstr ""
+msgstr "ამ მნიშვნელობაზე ძველი შეტყობინებების წაშლა, დღეებში."
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:74
 #, kde-format
@@ -6115,12 +6133,12 @@ msgstr "გამოყენება"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "გამავალი SlackBridge ჩართულია"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "სრული SlackBridge"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
 #, kde-format
@@ -6130,7 +6148,7 @@ msgstr "მოხსენებები"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Rocket.Chat-ის Slack-თან პირდაპირი კომუნიკაციის ჩართვა."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
@@ -6218,6 +6236,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"ეს პარამეტრი სრულად გამორთავს გაფრთხილებების სისტემას. შეწყდება ხმები, "
+"სამუშაო მაგიდისა და მობილური გაფრთხილებები და ელფოსტები!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6323,7 +6343,7 @@ msgstr "JWT ავთენტიკაციის ჩართვა"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
 #, kde-format
 msgid "Limit token to Jitsi Room"
-msgstr ""
+msgstr "კოდის Jitsi-ის ოთახით შეზღუდვა"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:36
 #, kde-format
@@ -6362,6 +6382,8 @@ msgid ""
 "Recommended to enable if the Jitsi instance doesn't use any authentication "
 "mechanism."
 msgstr ""
+"რეკომენდებულია ჩართოთ, თუ Jitsi-ის გაშვებული ასლი ავთენტიკაციის მექანიზმებს "
+"არ იყენებს."
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:93
 #, kde-format
@@ -6835,7 +6857,7 @@ msgstr "ძველი შეტყობინებების ავტო�
 #: widgets/dialogs/channelinfoprunewidget.cpp:22
 #, kde-format
 msgid "Override global retention policy"
-msgstr ""
+msgstr "შენახვის გლობალური პოლიტიკის გადაფარვა"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:28
 #: widgets/prunemessages/prunemessagesdialog.cpp:42
@@ -6908,7 +6930,7 @@ msgstr "გაფრთხილებების მიღება"
 #: widgets/dialogs/configurenotificationwidget.cpp:55
 #, kde-format
 msgid "Display badge for direct mentions only"
-msgstr ""
+msgstr "მხოლოდ მომხმარებლის ხსენებები"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
@@ -6955,6 +6977,8 @@ msgid ""
 "You are about to create a chat with multiple users. Add the ones you would "
 "like to talk, everyone in the same place, using direct messages."
 msgstr ""
+"აპირებთ ჩატი ერთზე მეტ მომხმარებელთან შექმნათ. დაამატეთ მხოლოდ ისინი, "
+"ვისთანაც საუბარი გნებავთ. დანარჩენ ყველას კი პირადად ესაუბრეთ."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:33
 #: widgets/prunemessages/prunemessageswidget.cpp:66
@@ -7000,6 +7024,8 @@ msgid ""
 "Only authorized users can write new messages, but the other users will be "
 "able to reply"
 msgstr ""
+"ახალი შეტყობინებების დაწერა მხოლოდ ავტორიზებულ მომხმარებლებს შეეძლებათ, "
+"პასუხი კი ყველას"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
@@ -7765,6 +7791,8 @@ msgid ""
 "Open your authentication app and enter the code.\n"
 "You can also use one of your backup codes."
 msgstr ""
+"გახსენით თქვენი ავთენტიკაციის აპი და ეს კოდი შეიყვანეთ.\n"
+"ასევე შეგიძლიათ თქვენი ერთ-ერთი მარქაფის კოდიც გამოიყენოთ."
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
@@ -7992,7 +8020,7 @@ msgstr "პუშ გაფრთხილება:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
-msgstr ""
+msgstr "მიიღეთ ელფოსტა ყოველ ჯერზე, როცა თქვენს ანგარიშში ვინმე შევა."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -8015,6 +8043,7 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"თქვენი მონაცემების ფაილის ბმული ელფოსტაზე გამოგეგზავნებათ, როცა ის შეიქმნება."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
@@ -8177,11 +8206,13 @@ msgstr "ძველი, ვიდრე:"
 msgid ""
 "Only Prune content from these users (Keep empty to prune everyone's content)"
 msgstr ""
+"მხოლოდ ამ მომხმარებლების მოწოდებული შემცველობების წაკვეთა (თუ ცარიელია, "
+"წაიკვეთება ყველას მიერ მოწოდებული შემცველობა)"
 
 #: widgets/prunemessages/prunemessageswidget.cpp:95
 #, kde-format
 msgid "This will delete all messages in %3 between %1 and %2."
-msgstr ""
+msgstr "%3-ში %1-დან %2-მდე ყველა შეტყობინების წაშლა."
 
 #: widgets/registeruser/registeruserdialog.cpp:28
 #, kde-format
@@ -8761,6 +8792,8 @@ msgid ""
 "You have enabled second factor authentication.\n"
 "Please enter the generated code or a backup code."
 msgstr ""
+"თქვენ ჩართეთ 2.\n"
+"შეიყვანეთ გენერირებული ან მარქაფი კოდი."
 
 #: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
@@ -8924,6 +8957,8 @@ msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
+"ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
+"თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
 #: widgets/ruqolamainwindow.cpp:759
 #, kde-format
@@ -8973,6 +9008,13 @@ msgstr "ნახვა"
 #, kde-format
 msgid "Main Toolbar"
 msgstr "ხელსაწყოთა მთავარი ზოლი"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "შეცდომები და ინფორმაცია"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -9057,6 +9099,9 @@ msgid ""
 "select will be moved to the Workspace. Notice that public Channels will be "
 "public and visible to everyone."
 msgstr ""
+"აირჩიეთ გუნდის არხები, რომლებიც გნებავთ, წაშალოთ. რომლებსაც არ აირჩევთ, "
+"სამუშაო სივრცეში გადმოიტანება. გაითვალისწინეთ, რომ საჯარო არხები საჯარო და "
+"ყველასთვის ხელმისაწვდომი იქნება."
 
 #: widgets/teams/teamsearchroomdialog.cpp:25
 #, kde-format

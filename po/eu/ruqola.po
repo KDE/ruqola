@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
 "PO-Revision-Date: 2022-11-26 17:40+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -9015,6 +9015,13 @@ msgstr "Ikusi"
 #, fuzzy, kde-format
 msgid "Main Toolbar"
 msgstr "Tresna-barra nagusia"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "Erroreak eta informazioa"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

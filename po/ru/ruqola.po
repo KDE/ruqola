@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 00:56+0000\n"
+"POT-Creation-Date: 2023-01-14 16:34+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -9270,6 +9270,14 @@ msgstr "Вид"
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Основная панель инструментов"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Banner Information"
+msgctxt "@title:window"
+msgid "Server Error Informations"
+msgstr "Сведения о баннере"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
