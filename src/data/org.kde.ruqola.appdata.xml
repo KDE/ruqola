@@ -603,6 +603,7 @@
       <li>Video Conference</li>
       <li xml:lang="ca">Conferència de vídeo</li>
       <li xml:lang="fr">Vidéo-conférence</li>
+      <li xml:lang="ka">ვიდეო კონფერენცია</li>
       <li xml:lang="uk">Відеоконференція</li>
       <li xml:lang="x-test">xxVideo Conferencexx</li>
     </ul>
@@ -757,18 +758,21 @@
       <li>Manage Personal Access Token</li>
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
+      <li xml:lang="ka">პირადი წვდომის კოდის მართვა</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
       <li xml:lang="x-test">xxManage Personal Access Tokenxx</li>
       <li>Add support for local translation</li>
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
+      <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
       <li xml:lang="x-test">xxAdd support for local translationxx</li>
       <li>Add support for text auto-correction</li>
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
+      <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
       <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
     </ul>
