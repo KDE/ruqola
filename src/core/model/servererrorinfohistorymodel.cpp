@@ -17,17 +17,16 @@ ServerErrorInfoHistoryModel::~ServerErrorInfoHistoryModel() = default;
 int ServerErrorInfoHistoryModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    // return mNotificationInfo.count();
-    return 0;
+    return mServerErrorInfo.count();
 }
 
 QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) const
 {
-#if 0
-    if (index.row() < 0 || index.row() >= mNotificationInfo.count()) {
+    if (index.row() < 0 || index.row() >= mServerErrorInfo.count()) {
         return {};
     }
-    const auto info = mNotificationInfo.at(index.row());
+    const auto info = mServerErrorInfo.at(index.row());
+#if 0
     switch (role) {
     case Qt::DisplayRole:
     case AccountName:
@@ -57,13 +56,11 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
 
 void ServerErrorInfoHistoryModel::clear()
 {
-#if 0
     if (rowCount() != 0) {
-        beginRemoveRows(QModelIndex(), 0, mNotificationInfo.count() - 1);
-        mNotificationInfo.clear();
+        beginRemoveRows(QModelIndex(), 0, mServerErrorInfo.count() - 1);
+        mServerErrorInfo.clear();
         endRemoveRows();
     }
-#endif
 }
 #if 0
 void ServerErrorInfoHistoryModel::insertNotifications(const QVector<NotificationInfo> &infos)
