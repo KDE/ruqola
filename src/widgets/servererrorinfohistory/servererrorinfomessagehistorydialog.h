@@ -6,9 +6,9 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
-class ServerErrorInfoMessageHistoryDialog : public QDialog
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryDialog : public QDialog
 {
     Q_OBJECT
 public:
