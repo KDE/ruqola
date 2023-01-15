@@ -10,7 +10,6 @@
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "rocketchataccount.h"
-#include "ruqola.h"
 #include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
@@ -102,8 +101,6 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 #endif
 }
 
-// text AccountName/room
-// [margin] <pixmap> [margin] <sender> [margin] <text message> [margin] <date/time> [margin]
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
