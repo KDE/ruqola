@@ -639,6 +639,7 @@
       <li xml:lang="it">Videoconferenza</li>
       <li xml:lang="ka">ვიდეო კონფერენცია</li>
       <li xml:lang="nl">Videoconferentie</li>
+      <li xml:lang="pl">Wideokonferencja</li>
       <li xml:lang="pt">Video-Conferência</li>
       <li xml:lang="sl">Video konferenca</li>
       <li xml:lang="tr">Video Konferans</li>
@@ -813,6 +814,7 @@
       <li xml:lang="it">Gestisci token di accesso personale</li>
       <li xml:lang="ka">პირადი წვდომის კოდის მართვა</li>
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
+      <li xml:lang="pl">Zarządzanie osobistym tokenem dostępowym</li>
       <li xml:lang="pt">Gerir o Código de Acesso Pessoal</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
       <li xml:lang="sv">Hantera personlig åtkomstsymbol</li>
@@ -831,6 +833,7 @@
       <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
       <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
+      <li xml:lang="pl">Dodanie obsługi dla miejscowych tłumaczeń</li>
       <li xml:lang="pt">Adição do suporte para traduções locais</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
       <li xml:lang="sv">Lägg till stöd för lokal översättning</li>
