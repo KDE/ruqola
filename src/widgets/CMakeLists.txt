@@ -669,6 +669,8 @@ target_sources(libruqolawidgets PRIVATE
 
     servererrorinfohistory/servererrorinfomessagehistorylistview.h
     servererrorinfohistory/servererrorinfomessagehistorylistview.cpp
+    servererrorinfohistory/servererrorinfohistorydelegate.h
+    servererrorinfohistory/servererrorinfohistorydelegate.cpp
 )
 
 if (TEXTEDIT_TEXT_TO_SPEECH)
