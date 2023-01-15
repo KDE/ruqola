@@ -14,6 +14,8 @@ QDebug operator<<(QDebug d, const ServerErrorInfo &t)
 {
     d << " Account Name " << t.accountName();
     d << " Message " << t.message();
+    d << " DateTime " << t.dateTime();
+    d << " identifier " << t.identifier();
     return d;
 }
 
@@ -45,4 +47,10 @@ QDateTime ServerErrorInfo::dateTime() const
 void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
 {
     mDateTime = newDateTime;
+}
+
+QString ServerErrorInfo::identifier() const
+{
+    // TODO
+    return {};
 }

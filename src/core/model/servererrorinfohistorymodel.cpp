@@ -33,9 +33,9 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
     case MessageStr:
         return info.message();
     case Identifier: // TODO
-        return info.message();
-    case DateTime: // TODO
-        return info.message();
+        return info.identifier();
+    case DateTime:
+        return info.dateTime();
     }
     return {};
 }

@@ -25,6 +25,8 @@ public:
     Q_REQUIRED_RESULT QDateTime dateTime() const;
     void setDateTime(const QDateTime &newDateTime);
 
+    Q_REQUIRED_RESULT QString identifier() const;
+
 private:
     QString mAccountName;
     QString mMessage;
