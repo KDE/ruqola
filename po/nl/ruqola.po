@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020, 2021, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2022-09-06 11:42+0200\n"
+"PO-Revision-Date: 2023-01-13 10:20+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -348,10 +348,9 @@ msgstr "Vlaggen"
 #: core/messages/block.cpp:45 core/messages/message.cpp:498
 #: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
-#, fuzzy, kde-format
-#| msgid "Video Conference"
+#, kde-format
 msgid "Conference Call"
-msgstr "Videoconferentie"
+msgstr "Conferentieoproep"
 
 #: core/messages/message.cpp:504
 #, kde-format
@@ -529,10 +528,9 @@ msgid "%1 added @%2 to this Team"
 msgstr "%1 heeft @%2 toegevoegd aan dit team"
 
 #: core/messages/message.cpp:584
-#, fuzzy, kde-format
-#| msgid "%1 removed %2 from this Team"
+#, kde-format
 msgid "%1 removed @%2 from this Team"
-msgstr "%1 heeft %2 uit dit team verwijderd"
+msgstr "%1 heeft @%2 uit dit team verwijderd"
 
 #: core/messages/message.cpp:586
 #, kde-format
@@ -575,22 +573,19 @@ msgid "%1 joined this Team"
 msgstr "%1 doet mee aan dit team"
 
 #: core/messages/message.cpp:602
-#, fuzzy, kde-format
-#| msgid "Has joined OTR chat."
+#, kde-format
 msgid "%1 has joined OTR chat."
-msgstr "Doet mee aan de OTR-chat."
+msgstr "%1 doet mee aan de OTR-chat."
 
 #: core/messages/message.cpp:604
-#, fuzzy, kde-format
-#| msgid "key refreshed successfully"
+#, kde-format
 msgid "%1 key refreshed successfully"
-msgstr "sleutel met succes vernieuwd"
+msgstr "sleutel %1 met succes vernieuwd"
 
 #: core/messages/message.cpp:606
-#, fuzzy, kde-format
-#| msgid "Has requested key refresh."
+#, kde-format
 msgid "%1 has requested key refresh."
-msgstr "Heeft een vernieuwing van de sleutel gevraagd."
+msgstr "%1 heeft vernieuwing van de sleutel gevraagd."
 
 #: core/messages/message.cpp:608
 #, kde-format
@@ -745,14 +740,12 @@ msgid "Description"
 msgstr "Beschrijving"
 
 #: core/model/adminroomsmodel.cpp:32
-#, fuzzy, kde-format
-#| msgid "Number Of Messages"
+#, kde-format
 msgid "Number of Messages"
 msgstr "Aantal berichten"
 
 #: core/model/adminroomsmodel.cpp:34
-#, fuzzy, kde-format
-#| msgid "Number Of Users"
+#, kde-format
 msgid "Number of Users"
 msgstr "Aantal gebruikers"
 
@@ -762,8 +755,7 @@ msgid "Topic"
 msgstr "Onderwerp"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, fuzzy, kde-format
-#| msgid "Read-Only"
+#, kde-format
 msgid "Read-only"
 msgstr "Alleen-lezen"
 
@@ -1002,33 +994,29 @@ msgid "Mentions"
 msgstr "Vermeldingen"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
-#, fuzzy, kde-format
-#| msgid "TOTP Required"
+#, kde-format
 msgid "Required"
-msgstr "TOTP vereist"
+msgstr "Vereist"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgid "Ignored"
-msgstr "Negeren"
+msgstr "Genegeerd"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:84
-#, fuzzy, kde-format
-#| msgid "Created At"
+#, kde-format
 msgid "Create At"
 msgstr "Aangemaakt op"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:86
-#, fuzzy, kde-format
-#| msgid "Two Factors Authentication"
+#, kde-format
 msgid "Two Factor Authentication"
 msgstr "Twee-factor-authenticatie"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "Laatste gedeelte token"
 
 #: core/model/roommodel.cpp:496
 #, kde-format
@@ -1222,8 +1210,7 @@ msgid "Hide \"Room added writing permission\" messages"
 msgstr "Berichten \"Room heeft schrijfrecht toegevoegd\" verbergen"
 
 #: core/model/systemmessagesmodel.cpp:55
-#, fuzzy, kde-format
-#| msgid "Hide \"Room set Read Only\" messages"
+#, kde-format
 msgid "Hide \"Room set read-only\" messages"
 msgstr "Berichten \"Room ingesteld op alleen-lezen\" verbergen"
 
@@ -1243,8 +1230,7 @@ msgid "Hide \"User Added Room to Team\" messages"
 msgstr "Berichten \"Gebruiker heeft room toegevoegd aan team\" verbergen"
 
 #: core/model/systemmessagesmodel.cpp:59
-#, fuzzy, kde-format
-#| msgid "Hide \"User converted team to a Channel\" messages"
+#, kde-format
 msgid "Hide \"User converted team to channel\" messages"
 msgstr ""
 "Berichten \"Gebruiker heeft team geconverteerd naar een kanaal\" verbergen"
@@ -1436,7 +1422,7 @@ msgstr "Omni-kanaal"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Informatie over vertaler ontbreekt. Het is een bug"
 
 #: core/user.cpp:202
 #, kde-format
@@ -1457,89 +1443,87 @@ msgstr "Bot"
 #: core/videoconference/videoconferenceinfo.cpp:187
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "Oproep is niet beantwoord"
 
 #: core/videoconference/videoconferenceinfo.cpp:191
-#, fuzzy, kde-format
-#| msgid "Your answer:"
+#, kde-format
 msgid "Waiting for answer"
-msgstr "Uw antwoord:"
+msgstr "Wacht op antwoord"
 
 #: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Oproep is gaande"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Inkomende oproep"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:55
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Accepteren"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
 msgid "Speech text"
-msgstr ""
+msgstr "Spraaktekst"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:28
 #: kpimtextedittexttospeech/texttospeechactions.cpp:31
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Pauzeren"
 
 #: kpimtextedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Afspelen"
 
 #: kpimtextedittexttospeech/texttospeechconfigdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Tekst-naar-spraak configureren"
 
 #: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "Goede morgen, dit is de test om instellingen te testen."
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:41
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:59
 #, kde-format
 msgid "Volume:"
-msgstr ""
+msgstr "Volume:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Rate:"
-msgstr "Privé:"
+msgstr "Snelheid:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Toonhoogte:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:47
 #: pimcommontexttranslator/translator/widgets/translatorconfigurewidget.cpp:39
 #, kde-format
 msgid "Engine:"
-msgstr ""
+msgstr "Engine:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:60
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
@@ -1550,7 +1534,7 @@ msgstr "Taal:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:64
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Stem:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
@@ -1560,48 +1544,44 @@ msgid "Close"
 msgstr "Sluiten"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:80
-#, fuzzy, kde-format
-#| msgid "Configure Notification..."
+#, kde-format
 msgid "Configure..."
-msgstr "Meldingen configureren..."
+msgstr "Configureren..."
 
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:52
 #, kde-format
 msgid "Archive cannot be opened in read mode."
-msgstr ""
+msgstr "Openen van archief lukt niet in leesmodus."
 
 #. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:21
-#, fuzzy, kde-format
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgid "Enable autocorrection"
-msgstr "Ingeschakelde E2E-versleuteling"
+msgstr "Autocorrectie inschakelen"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:30
 #, kde-format
 msgid "Replacement and exception for language:"
-msgstr ""
+msgstr "Vervanging en uitzondering voor de taal:"
 
 #. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:44
-#, fuzzy, kde-format
-#| msgid "Export Messages..."
+#, kde-format
 msgid "Export..."
-msgstr "Berichten exporteren..."
+msgstr "Exporteren..."
 
 #. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:51
 #, kde-format
 msgid "Import..."
-msgstr ""
+msgstr "Importeren..."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:77
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Ad&vanced Autocorrection"
-msgstr "Auto-meedoen toevoegen"
+msgstr "Gea&vanceerde autocorrectie"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #. i18n: ectx: property (text), widget (QPushButton, add1)
@@ -1610,7 +1590,7 @@ msgstr "Auto-meedoen toevoegen"
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:495
 #, kde-format
 msgid "&Add"
-msgstr ""
+msgstr "&Toevoegen"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #. i18n: ectx: property (text), widget (QPushButton, remove2)
@@ -1634,74 +1614,69 @@ msgstr "Verwijderen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, advancedAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Enable for Teams"
+#, kde-format
 msgid "&Enable word replacement"
-msgstr "Voor Teams inschakelen"
+msgstr "Woordv&ervanging activeren"
 
 #. i18n: ectx: property (text), widget (QLabel, findLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:129
 #, kde-format
 msgid "&Find"
-msgstr ""
+msgstr "&Zoeken"
 
 #. i18n: ectx: property (text), widget (QLabel, replaceLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:149
 #, kde-format
 msgid "Re&place"
-msgstr ""
+msgstr "Ve&rvangen"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:187
 #, kde-format
 msgid "Find"
-msgstr ""
+msgstr "Zoeken"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:192
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Replace"
-msgstr "Beantwoorden"
+msgstr "Vervangen"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:201
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgid "E&xceptions"
-msgstr "Opties"
+msgstr "Uit&zonderingen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:209
 #, kde-format
 msgid "Do not treat as the end of a sentence:"
-msgstr ""
+msgstr "Beschouw dit niet als einde van een zin:"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:235
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "R&emove"
-msgstr "Verwijderen"
+msgstr "V&erwijderen"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:277
 #, kde-format
 msgid "Accept two uppercase letters in:"
-msgstr ""
+msgstr "Twee hoofdletters accepteren in:"
 
 #. i18n: ectx: property (text), widget (QPushButton, add2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:296
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "Add"
-msgstr "Toevoegen..."
+msgstr "Toevoegen"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:344
 #, kde-format
 msgid "Si&mple Autocorrection"
-msgstr ""
+msgstr "Een&voudige autocorrectie"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:350
@@ -1710,6 +1685,8 @@ msgid ""
 "Detect when a new sentence is started and always ensure that the first "
 "character is an uppercase character"
 msgstr ""
+"Herken wanneer er een nieuwe zin wordt gestart en zorg ervoor dat de eerste "
+"letter altijd een hoofdletter is"
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:354
@@ -1718,6 +1695,9 @@ msgid ""
 "Convert &first letter of a sentence automatically to uppercase\n"
 "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 msgstr ""
+"Zet de eerste letter van het eerste woord in een zin automatisch om in een "
+"&hoofdletter.\n"
+"(bijv. \"bla. dit is een test\" naar \"bla. Dit is een test\")"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:364
@@ -1727,6 +1707,10 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"Alle woorden worden gecontroleerd op de veelgemaakte fout van 2 hoofdletters "
+"achter elkaar in een woord, als gevolg van het iets te lang ingedrukt houden "
+"van de Shift-toets. Woorden die wel met twee hoofdletters dienen te beginnen "
+"kunt u toevoegen aan het tabblad \"Uitzonderingen\"."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:368
@@ -1736,6 +1720,9 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"Zet 2 h&oofdletters aan het begin van een woord automatisch om in een "
+"hoofdletter en een kleine letter.\n"
+"(bij. HAllo naar Hallo)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:375
@@ -1744,30 +1731,33 @@ msgid ""
 "Make sure that more than one space cannot be typed, as this is a common "
 "mistake which is quite hard to find in formatted text."
 msgstr ""
+"Zorg ervoor dat er geen twee spaties achter elkaar kunnen worden getypt. Dit "
+"is namelijk een veelvoorkomende fout, welke moeilijk terug te vinden is in "
+"opgemaakte tekst."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:378
 #, kde-format
 msgid "&Suppress double spaces"
-msgstr ""
+msgstr "Dubbele &spaties verwijderen"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:385
 #, kde-format
 msgid "Most standard fraction notations will be converted when available"
-msgstr ""
+msgstr "Indien beschikbaar zullen de meeste standaard breuken worden omgezet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:388
 #, kde-format
 msgid "Re&place 1/2... with ½..."
-msgstr ""
+msgstr "1/2... verva&ngen door ½..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:395
 #, kde-format
 msgid "Capitalize name of days"
-msgstr ""
+msgstr "Dagnamen van hoofdletter voorzien"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:402
@@ -1776,12 +1766,14 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"Herken wanneer er een URL-adres (bijv. een internetadres) wordt getypt en "
+"maak deze automatisch op in de stijl zoals een Webbrowser ze toont."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:405
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr ""
+msgstr "Maak &URL-adressen automatisch op (HTML-modus)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:412
@@ -1790,43 +1782,50 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"Als u in uw tekst gebruik maakt van _onderstrepen_ of *vet*, dan wordt de "
+"tekst tussen de streepjes of asterisken respectievelijk onderstreept of vet "
+"gemaakt."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:415
 #, kde-format
 msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
 msgstr ""
+"Automatisch zorgen voor de opmaak van &vette, doorgestreepte en "
+"onderstreepte tekst (HTML-modus)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:422
 #, kde-format
 msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr ""
+msgstr "1st... vervangen door 1^st... (HTML-modus)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:429
 #, kde-format
 msgid "Add non breaking space before specific punctuation marks in French text"
 msgstr ""
+"Voeg niet af te breken spatie vóór specifieke punctuatiemarkering in Franse "
+"tekst"
 
 #. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:436
 #, kde-format
 msgid "Replace double quotes by french quotes"
-msgstr ""
+msgstr "Aanhalingstekens vervangen door typografische aanhalingstekens"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:457
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Custom &Quotes"
-msgstr "Eigen geluiden"
+msgstr "Aangepaste aan&halingstekens"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:463
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
 msgstr ""
+"&Dubbele aanhalingstekens vervangen door typografische aanhalingstekens"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -1836,8 +1835,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:514
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:641
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:655
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "By Default"
 msgstr "Standaard"
 
@@ -1847,13 +1845,13 @@ msgstr "Standaard"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:500
 #, kde-format
 msgid "\""
-msgstr ""
+msgstr "\""
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:507
 #, kde-format
 msgid "Ending Quote:"
-msgstr ""
+msgstr "Eind-aanhalingsteken:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -1861,13 +1859,15 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:634
 #, kde-format
 msgid "Opening Quote:"
-msgstr ""
+msgstr "Begin-aanhalingsteken"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:572
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
 msgstr ""
+"&Enkelvoudige aanhalingstekens (accenten) vervangen door typografische "
+"aanhalingstekens"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -1875,511 +1875,500 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:627
 #, kde-format
 msgid "'"
-msgstr ""
+msgstr "'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:648
 #, kde-format
 msgid "Ending Quotes:"
-msgstr ""
+msgstr "Eind-aanhalingsteken:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:707
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Pad"
 
 #. i18n: ectx: property (text), widget (QLabel, writablePath)
 #. i18n: ectx: property (text), widget (QLabel, systemPath)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:713
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:737
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgid "TextLabel"
-msgstr "Tekst"
+msgstr "Tekstlabel"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:723
-#, fuzzy, kde-format
-#| msgid "Custom Status:"
+#, kde-format
 msgid "Custom System Path:"
-msgstr "Aangepaste status:"
+msgstr "Aangepast systeempad:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:780
 #, kde-format
 msgid "Writable Path:"
-msgstr ""
+msgstr "Beschrijfbaarpad:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:787
 #, kde-format
 msgid "System Path:"
-msgstr ""
+msgstr "Systeempad:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:794
-#, fuzzy, kde-format
-#| msgid "Custom Status:"
+#, kde-format
 msgid "Custom Writable Path:"
-msgstr "Aangepaste status:"
+msgstr "Aangepast beschrijfbaarpad:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
 msgid "LibreOffice Autocorrection"
-msgstr ""
+msgstr "Autocorrectie van LibreOffice"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:136
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
-msgstr ""
+msgstr "KMail/Calligra-autocorrectie"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr ""
+msgstr "Vervangende tekenreeks is hetzelfde als de te zoeken tekenreeks."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add Autocorrection Entry"
-msgstr "Auto-meedoen toevoegen"
+msgstr "Item voor autocorrectie toevoegen"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:492
-#, fuzzy, kde-format
-#| msgid "Modify..."
+#, kde-format
 msgid "&Modify"
-msgstr "Wijzigen..."
+msgstr "&Wijzigen"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:603
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
-msgstr ""
+msgstr "Autocorrectie van LibreOffice importeren"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:604
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr ""
+msgstr "Autocorrectiebestand van LibreOffice (*.dat)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:607
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr ""
+msgstr "KMail-autocorrectie importeren"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:608
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr ""
+msgstr "KMail-autocorrectiebestand (*.xml)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:640
 #, kde-format
 msgid "Import Autocorrection File"
-msgstr ""
+msgstr "Autocorrectiebestand importeren"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:667
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
+"De taal is gewijzigd, wilt u de configuratie opslaan voor de vorige taal?"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:668
-#, fuzzy, kde-format
-#| msgid "Save Sound"
+#, kde-format
 msgid "Save config"
-msgstr "Geluid opslaan"
+msgstr "Configuratie opslaan"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:707
 #, kde-format
 msgid "Please save changes before exporting settings."
-msgstr ""
+msgstr "Wijzigingen opslaan voor opslaan van instellingen."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:707
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:710
 #, kde-format
 msgid "Export Autocorrection File"
-msgstr ""
+msgstr "Autocorrectiebestand exporteren"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Allow Special Characters in Room Names"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Special Characters"
-msgstr "Speciale tekens in namen van room toestaan"
+msgstr "Speciale tekens selecteren"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:40
 #, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Invoegen"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:53
-#, fuzzy, kde-format
-#| msgid "Select All"
+#, kde-format
 msgid "Select"
-msgstr "Alles selecteren"
+msgstr "Selecteren"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:30
 #, kde-format
 msgid "Detect language"
-msgstr ""
+msgstr "Taal detecteren"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
 msgid "Hmong"
-msgstr ""
+msgstr "Hmong"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:36
 #, kde-format
 msgid "Bosnian"
-msgstr ""
+msgstr "Bosnisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:39
 #, kde-format
 msgid "English"
-msgstr ""
+msgstr "Engels"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:42
 #, kde-format
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Vereenvoudigd Chinees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:45
 #, kde-format
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Traditioneel Chinees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:48
 #, kde-format
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlands"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:51
 #, kde-format
 msgid "French"
-msgstr ""
+msgstr "Frans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:54
 #, kde-format
 msgid "German"
-msgstr ""
+msgstr "Duits"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:57
 #, kde-format
 msgid "Greek"
-msgstr ""
+msgstr "Grieks"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:60
-#, fuzzy, kde-format
-#| msgid "Italic"
+#, kde-format
 msgid "Italian"
-msgstr "Cursief"
+msgstr "Italiaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:63
 #, kde-format
 msgid "Japanese"
-msgstr ""
+msgstr "Japans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:66
 #, kde-format
 msgid "Korean"
-msgstr ""
+msgstr "Koreaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:69
 #, kde-format
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:72
 #, kde-format
 msgid "Russian"
-msgstr ""
+msgstr "Russisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:75
 #, kde-format
 msgid "Spanish"
-msgstr ""
+msgstr "Spaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:78
 #, kde-format
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:81
 #, kde-format
 msgid "Albanian"
-msgstr ""
+msgstr "Albanees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:84
 #, kde-format
 msgid "Arabic"
-msgstr ""
+msgstr "Arabisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:87
 #, kde-format
 msgid "Armenian"
-msgstr ""
+msgstr "Armeens"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:90
 #, kde-format
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azerbeidzjaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:93
 #, kde-format
 msgid "Basque"
-msgstr ""
+msgstr "Baskisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:96
 #, kde-format
 msgid "Belarusian"
-msgstr ""
+msgstr "Wit-Russisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:99
 #, kde-format
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgaars"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:102
 #, kde-format
 msgid "Catalan"
-msgstr ""
+msgstr "Catalaans"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:105
 #, kde-format
 msgid "Croatian"
-msgstr ""
+msgstr "Kroatisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:108
 #, kde-format
 msgid "Czech"
-msgstr ""
+msgstr "Tsjechisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:111
 #, kde-format
 msgid "Danish"
-msgstr ""
+msgstr "Deens"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:114
 #, kde-format
 msgid "Estonian"
-msgstr ""
+msgstr "Ests"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:117
 #, kde-format
 msgid "Filipino"
-msgstr ""
+msgstr "Filipijns"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:120
 #, kde-format
 msgid "Finnish"
-msgstr ""
+msgstr "Fins"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:123
 #, kde-format
 msgid "Galician"
-msgstr ""
+msgstr "Galicisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:126
 #, kde-format
 msgid "Georgian"
-msgstr ""
+msgstr "Georgisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:129
 #, kde-format
 msgid "Haitian Creole"
-msgstr ""
+msgstr "Haïtiaans Creools"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:132
 #, kde-format
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebreeuws"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:135
 #, kde-format
 msgid "Hindi"
-msgstr ""
+msgstr "Hindi"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:138
 #, kde-format
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongaars"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:141
 #, kde-format
 msgid "Icelandic"
-msgstr ""
+msgstr "IJslands"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:144
 #, kde-format
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonesisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:147
 #, kde-format
 msgid "Irish"
-msgstr ""
+msgstr "Iers"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:150
 #, kde-format
 msgid "Latvian"
-msgstr ""
+msgstr "Lets"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:153
 #, kde-format
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litouws"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:156
 #, kde-format
 msgid "Macedonian"
-msgstr ""
+msgstr "Macedonisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:159
 #, kde-format
 msgid "Malay"
-msgstr ""
+msgstr "Maleis"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:162
 #, kde-format
 msgid "Maltese"
-msgstr ""
+msgstr "Maltees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:165
 #, kde-format
 msgid "Norwegian"
-msgstr ""
+msgstr "Noors"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:168
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Persian"
-msgstr "Versie"
+msgstr "Perzisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:171
 #, kde-format
 msgid "Polish"
-msgstr ""
+msgstr "Pools"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:174
 #, kde-format
 msgid "Romanian"
-msgstr ""
+msgstr "Roemeens"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:177
 #, kde-format
 msgid "Serbian"
-msgstr ""
+msgstr "Servisch"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:180
 #, kde-format
 msgid "Slovak"
-msgstr ""
+msgstr "Slowaaks"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:183
 #, kde-format
 msgid "Slovenian"
-msgstr ""
+msgstr "Sloveens"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:186
 #, kde-format
 msgid "Swahili"
-msgstr ""
+msgstr "Swahili"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:189
 #, kde-format
 msgid "Swedish"
-msgstr ""
+msgstr "Zweeds"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:192
 #, kde-format
 msgid "Thai"
-msgstr ""
+msgstr "Thai"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:195
 #, kde-format
 msgid "Turkish"
-msgstr ""
+msgstr "Turks"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:198
 #, kde-format
 msgid "Ukrainian"
-msgstr ""
+msgstr "Oekraïens"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:201
 #, kde-format
 msgid "Urdu"
-msgstr ""
+msgstr "Urdu"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:204
-#, fuzzy, kde-format
-#| msgid "Filename:"
+#, kde-format
 msgid "Vietnamese"
-msgstr "Bestandsnaam:"
+msgstr "Vietnamees"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:207
 #, kde-format
 msgid "Welsh"
-msgstr ""
+msgstr "Welsh"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:210
 #, kde-format
 msgid "Yiddish"
-msgstr ""
+msgstr "Jiddisch"
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineclient.cpp:26
 #, kde-format
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr ""
+msgstr "Fout: kan Bing-credentials in webversie niet vinden."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
-msgstr ""
+msgstr "Fout: kan Bing-sleutel niet uit webversie extraheren."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
-msgstr ""
+msgstr "Fout: kan Bing-token niet uit webversie extraheren."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:86
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
+msgstr "Fout: kan additionele Bing-informatie niet uit webversie extraheren."
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
-msgstr ""
+msgstr "DeepL"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Account configureren"
+msgstr "Configuratie-engine"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Vrije licentiesleutel gebruiken"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
 #, kde-format
 msgid "Api Key:"
-msgstr ""
+msgstr "API-sleutel:"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr ""
+msgstr "Server heeft Api-sleutel nodig."
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2389,16 +2378,14 @@ msgid "Google"
 msgstr "Google"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgid "Libre Translate"
-msgstr "Automatisch vertalen configureren"
+msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr ""
+msgstr "Server vereist Api-sleutel"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -2407,20 +2394,19 @@ msgid "Server Url:"
 msgstr "URL-adres server:"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#, kde-format
 msgid "Server url is not defined."
-msgstr "Server niet gevonden: %1"
+msgstr "URL van server is niet gedefinieerd."
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
-msgstr ""
+msgstr "Lingva"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineclient.cpp:26
 #, kde-format
 msgid "Yandex"
-msgstr ""
+msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
@@ -2429,29 +2415,29 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
+"Fout: Enginesystemen hebben verdacht verkeer gedetecteerd uit uw "
+"computernetwerk. probeer uw verzoek later nog eens."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
+msgstr "Fout: kan Yandex SID in webversie niet vinden."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
+msgstr "Fout: kan Yandex SID niet uit webversie extraheren."
 
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr ""
+msgstr "U gebruikte dezelfde taal voor bron- en doeltaal."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Automatisch vertalen configureren"
+msgstr "Vertaler configureren"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:35
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -2474,17 +2460,15 @@ msgid "To:"
 msgstr "Aan:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Debug"
-msgstr "Bericht vertalen"
+msgstr "Debuggen van vertaler"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "Opslaan &als..."
+msgstr "Opslaan als..."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:88
 #, kde-format
@@ -2492,48 +2476,46 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"Kon bestand %1 niet wegschrijven:\n"
+"\"%2\" is de gedetailleerde foutbeschrijving."
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Bestand opslaan"
+msgstr "Fout met opslaan van bestand"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:115
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Alle bestanden (*)"
 
 #: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate..."
-msgstr "Vertaling"
+msgstr "Vertalen..."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:133
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Probleem bij verbinden met de website voor vertalen."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:245
-#, fuzzy, kde-format
-#| msgid "From:"
+#, kde-format
 msgctxt "Translate from language"
 msgid "From:"
-msgstr "Van:"
+msgstr "Uit:"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:252
-#, fuzzy, kde-format
-#| msgid "To:"
+#, kde-format
 msgctxt "Translate to language"
 msgid "To:"
-msgstr "Aan:"
+msgstr "Naar:"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:264
 #, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "Omkeren"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:269
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:272
@@ -2545,22 +2527,19 @@ msgstr "Wissen"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:277
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:280
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate"
-msgstr "Vertaling"
+msgstr "Vertalen"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:287
 #, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "Debuggen"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:305
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Ruqola"
+#, kde-format
 msgid "Configure"
-msgstr "Ruqola configureren"
+msgstr "Configureren"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:320
 #, kde-format
@@ -2568,22 +2547,23 @@ msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
+"Tekst verslepen die u wilt vertalen. (Voorzichtig tekst zal naar de server "
+"van Google worden verzonden)."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
-msgstr ""
+msgstr "Geen netwerkverbinding gedetecteerd, vertalen van tekst kan niet."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "Geen netwerk"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:455
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate error"
-msgstr "Vertaling"
+msgstr "Fout in vertalen"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -2591,31 +2571,30 @@ msgid "Login/Password"
 msgstr "Aanmelden/wachtwoord"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Save As Text..."
+#, kde-format
 msgid "Share Text..."
-msgstr "Als tekst opslaan..."
+msgstr "Tekst delen..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "Er was een probleem bij het delen van het document: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Delen"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "File is too large"
+#, kde-format
 msgid "File was shared."
-msgstr "Bestand is te groot"
+msgstr "Bestand was gedeeld."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
+"<qt>Het nieuwe verzoek kunt u vinden op:<br /><a href='%1'>%1</a> </qt>"
 
 #: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
 #, kde-format
@@ -3343,10 +3322,9 @@ msgid "Error while handling avatar setting from a URL \"%1\" for %2"
 msgstr "Fout bij manipuleren van avatar-instelling uit een URL \"%1\" voor %2"
 
 #: rocketchatrestapi-qt5/users/setstatusjob.cpp:137
-#, fuzzy, kde-format
-#| msgid "User registration is disabled"
+#, kde-format
 msgid "Invisible status is disabled"
-msgstr "Registratie van gebruikers is uitgeschakeld"
+msgstr "Onzichtbare status is uitgeschakeld"
 
 #: rocketchatrestapi-qt5/users/userscreatejob.cpp:93
 #, kde-format
@@ -3462,8 +3440,7 @@ msgid "File:"
 msgstr "Bestand:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Custom Emojis"
+#, kde-format
 msgid "Search custom emojis"
 msgstr "Aangepaste emoji's opzoeken"
 
@@ -3590,10 +3567,9 @@ msgid "Remove Custom User Status"
 msgstr "Aangepaste gebruikersstatus verwijderen"
 
 #: widgets/administratordialog/invites/administratorinviteswidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Invite..."
+#, kde-format
 msgid "Search invite..."
-msgstr "Uitnodigen zoeken..."
+msgstr "Uitnodiging zoeken..."
 
 #: widgets/administratordialog/invites/invitetreeview.cpp:57
 #, kde-format
@@ -3644,8 +3620,7 @@ msgid "Access Token URL:"
 msgstr "URL van toegangstoken:"
 
 #: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Oauth Apps..."
+#, kde-format
 msgid "Search Oauth apps..."
 msgstr "Zoeken naar toepassingen voor Oauth..."
 
@@ -3673,14 +3648,12 @@ msgid "Roles:"
 msgstr "Rollen:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#, fuzzy, kde-format
-#| msgid "Search Permissions..."
+#, kde-format
 msgid "Search permissions..."
 msgstr "Toegangsrechten zoeken..."
 
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Search Roles..."
+#, kde-format
 msgid "Search roles..."
 msgstr "Rollen doorzoeken..."
 
@@ -3850,8 +3823,7 @@ msgid "Public"
 msgstr "Publiek"
 
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "Search Rooms"
+#, kde-format
 msgid "Search rooms"
 msgstr "Rooms zoeken"
 
@@ -3995,10 +3967,9 @@ msgid "Total Discussions"
 msgstr "Totaal aantal discussies"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
-#, fuzzy, kde-format
-#| msgid "Total Channels"
+#, kde-format
 msgid "Total Omnichannel Rooms"
-msgstr "Totaal aantal kanalen"
+msgstr "Totaal aantal Omnichannel rooms"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
@@ -4181,25 +4152,23 @@ msgstr "Wachtwoord:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "Bio:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Send Emails Invite"
-msgstr ""
+msgstr "E-mail met uitnodigingen verzenden"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Emails"
+#, kde-format
 msgid "Emails:"
-msgstr "E-mailberichten"
+msgstr "E-mailberichten:"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Use ',' for separating words"
+#, kde-format
 msgid "Use ',' for separate emails"
-msgstr "Gebruik ',' voor scheiden van woorden"
+msgstr "Gebruik ',' voor scheiden van e-mails"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:172
 #, kde-format
@@ -4207,10 +4176,9 @@ msgid "Do you want to remove this user?"
 msgstr "Wilt u deze gebruiker verwijderen?"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid "Invites"
+#, kde-format
 msgid "Invite..."
-msgstr "Uitnodigingen"
+msgstr "Uitnodigen..."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, kde-format
@@ -4331,10 +4299,9 @@ msgid "Allow Anonymous Write"
 msgstr "Anoniem schrijven toestaan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Allow Anonymous Write"
+#, kde-format
 msgid "Allow Anonymous Read"
-msgstr "Anoniem schrijven toestaan"
+msgstr "Anoniem lezen toestaan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, kde-format
@@ -4344,18 +4311,17 @@ msgstr "Wijziging van wachtwoord toestaan voor OAuth gebruikers"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
 #, kde-format
 msgid "Allow Invisible status option"
-msgstr ""
+msgstr "Optie onzichtbare status toestaan"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Forget User Session on Window Close"
-msgstr ""
+msgstr "Gebruikerssessie vergeten bij sluiten van venster"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Enable logging"
+#, kde-format
 msgid "Enable collect log in data"
-msgstr "Loggen inschakelen"
+msgstr "Log in gegevens verzamelen inschakelen"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:77
 #, kde-format
@@ -4365,7 +4331,7 @@ msgstr "Verlopen van kunnen aanmelden in dagen"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr ""
+msgstr "Mislukte pogingen tot aanmelden"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4449,20 +4415,19 @@ msgid "Enterprise"
 msgstr "Grote onderneming"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgid "User Data Download"
-msgstr "Downloaden"
+msgstr "Gedownloade gebruikersgegevens"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:117
 #, kde-format
 msgid "Slack Bridge"
-msgstr ""
+msgstr "Slack Bridge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Logs"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #: widgets/dialogs/configurenotificationwidget.cpp:86
@@ -4473,58 +4438,56 @@ msgstr "Mobiel"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:121
 #, kde-format
 msgid "Troubleshoot"
-msgstr ""
+msgstr "Problemen oplossen"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Analyses"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Message"
+#, kde-format
 msgid "Messages"
-msgstr "Bericht"
+msgstr "Berichten"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Enabled"
+#, kde-format
 msgid "Enable"
-msgstr "Ingeschakeld"
+msgstr "Inschakelen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Domain"
+#, kde-format
 msgid "Prepend Domain"
-msgstr "Domein"
+msgstr "Domein vooraan voegen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:26
 #, kde-format
 msgid "All Subdomains"
-msgstr ""
+msgstr "Alle subdomeinen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Featured"
+#, kde-format
 msgid "Features Enabled"
-msgstr "Ondersteund"
+msgstr "Mogelijkheden ingeschakeld"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:36
 #, kde-format
 msgid "Tracks custom events related to actions a user does on messages."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan acties die een gebruiker doet met "
+"berichten."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:41
 #, kde-format
@@ -4532,6 +4495,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan een kanaal of groep (aanmaken, "
+"verlaten, verwijderen)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -4539,21 +4504,23 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Volgt eigen gebeurtenissen gerelateerd aan gebruikers (wachtwoord "
+"resettijden, wijziging in profielplaatje)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Volg-ID"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
 msgid "Piwik Analytics"
-msgstr ""
+msgstr "Piwik Analytics"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:69
 #, kde-format
@@ -4561,42 +4528,44 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"De url waar de Piwik huist, zorg dat de afsluitende slash meegenomen wordt. "
+"Voorbeeld: //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
 msgstr ""
+"De te gebruiken site-id voor het identificeren van deze site. Voorbeeld: 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Client ID:"
+#, kde-format
 msgid "Client ID"
-msgstr "Client-id:"
+msgstr "Client-id"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
 msgid "Additional Piwik Sites"
-msgstr ""
+msgstr "Additionele Piwik sites"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Site-domein vooraan voegen aan de paginatitel bij volgen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
 msgid "Track visitors across all subdomains"
-msgstr ""
+msgstr "Bezoekers volgen over alle subdomeinen"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:90
 #, kde-format
 msgid "Hide Outgoing Links"
-msgstr ""
+msgstr "Uitgaande koppelingen verbergen"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:20
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:17
@@ -4611,38 +4580,36 @@ msgid "Enabled"
 msgstr "Ingeschakeld"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Enter Username"
+#, kde-format
 msgid "Trust CAS Username"
-msgstr "Gebruikersnaam invoeren"
+msgstr "CAS-gebruikersnaam vertrouwen"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Allow User Profile Change"
+#, kde-format
 msgid "Allow user creation"
-msgstr "Wijziging van gebruikersprofiel toestaan"
+msgstr "Aanmaken van gebruiker toestaan"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:26
 #, kde-format
 msgid "Always Sync User Data"
-msgstr ""
+msgstr "Gebruikersgegevens altijd synchroniseren"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:34
-#, fuzzy, kde-format
-#| msgid "Site URL"
+#, kde-format
 msgid "SSO Base URL"
-msgstr "URL van site"
+msgstr "SSO Basis URL"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:35
 #, kde-format
 msgid ""
 "The base URL of your external SSO service e.g: https://sso.example.undef/sso/"
 msgstr ""
+"De basis URL van uw externe SSO service bijv: https://sso.example.undef/sso/"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr ""
+msgstr "SSO Login URL"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -4650,6 +4617,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"De login URL van uw externe SSO service bijv: https://sso.example.undef/sso/"
+"login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
@@ -4666,16 +4635,23 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Indien ingeschakeld zal Rocket.Chat elke gebruikersnaam uit CAS behorend bij "
+"dezelfde gebruiker op Rocket.Chat vertrouwen.\n"
+"Dit kan nodig zijn als een gebruiker op CAS wordt hernoemd, maar kan ook "
+"mensen toestaan om controle over Rocket.Chat accounts te nemen door hun "
+"eigen CAS gebruikers te hernoemen."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"Aanmaken van CAS-gebruiker toestaan uit gegevens geleverd door het CAS-"
+"ticket."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr ""
+msgstr "Behandeling van attribuut"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -4684,11 +4660,15 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Altijd externe CAS-gebruikersgegevens synchroniseren in beschikbare "
+"attributen bij aanmelden.\n"
+"Opmerking: Attributen worden altijd gesynchroniseerd bij aanmaken van een "
+"account."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
 msgid "Attribute Map"
-msgstr ""
+msgstr "Attribuutmap"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:73
 #, kde-format
@@ -4705,55 +4685,62 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Deze JSON-invoer gebruiken om interne attributen (sleutel) te bouwen uit "
+"externe attributen (waarde).\n"
+"Externe attribuutnamen omsloten met '%' zullen worden geïnterpoleerd in "
+"waardetekenreeksen.<br/>Voorbeeld, {\"email\":\"%email%\", \"name\":"
+"\"%firstname%, %lastname%\"}\n"
+"De attribuutmap wordt altijd geïnterpoleerd. In CAS 1.0 is alleen het "
+"gebruikersnaamattribuut beschikbaar. Beschikbare interne attributen zijn: "
+"username, name, email, rooms;\n"
+"rooms is een kommagescheiden lijst van rooms om mee te doen bij aanmaken van "
+"de gebruiker bijv: {\"rooms\": \"%team%,%afdeling%\"} zou CAS-gebruikers bij "
+"aanmaken laten meedoen bij hun team- en afdelingskanaal."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Default Room"
+#, kde-format
 msgid "Default Provider"
-msgstr "Standaard room"
+msgstr "Standaard leverancier"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Ignore"
+#, kde-format
 msgid "IgnoreTLS"
-msgstr "Negeren"
+msgstr "TLS negeren"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Allow Email Notifications"
+#, kde-format
 msgid "Show Message in Email Notification"
-msgstr "E-mailmelding toestaan"
+msgstr "Bericht in e-mailmelding tonen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:25
 #, kde-format
 msgid "Add Sender to Reply-To"
-msgstr ""
+msgstr "Verzender toevoegen aan Antw-aan"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Enabled File Upload"
+#, kde-format
 msgid "Enable Direct Reply"
-msgstr "Bestand uploaden ingeschakeld"
+msgstr "Direct antwoord inschakelen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:27
 #, kde-format
 msgid "Debug Direct Reply"
-msgstr ""
+msgstr "Direct antwoord debuggen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
 #, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "smtp"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -4768,22 +4755,19 @@ msgid "Username"
 msgstr "Gebruikersnaam"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "From Email"
-msgstr "E-mail"
+msgstr "Uit e-mail"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
 msgid "Privacy"
-msgstr "Privé"
+msgstr "Privacy"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
-#, fuzzy, kde-format
-#| msgid "Direct"
+#, kde-format
 msgid "Direct Reply"
-msgstr "Direct"
+msgstr "Direct antwoord"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:89
 #, kde-format
@@ -4795,6 +4779,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Attentie!] Als \"Direct antwoord\" is ingeschakeld, zal Rocket.Chat de "
+"geconfigureerde e-mail-mailbox controleren.\n"
+"Alle ongelezen e-mails worden opgehaald, gemarkeerd als gelezen en "
+"verwerkt.\n"
+"\"Direct antwoord\" zou alleen geactiveerd moeten worden als de gebruikte e-"
+"mailbox exclusief bedoeld is voor toegang door Rocket.Chat\n"
+"en niet \"parallel\" gelezen/verwerkt door personen."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
@@ -4802,12 +4793,13 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Let op] Modus debug inschakelen zou uw 'Platte tekst wachtwoord' tonen in "
+"de console van de beheerder."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Add password"
+#, kde-format
 msgid "Forgot password"
-msgstr "Wachtwoord toevoegen"
+msgstr "Wachtwoord vergeten"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:108
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
@@ -4815,42 +4807,37 @@ msgstr "Wachtwoord toevoegen"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
 #, kde-format
 msgid "Body"
-msgstr ""
+msgstr "Inhoud"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
-#, fuzzy, kde-format
-#| msgid "Direct message someone"
+#, kde-format
 msgid "Direct Message Email Subject"
-msgstr "Iemand direct berichten"
+msgstr "E-mailonderwerp van direct bericht"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:118
 #, kde-format
 msgid "Mention Email Subject"
-msgstr ""
+msgstr "Onderwerp voor e-mailbericht noemen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
 msgid "Mention All Email Subject"
-msgstr ""
+msgstr "Alle onderwerpen van alle e-mailberichten noemen"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Verification"
-msgstr "Melding"
+msgstr "Verificatie"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:133
-#, fuzzy, kde-format
-#| msgid "Allow Email Change"
+#, kde-format
 msgid "Email Address Changed"
-msgstr "Wijziging van e-mail toestaan"
+msgstr "E-mailadres gewijzigd"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid "Invalid integration"
+#, kde-format
 msgid "Invitation"
-msgstr "Ongeldige integratie"
+msgstr "Uitnodiging"
 
 #: widgets/administratorsettingsdialog/encryption/encryptionsettingswidget.cpp:16
 #, kde-format
@@ -5019,7 +5006,7 @@ msgstr "Favoriete rooms inschakelen"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "UTF8 namen Slugify"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -5029,7 +5016,7 @@ msgstr "De controle op bijwerken inschakelen"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:33
 #, kde-format
 msgid "Send Statistics to Rocket.Chat"
-msgstr ""
+msgstr "Statistieken verzenden naar Rocket.Chat"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:42
 #, kde-format
@@ -5044,7 +5031,7 @@ msgstr "Sitenaam"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "UTF8"
-msgstr ""
+msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
@@ -5125,15 +5112,10 @@ msgstr "Bijwerken"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
 #, kde-format
 msgid "Update Latest Available Version"
-msgstr ""
+msgstr "Element voor bijwerken met de laatst beschikbare versie"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "Checks automatically for new updates / important messages from the Rocket."
-#| "Chat developers and receives notifications when available. The "
-#| "notification appears once per new version as a clickable banner and as a "
-#| "message from the Rocket.Cat bot, both visible only for administrators."
+#, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
 "Chat developers and receives notifications when available.\n"
@@ -5143,15 +5125,15 @@ msgid ""
 msgstr ""
 "Controleert automatisch op nieuwe elementen voor bijwerken / belangrijke "
 "berichten van de ontwikkelaars van Rocket.Chat en meldingen ontvangen "
-"wanneer beschikbaar. De meldingen verschijnen eens per nieuwe versie als een "
-"banner waarop geklikt kan worden en als een bericht van de robot Rocket.Cat, "
+"wanneer beschikbaar.\n"
+"De meldingen verschijnen eens per nieuwe versie als een banner waarop "
+"geklikt kan worden en als een bericht van de robot Rocket.Cat,\n"
 "beiden alleen zichtbaar voor beheerders."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Tijdzone:"
+msgstr "Tijdzone"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
 #, kde-format
@@ -5159,41 +5141,38 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Stelt de standaard tijdzone in die gebruikt zal worden bij het tonen van "
+"dashboards of verzenden van e-mails"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Server Timezone"
-msgstr "Tijdzone:"
+msgstr "Tijdzone van server"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "Custom Timezone"
-msgstr "Tijdzone:"
+msgstr "Aangepaste tijdzone"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
 #, kde-format
 msgid "User's current Timezone"
-msgstr ""
+msgstr "Huidige tijdzone van gebruiker"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
 #, kde-format
 msgid "Default timezone for reporting"
-msgstr ""
+msgstr "Standaard tijdzone voor rapportage"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
-#, fuzzy, kde-format
-#| msgid "Report a Bug"
+#, kde-format
 msgid "Reporting"
-msgstr "Een bug rapporteren"
+msgstr "Rapporteren"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Notification"
+#, kde-format
 msgid "Notifications"
-msgstr "Melding"
+msgstr "Meldingen"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:132
 #, kde-format
@@ -5202,11 +5181,15 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Max aantal leden in room wanneer meldingen voor alle berichten wordt "
+"uitgeschakeld. Gebruikers kunnen nog steeds per room instellingen wijzigen "
+"om receive alle meldingen op een individuele basis te ontvangen. (0 om uit "
+"te schakelen)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
-msgstr ""
+msgstr "Max leden in room alvorens alle berichtmeldingen uit te schakelen"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5261,12 +5244,12 @@ msgstr "Speciale tekens in namen van room toestaan"
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:18
 #, kde-format
 msgid "Merge Private Groups with Channels"
-msgstr ""
+msgstr "Private groepen met kanalen samenvoegen"
 
 #: widgets/administratorsettingsdialog/layout/layoutsettingswidget.cpp:19
 #, kde-format
 msgid "Group channels by type"
-msgstr ""
+msgstr "Kanalen groeperen op type"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:19
 #, kde-format
@@ -5361,13 +5344,12 @@ msgstr "Timeout van inactief (ms)"
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:22
 #, kde-format
 msgid "Trace method calls"
-msgstr ""
+msgstr "Aanroepen van methode volgen"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Invalid subscription"
+#, kde-format
 msgid "Trace subscription calls"
-msgstr "Ongeldige beschrijving"
+msgstr "Aanroepen vgoor inschrijven volgen"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:28
 #, kde-format
@@ -5375,41 +5357,38 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Een kanaal dat all gevangen uitzonderingen ontvangt. Leeg laten om "
+"uitzonderingen te negeren."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Convert to Channel"
+#, kde-format
 msgid "Log Exceptions to Channel"
-msgstr "Naar kanaal converteren"
+msgstr "Uitzonderingen naar kanaal loggen"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Error: "
+#, kde-format
 msgid "Errors Only"
-msgstr "Fout: "
+msgstr "Alleen fouten"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:34
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Banner Information"
+#, kde-format
 msgid "Errors and Information"
-msgstr "Informatie in banner"
+msgstr "Fouten en informatie"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:35
 #, kde-format
 msgid "Errors, Information and Debug"
-msgstr ""
+msgstr "Fouten, informatie en debug"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
-msgstr ""
+msgstr "Loglevel"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Limit"
+#, kde-format
 msgid "Log View Limit"
-msgstr "Geen limiet"
+msgstr "Limiet van weergave van log"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:48
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:56
@@ -5418,12 +5397,14 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"De tekst hier zal geëvalueerd worden als RegExp (nieuw RegExp('tekst')). "
+"Laat het leeg om elke aanroep te volgen en deze te tonen."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
 #, kde-format
 msgid "Trace method filter"
-msgstr ""
+msgstr "Filter voor volgmethode"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:17
 #, kde-format
@@ -5469,18 +5450,17 @@ msgstr "Videorecorder ingeschakeld"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:29
 #, kde-format
 msgid "Remove EXIF metadata from supported files"
-msgstr ""
+msgstr "EXIF metagegevens uit ondersteunde bestanden verwijderen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:30
 #, kde-format
 msgid "Enable image thumbnails to save bandwidth"
-msgstr ""
+msgstr "Miniaturen van afbeeldingen inschakelen om bandbreedte te besparen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Video Recorder Enabled"
+#, kde-format
 msgid "Audio Recorder Enabled"
-msgstr "Videorecorder ingeschakeld"
+msgstr "Audiorecorder ingeschakeld"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:41
 #, kde-format
@@ -5508,6 +5488,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Dit is een afgekeurde functie. Het kan niet zoals verwacht werken en zal "
+"niet meer worden bijgewerkt."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format
@@ -5526,13 +5508,12 @@ msgstr "Maximum aantal toegestane tekens per bericht"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:86
 #, kde-format
 msgid "Safe Ports"
-msgstr ""
+msgstr "Veilige poorten"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:88
-#, fuzzy, kde-format
-#| msgid "Save Attachment"
+#, kde-format
 msgid "Message Attachments"
-msgstr "Bijlage opslaan"
+msgstr "Bijlagen bij berichten"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:94
 #, kde-format
@@ -5540,6 +5521,9 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"Haalt EXIF metagegevens weg uit afbeeldingsbestanden (jpeg, tiff, etc). Deze "
+"instelling is niet actief met terugwerkende kracht, dus bestanden geüpload "
+"bij uitgeschakeld zullen EXIF gegevens bevatten"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:100
 #, kde-format
@@ -5548,43 +5532,44 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"Miniaturen zullen geleverd worden in plaats van de originele afbeelding om "
+"bandbreedtegebruik te beperken. Afbeeldingen met de originele resolutie "
+"kunnen gedownload worden met het pictogram naast de naam van de bijlage."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:106
 #, kde-format
 msgid "Thumbnail's max width (in pixels)"
-msgstr ""
+msgstr "Maximale breedte van miniatuur (in pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:109
 #, kde-format
 msgid "Thumbnail's max height (in pixels)"
-msgstr ""
+msgstr "Maximale hoogte van miniatuur (in pixels)"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:111
-#, fuzzy, kde-format
-#| msgid "Pin Message"
+#, kde-format
 msgid "Audio Message"
-msgstr "Bericht vastpinnen"
+msgstr "Geluidsbericht"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid "Allow Message Editing"
+#, kde-format
 msgid "Audio Message Bit Rate"
-msgstr "Berichten bewerken is toegestaan"
+msgstr "Bitsnelheid van geluidsbericht"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:16
 #, kde-format
 msgid "Allow Save Media to Gallery"
-msgstr ""
+msgstr "Media opslaan naar galerij toestaan"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:17
 #, kde-format
 msgid "Force screen lock"
-msgstr ""
+msgstr "Schermvergrendeling afdwingen"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:24
 #, kde-format
 msgid "Screen Lock"
-msgstr ""
+msgstr "Schermvergrendeling"
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:29
 #, kde-format
@@ -5592,6 +5577,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"Indien ingeschakeld, dwingt u uw gebruikers een PIN/BIOMETRY/FACEID te "
+"gebruiken om de toepassing te ontgrendelen."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -5599,61 +5586,58 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"De tijd om opnieuw een wachtwoord te vragen na het beëindigen van de laatste "
+"sessie, in seconden."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
 msgid "Force Screen Lock After"
-msgstr ""
+msgstr "Schermvergrendeling afdwingen na"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:16
 #, kde-format
 msgid "Sign in with Apple"
-msgstr ""
+msgstr "Aanmelden met Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
 msgid "Twitter Login"
-msgstr ""
+msgstr "Aanmelding bij Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgid "LinkedIn Login"
-msgstr ""
+msgstr "Aanmelding bij LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Last Login:"
+#, kde-format
 msgid "Meteor Login"
-msgstr "Laatste keer aangemeld:"
+msgstr "Aanmelding bij Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr ""
+msgstr "Aanmelden bij Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Last Login:"
+#, kde-format
 msgid "Github Login"
-msgstr "Laatste keer aangemeld:"
+msgstr "Aanmelding bij GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
-#, fuzzy, kde-format
-#| msgid "Last Login:"
+#, kde-format
 msgid "Tokenpass Login"
-msgstr "Laatste keer aangemeld:"
+msgstr "Aanmelding bij Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Login"
-msgstr "Google"
+msgstr "Aanmelden bij Google"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgid "Apple"
-msgstr "Toepassen"
+msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
 #, kde-format
@@ -5661,187 +5645,175 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"Als u aanmelden met Apple inschakelen alleen op het mobiel wilt, dan kunt u "
+"alle velden leeg laten."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
 msgid "OAuth Apple Id"
-msgstr ""
+msgstr "OAuth Apple-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:69
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Oauth Apps"
+#, kde-format
 msgid "OAuth Apple Iss"
-msgstr "Toepassingen voor Oauth toevoegen"
+msgstr "OAuth Apple-Iss"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:72
 #, kde-format
 msgid "OAuth Apple Kid"
-msgstr ""
+msgstr "OAuth Apple-Kid"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr ""
+msgstr "Url"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
 #, kde-format
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Secret"
-msgstr "Geheim van client"
+msgstr "Geheim"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
 msgid "Twitter Id"
-msgstr ""
+msgstr "Twitter-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Twitter Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
 msgid "LinkedIn Id"
-msgstr ""
+msgstr "LinkedIn-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:121
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "LinkedIn Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
 #, kde-format
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:131
 #, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Proxy-host"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:134
-#, fuzzy, kde-format
-#| msgid "&Previous Server"
+#, kde-format
 msgid "Proxy Services"
-msgstr "Vo&rige server"
+msgstr "Proxy-services"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
-msgstr ""
+msgstr "Meteor-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Meteor Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid "Handbook"
+#, kde-format
 msgid "Facebook"
-msgstr "Handboek"
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
 msgid "Facebook Id"
-msgstr ""
+msgstr "Facebook-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Shared Secret"
+#, kde-format
 msgid "Facebook Secret"
-msgstr "Gedeeld geheim"
+msgstr "Geheim van Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:173
 #, kde-format
 msgid "Github"
-msgstr ""
+msgstr "Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
-msgstr ""
+msgstr "Github-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Github Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:191
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "Tokenpass"
-msgstr "Teken"
+msgstr "Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:200
 #, kde-format
 msgid "Example: https://domain.com (excluding trailing slash)"
-msgstr ""
+msgstr "Voorbeeld: https://domain.com (zonder afsluitende slash)"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:201
 #, kde-format
 msgid "Tokenpass Server URL"
-msgstr ""
+msgstr "URL van Tokenpass-server"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:204
 #, kde-format
 msgid "Tokenpass Id"
-msgstr ""
+msgstr "Tokenpass-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:207
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:210
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Tokenpass Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van Tokenpass"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:222
-#, fuzzy, kde-format
-#| msgid "Google"
+#, kde-format
 msgid "Google Id"
-msgstr "Google"
+msgstr "Google-Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:225
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:228
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Google Secret"
-msgstr "Geheim van client"
+msgstr "Geheim van Google"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:17
 #, kde-format
@@ -6001,16 +5973,14 @@ msgid "Limit by Connection"
 msgstr "Per verbinding beperken"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Limit by User"
+#, kde-format
 msgid "Limit by User per Method"
-msgstr "Per gebruiker beperken"
+msgstr "Per gebruiker per methode beperken"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:29
-#, fuzzy, kde-format
-#| msgid "Limit by Connection"
+#, kde-format
 msgid "Limit by Connection per Method"
-msgstr "Per verbinding beperken"
+msgstr "Per verbinding per methode beperken"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
@@ -6023,10 +5993,9 @@ msgid "DDP Rate Limit"
 msgstr "DDP-snelheidsbegrenzer"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Limit by IP: requests allowed"
+#, kde-format
 msgid "Limit by IP: interval time"
-msgstr "Op IP-adres beperken: verzoeken toegestaan"
+msgstr "Per IP-adres beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:55
 #, kde-format
@@ -6045,10 +6014,9 @@ msgstr "Op gebruiker beperken: verzoeken toegestaan"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:79
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:93
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:107
-#, fuzzy, kde-format
-#| msgid "Limit by User: requests allowed"
+#, kde-format
 msgid "Limit by User: interval time"
-msgstr "Op gebruiker beperken: verzoeken toegestaan"
+msgstr "Per gebruiker beperken: intervaltijd"
 
 #: widgets/administratorsettingsdialog/retentionpolicy/retentionpolicysettingswidget.cpp:19
 #, kde-format
@@ -6156,40 +6124,40 @@ msgstr "Toepassen"
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:20
 #, kde-format
 msgid "SlackBridge Out Enabled"
-msgstr ""
+msgstr "SlackBridge uit ingeschakeld"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:21
 #, kde-format
 msgid "SlackBridge Out All"
-msgstr ""
+msgstr "SlackBridge uit alles"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:24
-#, fuzzy, kde-format
-#| msgid "Mentions"
+#, kde-format
 msgid "Reactions"
-msgstr "Vermeldingen"
+msgstr "Reacties"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:28
 #, kde-format
 msgid "Enable Rocket.Chat to communicate directly with Slack."
-msgstr ""
+msgstr "Rocket.Chat inschakelen om direct met Slack te communiceren."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Token"
+#, kde-format
 msgid "API Tokens"
-msgstr "Teken"
+msgstr "API-tokens"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
+"Kies of SlackBridge uw berichten ook terug zou moeten zenden naar Slack"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
 msgstr ""
+"Stuur berichten uit alle kanalen die in Slack bestaan en meedoen met de bot"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -6197,12 +6165,14 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Berichten uit Slack importeren met een alias; %s wordt vervangen door de "
+"gebruikersnaam van de gebruiker. Indien leeg, zal er geen alias worden "
+"gebruikt."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Alias Format"
-msgstr "Opmaak"
+msgstr "Alias-formaat"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:55
 #, kde-format
@@ -6210,53 +6180,54 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Geen berichten doorsturen uit bots waarvan de naam overeenkomst met de "
+"bovenstaande reguliere expressie. Indien leeg gelaten, alle berichten uit "
+"bots zullen doorgestuurd worden."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
 msgid "Exclude Bots"
-msgstr ""
+msgstr "Bots uitsluiten"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:14
-#, fuzzy, kde-format
-#| msgid "Disable Notifications:"
+#, kde-format
 msgid "Disable Notifications"
-msgstr "Meldingen uitschakelen:"
+msgstr "Meldingen uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:15
 #, kde-format
 msgid "Disable Presence Broadcast"
-msgstr ""
+msgstr "Uitzenden van aanwezigheid uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:16
 #, kde-format
 msgid "Disable Instance Broadcast"
-msgstr ""
+msgstr "Uitzenden van exemplaar uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:17
 #, kde-format
 msgid "Disable Sessions Monitor"
-msgstr ""
+msgstr "Sessiesmonitor uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:18
 #, kde-format
 msgid "Disable Livechat Activity Monitor"
-msgstr ""
+msgstr "Activiteitsmonitor van Livechat uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Disable Notification"
+#, kde-format
 msgid "Disable Statistics Generator"
-msgstr "Meldingen uitschakelen"
+msgstr "Generator van statistieken uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:20
 #, kde-format
 msgid "Disable Data Exporter Processor"
-msgstr ""
+msgstr "Processor voor gegevens exporteren uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:21
 #, kde-format
 msgid "Disable Workspace Sync"
-msgstr ""
+msgstr "Synchronisatie van werkruimte uitschakelen"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:26
 #, kde-format
@@ -6264,6 +6235,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Deze instelling schakelt het meldingensysteem volledig uit; geluiden, "
+"bureaubladmeldingen, mobiele meldingen en e-mails zullen stoppen!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6272,6 +6245,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Deze instelling voorkomt dat alle exemplaren de wijzigingen in status van de "
+"gebruikers naar hun clients verzenden waarmee alle gebruikers hun "
+"aanwezigheidsstatus behouden vanaf het eerste laden!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6280,6 +6256,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Deze instelling voorkomt dat de exemplaren van Rocket.Chat gebeurtenissen "
+"verzenden naar de andere exemplaren, het kan synchronisatieproblemen en fout "
+"gedrag veroorzaken!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6287,6 +6266,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"Deze instelling stopt het verwerken van livechat bezoekerssessies die "
+"veroorzaakt dat de statistieken stoppen met juist te werken!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -6295,6 +6276,10 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Deze instelling stopt het verwerken van alle statistieken waardoor de "
+"informatiepagina niet bijgewerkt wordt totdat iemand op de knop vernieuwen "
+"klikt en kan andere andere ontbrekende informatie rond het systeem "
+"veroorzaken!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6302,6 +6287,9 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Deze instelling stopt het verwerken van alle verzoeken voor export van "
+"gebruikers, ze zullen dus niet de koppeling ontvangen om hun gegevens te "
+"downloaden!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6309,32 +6297,34 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Deze instelling stopt het synchroniseren van deze server met de cloud van "
+"Rocket.Chat en kan problemen veroorzaken met licenties van marktplaats en "
+"ondernemerslicenties!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable system tray icon"
+#, kde-format
 msgid "Enable User Data Download"
-msgstr "Systeemvakpictogram inschakelen"
+msgstr "Downloaden van gebruikersgegevens inschakelen"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:27
 #, kde-format
 msgid "System Path (Exported Files)"
-msgstr ""
+msgstr "Systeempad (Geëxporteerde bestanden)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:30
 #, kde-format
 msgid "System Path (Compressed File)"
-msgstr ""
+msgstr "Systeempad (Gecomprimeerde bestanden)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:34
 #, kde-format
 msgid "Processing Frequency (Minutes)"
-msgstr ""
+msgstr "Frequentie van verwerking (minuten)"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:38
 #, kde-format
 msgid "Message Limit per Request"
-msgstr ""
+msgstr "Limiet van berichtgrootte per verzoek"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:20
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
@@ -6433,22 +6423,19 @@ msgid "Webdav Integration Enabled"
 msgstr "Webdav-integratie ingeschakeld"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Public Channels"
-msgstr "In kanalen inschakelen"
+msgstr "Voor publieke kanalen inschakelen"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "Enable in Channels"
+#, kde-format
 msgid "Enable for Private Channels"
-msgstr "In kanalen inschakelen"
+msgstr "Voor private kanalen inschakelen"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:18
-#, fuzzy, kde-format
-#| msgid "Unread Count for Direct Messages"
+#, kde-format
 msgid "Enable for Direct Messages"
-msgstr "Ongelezen aantal van directe berichten"
+msgstr "Voor directe berichten inschakelen"
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:39
 #, kde-format
@@ -6457,11 +6444,15 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Een lijst met STUN en TURN servers gescheiden door een komma.\n"
+"Gebruikersnaam, wachtwoord en poort zijn toegestaan in het formaat "
+"gebruikersnaam:wachtwoord@stun:host:poort of gebruikersnaam:wachtwoord@turn:"
+"host:poort."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
 msgid "STUN/TURN Servers"
-msgstr ""
+msgstr "STUN/TURN-servers"
 
 #: widgets/bannerinfodialog/bannerinfodialog.cpp:27
 #, kde-format
@@ -6548,8 +6539,7 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Naar team converteren? Het kan niet ongedaan worden gemaakt."
 
 #: widgets/channellist/channellistwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Filter Channels (CTRL + K)"
+#, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Kanalen filteren (CTRL + K)"
 
@@ -6577,69 +6567,67 @@ msgstr "Fout bij opslaan van bestand"
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Call"
-msgstr ""
+msgstr "Een oproep beginnen"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
 #, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Starten"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera On"
-msgstr ""
+msgstr "Camera aan"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
 msgid "Camera Off"
-msgstr ""
+msgstr "Camera uit"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro On"
-msgstr ""
+msgstr "Microfoon aan"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro Off"
-msgstr ""
+msgstr "Microfoon uit"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:29
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Direct Call"
-msgstr ""
+msgstr "Een directe oproep beginnen"
 
 #: widgets/conferencecalldialog/conferenceinfodialog.cpp:17
-#, fuzzy, kde-format
-#| msgid "Channel's Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Conference Call Information"
-msgstr "Informatie over kanaal"
+msgstr "Informatie over conferentieoproep"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
 #, kde-format
 msgid "Meeting URL:"
-msgstr ""
+msgstr "URL van bijeenkomst:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
 #, kde-format
 msgid "Provider:"
-msgstr ""
+msgstr "Leverancier:"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:25
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
-msgstr ""
+msgstr "Omhoog"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr "Downloaden"
+msgstr "Omlaag"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:80
 #, kde-format
@@ -6685,7 +6673,7 @@ msgstr "Loggen inschakelen"
 #: widgets/configuredialog/configuregeneralwidget.cpp:20
 #, kde-format
 msgid "Show hover highlights"
-msgstr ""
+msgstr "Accentueringen bij er boven zweven tonen"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:50
 #, kde-format
@@ -6712,11 +6700,10 @@ msgid "Font"
 msgstr "Lettertype"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:70
-#, fuzzy, kde-format
-#| msgid "Authentication"
+#, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
-msgstr "Authenticatie"
+msgstr "Autocorrectie"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:75
 #, kde-format
@@ -6725,11 +6712,10 @@ msgid "Spell Checking"
 msgstr "Spellingcontrole"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:80
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
-msgstr "Vertaling"
+msgstr "Vertalen"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:86
 #, kde-format
@@ -6741,7 +6727,7 @@ msgstr "Terugkoppeling van gebruiker"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
-msgstr ""
+msgstr "Toegankelijkheid"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -6869,8 +6855,7 @@ msgid "Delete Room"
 msgstr "Room verwijderen"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:282
-#, fuzzy, kde-format
-#| msgid "This Room has a password"
+#, kde-format
 msgid "This room has a password"
 msgstr "Deze room heeft een wachtwoord"
 
@@ -6955,24 +6940,22 @@ msgstr "Ongelezen roomstatus verbergen"
 #: widgets/dialogs/configurenotificationwidget.cpp:24
 #, kde-format
 msgid "Mute @all and @here mentions"
-msgstr ""
+msgstr "@all en @here vermeldingen dempen"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Show Mentions..."
+#, kde-format
 msgid "Show badge for mentions"
-msgstr "Vermeldingen tonen..."
+msgstr "Badge voor vermeldingen tonen"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:36
 #, kde-format
 msgid "Receive alerts"
-msgstr ""
+msgstr "Alerts ontvangen"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:55
-#, fuzzy, kde-format
-#| msgid "User mentions only"
+#, kde-format
 msgid "Display badge for direct mentions only"
-msgstr "Alleen wat gebruiker meldt"
+msgstr "Badge alleen voor directe vermeldingen tonen"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:61
 #, kde-format
@@ -7021,8 +7004,7 @@ msgstr ""
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:29
 #: widgets/prunemessages/prunemessageswidget.cpp:66
-#, fuzzy, kde-format
-#| msgid "Select Users..."
+#, kde-format
 msgid "Select users..."
 msgstr "Gebruikers selecteren..."
 
@@ -7039,10 +7021,9 @@ msgstr "Onderwerp:"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:38
 #: widgets/dialogs/createnewdiscussionwidget.cpp:51
-#, fuzzy, kde-format
-#| msgid "Invite Users..."
+#, kde-format
 msgid "Invite users..."
-msgstr "Gebruikers inviteren..."
+msgstr "Gebruikers uitnodigen..."
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
@@ -7146,10 +7127,9 @@ msgstr "Accountnaam:"
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
 #: widgets/ruqolaloginwidget.cpp:49
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Server URL:"
-msgstr "URL-adres server:"
+msgstr "Server-URL:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7344,8 +7324,7 @@ msgid "Search Messages in '%1' (%2)"
 msgstr "Berichten zoeken in '%1' (%2)"
 
 #: widgets/dialogs/searchmessagewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Search Messages"
+#, kde-format
 msgid "Search messages"
 msgstr "Berichten doorzoeken"
 
@@ -7400,28 +7379,24 @@ msgid "All"
 msgstr "Alles"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgid "Videos"
-msgstr "Video"
+msgstr "Video's"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Image"
+#, kde-format
 msgid "Images"
-msgstr "Afbeelding"
+msgstr "Afbeeldingen"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Audio"
+#, kde-format
 msgid "Audios"
-msgstr "Geluid"
+msgstr "Audios"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgid "Texts"
-msgstr "Tekst"
+msgstr "Teksten"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:24
 #, kde-format
@@ -7435,8 +7410,7 @@ msgid "Show Attachments - %1"
 msgstr "Bijlagen tonen - %1"
 
 #: widgets/dialogs/showattachmentwidget.cpp:37
-#, fuzzy, kde-format
-#| msgid "Search Attachments..."
+#, kde-format
 msgid "Search attachments..."
 msgstr "Bijlagen zoeken..."
 
@@ -7502,8 +7476,7 @@ msgid "Save Image"
 msgstr "Afbeelding opslaan"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Search Messages..."
+#, kde-format
 msgid "Search messages..."
 msgstr "Berichten doorzoeken..."
 
@@ -7564,15 +7537,13 @@ msgid "Directory - %1"
 msgstr "Map - %1"
 
 #: widgets/directory/directorywidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Channels..."
+#, kde-format
 msgid "Search channels..."
 msgstr "Kanalen doorzoeken..."
 
 #: widgets/directory/directorywidget.cpp:42
 #: widgets/directory/directorywidget.cpp:207
-#, fuzzy, kde-format
-#| msgid "Search Teams..."
+#, kde-format
 msgid "Search teams..."
 msgstr "Naar teams zoeken..."
 
@@ -7605,10 +7576,9 @@ msgstr[1] "%1 teams (totaal: %2)"
 
 #: widgets/directory/directorywidget.cpp:201
 #: widgets/teams/addteamroomcompletionlineedit.cpp:30
-#, fuzzy, kde-format
-#| msgid "Search Rooms..."
+#, kde-format
 msgid "Search rooms..."
-msgstr "Rooms doorzoeken..."
+msgstr "Rooms zoeken..."
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
 #, kde-format
@@ -7643,8 +7613,7 @@ msgid "Show Discussions - %1"
 msgstr "Discussies tonen - %1"
 
 #: widgets/discussions/showdiscussionswidget.cpp:36
-#, fuzzy, kde-format
-#| msgid "Search Discussion..."
+#, kde-format
 msgid "Search discussion..."
 msgstr "Discussies zoeken..."
 
@@ -7667,10 +7636,9 @@ msgid "Export Messages"
 msgstr "Berichten exporteren"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Format"
+#, kde-format
 msgid "Output Format:"
-msgstr "Opmaak"
+msgstr "Uitvoerformaat:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -7865,8 +7833,7 @@ msgstr ""
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:37
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Enter Authentication Code"
+#, kde-format
 msgid "Enter authentication code"
 msgstr "Authenticatiecode invoeren"
 
@@ -7955,16 +7922,14 @@ msgid "Manage Device"
 msgstr "Apparaat beheren"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Personal Access Tokens are currently disabled"
+#, kde-format
 msgid "Personal Access Token"
-msgstr "Persoonlijke toegangtokens zijn op dit moment uitgeschakeld"
+msgstr "Persoonlijk toegangstoken"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search Device"
+#, kde-format
 msgid "Search device..."
-msgstr "Zoeken naar apparaat"
+msgstr "Zoeken naar apparaat..."
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
 #, kde-format
@@ -7987,19 +7952,17 @@ msgstr "Verbinding verbreken"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Personal Token"
-msgstr ""
+msgstr "Persoonlijk token aanmaken"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
-#, fuzzy, kde-format
-#| msgid "Use Two Factor Authentication"
+#, kde-format
 msgid "Ignore Two Factor Authentication"
-msgstr "Twee-factor-authenticatie gebruiken"
+msgstr "Twee-factor-authenticatie negeren"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Search Permissions..."
+#, kde-format
 msgid "Search Personal Access Token..."
-msgstr "Toegangsrechten zoeken..."
+msgstr "Persoonlijk toegangstoken zoeken..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:120
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:194
@@ -8008,51 +7971,48 @@ msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
+"<qt>Bewaar uw token met zorg omdat u niet langer in staat zult zijn het "
+"nadien te bekijken.<br><b>Token:</b> %1<br><b>Uw gebruikers-id:</b> %2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
 #, kde-format
 msgid "Personal Token Created"
-msgstr ""
+msgstr "Persoonlijk token aangemaakt"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, kde-format
 msgid "Personal Token removed."
-msgstr ""
+msgstr "Persoonlijk token verwijderd."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
-#, fuzzy, kde-format
-#| msgid "Remove from Team"
+#, kde-format
 msgid "Remove Personal Token"
-msgstr "Uit team verwijderen"
+msgstr "Persoonlijk token verwijderen"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:199
 #, kde-format
 msgid "Personal Token Regenerated"
-msgstr ""
+msgstr "Persoonlijk token opnieuw gegenereerd"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:40
-#, fuzzy, kde-format
-#| msgid "Regenerate Code"
+#, kde-format
 msgid "Regenerate..."
-msgstr "Code opnieuw genereren"
+msgstr "Opnieuw genereren..."
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:62
-#, fuzzy, kde-format
-#| msgid "Are you sure that you want to delete this invite?"
+#, kde-format
 msgid "Are you sure that you want to delete \"%1\" Token?"
-msgstr "Wilt u deze uitnodiging verwijderen?"
+msgstr "Wilt u het token \"%1\" verwijderen?"
 
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:63
-#, fuzzy, kde-format
-#| msgid "Remove Role"
+#, kde-format
 msgid "Remove Token"
-msgstr "Rol verwijderen"
+msgstr "Token verwijderen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
-#, fuzzy, kde-format
-#| msgid "Use Emoji"
+#, kde-format
 msgid "Use Emojis"
-msgstr "Emoji gebruiken"
+msgstr "Emoji's gebruiken"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
@@ -8060,21 +8020,19 @@ msgid "Convert Ascii to Emoji"
 msgstr "Ascii naar Emoji converteren"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Hide Roles"
+#, kde-format
 msgid "Hide roles"
 msgstr "Rollen verbergen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
-#, fuzzy, kde-format
-#| msgid "Display Avatars"
+#, kde-format
 msgid "Display avatars"
 msgstr "Avatars tonen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr ""
+msgstr "E-mails over aanmelddetectie ontvangen"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -8092,20 +8050,17 @@ msgid "Separate each word with ','."
 msgstr "Elk woord scheiden met ','."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
-#, fuzzy, kde-format
-#| msgid "Desktop Notification:"
+#, kde-format
 msgid "Desktop notification:"
 msgstr "Bureaubladmeldingen:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
-#, fuzzy, kde-format
-#| msgid "Offline Email Notification:"
+#, kde-format
 msgid "Offline Email notification:"
 msgstr "Offline e-mailmelding:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Push Notification:"
+#, kde-format
 msgid "Push notification:"
 msgstr "Push-melding:"
 
@@ -8113,22 +8068,23 @@ msgstr "Push-melding:"
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
+"Een e-mail ontvangen elke keer wanneer een nieuwe aanmelding met uw account "
+"wordt gedetecteerd."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, fuzzy, kde-format
-#| msgid "View Mode:"
+#, kde-format
 msgid "View mode:"
 msgstr "Weergavemodus:"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
 #, kde-format
 msgid "Download my Data (HTML)"
-msgstr ""
+msgstr "Mijn gegevens downloaden (HTML)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
 #, kde-format
 msgid "Export my Data (JSON)"
-msgstr ""
+msgstr "Mijn gegevens exporteren (JSON)"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
 #, kde-format
@@ -8136,11 +8092,13 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"Uw gegevensbestand zal gegenereerd worden. Een koppeling voor dit downloaden "
+"zal naar uw e-mailadres gezonden worden wanneer gereed."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
 msgid "Download File Requested"
-msgstr ""
+msgstr "Verzocht bestand te downloaden"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
 #, kde-format
@@ -8198,10 +8156,9 @@ msgid "Nickname:"
 msgstr "Schermnaam:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "Status Text:"
+#, kde-format
 msgid "Status text:"
-msgstr "Status van tekst:"
+msgstr "Statustekst:"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:99
 #, kde-format
@@ -8584,10 +8541,9 @@ msgid "Delete Message"
 msgstr "Bericht verwijderen"
 
 #: widgets/room/messagelistview.cpp:765
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translator Error"
-msgstr "Vertaling"
+msgstr "Fout van vertaler"
 
 #: widgets/room/messagetextedit.cpp:165
 #, kde-format
@@ -8647,8 +8603,7 @@ msgid "(Jump to first Unread)"
 msgstr "(Naar eerste ongelezen gaan)"
 
 #: widgets/room/roomheaderlabel.cpp:67
-#, fuzzy, kde-format
-#| msgid "(Show More Infos...)"
+#, kde-format
 msgid "(Show More Info...)"
 msgstr "(Meer informatie tonen...)"
 
@@ -8665,7 +8620,7 @@ msgstr "E2E ingeschakeld"
 #: widgets/room/roomheaderwidget.cpp:100
 #, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Aanroep"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, kde-format
@@ -8861,10 +8816,9 @@ msgid "Account Name:"
 msgstr "Accountnaam:"
 
 #: widgets/ruqolaloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account name"
-msgstr "Accountnaam:"
+msgstr "Rekening naam"
 
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
@@ -8946,15 +8900,14 @@ msgid "Unread on Top"
 msgstr "Ongelezen bovenaan"
 
 #: widgets/ruqolamainwindow.cpp:401
-#, fuzzy, kde-format
-#| msgid "Last Message"
+#, kde-format
 msgid "By Last Message"
-msgstr "Laatste bericht"
+msgstr "Op laatste bericht"
 
 #: widgets/ruqolamainwindow.cpp:407
 #, kde-format
 msgid "Alphabetically"
-msgstr ""
+msgstr "Alfabetisch"
 
 #: widgets/ruqolamainwindow.cpp:413
 #, kde-format
@@ -9022,16 +8975,14 @@ msgid "Show RocketChat Information"
 msgstr "RocketChat-informatie tonen"
 
 #: widgets/ruqolamainwindow.cpp:547
-#, fuzzy, kde-format
-#| msgid "Show room avatar"
+#, kde-format
 msgid "Show Room Avatar"
 msgstr "Room-avatar tonen"
 
 #: widgets/ruqolamainwindow.cpp:552
-#, fuzzy, kde-format
-#| msgid "Enable Favorite Rooms"
+#, kde-format
 msgid "Show Favorite Room"
-msgstr "Favoriete rooms inschakelen"
+msgstr "Favoriete room tonen"
 
 #: widgets/ruqolamainwindow.cpp:578
 #, kde-format
@@ -9122,8 +9073,7 @@ msgstr "Teamkanalen"
 
 #: widgets/teams/teamchannelswidget.cpp:60
 #: widgets/teams/teamselectdeletedroomwidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Search Room..."
+#, kde-format
 msgid "Search room..."
 msgstr "Room doorzoeken..."
 
