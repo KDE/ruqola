@@ -8,14 +8,6 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
    include(PySide2ModuleBuild)
 endif()
 
-# Remove it when we will split lib
-if (NOT TARGET KF5::TextTranslator)
-    add_subdirectory(autocorrection)
-    add_subdirectory(texttranslator)
-    if (TEXTEDIT_TEXT_TO_SPEECH)
-        add_subdirectory(textedittexttospeech)
-    endif()
-endif()
 add_subdirectory(rocketchatrestapi-qt5)
 
 add_subdirectory(core)

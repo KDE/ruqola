@@ -93,39 +93,16 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
-    "ktextaddons, translator lib"
+find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
+    "Add support for text to speech"
     TYPE OPTIONAL
 )
-
-if (TARGET KF5::TextTranslator)
-    find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-    find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-    set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
-        "Add support for text to speech"
-        TYPE OPTIONAL
-    )
-    if (TARGET KF5::TextEditTextToSpeech)
-        add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-        set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
-    endif()
-else()
-    # remove when created a lib for libTextAutoCorrection
-    include(ECMGenerateHeaders)
-    # need by TextAutoCorrection. Remove it after creating lib
-    find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-        Archive
-    )
-    find_package(Qt${QT_MAJOR_VERSION}TextToSpeech ${QT_REQUIRED_VERSION} CONFIG)
-    set_package_properties(Qt${QT_MAJOR_VERSION}TextToSpeech PROPERTIES DESCRIPTION
-        "Add support for text to speech"
-        TYPE OPTIONAL
-    )
-    if(TARGET Qt${QT_MAJOR_VERSION}::TextToSpeech)
-        add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-        set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
-    endif()
+if (TARGET KF5::TextEditTextToSpeech)
+    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
+    set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
