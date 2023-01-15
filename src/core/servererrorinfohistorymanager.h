@@ -20,7 +20,7 @@ public:
 
     static ServerErrorInfoHistoryManager *self();
 
-    Q_REQUIRED_RESULT ServerErrorInfoHistoryModel *notificationHistoryModel() const;
+    Q_REQUIRED_RESULT ServerErrorInfoHistoryModel *serverErrorInfoHistoryModel() const;
 
     void addNotification(const ServerErrorInfo &info);
 

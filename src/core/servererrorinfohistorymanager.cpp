@@ -21,7 +21,7 @@ ServerErrorInfoHistoryManager *ServerErrorInfoHistoryManager::self()
     return &s_self;
 }
 
-ServerErrorInfoHistoryModel *ServerErrorInfoHistoryManager::notificationHistoryModel() const
+ServerErrorInfoHistoryModel *ServerErrorInfoHistoryManager::serverErrorInfoHistoryModel() const
 {
     return mServerErrorInfoHistoryModel;
 }

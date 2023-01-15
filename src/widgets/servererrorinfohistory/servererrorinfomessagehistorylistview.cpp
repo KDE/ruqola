@@ -5,7 +5,9 @@
 */
 
 #include "servererrorinfomessagehistorylistview.h"
+#include "model/servererrorinfohistorymodel.h"
 #include "servererrorinfohistorydelegate.h"
+#include "servererrorinfohistorymanager.h"
 
 #include <KLocalizedString>
 #include <QApplication>
@@ -106,7 +108,7 @@ void ServerErrorInfoMessageHistoryListView::slotTextToSpeech(const QModelIndex &
         if (!index.isValid()) {
             return;
         }
-        // TODO messageText = index.data(NotificationHistoryModel::MessageStr).toString();
+        messageText = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
     }
     Q_EMIT textToSpeech(messageText);
 }
@@ -115,7 +117,7 @@ void ServerErrorInfoMessageHistoryListView::slotTextToSpeech(const QModelIndex &
 void ServerErrorInfoMessageHistoryListView::slotClearList()
 {
     clearCache();
-    // NotificationHistoryManager::self()->notificationHistoryModel()->clear();
+    ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel()->clear();
 }
 
 void ServerErrorInfoMessageHistoryListView::copyMessageToClipboard(const QModelIndex &index)
@@ -125,7 +127,7 @@ void ServerErrorInfoMessageHistoryListView::copyMessageToClipboard(const QModelI
         if (!index.isValid()) {
             return;
         }
-        // TODO message = index.data(NotificationHistoryModel::MessageStr).toString();
+        message = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
     }
 
     QClipboard *clip = QApplication::clipboard();
