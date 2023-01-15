@@ -9,10 +9,14 @@
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
 
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ServerErrorInfoMessageHistoryWidget(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryWidget() override;
+
+private:
+    QLineEdit *const mSearchLineEdit;
 };
