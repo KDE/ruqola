@@ -25,7 +25,7 @@ public:
     void addServerErrorInfo(const ServerErrorInfo &info);
 
 Q_SIGNALS:
-    void newNotification();
+    void newServerErrorInfo();
 
 private:
     ServerErrorInfoHistoryModel *const mServerErrorInfoHistoryModel;
