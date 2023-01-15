@@ -23,8 +23,8 @@ void IrcWidgetTest::shouldHaveDefaultValues()
     auto mCacheLimitOutBoundMessage = w.findChild<QSpinBox *>(QStringLiteral("mCacheLimitOutBoundMessage"));
     QVERIFY(mCacheLimitOutBoundMessage);
     QVERIFY(!mCacheLimitOutBoundMessage->toolTip().isEmpty());
-    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCacheLimitOutBoundMessage), QStringLiteral("IRC_Port"));
-    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_Port"));
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCacheLimitOutBoundMessage), QStringLiteral("IRC_Message_Cache_Size"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_Message_Cache_Size"));
 
     // TODO
 }
