@@ -39,15 +39,6 @@ private:
     Q_REQUIRED_RESULT QTextDocument *documentForModelIndex(const QModelIndex &index, int width) const override;
 
     struct Layout {
-        // Sender
-        QString senderText;
-        QFont senderFont;
-        QRectF senderRect;
-
-        // Avatar pixmap
-        QPixmap avatarPixmap;
-        QPointF avatarPos;
-
         // Text message
         QRect textRect;
         qreal baseLine; // used to draw sender/timestamp

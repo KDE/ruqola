@@ -19,6 +19,8 @@ public:
     enum ServerErrorInfoHistoryRoles {
         AccountName = Qt::UserRole + 1,
         MessageStr,
+        Identifier,
+        DateTime,
     };
     Q_ENUM(ServerErrorInfoHistoryRoles)
     explicit ServerErrorInfoHistoryModel(QObject *parent = nullptr);

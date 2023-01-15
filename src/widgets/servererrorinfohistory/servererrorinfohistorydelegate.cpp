@@ -5,11 +5,10 @@
 */
 
 #include "servererrorinfohistorydelegate.h"
-#include "accountmanager.h"
 #include "common/delegatepaintutil.h"
 #include "delegateutils/messagedelegateutils.h"
 #include "delegateutils/textselectionimpl.h"
-#include "model/notificationhistorymodel.h"
+#include "model/servererrorinfohistorymodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
 #include "textconverter.h"
@@ -28,16 +27,12 @@ void ServerErrorInfoHistoryDelegate::drawAccountRoomInfo(QPainter *painter, cons
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
-    if (channelName.isEmpty()) {
-        channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
-    }
-    const QString infoStr = QStringLiteral("%1 - %2").arg(accountName, channelName);
-    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
+    const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
+    const QString accountInfoStr = accountName;
+    const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, accountInfoStr);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
-    painter->drawText(infoTextRect, infoStr);
+    painter->drawText(infoTextRect, accountInfoStr);
     const int lineY = (infoAreaRect.top() + infoAreaRect.bottom()) / 2;
     QColor lightColor(painter->pen().color());
     lightColor.setAlpha(60);
@@ -55,17 +50,6 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
     const Layout layout = doLayout(option, index);
 
     drawAccountRoomInfo(painter, index, option);
-
-    // Draw the pixmap
-    if (!layout.avatarPixmap.isNull()) {
-        painter->drawPixmap(layout.avatarPos, layout.avatarPixmap);
-    }
-
-    // Draw the sender
-    const QFont oldFont = painter->font();
-    painter->setFont(layout.senderFont);
-    painter->drawText(layout.senderRect.x(), layout.baseLine, layout.senderText);
-    painter->setFont(oldFont);
 
     // Draw Text
     if (layout.textRect.isValid()) {
@@ -94,6 +78,7 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
 QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+#if 0
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
 
@@ -112,6 +97,9 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
     //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
 
     return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
+#else
+    return {};
+#endif
 }
 
 // text AccountName/room
@@ -119,12 +107,7 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
-    const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
-    const int margin = MessageDelegateUtils::basicMargin();
-    layout.senderText = QLatin1Char('@') + userName;
-    layout.senderFont = option.font;
-    layout.senderFont.setBold(true);
-
+#if 0
     // Timestamp
     layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
 
@@ -133,12 +116,6 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
-    // Resize pixmap TODO cache ?
-    const auto pix = index.data(NotificationHistoryModel::Pixmap).value<QPixmap>();
-    if (!pix.isNull()) {
-        const QPixmap scaledPixmap = pix.scaled(senderTextSize.height(), senderTextSize.height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        layout.avatarPixmap = scaledPixmap;
-    }
 
     const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
 
@@ -163,14 +140,14 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
     // Align top of avatar with top of sender rect
     layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
-
+#endif
     return layout;
 }
 
 QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = index.data(NotificationHistoryModel::MessageId).toString();
+    const QString messageId = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
     Q_ASSERT(!messageId.isEmpty());
 
     auto it = mDocumentCache.find(messageId);
@@ -182,7 +159,7 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
         return ret;
     }
 
-    const QString messageStr = index.data(NotificationHistoryModel::MessageStr).toString();
+    const QString messageStr = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
 
     if (messageStr.isEmpty()) {
         return nullptr;
@@ -227,23 +204,6 @@ bool ServerErrorInfoHistoryDelegate::helpEvent(QHelpEvent *helpEvent, QAbstractI
     const auto *doc = documentForModelIndex(index, layout.textRect.width());
     if (!doc) {
         return false;
-    }
-
-    const QPoint helpEventPos{helpEvent->pos()};
-    if (layout.senderRect.contains(helpEventPos)) {
-        auto account = rocketChatAccount(index);
-        if (account) {
-            const QString senderName = index.data(NotificationHistoryModel::SenderName).toString();
-            QString tooltip = senderName;
-            if (account->useRealName() && !tooltip.isEmpty()) {
-                const QString senderUserName = index.data(NotificationHistoryModel::SenderUserName).toString();
-                tooltip = QLatin1Char('@') + senderUserName;
-            }
-            if (!tooltip.isEmpty()) {
-                QToolTip::showText(helpEvent->globalPos(), tooltip, view);
-                return true;
-            }
-        }
     }
 
     const QPoint relativePos = adaptMousePosition(helpEvent->pos(), layout.textRect, option);
@@ -294,8 +254,8 @@ bool ServerErrorInfoHistoryDelegate::maybeStartDrag(QMouseEvent *event, const QS
 
 RocketChatAccount *ServerErrorInfoHistoryDelegate::rocketChatAccount(const QModelIndex &index) const
 {
-    const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
-    return Ruqola::self()->accountManager()->accountFromName(accountName);
+    // TODO
+    return nullptr;
 }
 
 QString ServerErrorInfoHistoryDelegate::selectedText() const
