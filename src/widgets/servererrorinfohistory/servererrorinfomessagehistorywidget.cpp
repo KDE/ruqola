@@ -6,6 +6,7 @@
 
 #include "servererrorinfomessagehistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/servererrorinfohistoryfilterproxymodel.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "ruqolawidgets_debug.h"
 #include "servererrorinfohistorymanager.h"
@@ -25,6 +26,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
+    , mServerErrorInfoHistoryFilterProxyModel(new ServerErrorInfoHistoryFilterProxyModel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -43,6 +45,10 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     mainLayout->addLayout(searchLayout);
 
     auto model = ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel();
+
+    mServerErrorInfoHistoryFilterProxyModel->setObjectName(QStringLiteral("mServerErrorInfoHistoryFilterProxyModel"));
+    mServerErrorInfoHistoryFilterProxyModel->setSourceModel(model);
+    mListServerInfosListView->setModel(mServerErrorInfoHistoryFilterProxyModel);
 
     connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);

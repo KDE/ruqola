@@ -290,6 +290,8 @@ target_sources(libruqolacore PRIVATE
     model/usersmodel.h
     model/servererrorinfohistorymodel.h
     model/servererrorinfohistorymodel.cpp
+    model/servererrorinfohistoryfilterproxymodel.cpp
+    model/servererrorinfohistoryfilterproxymodel.h
 
 
     notificationinfo.cpp
