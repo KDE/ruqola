@@ -22,9 +22,13 @@ public:
     Q_REQUIRED_RESULT QString message() const;
     void setMessage(const QString &newMessage);
 
+    Q_REQUIRED_RESULT QDateTime dateTime() const;
+    void setDateTime(const QDateTime &newDateTime);
+
 private:
     QString mAccountName;
     QString mMessage;
+    QDateTime mDateTime;
 };
 
 Q_DECLARE_METATYPE(ServerErrorInfo)

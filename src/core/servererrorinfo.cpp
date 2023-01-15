@@ -36,3 +36,13 @@ void ServerErrorInfo::setMessage(const QString &newMessage)
 {
     mMessage = newMessage;
 }
+
+QDateTime ServerErrorInfo::dateTime() const
+{
+    return mDateTime;
+}
+
+void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
+{
+    mDateTime = newDateTime;
+}

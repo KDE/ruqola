@@ -18,4 +18,5 @@ void ServerErrorInfoTest::shouldHaveDefaultValues()
     ServerErrorInfo info;
     QVERIFY(info.message().isEmpty());
     QVERIFY(info.accountName().isEmpty());
+    QVERIFY(!info.dateTime().isValid());
 }
