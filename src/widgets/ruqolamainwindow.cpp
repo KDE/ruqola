@@ -12,6 +12,7 @@
 #include "accountmanager.h"
 #include "administratordialog/administratordialog.h"
 #include "administratorsettingsdialog/administratorsettingsdialog.h"
+#include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 
 #include "bannerinfodialog/bannerinfodialog.h"
 #include "config-ruqola.h"
@@ -694,7 +695,8 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
 
 void RuqolaMainWindow::slotShowServerInfo()
 {
-    // TODO
+    auto dlg = ServerErrorInfoMessageHistoryDialog(this);
+    dlg.exec();
 }
 
 void RuqolaMainWindow::slotShowLog()
