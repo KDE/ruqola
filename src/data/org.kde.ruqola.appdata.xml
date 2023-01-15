@@ -604,6 +604,8 @@
       <li xml:lang="ca">Conferència de vídeo</li>
       <li xml:lang="fr">Vidéo-conférence</li>
       <li xml:lang="ka">ვიდეო კონფერენცია</li>
+      <li xml:lang="nl">Videoconferentie</li>
+      <li xml:lang="pl">Wideokonferencja</li>
       <li xml:lang="sl">Video konferenca</li>
       <li xml:lang="uk">Відеоконференція</li>
       <li xml:lang="x-test">xxVideo Conferencexx</li>
@@ -760,6 +762,8 @@
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
       <li xml:lang="ka">პირადი წვდომის კოდის მართვა</li>
+      <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
+      <li xml:lang="pl">Zarządzanie osobistym tokenem dostępowym</li>
       <li xml:lang="sl">Upravljaj žeton za osebni dostop</li>
       <li xml:lang="tr">Kişisel Erişim Jetonunu Yönet</li>
       <li xml:lang="uk">Керування жетоном особистого доступу</li>
@@ -768,6 +772,8 @@
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
       <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
+      <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
+      <li xml:lang="pl">Dodanie obsługi dla miejscowych tłumaczeń</li>
       <li xml:lang="sl">Dodajanje podpore za lokalni prevod</li>
       <li xml:lang="tr">Yerel çeviri desteği</li>
       <li xml:lang="uk">Додано підтримку перекладу у локальній системі</li>
@@ -776,6 +782,8 @@
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
       <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
+      <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
+      <li xml:lang="pl">Dodanie obsługi dla zautomatyzowanego poprawiania tekstu</li>
       <li xml:lang="sl">Dodaj podporo za samodejno popravljanje besedila</li>
       <li xml:lang="uk">Додано підтримку автоматичного виправлення тексту</li>
       <li xml:lang="x-test">xxAdd support for text auto-correctionxx</li>
