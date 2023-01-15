@@ -303,7 +303,9 @@ target_sources(libruqolacore PRIVATE
     notifications/notifierjob.cpp
     notifications/notifierjob.h
     notificationhistorymanager.cpp
+    servererrorinfohistorymanager.cpp
     notificationhistorymanager.h
+    servererrorinfohistorymanager.h
     oauth/oauthinfo.cpp
     oauth/oauthinfo.h
     otr/otr.cpp
@@ -427,6 +429,8 @@ target_sources(libruqolacore PRIVATE
 
     servererrorinfo.h
     servererrorinfo.cpp
+    servererrorinfohistorymanager.cpp
+    servererrorinfohistorymanager.h
 )
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
