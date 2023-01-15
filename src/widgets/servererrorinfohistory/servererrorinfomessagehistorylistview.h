@@ -30,7 +30,6 @@ protected:
     Q_REQUIRED_RESULT bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
 Q_SIGNALS:
-    void showMessage(const QModelIndex &index);
     void textToSpeech(const QString &str);
 
 private:

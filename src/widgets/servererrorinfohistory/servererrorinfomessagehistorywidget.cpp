@@ -7,6 +7,7 @@
 #include "servererrorinfomessagehistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "ruqolawidgets_debug.h"
+#include "servererrorinfomessagehistorylistview.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
@@ -15,6 +16,7 @@
 ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
+    , mListServerInfosListView(new ServerErrorInfoMessageHistoryListView(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -31,6 +33,20 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     new LineEditCatchReturnKey(mSearchLineEdit, this);
 
     mainLayout->addLayout(searchLayout);
+
+    mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
+    mainLayout->addWidget(mListServerInfosListView);
+
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    connect(mListServerInfosListView, &ServerErrorInfoMessageHistoryListView::textToSpeech, this, &ServerErrorInfoMessageHistoryWidget::slotTextToSpeech);
+#endif
 }
 
 ServerErrorInfoMessageHistoryWidget::~ServerErrorInfoMessageHistoryWidget() = default;
+
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+void ServerErrorInfoMessageHistoryWidget::slotTextToSpeech(const QString &messageText)
+{
+    // TODO mTextToSpeechWidget->say(messageText);
+}
+#endif

@@ -10,6 +10,7 @@
 #include <QWidget>
 
 class QLineEdit;
+class ServerErrorInfoMessageHistoryListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryWidget : public QWidget
 {
     Q_OBJECT
@@ -18,5 +19,9 @@ public:
     ~ServerErrorInfoMessageHistoryWidget() override;
 
 private:
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    void slotTextToSpeech(const QString &messageText);
+#endif
     QLineEdit *const mSearchLineEdit;
+    ServerErrorInfoMessageHistoryListView *const mListServerInfosListView;
 };
