@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2023-01-13 19:47+0300\n"
+"PO-Revision-Date: 2023-01-14 21:48+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5187,7 +5187,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Giden ileti işleme için önbellek sınırı."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -9144,11 +9144,10 @@ msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Hatalar ve Bilgi"
+msgstr "Sunucu Hatası Bilgisi"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

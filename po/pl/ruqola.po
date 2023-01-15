@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the ruqola package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2019, 2020, 2021, 2022.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2019, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2022-09-15 15:54+0200\n"
+"PO-Revision-Date: 2023-01-14 18:38+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.04.1\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -153,40 +153,39 @@ msgstr "Następujące konta są dostępne:"
 #: autocorrection/src/import/importlibreofficeautocorrection.cpp:52
 #, kde-format
 msgid "Archive cannot be opened in read mode."
-msgstr ""
+msgstr "Nie można otworzyć archiwum w trybie do odczytu."
 
 #. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
 #: autocorrection/src/ui/autocorrectionwidget.ui:21
-#, fuzzy, kde-format
-#| msgid "Enabled E2E encryption"
+#, kde-format
 msgid "Enable autocorrection"
-msgstr "Włącz szyfrowanie E2E"
+msgstr "Włącz samopoprawianie "
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: autocorrection/src/ui/autocorrectionwidget.ui:30
 #, kde-format
 msgid "Replacement and exception for language:"
-msgstr ""
+msgstr "Zastąpienia i wyjątki dla języka:"
 
 #. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
 #: autocorrection/src/ui/autocorrectionwidget.ui:44
 #, fuzzy, kde-format
 #| msgid "Export Messages..."
 msgid "Export..."
-msgstr "Wyeksportuj wiadomości..."
+msgstr "Wyeksportuj..."
 
 #. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
 #: autocorrection/src/ui/autocorrectionwidget.ui:51
-#, kde-format
+#, fuzzy, kde-format
 msgid "Import..."
-msgstr ""
+msgstr "Zaimportuj..."
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: autocorrection/src/ui/autocorrectionwidget.ui:77
 #, fuzzy, kde-format
 #| msgid "Add Autojoin"
 msgid "Ad&vanced Autocorrection"
-msgstr "Dodaj samodołączanie"
+msgstr "Rozbudo&wane samopoprawianie"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #. i18n: ectx: property (text), widget (QPushButton, add1)
@@ -195,7 +194,7 @@ msgstr "Dodaj samodołączanie"
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:502
 #, kde-format
 msgid "&Add"
-msgstr ""
+msgstr "Dod&aj"
 
 #. i18n: ectx: property (text), widget (QPushButton, removeButton)
 #. i18n: ectx: property (text), widget (QPushButton, remove2)
@@ -226,67 +225,65 @@ msgstr "Włącz ulubione pokoje"
 
 #. i18n: ectx: property (text), widget (QLabel, findLabel)
 #: autocorrection/src/ui/autocorrectionwidget.ui:129
-#, kde-format
+#, fuzzy, kde-format
 msgid "&Find"
-msgstr ""
+msgstr "&Znajdź"
 
 #. i18n: ectx: property (text), widget (QLabel, replaceLabel)
 #: autocorrection/src/ui/autocorrectionwidget.ui:149
-#, kde-format
+#, fuzzy, kde-format
 msgid "Re&place"
-msgstr ""
+msgstr "Za&stąp"
 
 #. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: autocorrection/src/ui/autocorrectionwidget.ui:187
 #, kde-format
 msgid "Find"
-msgstr ""
+msgstr "Poszukaj"
 
 #. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: autocorrection/src/ui/autocorrectionwidget.ui:192
 #, fuzzy, kde-format
 #| msgid "Reply"
 msgid "Replace"
-msgstr "Odpowiedz"
+msgstr "Zastąp"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_4)
 #: autocorrection/src/ui/autocorrectionwidget.ui:201
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgid "E&xceptions"
-msgstr "Ustawienia"
+msgstr "W&yjątki"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: autocorrection/src/ui/autocorrectionwidget.ui:209
 #, kde-format
 msgid "Do not treat as the end of a sentence:"
-msgstr ""
+msgstr "Nie traktuj jako końca zdania:"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove1)
 #: autocorrection/src/ui/autocorrectionwidget.ui:235
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "R&emove"
-msgstr "Usuń"
+msgstr "&Usuń"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: autocorrection/src/ui/autocorrectionwidget.ui:277
-#, kde-format
+#, fuzzy, kde-format
 msgid "Accept two uppercase letters in:"
-msgstr ""
+msgstr "Przyzwalaj na dwie wielkie litery w:"
 
 #. i18n: ectx: property (text), widget (QPushButton, add2)
 #: autocorrection/src/ui/autocorrectionwidget.ui:296
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgid "Add"
-msgstr "Dodaj..."
+msgstr "Dodaj"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_1)
 #: autocorrection/src/ui/autocorrectionwidget.ui:344
-#, kde-format
+#, fuzzy, kde-format
 msgid "Si&mple Autocorrection"
-msgstr ""
+msgstr "Proste sa&mopoprawianie"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
 #: autocorrection/src/ui/autocorrectionwidget.ui:350
@@ -295,6 +292,8 @@ msgid ""
 "Detect when a new sentence is started and always ensure that the first "
 "character is an uppercase character"
 msgstr ""
+"Wykrywaj kiedy nowe zdanie jest rozpoczynane i zawsze dopilnuj, żeby "
+"pierwszy znak był pisany wielką literą"
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperCase)
 #: autocorrection/src/ui/autocorrectionwidget.ui:354
@@ -303,6 +302,8 @@ msgid ""
 "Convert &first letter of a sentence automatically to uppercase\n"
 "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 msgstr ""
+"Sam zamień pierwszą literę zdania na wielką\n"
+"(np. \"mój dom. w tym mieście\" na \"mój dom. W tym mieście\")"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
 #: autocorrection/src/ui/autocorrectionwidget.ui:364
@@ -312,6 +313,9 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"Wszystkie słowa są sprawdzane pod względem najczęstszych pomyłek przy "
+"dłuższym przytrzymaniu klawisza shift. Jeśli dwa wyrazy zaczynają się od "
+"wielkiej litery, wtedy te wyjątki powinny zostać dodane na karcie 'Wyjątki'."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: autocorrection/src/ui/autocorrectionwidget.ui:368
@@ -321,6 +325,8 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"Zamień &dwie wielkie litery na jedną wielką i jedną małą.\n"
+"(np IDealnie na Idealnie)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: autocorrection/src/ui/autocorrectionwidget.ui:375
@@ -329,30 +335,33 @@ msgid ""
 "Make sure that more than one space cannot be typed, as this is a common "
 "mistake which is quite hard to find in formatted text."
 msgstr ""
+"Zapewnij, że więcej niż jeden ostęp nie może zostać wpisany, jako że jest to "
+"częsty błąd, trudny do znalezienia w sformatowanym tekście."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
 #: autocorrection/src/ui/autocorrectionwidget.ui:378
-#, kde-format
+#, fuzzy, kde-format
 msgid "&Suppress double spaces"
-msgstr ""
+msgstr "U&suń podwójne odstępy"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
 #: autocorrection/src/ui/autocorrectionwidget.ui:385
-#, kde-format
+#, fuzzy, kde-format
 msgid "Most standard fraction notations will be converted when available"
 msgstr ""
+"Większość zapisów ułamków będzie przekształcanych, gdy jest to dostępne"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
 #: autocorrection/src/ui/autocorrectionwidget.ui:388
-#, kde-format
+#, fuzzy, kde-format
 msgid "Re&place 1/2... with ½..."
-msgstr ""
+msgstr "Zastą&p 1/2 ...½..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
 #: autocorrection/src/ui/autocorrectionwidget.ui:395
 #, kde-format
 msgid "Capitalize name of days"
-msgstr ""
+msgstr "Pisz nazwy dni z wielkiej litery"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
 #: autocorrection/src/ui/autocorrectionwidget.ui:402
@@ -361,12 +370,14 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"Wykrywaj kiedy jest wprowadzany adres URL i wprowadź formatowanie, które "
+"odpowiada sposobowi w jaki przeglądarka internetowa pokazałaby ten adres."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: autocorrection/src/ui/autocorrectionwidget.ui:405
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr ""
+msgstr "Formatuj adresy &URL (tryb HTML)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: autocorrection/src/ui/autocorrectionwidget.ui:412
@@ -375,43 +386,46 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"Kiedy używasz _podkreślania_ albo *pogrubiania*, tekst pomiędzy znakami "
+"podkreślenia albo gwiazdkami będzie zamieniany na podkreślony lub pogrubiony."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: autocorrection/src/ui/autocorrectionwidget.ui:415
 #, kde-format
 msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-msgstr ""
+msgstr "Pogru&biaj, przekreślaj i podkreślaj (tryb HTML)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
 #: autocorrection/src/ui/autocorrectionwidget.ui:422
 #, kde-format
 msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr ""
+msgstr "Zastąp 1st... z 1^st... (tryb HTML)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
 #: autocorrection/src/ui/autocorrectionwidget.ui:429
 #, kde-format
 msgid "Add non breaking space before specific punctuation marks in French text"
 msgstr ""
+"Dodaj niełamiący odstęp przed charakterystycznymi znakami interpunkcyjnymi w "
+"tekście francuskim"
 
 #. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
 #: autocorrection/src/ui/autocorrectionwidget.ui:436
 #, kde-format
 msgid "Replace double quotes by french quotes"
-msgstr ""
+msgstr "Zastąp podwójne cudzysłowy cudzysłowami francuskimi"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: autocorrection/src/ui/autocorrectionwidget.ui:457
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Custom &Quotes"
-msgstr "Własne dźwięki"
+msgstr "Własne &cudzysłowy"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
 #: autocorrection/src/ui/autocorrectionwidget.ui:463
-#, kde-format
+#, fuzzy, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr ""
+msgstr "Zastąp &podwójne cudzysłowy cudzysłowami drukarskimi"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -421,8 +435,7 @@ msgstr ""
 #: autocorrection/src/ui/autocorrectionwidget.ui:514
 #: autocorrection/src/ui/autocorrectionwidget.ui:641
 #: autocorrection/src/ui/autocorrectionwidget.ui:655
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "By Default"
 msgstr "Domyślne"
 
@@ -438,7 +451,7 @@ msgstr ""
 #: autocorrection/src/ui/autocorrectionwidget.ui:507
 #, kde-format
 msgid "Ending Quote:"
-msgstr ""
+msgstr "Cudzysłów kończący:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -446,7 +459,7 @@ msgstr ""
 #: autocorrection/src/ui/autocorrectionwidget.ui:634
 #, kde-format
 msgid "Opening Quote:"
-msgstr ""
+msgstr "Cudzysłów otwierający:"
 
 #. i18n: ectx: property (text), widget (QPushButton, doubleDefault)
 #. i18n: ectx: property (text), widget (QPushButton, singleDefault)
@@ -463,9 +476,9 @@ msgstr "Domyślne"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
 #: autocorrection/src/ui/autocorrectionwidget.ui:572
-#, kde-format
+#, fuzzy, kde-format
 msgid "Replace &single quotes with typographical quotes"
-msgstr ""
+msgstr "Zastępuj &pojedyncze cudzysłowy cudzysłowami drukarskimi"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -479,13 +492,13 @@ msgstr ""
 #: autocorrection/src/ui/autocorrectionwidget.ui:648
 #, kde-format
 msgid "Ending Quotes:"
-msgstr ""
+msgstr "Cudzysłowy kończące:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: autocorrection/src/ui/autocorrectionwidget.ui:707
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Ścieżka"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: autocorrection/src/ui/autocorrectionwidget.ui:713
@@ -500,7 +513,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Text"
 msgid "TextLabel"
-msgstr "Tekst"
+msgstr "EtykietaTekstowa"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: autocorrection/src/ui/autocorrectionwidget.ui:743
@@ -546,94 +559,93 @@ msgstr "Własny opis:"
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:138
 #, kde-format
 msgid "LibreOffice Autocorrection"
-msgstr ""
+msgstr "Samopoprawianie LibreOffice"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:142
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
-msgstr ""
+msgstr "Samopoprawianie KMail/Calligra"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:420
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr ""
+msgstr "Ciąg znaków \"Zastąp\" to to samo co ciąg znaków \"Znajdź\"."
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:420
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add Autocorrection Entry"
-msgstr "Dodaj samodołączanie"
+msgstr "Dodaj wpis samopoprawiania"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:499
 #, fuzzy, kde-format
 #| msgid "Modify..."
 msgid "&Modify"
-msgstr "Zmień..."
+msgstr "Z&mień"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:610
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
-msgstr ""
+msgstr "Zaimportuj samopoprawianie LibreOffice"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:611
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr ""
+msgstr "Plik samopoprawiania LibreOffice (*.dat)"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:614
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr ""
+msgstr "Zaimportuj samopoprawianie KMail"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:615
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr ""
+msgstr "Plik samopoprawiania KMail (*.xml)"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:647
 #, kde-format
 msgid "Import Autocorrection File"
-msgstr ""
+msgstr "Zaimportuj plik samopoprawiania"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:670
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
 msgstr ""
+"Język został zmieniony, czy chcesz zapisać ustawienia dla poprzedniego "
+"języka?"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:671
-#, fuzzy, kde-format
-#| msgid "Save Sound"
+#, kde-format
 msgid "Save config"
-msgstr "Zapisz dźwięk"
+msgstr "Zapisz ustawienia"
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:706
 #, kde-format
 msgid "Please save changes before exporting settings."
-msgstr ""
+msgstr "Zapisz zmiany przed eksportowaniem ustawień."
 
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:706
 #: autocorrection/src/widgets/autocorrectionwidget.cpp:709
 #, kde-format
 msgid "Export Autocorrection File"
-msgstr ""
+msgstr "Wyeksportuj plik samopoprawiania"
 
 #: autocorrection/src/widgets/selectspecialchardialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Allow Special Characters in Room Names"
+#, kde-format
 msgctxt "@title:window"
 msgid "Select Special Characters"
-msgstr "Zezwól na znaki szczególne w nazwach pokojów"
+msgstr "Wybierz znaki wyjątkowe"
 
 #: autocorrection/src/widgets/selectspecialchardialog.cpp:40
-#, kde-format
+#, fuzzy, kde-format
 msgid "Insert"
-msgstr ""
+msgstr "Wstaw"
 
 #: autocorrection/src/widgets/selectspecialchardialog.cpp:53
 #, fuzzy, kde-format
 #| msgid "Select All"
 msgid "Select"
-msgstr "Zaznacz wszystko"
+msgstr "Wybierz"
 
 #: core/accountmanager.cpp:61
 #, kde-format
@@ -836,10 +848,9 @@ msgstr "Flagi"
 #: core/messages/block.cpp:45 core/messages/message.cpp:498
 #: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Video Conference"
+#, kde-format
 msgid "Conference Call"
-msgstr "Wideokonferencja"
+msgstr "Połączenie konferencyjne"
 
 #: core/messages/message.cpp:504
 #, kde-format
@@ -1481,13 +1492,13 @@ msgstr "Wspomnienia"
 #, fuzzy, kde-format
 #| msgid "TOTP Required"
 msgid "Required"
-msgstr "Wymagany TOTP"
+msgstr "Wymagane"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, fuzzy, kde-format
 #| msgid "Ignore"
 msgid "Ignored"
-msgstr "Pomiń"
+msgstr "Pomijany"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:84
 #, fuzzy, kde-format
@@ -1945,14 +1956,14 @@ msgid "Call ongoing"
 msgstr ""
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
-#, kde-format
+#, fuzzy, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Rozmowa przychodząca"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:55
-#, kde-format
+#, fuzzy, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Przyjmij"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
 #: texttranslator/translator/plugins/google/googleengineclient.cpp:26
@@ -1968,31 +1979,29 @@ msgid "Login/Password"
 msgstr "Login/Hasło"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Save As Text..."
+#, kde-format
 msgid "Share Text..."
-msgstr "Zapisz jako tekst..."
+msgstr "Udostępnij tekst..."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
+#, fuzzy, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "Wystąpił problem przy udostępnianiu dokumentu: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
-#, kde-format
+#, fuzzy, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Udostępnij"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "File is too large"
+#, kde-format
 msgid "File was shared."
-msgstr "Plik jest za duży"
+msgstr "Plik został udostępniony."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
-msgstr ""
+msgstr "<qt>Możesz znaleźć nowe żądanie na:<br /><a href='%1'>%1</a> </qt>"
 
 #: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
 #, kde-format
@@ -2744,23 +2753,23 @@ msgstr ""
 #: textedittexttospeech/texttospeechactions.cpp:31
 #, kde-format
 msgid "Stop"
-msgstr ""
+msgstr "Zatrzymaj"
 
 #: textedittexttospeech/texttospeechactions.cpp:72
-#, kde-format
+#, fuzzy, kde-format
 msgid "Pause"
-msgstr ""
+msgstr "Wstrzymaj"
 
 #: textedittexttospeech/texttospeechactions.cpp:72
 #, kde-format
 msgid "Play"
-msgstr ""
+msgstr "Odtwórz"
 
 #: textedittexttospeech/texttospeechconfigdialog.cpp:28
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Ustawienia Tekstu-na-mowę"
 
 #: textedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
@@ -2770,31 +2779,31 @@ msgstr ""
 #: textedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
 msgid "Test"
-msgstr ""
+msgstr "Próba"
 
 #: textedittexttospeech/texttospeechconfigwidget.cpp:41
 #: textedittexttospeech/texttospeechwidget.cpp:59
-#, kde-format
+#, fuzzy, kde-format
 msgid "Volume:"
-msgstr ""
+msgstr "Głośność:"
 
 #: textedittexttospeech/texttospeechconfigwidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Private:"
 msgid "Rate:"
-msgstr "Prywatne:"
+msgstr "Ocena:"
 
 #: textedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Ton:"
 
 #: textedittexttospeech/texttospeechconfigwidget.cpp:54
 #: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:47
 #: texttranslator/translator/widgets/translatorconfigurewidget.cpp:39
 #, kde-format
 msgid "Engine:"
-msgstr ""
+msgstr "Silnik:"
 
 #: textedittexttospeech/texttospeechconfigwidget.cpp:58
 #: widgets/dialogs/autotranslateconfigurewidget.cpp:37
@@ -2805,7 +2814,7 @@ msgstr "Język:"
 #: textedittexttospeech/texttospeechconfigwidget.cpp:62
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Głos:"
 
 #: textedittexttospeech/texttospeechwidget.cpp:54
 #: texttranslator/translator/widgets/translatorwidget.cpp:236
@@ -2824,7 +2833,7 @@ msgstr "Ustawienia Ruqoli"
 #: texttranslator/translator/misc/translatorutil.cpp:30
 #, kde-format
 msgid "Detect language"
-msgstr ""
+msgstr "Wykryj język"
 
 #: texttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
@@ -2834,331 +2843,330 @@ msgstr ""
 #: texttranslator/translator/misc/translatorutil.cpp:36
 #, kde-format
 msgid "Bosnian"
-msgstr ""
+msgstr "Bośniacki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:39
-#, kde-format
+#, fuzzy, kde-format
 msgid "English"
-msgstr ""
+msgstr "Angielski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:42
 #, kde-format
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Chiński (uproszczony)"
 
 #: texttranslator/translator/misc/translatorutil.cpp:45
 #, kde-format
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "Chiński (tradycyjny)"
 
 #: texttranslator/translator/misc/translatorutil.cpp:48
-#, kde-format
+#, fuzzy, kde-format
 msgid "Dutch"
-msgstr ""
+msgstr "Holenderski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:51
-#, kde-format
+#, fuzzy, kde-format
 msgid "French"
-msgstr ""
+msgstr "Francuski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:54
-#, kde-format
+#, fuzzy, kde-format
 msgid "German"
-msgstr ""
+msgstr "Niemiecki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:57
-#, kde-format
+#, fuzzy, kde-format
 msgid "Greek"
-msgstr ""
+msgstr "Grecki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:60
 #, fuzzy, kde-format
 #| msgid "Italic"
 msgid "Italian"
-msgstr "Kursywa"
+msgstr "Włoski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:63
-#, kde-format
+#, fuzzy, kde-format
 msgid "Japanese"
-msgstr ""
+msgstr "Japoński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:66
-#, kde-format
+#, fuzzy, kde-format
 msgid "Korean"
-msgstr ""
+msgstr "Koreański"
 
 #: texttranslator/translator/misc/translatorutil.cpp:69
-#, kde-format
+#, fuzzy, kde-format
 msgid "Portuguese"
-msgstr ""
+msgstr "Portugalski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:72
 #, kde-format
 msgid "Russian"
-msgstr ""
+msgstr "Rosyjski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:75
-#, kde-format
+#, fuzzy, kde-format
 msgid "Spanish"
-msgstr ""
+msgstr "Hiszpański"
 
 #: texttranslator/translator/misc/translatorutil.cpp:78
 #, kde-format
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrykanerski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:81
 #, kde-format
 msgid "Albanian"
-msgstr ""
+msgstr "Albański"
 
 #: texttranslator/translator/misc/translatorutil.cpp:84
-#, kde-format
+#, fuzzy, kde-format
 msgid "Arabic"
-msgstr ""
+msgstr "Arabski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:87
-#, kde-format
+#, fuzzy, kde-format
 msgid "Armenian"
-msgstr ""
+msgstr "Armeński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:90
 #, kde-format
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azerbejdżański"
 
 #: texttranslator/translator/misc/translatorutil.cpp:93
 #, kde-format
 msgid "Basque"
-msgstr ""
+msgstr "Baskijski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:96
 #, kde-format
 msgid "Belarusian"
-msgstr ""
+msgstr "Białoruski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:99
 #, kde-format
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bułgarski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:102
 #, kde-format
 msgid "Catalan"
-msgstr ""
+msgstr "Kataloński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:105
 #, kde-format
 msgid "Croatian"
-msgstr ""
+msgstr "Chorwacki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:108
 #, kde-format
 msgid "Czech"
-msgstr ""
+msgstr "Czeski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:111
 #, kde-format
 msgid "Danish"
-msgstr ""
+msgstr "Duński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:114
 #, kde-format
 msgid "Estonian"
-msgstr ""
+msgstr "Estoński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:117
 #, kde-format
 msgid "Filipino"
-msgstr ""
+msgstr "Filipiński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:120
 #, kde-format
 msgid "Finnish"
-msgstr ""
+msgstr "Fiński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:123
 #, kde-format
 msgid "Galician"
-msgstr ""
+msgstr "Galicyjski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:126
 #, kde-format
 msgid "Georgian"
-msgstr ""
+msgstr "Gruziński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:129
-#, kde-format
+#, fuzzy, kde-format
 msgid "Haitian Creole"
-msgstr ""
+msgstr "Haitański Creole"
 
 #: texttranslator/translator/misc/translatorutil.cpp:132
-#, kde-format
+#, fuzzy, kde-format
 msgid "Hebrew"
-msgstr ""
+msgstr "Hebrajski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:135
 #, kde-format
 msgid "Hindi"
-msgstr ""
+msgstr "Hindi"
 
 #: texttranslator/translator/misc/translatorutil.cpp:138
 #, kde-format
 msgid "Hungarian"
-msgstr ""
+msgstr "Węgierski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:141
 #, kde-format
 msgid "Icelandic"
-msgstr ""
+msgstr "Islandzki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:144
-#, kde-format
+#, fuzzy, kde-format
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonezyjski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:147
 #, kde-format
 msgid "Irish"
-msgstr ""
+msgstr "Irlandzki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:150
 #, kde-format
 msgid "Latvian"
-msgstr ""
+msgstr "Łotewski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:153
 #, kde-format
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litewski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:156
 #, kde-format
 msgid "Macedonian"
-msgstr ""
+msgstr "Macedoński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:159
 #, kde-format
 msgid "Malay"
-msgstr ""
+msgstr "Malajski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:162
 #, kde-format
 msgid "Maltese"
-msgstr ""
+msgstr "Maltański"
 
 #: texttranslator/translator/misc/translatorutil.cpp:165
 #, kde-format
 msgid "Norwegian"
-msgstr ""
+msgstr "Norweski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:168
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Persian"
-msgstr "Wersja"
+msgstr "Perski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:171
-#, kde-format
+#, fuzzy, kde-format
 msgid "Polish"
-msgstr ""
+msgstr "Polski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:174
 #, kde-format
 msgid "Romanian"
-msgstr ""
+msgstr "Rumuński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:177
 #, kde-format
 msgid "Serbian"
-msgstr ""
+msgstr "Serbski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:180
 #, kde-format
 msgid "Slovak"
-msgstr ""
+msgstr "Słowacki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:183
 #, kde-format
 msgid "Slovenian"
-msgstr ""
+msgstr "Słoweński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:186
-#, kde-format
+#, fuzzy, kde-format
 msgid "Swahili"
-msgstr ""
+msgstr "Suahili"
 
 #: texttranslator/translator/misc/translatorutil.cpp:189
-#, kde-format
+#, fuzzy, kde-format
 msgid "Swedish"
-msgstr ""
+msgstr "Szwedzki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:192
 #, kde-format
 msgid "Thai"
-msgstr ""
+msgstr "Tajski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:195
-#, kde-format
+#, fuzzy, kde-format
 msgid "Turkish"
-msgstr ""
+msgstr "Turecki"
 
 #: texttranslator/translator/misc/translatorutil.cpp:198
 #, kde-format
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukraiński"
 
 #: texttranslator/translator/misc/translatorutil.cpp:201
 #, kde-format
 msgid "Urdu"
-msgstr ""
+msgstr "Urdu"
 
 #: texttranslator/translator/misc/translatorutil.cpp:204
 #, fuzzy, kde-format
 #| msgid "Filename:"
 msgid "Vietnamese"
-msgstr "Nazwa pliku:"
+msgstr "Wietnamski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:207
 #, kde-format
 msgid "Welsh"
-msgstr ""
+msgstr "Walijski"
 
 #: texttranslator/translator/misc/translatorutil.cpp:210
 #, kde-format
 msgid "Yiddish"
-msgstr ""
+msgstr "Jidysz"
 
 #: texttranslator/translator/plugins/bing/bingengineclient.cpp:26
 #, kde-format
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 #: texttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr ""
+msgstr "Błąd: Nie można znaleźć danych dostępowych Bing w wersji sieciowej."
 
 #: texttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
-msgstr ""
+msgstr "Błąd: Nie można wydobyć klucza Bing z wersji sieciowej."
 
 #: texttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
-msgstr ""
+msgstr "Błąd: Nie można wydobyć tokena Bing z wersji sieciowej."
 
 #: texttranslator/translator/plugins/bing/bingengineplugin.cpp:86
 #: texttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
+msgstr "Błąd: Nie można wydobyć dodatkowych danych Bing z wersji sieciowej."
 
 #: texttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
-msgstr ""
+msgstr "DeepL"
 
 #: texttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
@@ -3177,9 +3185,9 @@ msgstr ""
 
 #: texttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
-#, kde-format
+#, fuzzy, kde-format
 msgid "Api Key:"
-msgstr ""
+msgstr "Klucz API: "
 
 #: texttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
@@ -3188,11 +3196,9 @@ msgid "Server needs Api Key."
 msgstr ""
 
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgid "Libre Translate"
-msgstr "Ustawienia tłumaczenia w tle"
+msgstr "Tłumacz Libre"
 
 #: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
@@ -3215,12 +3221,12 @@ msgstr "Nie znaleziono serwera: %1"
 #: texttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
-msgstr ""
+msgstr "Lingva"
 
 #: texttranslator/translator/plugins/yandex/yandexengineclient.cpp:26
 #, kde-format
 msgid "Yandex"
-msgstr ""
+msgstr "Yandex"
 
 #: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
 #: texttranslator/translator/translatorengineplugin.cpp:100
@@ -3229,29 +3235,29 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
+"Błąd: Systemy silników wykryły podejrzany ruch z twojej sieci twojego "
+"komputera. Spróbuj ponownie później."
 
 #: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
+msgstr "Błąd: Nie można znaleźć Yandex SID w wersji sieciowej."
 
 #: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
+msgstr "Błąd: Nie można wydobyć tokena Yandex SID z wersji sieciowej."
 
 #: texttranslator/translator/translatorengineplugin.cpp:108
-#, kde-format
+#, fuzzy, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr ""
+msgstr "Użyto tego samego języka dla tłumaczenia z i na."
 
 #: texttranslator/translator/widgets/translatorconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Ustawienia tłumaczenia w tle"
+msgstr "Ustawienia tłumacza"
 
 #: texttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:35
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -3281,10 +3287,9 @@ msgid "Translator Debug"
 msgstr "Tłumaczenie"
 
 #: texttranslator/translator/widgets/translatordebugdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "Zapisz j&ako..."
+msgstr "Zapisz jako..."
 
 #: texttranslator/translator/widgets/translatordebugdialog.cpp:88
 #, kde-format
@@ -3292,28 +3297,28 @@ msgid ""
 "Could not write the file %1:\n"
 "\"%2\" is the detailed error description."
 msgstr ""
+"Nie można zapisać pliku %1:\n"
+"\"%2\" jest szczegółowym opisem błędu."
 
 #: texttranslator/translator/widgets/translatordebugdialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Zapisz plik"
+msgstr "Błąd zapisu pliku"
 
 #: texttranslator/translator/widgets/translatordebugdialog.cpp:115
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Wszystkie pliki (*)"
 
 #: texttranslator/translator/widgets/translatormenu.cpp:22
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate..."
-msgstr "Tłumaczenie"
+msgstr "Przetłumacz..."
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:133
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Problem przy łączeniu do sieciowej strony tłumacza."
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:245
 #, fuzzy, kde-format
@@ -3330,10 +3335,10 @@ msgid "To:"
 msgstr "Do:"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:264
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Invert language choices so that from becomes to and to becomes from"
 msgid "Invert"
-msgstr ""
+msgstr "Odwróć"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:269
 #: texttranslator/translator/widgets/translatorwidget.cpp:272
@@ -3348,19 +3353,19 @@ msgstr "Wyczyść"
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translate"
-msgstr "Tłumaczenie"
+msgstr "Przetłumacz"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:287
-#, kde-format
+#, fuzzy, kde-format
 msgid "Debug"
-msgstr ""
+msgstr "Diagnostyka"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:305
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Configure Ruqola"
 msgid "Configure"
-msgstr "Ustawienia Ruqoli"
+msgstr "Ustawienia"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:320
 #, kde-format
@@ -3368,22 +3373,23 @@ msgid ""
 "Drag text that you want to translate. (Be careful text will be send to "
 "Google Server)."
 msgstr ""
+"Przeciągnij tekst, który chcesz przetłumaczyć. (Zachowaj ostrożność, bo "
+"będzie on wysłany na serwery Google)."
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network connection detected, we cannot translate text."
-msgstr ""
+msgstr "Nie wykryto połączenia z siecią, więc nie można przetłumaczyć tekstu."
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "Brak sieci"
 
 #: texttranslator/translator/widgets/translatorwidget.cpp:455
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate error"
-msgstr "Tłumaczenie"
+msgstr "Błąd tłumacza"
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -4235,7 +4241,7 @@ msgstr "Czy usunąć tego użytkownika?"
 #, fuzzy, kde-format
 #| msgid "Invites"
 msgid "Invite..."
-msgstr "Zaproszenia"
+msgstr "Zaproś"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:240
 #, kde-format
@@ -4498,7 +4504,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Dzienniki"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #: widgets/dialogs/configurenotificationwidget.cpp:86
@@ -4519,18 +4525,18 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
-#, kde-format
+#, fuzzy, kde-format
 msgid "Analytics"
-msgstr ""
+msgstr "Anal&iza"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:17
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Messages"
-msgstr "Wiadomość"
+msgstr "Wiadomości"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:20
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:21
@@ -4538,7 +4544,7 @@ msgstr "Wiadomość"
 #, fuzzy, kde-format
 #| msgid "Enabled"
 msgid "Enable"
-msgstr "Włączone"
+msgstr "Włącz"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:25
 #, fuzzy, kde-format
@@ -4568,6 +4574,8 @@ msgid ""
 "Tracks custom events related to actions on a channel or group (create, "
 "leave, delete)."
 msgstr ""
+"Śledzi własne wydarzenia związane z działaniami odnośnie kanałów i grup "
+"(tworzenie, opuszczanie, usuwanie)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:46
 #, kde-format
@@ -4575,6 +4583,8 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Śledzi własne wydarzenia związane z działaniami odnośnie użytkowników "
+"( czasy zerowania haseł, zmiana zdjęć profilowych, itp.)"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -4597,11 +4607,13 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"Adres URL, pod którym znajduje się Piwik. Pamiętaj, aby nie zabrakło "
+"ukośnika na końcu, np. //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "Adres URL"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
@@ -4612,7 +4624,7 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid "Client ID:"
 msgid "Client ID"
-msgstr "ID klienta:"
+msgstr "Indentyfikator Klienta"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
@@ -4686,6 +4698,8 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
+"Adres URL logowania dla twojej zewnętrznej usługi SSO, np. https://sso."
+"example.undef/sso/login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:49
@@ -4702,6 +4716,11 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Po włączeniu, Rocket.Chat zaufa że każda nazwa użytkownika z CAS należy do "
+"tego samego użytkownika na Rocket.Chat.\n"
+"Może to być potrzebne, gdy nazwa użytkownika ulegnie zmianie na CAS, lecz "
+"może także być użyte do zarządzania kontami Rocket.Chat poprzez zmianę ich "
+"własnych użytkowników CAS."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
@@ -4720,6 +4739,9 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Domyślnie pobierz zewnętrzne dane użytkownika CAS do dostępnych atrybutów po "
+"zalogowaniu.\n"
+"Uwaga: Atrybuty są zawsze pobierane po utworzeniu nowego konta."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
@@ -4741,6 +4763,18 @@ msgid ""
 "{\"rooms\": \"%team%,%department%\"} would join CAS users on creation to "
 "their team and department channel."
 msgstr ""
+"Użyj tych danych wejściowych JSON do zbudowania wewnętrznych atrybutów "
+"(klucza) z zewnętrznych atrybutów (wartości).\n"
+"Nazwy zewnętrznych atrybutów otoczone znakami '%' zostaną zamienione na "
+"wartości w ciągach znaków.<br/>Na przykład, {\"email\":\"%email%\", \"nazwa"
+"\":\"%imię%, %nazwisko%\"}\n"
+"Mapa atrybutów jest zawsze interpolowana. W CAS 1.0 tylko nazwa użytkownika "
+"jest dostępna. Dostępne atrybuty wewnętrzne to: nazwa użytkownika, nazwa, "
+"email, pokoje;\n"
+"pokoje to spis pokojów oddzielonych od siebie przecinkami, do których "
+"dołączyć po utworzeniu użytkownika, np.: {\"pokoje\": \"%zespół%,%oddział%"
+"\"} dołączy użytkownika CAS po jego utworzeniu do kanału jego zespołu i "
+"oddziału."
 
 #: widgets/administratorsettingsdialog/conferencecall/conferencecallsettingswidget.cpp:22
 #, fuzzy, kde-format
@@ -4779,12 +4813,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
-#, kde-format
+#, fuzzy, kde-format
 msgid "smtp"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
@@ -4802,7 +4836,7 @@ msgstr "Port"
 #, fuzzy, kde-format
 #| msgid "User name: %1"
 msgid "Username"
-msgstr "Nazwa użytkownika: %1"
+msgstr "Nazwa użytkownika"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:68
 #, fuzzy, kde-format
@@ -4811,10 +4845,9 @@ msgid "From Email"
 msgstr "E-mail"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:70
-#, fuzzy, kde-format
-#| msgid "Private"
+#, kde-format
 msgid "Privacy"
-msgstr "Prywatny"
+msgstr "Prywatność"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:82
 #, fuzzy, kde-format
@@ -4832,6 +4865,13 @@ msgid ""
 "exclusively for access by Rocket.Chat\n"
 "and is not read/processed \"in parallel\" by humans."
 msgstr ""
+"[Uwaga!] Po włączeniu \"Odpowiedzi bezpośredniej\", Rocket.Chat będzie "
+"sterował ustawioną skrzynką poczty elektronicznej.\n"
+"Wszystkie nieprzeczytane wiadomości zostaną pobrane, oznaczone jako "
+"przeczytane i przetworzone.\n"
+"\"Odpowiedź bezpośrednia\" powinna być włączona tylko gdy dana skrzynka "
+"pocztowa jest przeznaczona do dostępu wyłącznie przez Rocket.Chat\n"
+"i nie jest odczytywana/przetwarzana \"równolegle\" przez ludzi."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:97
 #, kde-format
@@ -4839,6 +4879,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[Uwaga] Włączenie trybu diagnostycznego wyświetli twoje 'nieszyfrowane "
+"hasło' w konsoli administratora."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, fuzzy, kde-format
@@ -4850,9 +4892,9 @@ msgstr "Dodaj hasło"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:131
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:141
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:151
-#, kde-format
+#, fuzzy, kde-format
 msgid "Body"
-msgstr ""
+msgstr "Treść"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:115
 #, fuzzy, kde-format
@@ -5082,7 +5124,7 @@ msgstr "Nazwa strony"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "UTF8"
-msgstr ""
+msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
@@ -5168,12 +5210,7 @@ msgid "Update Latest Available Version"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "Checks automatically for new updates / important messages from the Rocket."
-#| "Chat developers and receives notifications when available. The "
-#| "notification appears once per new version as a clickable banner and as a "
-#| "message from the Rocket.Cat bot, both visible only for administrators."
+#, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
 "Chat developers and receives notifications when available.\n"
@@ -5182,8 +5219,9 @@ msgid ""
 "both visible only for administrators."
 msgstr ""
 "Sam szuka nowych uaktualnień / ważnych wiadomości od programistów Rocket."
-"Chat oraz odbiera powiadomienia, gdy są dostępne. Powiadomienie pojawia się "
-"raz na nową wersję jako klikalny baner i jak wiadomość od bota Rocket.Cat, "
+"Chat oraz odbiera powiadomienia, gdy są dostępne.\n"
+"Powiadomienie pojawia się raz na nową wersję jako klikalny baner i jak "
+"wiadomość od bota Rocket.Cat,\n"
 "oba widoczne tylko dla administratorów."
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
@@ -5198,6 +5236,8 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"Ustawia strefę czasową domyślną dla tablicy lub przy wysłaniu wiadomości "
+"pocztowych"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
 #, fuzzy, kde-format
@@ -5241,6 +5281,10 @@ msgid ""
 "disabled. Users can still change per room setting to receive all "
 "notifications on an individual basis. (0 to disable)"
 msgstr ""
+"Graniczna liczba użytkowników w pokoju, przy której powiadomienia dla "
+"wszystkich wiadomości zostaną wyłączone. Użytkownik nadal może zmienić "
+"ustawienia dla danego pokoju, aby pobrać wszystkie powiadomienia. (0 aby "
+"wyłączyć)"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
 #, kde-format
@@ -5419,6 +5463,8 @@ msgid ""
 "A channel that will receive all captured exceptions. Leave empty to ignore "
 "exceptions."
 msgstr ""
+"Kanał, który otrzyma wszystkie przechwycone wyjątki. Pozostaw pustym, aby "
+"pominąć wyjątki."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:29
 #, fuzzy, kde-format
@@ -5447,7 +5493,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
-msgstr ""
+msgstr "Poziom dziennika"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, fuzzy, kde-format
@@ -5462,6 +5508,8 @@ msgid ""
 "The text here will be evaluated as RegExp (new RegExp('text')). Keep it "
 "empty to show trace of every call."
 msgstr ""
+"Tekst tutaj zostanie potraktowany jako wyrażenie regularne (new "
+"RegExp('tekst')). Pozostaw pustym, aby móc śledzić każde wywołanie."
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:49
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:57
@@ -5558,6 +5606,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"Jest to przestarzała cecha. Może nie działać zgodnie z oczekiwaniami i nie "
+"dostanie już żadnych uaktualnień."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
@@ -5648,6 +5698,9 @@ msgid ""
 "Strips out EXIF metadata from image files (jpeg, tiff, etc). This setting is "
 "not retroactive, so files uploaded while disabled will have EXIF data"
 msgstr ""
+"Pozbawia pliki obrazów (jpeg, tiff, itp.) metadanych EXIF. To ustawienie nie "
+"zadziała wstecz, więc pliki wysłane przed włączeniem tego ustawienia nadal "
+"będą zawierały dane EXIF."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:135
 #, kde-format
@@ -5656,6 +5709,9 @@ msgid ""
 "usage. Images at original resolution can be downloaded using the icon next "
 "to the attachment's name."
 msgstr ""
+"Zostaną przedstawione miniatury zamiast rzeczywistych obrazów, aby "
+"ograniczyć wykorzystanie sieci. Obrazy w rzeczywistym rozmiarze można "
+"pobrać, po naciśnięciu na ikonie obok nazwy załącznika."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:141
 #, kde-format
@@ -5738,6 +5794,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"Po włączeniu, wymusi na twoich użytkownikach użycie PINu/BIOMETRII/TWARZY do "
+"odblokowania aplikacji. "
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -5745,6 +5803,8 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"Czas do ponownej prośby o hasło po ukończeniu ostatniego posiedzenia, w "
+"sekundach."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
@@ -5796,10 +5856,9 @@ msgid "Google Login"
 msgstr "Google"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
-#, fuzzy, kde-format
-#| msgid "Apply"
+#, kde-format
 msgid "Apple"
-msgstr "Zastosuj"
+msgstr "Jabłko"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
 #, kde-format
@@ -5828,28 +5887,27 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
 msgid "Url"
-msgstr ""
+msgstr "Adres URL"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:86
-#, kde-format
+#, fuzzy, kde-format
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
-#, fuzzy, kde-format
-#| msgid "Client Secret"
+#, kde-format
 msgid "Secret"
-msgstr "Dane poufne klienta"
+msgstr "Tajny"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
@@ -5866,7 +5924,7 @@ msgstr "Dane poufne klienta"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
@@ -5881,14 +5939,14 @@ msgid "LinkedIn Secret"
 msgstr "Dane poufne klienta"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:126
-#, kde-format
+#, fuzzy, kde-format
 msgid "Proxy"
-msgstr ""
+msgstr "Pośrednik"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:131
-#, kde-format
+#, fuzzy, kde-format
 msgid "Proxy Host"
-msgstr ""
+msgstr "Host pośrednika:"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:134
 #, fuzzy, kde-format
@@ -5914,10 +5972,9 @@ msgid "Meteor Secret"
 msgstr "Dane poufne klienta"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:155
-#, fuzzy, kde-format
-#| msgid "Handbook"
+#, kde-format
 msgid "Facebook"
-msgstr "Podręcznik"
+msgstr "Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
@@ -5932,9 +5989,9 @@ msgid "Facebook Secret"
 msgstr "Współdzielona dana dostępowa"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:173
-#, kde-format
+#, fuzzy, kde-format
 msgid "Github"
-msgstr ""
+msgstr "GitHub"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
@@ -6344,6 +6401,8 @@ msgid ""
 "Import messages from Slack with an alias; %s is replaced by the username of "
 "the user. If empty, no alias will be used."
 msgstr ""
+"Zaimportuj wiadomości ze Slacka z aliasem; %s zostanie zastąpione nazwą "
+"użytkownika. Jeśli puste, to nie zostanie użyty żaden alias."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:51
 #, fuzzy, kde-format
@@ -6357,6 +6416,9 @@ msgid ""
 "Do not propagate messages from bots whose name matches the regular "
 "expression above. If left empty, all messages from bots will be propagated."
 msgstr ""
+"Nie podawaj dalej wiadomości od botów, których nazwa odpowiada powyższemu "
+"wyrażeniu regularnemu. Jeśli będzie ono puste, to zostaną podane dalej "
+"wszystkie wiadomości od botów."
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:56
 #, kde-format
@@ -6411,6 +6473,8 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"To ustawienie całkowicie wyłącza powiadomienia; dźwiękowe, na pulpicie, na "
+"urządzeniach przenośnych i na pocztę!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6419,6 +6483,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"To ustawienie zapobiega we wszystkich wystąpieniach wysyłania zmian o stanie "
+"użytkowników do ich klientów, zatrzymując się na stanie obecności z "
+"pierwszego wczytania!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6427,6 +6494,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"To ustawienia uniemożliwia wystąpieniom Rocket.Chat wysyłanie zdarzeń do "
+"innych wystąpień, co może powodować trudności z synchronizacją i "
+"nieoczekiwane zachowanie!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6434,6 +6504,8 @@ msgid ""
 "This setting stops the processing of livechat visitor sessions causing the "
 "statistics to stop working correctly!"
 msgstr ""
+"To ustawienie wyłączy przetwarzanie posiedzenia gościa rozmowy na żywo, co "
+"spowoduje niepoprawne działanie statystyki!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:57
 #, kde-format
@@ -6442,6 +6514,9 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"To ustawienie zatrzymuje przetwarzanie statystyk, czyniąc stronę "
+"informacyjna, nieaktualną do czasu, gdy ktoś naciśnie na przycisk "
+"odświeżania i może przywoła inne brakujące dane z systemu!"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6449,6 +6524,9 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"To ustawienie wyłączy przetwarzanie wszystkich próśb o eksportowanie od "
+"użytkowników, więc nie będą oni otrzymywać odnośników do pobrania swoich "
+"danych."
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6456,6 +6534,8 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"To ustawienie wyłącza synchronizację tego serwera z chmurą Rocket.Chat i "
+"może powodować kłopoty z rynkiem i licencjami firmowymi!"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, fuzzy, kde-format
@@ -6606,6 +6686,10 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Spis serwerów STUN i TURN oddzielonych przecinkami.\n"
+"Nazwa użytkownika, hasło oraz port są dozwolone wg następującego zapisu "
+"nazwa_użytkownika:hasło@stun:gospodarz:port or nazwa_użytkownika:hasło@turn:"
+"gospodarz:port."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
@@ -6730,9 +6814,9 @@ msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
-#, kde-format
+#, fuzzy, kde-format
 msgid "Start"
-msgstr ""
+msgstr "Początek"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:36
 #, kde-format
@@ -6780,16 +6864,16 @@ msgid "Provider:"
 msgstr "Domyślny pokój"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:24
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
-msgstr ""
+msgstr "W górę"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:30
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
+msgstr "W dół"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:74
 #, kde-format
@@ -6879,7 +6963,7 @@ msgstr "Sprawdzanie pisowni"
 #| msgid "Translation"
 msgctxt "@title Preferences page name"
 msgid "Translate"
-msgstr "Tłumaczenie"
+msgstr "Przetłumacz"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:86
 #, kde-format
@@ -6888,10 +6972,10 @@ msgid "User Feedback"
 msgstr "Informacja zwrotna"
 
 #: widgets/configuredialog/configuresettingsdialog.cpp:93
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
-msgstr ""
+msgstr "Dostępność"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -7193,7 +7277,7 @@ msgstr "Temat:"
 #, fuzzy, kde-format
 #| msgid "Invite Users..."
 msgid "Invite users..."
-msgstr "Zaproś użytkowników..."
+msgstr "Zaproś użytkowników"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:39
 #, kde-format
@@ -7290,10 +7374,9 @@ msgstr "Edycja konta"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Account name:"
-msgstr "Nazwa konta"
+msgstr "Nazwa konta:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
@@ -7301,7 +7384,7 @@ msgstr "Nazwa konta"
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
-msgstr "URL Serwera:"
+msgstr "URL serwera:"
 
 #: widgets/dialogs/createvideomessagedialog.cpp:18
 #, kde-format
@@ -7500,7 +7583,7 @@ msgstr "Poszukaj wiadomości w '%1' (%2)"
 #, fuzzy, kde-format
 #| msgid "Search Messages"
 msgid "Search messages"
-msgstr "Szukaj wiadomości"
+msgstr "Szukanie wiadomości"
 
 #: widgets/dialogs/searchmessagewidget.cpp:107
 #: widgets/dialogs/showlistmessagebasewidget.cpp:95
@@ -7535,7 +7618,7 @@ msgstr "Dane serwera"
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Server version:"
-msgstr "Wersja serwera: %1"
+msgstr "Wersja serwera:"
 
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
 #, kde-format
@@ -7558,13 +7641,13 @@ msgstr "Wszystkie"
 #, fuzzy, kde-format
 #| msgid "Video"
 msgid "Videos"
-msgstr "Wideo"
+msgstr "Filmy"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:21
 #, fuzzy, kde-format
 #| msgid "Image"
 msgid "Images"
-msgstr "Obraz"
+msgstr "Obrazy"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
 #, fuzzy, kde-format
@@ -7573,8 +7656,7 @@ msgid "Audios"
 msgstr "Dźwięk"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
-#, fuzzy, kde-format
-#| msgid "Text"
+#, kde-format
 msgid "Texts"
 msgstr "Tekst"
 
@@ -7661,7 +7743,7 @@ msgstr "Zapisz obraz"
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search messages..."
-msgstr "Szukaj wiadomości..."
+msgstr "Szukanie wiadomości"
 
 #: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #, kde-format
@@ -7766,7 +7848,7 @@ msgstr[2] "%1 zespołów (Razem: %2)"
 #, fuzzy, kde-format
 #| msgid "Search Rooms..."
 msgid "Search rooms..."
-msgstr "Szukaj pokojów..."
+msgstr "Szukaj pokojów"
 
 #: widgets/discussions/discussion/listdiscussiondelegate.cpp:70
 #, kde-format
@@ -7830,7 +7912,7 @@ msgstr "Wyeksportuj wiadomości"
 #, fuzzy, kde-format
 #| msgid "Format"
 msgid "Output Format:"
-msgstr "Format"
+msgstr "Format wyjściowy"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:38
 #, kde-format
@@ -8170,6 +8252,8 @@ msgid ""
 "<qt>Please save your token carefully as you will no longer be able to view "
 "it afterwards.<br><b>Token:</b> %1<br><b>Your user Id:</b> %2</qt>"
 msgstr ""
+"<qt>Zapisz swój token w bezpiecznym miejscu, bo nie będzie go można później "
+"zobaczyć.<br><b>Token:</b>%1<br><b>ID twojego użytkownika:</b>%2</qt>"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
 #, fuzzy, kde-format
@@ -8279,8 +8363,7 @@ msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, fuzzy, kde-format
-#| msgid "View Mode:"
+#, kde-format
 msgid "View mode:"
 msgstr "Tryb widoku:"
 
@@ -8300,6 +8383,8 @@ msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
+"Twój plik danych zostanie utworzony, a następnie drogą pocztową dostaniesz "
+"odnośnik do jego pobrania."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
 #, kde-format
@@ -8843,9 +8928,9 @@ msgid "E2E Enabled"
 msgstr "Włączone E2E"
 
 #: widgets/room/roomheaderwidget.cpp:100
-#, kde-format
+#, fuzzy, kde-format
 msgid "Call"
-msgstr ""
+msgstr "Zadzwoń"
 
 #: widgets/room/roomheaderwidget.cpp:107 widgets/room/roomheaderwidget.cpp:201
 #, kde-format
@@ -9042,8 +9127,7 @@ msgid "Account Name:"
 msgstr "Nazwa konta:"
 
 #: widgets/ruqolaloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Account Name"
+#, kde-format
 msgid "Account name"
 msgstr "Nazwa konta"
 
@@ -9135,7 +9219,7 @@ msgstr "Ostatnia wiadomość"
 #: widgets/ruqolamainwindow.cpp:403
 #, kde-format
 msgid "Alphabetically"
-msgstr ""
+msgstr "Alfabetycznie"
 
 #: widgets/ruqolamainwindow.cpp:409
 #, kde-format
@@ -9203,8 +9287,7 @@ msgid "Show RocketChat Information"
 msgstr "Pokaż szczegóły RocketChat"
 
 #: widgets/ruqolamainwindow.cpp:543
-#, fuzzy, kde-format
-#| msgid "Show room avatar"
+#, kde-format
 msgid "Show Room Avatar"
 msgstr "Pokaż awatar pokoju"
 

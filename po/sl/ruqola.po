@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2023-01-11 07:53+0100\n"
+"PO-Revision-Date: 2023-01-13 11:15+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4330,10 +4330,9 @@ msgid "Enable collect log in data"
 msgstr "Omogoči zapisovanje dnevnika"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Sporočilo o stanju:"
+msgstr "Dovoli poročila o stanju po meri"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, kde-format
@@ -4408,7 +4407,7 @@ msgstr "IRC Federation"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -5537,19 +5536,17 @@ msgstr "Največje število veriženih navednic"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:103
 #, kde-format
 msgid "Keep Messages and User Name"
-msgstr ""
+msgstr "Ohrani sporočila in uporabniško ime"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "Izbriši sporočilo"
+msgstr "Izbriši vsa sporočila"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
 msgid "Remove Link Between User and Messages"
-msgstr ""
+msgstr "Odstrani povezavo med uporabnikom in sporočili"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
 #, kde-format
@@ -5562,12 +5559,19 @@ msgid ""
 "between user and messages: This option will assign all messages and files of "
 "the user to Rocket.Chat bot and Direct Messages are going to be deleted."
 msgstr ""
+"Določite, kaj storiti s sporočili uporabnikov, ki odstranijo svoj račun. "
+"Obdrži sporočila in uporabniško ime: zgodovina sporočil in datoteke bo "
+"izbrisana iz neposrednih sporočil in bo hranjena v drugih sobah. Izbriši vsa "
+"sporočila: Vsa sporočila in datoteke uporabnika bodo izbrisani iz baze "
+"podatkov in uporabnika ne bo več mogoče najti. Odstrani povezavo med "
+"uporabnikom in sporočili: ta možnost bo dodelila vsa sporočila in datoteke "
+"uporabnika bot uporabniku Rocket.Chat bot  in neposredna sporočila bodo "
+"izbrisana."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
-#, fuzzy, kde-format
-#| msgid "Message has been pinned"
+#, kde-format
 msgid "Message Erasure Type"
-msgstr "Sporočilo pripeto"
+msgstr "Vrsta brisanja sporočila"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:116
 #, kde-format
@@ -8487,17 +8491,15 @@ msgid "Save Sound"
 msgstr "Shrani zvok"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Pokaži sliko"
+msgstr "Prenesi sliko"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Prenesi sliko..."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:86

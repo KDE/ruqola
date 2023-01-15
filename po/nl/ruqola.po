@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2023-01-12 11:12+0100\n"
+"PO-Revision-Date: 2023-01-14 16:29+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4421,7 +4421,7 @@ msgstr "IRC-federatie"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -5225,7 +5225,7 @@ msgstr "Max leden in room alvorens alle berichtmeldingen uit te schakelen"
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "De cachelimiet voor behandeling van uitgaande berichten."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5572,16 +5572,7 @@ msgid "Remove Link Between User and Messages"
 msgstr "Koppeling tussen gebruiker en berichten verwijderen"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Determine what to do with messages of users who remove their account. "
-#| "Keep Messages and User Name: The message and files history of the user "
-#| "will be deleted from Direct Messages and will be kept in other rooms. "
-#| "Delete All Messages: All messages and files from the user will be deleted "
-#| "from the database and it will not be possible to locate the user anymore. "
-#| "Remove link between user and messages: This option will assign all "
-#| "messages and fles of the user to Rocket.Cat bot and Direct Messages are "
-#| "going to be deleted."
+#, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
 "Messages and User Name: The message and files history of the user will be "
@@ -5598,7 +5589,7 @@ msgstr ""
 "verwijderen: alle berichten en bestanden van de gebruiker zullen verwijderd "
 "worden uit de database en het zal niet meer mogelijk zijn om de gebruiker te "
 "lokaliseren. Koppeling tussen gebruiker en berichten verwijderen: deze optie "
-"zal alle berichten en bestanden van de gebruiker aan Rocket.Cat bot "
+"zal alle berichten en bestanden van de gebruiker aan bot van Rocket.Chat "
 "toekennen en directe berichten zullen worden verwijderd."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:112
