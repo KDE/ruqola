@@ -8,7 +8,9 @@
 #include "rocketchataccount.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
+#include "servererrorinfo.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
+#include "servererrorinfohistorymanager.h"
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QHBoxLayout>
@@ -45,6 +47,11 @@ RuqolaCentralWidget::~RuqolaCentralWidget() = default;
 
 void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const QString &accountName)
 {
+    ServerErrorInfo info;
+    info.setAccountName(accountName);
+    info.setMessage(messageError);
+    info.setDateTime(QDateTime::currentDateTime());
+    ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
     KMessageBox::error(this, messageError, i18n("Error from \'%1\' account", accountName));
 }
 

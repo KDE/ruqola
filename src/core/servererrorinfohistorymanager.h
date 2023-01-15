@@ -22,7 +22,7 @@ public:
 
     Q_REQUIRED_RESULT ServerErrorInfoHistoryModel *serverErrorInfoHistoryModel() const;
 
-    void addNotification(const ServerErrorInfo &info);
+    void addServerErrorInfo(const ServerErrorInfo &info);
 
 Q_SIGNALS:
     void newNotification();

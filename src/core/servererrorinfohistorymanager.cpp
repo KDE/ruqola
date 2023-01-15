@@ -26,7 +26,7 @@ ServerErrorInfoHistoryModel *ServerErrorInfoHistoryManager::serverErrorInfoHisto
     return mServerErrorInfoHistoryModel;
 }
 
-void ServerErrorInfoHistoryManager::addNotification(const ServerErrorInfo &info)
+void ServerErrorInfoHistoryManager::addServerErrorInfo(const ServerErrorInfo &info)
 {
     mServerErrorInfoHistoryModel->addServerErrorInfo(info);
     Q_EMIT newNotification();
