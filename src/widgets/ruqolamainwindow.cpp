@@ -410,6 +410,10 @@ void RuqolaMainWindow::setupActions()
     connect(mShowLog, &QAction::triggered, this, &RuqolaMainWindow::slotShowLog);
     ac->addAction(QStringLiteral("show_log"), mShowLog);
 
+    mShowServerInfo = new QAction(QIcon::fromTheme(QStringLiteral("view-history")), i18n("Show Server Errors"), this);
+    connect(mShowServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowServerInfo);
+    ac->addAction(QStringLiteral("show_server_errors"), mShowServerInfo);
+
     mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
@@ -686,6 +690,11 @@ void RuqolaMainWindow::slotRoomListSortByLastMessage()
 void RuqolaMainWindow::slotRoomListSortAlphabetically()
 {
     mCurrentRocketChatAccount->setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
+}
+
+void RuqolaMainWindow::slotShowServerInfo()
+{
+    // TODO
 }
 
 void RuqolaMainWindow::slotShowLog()

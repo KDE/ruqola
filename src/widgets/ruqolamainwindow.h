@@ -101,6 +101,7 @@ private:
     void slotShowRoomAvatar(bool checked);
     void slotPrivateSettingsChanged();
     void slotShowFavoriteRoom(bool checked);
+    void slotShowServerInfo();
 
     bool mReallyClose{false};
 
@@ -114,6 +115,7 @@ private:
     QAction *mRoomListSortByLastMessage = nullptr;
     QAction *mRoomListSortAlphabetically = nullptr;
     QAction *mShowLog = nullptr;
+    QAction *mShowServerInfo = nullptr;
     QAction *mClearAlerts = nullptr;
     QAction *mRegisterNewUser = nullptr;
     QAction *mMyAccount = nullptr;
