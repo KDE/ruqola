@@ -6,17 +6,25 @@
 
 #include "servererrorinfomessagehistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "model/servererrorinfohistorymodel.h"
 #include "ruqolawidgets_debug.h"
+#include "servererrorinfohistorymanager.h"
 #include "servererrorinfomessagehistorylistview.h"
 #include <KLocalizedString>
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#include <TextEditTextToSpeech/TextToSpeechContainerWidget>
+#endif
 
 ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget *parent)
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
     , mListServerInfosListView(new ServerErrorInfoMessageHistoryListView(this))
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -34,6 +42,16 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
 
     mainLayout->addLayout(searchLayout);
 
+    auto model = ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel();
+
+    connect(model, &QAbstractItemModel::rowsAboutToBeInserted, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
+    connect(model, &QAbstractItemModel::modelAboutToBeReset, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
+
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
+    mainLayout->addWidget(mTextToSpeechWidget);
+#endif
     mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
     mainLayout->addWidget(mListServerInfosListView);
 
@@ -47,6 +65,6 @@ ServerErrorInfoMessageHistoryWidget::~ServerErrorInfoMessageHistoryWidget() = de
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void ServerErrorInfoMessageHistoryWidget::slotTextToSpeech(const QString &messageText)
 {
-    // TODO mTextToSpeechWidget->say(messageText);
+    mTextToSpeechWidget->say(messageText);
 }
 #endif

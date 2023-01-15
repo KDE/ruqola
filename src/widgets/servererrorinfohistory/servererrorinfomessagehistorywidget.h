@@ -8,7 +8,12 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+namespace TextEditTextToSpeech
+{
+class TextToSpeechContainerWidget;
+}
+#endif
 class QLineEdit;
 class ServerErrorInfoMessageHistoryListView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryWidget : public QWidget
@@ -24,4 +29,7 @@ private:
 #endif
     QLineEdit *const mSearchLineEdit;
     ServerErrorInfoMessageHistoryListView *const mListServerInfosListView;
+#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
+#endif
 };
