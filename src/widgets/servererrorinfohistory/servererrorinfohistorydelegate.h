@@ -46,7 +46,7 @@ private:
         QString timeStampText;
         QPoint timeStampPos;
     };
-    void drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
+    void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, QRect textRect, const QStyleOptionViewItem &option);
 };

@@ -22,7 +22,7 @@ ServerErrorInfoHistoryDelegate::ServerErrorInfoHistoryDelegate(QListView *view, 
 
 ServerErrorInfoHistoryDelegate::~ServerErrorInfoHistoryDelegate() = default;
 
-void ServerErrorInfoHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+void ServerErrorInfoHistoryDelegate::drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
 {
     const QPen origPen = painter->pen();
     const qreal margin = MessageDelegateUtils::basicMargin();
@@ -48,7 +48,7 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
     const Layout layout = doLayout(option, index);
 
-    drawAccountRoomInfo(painter, index, option);
+    drawAccountInfo(painter, index, option);
 
     // Draw Text
     if (layout.textRect.isValid()) {
@@ -104,12 +104,12 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
-#if 0
     // Timestamp
-    layout.timeStampText = index.data(NotificationHistoryModel::DateTime).toString();
+    layout.timeStampText = index.data(ServerErrorInfoHistoryModel::DateTime).toString();
 
     // Message (using the rest of the available width)
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+#if 0
     const QFontMetricsF senderFontMetrics(layout.senderFont);
     const qreal senderAscent = senderFontMetrics.ascent();
     const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
