@@ -61,6 +61,8 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
     mainLayout->addWidget(mListServerInfosListView);
 
+    connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ServerErrorInfoMessageHistoryWidget::slotTextChanged);
+
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mListServerInfosListView, &ServerErrorInfoMessageHistoryListView::textToSpeech, this, &ServerErrorInfoMessageHistoryWidget::slotTextToSpeech);
 #endif
@@ -74,3 +76,9 @@ void ServerErrorInfoMessageHistoryWidget::slotTextToSpeech(const QString &messag
     mTextToSpeechWidget->say(messageText);
 }
 #endif
+
+void ServerErrorInfoMessageHistoryWidget::slotTextChanged(const QString &str)
+{
+    mServerErrorInfoHistoryFilterProxyModel->setFilterString(str);
+    mListServerInfosListView->setSearchText(str);
+}

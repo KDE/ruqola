@@ -25,6 +25,7 @@ public:
     ~ServerErrorInfoMessageHistoryWidget() override;
 
 private:
+    void slotTextChanged(const QString &str);
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
 #endif
