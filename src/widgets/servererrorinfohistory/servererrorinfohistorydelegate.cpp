@@ -95,18 +95,11 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     // Timestamp
     layout.timeStampText = index.data(ServerErrorInfoHistoryModel::DateTime).toString();
 
-    // Message (using the rest of the available width)
-    const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-#if 0
-    const QFontMetricsF senderFontMetrics(layout.senderFont);
-    const qreal senderAscent = senderFontMetrics.ascent();
-    const QSizeF senderTextSize = senderFontMetrics.size(Qt::TextSingleLine, layout.senderText);
+    const int margin = MessageDelegateUtils::basicMargin();
 
-    const int senderX = option.rect.x() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).width() + 2 * margin;
-
-    const int textLeft = senderX + senderTextSize.width() + margin;
+    const int textLeft = margin;
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
-    const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
+    const int widthAfterMessage = margin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
 
     layout.baseLine = 0;
@@ -122,7 +115,6 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
 
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
-#endif
     return layout;
 }
 

@@ -20,8 +20,9 @@ int main(int argc, char **argv)
     w->show();
     for (int i = 0; i < 10; ++i) {
         ServerErrorInfo info;
-        info.setAccountName(QStringLiteral("account %1").arg(i));
-        info.setMessage(QStringLiteral("blabla %1").arg(i));
+        info.setAccountName(QStringLiteral("account %1").arg(QString::number(i)));
+        const QString str = QStringLiteral("Message: %1").arg(QString::number(i));
+        info.setMessage(str);
         info.setDateTime(QDateTime::currentDateTime());
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
     }
