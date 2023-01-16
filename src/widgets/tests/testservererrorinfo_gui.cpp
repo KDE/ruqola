@@ -18,11 +18,13 @@ int main(int argc, char **argv)
     auto w = new ServerErrorInfoMessageHistoryDialog();
     w->resize(800, 600);
     w->show();
-    ServerErrorInfo info;
-    info.setAccountName(QStringLiteral("account 1"));
-    info.setMessage(QStringLiteral("blabla"));
-    info.setDateTime(QDateTime::currentDateTime());
-    ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
+    for (int i = 0; i < 10; ++i) {
+        ServerErrorInfo info;
+        info.setAccountName(QStringLiteral("account %1").arg(i));
+        info.setMessage(QStringLiteral("blabla %1").arg(i));
+        info.setDateTime(QDateTime::currentDateTime());
+        ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
+    }
 
     return app.exec();
 }
