@@ -77,28 +77,16 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
 QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-#if 0
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
-
     int additionalHeight = 0;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
         additionalHeight += 4;
     }
-
     // contents is date + text
     const int contentsHeight = layout.textRect.y() + layout.textRect.height() - option.rect.y();
-    const int senderAndAvatarHeight = qMax<int>(layout.senderRect.y() + layout.senderRect.height() - option.rect.y(),
-                                                layout.avatarPos.y() + MessageDelegateUtils::dprAwareSize(layout.avatarPixmap).height() - option.rect.y());
-
-    //    qDebug() << "senderAndAvatarHeight" << senderAndAvatarHeight << "text" << layout.textRect.height() << "total contents" << contentsHeight;
-    //    qDebug() << "=> returning" << qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight;
-
-    return {option.rect.width(), qMax(senderAndAvatarHeight, contentsHeight) + additionalHeight};
-#else
-    return {};
-#endif
+    return {option.rect.width(), contentsHeight + additionalHeight};
 }
 
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -134,9 +122,6 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
 
     layout.timeStampPos = QPoint(option.rect.width() - timeSize.width() - margin / 2, layout.baseLine);
 
-    layout.senderRect = QRectF(senderX, layout.baseLine - senderAscent, senderTextSize.width(), senderTextSize.height());
-    // Align top of avatar with top of sender rect
-    layout.avatarPos = QPointF(option.rect.x() + margin, layout.senderRect.y());
 #endif
     return layout;
 }
