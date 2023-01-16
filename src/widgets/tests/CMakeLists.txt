@@ -18,3 +18,7 @@ target_link_libraries(testnotification_gui libruqolawidgets KF5::I18n)
 ####
 add_executable(testcreatevideomessage_gui testcreatevideomessage_gui.cpp)
 target_link_libraries(testcreatevideomessage_gui libruqolawidgets KF5::I18n)
+
+####
+add_executable(testservererrorinfo_gui testservererrorinfo_gui.cpp)
+target_link_libraries(testservererrorinfo_gui libruqolawidgets KF5::I18n)
