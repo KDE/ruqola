@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:34+0000\n"
+"POT-Creation-Date: 2023-01-16 00:57+0000\n"
 "PO-Revision-Date: 2022-12-31 19:25+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -148,488 +148,6 @@ msgstr "Optimisation, fix windows/mac support"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "The following accounts are available:"
-
-#: autocorrection/src/import/importlibreofficeautocorrection.cpp:52
-#, kde-format
-msgid "Archive cannot be opened in read mode."
-msgstr "Archive cannot be opened in read mode."
-
-#. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:21
-#, kde-format
-msgid "Enable autocorrection"
-msgstr "Enable autocorrection"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: autocorrection/src/ui/autocorrectionwidget.ui:30
-#, kde-format
-msgid "Replacement and exception for language:"
-msgstr "Replacement and exception for language:"
-
-#. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:44
-#, kde-format
-msgid "Export..."
-msgstr "Export..."
-
-#. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:51
-#, kde-format
-msgid "Import..."
-msgstr "Import..."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: autocorrection/src/ui/autocorrectionwidget.ui:77
-#, kde-format
-msgid "Ad&vanced Autocorrection"
-msgstr "Ad&vanced Autocorrection"
-
-#. i18n: ectx: property (text), widget (QPushButton, addButton)
-#. i18n: ectx: property (text), widget (QPushButton, add1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:88
-#: autocorrection/src/ui/autocorrectionwidget.ui:228
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:502
-#, kde-format
-msgid "&Add"
-msgstr "&Add"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeButton)
-#. i18n: ectx: property (text), widget (QPushButton, remove2)
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: autocorrection/src/ui/autocorrectionwidget.ui:98
-#: autocorrection/src/ui/autocorrectionwidget.ui:303
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
-#: widgets/administratordialog/invites/invitetreeview.cpp:39
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:113
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
-#: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
-#, kde-format
-msgid "Remove"
-msgstr "Remove"
-
-#. i18n: ectx: property (text), widget (QCheckBox, advancedAutocorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:120
-#, kde-format
-msgid "&Enable word replacement"
-msgstr "&Enable word replacement"
-
-#. i18n: ectx: property (text), widget (QLabel, findLabel)
-#: autocorrection/src/ui/autocorrectionwidget.ui:129
-#, kde-format
-msgid "&Find"
-msgstr "&Find"
-
-#. i18n: ectx: property (text), widget (QLabel, replaceLabel)
-#: autocorrection/src/ui/autocorrectionwidget.ui:149
-#, kde-format
-msgid "Re&place"
-msgstr "Re&place"
-
-#. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
-#: autocorrection/src/ui/autocorrectionwidget.ui:187
-#, kde-format
-msgid "Find"
-msgstr "Find"
-
-#. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
-#: autocorrection/src/ui/autocorrectionwidget.ui:192
-#, kde-format
-msgid "Replace"
-msgstr "Replace"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
-#: autocorrection/src/ui/autocorrectionwidget.ui:201
-#, kde-format
-msgid "E&xceptions"
-msgstr "E&xceptions"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: autocorrection/src/ui/autocorrectionwidget.ui:209
-#, kde-format
-msgid "Do not treat as the end of a sentence:"
-msgstr "Do not treat as the end of a sentence:"
-
-#. i18n: ectx: property (text), widget (QPushButton, remove1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:235
-#, kde-format
-msgid "R&emove"
-msgstr "R&emove"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: autocorrection/src/ui/autocorrectionwidget.ui:277
-#, kde-format
-msgid "Accept two uppercase letters in:"
-msgstr "Accept two uppercase letters in:"
-
-#. i18n: ectx: property (text), widget (QPushButton, add2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:296
-#, kde-format
-msgid "Add"
-msgstr "Add"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:344
-#, kde-format
-msgid "Si&mple Autocorrection"
-msgstr "Si&mple Autocorrection"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
-#: autocorrection/src/ui/autocorrectionwidget.ui:350
-#, kde-format
-msgid ""
-"Detect when a new sentence is started and always ensure that the first "
-"character is an uppercase character"
-msgstr ""
-"Detect when a new sentence is started and always ensure that the first "
-"character is an uppercase character"
-
-#. i18n: ectx: property (text), widget (QCheckBox, upperCase)
-#: autocorrection/src/ui/autocorrectionwidget.ui:354
-#, kde-format
-msgid ""
-"Convert &first letter of a sentence automatically to uppercase\n"
-"(e.g. \"my house. in this town\" to \"my house. In this town\")"
-msgstr ""
-"Convert &first letter of a sentence automatically to uppercase\n"
-"(e.g. \"my house. in this town\" to \"my house. In this town\")"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
-#: autocorrection/src/ui/autocorrectionwidget.ui:364
-#, kde-format
-msgid ""
-"All words are checked for the common mistake of holding the shift key down a "
-"bit too long. If some words must have two uppercase characters, then those "
-"exceptions should be added in the 'Exceptions' tab."
-msgstr ""
-"All words are checked for the common mistake of holding the shift key down a "
-"bit too long. If some words must have two uppercase characters, then those "
-"exceptions should be added in the 'Exceptions' tab."
-
-#. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
-#: autocorrection/src/ui/autocorrectionwidget.ui:368
-#, kde-format
-msgid ""
-"Convert &two uppercase characters to one uppercase and one lowercase "
-"character\n"
-" (e.g. PErfect to Perfect)"
-msgstr ""
-"Convert &two uppercase characters to one uppercase and one lowercase "
-"character\n"
-" (e.g. PErfect to Perfect)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:375
-#, kde-format
-msgid ""
-"Make sure that more than one space cannot be typed, as this is a common "
-"mistake which is quite hard to find in formatted text."
-msgstr ""
-"Make sure that more than one space cannot be typed, as this is a common "
-"mistake which is quite hard to find in formatted text."
-
-#. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:378
-#, kde-format
-msgid "&Suppress double spaces"
-msgstr "&Suppress double spaces"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
-#: autocorrection/src/ui/autocorrectionwidget.ui:385
-#, kde-format
-msgid "Most standard fraction notations will be converted when available"
-msgstr "Most standard fraction notations will be converted when available"
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
-#: autocorrection/src/ui/autocorrectionwidget.ui:388
-#, kde-format
-msgid "Re&place 1/2... with ½..."
-msgstr "Re&place 1/2... with ½..."
-
-#. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
-#: autocorrection/src/ui/autocorrectionwidget.ui:395
-#, kde-format
-msgid "Capitalize name of days"
-msgstr "Capitalise name of days"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
-#: autocorrection/src/ui/autocorrectionwidget.ui:402
-#, kde-format
-msgid ""
-"Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
-"that matches the way an Internet browser would show a URL."
-msgstr ""
-"Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
-"that matches the way an Internet browser would show a URL."
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
-#: autocorrection/src/ui/autocorrectionwidget.ui:405
-#, kde-format
-msgid "Autoformat &URLs (HTML mode)"
-msgstr "Autoformat &URLs (HTML mode)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
-#: autocorrection/src/ui/autocorrectionwidget.ui:412
-#, kde-format
-msgid ""
-"When you use _underline_ or *bold*, the text between the underscores or "
-"asterisks will be converted to underlined or bold text."
-msgstr ""
-"When you use _underline_ or *bold*, the text between the underscores or "
-"asterisks will be converted to underlined or bold text."
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
-#: autocorrection/src/ui/autocorrectionwidget.ui:415
-#, kde-format
-msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-msgstr "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
-#: autocorrection/src/ui/autocorrectionwidget.ui:422
-#, kde-format
-msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr "Replace 1st... with 1^st... (HTML mode)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
-#: autocorrection/src/ui/autocorrectionwidget.ui:429
-#, kde-format
-msgid "Add non breaking space before specific punctuation marks in French text"
-msgstr ""
-"Add non breaking space before specific punctuation marks in French text"
-
-#. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:436
-#, kde-format
-msgid "Replace double quotes by french quotes"
-msgstr "Replace double quotes by french quotes"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:457
-#, kde-format
-msgid "Custom &Quotes"
-msgstr "Custom &Quotes"
-
-#. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:463
-#, kde-format
-msgid "Replace &double quotes with typographical quotes"
-msgstr "Replace &double quotes with typographical quotes"
-
-#. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
-#. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
-#. i18n: ectx: property (text), widget (QLabel, simpleQuoteBeginReplace)
-#. i18n: ectx: property (text), widget (QLabel, simpleQuoteEndReplace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:474
-#: autocorrection/src/ui/autocorrectionwidget.ui:514
-#: autocorrection/src/ui/autocorrectionwidget.ui:641
-#: autocorrection/src/ui/autocorrectionwidget.ui:655
-#, kde-format
-msgid "By Default"
-msgstr "By Default"
-
-#. i18n: ectx: property (text), widget (QPushButton, doubleQuote1)
-#. i18n: ectx: property (text), widget (QPushButton, doubleQuote2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:487
-#: autocorrection/src/ui/autocorrectionwidget.ui:500
-#, kde-format
-msgid "\""
-msgstr "\""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: autocorrection/src/ui/autocorrectionwidget.ui:507
-#, kde-format
-msgid "Ending Quote:"
-msgstr "Ending Quote:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#: autocorrection/src/ui/autocorrectionwidget.ui:534
-#: autocorrection/src/ui/autocorrectionwidget.ui:634
-#, kde-format
-msgid "Opening Quote:"
-msgstr "Opening Quote:"
-
-#. i18n: ectx: property (text), widget (QPushButton, doubleDefault)
-#. i18n: ectx: property (text), widget (QPushButton, singleDefault)
-#: autocorrection/src/ui/autocorrectionwidget.ui:548
-#: autocorrection/src/ui/autocorrectionwidget.ui:669
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
-#: core/model/notificationpreferencemodel.cpp:45
-#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
-#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#, kde-format
-msgid "Default"
-msgstr "Default"
-
-#. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:572
-#, kde-format
-msgid "Replace &single quotes with typographical quotes"
-msgstr "Replace &single quotes with typographical quotes"
-
-#. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
-#. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:608
-#: autocorrection/src/ui/autocorrectionwidget.ui:627
-#, kde-format
-msgid "'"
-msgstr "'"
-
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#: autocorrection/src/ui/autocorrectionwidget.ui:648
-#, kde-format
-msgid "Ending Quotes:"
-msgstr "Ending Quotes:"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: autocorrection/src/ui/autocorrectionwidget.ui:707
-#, kde-format
-msgid "Path"
-msgstr "Path"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: autocorrection/src/ui/autocorrectionwidget.ui:713
-#, kde-format
-msgid "System Path:"
-msgstr "System Path:"
-
-#. i18n: ectx: property (text), widget (QLabel, systemPath)
-#. i18n: ectx: property (text), widget (QLabel, writablePath)
-#: autocorrection/src/ui/autocorrectionwidget.ui:720
-#: autocorrection/src/ui/autocorrectionwidget.ui:750
-#, kde-format
-msgid "TextLabel"
-msgstr "TextLabel"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: autocorrection/src/ui/autocorrectionwidget.ui:743
-#, kde-format
-msgid "Writable Path:"
-msgstr "Writable Path:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#: autocorrection/src/ui/autocorrectionwidget.ui:773
-#, kde-format
-msgid "Custom System Path:"
-msgstr "Custom System Path:"
-
-#. i18n: ectx: property (text), widget (QToolButton, customSystemPathToolButton)
-#. i18n: ectx: property (text), widget (QToolButton, customWritablePathToolButton)
-#: autocorrection/src/ui/autocorrectionwidget.ui:785
-#: autocorrection/src/ui/autocorrectionwidget.ui:806
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#: autocorrection/src/ui/autocorrectionwidget.ui:794
-#, kde-format
-msgid "Custom Writable Path:"
-msgstr "Custom Writable Path:"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:123
-#, kde-format
-msgid "Select Custom Writable Path"
-msgstr "Select Custom Writable Path"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:128
-#, kde-format
-msgid "Select Custom System Path"
-msgstr "Select Custom System Path"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:138
-#, kde-format
-msgid "LibreOffice Autocorrection"
-msgstr "LibreOffice Autocorrection"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:142
-#, kde-format
-msgid "KMail/Calligra Autocorrection"
-msgstr "KMail/Calligra Autocorrection"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:420
-#, kde-format
-msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr "\"Replace\" string is the same as \"Find\" string."
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:420
-#, kde-format
-msgid "Add Autocorrection Entry"
-msgstr "Add Autocorrection Entry"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:499
-#, kde-format
-msgid "&Modify"
-msgstr "&Modify"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:610
-#, kde-format
-msgid "Import LibreOffice Autocorrection"
-msgstr "Import LibreOffice Autocorrection"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:611
-#, kde-format
-msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr "LibreOffice Autocorrection File (*.dat)"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:614
-#, kde-format
-msgid "Import KMail Autocorrection"
-msgstr "Import KMail Autocorrection"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:615
-#, kde-format
-msgid "KMail Autocorrection File (*.xml)"
-msgstr "KMail Autocorrection File (*.xml)"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:647
-#, kde-format
-msgid "Import Autocorrection File"
-msgstr "Import Autocorrection File"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:670
-#, kde-format
-msgid "Language was changed, do you want to save config for previous language?"
-msgstr ""
-"Language was changed, do you want to save config for previous language?"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:671
-#, kde-format
-msgid "Save config"
-msgstr "Save config"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:706
-#, kde-format
-msgid "Please save changes before exporting settings."
-msgstr "Please save changes before exporting settings."
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:706
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:709
-#, kde-format
-msgid "Export Autocorrection File"
-msgstr "Export Autocorrection File"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Select Special Characters"
-msgstr "Select Special Characters"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:40
-#, kde-format
-msgid "Insert"
-msgstr "Insert"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:53
-#, kde-format
-msgid "Select"
-msgstr "Select"
 
 #: core/accountmanager.cpp:61
 #, kde-format
@@ -1275,7 +793,7 @@ msgstr "Disabled"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgid "Status"
 msgstr "Status"
@@ -1401,6 +919,15 @@ msgstr "Edited at %1 by %2"
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ignored Message"
+
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
+#: core/model/notificationpreferencemodel.cpp:45
+#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
+#, kde-format
+msgid "Default"
+msgstr "Default"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:54
 #, kde-format
@@ -1895,7 +1422,7 @@ msgstr "Missing translator info. It's a bug"
 msgid "User"
 msgstr "User"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:426
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Administrator"
 msgstr "Administrator"
@@ -1932,7 +1459,6 @@ msgid "Accept"
 msgstr "Accept"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: texttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
@@ -2709,641 +2235,6 @@ msgstr "Invalid parameters"
 msgid "Error trying to send email %1"
 msgstr "Error trying to send email %1"
 
-#: textedittexttospeech/tests/texttospeechcontainergui.cpp:36
-#: textedittexttospeech/tests/texttospeechgui.cpp:28
-#, kde-format
-msgid "Speech text"
-msgstr "Speech text"
-
-#: textedittexttospeech/texttospeechactions.cpp:28
-#: textedittexttospeech/texttospeechactions.cpp:31
-#, kde-format
-msgid "Stop"
-msgstr "Stop"
-
-#: textedittexttospeech/texttospeechactions.cpp:72
-#, kde-format
-msgid "Pause"
-msgstr "Pause"
-
-#: textedittexttospeech/texttospeechactions.cpp:72
-#, kde-format
-msgid "Play"
-msgstr "Play"
-
-#: textedittexttospeech/texttospeechconfigdialog.cpp:28
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Text-To-Speech"
-msgstr "Configure Text-To-Speech"
-
-#: textedittexttospeech/texttospeechconfiginterface.cpp:71
-#, kde-format
-msgid "Morning, this is the test for testing settings."
-msgstr "Morning, this is the test for testing settings."
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:34
-#, kde-format
-msgid "Test"
-msgstr "Test"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:41
-#: textedittexttospeech/texttospeechwidget.cpp:59
-#, kde-format
-msgid "Volume:"
-msgstr "Volume:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:45
-#, kde-format
-msgid "Rate:"
-msgstr "Rate:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:51
-#, kde-format
-msgid "Pitch:"
-msgstr "Pitch:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:54
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:47
-#: texttranslator/translator/widgets/translatorconfigurewidget.cpp:39
-#, kde-format
-msgid "Engine:"
-msgstr "Engine:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:58
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Language:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:62
-#, kde-format
-msgid "Voice:"
-msgstr "Voice:"
-
-#: textedittexttospeech/texttospeechwidget.cpp:54
-#: texttranslator/translator/widgets/translatorwidget.cpp:236
-#: texttranslator/translator/widgets/translatorwidget.cpp:239
-#, kde-format
-msgid "Close"
-msgstr "Close"
-
-#: textedittexttospeech/texttospeechwidget.cpp:80
-#, kde-format
-msgid "Configure..."
-msgstr "Configure..."
-
-#: texttranslator/translator/misc/translatorutil.cpp:30
-#, kde-format
-msgid "Detect language"
-msgstr "Detect language"
-
-#: texttranslator/translator/misc/translatorutil.cpp:33
-#, kde-format
-msgid "Hmong"
-msgstr ""
-
-#: texttranslator/translator/misc/translatorutil.cpp:36
-#, fuzzy, kde-format
-#| msgid "Estonian"
-msgid "Bosnian"
-msgstr "Estonian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:39
-#, kde-format
-msgid "English"
-msgstr "English"
-
-#: texttranslator/translator/misc/translatorutil.cpp:42
-#, kde-format
-msgid "Chinese (Simplified)"
-msgstr "Chinese (Simplified)"
-
-#: texttranslator/translator/misc/translatorutil.cpp:45
-#, kde-format
-msgid "Chinese (Traditional)"
-msgstr "Chinese (Traditional)"
-
-#: texttranslator/translator/misc/translatorutil.cpp:48
-#, kde-format
-msgid "Dutch"
-msgstr "Dutch"
-
-#: texttranslator/translator/misc/translatorutil.cpp:51
-#, kde-format
-msgid "French"
-msgstr "French"
-
-#: texttranslator/translator/misc/translatorutil.cpp:54
-#, kde-format
-msgid "German"
-msgstr "German"
-
-#: texttranslator/translator/misc/translatorutil.cpp:57
-#, kde-format
-msgid "Greek"
-msgstr "Greek"
-
-#: texttranslator/translator/misc/translatorutil.cpp:60
-#, kde-format
-msgid "Italian"
-msgstr "Italian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:63
-#, kde-format
-msgid "Japanese"
-msgstr "Japanese"
-
-#: texttranslator/translator/misc/translatorutil.cpp:66
-#, kde-format
-msgid "Korean"
-msgstr "Korean"
-
-#: texttranslator/translator/misc/translatorutil.cpp:69
-#, kde-format
-msgid "Portuguese"
-msgstr "Portuguese"
-
-#: texttranslator/translator/misc/translatorutil.cpp:72
-#, kde-format
-msgid "Russian"
-msgstr "Russian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:75
-#, kde-format
-msgid "Spanish"
-msgstr "Spanish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:78
-#, kde-format
-msgid "Afrikaans"
-msgstr "Afrikaans"
-
-#: texttranslator/translator/misc/translatorutil.cpp:81
-#, kde-format
-msgid "Albanian"
-msgstr "Albanian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:84
-#, kde-format
-msgid "Arabic"
-msgstr "Arabic"
-
-#: texttranslator/translator/misc/translatorutil.cpp:87
-#, kde-format
-msgid "Armenian"
-msgstr "Armenian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:90
-#, kde-format
-msgid "Azerbaijani"
-msgstr "Azerbaijani"
-
-#: texttranslator/translator/misc/translatorutil.cpp:93
-#, kde-format
-msgid "Basque"
-msgstr "Basque"
-
-#: texttranslator/translator/misc/translatorutil.cpp:96
-#, kde-format
-msgid "Belarusian"
-msgstr "Belarusian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:99
-#, kde-format
-msgid "Bulgarian"
-msgstr "Bulgarian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:102
-#, kde-format
-msgid "Catalan"
-msgstr "Catalan"
-
-#: texttranslator/translator/misc/translatorutil.cpp:105
-#, kde-format
-msgid "Croatian"
-msgstr "Croatian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:108
-#, kde-format
-msgid "Czech"
-msgstr "Czech"
-
-#: texttranslator/translator/misc/translatorutil.cpp:111
-#, kde-format
-msgid "Danish"
-msgstr "Danish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:114
-#, kde-format
-msgid "Estonian"
-msgstr "Estonian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:117
-#, kde-format
-msgid "Filipino"
-msgstr "Filipino"
-
-#: texttranslator/translator/misc/translatorutil.cpp:120
-#, kde-format
-msgid "Finnish"
-msgstr "Finnish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:123
-#, kde-format
-msgid "Galician"
-msgstr "Galician"
-
-#: texttranslator/translator/misc/translatorutil.cpp:126
-#, kde-format
-msgid "Georgian"
-msgstr "Georgian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:129
-#, kde-format
-msgid "Haitian Creole"
-msgstr "Haitian Creole"
-
-#: texttranslator/translator/misc/translatorutil.cpp:132
-#, kde-format
-msgid "Hebrew"
-msgstr "Hebrew"
-
-#: texttranslator/translator/misc/translatorutil.cpp:135
-#, kde-format
-msgid "Hindi"
-msgstr "Hindi"
-
-#: texttranslator/translator/misc/translatorutil.cpp:138
-#, kde-format
-msgid "Hungarian"
-msgstr "Hungarian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:141
-#, kde-format
-msgid "Icelandic"
-msgstr "Icelandic"
-
-#: texttranslator/translator/misc/translatorutil.cpp:144
-#, kde-format
-msgid "Indonesian"
-msgstr "Indonesian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:147
-#, kde-format
-msgid "Irish"
-msgstr "Irish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:150
-#, kde-format
-msgid "Latvian"
-msgstr "Latvian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:153
-#, kde-format
-msgid "Lithuanian"
-msgstr "Lithuanian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:156
-#, kde-format
-msgid "Macedonian"
-msgstr "Macedonian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:159
-#, kde-format
-msgid "Malay"
-msgstr "Malay"
-
-#: texttranslator/translator/misc/translatorutil.cpp:162
-#, kde-format
-msgid "Maltese"
-msgstr "Maltese"
-
-#: texttranslator/translator/misc/translatorutil.cpp:165
-#, kde-format
-msgid "Norwegian"
-msgstr "Norwegian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:168
-#, kde-format
-msgid "Persian"
-msgstr "Persian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:171
-#, kde-format
-msgid "Polish"
-msgstr "Polish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:174
-#, kde-format
-msgid "Romanian"
-msgstr "Romanian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:177
-#, kde-format
-msgid "Serbian"
-msgstr "Serbian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:180
-#, kde-format
-msgid "Slovak"
-msgstr "Slovak"
-
-#: texttranslator/translator/misc/translatorutil.cpp:183
-#, kde-format
-msgid "Slovenian"
-msgstr "Slovenian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:186
-#, kde-format
-msgid "Swahili"
-msgstr "Swahili"
-
-#: texttranslator/translator/misc/translatorutil.cpp:189
-#, kde-format
-msgid "Swedish"
-msgstr "Swedish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:192
-#, kde-format
-msgid "Thai"
-msgstr "Thai"
-
-#: texttranslator/translator/misc/translatorutil.cpp:195
-#, kde-format
-msgid "Turkish"
-msgstr "Turkish"
-
-#: texttranslator/translator/misc/translatorutil.cpp:198
-#, kde-format
-msgid "Ukrainian"
-msgstr "Ukrainian"
-
-#: texttranslator/translator/misc/translatorutil.cpp:201
-#, kde-format
-msgid "Urdu"
-msgstr "Urdu"
-
-#: texttranslator/translator/misc/translatorutil.cpp:204
-#, kde-format
-msgid "Vietnamese"
-msgstr "Vietnamese"
-
-#: texttranslator/translator/misc/translatorutil.cpp:207
-#, kde-format
-msgid "Welsh"
-msgstr "Welsh"
-
-#: texttranslator/translator/misc/translatorutil.cpp:210
-#, kde-format
-msgid "Yiddish"
-msgstr "Yiddish"
-
-#: texttranslator/translator/plugins/bing/bingengineclient.cpp:26
-#, kde-format
-msgid "Bing"
-msgstr "Bing"
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:60
-#, kde-format
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Error: Unable to find Bing credentials in web version."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:68
-#, kde-format
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "Error: Unable to extract Bing key from web version."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:77
-#, kde-format
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "Error: Unable to extract Bing token from web version."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:86
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:95
-#, kde-format
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr "Error: Unable to extract additional Bing information from web version."
-
-#: texttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
-#, kde-format
-msgid "DeepL"
-msgstr "DeepL"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
-#: texttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Engine"
-msgstr "Configure Engine"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
-#, kde-format
-msgid "Use Free License Key"
-msgstr "Use Free Licence Key"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
-#, kde-format
-msgid "Api Key:"
-msgstr ""
-
-#: texttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
-#, kde-format
-msgid "Server needs Api Key."
-msgstr ""
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
-#, kde-format
-msgid "Libre Translate"
-msgstr "Libre Translate"
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
-#, kde-format
-msgid "Server required Api Key"
-msgstr ""
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
-#: texttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
-#, kde-format
-msgid "Server Url:"
-msgstr "Server URL:"
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
-msgid "Server url is not defined."
-msgstr "Server not found: %1"
-
-#: texttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
-#, kde-format
-msgid "Lingva"
-msgstr "Lingva"
-
-#: texttranslator/translator/plugins/yandex/yandexengineclient.cpp:26
-#, kde-format
-msgid "Yandex"
-msgstr "Yandex"
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
-#: texttranslator/translator/translatorengineplugin.cpp:100
-#, kde-format
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
-msgstr ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
-#, kde-format
-msgid "Error: Unable to find Yandex SID in web version."
-msgstr "Error: Unable to find Yandex SID in web version."
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
-#, kde-format
-msgid "Error: Unable to extract Yandex SID from web version."
-msgstr "Error: Unable to extract Yandex SID from web version."
-
-#: texttranslator/translator/translatorengineplugin.cpp:108
-#, kde-format
-msgid "You used same language for 'from' and 'to' language."
-msgstr "You used same language for 'from' and 'to' language."
-
-#: texttranslator/translator/widgets/translatorconfiguredialog.cpp:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Translator"
-msgstr "Configure Translator"
-
-#: texttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:35
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#, kde-format
-msgid "Search..."
-msgstr "Search..."
-
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:24
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr "From:"
-
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:25
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr "To:"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Translator Debug"
-msgstr "Translator Debug"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:39
-#, kde-format
-msgid "Save As..."
-msgstr "Save As..."
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:88
-#, kde-format
-msgid ""
-"Could not write the file %1:\n"
-"\"%2\" is the detailed error description."
-msgstr ""
-"Could not write the file %1:\n"
-"\"%2\" is the detailed error description."
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:92
-#, kde-format
-msgid "Save File Error"
-msgstr "Save File Error"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:115
-#, kde-format
-msgid "All Files (*)"
-msgstr "All Files (*)"
-
-#: texttranslator/translator/widgets/translatormenu.cpp:22
-#, kde-format
-msgid "Translate..."
-msgstr "Translate..."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:133
-#, kde-format
-msgid "Problem when connecting to the translator web site."
-msgstr "Problem when connecting to the translator web site."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:245
-#, kde-format
-msgctxt "Translate from language"
-msgid "From:"
-msgstr "From:"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:252
-#, kde-format
-msgctxt "Translate to language"
-msgid "To:"
-msgstr "To:"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:264
-#, kde-format
-msgctxt "Invert language choices so that from becomes to and to becomes from"
-msgid "Invert"
-msgstr "Invert"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:269
-#: texttranslator/translator/widgets/translatorwidget.cpp:272
-#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:74
-#, kde-format
-msgid "Clear"
-msgstr "Clear"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:277
-#: texttranslator/translator/widgets/translatorwidget.cpp:280
-#, kde-format
-msgid "Translate"
-msgstr "Translate"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:287
-#, kde-format
-msgid "Debug"
-msgstr "Debug"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:305
-#, kde-format
-msgid "Configure"
-msgstr "Configure"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:320
-#, kde-format
-msgid ""
-"Drag text that you want to translate. (Be careful text will be send to "
-"Google Server)."
-msgstr ""
-"Drag text that you want to translate. (Be careful text will be send to "
-"Google Server)."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:416
-#, kde-format
-msgid "No network connection detected, we cannot translate text."
-msgstr "No network connection detected, we cannot translate text."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:416
-#, kde-format
-msgid "No network"
-msgstr "No network"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:455
-#, kde-format
-msgid "Translate error"
-msgstr "Translate error"
-
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -3497,6 +2388,22 @@ msgstr "Add..."
 msgid "Modify..."
 msgstr "Modify..."
 
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/invites/invitetreeview.cpp:39
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:113
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/configuredialog/configureaccountserverwidget.ui:53
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#, kde-format
+msgid "Remove"
+msgstr "Remove"
+
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
@@ -3546,7 +2453,7 @@ msgstr "Edit User Status"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:478
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgid "Status:"
 msgstr "Status:"
@@ -4358,7 +3265,7 @@ msgstr "Encryption"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:856
+#: widgets/ruqolamainwindow.cpp:867
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -6561,6 +5468,14 @@ msgstr "Banner Information"
 msgid "Show Unread"
 msgstr "Show Unread"
 
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/misc/emoticonmenuwidget.cpp:47
+#: widgets/notificationhistory/notificationhistorywidget.cpp:40
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#, kde-format
+msgid "Search..."
+msgstr "Search..."
+
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
 msgid "Mark as Read"
@@ -6860,6 +5775,11 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Configure Auto-Translate"
 
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Language:"
+
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
@@ -7006,6 +5926,13 @@ msgstr "Add Password"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Channel Password:"
+
+#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:39
+#, kde-format
+msgid "Clear"
+msgstr "Clear"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, kde-format
@@ -7690,6 +6617,7 @@ msgstr "Open Discussion"
 #: widgets/discussions/discussionlistview.cpp:65
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #: widgets/room/messagelistview.cpp:466
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgid "Speak Text"
 msgstr "Speak Text"
@@ -7697,6 +6625,7 @@ msgstr "Speak Text"
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:267
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:60
 #, kde-format
 msgid "Select All"
 msgstr "Select All"
@@ -7729,6 +6658,16 @@ msgstr[1] "%1 Discussions in room (Total: %2)"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Export Messages"
+
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "From:"
+
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "To:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
@@ -8281,6 +7220,7 @@ msgstr "Go to Message"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:237
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
 #, kde-format
 msgid "Copy Message"
 msgstr "Copy Message"
@@ -8901,7 +7841,7 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 User in room (Total: %2)"
 msgstr[1] "%1 Users in room (Total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:48
+#: widgets/ruqolacentralwidget.cpp:55
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Error from '%1' account"
@@ -8951,148 +7891,154 @@ msgstr "Installation Problem found. No plugins found here."
 msgid "Login Failed: generic error"
 msgstr "Login Failed: generic error"
 
-#: widgets/ruqolamainwindow.cpp:201
+#: widgets/ruqolamainwindow.cpp:202
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Show New Notifications"
 
-#: widgets/ruqolamainwindow.cpp:351
+#: widgets/ruqolamainwindow.cpp:352
 #, kde-format
 msgid "Add Server..."
 msgstr "Add Server..."
 
-#: widgets/ruqolamainwindow.cpp:356
+#: widgets/ruqolamainwindow.cpp:357
 #, kde-format
 msgid "Server Info..."
 msgstr "Server Info..."
 
-#: widgets/ruqolamainwindow.cpp:360
+#: widgets/ruqolamainwindow.cpp:361
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Logout Current Server"
 
-#: widgets/ruqolamainwindow.cpp:364
+#: widgets/ruqolamainwindow.cpp:365
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Jump to Next Unread Channel"
 
-#: widgets/ruqolamainwindow.cpp:369
+#: widgets/ruqolamainwindow.cpp:370
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Create New Channel..."
 
-#: widgets/ruqolamainwindow.cpp:373
+#: widgets/ruqolamainwindow.cpp:374
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Create Direct Messages..."
 
-#: widgets/ruqolamainwindow.cpp:377
+#: widgets/ruqolamainwindow.cpp:378
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Create Discussion..."
 
-#: widgets/ruqolamainwindow.cpp:381
+#: widgets/ruqolamainwindow.cpp:382
 #, kde-format
 msgid "Create Team..."
 msgstr "Create Team..."
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:390
 #, kde-format
 msgid "Unread on Top"
 msgstr "Unread on Top"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:398
 #, kde-format
 msgid "By Last Message"
 msgstr "By Last Message"
 
-#: widgets/ruqolamainwindow.cpp:403
+#: widgets/ruqolamainwindow.cpp:404
 #, kde-format
 msgid "Alphabetically"
 msgstr "Alphabetically"
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Show Channel Log"
 
-#: widgets/ruqolamainwindow.cpp:413
+#: widgets/ruqolamainwindow.cpp:414
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgid "Show Server Errors"
+msgstr "Errors and Information"
+
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Mark All Channels as Read"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgid "Register a New User..."
 msgstr "Register a New User..."
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "My Account..."
 msgstr "My Account..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrator..."
 
-#: widgets/ruqolamainwindow.cpp:433
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Server Settings..."
 msgstr "Server Settings..."
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgid "Directory..."
 msgstr "Directory..."
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "&Next Server"
 msgstr "&Next Server"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:469
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Previous Server"
 
-#: widgets/ruqolamainwindow.cpp:494
+#: widgets/ruqolamainwindow.cpp:499
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Previous Selected Channel"
 
-#: widgets/ruqolamainwindow.cpp:501
+#: widgets/ruqolamainwindow.cpp:506
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Next Selected Channel"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:540
 #, kde-format
 msgid "Show Notify History"
 msgstr "Show Notify History"
 
-#: widgets/ruqolamainwindow.cpp:539
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Show RocketChat Information"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Show Room Avatar"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Show Favourite Room"
 
-#: widgets/ruqolamainwindow.cpp:574
+#: widgets/ruqolamainwindow.cpp:579
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Create Team"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:769
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -9101,12 +8047,12 @@ msgstr ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 
-#: widgets/ruqolamainwindow.cpp:759
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid "Register New User"
 msgstr "Register New User"
 
-#: widgets/ruqolamainwindow.cpp:883
+#: widgets/ruqolamainwindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9115,7 +8061,7 @@ msgstr ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:886
+#: widgets/ruqolamainwindow.cpp:897
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Hide menu bar"
@@ -9133,19 +8079,19 @@ msgid "Tools"
 msgstr "Tools"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "&Settings"
 msgstr "&Settings"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:49
+#: widgets/ruqolaui.rc:51
 #, kde-format
 msgid "View"
 msgstr "View"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:62
+#: widgets/ruqolaui.rc:64
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Main Toolbar"
@@ -9271,6 +8217,605 @@ msgstr "Account information"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Return the number of account."
+
+#~ msgid "Archive cannot be opened in read mode."
+#~ msgstr "Archive cannot be opened in read mode."
+
+#~ msgid "Enable autocorrection"
+#~ msgstr "Enable autocorrection"
+
+#~ msgid "Replacement and exception for language:"
+#~ msgstr "Replacement and exception for language:"
+
+#~ msgid "Export..."
+#~ msgstr "Export..."
+
+#~ msgid "Import..."
+#~ msgstr "Import..."
+
+#~ msgid "Ad&vanced Autocorrection"
+#~ msgstr "Ad&vanced Autocorrection"
+
+#~ msgid "&Add"
+#~ msgstr "&Add"
+
+#~ msgid "&Enable word replacement"
+#~ msgstr "&Enable word replacement"
+
+#~ msgid "&Find"
+#~ msgstr "&Find"
+
+#~ msgid "Re&place"
+#~ msgstr "Re&place"
+
+#~ msgid "Find"
+#~ msgstr "Find"
+
+#~ msgid "Replace"
+#~ msgstr "Replace"
+
+#~ msgid "E&xceptions"
+#~ msgstr "E&xceptions"
+
+#~ msgid "Do not treat as the end of a sentence:"
+#~ msgstr "Do not treat as the end of a sentence:"
+
+#~ msgid "R&emove"
+#~ msgstr "R&emove"
+
+#~ msgid "Accept two uppercase letters in:"
+#~ msgstr "Accept two uppercase letters in:"
+
+#~ msgid "Add"
+#~ msgstr "Add"
+
+#~ msgid "Si&mple Autocorrection"
+#~ msgstr "Si&mple Autocorrection"
+
+#~ msgid ""
+#~ "Detect when a new sentence is started and always ensure that the first "
+#~ "character is an uppercase character"
+#~ msgstr ""
+#~ "Detect when a new sentence is started and always ensure that the first "
+#~ "character is an uppercase character"
+
+#~ msgid ""
+#~ "Convert &first letter of a sentence automatically to uppercase\n"
+#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
+#~ msgstr ""
+#~ "Convert &first letter of a sentence automatically to uppercase\n"
+#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
+
+#~ msgid ""
+#~ "All words are checked for the common mistake of holding the shift key "
+#~ "down a bit too long. If some words must have two uppercase characters, "
+#~ "then those exceptions should be added in the 'Exceptions' tab."
+#~ msgstr ""
+#~ "All words are checked for the common mistake of holding the shift key "
+#~ "down a bit too long. If some words must have two uppercase characters, "
+#~ "then those exceptions should be added in the 'Exceptions' tab."
+
+#~ msgid ""
+#~ "Convert &two uppercase characters to one uppercase and one lowercase "
+#~ "character\n"
+#~ " (e.g. PErfect to Perfect)"
+#~ msgstr ""
+#~ "Convert &two uppercase characters to one uppercase and one lowercase "
+#~ "character\n"
+#~ " (e.g. PErfect to Perfect)"
+
+#~ msgid ""
+#~ "Make sure that more than one space cannot be typed, as this is a common "
+#~ "mistake which is quite hard to find in formatted text."
+#~ msgstr ""
+#~ "Make sure that more than one space cannot be typed, as this is a common "
+#~ "mistake which is quite hard to find in formatted text."
+
+#~ msgid "&Suppress double spaces"
+#~ msgstr "&Suppress double spaces"
+
+#~ msgid "Most standard fraction notations will be converted when available"
+#~ msgstr "Most standard fraction notations will be converted when available"
+
+#~ msgid "Re&place 1/2... with ½..."
+#~ msgstr "Re&place 1/2... with ½..."
+
+#~ msgid "Capitalize name of days"
+#~ msgstr "Capitalise name of days"
+
+#~ msgid ""
+#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
+#~ "formatting that matches the way an Internet browser would show a URL."
+#~ msgstr ""
+#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
+#~ "formatting that matches the way an Internet browser would show a URL."
+
+#~ msgid "Autoformat &URLs (HTML mode)"
+#~ msgstr "Autoformat &URLs (HTML mode)"
+
+#~ msgid ""
+#~ "When you use _underline_ or *bold*, the text between the underscores or "
+#~ "asterisks will be converted to underlined or bold text."
+#~ msgstr ""
+#~ "When you use _underline_ or *bold*, the text between the underscores or "
+#~ "asterisks will be converted to underlined or bold text."
+
+#~ msgid ""
+#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
+#~ msgstr ""
+#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
+
+#~ msgid "Replace 1st... with 1^st... (HTML mode)"
+#~ msgstr "Replace 1st... with 1^st... (HTML mode)"
+
+#~ msgid ""
+#~ "Add non breaking space before specific punctuation marks in French text"
+#~ msgstr ""
+#~ "Add non breaking space before specific punctuation marks in French text"
+
+#~ msgid "Replace double quotes by french quotes"
+#~ msgstr "Replace double quotes by french quotes"
+
+#~ msgid "Custom &Quotes"
+#~ msgstr "Custom &Quotes"
+
+#~ msgid "Replace &double quotes with typographical quotes"
+#~ msgstr "Replace &double quotes with typographical quotes"
+
+#~ msgid "By Default"
+#~ msgstr "By Default"
+
+#~ msgid "\""
+#~ msgstr "\""
+
+#~ msgid "Ending Quote:"
+#~ msgstr "Ending Quote:"
+
+#~ msgid "Opening Quote:"
+#~ msgstr "Opening Quote:"
+
+#~ msgid "Replace &single quotes with typographical quotes"
+#~ msgstr "Replace &single quotes with typographical quotes"
+
+#~ msgid "'"
+#~ msgstr "'"
+
+#~ msgid "Ending Quotes:"
+#~ msgstr "Ending Quotes:"
+
+#~ msgid "Path"
+#~ msgstr "Path"
+
+#~ msgid "System Path:"
+#~ msgstr "System Path:"
+
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
+
+#~ msgid "Writable Path:"
+#~ msgstr "Writable Path:"
+
+#~ msgid "Custom System Path:"
+#~ msgstr "Custom System Path:"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Custom Writable Path:"
+#~ msgstr "Custom Writable Path:"
+
+#~ msgid "Select Custom Writable Path"
+#~ msgstr "Select Custom Writable Path"
+
+#~ msgid "Select Custom System Path"
+#~ msgstr "Select Custom System Path"
+
+#~ msgid "LibreOffice Autocorrection"
+#~ msgstr "LibreOffice Autocorrection"
+
+#~ msgid "KMail/Calligra Autocorrection"
+#~ msgstr "KMail/Calligra Autocorrection"
+
+#~ msgid "\"Replace\" string is the same as \"Find\" string."
+#~ msgstr "\"Replace\" string is the same as \"Find\" string."
+
+#~ msgid "Add Autocorrection Entry"
+#~ msgstr "Add Autocorrection Entry"
+
+#~ msgid "&Modify"
+#~ msgstr "&Modify"
+
+#~ msgid "Import LibreOffice Autocorrection"
+#~ msgstr "Import LibreOffice Autocorrection"
+
+#~ msgid "LibreOffice Autocorrection File (*.dat)"
+#~ msgstr "LibreOffice Autocorrection File (*.dat)"
+
+#~ msgid "Import KMail Autocorrection"
+#~ msgstr "Import KMail Autocorrection"
+
+#~ msgid "KMail Autocorrection File (*.xml)"
+#~ msgstr "KMail Autocorrection File (*.xml)"
+
+#~ msgid "Import Autocorrection File"
+#~ msgstr "Import Autocorrection File"
+
+#~ msgid ""
+#~ "Language was changed, do you want to save config for previous language?"
+#~ msgstr ""
+#~ "Language was changed, do you want to save config for previous language?"
+
+#~ msgid "Save config"
+#~ msgstr "Save config"
+
+#~ msgid "Please save changes before exporting settings."
+#~ msgstr "Please save changes before exporting settings."
+
+#~ msgid "Export Autocorrection File"
+#~ msgstr "Export Autocorrection File"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Select Special Characters"
+
+#~ msgid "Insert"
+#~ msgstr "Insert"
+
+#~ msgid "Select"
+#~ msgstr "Select"
+
+#~ msgid "Speech text"
+#~ msgstr "Speech text"
+
+#~ msgid "Stop"
+#~ msgstr "Stop"
+
+#~ msgid "Pause"
+#~ msgstr "Pause"
+
+#~ msgid "Play"
+#~ msgstr "Play"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Text-To-Speech"
+#~ msgstr "Configure Text-To-Speech"
+
+#~ msgid "Morning, this is the test for testing settings."
+#~ msgstr "Morning, this is the test for testing settings."
+
+#~ msgid "Test"
+#~ msgstr "Test"
+
+#~ msgid "Volume:"
+#~ msgstr "Volume:"
+
+#~ msgid "Rate:"
+#~ msgstr "Rate:"
+
+#~ msgid "Pitch:"
+#~ msgstr "Pitch:"
+
+#~ msgid "Engine:"
+#~ msgstr "Engine:"
+
+#~ msgid "Voice:"
+#~ msgstr "Voice:"
+
+#~ msgid "Close"
+#~ msgstr "Close"
+
+#~ msgid "Configure..."
+#~ msgstr "Configure..."
+
+#~ msgid "Detect language"
+#~ msgstr "Detect language"
+
+#, fuzzy
+#~| msgid "Estonian"
+#~ msgid "Bosnian"
+#~ msgstr "Estonian"
+
+#~ msgid "English"
+#~ msgstr "English"
+
+#~ msgid "Chinese (Simplified)"
+#~ msgstr "Chinese (Simplified)"
+
+#~ msgid "Chinese (Traditional)"
+#~ msgstr "Chinese (Traditional)"
+
+#~ msgid "Dutch"
+#~ msgstr "Dutch"
+
+#~ msgid "French"
+#~ msgstr "French"
+
+#~ msgid "German"
+#~ msgstr "German"
+
+#~ msgid "Greek"
+#~ msgstr "Greek"
+
+#~ msgid "Italian"
+#~ msgstr "Italian"
+
+#~ msgid "Japanese"
+#~ msgstr "Japanese"
+
+#~ msgid "Korean"
+#~ msgstr "Korean"
+
+#~ msgid "Portuguese"
+#~ msgstr "Portuguese"
+
+#~ msgid "Russian"
+#~ msgstr "Russian"
+
+#~ msgid "Spanish"
+#~ msgstr "Spanish"
+
+#~ msgid "Afrikaans"
+#~ msgstr "Afrikaans"
+
+#~ msgid "Albanian"
+#~ msgstr "Albanian"
+
+#~ msgid "Arabic"
+#~ msgstr "Arabic"
+
+#~ msgid "Armenian"
+#~ msgstr "Armenian"
+
+#~ msgid "Azerbaijani"
+#~ msgstr "Azerbaijani"
+
+#~ msgid "Basque"
+#~ msgstr "Basque"
+
+#~ msgid "Belarusian"
+#~ msgstr "Belarusian"
+
+#~ msgid "Bulgarian"
+#~ msgstr "Bulgarian"
+
+#~ msgid "Catalan"
+#~ msgstr "Catalan"
+
+#~ msgid "Croatian"
+#~ msgstr "Croatian"
+
+#~ msgid "Czech"
+#~ msgstr "Czech"
+
+#~ msgid "Danish"
+#~ msgstr "Danish"
+
+#~ msgid "Estonian"
+#~ msgstr "Estonian"
+
+#~ msgid "Filipino"
+#~ msgstr "Filipino"
+
+#~ msgid "Finnish"
+#~ msgstr "Finnish"
+
+#~ msgid "Galician"
+#~ msgstr "Galician"
+
+#~ msgid "Georgian"
+#~ msgstr "Georgian"
+
+#~ msgid "Haitian Creole"
+#~ msgstr "Haitian Creole"
+
+#~ msgid "Hebrew"
+#~ msgstr "Hebrew"
+
+#~ msgid "Hindi"
+#~ msgstr "Hindi"
+
+#~ msgid "Hungarian"
+#~ msgstr "Hungarian"
+
+#~ msgid "Icelandic"
+#~ msgstr "Icelandic"
+
+#~ msgid "Indonesian"
+#~ msgstr "Indonesian"
+
+#~ msgid "Irish"
+#~ msgstr "Irish"
+
+#~ msgid "Latvian"
+#~ msgstr "Latvian"
+
+#~ msgid "Lithuanian"
+#~ msgstr "Lithuanian"
+
+#~ msgid "Macedonian"
+#~ msgstr "Macedonian"
+
+#~ msgid "Malay"
+#~ msgstr "Malay"
+
+#~ msgid "Maltese"
+#~ msgstr "Maltese"
+
+#~ msgid "Norwegian"
+#~ msgstr "Norwegian"
+
+#~ msgid "Persian"
+#~ msgstr "Persian"
+
+#~ msgid "Polish"
+#~ msgstr "Polish"
+
+#~ msgid "Romanian"
+#~ msgstr "Romanian"
+
+#~ msgid "Serbian"
+#~ msgstr "Serbian"
+
+#~ msgid "Slovak"
+#~ msgstr "Slovak"
+
+#~ msgid "Slovenian"
+#~ msgstr "Slovenian"
+
+#~ msgid "Swahili"
+#~ msgstr "Swahili"
+
+#~ msgid "Swedish"
+#~ msgstr "Swedish"
+
+#~ msgid "Thai"
+#~ msgstr "Thai"
+
+#~ msgid "Turkish"
+#~ msgstr "Turkish"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Ukrainian"
+
+#~ msgid "Urdu"
+#~ msgstr "Urdu"
+
+#~ msgid "Vietnamese"
+#~ msgstr "Vietnamese"
+
+#~ msgid "Welsh"
+#~ msgstr "Welsh"
+
+#~ msgid "Yiddish"
+#~ msgstr "Yiddish"
+
+#~ msgid "Bing"
+#~ msgstr "Bing"
+
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "Error: Unable to find Bing credentials in web version."
+
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr "Error: Unable to extract Bing key from web version."
+
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr "Error: Unable to extract Bing token from web version."
+
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr ""
+#~ "Error: Unable to extract additional Bing information from web version."
+
+#~ msgid "DeepL"
+#~ msgstr "DeepL"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Configure Engine"
+
+#~ msgid "Use Free License Key"
+#~ msgstr "Use Free Licence Key"
+
+#~ msgid "Libre Translate"
+#~ msgstr "Libre Translate"
+
+#~ msgid "Server Url:"
+#~ msgstr "Server URL:"
+
+#, fuzzy
+#~| msgid "Server not found: %1"
+#~ msgid "Server url is not defined."
+#~ msgstr "Server not found: %1"
+
+#~ msgid "Lingva"
+#~ msgstr "Lingva"
+
+#~ msgid "Yandex"
+#~ msgstr "Yandex"
+
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+
+#~ msgid "Error: Unable to find Yandex SID in web version."
+#~ msgstr "Error: Unable to find Yandex SID in web version."
+
+#~ msgid "Error: Unable to extract Yandex SID from web version."
+#~ msgstr "Error: Unable to extract Yandex SID from web version."
+
+#~ msgid "You used same language for 'from' and 'to' language."
+#~ msgstr "You used same language for 'from' and 'to' language."
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Translator"
+#~ msgstr "Configure Translator"
+
+#~ msgctxt "@title:window"
+#~ msgid "Translator Debug"
+#~ msgstr "Translator Debug"
+
+#~ msgid "Save As..."
+#~ msgstr "Save As..."
+
+#~ msgid ""
+#~ "Could not write the file %1:\n"
+#~ "\"%2\" is the detailed error description."
+#~ msgstr ""
+#~ "Could not write the file %1:\n"
+#~ "\"%2\" is the detailed error description."
+
+#~ msgid "Save File Error"
+#~ msgstr "Save File Error"
+
+#~ msgid "All Files (*)"
+#~ msgstr "All Files (*)"
+
+#~ msgid "Translate..."
+#~ msgstr "Translate..."
+
+#~ msgid "Problem when connecting to the translator web site."
+#~ msgstr "Problem when connecting to the translator web site."
+
+#~ msgctxt "Translate from language"
+#~ msgid "From:"
+#~ msgstr "From:"
+
+#~ msgctxt "Translate to language"
+#~ msgid "To:"
+#~ msgstr "To:"
+
+#~ msgctxt ""
+#~ "Invert language choices so that from becomes to and to becomes from"
+#~ msgid "Invert"
+#~ msgstr "Invert"
+
+#~ msgid "Translate"
+#~ msgstr "Translate"
+
+#~ msgid "Debug"
+#~ msgstr "Debug"
+
+#~ msgid "Configure"
+#~ msgstr "Configure"
+
+#~ msgid ""
+#~ "Drag text that you want to translate. (Be careful text will be send to "
+#~ "Google Server)."
+#~ msgstr ""
+#~ "Drag text that you want to translate. (Be careful text will be send to "
+#~ "Google Server)."
+
+#~ msgid "No network connection detected, we cannot translate text."
+#~ msgstr "No network connection detected, we cannot translate text."
+
+#~ msgid "No network"
+#~ msgstr "No network"
+
+#~ msgid "Translate error"
+#~ msgstr "Translate error"
 
 #~ msgid "Error: Unable to parse autodetected language"
 #~ msgstr "Error: Unable to parse auto-detected language"

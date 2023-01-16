@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-14 16:34+0000\n"
-"PO-Revision-Date: 2023-01-13 11:15+0100\n"
+"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"PO-Revision-Date: 2023-01-15 10:03+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:53
@@ -150,487 +150,6 @@ msgstr "Optimizacija, popravek podpore za Windows/macOS"
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "Na voljo so naslednji računi:"
-
-#: autocorrection/src/import/importlibreofficeautocorrection.cpp:52
-#, kde-format
-msgid "Archive cannot be opened in read mode."
-msgstr "Arhiva ni mogoče odpreti v bralnem načinu."
-
-#. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:21
-#, kde-format
-msgid "Enable autocorrection"
-msgstr "Omogoči samodejno popravljanje"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: autocorrection/src/ui/autocorrectionwidget.ui:30
-#, kde-format
-msgid "Replacement and exception for language:"
-msgstr "Zamenjava in izjema za jezik:"
-
-#. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:44
-#, kde-format
-msgid "Export..."
-msgstr "Izvozi..."
-
-#. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:51
-#, kde-format
-msgid "Import..."
-msgstr "Uvozi..."
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: autocorrection/src/ui/autocorrectionwidget.ui:77
-#, kde-format
-msgid "Ad&vanced Autocorrection"
-msgstr "Napredno samodejno popravljanje"
-
-#. i18n: ectx: property (text), widget (QPushButton, addButton)
-#. i18n: ectx: property (text), widget (QPushButton, add1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:88
-#: autocorrection/src/ui/autocorrectionwidget.ui:228
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:502
-#, kde-format
-msgid "&Add"
-msgstr "Dod&aj"
-
-#. i18n: ectx: property (text), widget (QPushButton, removeButton)
-#. i18n: ectx: property (text), widget (QPushButton, remove2)
-#. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: autocorrection/src/ui/autocorrectionwidget.ui:98
-#: autocorrection/src/ui/autocorrectionwidget.ui:303
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
-#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
-#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
-#: widgets/administratordialog/invites/invitetreeview.cpp:39
-#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:113
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
-#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
-#: widgets/configuredialog/configureaccountserverwidget.ui:53
-#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
-#, kde-format
-msgid "Remove"
-msgstr "Odstrani"
-
-#. i18n: ectx: property (text), widget (QCheckBox, advancedAutocorrection)
-#: autocorrection/src/ui/autocorrectionwidget.ui:120
-#, kde-format
-msgid "&Enable word replacement"
-msgstr "Omogoči zamenjavo besed"
-
-#. i18n: ectx: property (text), widget (QLabel, findLabel)
-#: autocorrection/src/ui/autocorrectionwidget.ui:129
-#, kde-format
-msgid "&Find"
-msgstr "Najdi"
-
-#. i18n: ectx: property (text), widget (QLabel, replaceLabel)
-#: autocorrection/src/ui/autocorrectionwidget.ui:149
-#, kde-format
-msgid "Re&place"
-msgstr "Zamenjaj"
-
-#. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
-#: autocorrection/src/ui/autocorrectionwidget.ui:187
-#, kde-format
-msgid "Find"
-msgstr "Najdi"
-
-#. i18n: ectx: property (text), widget (TextAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
-#: autocorrection/src/ui/autocorrectionwidget.ui:192
-#, kde-format
-msgid "Replace"
-msgstr "Zamenjaj"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_4)
-#: autocorrection/src/ui/autocorrectionwidget.ui:201
-#, kde-format
-msgid "E&xceptions"
-msgstr "Izjeme"
-
-#. i18n: ectx: property (text), widget (QLabel, label_4)
-#: autocorrection/src/ui/autocorrectionwidget.ui:209
-#, kde-format
-msgid "Do not treat as the end of a sentence:"
-msgstr "Ne obravnavaj kot konec stavka:"
-
-#. i18n: ectx: property (text), widget (QPushButton, remove1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:235
-#, kde-format
-msgid "R&emove"
-msgstr "Odstrani"
-
-#. i18n: ectx: property (text), widget (QLabel, label_5)
-#: autocorrection/src/ui/autocorrectionwidget.ui:277
-#, kde-format
-msgid "Accept two uppercase letters in:"
-msgstr "Sprejmi dve veliki začetnici v:"
-
-#. i18n: ectx: property (text), widget (QPushButton, add2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:296
-#, kde-format
-msgid "Add"
-msgstr "Dodaj"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_1)
-#: autocorrection/src/ui/autocorrectionwidget.ui:344
-#, kde-format
-msgid "Si&mple Autocorrection"
-msgstr "Enostavno samodejno popravljanje"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
-#: autocorrection/src/ui/autocorrectionwidget.ui:350
-#, kde-format
-msgid ""
-"Detect when a new sentence is started and always ensure that the first "
-"character is an uppercase character"
-msgstr ""
-"Zaznaj, kdaj se je začel novi stavek in vedno zagotavljaj, da je prvi znak "
-"velika začetnica"
-
-#. i18n: ectx: property (text), widget (QCheckBox, upperCase)
-#: autocorrection/src/ui/autocorrectionwidget.ui:354
-#, kde-format
-msgid ""
-"Convert &first letter of a sentence automatically to uppercase\n"
-"(e.g. \"my house. in this town\" to \"my house. In this town\")"
-msgstr ""
-"Samodejno pretvori prvi znak stavka v veliko črko\n"
-"(npr. \"moja hiša. v tem mestu\" v \"moja hiša. V tem mestu\""
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
-#: autocorrection/src/ui/autocorrectionwidget.ui:364
-#, kde-format
-msgid ""
-"All words are checked for the common mistake of holding the shift key down a "
-"bit too long. If some words must have two uppercase characters, then those "
-"exceptions should be added in the 'Exceptions' tab."
-msgstr ""
-"Preverjaj vse besede glede pogoste napake predolgega držanja dvigalke. Če "
-"imajo nekatere besede dve veliki začetnici, potem morajo biti te dodane v "
-"zavihek 'Izjeme'."
-
-#. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
-#: autocorrection/src/ui/autocorrectionwidget.ui:368
-#, kde-format
-msgid ""
-"Convert &two uppercase characters to one uppercase and one lowercase "
-"character\n"
-" (e.g. PErfect to Perfect)"
-msgstr ""
-"Pretvori dve veliki začetnici v eno veliko začetnico in eno malo črko\n"
-"(npr. ODlično v Odlično)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:375
-#, kde-format
-msgid ""
-"Make sure that more than one space cannot be typed, as this is a common "
-"mistake which is quite hard to find in formatted text."
-msgstr ""
-"Zagotavljaj, da ni mogoče vtipkati več kot en presledek, saj je to pogosta "
-"napaka, ki jo je težko najti v oblikovanem besedilu."
-
-#. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:378
-#, kde-format
-msgid "&Suppress double spaces"
-msgstr "Preprečuj dvojne presledke"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
-#: autocorrection/src/ui/autocorrectionwidget.ui:385
-#, kde-format
-msgid "Most standard fraction notations will be converted when available"
-msgstr "Večina standardnih ulomkov bo preoblikovana, če je možno"
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
-#: autocorrection/src/ui/autocorrectionwidget.ui:388
-#, kde-format
-msgid "Re&place 1/2... with ½..."
-msgstr "Zamenjaj 1/2... z ½..."
-
-#. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
-#: autocorrection/src/ui/autocorrectionwidget.ui:395
-#, kde-format
-msgid "Capitalize name of days"
-msgstr "Pretvori imena dni z velikimi začetnicami"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
-#: autocorrection/src/ui/autocorrectionwidget.ui:402
-#, kde-format
-msgid ""
-"Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
-"that matches the way an Internet browser would show a URL."
-msgstr ""
-"Zaznaj tipkanje spletnega naslova URL (Uniform Resource Locator) in zagotovi "
-"oblikovanje na način kot bi spletni brskalnik prikazal spletni naslov URL."
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
-#: autocorrection/src/ui/autocorrectionwidget.ui:405
-#, kde-format
-msgid "Autoformat &URLs (HTML mode)"
-msgstr "Samodejno preoblikuj URL (HTML način)"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
-#: autocorrection/src/ui/autocorrectionwidget.ui:412
-#, kde-format
-msgid ""
-"When you use _underline_ or *bold*, the text between the underscores or "
-"asterisks will be converted to underlined or bold text."
-msgstr ""
-"Ko uporabljate _podčrtaj_ ali *krepko* besedilo med podčrtaji ali zvezdicami "
-"bo besedilo pretvorjeno v podčrtano ali krepko besedilo."
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
-#: autocorrection/src/ui/autocorrectionwidget.ui:415
-#, kde-format
-msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-msgstr ""
-"Samodejno zagotavljaj krepko, prečrtano in podčrtano oblikovanje (način HTML)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
-#: autocorrection/src/ui/autocorrectionwidget.ui:422
-#, kde-format
-msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr "Zamenjaj 1st... z 1^st... (način HTML)"
-
-#. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
-#: autocorrection/src/ui/autocorrectionwidget.ui:429
-#, kde-format
-msgid "Add non breaking space before specific punctuation marks in French text"
-msgstr "Dodaj nelomljiv presledek pred posebna ločila v francoskih besedilih"
-
-#. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:436
-#, kde-format
-msgid "Replace double quotes by french quotes"
-msgstr "Zamenjaj dvojne narekovaje \" z navednicami »«"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:457
-#, kde-format
-msgid "Custom &Quotes"
-msgstr "Citati po meri"
-
-#. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:463
-#, kde-format
-msgid "Replace &double quotes with typographical quotes"
-msgstr "Zamenjaj dvojne narekovaje s tipografskimi narekovaji"
-
-#. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
-#. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
-#. i18n: ectx: property (text), widget (QLabel, simpleQuoteBeginReplace)
-#. i18n: ectx: property (text), widget (QLabel, simpleQuoteEndReplace)
-#: autocorrection/src/ui/autocorrectionwidget.ui:474
-#: autocorrection/src/ui/autocorrectionwidget.ui:514
-#: autocorrection/src/ui/autocorrectionwidget.ui:641
-#: autocorrection/src/ui/autocorrectionwidget.ui:655
-#, kde-format
-msgid "By Default"
-msgstr "Privzeto"
-
-#. i18n: ectx: property (text), widget (QPushButton, doubleQuote1)
-#. i18n: ectx: property (text), widget (QPushButton, doubleQuote2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:487
-#: autocorrection/src/ui/autocorrectionwidget.ui:500
-#, kde-format
-msgid "\""
-msgstr "\""
-
-#. i18n: ectx: property (text), widget (QLabel, label_3)
-#: autocorrection/src/ui/autocorrectionwidget.ui:507
-#, kde-format
-msgid "Ending Quote:"
-msgstr "Končna navednica:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_2)
-#. i18n: ectx: property (text), widget (QLabel, label_8)
-#: autocorrection/src/ui/autocorrectionwidget.ui:534
-#: autocorrection/src/ui/autocorrectionwidget.ui:634
-#, kde-format
-msgid "Opening Quote:"
-msgstr "Začetna navednica:"
-
-#. i18n: ectx: property (text), widget (QPushButton, doubleDefault)
-#. i18n: ectx: property (text), widget (QPushButton, singleDefault)
-#: autocorrection/src/ui/autocorrectionwidget.ui:548
-#: autocorrection/src/ui/autocorrectionwidget.ui:669
-#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
-#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
-#: core/model/notificationpreferencemodel.cpp:45
-#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
-#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
-#, kde-format
-msgid "Default"
-msgstr "Privzeto"
-
-#. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
-#: autocorrection/src/ui/autocorrectionwidget.ui:572
-#, kde-format
-msgid "Replace &single quotes with typographical quotes"
-msgstr "Zamenjaj enojne narekovaje s tipografskimi narekovaji"
-
-#. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
-#. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
-#: autocorrection/src/ui/autocorrectionwidget.ui:608
-#: autocorrection/src/ui/autocorrectionwidget.ui:627
-#, kde-format
-msgid "'"
-msgstr "'"
-
-#. i18n: ectx: property (text), widget (QLabel, label_9)
-#: autocorrection/src/ui/autocorrectionwidget.ui:648
-#, kde-format
-msgid "Ending Quotes:"
-msgstr "Končne navednice:"
-
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: autocorrection/src/ui/autocorrectionwidget.ui:707
-#, kde-format
-msgid "Path"
-msgstr "Pot"
-
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: autocorrection/src/ui/autocorrectionwidget.ui:713
-#, kde-format
-msgid "System Path:"
-msgstr "Sistemska pot:"
-
-#. i18n: ectx: property (text), widget (QLabel, systemPath)
-#. i18n: ectx: property (text), widget (QLabel, writablePath)
-#: autocorrection/src/ui/autocorrectionwidget.ui:720
-#: autocorrection/src/ui/autocorrectionwidget.ui:750
-#, kde-format
-msgid "TextLabel"
-msgstr "BesediloOznake"
-
-#. i18n: ectx: property (text), widget (QLabel, label_7)
-#: autocorrection/src/ui/autocorrectionwidget.ui:743
-#, kde-format
-msgid "Writable Path:"
-msgstr "Zapisljiva pot:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_10)
-#: autocorrection/src/ui/autocorrectionwidget.ui:773
-#, kde-format
-msgid "Custom System Path:"
-msgstr "Sistemska pot po meri:"
-
-#. i18n: ectx: property (text), widget (QToolButton, customSystemPathToolButton)
-#. i18n: ectx: property (text), widget (QToolButton, customWritablePathToolButton)
-#: autocorrection/src/ui/autocorrectionwidget.ui:785
-#: autocorrection/src/ui/autocorrectionwidget.ui:806
-#, kde-format
-msgid "..."
-msgstr "..."
-
-#. i18n: ectx: property (text), widget (QLabel, label_11)
-#: autocorrection/src/ui/autocorrectionwidget.ui:794
-#, kde-format
-msgid "Custom Writable Path:"
-msgstr "Zapisljiva pot po meri:"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:123
-#, kde-format
-msgid "Select Custom Writable Path"
-msgstr "Izberi zapisljivo pot po meri"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:128
-#, kde-format
-msgid "Select Custom System Path"
-msgstr "Izberi sistemsko pot po meri"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:138
-#, kde-format
-msgid "LibreOffice Autocorrection"
-msgstr "Samodejni popravki LibreOffice"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:142
-#, kde-format
-msgid "KMail/Calligra Autocorrection"
-msgstr "Samodejni popravki KMail/Calligra"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:420
-#, kde-format
-msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr "\"Niz zamenjave\" je enak kot \"Niz iskanja\"."
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:420
-#, kde-format
-msgid "Add Autocorrection Entry"
-msgstr "Dodaj vnos samodejnega popravka"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:499
-#, kde-format
-msgid "&Modify"
-msgstr "Spremeni"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:610
-#, kde-format
-msgid "Import LibreOffice Autocorrection"
-msgstr "Uvozi samodejni popravek iz LibreOffica"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:611
-#, kde-format
-msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr "Datoteka samodejnih popravkov LibreOffice (*.dat)"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:614
-#, kde-format
-msgid "Import KMail Autocorrection"
-msgstr "Uvozi samodejni popravek KMail"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:615
-#, kde-format
-msgid "KMail Autocorrection File (*.xml)"
-msgstr "Datoteka samopopravkov KMail (*.xml)"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:647
-#, kde-format
-msgid "Import Autocorrection File"
-msgstr "Uvozi datoteko samopopravkov"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:670
-#, kde-format
-msgid "Language was changed, do you want to save config for previous language?"
-msgstr ""
-"Jezik je bil spremenjen, ali želite shraniti nastavitve prejšnjega jezika?"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:671
-#, kde-format
-msgid "Save config"
-msgstr "Shrani nastavitve"
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:706
-#, kde-format
-msgid "Please save changes before exporting settings."
-msgstr "Shranite spremembe pred izvažanjem nastavitev."
-
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:706
-#: autocorrection/src/widgets/autocorrectionwidget.cpp:709
-#, kde-format
-msgid "Export Autocorrection File"
-msgstr "Izvozi datoteko samopopravkov"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Select Special Characters"
-msgstr "Izberi posebne znake"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:40
-#, kde-format
-msgid "Insert"
-msgstr "Vstavi"
-
-#: autocorrection/src/widgets/selectspecialchardialog.cpp:53
-#, kde-format
-msgid "Select"
-msgstr "Izberi"
 
 #: core/accountmanager.cpp:61
 #, kde-format
@@ -1276,7 +795,7 @@ msgstr "Onemogočeno"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:471
+#: widgets/ruqolamainwindow.cpp:476
 #, kde-format
 msgid "Status"
 msgstr "Stanje"
@@ -1402,6 +921,15 @@ msgstr "Uredil %2: %1"
 #, kde-format
 msgid "Ignored Message"
 msgstr "Prezrto sporočilo"
+
+#: core/model/notificationdesktopdurationpreferencemodel.cpp:48
+#: core/model/notificationdesktopsoundpreferencemodel.cpp:48
+#: core/model/notificationpreferencemodel.cpp:45
+#: widgets/administratordialog/rooms/administratordirectroomseditwidget.cpp:16
+#: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:20
+#, kde-format
+msgid "Default"
+msgstr "Privzeto"
 
 #: core/model/notificationdesktopdurationpreferencemodel.cpp:54
 #, kde-format
@@ -1898,7 +1426,7 @@ msgstr "Manjkajoče informacije o prevajalcu. To je programska napaka"
 msgid "User"
 msgstr "Uporabnik"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:426
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Administrator"
 msgstr "Skrbnik"
@@ -1935,7 +1463,6 @@ msgid "Accept"
 msgstr "Sprejmi"
 
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
-#: texttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:168
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:213
 #, kde-format
@@ -2706,641 +2233,6 @@ msgstr "Neveljavni parametri"
 msgid "Error trying to send email %1"
 msgstr "Napaka pri poskusu pošiljanja e-pošte %1"
 
-#: textedittexttospeech/tests/texttospeechcontainergui.cpp:36
-#: textedittexttospeech/tests/texttospeechgui.cpp:28
-#, kde-format
-msgid "Speech text"
-msgstr "Izgovori besedilo"
-
-#: textedittexttospeech/texttospeechactions.cpp:28
-#: textedittexttospeech/texttospeechactions.cpp:31
-#, kde-format
-msgid "Stop"
-msgstr "Ustavi"
-
-#: textedittexttospeech/texttospeechactions.cpp:72
-#, kde-format
-msgid "Pause"
-msgstr "Premor"
-
-#: textedittexttospeech/texttospeechactions.cpp:72
-#, kde-format
-msgid "Play"
-msgstr "Predvajaj"
-
-#: textedittexttospeech/texttospeechconfigdialog.cpp:28
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Text-To-Speech"
-msgstr "Konfiguriraj besedilo v govor"
-
-#: textedittexttospeech/texttospeechconfiginterface.cpp:71
-#, kde-format
-msgid "Morning, this is the test for testing settings."
-msgstr "Dobro jutro, to je test za nastavitve testiranja."
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:34
-#, kde-format
-msgid "Test"
-msgstr "Test"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:41
-#: textedittexttospeech/texttospeechwidget.cpp:59
-#, kde-format
-msgid "Volume:"
-msgstr "Glasnost:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:45
-#, kde-format
-msgid "Rate:"
-msgstr "Hitrost:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:51
-#, kde-format
-msgid "Pitch:"
-msgstr "Višina:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:54
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:47
-#: texttranslator/translator/widgets/translatorconfigurewidget.cpp:39
-#, kde-format
-msgid "Engine:"
-msgstr "Zaledna aplikacija:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:58
-#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
-#, kde-format
-msgid "Language:"
-msgstr "Jezik:"
-
-#: textedittexttospeech/texttospeechconfigwidget.cpp:62
-#, kde-format
-msgid "Voice:"
-msgstr "Glas:"
-
-#: textedittexttospeech/texttospeechwidget.cpp:54
-#: texttranslator/translator/widgets/translatorwidget.cpp:236
-#: texttranslator/translator/widgets/translatorwidget.cpp:239
-#, kde-format
-msgid "Close"
-msgstr "Zapri"
-
-#: textedittexttospeech/texttospeechwidget.cpp:80
-#, kde-format
-msgid "Configure..."
-msgstr "Konfiguriraj..."
-
-#: texttranslator/translator/misc/translatorutil.cpp:30
-#, kde-format
-msgid "Detect language"
-msgstr "Zaznaj jezik"
-
-#: texttranslator/translator/misc/translatorutil.cpp:33
-#, kde-format
-msgid "Hmong"
-msgstr "Hmong"
-
-#: texttranslator/translator/misc/translatorutil.cpp:36
-#, kde-format
-msgid "Bosnian"
-msgstr "bosansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:39
-#, kde-format
-msgid "English"
-msgstr "angleško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:42
-#, kde-format
-msgid "Chinese (Simplified)"
-msgstr "kitajsko (poenostavljeno)"
-
-#: texttranslator/translator/misc/translatorutil.cpp:45
-#, kde-format
-msgid "Chinese (Traditional)"
-msgstr "kitajsko (tradicionalno)"
-
-#: texttranslator/translator/misc/translatorutil.cpp:48
-#, kde-format
-msgid "Dutch"
-msgstr "nizozemsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:51
-#, kde-format
-msgid "French"
-msgstr "francosko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:54
-#, kde-format
-msgid "German"
-msgstr "nemško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:57
-#, kde-format
-msgid "Greek"
-msgstr "grško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:60
-#, kde-format
-msgid "Italian"
-msgstr "italijansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:63
-#, kde-format
-msgid "Japanese"
-msgstr "japonsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:66
-#, kde-format
-msgid "Korean"
-msgstr "korejsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:69
-#, kde-format
-msgid "Portuguese"
-msgstr "portugalsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:72
-#, kde-format
-msgid "Russian"
-msgstr "rusko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:75
-#, kde-format
-msgid "Spanish"
-msgstr "špansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:78
-#, kde-format
-msgid "Afrikaans"
-msgstr "afrikansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:81
-#, kde-format
-msgid "Albanian"
-msgstr "albansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:84
-#, kde-format
-msgid "Arabic"
-msgstr "arabsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:87
-#, kde-format
-msgid "Armenian"
-msgstr "armensko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:90
-#, kde-format
-msgid "Azerbaijani"
-msgstr "azarbejdžansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:93
-#, kde-format
-msgid "Basque"
-msgstr "baskovsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:96
-#, kde-format
-msgid "Belarusian"
-msgstr "belorusko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:99
-#, kde-format
-msgid "Bulgarian"
-msgstr "bolgarsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:102
-#, kde-format
-msgid "Catalan"
-msgstr "katalonsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:105
-#, kde-format
-msgid "Croatian"
-msgstr "hrvaško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:108
-#, kde-format
-msgid "Czech"
-msgstr "češko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:111
-#, kde-format
-msgid "Danish"
-msgstr "dansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:114
-#, kde-format
-msgid "Estonian"
-msgstr "estonsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:117
-#, kde-format
-msgid "Filipino"
-msgstr "filipinsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:120
-#, kde-format
-msgid "Finnish"
-msgstr "finsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:123
-#, kde-format
-msgid "Galician"
-msgstr "galicijsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:126
-#, kde-format
-msgid "Georgian"
-msgstr "gruzijsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:129
-#, kde-format
-msgid "Haitian Creole"
-msgstr "haitsko kreolsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:132
-#, kde-format
-msgid "Hebrew"
-msgstr "hebrejsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:135
-#, kde-format
-msgid "Hindi"
-msgstr "Hindi"
-
-#: texttranslator/translator/misc/translatorutil.cpp:138
-#, kde-format
-msgid "Hungarian"
-msgstr "madžarsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:141
-#, kde-format
-msgid "Icelandic"
-msgstr "islandsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:144
-#, kde-format
-msgid "Indonesian"
-msgstr "indonezijsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:147
-#, kde-format
-msgid "Irish"
-msgstr "irsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:150
-#, kde-format
-msgid "Latvian"
-msgstr "latvijsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:153
-#, kde-format
-msgid "Lithuanian"
-msgstr "litvansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:156
-#, kde-format
-msgid "Macedonian"
-msgstr "makedonsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:159
-#, kde-format
-msgid "Malay"
-msgstr "malajsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:162
-#, kde-format
-msgid "Maltese"
-msgstr "malteško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:165
-#, kde-format
-msgid "Norwegian"
-msgstr "norveško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:168
-#, kde-format
-msgid "Persian"
-msgstr "perzijsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:171
-#, kde-format
-msgid "Polish"
-msgstr "poljsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:174
-#, kde-format
-msgid "Romanian"
-msgstr "romunsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:177
-#, kde-format
-msgid "Serbian"
-msgstr "srbsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:180
-#, kde-format
-msgid "Slovak"
-msgstr "slovaško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:183
-#, kde-format
-msgid "Slovenian"
-msgstr "slovensko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:186
-#, kde-format
-msgid "Swahili"
-msgstr "Svahili"
-
-#: texttranslator/translator/misc/translatorutil.cpp:189
-#, kde-format
-msgid "Swedish"
-msgstr "švedsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:192
-#, kde-format
-msgid "Thai"
-msgstr "tajsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:195
-#, kde-format
-msgid "Turkish"
-msgstr "turško"
-
-#: texttranslator/translator/misc/translatorutil.cpp:198
-#, kde-format
-msgid "Ukrainian"
-msgstr "ukrajinsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:201
-#, kde-format
-msgid "Urdu"
-msgstr "Urdu"
-
-#: texttranslator/translator/misc/translatorutil.cpp:204
-#, kde-format
-msgid "Vietnamese"
-msgstr "vietnamsko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:207
-#, kde-format
-msgid "Welsh"
-msgstr "valežansko"
-
-#: texttranslator/translator/misc/translatorutil.cpp:210
-#, kde-format
-msgid "Yiddish"
-msgstr "Jidiš"
-
-#: texttranslator/translator/plugins/bing/bingengineclient.cpp:26
-#, kde-format
-msgid "Bing"
-msgstr "Bing"
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:60
-#, kde-format
-msgid "Error: Unable to find Bing credentials in web version."
-msgstr "Napaka: Ni bilo mogoče najti Bingovih poverilnic v spletni inačici."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:68
-#, kde-format
-msgid "Error: Unable to extract Bing key from web version."
-msgstr "Napaka: Ni bilo mogoče izločiti Bingovega ključa iz spletne inačice."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:77
-#, kde-format
-msgid "Error: Unable to extract Bing token from web version."
-msgstr "Napaka: Ni bilo mogoče izločiti Bingovega žetona iz spletne inačice."
-
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:86
-#: texttranslator/translator/plugins/bing/bingengineplugin.cpp:95
-#, kde-format
-msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
-"Napaka: Ni bilo mogoče izločiti dodatne Bingove informacije iz spletne "
-"inačice."
-
-#: texttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
-#, kde-format
-msgid "DeepL"
-msgstr "DeepL"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
-#: texttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Engine"
-msgstr "Konfiguriraj stroj"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
-#, kde-format
-msgid "Use Free License Key"
-msgstr "Uporabi ključ prostega dovoljenja"
-
-#: texttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
-#, kde-format
-msgid "Api Key:"
-msgstr "Ključ api:"
-
-#: texttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
-#, kde-format
-msgid "Server needs Api Key."
-msgstr "Strežnik potrebuje ključ api."
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
-#, kde-format
-msgid "Libre Translate"
-msgstr "Libre Translate"
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
-#, kde-format
-msgid "Server required Api Key"
-msgstr "Strežnik je potreboval ključ api"
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
-#: texttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
-#, kde-format
-msgid "Server Url:"
-msgstr "Url strežnika:"
-
-#: texttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
-#, kde-format
-msgid "Server url is not defined."
-msgstr "Url strežnika ni določen."
-
-#: texttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
-#, kde-format
-msgid "Lingva"
-msgstr "Lingva"
-
-#: texttranslator/translator/plugins/yandex/yandexengineclient.cpp:26
-#, kde-format
-msgid "Yandex"
-msgstr "Yandex"
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
-#: texttranslator/translator/translatorengineplugin.cpp:100
-#, kde-format
-msgid ""
-"Error: Engine systems have detected suspicious traffic from your computer "
-"network. Please try your request again later."
-msgstr ""
-"Napaka: Sistemi računalnika so zaznali sumljiv promet iz vaše računalniške "
-"mreže. Poskusite z zahtevkom zopet kasneje."
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
-#, kde-format
-msgid "Error: Unable to find Yandex SID in web version."
-msgstr "Napaka: Ni bilo mogoče najti Yandex SID v spletni inačici."
-
-#: texttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
-#, kde-format
-msgid "Error: Unable to extract Yandex SID from web version."
-msgstr "Napaka: Ni bilo mogoče izločiti Yandex SID iz spletne inačice."
-
-#: texttranslator/translator/translatorengineplugin.cpp:108
-#, kde-format
-msgid "You used same language for 'from' and 'to' language."
-msgstr "Uporabili ste isti jezik za izvorni in ciljni jezik."
-
-#: texttranslator/translator/widgets/translatorconfiguredialog.cpp:18
-#, kde-format
-msgctxt "@title:window"
-msgid "Configure Translator"
-msgstr "Prilagodi prevajalnik"
-
-#: texttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:35
-#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#, kde-format
-msgid "Search..."
-msgstr "Išči ..."
-
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:24
-#: widgets/exportmessages/exportmessageswidget.cpp:24
-#, kde-format
-msgid "From:"
-msgstr "Od:"
-
-#: texttranslator/translator/widgets/translatorconfigurelistswidget.cpp:25
-#: widgets/exportmessages/exportmessageswidget.cpp:27
-#, kde-format
-msgid "To:"
-msgstr "Za:"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:32
-#, kde-format
-msgctxt "@title:window"
-msgid "Translator Debug"
-msgstr "Razhrošči prevajalnik"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:39
-#, kde-format
-msgid "Save As..."
-msgstr "Shrani kot ..."
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:88
-#, kde-format
-msgid ""
-"Could not write the file %1:\n"
-"\"%2\" is the detailed error description."
-msgstr ""
-"Ni bilo mogoče pisati datoteke %1:\n"
-"\"%2\" je podroben opis napake."
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:92
-#, kde-format
-msgid "Save File Error"
-msgstr "Napaka shranjevanja datoteke"
-
-#: texttranslator/translator/widgets/translatordebugdialog.cpp:115
-#, kde-format
-msgid "All Files (*)"
-msgstr "Vse datoteke (*)"
-
-#: texttranslator/translator/widgets/translatormenu.cpp:22
-#, kde-format
-msgid "Translate..."
-msgstr "Prevedi..."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:133
-#, kde-format
-msgid "Problem when connecting to the translator web site."
-msgstr "Problem pri povezovanju s spletiščem prevajalnika."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:245
-#, kde-format
-msgctxt "Translate from language"
-msgid "From:"
-msgstr "Od:"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:252
-#, kde-format
-msgctxt "Translate to language"
-msgid "To:"
-msgstr "Za:"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:264
-#, kde-format
-msgctxt "Invert language choices so that from becomes to and to becomes from"
-msgid "Invert"
-msgstr "Invertiraj"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:269
-#: texttranslator/translator/widgets/translatorwidget.cpp:272
-#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:74
-#, kde-format
-msgid "Clear"
-msgstr "Počisti"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:277
-#: texttranslator/translator/widgets/translatorwidget.cpp:280
-#, kde-format
-msgid "Translate"
-msgstr "Prevedi"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:287
-#, kde-format
-msgid "Debug"
-msgstr "Razhrošči"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:305
-#, kde-format
-msgid "Configure"
-msgstr "Konfiguriraj"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:320
-#, kde-format
-msgid ""
-"Drag text that you want to translate. (Be careful text will be send to "
-"Google Server)."
-msgstr ""
-"Potegnite besedilo, ki ga želite prevesti. (Bodite previdni, saj bo besedilo "
-"poslano Googlovemu strežniku)."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:416
-#, kde-format
-msgid "No network connection detected, we cannot translate text."
-msgstr "Ni zaznanih omrežnih povezav, besedila ni mogoče prevesti."
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:416
-#, kde-format
-msgid "No network"
-msgstr "Ni omrežja"
-
-#: texttranslator/translator/widgets/translatorwidget.cpp:455
-#, kde-format
-msgid "Translate error"
-msgstr "Napaka prevoda"
-
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
 msgctxt "@title:window"
@@ -3496,6 +2388,22 @@ msgstr "Dodaj ..."
 msgid "Modify..."
 msgstr "Spremeni ..."
 
+#. i18n: ectx: property (text), widget (QPushButton, removeServer)
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
+#: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
+#: widgets/administratordialog/invites/invitetreeview.cpp:39
+#: widgets/administratordialog/oauth/oauthtreeview.cpp:53
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:113
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
+#: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/configuredialog/configureaccountserverwidget.ui:53
+#: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
+#, kde-format
+msgid "Remove"
+msgstr "Odstrani"
+
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp:26
 #, kde-format
 msgctxt "@title:window"
@@ -3547,7 +2455,7 @@ msgstr "Uredi stanje uporabnika"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:478
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:483
 #, kde-format
 msgid "Status:"
 msgstr "Stanje:"
@@ -4362,7 +3270,7 @@ msgstr "Šifriranje"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:856
+#: widgets/ruqolamainwindow.cpp:867
 #, kde-format
 msgid "Message"
 msgstr "Sporočilo"
@@ -5207,7 +4115,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "Omejitev predpomnilnika za ravnanje z odhodnimi sporočili."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -6566,6 +5474,14 @@ msgstr "Informacija o pasici"
 msgid "Show Unread"
 msgstr "Prikaži neprebrano"
 
+#: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
+#: widgets/misc/emoticonmenuwidget.cpp:47
+#: widgets/notificationhistory/notificationhistorywidget.cpp:40
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#, kde-format
+msgid "Search..."
+msgstr "Išči ..."
+
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
 #, kde-format
 msgid "Mark as Read"
@@ -6867,6 +5783,11 @@ msgctxt "@title:window"
 msgid "Configure Auto-Translate"
 msgstr "Prilagodi samodejno prevajanje"
 
+#: widgets/dialogs/autotranslateconfigurewidget.cpp:37
+#, kde-format
+msgid "Language:"
+msgstr "Jezik:"
+
 #: widgets/dialogs/channelinfodialog.cpp:68
 #, kde-format
 msgctxt "@title:window"
@@ -7013,6 +5934,13 @@ msgstr "Dodaj geslo"
 #, kde-format
 msgid "Channel Password:"
 msgstr "Geslo kanala:"
+
+#: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
+#: widgets/notificationhistory/notificationhistorylistview.cpp:74
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:39
+#, kde-format
+msgid "Clear"
+msgstr "Počisti"
 
 #: widgets/dialogs/channelsearchwidget.cpp:25
 #, kde-format
@@ -7706,6 +6634,7 @@ msgstr "Odpri razpravo"
 #: widgets/discussions/discussionlistview.cpp:65
 #: widgets/notificationhistory/notificationhistorylistview.cpp:93
 #: widgets/room/messagelistview.cpp:466
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
 #, kde-format
 msgid "Speak Text"
 msgstr "Govori besedilo"
@@ -7713,6 +6642,7 @@ msgstr "Govori besedilo"
 #: widgets/discussions/discussionlistview.cpp:71
 #: widgets/notificationhistory/notificationhistorylistview.cpp:99
 #: widgets/room/messagelistview.cpp:267
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:60
 #, kde-format
 msgid "Select All"
 msgstr "Izberi vse"
@@ -7747,6 +6677,16 @@ msgstr[3] "%1 razprav v sobi (skupaj: %2)"
 msgctxt "@title:window"
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
+
+#: widgets/exportmessages/exportmessageswidget.cpp:24
+#, kde-format
+msgid "From:"
+msgstr "Od:"
+
+#: widgets/exportmessages/exportmessageswidget.cpp:27
+#, kde-format
+msgid "To:"
+msgstr "Za:"
 
 #: widgets/exportmessages/exportmessageswidget.cpp:30
 #, kde-format
@@ -8304,6 +7244,7 @@ msgstr "Sporočilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:237
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
 #, kde-format
 msgid "Copy Message"
 msgstr "Kopiraj sporočilo"
@@ -8931,7 +7872,7 @@ msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
 msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:48
+#: widgets/ruqolacentralwidget.cpp:55
 #, kde-format
 msgid "Error from '%1' account"
 msgstr "Napaka iz računa »%1«"
@@ -8981,148 +7922,155 @@ msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"
 
-#: widgets/ruqolamainwindow.cpp:201
+#: widgets/ruqolamainwindow.cpp:202
 #, kde-format
 msgid "Show New Notifications"
 msgstr "Prikaži nova obvestila"
 
-#: widgets/ruqolamainwindow.cpp:351
+#: widgets/ruqolamainwindow.cpp:352
 #, kde-format
 msgid "Add Server..."
 msgstr "Dodaj strežnik ..."
 
-#: widgets/ruqolamainwindow.cpp:356
+#: widgets/ruqolamainwindow.cpp:357
 #, kde-format
 msgid "Server Info..."
 msgstr "Podatki o strežniku ..."
 
-#: widgets/ruqolamainwindow.cpp:360
+#: widgets/ruqolamainwindow.cpp:361
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Odjavi se iz trenutnega strežnika"
 
-#: widgets/ruqolamainwindow.cpp:364
+#: widgets/ruqolamainwindow.cpp:365
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Skoči na naslednji neprebrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:369
+#: widgets/ruqolamainwindow.cpp:370
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Ustvari nov kanal ..."
 
-#: widgets/ruqolamainwindow.cpp:373
+#: widgets/ruqolamainwindow.cpp:374
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Ustvari neposredna sporočila ..."
 
-#: widgets/ruqolamainwindow.cpp:377
+#: widgets/ruqolamainwindow.cpp:378
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Ustvari razpravo ..."
 
-#: widgets/ruqolamainwindow.cpp:381
+#: widgets/ruqolamainwindow.cpp:382
 #, kde-format
 msgid "Create Team..."
 msgstr "Ustvari ekipo ..."
 
-#: widgets/ruqolamainwindow.cpp:389
+#: widgets/ruqolamainwindow.cpp:390
 #, kde-format
 msgid "Unread on Top"
 msgstr "Neprebrano na vrhu"
 
-#: widgets/ruqolamainwindow.cpp:397
+#: widgets/ruqolamainwindow.cpp:398
 #, kde-format
 msgid "By Last Message"
 msgstr "Z zadnjim sporočilom"
 
-#: widgets/ruqolamainwindow.cpp:403
+#: widgets/ruqolamainwindow.cpp:404
 #, kde-format
 msgid "Alphabetically"
 msgstr "Po abecednem redu"
 
-#: widgets/ruqolamainwindow.cpp:409
+#: widgets/ruqolamainwindow.cpp:410
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Pokaži zapisnik kanala"
 
-#: widgets/ruqolamainwindow.cpp:413
+#: widgets/ruqolamainwindow.cpp:414
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Error Informations"
+msgid "Show Server Errors"
+msgstr "Informacije o napakah strežnika"
+
+#: widgets/ruqolamainwindow.cpp:418
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Označi vse kanale kot prebrane"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:423
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registriraj novega uporabnika ..."
 
-#: widgets/ruqolamainwindow.cpp:422
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "My Account..."
 msgstr "Moj račun ..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "Administrator..."
 msgstr "Skrbnik ..."
 
-#: widgets/ruqolamainwindow.cpp:433
+#: widgets/ruqolamainwindow.cpp:438
 #, kde-format
 msgid "Server Settings..."
 msgstr "Nastavitve strežnika..."
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:443
 #, kde-format
 msgid "Directory..."
 msgstr "Mapa …"
 
-#: widgets/ruqolamainwindow.cpp:459
+#: widgets/ruqolamainwindow.cpp:464
 #, kde-format
 msgid "&Next Server"
 msgstr "&Naslednji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:469
 #, kde-format
 msgid "&Previous Server"
 msgstr "&Prejšnji strežnik"
 
-#: widgets/ruqolamainwindow.cpp:494
+#: widgets/ruqolamainwindow.cpp:499
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Prejšnji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:501
+#: widgets/ruqolamainwindow.cpp:506
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Naslednji izbrani kanal"
 
-#: widgets/ruqolamainwindow.cpp:535
+#: widgets/ruqolamainwindow.cpp:540
 #, kde-format
 msgid "Show Notify History"
 msgstr "Prikaži zgodovino obvestil"
 
-#: widgets/ruqolamainwindow.cpp:539
+#: widgets/ruqolamainwindow.cpp:544
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Prikaži informacijo o RocketChatu"
 
-#: widgets/ruqolamainwindow.cpp:543
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Pokaži avatarja sobe"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Prikaži priljubljeno sobo"
 
-#: widgets/ruqolamainwindow.cpp:574
+#: widgets/ruqolamainwindow.cpp:579
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Ustvari ekipo"
 
-#: widgets/ruqolamainwindow.cpp:758
+#: widgets/ruqolamainwindow.cpp:769
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -9131,12 +8079,12 @@ msgstr ""
 "Poslali smo vam e-poštno sporočilo, da potrdite svojo registracijo.\n"
 "Če ne prejmete e-pošte v kratkem, se vrnite in poskusite znova."
 
-#: widgets/ruqolamainwindow.cpp:759
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid "Register New User"
 msgstr "Registriraj novega uporabnika"
 
-#: widgets/ruqolamainwindow.cpp:883
+#: widgets/ruqolamainwindow.cpp:894
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -9145,7 +8093,7 @@ msgstr ""
 "<qt>To bo skrilo v celoti skrilo menijsko vrstico. Lahko jo spet prikažete, "
 "če vtipkate %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:886
+#: widgets/ruqolamainwindow.cpp:897
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Krij menijsko vrstico"
@@ -9163,29 +8111,28 @@ msgid "Tools"
 msgstr "Orodja"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:45
+#: widgets/ruqolaui.rc:47
 #, kde-format
 msgid "&Settings"
 msgstr "Nastavitve"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:49
+#: widgets/ruqolaui.rc:51
 #, kde-format
 msgid "View"
 msgstr "Pogled"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:62
+#: widgets/ruqolaui.rc:64
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Napake in informacije"
+msgstr "Informacije o napakah strežnika"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -9301,6 +8248,617 @@ msgstr "Podatki o računu"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Vrnite številko računa."
+
+#~ msgid "Archive cannot be opened in read mode."
+#~ msgstr "Arhiva ni mogoče odpreti v bralnem načinu."
+
+#~ msgid "Enable autocorrection"
+#~ msgstr "Omogoči samodejno popravljanje"
+
+#~ msgid "Replacement and exception for language:"
+#~ msgstr "Zamenjava in izjema za jezik:"
+
+#~ msgid "Export..."
+#~ msgstr "Izvozi..."
+
+#~ msgid "Import..."
+#~ msgstr "Uvozi..."
+
+#~ msgid "Ad&vanced Autocorrection"
+#~ msgstr "Napredno samodejno popravljanje"
+
+#~ msgid "&Add"
+#~ msgstr "Dod&aj"
+
+#~ msgid "&Enable word replacement"
+#~ msgstr "Omogoči zamenjavo besed"
+
+#~ msgid "&Find"
+#~ msgstr "Najdi"
+
+#~ msgid "Re&place"
+#~ msgstr "Zamenjaj"
+
+#~ msgid "Find"
+#~ msgstr "Najdi"
+
+#~ msgid "Replace"
+#~ msgstr "Zamenjaj"
+
+#~ msgid "E&xceptions"
+#~ msgstr "Izjeme"
+
+#~ msgid "Do not treat as the end of a sentence:"
+#~ msgstr "Ne obravnavaj kot konec stavka:"
+
+#~ msgid "R&emove"
+#~ msgstr "Odstrani"
+
+#~ msgid "Accept two uppercase letters in:"
+#~ msgstr "Sprejmi dve veliki začetnici v:"
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
+
+#~ msgid "Si&mple Autocorrection"
+#~ msgstr "Enostavno samodejno popravljanje"
+
+#~ msgid ""
+#~ "Detect when a new sentence is started and always ensure that the first "
+#~ "character is an uppercase character"
+#~ msgstr ""
+#~ "Zaznaj, kdaj se je začel novi stavek in vedno zagotavljaj, da je prvi "
+#~ "znak velika začetnica"
+
+#~ msgid ""
+#~ "Convert &first letter of a sentence automatically to uppercase\n"
+#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
+#~ msgstr ""
+#~ "Samodejno pretvori prvi znak stavka v veliko črko\n"
+#~ "(npr. \"moja hiša. v tem mestu\" v \"moja hiša. V tem mestu\""
+
+#~ msgid ""
+#~ "All words are checked for the common mistake of holding the shift key "
+#~ "down a bit too long. If some words must have two uppercase characters, "
+#~ "then those exceptions should be added in the 'Exceptions' tab."
+#~ msgstr ""
+#~ "Preverjaj vse besede glede pogoste napake predolgega držanja dvigalke. Če "
+#~ "imajo nekatere besede dve veliki začetnici, potem morajo biti te dodane v "
+#~ "zavihek 'Izjeme'."
+
+#~ msgid ""
+#~ "Convert &two uppercase characters to one uppercase and one lowercase "
+#~ "character\n"
+#~ " (e.g. PErfect to Perfect)"
+#~ msgstr ""
+#~ "Pretvori dve veliki začetnici v eno veliko začetnico in eno malo črko\n"
+#~ "(npr. ODlično v Odlično)"
+
+#~ msgid ""
+#~ "Make sure that more than one space cannot be typed, as this is a common "
+#~ "mistake which is quite hard to find in formatted text."
+#~ msgstr ""
+#~ "Zagotavljaj, da ni mogoče vtipkati več kot en presledek, saj je to "
+#~ "pogosta napaka, ki jo je težko najti v oblikovanem besedilu."
+
+#~ msgid "&Suppress double spaces"
+#~ msgstr "Preprečuj dvojne presledke"
+
+#~ msgid "Most standard fraction notations will be converted when available"
+#~ msgstr "Večina standardnih ulomkov bo preoblikovana, če je možno"
+
+#~ msgid "Re&place 1/2... with ½..."
+#~ msgstr "Zamenjaj 1/2... z ½..."
+
+#~ msgid "Capitalize name of days"
+#~ msgstr "Pretvori imena dni z velikimi začetnicami"
+
+#~ msgid ""
+#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
+#~ "formatting that matches the way an Internet browser would show a URL."
+#~ msgstr ""
+#~ "Zaznaj tipkanje spletnega naslova URL (Uniform Resource Locator) in "
+#~ "zagotovi oblikovanje na način kot bi spletni brskalnik prikazal spletni "
+#~ "naslov URL."
+
+#~ msgid "Autoformat &URLs (HTML mode)"
+#~ msgstr "Samodejno preoblikuj URL (HTML način)"
+
+#~ msgid ""
+#~ "When you use _underline_ or *bold*, the text between the underscores or "
+#~ "asterisks will be converted to underlined or bold text."
+#~ msgstr ""
+#~ "Ko uporabljate _podčrtaj_ ali *krepko* besedilo med podčrtaji ali "
+#~ "zvezdicami bo besedilo pretvorjeno v podčrtano ali krepko besedilo."
+
+#~ msgid ""
+#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
+#~ msgstr ""
+#~ "Samodejno zagotavljaj krepko, prečrtano in podčrtano oblikovanje (način "
+#~ "HTML)"
+
+#~ msgid "Replace 1st... with 1^st... (HTML mode)"
+#~ msgstr "Zamenjaj 1st... z 1^st... (način HTML)"
+
+#~ msgid ""
+#~ "Add non breaking space before specific punctuation marks in French text"
+#~ msgstr ""
+#~ "Dodaj nelomljiv presledek pred posebna ločila v francoskih besedilih"
+
+#~ msgid "Replace double quotes by french quotes"
+#~ msgstr "Zamenjaj dvojne narekovaje \" z navednicami »«"
+
+#~ msgid "Custom &Quotes"
+#~ msgstr "Citati po meri"
+
+#~ msgid "Replace &double quotes with typographical quotes"
+#~ msgstr "Zamenjaj dvojne narekovaje s tipografskimi narekovaji"
+
+#~ msgid "By Default"
+#~ msgstr "Privzeto"
+
+#~ msgid "\""
+#~ msgstr "\""
+
+#~ msgid "Ending Quote:"
+#~ msgstr "Končna navednica:"
+
+#~ msgid "Opening Quote:"
+#~ msgstr "Začetna navednica:"
+
+#~ msgid "Replace &single quotes with typographical quotes"
+#~ msgstr "Zamenjaj enojne narekovaje s tipografskimi narekovaji"
+
+#~ msgid "'"
+#~ msgstr "'"
+
+#~ msgid "Ending Quotes:"
+#~ msgstr "Končne navednice:"
+
+#~ msgid "Path"
+#~ msgstr "Pot"
+
+#~ msgid "System Path:"
+#~ msgstr "Sistemska pot:"
+
+#~ msgid "TextLabel"
+#~ msgstr "BesediloOznake"
+
+#~ msgid "Writable Path:"
+#~ msgstr "Zapisljiva pot:"
+
+#~ msgid "Custom System Path:"
+#~ msgstr "Sistemska pot po meri:"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Custom Writable Path:"
+#~ msgstr "Zapisljiva pot po meri:"
+
+#~ msgid "Select Custom Writable Path"
+#~ msgstr "Izberi zapisljivo pot po meri"
+
+#~ msgid "Select Custom System Path"
+#~ msgstr "Izberi sistemsko pot po meri"
+
+#~ msgid "LibreOffice Autocorrection"
+#~ msgstr "Samodejni popravki LibreOffice"
+
+#~ msgid "KMail/Calligra Autocorrection"
+#~ msgstr "Samodejni popravki KMail/Calligra"
+
+#~ msgid "\"Replace\" string is the same as \"Find\" string."
+#~ msgstr "\"Niz zamenjave\" je enak kot \"Niz iskanja\"."
+
+#~ msgid "Add Autocorrection Entry"
+#~ msgstr "Dodaj vnos samodejnega popravka"
+
+#~ msgid "&Modify"
+#~ msgstr "Spremeni"
+
+#~ msgid "Import LibreOffice Autocorrection"
+#~ msgstr "Uvozi samodejni popravek iz LibreOffica"
+
+#~ msgid "LibreOffice Autocorrection File (*.dat)"
+#~ msgstr "Datoteka samodejnih popravkov LibreOffice (*.dat)"
+
+#~ msgid "Import KMail Autocorrection"
+#~ msgstr "Uvozi samodejni popravek KMail"
+
+#~ msgid "KMail Autocorrection File (*.xml)"
+#~ msgstr "Datoteka samopopravkov KMail (*.xml)"
+
+#~ msgid "Import Autocorrection File"
+#~ msgstr "Uvozi datoteko samopopravkov"
+
+#~ msgid ""
+#~ "Language was changed, do you want to save config for previous language?"
+#~ msgstr ""
+#~ "Jezik je bil spremenjen, ali želite shraniti nastavitve prejšnjega jezika?"
+
+#~ msgid "Save config"
+#~ msgstr "Shrani nastavitve"
+
+#~ msgid "Please save changes before exporting settings."
+#~ msgstr "Shranite spremembe pred izvažanjem nastavitev."
+
+#~ msgid "Export Autocorrection File"
+#~ msgstr "Izvozi datoteko samopopravkov"
+
+#~ msgctxt "@title:window"
+#~ msgid "Select Special Characters"
+#~ msgstr "Izberi posebne znake"
+
+#~ msgid "Insert"
+#~ msgstr "Vstavi"
+
+#~ msgid "Select"
+#~ msgstr "Izberi"
+
+#~ msgid "Speech text"
+#~ msgstr "Izgovori besedilo"
+
+#~ msgid "Stop"
+#~ msgstr "Ustavi"
+
+#~ msgid "Pause"
+#~ msgstr "Premor"
+
+#~ msgid "Play"
+#~ msgstr "Predvajaj"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Text-To-Speech"
+#~ msgstr "Konfiguriraj besedilo v govor"
+
+#~ msgid "Morning, this is the test for testing settings."
+#~ msgstr "Dobro jutro, to je test za nastavitve testiranja."
+
+#~ msgid "Test"
+#~ msgstr "Test"
+
+#~ msgid "Volume:"
+#~ msgstr "Glasnost:"
+
+#~ msgid "Rate:"
+#~ msgstr "Hitrost:"
+
+#~ msgid "Pitch:"
+#~ msgstr "Višina:"
+
+#~ msgid "Engine:"
+#~ msgstr "Zaledna aplikacija:"
+
+#~ msgid "Voice:"
+#~ msgstr "Glas:"
+
+#~ msgid "Close"
+#~ msgstr "Zapri"
+
+#~ msgid "Configure..."
+#~ msgstr "Konfiguriraj..."
+
+#~ msgid "Detect language"
+#~ msgstr "Zaznaj jezik"
+
+#~ msgid "Hmong"
+#~ msgstr "Hmong"
+
+#~ msgid "Bosnian"
+#~ msgstr "bosansko"
+
+#~ msgid "English"
+#~ msgstr "angleško"
+
+#~ msgid "Chinese (Simplified)"
+#~ msgstr "kitajsko (poenostavljeno)"
+
+#~ msgid "Chinese (Traditional)"
+#~ msgstr "kitajsko (tradicionalno)"
+
+#~ msgid "Dutch"
+#~ msgstr "nizozemsko"
+
+#~ msgid "French"
+#~ msgstr "francosko"
+
+#~ msgid "German"
+#~ msgstr "nemško"
+
+#~ msgid "Greek"
+#~ msgstr "grško"
+
+#~ msgid "Italian"
+#~ msgstr "italijansko"
+
+#~ msgid "Japanese"
+#~ msgstr "japonsko"
+
+#~ msgid "Korean"
+#~ msgstr "korejsko"
+
+#~ msgid "Portuguese"
+#~ msgstr "portugalsko"
+
+#~ msgid "Russian"
+#~ msgstr "rusko"
+
+#~ msgid "Spanish"
+#~ msgstr "špansko"
+
+#~ msgid "Afrikaans"
+#~ msgstr "afrikansko"
+
+#~ msgid "Albanian"
+#~ msgstr "albansko"
+
+#~ msgid "Arabic"
+#~ msgstr "arabsko"
+
+#~ msgid "Armenian"
+#~ msgstr "armensko"
+
+#~ msgid "Azerbaijani"
+#~ msgstr "azarbejdžansko"
+
+#~ msgid "Basque"
+#~ msgstr "baskovsko"
+
+#~ msgid "Belarusian"
+#~ msgstr "belorusko"
+
+#~ msgid "Bulgarian"
+#~ msgstr "bolgarsko"
+
+#~ msgid "Catalan"
+#~ msgstr "katalonsko"
+
+#~ msgid "Croatian"
+#~ msgstr "hrvaško"
+
+#~ msgid "Czech"
+#~ msgstr "češko"
+
+#~ msgid "Danish"
+#~ msgstr "dansko"
+
+#~ msgid "Estonian"
+#~ msgstr "estonsko"
+
+#~ msgid "Filipino"
+#~ msgstr "filipinsko"
+
+#~ msgid "Finnish"
+#~ msgstr "finsko"
+
+#~ msgid "Galician"
+#~ msgstr "galicijsko"
+
+#~ msgid "Georgian"
+#~ msgstr "gruzijsko"
+
+#~ msgid "Haitian Creole"
+#~ msgstr "haitsko kreolsko"
+
+#~ msgid "Hebrew"
+#~ msgstr "hebrejsko"
+
+#~ msgid "Hindi"
+#~ msgstr "Hindi"
+
+#~ msgid "Hungarian"
+#~ msgstr "madžarsko"
+
+#~ msgid "Icelandic"
+#~ msgstr "islandsko"
+
+#~ msgid "Indonesian"
+#~ msgstr "indonezijsko"
+
+#~ msgid "Irish"
+#~ msgstr "irsko"
+
+#~ msgid "Latvian"
+#~ msgstr "latvijsko"
+
+#~ msgid "Lithuanian"
+#~ msgstr "litvansko"
+
+#~ msgid "Macedonian"
+#~ msgstr "makedonsko"
+
+#~ msgid "Malay"
+#~ msgstr "malajsko"
+
+#~ msgid "Maltese"
+#~ msgstr "malteško"
+
+#~ msgid "Norwegian"
+#~ msgstr "norveško"
+
+#~ msgid "Persian"
+#~ msgstr "perzijsko"
+
+#~ msgid "Polish"
+#~ msgstr "poljsko"
+
+#~ msgid "Romanian"
+#~ msgstr "romunsko"
+
+#~ msgid "Serbian"
+#~ msgstr "srbsko"
+
+#~ msgid "Slovak"
+#~ msgstr "slovaško"
+
+#~ msgid "Slovenian"
+#~ msgstr "slovensko"
+
+#~ msgid "Swahili"
+#~ msgstr "Svahili"
+
+#~ msgid "Swedish"
+#~ msgstr "švedsko"
+
+#~ msgid "Thai"
+#~ msgstr "tajsko"
+
+#~ msgid "Turkish"
+#~ msgstr "turško"
+
+#~ msgid "Ukrainian"
+#~ msgstr "ukrajinsko"
+
+#~ msgid "Urdu"
+#~ msgstr "Urdu"
+
+#~ msgid "Vietnamese"
+#~ msgstr "vietnamsko"
+
+#~ msgid "Welsh"
+#~ msgstr "valežansko"
+
+#~ msgid "Yiddish"
+#~ msgstr "Jidiš"
+
+#~ msgid "Bing"
+#~ msgstr "Bing"
+
+#~ msgid "Error: Unable to find Bing credentials in web version."
+#~ msgstr "Napaka: Ni bilo mogoče najti Bingovih poverilnic v spletni inačici."
+
+#~ msgid "Error: Unable to extract Bing key from web version."
+#~ msgstr ""
+#~ "Napaka: Ni bilo mogoče izločiti Bingovega ključa iz spletne inačice."
+
+#~ msgid "Error: Unable to extract Bing token from web version."
+#~ msgstr ""
+#~ "Napaka: Ni bilo mogoče izločiti Bingovega žetona iz spletne inačice."
+
+#~ msgid ""
+#~ "Error: Unable to extract additional Bing information from web version."
+#~ msgstr ""
+#~ "Napaka: Ni bilo mogoče izločiti dodatne Bingove informacije iz spletne "
+#~ "inačice."
+
+#~ msgid "DeepL"
+#~ msgstr "DeepL"
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Engine"
+#~ msgstr "Konfiguriraj stroj"
+
+#~ msgid "Use Free License Key"
+#~ msgstr "Uporabi ključ prostega dovoljenja"
+
+#~ msgid "Api Key:"
+#~ msgstr "Ključ api:"
+
+#~ msgid "Server needs Api Key."
+#~ msgstr "Strežnik potrebuje ključ api."
+
+#~ msgid "Libre Translate"
+#~ msgstr "Libre Translate"
+
+#~ msgid "Server required Api Key"
+#~ msgstr "Strežnik je potreboval ključ api"
+
+#~ msgid "Server Url:"
+#~ msgstr "Url strežnika:"
+
+#~ msgid "Server url is not defined."
+#~ msgstr "Url strežnika ni določen."
+
+#~ msgid "Lingva"
+#~ msgstr "Lingva"
+
+#~ msgid "Yandex"
+#~ msgstr "Yandex"
+
+#~ msgid ""
+#~ "Error: Engine systems have detected suspicious traffic from your computer "
+#~ "network. Please try your request again later."
+#~ msgstr ""
+#~ "Napaka: Sistemi računalnika so zaznali sumljiv promet iz vaše "
+#~ "računalniške mreže. Poskusite z zahtevkom zopet kasneje."
+
+#~ msgid "Error: Unable to find Yandex SID in web version."
+#~ msgstr "Napaka: Ni bilo mogoče najti Yandex SID v spletni inačici."
+
+#~ msgid "Error: Unable to extract Yandex SID from web version."
+#~ msgstr "Napaka: Ni bilo mogoče izločiti Yandex SID iz spletne inačice."
+
+#~ msgid "You used same language for 'from' and 'to' language."
+#~ msgstr "Uporabili ste isti jezik za izvorni in ciljni jezik."
+
+#~ msgctxt "@title:window"
+#~ msgid "Configure Translator"
+#~ msgstr "Prilagodi prevajalnik"
+
+#~ msgctxt "@title:window"
+#~ msgid "Translator Debug"
+#~ msgstr "Razhrošči prevajalnik"
+
+#~ msgid "Save As..."
+#~ msgstr "Shrani kot ..."
+
+#~ msgid ""
+#~ "Could not write the file %1:\n"
+#~ "\"%2\" is the detailed error description."
+#~ msgstr ""
+#~ "Ni bilo mogoče pisati datoteke %1:\n"
+#~ "\"%2\" je podroben opis napake."
+
+#~ msgid "Save File Error"
+#~ msgstr "Napaka shranjevanja datoteke"
+
+#~ msgid "All Files (*)"
+#~ msgstr "Vse datoteke (*)"
+
+#~ msgid "Translate..."
+#~ msgstr "Prevedi..."
+
+#~ msgid "Problem when connecting to the translator web site."
+#~ msgstr "Problem pri povezovanju s spletiščem prevajalnika."
+
+#~ msgctxt "Translate from language"
+#~ msgid "From:"
+#~ msgstr "Od:"
+
+#~ msgctxt "Translate to language"
+#~ msgid "To:"
+#~ msgstr "Za:"
+
+#~ msgctxt ""
+#~ "Invert language choices so that from becomes to and to becomes from"
+#~ msgid "Invert"
+#~ msgstr "Invertiraj"
+
+#~ msgid "Translate"
+#~ msgstr "Prevedi"
+
+#~ msgid "Debug"
+#~ msgstr "Razhrošči"
+
+#~ msgid "Configure"
+#~ msgstr "Konfiguriraj"
+
+#~ msgid ""
+#~ "Drag text that you want to translate. (Be careful text will be send to "
+#~ "Google Server)."
+#~ msgstr ""
+#~ "Potegnite besedilo, ki ga želite prevesti. (Bodite previdni, saj bo "
+#~ "besedilo poslano Googlovemu strežniku)."
+
+#~ msgid "No network connection detected, we cannot translate text."
+#~ msgstr "Ni zaznanih omrežnih povezav, besedila ni mogoče prevesti."
+
+#~ msgid "No network"
+#~ msgstr "Ni omrežja"
+
+#~ msgid "Translate error"
+#~ msgstr "Napaka prevoda"
 
 #~ msgid "Error: Unable to parse autodetected language"
 #~ msgstr "Napaka: Ni bilo mogoče razčleniti samozaznavnega jezika"
