@@ -6,6 +6,7 @@
 
 #include "servererrorinfo.h"
 
+qint64 ServerErrorInfo::identifierId = 0;
 ServerErrorInfo::ServerErrorInfo() = default;
 
 ServerErrorInfo::~ServerErrorInfo() = default;
@@ -51,6 +52,5 @@ void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
 
 QString ServerErrorInfo::identifier() const
 {
-    // TODO
-    return {};
+    return QString::number(identifierId);
 }

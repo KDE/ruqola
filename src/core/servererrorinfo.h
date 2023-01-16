@@ -27,6 +27,8 @@ public:
 
     Q_REQUIRED_RESULT QString identifier() const;
 
+    static qint64 identifierId;
+
 private:
     QString mAccountName;
     QString mMessage;
