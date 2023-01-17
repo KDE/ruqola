@@ -8,11 +8,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
-
+class RocketChatAccountModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServersComboBox : public QComboBox
 {
     Q_OBJECT
 public:
     explicit ServersComboBox(QWidget *parent = nullptr);
     ~ServersComboBox() override;
+
+private:
+    RocketChatAccountModel *const mModel;
 };
