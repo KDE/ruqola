@@ -24,6 +24,11 @@ bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, 
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
 
+    if (!mAccountNameFilter.isEmpty()) {
+        if (!modelIndex.data(NotificationHistoryModel::AccountName).toString().contains(mAccountNameFilter, Qt::CaseInsensitive)) {
+            return false;
+        }
+    }
     auto match = [&](int role) {
         return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
     };
