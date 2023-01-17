@@ -36,6 +36,7 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotShowMessage(const QModelIndex &index);
     void slotTextChanged(const QString &str);
+    void slotFilterAccount(const QString &accountName);
     NotificationHistoryListView *const mListNotificationsListView;
     QLineEdit *const mSearchLineEdit;
     NotificationHistoryModelFilterProxyModel *const mNotificationFilterProxyModel;

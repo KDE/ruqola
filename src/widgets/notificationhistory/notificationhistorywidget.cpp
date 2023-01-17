@@ -70,6 +70,9 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListNotificationsListView, &MessageListViewBase::checkIfAtBottom);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
+
+    connect(mServersComboBox, &ServersComboBox::textActivated, this, &NotificationHistoryWidget::slotFilterAccount);
+
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mListNotificationsListView, &NotificationHistoryListView::textToSpeech, this, &NotificationHistoryWidget::slotTextToSpeech);
 #endif
@@ -83,6 +86,11 @@ void NotificationHistoryWidget::slotTextToSpeech(const QString &messageText)
     mTextToSpeechWidget->say(messageText);
 }
 #endif
+
+void NotificationHistoryWidget::slotFilterAccount(const QString &accountName)
+{
+    mNotificationFilterProxyModel->setAccountNameFilter(accountName);
+}
 
 void NotificationHistoryWidget::slotTextChanged(const QString &str)
 {

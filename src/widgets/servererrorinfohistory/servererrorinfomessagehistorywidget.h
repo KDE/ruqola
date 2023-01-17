@@ -27,6 +27,7 @@ public:
 
 private:
     void slotTextChanged(const QString &str);
+    void slotFilterAccount(const QString &accountName);
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
 #endif
