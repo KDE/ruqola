@@ -34,6 +34,7 @@ Q_SIGNALS:
     void textToSpeech(const QString &str);
 
 private:
+    Q_REQUIRED_RESULT QString selectedText(const QModelIndex &index);
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QModelIndex &index);
 #endif

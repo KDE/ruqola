@@ -103,16 +103,22 @@ QString ServerErrorInfoMessageHistoryListView::selectedText() const
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void ServerErrorInfoMessageHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
-    QString messageText = selectedText();
-    if (messageText.isEmpty()) {
-        if (!index.isValid()) {
-            return;
-        }
-        messageText = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
-    }
+    const QString messageText = selectedText(index);
     Q_EMIT textToSpeech(messageText);
 }
 #endif
+
+QString ServerErrorInfoMessageHistoryListView::selectedText(const QModelIndex &index)
+{
+    QString messageText = selectedText();
+    if (messageText.isEmpty()) {
+        if (!index.isValid()) {
+            return {};
+        }
+        messageText = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
+    }
+    return messageText;
+}
 
 void ServerErrorInfoMessageHistoryListView::slotClearList()
 {
@@ -122,15 +128,8 @@ void ServerErrorInfoMessageHistoryListView::slotClearList()
 
 void ServerErrorInfoMessageHistoryListView::copyMessageToClipboard(const QModelIndex &index)
 {
-    QString message = selectedText();
-    if (message.isEmpty()) {
-        if (!index.isValid()) {
-            return;
-        }
-        message = index.data(ServerErrorInfoHistoryModel::MessageStr).toString();
-    }
-
+    const QString messageText = selectedText(index);
     QClipboard *clip = QApplication::clipboard();
-    clip->setText(message, QClipboard::Clipboard);
-    clip->setText(message, QClipboard::Selection);
+    clip->setText(messageText, QClipboard::Clipboard);
+    clip->setText(messageText, QClipboard::Selection);
 }

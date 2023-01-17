@@ -39,5 +39,6 @@ private:
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();
     void copyMessageToClipboard(const QModelIndex &index);
+    Q_REQUIRED_RESULT QString selectedText(const QModelIndex &index);
     ServerErrorInfoHistoryDelegate *const mListServerErrorInfosDelegate;
 };

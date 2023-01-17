@@ -107,16 +107,22 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void NotificationHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
-    QString messageText = selectedText();
-    if (messageText.isEmpty()) {
-        if (!index.isValid()) {
-            return;
-        }
-        messageText = index.data(NotificationHistoryModel::MessageStr).toString();
-    }
+    const QString messageText = selectedText(index);
     Q_EMIT textToSpeech(messageText);
 }
 #endif
+
+QString NotificationHistoryListView::selectedText(const QModelIndex &index)
+{
+    QString messageText = selectedText();
+    if (messageText.isEmpty()) {
+        if (!index.isValid()) {
+            return {};
+        }
+        messageText = index.data(NotificationHistoryModel::MessageStr).toString();
+    }
+    return messageText;
+}
 
 void NotificationHistoryListView::slotClearList()
 {
@@ -126,15 +132,8 @@ void NotificationHistoryListView::slotClearList()
 
 void NotificationHistoryListView::copyMessageToClipboard(const QModelIndex &index)
 {
-    QString message = selectedText();
-    if (message.isEmpty()) {
-        if (!index.isValid()) {
-            return;
-        }
-        message = index.data(NotificationHistoryModel::MessageStr).toString();
-    }
-
+    const QString messageText = selectedText(index);
     QClipboard *clip = QApplication::clipboard();
-    clip->setText(message, QClipboard::Clipboard);
-    clip->setText(message, QClipboard::Selection);
+    clip->setText(messageText, QClipboard::Clipboard);
+    clip->setText(messageText, QClipboard::Selection);
 }
