@@ -10,7 +10,6 @@
 
 #include "libruqolawidgets_private_export.h"
 
-class RoomModel;
 class RoomFilterProxyModel;
 class RoomListHeadingsProxyModel;
 class ChannelListDelegate;

@@ -11,7 +11,6 @@
 #include "videoconference/videoconference.h"
 #include <QDialog>
 class RocketChatAccount;
-class QToolButton;
 class ConferenceCallWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConferenceDirectCallDialog : public QDialog
 {

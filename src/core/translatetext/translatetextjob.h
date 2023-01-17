@@ -8,7 +8,6 @@
 #include "libruqolacore_export.h"
 #include <QDebug>
 #include <QObject>
-class TranslatorEngineBase;
 class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT

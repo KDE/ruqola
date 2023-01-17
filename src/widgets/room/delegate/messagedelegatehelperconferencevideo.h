@@ -23,7 +23,6 @@ class QListView;
 class QPainter;
 class QRect;
 class QMouseEvent;
-class QHelpEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public MessageBlockDelegateHelperBase
