@@ -15,4 +15,7 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageWidget : public KMessa
 public:
     explicit ServerErrorInfoMessageWidget(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageWidget() override;
+
+private:
+    void slotLinkActivated(const QString &contents);
 };

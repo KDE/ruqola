@@ -12,7 +12,6 @@
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 #include <QHBoxLayout>
 #include <QStackedWidget>
 
@@ -41,9 +40,15 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
+    connect(ServerErrorInfoHistoryManager::self(), &ServerErrorInfoHistoryManager::newServerErrorInfo, this, &RuqolaCentralWidget::slotNewErrorInfo);
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
+
+void RuqolaCentralWidget::slotNewErrorInfo()
+{
+    mServerErrorInfoMessageWidget->animatedShow();
+}
 
 void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const QString &accountName)
 {
@@ -52,7 +57,6 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     info.setMessage(messageError);
     info.setDateTime(QDateTime::currentDateTime());
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
-    KMessageBox::error(this, messageError, i18n("Error from \'%1\' account", accountName));
 }
 
 void RuqolaCentralWidget::slotSocketError(QAbstractSocket::SocketError error, const QString &errorString)

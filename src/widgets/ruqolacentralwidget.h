@@ -38,6 +38,7 @@ private:
     void slotLoginStatusChanged();
     void slotJobFailedInfo(const QString &messageError, const QString &accountName);
     void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
+    void slotNewErrorInfo();
 
     QStackedWidget *const mStackedWidget;
     RuqolaMainWidget *const mRuqolaMainWidget;
