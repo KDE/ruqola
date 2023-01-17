@@ -6,6 +6,7 @@
 
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
 #include "servererrorinfohistorymanager.h"
+#include "testservererrorinfomessagehistorywidget.h"
 #include <QApplication>
 #include <QCommandLineParser>
 int main(int argc, char **argv)
@@ -18,12 +19,16 @@ int main(int argc, char **argv)
     auto w = new ServerErrorInfoMessageHistoryDialog();
     w->resize(800, 600);
     w->show();
+
+    auto configServerInfo = new TestServerErrorInfoMessageHistoryWidget();
+    configServerInfo->resize(600, 300);
+    configServerInfo->show();
+
     for (int i = 0; i < 10; ++i) {
         ServerErrorInfo info;
         info.setAccountName(QStringLiteral("account %1").arg(QString::number(i)));
         const QString str = QStringLiteral("Message: %1").arg(QString::number(i));
         info.setMessage(str);
-        info.setDateTime(QDateTime::currentDateTime());
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
     }
 
