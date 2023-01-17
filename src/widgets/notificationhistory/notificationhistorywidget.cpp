@@ -6,6 +6,7 @@
 
 #include "notificationhistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/serverscombobox.h"
 #include "model/notificationhistorymodel.h"
 #include "model/notificationhistorymodelfilterproxymodel.h"
 #include "notificationhistorylistview.h"
@@ -27,6 +28,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
+    , mServersComboBox(new ServersComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,6 +43,8 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
+    mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
+    searchLayout->addWidget(mServersComboBox);
 
     mainLayout->addLayout(searchLayout);
 

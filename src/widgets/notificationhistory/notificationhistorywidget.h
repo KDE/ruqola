@@ -11,6 +11,7 @@
 #include "libruqolawidgets_private_export.h"
 class NotificationHistoryListView;
 class QLineEdit;
+class ServersComboBox;
 class NotificationHistoryModelFilterProxyModel;
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 namespace TextEditTextToSpeech
@@ -41,4 +42,5 @@ private:
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
 #endif
+    ServersComboBox *const mServersComboBox;
 };

@@ -5,6 +5,7 @@
 */
 
 #include "notificationhistorywidgettest.h"
+#include "misc/serverscombobox.h"
 #include "notificationhistory/notificationhistorydelegate.h"
 #include "notificationhistory/notificationhistorywidget.h"
 #include <QHBoxLayout>
@@ -47,4 +48,7 @@ void NotificationHistoryWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mSearchLineEdit);
     QVERIFY(mSearchLineEdit->isClearButtonEnabled());
     QVERIFY(!mSearchLineEdit->placeholderText().isEmpty());
+
+    auto mServersComboBox = w.findChild<ServersComboBox *>(QStringLiteral("mServersComboBox"));
+    QVERIFY(mServersComboBox);
 }

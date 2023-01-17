@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QComboBox>
-class RocketChatAccountModel;
+class RocketChatAccountFilterProxyModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServersComboBox : public QComboBox
 {
     Q_OBJECT
@@ -17,5 +17,5 @@ public:
     ~ServersComboBox() override;
 
 private:
-    RocketChatAccountModel *const mModel;
+    RocketChatAccountFilterProxyModel *const mModel;
 };

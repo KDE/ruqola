@@ -9,7 +9,7 @@
 #include "ruqola.h"
 ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
-    , mModel(Ruqola::self()->accountManager()->rocketChatAccountModel())
+    , mModel(Ruqola::self()->accountManager()->rocketChatAccountProxyModel())
 {
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
     setModel(mModel);
