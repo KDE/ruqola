@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-16 00:57+0000\n"
-"PO-Revision-Date: 2023-01-15 15:35+0100\n"
+"PO-Revision-Date: 2023-01-16 12:08+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8001,11 +8001,9 @@ msgid "Show Channel Log"
 msgstr "Kanaallog tonen"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Informatie over serverfout"
+msgstr "Serverfouten tonen"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format

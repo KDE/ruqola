@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-16 00:57+0000\n"
-"PO-Revision-Date: 2023-01-14 22:28+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2023-01-16 09:08+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -8046,11 +8046,9 @@ msgid "Show Channel Log"
 msgstr "Показати журнал каналу"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Дані щодо помилок сервера"
+msgstr "Показати помилки сервера"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format

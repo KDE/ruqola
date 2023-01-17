@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-16 00:57+0000\n"
-"PO-Revision-Date: 2023-01-12 15:42+0100\n"
+"PO-Revision-Date: 2023-01-16 12:35+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -2418,7 +2418,7 @@ msgstr "Elimina"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Sound"
-msgstr "Creació d'un so nou"
+msgstr "Creeu un so nou"
 
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:28
 #, kde-format
@@ -2516,7 +2516,7 @@ msgstr "URL de redirecció:"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit Oauth Apps"
-msgstr "Edició de les aplicacions d'Oauth"
+msgstr "Editeu les aplicacions d'Oauth"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
@@ -2557,7 +2557,7 @@ msgstr "Elimina l'Oauth"
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit '%1' Permission"
-msgstr "Edició del permís de «%1»"
+msgstr "Editeu el permís de «%1»"
 
 #: widgets/administratordialog/permissions/permissionseditwidget.cpp:19
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:62
@@ -3006,13 +3006,13 @@ msgstr "Entorn de construcció"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New User"
-msgstr "Creació d'un usuari nou"
+msgstr "Creeu un usuari nou"
 
 #: widgets/administratordialog/users/administratoradduserdialog.cpp:49
 #, kde-format
 msgctxt "@title:window"
 msgid "Edit User"
-msgstr "Edició d'usuari"
+msgstr "Editeu l'usuari"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:25
 #, kde-format
@@ -3260,7 +3260,7 @@ msgstr "Intents d'inici de sessió fallits"
 #, kde-format
 msgctxt "@title:window"
 msgid "Administrator Server Settings - %1"
-msgstr "Configuració de l'administració del servidor - %1"
+msgstr "Configureu l'administració del servidor - %1"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:105
 #, kde-format
@@ -3319,7 +3319,7 @@ msgstr "Federació d'IRC"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -3579,7 +3579,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
 msgid "Attribute handling"
-msgstr "Gestió d'atributs"
+msgstr "Gestioneu els atributs"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:66
 #, kde-format
@@ -4125,7 +4125,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "El límit de memòria cau per a la gestió de missatges ixents."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4470,16 +4470,7 @@ msgid "Remove Link Between User and Messages"
 msgstr "Elimina l'enllaç entre l'usuari i els missatges"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Determine what to do with messages of users who remove their account. "
-#| "Keep Messages and User Name: The message and files history of the user "
-#| "will be deleted from Direct Messages and will be kept in other rooms. "
-#| "Delete All Messages: All messages and files from the user will be deleted "
-#| "from the database and it will not be possible to locate the user anymore. "
-#| "Remove link between user and messages: This option will assign all "
-#| "messages and fles of the user to Rocket.Cat bot and Direct Messages are "
-#| "going to be deleted."
+#, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
 "Messages and User Name: The message and files history of the user will be "
@@ -5986,7 +5977,7 @@ msgstr "Seleccioneu un canal"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Notification"
-msgstr "Configuració de la notificació"
+msgstr "Configureu la notificació"
 
 #: widgets/dialogs/configurenotificationwidget.cpp:22
 #, kde-format
@@ -6972,7 +6963,7 @@ msgstr "Còpia de seguretat dels codis"
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure my Account"
-msgstr "Configuració del meu compte"
+msgstr "Configureu el meu compte"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:37
 #, kde-format
@@ -6997,7 +6988,7 @@ msgstr "Encriptació E2E"
 #: widgets/myaccount/myaccountconfigurewidget.cpp:58
 #, kde-format
 msgid "Manage Device"
-msgstr "Gestió del dispositiu"
+msgstr "Gestioneu el dispositiu"
 
 #: widgets/myaccount/myaccountconfigurewidget.cpp:62
 #, kde-format
@@ -7030,7 +7021,7 @@ msgstr "Desconnecta"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Personal Token"
-msgstr "Creació d'un testimoni personal"
+msgstr "Creeu un testimoni personal"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
@@ -7201,7 +7192,7 @@ msgstr "Compacta"
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
 msgid "Select Image"
-msgstr "Selecció d'imatge"
+msgstr "Seleccioneu una imatge"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
 #, kde-format
@@ -8007,10 +7998,9 @@ msgid "Show Channel Log"
 msgstr "Mostra el registre del canal"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Errors i informació"
+msgstr "Mostra els errors del servidor"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -8086,7 +8076,7 @@ msgstr "Mostra la sala preferida"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
-msgstr "Creació d'un equip"
+msgstr "Creeu un equip"
 
 #: widgets/ruqolamainwindow.cpp:769
 #, kde-format
@@ -8147,11 +8137,10 @@ msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Errors i informació"
+msgstr "Informació d'errors del servidor"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8267,626 +8256,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "Archive cannot be opened in read mode."
-#~ msgstr "No s'ha pogut obrir l'arxiu en mode de lectura."
-
-#~ msgid "Enable autocorrection"
-#~ msgstr "Activa la correcció automàtica"
-
-#~ msgid "Replacement and exception for language:"
-#~ msgstr "Substitució i excepció per a l'idioma:"
-
-#~ msgid "Export..."
-#~ msgstr "Exporta..."
-
-#~ msgid "Import..."
-#~ msgstr "Importa..."
-
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Correcció automàtica a&vançada"
-
-#~ msgid "&Add"
-#~ msgstr "Afi&g"
-
-#~ msgid "&Enable word replacement"
-#~ msgstr "Activa la substitució d&e paraules"
-
-#~ msgid "&Find"
-#~ msgstr "Bu&sca"
-
-#~ msgid "Re&place"
-#~ msgstr "Su&bstituïx"
-
-#~ msgid "Find"
-#~ msgstr "Busca"
-
-#~ msgid "Replace"
-#~ msgstr "Substituïx"
-
-#~ msgid "E&xceptions"
-#~ msgstr "E&xcepcions"
-
-#~ msgid "Do not treat as the end of a sentence:"
-#~ msgstr "No tractes com a final de frase:"
-
-#~ msgid "R&emove"
-#~ msgstr "&Elimina"
-
-#~ msgid "Accept two uppercase letters in:"
-#~ msgstr "Accepta dues majúscules en:"
-
-#~ msgid "Add"
-#~ msgstr "Afig"
-
-#~ msgid "Si&mple Autocorrection"
-#~ msgstr "Correcció automàtica si&mple"
-
-#~ msgid ""
-#~ "Detect when a new sentence is started and always ensure that the first "
-#~ "character is an uppercase character"
-#~ msgstr ""
-#~ "Detecta quan s'inicia una frase nova i sempre s'assegura que el primer "
-#~ "caràcter està en majúscules"
-
-#~ msgid ""
-#~ "Convert &first letter of a sentence automatically to uppercase\n"
-#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
-#~ msgstr ""
-#~ "Convertix la &primera lletra d'una frase automàticament a majúscula\n"
-#~ "(per exemple, «casa meua. en este poble» a «casa meua. En este poble»)"
-
-#~ msgid ""
-#~ "All words are checked for the common mistake of holding the shift key "
-#~ "down a bit too long. If some words must have two uppercase characters, "
-#~ "then those exceptions should be added in the 'Exceptions' tab."
-#~ msgstr ""
-#~ "Totes les paraules es revisen per l'errada comuna de polsar la tecla de "
-#~ "majúscules durant massa temps. Si algunes paraules han d'estar en "
-#~ "majúscules, s'han d'afegir estes excepcions a la pestanya «Excepcions»."
-
-#~ msgid ""
-#~ "Convert &two uppercase characters to one uppercase and one lowercase "
-#~ "character\n"
-#~ " (e.g. PErfect to Perfect)"
-#~ msgstr ""
-#~ "Con&vertix dos caràcters en majúscules a un en majúscules i un en "
-#~ "minúscules\n"
-#~ " (p. ex.: PErfecte a Perfecte)"
-
-#~ msgid ""
-#~ "Make sure that more than one space cannot be typed, as this is a common "
-#~ "mistake which is quite hard to find in formatted text."
-#~ msgstr ""
-#~ "Assegura que no es pot escriure més d'un espai, ja que este és un error "
-#~ "comú bastant difícil de trobar en text amb format."
-
-#~ msgid "&Suppress double spaces"
-#~ msgstr "Sup&rimix els espais dobles"
-
-#~ msgid "Most standard fraction notations will be converted when available"
-#~ msgstr ""
-#~ "La majoria de notacions de fraccions estàndard es convertiran quan "
-#~ "estiguen disponibles"
-
-#~ msgid "Re&place 1/2... with ½..."
-#~ msgstr "Su&bstituïx 1/2... per ½..."
-
-#~ msgid "Capitalize name of days"
-#~ msgstr "Posa en majúscules els noms dels dies"
-
-#~ msgid ""
-#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
-#~ "formatting that matches the way an Internet browser would show a URL."
-#~ msgstr ""
-#~ "Detecta quan s'escriu un URL (Uniform Resource Locator) i proporciona un "
-#~ "format per tal que un navegador d'Internet puga mostrar un URL."
-
-#~ msgid "Autoformat &URLs (HTML mode)"
-#~ msgstr "Dona format automàticament als &URL (mode HTML)"
-
-#~ msgid ""
-#~ "When you use _underline_ or *bold*, the text between the underscores or "
-#~ "asterisks will be converted to underlined or bold text."
-#~ msgstr ""
-#~ "Quan utilitzeu _subratllat_ o *negreta*, el text entre els guions baixos "
-#~ "o els asteriscs es convertirà en text subratllat o en negreta."
-
-#~ msgid ""
-#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-#~ msgstr ""
-#~ "Automàticament dona format en negreta, ratllat i su&bratllat (mode HTML)"
-
-#~ msgid "Replace 1st... with 1^st... (HTML mode)"
-#~ msgstr "Substituïx 1st... per 1^st... (mode HTML)"
-
-#~ msgid ""
-#~ "Add non breaking space before specific punctuation marks in French text"
-#~ msgstr ""
-#~ "Afig un espai no divisible abans de les marques específiques de puntuació "
-#~ "en textos en francés"
-
-#~ msgid "Replace double quotes by french quotes"
-#~ msgstr "Substituïx les cometes dobles per cometes franceses"
-
-#~ msgid "Custom &Quotes"
-#~ msgstr "Co&metes personalitzades"
-
-#~ msgid "Replace &double quotes with typographical quotes"
-#~ msgstr "Substituïx les cometes &dobles per cometes tipogràfiques"
-
-#~ msgid "By Default"
-#~ msgstr "De manera predeterminada"
-
-#~ msgid "\""
-#~ msgstr "\""
-
-#~ msgid "Ending Quote:"
-#~ msgstr "Cometes finals:"
-
-#~ msgid "Opening Quote:"
-#~ msgstr "Cometes inicials:"
-
-#~ msgid "Replace &single quotes with typographical quotes"
-#~ msgstr "Substituïx les cometes &simples per cometes tipogràfiques"
-
-# skip-rule: t-apo_fim
-#~ msgid "'"
-#~ msgstr "'"
-
-#~ msgid "Ending Quotes:"
-#~ msgstr "Cometes finals:"
-
-#~ msgid "Path"
-#~ msgstr "Camí"
-
-#~ msgid "System Path:"
-#~ msgstr "Camí del sistema:"
-
-#~ msgid "TextLabel"
-#~ msgstr "EtiquetaDeText"
-
-#~ msgid "Writable Path:"
-#~ msgstr "Camí que s'hi pot escriure:"
-
-#~ msgid "Custom System Path:"
-#~ msgstr "Camí personalitzat del sistema:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Custom Writable Path:"
-#~ msgstr "Camí personalitzat que s'hi pot escriure:"
-
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Seleccioneu el camí personalitzat que s'hi pot escriure"
-
-#~ msgid "Select Custom System Path"
-#~ msgstr "Seleccioneu el camí personalitzat del sistema"
-
-#~ msgid "LibreOffice Autocorrection"
-#~ msgstr "Correcció automàtica de LibreOffice"
-
-#~ msgid "KMail/Calligra Autocorrection"
-#~ msgstr "Correcció automàtica de KMail/Calligra"
-
-#~ msgid "\"Replace\" string is the same as \"Find\" string."
-#~ msgstr "La cadena «Substituïx» és la mateixa que la cadena «Busca»."
-
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Afig una entrada de correcció automàtica"
-
-#~ msgid "&Modify"
-#~ msgstr "&Modifica"
-
-#~ msgid "Import LibreOffice Autocorrection"
-#~ msgstr "Importa la correcció automàtica de LibreOffice"
-
-#~ msgid "LibreOffice Autocorrection File (*.dat)"
-#~ msgstr "Fitxer de correcció automàtica de LibreOffice (*.dat)"
-
-#~ msgid "Import KMail Autocorrection"
-#~ msgstr "Importa la correcció automàtica de KMail"
-
-#~ msgid "KMail Autocorrection File (*.xml)"
-#~ msgstr "Fitxer de correcció automàtica de KMail (*.xml)"
-
-#~ msgid "Import Autocorrection File"
-#~ msgstr "Importa un fitxer de correcció automàtica"
-
-#~ msgid ""
-#~ "Language was changed, do you want to save config for previous language?"
-#~ msgstr ""
-#~ "L'idioma ha canviat. Voleu guardar la configuració de l'idioma anterior?"
-
-#~ msgid "Save config"
-#~ msgstr "Guarda la configuració"
-
-#~ msgid "Please save changes before exporting settings."
-#~ msgstr "Guardeu els canvis abans d'exportar la configuració."
-
-#~ msgid "Export Autocorrection File"
-#~ msgstr "Exporta un fitxer de correcció automàtica"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Seleccioneu els caràcters especials"
-
-#~ msgid "Insert"
-#~ msgstr "Inserix"
-
-#~ msgid "Select"
-#~ msgstr "Selecciona"
-
-#~ msgid "Speech text"
-#~ msgstr "Text a veu"
-
-#~ msgid "Stop"
-#~ msgstr "Para"
-
-#~ msgid "Pause"
-#~ msgstr "Pausa"
-
-#~ msgid "Play"
-#~ msgstr "Reproduïx"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Text-To-Speech"
-#~ msgstr "Configuració del text a veu"
-
-#~ msgid "Morning, this is the test for testing settings."
-#~ msgstr "Hola, esta és la prova per a provar la configuració."
-
-#~ msgid "Test"
-#~ msgstr "Prova"
-
-#~ msgid "Volume:"
-#~ msgstr "Volum:"
-
-#~ msgid "Rate:"
-#~ msgstr "Velocitat:"
-
-#~ msgid "Pitch:"
-#~ msgstr "To:"
-
-#~ msgid "Engine:"
-#~ msgstr "Motor:"
-
-#~ msgid "Voice:"
-#~ msgstr "Veu:"
-
-#~ msgid "Close"
-#~ msgstr "Tanca"
-
-#~ msgid "Configure..."
-#~ msgstr "Configura..."
-
-#~ msgid "Detect language"
-#~ msgstr "Detecta l'idioma"
-
-#~ msgid "Hmong"
-#~ msgstr "Hmong"
-
-#~ msgid "Bosnian"
-#~ msgstr "Bosnià"
-
-#~ msgid "English"
-#~ msgstr "Anglés"
-
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Xinés (simplificat)"
-
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Xinés (tradicional)"
-
-#~ msgid "Dutch"
-#~ msgstr "Neerlandés"
-
-#~ msgid "French"
-#~ msgstr "Francés"
-
-#~ msgid "German"
-#~ msgstr "Alemany"
-
-#~ msgid "Greek"
-#~ msgstr "Grec"
-
-#~ msgid "Italian"
-#~ msgstr "Italià"
-
-#~ msgid "Japanese"
-#~ msgstr "Japonés"
-
-#~ msgid "Korean"
-#~ msgstr "Coreà"
-
-#~ msgid "Portuguese"
-#~ msgstr "Portugués"
-
-#~ msgid "Russian"
-#~ msgstr "Rus"
-
-#~ msgid "Spanish"
-#~ msgstr "Espanyol"
-
-#~ msgid "Afrikaans"
-#~ msgstr "Afrikaans"
-
-#~ msgid "Albanian"
-#~ msgstr "Albanés"
-
-#~ msgid "Arabic"
-#~ msgstr "Àrab"
-
-#~ msgid "Armenian"
-#~ msgstr "Armeni"
-
-#~ msgid "Azerbaijani"
-#~ msgstr "Àzeri"
-
-#~ msgid "Basque"
-#~ msgstr "Basc"
-
-#~ msgid "Belarusian"
-#~ msgstr "Bielorús"
-
-#~ msgid "Bulgarian"
-#~ msgstr "Búlgar"
-
-#~ msgid "Catalan"
-#~ msgstr "Català"
-
-#~ msgid "Croatian"
-#~ msgstr "Croat"
-
-#~ msgid "Czech"
-#~ msgstr "Txec"
-
-#~ msgid "Danish"
-#~ msgstr "Danés"
-
-#~ msgid "Estonian"
-#~ msgstr "Estonià"
-
-#~ msgid "Filipino"
-#~ msgstr "Filipí"
-
-#~ msgid "Finnish"
-#~ msgstr "Finés"
-
-#~ msgid "Galician"
-#~ msgstr "Gallec"
-
-#~ msgid "Georgian"
-#~ msgstr "Georgià"
-
-#~ msgid "Haitian Creole"
-#~ msgstr "Crioll haitià"
-
-#~ msgid "Hebrew"
-#~ msgstr "Hebreu"
-
-#~ msgid "Hindi"
-#~ msgstr "Hindi"
-
-#~ msgid "Hungarian"
-#~ msgstr "Hongarés"
-
-#~ msgid "Icelandic"
-#~ msgstr "Islandés"
-
-#~ msgid "Indonesian"
-#~ msgstr "Indonesi"
-
-#~ msgid "Irish"
-#~ msgstr "Irlandés"
-
-#~ msgid "Latvian"
-#~ msgstr "Letó"
-
-#~ msgid "Lithuanian"
-#~ msgstr "Lituà"
-
-#~ msgid "Macedonian"
-#~ msgstr "Macedoni"
-
-#~ msgid "Malay"
-#~ msgstr "Malai"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltés"
-
-#~ msgid "Norwegian"
-#~ msgstr "Noruec"
-
-#~ msgid "Persian"
-#~ msgstr "Persa"
-
-#~ msgid "Polish"
-#~ msgstr "Polonés"
-
-#~ msgid "Romanian"
-#~ msgstr "Romanés"
-
-#~ msgid "Serbian"
-#~ msgstr "Serbi"
-
-#~ msgid "Slovak"
-#~ msgstr "Eslovac"
-
-#~ msgid "Slovenian"
-#~ msgstr "Eslové"
-
-#~ msgid "Swahili"
-#~ msgstr "Suahili"
-
-#~ msgid "Swedish"
-#~ msgstr "Suec"
-
-#~ msgid "Thai"
-#~ msgstr "Tai"
-
-#~ msgid "Turkish"
-#~ msgstr "Turc"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ucraïnés"
-
-#~ msgid "Urdu"
-#~ msgstr "Urdú"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Vietnamita"
-
-#~ msgid "Welsh"
-#~ msgstr "Gal·lés"
-
-#~ msgid "Yiddish"
-#~ msgstr "Jiddisch"
-
-#~ msgid "Bing"
-#~ msgstr "Bing"
-
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'han pogut trobar les credencials de Bing en "
-#~ "la versió web."
-
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'ha pogut extraure la clau de Bing des de la "
-#~ "versió web."
-
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'ha pogut extraure el testimoni de Bing des de "
-#~ "la versió web."
-
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'ha pogut extraure la informació addicional de "
-#~ "Bing des de la versió web."
-
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Configura el motor"
-
-#~ msgid "Use Free License Key"
-#~ msgstr "Utilitza una clau de llicència lliure"
-
-#~ msgid "Api Key:"
-#~ msgstr "Clau de la API:"
-
-#~ msgid "Server needs Api Key."
-#~ msgstr "El servidor necessita una clau de la API."
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
-
-#~ msgid "Server required Api Key"
-#~ msgstr "Clau de la API requerida pel servidor"
-
-#~ msgid "Server Url:"
-#~ msgstr "URL del servidor:"
-
-#~ msgid "Server url is not defined."
-#~ msgstr "No s'ha definit l'URL del servidor."
-
-#~ msgid "Lingva"
-#~ msgstr "Lingva"
-
-#~ msgid "Yandex"
-#~ msgstr "Yandex"
-
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "S'ha produït un error: Els sistemes del motor han detectat trànsit "
-#~ "sospitós des de la xarxa d'este ordinador. Torneu-ho a provar més tard."
-
-#~ msgid "Error: Unable to find Yandex SID in web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'ha pogut trobar l'SID de Yandex en la versió "
-#~ "web."
-
-#~ msgid "Error: Unable to extract Yandex SID from web version."
-#~ msgstr ""
-#~ "S'ha produït un error: No s'ha pogut extraure l'SID de Yandex de la "
-#~ "versió web."
-
-#~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Heu utilitzat el mateix idioma a «Des de» i «A»."
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Configuració del traductor"
-
-#~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Depuració del traductor"
-
-#~ msgid "Save As..."
-#~ msgstr "Anomena i guarda..."
-
-#~ msgid ""
-#~ "Could not write the file %1:\n"
-#~ "\"%2\" is the detailed error description."
-#~ msgstr ""
-#~ "No s'ha pogut escriure el fitxer %1:\n"
-#~ "«%2» és la descripció detallada de l'error."
-
-#~ msgid "Save File Error"
-#~ msgstr "S'ha produït un error en guardar el fitxer"
-
-#~ msgid "All Files (*)"
-#~ msgstr "Tots els fitxers (*)"
-
-#~ msgid "Translate..."
-#~ msgstr "Traduïx..."
-
-#~ msgid "Problem when connecting to the translator web site."
-#~ msgstr "Problema en connectar amb el lloc web del traductor."
-
-#~ msgctxt "Translate from language"
-#~ msgid "From:"
-#~ msgstr "De:"
-
-#~ msgctxt "Translate to language"
-#~ msgid "To:"
-#~ msgstr "A:"
-
-#~ msgctxt ""
-#~ "Invert language choices so that from becomes to and to becomes from"
-#~ msgid "Invert"
-#~ msgstr "Invertix"
-
-#~ msgid "Translate"
-#~ msgstr "Traduïx"
-
-#~ msgid "Debug"
-#~ msgstr "Depura"
-
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgid ""
-#~ "Drag text that you want to translate. (Be careful text will be send to "
-#~ "Google Server)."
-#~ msgstr ""
-#~ "Deixeu anar el text que voleu traduir. (Aneu amb compte, el text "
-#~ "s'enviarà al servidor de Google)."
-
-#~ msgid "No network connection detected, we cannot translate text."
-#~ msgstr ""
-#~ "No s'ha detectat cap connexió de xarxa, no s'ha pogut traduir el text."
-
-#~ msgid "No network"
-#~ msgstr "Sense xarxa"
-
-#~ msgid "Translate error"
-#~ msgstr "S'ha produït un error de traducció"
