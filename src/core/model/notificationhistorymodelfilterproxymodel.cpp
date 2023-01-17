@@ -33,3 +33,11 @@ bool NotificationHistoryModelFilterProxyModel::filterAcceptsRow(int source_row, 
     }
     return true;
 }
+
+void NotificationHistoryModelFilterProxyModel::setAccountNameFilter(const QString &newAccountNameFilter)
+{
+    if (mAccountNameFilter != newAccountNameFilter) {
+        mAccountNameFilter = newAccountNameFilter;
+        invalidate();
+    }
+}
