@@ -9,10 +9,21 @@
 #include "ruqola.h"
 ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
-    , mModel(Ruqola::self()->accountManager()->rocketChatAccountProxyModel())
 {
+    generateServerList();
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
-    setModel(mModel);
 }
 
 ServersComboBox::~ServersComboBox() = default;
+
+void ServersComboBox::generateServerList()
+{
+    auto model = Ruqola::self()->accountManager()->rocketChatAccountProxyModel();
+    // Add empty string
+    addItem(QString());
+    for (int i = 0; i < model->rowCount(); ++i) {
+        const auto index = model->index(i, 0);
+        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
+        addItem(account->displayName());
+    }
+}
