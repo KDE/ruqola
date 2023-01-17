@@ -6,10 +6,13 @@
 
 #include "servererrorinfo.h"
 
+#include <QLocale>
+
 quint64 ServerErrorInfo::identifierId = 0;
 ServerErrorInfo::ServerErrorInfo()
 {
     createUniqueIdentifier();
+    setDateTime(QDateTime::currentDateTime());
 }
 
 ServerErrorInfo::~ServerErrorInfo() = default;
@@ -50,7 +53,11 @@ QDateTime ServerErrorInfo::dateTime() const
 
 void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
 {
-    mDateTime = newDateTime;
+    if (mDateTime != newDateTime) {
+        mDateTime = newDateTime;
+        QLocale l;
+        mDateTimeStr = l.toString(mDateTime, QLocale::LongFormat);
+    }
 }
 
 QString ServerErrorInfo::identifier() const
@@ -62,4 +69,9 @@ void ServerErrorInfo::createUniqueIdentifier()
 {
     identifierId++;
     mIdentifier = QString::number(identifierId);
+}
+
+QString ServerErrorInfo::dateTimeStr() const
+{
+    return mDateTimeStr;
 }

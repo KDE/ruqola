@@ -36,6 +36,8 @@ QVariant ServerErrorInfoHistoryModel::data(const QModelIndex &index, int role) c
         return info.identifier();
     case DateTime:
         return info.dateTime();
+    case DateTimeStr:
+        return info.dateTimeStr();
     }
     return {};
 }

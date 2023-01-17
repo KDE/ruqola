@@ -21,6 +21,7 @@ public:
         MessageStr,
         Identifier,
         DateTime,
+        DateTimeStr,
     };
     Q_ENUM(ServerErrorInfoHistoryRoles)
     explicit ServerErrorInfoHistoryModel(QObject *parent = nullptr);

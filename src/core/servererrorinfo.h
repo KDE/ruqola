@@ -27,6 +27,8 @@ public:
 
     Q_REQUIRED_RESULT QString identifier() const;
 
+    Q_REQUIRED_RESULT QString dateTimeStr() const;
+
 private:
     void createUniqueIdentifier();
     static quint64 identifierId;
@@ -34,6 +36,7 @@ private:
     QString mMessage;
     QDateTime mDateTime;
     QString mIdentifier;
+    QString mDateTimeStr;
 };
 
 Q_DECLARE_METATYPE(ServerErrorInfo)

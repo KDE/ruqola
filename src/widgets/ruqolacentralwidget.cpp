@@ -55,7 +55,6 @@ void RuqolaCentralWidget::slotJobFailedInfo(const QString &messageError, const Q
     ServerErrorInfo info;
     info.setAccountName(accountName);
     info.setMessage(messageError);
-    info.setDateTime(QDateTime::currentDateTime());
     ServerErrorInfoHistoryManager::self()->addServerErrorInfo(std::move(info));
 }
 
