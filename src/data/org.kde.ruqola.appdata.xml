@@ -188,7 +188,7 @@
       <li xml:lang="x-test">xxSupport autotranslate (when RC has it)xx</li>
       <li>Configuring room notification</li>
       <li xml:lang="ca">Configuració de les notificacions de sales</li>
-      <li xml:lang="ca-valencia">Configuració de les notificacions de sala</li>
+      <li xml:lang="ca-valencia">Configureu les notificacions de sala</li>
       <li xml:lang="en-GB">Configuring room notification</li>
       <li xml:lang="es">Configurando notificaciones de sala</li>
       <li xml:lang="eu">Gelako jakinarazpenak konfiguratzen</li>
@@ -284,7 +284,7 @@
       <li xml:lang="x-test">xxTeams room supportxx</li>
       <li>Configuring own account</li>
       <li xml:lang="ca">Configuració del compte propi</li>
-      <li xml:lang="ca-valencia">Configuració del compte propi</li>
+      <li xml:lang="ca-valencia">Configureu el compte propi</li>
       <li xml:lang="en-GB">Configuring own account</li>
       <li xml:lang="es">Configurando la cuenta propia</li>
       <li xml:lang="eu">Norbere kontua konfiguratzea</li>
@@ -591,7 +591,7 @@
       <li xml:lang="x-test">xxTwo-factor authentication via emailxx</li>
       <li>Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="ca">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptatge)</li>
-      <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configuració de l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
+      <li xml:lang="ca-valencia">Suport de l'administrador (informació del servidor, sales, estat personalització d'usuaris, sons d'usuari, emojis personalitzats, usuaris, invitacions, registre de visualització, permisos, rols, Oauth), Configureu l'administrador (missatge, compte, política de retenció, pujada de fitxers, encriptació)</li>
       <li xml:lang="en-GB">Administrator support (Server Info, Rooms, Custom User Status, Custom Sounds, Custom Emoji, Users, Invites, View Log, Permissions, Roles, Oauth), Administrator settings (Message, Account, Retention Policy, File Upload, Encryption)</li>
       <li xml:lang="es">Soporte de administrador (Información del servidor, salas, estado personalizado de los usuarios, sonidos personalizados, emojis personalizados, usuarios, invitaciones, ver registros, permisos, roles y autenticación), preferencias de administrador (mensajes, cuentas, política de retención, subida de archivos, cifrado)</li>
       <li xml:lang="eu">Administratzaile euskarria (Zerbitzariaren informazioa, Gelak, Erabiltzailearen egoera pertsonalizatua, Neurrira ipinitako soinuak, neurrira ipinitako Emoji, Erabiltzailea, Gonbidatuak, Egunkaria ikustea, Baimenak, Eginkizunak, «Oauth»), Administratzailearen ezarpenak (Mezua, Kontua, Atxikitze gidalerroa, Fitxategia zama-igotzea, Zifratzea)</li>
@@ -804,7 +804,7 @@
       <li xml:lang="x-test">xxManage Device (RC &gt;= 5.0)xx</li>
       <li>Manage Personal Access Token</li>
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
-      <li xml:lang="ca-valencia">Gestió del testimoni d'accés personal</li>
+      <li xml:lang="ca-valencia">Gestioneu el testimoni d'accés personal</li>
       <li xml:lang="cs">Spravovat osobní přístupový token</li>
       <li xml:lang="en-GB">Manage Personal Access Token</li>
       <li xml:lang="es">Administrar símbolo de acceso personal</li>
