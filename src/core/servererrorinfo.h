@@ -27,12 +27,13 @@ public:
 
     Q_REQUIRED_RESULT QString identifier() const;
 
-    static qint64 identifierId;
-
 private:
+    void createUniqueIdentifier();
+    static qint64 identifierId;
     QString mAccountName;
     QString mMessage;
     QDateTime mDateTime;
+    QString mIdentifier;
 };
 
 Q_DECLARE_METATYPE(ServerErrorInfo)

@@ -7,7 +7,10 @@
 #include "servererrorinfo.h"
 
 qint64 ServerErrorInfo::identifierId = 0;
-ServerErrorInfo::ServerErrorInfo() = default;
+ServerErrorInfo::ServerErrorInfo()
+{
+    createUniqueIdentifier();
+}
 
 ServerErrorInfo::~ServerErrorInfo() = default;
 
@@ -52,5 +55,11 @@ void ServerErrorInfo::setDateTime(const QDateTime &newDateTime)
 
 QString ServerErrorInfo::identifier() const
 {
-    return QString::number(identifierId);
+    return mIdentifier;
+}
+
+void ServerErrorInfo::createUniqueIdentifier()
+{
+    identifierId++;
+    mIdentifier = QString::number(identifierId);
 }

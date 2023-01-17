@@ -121,10 +121,10 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
 QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QModelIndex &index, int width) const
 {
     Q_ASSERT(index.isValid());
-    const QString messageId = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
-    Q_ASSERT(!messageId.isEmpty());
+    const QString identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
+    Q_ASSERT(!identifier.isEmpty());
 
-    auto it = mDocumentCache.find(messageId);
+    auto it = mDocumentCache.find(identifier);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
         if (width != -1 && !qFuzzyCompare(ret->textWidth(), width)) {
@@ -160,7 +160,7 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
     const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
-    mDocumentCache.insert(messageId, std::move(doc));
+    mDocumentCache.insert(identifier, std::move(doc));
     return ret;
 }
 

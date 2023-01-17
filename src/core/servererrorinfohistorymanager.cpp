@@ -28,7 +28,6 @@ ServerErrorInfoHistoryModel *ServerErrorInfoHistoryManager::serverErrorInfoHisto
 
 void ServerErrorInfoHistoryManager::addServerErrorInfo(const ServerErrorInfo &info)
 {
-    ServerErrorInfo::identifierId++;
     mServerErrorInfoHistoryModel->addServerErrorInfo(info);
     Q_EMIT newServerErrorInfo();
 }
