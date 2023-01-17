@@ -24,6 +24,11 @@ bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, co
 {
     const QModelIndex modelIndex = sourceModel()->index(source_row, 0, source_parent);
 
+    if (!mAccountNameFilter.isEmpty()) {
+        if (!modelIndex.data(ServerErrorInfoHistoryModel::AccountName).toString().contains(mAccountNameFilter, Qt::CaseInsensitive)) {
+            return false;
+        }
+    }
     auto match = [&](int role) {
         return mFilterString.isEmpty() || modelIndex.data(role).toString().contains(mFilterString, Qt::CaseInsensitive);
     };
@@ -31,4 +36,12 @@ bool ServerErrorInfoHistoryFilterProxyModel::filterAcceptsRow(int source_row, co
         return false;
     }
     return true;
+}
+
+void ServerErrorInfoHistoryFilterProxyModel::setAccountNameFilter(const QString &newAccountNameFilter)
+{
+    if (mAccountNameFilter != newAccountNameFilter) {
+        mAccountNameFilter = newAccountNameFilter;
+        invalidate();
+    }
 }

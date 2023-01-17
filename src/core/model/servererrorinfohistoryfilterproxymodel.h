@@ -18,10 +18,12 @@ public:
     ~ServerErrorInfoHistoryFilterProxyModel() override;
 
     void setFilterString(const QString &string);
+    void setAccountNameFilter(const QString &newAccountNameFilter);
 
 protected:
     Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 
 private:
     QString mFilterString;
+    QString mAccountNameFilter;
 };
