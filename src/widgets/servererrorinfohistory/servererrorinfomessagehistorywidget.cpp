@@ -6,6 +6,7 @@
 
 #include "servererrorinfomessagehistorywidget.h"
 #include "misc/lineeditcatchreturnkey.h"
+#include "misc/serverscombobox.h"
 #include "model/servererrorinfohistoryfilterproxymodel.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "ruqolawidgets_debug.h"
@@ -27,6 +28,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
     , mServerErrorInfoHistoryFilterProxyModel(new ServerErrorInfoHistoryFilterProxyModel(this))
+    , mServersComboBox(new ServersComboBox(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -41,6 +43,9 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     searchLayout->addWidget(mSearchLineEdit);
     mSearchLineEdit->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mSearchLineEdit, this);
+
+    mServersComboBox->setObjectName(QStringLiteral("mServersComboBox"));
+    searchLayout->addWidget(mServersComboBox);
 
     mainLayout->addLayout(searchLayout);
 

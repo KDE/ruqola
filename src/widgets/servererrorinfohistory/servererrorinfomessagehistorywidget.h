@@ -17,6 +17,7 @@ class TextToSpeechContainerWidget;
 class QLineEdit;
 class ServerErrorInfoHistoryFilterProxyModel;
 class ServerErrorInfoMessageHistoryListView;
+class ServersComboBox;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ServerErrorInfoMessageHistoryWidget : public QWidget
 {
     Q_OBJECT
@@ -35,4 +36,5 @@ private:
     TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
 #endif
     ServerErrorInfoHistoryFilterProxyModel *const mServerErrorInfoHistoryFilterProxyModel;
+    ServersComboBox *const mServersComboBox;
 };
