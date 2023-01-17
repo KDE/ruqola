@@ -29,7 +29,7 @@ public:
 
 private:
     void createUniqueIdentifier();
-    static qint64 identifierId;
+    static quint64 identifierId;
     QString mAccountName;
     QString mMessage;
     QDateTime mDateTime;

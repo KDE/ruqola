@@ -6,7 +6,7 @@
 
 #include "servererrorinfo.h"
 
-qint64 ServerErrorInfo::identifierId = 0;
+quint64 ServerErrorInfo::identifierId = 0;
 ServerErrorInfo::ServerErrorInfo()
 {
     createUniqueIdentifier();
