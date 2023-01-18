@@ -17,9 +17,6 @@
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
 #include "threadwidget/threadmessagedialog.h"
-#include "translatetext/translatetextjob.h"
-#include "translatetext/translatorenginemanager.h"
-#include <TextTranslator/TranslatorMenu>
 
 #include <KLocalizedString>
 #include <KMessageBox>
@@ -31,6 +28,15 @@
 #include <QMenu>
 #include <QPainter>
 #include <QScrollBar>
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TRANSLATOR
+#include "translatetext/translatetextjob.h"
+#include "translatetext/translatorenginemanager.h"
+
+#include <TextTranslator/TranslatorMenu>
+#endif
 
 MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget *parent)
     : MessageListViewBase(parent)
@@ -198,6 +204,7 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
 
 void MessageListView::createTranslorMenu()
 {
+#if HAVE_TEXT_TRANSLATOR
     if (!mTranslatorMenu) {
         mTranslatorMenu = new TextTranslator::TranslatorMenu(this);
         connect(mTranslatorMenu, &TextTranslator::TranslatorMenu::translate, this, &MessageListView::slotTranslate);
@@ -206,6 +213,7 @@ void MessageListView::createTranslorMenu()
             mTranslatorMenu->updateMenu();
         });
     }
+#endif
 }
 
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
@@ -373,12 +381,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 
         menu.addSeparator();
         menu.addAction(followingToMessageAction);
+
+#if HAVE_TEXT_TRANSLATOR
         createTranslorMenu();
         if (!mTranslatorMenu->isEmpty()) {
             menu.addSeparator();
             mTranslatorMenu->setModelIndex(index);
             menu.addMenu(mTranslatorMenu->menu());
         }
+#endif
+
         if (deleteAction) {
             menu.addSeparator();
             menu.addAction(deleteAction);
@@ -738,6 +750,7 @@ void MessageListView::slotShowUserInfo(const QString &userName)
 
 void MessageListView::slotTranslate(const QString &from, const QString &to, const QPersistentModelIndex &modelIndex)
 {
+#if HAVE_TEXT_TRANSLATOR
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessageModel::OriginalMessage).toString();
         // qDebug() << " originalMessage " << originalMessage;
@@ -761,4 +774,9 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
         });
         job->translate();
     }
+#else
+    Q_UNUSED(from)
+    Q_UNUSED(to)
+    Q_UNUSED(modelIndex)
+#endif
 }

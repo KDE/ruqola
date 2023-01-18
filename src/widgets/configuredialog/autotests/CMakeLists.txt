@@ -13,7 +13,10 @@ endmacro()
 add_ruqolaconfiguredialog_test(configuresettingsdialogtest.cpp)
 add_ruqolaconfiguredialog_test(configuregeneralwidgettest.cpp)
 add_ruqolaconfiguredialog_test(configurefontwidgettest.cpp)
-add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
+
+if (HAVE_TEXT_AUTOCORRECTION)
+    add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
+endif()
 
 if (HAVE_TEXT_TO_SPEECH)
     add_ruqolaconfiguredialog_test(configureaccessibilitywidgettest.cpp)

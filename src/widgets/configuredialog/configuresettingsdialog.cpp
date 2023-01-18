@@ -6,7 +6,6 @@
 
 #include "configuresettingsdialog.h"
 #include "configureaccountwidget.h"
-#include "configureautocorrectionwidget.h"
 #include "configurefontwidget.h"
 #include "configuregeneralwidget.h"
 #include "configurespellcheckingwidget.h"
@@ -21,7 +20,13 @@
 
 #include <config-ruqola.h>
 
+#if HAVE_TEXT_TRANSLATOR
 #include <TextTranslator/TranslatorConfigureListsWidget>
+#endif
+
+#if HAVE_TEXT_AUTOCORRECTION
+#include "configureautocorrectionwidget.h"
+#endif
 
 #if HAVE_TEXT_TO_SPEECH
 #include "configureaccessibilitywidget.h"
@@ -41,11 +46,15 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureSpellCheckingWidget(new ConfigureSpellCheckingWidget(this))
     , mConfigureGeneralWidget(new ConfigureGeneralWidget(this))
     , mConfigureFontWidget(new ConfigureFontWidget(this))
+#if HAVE_TEXT_AUTOCORRECTION
     , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
+#endif
 #if HAVE_KUSERFEEDBACK
     , mConfigureUserFeedBackWidget(new ConfigureUserFeedbackWidget(this))
 #endif
+#if HAVE_TEXT_TRANSLATOR
     , mConfigureTranslateWidget(new TextTranslator::TranslatorConfigureListsWidget(this))
+#endif
 #if HAVE_TEXT_TO_SPEECH
     , mConfigureTextToSpeechWidget(new ConfigureAccessibilityWidget(this))
 #endif
@@ -70,20 +79,24 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     mConfigureFontWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
     addPage(mConfigureFontWidgetPage);
 
+#if HAVE_TEXT_AUTOCORRECTION
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
     mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
     // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
     addPage(mConfigureAutoCorrectionWidgetPage);
+#endif
 
     const QString spellCheckingPageName = i18nc("@title Preferences page name", "Spell Checking");
     mConfigureSpellCheckingWidgetPage = new KPageWidgetItem(mConfigureSpellCheckingWidget, spellCheckingPageName);
     mConfigureSpellCheckingWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("tools-check-spelling")));
     addPage(mConfigureSpellCheckingWidgetPage);
 
+#if HAVE_TEXT_TRANSLATOR
     const QString translatePageName = i18nc("@title Preferences page name", "Translate");
     mConfigureTranslateWidgetPage = new KPageWidgetItem(mConfigureTranslateWidget, translatePageName);
     mConfigureTranslateWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("network-workgroup")));
     addPage(mConfigureTranslateWidgetPage);
+#endif
 
 #if HAVE_KUSERFEEDBACK
     const QString userFeedBackPageName = i18nc("@title Preferences page name", "User Feedback");
@@ -134,8 +147,12 @@ void ConfigureSettingsDialog::slotAccepted()
 #endif
     mConfigureGeneralWidget->save();
     mConfigureFontWidget->save();
+#if HAVE_TEXT_TRANSLATOR
     mConfigureTranslateWidget->save();
+#endif
+#if HAVE_TEXT_AUTOCORRECTION
     mConfigureAutoCorrectionWidget->save();
+#endif
 #if HAVE_TEXT_TO_SPEECH
     mConfigureTextToSpeechWidget->save();
 #endif
@@ -150,8 +167,12 @@ void ConfigureSettingsDialog::load()
 #endif
     mConfigureGeneralWidget->load();
     mConfigureFontWidget->load();
+#if HAVE_TEXT_TRANSLATOR
     mConfigureTranslateWidget->load();
+#endif
+#if HAVE_TEXT_AUTOCORRECTION
     mConfigureAutoCorrectionWidget->load();
+#endif
 #if HAVE_TEXT_TO_SPEECH
     mConfigureTextToSpeechWidget->load();
 #endif

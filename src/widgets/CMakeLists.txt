@@ -239,8 +239,6 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configurespellcheckingwidget.h
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configureuserfeedbackwidget.h
-    configuredialog/configureautocorrectionwidget.h
-    configuredialog/configureautocorrectionwidget.cpp
 
 
     delegateutils/messagedelegateutils.cpp
@@ -675,6 +673,13 @@ target_sources(libruqolawidgets PRIVATE
     servererrorinfohistory/servererrorinfohistorydelegate.cpp
 )
 
+if (HAVE_TEXT_AUTOCORRECTION)
+    target_sources(libruqolawidgets PRIVATE
+        configuredialog/configureautocorrectionwidget.h
+        configuredialog/configureautocorrectionwidget.cpp
+    )
+endif()
+
 if (HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureaccessibilitywidget.h
@@ -726,8 +731,19 @@ target_link_libraries(libruqolawidgets
     KF${KF_MAJOR_VERSION}::KIOFileWidgets
     librocketchatrestapi-qt5
     libruqolacore
-    KF5::TextAutoCorrection
 )
+
+if (HAVE_TEXT_TRANSLATOR)
+    target_link_libraries(libruqolawidgets
+        KF5::TextTranslator
+    )
+endif()
+
+if (HAVE_TEXT_AUTOCORRECTION)
+    target_link_libraries(libruqolawidgets
+        KF5::TextAutoCorrection
+    )
+endif()
 
 if (HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets

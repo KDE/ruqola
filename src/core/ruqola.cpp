@@ -10,28 +10,40 @@
 #include "accountmanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
-#include "textautocorrection/autocorrection.h"
-#include "textautocorrection/textautocorrectionsettings.h"
 
 #include <KSharedConfig>
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_AUTOCORRECTION
+#include "textautocorrection/autocorrection.h"
+#include "textautocorrection/textautocorrectionsettings.h"
+#endif
 
 static Ruqola *s_self = nullptr;
 
 Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
+#if HAVE_TEXT_AUTOCORRECTION
     , mAutoCorrection(new TextAutoCorrection::AutoCorrection())
+#endif
 {
     // Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
+
+#if HAVE_TEXT_AUTOCORRECTION
     TextAutoCorrection::TextAutoCorrectionSettings::self()->setSharedConfig(KSharedConfig::openConfig());
     TextAutoCorrection::TextAutoCorrectionSettings::self()->load();
     mAutoCorrection->readConfig();
+#endif
 }
 
 Ruqola::~Ruqola()
 {
+#if HAVE_TEXT_AUTOCORRECTION
     delete mAutoCorrection;
+#endif
 }
 
 Ruqola *Ruqola::self()

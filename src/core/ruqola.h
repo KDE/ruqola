@@ -49,5 +49,5 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
-    TextAutoCorrection::AutoCorrection *const mAutoCorrection;
+    TextAutoCorrection::AutoCorrection *const mAutoCorrection = nullptr;
 };

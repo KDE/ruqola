@@ -11,9 +11,6 @@
 #include "model/inputcompletermodel.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include "textautocorrection/autocorrection.h"
-#include "textautocorrection/textautocorrectionsettings.h"
-
 #include <KLocalizedString>
 
 #include <KConfigGroup>
@@ -24,6 +21,13 @@
 #include <QMimeData>
 #include <QTextCursor>
 #include <QTextDocument>
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_AUTOCORRECTION
+#include "textautocorrection/autocorrection.h"
+#include "textautocorrection/textautocorrectionsettings.h"
+#endif
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
@@ -75,11 +79,13 @@ void MessageTextEdit::slotLanguageChanged(const QString &lang)
 
 void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 {
+#if HAVE_TEXT_AUTOCORRECTION
     if (!lang.isEmpty()) {
         auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
         settings->setLanguage(lang);
         Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
     }
+#endif
     qDebug() << " MessageTextEdit::switchAutoCorrectionLanguage " << lang;
 }
 
@@ -234,6 +240,8 @@ void MessageTextEdit::insertFormat(QChar formatChar)
 void MessageTextEdit::keyPressEvent(QKeyEvent *e)
 {
     const int key = e->key();
+
+#if HAVE_TEXT_AUTOCORRECTION
     if (Ruqola::self()->autoCorrection()->autoCorrectionSettings()->isEnabledAutoCorrection()) {
         if ((key == Qt::Key_Space) || (key == Qt::Key_Enter) || (key == Qt::Key_Return)) {
             if (!textCursor().hasSelection()) {
@@ -252,6 +260,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
             }
         }
     }
+#endif
 
     if (key == Qt::Key_Return || key == Qt::Key_Enter) {
         if ((key == Qt::Key_Enter && (e->modifiers() == Qt::KeypadModifier)) || !e->modifiers()) {

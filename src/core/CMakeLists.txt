@@ -410,10 +410,6 @@ target_sources(libruqolacore PRIVATE
     utils.cpp
     utils.h
 
-    translatetext/translatetextjob.cpp
-    translatetext/translatetextjob.h
-    translatetext/translatorenginemanager.cpp
-    translatetext/translatorenginemanager.h
     ruqolacore.qrc
 
     messages/block.h
@@ -434,6 +430,15 @@ target_sources(libruqolacore PRIVATE
     servererrorinfohistorymanager.cpp
     servererrorinfohistorymanager.h
 )
+
+if (HAVE_TEXT_TRANSLATOR)
+    target_sources(libruqolacore PRIVATE
+        translatetext/translatetextjob.cpp
+        translatetext/translatetextjob.h
+        translatetext/translatorenginemanager.cpp
+        translatetext/translatorenginemanager.h
+    )
+endif()
 
 kconfig_add_kcfg_files(libruqolacore settings/ruqolaglobalconfig.kcfgc)
 
@@ -518,9 +523,19 @@ target_link_libraries(libruqolacore
     KF${KF_MAJOR_VERSION}::ConfigWidgets
     KF${KF_MAJOR_VERSION}::IdleTime
     KF${KF_MAJOR_VERSION}::WindowSystem
-    KF5::TextAutoCorrection
-    KF5::TextTranslator
 )
+
+if (HAVE_TEXT_TRANSLATOR)
+    target_link_libraries(libruqolacore
+        KF5::TextTranslator
+    )
+endif()
+
+if (HAVE_TEXT_AUTOCORRECTION)
+    target_link_libraries(libruqolacore
+        KF5::TextAutoCorrection
+    )
+endif()
 
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::IconThemes)

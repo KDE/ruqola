@@ -98,8 +98,24 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
+    "Add support for text translation"
+    TYPE OPTIONAL
+)
+if (TARGET KF5::TextTranslator)
+    set(HAVE_TEXT_TRANSLATOR TRUE)
+endif()
+
+find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF5TextAutoCorrection PROPERTIES DESCRIPTION
+    "Add support for text auto correction"
+    TYPE OPTIONAL
+)
+if (TARGET KF5::TextAutoCorrection)
+    set(HAVE_TEXT_AUTOCORRECTION TRUE)
+endif()
+
 find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech"
