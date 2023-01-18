@@ -17,6 +17,9 @@ public:
 
     void addServerList(const QStringList &serverNames);
 
+Q_SIGNALS:
+    void accountSelected(const QString &accountName);
+
 private:
-    void generateServerList();
+    void slotSelectAccount(int index);
 };

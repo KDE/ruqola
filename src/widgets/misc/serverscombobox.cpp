@@ -5,30 +5,29 @@
 */
 
 #include "serverscombobox.h"
-#include "accountmanager.h"
-#include "ruqola.h"
+#include <KLocalizedString>
+
 ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
 {
-    generateServerList();
+    connect(this, &QComboBox::activated, this, &ServersComboBox::slotSelectAccount);
 }
 
 ServersComboBox::~ServersComboBox() = default;
 
 void ServersComboBox::addServerList(const QStringList &serverNames)
 {
-    addItems(QStringList() << QString() << serverNames);
+    addItem(i18n("Filter Account..."), QString());
+    for (const auto &account : serverNames) {
+        addItem(account, account);
+    }
     setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
-void ServersComboBox::generateServerList()
+void ServersComboBox::slotSelectAccount(int index)
 {
-    QStringList lst;
-    auto model = Ruqola::self()->accountManager()->rocketChatAccountProxyModel();
-    for (int i = 0; i < model->rowCount(); ++i) {
-        const auto index = model->index(i, 0);
-        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        lst << account->displayName();
+    if (index != -1) {
+        const QString accountName = itemData(index).toString();
+        Q_EMIT accountSelected(accountName);
     }
-    addServerList(lst);
 }

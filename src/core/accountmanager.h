@@ -50,6 +50,9 @@ public:
     void openMessageUrl(const QString &messageUrl);
     Q_REQUIRED_RESULT bool showMessage(const ParseMessageUrlUtils &parseUrl);
     Q_REQUIRED_RESULT RocketChatAccount *accountFromName(const QString &accountName);
+
+    Q_REQUIRED_RESULT QStringList accountNamesSorted() const;
+
 Q_SIGNALS:
     void logoutAccountDone(const QString &accountName);
     void updateNotification(bool hasAlert, int nbUnread, const QString &accountName);

@@ -71,7 +71,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 
-    connect(mServersComboBox, &ServersComboBox::textActivated, this, &NotificationHistoryWidget::slotFilterAccount);
+    connect(mServersComboBox, &ServersComboBox::accountSelected, this, &NotificationHistoryWidget::slotFilterAccount);
 
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mListNotificationsListView, &NotificationHistoryListView::textToSpeech, this, &NotificationHistoryWidget::slotTextToSpeech);

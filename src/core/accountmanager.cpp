@@ -255,3 +255,15 @@ RocketChatAccountModel *AccountManager::rocketChatAccountModel() const
 {
     return mRocketChatAccountModel;
 }
+
+QStringList AccountManager::accountNamesSorted() const
+{
+    QStringList lst;
+    auto model = rocketChatAccountProxyModel();
+    for (int i = 0; i < model->rowCount(); ++i) {
+        const auto index = model->index(i, 0);
+        auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
+        lst << account->displayName();
+    }
+    return lst;
+}

@@ -68,7 +68,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ServerErrorInfoMessageHistoryWidget::slotTextChanged);
 
-    connect(mServersComboBox, &ServersComboBox::textActivated, this, &ServerErrorInfoMessageHistoryWidget::slotFilterAccount);
+    connect(mServersComboBox, &ServersComboBox::accountSelected, this, &ServerErrorInfoMessageHistoryWidget::slotFilterAccount);
 #ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     connect(mListServerInfosListView, &ServerErrorInfoMessageHistoryListView::textToSpeech, this, &ServerErrorInfoMessageHistoryWidget::slotTextToSpeech);
 #endif

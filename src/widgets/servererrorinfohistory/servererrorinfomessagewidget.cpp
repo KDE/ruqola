@@ -5,8 +5,9 @@
 */
 
 #include "servererrorinfomessagewidget.h"
+#include "accountmanager.h"
+#include "ruqola.h"
 #include "servererrorinfohistory/servererrorinfomessagehistorydialog.h"
-
 #include <KLocalizedString>
 #include <QDebug>
 
@@ -27,6 +28,7 @@ void ServerErrorInfoMessageWidget::slotLinkActivated(const QString &contents)
 {
     if (contents == QLatin1String("show_errors")) {
         auto dlg = ServerErrorInfoMessageHistoryDialog(this);
+        dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
         dlg.exec();
     }
 }
