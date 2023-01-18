@@ -16,7 +16,10 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -24,7 +27,7 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     : QWidget{parent}
     , mSearchLineEdit(new QLineEdit(this))
     , mListServerInfosListView(new ServerErrorInfoMessageHistoryListView(this))
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
     , mServerErrorInfoHistoryFilterProxyModel(new ServerErrorInfoHistoryFilterProxyModel(this))
@@ -59,19 +62,21 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
     connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
     connect(model, &QAbstractItemModel::modelAboutToBeReset, mListServerInfosListView, &MessageListViewBase::checkIfAtBottom);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mListServerInfosListView,
+            &ServerErrorInfoMessageHistoryListView::textToSpeech,
+            mTextToSpeechWidget,
+            &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
+
     mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
     mainLayout->addWidget(mListServerInfosListView);
 
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &ServerErrorInfoMessageHistoryWidget::slotTextChanged);
 
     connect(mServersComboBox, &ServersComboBox::accountSelected, this, &ServerErrorInfoMessageHistoryWidget::slotFilterAccount);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mListServerInfosListView, &ServerErrorInfoMessageHistoryListView::textToSpeech, this, &ServerErrorInfoMessageHistoryWidget::slotTextToSpeech);
-#endif
 }
 
 ServerErrorInfoMessageHistoryWidget::~ServerErrorInfoMessageHistoryWidget() = default;
@@ -80,13 +85,6 @@ void ServerErrorInfoMessageHistoryWidget::slotFilterAccount(const QString &accou
 {
     mServerErrorInfoHistoryFilterProxyModel->setAccountNameFilter(accountName);
 }
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void ServerErrorInfoMessageHistoryWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void ServerErrorInfoMessageHistoryWidget::slotTextChanged(const QString &str)
 {

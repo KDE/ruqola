@@ -33,9 +33,7 @@ Q_SIGNALS:
     void textToSpeech(const QString &str);
 
 private:
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QModelIndex &index);
-#endif
     void slotCustomContextMenuRequested(const QPoint &pos);
     void slotClearList();
     void copyMessageToClipboard(const QModelIndex &index);

@@ -14,12 +14,12 @@ class Room;
 class QLabel;
 class RoomWidgetBase;
 class QToolButton;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-#endif
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
@@ -41,9 +41,6 @@ protected:
     void dropEvent(QDropEvent *event) override;
 
 private:
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    void slotTextToSpeech(const QString &messageText);
-#endif
     void initialize();
     void slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage);
     void updateFollowThreadIcon(bool followThread);
@@ -54,7 +51,5 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     QToolButton *const mFollowButton;
     QPointer<Room> mRoom;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
-#endif
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };

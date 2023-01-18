@@ -16,7 +16,10 @@
 #include <QLineEdit>
 #include <QListView>
 #include <QVBoxLayout>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -25,7 +28,7 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     , mListNotificationsListView(new NotificationHistoryListView(this))
     , mSearchLineEdit(new QLineEdit(this))
     , mNotificationFilterProxyModel(new NotificationHistoryModelFilterProxyModel(this))
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
     , mServersComboBox(new ServersComboBox(this))
@@ -48,9 +51,13 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
 
     mainLayout->addLayout(searchLayout);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mListNotificationsListView,
+            &NotificationHistoryListView::textToSpeech,
+            mTextToSpeechWidget,
+            &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
     mListNotificationsListView->setObjectName(QStringLiteral("mListNotifications"));
@@ -72,20 +79,9 @@ NotificationHistoryWidget::NotificationHistoryWidget(QWidget *parent)
     connect(mSearchLineEdit, &QLineEdit::textChanged, this, &NotificationHistoryWidget::slotTextChanged);
 
     connect(mServersComboBox, &ServersComboBox::accountSelected, this, &NotificationHistoryWidget::slotFilterAccount);
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mListNotificationsListView, &NotificationHistoryListView::textToSpeech, this, &NotificationHistoryWidget::slotTextToSpeech);
-#endif
 }
 
 NotificationHistoryWidget::~NotificationHistoryWidget() = default;
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void NotificationHistoryWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void NotificationHistoryWidget::slotFilterAccount(const QString &accountName)
 {

@@ -16,6 +16,8 @@
 #include <QMenu>
 #include <QMouseEvent>
 
+#include <config-ruqola.h>
+
 NotificationHistoryListView::NotificationHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListNotificationsDelegate(new NotificationHistoryDelegate(this, this))
@@ -88,7 +90,7 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
             if (mListNotificationsDelegate->hasSelection()) {
                 addTextPlugins(&menu, mListNotificationsDelegate->selectedText());
             }
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
             auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
             connect(speakAction, &QAction::triggered, this, [=]() {
@@ -104,13 +106,11 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
     }
 }
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void NotificationHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);
     Q_EMIT textToSpeech(messageText);
 }
-#endif
 
 QString NotificationHistoryListView::selectedText(const QModelIndex &index)
 {

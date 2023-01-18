@@ -9,3 +9,4 @@
 #cmakedefine01 HAVE_KUSERFEEDBACK
 #cmakedefine01 HAVE_SOLID
 #cmakedefine01 HAVE_NETWORKMANAGER
+#cmakedefine01 HAVE_TEXT_TO_SPEECH

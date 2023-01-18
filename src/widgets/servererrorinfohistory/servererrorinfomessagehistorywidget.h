@@ -8,12 +8,12 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-#endif
+
 class QLineEdit;
 class ServerErrorInfoHistoryFilterProxyModel;
 class ServerErrorInfoMessageHistoryListView;
@@ -30,14 +30,10 @@ public:
 private:
     void slotTextChanged(const QString &str);
     void slotFilterAccount(const QString &accountName);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    void slotTextToSpeech(const QString &messageText);
-#endif
+
     QLineEdit *const mSearchLineEdit;
     ServerErrorInfoMessageHistoryListView *const mListServerInfosListView;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
-#endif
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     ServerErrorInfoHistoryFilterProxyModel *const mServerErrorInfoHistoryFilterProxyModel;
     ServersComboBox *const mServersComboBox;
 };

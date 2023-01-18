@@ -54,7 +54,10 @@
 #include <QPushButton>
 #include <QScrollBar>
 #include <QVBoxLayout>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -66,7 +69,7 @@ RoomWidget::RoomWidget(QWidget *parent)
     , mRoomCounterInfoWidget(new RoomCounterInfoWidget(this))
     , mRoomReconnectInfoWidget(new ReconnectInfoWidget(this))
     , mOtrWidget(new OtrWidget(this))
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
@@ -99,9 +102,10 @@ RoomWidget::RoomWidget(QWidget *parent)
     roomWidgetLayout->addWidget(mRoomCounterInfoWidget);
     roomWidgetLayout->addWidget(mRoomReconnectInfoWidget);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     roomWidgetLayout->addWidget(mTextToSpeechWidget);
+    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
     roomWidgetLayout->addWidget(mRoomWidgetBase);
@@ -117,9 +121,6 @@ RoomWidget::RoomWidget(QWidget *parent)
     connect(mRoomHeaderWidget, &RoomHeaderWidget::channelInfoRequested, this, &RoomWidget::slotChannelInfoRequested);
     connect(mRoomWidgetBase, &RoomWidgetBase::loadHistory, this, &RoomWidget::slotLoadHistory);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &RoomWidget::slotCreateNewDiscussion);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, &RoomWidget::slotTextToSpeech);
-#endif
     connect(mRoomHeaderWidget, &RoomHeaderWidget::teamChannelsRequested, this, &RoomWidget::slotTeamChannelsRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::openTeam, this, &RoomWidget::slotOpenTeamRequested);
     connect(mRoomHeaderWidget, &RoomHeaderWidget::callRequested, this, &RoomWidget::slotCallRequested);
@@ -130,13 +131,6 @@ RoomWidget::~RoomWidget()
 {
     delete mRoom;
 }
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void RoomWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void RoomWidget::slotLoadHistory()
 {

@@ -15,6 +15,6 @@ add_ruqolaconfiguredialog_test(configuregeneralwidgettest.cpp)
 add_ruqolaconfiguredialog_test(configurefontwidgettest.cpp)
 add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
 
-if (TEXTEDIT_TEXT_TO_SPEECH)
+if (HAVE_TEXT_TO_SPEECH)
     add_ruqolaconfiguredialog_test(configureaccessibilitywidgettest.cpp)
 endif()

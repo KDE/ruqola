@@ -14,9 +14,6 @@
 #include "room/messagelistview.h"
 #include "room/roomwidgetbase.h"
 #include "ruqolawidgets_debug.h"
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-#include <TextEditTextToSpeech/TextToSpeechContainerWidget>
-#endif
 
 #include <KLocalizedString>
 
@@ -27,13 +24,19 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
+#include <TextEditTextToSpeech/TextToSpeechContainerWidget>
+#endif
+
 ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget(parent)
     , mThreadPreview(new QLabel(this))
     , mRoomWidgetBase(new RoomWidgetBase(MessageListView::Mode::ThreadEditing, this))
     , mRocketChatAccount(account)
     , mFollowButton(new QToolButton(this))
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
@@ -58,17 +61,15 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
     mThreadPreview->setWordWrap(true);
     hboxLayout->addWidget(mThreadPreview);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
     mRoomWidgetBase->setObjectName(QStringLiteral("mRoomWidgetBase"));
     mainLayout->addWidget(mRoomWidgetBase);
     connect(mRoomWidgetBase, &RoomWidgetBase::createNewDiscussion, this, &ThreadMessageWidget::slotCreateNewDiscussion);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mRoomWidgetBase, &RoomWidgetBase::textToSpeech, this, &ThreadMessageWidget::slotTextToSpeech);
-#endif
     setAcceptDrops(true);
     if (mRocketChatAccount) {
         initialize();
@@ -76,13 +77,6 @@ ThreadMessageWidget::ThreadMessageWidget(RocketChatAccount *account, QWidget *pa
 }
 
 ThreadMessageWidget::~ThreadMessageWidget() = default;
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void ThreadMessageWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void ThreadMessageWidget::slotCreateNewDiscussion(const QString &messageId, const QString &originalMessage)
 {

@@ -106,8 +106,7 @@ set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
     TYPE OPTIONAL
 )
 if (TARGET KF5::TextEditTextToSpeech)
-    add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
-    set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
+    set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)

@@ -13,7 +13,10 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -22,7 +25,7 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     , mSearchDiscussionLineEdit(new QLineEdit(this))
     , mDiscussionInfoLabel(new QLabel(this))
     , mListDiscussionsListView(new DiscussionListView(account, this))
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
@@ -45,26 +48,17 @@ ShowDiscussionsWidget::ShowDiscussionsWidget(RocketChatAccount *account, QWidget
     mDiscussionInfoLabel->setFont(labFont);
     connect(mDiscussionInfoLabel, &QLabel::linkActivated, this, &ShowDiscussionsWidget::loadMoreDiscussion);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
     mListDiscussionsListView->setObjectName(QStringLiteral("mListDiscussions"));
     mainLayout->addWidget(mListDiscussionsListView);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mListDiscussionsListView, &DiscussionListView::textToSpeech, this, &ShowDiscussionsWidget::slotTextToSpeech);
-#endif
 }
 
 ShowDiscussionsWidget::~ShowDiscussionsWidget() = default;
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void ShowDiscussionsWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void ShowDiscussionsWidget::slotSearchMessageTextChanged(const QString &str)
 {

@@ -14,6 +14,8 @@
 #include <QMenu>
 #include <QMouseEvent>
 
+#include <config-ruqola.h>
+
 DiscussionListView::DiscussionListView(RocketChatAccount *account, QWidget *parent)
     : MessageListViewBase(parent)
     , mListDiscussionDelegate(new ListDiscussionDelegate(this, account, this))
@@ -60,7 +62,7 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
         if (mListDiscussionDelegate->hasSelection()) {
             addTextPlugins(&menu, mListDiscussionDelegate->selectedText());
         }
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
         menu.addSeparator();
         auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
         connect(speakAction, &QAction::triggered, this, [=]() {
@@ -77,7 +79,6 @@ void DiscussionListView::slotCustomContextMenuRequested(const QPoint &pos)
     }
 }
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void DiscussionListView::slotTextToSpeech(const QModelIndex &index)
 {
     QString message = mListDiscussionDelegate->selectedText();
@@ -86,7 +87,6 @@ void DiscussionListView::slotTextToSpeech(const QModelIndex &index)
     }
     Q_EMIT textToSpeech(message);
 }
-#endif
 
 void DiscussionListView::slotSelectAll(const QModelIndex &index)
 {

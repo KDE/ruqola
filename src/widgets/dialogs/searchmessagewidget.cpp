@@ -14,7 +14,10 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QVBoxLayout>
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#include <config-ruqola.h>
+
+#if HAVE_TEXT_TO_SPEECH
 #include <TextEditTextToSpeech/TextToSpeechContainerWidget>
 #endif
 
@@ -24,7 +27,7 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     , mSearchLineEdit(new SearchMessageWithDelayLineEdit(account, this))
     , mResultListWidget(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mCurrentRocketChatAccount(account)
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     , mTextToSpeechWidget(new TextEditTextToSpeech::TextToSpeechContainerWidget(this))
 #endif
 {
@@ -45,18 +48,16 @@ SearchMessageWidget::SearchMessageWidget(RocketChatAccount *account, QWidget *pa
     mSearchLabel->setFont(labFont);
     mainLayout->addWidget(mSearchLabel);
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+#if HAVE_TEXT_TO_SPEECH
     mTextToSpeechWidget->setObjectName(QStringLiteral("mTextToSpeechWidget"));
     mainLayout->addWidget(mTextToSpeechWidget);
+    connect(mResultListWidget, &MessageListView::textToSpeech, mTextToSpeechWidget, &TextEditTextToSpeech::TextToSpeechContainerWidget::say);
 #endif
 
     mResultListWidget->setObjectName(QStringLiteral("mResultListWidget"));
     mainLayout->addWidget(mResultListWidget);
     connect(mSearchLineEdit, &QLineEdit::returnPressed, this, &SearchMessageWidget::slotSearchLineMessagesEnterPressed);
     connect(mResultListWidget, &MessageListView::goToMessageRequested, this, &SearchMessageWidget::goToMessageRequested);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    connect(mResultListWidget, &MessageListView::textToSpeech, this, &SearchMessageWidget::slotTextToSpeech);
-#endif
 }
 
 SearchMessageWidget::~SearchMessageWidget()
@@ -65,13 +66,6 @@ SearchMessageWidget::~SearchMessageWidget()
         mCurrentRocketChatAccount->clearSearchModel();
     }
 }
-
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-void SearchMessageWidget::slotTextToSpeech(const QString &messageText)
-{
-    mTextToSpeechWidget->say(messageText);
-}
-#endif
 
 void SearchMessageWidget::slotClearedMessages()
 {

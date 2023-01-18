@@ -15,6 +15,8 @@
 #include <QMenu>
 #include <QMouseEvent>
 
+#include <config-ruqola.h>
+
 ServerErrorInfoMessageHistoryListView::ServerErrorInfoMessageHistoryListView(QWidget *parent)
     : MessageListViewBase(parent)
     , mListServerErrorInfosDelegate(new ServerErrorInfoHistoryDelegate(this, this))
@@ -49,13 +51,15 @@ void ServerErrorInfoMessageHistoryListView::slotCustomContextMenuRequested(const
             if (mListServerErrorInfosDelegate->hasSelection()) {
                 addTextPlugins(&menu, mListServerErrorInfosDelegate->selectedText());
             }
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
+#if HAVE_TEXT_TO_SPEECH
             menu.addSeparator();
             auto speakAction = menu.addAction(QIcon::fromTheme(QStringLiteral("preferences-desktop-text-to-speech")), i18n("Speak Text"));
             connect(speakAction, &QAction::triggered, this, [=]() {
                 slotTextToSpeech(index);
             });
 #endif
+
             menu.addSeparator();
             menu.addAction(i18n("Select All"), this, [this, index]() {
                 slotSelectAll(index);
@@ -100,13 +104,11 @@ QString ServerErrorInfoMessageHistoryListView::selectedText() const
     return mListServerErrorInfosDelegate->selectedText();
 }
 
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
 void ServerErrorInfoMessageHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);
     Q_EMIT textToSpeech(messageText);
 }
-#endif
 
 QString ServerErrorInfoMessageHistoryListView::selectedText(const QModelIndex &index)
 {

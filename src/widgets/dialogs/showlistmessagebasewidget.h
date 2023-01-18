@@ -15,12 +15,12 @@ class QLabel;
 class ListMessagesModelFilterProxyModel;
 class RocketChatAccount;
 class Room;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-#endif
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ShowListMessageBaseWidget : public QWidget
 {
     Q_OBJECT
@@ -39,15 +39,11 @@ Q_SIGNALS:
 private:
     void updateLabel();
     void slotSearchMessageTextChanged(const QString &str);
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    void slotTextToSpeech(const QString &messageText);
-#endif
+
     Q_REQUIRED_RESULT QString displayShowMessageInRoom() const;
     QLineEdit *const mSearchMessageLineEdit;
     QLabel *const mMessageListInfo;
     MessageListView *const mMessageListView;
     ListMessagesModelFilterProxyModel *mModel = nullptr;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
-#endif
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
 };

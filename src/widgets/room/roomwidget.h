@@ -22,12 +22,12 @@ class Room;
 class RoomWidgetBase;
 class ReconnectInfoWidget;
 class OtrWidget;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+
 namespace TextEditTextToSpeech
 {
 class TextToSpeechContainerWidget;
 }
-#endif
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT RoomWidget : public QWidget
 {
     Q_OBJECT
@@ -101,9 +101,7 @@ private:
     void slotCloseOtr();
     void slotRefreshOtrKeys();
     void slotCallRequested();
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
     void slotTextToSpeech(const QString &messageText);
-#endif
 
     Room::RoomType mRoomType = Room::RoomType::Unknown;
 
@@ -115,8 +113,6 @@ private:
     RoomCounterInfoWidget *const mRoomCounterInfoWidget;
     ReconnectInfoWidget *const mRoomReconnectInfoWidget;
     OtrWidget *const mOtrWidget;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
-    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget;
-#endif
+    TextEditTextToSpeech::TextToSpeechContainerWidget *const mTextToSpeechWidget = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
 };

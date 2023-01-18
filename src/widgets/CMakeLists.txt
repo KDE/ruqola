@@ -675,7 +675,7 @@ target_sources(libruqolawidgets PRIVATE
     servererrorinfohistory/servererrorinfohistorydelegate.cpp
 )
 
-if (TEXTEDIT_TEXT_TO_SPEECH)
+if (HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
         configuredialog/configureaccessibilitywidget.h
         configuredialog/configureaccessibilitywidget.cpp
@@ -729,7 +729,7 @@ target_link_libraries(libruqolawidgets
     KF5::TextAutoCorrection
 )
 
-if (TEXTEDIT_TEXT_TO_SPEECH)
+if (HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
         KF5::TextEditTextToSpeech
     )

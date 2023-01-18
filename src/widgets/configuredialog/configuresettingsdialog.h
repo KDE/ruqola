@@ -9,16 +9,13 @@
 #include "libruqolawidgets_private_export.h"
 #include <KPageDialog>
 
-#include "config-ruqola.h"
-
 class ConfigureAccountWidget;
 class ConfigureSpellCheckingWidget;
-#if HAVE_KUSERFEEDBACK
 class ConfigureUserFeedbackWidget;
-#endif
 class ConfigureGeneralWidget;
 class ConfigureFontWidget;
 class ConfigureAccessibilityWidget;
+
 namespace TextTranslator
 {
 class TranslatorConfigureListsWidget;
@@ -47,17 +44,13 @@ private:
     ConfigureFontWidget *const mConfigureFontWidget;
     KPageWidgetItem *mConfigureFontWidgetPage = nullptr;
 
-    ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget;
+    ConfigureAutoCorrectionWidget *const mConfigureAutoCorrectionWidget = nullptr;
     KPageWidgetItem *mConfigureAutoCorrectionWidgetPage = nullptr;
 
-#if HAVE_KUSERFEEDBACK
     ConfigureUserFeedbackWidget *mConfigureUserFeedBackWidget = nullptr;
     KPageWidgetItem *mConfigureUserFeedBackWidgetPage = nullptr;
-#endif
     KPageWidgetItem *mConfigureTranslateWidgetPage = nullptr;
-    TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget;
-#ifdef HAVE_TEXT_TO_SPEECH_SUPPORT
+    TextTranslator::TranslatorConfigureListsWidget *const mConfigureTranslateWidget = nullptr;
     KPageWidgetItem *mConfigureTextToSpeechWidgetPage = nullptr;
-    ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget;
-#endif
+    ConfigureAccessibilityWidget *const mConfigureTextToSpeechWidget = nullptr;
 };
