@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-16 12:08+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -5509,8 +5509,8 @@ msgstr "Ongelezen tonen"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Zoeken..."
@@ -7885,11 +7885,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 gebruiker in room (totaal: %2)"
 msgstr[1] "%1 gebruikers in room (totaal: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Fout uit account '%1'"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8146,6 +8141,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Informatie over serverfout"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Show Server Errors"
+msgid "(Show Errors)"
+msgstr "Serverfouten tonen"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server errors reported. %1"
+msgstr "Server-versie: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8260,6 +8267,9 @@ msgstr "Account-informatie"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Het nummer van het account teruggeven."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Fout uit account '%1'"
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "Openen van archief lukt niet in leesmodus."
@@ -9363,9 +9373,6 @@ msgstr "Het nummer van het account teruggeven."
 
 #~ msgid "User name: %1"
 #~ msgstr "Gebruikersnaam: %1"
-
-#~ msgid "Server version: %1"
-#~ msgstr "Server-versie: %1"
 
 #~ msgid "KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>"
 #~ msgstr "KDE heeft een volgsysteem voor bugs. Bezoek <a href=\"%1\">%1</a>"

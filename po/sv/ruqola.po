@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -5471,8 +5471,8 @@ msgstr "Visa olästa"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Sök..."
@@ -7875,11 +7875,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 användare i rummet (totalt : %2)"
 msgstr[1] "%1 användare i rummet (totalt : %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Fel från kontot '%1'"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8143,6 +8138,19 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Banerinformation"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Banner Information"
+msgid "(Show Errors)"
+msgstr "Banerinformation"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server errors reported. %1"
+msgstr "Serverversion: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8257,6 +8265,9 @@ msgstr "Kontoinformation"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Returnera antal konton."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Fel från kontot '%1'"
 
 #, fuzzy
 #~| msgid "Enabled E2E encryption"
@@ -9166,9 +9177,6 @@ msgstr "Returnera antal konton."
 
 #~ msgid "User name: %1"
 #~ msgstr "Användarnamn: %1"
-
-#~ msgid "Server version: %1"
-#~ msgstr "Serverversion: %1"
 
 #~ msgid "KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>"
 #~ msgstr "KDE har ett felspårningssystem. Besök <a href=\"%1\">%1</a>"

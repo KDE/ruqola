@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-13 01:35+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -5536,8 +5536,8 @@ msgstr "Mostrar os Não-Lidos"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Procurar..."
@@ -7917,11 +7917,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 utilizador na sala (Total: %2)"
 msgstr[1] "%1 utilizadores na sala (Total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Erro da conta '%1'"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8181,6 +8176,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Erros e Informações"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgid "(Show Errors)"
+msgstr "Erros e Informações"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server errors reported. %1"
+msgstr "Servidor não encontrado: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8295,6 +8302,9 @@ msgstr "Informação da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Erro da conta '%1'"
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "Não é possível aceder ao pacote no modo de leitura."

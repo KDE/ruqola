@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -5570,8 +5570,8 @@ msgstr "Não lida"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Pesquisar..."
@@ -8008,11 +8008,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuário na sala (total: %2)"
 msgstr[1] "%1 usuários na sala (total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Erro da conta '%1'"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8280,6 +8275,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Informações do canal"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Channel's Information"
+msgid "(Show Errors)"
+msgstr "Informações do canal"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server errors reported. %1"
+msgstr "Servidor não encontrado: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8392,6 +8399,9 @@ msgstr "Informações da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna o número da conta."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Erro da conta '%1'"
 
 #, fuzzy
 #~| msgid "Invalid description"

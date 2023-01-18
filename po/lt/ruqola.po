@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -5604,8 +5604,8 @@ msgstr "Gijos"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search..."
@@ -8123,11 +8123,6 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr ""
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8401,6 +8396,19 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Informacija apie kanalą"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Channel Info"
+msgid "(Show Errors)"
+msgstr "Informacija apie kanalą"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Info"
+msgid "Server errors reported. %1"
+msgstr "Informacija apie serverį"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, fuzzy, kde-format

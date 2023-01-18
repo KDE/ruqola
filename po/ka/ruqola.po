@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
-"PO-Revision-Date: 2023-01-15 03:44+0100\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"PO-Revision-Date: 2023-01-17 07:47+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5355,8 +5355,8 @@ msgstr "წაუკითხავის ჩვენება"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "ძებნა..."
@@ -7702,11 +7702,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 msgstr[1] "მომხმარებელი ოთახში: %1 (სულ: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "შეცდომა '%1' ანგარიშიდან"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -7818,11 +7813,9 @@ msgid "Show Channel Log"
 msgstr "არხის ჟურნალის ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Server Error Informations"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "სერვერის შეცდომის ინფორმაცია"
+msgstr "სერვერის შეცდომების ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -7964,6 +7957,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "სერვერის შეცდომის ინფორმაცია"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Show Server Errors"
+msgid "(Show Errors)"
+msgstr "სერვერის შეცდომების ჩვენება"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server errors reported. %1"
+msgstr "სერვერი ვერ ვიპოვე: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8078,6 +8083,9 @@ msgstr "ანგარიშის ინფორმაცია"
 #, kde-format
 msgid "Return the number of account."
 msgstr "ანგარიშების რაოდენობის დაბრუნება."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "შეცდომა '%1' ანგარიშიდან"
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "შეცდომა არქივის მხოლოდ-წაკითხვის რეჟიმში გახსნისას."

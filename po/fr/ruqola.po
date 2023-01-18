@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-01 20:35+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -5490,8 +5490,8 @@ msgstr "Afficher les messages non lus"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Rechercher..."
@@ -7875,11 +7875,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
 msgstr[1] "%1 messages dans le salon (total : %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Erreur provenant du compte « %1 »"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8139,6 +8134,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Erreurs et informations"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgid "(Show Errors)"
+msgstr "Erreurs et informations"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server errors reported. %1"
+msgstr "Version du serveur : %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8253,6 +8260,9 @@ msgstr "Informations sur le compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Renvoyer le numéro du compte."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Erreur provenant du compte « %1 »"
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "Il est impossible d'ouvrir une archive en mode lecture."
@@ -9342,9 +9352,6 @@ msgstr "Renvoyer le numéro du compte."
 
 #~ msgid "User name: %1"
 #~ msgstr "Nom d'utilisateur : %1"
-
-#~ msgid "Server version: %1"
-#~ msgstr "Version du serveur : %1"
 
 #~ msgid "KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>"
 #~ msgstr ""

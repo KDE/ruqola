@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -5648,8 +5648,8 @@ msgstr "Lukematta olevat huoneet"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Search..."
@@ -8118,11 +8118,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr ""
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8393,6 +8388,18 @@ msgstr "Päätyökalurivi"
 msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Kanavan tiedot"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Channel's Information"
+msgid "(Show Errors)"
+msgstr "Kanavan tiedot"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server errors reported. %1"
+msgstr "Palvelimen versio: %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, fuzzy, kde-format
@@ -9199,9 +9206,6 @@ msgstr "Palauta tilien lukumäärä."
 
 #~ msgid "User name: %1"
 #~ msgstr "Käyttäjätunnus: %1"
-
-#~ msgid "Server version: %1"
-#~ msgstr "Palvelimen versio: %1"
 
 #~ msgid "KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>"
 #~ msgstr "KDE:lla on virheenpaikannusjärjestelmä: <a href=\"%1\">%1</a>."

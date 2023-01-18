@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-04 15:45+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -5508,8 +5508,8 @@ msgstr "Mostrar no leídos"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Buscar..."
@@ -7886,11 +7886,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 usuario en la sala (Total: %2)"
 msgstr[1] "%1 usuarios en la sala (Total: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Error en la cuenta «%1»"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8151,6 +8146,18 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Errores e información"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Errors and Information"
+msgid "(Show Errors)"
+msgstr "Errores e información"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server errors reported. %1"
+msgstr "Servidor no encontrado %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8265,6 +8272,9 @@ msgstr "Información de la cuenta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver el número de cuenta"
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Error en la cuenta «%1»"
 
 #~ msgid "Archive cannot be opened in read mode."
 #~ msgstr "El archivo no se puede abrir en modo solo lectura."

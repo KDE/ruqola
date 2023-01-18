@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -5509,8 +5509,8 @@ msgstr "Показать непрочитанное"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Поиск..."
@@ -7949,11 +7949,6 @@ msgstr[1] "%1 пользователя в комнате (всего: %2)"
 msgstr[2] "%1 пользователей в комнате (всего: %2)"
 msgstr[3] "%1 пользователь в комнате (всего: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr "Ошибка от учётной записи «%1»"
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8216,6 +8211,19 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Сведения о баннере"
 
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Banner Information"
+msgid "(Show Errors)"
+msgstr "Сведения о баннере"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server not found: %1"
+msgid "Server errors reported. %1"
+msgstr "Сервер не найден: %1"
+
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
@@ -8331,6 +8339,9 @@ msgstr "Сведения об учётной записи"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Вернуть номер учётной записи."
+
+#~ msgid "Error from '%1' account"
+#~ msgstr "Ошибка от учётной записи «%1»"
 
 #, fuzzy
 #~| msgid "Enabled E2E encryption"

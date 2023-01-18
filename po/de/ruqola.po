@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -5616,8 +5616,8 @@ msgstr "Ungelesen"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr "Suchen ..."
@@ -8088,11 +8088,6 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 Benutzer in Raum (Gesamt: %2)"
 msgstr[1] "%1 Benutzer in Raum (Gesamt: %2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr ""
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8364,6 +8359,18 @@ msgstr "Haupt-Werkzeugleiste"
 msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Kanalinformation"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Channel's Information"
+msgid "(Show Errors)"
+msgstr "Kanalinformation"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server version: %1"
+msgid "Server errors reported. %1"
+msgstr "Serverversion: %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, fuzzy, kde-format
@@ -9098,9 +9105,6 @@ msgstr "Anzahl der Zugänge zurückgeben."
 
 #~ msgid "User name: %1"
 #~ msgstr "Benutzername: %1"
-
-#~ msgid "Server version: %1"
-#~ msgstr "Serverversion: %1"
 
 #~ msgid "KDE has a bug tracking system. Visit <a href=\"%1\">%1</a>"
 #~ msgstr ""

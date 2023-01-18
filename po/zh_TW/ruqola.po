@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -5600,8 +5600,8 @@ msgstr "討論串"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search..."
@@ -8116,11 +8116,6 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 則訊息 (總共：%2)"
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr ""
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -8396,6 +8391,18 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "頻道資訊"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Channel Info"
+msgid "(Show Errors)"
+msgstr "頻道資訊"
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, fuzzy, kde-format
+#| msgid "Server Info"
+msgid "Server errors reported. %1"
+msgstr "伺服器資訊"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, fuzzy, kde-format

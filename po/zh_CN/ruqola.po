@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-16 00:57+0000\n"
+"POT-Creation-Date: 2023-01-18 00:57+0000\n"
 "PO-Revision-Date: 2023-01-12 10:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -5298,8 +5298,8 @@ msgstr ""
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:40
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:40
+#: widgets/notificationhistory/notificationhistorywidget.cpp:42
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
 #, kde-format
 msgid "Search..."
 msgstr ""
@@ -7623,11 +7623,6 @@ msgid "%1 User in room (Total: %2)"
 msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] ""
 
-#: widgets/ruqolacentralwidget.cpp:55
-#, kde-format
-msgid "Error from '%1' account"
-msgstr ""
-
 #. i18n("Use LDAP"), this))
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
@@ -7875,6 +7870,16 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
+msgstr ""
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, kde-format
+msgid "(Show Errors)"
+msgstr ""
+
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#, kde-format
+msgid "Server errors reported. %1"
 msgstr ""
 
 #: widgets/teams/searchteamdialog.cpp:19
