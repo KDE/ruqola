@@ -25,4 +25,6 @@ private:
     QLabel *const mServerVersion;
     QLabel *const mServerUrl;
     QLabel *mEnterpriseLicense = nullptr;
+    QLabel *const mLogo;
+    RocketChatAccount *const mRocketChatAccount;
 };

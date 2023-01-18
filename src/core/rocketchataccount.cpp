@@ -1423,6 +1423,8 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     mRuqolaServerConfig->parsePublicSettings(obj);
+    // Download logo if possible
+    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
     fillOauthModel();
     Q_EMIT publicSettingChanged();
 }

@@ -17,10 +17,16 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     , mUserName(new QLabel(this))
     , mServerVersion(new QLabel(this))
     , mServerUrl(new QLabel(this))
+    , mLogo(new QLabel(this))
+    , mRocketChatAccount(account)
 {
     auto layout = new QFormLayout(this);
     layout->setObjectName(QStringLiteral("layout"));
     layout->setContentsMargins({});
+
+    mLogo->setObjectName(QStringLiteral("mLogo"));
+    mLogo->hide(); // Hide by default
+    layout->addWidget(mLogo);
 
     mAccountName->setObjectName(QStringLiteral("mAccountName"));
     mAccountName->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -42,16 +48,16 @@ ServerInfoWidget::ServerInfoWidget(RocketChatAccount *account, QWidget *parent)
     mServerVersion->setTextFormat(Qt::PlainText);
     layout->addRow(i18n("Server version:"), mServerVersion);
 
-    if (account) {
-        if (account->ruqolaServerConfig()->hasAtLeastVersion(5, 0, 0)) {
+    if (mRocketChatAccount) {
+        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 0, 0)) {
             mEnterpriseLicense = new QLabel(this);
             mEnterpriseLicense->setObjectName(QStringLiteral("mEnterpriseLicense"));
             mEnterpriseLicense->setTextInteractionFlags(Qt::TextSelectableByMouse);
             mEnterpriseLicense->setTextFormat(Qt::PlainText);
             layout->addRow(i18n("License:"), mEnterpriseLicense);
-            mEnterpriseLicense->setText(account->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
+            mEnterpriseLicense->setText(mRocketChatAccount->ruqolaServerConfig()->hasEnterpriseSupport() ? i18n("Enterprise") : i18n("None"));
         }
-        setServerConfigInfo(account->serverConfigInfo());
+        setServerConfigInfo(mRocketChatAccount->serverConfigInfo());
     }
 }
 
@@ -64,5 +70,14 @@ void ServerInfoWidget::setServerConfigInfo(ServerConfigInfo *info)
         mUserName->setText(info->userName());
         mServerVersion->setText(info->serverVersionStr());
         mServerUrl->setText(QStringLiteral("<a href=\"%1\">%1</a>").arg(info->serverUrl()));
+        const QString logoLocalUrl{mRocketChatAccount->attachmentUrlFromLocalCache(info->logoUrl()).toLocalFile()};
+        if (!logoLocalUrl.isEmpty()) {
+            const QPixmap pix{logoLocalUrl};
+            if (!pix.isNull()) {
+                mLogo->show();
+                const QPixmap scaledPixmap = pix.scaled(100, 100, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+                mLogo->setPixmap(scaledPixmap);
+            }
+        }
     }
 }
