@@ -59,3 +59,8 @@ void NotificationHistoryDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myNotificationHistoryDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+void NotificationHistoryDialog::addServerList(const QStringList &serverNames)
+{
+    mNotificationHistoryWidget->addServerList(serverNames);
+}

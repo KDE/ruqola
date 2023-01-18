@@ -93,3 +93,8 @@ void ServerErrorInfoMessageHistoryWidget::slotTextChanged(const QString &str)
     mServerErrorInfoHistoryFilterProxyModel->setFilterString(str);
     mListServerInfosListView->setSearchText(str);
 }
+
+void ServerErrorInfoMessageHistoryWidget::addServerList(const QStringList &serverNames)
+{
+    mServersComboBox->addServerList(serverNames);
+}

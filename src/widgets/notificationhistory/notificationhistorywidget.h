@@ -26,6 +26,8 @@ public:
     explicit NotificationHistoryWidget(QWidget *parent = nullptr);
     ~NotificationHistoryWidget() override;
 
+    void addServerList(const QStringList &serverNames);
+
 Q_SIGNALS:
     void showNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId);
 

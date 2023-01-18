@@ -24,13 +24,16 @@ int main(int argc, char **argv)
     configServerInfo->resize(600, 300);
     configServerInfo->show();
 
+    QStringList lst;
     for (int i = 0; i < 10; ++i) {
         ServerErrorInfo info;
-        info.setAccountName(QStringLiteral("account %1").arg(QString::number(i)));
+        const QString accountName = QStringLiteral("account %1").arg(QString::number(i));
+        info.setAccountName(accountName);
         const QString str = QStringLiteral("Message: %1").arg(QString::number(i));
         info.setMessage(str);
         ServerErrorInfoHistoryManager::self()->addServerErrorInfo(info);
+        lst << accountName;
     }
-
+    w->addServerList(lst);
     return app.exec();
 }

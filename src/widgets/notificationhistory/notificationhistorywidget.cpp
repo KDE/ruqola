@@ -111,3 +111,8 @@ void NotificationHistoryWidget::slotShowMessage(const QModelIndex &index)
         }
     }
 }
+
+void NotificationHistoryWidget::addServerList(const QStringList &serverNames)
+{
+    mServersComboBox->addServerList(serverNames);
+}

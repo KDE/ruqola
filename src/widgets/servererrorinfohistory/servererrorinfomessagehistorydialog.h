@@ -16,6 +16,8 @@ public:
     explicit ServerErrorInfoMessageHistoryDialog(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryDialog() override;
 
+    void addServerList(const QStringList &serverNames);
+
 private:
     void readConfig();
     void writeConfig();

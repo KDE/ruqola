@@ -25,6 +25,8 @@ public:
     explicit ServerErrorInfoMessageHistoryWidget(QWidget *parent = nullptr);
     ~ServerErrorInfoMessageHistoryWidget() override;
 
+    void addServerList(const QStringList &serverNames);
+
 private:
     void slotTextChanged(const QString &str);
     void slotFilterAccount(const QString &accountName);

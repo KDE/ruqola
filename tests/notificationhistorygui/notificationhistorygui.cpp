@@ -26,6 +26,9 @@ NotificationHistoryGui::NotificationHistoryGui(QWidget *parent)
     connect(pushButton, &QPushButton::clicked, this, &NotificationHistoryGui::slotSendNotification);
 
     auto dlg = new NotificationHistoryDialog(this);
+    QStringList lst;
+    lst << QStringLiteral("accountName");
+    dlg->addServerList(lst);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     dlg->show();
 }

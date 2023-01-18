@@ -42,6 +42,11 @@ ServerErrorInfoMessageHistoryDialog::~ServerErrorInfoMessageHistoryDialog()
     writeConfig();
 }
 
+void ServerErrorInfoMessageHistoryDialog::addServerList(const QStringList &serverNames)
+{
+    mServerErrorInfoMessageHistoryWidget->addServerList(serverNames);
+}
+
 void ServerErrorInfoMessageHistoryDialog::readConfig()
 {
     create(); // ensure a window is created
