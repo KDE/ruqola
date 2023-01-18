@@ -1425,6 +1425,7 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
     mRuqolaServerConfig->parsePublicSettings(obj);
     // Download logo if possible
     (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
+    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->faviconUrl());
     fillOauthModel();
     Q_EMIT publicSettingChanged();
 }
