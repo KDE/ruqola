@@ -11,19 +11,24 @@ ServersComboBox::ServersComboBox(QWidget *parent)
     : QComboBox(parent)
 {
     generateServerList();
-    setSizeAdjustPolicy(QComboBox::AdjustToContents);
 }
 
 ServersComboBox::~ServersComboBox() = default;
 
+void ServersComboBox::addServerList(const QStringList &serverNames)
+{
+    addItems(QStringList() << QString() << serverNames);
+    setSizeAdjustPolicy(QComboBox::AdjustToContents);
+}
+
 void ServersComboBox::generateServerList()
 {
+    QStringList lst;
     auto model = Ruqola::self()->accountManager()->rocketChatAccountProxyModel();
-    // Add empty string
-    addItem(QString());
     for (int i = 0; i < model->rowCount(); ++i) {
         const auto index = model->index(i, 0);
         auto account = index.data(RocketChatAccountModel::Account).value<RocketChatAccount *>();
-        addItem(account->displayName());
+        lst << account->displayName();
     }
+    addServerList(lst);
 }

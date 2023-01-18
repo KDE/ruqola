@@ -15,6 +15,8 @@ public:
     explicit ServersComboBox(QWidget *parent = nullptr);
     ~ServersComboBox() override;
 
+    void addServerList(const QStringList &serverNames);
+
 private:
     void generateServerList();
 };
