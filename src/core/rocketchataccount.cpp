@@ -1423,9 +1423,6 @@ void RocketChatAccount::changeNotificationsSettings(const QString &roomId,
 void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     mRuqolaServerConfig->parsePublicSettings(obj);
-    // Download logo if possible
-    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
-    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->faviconUrl());
     fillOauthModel();
     Q_EMIT publicSettingChanged();
 }
@@ -2472,6 +2469,10 @@ void RocketChatAccount::initializeAccount()
     if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
         checkLicenses();
     }
+
+    // Download logo if possible
+    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
+    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->faviconUrl());
 
     Q_EMIT accountInitialized();
 }
