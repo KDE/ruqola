@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-19 00:57+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1406,12 +1406,12 @@ msgstr "<strong>%1</strong> kirjoittaa…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2865
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -3182,7 +3182,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
 #: widgets/ruqolaloginwidget.cpp:52
@@ -3431,7 +3431,7 @@ msgstr "Salattu:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:867
+#: widgets/ruqolamainwindow.cpp:868
 #, kde-format
 msgid "Message"
 msgstr "Viesti"
@@ -3500,7 +3500,7 @@ msgid "Layout"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, fuzzy, kde-format
 #| msgid "Enter code"
 msgid "Enterprise"
@@ -6348,13 +6348,13 @@ msgid "Modify Account"
 msgstr "Muokkaa tiliä"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Tilin nimi:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Server Url:"
@@ -6591,18 +6591,18 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Palvelintiedot"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, kde-format
 msgid "Server version:"
 msgstr "Palvelinversio:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "License"
 msgid "License:"
 msgstr "Lisenssi"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
 msgstr ""
@@ -7045,6 +7045,12 @@ msgstr "Etsi sanaa…"
 #, kde-format
 msgid "Server"
 msgstr "Palvelin"
+
+#: widgets/misc/serverscombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "Filter Account..."
+msgstr "Tilini…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8326,7 +8332,7 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Luo ryhmä"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8335,19 +8341,19 @@ msgstr ""
 "Sinulle on lähetetty sähköpostia rekisteröinnin vahvistamiseksi.\n"
 "Ellei viestiä pikapuoliin kuulu, palaa yrittämään uudestaan."
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Register New User"
 msgstr "Rekisteröi uusi käyttäjä"
 
-#: widgets/ruqolamainwindow.cpp:894
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:898
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -8389,13 +8395,13 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Kanavan tiedot"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgid "(Show Errors)"
 msgstr "Kanavan tiedot"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Server errors reported. %1"

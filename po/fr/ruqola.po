@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
-"PO-Revision-Date: 2023-01-01 20:35+0100\n"
+"POT-Creation-Date: 2023-01-19 00:57+0000\n"
+"PO-Revision-Date: 2023-01-17 20:16+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -27,10 +27,9 @@ msgid "Rocket Chat Client"
 msgstr "Client de discussion Rocket"
 
 #: apps/main.cpp:57
-#, fuzzy, kde-format
-#| msgid "Copyright © 2020-2022 Ruqola authors"
+#, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
-msgstr "Copyright © 2017 - 2022 Les auteurs de Ruqola"
+msgstr "Copyright © 2017 - 2023 Les auteurs de Ruqola"
 
 #: apps/main.cpp:59
 #, kde-format
@@ -1341,12 +1340,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2865
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -3050,7 +3049,7 @@ msgstr ""
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
 #: widgets/ruqolaloginwidget.cpp:52
@@ -3257,10 +3256,9 @@ msgid "Enable collect log in data"
 msgstr "Activer la collecte des données de connexion"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
-#, fuzzy, kde-format
-#| msgid "Status Message:"
+#, kde-format
 msgid "Allow Custom Status Message"
-msgstr "Message d'état :"
+msgstr "Autoriser un message d'état personnalisé"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
 #, kde-format
@@ -3290,7 +3288,7 @@ msgstr "Chiffrement"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:867
+#: widgets/ruqolamainwindow.cpp:868
 #, kde-format
 msgid "Message"
 msgstr "Message"
@@ -3353,7 +3351,7 @@ msgid "Layout"
 msgstr "Disposition"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "Enterprise"
 msgstr "Enterprise"
@@ -4463,11 +4461,9 @@ msgid "Keep Messages and User Name"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Delete Message"
+#, kde-format
 msgid "Delete All Messages"
-msgstr "Supprimer un message"
+msgstr "Supprimer tous les messages"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -4565,22 +4561,19 @@ msgid "Auto-Translate"
 msgstr "Traduction automatique"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid "DeepL"
+#, kde-format
 msgid "Deepl"
 msgstr "DeepL"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:170
-#, fuzzy, kde-format
-#| msgid "Micro Off"
+#, kde-format
 msgid "Microsoft"
-msgstr "Micro désactivé"
+msgstr "Microsoft"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
-#, fuzzy, kde-format
-#| msgid "Provider:"
+#, kde-format
 msgid "Service Provider"
-msgstr "Fournisseur :"
+msgstr "Fournisseur de services"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
@@ -4588,10 +4581,9 @@ msgid "DeepL API Key"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgid "Google Id"
+#, kde-format
 msgid "Google API Key"
-msgstr "Identifiant Google"
+msgstr "Clé d'API pour Google"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:181
 #, kde-format
@@ -5653,13 +5645,13 @@ msgstr "Fournisseur :"
 #, kde-format
 msgctxt "Move selected account up."
 msgid "Up"
-msgstr ""
+msgstr "Vers le haut"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:30
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
+msgstr "Vers le bas"
 
 #: widgets/configuredialog/configureaccountserverwidget.cpp:74
 #, kde-format
@@ -6033,10 +6025,9 @@ msgid "Create Direct Messages - %1"
 msgstr "Créer des messages instantanés - %1"
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Any team selected."
+#, kde-format
 msgid "Too many users selected."
-msgstr "N'importe quelle équipe sélectionnée."
+msgstr "Trop d'utilisateurs sélectionnés."
 
 #: widgets/dialogs/createdirectmessageswidget.cpp:25
 #, kde-format
@@ -6165,13 +6156,13 @@ msgid "Modify Account"
 msgstr "Modifier un compte"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Nom du compte :"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
@@ -6402,17 +6393,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Informations du serveur"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, kde-format
 msgid "Server version:"
 msgstr "Version du serveur : "
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "License:"
 msgstr "Licence :"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
 msgstr "Aucun"
@@ -6827,6 +6818,12 @@ msgstr "Chercher un mot..."
 #, kde-format
 msgid "Server"
 msgstr "Serveur"
+
+#: widgets/misc/serverscombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "Filter Account..."
+msgstr "Mon compte..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7440,17 +7437,15 @@ msgid "Save Sound"
 msgstr "Enregistrer un son"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Display Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr "Afficher une image"
+msgstr "Télécharger une image"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Télécharger une image..."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:296
 #: widgets/room/usersinroommenu.cpp:86
@@ -7987,10 +7982,9 @@ msgid "Show Channel Log"
 msgstr "Afficher le journal du canal"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Erreurs et informations"
+msgstr "Afficher les erreurs du serveur"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -8068,7 +8062,7 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Créer une équipe"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8078,12 +8072,12 @@ msgstr ""
 "Si vous n'avez pas reçu ce message à court terme, veuillez revenir et ré-"
 "essayer."
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Register New User"
 msgstr "Enregistrer un nouvel utilisateur"
 
-#: widgets/ruqolamainwindow.cpp:894
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8092,7 +8086,7 @@ msgstr ""
 "<qt>Ceci masquera totalement la barre de menus. Vous pouvez l'afficher à "
 "nouveau en saisissant %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:898
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Masquer la barre de menus"
@@ -8128,19 +8122,18 @@ msgid "Main Toolbar"
 msgstr "Barre principale d'outils"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Erreurs et informations"
+msgstr "Informations sur les erreurs du serveur"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Errors and Information"
 msgid "(Show Errors)"
 msgstr "Erreurs et informations"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server version: %1"
 msgid "Server errors reported. %1"

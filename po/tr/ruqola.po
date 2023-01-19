@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
-"PO-Revision-Date: 2023-01-16 22:10+0300\n"
+"POT-Creation-Date: 2023-01-19 00:57+0000\n"
+"PO-Revision-Date: 2023-01-18 20:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1337,12 +1337,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2865
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -3013,7 +3013,7 @@ msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
 #: widgets/ruqolaloginwidget.cpp:52
@@ -3251,7 +3251,7 @@ msgstr "Şifreleme"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:867
+#: widgets/ruqolamainwindow.cpp:868
 #, kde-format
 msgid "Message"
 msgstr "İleti"
@@ -3314,7 +3314,7 @@ msgid "Layout"
 msgstr "Yerleşim"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "Enterprise"
 msgstr "Kurumsal"
@@ -6127,13 +6127,13 @@ msgid "Modify Account"
 msgstr "Hesabı Değiştir"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Hesap adı:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
@@ -6366,17 +6366,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Sunucu Bilgisi"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, kde-format
 msgid "Server version:"
 msgstr "Sunucu sürümü:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "License:"
 msgstr "Lisans:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
 msgstr "Hiçbiri"
@@ -6790,6 +6790,12 @@ msgstr "Sözcük Ara..."
 #, kde-format
 msgid "Server"
 msgstr "Sunucu"
+
+#: widgets/misc/serverscombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "Filter Account..."
+msgstr "Hesabım..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8024,7 +8030,7 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Takım Oluştur"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8033,12 +8039,12 @@ msgstr ""
 "Kaydınızı doğrulamak için bir e-posta gönderdik.\n"
 "Kısa bir süre içinde bir e-posta almazsanız yeniden deneyin."
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Register New User"
 msgstr "Yeni Kullanıcı Kaydet"
 
-#: widgets/ruqolamainwindow.cpp:894
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8047,7 +8053,7 @@ msgstr ""
 "<qt>Bu, menü çubuğunu tümüyle gizleyecektir. %1 ile yeniden "
 "gösterebilirsiniz.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:898
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Menü Çubuğunu Gizle"
@@ -8088,17 +8094,15 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Sunucu Hatası Bilgisi"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Show Server Errors"
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Sunucu Hatalarını Göster"
+msgstr "(Hataları Göster)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Sunucu bulunamadı: %1"
+msgstr "Sunucu hataları bildirildi. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

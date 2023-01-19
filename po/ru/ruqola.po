@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
+"POT-Creation-Date: 2023-01-19 00:57+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -1363,12 +1363,12 @@ msgstr "<strong>%1</strong> печатает..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> печатают..."
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "Экспорт сообщений"
 
-#: core/rocketchataccount.cpp:2865
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Электронное письмо помещено в очередь для отправки."
@@ -3074,7 +3074,7 @@ msgstr "Установить случайный пароль и отправит
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
 #: widgets/ruqolaloginwidget.cpp:52
@@ -3318,7 +3318,7 @@ msgstr "Шифрование"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:867
+#: widgets/ruqolamainwindow.cpp:868
 #, kde-format
 msgid "Message"
 msgstr "Сообщение"
@@ -3381,7 +3381,7 @@ msgid "Layout"
 msgstr "Компоновка"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "Enterprise"
 msgstr "Корпоративные параметры"
@@ -6192,14 +6192,14 @@ msgid "Modify Account"
 msgstr "Изменение учётной записи"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, fuzzy, kde-format
 #| msgid "Account Name:"
 msgid "Account name:"
 msgstr "Имя учётной записи:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Server Url:"
@@ -6440,18 +6440,18 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Сведения о сервере"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, fuzzy, kde-format
 #| msgid "Server Version:"
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "License:"
 msgstr "Лицензия:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
 msgstr "Нет"
@@ -6885,6 +6885,12 @@ msgstr "Поиск слова…"
 #, kde-format
 msgid "Server"
 msgstr "Сервер"
+
+#: widgets/misc/serverscombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "Filter Account..."
+msgstr "Моя учётная запись…"
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8145,7 +8151,7 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Создание команды"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8154,12 +8160,12 @@ msgstr ""
 "Вам отправлено письмо для подтверждения регистрации.\n"
 "Если оно не придёт в ближайшее время, повторите попытку."
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Register New User"
 msgstr "Зарегистрировать нового пользователя"
 
-#: widgets/ruqolamainwindow.cpp:894
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8168,7 +8174,7 @@ msgstr ""
 "<qt>Это действие полностью скроет меню. Чтобы снова вывести его, нажмите %1."
 "</qt>"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:898
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Скрыть строку меню"
@@ -8211,14 +8217,14 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Сведения о баннере"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Banner Information"
 msgid "(Show Errors)"
 msgstr "Сведения о баннере"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Server not found: %1"
 msgid "Server errors reported. %1"

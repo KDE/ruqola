@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-18 00:57+0000\n"
-"PO-Revision-Date: 2023-01-16 12:35+0100\n"
+"POT-Creation-Date: 2023-01-19 00:57+0000\n"
+"PO-Revision-Date: 2023-01-18 09:32+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2864
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2865
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3036,7 +3036,7 @@ msgstr "Estableix una contrasenya aleatòria i l'envia per correu"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:53
 #: widgets/dialogs/createnewserverwidget.cpp:40
 #: widgets/dialogs/directchannelinfowidget.cpp:95
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:33
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
 #: widgets/ruqolaloginwidget.cpp:52
@@ -3274,7 +3274,7 @@ msgstr "Encriptatge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:867
+#: widgets/ruqolamainwindow.cpp:868
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
@@ -3337,7 +3337,7 @@ msgid "Layout"
 msgstr "Disposició"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:119
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "Enterprise"
 msgstr "Corporativa"
@@ -6175,13 +6175,13 @@ msgid "Modify Account"
 msgstr "Modifica el compte"
 
 #: widgets/dialogs/createnewserverwidget.cpp:30
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:28
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:34
 #, kde-format
 msgid "Account name:"
 msgstr "Nom del compte:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:38
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
 #: widgets/ruqolaloginwidget.cpp:49
 #, kde-format
 msgid "Server URL:"
@@ -6412,17 +6412,17 @@ msgctxt "@title:window"
 msgid "Server Info"
 msgstr "Informació del servidor"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:43
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:49
 #, kde-format
 msgid "Server version:"
 msgstr "Versió del servidor:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:51
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:57
 #, kde-format
 msgid "License:"
 msgstr "Llicència:"
 
-#: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
+#: widgets/dialogs/serverinfo/serverinfowidget.cpp:58
 #, kde-format
 msgid "None"
 msgstr "Cap"
@@ -6837,6 +6837,12 @@ msgstr "Cerca una paraula..."
 #, kde-format
 msgid "Server"
 msgstr "Servidor"
+
+#: widgets/misc/serverscombobox.cpp:20
+#, fuzzy, kde-format
+#| msgid "My Account..."
+msgid "Filter Account..."
+msgstr "El meu compte..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8071,7 +8077,7 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creació d'un equip"
 
-#: widgets/ruqolamainwindow.cpp:769
+#: widgets/ruqolamainwindow.cpp:770
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8080,12 +8086,12 @@ msgstr ""
 "Us hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
-#: widgets/ruqolamainwindow.cpp:770
+#: widgets/ruqolamainwindow.cpp:771
 #, kde-format
 msgid "Register New User"
 msgstr "Registra un usuari nou"
 
-#: widgets/ruqolamainwindow.cpp:894
+#: widgets/ruqolamainwindow.cpp:895
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8094,7 +8100,7 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:898
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Oculta la barra de menús"
@@ -8135,17 +8141,15 @@ msgctxt "@title:window"
 msgid "Server Error Informations"
 msgstr "Informació d'errors del servidor"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Show Server Errors"
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Mostra els errors del servidor"
+msgstr "(Mostra els errors)"
 
-#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "No s'ha trobat el servidor: %1"
+msgstr "Errors informats del servidor. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
