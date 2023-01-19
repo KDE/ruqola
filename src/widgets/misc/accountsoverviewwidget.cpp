@@ -141,9 +141,7 @@ void AccountsOverviewWidget::updateButtons()
             if (currentUnreadAlert(account).alert) {
                 icon = QIcon::fromTheme(QStringLiteral("message-new"));
             } else {
-                qDebug() << " account->ruqolaServerConfig()->faviconUrl() " << account->ruqolaServerConfig()->faviconUrl();
                 const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl()).toLocalFile()};
-                qDebug() << " sssssssssssssssssssssssss" << iconFaviconUrl;
                 if (!iconFaviconUrl.isEmpty()) {
                     const QIcon iconFavicon{iconFaviconUrl};
                     if (!iconFavicon.isNull()) {
