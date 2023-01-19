@@ -47,7 +47,9 @@ void ServerErrorInfoHistoryDelegate::paint(QPainter *painter, const QStyleOption
 
     const Layout layout = doLayout(option, index);
 
-    drawAccountInfo(painter, index, option);
+    if (!layout.sameAccountAsPreviousMessage) {
+        drawAccountInfo(painter, index, option);
+    }
 
     // Draw Text
     if (layout.textRect.isValid()) {
@@ -91,8 +93,20 @@ QSize ServerErrorInfoHistoryDelegate::sizeHint(const QStyleOptionViewItem &optio
 ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     ServerErrorInfoHistoryDelegate::Layout layout;
+    const QString accountName = index.data(ServerErrorInfoHistoryModel::AccountName).toString();
+    const auto sameAccountAsPreviousMessage = [&] {
+        if (index.row() < 1) {
+            return false;
+        }
+
+        const auto previousIndex = index.siblingAtRow(index.row() - 1);
+        const auto previousAccountName = previousIndex.data(ServerErrorInfoHistoryModel::AccountName).toString();
+        return previousAccountName == accountName;
+    }();
+
     // Timestamp
     layout.timeStampText = index.data(ServerErrorInfoHistoryModel::DateTimeStr).toString();
+    layout.sameAccountAsPreviousMessage = sameAccountAsPreviousMessage;
 
     const int margin = MessageDelegateUtils::basicMargin();
 

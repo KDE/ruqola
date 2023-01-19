@@ -45,6 +45,7 @@ private:
 
         QString timeStampText;
         QPoint timeStampPos;
+        bool sameAccountAsPreviousMessage = false;
     };
     void drawAccountInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT ServerErrorInfoHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
