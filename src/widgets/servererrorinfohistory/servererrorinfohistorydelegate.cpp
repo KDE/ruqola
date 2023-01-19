@@ -121,7 +121,10 @@ ServerErrorInfoHistoryDelegate::Layout ServerErrorInfoHistoryDelegate::doLayout(
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
     // Add area for account/room info
-    usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+
+    if (!layout.sameAccountAsPreviousMessage) {
+        usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+    }
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute
