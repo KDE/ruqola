@@ -139,4 +139,16 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     auto mTimeUnblockUser = w.findChild<QSpinBox *>(QStringLiteral("mTimeUnblockUser"));
     QVERIFY(mTimeUnblockUser);
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimeUnblockUser), QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
+
+    auto mSendEmailUserWhenUserActivated = w.findChild<QCheckBox *>(QStringLiteral("mSendEmailUserWhenUserActivated"));
+    QVERIFY(mSendEmailUserWhenUserActivated);
+    QVERIFY(!mSendEmailUserWhenUserActivated->isChecked());
+    QVERIFY(!mSendEmailUserWhenUserActivated->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSendEmailUserWhenUserActivated), QStringLiteral("Accounts_Send_Email_When_Activating"));
+
+    auto mSendEmailUserWhenUserDeactivated = w.findChild<QCheckBox *>(QStringLiteral("mSendEmailUserWhenUserDeactivated"));
+    QVERIFY(mSendEmailUserWhenUserDeactivated);
+    QVERIFY(!mSendEmailUserWhenUserDeactivated->isChecked());
+    QVERIFY(!mSendEmailUserWhenUserDeactivated->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSendEmailUserWhenUserDeactivated), QStringLiteral("Accounts_Send_Email_When_Deactivating"));
 }

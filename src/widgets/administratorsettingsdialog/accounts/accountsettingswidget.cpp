@@ -32,6 +32,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mBlockFailedLoginAttemptsUsername(new QCheckBox(i18n("Block Failed Login Attempts by Username"), this))
     , mHowManyFailedAttemptsUntilBlockUser(new QSpinBox(this))
     , mTimeUnblockUser(new QSpinBox(this))
+    , mSendEmailUserWhenUserActivated(new QCheckBox(i18n("Send Email to User when User is Activated"), this))
+    , mSendEmailUserWhenUserDeactivated(new QCheckBox(i18n("Send Email to User when User is Deactivated"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -115,6 +117,14 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     auto regislationLabel = createBoldLabel(i18n("Registration"));
     regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
     mMainLayout->addWidget(regislationLabel);
+
+    mSendEmailUserWhenUserActivated->setObjectName(QStringLiteral("mSendEmailUserWhenUserActivated"));
+    mMainLayout->addWidget(mSendEmailUserWhenUserActivated);
+    connectCheckBox(mSendEmailUserWhenUserActivated, QStringLiteral("Accounts_Send_Email_When_Activating"));
+
+    mSendEmailUserWhenUserDeactivated->setObjectName(QStringLiteral("mSendEmailUserWhenUserDeactivated"));
+    mMainLayout->addWidget(mSendEmailUserWhenUserDeactivated);
+    connectCheckBox(mSendEmailUserWhenUserDeactivated, QStringLiteral("Accounts_Send_Email_When_Deactivating"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -140,4 +150,6 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mBlockFailedLoginAttemptsUsername, mapSettings, true);
     initializeWidget(mHowManyFailedAttemptsUntilBlockUser, mapSettings, 10);
     initializeWidget(mTimeUnblockUser, mapSettings, 5);
+    initializeWidget(mSendEmailUserWhenUserActivated, mapSettings, true);
+    initializeWidget(mSendEmailUserWhenUserDeactivated, mapSettings, true);
 }
