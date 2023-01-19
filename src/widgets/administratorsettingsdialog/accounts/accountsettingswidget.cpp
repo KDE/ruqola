@@ -29,6 +29,9 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mForgetUserSessionWindowClose(new QCheckBox(i18n("Forget User Session on Window Close"), this))
     , mEnableCollectLog(new QCheckBox(i18n("Enable collect log in data"), this))
     , mAllowCustomStatusMessage(new QCheckBox(i18n("Allow Custom Status Message"), this))
+    , mBlockFailedLoginAttemptsUsername(new QCheckBox(i18n("Block Failed Login Attempts by Username"), this))
+    , mHowManyFailedAttemptsUntilBlockUser(new QSpinBox(this))
+    , mTimeUnblockUser(new QSpinBox(this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -96,6 +99,18 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mEnableCollectLog->setObjectName(QStringLiteral("mEnableCollectLog"));
     mMainLayout->addWidget(mEnableCollectLog);
     connectCheckBox(mEnableCollectLog, QStringLiteral("Block_Multiple_Failed_Logins_Enabled"));
+
+    mBlockFailedLoginAttemptsUsername->setObjectName(QStringLiteral("mBlockFailedLoginAttemptsUsername"));
+    mMainLayout->addWidget(mBlockFailedLoginAttemptsUsername);
+    connectCheckBox(mBlockFailedLoginAttemptsUsername, QStringLiteral("Block_Multiple_Failed_Logins_By_User"));
+
+    mHowManyFailedAttemptsUntilBlockUser->setObjectName(QStringLiteral("mBlockFailedLoginAttemptsUsername"));
+    addSpinbox(i18n("How Many Failed Attempts Until Block by User"),
+               mHowManyFailedAttemptsUntilBlockUser,
+               QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_by_User"));
+
+    mTimeUnblockUser->setObjectName(QStringLiteral("mTimeUnblockUser"));
+    addSpinbox(i18n("Time to unblock User (In Minutes)"), mTimeUnblockUser, QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -118,4 +133,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mForgetUserSessionWindowClose, mapSettings, false);
     initializeWidget(mEnableCollectLog, mapSettings, false);
     initializeWidget(mAllowCustomStatusMessage, mapSettings, true);
+    initializeWidget(mBlockFailedLoginAttemptsUsername, mapSettings, true);
+    initializeWidget(mHowManyFailedAttemptsUntilBlockUser, mapSettings, 10);
+    initializeWidget(mTimeUnblockUser, mapSettings, 5);
 }

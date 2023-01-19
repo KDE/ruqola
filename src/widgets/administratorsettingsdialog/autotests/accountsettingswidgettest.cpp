@@ -124,4 +124,19 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mAllowCustomStatusMessage->isChecked());
     QVERIFY(!mAllowCustomStatusMessage->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowCustomStatusMessage), QStringLiteral("Accounts_AllowUserStatusMessageChange"));
+
+    auto mBlockFailedLoginAttemptsUsername = w.findChild<QCheckBox *>(QStringLiteral("mBlockFailedLoginAttemptsUsername"));
+    QVERIFY(mBlockFailedLoginAttemptsUsername);
+    QVERIFY(!mBlockFailedLoginAttemptsUsername->isChecked());
+    QVERIFY(!mBlockFailedLoginAttemptsUsername->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockFailedLoginAttemptsUsername), QStringLiteral("Block_Multiple_Failed_Logins_By_User"));
+
+    auto mHowManyFailedAttemptsUntilBlockUser = w.findChild<QSpinBox *>(QStringLiteral("mHowManyFailedAttemptsUntilBlockUser"));
+    QVERIFY(mHowManyFailedAttemptsUntilBlockUser);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mHowManyFailedAttemptsUntilBlockUser),
+             QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_by_User"));
+
+    auto mTimeUnblockUser = w.findChild<QSpinBox *>(QStringLiteral("mTimeUnblockUser"));
+    QVERIFY(mTimeUnblockUser);
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mTimeUnblockUser), QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
 }

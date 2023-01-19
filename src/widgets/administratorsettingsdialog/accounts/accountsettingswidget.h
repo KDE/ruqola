@@ -37,4 +37,7 @@ private:
     QCheckBox *const mForgetUserSessionWindowClose;
     QCheckBox *const mEnableCollectLog;
     QCheckBox *const mAllowCustomStatusMessage;
+    QCheckBox *const mBlockFailedLoginAttemptsUsername;
+    QSpinBox *const mHowManyFailedAttemptsUntilBlockUser;
+    QSpinBox *const mTimeUnblockUser;
 };
