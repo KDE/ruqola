@@ -137,7 +137,21 @@ void AccountsOverviewWidget::updateButtons()
             mTabBar->setTabToolTip(i, currentLoginStatusText(account));
         };
         auto updateTabIcon = [this, i, account]() {
-            mTabBar->setTabIcon(i, currentUnreadAlert(account).alert ? QIcon::fromTheme(QStringLiteral("message-new")) : QIcon());
+            QIcon icon;
+            if (currentUnreadAlert(account).alert) {
+                icon = QIcon::fromTheme(QStringLiteral("message-new"));
+            } else {
+                qDebug() << " account->ruqolaServerConfig()->faviconUrl() " << account->ruqolaServerConfig()->faviconUrl();
+                const QString iconFaviconUrl{account->attachmentUrlFromLocalCache(account->ruqolaServerConfig()->faviconUrl()).toLocalFile()};
+                qDebug() << " sssssssssssssssssssssssss" << iconFaviconUrl;
+                if (!iconFaviconUrl.isEmpty()) {
+                    const QIcon iconFavicon{iconFaviconUrl};
+                    if (!iconFavicon.isNull()) {
+                        icon = std::move(iconFavicon);
+                    }
+                }
+            }
+            mTabBar->setTabIcon(i, icon);
         };
         connect(account, &RocketChatAccount::accountNameChanged, this, updateTabText);
         connect(account, &RocketChatAccount::loginStatusChanged, this, [=]() {
