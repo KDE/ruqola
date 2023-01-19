@@ -24,16 +24,35 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObjec
 
 NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 
-void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+struct RoomAccount {
+    QString channelName;
+    QString accountName;
+    Q_REQUIRED_RESULT bool operator==(const RoomAccount &other) const
+    {
+        return (channelName == other.accountName) && (accountName == other.accountName);
+    }
+};
+
+RoomAccount roomAccountInfo(const QModelIndex &index)
 {
-    const QPen origPen = painter->pen();
-    const qreal margin = MessageDelegateUtils::basicMargin();
+    RoomAccount info;
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
     if (channelName.isEmpty()) {
         channelName = index.data(NotificationHistoryModel::SenderUserName).toString();
     }
-    const QString infoStr = QStringLiteral("%1 - %2").arg(accountName, channelName);
+    info.accountName = accountName;
+    info.channelName = channelName;
+    return info;
+}
+
+void NotificationHistoryDelegate::drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const
+{
+    const QPen origPen = painter->pen();
+    const qreal margin = MessageDelegateUtils::basicMargin();
+    const RoomAccount info = roomAccountInfo(index);
+
+    const QString infoStr = QStringLiteral("%1 - %2").arg(info.accountName, info.channelName);
     const QSize infoSize = option.fontMetrics.size(Qt::TextSingleLine, infoStr);
     const QRect infoAreaRect(option.rect.x(), option.rect.y(), option.rect.width(), infoSize.height()); // the whole row
     const QRect infoTextRect = QStyle::alignedRect(Qt::LayoutDirectionAuto, Qt::AlignCenter, infoSize, infoAreaRect);
@@ -54,7 +73,9 @@ void NotificationHistoryDelegate::paint(QPainter *painter, const QStyleOptionVie
 
     const Layout layout = doLayout(option, index);
 
-    drawAccountRoomInfo(painter, index, option);
+    if (!layout.sameAccountRoomAsPreviousMessage) {
+        drawAccountRoomInfo(painter, index, option);
+    }
 
     // Draw the pixmap
     if (!layout.avatarPixmap.isNull()) {
@@ -96,7 +117,6 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 {
     // Note: option.rect in this method is huge (as big as the viewport)
     const Layout layout = doLayout(option, index);
-
     int additionalHeight = 0;
     // A little bit of margin below the very last item, it just looks better
     if (index.row() == index.model()->rowCount() - 1) {
@@ -119,6 +139,20 @@ QSize NotificationHistoryDelegate::sizeHint(const QStyleOptionViewItem &option, 
 NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     NotificationHistoryDelegate::Layout layout;
+    const auto sameAccountRoomAsPreviousMessage = [&] {
+        if (index.row() < 1) {
+            return false;
+        }
+
+        const auto previousIndex = index.siblingAtRow(index.row() - 1);
+        const RoomAccount previewInfo = roomAccountInfo(previousIndex);
+        const RoomAccount info = roomAccountInfo(index);
+
+        return previewInfo == info;
+    }();
+
+    layout.sameAccountRoomAsPreviousMessage = sameAccountRoomAsPreviousMessage;
+
     const QString userName = index.data(NotificationHistoryModel::SenderUserName).toString();
     const int margin = MessageDelegateUtils::basicMargin();
     layout.senderText = QLatin1Char('@') + userName;
@@ -153,7 +187,9 @@ NotificationHistoryDelegate::Layout NotificationHistoryDelegate::doLayout(const 
     const int textVMargin = 3; // adjust this for "compactness"
     QRect usableRect = option.rect;
     // Add area for account/room info
-    usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+    if (!layout.sameAccountRoomAsPreviousMessage) {
+        usableRect.setTop(usableRect.top() + option.fontMetrics.height());
+    }
 
     layout.textRect = QRect(textLeft, usableRect.top() + textVMargin, maxWidth, textSize.height() + textVMargin);
     layout.baseLine += layout.textRect.top(); // make it absolute

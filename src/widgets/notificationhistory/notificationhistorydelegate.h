@@ -54,6 +54,8 @@ private:
 
         QString timeStampText;
         QPoint timeStampPos;
+
+        bool sameAccountRoomAsPreviousMessage = false;
     };
     void drawAccountRoomInfo(QPainter *painter, const QModelIndex &index, const QStyleOptionViewItem &option) const;
     Q_REQUIRED_RESULT NotificationHistoryDelegate::Layout doLayout(const QStyleOptionViewItem &option, const QModelIndex &index) const;
