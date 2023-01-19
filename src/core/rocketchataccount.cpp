@@ -1701,6 +1701,9 @@ QUrl RocketChatAccount::urlForLink(const QString &link) const
     if (!tmpUrl.startsWith(QLatin1String("https://"))) {
         tmpUrl = QLatin1String("https://") + tmpUrl;
     }
+    if (!link.startsWith(QLatin1Char('/'))) {
+        tmpUrl += QLatin1Char('/');
+    }
     const QUrl downloadFileUrl = QUrl::fromUserInput(tmpUrl + link);
     return downloadFileUrl;
 }
