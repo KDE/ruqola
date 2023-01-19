@@ -111,6 +111,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mTimeUnblockUser->setObjectName(QStringLiteral("mTimeUnblockUser"));
     addSpinbox(i18n("Time to unblock User (In Minutes)"), mTimeUnblockUser, QStringLiteral("Block_Multiple_Failed_Logins_Time_To_Unblock_By_User_In_Minutes"));
+
+    auto regislationLabel = createBoldLabel(i18n("Registration"));
+    regislationLabel->setObjectName(QStringLiteral("regislationLabel"));
+    mMainLayout->addWidget(regislationLabel);
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
