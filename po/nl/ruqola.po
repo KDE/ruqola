@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
-"PO-Revision-Date: 2023-01-16 12:08+0100\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
+"PO-Revision-Date: 2023-01-19 17:22+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -3247,15 +3247,47 @@ msgstr "Log in gegevens verzamelen inschakelen"
 msgid "Allow Custom Status Message"
 msgstr "Aangepast statusbericht toestaan"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgid "Block Failed Login Attempts by Username"
+msgstr "Mislukte pogingen tot aanmelden"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Verlopen van kunnen aanmelden in dagen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Mislukte pogingen tot aanmelden"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Register"
+msgid "Registration"
+msgstr "Registreren"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6844,10 +6876,9 @@ msgid "Server"
 msgstr "Server"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Mijn account..."
+msgstr "Op account filteren..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8148,16 +8179,14 @@ msgid "Server Error Informations"
 msgstr "Informatie over serverfout"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Show Server Errors"
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Serverfouten tonen"
+msgstr "(Fouten tonen)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server version: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Server-versie: %1"
+msgstr "Gerapporteerde server-fouten. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format

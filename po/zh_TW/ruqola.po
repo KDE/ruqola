@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -1411,13 +1411,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "檢舉訊息"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3408,15 +3408,47 @@ msgstr ""
 msgid "Allow Custom Status Message"
 msgstr "%1 則訊息"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, kde-format
+msgid "Block Failed Login Attempts by Username"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Invite Users"
+msgid "Registration"
+msgstr "邀請使用者"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
-"PO-Revision-Date: 2023-01-13 01:35+0000\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
+"PO-Revision-Date: 2023-01-19 09:53+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -44,7 +44,7 @@ msgstr ""
 "X-POFile-SpellExtra: Analytics Piwik Meteor Facebook Github Tokenpass\n"
 "X-POFile-SpellExtra: GitHub avatares Áudios Hmong Video Deepl\n"
 "X-POFile-IgnoreConsistency: Secret\n"
-"X-POFile-SpellExtra: UtilizadorKeep Messages\n"
+"X-POFile-SpellExtra: UtilizadorKeep Messages mensagen\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -1367,12 +1367,12 @@ msgstr "O <strong>%1</strong> está a escrever..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
@@ -3266,15 +3266,47 @@ msgstr "Activar a recolha em registo dos dados"
 msgid "Allow Custom Status Message"
 msgstr "Permitir uma Mensagem de Estado Personalizada"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgid "Block Failed Login Attempts by Username"
+msgstr "Tentativas de Autenticação Falhadas"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Validade da Sessão em Dias"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Tentativas de Autenticação Falhadas"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Register"
+msgid "Registration"
+msgstr "Registar"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4147,7 +4179,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:19
 #, kde-format
 msgid "The cache limit for outbound message handling."
-msgstr ""
+msgstr "O limite de 'cache' para o tratamento de mensagen enviadas."
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4485,7 +4517,7 @@ msgstr "Manter as Mensagens e o Utilizador"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:104
 #, kde-format
 msgid "Delete All Messages"
-msgstr "Apagsr Todas as Mensagens"
+msgstr "Apagar Todas as Mensagens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:105
 #, kde-format
@@ -4493,16 +4525,7 @@ msgid "Remove Link Between User and Messages"
 msgstr "Remover a Ligação entre o Utilizador e as Mensagens"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:108
-#, fuzzy, kde-format
-#| msgid ""
-#| "Determine what to do with messages of users who remove their account. "
-#| "Keep Messages and User Name: The message and files history of the user "
-#| "will be deleted from Direct Messages and will be kept in other rooms. "
-#| "Delete All Messages: All messages and files from the user will be deleted "
-#| "from the database and it will not be possible to locate the user anymore. "
-#| "Remove link between user and messages: This option will assign all "
-#| "messages and fles of the user to Rocket.Cat bot and Direct Messages are "
-#| "going to be deleted."
+#, kde-format
 msgid ""
 "Determine what to do with messages of users who remove their account. Keep "
 "Messages and User Name: The message and files history of the user will be "
@@ -6874,10 +6897,9 @@ msgid "Server"
 msgstr "Servidor"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "A Minha Conta..."
+msgstr "Filtrar a Conta..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8036,10 +8058,9 @@ msgid "Show Channel Log"
 msgstr "Mostrar o Registo do Canal"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Erros e Informações"
+msgstr "Mostrar os Erros do Servidor"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -8176,23 +8197,20 @@ msgid "Main Toolbar"
 msgstr "Barra Principal"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Erros e Informações"
+msgstr "Informações dos Erros do Servidor"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Erros e Informações"
+msgstr "(Mostrar os Erros)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Servidor não encontrado: %1"
+msgstr "Erros devolvidos pelo servidor. %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8308,620 +8326,3 @@ msgstr "Informação da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
-
-#~ msgid "Error from '%1' account"
-#~ msgstr "Erro da conta '%1'"
-
-#~ msgid "Archive cannot be opened in read mode."
-#~ msgstr "Não é possível aceder ao pacote no modo de leitura."
-
-#~ msgid "Enable autocorrection"
-#~ msgstr "Activar a correcção automática"
-
-#~ msgid "Replacement and exception for language:"
-#~ msgstr "Substituição e excepção para a língua:"
-
-#~ msgid "Export..."
-#~ msgstr "Exportar..."
-
-#~ msgid "Import..."
-#~ msgstr "Importar..."
-
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Correcção Automática A&vançada"
-
-#~ msgid "&Add"
-#~ msgstr "&Adicionar"
-
-#~ msgid "&Enable word replacement"
-#~ msgstr "Activar a substituição d&e palavras"
-
-#~ msgid "&Find"
-#~ msgstr "&Procurar"
-
-#~ msgid "Re&place"
-#~ msgstr "Su&bstituir"
-
-#~ msgid "Find"
-#~ msgstr "Procurar"
-
-#~ msgid "Replace"
-#~ msgstr "Substituir"
-
-#~ msgid "E&xceptions"
-#~ msgstr "E&xcepções"
-
-#~ msgid "Do not treat as the end of a sentence:"
-#~ msgstr "Não tratar como fim de frase:"
-
-#~ msgid "R&emove"
-#~ msgstr "R&emover"
-
-#~ msgid "Accept two uppercase letters in:"
-#~ msgstr "Aceitar duas letras maiúsculas em:"
-
-#~ msgid "Add"
-#~ msgstr "Adicionar"
-
-#~ msgid "Si&mple Autocorrection"
-#~ msgstr "Correcção Automática Si&mples"
-
-#~ msgid ""
-#~ "Detect when a new sentence is started and always ensure that the first "
-#~ "character is an uppercase character"
-#~ msgstr ""
-#~ "Detecta quando começa uma nova frase e garante sempre que o primeiro "
-#~ "carácter é maiúsculo"
-
-#~ msgid ""
-#~ "Convert &first letter of a sentence automatically to uppercase\n"
-#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
-#~ msgstr ""
-#~ "Converter a primeira letra de uma &frase automaticamente para maiúsculas\n"
-#~ "(p.ex. \"a minha casa. nesta cidade\" para \"a minha casa. Nesta cidade\")"
-
-#~ msgid ""
-#~ "All words are checked for the common mistake of holding the shift key "
-#~ "down a bit too long. If some words must have two uppercase characters, "
-#~ "then those exceptions should be added in the 'Exceptions' tab."
-#~ msgstr ""
-#~ "Todas as palavras são verificadas à procura do erro comum de manter a "
-#~ "tecla Shift carregada demasiado tempo. Se algumas palavras tiverem duas "
-#~ "letras maiúsculas, então essas excepções deverão ser adicionadas na "
-#~ "página de 'Excepções'."
-
-#~ msgid ""
-#~ "Convert &two uppercase characters to one uppercase and one lowercase "
-#~ "character\n"
-#~ " (e.g. PErfect to Perfect)"
-#~ msgstr ""
-#~ "Conver&ter duas letras maiúsculas para uma maiúscula e uma minúscula.\n"
-#~ " (p.ex. PErfeito para Perfeito)"
-
-#~ msgid ""
-#~ "Make sure that more than one space cannot be typed, as this is a common "
-#~ "mistake which is quite hard to find in formatted text."
-#~ msgstr ""
-#~ "Certifica-se que não se pode escrever mais que um espaço, dado que este é "
-#~ "um erro comum que é difícil de encontrar no texto formatado."
-
-#~ msgid "&Suppress double spaces"
-#~ msgstr "&Suprimir os espaços duplos"
-
-#~ msgid "Most standard fraction notations will be converted when available"
-#~ msgstr ""
-#~ "A maior parte das notações de fracções serão convertidas, se estiverem "
-#~ "disponíveis"
-
-#~ msgid "Re&place 1/2... with ½..."
-#~ msgstr "Substituir o 1/2... &por ½..."
-
-#~ msgid "Capitalize name of days"
-#~ msgstr "Capitalizar os nomes dos dias"
-
-#~ msgid ""
-#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
-#~ "formatting that matches the way an Internet browser would show a URL."
-#~ msgstr ""
-#~ "Detecta quando um URL (Uniform Resource Locator) é escrito e oferece a "
-#~ "formatação que corresponde à forma como um navegador Web iria mostrar um "
-#~ "URL."
-
-#~ msgid "Autoformat &URLs (HTML mode)"
-#~ msgstr "Formatar automaticamente os &URLs (modo de HTML)"
-
-#~ msgid ""
-#~ "When you use _underline_ or *bold*, the text between the underscores or "
-#~ "asterisks will be converted to underlined or bold text."
-#~ msgstr ""
-#~ "Quando usar o _sublinhado_ ou *negrito*, o texto entre esses caracteres "
-#~ "será convertido para texto sublinhado ou negrito, respectivamente."
-
-#~ msgid ""
-#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-#~ msgstr ""
-#~ "Formatar automaticamente o &negrito, traçado e sublinhado (modo de HTML)"
-
-#~ msgid "Replace 1st... with 1^st... (HTML mode)"
-#~ msgstr "Substituir o 1o... por 1^o... (modo de HTML)"
-
-#~ msgid ""
-#~ "Add non breaking space before specific punctuation marks in French text"
-#~ msgstr ""
-#~ "Adicionar um espaço inquebrável antes dos sinais de pontuação específicos"
-
-#~ msgid "Replace double quotes by french quotes"
-#~ msgstr "Substituir as aspas por aspas francesas"
-
-#~ msgid "Custom &Quotes"
-#~ msgstr "Aspas Personali&zadas"
-
-#~ msgid "Replace &double quotes with typographical quotes"
-#~ msgstr "S&ubstituir as aspas por aspas tipográficas"
-
-#~ msgid "By Default"
-#~ msgstr "Predefinição"
-
-#~ msgid "\""
-#~ msgstr "\""
-
-#~ msgid "Ending Quote:"
-#~ msgstr "Aspa de Fecho:"
-
-#~ msgid "Opening Quote:"
-#~ msgstr "Aspa de Abertura:"
-
-#~ msgid "Replace &single quotes with typographical quotes"
-#~ msgstr "&Substituir as plicas por plicas tipográficas"
-
-#~ msgid "'"
-#~ msgstr "'"
-
-#~ msgid "Ending Quotes:"
-#~ msgstr "Aspas de Fecho:"
-
-#~ msgid "Path"
-#~ msgstr "Localização"
-
-#~ msgid "System Path:"
-#~ msgstr "Localização no Sistema:"
-
-#~ msgid "TextLabel"
-#~ msgstr "TextLabel"
-
-#~ msgid "Writable Path:"
-#~ msgstr "Localização de Escrita:"
-
-#~ msgid "Custom System Path:"
-#~ msgstr "Localização Personalizada no Sistema:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Custom Writable Path:"
-#~ msgstr "Localização Personalizada de Escrita:"
-
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Seleccionar a Localização Personalizada de Escrita"
-
-#~ msgid "Select Custom System Path"
-#~ msgstr "Seleccionar a Localização Personalizada no Sistema"
-
-#~ msgid "LibreOffice Autocorrection"
-#~ msgstr "Correcção Automática do LibreOffice"
-
-#~ msgid "KMail/Calligra Autocorrection"
-#~ msgstr "Correcção Automática do KMail/Calligra"
-
-#~ msgid "\"Replace\" string is the same as \"Find\" string."
-#~ msgstr "O texto \"Substituir\" é o mesmo que o \"Procurar\"."
-
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Adicionar o Item à Correcção Automática"
-
-#~ msgid "&Modify"
-#~ msgstr "&Modificar"
-
-#~ msgid "Import LibreOffice Autocorrection"
-#~ msgstr "Importar a Correcção Automática do LibreOffice"
-
-#~ msgid "LibreOffice Autocorrection File (*.dat)"
-#~ msgstr "Ficheiro de Correcção Automática do LibreOffice (*.dat)"
-
-#~ msgid "Import KMail Autocorrection"
-#~ msgstr "Importar a Correcção Automática do KMail"
-
-#~ msgid "KMail Autocorrection File (*.xml)"
-#~ msgstr "Ficheiro de Correcção Automática do KMail (*.xml)"
-
-#~ msgid "Import Autocorrection File"
-#~ msgstr "Importar um Ficheiro de Correcção Automática"
-
-#~ msgid ""
-#~ "Language was changed, do you want to save config for previous language?"
-#~ msgstr ""
-#~ "A língua foi alterada; deseja gravar a configuração da língua anterior?"
-
-#~ msgid "Save config"
-#~ msgstr "Gravar a configuração"
-
-#~ msgid "Please save changes before exporting settings."
-#~ msgstr "Por favor, grave as alterações antes de exportar as definições."
-
-#~ msgid "Export Autocorrection File"
-#~ msgstr "Exportar o Ficheiro de Correcção Automática"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Seleccionar os Caracteres Especiais"
-
-#~ msgid "Insert"
-#~ msgstr "Inserir"
-
-#~ msgid "Select"
-#~ msgstr "Seleccionar"
-
-#~ msgid "Speech text"
-#~ msgstr "Texto a falar"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"
-
-#~ msgid "Pause"
-#~ msgstr "Pausa"
-
-#~ msgid "Play"
-#~ msgstr "Reproduzir"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Text-To-Speech"
-#~ msgstr "Configurar o Texto-para-Fala"
-
-#~ msgid "Morning, this is the test for testing settings."
-#~ msgstr "Bom dia, este é o teste das definições de testes."
-
-#~ msgid "Test"
-#~ msgstr "Testar"
-
-#~ msgid "Volume:"
-#~ msgstr "Volume:"
-
-#~ msgid "Rate:"
-#~ msgstr "Taxa:"
-
-#~ msgid "Pitch:"
-#~ msgstr "Timbre:"
-
-#~ msgid "Engine:"
-#~ msgstr "Motor:"
-
-#~ msgid "Voice:"
-#~ msgstr "Voz:"
-
-#~ msgid "Close"
-#~ msgstr "Fechar"
-
-#~ msgid "Configure..."
-#~ msgstr "Configurar..."
-
-#~ msgid "Detect language"
-#~ msgstr "Detectar a língua"
-
-#~ msgid "Hmong"
-#~ msgstr "Hmong"
-
-#~ msgid "Bosnian"
-#~ msgstr "Bósnio"
-
-#~ msgid "English"
-#~ msgstr "Inglês"
-
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Chinês (Simplificado)"
-
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Chinês (Tradicional)"
-
-#~ msgid "Dutch"
-#~ msgstr "Holandês"
-
-#~ msgid "French"
-#~ msgstr "Francês"
-
-#~ msgid "German"
-#~ msgstr "Alemão"
-
-#~ msgid "Greek"
-#~ msgstr "Grego"
-
-#~ msgid "Italian"
-#~ msgstr "Italiano"
-
-#~ msgid "Japanese"
-#~ msgstr "Japonês"
-
-#~ msgid "Korean"
-#~ msgstr "Coreano"
-
-#~ msgid "Portuguese"
-#~ msgstr "Português"
-
-#~ msgid "Russian"
-#~ msgstr "Russo"
-
-#~ msgid "Spanish"
-#~ msgstr "Espanhol"
-
-#~ msgid "Afrikaans"
-#~ msgstr "Afrikaans"
-
-#~ msgid "Albanian"
-#~ msgstr "Albanês"
-
-#~ msgid "Arabic"
-#~ msgstr "Árabe"
-
-#~ msgid "Armenian"
-#~ msgstr "Arménio"
-
-#~ msgid "Azerbaijani"
-#~ msgstr "Azerbaijano"
-
-#~ msgid "Basque"
-#~ msgstr "Basco"
-
-#~ msgid "Belarusian"
-#~ msgstr "Bielorrusso"
-
-#~ msgid "Bulgarian"
-#~ msgstr "Búlgaro"
-
-#~ msgid "Catalan"
-#~ msgstr "Catalão"
-
-#~ msgid "Croatian"
-#~ msgstr "Croata"
-
-#~ msgid "Czech"
-#~ msgstr "Checo"
-
-#~ msgid "Danish"
-#~ msgstr "Dinamarquês"
-
-#~ msgid "Estonian"
-#~ msgstr "Estoniano"
-
-#~ msgid "Filipino"
-#~ msgstr "Filipino"
-
-#~ msgid "Finnish"
-#~ msgstr "Finlandês"
-
-#~ msgid "Galician"
-#~ msgstr "Galego"
-
-#~ msgid "Georgian"
-#~ msgstr "Geórgio"
-
-#~ msgid "Haitian Creole"
-#~ msgstr "Criolo do Haiti"
-
-#~ msgid "Hebrew"
-#~ msgstr "Hebreu"
-
-#~ msgid "Hindi"
-#~ msgstr "Hindu"
-
-#~ msgid "Hungarian"
-#~ msgstr "Húngaro"
-
-#~ msgid "Icelandic"
-#~ msgstr "Islandês"
-
-#~ msgid "Indonesian"
-#~ msgstr "Indonésio"
-
-#~ msgid "Irish"
-#~ msgstr "Irlandês"
-
-#~ msgid "Latvian"
-#~ msgstr "Letão"
-
-#~ msgid "Lithuanian"
-#~ msgstr "Lituano"
-
-#~ msgid "Macedonian"
-#~ msgstr "Macedónio"
-
-#~ msgid "Malay"
-#~ msgstr "Malaio"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltês"
-
-#~ msgid "Norwegian"
-#~ msgstr "Norueguês"
-
-#~ msgid "Persian"
-#~ msgstr "Persa"
-
-#~ msgid "Polish"
-#~ msgstr "Polaco"
-
-#~ msgid "Romanian"
-#~ msgstr "Romeno"
-
-#~ msgid "Serbian"
-#~ msgstr "Sérvio"
-
-#~ msgid "Slovak"
-#~ msgstr "Eslovaco"
-
-#~ msgid "Slovenian"
-#~ msgstr "Esloveno"
-
-#~ msgid "Swahili"
-#~ msgstr "Swahili"
-
-#~ msgid "Swedish"
-#~ msgstr "Sueco"
-
-#~ msgid "Thai"
-#~ msgstr "Tailandês"
-
-#~ msgid "Turkish"
-#~ msgstr "Turco"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ucraniano"
-
-#~ msgid "Urdu"
-#~ msgstr "Urdu"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Vietnamita"
-
-#~ msgid "Welsh"
-#~ msgstr "Galês"
-
-#~ msgid "Yiddish"
-#~ msgstr "Yiddish"
-
-#~ msgid "Bing"
-#~ msgstr "Bing"
-
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr ""
-#~ "Erro: não foi possível encontrar as credenciais do Bing na versão Web."
-
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr "Erro: Não foi possível extrair a chave do Bing na versão Web."
-
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr "Erro: Não foi possível extrair o código do Bing na versão Web."
-
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "Erro: Não foi possível extrair as informações adicionais do Bing na "
-#~ "versão Web."
-
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Configurar o Motor"
-
-#~ msgid "Use Free License Key"
-#~ msgstr "Usar uma Chave de Licença Gratuita"
-
-#~ msgid "Api Key:"
-#~ msgstr "Chave da API:"
-
-#~ msgid "Server needs Api Key."
-#~ msgstr "O servidor necessita de uma chave da API."
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
-
-#~ msgid "Server required Api Key"
-#~ msgstr "O servidor necessita de uma Chave da API"
-
-#~ msgid "Server Url:"
-#~ msgstr "URL do Servidor:"
-
-#~ msgid "Server url is not defined."
-#~ msgstr "O URL do servidor não está definido."
-
-#~ msgid "Lingva"
-#~ msgstr "Lingva"
-
-#~ msgid "Yandex"
-#~ msgstr "Yandex"
-
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "Erro: Os sistemas do motor detectaram tráfego suspeito na rede do seu "
-#~ "computador. Por favor, tente de novo o seu pedido mais tarde."
-
-#~ msgid "Error: Unable to find Yandex SID in web version."
-#~ msgstr "Erro: Não foi possível detectar o SID do Yandex na versão Web."
-
-#~ msgid "Error: Unable to extract Yandex SID from web version."
-#~ msgstr "Erro: Não foi possível extrair o SID do Yandex na versão Web."
-
-#~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Usou a mesma língua para a origem e o destino."
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Configurar o Tradutor"
-
-#~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Depuração do Tradutor"
-
-#~ msgid "Save As..."
-#~ msgstr "Gravar Como..."
-
-#~ msgid ""
-#~ "Could not write the file %1:\n"
-#~ "\"%2\" is the detailed error description."
-#~ msgstr ""
-#~ "Não foi possível gravar o ficheiro %1:\n"
-#~ "A \"%2\" é a descrição detalhada do erro."
-
-#~ msgid "Save File Error"
-#~ msgstr "Erro de Gravação do Ficheiro"
-
-#~ msgid "All Files (*)"
-#~ msgstr "Todos os Ficheiros (*)"
-
-#~ msgid "Translate..."
-#~ msgstr "Traduzir..."
-
-#~ msgid "Problem when connecting to the translator web site."
-#~ msgstr "Ocorreu um problema na ligação à página Web do tradutor."
-
-#~ msgctxt "Translate from language"
-#~ msgid "From:"
-#~ msgstr "De:"
-
-#~ msgctxt "Translate to language"
-#~ msgid "To:"
-#~ msgstr "Para:"
-
-#~ msgctxt ""
-#~ "Invert language choices so that from becomes to and to becomes from"
-#~ msgid "Invert"
-#~ msgstr "Inverter"
-
-#~ msgid "Translate"
-#~ msgstr "Traduzir"
-
-#~ msgid "Debug"
-#~ msgstr "Depuração"
-
-#~ msgid "Configure"
-#~ msgstr "Configurar"
-
-#~ msgid ""
-#~ "Drag text that you want to translate. (Be careful text will be send to "
-#~ "Google Server)."
-#~ msgstr ""
-#~ "Arraste o texto que deseja traduzir. (Atenção que o texto será enviado "
-#~ "para os servidores da Google)."
-
-#~ msgid "No network connection detected, we cannot translate text."
-#~ msgstr ""
-#~ "Não foi detectada nenhuma ligação de rede; não é possível traduzir o "
-#~ "texto."
-
-#~ msgid "No network"
-#~ msgstr "Sem rede"
-
-#~ msgid "Translate error"
-#~ msgstr "Erro de tradução"

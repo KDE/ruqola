@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
-"PO-Revision-Date: 2023-01-18 20:47+0300\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
+"PO-Revision-Date: 2023-01-19 22:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1337,12 +1337,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -3223,15 +3223,47 @@ msgstr "Günlük verisi toplamayı etkinleştir"
 msgid "Allow Custom Status Message"
 msgstr "Özel Durum İletilerine İzin Ver"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgid "Block Failed Login Attempts by Username"
+msgstr "Başarısız Giriş Denemeleri"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Gün Türünden Giriş Süresi Dolumu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Başarısız Giriş Denemeleri"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Register"
+msgid "Registration"
+msgstr "Kaydet"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6792,10 +6824,9 @@ msgid "Server"
 msgstr "Sunucu"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Hesabım..."
+msgstr "Hesabı Süz..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
 "PO-Revision-Date: 2023-01-04 15:45+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong> está escribiendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> están escribiendo..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensajes"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Su email se ha encolado para ser enviado."
@@ -3248,15 +3248,47 @@ msgstr "Activar colección de registros en datos"
 msgid "Allow Custom Status Message"
 msgstr "Mensaje de estado:"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgid "Block Failed Login Attempts by Username"
+msgstr "Inicios de sesión fallidos"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Expiración de la sesión en días"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Inicios de sesión fallidos"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Register"
+msgid "Registration"
+msgstr "Registrar"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

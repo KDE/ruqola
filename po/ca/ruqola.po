@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-19 00:57+0000\n"
-"PO-Revision-Date: 2023-01-18 09:32+0100\n"
+"POT-Creation-Date: 2023-01-20 00:57+0000\n"
+"PO-Revision-Date: 2023-01-19 14:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2872
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3246,15 +3246,47 @@ msgstr "Activa la recollida de dades de registre"
 msgid "Allow Custom Status Message"
 msgstr "Permet missatge personalitzat d'estat"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:82
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#, fuzzy, kde-format
+#| msgid "Failed Login Attempts"
+msgid "Block Failed Login Attempts by Username"
+msgstr "Intents d'inici de sessió fallits"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#, kde-format
+msgid "Send Email to User when User is Activated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#, kde-format
+msgid "Send Email to User when User is Deactivated"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Venciment de l'inici de sessió en dies"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:92
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Intents d'inici de sessió fallits"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#, kde-format
+msgid "How Many Failed Attempts Until Block by User"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#, fuzzy, kde-format
+#| msgid "Register"
+msgid "Registration"
+msgstr "Registre"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6839,10 +6871,9 @@ msgid "Server"
 msgstr "Servidor"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "El meu compte..."
+msgstr "Filtre de comptes..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8265,621 +8296,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "Error from '%1' account"
-#~ msgstr "Error des del compte «%1»"
-
-#~ msgid "Archive cannot be opened in read mode."
-#~ msgstr "No s'ha pogut obrir l'arxiu en mode de lectura."
-
-#~ msgid "Enable autocorrection"
-#~ msgstr "Activa la correcció automàtica"
-
-#~ msgid "Replacement and exception for language:"
-#~ msgstr "Substitució i excepció per a l'idioma:"
-
-#~ msgid "Export..."
-#~ msgstr "Exporta..."
-
-#~ msgid "Import..."
-#~ msgstr "Importa..."
-
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Correcció automàtica a&vançada"
-
-#~ msgid "&Add"
-#~ msgstr "&Afegeix"
-
-#~ msgid "&Enable word replacement"
-#~ msgstr "Activa la substitució d&e paraules"
-
-#~ msgid "&Find"
-#~ msgstr "&Cerca"
-
-#~ msgid "Re&place"
-#~ msgstr "&Substitueix"
-
-#~ msgid "Find"
-#~ msgstr "Cerca"
-
-#~ msgid "Replace"
-#~ msgstr "Substitueix"
-
-#~ msgid "E&xceptions"
-#~ msgstr "E&xcepcions"
-
-#~ msgid "Do not treat as the end of a sentence:"
-#~ msgstr "No tractis com a final de frase:"
-
-#~ msgid "R&emove"
-#~ msgstr "&Elimina"
-
-#~ msgid "Accept two uppercase letters in:"
-#~ msgstr "Accepta dues majúscules en:"
-
-#~ msgid "Add"
-#~ msgstr "Afegeix"
-
-#~ msgid "Si&mple Autocorrection"
-#~ msgstr "Correcció automàtica si&mple"
-
-#~ msgid ""
-#~ "Detect when a new sentence is started and always ensure that the first "
-#~ "character is an uppercase character"
-#~ msgstr ""
-#~ "Detecta quan s'inicia una frase nova i sempre s'assegura que el primer "
-#~ "caràcter és en majúscules"
-
-#~ msgid ""
-#~ "Convert &first letter of a sentence automatically to uppercase\n"
-#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
-#~ msgstr ""
-#~ "Converteix la &primera lletra d'una frase automàticament a majúscula\n"
-#~ "(per exemple, «casa meva. en aquest poble» a «casa meva. En aquest poble»)"
-
-#~ msgid ""
-#~ "All words are checked for the common mistake of holding the shift key "
-#~ "down a bit too long. If some words must have two uppercase characters, "
-#~ "then those exceptions should be added in the 'Exceptions' tab."
-#~ msgstr ""
-#~ "Totes les paraules es revisen per l'errada comuna de polsar la tecla de "
-#~ "majúscules durant massa temps. Si algunes paraules han d'estar en "
-#~ "majúscules, s'han d'afegir aquestes excepcions a la pestanya «Excepcions»."
-
-#~ msgid ""
-#~ "Convert &two uppercase characters to one uppercase and one lowercase "
-#~ "character\n"
-#~ " (e.g. PErfect to Perfect)"
-#~ msgstr ""
-#~ "Conver&teix dos caràcters en majúscules a un en majúscules i un en "
-#~ "minúscules\n"
-#~ " (p. ex.: PErfecte a Perfecte)"
-
-#~ msgid ""
-#~ "Make sure that more than one space cannot be typed, as this is a common "
-#~ "mistake which is quite hard to find in formatted text."
-#~ msgstr ""
-#~ "Assegura que no es pot escriure més d'un espai, ja que aquest és un error "
-#~ "comú bastant difícil de trobar en text amb format."
-
-#~ msgid "&Suppress double spaces"
-#~ msgstr "&Suprimeix els espais dobles"
-
-#~ msgid "Most standard fraction notations will be converted when available"
-#~ msgstr ""
-#~ "La majoria de notacions de fraccions estàndard es convertiran quan "
-#~ "estiguin disponibles"
-
-#~ msgid "Re&place 1/2... with ½..."
-#~ msgstr "Su&bstitueix 1/2... per ½..."
-
-#~ msgid "Capitalize name of days"
-#~ msgstr "Posa en majúscules els noms dels dies"
-
-#~ msgid ""
-#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
-#~ "formatting that matches the way an Internet browser would show a URL."
-#~ msgstr ""
-#~ "Detecta quan s'escriu un URL (Uniform Resource Locator) i proporciona un "
-#~ "format per tal que un navegador d'Internet pugui mostrar un URL."
-
-#~ msgid "Autoformat &URLs (HTML mode)"
-#~ msgstr "Dona format automàticament als &URL (mode HTML)"
-
-#~ msgid ""
-#~ "When you use _underline_ or *bold*, the text between the underscores or "
-#~ "asterisks will be converted to underlined or bold text."
-#~ msgstr ""
-#~ "Quan useu _subratllat_ o *negreta*, el text entre els guions baixos o els "
-#~ "asteriscs es convertirà en text subratllat o en negreta."
-
-#~ msgid ""
-#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-#~ msgstr ""
-#~ "Automàticament dona format en negreta, ratllat i su&bratllat (mode HTML)"
-
-#~ msgid "Replace 1st... with 1^st... (HTML mode)"
-#~ msgstr "Substitueix 1st... per 1^st... (mode HTML)"
-
-#~ msgid ""
-#~ "Add non breaking space before specific punctuation marks in French text"
-#~ msgstr ""
-#~ "Afegeix un espai no divisible abans de les marques específiques de "
-#~ "puntuació en textos en francès"
-
-#~ msgid "Replace double quotes by french quotes"
-#~ msgstr "Substitueix les cometes dobles per cometes franceses"
-
-#~ msgid "Custom &Quotes"
-#~ msgstr "Co&metes personalitzades"
-
-#~ msgid "Replace &double quotes with typographical quotes"
-#~ msgstr "Substitueix les cometes &dobles per cometes tipogràfiques"
-
-#~ msgid "By Default"
-#~ msgstr "De manera predeterminada"
-
-#~ msgid "\""
-#~ msgstr "\""
-
-#~ msgid "Ending Quote:"
-#~ msgstr "Cometes finals:"
-
-#~ msgid "Opening Quote:"
-#~ msgstr "Cometes inicials:"
-
-#~ msgid "Replace &single quotes with typographical quotes"
-#~ msgstr "Substitueix les cometes &simples per cometes tipogràfiques"
-
-# skip-rule: t-apo_fim
-#~ msgid "'"
-#~ msgstr "'"
-
-#~ msgid "Ending Quotes:"
-#~ msgstr "Cometes finals:"
-
-#~ msgid "Path"
-#~ msgstr "Camí"
-
-#~ msgid "System Path:"
-#~ msgstr "Camí del sistema:"
-
-#~ msgid "TextLabel"
-#~ msgstr "EtiquetaDeText"
-
-#~ msgid "Writable Path:"
-#~ msgstr "Camí que s'hi pot escriure:"
-
-#~ msgid "Custom System Path:"
-#~ msgstr "Camí personalitzat del sistema:"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "Custom Writable Path:"
-#~ msgstr "Camí personalitzat que s'hi pot escriure:"
-
-#~ msgid "Select Custom Writable Path"
-#~ msgstr "Selecció del camí personalitzat que s'hi pot escriure"
-
-#~ msgid "Select Custom System Path"
-#~ msgstr "Selecció del camí personalitzat del sistema"
-
-#~ msgid "LibreOffice Autocorrection"
-#~ msgstr "Correcció automàtica del LibreOffice"
-
-#~ msgid "KMail/Calligra Autocorrection"
-#~ msgstr "Correcció automàtica del KMail/Calligra"
-
-#~ msgid "\"Replace\" string is the same as \"Find\" string."
-#~ msgstr "La cadena «Substitueix» és la mateixa que la cadena «Cerca»."
-
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Afegeix una entrada de correcció automàtica"
-
-#~ msgid "&Modify"
-#~ msgstr "&Modifica"
-
-#~ msgid "Import LibreOffice Autocorrection"
-#~ msgstr "Importa la correcció automàtica del LibreOffice"
-
-#~ msgid "LibreOffice Autocorrection File (*.dat)"
-#~ msgstr "Fitxer de correcció automàtica del LibreOffice (*.dat)"
-
-#~ msgid "Import KMail Autocorrection"
-#~ msgstr "Importa la correcció automàtica del KMail"
-
-#~ msgid "KMail Autocorrection File (*.xml)"
-#~ msgstr "Fitxer de correcció automàtica del KMail (*.xml)"
-
-#~ msgid "Import Autocorrection File"
-#~ msgstr "Importa un fitxer de correcció automàtica"
-
-#~ msgid ""
-#~ "Language was changed, do you want to save config for previous language?"
-#~ msgstr ""
-#~ "L'idioma ha canviat. Voleu desar la configuració de l'idioma anterior?"
-
-#~ msgid "Save config"
-#~ msgstr "Desa la configuració"
-
-#~ msgid "Please save changes before exporting settings."
-#~ msgstr "Deseu els canvis abans d'exportar la configuració."
-
-#~ msgid "Export Autocorrection File"
-#~ msgstr "Exporta un fitxer de correcció automàtica"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Selecció de caràcters especials"
-
-#~ msgid "Insert"
-#~ msgstr "Insereix"
-
-#~ msgid "Select"
-#~ msgstr "Selecciona"
-
-#~ msgid "Speech text"
-#~ msgstr "Text a veu"
-
-#~ msgid "Stop"
-#~ msgstr "Atura"
-
-#~ msgid "Pause"
-#~ msgstr "Pausa"
-
-#~ msgid "Play"
-#~ msgstr "Reprodueix"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Text-To-Speech"
-#~ msgstr "Configuració del text a veu"
-
-#~ msgid "Morning, this is the test for testing settings."
-#~ msgstr "Hola, aquesta és la prova per a provar la configuració."
-
-#~ msgid "Test"
-#~ msgstr "Prova"
-
-#~ msgid "Volume:"
-#~ msgstr "Volum:"
-
-#~ msgid "Rate:"
-#~ msgstr "Velocitat:"
-
-#~ msgid "Pitch:"
-#~ msgstr "To:"
-
-#~ msgid "Engine:"
-#~ msgstr "Motor:"
-
-#~ msgid "Voice:"
-#~ msgstr "Veu:"
-
-#~ msgid "Close"
-#~ msgstr "Tanca"
-
-#~ msgid "Configure..."
-#~ msgstr "Configura..."
-
-#~ msgid "Detect language"
-#~ msgstr "Detecta l'idioma"
-
-#~ msgid "Hmong"
-#~ msgstr "Hmong"
-
-#~ msgid "Bosnian"
-#~ msgstr "Bosnià"
-
-#~ msgid "English"
-#~ msgstr "Anglès"
-
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Xinès (simplificat)"
-
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Xinès (tradicional)"
-
-#~ msgid "Dutch"
-#~ msgstr "Neerlandès"
-
-#~ msgid "French"
-#~ msgstr "Francès"
-
-#~ msgid "German"
-#~ msgstr "Alemany"
-
-#~ msgid "Greek"
-#~ msgstr "Grec"
-
-#~ msgid "Italian"
-#~ msgstr "Italià"
-
-#~ msgid "Japanese"
-#~ msgstr "Japonès"
-
-#~ msgid "Korean"
-#~ msgstr "Coreà"
-
-#~ msgid "Portuguese"
-#~ msgstr "Portuguès"
-
-#~ msgid "Russian"
-#~ msgstr "Rus"
-
-#~ msgid "Spanish"
-#~ msgstr "Espanyol"
-
-#~ msgid "Afrikaans"
-#~ msgstr "Afrikaans"
-
-#~ msgid "Albanian"
-#~ msgstr "Albanès"
-
-#~ msgid "Arabic"
-#~ msgstr "Àrab"
-
-#~ msgid "Armenian"
-#~ msgstr "Armeni"
-
-#~ msgid "Azerbaijani"
-#~ msgstr "Àzeri"
-
-#~ msgid "Basque"
-#~ msgstr "Basc"
-
-#~ msgid "Belarusian"
-#~ msgstr "Bielorús"
-
-#~ msgid "Bulgarian"
-#~ msgstr "Búlgar"
-
-#~ msgid "Catalan"
-#~ msgstr "Català"
-
-#~ msgid "Croatian"
-#~ msgstr "Croat"
-
-#~ msgid "Czech"
-#~ msgstr "Txec"
-
-#~ msgid "Danish"
-#~ msgstr "Danès"
-
-#~ msgid "Estonian"
-#~ msgstr "Estonià"
-
-#~ msgid "Filipino"
-#~ msgstr "Filipí"
-
-#~ msgid "Finnish"
-#~ msgstr "Finès"
-
-#~ msgid "Galician"
-#~ msgstr "Gallec"
-
-#~ msgid "Georgian"
-#~ msgstr "Georgià"
-
-#~ msgid "Haitian Creole"
-#~ msgstr "Crioll haitià"
-
-#~ msgid "Hebrew"
-#~ msgstr "Hebreu"
-
-#~ msgid "Hindi"
-#~ msgstr "Hindi"
-
-#~ msgid "Hungarian"
-#~ msgstr "Hongarès"
-
-#~ msgid "Icelandic"
-#~ msgstr "Islandès"
-
-#~ msgid "Indonesian"
-#~ msgstr "Indonesi"
-
-#~ msgid "Irish"
-#~ msgstr "Irlandès"
-
-#~ msgid "Latvian"
-#~ msgstr "Letó"
-
-#~ msgid "Lithuanian"
-#~ msgstr "Lituà"
-
-#~ msgid "Macedonian"
-#~ msgstr "Macedoni"
-
-#~ msgid "Malay"
-#~ msgstr "Malai"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltès"
-
-#~ msgid "Norwegian"
-#~ msgstr "Noruec"
-
-#~ msgid "Persian"
-#~ msgstr "Persa"
-
-#~ msgid "Polish"
-#~ msgstr "Polonès"
-
-#~ msgid "Romanian"
-#~ msgstr "Romanès"
-
-#~ msgid "Serbian"
-#~ msgstr "Serbi"
-
-#~ msgid "Slovak"
-#~ msgstr "Eslovac"
-
-#~ msgid "Slovenian"
-#~ msgstr "Eslovè"
-
-#~ msgid "Swahili"
-#~ msgstr "Suahili"
-
-#~ msgid "Swedish"
-#~ msgstr "Suec"
-
-#~ msgid "Thai"
-#~ msgstr "Tai"
-
-#~ msgid "Turkish"
-#~ msgstr "Turc"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ucraïnès"
-
-#~ msgid "Urdu"
-#~ msgstr "Urdú"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Vietnamita"
-
-#~ msgid "Welsh"
-#~ msgstr "Gal·lès"
-
-#~ msgid "Yiddish"
-#~ msgstr "Jiddisch"
-
-#~ msgid "Bing"
-#~ msgstr "Bing"
-
-#~ msgid "Error: Unable to find Bing credentials in web version."
-#~ msgstr ""
-#~ "Error: No s'han pogut trobar les credencials de Bing en la versió web."
-
-#~ msgid "Error: Unable to extract Bing key from web version."
-#~ msgstr "Error: No s'ha pogut extreure la clau de Bing de la versió web."
-
-#~ msgid "Error: Unable to extract Bing token from web version."
-#~ msgstr ""
-#~ "Error: No s'ha pogut extreure el testimoni de Bing de la versió web."
-
-#~ msgid ""
-#~ "Error: Unable to extract additional Bing information from web version."
-#~ msgstr ""
-#~ "Error: No s'ha pogut extreure la informació addicional de Bing de la "
-#~ "versió web."
-
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Configura el motor"
-
-#~ msgid "Use Free License Key"
-#~ msgstr "Usa una clau de llicència lliure"
-
-#~ msgid "Api Key:"
-#~ msgstr "Clau de l'API:"
-
-#~ msgid "Server needs Api Key."
-#~ msgstr "El servidor necessita una clau de l'API."
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
-
-#~ msgid "Server required Api Key"
-#~ msgstr "Clau de l'API requerida pel servidor"
-
-#~ msgid "Server Url:"
-#~ msgstr "URL del servidor:"
-
-#~ msgid "Server url is not defined."
-#~ msgstr "No s'ha definit l'URL del servidor."
-
-#~ msgid "Lingva"
-#~ msgstr "Lingva"
-
-#~ msgid "Yandex"
-#~ msgstr "Yandex"
-
-#~ msgid ""
-#~ "Error: Engine systems have detected suspicious traffic from your computer "
-#~ "network. Please try your request again later."
-#~ msgstr ""
-#~ "Error: Els sistemes del motor han detectat trànsit sospitós des de la "
-#~ "xarxa d'aquest ordinador. Torneu-ho a provar més tard."
-
-#~ msgid "Error: Unable to find Yandex SID in web version."
-#~ msgstr "Error: No s'ha pogut trobar el SID de Yandex en la versió web."
-
-#~ msgid "Error: Unable to extract Yandex SID from web version."
-#~ msgstr "Error: No s'ha pogut extreure el SID de Yandex de la versió web."
-
-#~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Heu usat el mateix idioma a «Des de» i «A»."
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Configuració del traductor"
-
-#~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Depuració del traductor"
-
-#~ msgid "Save As..."
-#~ msgstr "Desa com a..."
-
-#~ msgid ""
-#~ "Could not write the file %1:\n"
-#~ "\"%2\" is the detailed error description."
-#~ msgstr ""
-#~ "No s'ha pogut escriure el fitxer %1:\n"
-#~ "«%2» és la descripció detallada de l'error."
-
-#~ msgid "Save File Error"
-#~ msgstr "Error en desar el fitxer"
-
-#~ msgid "All Files (*)"
-#~ msgstr "Tots els fitxers (*)"
-
-#~ msgid "Translate..."
-#~ msgstr "Tradueix..."
-
-#~ msgid "Problem when connecting to the translator web site."
-#~ msgstr "Problema en connectar amb el lloc web del traductor."
-
-#~ msgctxt "Translate from language"
-#~ msgid "From:"
-#~ msgstr "De:"
-
-#~ msgctxt "Translate to language"
-#~ msgid "To:"
-#~ msgstr "A:"
-
-#~ msgctxt ""
-#~ "Invert language choices so that from becomes to and to becomes from"
-#~ msgid "Invert"
-#~ msgstr "Inverteix"
-
-#~ msgid "Translate"
-#~ msgstr "Tradueix"
-
-#~ msgid "Debug"
-#~ msgstr "Depura"
-
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgid ""
-#~ "Drag text that you want to translate. (Be careful text will be send to "
-#~ "Google Server)."
-#~ msgstr ""
-#~ "Deixeu anar el text que voleu traduir. (Aneu amb compte, el text "
-#~ "s'enviarà al servidor de Google)."
-
-#~ msgid "No network connection detected, we cannot translate text."
-#~ msgstr ""
-#~ "No s'ha detectat cap connexió de xarxa, no s'ha pogut traduir el text."
-
-#~ msgid "No network"
-#~ msgstr "Sense xarxa"
-
-#~ msgid "Translate error"
-#~ msgstr "Error de traducció"
