@@ -33,7 +33,7 @@ public:
     Q_REQUIRED_RESULT QString avatarUrl(const Utils::AvatarInfo &info);
     void insertAvatarUrl(const QString &userId, const QUrl &url);
 
-    void downloadFileFromServer(const QString &filename);
+    void downloadFileFromServer(const QString &filename, bool needAuthentication);
 
     Q_REQUIRED_RESULT QUrl attachmentUrlFromLocalCache(const QString &url);
     void downloadFile(const QString &url, const QUrl &localFile);
@@ -41,6 +41,8 @@ public:
 
     void updateAvatar(const Utils::AvatarInfo &info);
     Q_REQUIRED_RESULT bool attachmentIsInLocalCache(const QString &url);
+    Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
+    Q_REQUIRED_RESULT QUrl urlFromLocalCache(const QString &url, bool needAuthentication);
 Q_SIGNALS:
     void fileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
 

@@ -33,6 +33,9 @@ public:
     Q_REQUIRED_RESULT QUrl localFileUrl() const;
     void setLocalFileUrl(const QUrl &localFileUrl);
 
+    Q_REQUIRED_RESULT bool requiredAuthentication() const;
+    void setRequiredAuthentication(bool newRequiredAuthentication);
+
 Q_SIGNALS:
     void downloadFileDone(const QUrl &url, const QUrl &localFileUrl);
 
@@ -42,5 +45,6 @@ private:
     QUrl mUrl;
     QByteArray mMimeType;
     QUrl mLocalFileUrl;
+    bool mRequiredAuthentication = true;
 };
 }

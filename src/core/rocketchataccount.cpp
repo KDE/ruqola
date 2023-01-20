@@ -1424,6 +1424,10 @@ void RocketChatAccount::parsePublicSettings(const QJsonObject &obj)
 {
     mRuqolaServerConfig->parsePublicSettings(obj);
     fillOauthModel();
+    // Download logo/favicon if possible
+    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
+    (void)faviconLogoUrlFromLocalCache(mRuqolaServerConfig->faviconUrl());
+
     Q_EMIT publicSettingChanged();
 }
 
@@ -1718,6 +1722,11 @@ QString RocketChatAccount::recordingImagePath() const
 void RocketChatAccount::downloadFile(const QString &downloadFileUrl, const QUrl &localFile)
 {
     mCache->downloadFile(downloadFileUrl, localFile);
+}
+
+QUrl RocketChatAccount::faviconLogoUrlFromLocalCache(const QString &url)
+{
+    return mCache->faviconLogoUrlFromLocalCache(url);
 }
 
 QUrl RocketChatAccount::attachmentUrlFromLocalCache(const QString &url)
@@ -2469,10 +2478,6 @@ void RocketChatAccount::initializeAccount()
     if (mRuqolaServerConfig->hasAtLeastVersion(5, 0, 0)) {
         checkLicenses();
     }
-
-    // Download logo if possible
-    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->logoUrl());
-    (void)attachmentUrlFromLocalCache(mRuqolaServerConfig->faviconUrl());
 
     Q_EMIT accountInitialized();
 }

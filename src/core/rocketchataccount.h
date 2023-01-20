@@ -514,6 +514,8 @@ public:
     void parseVideoConference(const QJsonArray &contents);
     Q_REQUIRED_RESULT VideoConferenceManager *videoConferenceManager() const;
 
+    Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
+
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
     void disabledTotpValid(bool checked);

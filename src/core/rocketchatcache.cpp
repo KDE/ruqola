@@ -99,16 +99,26 @@ bool RocketChatCache::attachmentIsInLocalCache(const QString &url)
     return false;
 }
 
-QUrl RocketChatCache::attachmentUrlFromLocalCache(const QString &url)
+QUrl RocketChatCache::faviconLogoUrlFromLocalCache(const QString &url)
+{
+    return urlFromLocalCache(url, false);
+}
+
+QUrl RocketChatCache::urlFromLocalCache(const QString &url, bool needAuthentication)
 {
     const QString cachePath = fileCachePath(QUrl(url));
     if (QFileInfo::exists(cachePath)) {
         // QML wants a QUrl here. The widgets code would be simpler with just a QString path.
         return QUrl::fromLocalFile(cachePath);
     } else {
-        downloadFileFromServer(url);
+        downloadFileFromServer(url, needAuthentication);
     }
     return {};
+}
+
+QUrl RocketChatCache::attachmentUrlFromLocalCache(const QString &url)
+{
+    return urlFromLocalCache(url, true);
 }
 
 void RocketChatCache::downloadAvatarFromServer(const Utils::AvatarInfo &info)
@@ -116,13 +126,13 @@ void RocketChatCache::downloadAvatarFromServer(const Utils::AvatarInfo &info)
     mAvatarManager->insertInDownloadQueue(info);
 }
 
-void RocketChatCache::downloadFileFromServer(const QString &filename)
+void RocketChatCache::downloadFileFromServer(const QString &filename, bool needAuthentication)
 {
     if (!mFileInDownload.contains(filename)) {
         mFileInDownload.insert(filename);
         const QUrl downloadUrl = mAccount->urlForLink(filename);
         const QUrl destFileUrl = QUrl::fromLocalFile(fileCachePath(downloadUrl));
-        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl);
+        mAccount->restApi()->downloadFile(mAccount->urlForLink(filename), destFileUrl, "text/plain", needAuthentication);
         // this will call slotDataDownloaded
     }
 }

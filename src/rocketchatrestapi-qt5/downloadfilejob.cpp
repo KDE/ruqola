@@ -63,6 +63,16 @@ void DownloadFileJob::slotDownloadDone()
     deleteLater();
 }
 
+bool DownloadFileJob::requiredAuthentication() const
+{
+    return mRequiredAuthentication;
+}
+
+void DownloadFileJob::setRequiredAuthentication(bool newRequiredAuthentication)
+{
+    mRequiredAuthentication = newRequiredAuthentication;
+}
+
 QNetworkRequest DownloadFileJob::request() const
 {
     QNetworkRequest req(mUrl);
@@ -85,7 +95,7 @@ void DownloadFileJob::setLocalFileUrl(const QUrl &localFileUrl)
 
 bool DownloadFileJob::requireHttpAuthentication() const
 {
-    return true;
+    return mRequiredAuthentication;
 }
 
 bool DownloadFileJob::canStart() const

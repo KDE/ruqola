@@ -371,13 +371,14 @@ void Connection::starMessage(const QString &messageId, bool starred)
     }
 }
 
-DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType)
+DownloadFileJob *Connection::downloadFile(const QUrl &url, const QUrl &localFileUrl, const QByteArray &mimeType, bool requiredAuthentication)
 {
     auto job = new DownloadFileJob(this);
     connect(job, &DownloadFileJob::downloadFileDone, this, &Connection::downloadFileDone);
     job->setUrl(url);
     job->setMimeType(mimeType);
     job->setLocalFileUrl(localFileUrl);
+    job->setRequiredAuthentication(requiredAuthentication);
     initializeRestApiJob(job);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start DownloadFileJob job";
