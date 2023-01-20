@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(KTEXTADDONS_MIN_VERSION "1.0.0")
-set(KF5_MIN_VERSION "5.100.0")
+set(KF_MIN_VERSION "5.100.0")
 set(REQUIRED_QT_VERSION "5.15.2")
 if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
@@ -24,7 +24,7 @@ endif()
 set(RUQOLA_VERSION_STRING "${RUQOLA_VERSION}${RUQOLA_DEV_VERSION}")
 
 
-find_package(ECM ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 
@@ -79,7 +79,7 @@ endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Crash
@@ -106,17 +106,17 @@ if (TARGET KF5::TextEditTextToSpeech)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    find_package(KF5DBusAddons ${KF5_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF5DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
-find_package(KF5XmlGui ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Config ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5KIO ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Sonnet ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5TextWidgets ${KF5_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Purpose ${KF5_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF5Purpose ${KF_MIN_VERSION} CONFIG REQUIRED)
 
-find_package(KF5DocTools ${KF5_MIN_VERSION})
+find_package(KF5DocTools ${KF_MIN_VERSION})
 set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
@@ -133,7 +133,7 @@ find_package(KUserFeedback 1.2.0 CONFIG)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
-find_package(KF5Solid ${KF5_MIN_VERSION} CONFIG)
+find_package(KF5Solid ${KF_MIN_VERSION} CONFIG)
 if (KF5Solid_FOUND)
 # SolidPower is not built by default, and the only way to find is to
 # check for the header and that it builds
@@ -148,7 +148,7 @@ if (KF5Solid_FOUND)
 endif()
 set_package_properties(KF5Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
 
-find_package(KF5NetworkManagerQt ${KF5_MIN_VERSION} CONFIG)
+find_package(KF5NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
 set(HAVE_NETWORKMANAGER ${KF5NetworkManagerQt_FOUND})
 set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
 

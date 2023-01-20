@@ -6,16 +6,16 @@ project(ruqola-python VERSION ${RUQOLA_PYTHON_VERSION})
 
 set(PYTHON_MIN_VERSION "3.5.0")
 set(QT_MIN_VERSION "5.15")
-set(KF5_MIN_VERSION "5.73.0")
+set(KF_MIN_VERSION "5.73.0")
 
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 find_package(PythonInterp ${PYTHON_MIN_VERSION} REQUIRED)
 find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Gui Svg Widgets)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Config DocTools)
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS Config DocTools)
 
 include(FeatureSummary)
 include(KDEInstallDirs)
