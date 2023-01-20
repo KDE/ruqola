@@ -34,6 +34,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mTimeUnblockUser(new QSpinBox(this))
     , mSendEmailUserWhenUserActivated(new QCheckBox(i18n("Send Email to User when User is Activated"), this))
     , mSendEmailUserWhenUserDeactivated(new QCheckBox(i18n("Send Email to User when User is Deactivated"), this))
+    , mRequireNameSignup(new QCheckBox(i18n("Require Name For Signup"), this))
+    , mRequirePasswordConfirmation(new QCheckBox(i18n("Require Password Confirmation"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -125,6 +127,14 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mSendEmailUserWhenUserDeactivated->setObjectName(QStringLiteral("mSendEmailUserWhenUserDeactivated"));
     mMainLayout->addWidget(mSendEmailUserWhenUserDeactivated);
     connectCheckBox(mSendEmailUserWhenUserDeactivated, QStringLiteral("Accounts_Send_Email_When_Deactivating"));
+
+    mRequireNameSignup->setObjectName(QStringLiteral("mRequireNameSignup"));
+    mMainLayout->addWidget(mRequireNameSignup);
+    connectCheckBox(mRequireNameSignup, QStringLiteral("Accounts_RequireNameForSignUp"));
+
+    mRequirePasswordConfirmation->setObjectName(QStringLiteral("mRequirePasswordConfirmation"));
+    mMainLayout->addWidget(mRequirePasswordConfirmation);
+    connectCheckBox(mRequirePasswordConfirmation, QStringLiteral("Accounts_RequirePasswordConfirmation"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -152,4 +162,6 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mTimeUnblockUser, mapSettings, 5);
     initializeWidget(mSendEmailUserWhenUserActivated, mapSettings, true);
     initializeWidget(mSendEmailUserWhenUserDeactivated, mapSettings, true);
+    initializeWidget(mRequireNameSignup, mapSettings, true);
+    initializeWidget(mRequirePasswordConfirmation, mapSettings, true);
 }

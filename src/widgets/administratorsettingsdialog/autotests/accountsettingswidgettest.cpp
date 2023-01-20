@@ -151,4 +151,16 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mSendEmailUserWhenUserDeactivated->isChecked());
     QVERIFY(!mSendEmailUserWhenUserDeactivated->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mSendEmailUserWhenUserDeactivated), QStringLiteral("Accounts_Send_Email_When_Deactivating"));
+
+    auto mRequireNameSignup = w.findChild<QCheckBox *>(QStringLiteral("mRequireNameSignup"));
+    QVERIFY(mRequireNameSignup);
+    QVERIFY(!mRequireNameSignup->isChecked());
+    QVERIFY(!mRequireNameSignup->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRequireNameSignup), QStringLiteral("Accounts_RequireNameForSignUp"));
+
+    auto mRequirePasswordConfirmation = w.findChild<QCheckBox *>(QStringLiteral("mRequirePasswordConfirmation"));
+    QVERIFY(mRequirePasswordConfirmation);
+    QVERIFY(!mRequirePasswordConfirmation->isChecked());
+    QVERIFY(!mRequirePasswordConfirmation->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRequirePasswordConfirmation), QStringLiteral("Accounts_RequirePasswordConfirmation"));
 }

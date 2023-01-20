@@ -42,4 +42,6 @@ private:
     QSpinBox *const mTimeUnblockUser;
     QCheckBox *const mSendEmailUserWhenUserActivated;
     QCheckBox *const mSendEmailUserWhenUserDeactivated;
+    QCheckBox *const mRequireNameSignup;
+    QCheckBox *const mRequirePasswordConfirmation;
 };
