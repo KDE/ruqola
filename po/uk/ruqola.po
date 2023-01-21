@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-20 00:57+0000\n"
-"PO-Revision-Date: 2023-01-19 09:25+0200\n"
-"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
+"POT-Creation-Date: 2023-01-21 00:58+0000\n"
+"PO-Revision-Date: 2023-01-20 08:33+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -1345,12 +1345,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2871
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2872
+#: core/rocketchataccount.cpp:2877
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -3260,46 +3260,57 @@ msgid "Allow Custom Status Message"
 msgstr "Дозволити нетипове повідомлення стану"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Невдалі спроби увійти"
+msgstr "Блокувати запис користувача за невдалі спроби увійти"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
 #, kde-format
 msgid "Send Email to User when User is Activated"
 msgstr ""
+"Надсилати повідомлення ел. пошти користувачеві, коли користувача активовано"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
 msgstr ""
+"Надсилати повідомлення ел. пошти користувачеві, коли користувача деактивовано"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
+#, kde-format
+msgid "Require Name For Signup"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Require Password Change"
+msgid "Require Password Confirmation"
+msgstr "Вимога зміни пароля"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Строк дії облікового запису (у днях)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Невдалі спроби увійти"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
-#, kde-format
-msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "Кількість помилкових спроб до блокування користувача"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr "Час розблоковування користувача (у хвилинах)"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#, kde-format
 msgid "Registration"
-msgstr "Зареєструвати"
+msgstr "Реєстрація"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-20 00:57+0000\n"
-"PO-Revision-Date: 2023-01-15 13:30+0100\n"
+"POT-Creation-Date: 2023-01-21 00:58+0000\n"
+"PO-Revision-Date: 2023-01-20 16:19+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1339,12 +1339,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2871
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2872
+#: core/rocketchataccount.cpp:2877
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -3246,46 +3246,55 @@ msgid "Allow Custom Status Message"
 msgstr "Consenti messaggio di stato personalizzato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Tentativi di accesso non riusciti"
+msgstr "Blocca i tentativi di accesso non riusciti per nome utente"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
 #, kde-format
 msgid "Send Email to User when User is Activated"
-msgstr ""
+msgstr "Invia email all'utente quando l'utente è attivato"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
+msgstr "Invia email all'utente quando l'utente è disattivato"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
+#, kde-format
+msgid "Require Name For Signup"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#, fuzzy, kde-format
+#| msgid "Require Password Change"
+msgid "Require Password Confirmation"
+msgstr "Richiedi la modifica della password"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Scadenza dell'accesso in giorni"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:97
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Tentativi di accesso non riusciti"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:110
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:115
-#, kde-format
-msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "Quanti tentativi non riusciti fino al blocco per utente"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
+msgid "Time to unblock User (In Minutes)"
+msgstr "Tempo per sbloccare l'utente (in minuti)"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#, kde-format
 msgid "Registration"
-msgstr "Registra"
+msgstr "Registrazione"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -6874,10 +6883,9 @@ msgid "Server"
 msgstr "Server"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Il mio account..."
+msgstr "Filtra account..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -8032,10 +8040,9 @@ msgid "Show Channel Log"
 msgstr "Mostra il registro del canale"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Errori e informazioni"
+msgstr "Mostra errori del server"
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -8172,23 +8179,20 @@ msgid "Main Toolbar"
 msgstr "Barra degli strumenti principale"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Errori e informazioni"
+msgstr "Informazioni sull'errore del server"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Errors and Information"
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Errori e informazioni"
+msgstr "(Mostra gli errori)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server version: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Versione del server: %1"
+msgstr "Errori del server segnalati: %1"
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
