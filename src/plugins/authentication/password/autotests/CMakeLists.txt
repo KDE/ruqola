@@ -10,7 +10,7 @@ macro(add_ruqola_plugin_unittest _source _additional)
     add_test(NAME ${_name} COMMAND ${_name} )
 
     ecm_mark_as_test(${_name})
-    target_link_libraries( ${_name} Qt::Test KF5::I18n libruqolacore)
+    target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::I18n libruqolacore)
 endmacro ()
 
 add_ruqola_plugin_unittest(passwordpluginauthenticationtest.cpp "../passwordpluginauthentication.cpp;../passwordauthenticationinterface.cpp")

@@ -451,7 +451,7 @@ target_link_libraries(librocketchatrestapi-qt5
     Qt::Core
     Qt::Network
     Qt::NetworkAuth
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::I18n
 )
 if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
     set_target_properties(librocketchatrestapi-qt5 PROPERTIES UNITY_BUILD ON)

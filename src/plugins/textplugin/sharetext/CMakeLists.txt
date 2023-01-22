@@ -13,7 +13,7 @@ target_sources(ruqola_sharetextplugin PRIVATE
 )
 target_link_libraries(ruqola_sharetextplugin
     libruqolacore libruqolawidgets
-    KF5::Purpose
-    KF5::PurposeWidgets
+    KF${KF_MAJOR_VERSION}::Purpose
+    KF${KF_MAJOR_VERSION}::PurposeWidgets
 )
 

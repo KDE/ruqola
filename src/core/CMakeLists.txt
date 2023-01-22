@@ -495,11 +495,11 @@ endif()
 generate_export_header(libruqolacore BASE_NAME libruqolacore)
 
 if (HAVE_SOLID)
-    target_link_libraries(libruqolacore KF5::Solid)
+    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::Solid)
 endif()
 
 if (HAVE_NETWORKMANAGER)
-    target_link_libraries(libruqolacore KF5::NetworkManagerQt)
+    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::NetworkManagerQt)
 endif()
 
 target_link_libraries(libruqolacore
@@ -509,21 +509,21 @@ target_link_libraries(libruqolacore
     Qt::WebSockets
     Qt::Network
     Qt::NetworkAuth
-    KF5::CoreAddons
-    KF5::I18n
-    KF5::Notifications
-    KF5::SyntaxHighlighting
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::Notifications
+    KF${KF_MAJOR_VERSION}::SyntaxHighlighting
     librocketchatrestapi-qt5
-    KF5::ConfigGui
-    KF5::ConfigWidgets
-    KF5::IdleTime
-    KF5::WindowSystem
+    KF${KF_MAJOR_VERSION}::ConfigGui
+    KF${KF_MAJOR_VERSION}::ConfigWidgets
+    KF${KF_MAJOR_VERSION}::IdleTime
+    KF${KF_MAJOR_VERSION}::WindowSystem
     KF5::TextAutoCorrection
     KF5::TextTranslator
 )
 
 if (WIN32 OR APPLE)
-    target_link_libraries(libruqolacore KF5::IconThemes)
+    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::IconThemes)
 endif()
 if (QT_MAJOR_VERSION STREQUAL "6")
     target_link_libraries(libruqolacore qt6keychain)

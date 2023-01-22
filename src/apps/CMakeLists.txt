@@ -8,12 +8,12 @@ target_link_libraries(ruqola
     libruqolacore
     libruqolawidgets
     librocketchatrestapi-qt5
-    KF5::Crash
-    KF5::XmlGui
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::XmlGui
 )
 
 if (NOT WIN32 AND NOT APPLE)
-    target_link_libraries(ruqola KF5::DBusAddons)
+    target_link_libraries(ruqola KF${KF_MAJOR_VERSION}::DBusAddons)
 endif()
 
 file(GLOB_RECURSE RUQOLA_ICONS "${PROJECT_SOURCE_DIR}/src/icons/*-apps-ruqola.png")

@@ -713,17 +713,17 @@ target_link_libraries(libruqolawidgets
     Qt::Gui
     Qt::Widgets
     Qt::MultimediaWidgets
-    KF5::I18n
-    KF5::ConfigCore
-    KF5::XmlGui
-    KF5::KIOWidgets
-    KF5::WidgetsAddons
-    KF5::SonnetUi
-    KF5::TextWidgets
-    KF5::NotifyConfig
-    KF5::ItemViews
-    KF5::Prison
-    KF5::KIOFileWidgets
+    KF${KF_MAJOR_VERSION}::I18n
+    KF${KF_MAJOR_VERSION}::ConfigCore
+    KF${KF_MAJOR_VERSION}::XmlGui
+    KF${KF_MAJOR_VERSION}::KIOWidgets
+    KF${KF_MAJOR_VERSION}::WidgetsAddons
+    KF${KF_MAJOR_VERSION}::SonnetUi
+    KF${KF_MAJOR_VERSION}::TextWidgets
+    KF${KF_MAJOR_VERSION}::NotifyConfig
+    KF${KF_MAJOR_VERSION}::ItemViews
+    KF${KF_MAJOR_VERSION}::Prison
+    KF${KF_MAJOR_VERSION}::KIOFileWidgets
     librocketchatrestapi-qt5
     libruqolacore
     KF5::TextAutoCorrection
@@ -736,7 +736,7 @@ if (TEXTEDIT_TEXT_TO_SPEECH)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    target_link_libraries(libruqolawidgets KF5::WindowSystem)
+    target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::WindowSystem)
 endif()
 
 set_target_properties(libruqolawidgets

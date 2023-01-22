@@ -7,12 +7,6 @@ project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(KTEXTADDONS_MIN_VERSION "1.0.0")
-set(KF_MIN_VERSION "5.100.0")
-set(REQUIRED_QT_VERSION "5.15.2")
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-endif()
 # Do NOT add quote
 set(RUQOLA_DEV_VERSION alpha)
 
@@ -26,7 +20,6 @@ set(RUQOLA_VERSION_STRING "${RUQOLA_VERSION}${RUQOLA_DEV_VERSION}")
 
 find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
 set(CMAKE_MODULE_PATH ${Ruqola_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
-
 
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEInstallDirs)
@@ -76,10 +69,21 @@ endif()
 if (UNITY_SUPPORT)
     add_definitions(-DUNITY_SUPPORT)
 endif()
+set(KTEXTADDONS_MIN_VERSION "1.0.0")
+set(REQUIRED_QT_VERSION "5.15.2")
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    set(QT_REQUIRED_VERSION "6.4.0")
+    set(KF_MIN_VERSION "5.240.0")
+    set(KF_MAJOR_VERSION "6")
+else()
+    set(KF_MIN_VERSION "5.100.0")
+    set(KF_MAJOR_VERSION "5")
+endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets WebSockets Network NetworkAuth MultimediaWidgets Sql)
 
-find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Crash
@@ -96,28 +100,28 @@ find_package(KF5 ${KF_MIN_VERSION} REQUIRED COMPONENTS
 find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
+set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech"
     TYPE OPTIONAL
 )
-if (TARGET KF5::TextEditTextToSpeech)
+if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
     add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
     set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
 endif()
 
 if (NOT WIN32 AND NOT APPLE)
-    find_package(KF5DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
+    find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
 endif()
 
-find_package(KF5XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Config ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
-find_package(KF5Purpose ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}XmlGui ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}Config ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}KIO ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}Sonnet ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}TextWidgets ${KF_MIN_VERSION} CONFIG REQUIRED)
+find_package(KF${KF_MAJOR_VERSION}Purpose ${KF_MIN_VERSION} CONFIG)
 
-find_package(KF5DocTools ${KF_MIN_VERSION})
-set_package_properties(KF5DocTools PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}DocTools ${KF_MIN_VERSION})
+set_package_properties(KF${KF_MAJOR_VERSION}DocTools PROPERTIES DESCRIPTION
     "Tools to generate documentation"
     TYPE OPTIONAL
 )
@@ -133,11 +137,11 @@ find_package(KUserFeedback 1.2.0 CONFIG)
 set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
 set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
-find_package(KF5Solid ${KF_MIN_VERSION} CONFIG)
-if (KF5Solid_FOUND)
+find_package(KF${KF_MAJOR_VERSION}Solid ${KF_MIN_VERSION} CONFIG)
+if (KF${KF_MAJOR_VERSION}Solid_FOUND)
 # SolidPower is not built by default, and the only way to find is to
 # check for the header and that it builds
-    get_target_property(SOLID_INCLUDE_DIRS KF5::Solid INTERFACE_INCLUDE_DIRECTORIES)
+    get_target_property(SOLID_INCLUDE_DIRS KF${KF_MAJOR_VERSION}::Solid INTERFACE_INCLUDE_DIRECTORIES)
     find_file(SOLID_POWER_FOUND Solid/Power PATHS ${SOLID_INCLUDE_DIRS} NO_DEFAULT_PATH)
     if (SOLID_POWER_FOUND)
         message(STATUS "Found Solid Power header at ${SOLID_POWER_FOUND}")
@@ -146,11 +150,11 @@ if (KF5Solid_FOUND)
         message(WARNING "Solid Power header was not found, suspend/resume detection is disabled. Reconfigure Solid build with `cmake -DWITH_NEW_SOLID_JOB=ON -DWITH_NEW_POWER_ASYNC_API=ON -DWITH_NEW_POWER_ASYNC_FREEDESKTOP=ON .`")
     endif()
 endif()
-set_package_properties(KF5Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
+set_package_properties(KF${KF_MAJOR_VERSION}Solid PROPERTIES DESCRIPTION "Device integration framework" TYPE OPTIONAL PURPOSE "Allows detecting suspend and resume.")
 
-find_package(KF5NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
-set(HAVE_NETWORKMANAGER ${KF5NetworkManagerQt_FOUND})
-set_package_properties(KF5NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
+find_package(KF${KF_MAJOR_VERSION}NetworkManagerQt ${KF_MIN_VERSION} CONFIG)
+set(HAVE_NETWORKMANAGER ${KF${KF_MAJOR_VERSION}NetworkManagerQt_FOUND})
+set_package_properties(KF${KF_MAJOR_VERSION}NetworkManagerQt PROPERTIES DESCRIPTION "Network management lib" TYPE OPTIONAL PURPOSE "Allows detecting network state changes.")
 
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -193,7 +197,7 @@ ecm_qt_install_logging_categories(
         )
 kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 ki18n_install(po)
-if (KF5DocTools_FOUND)
+if (KF${KF_MAJOR_VERSION}DocTools_FOUND)
     kdoctools_install(po)
     add_subdirectory(doc)
 endif()

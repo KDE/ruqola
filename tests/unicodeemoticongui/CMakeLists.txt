@@ -5,7 +5,7 @@ target_sources(unicodeemoticongui PRIVATE unicodeemoticongui.cpp unicodeemoticon
 
 target_link_libraries(unicodeemoticongui
     Qt::Widgets
-    KF5::ItemViews
+    KF${KF_MAJOR_VERSION}::ItemViews
     libruqolacore
 )
 set_target_properties(unicodeemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

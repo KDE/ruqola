@@ -31,7 +31,7 @@ set(pyrocketchatrestapi-qt5_target_link_libraries
     Qt5::NetworkAuth
     Qt5::Gui
     Qt5::Widgets
-    KF5::I18n
+    KF${KF_MAJOR_VERSION}::I18n
     ${Python3_LIBRARIES}
     )
 

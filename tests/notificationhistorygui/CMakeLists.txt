@@ -5,7 +5,7 @@ target_sources(notificationhistorygui PRIVATE notificationhistorygui.h notificat
 
 target_link_libraries(notificationhistorygui
     Qt::Widgets
-    KF5::ItemViews
+    KF${KF_MAJOR_VERSION}::ItemViews
     libruqolawidgets
 )
 set_target_properties(unicodeemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
