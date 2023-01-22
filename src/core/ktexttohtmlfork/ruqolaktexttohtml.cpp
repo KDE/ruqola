@@ -353,19 +353,19 @@ QString KTextToHTMLHelper::highlightedText()
             switch (ch.toLatin1()) {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             case '*':
-                return QLatin1String("<b>") + match.capturedRef(1) + QLatin1String("</b>");
+                return QStringLiteral("<b>") + match.capturedRef(1) + QStringLiteral("</b>");
             case '_':
-                return QLatin1String("<i>") + match.capturedRef(1) + QLatin1String("</i>");
+                return QStringLiteral("<i>") + match.capturedRef(1) + QStringLiteral("</i>");
             case '~':
-                return QLatin1String("<s>") + match.capturedRef(1) + QLatin1String("</s>");
+                return QStringLiteral("<s>") + match.capturedRef(1) + QStringLiteral("</s>");
             }
 #else
             case '*':
-                return QLatin1String("<b>") + match.capturedView(1) + QLatin1String("</b>");
+                return QStringLiteral("<b>") + match.capturedView(1).toString() + QStringLiteral("</b>");
             case '_':
-                return QLatin1String("<i>") + match.capturedView(1) + QLatin1String("</i>");
+                return QStringLiteral("<i>") + match.capturedView(1).toString() + QStringLiteral("</i>");
             case '~':
-                return QLatin1String("<s>") + match.capturedView(1) + QLatin1String("</s>");
+                return QStringLiteral("<s>") + match.capturedView(1).toString() + QStringLiteral("</s>");
             }
 #endif
         }

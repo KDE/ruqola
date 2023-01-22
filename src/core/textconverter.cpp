@@ -143,7 +143,11 @@ QString generateRichText(const QString &str,
             if (roomIdentifier.isEmpty()) {
                 roomIdentifier = word.toString();
             }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             newStr.replace(QLatin1Char('#') + word, QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
+#else
+            newStr.replace(QLatin1Char('#') + word.toString(), QStringLiteral("<a href=\'ruqola:/room/%2\'>#%1</a>").arg(word, roomIdentifier));
+#endif
         }
     }
 
@@ -243,11 +247,22 @@ QString generateRichText(const QString &str,
             userIdentifier = word.toString();
         }
         if (word == username) {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             newStr.replace(QLatin1Char('@') + word,
                            QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
                                .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
+#else
+            newStr.replace(QLatin1Char('@') + word.toString(),
+                           QStringLiteral("<a href=\'ruqola:/user/%4\' style=\"color:%2;background-color:%3;font-weight:bold\">@%1</a>")
+                               .arg(word.toString(), userMentionForegroundColor, userMentionBackgroundColor, userIdentifier));
+
+#endif
         } else {
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             newStr.replace(QLatin1Char('@') + word, QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
+#else
+            newStr.replace(QLatin1Char('@') + word.toString(), QStringLiteral("<a href=\'ruqola:/user/%2\'>@%1</a>").arg(word, userIdentifier));
+#endif
         }
     }
 
