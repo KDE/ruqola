@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-21 00:58+0000\n"
-"PO-Revision-Date: 2023-01-20 18:36+0100\n"
+"PO-Revision-Date: 2023-01-21 12:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -3264,13 +3264,12 @@ msgstr "Envia un correu a l'usuari quan l'usuari es desactivi"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Require Name For Signup"
-msgstr ""
+msgstr "Requereix un nom per al registre"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Require Password Change"
+#, kde-format
 msgid "Require Password Confirmation"
-msgstr "Requereix un canvi de contrasenya"
+msgstr "Requereix una confirmació de contrasenya"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
 #, kde-format

@@ -3272,10 +3272,9 @@ msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgid "Registration"
-msgstr "Registrovat"
+msgstr "Registrace"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -3340,7 +3339,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #, kde-format
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, kde-format
@@ -6700,10 +6699,9 @@ msgid "Server"
 msgstr "Server"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "Můj účet..."
+msgstr ""
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
@@ -7834,10 +7832,9 @@ msgid "Show Channel Log"
 msgstr "Zobrazit záznam kanálu"
 
 #: widgets/ruqolamainwindow.cpp:414
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "Show Server Errors"
-msgstr "Informace o serveru"
+msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:418
 #, kde-format
@@ -7972,23 +7969,20 @@ msgid "Main Toolbar"
 msgstr "Hlavní panel nástrojů"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorydialog.cpp:25
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Server Error Informations"
-msgstr "Informace o serveru"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server Info"
+#, kde-format
 msgid "(Show Errors)"
-msgstr "Informace o serveru"
+msgstr ""
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
-#, fuzzy, kde-format
-#| msgid "Server not found: %1"
+#, kde-format
 msgid "Server errors reported. %1"
-msgstr "Server nenalezen: %1"
+msgstr ""
 
 #: widgets/teams/searchteamdialog.cpp:19
 #, kde-format
@@ -8101,535 +8095,3 @@ msgstr "Informace o účtu"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Vrátit číslo účtu."
-
-#~ msgid "Archive cannot be opened in read mode."
-#~ msgstr "Archiv nelze otevřít v režimu čtení."
-
-#~ msgid "Enable autocorrection"
-#~ msgstr "Povolit automatickou opravu"
-
-#~ msgid "Replacement and exception for language:"
-#~ msgstr "Náhrada a výjimka pro jazyk:"
-
-#~ msgid "Export..."
-#~ msgstr "Exportovat..."
-
-#~ msgid "Import..."
-#~ msgstr "Importovat..."
-
-#~ msgid "Ad&vanced Autocorrection"
-#~ msgstr "Pokročilá automatická opra&va"
-
-#~ msgid "&Add"
-#~ msgstr "Přid&at"
-
-#~ msgid "&Enable word replacement"
-#~ msgstr "Povolit nahrazování s&lov"
-
-#~ msgid "&Find"
-#~ msgstr "Na&jít"
-
-#~ msgid "Re&place"
-#~ msgstr "Na&hradit"
-
-#~ msgid "Find"
-#~ msgstr "Najít"
-
-#~ msgid "Replace"
-#~ msgstr "Nahradit"
-
-#~ msgid "E&xceptions"
-#~ msgstr "Vý&jimky"
-
-#~ msgid "Do not treat as the end of a sentence:"
-#~ msgstr "Nepovažovat za konec věty:"
-
-#~ msgid "R&emove"
-#~ msgstr "O&dstranit"
-
-#~ msgid "Accept two uppercase letters in:"
-#~ msgstr "Přijímat dvě velká písmena v:"
-
-#~ msgid "Add"
-#~ msgstr "Přidat"
-
-#~ msgid "Si&mple Autocorrection"
-#~ msgstr "Jednoduchá auto&matická oprava"
-
-#~ msgid ""
-#~ "Detect when a new sentence is started and always ensure that the first "
-#~ "character is an uppercase character"
-#~ msgstr ""
-#~ "Detekovat začátek nové věty a vždy se stará o to aby první písmeno bylo "
-#~ "velké"
-
-#~ msgid ""
-#~ "Convert &first letter of a sentence automatically to uppercase\n"
-#~ "(e.g. \"my house. in this town\" to \"my house. In this town\")"
-#~ msgstr ""
-#~ "Převést &první písmeno věty automaticky na velké\n"
-#~ "(např. \"můj dům. v tomto městě\" na \"můj dům. V tomto městě\")"
-
-#~ msgid ""
-#~ "All words are checked for the common mistake of holding the shift key "
-#~ "down a bit too long. If some words must have two uppercase characters, "
-#~ "then those exceptions should be added in the 'Exceptions' tab."
-#~ msgstr ""
-#~ "Všechna slova jsou zkontrolována pro běžně dlouhé chybné držení klávesy "
-#~ "Shift. Pokud nějaké slovo musí mít dva velké znaky, tak by měly být "
-#~ "přidány v kartě 'Výjimky'."
-
-#~ msgid ""
-#~ "Convert &two uppercase characters to one uppercase and one lowercase "
-#~ "character\n"
-#~ " (e.g. PErfect to Perfect)"
-#~ msgstr ""
-#~ "Převést &dvě velká písmena na jeden velký a jeden malý znak\n"
-#~ " (např. PErfect to Perfect)"
-
-#~ msgid ""
-#~ "Make sure that more than one space cannot be typed, as this is a common "
-#~ "mistake which is quite hard to find in formatted text."
-#~ msgstr ""
-#~ "Zajišťuje, že nelze zapsat více jak jednu mezeru, protože je to velice "
-#~ "běžná chyba, kterou není snadné odhalit v naformátovaném textu."
-
-#~ msgid "&Suppress double spaces"
-#~ msgstr "&Potlačit dvojité mezery"
-
-#~ msgid "Most standard fraction notations will be converted when available"
-#~ msgstr ""
-#~ "Většina standardních zápisů zlomků bude převedena, budou-li dostupné"
-
-#~ msgid "Re&place 1/2... with ½..."
-#~ msgstr "Na&hradit 1/2 za ½..."
-
-#~ msgid "Capitalize name of days"
-#~ msgstr "Velká písmena u názvů dnů"
-
-#~ msgid ""
-#~ "Detect when a URL (Uniform Resource Locator) is typed and provide "
-#~ "formatting that matches the way an Internet browser would show a URL."
-#~ msgstr ""
-#~ "Detekovat zda je zapsán URL (Jednotný vyhledávač zdrojů) a poskytuje "
-#~ "formátování, které je shodné se zobrazením URL pomocí internetového "
-#~ "prohlížeče."
-
-#~ msgid "Autoformat &URLs (HTML mode)"
-#~ msgstr "Automaticky formátovat &URL (režim HTML)"
-
-#~ msgid ""
-#~ "When you use _underline_ or *bold*, the text between the underscores or "
-#~ "asterisks will be converted to underlined or bold text."
-#~ msgstr ""
-#~ "Pokud použijete _podtržené_ či *tučné*, tak bude text mezi podtržítky "
-#~ "(hvězdičkami) převeden na podtržený (tučný) text."
-
-#~ msgid ""
-#~ "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-#~ msgstr ""
-#~ "Automaticky provádět formátování &tučně, přeškrtnuté a podtržené (režim "
-#~ "HTML)"
-
-#~ msgid "Replace 1st... with 1^st... (HTML mode)"
-#~ msgstr "Nahradit 1st za 1^st... (režim HTML)"
-
-#~ msgid "Replace double quotes by french quotes"
-#~ msgstr "Nahradit dvojité uvozovky francouzskými"
-
-#~ msgid "Custom &Quotes"
-#~ msgstr "Vlastní &uvozovky"
-
-#~ msgid "Replace &double quotes with typographical quotes"
-#~ msgstr "Nahradit &dvojité uvozovky typografickými"
-
-#~ msgid "By Default"
-#~ msgstr "Výchozí"
-
-#~ msgid "\""
-#~ msgstr "\""
-
-#~ msgid "Ending Quote:"
-#~ msgstr "Ukončující uvozovka:"
-
-#~ msgid "Opening Quote:"
-#~ msgstr "Začínající uvozovka:"
-
-#~ msgid "Replace &single quotes with typographical quotes"
-#~ msgstr "Nahradit &jednoduché uvozovky typografickými"
-
-#~ msgid "'"
-#~ msgstr "'"
-
-#~ msgid "Ending Quotes:"
-#~ msgstr "Ukončující uvozovky:"
-
-#~ msgid "Path"
-#~ msgstr "Cesta"
-
-#~ msgid "TextLabel"
-#~ msgstr "Textový štítek"
-
-#~ msgid "..."
-#~ msgstr "..."
-
-#~ msgid "LibreOffice Autocorrection"
-#~ msgstr "Automatické opravu LibreOffice"
-
-#~ msgid "KMail/Calligra Autocorrection"
-#~ msgstr "Automatické opravy KMail/Calligra"
-
-#~ msgid "Add Autocorrection Entry"
-#~ msgstr "Přidat záznam pro automatickou opravu"
-
-#~ msgid "&Modify"
-#~ msgstr "Z&měnit"
-
-#~ msgid "Import LibreOffice Autocorrection"
-#~ msgstr "Importovat automatické opravy LibreOffice"
-
-#~ msgid "LibreOffice Autocorrection File (*.dat)"
-#~ msgstr "Soubor automatických oprav LibreOffice (*.dat)"
-
-#~ msgid "Import KMail Autocorrection"
-#~ msgstr "Importovat automatické opravy KMail"
-
-#~ msgid "KMail Autocorrection File (*.xml)"
-#~ msgstr "Soubor automatických oprav KMail (*.xml)"
-
-#~ msgid "Import Autocorrection File"
-#~ msgstr "Importovat soubor automatických oprav"
-
-#~ msgid "Save config"
-#~ msgstr "Uložit nastavení"
-
-#~ msgid "Please save changes before exporting settings."
-#~ msgstr "Před uložením nastavení prosím nejdříve uložte změny."
-
-#~ msgid "Export Autocorrection File"
-#~ msgstr "Exportovat soubor automatických oprav"
-
-#~ msgctxt "@title:window"
-#~ msgid "Select Special Characters"
-#~ msgstr "Vyberte zvláštní znaky"
-
-#~ msgid "Insert"
-#~ msgstr "Vložit"
-
-#~ msgid "Select"
-#~ msgstr "Vybrat"
-
-#~ msgid "Stop"
-#~ msgstr "Zastavit"
-
-#~ msgid "Pause"
-#~ msgstr "Pozastavit"
-
-#~ msgid "Play"
-#~ msgstr "Přehrát"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Text-To-Speech"
-#~ msgstr "Nastavení hlasové syntézy"
-
-#~ msgid "Test"
-#~ msgstr "Test"
-
-#~ msgid "Volume:"
-#~ msgstr "Svazek:"
-
-#~ msgid "Rate:"
-#~ msgstr "Tok:"
-
-#~ msgid "Pitch:"
-#~ msgstr "Výška tónu:"
-
-#~ msgid "Engine:"
-#~ msgstr "Nástroj:"
-
-#~ msgid "Voice:"
-#~ msgstr "Hlas:"
-
-#~ msgid "Close"
-#~ msgstr "Zavřít"
-
-#~ msgid "Configure..."
-#~ msgstr "Nastavit..."
-
-#~ msgid "Detect language"
-#~ msgstr "Detekovat jazyk"
-
-#~ msgid "Hmong"
-#~ msgstr "Hmong"
-
-# BJ
-#~ msgid "Bosnian"
-#~ msgstr "Bosenština"
-
-#~ msgid "English"
-#~ msgstr "Anglický"
-
-#~ msgid "Chinese (Simplified)"
-#~ msgstr "Čínský (zjednodušená)"
-
-#~ msgid "Chinese (Traditional)"
-#~ msgstr "Tradiční čínština"
-
-#~ msgid "Dutch"
-#~ msgstr "Nizozemský"
-
-#~ msgid "French"
-#~ msgstr "Francouzština"
-
-#~ msgid "German"
-#~ msgstr "Němčina"
-
-#~ msgid "Greek"
-#~ msgstr "Řecký"
-
-#~ msgid "Italian"
-#~ msgstr "Italština"
-
-#~ msgid "Japanese"
-#~ msgstr "Japonština"
-
-#~ msgid "Korean"
-#~ msgstr "Korejština"
-
-#~ msgid "Portuguese"
-#~ msgstr "Portugalština"
-
-#~ msgid "Russian"
-#~ msgstr "Ruština"
-
-#~ msgid "Spanish"
-#~ msgstr "Španělština"
-
-#~ msgid "Afrikaans"
-#~ msgstr "Afrikánský"
-
-#~ msgid "Albanian"
-#~ msgstr "Albánský"
-
-#~ msgid "Arabic"
-#~ msgstr "Arabský"
-
-#~ msgid "Armenian"
-#~ msgstr "Arménský"
-
-#~ msgid "Azerbaijani"
-#~ msgstr "Ázerbájdžánský"
-
-#~ msgid "Basque"
-#~ msgstr "Baskický"
-
-#~ msgid "Belarusian"
-#~ msgstr "Běloruský"
-
-#~ msgid "Bulgarian"
-#~ msgstr "Bulharský"
-
-#~ msgid "Catalan"
-#~ msgstr "Katalánský"
-
-#~ msgid "Croatian"
-#~ msgstr "Chorvatský"
-
-#~ msgid "Czech"
-#~ msgstr "Český"
-
-#~ msgid "Danish"
-#~ msgstr "Dánský"
-
-#~ msgid "Estonian"
-#~ msgstr "Estonský"
-
-#~ msgid "Filipino"
-#~ msgstr "Filipínský"
-
-#~ msgid "Finnish"
-#~ msgstr "Finský"
-
-#~ msgid "Galician"
-#~ msgstr "Galicijský"
-
-#~ msgid "Georgian"
-#~ msgstr "Gruzínský"
-
-#~ msgid "Haitian Creole"
-#~ msgstr "Haitská Kreolština"
-
-#~ msgid "Hebrew"
-#~ msgstr "Hebrejský"
-
-#~ msgid "Hindi"
-#~ msgstr "Hindský"
-
-#~ msgid "Hungarian"
-#~ msgstr "Maďarský"
-
-#~ msgid "Icelandic"
-#~ msgstr "Islandský"
-
-#~ msgid "Indonesian"
-#~ msgstr "Indonéský"
-
-#~ msgid "Irish"
-#~ msgstr "Irský"
-
-#~ msgid "Latvian"
-#~ msgstr "Lotyšský"
-
-#~ msgid "Lithuanian"
-#~ msgstr "Litevský"
-
-#~ msgid "Macedonian"
-#~ msgstr "Makedonský"
-
-#~ msgid "Malay"
-#~ msgstr "Malajský"
-
-#~ msgid "Maltese"
-#~ msgstr "Maltézský"
-
-#~ msgid "Norwegian"
-#~ msgstr "Norský"
-
-#~ msgid "Persian"
-#~ msgstr "Perský"
-
-#~ msgid "Polish"
-#~ msgstr "Polský"
-
-#~ msgid "Romanian"
-#~ msgstr "Rumunský"
-
-#~ msgid "Serbian"
-#~ msgstr "Srbský"
-
-#~ msgid "Slovak"
-#~ msgstr "Slovenský"
-
-#~ msgid "Slovenian"
-#~ msgstr "Slovinský"
-
-#~ msgid "Swahili"
-#~ msgstr "Svahilský"
-
-#~ msgid "Swedish"
-#~ msgstr "Švédský"
-
-#~ msgid "Thai"
-#~ msgstr "Thajský"
-
-#~ msgid "Turkish"
-#~ msgstr "Turecký"
-
-#~ msgid "Ukrainian"
-#~ msgstr "Ukrajinský"
-
-#~ msgid "Urdu"
-#~ msgstr "Urdu"
-
-#~ msgid "Vietnamese"
-#~ msgstr "Vietnamský"
-
-#~ msgid "Welsh"
-#~ msgstr "Welšský"
-
-#~ msgid "Yiddish"
-#~ msgstr "Jidiš"
-
-#~ msgid "Bing"
-#~ msgstr "Bing"
-
-#~ msgid "DeepL"
-#~ msgstr "DeepL"
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Engine"
-#~ msgstr "Nastavit nástroj"
-
-#~ msgid "Libre Translate"
-#~ msgstr "Libre Translate"
-
-#~ msgid "Server Url:"
-#~ msgstr "URL serveru:"
-
-# AO
-#~ msgid "Lingva"
-#~ msgstr "Lingva"
-
-#~ msgid "Yandex"
-#~ msgstr "Yandex"
-
-#~ msgid "You used same language for 'from' and 'to' language."
-#~ msgstr "Použili jste stejný jazyk pro překlad \"z\" a \"do\"."
-
-#~ msgctxt "@title:window"
-#~ msgid "Configure Translator"
-#~ msgstr "Nastavit překladač"
-
-#~ msgctxt "@title:window"
-#~ msgid "Translator Debug"
-#~ msgstr "Ladění překladače"
-
-#~ msgid "Save As..."
-#~ msgstr "Uložit jako..."
-
-#~ msgid ""
-#~ "Could not write the file %1:\n"
-#~ "\"%2\" is the detailed error description."
-#~ msgstr ""
-#~ "Nelze zapsat soubor %1:\n"
-#~ "Podrobný popis chyby: %2."
-
-#~ msgid "Save File Error"
-#~ msgstr "Chyba ukládání souboru"
-
-#~ msgid "All Files (*)"
-#~ msgstr "Všechny soubory (*)"
-
-#~ msgid "Translate..."
-#~ msgstr "Přeložit..."
-
-#~ msgid "Problem when connecting to the translator web site."
-#~ msgstr "Problém při připojování k překladatelskému webu."
-
-#~ msgctxt "Translate from language"
-#~ msgid "From:"
-#~ msgstr "Od:"
-
-#~ msgctxt "Translate to language"
-#~ msgid "To:"
-#~ msgstr "Komu:"
-
-#~ msgctxt ""
-#~ "Invert language choices so that from becomes to and to becomes from"
-#~ msgid "Invert"
-#~ msgstr "Invertovat"
-
-#~ msgid "Translate"
-#~ msgstr "Přeložit"
-
-#~ msgid "Debug"
-#~ msgstr "Ladění"
-
-#~ msgid "Configure"
-#~ msgstr "Nastavit"
-
-#~ msgid ""
-#~ "Drag text that you want to translate. (Be careful text will be send to "
-#~ "Google Server)."
-#~ msgstr ""
-#~ "Přetáhněte text, jenž chcete přeložit. (Pamatujte, že text bude poslán na "
-#~ "server Google)."
-
-#~ msgid "No network connection detected, we cannot translate text."
-#~ msgstr "Není dostupné internetové připojení. text nelze přeložit."
-
-#~ msgid "No network"
-#~ msgstr "Není síť"
-
-#~ msgid "Translate error"
-#~ msgstr "Přeložit chybu"

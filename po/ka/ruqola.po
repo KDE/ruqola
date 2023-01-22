@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-21 00:58+0000\n"
-"PO-Revision-Date: 2023-01-19 05:43+0100\n"
+"PO-Revision-Date: 2023-01-21 07:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3230,31 +3230,29 @@ msgid "Allow Custom Status Message"
 msgstr "სტატუსის მორგებული შეტყობინების დაშვება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "შესვლის წარუმატებელი მცდელობები"
+msgstr "მომხმარებლის წარუმატებელი შესვლების დაბლოკვა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
 #, kde-format
 msgid "Send Email to User when User is Activated"
-msgstr ""
+msgstr "ელფოსტის გაგზავნა, როცა მომხმარებელი აქტივირებულია"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
-msgstr ""
+msgstr "ელფოსტის გაგზავნა, როცა მომხმარებელი დეაქტივირებულია"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Require Name For Signup"
-msgstr ""
+msgstr "რეგისტრაციისას სახელის აუცილებლად მოთხოვნა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Require Password Change"
+#, kde-format
 msgid "Require Password Confirmation"
-msgstr "პაროლის შეცვლის მოთხოვნა"
+msgstr "პაროლის დადასტურების მოთხოვნა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
 #, kde-format
@@ -3269,18 +3267,17 @@ msgstr "შესვლის წარუმატებელი მცდე�
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
+msgstr "მცდელობების რიცხვი, დაბლოკვამდე"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "მომხმარებლის განბლოკვის დრო (წუთებში)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgid "Registration"
-msgstr "რესგისტრაცია"
+msgstr "რეგისტრაცია"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
