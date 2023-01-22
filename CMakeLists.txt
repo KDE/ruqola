@@ -100,11 +100,11 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG REQUIRED)
 find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
+set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech"
     TYPE OPTIONAL
 )
-if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
+if (TARGET KF5::TextEditTextToSpeech)
     add_definitions(-DHAVE_TEXT_TO_SPEECH_SUPPORT)
     set(TEXTEDIT_TEXT_TO_SPEECH TRUE)
 endif()
