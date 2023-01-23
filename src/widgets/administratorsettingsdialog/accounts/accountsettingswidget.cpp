@@ -36,6 +36,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mSendEmailUserWhenUserDeactivated(new QCheckBox(i18n("Send Email to User when User is Deactivated"), this))
     , mRequireNameSignup(new QCheckBox(i18n("Require Name For Signup"), this))
     , mRequirePasswordConfirmation(new QCheckBox(i18n("Require Password Confirmation"), this))
+    , mOnlyAllowVerifiedUsersLogin(new QCheckBox(i18n("Only Allow Verified Users to Login"), this))
+    , mMarkEmailExternalAccountsVerified(new QCheckBox(i18n("Mark Email for External Accounts Verified"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -135,6 +137,15 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mRequirePasswordConfirmation->setObjectName(QStringLiteral("mRequirePasswordConfirmation"));
     mMainLayout->addWidget(mRequirePasswordConfirmation);
     connectCheckBox(mRequirePasswordConfirmation, QStringLiteral("Accounts_RequirePasswordConfirmation"));
+
+    mOnlyAllowVerifiedUsersLogin->setObjectName(QStringLiteral("mOnlyAllowVerifiedUsersLogin"));
+    mMainLayout->addWidget(mOnlyAllowVerifiedUsersLogin);
+    mOnlyAllowVerifiedUsersLogin->setToolTip(i18n("Make sure you have correct SMTP settings to use this feature"));
+    connectCheckBox(mOnlyAllowVerifiedUsersLogin, QStringLiteral("Accounts_EmailVerification"));
+
+    mMarkEmailExternalAccountsVerified->setObjectName(QStringLiteral("mMarkEmailExternalAccountsVerified"));
+    mMainLayout->addWidget(mMarkEmailExternalAccountsVerified);
+    connectCheckBox(mMarkEmailExternalAccountsVerified, QStringLiteral("Accounts_Verify_Email_For_External_Accounts"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -164,4 +175,6 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mSendEmailUserWhenUserDeactivated, mapSettings, true);
     initializeWidget(mRequireNameSignup, mapSettings, true);
     initializeWidget(mRequirePasswordConfirmation, mapSettings, true);
+    initializeWidget(mOnlyAllowVerifiedUsersLogin, mapSettings, false);
+    initializeWidget(mMarkEmailExternalAccountsVerified, mapSettings, true);
 }

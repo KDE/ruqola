@@ -163,4 +163,16 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mRequirePasswordConfirmation->isChecked());
     QVERIFY(!mRequirePasswordConfirmation->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mRequirePasswordConfirmation), QStringLiteral("Accounts_RequirePasswordConfirmation"));
+
+    auto mOnlyAllowVerifiedUsersLogin = w.findChild<QCheckBox *>(QStringLiteral("mOnlyAllowVerifiedUsersLogin"));
+    QVERIFY(mOnlyAllowVerifiedUsersLogin);
+    QVERIFY(!mOnlyAllowVerifiedUsersLogin->isChecked());
+    QVERIFY(!mOnlyAllowVerifiedUsersLogin->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mOnlyAllowVerifiedUsersLogin), QStringLiteral("Accounts_EmailVerification"));
+
+    auto mMarkEmailExternalAccountsVerified = w.findChild<QCheckBox *>(QStringLiteral("mMarkEmailExternalAccountsVerified"));
+    QVERIFY(mMarkEmailExternalAccountsVerified);
+    QVERIFY(!mMarkEmailExternalAccountsVerified->isChecked());
+    QVERIFY(!mMarkEmailExternalAccountsVerified->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMarkEmailExternalAccountsVerified), QStringLiteral("Accounts_Verify_Email_For_External_Accounts"));
 }

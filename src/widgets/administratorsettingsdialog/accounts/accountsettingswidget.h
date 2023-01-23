@@ -44,4 +44,6 @@ private:
     QCheckBox *const mSendEmailUserWhenUserDeactivated;
     QCheckBox *const mRequireNameSignup;
     QCheckBox *const mRequirePasswordConfirmation;
+    QCheckBox *const mOnlyAllowVerifiedUsersLogin;
+    QCheckBox *const mMarkEmailExternalAccountsVerified;
 };
