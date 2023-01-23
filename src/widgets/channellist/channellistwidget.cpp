@@ -116,8 +116,8 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
         const auto keyEvent = static_cast<QKeyEvent *>(event);
         const int keyValue = keyEvent->key();
         if (keyValue == Qt::Key_Return || keyValue == Qt::Key_Enter) {
-            // The search line edit wants to restore focus to itself, but Enter is supposed to 
-            // explicitely switch to the message line edit, so distract it from doing that
+            // The search line edit wants to restore focus to itself, but Enter is supposed to
+            // explicitly switch to the message line edit, so distract it from doing that
             setFocus();
             applyChannelSelection();
         } else if (keyValue == Qt::Key_Up || keyValue == Qt::Key_Down) {
