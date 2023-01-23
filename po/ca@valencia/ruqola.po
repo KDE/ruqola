@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-21 00:58+0000\n"
-"PO-Revision-Date: 2023-01-18 09:32+0100\n"
+"PO-Revision-Date: 2023-01-21 12:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3247,31 +3247,29 @@ msgid "Allow Custom Status Message"
 msgstr "Permet missatge personalitzat d'estat"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
-#, fuzzy, kde-format
-#| msgid "Failed Login Attempts"
+#, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Intents d'inici de sessió fallits"
+msgstr "Bloqueja els intents d'inici de sessió fallits per nom d'usuari"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
 #, kde-format
 msgid "Send Email to User when User is Activated"
-msgstr ""
+msgstr "Envia un correu a l'usuari quan l'usuari s'active"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
-msgstr ""
+msgstr "Envia un correu a l'usuari quan l'usuari es desactive"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Require Name For Signup"
-msgstr ""
+msgstr "Requerix un nom per al registre"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
-#, fuzzy, kde-format
-#| msgid "Require Password Change"
+#, kde-format
 msgid "Require Password Confirmation"
-msgstr "Requerix un canvi de contrasenya"
+msgstr "Requerix una confirmació de contrasenya"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
 #, kde-format
@@ -3286,16 +3284,15 @@ msgstr "Intents d'inici de sessió fallits"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
-msgstr ""
+msgstr "El nombre d'intents fallits per usuari fins el bloqueig"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
-msgstr ""
+msgstr "Temps fins a desblocar l'usuari (en minuts)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
-#, fuzzy, kde-format
-#| msgid "Register"
+#, kde-format
 msgid "Registration"
 msgstr "Registre"
 
@@ -6884,10 +6881,9 @@ msgid "Server"
 msgstr "Servidor"
 
 #: widgets/misc/serverscombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "My Account..."
+#, kde-format
 msgid "Filter Account..."
-msgstr "El meu compte..."
+msgstr "Filtre de comptes..."
 
 #: widgets/misc/twoauthenticationpasswordwidget.cpp:25
 #, kde-format
