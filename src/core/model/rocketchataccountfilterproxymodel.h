@@ -8,9 +8,9 @@
 
 #include <QSortFilterProxyModel>
 
-#include "libruqola_private_export.h"
+#include "libruqolacore_export.h"
 
-class LIBRUQOLACORE_TESTS_EXPORT RocketChatAccountFilterProxyModel : public QSortFilterProxyModel
+class LIBRUQOLACORE_EXPORT RocketChatAccountFilterProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
