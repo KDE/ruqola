@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-21 00:58+0000\n"
+"POT-Creation-Date: 2023-01-24 00:57+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -3405,32 +3405,47 @@ msgstr ""
 msgid "Require Password Confirmation"
 msgstr "Passwort zurücksetzen"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#, kde-format
+msgid "Only Allow Verified Users to Login"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#, kde-format
+msgid "Mark Email for External Accounts Verified"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:91
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Ablaufdatum (Tage)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:101
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:114
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid "Register"
 msgid "Registration"
 msgstr "Registrieren"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
+#, kde-format
+msgid "Make sure you have correct SMTP settings to use this feature"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, fuzzy, kde-format
