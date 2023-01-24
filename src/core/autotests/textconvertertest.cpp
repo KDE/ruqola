@@ -113,8 +113,8 @@ void TextConverterTest::shouldConvertText()
 
     output = prepareExpectedOutput(output);
 
-    QEXPECT_FAIL("multi star", "Bug in KF${KF_MAJOR_VERSION}", Continue);
-    QEXPECT_FAIL("Remove <br/>", "Bug in KF${KF_MAJOR_VERSION}", Continue);
+    QEXPECT_FAIL("multi star", "Bug in KF5", Continue);
+    QEXPECT_FAIL("Remove <br/>", "Bug in KF5", Continue);
 
     QString needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
