@@ -7,6 +7,8 @@ project(Ruqola VERSION ${RUQOLA_VERSION})
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(KF_MIN_VERSION "5.100.0")
+
 # Do NOT add quote
 set(RUQOLA_DEV_VERSION alpha)
 
@@ -78,7 +80,6 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     set(KF_MAJOR_VERSION "6")
     set(KTEXTADDONS_MIN_VERSION "1.0.40")
 else()
-    set(KF_MIN_VERSION "5.100.0")
     set(KF_MAJOR_VERSION "5")
 endif()
 
