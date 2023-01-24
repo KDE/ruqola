@@ -118,7 +118,9 @@ QString RocketChatAccountSettings::lastSelectedRoom() const
 
 void RocketChatAccountSettings::setLastSelectedRoom(const QString &roomId)
 {
-    mSetting->setValue(QStringLiteral("SelectedRoom"), roomId);
+    if (!roomId.isEmpty()) {
+        mSetting->setValue(QStringLiteral("SelectedRoom"), roomId);
+    }
 }
 
 qint64 RocketChatAccountSettings::expireToken() const
