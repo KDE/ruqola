@@ -9,6 +9,7 @@
 #include "settingswidgetshelper.h"
 #include <QCheckBox>
 #include <QFormLayout>
+#include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
 
@@ -175,4 +176,17 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMarkEmailExternalAccountsVerified->isChecked());
     QVERIFY(!mMarkEmailExternalAccountsVerified->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMarkEmailExternalAccountsVerified), QStringLiteral("Accounts_Verify_Email_For_External_Accounts"));
+
+    auto mManualApproveNewUser = w.findChild<QCheckBox *>(QStringLiteral("mManualApproveNewUser"));
+    QVERIFY(mManualApproveNewUser);
+    QVERIFY(!mManualApproveNewUser->isChecked());
+    QVERIFY(!mManualApproveNewUser->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mManualApproveNewUser), QStringLiteral("Accounts_ManuallyApproveNewUsers"));
+
+    auto mDefaultUsernamePrefixSuggestion = w.findChild<QLineEdit *>(QStringLiteral("mDefaultUsernamePrefixSuggestion"));
+    QVERIFY(mDefaultUsernamePrefixSuggestion);
+    QVERIFY(mDefaultUsernamePrefixSuggestion->text().isEmpty());
+    QVERIFY(mDefaultUsernamePrefixSuggestion->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultUsernamePrefixSuggestion), QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
 }

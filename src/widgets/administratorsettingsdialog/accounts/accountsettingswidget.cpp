@@ -9,6 +9,7 @@
 #include <QCheckBox>
 #include <QFormLayout>
 #include <QLabel>
+#include <QLineEdit>
 #include <QSpinBox>
 
 AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget *parent)
@@ -38,6 +39,8 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mRequirePasswordConfirmation(new QCheckBox(i18n("Require Password Confirmation"), this))
     , mOnlyAllowVerifiedUsersLogin(new QCheckBox(i18n("Only Allow Verified Users to Login"), this))
     , mMarkEmailExternalAccountsVerified(new QCheckBox(i18n("Mark Email for External Accounts Verified"), this))
+    , mManualApproveNewUser(new QCheckBox(i18n("Manually Approve New Users"), this))
+    , mDefaultUsernamePrefixSuggestion(new QLineEdit(this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -146,6 +149,13 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mMarkEmailExternalAccountsVerified->setObjectName(QStringLiteral("mMarkEmailExternalAccountsVerified"));
     mMainLayout->addWidget(mMarkEmailExternalAccountsVerified);
     connectCheckBox(mMarkEmailExternalAccountsVerified, QStringLiteral("Accounts_Verify_Email_For_External_Accounts"));
+
+    mManualApproveNewUser->setObjectName(QStringLiteral("mManualApproveNewUser"));
+    mMainLayout->addWidget(mManualApproveNewUser);
+    connectCheckBox(mManualApproveNewUser, QStringLiteral("Accounts_ManuallyApproveNewUsers"));
+
+    mDefaultUsernamePrefixSuggestion->setObjectName(QStringLiteral("mDefaultUsernamePrefixSuggestion"));
+    addLineEdit(i18n("Default Username Prefix Suggestion"), mDefaultUsernamePrefixSuggestion, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -177,4 +187,6 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mRequirePasswordConfirmation, mapSettings, true);
     initializeWidget(mOnlyAllowVerifiedUsersLogin, mapSettings, false);
     initializeWidget(mMarkEmailExternalAccountsVerified, mapSettings, true);
+    initializeWidget(mManualApproveNewUser, mapSettings, false);
+    initializeWidget(mDefaultUsernamePrefixSuggestion, mapSettings, QStringLiteral("user"));
 }

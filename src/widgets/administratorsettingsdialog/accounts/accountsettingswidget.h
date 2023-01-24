@@ -46,4 +46,6 @@ private:
     QCheckBox *const mRequirePasswordConfirmation;
     QCheckBox *const mOnlyAllowVerifiedUsersLogin;
     QCheckBox *const mMarkEmailExternalAccountsVerified;
+    QCheckBox *const mManualApproveNewUser;
+    QLineEdit *const mDefaultUsernamePrefixSuggestion;
 };
