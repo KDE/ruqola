@@ -10,6 +10,7 @@
 #include "delegateutils/textselectionimpl.h"
 #include "model/servererrorinfohistorymodel.h"
 #include "rocketchataccount.h"
+#include "textconverter.h"
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QToolTip>
@@ -139,7 +140,6 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
     Q_ASSERT(index.isValid());
     const QString identifier = index.data(ServerErrorInfoHistoryModel::Identifier).toString();
     Q_ASSERT(!identifier.isEmpty());
-
     auto it = mDocumentCache.find(identifier);
     if (it != mDocumentCache.end()) {
         auto ret = it->value.get();
@@ -154,7 +154,12 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
     if (messageStr.isEmpty()) {
         return nullptr;
     }
-    auto doc = MessageDelegateUtils::createTextDocument(false, messageStr, width);
+    // Use TextConverter in case it starts with a [](URL) reply marker
+    QString needUpdateMessageId; // TODO use it ?
+    const TextConverter::ConvertMessageTextSettings settings(messageStr, {}, {}, QStringList(), nullptr, nullptr, {}, {}, mSearchText);
+    int recursiveIndex = 0;
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(identifier, std::move(doc));
     return ret;

@@ -97,6 +97,7 @@ const QString &ServerErrorInfoMessageHistoryListView::searchText() const
 void ServerErrorInfoMessageHistoryListView::setSearchText(const QString &newSearchText)
 {
     mListServerErrorInfosDelegate->setSearchText(newSearchText);
+    mListServerErrorInfosDelegate->clearCache();
 }
 
 QString ServerErrorInfoMessageHistoryListView::selectedText() const

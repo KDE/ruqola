@@ -326,7 +326,6 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     if (text.isEmpty()) {
         return nullptr;
     }
-
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
     auto ret = doc.get();
     connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
