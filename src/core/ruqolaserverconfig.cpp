@@ -379,6 +379,8 @@ QDebug operator<<(QDebug d, const RuqolaServerConfig &t)
     d << "mUIUseRealName " << t.useRealName();
     d << "mAccountsAllowInvisibleStatusOption" << t.accountsAllowInvisibleStatusOption();
     d << "mUserDataDownloadEnabled " << t.userDataDownloadEnabled();
+    d << "mMediaBlackList " << t.mediaBlackList();
+    d << "mMediaWhiteList " << t.mediaWhiteList();
     return d;
 }
 
@@ -512,9 +514,33 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         setMessageQuoteChainLimit(value.toInt());
     } else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
         setAllowCustomStatusMessage(value.toBool());
+    } else if (id == QLatin1String("FileUpload_MediaTypeWhiteList")) {
+        setMediaWhiteList(value.toString());
+    } else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
+        setMediaBlackList(value.toString());
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
+}
+
+QString RuqolaServerConfig::mediaBlackList() const
+{
+    return mMediaBlackList;
+}
+
+void RuqolaServerConfig::setMediaBlackList(const QString &newMediaBlackList)
+{
+    mMediaBlackList = newMediaBlackList;
+}
+
+QString RuqolaServerConfig::mediaWhiteList() const
+{
+    return mMediaWhiteList;
+}
+
+void RuqolaServerConfig::setMediaWhiteList(const QString &newMediaWhiteList)
+{
+    mMediaWhiteList = newMediaWhiteList;
 }
 
 bool RuqolaServerConfig::allowCustomStatusMessage() const
