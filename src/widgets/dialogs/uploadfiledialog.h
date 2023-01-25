@@ -34,6 +34,8 @@ public:
 
     Q_REQUIRED_RESULT UploadFileInfo fileInfo() const;
 
+    void setAuthorizedMediaTypes(const QStringList &mediaTypes);
+
 private:
     void readConfig();
     void writeConfig();

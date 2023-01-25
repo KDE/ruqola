@@ -51,6 +51,11 @@ void UploadFileDialog::setFileUrl(const QUrl &url)
     mUploadFileWidget->setFileUrl(url);
 }
 
+void UploadFileDialog::setAuthorizedMediaTypes(const QStringList &mediaTypes)
+{
+    mUploadFileWidget->setAuthorizedMediaTypes(mediaTypes);
+}
+
 void UploadFileDialog::readConfig()
 {
     create(); // ensure a window is created

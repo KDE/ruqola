@@ -515,30 +515,30 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
     } else if (id == QLatin1String("Accounts_AllowUserStatusMessageChange")) {
         setAllowCustomStatusMessage(value.toBool());
     } else if (id == QLatin1String("FileUpload_MediaTypeWhiteList")) {
-        setMediaWhiteList(value.toString());
+        setMediaWhiteList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
     } else if (id == QLatin1String("FileUpload_MediaTypeBlackList")) {
-        setMediaBlackList(value.toString());
+        setMediaBlackList(value.toString().split(QLatin1Char(','), Qt::SkipEmptyParts));
     } else {
         qCDebug(RUQOLA_LOG) << "Other public settings id " << id << value;
     }
 }
 
-QString RuqolaServerConfig::mediaBlackList() const
+QStringList RuqolaServerConfig::mediaBlackList() const
 {
     return mMediaBlackList;
 }
 
-void RuqolaServerConfig::setMediaBlackList(const QString &newMediaBlackList)
+void RuqolaServerConfig::setMediaBlackList(const QStringList &newMediaBlackList)
 {
     mMediaBlackList = newMediaBlackList;
 }
 
-QString RuqolaServerConfig::mediaWhiteList() const
+QStringList RuqolaServerConfig::mediaWhiteList() const
 {
     return mMediaWhiteList;
 }
 
-void RuqolaServerConfig::setMediaWhiteList(const QString &newMediaWhiteList)
+void RuqolaServerConfig::setMediaWhiteList(const QStringList &newMediaWhiteList)
 {
     mMediaWhiteList = newMediaWhiteList;
 }

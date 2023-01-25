@@ -16,6 +16,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <QMimeDatabase>
 
 #include <KIO/Global>
 #include <QClipboard>
@@ -275,13 +276,36 @@ MessageTextEdit *MessageLineWidget::messageTextEdit() const
 void MessageLineWidget::slotSendFile()
 {
     QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
-    const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
+    QStringList whiteList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaBlackList();
+    const QStringList blackList = mCurrentRocketChatAccount->ruqolaServerConfig()->mediaBlackList();
+    for (const auto &mediaType : blackList) {
+        if (whiteList.contains(mediaType)) {
+            whiteList.removeAll(mediaType);
+        }
+    }
+    dlg->setAuthorizedMediaTypes(whiteList);
+    // qDebug() << " whiteList " << whiteList << " blackList " << blackList;
     if (dlg->exec()) {
         const UploadFileDialog::UploadFileInfo result = dlg->fileInfo();
         if (result.fileUrl.isLocalFile()) {
             const QFileInfo info(result.fileUrl.toLocalFile());
+            const qint64 maximumFileSize = mCurrentRocketChatAccount->ruqolaServerConfig()->fileMaxFileSize();
             if (info.size() > maximumFileSize) {
                 KMessageBox::error(this, i18n("File selected is too big (Maximum size %1)", KIO::convertSize(maximumFileSize)), i18n("File upload"));
+                delete dlg;
+                return;
+            }
+            QMimeDatabase mimeDatabase;
+            const QStringList mimeTypes = mimeDatabase.mimeTypeForFile(info).globPatterns();
+            // qDebug() << " mimeTypes " << mimeTypes << " mimeDatabase.mimeTypeForFile(info).aliases() " << mimeDatabase.mimeTypeForFile(info).aliases();
+            // qDebug() << " mimeTypes " << mimeTypes << " mimeDatabase.mimeTypeForFile(info).aliases() " <<
+            // mimeDatabase.mimeTypeForFile(info).parentMimeTypes(); qDebug() << " mimeTypes " << mimeTypes << " mimeDatabase.mimeTypeForFile(info).aliases() "
+            // << mimeDatabase.mimeTypeForFile(info).allAncestors();
+            const auto it = std::find_if(mimeTypes.constBegin(), mimeTypes.constEnd(), [blackList](const QString &str) {
+                return blackList.contains(str);
+            });
+            if (it != mimeTypes.constEnd()) {
+                KMessageBox::error(this, i18n("Server doesn't authorized this file (invalid mimetype)"));
                 delete dlg;
                 return;
             }

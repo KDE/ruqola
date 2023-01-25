@@ -20,6 +20,7 @@ public:
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;
     void setFileUrl(const QUrl &url);
+    void setAuthorizedMediaTypes(const QStringList &mediaTypes);
 
 Q_SIGNALS:
     void updateOkButton(bool enabled);

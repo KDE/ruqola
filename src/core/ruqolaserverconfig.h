@@ -169,11 +169,11 @@ public:
     Q_REQUIRED_RESULT bool allowCustomStatusMessage() const;
     void setAllowCustomStatusMessage(bool newAllowCustomStatusMessage);
 
-    Q_REQUIRED_RESULT QString mediaWhiteList() const;
-    void setMediaWhiteList(const QString &newMediaWhiteList);
+    Q_REQUIRED_RESULT QStringList mediaWhiteList() const;
+    void setMediaWhiteList(const QStringList &newMediaWhiteList);
 
-    Q_REQUIRED_RESULT QString mediaBlackList() const;
-    void setMediaBlackList(const QString &newMediaBlackList);
+    Q_REQUIRED_RESULT QStringList mediaBlackList() const;
+    void setMediaBlackList(const QStringList &newMediaBlackList);
 
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
@@ -205,8 +205,8 @@ private:
 
     ServerConfigFeatureTypes mServerConfigFeatureTypes = ServerConfigFeatureType::None;
 
-    QString mMediaWhiteList;
-    QString mMediaBlackList;
+    QStringList mMediaWhiteList;
+    QStringList mMediaBlackList;
 
     QString mLogoUrl;
     QString mFaviconUrl;

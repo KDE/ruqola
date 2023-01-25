@@ -48,3 +48,8 @@ void UploadFileWidget::setFileUrl(const QUrl &url)
 {
     mSelectFile->setUrl(url);
 }
+
+void UploadFileWidget::setAuthorizedMediaTypes(const QStringList &mediaTypes)
+{
+    mSelectFile->setMimeTypeFilters(mediaTypes);
+}
