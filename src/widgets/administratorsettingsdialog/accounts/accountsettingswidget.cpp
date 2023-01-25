@@ -113,7 +113,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mMainLayout->addWidget(mBlockFailedLoginAttemptsUsername);
     connectCheckBox(mBlockFailedLoginAttemptsUsername, QStringLiteral("Block_Multiple_Failed_Logins_By_User"));
 
-    mHowManyFailedAttemptsUntilBlockUser->setObjectName(QStringLiteral("mBlockFailedLoginAttemptsUsername"));
+    mHowManyFailedAttemptsUntilBlockUser->setObjectName(QStringLiteral("mHowManyFailedAttemptsUntilBlockUser"));
     addSpinbox(i18n("How Many Failed Attempts Until Block by User"),
                mHowManyFailedAttemptsUntilBlockUser,
                QStringLiteral("Block_Multiple_Failed_Logins_Attempts_Until_Block_by_User"));
