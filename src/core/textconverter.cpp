@@ -200,7 +200,7 @@ QString generateRichText(const QString &str,
             lstPos.append(std::move(pos));
         }
 
-        const QRegularExpression exp(QStringLiteral("(\\b%1\\b)").arg(searchedText), QRegularExpression::CaseInsensitiveOption);
+        const QRegularExpression exp(QStringLiteral("(%1)").arg(searchedText), QRegularExpression::CaseInsensitiveOption);
         QRegularExpressionMatchIterator userIterator = exp.globalMatch(newStr);
         int offset = 0;
         while (userIterator.hasNext()) {
