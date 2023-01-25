@@ -9,6 +9,7 @@
 #include "delegateutils/textselectionimpl.h"
 
 #include "rocketchataccount.h"
+#include "ruqolawidgets_debug.h"
 #include "ruqolawidgets_selection_debug.h"
 
 #include <QAbstractTextDocumentLayout>
@@ -114,8 +115,13 @@ bool MessageListDelegateBase::handleMouseEvent(QMouseEvent *mouseEvent, QRect me
         if (!mTextSelectionImpl->textSelection()->hasSelection()) {
             if (const auto *doc = documentForModelIndex(index, messageRect.width())) {
                 const QString link = doc->documentLayout()->anchorAt(pos);
+                auto rocketAccount = rocketChatAccount(index);
+                if (!rocketAccount) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "rochetchat account is null. Verify if it's ok";
+                    return true;
+                }
                 if (!link.isEmpty()) {
-                    Q_EMIT rocketChatAccount(index)->openLinkRequested(link);
+                    Q_EMIT rocketAccount->openLinkRequested(link);
                     return true;
                 }
             }
