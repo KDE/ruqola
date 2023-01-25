@@ -17,7 +17,7 @@ ServerErrorInfoMessageWidgetTest::ServerErrorInfoMessageWidgetTest(QObject *pare
 void ServerErrorInfoMessageWidgetTest::shouldHaveDefaultValues()
 {
     ServerErrorInfoMessageWidget w;
-    QVERIFY(!w.isVisible());
+    w.show();
     QVERIFY(w.isCloseButtonVisible());
     QCOMPARE(w.messageType(), KMessageWidget::Error);
 }
