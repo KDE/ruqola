@@ -38,17 +38,18 @@ QString Utils::extractRoomUserFromUrl(QString url)
     return url;
 }
 
-QString Utils::formatQuotedRichText(const QString &richText)
+QString Utils::formatQuotedRichText(const QString &richText, const QString &url)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
     const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
 #ifdef QUOTED_ICON_SUPPORT
-    const QString extr = QStringLiteral("<a href='https://www.kde.org'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>");
+    const QString extr = url.isEmpty() ? QString() : QStringLiteral("<a href='%1'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>").arg(url);
 
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText + extr + QStringLiteral("</td></tr></table>");
 #else
+    Q_UNUSED(url);
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText + QStringLiteral("</td></tr></table>");
 #endif

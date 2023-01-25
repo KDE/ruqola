@@ -115,7 +115,8 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                         }
                     });
                 }
-                text.prepend(Utils::formatQuotedRichText(contextString));
+                // TODO add url ?
+                text.prepend(Utils::formatQuotedRichText(contextString, QString()));
             }
         }
     }
