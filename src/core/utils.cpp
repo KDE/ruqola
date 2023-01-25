@@ -43,8 +43,15 @@ QString Utils::formatQuotedRichText(const QString &richText)
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
     const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
+#ifdef QUOTED_ICON_SUPPORT
+    const QString extr = QStringLiteral("<a href='https://www.kde.org'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>");
+
+    return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
+        + richText + extr + QStringLiteral("</td></tr></table>");
+#else
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText + QStringLiteral("</td></tr></table>");
+#endif
 }
 
 QString Utils::presenceStatusToString(User::PresenceStatus status)
