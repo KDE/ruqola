@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-24 00:57+0000\n"
+"POT-Creation-Date: 2023-01-25 00:58+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3323,148 +3323,158 @@ msgstr "Tyhjennä avatar"
 msgid "TOTP key for %1 has been reset"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow Name Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Profile Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow User Avatar Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow Email Change"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, fuzzy, kde-format
 #| msgid "Reset Password"
 msgid "Allow Password Change"
 msgstr "Alusta salasana"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
 #, fuzzy, kde-format
 #| msgid "Email Notification:"
 msgid "Allow Email Notifications"
 msgstr "Sähköposti-ilmoitus:"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:22
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
 #, fuzzy, kde-format
 #| msgid "Delete my Account"
 msgid "Allow Users to Delete Own Account"
 msgstr "Poista tilini"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:23
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
 #, kde-format
 msgid "Allow Anonymous Write"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:24
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:25
 #, kde-format
 msgid "Allow Anonymous Read"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:26
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:27
 #, fuzzy, kde-format
 #| msgid "Reset Password"
 msgid "Allow Password Change for OAuth Users"
 msgstr "Alusta salasana"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:28
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
 #, kde-format
 msgid "Allow Invisible status option"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:29
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
 #, kde-format
 msgid "Forget User Session on Window Close"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:30
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
 #, kde-format
 msgid "Enable collect log in data"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:31
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Status message"
 msgid "Allow Custom Status Message"
 msgstr "Tilaviesti"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:32
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
 msgid "Block Failed Login Attempts by Username"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:35
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
 msgid "Send Email to User when User is Activated"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
 #, kde-format
 msgid "Send Email to User when User is Deactivated"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:37
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
 #, kde-format
 msgid "Require Name For Signup"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:38
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Reset Password"
 msgid "Require Password Confirmation"
 msgstr "Alusta salasana"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:39
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
 msgid "Only Allow Verified Users to Login"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:91
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
+#, kde-format
+msgid "Manually Approve New Users"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:94
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Vanheneminen (päivinä)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:101
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:104
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:114
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:119
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:124
 #, fuzzy, kde-format
 #| msgid "Register"
 msgid "Registration"
 msgstr "Rekisteröi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:143
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:146
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
+#, kde-format
+msgid "Default Username Prefix Suggestion"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
@@ -5705,8 +5715,8 @@ msgstr "Lukematta olevat huoneet"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
 #: widgets/misc/emoticonmenuwidget.cpp:47
-#: widgets/notificationhistory/notificationhistorywidget.cpp:42
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:42
+#: widgets/notificationhistory/notificationhistorywidget.cpp:45
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:45
 #, fuzzy, kde-format
 #| msgid "Search"
 msgid "Search..."
@@ -5729,7 +5739,7 @@ msgid "Mark As Unread"
 msgstr "Merkitse lukematta olevaksi"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:254
+#: widgets/room/messagelistview.cpp:262
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Aseta suosikiksi"
@@ -5933,57 +5943,57 @@ msgstr ""
 msgid "Show hover highlights"
 msgstr ""
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:50
+#: widgets/configuredialog/configuresettingsdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Ruqolan asetukset"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:55
+#: widgets/configuredialog/configuresettingsdialog.cpp:67
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Perusasetukset"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:60
+#: widgets/configuredialog/configuresettingsdialog.cpp:72
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Tili"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:65
+#: widgets/configuredialog/configuresettingsdialog.cpp:77
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Fontti"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:70
+#: widgets/configuredialog/configuresettingsdialog.cpp:83
 #, fuzzy, kde-format
 #| msgid "Invalid description"
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Virheellinen kuvaus"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:75
+#: widgets/configuredialog/configuresettingsdialog.cpp:89
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Oikeinkirjoituksen tarkistus"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:80
+#: widgets/configuredialog/configuresettingsdialog.cpp:95
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Käännös"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:86
+#: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Käyttäjäpalaute"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:93
+#: widgets/configuredialog/configuresettingsdialog.cpp:109
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
@@ -6045,7 +6055,7 @@ msgid "Channel Info about '%1'"
 msgstr "Tietoa kanavasta ”%1”"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:261
+#: widgets/room/messagelistview.cpp:269
 #, kde-format
 msgid "Delete"
 msgstr "Poista"
@@ -6186,8 +6196,8 @@ msgid "Channel Password:"
 msgstr "Kanavan salasana:"
 
 #: widgets/dialogs/channelsearchnamelineresultwidget.cpp:27
-#: widgets/notificationhistory/notificationhistorylistview.cpp:74
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:39
+#: widgets/notificationhistory/notificationhistorylistview.cpp:76
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:41
 #, kde-format
 msgid "Clear"
 msgstr "Tyhjennä"
@@ -6614,28 +6624,28 @@ msgctxt "@title:window"
 msgid "Search Messages in '%1' (%2)"
 msgstr "Etsi viestejä: ”%1”"
 
-#: widgets/dialogs/searchmessagewidget.cpp:36
+#: widgets/dialogs/searchmessagewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Messages"
 msgid "Search messages"
 msgstr "Etsi viestejä"
 
-#: widgets/dialogs/searchmessagewidget.cpp:107
-#: widgets/dialogs/showlistmessagebasewidget.cpp:95
-#: widgets/discussions/showdiscussionswidget.cpp:88
+#: widgets/dialogs/searchmessagewidget.cpp:101
+#: widgets/dialogs/showlistmessagebasewidget.cpp:89
+#: widgets/discussions/showdiscussionswidget.cpp:82
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
 msgid "Loading..."
 msgstr "Ladataan…"
 
-#: widgets/dialogs/searchmessagewidget.cpp:111
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/searchmessagewidget.cpp:105
+#: widgets/dialogs/showlistmessagebasewidget.cpp:91
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
 msgstr "Viestejä ei löytynyt"
 
-#: widgets/dialogs/searchmessagewidget.cpp:117
+#: widgets/dialogs/searchmessagewidget.cpp:111
 #, kde-format
 msgid "%1 Message in room"
 msgid_plural "%1 Messages in room"
@@ -6727,8 +6737,8 @@ msgstr[0] "Huoneessa on %1 liite (yhteensä: %2)"
 msgstr[1] "Huoneessa on %1 liitettä (yhteensä: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:105
-#: widgets/discussions/showdiscussionswidget.cpp:99
+#: widgets/dialogs/showlistmessagebasewidget.cpp:99
+#: widgets/discussions/showdiscussionswidget.cpp:93
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
 #: widgets/room/usersinroomwidget.cpp:146
@@ -6775,13 +6785,13 @@ msgstr "Sovita näkymään"
 msgid "Save Image"
 msgstr "Tallenna kuva"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:36
+#: widgets/dialogs/showlistmessagebasewidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search messages..."
 msgstr "Etsi viestejä…"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:103
+#: widgets/dialogs/showlistmessagebasewidget.cpp:97
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -6909,18 +6919,18 @@ msgstr[1] "%1 viestiä"
 msgid "Open Discussion"
 msgstr "Avaa keskustelu"
 
-#: widgets/discussions/discussionlistview.cpp:65
-#: widgets/notificationhistory/notificationhistorylistview.cpp:93
-#: widgets/room/messagelistview.cpp:466
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:54
+#: widgets/discussions/discussionlistview.cpp:67
+#: widgets/notificationhistory/notificationhistorylistview.cpp:95
+#: widgets/room/messagelistview.cpp:479
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
 msgstr "Puhu teksti"
 
-#: widgets/discussions/discussionlistview.cpp:71
-#: widgets/notificationhistory/notificationhistorylistview.cpp:99
-#: widgets/room/messagelistview.cpp:267
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:60
+#: widgets/discussions/discussionlistview.cpp:73
+#: widgets/notificationhistory/notificationhistorylistview.cpp:101
+#: widgets/room/messagelistview.cpp:275
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
 msgstr "Valitse kaikki"
@@ -6933,18 +6943,18 @@ msgctxt "@title:window"
 msgid "Show Discussions - %1"
 msgstr "Näytä keskustelut"
 
-#: widgets/discussions/showdiscussionswidget.cpp:36
+#: widgets/discussions/showdiscussionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Discussion..."
 msgid "Search discussion..."
 msgstr "Etsi keskustelua…"
 
-#: widgets/discussions/showdiscussionswidget.cpp:90
+#: widgets/discussions/showdiscussionswidget.cpp:84
 #, kde-format
 msgid "No Discussion found"
 msgstr "Keskusteluja ei löytynyt"
 
-#: widgets/discussions/showdiscussionswidget.cpp:97
+#: widgets/discussions/showdiscussionswidget.cpp:91
 #, kde-format
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
@@ -7526,15 +7536,15 @@ msgctxt "@title:window"
 msgid "Notification"
 msgstr "Ilmoitukset"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:78
-#: widgets/room/messagelistview.cpp:452
+#: widgets/notificationhistory/notificationhistorylistview.cpp:80
+#: widgets/room/messagelistview.cpp:464
 #, kde-format
 msgid "Go to Message"
 msgstr "Siirry viestiin"
 
-#: widgets/notificationhistory/notificationhistorylistview.cpp:82
-#: widgets/room/messagelistview.cpp:237
-#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:43
+#: widgets/notificationhistory/notificationhistorylistview.cpp:84
+#: widgets/room/messagelistview.cpp:245
+#: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgid "Copy Message"
@@ -7807,142 +7817,142 @@ msgstr "Valittu tiedosto on liian iso (enimmäiskoko %1)"
 msgid "File upload"
 msgstr "Tiedoston lähetys"
 
-#: widgets/room/messagelistview.cpp:76
+#: widgets/room/messagelistview.cpp:82
 #, fuzzy, kde-format
 #| msgid "Channel is read only."
 msgid "Room is Empty."
 msgstr "Kanavaa voi vain lukea."
 
-#: widgets/room/messagelistview.cpp:245
+#: widgets/room/messagelistview.cpp:253
 #, kde-format
 msgid "Unpin Message"
 msgstr "Poista viestin kiinnitys"
 
-#: widgets/room/messagelistview.cpp:245
+#: widgets/room/messagelistview.cpp:253
 #, kde-format
 msgid "Pin Message"
 msgstr "Kiinnitä viesti"
 
-#: widgets/room/messagelistview.cpp:254
+#: widgets/room/messagelistview.cpp:262
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Poista suosikeista"
 
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:280
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Merkitse viesti lukematta olevaksi"
 
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:285
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Näytä koko säie"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:290
 #, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:295
 #, kde-format
 msgid "Quote"
 msgstr "Lainaus"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:300
 #, fuzzy, kde-format
 #| msgid "Go to Message"
 msgid "Copy Link To Message"
 msgstr "Siirry viestiin"
 
-#: widgets/room/messagelistview.cpp:305
-#: widgets/threadwidget/threadmessagewidget.cpp:120
+#: widgets/room/messagelistview.cpp:313
+#: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Unfollow Message"
 msgstr "Seuraa viestiä…"
 
-#: widgets/room/messagelistview.cpp:305
-#: widgets/threadwidget/threadmessagewidget.cpp:120
+#: widgets/room/messagelistview.cpp:313
+#: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Follow Message"
 msgstr "Seuraa viestiä…"
 
-#: widgets/room/messagelistview.cpp:318
+#: widgets/room/messagelistview.cpp:326
 #, fuzzy, kde-format
 #| msgid "Copy Link"
 msgid "Copy URL"
 msgstr "Kopioi linkki"
 
-#: widgets/room/messagelistview.cpp:326
+#: widgets/room/messagelistview.cpp:334
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Aloita keskustelu"
 
-#: widgets/room/messagelistview.cpp:333
+#: widgets/room/messagelistview.cpp:341
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Vastaa säikeeseen"
 
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:401
 #, kde-format
 msgid "Show Original Message"
 msgstr "Näytä alkuperäinen viesti"
 
-#: widgets/room/messagelistview.cpp:389
+#: widgets/room/messagelistview.cpp:401
 #, kde-format
 msgid "Translate Message"
 msgstr "Käännä viesti"
 
-#: widgets/room/messagelistview.cpp:472
+#: widgets/room/messagelistview.cpp:486
 #, kde-format
 msgid "Report Message"
 msgstr "Ilmoita viestistä"
 
-#: widgets/room/messagelistview.cpp:630
+#: widgets/room/messagelistview.cpp:644
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Haluatko poistaa tämän viestin?"
 
-#: widgets/room/messagelistview.cpp:631
+#: widgets/room/messagelistview.cpp:645
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
 
-#: widgets/room/messagelistview.cpp:759
+#: widgets/room/messagelistview.cpp:772
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
 msgstr "Käännös"
 
-#: widgets/room/messagetextedit.cpp:165
+#: widgets/room/messagetextedit.cpp:171
 #, kde-format
 msgid "Change Text Format"
 msgstr "Muuta tekstin muotoa"
 
-#: widgets/room/messagetextedit.cpp:167
+#: widgets/room/messagetextedit.cpp:173
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
-#: widgets/room/messagetextedit.cpp:168
+#: widgets/room/messagetextedit.cpp:174
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
-#: widgets/room/messagetextedit.cpp:169
+#: widgets/room/messagetextedit.cpp:175
 #, kde-format
 msgid "Strike-out"
 msgstr "Yliviivattu"
 
-#: widgets/room/messagetextedit.cpp:171
+#: widgets/room/messagetextedit.cpp:177
 #, kde-format
 msgid "Code Block"
 msgstr "Koodilohko"
 
-#: widgets/room/messagetextedit.cpp:173
+#: widgets/room/messagetextedit.cpp:179
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
@@ -8039,12 +8049,12 @@ msgstr "Vastataan säikeeseen"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Säieviestit: %1"
 
-#: widgets/room/roomwidget.cpp:239
+#: widgets/room/roomwidget.cpp:233
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Haluatko varmasti poistaa historian?"
 
-#: widgets/room/roomwidget.cpp:240
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Remove History"
 msgstr "Poista historia"
