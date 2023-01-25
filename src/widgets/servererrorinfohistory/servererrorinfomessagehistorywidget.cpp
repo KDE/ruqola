@@ -54,6 +54,8 @@ ServerErrorInfoMessageHistoryWidget::ServerErrorInfoMessageHistoryWidget(QWidget
 
     auto model = ServerErrorInfoHistoryManager::self()->serverErrorInfoHistoryModel();
 
+    mListServerInfosListView->setObjectName(QStringLiteral("mListServerInfosListView"));
+
     mServerErrorInfoHistoryFilterProxyModel->setObjectName(QStringLiteral("mServerErrorInfoHistoryFilterProxyModel"));
     mServerErrorInfoHistoryFilterProxyModel->setSourceModel(model);
     mListServerInfosListView->setModel(mServerErrorInfoHistoryFilterProxyModel);

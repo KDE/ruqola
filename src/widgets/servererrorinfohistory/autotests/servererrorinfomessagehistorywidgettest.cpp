@@ -26,7 +26,7 @@ void ServerErrorInfoMessageHistoryWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
-    auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListNotifications"));
+    auto mListNotifications = w.findChild<QListView *>(QStringLiteral("mListServerInfosListView"));
     QVERIFY(mListNotifications);
     QCOMPARE(mListNotifications->horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
     QCOMPARE(mListNotifications->horizontalScrollBarPolicy(), Qt::ScrollBarAlwaysOff);
