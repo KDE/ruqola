@@ -44,10 +44,12 @@ QString Utils::formatQuotedRichText(const QString &richText, const QString &url)
     const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
 #ifdef QUOTED_ICON_SUPPORT
-    const QString extr = url.isEmpty() ? QString() : QStringLiteral("<a href='%1'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>").arg(url);
+    // TODO fix size
+    const QString goToQuotedMessage =
+        url.isEmpty() ? QString() : QStringLiteral("<a href='%1'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>").arg(url);
 
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
-        + richText + extr + QStringLiteral("</td></tr></table>");
+        + richText + goToQuotedMessage + QStringLiteral("</td></tr></table>");
 #else
     Q_UNUSED(url);
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
