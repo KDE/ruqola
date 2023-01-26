@@ -48,4 +48,7 @@ private:
     QCheckBox *const mMarkEmailExternalAccountsVerified;
     QCheckBox *const mManualApproveNewUser;
     QLineEdit *const mDefaultUsernamePrefixSuggestion;
+    QLineEdit *const mAllowedDomainsList;
+    QLineEdit *const mBlockedDomainsList;
+    QLineEdit *const mBlockedUsernameList;
 };

@@ -41,6 +41,9 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mMarkEmailExternalAccountsVerified(new QCheckBox(i18n("Mark Email for External Accounts Verified"), this))
     , mManualApproveNewUser(new QCheckBox(i18n("Manually Approve New Users"), this))
     , mDefaultUsernamePrefixSuggestion(new QLineEdit(this))
+    , mAllowedDomainsList(new QLineEdit(this))
+    , mBlockedDomainsList(new QLineEdit(this))
+    , mBlockedUsernameList(new QLineEdit(this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -156,6 +159,18 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
 
     mDefaultUsernamePrefixSuggestion->setObjectName(QStringLiteral("mDefaultUsernamePrefixSuggestion"));
     addLineEdit(i18n("Default Username Prefix Suggestion"), mDefaultUsernamePrefixSuggestion, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
+
+    mAllowedDomainsList->setObjectName(QStringLiteral("mAllowedDomainsList"));
+    mAllowedDomainsList->setToolTip(i18n("Comma-separated list of allowed domains"));
+    addLineEdit(i18n("Allowed Domains List"), mAllowedDomainsList, QStringLiteral("Accounts_AllowedDomainsList"));
+
+    mBlockedDomainsList->setObjectName(QStringLiteral("mBlockedDomainsList"));
+    mBlockedDomainsList->setToolTip(i18n("Comma-separated list of blocked domains"));
+    addLineEdit(i18n("Blocked Domains List"), mBlockedDomainsList, QStringLiteral("Accounts_BlockedDomainsList"));
+
+    mBlockedUsernameList->setObjectName(QStringLiteral("mBlockedUsernameList"));
+    mBlockedUsernameList->setToolTip(i18n("Comma-separated list of blocked usernames (case-insensitive)"));
+    addLineEdit(i18n("Blocked Username List"), mBlockedUsernameList, QStringLiteral("Accounts_BlockedUsernameList"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -189,4 +204,7 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mMarkEmailExternalAccountsVerified, mapSettings, true);
     initializeWidget(mManualApproveNewUser, mapSettings, false);
     initializeWidget(mDefaultUsernamePrefixSuggestion, mapSettings, QStringLiteral("user"));
+    initializeWidget(mAllowedDomainsList, mapSettings, QString());
+    initializeWidget(mBlockedDomainsList, mapSettings, QString());
+    initializeWidget(mBlockedUsernameList, mapSettings, QString());
 }

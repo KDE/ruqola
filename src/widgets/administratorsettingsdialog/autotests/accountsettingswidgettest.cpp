@@ -189,4 +189,25 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mDefaultUsernamePrefixSuggestion->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mDefaultUsernamePrefixSuggestion), QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_DefaultUsernamePrefixSuggestion"));
+
+    auto mAllowedDomainsList = w.findChild<QLineEdit *>(QStringLiteral("mAllowedDomainsList"));
+    QVERIFY(mAllowedDomainsList);
+    QVERIFY(mAllowedDomainsList->text().isEmpty());
+    QVERIFY(!mAllowedDomainsList->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mAllowedDomainsList), QStringLiteral("Accounts_AllowedDomainsList"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_AllowedDomainsList"));
+
+    auto mBlockedDomainsList = w.findChild<QLineEdit *>(QStringLiteral("mBlockedDomainsList"));
+    QVERIFY(mBlockedDomainsList);
+    QVERIFY(mBlockedDomainsList->text().isEmpty());
+    QVERIFY(!mBlockedDomainsList->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedDomainsList), QStringLiteral("Accounts_BlockedDomainsList"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_BlockedDomainsList"));
+
+    auto mBlockedUsernameList = w.findChild<QLineEdit *>(QStringLiteral("mBlockedUsernameList"));
+    QVERIFY(mBlockedUsernameList);
+    QVERIFY(mBlockedUsernameList->text().isEmpty());
+    QVERIFY(!mBlockedUsernameList->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedUsernameList), QStringLiteral("Accounts_BlockedUsernameList"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_BlockedUsernameList"));
 }
