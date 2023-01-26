@@ -272,6 +272,7 @@ QString generateRichText(const QString &str,
 
 QString TextConverter::convertMessageText(const ConvertMessageTextSettings &settings, QString &needUpdateMessageId, int &recusiveIndex)
 {
+    bool hasQuotedText = false;
     if (!settings.emojiManager) {
         qCWarning(RUQOLA_TEXTTOHTML_LOG) << "Emojimanager is null";
     }
@@ -304,7 +305,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                         settings.maximumRecursiveQuotedText);
             recusiveIndex++;
             const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-            quotedMessage = Utils::formatQuotedRichText(text, url);
+            quotedMessage = Utils::formatQuotedRichText(text, url, hasQuotedText);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
             if (settings.messageCache) {
@@ -323,7 +324,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                                 settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
                     const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-                    quotedMessage = Utils::formatQuotedRichText(text, url);
+                    quotedMessage = Utils::formatQuotedRichText(text, url, hasQuotedText);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
                     qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one

@@ -38,15 +38,16 @@ QString Utils::extractRoomUserFromUrl(QString url)
     return url;
 }
 
-QString Utils::formatQuotedRichText(const QString &richText, const QString &url)
+QString Utils::formatQuotedRichText(const QString &richText, const QString &url, bool &hasQuotedText)
 {
     // Qt's support for borders is limited to tables, so we have to jump through some hoops...
     const auto backgroundColor = Colors::self().schemeView().background(KColorScheme::AlternateBackground).color().name();
     const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
 #ifdef QUOTED_ICON_SUPPORT
     // TODO fix size
+    hasQuotedText = !url.isEmpty();
     const QString goToQuotedMessage =
-        url.isEmpty() ? QString() : QStringLiteral("<a href='%1'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>").arg(url);
+        hasQuotedText ? QStringLiteral("<a href='%1'><img src=\"go_to_quoted_message\" width=\"16\" vspace=\"1\"/></a>").arg(url) : QString();
 
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + richText + goToQuotedMessage + QStringLiteral("</td></tr></table>");
