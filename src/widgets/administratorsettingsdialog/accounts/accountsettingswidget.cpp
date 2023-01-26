@@ -44,6 +44,7 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     , mAllowedDomainsList(new QLineEdit(this))
     , mBlockedDomainsList(new QLineEdit(this))
     , mBlockedUsernameList(new QLineEdit(this))
+    , mUseDefaultBlockedDomainsList(new QCheckBox(i18n("Use Default Blocked Domains List"), this))
 {
     mAllowChangeName->setObjectName(QStringLiteral("mAllowChangeName"));
     mMainLayout->addWidget(mAllowChangeName);
@@ -171,6 +172,10 @@ AccountSettingsWidget::AccountSettingsWidget(RocketChatAccount *account, QWidget
     mBlockedUsernameList->setObjectName(QStringLiteral("mBlockedUsernameList"));
     mBlockedUsernameList->setToolTip(i18n("Comma-separated list of blocked usernames (case-insensitive)"));
     addLineEdit(i18n("Blocked Username List"), mBlockedUsernameList, QStringLiteral("Accounts_BlockedUsernameList"));
+
+    mUseDefaultBlockedDomainsList->setObjectName(QStringLiteral("mUseDefaultBlockedDomainsList"));
+    mMainLayout->addWidget(mUseDefaultBlockedDomainsList);
+    connectCheckBox(mUseDefaultBlockedDomainsList, QStringLiteral("Accounts_UseDefaultBlockedDomainsList"));
 }
 
 AccountSettingsWidget::~AccountSettingsWidget() = default;
@@ -207,4 +212,5 @@ void AccountSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mAllowedDomainsList, mapSettings, QString());
     initializeWidget(mBlockedDomainsList, mapSettings, QString());
     initializeWidget(mBlockedUsernameList, mapSettings, QString());
+    initializeWidget(mUseDefaultBlockedDomainsList, mapSettings, true);
 }

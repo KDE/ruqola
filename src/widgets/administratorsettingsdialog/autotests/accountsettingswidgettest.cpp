@@ -210,4 +210,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mBlockedUsernameList->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mBlockedUsernameList), QStringLiteral("Accounts_BlockedUsernameList"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Accounts_BlockedUsernameList"));
+
+    auto mUseDefaultBlockedDomainsList = w.findChild<QCheckBox *>(QStringLiteral("mUseDefaultBlockedDomainsList"));
+    QVERIFY(mUseDefaultBlockedDomainsList);
+    QVERIFY(!mUseDefaultBlockedDomainsList->isChecked());
+    QVERIFY(!mUseDefaultBlockedDomainsList->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseDefaultBlockedDomainsList), QStringLiteral("Accounts_UseDefaultBlockedDomainsList"));
 }
