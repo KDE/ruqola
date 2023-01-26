@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:58+0000\n"
-"PO-Revision-Date: 2023-01-24 08:19+0200\n"
+"POT-Creation-Date: 2023-01-26 00:56+0000\n"
+"PO-Revision-Date: 2023-01-25 09:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1072,25 +1072,25 @@ msgstr "Конфіденційні повідомлення"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:309
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:311
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:313
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:315
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -3299,7 +3299,7 @@ msgstr "Позначати пошту для перевірених зовніш
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Затверджувати нових користувачів вручну"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:94
 #, kde-format
@@ -3336,7 +3336,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Пропозиція типового префікса імені користувача"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -7623,25 +7623,30 @@ msgstr "Повідомлення пришпилено"
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:104
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Хочете перетворити цей значний фрагмент тексту на долучення?"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, kde-format
 msgid "Message Too Big"
 msgstr "Надто велике повідомлення"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Вибраний файл є надто великим (максимальний розмір — %1)"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File upload"
 msgstr "Вивантаження файла"
+
+#: widgets/room/messagelinewidget.cpp:308
+#, kde-format
+msgid "Server doesn't authorized this file (invalid mimetype)"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format

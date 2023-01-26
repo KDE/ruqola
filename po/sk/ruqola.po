@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:58+0000\n"
+"POT-Creation-Date: 2023-01-26 00:56+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1122,25 +1122,25 @@ msgstr "Súkromné adresy"
 msgid "Unknown"
 msgstr ""
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:309
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "Pripojený"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:311
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Zaneprázdnený"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:313
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Neprítomný"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:315
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Nepripojený"
@@ -7816,25 +7816,30 @@ msgstr ""
 msgid "Message has been starred"
 msgstr "Súkromné adresy"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:104
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Too Big"
 msgstr "Správa"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr ""
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File upload"
+msgstr ""
+
+#: widgets/room/messagelinewidget.cpp:308
+#, kde-format
+msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:82

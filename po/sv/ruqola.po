@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:58+0000\n"
+"POT-Creation-Date: 2023-01-26 00:56+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -1074,25 +1074,25 @@ msgstr "Privata meddelanden"
 msgid "Unknown"
 msgstr "Okänt"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:309
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "Uppkopplad"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:311
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Upptagen"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:313
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Borta"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:315
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Nerkopplad"
@@ -7570,25 +7570,30 @@ msgstr "Meddelandet är uppsatt"
 msgid "Message has been starred"
 msgstr "Meddelande är stjärnmärkt"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:104
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Vill du konvertera den här långa texten till en bilaga?"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, kde-format
 msgid "Message Too Big"
 msgstr "Meddelande för stort"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Vald fil är för stor (maximal storlek %1)"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File upload"
 msgstr "Filuppladdning"
+
+#: widgets/room/messagelinewidget.cpp:308
+#, kde-format
+msgid "Server doesn't authorized this file (invalid mimetype)"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format

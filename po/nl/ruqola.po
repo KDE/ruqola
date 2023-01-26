@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-25 00:58+0000\n"
-"PO-Revision-Date: 2023-01-24 16:54+0100\n"
+"POT-Creation-Date: 2023-01-26 00:56+0000\n"
+"PO-Revision-Date: 2023-01-25 11:35+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1067,25 +1067,25 @@ msgstr "Privé berichten"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:309
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "Online"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:311
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Bezet"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:313
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Afwezig"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:315
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Offline"
@@ -3285,7 +3285,7 @@ msgstr "E-mail voor externe accounts markeren als geverifieerd"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Nieuwe gebruikers handmatig goedkeuren"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:94
 #, kde-format
@@ -3321,7 +3321,7 @@ msgstr "Ga na dat u juiste SMTP-instellingen hebt om deze functie te gebruiken"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Suggestie voor standaard voorvoegsel van gebruikersnaam"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -7579,25 +7579,30 @@ msgstr "Bericht is vastgepind"
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
 
-#: widgets/room/messagelinewidget.cpp:103
+#: widgets/room/messagelinewidget.cpp:104
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Wilt u deze lange tekst als bijlage converteren?"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, kde-format
 msgid "Message Too Big"
 msgstr "Bericht is te lang"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Geselecteerde bestand is te groot (maximale grootte %1)"
 
-#: widgets/room/messagelinewidget.cpp:284
+#: widgets/room/messagelinewidget.cpp:294
 #, kde-format
 msgid "File upload"
 msgstr "Bestand uploaden"
+
+#: widgets/room/messagelinewidget.cpp:308
+#, kde-format
+msgid "Server doesn't authorized this file (invalid mimetype)"
+msgstr ""
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format
