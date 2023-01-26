@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-01-23 20:39+0100\n"
+"PO-Revision-Date: 2023-01-24 19:35+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1708,6 +1708,10 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"Tous les mots sont vérifiés pour l’erreur commune de maintenir la touche "
+"« Maj » un peu trop longtemps. Si certains mots doivent avoir deux "
+"majuscules, alors, ces exceptions doivent être ajoutées dans l’onglet "
+"« Exceptions »."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:368
@@ -1717,6 +1721,9 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"Convertir &deux caractères majuscules en une majuscule et un caractère "
+"minuscule \n"
+" (Par exemple, « PArfait to Parfait)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:375
@@ -1761,6 +1768,9 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"Détecter lorsqu’une URL (Uniform Resource Locator) est saisie et fournir un "
+"formatage correspondant à la façon dont un navigateur Internet montrerait "
+"une URL."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:405
@@ -1775,6 +1785,8 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"Lorsque vous utilisez _souligné_ ou *gras*, le texte entre les soulignements "
+"ou les astérisques sera converti en texte souligné ou en gras."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:415
@@ -4514,6 +4526,9 @@ msgid ""
 "Tracks custom events related to actions related to users (password reset "
 "times, profile picture change, etc)."
 msgstr ""
+"Piste les évènements personnalisés concernant les actions relatives aux "
+"utilisateurs (Réinitialisation du mot de passe, modification de l’image de "
+"profil, etc.)."
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:49
 #, kde-format
@@ -4536,6 +4551,8 @@ msgid ""
 "The url where the Piwik resides, be sure to include the trailing slash. "
 "Example: //piwik.rocket.chat/"
 msgstr ""
+"L'URL où réside le Piwik. Veuillez vous assurer de bien inclure la barre "
+"oblique. Exemple : //piwik.rocket.chat/"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:70
 #, kde-format
@@ -4560,7 +4577,7 @@ msgstr "Sites additionnels Piwik"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:80
 #, kde-format
 msgid "Prepend the site domain to the page title when tracking"
-msgstr ""
+msgstr "Préparer le domaine du site au titre de la page lors du suivi"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:85
 #, kde-format
@@ -4641,6 +4658,12 @@ msgid ""
 "This may be needed if a user is renamed on CAS, but may also allow people to "
 "take control of Rocket.Chat accounts by renaming their own CAS users."
 msgstr ""
+"Si cette option est activée, Rocket.Chat fera confiance afin que tout nom "
+"d’utilisateur provenant de « CAS » appartienne au même utilisateur sur "
+"Rocket.Chat.\n"
+"Cela peut être nécessaire si un utilisateur est renommé sur « CAS ». "
+"Cependant, cela peut également permettre aux gens de prendre le contrôle de "
+"comptes Rocket.Chat, en renommant leurs propres utilisateurs « CAS »."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:56
 #, kde-format
@@ -4661,6 +4684,10 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
+"Toujours synchroniser les données de l’utilisateur « CAS » externe avec les "
+"attributs disponibles à la connexion.  \n"
+"Remarque : Les attributs sont toujours synchronisés lors de la création du "
+"compte."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
 #, kde-format
@@ -6247,6 +6274,9 @@ msgid ""
 "This setting completely disables the notifications system; sounds, desktop "
 "notifications, mobile notifications, and emails will stop!"
 msgstr ""
+"Ce paramètre désactive complètement le système de notifications, les sons, "
+"les notifications de bureau, les notifications mobiles et les courriels "
+"s’arrêteront !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:32
 #, kde-format
@@ -6255,6 +6285,9 @@ msgid ""
 "users to their clients keeping all the users with their presence status from "
 "the first load!"
 msgstr ""
+"Ce paramètre empêche toutes les instances d’envoyer les modifications d'état "
+"des utilisateurs vers leurs clients en maintenant l'état de présence de tous "
+"les utilisateurs lors du premier chargement !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:39
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:45
@@ -6263,6 +6296,9 @@ msgid ""
 "This setting prevents the Rocket.Chat instances from sending events to the "
 "other instances, it may cause syncing problems and misbehavior!"
 msgstr ""
+"Ce paramètre empêche les instances de Rocket.Chat d’envoyer des évènements "
+"aux autres instances. Cela peut provoquer des problèmes de synchronisation "
+"et des comportements incohérents !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:51
 #, kde-format
@@ -6280,6 +6316,10 @@ msgid ""
 "outdated until someone clicks on the refresh button and may cause other "
 "missing information around the system!"
 msgstr ""
+"Ce paramètre arrête le traitement de toutes les statistiques rendant la page "
+"d’informations obsolète jusqu’à ce que quelqu’un clique sur le bouton de "
+"rafraîchissement. Cela peut conduire à d’autres informations manquantes au "
+"sein du système !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:64
 #, kde-format
@@ -6287,6 +6327,9 @@ msgid ""
 "This setting stops the processing of all export requests from users, so they "
 "will not receive the link to download their data!"
 msgstr ""
+"Ce paramètre arrête le traitement de toutes les demandes d’exportation des "
+"utilisateurs, de sorte qu’ils ne recevront pas le lien pour télécharger "
+"leurs données !"
 
 #: widgets/administratorsettingsdialog/troubleshoot/troubleshootsettingswidget.cpp:70
 #, kde-format
@@ -6294,6 +6337,9 @@ msgid ""
 "This setting stops the sync of this server with Rocket.Chat's cloud and may "
 "cause issues with marketplace and enterprise licenses!"
 msgstr ""
+"Ce paramètre arrête la synchronisation de ce serveur avec le cloud de Rocket."
+"Chat. Il peut causer des problèmes avec les licences de marché et "
+"d’entreprise !"
 
 #: widgets/administratorsettingsdialog/userdatadownload/userdatadownloadwidget.cpp:16
 #, kde-format
@@ -6438,6 +6484,10 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"Une liste des serveurs « STUN » et « TURN » séparés par des virgules. \n"
+"Le nom d’utilisateur, le mot de passe et le port sont autorisés au format "
+"« nom-utilisateur : mot-de-passe@stun:host:port » ou « nom-utilisateur : mot-"
+"de-passe@turn:host:port »."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
