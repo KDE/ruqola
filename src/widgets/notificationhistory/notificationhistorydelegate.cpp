@@ -29,7 +29,7 @@ struct RoomAccount {
     QString accountName;
     Q_REQUIRED_RESULT bool operator==(const RoomAccount &other) const
     {
-        return (channelName == other.accountName) && (accountName == other.accountName);
+        return (channelName == other.channelName) && (accountName == other.accountName);
     }
 };
 
