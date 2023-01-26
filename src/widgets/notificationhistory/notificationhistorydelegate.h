@@ -15,6 +15,18 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT NotificationHistoryDelegate : public Message
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT RoomAccount {
+        QString channelName;
+        QString accountName;
+        Q_REQUIRED_RESULT bool operator==(const RoomAccount &other) const
+        {
+            return (channelName == other.channelName) && (accountName == other.accountName);
+        }
+        Q_REQUIRED_RESULT bool operator!=(const RoomAccount &other) const
+        {
+            return !operator==(other);
+        }
+    };
     explicit NotificationHistoryDelegate(QListView *view, QObject *parent = nullptr);
     ~NotificationHistoryDelegate() override;
 

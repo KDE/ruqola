@@ -24,18 +24,9 @@ NotificationHistoryDelegate::NotificationHistoryDelegate(QListView *view, QObjec
 
 NotificationHistoryDelegate::~NotificationHistoryDelegate() = default;
 
-struct RoomAccount {
-    QString channelName;
-    QString accountName;
-    Q_REQUIRED_RESULT bool operator==(const RoomAccount &other) const
-    {
-        return (channelName == other.channelName) && (accountName == other.accountName);
-    }
-};
-
-RoomAccount roomAccountInfo(const QModelIndex &index)
+NotificationHistoryDelegate::RoomAccount roomAccountInfo(const QModelIndex &index)
 {
-    RoomAccount info;
+    NotificationHistoryDelegate::RoomAccount info;
     const QString accountName = index.data(NotificationHistoryModel::AccountName).toString();
     QString channelName = index.data(NotificationHistoryModel::RoomName).toString();
     if (channelName.isEmpty()) {
