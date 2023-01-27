@@ -216,4 +216,10 @@ void AccountSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mUseDefaultBlockedDomainsList->isChecked());
     QVERIFY(!mUseDefaultBlockedDomainsList->text().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseDefaultBlockedDomainsList), QStringLiteral("Accounts_UseDefaultBlockedDomainsList"));
+
+    auto mUseDNSDomainCheck = w.findChild<QCheckBox *>(QStringLiteral("mUseDNSDomainCheck"));
+    QVERIFY(mUseDNSDomainCheck);
+    QVERIFY(!mUseDNSDomainCheck->isChecked());
+    QVERIFY(!mUseDNSDomainCheck->text().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mUseDNSDomainCheck), QStringLiteral("Accounts_UseDNSDomainCheck"));
 }

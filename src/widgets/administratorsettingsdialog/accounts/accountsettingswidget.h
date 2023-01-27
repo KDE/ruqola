@@ -52,4 +52,5 @@ private:
     QLineEdit *const mBlockedDomainsList;
     QLineEdit *const mBlockedUsernameList;
     QCheckBox *const mUseDefaultBlockedDomainsList;
+    QCheckBox *const mUseDNSDomainCheck;
 };
