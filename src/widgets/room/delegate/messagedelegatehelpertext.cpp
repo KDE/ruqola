@@ -35,7 +35,7 @@ MessageDelegateHelperText::MessageDelegateHelperText(RocketChatAccount *account,
 
 MessageDelegateHelperText::~MessageDelegateHelperText() = default;
 
-QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const
+QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates, bool &hasQuotedText) const
 {
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
     Q_ASSERT(message);
@@ -107,7 +107,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                                                                          maximumRecursiveQuotedText);
 
                 int recursiveIndex = 0;
-                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
                 if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
                     connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
                         if (msgId == needUpdateMessageId) {
@@ -116,7 +116,6 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
                     });
                 }
                 // TODO add url ?
-                bool hasQuotedText = false;
                 text.prepend(Utils::formatQuotedRichText(contextString, QString(), hasQuotedText));
             }
         }
@@ -325,18 +324,22 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     }
 
     const auto persistentIndex = QPersistentModelIndex(index);
-    const QString text = makeMessageText(persistentIndex, connectToUpdates);
+    bool hasQuotedText = false;
+    const QString text = makeMessageText(persistentIndex, connectToUpdates, hasQuotedText);
     if (text.isEmpty()) {
         return nullptr;
     }
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
-#ifdef QUOTED_ICON_SUPPORT
-    static QPixmap defaultMapPixmap = QIcon::fromTheme(QStringLiteral("map-symbolic")).pixmap(QSize(30, 30));
-    doc->addResource(QTextDocument::ImageResource, QUrl(QStringLiteral("go_to_quoted_message")), defaultMapPixmap);
+#if 0
+    if (hasQuotedText) {
+        static QPixmap defaultMapPixmap = QIcon::fromTheme(QStringLiteral("map-symbolic")).pixmap(QSize(30, 30));
+        doc->addResource(QTextDocument::ImageResource, QUrl(QStringLiteral("go_to_quoted_message")), defaultMapPixmap);
+    }
 #endif
     auto ret = doc.get();
     connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
-        ret->setHtml(makeMessageText(persistentIndex, false));
+        bool hasQuotedText = false;
+        ret->setHtml(makeMessageText(persistentIndex, false, hasQuotedText));
         auto *that = const_cast<MessageDelegateHelperText *>(this);
         that->updateView(persistentIndex);
     });

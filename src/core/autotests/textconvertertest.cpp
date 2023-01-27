@@ -119,7 +119,8 @@ void TextConverterTest::shouldConvertText()
     QString needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, nullptr, nullptr, {}, {});
     int recursiveIndex = 0;
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex),
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText),
              output); // TODO add autotests for highlightwords
 }
 
@@ -168,7 +169,8 @@ void TextConverterTest::shouldHighlightWords()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {});
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText), output);
 }
 
 void TextConverterTest::shouldHighlightText_data()
@@ -200,7 +202,8 @@ void TextConverterTest::shouldHighlightText()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, {}, nullptr, nullptr, {}, {});
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText), output);
 }
 
 void TextConverterTest::shouldConvertTextWithEmoji_data()
@@ -343,7 +346,8 @@ void TextConverterTest::shouldConvertTextWithEmoji()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, QString(), {}, {}, &manager, nullptr, {}, {});
-    auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    bool hasQuotedText = false;
+    auto actualOutput = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
     if (QLatin1String(QTest::currentDataTag()) == QLatin1String("quotedcode7")) {
         // remove additional highlighting of the ':)' symbols within the <code> block
         // the text color is syntax highlighting theme dependent, so hard for us to check
@@ -401,7 +405,8 @@ void TextConverterTest::shouldShowChannels()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText), output);
 }
 
 void TextConverterTest::shouldShowUsers()
@@ -416,7 +421,8 @@ void TextConverterTest::shouldShowUsers()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, {}, {}, {}, nullptr, nullptr, mentions, channels);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText), output);
 }
 
 void TextConverterTest::shouldShowUsers_data()
@@ -499,5 +505,6 @@ void TextConverterTest::shouldShowSearchedText()
     QString needUpdateMessageId;
     int recursiveIndex = 0;
     const TextConverter::ConvertMessageTextSettings settings(input, username, {}, highlightWords, nullptr, nullptr, {}, {}, searchedText);
-    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex), output);
+    bool hasQuotedText = false;
+    QCOMPARE(TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText), output);
 }

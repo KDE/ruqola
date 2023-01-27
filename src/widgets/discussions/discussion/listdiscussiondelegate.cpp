@@ -253,7 +253,8 @@ QTextDocument *ListDiscussionDelegate::documentForModelIndex(const QModelIndex &
                                                              mSearchText);
 
     int recursiveIndex = 0;
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+    bool hasQuotedText = false; // TODO USE QUOTED
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(discussionRoomId, std::move(doc));
