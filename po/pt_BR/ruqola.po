@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:56+0000\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
 "PO-Revision-Date: 2022-03-04 11:06-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1083,25 +1083,25 @@ msgstr "Mensagens privadas"
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:317
+#: core/model/statusmodel.cpp:61 core/utils.cpp:320
 #, kde-format
 msgid "Online"
 msgstr "Conectado"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:319
+#: core/model/statusmodel.cpp:63 core/utils.cpp:322
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Ocupado"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:321
+#: core/model/statusmodel.cpp:65 core/utils.cpp:324
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Ausente"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:323
+#: core/utils.cpp:326
 #, kde-format
 msgid "Offline"
 msgstr "Desconectado"
@@ -3349,42 +3349,78 @@ msgstr ""
 msgid "Manually Approve New Users"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
+#, kde-format
+msgid "Use Default Blocked Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:98
 #, fuzzy, kde-format
 #| msgid "Expiration (Days)"
 msgid "Login Expiration in Days"
 msgstr "Expiração (dias)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:108
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:126
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, fuzzy, kde-format
 #| msgid "Register"
 msgid "Registration"
 msgstr "Registrar"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:150
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:162
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:165
+#, kde-format
+msgid "Comma-separated list of allowed domains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#, kde-format
+msgid "Allowed Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#, kde-format
+msgid "Comma-separated list of blocked domains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
+#, kde-format
+msgid "Blocked Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#, kde-format
+msgid "Comma-separated list of blocked usernames (case-insensitive)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgid "Blocked Username List"
+msgstr "Bloquear usuário"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, fuzzy, kde-format
@@ -7719,7 +7755,7 @@ msgstr "O arquivo selecionado é muito grande (tamanho máximo %1)"
 msgid "File upload"
 msgstr "Enviar arquivo"
 
-#: widgets/room/messagelinewidget.cpp:308
+#: widgets/room/messagelinewidget.cpp:299
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""

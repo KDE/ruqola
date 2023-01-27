@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-26 00:56+0000\n"
-"PO-Revision-Date: 2023-01-25 09:13+0200\n"
+"POT-Creation-Date: 2023-01-27 00:58+0000\n"
+"PO-Revision-Date: 2023-01-26 08:41+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1072,25 +1072,25 @@ msgstr "Конфіденційні повідомлення"
 msgid "Unknown"
 msgstr "Невідомий"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:317
+#: core/model/statusmodel.cpp:61 core/utils.cpp:320
 #, kde-format
 msgid "Online"
 msgstr "У мережі"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:319
+#: core/model/statusmodel.cpp:63 core/utils.cpp:322
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Зайнято"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:321
+#: core/model/statusmodel.cpp:65 core/utils.cpp:324
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Відсутність"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:323
+#: core/utils.cpp:326
 #, kde-format
 msgid "Offline"
 msgstr "Поза мережею"
@@ -3301,42 +3301,78 @@ msgstr "Позначати пошту для перевірених зовніш
 msgid "Manually Approve New Users"
 msgstr "Затверджувати нових користувачів вручну"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
+#, kde-format
+msgid "Use Default Blocked Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:98
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Строк дії облікового запису (у днях)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:108
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Невдалі спроби увійти"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:117
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Кількість помилкових спроб до блокування користувача"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:126
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Час розблоковування користувача (у хвилинах)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:124
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
 #, kde-format
 msgid "Registration"
 msgstr "Реєстрація"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:146
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:150
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Щоб скористатися цією можливістю, переконайтеся, що параметри SMTP вказано "
 "правильно"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:158
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:162
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Пропозиція типового префікса імені користувача"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:165
+#, kde-format
+msgid "Comma-separated list of allowed domains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
+#, kde-format
+msgid "Allowed Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#, kde-format
+msgid "Comma-separated list of blocked domains"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
+#, kde-format
+msgid "Blocked Domains List"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#, kde-format
+msgid "Comma-separated list of blocked usernames (case-insensitive)"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
+#, fuzzy, kde-format
+#| msgid "Block User"
+msgid "Blocked Username List"
+msgstr "Заблокувати користувача"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -7643,10 +7679,10 @@ msgstr "Вибраний файл є надто великим (максимал
 msgid "File upload"
 msgstr "Вивантаження файла"
 
-#: widgets/room/messagelinewidget.cpp:308
+#: widgets/room/messagelinewidget.cpp:299
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "Сервером не надано уповноваження на цей файл (некоректний тип MIME)"
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format
