@@ -208,9 +208,7 @@ QTextDocument *MessageAttachmentDelegateHelperText::documentAttachmentForIndex(c
 
         // TODO use needUpdateIndex ?
         int recursiveIndex = 0;
-        bool hasQuotedText = false; // TODO USE QUOTED
-        const QString contextString =
-            TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText) + msgAttach.attachmentFieldsText();
+        const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex) + msgAttach.attachmentFieldsText();
         auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
         auto ret = doc.get();
         mDocumentCache.insert(attachmentId, std::move(doc));

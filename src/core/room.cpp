@@ -522,8 +522,7 @@ QString Room::displayTopic() const
     QString needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(mTopic, {}, {}, {}, emojiManager, messageCache, {}, {});
     int recursiveIndex = 0;
-    bool hasQuotedText = false; // Unused here
-    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
+    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
 void Room::setTopic(const QString &topic)
@@ -575,8 +574,7 @@ QString Room::displayAnnouncement() const
     QString needUpdateMessageId;
     const TextConverter::ConvertMessageTextSettings settings(mAnnouncement, {}, {}, {}, emojiManager, messageCache, {}, {});
     int recursiveIndex = 0;
-    bool hasQuotedText = false; // Unused
-    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
+    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
 void Room::setAnnouncement(const QString &announcement)

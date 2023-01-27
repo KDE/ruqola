@@ -186,8 +186,7 @@ QTextDocument *BannerInfoListViewDelegate::documentForModelIndex(const QModelInd
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
-    bool hasQuotedText = false; // Unused here
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();

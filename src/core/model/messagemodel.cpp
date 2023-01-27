@@ -518,8 +518,7 @@ QString MessageModel::convertMessageText(const Message &message, const QString &
                                                              maximumRecursiveQuotedText);
 
     int recursiveIndex = 0;
-    bool hasQuotedText = false;
-    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
+    return TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
 }
 
 void MessageModel::setRoomId(const QString &roomId)

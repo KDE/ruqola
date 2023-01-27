@@ -158,8 +158,7 @@ QTextDocument *ServerErrorInfoHistoryDelegate::documentForModelIndex(const QMode
     QString needUpdateMessageId; // TODO use it ?
     const TextConverter::ConvertMessageTextSettings settings(messageStr, {}, {}, QStringList(), nullptr, nullptr, {}, {}, mSearchText);
     int recursiveIndex = 0;
-    bool hasQuotedText = false; // Unused
-    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex, hasQuotedText);
+    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
     auto doc = MessageDelegateUtils::createTextDocument(false, contextString, width);
     auto ret = doc.get();
     mDocumentCache.insert(identifier, std::move(doc));
