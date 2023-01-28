@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
-"PO-Revision-Date: 2023-01-26 18:54+0300\n"
+"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"PO-Revision-Date: 2023-01-27 18:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3266,74 +3266,80 @@ msgstr "Yeni Kullanıcıları Elle Onayla"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
+msgstr "Öntanımlı Engelli Alan Adları Listesini Kullan"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
+#, kde-format
+msgid "Use DNS Domain Check"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Gün Türünden Giriş Süresi Dolumu"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Başarısız Giriş Denemeleri"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Kullanıcı Engellenmeden Önce Kaç Hatalı Giriş"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:127
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Kullanıcı Engelini Kaldırma Süresi (Dakika)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:129
 #, kde-format
 msgid "Registration"
 msgstr "Kayıt"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:151
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Bu özelliği kullanmak için SMTP ayarlarınızın doğru yapıldığından emin olun"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Öntanımlı Kullanıcı Adı Öneki Önerisi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:165
-#, kde-format
-msgid "Comma-separated list of allowed domains"
-msgstr ""
-
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
-msgid "Allowed Domains List"
-msgstr ""
+msgid "Comma-separated list of allowed domains"
+msgstr "İzin verilen alan adlarının virgülle ayrılmış listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
 #, kde-format
-msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgid "Allowed Domains List"
+msgstr "İzin Verilen Alan Adları Listesi"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
 #, kde-format
-msgid "Blocked Domains List"
-msgstr ""
+msgid "Comma-separated list of blocked domains"
+msgstr "Engellenmiş alan adlarının virgülle ayrılmış listesi"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
+#, kde-format
+msgid "Blocked Domains List"
+msgstr "Engelli Alan Adları Listesi"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Engellenmiş kullanıcı adlarının virgülle ayrılmış listesi (BÜYÜK/küçük harf "
+"duyarsız)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
-#, fuzzy, kde-format
-#| msgid "Block User"
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Kullanıcıyı Engelle"
+msgstr "Engelli Kullanıcı Adları Listesi"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

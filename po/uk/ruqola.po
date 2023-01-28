@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
-"PO-Revision-Date: 2023-01-26 08:41+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"PO-Revision-Date: 2023-01-27 10:58+0200\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -3304,75 +3304,81 @@ msgstr "Затверджувати нових користувачів вруч�
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
+msgstr "Використовувати типовий список заблокованих доменів"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
+#, kde-format
+msgid "Use DNS Domain Check"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Строк дії облікового запису (у днях)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Невдалі спроби увійти"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Кількість помилкових спроб до блокування користувача"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:127
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Час розблоковування користувача (у хвилинах)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:129
 #, kde-format
 msgid "Registration"
 msgstr "Реєстрація"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:151
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
 "Щоб скористатися цією можливістю, переконайтеся, що параметри SMTP вказано "
 "правильно"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Default Username Prefix Suggestion"
 msgstr "Пропозиція типового префікса імені користувача"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:165
-#, kde-format
-msgid "Comma-separated list of allowed domains"
-msgstr ""
-
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
-msgid "Allowed Domains List"
-msgstr ""
+msgid "Comma-separated list of allowed domains"
+msgstr "Список відокремлених комами дозволених доменів"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
 #, kde-format
-msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgid "Allowed Domains List"
+msgstr "Список дозволених доменів"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
 #, kde-format
-msgid "Blocked Domains List"
-msgstr ""
+msgid "Comma-separated list of blocked domains"
+msgstr "Список відокремлених комами заблокованих доменів"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
+#, kde-format
+msgid "Blocked Domains List"
+msgstr "Список заблокованих доменів"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Список відокремлених комами імен заблокованих користувачів (з урахуванням "
+"регістру символів)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
-#, fuzzy, kde-format
-#| msgid "Block User"
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Заблокувати користувача"
+msgstr "Список заблокованих імен користувачів"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format

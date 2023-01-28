@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-27 00:58+0000\n"
-"PO-Revision-Date: 2023-01-21 09:39+0100\n"
+"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"PO-Revision-Date: 2023-01-27 07:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:53
@@ -3270,88 +3270,95 @@ msgstr "Zahtevaj potrditev gesla"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr ""
+msgstr "Dovoli prijavo samo preverjenim uporabnikom"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr ""
+msgstr "Označi e-pošte za zunanje račune kot preverjene"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Ročno odobri nove uporabnike"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
+msgstr "Uporabite privzeti seznam blokiranih domen"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
+#, kde-format
+msgid "Use DNS Domain Check"
 msgstr ""
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:98
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Login Expiration in Days"
 msgstr "Potek prijave v dnevih"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:108
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Failed Login Attempts"
 msgstr "Zgrešeni poskusi prijav"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:121
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
 msgid "How Many Failed Attempts Until Block by User"
 msgstr "Koliko zgrešenih poskusov pred blokiranjem uporabnika"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:127
 #, kde-format
 msgid "Time to unblock User (In Minutes)"
 msgstr "Čas za deblokiranje uporabnika (v minutah)"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:128
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:129
 #, kde-format
 msgid "Registration"
 msgstr "Registracija"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:150
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:151
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
 msgstr ""
+"Za uporabo te funkcije se prepričajte, da imate pravilne nastavitve SMTP"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:162
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
-
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:165
-#, kde-format
-msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "Predlog predpone privzeto uporabniško ime"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
-msgid "Allowed Domains List"
-msgstr ""
+msgid "Comma-separated list of allowed domains"
+msgstr "Seznam dovoljenih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:169
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
 #, kde-format
-msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgid "Allowed Domains List"
+msgstr "Seznam dovoljenih domen"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
 #, kde-format
-msgid "Blocked Domains List"
-msgstr ""
+msgid "Comma-separated list of blocked domains"
+msgstr "Seznam blokiranih domen ločenih z vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:173
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
+#, kde-format
+msgid "Blocked Domains List"
+msgstr "Seznam blokiranih domen"
+
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Seznam blokiranih uporabniških imen (neodvisno male/velike črke) ločenih z "
+"vejico"
 
-#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
-#, fuzzy, kde-format
-#| msgid "Block User"
+#: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Blokiraj uporabnika"
+msgstr "Seznam blokiranih uporabniških imen"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -7620,7 +7627,7 @@ msgstr "Nalaganje datoteke"
 #: widgets/room/messagelinewidget.cpp:299
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format
