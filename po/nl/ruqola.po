@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-28 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 13:17+0100\n"
+"PO-Revision-Date: 2023-01-28 13:03+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3290,12 +3290,12 @@ msgstr "Nieuwe gebruikers handmatig goedkeuren"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr "Standaard lijst met geblokkeerde domeinen gebruiken"
+msgstr "Standaard geblokkeerde lijst met domeinen gebruiken"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "DNS domeincontrole gebruiken"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
@@ -3357,8 +3357,8 @@ msgstr "Lijst met geblokkeerde domeinen"
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
-"Komma-gescheiden lijst met geblokkeerde gebruikersnamen (ongevoelig voor "
-"hoofd- kleine letters)"
+"Komma-gescheiden lijst met geblokkeerde gebruikersnamen (geen onderscheid "
+"tussen hoofd- en kleine letters)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
 #, kde-format

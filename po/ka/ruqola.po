@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-28 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 09:57+0100\n"
+"PO-Revision-Date: 2023-01-28 10:08+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3257,12 +3257,12 @@ msgstr "პაროლის დადასტურების მოთხ�
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:40
 #, kde-format
 msgid "Only Allow Verified Users to Login"
-msgstr ""
+msgstr "შესვლის უფლების მხოლოდ გადამოწმებული მომხმარებლებისთვის მინიჭება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:41
 #, kde-format
 msgid "Mark Email for External Accounts Verified"
-msgstr ""
+msgstr "გარე ანგარიშების ელფოსტის გადამოწმებულად მონიშვნა"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
@@ -3272,12 +3272,12 @@ msgstr "ახალი მომხმარებლების ხელი�
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "ნაგულისხმები დაბლოკილი დომენების სიის გამოყენება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "DNS დომენის შემოწმების გამოყენება"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
@@ -3307,7 +3307,7 @@ msgstr "რეგისტრაცია"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:151
 #, kde-format
 msgid "Make sure you have correct SMTP settings to use this feature"
-msgstr ""
+msgstr "ამ თვისების გამოსაყენებლად დარწმუნდით, რომ SMTP პარამეტრები სწორია"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
@@ -3338,6 +3338,7 @@ msgstr "დაბლოკილი დომენების სია"
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"დაბლოკილი მომხმარებლის სახელების (რეგისტრის მიუხედავად) მძიმით გამოყოფილი სია"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
 #, kde-format
@@ -7468,7 +7469,7 @@ msgstr "ფაილის ატვირთვა"
 #: widgets/room/messagelinewidget.cpp:299
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "სერვერმა ამ ფაილს ავტორიზაცია არ მიანიჭა (არასწორი mimetype)"
 
 #: widgets/room/messagelistview.cpp:82
 #, kde-format
