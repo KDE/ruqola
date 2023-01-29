@@ -770,6 +770,7 @@
       <li xml:lang="es">Administrar símbolo de acceso personal</li>
       <li xml:lang="eu">Kudeatu sarbide-token pertsonala</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
+      <li xml:lang="id">Kelola Token Akses Personal</li>
       <li xml:lang="it">Gestisci token di accesso personale</li>
       <li xml:lang="ka">პირადი წვდომის კოდის მართვა</li>
       <li xml:lang="nl">Persoonlijk toegangstoken beheren</li>
@@ -785,6 +786,7 @@
       <li xml:lang="es">Añadir soporte para traducción local</li>
       <li xml:lang="eu">Itzulpen lokalen euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
+      <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
       <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
       <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor lokale vertalingen</li>
@@ -800,6 +802,7 @@
       <li xml:lang="es">Añadir soporte para la auto-corrección de texto</li>
       <li xml:lang="eu">Testuaren zuzenketa-automatikorako euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
+      <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
       <li xml:lang="it">Aggiungi il supporto per la correzione automatica del testo</li>
       <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
       <li xml:lang="nl">Ondersteuning toevoegen voor automatische correctie van tekst</li>
