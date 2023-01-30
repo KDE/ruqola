@@ -48,6 +48,8 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QModelIndex &index, QPoint relativePos) const;
 
+    Q_REQUIRED_RESULT QString searchText() const;
+
 private:
     friend class TextSelection; // for documentForIndex
     Q_REQUIRED_RESULT QString makeMessageText(const QPersistentModelIndex &index, bool connectToUpdates) const;

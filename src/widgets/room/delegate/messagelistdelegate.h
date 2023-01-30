@@ -71,7 +71,6 @@ public:
 
     Q_REQUIRED_RESULT bool contextMenu(const QStyleOptionViewItem &option, const QModelIndex &index, const MessageListDelegate::MenuInfo &info);
 
-    Q_REQUIRED_RESULT const QString &searchText() const;
     void setSearchText(const QString &newSearchText);
 
     Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QWidget *widget, const QModelIndex &index, int maxHeight) const;
@@ -102,7 +101,6 @@ private:
 
     friend class MessageListDelegateTest;
 
-    QString mSearchText;
     const QIcon mEditedIcon;
     const QIcon mRolesIcon;
     const QIcon mAddReactionIcon;

@@ -340,3 +340,8 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     mDocumentCache.insert(messageId, std::move(doc));
     return ret;
 }
+
+QString MessageDelegateHelperText::searchText() const
+{
+    return mSearchText;
+}

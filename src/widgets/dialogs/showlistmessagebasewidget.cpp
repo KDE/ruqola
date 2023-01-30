@@ -61,7 +61,11 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
     connect(mMessageListView, &MessageListView::modelChanged, this, &ShowListMessageBaseWidget::updateLabel);
 }
 
-ShowListMessageBaseWidget::~ShowListMessageBaseWidget() = default;
+ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
+{
+    // Clear search text
+    mModel->listMessageModel()->setSearchText({});
+}
 
 void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
 {
@@ -104,5 +108,6 @@ QString ShowListMessageBaseWidget::displayShowMessageInRoom() const
 void ShowListMessageBaseWidget::slotSearchMessageTextChanged(const QString &str)
 {
     mModel->setFilterString(str);
+    mModel->listMessageModel()->setSearchText(str);
     mMessageListView->setSearchText(str);
 }

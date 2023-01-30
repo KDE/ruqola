@@ -171,16 +171,10 @@ MessageAttachmentDelegateHelperBase *MessageListDelegate::attachmentsHelper(cons
     return nullptr;
 }
 
-const QString &MessageListDelegate::searchText() const
-{
-    return mSearchText;
-}
-
 void MessageListDelegate::setSearchText(const QString &newSearchText)
 {
-    if (mSearchText != newSearchText) {
-        mSearchText = newSearchText;
-        mHelperText->setSearchText(mSearchText);
+    if (mHelperText->searchText() != newSearchText) {
+        mHelperText->setSearchText(newSearchText);
         clearTextDocumentCache();
     }
 }

@@ -533,6 +533,7 @@ bool MessageModel::isEmpty() const
 
 void MessageModel::clear()
 {
+    mSearchText.clear();
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mAllMessages.count() - 1);
         mAllMessages.clear();
