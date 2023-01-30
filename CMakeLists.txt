@@ -175,8 +175,8 @@ set_package_properties(KF${KF_MAJOR_VERSION}NetworkManagerQt PROPERTIES DESCRIPT
 
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-ecm_set_disabled_deprecation_versions(QT 5.15.2
-    KF 6.4.0
+ecm_set_disabled_deprecation_versions(QT 6.4
+    KF 5.102.0
     )
 if (OPTION_BUILD_PYTHON_BINDINGS)
    remove_definitions(-DQT_STRICT_ITERATORS)
