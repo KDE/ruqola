@@ -45,7 +45,11 @@ QString Utils::formatQuotedRichText(const QuotedRichTextInfo &info)
     const auto borderColor = Colors::self().schemeView().foreground(KColorScheme::LinkText).color().name();
     QString dateTimeInfo;
     if (!info.displayTime.isEmpty()) {
-        dateTimeInfo = QLatin1Char('\n') + QStringLiteral("<a href='%1'>%2</a>").arg(info.url, info.displayTime);
+        if (!info.url.isEmpty()) {
+            dateTimeInfo = QLatin1Char('\n') + QStringLiteral("<a href='%1'>%2</a>").arg(info.url, info.displayTime);
+        } else {
+            dateTimeInfo = QLatin1Char('\n') + info.displayTime;
+        }
     }
     return QStringLiteral("<table><tr><td style='background-color:%1; padding-left: 5px; border-left: 5px solid %2'>").arg(backgroundColor, borderColor)
         + info.richText + dateTimeInfo + QStringLiteral("</td></tr></table>");
