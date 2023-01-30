@@ -735,19 +735,19 @@ target_link_libraries(libruqolawidgets
 
 if (HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolawidgets
-        KF5::TextTranslator
+        KF${KF_MAJOR_VERSION}::TextTranslator
     )
 endif()
 
 if (HAVE_TEXT_AUTOCORRECTION)
     target_link_libraries(libruqolawidgets
-        KF5::TextAutoCorrection
+        KF${KF_MAJOR_VERSION}::TextAutoCorrection
     )
 endif()
 
 if (HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
-        KF5::TextEditTextToSpeech
+        KF${KF_MAJOR_VERSION}::TextEditTextToSpeech
     )
 endif()
 

@@ -527,13 +527,13 @@ target_link_libraries(libruqolacore
 
 if (HAVE_TEXT_TRANSLATOR)
     target_link_libraries(libruqolacore
-        KF5::TextTranslator
+        KF${KF_MAJOR_VERSION}::TextTranslator
     )
 endif()
 
 if (HAVE_TEXT_AUTOCORRECTION)
     target_link_libraries(libruqolacore
-        KF5::TextAutoCorrection
+        KF${KF_MAJOR_VERSION}::TextAutoCorrection
     )
 endif()
 

@@ -78,7 +78,7 @@ if (QT_MAJOR_VERSION STREQUAL "6")
     set(QT_REQUIRED_VERSION "6.4.0")
     set(KF_MIN_VERSION "5.240.0")
     set(KF_MAJOR_VERSION "6")
-    set(KTEXTADDONS_MIN_VERSION "1.0.42")
+    set(KTEXTADDONS_MIN_VERSION "1.1.0")
 else()
     set(KF_MAJOR_VERSION "5")
 endif()
@@ -99,30 +99,30 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 
-find_package(KF5TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
+find_package(KF${KF_MAJOR_VERSION}TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
 set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
     "Add support for text translation"
     TYPE OPTIONAL
 )
-if (TARGET KF5::TextTranslator)
+if (TARGET KF${KF_MAJOR_VERSION}::TextTranslator)
     set(HAVE_TEXT_TRANSLATOR TRUE)
 endif()
 
-find_package(KF5TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF5TextAutoCorrection PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}TextAutoCorrection ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF${KF_MAJOR_VERSION}TextAutoCorrection PROPERTIES DESCRIPTION
     "Add support for text auto correction"
     TYPE OPTIONAL
 )
-if (TARGET KF5::TextAutoCorrection)
+if (TARGET KF${KF_MAJOR_VERSION}::TextAutoCorrection)
     set(HAVE_TEXT_AUTOCORRECTION TRUE)
 endif()
 
-find_package(KF5TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF5TextEditTextToSpeech PROPERTIES DESCRIPTION
+find_package(KF${KF_MAJOR_VERSION}TextEditTextToSpeech ${KTEXTADDONS_MIN_VERSION} CONFIG)
+set_package_properties(KF${KF_MAJOR_VERSION}TextEditTextToSpeech PROPERTIES DESCRIPTION
     "Add support for text to speech"
     TYPE OPTIONAL
 )
-if (TARGET KF5::TextEditTextToSpeech)
+if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
