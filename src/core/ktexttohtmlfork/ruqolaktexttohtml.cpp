@@ -450,7 +450,7 @@ QString RuqolaKTextToHTML::convertToHtml(const QString &plainText, RuqolaKTextTo
                 str = helper.getUrl(&badUrl);
                 if (badUrl) {
                     QString resultBadUrl;
-                    const int helperTextSize(helper.mText.count());
+                    const int helperTextSize(helper.mText.length());
                     for (int i = 0; i < helperTextSize; ++i) {
                         const QChar chBadUrl = helper.mText.at(i);
                         if (chBadUrl == QLatin1Char('&')) {

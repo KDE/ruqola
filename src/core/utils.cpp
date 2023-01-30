@@ -150,7 +150,7 @@ QString Utils::convertTextWithUrl(const QString &str)
     bool isHasNewRef = false;
     QString url;
     QString references;
-    for (int i = 0; i < str.count(); ++i) {
+    for (int i = 0; i < str.length(); ++i) {
         const QChar ref = str.at(i);
         if (ref == QLatin1Char('[')) {
             if (isRef) {
@@ -170,7 +170,7 @@ QString Utils::convertTextWithUrl(const QString &str)
 #endif
         } else if (isRef && ref == QLatin1Char(']')) {
             isRef = false;
-            if ((i == str.count() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
+            if ((i == str.length() - 1) || (str.at(i + 1) != QLatin1Char('('))) {
                 if (references.startsWith(QLatin1Char('<'))) {
                     newStr += references.replace(regularExpressionCustomAHref, QStringLiteral("<a href=\"\\2\">\\1</a>"));
                 } else {
