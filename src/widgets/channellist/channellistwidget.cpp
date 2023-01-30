@@ -184,7 +184,6 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
             }
             case ParseMessageUrlUtils::ChannelType::Group: {
                 // TODO ?
-                qDebug() << "group" << roomId;
                 if (!mChannelView->selectChannelByRoomIdRequested(roomId)) {
                     mCurrentRocketChatAccount->openChannel(roomId, RocketChatAccount::ChannelTypeInfo::RoomId);
                     // TODO implement scroll to message
@@ -232,6 +231,15 @@ void ChannelListWidget::slotSelectMessageRequested(const QString &messageId,
                 break;
             }
             case ParseMessageUrlUtils::ChannelType::Direct: {
+                if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
+                    // TODO add support for roomId or roomName
+                    mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
+                } else {
+                    Q_EMIT selectMessageIdRequested(messageId);
+                }
+                break;
+            }
+            case ParseMessageUrlUtils::ChannelType::Group: {
                 if (!mChannelView->selectChannelByRoomNameRequested(roomId)) {
                     // TODO add support for roomId or roomName
                     mCurrentRocketChatAccount->openDirectChannel(roomId /*, RocketChatAccount::ChannelTypeInfo::RoomName*/);
