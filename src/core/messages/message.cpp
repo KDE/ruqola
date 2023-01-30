@@ -1070,3 +1070,9 @@ QDebug operator<<(QDebug d, const Message &t)
 
     return d;
 }
+
+QString Message::dateTime() const
+{
+    const QDateTime currentDate = QDateTime::fromMSecsSinceEpoch(timeStamp());
+    return currentDate.toString();
+}

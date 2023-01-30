@@ -307,6 +307,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
             Utils::QuotedRichTextInfo info;
             info.url = url;
             info.richText = text;
+            info.displayTime = (*it).dateTime();
             quotedMessage = Utils::formatQuotedRichText(info);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
@@ -329,6 +330,7 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                     Utils::QuotedRichTextInfo info;
                     info.url = url;
                     info.richText = text;
+                    info.displayTime = msg->dateTime();
                     quotedMessage = Utils::formatQuotedRichText(info);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {

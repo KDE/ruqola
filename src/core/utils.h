@@ -18,6 +18,7 @@ namespace Utils
 struct LIBRUQOLACORE_EXPORT QuotedRichTextInfo {
     QString richText;
     QString url;
+    QString displayTime;
 };
 
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QUrl generateServerUrl(const QString &url);

@@ -331,10 +331,6 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
         return nullptr;
     }
     auto doc = MessageDelegateUtils::createTextDocument(MessageDelegateUtils::useItalicsForMessage(index), text, width);
-#ifdef QUOTED_ICON_SUPPORT
-    static QPixmap defaultMapPixmap = QIcon::fromTheme(QStringLiteral("map-symbolic")).pixmap(QSize(30, 30));
-    doc->addResource(QTextDocument::ImageResource, QUrl(QStringLiteral("go_to_quoted_message")), defaultMapPixmap);
-#endif
     auto ret = doc.get();
     connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
         ret->setHtml(makeMessageText(persistentIndex, false));

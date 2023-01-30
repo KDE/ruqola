@@ -207,6 +207,8 @@ public:
     Q_REQUIRED_RESULT QVector<Block> blocks() const;
     void setBlocks(const QVector<Block> &newBlocks);
 
+    Q_REQUIRED_RESULT QString dateTime() const;
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
