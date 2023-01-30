@@ -34,6 +34,8 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
                 mChannelType = ChannelType::Direct;
             } else if (mPath.startsWith(QStringLiteral("channel"))) {
                 mChannelType = ChannelType::Channel;
+            } else if (mPath.startsWith(QStringLiteral("group"))) {
+                mChannelType = ChannelType::Group;
             } else {
                 qCWarning(RUQOLA_LOG) << "Unknown channel type " << mPath;
                 return false;
@@ -56,6 +58,9 @@ bool ParseMessageUrlUtils::parseUrl(const QString &messageUrl)
         } else if (urlPathDecoded.contains(QStringLiteral("/direct/"))) {
             mRoomId = urlPathDecoded.remove(QStringLiteral("/direct/"));
             mChannelType = ChannelType::Direct;
+        } else if (urlPathDecoded.contains(QStringLiteral("/group/"))) {
+            mRoomId = urlPathDecoded.remove(QStringLiteral("/group/"));
+            mChannelType = ChannelType::Group;
         } else {
             mServerHost.clear();
             mPath.clear();

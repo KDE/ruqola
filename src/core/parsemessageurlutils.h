@@ -18,6 +18,7 @@ public:
         Unknown = 0,
         Direct = 1,
         Channel = 2,
+        Group = 3,
     };
     Q_ENUM(ChannelType)
     enum class RoomIdType {
