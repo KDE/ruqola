@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-28 00:58+0000\n"
-"PO-Revision-Date: 2023-01-27 09:24+0100\n"
+"PO-Revision-Date: 2023-01-28 19:50+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3289,12 +3289,12 @@ msgstr "Approva manualmente i nuovi utenti"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "Utilizza l'elenco dei domini bloccati predefinito"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "Usa il controllo del dominio DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
@@ -3336,33 +3336,34 @@ msgstr "Suggerimento predefinito per il prefisso del nome utente"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "Elenco separato da virgole di domini consentiti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "Elenco dei domini consentiti"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "Elenco separato da virgole di domini bloccati"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "Elenco dei domini bloccati"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Elenco separato da virgole di nomi utente bloccati (senza distinzione tra "
+"maiuscole e minuscole)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Blocca utente"
+msgstr "Elenco dei nomi utente bloccati"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
