@@ -304,7 +304,10 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                         settings.maximumRecursiveQuotedText);
             recusiveIndex++;
             const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-            quotedMessage = Utils::formatQuotedRichText(text, url);
+            Utils::QuotedRichTextInfo info;
+            info.url = url;
+            info.richText = text;
+            quotedMessage = Utils::formatQuotedRichText(info);
             str = str.left(startPos - 3) + str.mid(endPos + 1);
         } else {
             if (settings.messageCache) {
@@ -323,7 +326,10 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
                                                                 settings.maximumRecursiveQuotedText);
                     recusiveIndex++;
                     const QString text = convertMessageText(newSetting, needUpdateMessageId, recusiveIndex);
-                    quotedMessage = Utils::formatQuotedRichText(text, url);
+                    Utils::QuotedRichTextInfo info;
+                    info.url = url;
+                    info.richText = text;
+                    quotedMessage = Utils::formatQuotedRichText(info);
                     str = str.left(startPos - 3) + str.mid(endPos + 1);
                 } else {
                     qCDebug(RUQOLA_TEXTTOHTML_LOG) << "Quoted message" << messageId << "not found"; // could be a very old one
