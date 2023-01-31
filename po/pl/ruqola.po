@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"POT-Creation-Date: 2023-01-31 00:58+0000\n"
 "PO-Revision-Date: 2023-01-15 10:44+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -1071,25 +1071,25 @@ msgstr "Wiadomości prywatne"
 msgid "Unknown"
 msgstr "Nieznana"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:320
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "Dostępny"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:322
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Zajęty"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:324
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Nieobecny"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:326
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Niedostępny"
@@ -6517,7 +6517,7 @@ msgid "Search messages"
 msgstr "Poszukaj4 wiadomości"
 
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:89
+#: widgets/dialogs/showlistmessagebasewidget.cpp:93
 #: widgets/discussions/showdiscussionswidget.cpp:82
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -6525,7 +6525,7 @@ msgid "Loading..."
 msgstr "Wczytywanie..."
 
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:91
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -6617,7 +6617,7 @@ msgstr[1] "%1 załączniki w pokoju (Razem: %2)"
 msgstr[2] "%1 załączników w pokoju (Razem: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:99
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:93
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -6670,7 +6670,7 @@ msgstr "Zapisz obraz"
 msgid "Search messages..."
 msgstr "Poszukaj wiadomości..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:101
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7610,18 +7610,18 @@ msgstr "Wyświetl obraz"
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:296
+#: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Szczegóły użytkownika"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:304
+#: widgets/room/delegate/messagelistdelegate.cpp:298
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Rozpocznij prywatną rozmowę"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -7629,7 +7629,7 @@ msgstr[0] "1 odpowiedz"
 msgstr[1] "%1 odpowiedzi"
 msgstr[2] "%1 odpowiedzi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -7637,22 +7637,22 @@ msgstr[0] "1 wiadomość"
 msgstr[1] "%1 wiadomości"
 msgstr[2] "%1 wiadomości"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "No message yet"
 msgstr "Jeszcze nie ma żadnych wiadomości"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:683
 #, kde-format
 msgid "Following"
 msgstr "Podążanie"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:693
+#: widgets/room/delegate/messagelistdelegate.cpp:687
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Przypięto wiadomość"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:691
 #, kde-format
 msgid "Message has been starred"
 msgstr "Dodano gwiazdę do wiadomości"

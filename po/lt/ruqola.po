@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"POT-Creation-Date: 2023-01-31 00:58+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -1122,25 +1122,25 @@ msgstr ""
 msgid "Unknown"
 msgstr "Nežinoma būsena"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:320
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr ""
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:322
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr ""
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:324
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr ""
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:326
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr ""
@@ -6639,7 +6639,7 @@ msgid "Search messages"
 msgstr "Ieškoti žinučių..."
 
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:89
+#: widgets/dialogs/showlistmessagebasewidget.cpp:93
 #: widgets/discussions/showdiscussionswidget.cpp:82
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -6647,7 +6647,7 @@ msgid "Loading..."
 msgstr "Įkeliama..."
 
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:91
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -6748,7 +6748,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:99
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:93
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -6802,7 +6802,7 @@ msgstr "Įrašyti paveikslą"
 msgid "Search messages..."
 msgstr "Ieškoti žinučių..."
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:101
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7778,19 +7778,19 @@ msgstr ""
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:296
+#: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:304
+#: widgets/room/delegate/messagelistdelegate.cpp:298
 #, fuzzy, kde-format
 #| msgid "Encrypted Conversation"
 msgid "Start a Private Conversation"
 msgstr "Šifruotas pokalbis"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -7799,7 +7799,7 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -7808,23 +7808,23 @@ msgstr[1] "%1 žinutės"
 msgstr[2] "%1 žinučių"
 msgstr[3] "%1 žinutė"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:683
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:693
+#: widgets/room/delegate/messagelistdelegate.cpp:687
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:691
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"

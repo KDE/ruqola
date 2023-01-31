@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-01-28 00:58+0000\n"
+"POT-Creation-Date: 2023-01-31 00:58+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1116,25 +1116,25 @@ msgstr "Yksityisviestejä"
 msgid "Unknown"
 msgstr "Tuntematon tila"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:320
+#: core/model/statusmodel.cpp:61 core/utils.cpp:317
 #, kde-format
 msgid "Online"
 msgstr "Verkossa"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:322
+#: core/model/statusmodel.cpp:63 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Varattu"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:324
+#: core/model/statusmodel.cpp:65 core/utils.cpp:321
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Poissa"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:326
+#: core/utils.cpp:323
 #, kde-format
 msgid "Offline"
 msgstr "Ei verkossa"
@@ -6672,7 +6672,7 @@ msgid "Search messages"
 msgstr "Etsi viestejä"
 
 #: widgets/dialogs/searchmessagewidget.cpp:101
-#: widgets/dialogs/showlistmessagebasewidget.cpp:89
+#: widgets/dialogs/showlistmessagebasewidget.cpp:93
 #: widgets/discussions/showdiscussionswidget.cpp:82
 #: widgets/room/usersinroomwidget.cpp:135
 #, kde-format
@@ -6680,7 +6680,7 @@ msgid "Loading..."
 msgstr "Ladataan…"
 
 #: widgets/dialogs/searchmessagewidget.cpp:105
-#: widgets/dialogs/showlistmessagebasewidget.cpp:91
+#: widgets/dialogs/showlistmessagebasewidget.cpp:95
 #: widgets/room/usersinroomwidget.cpp:137
 #, kde-format
 msgid "No Message found"
@@ -6778,7 +6778,7 @@ msgstr[0] "Huoneessa on %1 liite (yhteensä: %2)"
 msgstr[1] "Huoneessa on %1 liitettä (yhteensä: %2)"
 
 #: widgets/dialogs/showattachmentwidget.cpp:99
-#: widgets/dialogs/showlistmessagebasewidget.cpp:99
+#: widgets/dialogs/showlistmessagebasewidget.cpp:103
 #: widgets/discussions/showdiscussionswidget.cpp:93
 #: widgets/misc/searchtreebasewidget.cpp:71
 #: widgets/room/usersinroomflowwidget.cpp:129
@@ -6832,7 +6832,7 @@ msgstr "Tallenna kuva"
 msgid "Search messages..."
 msgstr "Etsi viestejä…"
 
-#: widgets/dialogs/showlistmessagebasewidget.cpp:97
+#: widgets/dialogs/showlistmessagebasewidget.cpp:101
 #, kde-format
 msgid "%1 Message in room (Total: %2)"
 msgid_plural "%1 Messages in room (Total: %2)"
@@ -7789,48 +7789,48 @@ msgstr "Näytä kuva"
 msgid "Download Image..."
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:296
+#: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/usersinroommenu.cpp:86
 #, kde-format
 msgid "User Info"
 msgstr "Käyttäjän tiedot"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:304
+#: widgets/room/delegate/messagelistdelegate.cpp:298
 #, kde-format
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:465
+#: widgets/room/delegate/messagelistdelegate.cpp:459
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:472
+#: widgets/room/delegate/messagelistdelegate.cpp:466
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:683
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:693
+#: widgets/room/delegate/messagelistdelegate.cpp:687
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:691
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
