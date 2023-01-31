@@ -78,6 +78,7 @@ public:
         HoverHighLight,
         LocalTranslation,
         OriginalMessageOrAttachmentDescription,
+        GoToMessageBackgroundColor,
     };
     Q_ENUM(MessageRoles)
 

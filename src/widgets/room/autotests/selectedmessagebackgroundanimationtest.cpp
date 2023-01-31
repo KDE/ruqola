@@ -15,6 +15,7 @@ SelectedMessageBackgroundAnimationTest::SelectedMessageBackgroundAnimationTest(Q
 
 void SelectedMessageBackgroundAnimationTest::shouldHaveDefaultValues()
 {
-    SelectedMessageBackgroundAnimation d;
+    SelectedMessageBackgroundAnimation d(nullptr);
     QVERIFY(!d.backgroundColor().isValid());
+    QVERIFY(!d.messageModel());
 }

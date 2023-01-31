@@ -8,8 +8,9 @@
 
 #include <QPropertyAnimation>
 
-SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(QObject *parent)
+SelectedMessageBackgroundAnimation::SelectedMessageBackgroundAnimation(MessageModel *model, QObject *parent)
     : QObject{parent}
+    , mModel(model)
 {
 }
 
@@ -30,11 +31,20 @@ void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBac
 
 void SelectedMessageBackgroundAnimation::start()
 {
-    QPropertyAnimation *animation = new QPropertyAnimation(this, "backgroundColor");
-    animation->setDuration(2000);
-    animation->setStartValue(QColor(0, 0, 0));
-    animation->setEndValue(QColor(Qt::transparent));
-    animation->setEasingCurve(QEasingCurve::InOutQuad);
-    animation->start();
-    connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
+    if (mModel) {
+        auto animation = new QPropertyAnimation(this, "backgroundColor");
+        animation->setDuration(2000);
+        animation->setStartValue(QColor(Qt::red));
+        animation->setEndValue(QColor(Qt::transparent));
+        animation->setEasingCurve(QEasingCurve::InOutQuad);
+        animation->start();
+        connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
+    } else {
+        deleteLater();
+    }
+}
+
+MessageModel *SelectedMessageBackgroundAnimation::messageModel() const
+{
+    return mModel;
 }

@@ -394,6 +394,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return message.localTranslation();
     case MessageModel::OriginalMessageOrAttachmentDescription:
         return message.originalMessageOrAttachmentDescription();
+    case MessageModel::GoToMessageBackgroundColor:
+        return {}; // TODO
     }
 
     return {};
@@ -465,6 +467,10 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     case MessageModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
+        Q_EMIT dataChanged(index, index);
+        return true;
+    case MessageModel::GoToMessageBackgroundColor:
+        // TODO message.setLocalTranslation(value.toString());
         Q_EMIT dataChanged(index, index);
         return true;
     }
