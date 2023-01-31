@@ -32,7 +32,7 @@ void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBac
 void SelectedMessageBackgroundAnimation::start()
 {
     if (mModel) {
-        auto animation = new QPropertyAnimation(this, "backgroundColor");
+        auto animation = new QPropertyAnimation(this, "backgroundColor", this);
         animation->setDuration(2000);
         animation->setStartValue(QColor(Qt::red));
         animation->setEndValue(QColor(Qt::transparent));
