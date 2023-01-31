@@ -21,6 +21,8 @@ public:
     Q_REQUIRED_RESULT QColor backgroundColor() const;
     void setBackgroundColor(const QColor &newBackgroundColor);
 
+    void start();
+
 Q_SIGNALS:
     void backgroundColorChanged();
 
