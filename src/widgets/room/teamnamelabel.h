@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "model/roommodel.h"
+#include "room.h"
 #include <QLabel>
 
 #include "libruqolawidgets_private_export.h"
@@ -14,11 +14,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT TeamNameLabel : public QLabel
 {
     Q_OBJECT
 public:
-    struct TeamNameInfo {
-        QString teamName;
-        QString teamIdentifier;
-    };
-
     explicit TeamNameLabel(QWidget *parent = nullptr);
     ~TeamNameLabel() override;
 
