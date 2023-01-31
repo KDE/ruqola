@@ -586,6 +586,10 @@ target_sources(libruqolawidgets PRIVATE
     room/usersinroommenu.h
     room/usersinroomwidget.cpp
     room/usersinroomwidget.h
+
+    room/selectedmessagebackgroundanimation.h
+    room/selectedmessagebackgroundanimation.cpp
+
     ruqolacentralwidget.cpp
     ruqolacentralwidget.h
     ruqolacommandlineoptions.cpp
