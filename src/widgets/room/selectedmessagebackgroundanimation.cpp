@@ -5,6 +5,7 @@
 */
 
 #include "selectedmessagebackgroundanimation.h"
+#include "model/messagemodel.h"
 
 #include "ruqolawidgets_debug.h"
 #include <QPropertyAnimation>
@@ -25,8 +26,9 @@ QColor SelectedMessageBackgroundAnimation::backgroundColor() const
 
 void SelectedMessageBackgroundAnimation::slotBackgroundColorChanged()
 {
-    // TODO
-    if (mModel) { }
+    if (mModel && mModelIndex.isValid()) {
+        mModel->setData(mModelIndex, m_backgroundColor, MessageModel::GoToMessageBackgroundColor);
+    }
 }
 
 void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBackgroundColor)

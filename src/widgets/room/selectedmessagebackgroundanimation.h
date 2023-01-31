@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QColor>
 #include <QObject>
+#include <QPersistentModelIndex>
 class MessageModel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT SelectedMessageBackgroundAnimation : public QObject
 {
@@ -31,5 +32,6 @@ Q_SIGNALS:
 private:
     void slotBackgroundColorChanged();
     QColor m_backgroundColor;
+    QPersistentModelIndex mModelIndex;
     MessageModel *const mModel;
 };
