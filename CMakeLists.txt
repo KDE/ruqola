@@ -100,7 +100,7 @@ find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS
 
 
 find_package(KF${KF_MAJOR_VERSION}TextTranslator ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF5TextTranslator PROPERTIES DESCRIPTION
+set_package_properties(KF${KF_MAJOR_VERSION}TextTranslator PROPERTIES DESCRIPTION
     "Add support for text translation"
     TYPE OPTIONAL
 )
