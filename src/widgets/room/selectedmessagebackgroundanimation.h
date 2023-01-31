@@ -6,10 +6,11 @@
 
 #pragma once
 
+#include "libruqolawidgets_private_export.h"
 #include <QColor>
 #include <QObject>
 
-class SelectedMessageBackgroundAnimation : public QObject
+class LIBRUQOLAWIDGETS_TESTS_EXPORT SelectedMessageBackgroundAnimation : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QColor backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
