@@ -29,6 +29,7 @@ Q_SIGNALS:
     void backgroundColorChanged();
 
 private:
+    void slotBackgroundColorChanged();
     QColor m_backgroundColor;
     MessageModel *const mModel;
 };

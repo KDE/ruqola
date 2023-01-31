@@ -334,7 +334,10 @@ void MessageListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
 
     const Message *message = index.data(MessageModel::MessagePointer).value<Message *>();
 
-    if (message->isEditingMode()) {
+    const QColor goToMessageBackgroundColor{message->goToMessageBackgroundColor()};
+    if (goToMessageBackgroundColor.isValid() && goToMessageBackgroundColor != QColor(Qt::transparent)) {
+        painter->fillRect(option.rect, goToMessageBackgroundColor);
+    } else if (message->isEditingMode()) {
         painter->fillRect(option.rect, mEditColorMode);
     } else if (message->hoverHighlight() && RuqolaGlobalConfig::self()->showHoverHighlights()) {
         painter->fillRect(option.rect, mHoverHightlightColor);

@@ -209,6 +209,9 @@ public:
 
     Q_REQUIRED_RESULT QString dateTime() const;
 
+    Q_REQUIRED_RESULT QColor goToMessageBackgroundColor() const;
+    void setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);
@@ -217,6 +220,9 @@ private:
     void parseReactions(const QJsonObject &mentions);
     void parseChannels(const QJsonArray &channels);
     void parseBlocks(const QJsonArray &blocks);
+
+    // BackgroundColor
+    QColor mGoToMessageBackgroundColor;
 
     // Local translation
     QString mLocalTranslation;

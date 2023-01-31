@@ -364,6 +364,16 @@ void Message::parseBlocks(const QJsonArray &blocks)
     }
 }
 
+QColor Message::goToMessageBackgroundColor() const
+{
+    return mGoToMessageBackgroundColor;
+}
+
+void Message::setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor)
+{
+    mGoToMessageBackgroundColor = newGoToMessageBackgroundColor;
+}
+
 void Message::parseMentions(const QJsonArray &mentions)
 {
     mMentions.clear();
