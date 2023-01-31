@@ -7,6 +7,7 @@
 #include "ircwidgettest.h"
 #include "administratorsettingsdialog/irc/ircwidget.h"
 #include "settingswidgetshelper.h"
+#include <QLineEdit>
 #include <QSpinBox>
 #include <QTest>
 
@@ -26,5 +27,11 @@ void IrcWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mCacheLimitOutBoundMessage), QStringLiteral("IRC_Message_Cache_Size"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_Message_Cache_Size"));
 
+    auto mLoginSuccessful = w.findChild<QLineEdit *>(QStringLiteral("mLoginSuccessful"));
+    QVERIFY(mLoginSuccessful);
+    QVERIFY(mLoginSuccessful->text().isEmpty());
+    QVERIFY(!mLoginSuccessful->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mLoginSuccessful), QStringLiteral("IRC_RegEx_successLogin"));
+    SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("IRC_RegEx_successLogin"));
     // TODO
 }

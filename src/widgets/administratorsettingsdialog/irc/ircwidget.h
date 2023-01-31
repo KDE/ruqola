@@ -9,6 +9,7 @@
 #include "administratorsettingsdialog/settingswidgetbase.h"
 #include "libruqolawidgets_private_export.h"
 class QSpinBox;
+class QLineEdit;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT IrcWidget : public SettingsWidgetBase
 {
     Q_OBJECT
@@ -20,4 +21,5 @@ public:
 
 private:
     QSpinBox *const mCacheLimitOutBoundMessage;
+    QLineEdit *const mLoginSuccessful;
 };
