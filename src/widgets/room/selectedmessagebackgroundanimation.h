@@ -26,6 +26,9 @@ public:
 
     Q_REQUIRED_RESULT MessageModel *messageModel() const;
 
+    Q_REQUIRED_RESULT QPersistentModelIndex modelIndex() const;
+    void setModelIndex(const QPersistentModelIndex &newModelIndex);
+
 Q_SIGNALS:
     void backgroundColorChanged();
 

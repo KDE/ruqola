@@ -31,6 +31,16 @@ void SelectedMessageBackgroundAnimation::slotBackgroundColorChanged()
     }
 }
 
+QPersistentModelIndex SelectedMessageBackgroundAnimation::modelIndex() const
+{
+    return mModelIndex;
+}
+
+void SelectedMessageBackgroundAnimation::setModelIndex(const QPersistentModelIndex &newModelIndex)
+{
+    mModelIndex = newModelIndex;
+}
+
 void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBackgroundColor)
 {
     if (m_backgroundColor == newBackgroundColor)

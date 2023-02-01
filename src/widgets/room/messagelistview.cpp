@@ -16,6 +16,7 @@
 #include "roomutil.h"
 #include "ruqola.h"
 #include "ruqolawidgets_debug.h"
+#include "selectedmessagebackgroundanimation.h"
 #include "threadwidget/threadmessagedialog.h"
 
 #include <KLocalizedString>
@@ -721,6 +722,14 @@ void MessageListView::scrollTo(const QModelIndex &index, QAbstractItemView::Scro
     disconnect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
     QListView::scrollTo(index, hint);
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+    auto messageModel = qobject_cast<MessageModel *>(model());
+    if (messageModel) {
+        auto animation = new SelectedMessageBackgroundAnimation(messageModel, this);
+        animation->setModelIndex(index);
+        animation->start();
+    } else {
+        qCWarning(RUQOLAWIDGETS_LOG) << " message model empty";
+    }
 }
 
 void MessageListView::setSearchText(const QString &str)
