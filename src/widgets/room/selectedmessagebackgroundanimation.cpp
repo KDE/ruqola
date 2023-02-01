@@ -42,17 +42,13 @@ void SelectedMessageBackgroundAnimation::setBackgroundColor(const QColor &newBac
 
 void SelectedMessageBackgroundAnimation::start()
 {
-    if (mModel) {
-        auto animation = new QPropertyAnimation(this, "backgroundColor", this);
-        animation->setDuration(2000);
-        animation->setStartValue(QColor(Qt::red)); // TODO change color
-        animation->setEndValue(QColor(Qt::transparent));
-        animation->setEasingCurve(QEasingCurve::InOutQuad);
-        animation->start();
-        connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
-    } else {
-        deleteLater();
-    }
+    auto animation = new QPropertyAnimation(this, "backgroundColor", this);
+    animation->setDuration(2000);
+    animation->setStartValue(QColor(Qt::red)); // TODO change color
+    animation->setEndValue(QColor(Qt::transparent));
+    animation->setEasingCurve(QEasingCurve::InOutQuad);
+    animation->start();
+    connect(animation, &QPropertyAnimation::finished, this, &SelectedMessageBackgroundAnimation::deleteLater);
 }
 
 MessageModel *SelectedMessageBackgroundAnimation::messageModel() const

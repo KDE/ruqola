@@ -23,3 +23,8 @@ target_link_libraries(testcreatevideomessage_gui libruqolawidgets KF${KF_MAJOR_V
 ####
 add_executable(testservererrorinfo_gui testservererrorinfo_gui.cpp testservererrorinfomessagehistorywidget.h testservererrorinfomessagehistorywidget.cpp)
 target_link_libraries(testservererrorinfo_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
+
+####
+add_executable(selectedmessagebackgroundanimation_gui selectedmessagebackgroundanimation_gui.cpp
+    selectedmessagebackgroundanimationwidget.h selectedmessagebackgroundanimationwidget.cpp)
+target_link_libraries(selectedmessagebackgroundanimation_gui libruqolawidgets KF${KF_MAJOR_VERSION}::I18n)
