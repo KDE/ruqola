@@ -26,7 +26,7 @@
 #include "dialogs/modifystatusdialog.h"
 #include "dialogs/serverinfo/serverinfodialog.h"
 #include "directory/directorydialog.h"
-#include "localmessagelogger.h"
+#include "localdatabase/localmessagelogger.h"
 #include "misc/accountsoverviewwidget.h"
 #include "misc/servermenu.h"
 #include "misc/statuscombobox.h"

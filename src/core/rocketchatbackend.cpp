@@ -10,7 +10,7 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "localmessagelogger.h"
+#include "localdatabase/localmessagelogger.h"
 #include "model/messagemodel.h"
 #include "model/usercompletermodel.h"
 #include "model/usersmodel.h"

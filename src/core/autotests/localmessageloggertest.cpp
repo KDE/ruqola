@@ -5,7 +5,7 @@
 */
 
 #include "localmessageloggertest.h"
-#include "localmessagelogger.h"
+#include "localdatabase/localmessagelogger.h"
 #include "messages/message.h"
 
 #include <QSqlRecord>

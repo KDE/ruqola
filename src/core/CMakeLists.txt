@@ -107,8 +107,6 @@ target_sources(libruqolacore PRIVATE
     listmessages.h
     loadrecenthistorymanager.cpp
     loadrecenthistorymanager.h
-    localmessagelogger.cpp
-    localmessagelogger.h
     lrucache.h
     licenses/licensesmanager.h
     licenses/licensesmanager.cpp
@@ -429,6 +427,9 @@ target_sources(libruqolacore PRIVATE
     servererrorinfo.cpp
     servererrorinfohistorymanager.cpp
     servererrorinfohistorymanager.h
+
+    localdatabase/localmessagelogger.cpp
+    localdatabase/localmessagelogger.h
 
     localdatabase/localdatabasemanager.h
     localdatabase/localdatabasemanager.cpp
