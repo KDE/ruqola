@@ -429,6 +429,12 @@ target_sources(libruqolacore PRIVATE
     servererrorinfo.cpp
     servererrorinfohistorymanager.cpp
     servererrorinfohistorymanager.h
+
+    localdatabase/localdatabasemanager.h
+    localdatabase/localdatabasemanager.cpp
+
+    localdatabase/localmessagedatabase.h
+    localdatabase/localmessagedatabase.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
