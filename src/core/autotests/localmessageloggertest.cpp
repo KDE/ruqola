@@ -5,14 +5,13 @@
 */
 
 #include "localmessageloggertest.h"
-#include <localmessagelogger.h>
+#include "localmessagelogger.h"
+#include "messages/message.h"
 
 #include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QStandardPaths>
 #include <QTest>
-
-#include <messages/message.h>
 
 QTEST_GUILESS_MAIN(LocalMessageLoggerTest)
 
