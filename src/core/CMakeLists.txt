@@ -436,6 +436,9 @@ target_sources(libruqolacore PRIVATE
 
     localdatabase/localmessagedatabase.h
     localdatabase/localmessagedatabase.cpp
+
+    localdatabase/localdatabaseutils.h
+    localdatabase/localdatabaseutils.cpp
 )
 
 if (HAVE_TEXT_TRANSLATOR)
