@@ -715,6 +715,8 @@ void RuqolaMainWindow::slotShowLog()
                 job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, this));
                 job->setDeleteTemporaryFile(true);
                 job->start();
+            } else {
+                KMessageBox::information(this, i18n("Impossible to open log."), i18n("Show Log"));
             }
         }
     }
