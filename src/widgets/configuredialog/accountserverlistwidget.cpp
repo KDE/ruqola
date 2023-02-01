@@ -50,6 +50,7 @@ void AccountServerListWidget::save()
     auto accountManager = Ruqola::self()->accountManager();
     for (const QString &accountName : std::as_const(mListRemovedAccount)) {
         accountManager->removeAccount(accountName);
+        // TODO remove log too
     }
 
     QStringList order;
