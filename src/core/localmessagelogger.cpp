@@ -6,9 +6,9 @@
 
 #include "localmessagelogger.h"
 
+#include "messages/message.h"
 #include "ruqola_debug.h"
 #include "ruqolaglobalconfig.h"
-#include <messages/message.h>
 
 #include <QDir>
 #include <QSqlDatabase>
@@ -20,7 +20,7 @@
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()
-    : m_basePath(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/"))
+    : m_basePath(Utils::localMessageLoggerPath())
 {
 }
 

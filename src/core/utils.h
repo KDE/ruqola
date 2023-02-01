@@ -36,6 +36,7 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray strToJsonArray(const QSt
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QByteArray convertSha256Password(const QString &pwd);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString emojiFontName();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString displaytextFromPresenceStatus(User::PresenceStatus status);
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localMessageLoggerPath();
 /**
  * @brief Convert []() style Markdown URLS with proper HTML tags
  *
