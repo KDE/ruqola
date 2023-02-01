@@ -64,7 +64,9 @@ ShowListMessageBaseWidget::ShowListMessageBaseWidget(RocketChatAccount *account,
 ShowListMessageBaseWidget::~ShowListMessageBaseWidget()
 {
     // Clear search text
-    mModel->listMessageModel()->setSearchText({});
+    if (mModel && mModel->listMessageModel()) {
+        mModel->listMessageModel()->setSearchText({});
+    }
 }
 
 void ShowListMessageBaseWidget::setModel(ListMessagesModelFilterProxyModel *model)
