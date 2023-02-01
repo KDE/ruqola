@@ -559,6 +559,7 @@ set_target_properties(libruqolacore
 
 if (BUILD_TESTING)
     add_subdirectory(autotests)
+    add_subdirectory(localdatabase/autotests)
 endif()
 
 install(TARGETS libruqolacore ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
