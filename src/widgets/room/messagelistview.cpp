@@ -722,6 +722,11 @@ void MessageListView::scrollTo(const QModelIndex &index, QAbstractItemView::Scro
     disconnect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
     QListView::scrollTo(index, hint);
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MessageListView::slotVerticalScrollbarChanged);
+    addSelectedMessageBackgroundAnimation(index);
+}
+
+void MessageListView::addSelectedMessageBackgroundAnimation(const QModelIndex &index)
+{
     auto messageModel = qobject_cast<MessageModel *>(model());
     if (messageModel) {
         auto animation = new SelectedMessageBackgroundAnimation(messageModel, this);

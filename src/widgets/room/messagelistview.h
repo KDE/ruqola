@@ -96,6 +96,7 @@ private:
     void slotTextToSpeech(const QModelIndex &index);
 
 private:
+    void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     void createTranslorMenu();
     QPointer<Room> mRoom;
     const MessageListView::Mode mMode = MessageListView::Mode::Editing;
