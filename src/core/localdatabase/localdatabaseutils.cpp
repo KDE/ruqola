@@ -6,9 +6,16 @@
 
 #include "localdatabaseutils.h"
 
+#include <QStandardPaths>
+
 QString LocalDatabaseUtils::fixRoomName(QString roomName)
 {
     roomName.remove(QLatin1Char('/'));
     roomName.remove(QLatin1Char(':'));
     return roomName;
+}
+
+QString LocalDatabaseUtils::localMessageLoggerPath()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/");
 }

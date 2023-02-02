@@ -326,8 +326,3 @@ QString Utils::displaytextFromPresenceStatus(User::PresenceStatus status)
     }
     return {};
 }
-
-QString Utils::localMessageLoggerPath()
-{
-    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/");
-}

@@ -21,7 +21,7 @@
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()
-    : m_basePath(Utils::localMessageLoggerPath())
+    : m_basePath(LocalDatabaseUtils::localMessageLoggerPath())
 {
 }
 
