@@ -112,6 +112,9 @@ public:
     Q_REQUIRED_RESULT const QString &authCode() const;
     void setAuthCode(const QString &newAuthCode);
 
+    Q_REQUIRED_RESULT QDateTime updatedSince() const;
+    void setUpdatedSince(const QDateTime &newUpdatedSince);
+
 Q_SIGNALS:
     void failed(const QString &str);
 
@@ -152,6 +155,7 @@ protected Q_SLOTS:
 private:
     void genericResponseHandler(void (RestApiAbstractJob::*func)(const QJsonDocument &replyJson));
 
+    QDateTime mUpdatedSince;
     QueryParameters mQueryParameters;
     QString mAuthToken;
     QString mUserId;
