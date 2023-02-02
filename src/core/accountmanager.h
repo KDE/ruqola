@@ -29,7 +29,7 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager() override;
 
-    void removeAccount(const QString &accountName, bool removeLogs = false);
+    void removeAccount(const QString &accountName, bool removeLogFiles = false);
     void addAccount(const AccountManagerInfo &info);
 
     RocketChatAccount *account() const;
@@ -63,6 +63,7 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(AccountManager)
 
+    void removeLogs(const QString &accountName);
     void loadAccount();
     void connectToAccount(RocketChatAccount *account);
     void slotSwitchToAccountAndRoomName(const QString &accountName, const QString &roomName, const QString &channelType);

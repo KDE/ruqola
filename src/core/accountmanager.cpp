@@ -5,6 +5,7 @@
 */
 
 #include "accountmanager.h"
+#include "localdatabase/localdatabaseutils.h"
 #include "managerdatapaths.h"
 #include "notificationhistorymanager.h"
 #include "notifications/notifierjob.h"
@@ -237,12 +238,25 @@ QString AccountManager::currentAccount() const
     return mCurrentAccount ? mCurrentAccount->accountName() : QString();
 }
 
-void AccountManager::removeAccount(const QString &accountName, bool removeLogs)
+void AccountManager::removeLogs(const QString &accountName)
+{
+    const QString directory = LocalDatabaseUtils::localMessageLoggerPath() + accountName;
+    QDir dir(directory);
+    if (dir.exists()) {
+        if (!dir.removeRecursively()) {
+            qCWarning(RUQOLA_LOG) << " Impossible to remove directory : " << directory;
+        }
+    }
+}
+
+void AccountManager::removeAccount(const QString &accountName, bool removeLogFiles)
 {
     auto account = mRocketChatAccountModel->removeAccount(accountName);
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
-        // TODO use removeLogs
+        if (removeLogFiles) {
+            removeLogs(accountName);
+        }
     } else {
         // TODO create new dummy account !
     }
