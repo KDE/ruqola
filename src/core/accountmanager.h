@@ -29,7 +29,7 @@ public:
     explicit AccountManager(QObject *parent = nullptr);
     ~AccountManager() override;
 
-    void removeAccount(const QString &accountName);
+    void removeAccount(const QString &accountName, bool removeLogs = false);
     void addAccount(const AccountManagerInfo &info);
 
     RocketChatAccount *account() const;

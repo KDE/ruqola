@@ -72,7 +72,7 @@ void ConfigureAccountServerWidget::slotDeleteServer()
     QPointer<RemoveAccountDialog> dlg = new RemoveAccountDialog(this);
     dlg->setAccountName(item->text());
     if (dlg->exec()) {
-        ui->accountServerListwidget->deleteAccountConfig(item);
+        ui->accountServerListwidget->deleteAccountConfig(item, dlg->removeLogs());
         delete item;
         slotItemSelectionChanged();
     }

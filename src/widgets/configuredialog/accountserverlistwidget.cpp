@@ -48,9 +48,10 @@ void AccountServerListWidget::save()
 {
     // First remove account
     auto accountManager = Ruqola::self()->accountManager();
-    for (const QString &accountName : std::as_const(mListRemovedAccount)) {
-        accountManager->removeAccount(accountName);
-        // TODO remove log too
+    QMapIterator<QString, bool> i(mListRemovedAccount);
+    while (i.hasNext()) {
+        i.next();
+        accountManager->removeAccount(i.key());
     }
 
     QStringList order;
@@ -91,9 +92,9 @@ void AccountServerListWidget::modifyAccountConfig()
     delete dlg;
 }
 
-void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item)
+void AccountServerListWidget::deleteAccountConfig(QListWidgetItem *item, bool removeLogs)
 {
-    mListRemovedAccount.append(item->text());
+    mListRemovedAccount.insert(item->text(), removeLogs);
 }
 
 void AccountServerListWidget::addAccountConfig()

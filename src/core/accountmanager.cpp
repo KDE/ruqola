@@ -237,11 +237,12 @@ QString AccountManager::currentAccount() const
     return mCurrentAccount ? mCurrentAccount->accountName() : QString();
 }
 
-void AccountManager::removeAccount(const QString &accountName)
+void AccountManager::removeAccount(const QString &accountName, bool removeLogs)
 {
     auto account = mRocketChatAccountModel->removeAccount(accountName);
     if (mRocketChatAccountModel->accountNumber() > 0) {
         mCurrentAccount = mRocketChatAccountModel->account(0);
+        // TODO use removeLogs
     } else {
         // TODO create new dummy account !
     }

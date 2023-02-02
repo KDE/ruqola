@@ -35,7 +35,7 @@ public:
     void load();
     void save();
     void addAccountConfig();
-    void deleteAccountConfig(QListWidgetItem *item);
+    void deleteAccountConfig(QListWidgetItem *item, bool removeLogs);
 
     void modifyAccountConfig();
 
@@ -43,5 +43,6 @@ public:
     void slotMoveAccountDown();
 
 private:
-    QStringList mListRemovedAccount;
+    // AccountName, remove logs
+    QMap<QString, bool> mListRemovedAccount;
 };
