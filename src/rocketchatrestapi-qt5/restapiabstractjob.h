@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QObject>

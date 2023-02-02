@@ -66,4 +66,4 @@ private:
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::RoomsExportJob::RoomsExportInfo::FileFormat)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::RoomsExportJob::RoomsExportInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::RoomsExportJob::RoomsExportInfo &t);

@@ -7,7 +7,7 @@
 #pragma once
 
 #include "channelgroupbasejob.h"
-#include "restapiabstractjob.h"
+#include "librestapi_private_export.h"
 
 namespace RocketChatRestApi
 {

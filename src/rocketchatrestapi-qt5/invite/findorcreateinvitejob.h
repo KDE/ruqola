@@ -60,4 +60,4 @@ private:
 }
 Q_DECLARE_METATYPE(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo)
 Q_DECLARE_TYPEINFO(RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo, Q_MOVABLE_TYPE);
-LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &t);
+LIBROCKETCHATRESTAPI_QT5_EXPORT QDebug operator<<(QDebug d, const RocketChatRestApi::FindOrCreateInviteJob::InviteUsersInfo &t);
