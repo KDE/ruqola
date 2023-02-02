@@ -5,9 +5,9 @@
 */
 
 #include "configureaccountserverwidget.h"
+#include "removeaccountdialog.h"
 #include "ui_configureaccountserverwidget.h"
 #include <KLocalizedString>
-#include <KMessageBox>
 
 ConfigureAccountServerWidget::ConfigureAccountServerWidget(QWidget *parent)
     : QWidget(parent)
@@ -69,16 +69,13 @@ void ConfigureAccountServerWidget::slotDeleteServer()
     if (!item) {
         return;
     }
-    if (KMessageBox::ButtonCode::PrimaryAction
-        == KMessageBox::questionTwoActions(this,
-                                           i18n("Do you want to remove this account \'%1\'?", item->text()),
-                                           i18nc("@title:window", "Remove Account"),
-                                           KStandardGuiItem::remove(),
-                                           KStandardGuiItem::cancel())) {
+    QPointer<RemoveAccountDialog> dlg = new RemoveAccountDialog(this);
+    if (dlg->exec()) {
         ui->accountServerListwidget->deleteAccountConfig(item);
         delete item;
         slotItemSelectionChanged();
     }
+    delete dlg;
 }
 
 void ConfigureAccountServerWidget::slotItemSelectionChanged()
