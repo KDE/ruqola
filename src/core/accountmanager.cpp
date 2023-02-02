@@ -119,8 +119,12 @@ void AccountManager::loadAccount()
         const QString val = it.next();
         qCDebug(RUQOLA_LOG) << "Account found list.at(i)" << val;
         auto account = new RocketChatAccount(val);
-        connectToAccount(account);
-        lstAccounts.append(account);
+        if (account->settings()->isValid()) {
+            connectToAccount(account);
+            lstAccounts.append(account);
+        } else {
+            account->deleteLater();
+        }
     }
 
     // New account => empty list.

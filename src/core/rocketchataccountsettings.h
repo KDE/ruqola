@@ -22,6 +22,9 @@ class LIBRUQOLACORE_EXPORT RocketChatAccountSettings : public QObject
 public:
     explicit RocketChatAccountSettings(const QString &accountFileName = QString(), QObject *parent = nullptr);
     ~RocketChatAccountSettings() override;
+
+    Q_REQUIRED_RESULT bool isValid() const;
+
     Q_REQUIRED_RESULT QString userId() const;
     void setUserId(const QString &userId);
 

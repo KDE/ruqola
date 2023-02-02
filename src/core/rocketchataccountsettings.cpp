@@ -34,6 +34,11 @@ RocketChatAccountSettings::~RocketChatAccountSettings()
     delete mSetting;
 }
 
+bool RocketChatAccountSettings::isValid() const
+{
+    return !mServerUrl.isEmpty() && !mUserName.isEmpty();
+}
+
 void RocketChatAccountSettings::initializeSettings(const QString &accountFileName)
 {
     delete mSetting;

@@ -100,6 +100,9 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
     loadSettings(accountFileName);
+    if (!mSettings->isValid()) {
+        return;
+    }
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
@@ -271,10 +274,12 @@ void RocketChatAccount::loadSettings(const QString &accountFileName)
 {
     delete mSettings;
     mSettings = new RocketChatAccountSettings(accountFileName, this);
-    connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
-    connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
-    connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
-    connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
+    if (mSettings->isValid()) {
+        connect(mSettings, &RocketChatAccountSettings::serverURLChanged, this, &RocketChatAccount::serverUrlChanged);
+        connect(mSettings, &RocketChatAccountSettings::userIdChanged, this, &RocketChatAccount::userIdChanged);
+        connect(mSettings, &RocketChatAccountSettings::userNameChanged, this, &RocketChatAccount::userNameChanged);
+        connect(mSettings, &RocketChatAccountSettings::passwordChanged, this, &RocketChatAccount::passwordChanged);
+    }
 }
 
 void RocketChatAccount::slotRoomNeedAttention()
