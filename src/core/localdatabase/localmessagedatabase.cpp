@@ -5,6 +5,7 @@
 */
 
 #include "localmessagedatabase.h"
+#include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "messages/message.h"
 #include "ruqola_debug.h"
@@ -15,7 +16,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QSqlTableModel>
-// #define USE_LOCAL_MESSAGE 0
+
 static const char s_schemaMessageDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
     MessageId,
@@ -36,11 +37,16 @@ QString LocalMessageDatabase::dbFileName(const QString &accountName, const QStri
     return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
 }
 
+QString LocalMessageDatabase::databaseName(const QString &name)
+{
+    return QStringLiteral("messages-") + name;
+}
+
 void LocalMessageDatabase::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
 {
-#ifdef USE_LOCAL_MESSAGE
+#if HAVE_DATABASE_SUPPORT
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = accountName + QLatin1Char('-') + roomName;
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
@@ -85,11 +91,11 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
 
 void LocalMessageDatabase::deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId)
 {
-#ifdef USE_LOCAL_MESSAGE
+#ifdef HAVE_DATABASE_SUPPORT
     // addMessage is always called before deleteMessage, if only for the history replay on connect
     // So the db must exist
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = accountName + QLatin1Char('-') + roomName;
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         qCWarning(RUQOLA_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room" << roomName;
