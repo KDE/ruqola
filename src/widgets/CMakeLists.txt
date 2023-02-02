@@ -239,6 +239,10 @@ target_sources(libruqolawidgets PRIVATE
     configuredialog/configurespellcheckingwidget.h
     configuredialog/configureuserfeedbackwidget.cpp
     configuredialog/configureuserfeedbackwidget.h
+    configuredialog/removeaccountdialog.cpp
+    configuredialog/removeaccountdialog.h
+    configuredialog/removeaccountwidget.cpp
+    configuredialog/removeaccountwidget.h
 
 
     delegateutils/messagedelegateutils.cpp
