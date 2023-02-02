@@ -10,16 +10,14 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "localdatabase/localmessagelogger.h"
+#include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
-#include "model/usercompletermodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
 #include "ruqola_message_debug.h"
 #include "ruqola_unknown_collectiontype_debug.h"
-#include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
 
 #include <QJsonArray>
@@ -126,7 +124,7 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)
-    , mMessageLogger(std::make_unique<LocalMessageLogger>())
+    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::slotUserIDChanged);
@@ -202,7 +200,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
                 // qDebug() << " Update thread message";
             }
             if (room) {
-                mMessageLogger->addMessage(mRocketChatAccount->accountName(), room->displayFName(), m);
+                mLocalDatabaseManager->addMessage(mRocketChatAccount->accountName(), room->displayFName(), m);
                 if (!loadHistory) {
                     room->newMessageAdded();
                 }
@@ -526,7 +524,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId);
                 if (room) {
-                    mMessageLogger->deleteMessage(mRocketChatAccount->accountName(), room->displayFName(), messageId);
+                    mLocalDatabaseManager->deleteMessage(mRocketChatAccount->accountName(), room->displayFName(), messageId);
                 }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessageModel *threadMessageModel = mRocketChatAccount->threadMessageModel();
