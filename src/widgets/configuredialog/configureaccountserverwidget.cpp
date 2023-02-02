@@ -70,6 +70,7 @@ void ConfigureAccountServerWidget::slotDeleteServer()
         return;
     }
     QPointer<RemoveAccountDialog> dlg = new RemoveAccountDialog(this);
+    dlg->setAccountName(item->text());
     if (dlg->exec()) {
         ui->accountServerListwidget->deleteAccountConfig(item);
         delete item;
