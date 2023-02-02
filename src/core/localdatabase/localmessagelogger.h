@@ -28,5 +28,5 @@ public:
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
 
 private:
-    QString m_basePath;
+    const QString mBasePath;
 };

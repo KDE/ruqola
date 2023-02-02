@@ -21,7 +21,7 @@
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()
-    : m_basePath(LocalDatabaseUtils::localMessageLoggerPath())
+    : mBasePath(LocalDatabaseUtils::localMessageLoggerPath())
 {
 }
 
@@ -35,7 +35,7 @@ enum class Fields {
 
 QString LocalMessageLogger::dbFileName(const QString &accountName, const QString &roomName) const
 {
-    const QString dirPath = m_basePath + accountName;
+    const QString dirPath = mBasePath + accountName;
     return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
 }
 
@@ -49,7 +49,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
-        const QString dirPath = m_basePath + accountName;
+        const QString dirPath = mBasePath + accountName;
         if (!QDir().mkpath(dirPath)) {
             qCWarning(RUQOLA_LOG) << "Couldn't create" << dirPath;
             return;

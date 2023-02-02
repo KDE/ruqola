@@ -19,3 +19,8 @@ QString LocalDatabaseUtils::localMessageLoggerPath()
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/");
 }
+
+QString LocalDatabaseUtils::localMessageDatabasePath()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/");
+}

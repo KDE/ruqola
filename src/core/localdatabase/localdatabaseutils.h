@@ -12,4 +12,5 @@ namespace LocalDatabaseUtils
 {
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString fixRoomName(QString roomName);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localMessageLoggerPath();
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localMessageDatabasePath();
 };
