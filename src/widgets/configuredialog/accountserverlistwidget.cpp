@@ -51,7 +51,7 @@ void AccountServerListWidget::save()
     QMapIterator<QString, bool> i(mListRemovedAccount);
     while (i.hasNext()) {
         i.next();
-        accountManager->removeAccount(i.key());
+        accountManager->removeAccount(i.key(), i.value());
     }
 
     QStringList order;
