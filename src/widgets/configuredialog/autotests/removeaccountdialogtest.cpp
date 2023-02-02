@@ -6,7 +6,10 @@
 
 #include "removeaccountdialogtest.h"
 #include "configuredialog/removeaccountdialog.h"
+#include "configuredialog/removeaccountwidget.h"
+#include <QDialogButtonBox>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(RemoveAccountDialogTest)
 RemoveAccountDialogTest::RemoveAccountDialogTest(QObject *parent)
     : QObject{parent}
@@ -16,5 +19,15 @@ RemoveAccountDialogTest::RemoveAccountDialogTest(QObject *parent)
 void RemoveAccountDialogTest::shouldHaveDefaultValues()
 {
     RemoveAccountDialog d;
-    // TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+
+    auto mRemoveAccountWidget = d.findChild<RemoveAccountWidget *>(QStringLiteral("mRemoveAccountWidget"));
+    QVERIFY(mRemoveAccountWidget);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
+
+    QVERIFY(!d.removeLogs());
 }

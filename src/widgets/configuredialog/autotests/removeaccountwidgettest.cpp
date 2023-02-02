@@ -5,7 +5,10 @@
 */
 #include "removeaccountwidgettest.h"
 #include "configuredialog/removeaccountwidget.h"
+#include <QCheckBox>
+#include <QLabel>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(RemoveAccountWidgetTest)
 RemoveAccountWidgetTest::RemoveAccountWidgetTest(QObject *parent)
     : QObject{parent}
@@ -15,5 +18,18 @@ RemoveAccountWidgetTest::RemoveAccountWidgetTest(QObject *parent)
 void RemoveAccountWidgetTest::shouldHaveDefaultValues()
 {
     RemoveAccountWidget w;
-    // TODO
+    auto mRemoveLogs = w.findChild<QCheckBox *>(QStringLiteral("mRemoveLogs"));
+    QVERIFY(mRemoveLogs);
+    QVERIFY(!mRemoveLogs->text().isEmpty());
+    QVERIFY(!mRemoveLogs->isChecked());
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    QVERIFY(!w.removeLogs());
+
+    auto mInfo = w.findChild<QLabel *>(QStringLiteral("mInfo"));
+    QVERIFY(mInfo);
+    QVERIFY(mInfo->text().isEmpty());
 }
