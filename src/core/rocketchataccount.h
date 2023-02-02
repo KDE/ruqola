@@ -547,7 +547,7 @@ Q_SIGNALS:
     void publicSettingChanged();
     void serverVersionChanged();
     void openLinkRequested(const QString &link);
-    void selectRoomByRoomIdRequested(const QString &identifier);
+    void selectRoomByRoomIdRequested(const QString &identifier, const QString &messageId = QString());
     void selectRoomByRoomNameRequested(const QString &identifier);
     void openTeamNameRequested(const QString &identifier);
     void openThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing);

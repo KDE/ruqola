@@ -24,7 +24,7 @@ public:
 
     Q_REQUIRED_RESULT RoomFilterProxyModel *filterModel() const;
 
-    void selectChannelRequested(const QString &channelId);
+    void selectChannelRequested(const QString &channelId, const QString &messageId);
     void selectNextUnreadChannel();
 
     enum class Direction {
@@ -43,6 +43,7 @@ public:
 Q_SIGNALS:
     void roomSelected(const QString &roomName, const QString &roomId, Room::RoomType roomType);
     void roomPressed(const QString &roomId);
+    void selectMessageIdRequested(const QString &messageId);
 
 protected:
     void contextMenuEvent(QContextMenuEvent *event) override;

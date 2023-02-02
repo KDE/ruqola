@@ -31,6 +31,7 @@ ChannelListWidget::ChannelListWidget(QWidget *parent)
 
     mChannelView->setObjectName(QStringLiteral("mChannelView"));
     mainLayout->addWidget(mChannelView);
+    connect(mChannelView, &ChannelListView::selectMessageIdRequested, this, &ChannelListWidget::selectMessageIdRequested);
     connect(mChannelView, &ChannelListView::roomPressed, this, &ChannelListWidget::roomPressed);
     connect(mChannelView, &ChannelListView::roomSelected, this, [this](const QString &roomName, const QString &roomId, Room::RoomType roomType) {
         // retain focus on the search line edit when this is triggering the room change
@@ -133,7 +134,7 @@ bool ChannelListWidget::eventFilter(QObject *object, QEvent *event)
 
 void ChannelListWidget::slotAccountInitialized()
 {
-    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom());
+    mChannelView->selectChannelRequested(mCurrentRocketChatAccount->settings()->lastSelectedRoom(), QString());
 }
 
 void ChannelListWidget::slotSearchRoomTextChanged()

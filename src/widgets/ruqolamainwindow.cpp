@@ -945,8 +945,7 @@ void RuqolaMainWindow::slotFullScreen(bool t)
 void RuqolaMainWindow::slotShowNotifyMessage(const QString &accountName, const QString &messageId, const QString &roomId)
 {
     Ruqola::self()->setCurrentAccount(accountName);
-    Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId);
-    // TODO use messageId too
+    Q_EMIT mCurrentRocketChatAccount->selectRoomByRoomIdRequested(roomId, messageId);
 }
 
 void RuqolaMainWindow::slotOpenNotificationHistory()
