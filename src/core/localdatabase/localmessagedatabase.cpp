@@ -25,7 +25,7 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalMessageDatabase::LocalMessageDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localMessageDatabasePath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath())
 {
 }
 

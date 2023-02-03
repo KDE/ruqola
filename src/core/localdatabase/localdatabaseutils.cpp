@@ -20,7 +20,22 @@ QString LocalDatabaseUtils::localMessageLoggerPath()
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/logs/");
 }
 
-QString LocalDatabaseUtils::localMessageDatabasePath()
+QString LocalDatabaseUtils::localDatabasePath()
 {
     return QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QStringLiteral("/database/");
+}
+
+QString LocalDatabaseUtils::localMessagesDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("messages/");
+}
+
+QString LocalDatabaseUtils::localRoomsDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("rooms/");
+}
+
+QString LocalDatabaseUtils::localAccountDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("account/");
 }

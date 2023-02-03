@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localroomsdatabase.h"
+#include "localaccountdatabase.h"
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_debug.h"
@@ -16,9 +16,9 @@ enum class Fields {
     Json,
 }; // in the same order as the table
 
-LocalRoomsDatabase::LocalRoomsDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localRoomsDatabasePath())
+LocalAccountDatabase::LocalAccountDatabase()
+    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath())
 {
 }
 
-LocalRoomsDatabase::~LocalRoomsDatabase() = default;
+LocalAccountDatabase::~LocalAccountDatabase() = default;
