@@ -8,12 +8,14 @@
 #include "administratordialog/oauth/administratoroautheditwidget.h"
 #include <QDialogButtonBox>
 #include <QPushButton>
+#include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(AdministratorOauthEditDialogTest)
 AdministratorOauthEditDialogTest::AdministratorOauthEditDialogTest(QObject *parent)
     : QObject{parent}
 {
+    QStandardPaths::setTestModeEnabled(true);
 }
 
 void AdministratorOauthEditDialogTest::shouldHaveDefaultValues()
