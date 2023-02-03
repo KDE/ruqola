@@ -6,10 +6,12 @@
 
 #pragma once
 
+#include "localdatabasebase.h"
+
 #include <QString>
 
 class Message;
-class LocalMessageDatabase
+class LocalMessageDatabase : public LocalDatabaseBase
 {
 public:
     LocalMessageDatabase();
@@ -17,10 +19,6 @@ public:
     void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
 
-    // only public for the unittest
-    Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
-
 private:
     Q_REQUIRED_RESULT QString databaseName(const QString &name);
-    const QString mBasePath;
 };

@@ -25,17 +25,11 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalMessageDatabase::LocalMessageDatabase()
-    : mBasePath(LocalDatabaseUtils::localMessageDatabasePath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localMessageDatabasePath())
 {
 }
 
 LocalMessageDatabase::~LocalMessageDatabase() = default;
-
-QString LocalMessageDatabase::dbFileName(const QString &accountName, const QString &roomName) const
-{
-    const QString dirPath = mBasePath + accountName;
-    return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
-}
 
 QString LocalMessageDatabase::databaseName(const QString &name)
 {
