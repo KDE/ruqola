@@ -21,7 +21,7 @@
 #include <QTextStream>
 
 LocalMessageLogger::LocalMessageLogger()
-    : mBasePath(LocalDatabaseUtils::localMessageLoggerPath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localMessageLoggerPath())
 {
 }
 
@@ -32,12 +32,6 @@ enum class Fields {
     UserName,
     Text,
 }; // in the same order as the table
-
-QString LocalMessageLogger::dbFileName(const QString &accountName, const QString &roomName) const
-{
-    const QString dirPath = mBasePath + accountName;
-    return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
-}
 
 void LocalMessageLogger::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
 {

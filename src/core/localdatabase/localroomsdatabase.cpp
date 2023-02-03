@@ -5,8 +5,10 @@
 */
 
 #include "localroomsdatabase.h"
+#include "localdatabaseutils.h"
 
 LocalRoomsDatabase::LocalRoomsDatabase()
+    : LocalDatabaseBase(LocalDatabaseUtils::localMessageDatabasePath())
 {
 }
 

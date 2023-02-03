@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "localdatabasebase.h"
 #include <QString>
 #include <memory>
 
@@ -14,7 +15,7 @@ class QFile;
 class QSqlTableModel;
 class Message;
 
-class LIBRUQOLACORE_EXPORT LocalMessageLogger
+class LIBRUQOLACORE_EXPORT LocalMessageLogger : public LocalDatabaseBase
 {
 public:
     LocalMessageLogger();
@@ -23,10 +24,4 @@ public:
     void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
     Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &roomName) const;
     Q_REQUIRED_RESULT bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
-
-    // only public for the unittest
-    Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
-
-private:
-    const QString mBasePath;
 };

@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <QString>
 
-class LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalDatabaseBase
 {
 public:
     explicit LocalDatabaseBase(const QString &basePath);

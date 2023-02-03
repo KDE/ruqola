@@ -4,9 +4,11 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "localdatabasebase.h"
+
 #pragma once
 
-class LocalRoomsDatabase
+class LocalRoomsDatabase : public LocalDatabaseBase
 {
 public:
     LocalRoomsDatabase();
