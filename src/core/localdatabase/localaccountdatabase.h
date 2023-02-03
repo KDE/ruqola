@@ -13,4 +13,7 @@ class LocalAccountDatabase : public LocalDatabaseBase
 public:
     LocalAccountDatabase();
     ~LocalAccountDatabase();
+
+private:
+    Q_REQUIRED_RESULT QString databaseName(const QString &name);
 };

@@ -9,7 +9,7 @@
 #include "localdatabaseutils.h"
 #include "ruqola_debug.h"
 
-static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
     RoomId,
     TimeStamp,
@@ -22,3 +22,8 @@ LocalAccountDatabase::LocalAccountDatabase()
 }
 
 LocalAccountDatabase::~LocalAccountDatabase() = default;
+
+QString LocalAccountDatabase::databaseName(const QString &name)
+{
+    return QStringLiteral("accounts-") + name;
+}

@@ -13,4 +13,9 @@ class LocalRoomsDatabase : public LocalDatabaseBase
 public:
     LocalRoomsDatabase();
     ~LocalRoomsDatabase();
+    void addRoom(const QString &roomId);
+    void deleteRoom(const QString &roomId);
+
+private:
+    Q_REQUIRED_RESULT QString databaseName(const QString &name);
 };

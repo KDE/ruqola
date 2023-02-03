@@ -22,3 +22,16 @@ LocalRoomsDatabase::LocalRoomsDatabase()
 }
 
 LocalRoomsDatabase::~LocalRoomsDatabase() = default;
+
+void LocalRoomsDatabase::addRoom(const QString &roomId)
+{
+}
+
+void LocalRoomsDatabase::deleteRoom(const QString &roomId)
+{
+}
+
+QString LocalRoomsDatabase::databaseName(const QString &name)
+{
+    return QStringLiteral("rooms-") + name;
+}
