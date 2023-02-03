@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -153,7 +153,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server not found: %1"
@@ -1411,13 +1411,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "檢舉訊息"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -5812,24 +5812,24 @@ msgstr "移除"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Search Channel"
 msgid "Filter channels (CTRL + K)"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Search Channel"
 msgid "Search Channels"
 msgstr "搜尋頻道"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, kde-format
 msgid "Previous Channel"
 msgstr "上一個頻道"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Channel"
@@ -5907,17 +5907,6 @@ msgstr ""
 #, kde-format
 msgctxt "Move selected account down."
 msgid "Down"
-msgstr ""
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr ""
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
 msgstr ""
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
@@ -6010,6 +5999,23 @@ msgstr ""
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
+msgstr ""
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr ""
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Sound:"
+msgid "Remove logs stored on disk"
+msgstr "聲音："
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
 msgstr ""
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25

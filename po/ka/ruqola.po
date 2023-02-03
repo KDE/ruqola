@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-01-28 10:08+0100\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-02-02 09:09+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -149,7 +149,7 @@ msgstr "ოპტიმიზაცია, Windows/Mac-ის მხარდა
 msgid "The following accounts are available:"
 msgstr "ხელმისაწვდომია შემდეგი ანგარიშები:"
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "სერვერი ვერ ვიპოვე: %1"
@@ -1338,12 +1338,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -3973,7 +3973,7 @@ msgstr "რჩეული ოთახების ჩართვა"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "UTF8 სახელების შეტყუპება"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -4156,20 +4156,19 @@ msgid "The cache limit for outbound message handling."
 msgstr "კეშის ზღვარი გამავალი შეტყობინების დამუშავებისთვის."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "წვდომების ძებნა..."
+msgstr "რეგულარული გამოსახულებები"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "IRC სერვერთან წარმატებით მიერთებისას გამოტანილი შეტყობინებები."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "შესვლა წარმატებულია"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5567,22 +5566,22 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "დარწმუნებული ბრძანდებით, რომ გნებავთ, გუნდად გარდაქმნათ? ქმედება შეუქცევადია."
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "არხების გაფილტვრა (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Search Channels"
 msgstr "არხების ძებნა"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, kde-format
 msgid "Previous Channel"
 msgstr "წინა არხი"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, kde-format
 msgid "Next Channel"
 msgstr "შემდეგი არხი"
@@ -5657,17 +5656,6 @@ msgstr "მაღლა"
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "ქვემოთ"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "ანგარიშის წაშლა"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -5757,6 +5745,24 @@ msgstr "მომხარებლის უკუკავშირი"
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "_დამხმარე საშუალებები"
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "ანგარიშის წაშლა"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Remove Custom Sound"
+msgid "Remove logs stored on disk"
+msgstr "მორგებული ხმის წაშლა"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
+msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -8038,13 +8044,12 @@ msgstr "გუნდის შექმნა"
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "ჟურნალის გახსნა შეუძლებელია."
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "არხის ჟურნალის ჩვენება"
+msgstr "ჟურნალის ჩვენება"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format

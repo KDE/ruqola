@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -148,7 +148,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr ""
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "Server not found: %1"
@@ -1413,13 +1413,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -5808,25 +5808,25 @@ msgstr "Odstrániť účet"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Filter channels (CTRL + K)"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Search Channels"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Previous Channel"
 msgstr "Opustiť kanál"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Leave Channel"
 msgid "Next Channel"
@@ -5905,18 +5905,6 @@ msgstr ""
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr ""
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Delete Account"
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "Odstrániť účet"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6010,6 +5998,24 @@ msgstr ""
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
+msgstr ""
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "Odstrániť účet"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgid "Delete Account"
+msgid "Remove logs stored on disk"
+msgstr "Odstrániť účet"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
 msgstr ""
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25

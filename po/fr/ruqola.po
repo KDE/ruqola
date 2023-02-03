@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-01-29 11:13+0100\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-02-01 19:39+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -147,7 +147,7 @@ msgstr "Optimisation, prise en charge des corrections sous Windows / MacOS"
 msgid "The following accounts are available:"
 msgstr "Les comptes suivants sont disponibles :"
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Impossible de trouver le serveur : %1"
@@ -1340,12 +1340,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -4260,20 +4260,19 @@ msgid "The cache limit for outbound message handling."
 msgstr "La limite de cache pour la gestion des messages sortants."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Rechercher les permissions..."
+msgstr "Expressions rationnelles"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "Sortie à partir d'un connexion réussie à un serveur « IRC »"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Connexion réussie"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5745,22 +5744,22 @@ msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 "Voulez-vous vraiment le convertir en une équipe ? Ceci ne peut être annuler."
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtrer les canaux (« CTRL » + « K »)"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Search Channels"
 msgstr "Rechercher des canaux"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, kde-format
 msgid "Previous Channel"
 msgstr "Canal précédent"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, kde-format
 msgid "Next Channel"
 msgstr "Canal suivant"
@@ -5835,17 +5834,6 @@ msgstr "Vers le haut"
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Vers le bas"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "Supprimer un compte"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -5935,6 +5923,24 @@ msgstr "Retour de l'utilisateur"
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibilité"
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "Supprimer un compte"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Remove Custom Sound"
+msgid "Remove logs stored on disk"
+msgstr "Supprimer un son personnalisé"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
+msgstr "Voulez-vous vraiment supprimer ce compte « %1 » ?"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format

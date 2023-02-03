@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -152,7 +152,7 @@ msgstr ""
 msgid "The following accounts are available:"
 msgstr "Yra prieinamos šios paskyros:"
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
@@ -1407,13 +1407,13 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -5816,25 +5816,25 @@ msgstr "Šalinti iš kambario"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr ""
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Filter channels (CTRL + K)"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Search Channels"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Channel"
@@ -5913,17 +5913,6 @@ msgstr ""
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr ""
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "Šalinti paskyrą"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -6015,6 +6004,24 @@ msgstr ""
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr ""
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "Šalinti paskyrą"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Remove Account"
+msgid "Remove logs stored on disk"
+msgstr "Šalinti paskyrą"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
+msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format

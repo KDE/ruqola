@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-01-24 10:20+0100\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-02-02 12:34+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -152,7 +152,7 @@ msgstr "Optimització, corregir la implementació de Windows/Mac"
 msgid "The following accounts are available:"
 msgstr "Estan disponibles els comptes següents:"
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "No s'ha trobat el servidor: %1"
@@ -1343,12 +1343,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -3284,17 +3284,17 @@ msgstr "Marca com a verificat el correu electrònic per als comptes externs"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:42
 #, kde-format
 msgid "Manually Approve New Users"
-msgstr ""
+msgstr "Aprova manualment els usuaris nous"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:47
 #, kde-format
 msgid "Use Default Blocked Domains List"
-msgstr ""
+msgstr "Utilitza la llista predeterminada de dominis bloquejats"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:48
 #, kde-format
 msgid "Use DNS Domain Check"
-msgstr ""
+msgstr "Utilitza la verificació de domini de DNS"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
@@ -3331,38 +3331,39 @@ msgstr ""
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:163
 #, kde-format
 msgid "Default Username Prefix Suggestion"
-msgstr ""
+msgstr "Suggeriment predeterminat del prefix d'usuari"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:166
 #, kde-format
 msgid "Comma-separated list of allowed domains"
-msgstr ""
+msgstr "Llista separada per comes de dominis permesos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:167
 #, kde-format
 msgid "Allowed Domains List"
-msgstr ""
+msgstr "Llista de dominis permesos"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:170
 #, kde-format
 msgid "Comma-separated list of blocked domains"
-msgstr ""
+msgstr "Llista separada per comes de dominis bloquejats"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:171
 #, kde-format
 msgid "Blocked Domains List"
-msgstr ""
+msgstr "Llista de dominis bloquejats"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:174
 #, kde-format
 msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
+"Llista separada per comes de noms d'usuari bloquejats (no distingix "
+"majúscules)"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Bloca l'usuari"
+msgstr "Llista de noms d'usuari bloquejats"
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4236,20 +4237,19 @@ msgid "The cache limit for outbound message handling."
 msgstr "El límit de memòria cau per a la gestió de missatges ixents."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Busca permisos..."
+msgstr "Expressions regulars"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "Eixida en una connexió amb èxit al servidor d'IRC."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Inici de sessió correcte"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5707,22 +5707,22 @@ msgstr "Mou a un equip"
 msgid "Are you sure to convert it to team? It can not be undo."
 msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Filtre de canals (CTRL + K)"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Search Channels"
 msgstr "Busca de canals"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, kde-format
 msgid "Previous Channel"
 msgstr "Canal anterior"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, kde-format
 msgid "Next Channel"
 msgstr "Canal següent"
@@ -5797,17 +5797,6 @@ msgstr "Amunt"
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Avall"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr "Voleu eliminar este compte «%1»?"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "Elimina el compte"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -5897,6 +5886,24 @@ msgstr "Comentaris de l'usuari"
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Accessibilitat"
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "Elimina el compte"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Remove Custom Sound"
+msgid "Remove logs stored on disk"
+msgstr "Elimina el so personalitzat"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
+msgstr "Voleu eliminar este compte «%1»?"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -7655,7 +7662,7 @@ msgstr "Pujada de fitxer"
 #: widgets/room/messagelinewidget.cpp:299
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
-msgstr ""
+msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
 
 #: widgets/room/messagelistview.cpp:83
 #, kde-format
@@ -8210,13 +8217,12 @@ msgstr "Creeu un equip"
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "Impossible obrir el registre."
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Mostra el registre del canal"
+msgstr "Mostra el registre"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format

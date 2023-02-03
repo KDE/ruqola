@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-02 00:58+0000\n"
-"PO-Revision-Date: 2023-02-01 09:04+0200\n"
+"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"PO-Revision-Date: 2023-02-02 09:52+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -153,7 +153,7 @@ msgstr "Оптимізація, виправлення підтримки Window
 msgid "The following accounts are available:"
 msgstr "Доступні такі облікові записи:"
 
-#: core/accountmanager.cpp:61
+#: core/accountmanager.cpp:62
 #, kde-format
 msgid "Server not found: %1"
 msgstr "Сервер не знайдено: %1"
@@ -1345,12 +1345,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2881
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2877
+#: core/rocketchataccount.cpp:2882
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -5727,22 +5727,22 @@ msgstr ""
 "Ви справді хочете перетворити це на команду? Наслідки дії не можна буде "
 "скасувати."
 
-#: widgets/channellist/channellistwidget.cpp:49
+#: widgets/channellist/channellistwidget.cpp:50
 #, kde-format
 msgid "Filter channels (CTRL + K)"
 msgstr "Фільтрувати канали (Ctrl + K)"
 
-#: widgets/channellist/channellistwidget.cpp:56
+#: widgets/channellist/channellistwidget.cpp:57
 #, kde-format
 msgid "Search Channels"
 msgstr "Пошук каналів"
 
-#: widgets/channellist/channellistwidget.cpp:63
+#: widgets/channellist/channellistwidget.cpp:64
 #, kde-format
 msgid "Previous Channel"
 msgstr "Попередній канал"
 
-#: widgets/channellist/channellistwidget.cpp:71
+#: widgets/channellist/channellistwidget.cpp:72
 #, kde-format
 msgid "Next Channel"
 msgstr "Наступний канал"
@@ -5817,17 +5817,6 @@ msgstr "Вище"
 msgctxt "Move selected account down."
 msgid "Down"
 msgstr "Нижче"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:74
-#, kde-format
-msgid "Do you want to remove this account '%1'?"
-msgstr "Хочете вилучити обліковий запис «%1»?"
-
-#: widgets/configuredialog/configureaccountserverwidget.cpp:75
-#, kde-format
-msgctxt "@title:window"
-msgid "Remove Account"
-msgstr "Вилучення облікового запису"
 
 #: widgets/configuredialog/configurefontwidget.cpp:17
 #, kde-format
@@ -5917,6 +5906,24 @@ msgstr "Відгуки користувача"
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
 msgstr "Доступність"
+
+#: widgets/configuredialog/removeaccountdialog.cpp:17
+#, kde-format
+msgctxt "@title:window"
+msgid "Remove Account"
+msgstr "Вилучення облікового запису"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:15
+#, fuzzy, kde-format
+#| msgctxt "@title"
+#| msgid "Remove Custom Sound"
+msgid "Remove logs stored on disk"
+msgstr "Вилучення нетипового звуку"
+
+#: widgets/configuredialog/removeaccountwidget.cpp:38
+#, kde-format
+msgid "Do you want to remove this account '%1'?"
+msgstr "Хочете вилучити обліковий запис «%1»?"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
@@ -8260,13 +8267,12 @@ msgstr "Створення команди"
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "Не вдалося відкрити журнал."
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Показати журнал каналу"
+msgstr "Показати журнал"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format
