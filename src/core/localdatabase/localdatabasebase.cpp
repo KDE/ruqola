@@ -5,6 +5,7 @@
 */
 
 #include "localdatabasebase.h"
+#include "ruqola_debug.h"
 
 LocalDatabaseBase::LocalDatabaseBase(const QString &basePath)
     : mBasePath(basePath)
@@ -17,4 +18,23 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName, const QString 
 {
     const QString dirPath = mBasePath + accountName;
     return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
+}
+
+QString LocalDatabaseBase::databaseNamePrefix(const QString &name)
+{
+    QString prefix;
+    switch (mDatabaseType) {
+    case DatabaseType::Unknown:
+        qCWarning(RUQOLA_LOG) << "Unknown data base it's a bug";
+        break;
+    case DatabaseType::Account:
+    case DatabaseType::Rooms:
+        prefix = QStringLiteral("rooms-");
+        break;
+    case DatabaseType::Message:
+    case DatabaseType::Logger:
+        break;
+    }
+
+    return prefix;
 }
