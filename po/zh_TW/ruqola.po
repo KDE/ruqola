@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:59+0000\n"
+"POT-Creation-Date: 2023-02-04 00:58+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -20,135 +20,135 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 19.12.2\n"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:51
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:55
+#: apps/main.cpp:53
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr ""
 
-#: apps/main.cpp:57
+#: apps/main.cpp:55
 #, fuzzy, kde-format
 #| msgid "Copyright © 2020 Ruqola authors"
 msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "著作權所有 © 2020 Ruqola 作者群"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:57
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "維護者"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:58
 #, kde-format
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:58
 #, fuzzy, kde-format
 #| msgid "Original author"
 msgid "Original Author"
 msgstr "最初作者"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:62
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:62
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr ""
 
-#: apps/main.cpp:65
+#: apps/main.cpp:63
 #, kde-format
 msgid "Kevin Funk"
 msgstr ""
 
-#: apps/main.cpp:65 apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:69
-#: apps/main.cpp:70
+#: apps/main.cpp:63 apps/main.cpp:64 apps/main.cpp:65 apps/main.cpp:67
+#: apps/main.cpp:68
 #, kde-format
 msgid "Bug fixing"
 msgstr "臭蟲修正"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:64
 #, kde-format
 msgid "Olivier JG"
 msgstr ""
 
-#: apps/main.cpp:67
+#: apps/main.cpp:65
 #, kde-format
 msgid "Milian Wolff"
 msgstr ""
 
-#: apps/main.cpp:68
+#: apps/main.cpp:66
 #, kde-format
 msgid "Till Adam"
 msgstr ""
 
-#: apps/main.cpp:68
+#: apps/main.cpp:66
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr ""
 
-#: apps/main.cpp:69
+#: apps/main.cpp:67
 #, kde-format
 msgid "Shantanu Tushar"
 msgstr ""
 
-#: apps/main.cpp:70
+#: apps/main.cpp:68
 #, kde-format
 msgid "Alessandro Ambrosano"
 msgstr ""
 
-#: apps/main.cpp:71
+#: apps/main.cpp:69
 #, kde-format
 msgid "Hannah von Reth"
 msgstr ""
 
-#: apps/main.cpp:71
+#: apps/main.cpp:69
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr ""
 
-#: apps/main.cpp:72
+#: apps/main.cpp:70
 #, kde-format
 msgid "Allen Winter"
 msgstr ""
 
-#: apps/main.cpp:72
+#: apps/main.cpp:70
 #, kde-format
 msgid "Packaging"
 msgstr ""
 
-#: apps/main.cpp:73
+#: apps/main.cpp:71
 #, kde-format
 msgid "Waqar Ahmed"
 msgstr ""
 
-#: apps/main.cpp:73
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 
-#: apps/main.cpp:74
+#: apps/main.cpp:72
 #, kde-format
 msgid "Nicolas Fella"
 msgstr ""
 
-#: apps/main.cpp:74
+#: apps/main.cpp:72
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr ""
 
-#: apps/main.cpp:99
+#: apps/main.cpp:97
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "可使用以下帳戶："

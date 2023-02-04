@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-03 00:59+0000\n"
-"PO-Revision-Date: 2023-01-05 11:41+0100\n"
+"POT-Creation-Date: 2023-02-04 00:58+0000\n"
+"PO-Revision-Date: 2023-01-25 09:08+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,135 +15,135 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 
-#: apps/main.cpp:53
+#: apps/main.cpp:51
 #, kde-format
 msgid "Ruqola"
 msgstr "Ruqola"
 
-#: apps/main.cpp:55
+#: apps/main.cpp:53
 #, kde-format
 msgid "Rocket Chat Client"
 msgstr "Klient pro Rocket Chat"
 
-#: apps/main.cpp:57
+#: apps/main.cpp:55
 #, kde-format
 msgid "Copyright © 2020-2023 Ruqola authors"
 msgstr "Copyright © 2020-2023 Autoři Ruqola"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:57
 #, kde-format
 msgid "Laurent Montel"
 msgstr "Laurent Montel"
 
-#: apps/main.cpp:59
+#: apps/main.cpp:57
 #, kde-format
 msgid "Maintainer"
 msgstr "Správce"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:58
 #, kde-format
 msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
-#: apps/main.cpp:60
+#: apps/main.cpp:58
 #, kde-format
 msgid "Original Author"
 msgstr "Původní autor"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:62
 #, kde-format
 msgid "David Faure"
 msgstr "David Faure"
 
-#: apps/main.cpp:64
+#: apps/main.cpp:62
 #, kde-format
 msgid "Bug fixing, delegates etc."
 msgstr "Opravování chyb, delegáti apod."
 
-#: apps/main.cpp:65
+#: apps/main.cpp:63
 #, kde-format
 msgid "Kevin Funk"
 msgstr "Kevin Funk"
 
-#: apps/main.cpp:65 apps/main.cpp:66 apps/main.cpp:67 apps/main.cpp:69
-#: apps/main.cpp:70
+#: apps/main.cpp:63 apps/main.cpp:64 apps/main.cpp:65 apps/main.cpp:67
+#: apps/main.cpp:68
 #, kde-format
 msgid "Bug fixing"
 msgstr "Opravování chyb"
 
-#: apps/main.cpp:66
+#: apps/main.cpp:64
 #, kde-format
 msgid "Olivier JG"
 msgstr "Olivier JG"
 
-#: apps/main.cpp:67
+#: apps/main.cpp:65
 #, kde-format
 msgid "Milian Wolff"
 msgstr "Milian Wolff"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:66
 #, kde-format
 msgid "Till Adam"
 msgstr "Till Adam"
 
-#: apps/main.cpp:68
+#: apps/main.cpp:66
 #, kde-format
 msgid "Windows compile bug fixing"
 msgstr "Opravy chyb kompilace ve Windows"
 
-#: apps/main.cpp:69
+#: apps/main.cpp:67
 #, kde-format
 msgid "Shantanu Tushar"
 msgstr "Shantanu Tushar"
 
-#: apps/main.cpp:70
+#: apps/main.cpp:68
 #, kde-format
 msgid "Alessandro Ambrosano"
 msgstr "Alessandro Ambrosano"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:69
 #, kde-format
 msgid "Hannah von Reth"
 msgstr "Hannah von Reth"
 
-#: apps/main.cpp:71
+#: apps/main.cpp:69
 #, kde-format
 msgid "Bug fixing for Windows/Mac"
 msgstr "Opravy chyb pro Windows/Mac"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:70
 #, kde-format
 msgid "Allen Winter"
 msgstr "Allen Winter"
 
-#: apps/main.cpp:72
+#: apps/main.cpp:70
 #, kde-format
 msgid "Packaging"
 msgstr "Příprava balíčků"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:71
 #, kde-format
 msgid "Waqar Ahmed"
 msgstr "Waqar Ahmed"
 
-#: apps/main.cpp:73
+#: apps/main.cpp:71
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
 msgstr ""
 
-#: apps/main.cpp:74
+#: apps/main.cpp:72
 #, kde-format
 msgid "Nicolas Fella"
 msgstr "Nicolas Fella"
 
-#: apps/main.cpp:74
+#: apps/main.cpp:72
 #, kde-format
 msgid "Optimization, fix windows/mac support"
 msgstr ""
 
-#: apps/main.cpp:99
+#: apps/main.cpp:97
 #, kde-format
 msgid "The following accounts are available:"
 msgstr "K dispozici jsou následující účty:"
@@ -596,7 +596,7 @@ msgstr "Soubor odeslán:"
 #: core/messages/messageattachment.cpp:375
 #, kde-format
 msgid "File Uploaded: %1"
-msgstr "Soubor nahrán: %1"
+msgstr "Soubor odeslán: %1"
 
 #: core/messages/reaction.cpp:22 core/messages/reaction.cpp:35
 #, kde-format
@@ -3337,10 +3337,9 @@ msgid "Comma-separated list of blocked usernames (case-insensitive)"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:175
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgid "Blocked Username List"
-msgstr "Zablokovat uživatele"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingsdialog.cpp:30
 #, kde-format
@@ -4143,10 +4142,9 @@ msgid "The cache limit for outbound message handling."
 msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Hledat oprávnění..."
+msgstr "Regulární výrazy"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
@@ -5713,11 +5711,9 @@ msgid "Remove Account"
 msgstr "Odstranit účet"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Odstranit vlastní zvuk"
+msgstr ""
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -8012,10 +8008,9 @@ msgid "Impossible to open log."
 msgstr ""
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Zobrazit záznam kanálu"
+msgstr "Zobrazit záznamy"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format
