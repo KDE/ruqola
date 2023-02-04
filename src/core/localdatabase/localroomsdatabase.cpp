@@ -17,7 +17,7 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalRoomsDatabase::LocalRoomsDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localRoomsDatabasePath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localRoomsDatabasePath(), LocalDatabaseBase::DatabaseType::Rooms)
 {
 }
 
@@ -29,9 +29,4 @@ void LocalRoomsDatabase::addRoom(const QString &roomId)
 
 void LocalRoomsDatabase::deleteRoom(const QString &roomId)
 {
-}
-
-QString LocalRoomsDatabase::databaseName(const QString &name)
-{
-    return QStringLiteral("rooms-") + name;
 }

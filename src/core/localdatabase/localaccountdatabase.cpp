@@ -17,13 +17,8 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalAccountDatabase::LocalAccountDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath(), LocalDatabaseBase::DatabaseType::Account)
 {
 }
 
 LocalAccountDatabase::~LocalAccountDatabase() = default;
-
-QString LocalAccountDatabase::databaseName(const QString &name)
-{
-    return QStringLiteral("accounts-") + name;
-}

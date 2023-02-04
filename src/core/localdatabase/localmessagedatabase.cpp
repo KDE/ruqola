@@ -25,16 +25,11 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalMessageDatabase::LocalMessageDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath())
+    : LocalDatabaseBase(LocalDatabaseUtils::localMessagesDatabasePath(), LocalDatabaseBase::DatabaseType::Message)
 {
 }
 
 LocalMessageDatabase::~LocalMessageDatabase() = default;
-
-QString LocalMessageDatabase::databaseName(const QString &name)
-{
-    return QStringLiteral("messages-") + name;
-}
 
 void LocalMessageDatabase::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
 {

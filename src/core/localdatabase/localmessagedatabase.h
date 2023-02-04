@@ -18,7 +18,4 @@ public:
     ~LocalMessageDatabase();
     void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
-
-private:
-    Q_REQUIRED_RESULT QString databaseName(const QString &name);
 };
