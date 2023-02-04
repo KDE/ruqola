@@ -24,7 +24,7 @@ public:
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
 
 protected:
-    Q_REQUIRED_RESULT QString databaseName(const QString &name);
+    Q_REQUIRED_RESULT QString databaseName(const QString &name) const;
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
 };

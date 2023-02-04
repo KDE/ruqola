@@ -39,7 +39,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
         return;
     }
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = accountName + QLatin1Char('-') + roomName;
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
@@ -89,7 +89,7 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QString
     // addMessage is always called before deleteMessage, if only for the history replay on connect
     // So the db must exist
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = accountName + QLatin1Char('-') + roomName;
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         qCWarning(RUQOLA_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room" << roomName;
@@ -107,7 +107,7 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QString
 std::unique_ptr<QSqlTableModel> LocalMessageLogger::createMessageModel(const QString &accountName, const QString &_roomName) const
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = accountName + QLatin1Char('-') + roomName;
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         // Open the DB if it exists (don't create a new one)
