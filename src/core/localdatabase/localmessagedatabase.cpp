@@ -8,7 +8,7 @@
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "messages/message.h"
-#include "ruqola_debug.h"
+#include "ruqola_database_debug.h"
 
 #include <QDir>
 #include <QSqlDatabase>
@@ -41,20 +41,20 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
         const QString dirPath = mBasePath + accountName;
         if (!QDir().mkpath(dirPath)) {
-            qCWarning(RUQOLA_LOG) << "Couldn't create" << dirPath;
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << dirPath;
             return;
         }
         const QString fileName = dbFileName(accountName, roomName);
         const bool newDb = QFileInfo::exists(fileName);
         db.setDatabaseName(fileName);
         if (!db.open()) {
-            qCWarning(RUQOLA_LOG) << "Couldn't create" << db.databaseName();
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create" << db.databaseName();
             return;
         }
         if (!newDb) {
             db.exec(QString::fromLatin1(s_schemaMessageDataBase));
             if (db.lastError().isValid()) {
-                qCWarning(RUQOLA_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
+                qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
                 return;
             }
         }
@@ -72,7 +72,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
     query.addBindValue(m.timeStamp());
     query.addBindValue(m.text()); // TODO replace by json
     if (!query.exec()) {
-        qCWarning(RUQOLA_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     }
 
 #endif
@@ -87,7 +87,8 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     QSqlDatabase db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
-        qCWarning(RUQOLA_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room" << roomName;
+        qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room"
+                                       << roomName;
         return;
     }
     Q_ASSERT(db.isValid());
@@ -95,7 +96,7 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     QSqlQuery query(QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?"), db);
     query.addBindValue(messageId);
     if (!query.exec()) {
-        qCWarning(RUQOLA_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
     }
 
 #endif

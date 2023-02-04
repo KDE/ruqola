@@ -7,7 +7,7 @@
 #include "localaccountdatabase.h"
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
-#include "ruqola_debug.h"
+#include "ruqola_database_debug.h"
 
 static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
