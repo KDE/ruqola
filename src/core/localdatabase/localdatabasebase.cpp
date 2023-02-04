@@ -5,7 +5,7 @@
 */
 
 #include "localdatabasebase.h"
-#include "ruqola_debug.h"
+#include "ruqola_database_debug.h"
 
 LocalDatabaseBase::LocalDatabaseBase(const QString &basePath)
     : mBasePath(basePath)
@@ -25,7 +25,7 @@ QString LocalDatabaseBase::databaseNamePrefix(const QString &name)
     QString prefix;
     switch (mDatabaseType) {
     case DatabaseType::Unknown:
-        qCWarning(RUQOLA_LOG) << "Unknown data base it's a bug";
+        qCWarning(RUQOLA_DATABASE_LOG) << "Unknown data base it's a bug";
         break;
     case DatabaseType::Account:
     case DatabaseType::Rooms:

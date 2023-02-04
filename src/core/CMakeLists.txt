@@ -509,6 +509,9 @@ ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_reconnect
 ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_videoconference_core_debug.h IDENTIFIER RUQOLA_VIDEO_CONFERENCE_LOG
     CATEGORY_NAME org.kde.ruqola.videoconference DESCRIPTION "ruqola video conference support" EXPORT RUQOLA)
 
+ecm_qt_declare_logging_category(libruqolacore_debug_SRCS HEADER ruqola_database_debug.h IDENTIFIER RUQOLA_DATABASE_LOG
+    CATEGORY_NAME org.kde.ruqola.database DESCRIPTION "ruqola database support" EXPORT RUQOLA)
+
 target_sources(libruqolacore PRIVATE ${libruqolacore_debug_SRCS})
 
 ruqola_target_precompile_headers(libruqolacore PUBLIC ../../ruqola_pch.h)
