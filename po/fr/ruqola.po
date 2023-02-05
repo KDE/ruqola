@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:58+0000\n"
-"PO-Revision-Date: 2023-02-01 19:39+0100\n"
+"PO-Revision-Date: 2023-02-03 19:29+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -5931,11 +5931,9 @@ msgid "Remove Account"
 msgstr "Supprimer un compte"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Supprimer un son personnalisé"
+msgstr "Supprimer les journaux enregistrés sur le disque"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -8258,13 +8256,12 @@ msgstr "Créer une équipe"
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "Impossible d'ouvrir un journal."
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Afficher le journal du canal"
+msgstr "Afficher un journal"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format
