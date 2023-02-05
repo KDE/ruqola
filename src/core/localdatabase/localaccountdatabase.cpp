@@ -8,6 +8,10 @@
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
 
 static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
