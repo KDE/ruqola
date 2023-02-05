@@ -31,6 +31,11 @@ LocalMessageDatabase::LocalMessageDatabase()
 
 LocalMessageDatabase::~LocalMessageDatabase() = default;
 
+QString LocalMessageDatabase::schemaDataBase() const
+{
+    return QString::fromLatin1(s_schemaMessageDataBase);
+}
+
 void LocalMessageDatabase::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
 {
 #if HAVE_DATABASE_SUPPORT
@@ -52,7 +57,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
             return;
         }
         if (!newDb) {
-            db.exec(QString::fromLatin1(s_schemaMessageDataBase));
+            db.exec(schemaDataBase());
             if (db.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
                 return;

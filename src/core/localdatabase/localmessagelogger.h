@@ -24,4 +24,7 @@ public:
     void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
     Q_REQUIRED_RESULT std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &roomName) const;
     Q_REQUIRED_RESULT bool saveToFile(QFile &file, const QString &accountName, const QString &roomName) const;
+
+protected:
+    Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };

@@ -21,6 +21,12 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName, const QString 
     return dirPath + QLatin1Char('/') + roomName + QStringLiteral(".sqlite");
 }
 
+QString LocalDatabaseBase::schemaDataBase() const
+{
+    Q_ASSERT(true);
+    return {};
+}
+
 QString LocalDatabaseBase::databaseName(const QString &name) const
 {
     QString prefix;

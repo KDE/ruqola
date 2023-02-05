@@ -30,3 +30,8 @@ void LocalRoomsDatabase::addRoom(const QString &roomId)
 void LocalRoomsDatabase::deleteRoom(const QString &roomId)
 {
 }
+
+QString LocalRoomsDatabase::schemaDataBase() const
+{
+    return QString::fromLatin1(s_schemaRoomDataBase);
+}

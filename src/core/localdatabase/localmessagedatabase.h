@@ -6,16 +6,19 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include "localdatabasebase.h"
-
 #include <QString>
 
 class Message;
-class LocalMessageDatabase : public LocalDatabaseBase
+class LIBRUQOLACORE_EXPORT LocalMessageDatabase : public LocalDatabaseBase
 {
 public:
     LocalMessageDatabase();
-    ~LocalMessageDatabase();
+    ~LocalMessageDatabase() override;
     void deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &_roomName, const Message &m);
+
+protected:
+    Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };

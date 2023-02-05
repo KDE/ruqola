@@ -13,6 +13,7 @@ class LocalMessageLogger;
 class LocalMessageDatabase;
 class LocalRoomsDatabase;
 class LocalAccountDatabase;
+class LocalGlobalDatabase;
 class Message;
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
 {
@@ -28,4 +29,5 @@ private:
     std::unique_ptr<LocalMessageDatabase> mMessagesDatabase;
     std::unique_ptr<LocalRoomsDatabase> mRoomsDatabase;
     std::unique_ptr<LocalAccountDatabase> mAccountDatabase;
+    std::unique_ptr<LocalGlobalDatabase> mGlobalDatabase;
 };

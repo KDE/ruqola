@@ -4,26 +4,26 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "localaccountdatabase.h"
+#include "localglobaldatabase.h"
 #include "config-ruqola.h"
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaAccountDataBase[] = "CREATE TABLE GLOBAL (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
     RoomId,
     TimeStamp,
     Json,
 }; // in the same order as the table
 
-LocalAccountDatabase::LocalAccountDatabase()
+LocalGlobalDatabase::LocalGlobalDatabase()
     : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath(), LocalDatabaseBase::DatabaseType::Account)
 {
 }
 
-LocalAccountDatabase::~LocalAccountDatabase() = default;
+LocalGlobalDatabase::~LocalGlobalDatabase() = default;
 
-QString LocalAccountDatabase::schemaDataBase() const
+QString LocalGlobalDatabase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaAccountDataBase);
 }

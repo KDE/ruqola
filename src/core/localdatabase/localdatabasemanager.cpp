@@ -6,6 +6,7 @@
 
 #include "localdatabasemanager.h"
 #include "localaccountdatabase.h"
+#include "localglobaldatabase.h"
 #include "localmessagedatabase.h"
 #include "localmessagelogger.h"
 #include "localroomsdatabase.h"
@@ -15,6 +16,7 @@ LocalDatabaseManager::LocalDatabaseManager()
     , mMessagesDatabase(std::make_unique<LocalMessageDatabase>())
     , mRoomsDatabase(std::make_unique<LocalRoomsDatabase>())
     , mAccountDatabase(std::make_unique<LocalAccountDatabase>())
+    , mGlobalDatabase(std::make_unique<LocalGlobalDatabase>())
 {
 }
 

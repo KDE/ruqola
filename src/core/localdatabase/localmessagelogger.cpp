@@ -56,7 +56,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
             return;
         }
         if (!newDb) {
-            db.exec(QString::fromLatin1(s_schema));
+            db.exec(schemaDataBase());
             if (db.lastError().isValid()) {
                 qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't create table LOGS in" << db.databaseName() << ":" << db.lastError();
                 return;
@@ -159,4 +159,9 @@ bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, con
         }
     }
     return true;
+}
+
+QString LocalMessageLogger::schemaDataBase() const
+{
+    return QString::fromLatin1(s_schema);
 }

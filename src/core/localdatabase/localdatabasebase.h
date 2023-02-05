@@ -20,10 +20,12 @@ public:
         Logger,
     };
     explicit LocalDatabaseBase(const QString &basePath, DatabaseType type);
-    ~LocalDatabaseBase();
+    virtual ~LocalDatabaseBase();
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
 
 protected:
+    Q_REQUIRED_RESULT virtual QString schemaDataBase() const;
+
     Q_REQUIRED_RESULT QString databaseName(const QString &name) const;
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
