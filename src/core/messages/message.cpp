@@ -874,7 +874,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray repliesArray = o.value(QLatin1String("replies")).toArray();
     QStringList replies;
     replies.reserve(repliesArray.count());
-    for (int i = 0; i < repliesArray.count(); ++i) {
+    for (int i = 0, total = repliesArray.count(); i < total; ++i) {
         replies.append(urlsArray.at(i).toVariant().toString());
     }
     message.setReplies(replies);
@@ -885,7 +885,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
 
     QMap<QString, QString> mentions;
     const QJsonArray mentionsArray = o.value(QLatin1String("mentions")).toArray();
-    for (int i = 0; i < mentionsArray.count(); ++i) {
+    for (int i = 0, total = mentionsArray.count(); i < total; ++i) {
         const QJsonObject mention = mentionsArray.at(i).toObject();
         mentions.insert(mention.value(QLatin1String("username")).toString(), mention.value(QLatin1String("_id")).toString());
     }
@@ -893,7 +893,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
 
     QMap<QString, QString> channels;
     const QJsonArray channelsArray = o.value(QLatin1String("channels")).toArray();
-    for (int i = 0; i < channelsArray.count(); ++i) {
+    for (int i = 0, total = channelsArray.count(); i < total; ++i) {
         const QJsonObject channel = channelsArray.at(i).toObject();
         channels.insert(channel.value(QLatin1String("channel")).toString(), channel.value(QLatin1String("_id")).toString());
     }
