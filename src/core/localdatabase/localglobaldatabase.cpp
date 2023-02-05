@@ -9,11 +9,10 @@
 #include "localdatabaseutils.h"
 #include "ruqola_database_debug.h"
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE GLOBAL (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaAccountDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
 enum class Fields {
-    RoomId,
+    Identifier,
     TimeStamp,
-    Json,
 }; // in the same order as the table
 
 LocalGlobalDatabase::LocalGlobalDatabase()
