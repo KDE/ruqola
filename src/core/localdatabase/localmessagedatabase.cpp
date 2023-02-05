@@ -36,11 +36,11 @@ QString LocalMessageDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaMessageDataBase);
 }
 
-void LocalMessageDatabase::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
+void LocalMessageDatabase::addMessage(const QString &accountName, const QString &roomName, const Message &m)
 {
 #if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
-    if (initializeDataBase(accountName, _roomName, db)) {
+    if (initializeDataBase(accountName, roomName, db)) {
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"), db);
         query.addBindValue(m.messageId());
         query.addBindValue(m.timeStamp());

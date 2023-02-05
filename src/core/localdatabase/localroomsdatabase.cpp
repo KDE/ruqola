@@ -28,11 +28,11 @@ LocalRoomsDatabase::LocalRoomsDatabase()
 
 LocalRoomsDatabase::~LocalRoomsDatabase() = default;
 
-void LocalRoomsDatabase::addRoom(const QString &accountName, const QString &_roomName)
+void LocalRoomsDatabase::addRoom(const QString &accountName, const QString &roomName)
 {
 #if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
-    if (initializeDataBase(accountName, _roomName, db)) {
+    if (initializeDataBase(accountName, roomName, db)) {
 #if 0 // TODO
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"), db);
         query.addBindValue(m.messageId());
