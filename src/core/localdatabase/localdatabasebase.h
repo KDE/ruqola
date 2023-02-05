@@ -8,7 +8,7 @@
 
 #include "libruqolacore_export.h"
 #include <QString>
-
+class QSqlDatabase;
 class LIBRUQOLACORE_EXPORT LocalDatabaseBase
 {
 public:
@@ -25,7 +25,7 @@ public:
 
 protected:
     Q_REQUIRED_RESULT virtual QString schemaDataBase() const;
-
+    Q_REQUIRED_RESULT bool initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);
     Q_REQUIRED_RESULT QString databaseName(const QString &name) const;
     const QString mBasePath;
     const DatabaseType mDatabaseType = DatabaseType::Unknown;
