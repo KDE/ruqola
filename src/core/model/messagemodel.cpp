@@ -31,37 +31,9 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
     , mRoomId(roomID)
     , mRocketChatAccount(account)
     , mRoom(room)
+    , mLoadRecentHistoryManager(new LoadRecentHistoryManager)
 {
-    mLoadRecentHistoryManager = new LoadRecentHistoryManager;
     qCDebug(RUQOLA_LOG) << "Creating message Model";
-#ifdef STORE_MESSAGE
-    if (mRocketChatAccount) {
-        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
-        if (cachePath.isEmpty()) {
-            qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
-            return;
-        }
-
-        QDir cacheDir(cachePath + QStringLiteral("/rooms_cache"));
-
-        // load cache
-        if (QFile::exists(cacheDir.absoluteFilePath(roomID)) && !roomID.isEmpty()) {
-            QFile f(cacheDir.absoluteFilePath(roomID));
-            if (f.open(QIODevice::ReadOnly)) {
-                auto *emojiManager = mRocketChatAccount->emojiManager();
-                QDataStream in(&f);
-                while (!f.atEnd()) {
-                    char *byteArray;
-                    quint32 length;
-                    in.readBytes(byteArray, length);
-                    const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                    Message m = Message::fromJSon(QJsonDocument::fromBinaryData(arr).object(), emojiManager);
-                    addMessage(m);
-                }
-            }
-        }
-    }
-#endif
     if (mRoom) {
         connect(mRoom, &Room::rolesChanged, this, &MessageModel::refresh);
         connect(mRoom, &Room::ignoredUsersChanged, this, &MessageModel::refresh);
@@ -69,35 +41,7 @@ MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Ro
     }
 }
 
-MessageModel::~MessageModel()
-{
-#ifdef STORE_MESSAGE
-    if (mRocketChatAccount) {
-        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
-        if (cachePath.isEmpty()) {
-            qCWarning(RUQOLA_LOG) << " Cache Path is not defined";
-            return;
-        }
-
-        QDir cacheDir(cachePath + QStringLiteral("/rooms_cache"));
-        qCDebug(RUQOLA_LOG) << "Caching to..." << cacheDir.path();
-        if (!cacheDir.exists(cacheDir.path())) {
-            cacheDir.mkpath(cacheDir.path());
-        }
-
-        QFile f(cacheDir.absoluteFilePath(mRoomID));
-
-        if (f.open(QIODevice::WriteOnly)) {
-            QDataStream out(&f);
-            for (const Message &m : std::as_const(mAllMessages)) {
-                const QByteArray ms = Message::serialize(m);
-                out.writeBytes(ms, ms.size());
-            }
-        }
-    }
-#endif
-    delete mLoadRecentHistoryManager;
-}
+MessageModel::~MessageModel() = default;
 
 void MessageModel::activate()
 {

@@ -28,30 +28,6 @@ RoomModel::RoomModel(RocketChatAccount *account, QObject *parent)
 
 RoomModel::~RoomModel()
 {
-#if 0
-    if (mRocketChatAccount && mRocketChatAccount->settings()) {
-        const QString cachePath = mRocketChatAccount->settings()->cacheBasePath();
-        if (cachePath.isEmpty()) {
-            qCWarning(RUQOLA_ROOMS_LOG) << " Cache Path is not defined";
-            return;
-        }
-        QDir cacheDir(cachePath);
-        if (!cacheDir.exists(cacheDir.path())) {
-            cacheDir.mkpath(cacheDir.path());
-        }
-
-        QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
-
-        if (f.open(QIODevice::WriteOnly)) {
-            QDataStream out(&f);
-            for (Room *m : std::as_const(mRoomsList)) {
-                qCDebug(RUQOLA_ROOMS_LOG) << " save cache for room " << m->name();
-                const QByteArray ms = Room::serialize(m);
-                out.writeBytes(ms.constData(), ms.size());
-            }
-        }
-    }
-#endif
     // VERIFY qDeleteAll(mRoomsList);
 }
 
@@ -79,35 +55,6 @@ Room *RoomModel::findRoom(const QString &roomID) const
 void RoomModel::reset()
 {
     clear();
-
-    if (!mRocketChatAccount) {
-        return;
-    }
-    if (mRocketChatAccount->settings()->cacheBasePath().isEmpty()) {
-        return;
-    }
-
-    // Laurent disable cache for the moment
-    /*
-        QDir cacheDir(Ruqola::self()->cacheBasePath());
-        // load cache
-        if (cacheDir.exists(cacheDir.path())) {
-            QFile f(cacheDir.absoluteFilePath(QStringLiteral("rooms")));
-            if (f.open(QIODevice::ReadOnly)) {
-                QDataStream in(&f);
-                while (!f.atEnd()) {
-                    char *byteArray;
-                    quint32 length;
-                    in.readBytes(byteArray, length);
-                    const QByteArray arr = QByteArray::fromRawData(byteArray, length);
-                    Room m = Room::fromJSon(QJsonDocument::fromBinaryData(arr).object());
-                    qDebug() <<" Load from cache room name: " << m.name;
-                    addRoom(m.id, m.name, m.selected);
-                }
-            }
-            qCDebug(RUQOLA_ROOMS_LOG) << "Cache Loaded";
-        }
-        */
 }
 
 int RoomModel::rowCount(const QModelIndex &parent) const

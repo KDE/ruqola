@@ -169,6 +169,6 @@ private:
     QVector<Message> mAllMessages;
     RocketChatAccount *mRocketChatAccount = nullptr;
     QPointer<Room> mRoom;
-    LoadRecentHistoryManager *mLoadRecentHistoryManager = nullptr;
+    std::unique_ptr<LoadRecentHistoryManager> mLoadRecentHistoryManager;
 };
 Q_DECLARE_METATYPE(MessageModel::AttachmentVisibility)
