@@ -649,7 +649,7 @@ private:
 
     EmojiManager *mEmojiManager = nullptr;
     TypingNotification *mTypingNotification = nullptr;
-    UsersModel *mUserModel = nullptr;
+    UsersModel *const mUserModel;
     RoomModel *mRoomModel = nullptr;
     DDPClient *mDdp = nullptr;
     RocketChatRestApi::Connection *mRestApi = nullptr;
@@ -657,39 +657,39 @@ private:
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;
     RuqolaServerConfig *const mRuqolaServerConfig;
-    UserCompleterModel *mUserCompleterModel = nullptr;
+    UserCompleterModel *const mUserCompleterModel;
     UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
-    StatusModel *mStatusModel = nullptr;
+    StatusModel *const mStatusModel;
     RocketChatCache *mCache = nullptr;
     OtrManager *const mOtrManager;
-    SearchChannelModel *mSearchChannelModel = nullptr;
+    SearchChannelModel *const mSearchChannelModel;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
-    LoginMethodModel *mLoginMethodModel = nullptr;
+    LoginMethodModel *const mLoginMethodModel;
     InputTextManager *mInputTextManager = nullptr;
 
     InputTextManager *mInputThreadMessageTextManager = nullptr;
 
     SearchMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;
-    ReceiveTypingNotificationManager *mReceiveTypingNotificationManager = nullptr;
+    ReceiveTypingNotificationManager *const mReceiveTypingNotificationManager;
     ServerConfigInfo *mServerConfigInfo = nullptr;
     FilesForRoomModel *mFilesModelForRoom = nullptr;
     FilesForRoomFilterProxyModel *mFilesForRoomFilterProxyModel = nullptr;
     DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
-    DiscussionsModel *mDiscussionsModel = nullptr;
+    DiscussionsModel *const mDiscussionsModel;
 
-    EmoticonFilterModel *mEmoticonFilterModel = nullptr;
+    EmoticonFilterModel *const mEmoticonFilterModel;
     EmoticonModel *mEmoticonModel = nullptr;
     EmoticonCustomModel *mEmoticonCustomModel = nullptr;
-    CommandsModel *mCommandsModel = nullptr;
+    CommandsModel *const mCommandsModel;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
     ListMessagesModel *mListMessageModel = nullptr;
     ListMessagesModelFilterProxyModel *mListMessagesFilterProxyModel = nullptr;
 
-    AutotranslateLanguagesModel *mAutoTranslateLanguagesModel = nullptr;
+    AutotranslateLanguagesModel *const mAutoTranslateLanguagesModel;
     User::PresenceStatus mPresenceStatus = User::PresenceStatus::PresenceOnline;
-    DownloadAppsLanguagesManager *mDownloadAppsLanguagesManager = nullptr;
+    DownloadAppsLanguagesManager *const mDownloadAppsLanguagesManager;
     MessageCache *const mMessageCache;
     ManageChannels *const mManageChannels;
     CustomSoundsManager *const mCustomSoundManager;

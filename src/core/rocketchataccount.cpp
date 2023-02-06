@@ -88,8 +88,19 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
+    , mUserModel(new UsersModel(this))
     , mRuqolaServerConfig(new RuqolaServerConfig)
+    , mUserCompleterModel(new UserCompleterModel(this))
+    , mStatusModel(new StatusModel(this))
     , mOtrManager(new OtrManager(this, this))
+    , mSearchChannelModel(new SearchChannelModel(this))
+    , mLoginMethodModel(new LoginMethodModel(this))
+    , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
+    , mDiscussionsModel(new DiscussionsModel(this))
+    , mEmoticonFilterModel(new EmoticonFilterModel(this))
+    , mCommandsModel(new CommandsModel(this))
+    , mAutoTranslateLanguagesModel(new AutotranslateLanguagesModel(this))
+    , mDownloadAppsLanguagesManager(new DownloadAppsLanguagesManager(this))
     , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this, this))
     , mCustomSoundManager(new CustomSoundsManager(this))
@@ -111,7 +122,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
-    mLoginMethodModel = new LoginMethodModel(this);
 
     mInputTextManager = new InputTextManager(this, this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
@@ -130,8 +140,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
             [this](const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type) {
                 inputAutocomplete(pattern, exceptions, type, true);
             });
-
-    mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
     initializeAuthenticationPlugins();
 
@@ -152,18 +160,13 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mInputTextManager->setEmoticonModel(mEmoticonModel);
     mInputThreadMessageTextManager->setEmoticonModel(mEmoticonModel);
 
-    mCommandsModel = new CommandsModel(this);
-
-    mEmoticonFilterModel = new EmoticonFilterModel(this);
     mEmoticonFilterModel->setSourceModel(mEmoticonModel);
 
     mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
-    mUserCompleterModel = new UserCompleterModel(this);
     mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
 
-    mSearchChannelModel = new SearchChannelModel(this);
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
@@ -175,7 +178,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mFilesForRoomFilterProxyModel = new FilesForRoomFilterProxyModel(mFilesModelForRoom, this);
     mFilesForRoomFilterProxyModel->setObjectName(QStringLiteral("filesforroomfiltermodelproxy"));
 
-    mDiscussionsModel = new DiscussionsModel(this);
     mDiscussionsModel->setObjectName(QStringLiteral("discussionsmodel"));
     mDiscussionsFilterProxyModel = new DiscussionsFilterProxyModel(mDiscussionsModel, this);
     mDiscussionsFilterProxyModel->setObjectName(QStringLiteral("discussionsfilterproxymodel"));
@@ -189,22 +191,18 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mListMessagesFilterProxyModel = new ListMessagesModelFilterProxyModel(mListMessageModel, this);
     mListMessagesFilterProxyModel->setObjectName(QStringLiteral("listmessagesfiltermodelproxy"));
 
-    mAutoTranslateLanguagesModel = new AutotranslateLanguagesModel(this);
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
 
-    mStatusModel = new StatusModel(this);
     mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
 
-    mUserModel = new UsersModel(this);
     connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
     mMessageQueue = new MessageQueue(this, this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
 
-    mDownloadAppsLanguagesManager = new DownloadAppsLanguagesManager(this);
     connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseSuccess, this, &RocketChatAccount::slotFileLanguagedParsed);
     connect(mDownloadAppsLanguagesManager, &DownloadAppsLanguagesManager::fileLanguagesParseFailed, this, &RocketChatAccount::slotFileLanguagedParsed);
 
