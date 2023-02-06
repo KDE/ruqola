@@ -43,6 +43,11 @@ ThreadMessageDialog::~ThreadMessageDialog()
     writeConfig();
 }
 
+void ThreadMessageDialog::setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info)
+{
+    mThreadMessageWidget->setThreadMessageInfo(info);
+}
+
 void ThreadMessageDialog::readConfig()
 {
     create(); // ensure a window is created
@@ -56,29 +61,4 @@ void ThreadMessageDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myThreadMessageDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
-}
-
-QString ThreadMessageDialog::threadMessageId() const
-{
-    return mThreadMessageWidget->threadMessageId();
-}
-
-void ThreadMessageDialog::setFollowingThread(bool threadIsFollowing)
-{
-    mThreadMessageWidget->setFollowingThread(threadIsFollowing);
-}
-
-void ThreadMessageDialog::setThreadMessageId(const QString &threadMessageId)
-{
-    mThreadMessageWidget->setThreadMessageId(threadMessageId);
-}
-
-void ThreadMessageDialog::setRoom(Room *room)
-{
-    mThreadMessageWidget->setRoom(room);
-}
-
-void ThreadMessageDialog::setThreadPreview(const QString &preview)
-{
-    mThreadMessageWidget->setThreadPreview(preview);
 }

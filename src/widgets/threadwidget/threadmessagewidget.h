@@ -24,17 +24,16 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
 {
     Q_OBJECT
 public:
+    struct LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageInfo {
+        QString threadMessageId;
+        QString threadMessagePreview;
+        bool threadIsFollowing = false;
+        Room *room = nullptr;
+    };
     explicit ThreadMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ThreadMessageWidget() override;
 
-    Q_REQUIRED_RESULT QString threadMessageId() const;
-    void setThreadMessageId(const QString &threadMessageId);
-
-    void setThreadPreview(const QString &preview);
-
-    void setRoom(Room *room);
-
-    void setFollowingThread(bool threadIsFollowing);
+    void setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info);
 
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

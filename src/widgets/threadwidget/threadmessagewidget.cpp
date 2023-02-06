@@ -114,21 +114,18 @@ void ThreadMessageWidget::updateFollowThreadIcon(bool followThread)
     mFollowButton->setToolTip(followThread ? i18n("Follow Message") : i18n("Unfollow Message"));
 }
 
-QString ThreadMessageWidget::threadMessageId() const
+void ThreadMessageWidget::setThreadMessageInfo(const ThreadMessageWidget::ThreadMessageInfo &info)
 {
-    return mThreadMessageId;
-}
+    updateFollowThreadIcon(info.threadIsFollowing);
+    mFollowButton->setChecked(!info.threadIsFollowing);
 
-void ThreadMessageWidget::setFollowingThread(bool threadIsFollowing)
-{
-    updateFollowThreadIcon(threadIsFollowing);
-    mFollowButton->setChecked(!threadIsFollowing);
-}
-
-void ThreadMessageWidget::setThreadMessageId(const QString &threadMessageId)
-{
-    if (mThreadMessageId != threadMessageId) {
-        mThreadMessageId = threadMessageId;
+    mRoom = info.room;
+    mRoomWidgetBase->messageLineWidget()->setRoomId(mRoom->roomId());
+    mRoomWidgetBase->messageListView()->setRoom(mRoom);
+    mRoomWidgetBase->updateRoomReadOnly(mRoom);
+    mThreadPreview->setText(info.threadMessagePreview);
+    if (mThreadMessageId != info.threadMessageId) {
+        mThreadMessageId = info.threadMessageId;
         mRocketChatAccount->getThreadMessages(mThreadMessageId);
         mRoomWidgetBase->messageListView()->setModel(mRocketChatAccount->threadMessageModel());
         mRoomWidgetBase->messageLineWidget()->setThreadMessageId(mThreadMessageId, {}, true);
@@ -143,19 +140,6 @@ void ThreadMessageWidget::initialize()
     // When we switch we need to update it.
     mRoomWidgetBase->messageLineWidget()->slotPublicSettingChanged();
     mRoomWidgetBase->messageLineWidget()->slotOwnUserPreferencesChanged();
-}
-
-void ThreadMessageWidget::setRoom(Room *room)
-{
-    mRoom = room;
-    mRoomWidgetBase->messageLineWidget()->setRoomId(room->roomId());
-    mRoomWidgetBase->messageListView()->setRoom(room);
-    mRoomWidgetBase->updateRoomReadOnly(room);
-}
-
-void ThreadMessageWidget::setThreadPreview(const QString &preview)
-{
-    mThreadPreview->setText(preview);
 }
 
 void ThreadMessageWidget::dragEnterEvent(QDragEnterEvent *event)

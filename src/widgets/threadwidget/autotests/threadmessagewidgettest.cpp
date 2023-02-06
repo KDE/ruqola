@@ -24,8 +24,13 @@ ThreadMessageWidgetTest::ThreadMessageWidgetTest(QObject *parent)
 
 void ThreadMessageWidgetTest::shouldHaveDefaultValues()
 {
+    ThreadMessageWidget::ThreadMessageInfo info;
+    QVERIFY(info.threadMessageId.isEmpty());
+    QVERIFY(info.threadMessagePreview.isEmpty());
+    QVERIFY(!info.threadIsFollowing);
+    QVERIFY(!info.room);
+
     ThreadMessageWidget w(nullptr);
-    QVERIFY(w.threadMessageId().isEmpty());
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -54,6 +59,9 @@ void ThreadMessageWidgetTest::shouldChangeThreadPreview()
     ThreadMessageWidget w(nullptr);
     auto mThreadPreview = w.findChild<QLabel *>(QStringLiteral("mThreadPreview"));
     const QString threadPreview{QStringLiteral("bla")};
-    w.setThreadPreview(threadPreview);
+    ThreadMessageWidget::ThreadMessageInfo info;
+    info.threadMessagePreview = threadPreview;
+
+    w.setThreadMessageInfo(info);
     QCOMPARE(mThreadPreview->text(), threadPreview);
 }

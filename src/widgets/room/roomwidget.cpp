@@ -859,10 +859,12 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const Q
 {
     qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "threadMessageId: " << threadMessageId;
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
-    dlg->setThreadMessageId(threadMessageId);
-    dlg->setFollowingThread(threadIsFollowing);
-    dlg->setThreadPreview(threadMessagePreview);
-    dlg->setRoom(mRoom);
+    ThreadMessageWidget::ThreadMessageInfo info;
+    info.threadMessageId = threadMessageId;
+    info.threadMessagePreview = threadMessagePreview;
+    info.threadIsFollowing = threadIsFollowing;
+    info.room = mRoom;
+    dlg->setThreadMessageInfo(info);
     dlg->show();
 }
 
