@@ -94,8 +94,13 @@ bool Block::operator==(const Block &other) const
 
 QJsonObject Block::serialize(const Block &block)
 {
+    QJsonObject o;
+    o[QStringLiteral("blockId")] = block.blockId();
+    o[QStringLiteral("callId")] = block.callId();
+    o[QStringLiteral("appId")] = block.appId();
+    // TODO type
     // TODO
-    return {};
+    return o;
 }
 
 Block Block::fromJSon(const QJsonObject &o)

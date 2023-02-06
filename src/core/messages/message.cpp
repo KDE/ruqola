@@ -898,7 +898,6 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         channels.insert(channel.value(QLatin1String("channel")).toString(), channel.value(QLatin1String("_id")).toString());
     }
     message.setChannels(channels);
-
     // TODO blocks
 
     // TODO add message translation !
@@ -1020,7 +1019,16 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mReplies.isEmpty()) {
         o[QStringLiteral("replies")] = QJsonArray::fromStringList(message.mReplies);
     }
-    // TODO blocks !
+
+    if (!message.mBlocks.isEmpty()) {
+        QJsonArray blockArray;
+        const int nBlocks = message.mBlocks.count();
+        for (int i = 0; i < nBlocks; ++i) {
+            blockArray.append(Block::serialize(message.mBlocks.at(i)));
+        }
+        o[QStringLiteral("blocks")] = blockArray;
+    }
+
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
