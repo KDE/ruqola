@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-04 00:58+0000\n"
-"PO-Revision-Date: 2023-01-28 17:34+0100\n"
+"PO-Revision-Date: 2023-02-04 17:45+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -4240,20 +4240,19 @@ msgid "The cache limit for outbound message handling."
 msgstr "El límite de caché para el manejo de mensajes salientes."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Search permissions..."
+#, kde-format
 msgid "Regular Expressions"
-msgstr "Buscar permisos..."
+msgstr "Expresiones regulares"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:30
 #, kde-format
 msgid "Output upon a successful connection to the IRC server."
-msgstr ""
+msgstr "Salida mostrada tras una conexión exitosa con el servidor IRC."
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Inicio de sesión exitoso"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -5898,11 +5897,9 @@ msgid "Remove Account"
 msgstr "Eliminar cuenta"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:15
-#, fuzzy, kde-format
-#| msgctxt "@title"
-#| msgid "Remove Custom Sound"
+#, kde-format
 msgid "Remove logs stored on disk"
-msgstr "Eliminar sonido personalizado"
+msgstr "Eliminar registros almacenados en disco"
 
 #: widgets/configuredialog/removeaccountwidget.cpp:38
 #, kde-format
@@ -8221,13 +8218,12 @@ msgstr "Crear equipo"
 #: widgets/ruqolamainwindow.cpp:719
 #, kde-format
 msgid "Impossible to open log."
-msgstr ""
+msgstr "No se pudo abrir los registros."
 
 #: widgets/ruqolamainwindow.cpp:719
-#, fuzzy, kde-format
-#| msgid "Show Channel Log"
+#, kde-format
 msgid "Show Log"
-msgstr "Mostrar log del canal"
+msgstr "Mostrar registros"
 
 #: widgets/ruqolamainwindow.cpp:772
 #, kde-format
