@@ -6,7 +6,6 @@
 
 #include "filesforroommodel.h"
 #include "rocketchataccount.h"
-#include "ruqola_debug.h"
 
 FilesForRoomModel::FilesForRoomModel(RocketChatAccount *account, QObject *parent)
     : QAbstractListModel(parent)
