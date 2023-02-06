@@ -656,7 +656,7 @@ private:
     MessageQueue *mMessageQueue = nullptr;
     RocketChatBackend *mRocketChatBackend = nullptr;
     RuqolaLogger *mRuqolaLogger = nullptr;
-    RuqolaServerConfig *mRuqolaServerConfig = nullptr;
+    RuqolaServerConfig *const mRuqolaServerConfig;
     UserCompleterModel *mUserCompleterModel = nullptr;
     UserCompleterFilterProxyModel *mUserCompleterFilterModelProxy = nullptr;
     StatusModel *mStatusModel = nullptr;
