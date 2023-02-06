@@ -88,6 +88,7 @@
 RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
+    , mRuqolaServerConfig(new RuqolaServerConfig)
     , mOtrManager(new OtrManager(this, this))
     , mMessageCache(new MessageCache(this, this))
     , mManageChannels(new ManageChannels(this, this))
@@ -96,6 +97,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
     , mUploadFileManager(new UploadFileManager(this))
     , mVideoConferenceManager(new VideoConferenceManager(this))
+
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -129,7 +131,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
                 inputAutocomplete(pattern, exceptions, type, true);
             });
 
-    mRuqolaServerConfig = new RuqolaServerConfig;
     mReceiveTypingNotificationManager = new ReceiveTypingNotificationManager(this);
 
     initializeAuthenticationPlugins();
