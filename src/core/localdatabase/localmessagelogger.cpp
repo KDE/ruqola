@@ -51,23 +51,15 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
     }
 }
 
-void LocalMessageLogger::deleteMessage(const QString &accountName, const QString &_roomName, const QString &messageId)
+void LocalMessageLogger::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)
 {
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
         return;
     }
-    // addMessage is always called before deleteMessage, if only for the history replay on connect
-    // So the db must exist
-    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
-    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
-    QSqlDatabase db = QSqlDatabase::database(dbName);
-    if (!db.isValid()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room"
-                                       << roomName;
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, roomName, db)) {
         return;
     }
-    Q_ASSERT(db.isValid());
-    Q_ASSERT(db.isOpen());
     QSqlQuery query(QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"), db);
     query.addBindValue(messageId);
     if (!query.exec()) {

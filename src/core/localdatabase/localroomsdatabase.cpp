@@ -46,8 +46,14 @@ void LocalRoomsDatabase::addRoom(const QString &accountName, const QString &room
 #endif
 }
 
-void LocalRoomsDatabase::deleteRoom(const QString &_roomName)
+void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &roomName)
 {
+#if HAVE_DATABASE_SUPPORT
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, roomName, db)) {
+        return;
+    }
+#endif
 }
 
 QString LocalRoomsDatabase::schemaDataBase() const
