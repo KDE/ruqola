@@ -157,3 +157,5 @@ add_ruqola_test(servererrorinfotest.cpp)
 if(HAVE_TEXT_TRANSLATOR)
     add_ruqola_test(translatetextjobtest.cpp)
 endif()
+
+add_ruqola_test(localmessagedatabasetest.cpp)
