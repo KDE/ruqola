@@ -623,13 +623,13 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
             threadMessagePreview = index.data(MessageModel::MessageConvertedText).toString();
         }
     }
-    Message b = *message;
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
     ThreadMessageWidget::ThreadMessageInfo info;
     info.threadMessageId = messageId;
     info.threadMessagePreview = threadMessagePreview;
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
+    info.messageThread = *message;
     dlg->setThreadMessageInfo(info);
     dlg->show();
 }

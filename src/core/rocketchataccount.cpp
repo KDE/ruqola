@@ -1380,7 +1380,7 @@ void RocketChatAccount::reportMessage(const QString &messageId, const QString &m
     restApi()->reportMessage(messageId, message);
 }
 
-void RocketChatAccount::getThreadMessages(const QString &threadMessageId)
+void RocketChatAccount::getThreadMessages(const QString &threadMessageId, const Message &message)
 {
     mListMessageModel->clear();
     restApi()->getThreadMessages(threadMessageId);

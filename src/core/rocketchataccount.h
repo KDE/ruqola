@@ -202,7 +202,7 @@ public:
     void rolesInRoom(const QString &roomId, Room::RoomType channelType);
     void switchingToRoom(const QString &roomID);
     void reportMessage(const QString &messageId, const QString &message);
-    void getThreadMessages(const QString &threadMessageId);
+    void getThreadMessages(const QString &threadMessageId, const Message &message);
     void createDiscussion(const QString &parentRoomName,
                           const QString &discussionName,
                           const QString &replyMessage,

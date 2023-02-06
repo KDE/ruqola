@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolawidgets_private_export.h"
+#include "messages/message.h"
 #include <QPointer>
 #include <QWidget>
 class RocketChatAccount;
@@ -25,10 +26,11 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageWidget : public QWidget
     Q_OBJECT
 public:
     struct LIBRUQOLAWIDGETS_TESTS_EXPORT ThreadMessageInfo {
+        Message messageThread;
         QString threadMessageId;
         QString threadMessagePreview;
-        bool threadIsFollowing = false;
         Room *room = nullptr;
+        bool threadIsFollowing = false;
     };
     explicit ThreadMessageWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ThreadMessageWidget() override;
