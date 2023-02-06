@@ -7,13 +7,11 @@
 #include "inputtextmanager.h"
 #include "connection.h"
 #include "misc/directoryjob.h"
-#include "model/commandsmodel.h"
 #include "model/commandsmodelfilterproxymodel.h"
 #include "model/emoticonmodelfilterproxymodel.h"
 #include "ownuser/ownuserpreferences.h"
 #include "rocketchataccount.h"
 #include "ruqola_completion_debug.h"
-#include "ruqola_debug.h"
 
 InputTextManager::InputTextManager(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
