@@ -65,6 +65,7 @@ public:
         ThreadLastMessage,
         ThreadMessageId,
         ThreadMessagePreview,
+        ThreadMessage,
         ThreadMessageFollowed,
         ShowTranslatedMessage,
         DisplayAttachment,
@@ -138,6 +139,8 @@ public:
 
     Q_REQUIRED_RESULT QString searchText() const;
     void setSearchText(const QString &searchText);
+
+    Q_REQUIRED_RESULT Message threadMessage(const QString &threadMessageId) const;
 
 private:
     void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);

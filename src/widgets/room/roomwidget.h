@@ -8,9 +8,9 @@
 
 #include "channels/channelhistoryjob.h"
 #include "libruqolawidgets_private_export.h"
+#include "messages/message.h"
 #include "room.h"
 #include "roomheaderwidget.h"
-#include "uploadfilejob.h"
 #include <QPointer>
 #include <QWidget>
 
@@ -80,7 +80,7 @@ private:
     void slotSnipperedMessages();
     void slotConfigureNotification();
     void slotLoadHistory();
-    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing);
+    void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &threadMessage);
     void slotConfigureAutoTranslate();
     void slotChannelInfoRequested();
     void slotInviteUsers();

@@ -855,7 +855,10 @@ void RoomWidget::slotGoBackToRoom()
     }
 }
 
-void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing)
+void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId,
+                                         const QString &threadMessagePreview,
+                                         bool threadIsFollowing,
+                                         const Message &threadMessage)
 {
     qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "threadMessageId: " << threadMessageId;
     auto dlg = new ThreadMessageDialog(mCurrentRocketChatAccount, this);
@@ -864,6 +867,7 @@ void RoomWidget::slotOpenThreadRequested(const QString &threadMessageId, const Q
     info.threadMessagePreview = threadMessagePreview;
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
+    info.messageThread = threadMessage;
     dlg->setThreadMessageInfo(info);
     dlg->show();
 }

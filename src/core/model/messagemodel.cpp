@@ -357,6 +357,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return threadMessagePreview(message.threadMessageId());
     case MessageModel::ThreadMessageFollowed:
         return threadMessageFollowed(message.threadMessageId());
+    case MessageModel::ThreadMessage: {
+        const Message tm = threadMessage(message.threadMessageId());
+        return QVariant::fromValue(&tm);
+    }
     case MessageModel::Groupable:
         return message.groupable();
     case MessageModel::ShowTranslatedMessage:
@@ -610,6 +614,19 @@ void MessageModel::deleteMessage(const QString &messageId)
 qint64 MessageModel::generateNewStartTimeStamp(qint64 lastTimeStamp)
 {
     return mLoadRecentHistoryManager->generateNewStartTimeStamp(lastTimeStamp);
+}
+
+Message MessageModel::threadMessage(const QString &threadMessageId) const
+{
+    if (!threadMessageId.isEmpty()) {
+        auto it = findMessage(threadMessageId);
+        if (it != mAllMessages.cend()) {
+            return (*it);
+        } else {
+            qCDebug(RUQOLA_LOG) << "Thread message" << threadMessageId << "not found"; // could be a very old one
+        }
+    }
+    return Message{};
 }
 
 QString MessageModel::threadMessagePreview(const QString &threadMessageId) const

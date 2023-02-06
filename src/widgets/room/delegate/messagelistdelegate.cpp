@@ -541,10 +541,13 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
                 const QString threadMessagePreview = index.data(MessageModel::ThreadMessagePreview).toString();
                 qCDebug(RUQOLA_THREAD_MESSAGE_WIDGETS_LOG) << "Click on thread area: " << message->messageId();
                 const bool threadIsFollowing = message->replies().contains(mRocketChatAccount->userId());
+                // We show current => use this message
+                const Message threadMessage = *message;
                 Q_EMIT mRocketChatAccount->openThreadRequested(message->messageId(),
                                                                threadMessagePreview.isEmpty() ? index.data(MessageModel::MessageConvertedText).toString()
                                                                                               : threadMessagePreview,
-                                                               threadIsFollowing);
+                                                               threadIsFollowing,
+                                                               threadMessage);
                 return true;
             }
         }

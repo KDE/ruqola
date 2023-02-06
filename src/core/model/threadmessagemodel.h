@@ -27,9 +27,11 @@ public:
 
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
+    void addPreviewMessage(const Message &message);
 
 private:
     void parse(const QJsonObject &obj);
+    Message mPreviewMessage;
     QString mThreadMessageId;
     int mTotal = 0;
 };

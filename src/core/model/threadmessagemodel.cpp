@@ -30,7 +30,11 @@ void ThreadMessageModel::parse(const QJsonObject &obj)
     ListMessages threadmessages;
     threadmessages.parseMessages(obj);
     mTotal = threadmessages.total();
-    addMessages(threadmessages.listMessages());
+    QVector<Message> listMessage = threadmessages.listMessages();
+    if (!mPreviewMessage.messageId().isEmpty()) {
+        listMessage.prepend(mPreviewMessage);
+    }
+    addMessages(listMessage);
 }
 
 void ThreadMessageModel::parseThreadMessages(const QJsonObject &obj)
@@ -52,4 +56,9 @@ int ThreadMessageModel::total() const
 void ThreadMessageModel::setTotal(int total)
 {
     mTotal = total;
+}
+
+void ThreadMessageModel::addPreviewMessage(const Message &message)
+{
+    mPreviewMessage = message;
 }
