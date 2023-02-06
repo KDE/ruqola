@@ -1383,7 +1383,7 @@ void RocketChatAccount::reportMessage(const QString &messageId, const QString &m
 void RocketChatAccount::getThreadMessages(const QString &threadMessageId, const Message &message)
 {
     // mListMessageModel->clear();
-    mThreadMessageModel->addPreviewMessage(message);
+    mThreadMessageModel->setPreviewMessage(message);
     restApi()->getThreadMessages(threadMessageId);
 }
 

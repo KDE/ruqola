@@ -27,7 +27,7 @@ public:
 
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
-    void addPreviewMessage(const Message &message);
+    void setPreviewMessage(const Message &message);
 
 private:
     void parse(const QJsonObject &obj);

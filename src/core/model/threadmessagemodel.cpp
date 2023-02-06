@@ -58,7 +58,7 @@ void ThreadMessageModel::setTotal(int total)
     mTotal = total;
 }
 
-void ThreadMessageModel::addPreviewMessage(const Message &message)
+void ThreadMessageModel::setPreviewMessage(const Message &message)
 {
     mPreviewMessage = message;
 }
