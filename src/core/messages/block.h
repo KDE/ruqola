@@ -42,11 +42,15 @@ public:
 
     Q_REQUIRED_RESULT QString generateDescription() const;
 
+    Q_REQUIRED_RESULT QString blockTypeStr() const;
+    void setBlockTypeStr(const QString &newBlockStr);
+
 private:
     Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;
     QString mCallId;
     QString mAppId;
+    QString mBlockStr;
     BlockType mBlockType = Unknown;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);

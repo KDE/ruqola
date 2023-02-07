@@ -14,6 +14,10 @@ class BlockTest : public QObject
 public:
     explicit BlockTest(QObject *parent = nullptr);
     ~BlockTest() override = default;
+
 private Q_SLOTS:
+    void shouldSerializeData();
+    void shouldLoadBlock();
+    void shouldLoadBlock_data();
     void shouldHaveDefaultValues();
 };
