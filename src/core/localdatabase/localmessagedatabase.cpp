@@ -67,3 +67,31 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
     }
 #endif
 }
+
+std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
+{
+    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName, roomName);
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    auto model = std::make_unique<QSqlTableModel>(nullptr, db);
+    model->setTable(QStringLiteral("MESSAGES"));
+    model->setSort(int(Fields::TimeStamp), Qt::AscendingOrder);
+    model->select();
+    return model;
+}

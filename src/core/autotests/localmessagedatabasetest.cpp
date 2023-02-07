@@ -5,7 +5,7 @@
 */
 
 #include "localmessagedatabasetest.h"
-#include "localdatabase/localmessagelogger.h"
+#include "localdatabase/localmessagedatabase.h"
 #include "messages/message.h"
 
 #include <QSqlRecord>
@@ -42,7 +42,7 @@ void LocalMessageDatabaseTest::initTestCase()
     QStandardPaths::setTestModeEnabled(true);
 
     // Clean up after previous runs
-    LocalMessageLogger logger;
+    LocalMessageDatabase logger;
     QFile::remove(logger.dbFileName(accountName(), roomName()));
     QFile::remove(logger.dbFileName(accountName(), otherRoomName()));
     QFile::remove(logger.dbFileName(accountName(), existingRoomName()));
@@ -51,7 +51,7 @@ void LocalMessageDatabaseTest::initTestCase()
 void LocalMessageDatabaseTest::shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    LocalMessageDatabase logger;
 
     Message message1;
     message1.setText(QString::fromUtf8("Message text: €1"));
@@ -95,7 +95,7 @@ void LocalMessageDatabaseTest::shouldStoreMessages()
 void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    LocalMessageDatabase logger;
     // Copy an existing db under a new room name, so that there's not yet a QSqlDatabase for it
     QSqlDatabase::database(accountName() + QLatin1Char('-') + otherRoomName()).close();
     const QString srcDb = logger.dbFileName(accountName(), otherRoomName());
@@ -117,7 +117,7 @@ void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on sh
 void LocalMessageDatabaseTest::shouldDeleteMessages() // this test depends on shouldStoreMessages()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    LocalMessageDatabase logger;
     const QString messageId = (QStringLiteral("msg-other-1"));
 
     // WHEN
@@ -132,7 +132,7 @@ void LocalMessageDatabaseTest::shouldDeleteMessages() // this test depends on sh
 void LocalMessageDatabaseTest::shouldReturnNullIfDoesNotExist()
 {
     // GIVEN
-    LocalMessageLogger logger;
+    LocalMessageDatabase logger;
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), QStringLiteral("does not exist"));
     // THEN
