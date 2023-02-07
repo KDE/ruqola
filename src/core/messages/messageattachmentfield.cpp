@@ -43,7 +43,7 @@ QJsonObject MessageAttachmentField::serialize(const MessageAttachmentField &mess
     return obj;
 }
 
-MessageAttachmentField MessageAttachmentField::fromJson(const QJsonObject &o)
+MessageAttachmentField MessageAttachmentField::deserialize(const QJsonObject &o)
 {
     MessageAttachmentField att;
     att.setValue(o.value(QLatin1String("value")).toString());

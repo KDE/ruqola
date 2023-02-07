@@ -87,7 +87,7 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     QVector<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
-        messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
+        messageFields.append(MessageAttachmentField::deserialize(fieldsArray.at(i).toObject()));
     }
     if (!messageFields.isEmpty()) {
         setAttachmentFields(messageFields);
@@ -153,7 +153,7 @@ QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
     return obj;
 }
 
-MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
+MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
 {
     MessageAttachment att;
     att.setDescription(o.value(QLatin1String("description")).toString());
@@ -177,7 +177,7 @@ MessageAttachment MessageAttachment::fromJson(const QJsonObject &o)
     QVector<MessageAttachmentField> messageFields;
     messageFields.reserve(fieldsArray.size());
     for (int i = 0, total = fieldsArray.size(); i < total; ++i) {
-        messageFields.append(MessageAttachmentField::fromJson(fieldsArray.at(i).toObject()));
+        messageFields.append(MessageAttachmentField::deserialize(fieldsArray.at(i).toObject()));
     }
     att.setAttachmentFields(messageFields);
     att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());

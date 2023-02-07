@@ -32,7 +32,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
         const QJsonObject ba = MessageUrl::serialize(input);
-        const MessageUrl output = MessageUrl::fromJSon(ba);
+        const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
     }
     {
@@ -40,7 +40,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setPageTitle(QStringLiteral("foo2"));
         input.setDescription(QStringLiteral("foo3"));
         const QJsonObject ba = MessageUrl::serialize(input);
-        const MessageUrl output = MessageUrl::fromJSon(ba);
+        const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
     }
     {
@@ -48,7 +48,7 @@ void MessageUrlTest::shouldSerializeData()
         input.setUrl(QStringLiteral("foo1"));
         input.setDescription(QStringLiteral("foo3"));
         const QJsonObject ba = MessageUrl::serialize(input);
-        const MessageUrl output = MessageUrl::fromJSon(ba);
+        const MessageUrl output = MessageUrl::deserialize(ba);
         QCOMPARE(input, output);
     }
 }

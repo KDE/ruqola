@@ -41,7 +41,7 @@ public:
     Q_REQUIRED_RESULT bool operator==(const MessageAttachment &other) const;
 
     static QJsonObject serialize(const MessageAttachment &message);
-    static MessageAttachment fromJson(const QJsonObject &o);
+    static MessageAttachment deserialize(const QJsonObject &o);
     Q_REQUIRED_RESULT int imageWidth() const;
     void setImageWidth(int imageWidth);
 

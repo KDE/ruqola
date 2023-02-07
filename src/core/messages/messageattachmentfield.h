@@ -22,7 +22,7 @@ public:
     void setValue(const QString &value);
 
     static QJsonObject serialize(const MessageAttachmentField &message);
-    static MessageAttachmentField fromJson(const QJsonObject &o);
+    static MessageAttachmentField deserialize(const QJsonObject &o);
 
 private:
     QString mTitle;

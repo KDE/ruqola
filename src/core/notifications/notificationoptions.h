@@ -61,7 +61,7 @@ public:
     void setAudioNotificationValue(const QString &audioNotificationValue);
 
     Q_REQUIRED_RESULT static QJsonObject serialize(const NotificationOptions &message);
-    Q_REQUIRED_RESULT static NotificationOptions fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT static NotificationOptions deserialize(const QJsonObject &o);
 
     void parseNotificationOptions(const QJsonObject &obj);
     void updateNotificationOptions(const QJsonObject &obj);

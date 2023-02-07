@@ -65,6 +65,6 @@ void BlockTest::shouldSerializeData()
     input.setBlockTypeStr(QStringLiteral("video_conf"));
 
     const QJsonObject ba = Block::serialize(input);
-    const Block output = Block::fromJSon(ba);
+    const Block output = Block::deserialize(ba);
     QCOMPARE(input, output);
 }

@@ -68,7 +68,7 @@ QJsonObject Reactions::serialize(const Reactions &reactions)
     return obj;
 }
 
-Reactions Reactions::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
+Reactions Reactions::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     QVector<Reaction> reacts;
     const QStringList lst = o.keys();

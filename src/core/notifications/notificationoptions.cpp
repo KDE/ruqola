@@ -61,7 +61,7 @@ QJsonObject NotificationOptions::serialize(const NotificationOptions &options)
     return obj;
 }
 
-NotificationOptions NotificationOptions::fromJSon(const QJsonObject &o)
+NotificationOptions NotificationOptions::deserialize(const QJsonObject &o)
 {
     qCWarning(RUQOLA_LOG) << "Not implemented yet";
     // TODO

@@ -1206,7 +1206,7 @@ void Room::setEncrypted(bool encrypted)
     }
 }
 
-std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
+std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
 {
     // FIXME
     auto r = std::make_unique<Room>(nullptr);
@@ -1283,7 +1283,7 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     r->setRoles(lstRoles);
 
     const QJsonObject notificationsObj = o.value(QLatin1String("notifications")).toObject();
-    const NotificationOptions notifications = NotificationOptions::fromJSon(notificationsObj);
+    const NotificationOptions notifications = NotificationOptions::deserialize(notificationsObj);
     r->setNotificationOptions(notifications);
 
     r->setDirectChannelUserId(o[QStringLiteral("directChannelUserId")].toString());
@@ -1298,9 +1298,9 @@ std::unique_ptr<Room> Room::fromJSon(const QJsonObject &o)
     }
     r->setUids(lstUids);
     const QJsonObject retentionObj = o.value(QLatin1String("retention")).toObject();
-    const RetentionInfo retention = RetentionInfo::fromJSon(retentionObj);
+    const RetentionInfo retention = RetentionInfo::deserialize(retentionObj);
     r->setRetentionInfo(retention);
-    const TeamInfo teaminfo = TeamInfo::fromJSon(o);
+    const TeamInfo teaminfo = TeamInfo::deserialize(o);
     r->setTeamInfo(teaminfo);
 
     // TODO add parent RID

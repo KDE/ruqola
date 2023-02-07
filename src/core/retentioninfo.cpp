@@ -94,7 +94,7 @@ QJsonObject RetentionInfo::serialize(RetentionInfo retention)
     return obj;
 }
 
-RetentionInfo RetentionInfo::fromJSon(const QJsonObject &obj)
+RetentionInfo RetentionInfo::deserialize(const QJsonObject &obj)
 {
     RetentionInfo info;
     info.setEnabled(obj[QStringLiteral("enabled")].toBool());

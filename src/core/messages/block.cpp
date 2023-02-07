@@ -116,7 +116,7 @@ QJsonObject Block::serialize(const Block &block)
     return o;
 }
 
-Block Block::fromJSon(const QJsonObject &o)
+Block Block::deserialize(const QJsonObject &o)
 {
     Block block;
     block.setBlockId(o[QLatin1String("blockId")].toString());

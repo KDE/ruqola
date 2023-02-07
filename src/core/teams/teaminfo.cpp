@@ -34,7 +34,7 @@ void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
     }
 }
 
-TeamInfo TeamInfo::fromJSon(const QJsonObject &obj)
+TeamInfo TeamInfo::deserialize(const QJsonObject &obj)
 {
     TeamInfo info;
     info.setMainTeam(obj[QStringLiteral("teamMain")].toBool());

@@ -20,7 +20,7 @@ QJsonObject MessageUrl::serialize(const MessageUrl &url)
     return obj;
 }
 
-MessageUrl MessageUrl::fromJSon(const QJsonObject &o)
+MessageUrl MessageUrl::deserialize(const QJsonObject &o)
 {
     MessageUrl url;
     url.setPageTitle(o.value(QLatin1String("pagetitle")).toString());

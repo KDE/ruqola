@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT bool operator==(const Reactions &other) const;
 
     Q_REQUIRED_RESULT static QJsonObject serialize(const Reactions &reactions);
-    Q_REQUIRED_RESULT static Reactions fromJSon(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
+    Q_REQUIRED_RESULT static Reactions deserialize(const QJsonObject &o, EmojiManager *emojiManager = nullptr);
 
     Q_REQUIRED_RESULT bool isEmpty() const;
 

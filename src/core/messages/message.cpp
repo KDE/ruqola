@@ -814,7 +814,7 @@ Utils::AvatarInfo Message::avatarInfo() const
     return info;
 }
 
-Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
+Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 {
     Message message(emojiManager);
     message.mThreadCount = o[QStringLiteral("tcount")].toString().toInt();
@@ -854,7 +854,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray attachmentsArray = o.value(QLatin1String("attachments")).toArray();
     for (int i = 0; i < attachmentsArray.count(); ++i) {
         const QJsonObject attachment = attachmentsArray.at(i).toObject();
-        MessageAttachment att = MessageAttachment::fromJson(attachment);
+        MessageAttachment att = MessageAttachment::deserialize(attachment);
         att.setAttachmentId(Message::generateAttachmentId(message.messageId(), i));
         if (att.isValid()) {
             message.mAttachments.append(std::move(att));
@@ -863,13 +863,13 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
     const QJsonArray urlsArray = o.value(QLatin1String("urls")).toArray();
     for (int i = 0; i < urlsArray.count(); ++i) {
         const QJsonObject urlObj = urlsArray.at(i).toObject();
-        const MessageUrl url = MessageUrl::fromJSon(urlObj);
+        const MessageUrl url = MessageUrl::deserialize(urlObj);
         if (!url.isEmpty()) {
             message.mUrls.append(std::move(url));
         }
     }
     const QJsonObject reactionsArray = o.value(QLatin1String("reactions")).toObject();
-    message.setReactions(Reactions::fromJSon(reactionsArray, emojiManager));
+    message.setReactions(Reactions::deserialize(reactionsArray, emojiManager));
 
     const QJsonArray repliesArray = o.value(QLatin1String("replies")).toArray();
     QStringList replies;
@@ -901,7 +901,7 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
 
     const QJsonArray blocksArray = o.value(QLatin1String("blocks")).toArray();
     for (int i = 0, total = blocksArray.count(); i < total; ++i) {
-        const Block block = Block::fromJSon(blocksArray.at(i).toObject());
+        const Block block = Block::deserialize(blocksArray.at(i).toObject());
         message.mBlocks.append(std::move(block));
     }
 

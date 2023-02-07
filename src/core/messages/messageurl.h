@@ -15,7 +15,7 @@ public:
     MessageUrl();
     Q_REQUIRED_RESULT bool operator==(const MessageUrl &other) const;
     static QJsonObject serialize(const MessageUrl &url);
-    static MessageUrl fromJSon(const QJsonObject &o);
+    static MessageUrl deserialize(const QJsonObject &o);
 
     Q_REQUIRED_RESULT QString url() const;
     void setUrl(const QString &url);

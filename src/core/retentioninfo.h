@@ -34,7 +34,7 @@ public:
     Q_REQUIRED_RESULT bool operator!=(RetentionInfo other) const;
 
     Q_REQUIRED_RESULT static QJsonObject serialize(RetentionInfo retention);
-    Q_REQUIRED_RESULT static RetentionInfo fromJSon(const QJsonObject &o);
+    Q_REQUIRED_RESULT static RetentionInfo deserialize(const QJsonObject &o);
     Q_REQUIRED_RESULT bool isNotDefault() const;
 
 private:

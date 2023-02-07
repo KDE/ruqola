@@ -468,7 +468,7 @@ void RoomModelTest::shouldInsertRoom()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/insert-rooms/"), jsonIndented, insertRoomFileName);
 
-    auto m = Room::fromJSon(docSerialized.object());
+    auto m = Room::deserialize(docSerialized.object());
     QCOMPARE(*r, *m);
 }
 

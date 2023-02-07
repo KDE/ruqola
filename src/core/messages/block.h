@@ -23,7 +23,7 @@ public:
     Q_REQUIRED_RESULT bool operator==(const Block &other) const;
 
     static QJsonObject serialize(const Block &block);
-    static Block fromJSon(const QJsonObject &o);
+    static Block deserialize(const QJsonObject &o);
     void parseBlock(const QJsonObject &block);
 
     Q_REQUIRED_RESULT QString blockId() const;

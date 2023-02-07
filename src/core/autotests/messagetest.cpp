@@ -329,7 +329,7 @@ void MessageTest::shouldSerializeData()
 
     const QByteArray ba = Message::serialize(input);
     // Message output = Message::fromJSon(QJsonObject(QJsonDocument::fromBinaryData(ba).object()));
-    Message output = Message::fromJSon(QCborValue::fromCbor(ba).toMap().toJsonObject());
+    Message output = Message::deserialize(QCborValue::fromCbor(ba).toMap().toJsonObject());
     QCOMPARE(input, output);
     // TODO add Mentions
 
@@ -380,7 +380,7 @@ void MessageTest::shouldParseJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/messages/"), jsonIndented, fileName);
 
-    Message m = Message::fromJSon(docSerialized.object());
+    Message m = Message::deserialize(docSerialized.object());
     bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;
@@ -438,7 +438,7 @@ void MessageTest::shouldUpdateJsonMessage()
     const QByteArray jsonIndented = docSerialized.toJson(QJsonDocument::Indented);
     AutoTestHelper::compareFile(QStringLiteral("/messages-updated/"), jsonIndented, fileNameinit);
 
-    Message m = Message::fromJSon(docSerialized.object());
+    Message m = Message::deserialize(docSerialized.object());
     const bool compareMessage = (r == m);
     if (!compareMessage) {
         qDebug() << "loaded message" << r;

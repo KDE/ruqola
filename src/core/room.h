@@ -118,7 +118,7 @@ public:
      * @param source The Json containing room attributes
      * @return Room object, The room constructed from Json
      */
-    static std::unique_ptr<Room> fromJSon(const QJsonObject &source);
+    static std::unique_ptr<Room> deserialize(const QJsonObject &source);
 
     /**
      * @brief Constructs QBytearray from Room object
