@@ -194,12 +194,14 @@ void MessageListView::handleKeyPressEvent(QKeyEvent *ev)
         // since we don't show the current item.
         QAbstractScrollArea::keyPressEvent(ev);
         ev->accept();
-    } else if (key == Qt::Key_Home && ev->modifiers() & Qt::ControlModifier) {
-        scrollToTop();
-        ev->accept();
-    } else if (key == Qt::Key_End && ev->modifiers() & Qt::ControlModifier) {
-        scrollToBottom();
-        ev->accept();
+    } else if (ev->modifiers() & Qt::ControlModifier) {
+        if (key == Qt::Key_Home) {
+            scrollToTop();
+            ev->accept();
+        } else if (key == Qt::Key_End) {
+            scrollToBottom();
+            ev->accept();
+        }
     }
 }
 
