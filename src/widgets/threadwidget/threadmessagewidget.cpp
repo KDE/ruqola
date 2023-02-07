@@ -120,9 +120,11 @@ void ThreadMessageWidget::setThreadMessageInfo(const ThreadMessageWidget::Thread
     mFollowButton->setChecked(!info.threadIsFollowing);
 
     mRoom = info.room;
-    mRoomWidgetBase->messageLineWidget()->setRoomId(mRoom->roomId());
-    mRoomWidgetBase->messageListView()->setRoom(mRoom);
-    mRoomWidgetBase->updateRoomReadOnly(mRoom);
+    if (mRoom) {
+        mRoomWidgetBase->messageLineWidget()->setRoomId(mRoom->roomId());
+        mRoomWidgetBase->messageListView()->setRoom(mRoom);
+        mRoomWidgetBase->updateRoomReadOnly(mRoom);
+    }
     mThreadPreview->setText(info.threadMessagePreview);
     if (mThreadMessageId != info.threadMessageId) {
         mThreadMessageId = info.threadMessageId;
