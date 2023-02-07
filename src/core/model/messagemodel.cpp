@@ -23,9 +23,6 @@
 
 #include <emoticons/emojimanager.h>
 
-// TODO reactivate when we will able to load message between cache and official server.
-// #define STORE_MESSAGE 1
-
 MessageModel::MessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
     : QAbstractListModel(parent)
     , mRoomId(roomID)
