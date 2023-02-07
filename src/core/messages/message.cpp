@@ -898,7 +898,12 @@ Message Message::fromJSon(const QJsonObject &o, EmojiManager *emojiManager)
         channels.insert(channel.value(QLatin1String("channel")).toString(), channel.value(QLatin1String("_id")).toString());
     }
     message.setChannels(channels);
-    // TODO blocks
+
+    const QJsonArray blocksArray = o.value(QLatin1String("blocks")).toArray();
+    for (int i = 0, total = blocksArray.count(); i < total; ++i) {
+        const Block block = Block::fromJSon(blocksArray.at(i).toObject());
+        message.mBlocks.append(std::move(block));
+    }
 
     // TODO add message translation !
 
