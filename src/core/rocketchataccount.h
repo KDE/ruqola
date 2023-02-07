@@ -650,7 +650,7 @@ private:
     EmojiManager *mEmojiManager = nullptr;
     TypingNotification *mTypingNotification = nullptr;
     UsersModel *const mUserModel;
-    RoomModel *mRoomModel = nullptr;
+    RoomModel *const mRoomModel;
     DDPClient *mDdp = nullptr;
     RocketChatRestApi::Connection *mRestApi = nullptr;
     MessageQueue *mMessageQueue = nullptr;
@@ -665,9 +665,9 @@ private:
     SearchChannelModel *const mSearchChannelModel;
     SearchChannelFilterProxyModel *mSearchChannelFilterProxyModel = nullptr;
     LoginMethodModel *const mLoginMethodModel;
-    InputTextManager *mInputTextManager = nullptr;
+    InputTextManager *const mInputTextManager;
 
-    InputTextManager *mInputThreadMessageTextManager = nullptr;
+    InputTextManager *const mInputThreadMessageTextManager;
 
     SearchMessageModel *mSearchMessageModel = nullptr;
     SearchMessageFilterProxyModel *mSearchMessageFilterProxyModel = nullptr;

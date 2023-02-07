@@ -89,12 +89,15 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     : QObject(parent)
     , mAccountRoomSettings(new AccountRoomSettings)
     , mUserModel(new UsersModel(this))
+    , mRoomModel(new RoomModel(this, this))
     , mRuqolaServerConfig(new RuqolaServerConfig)
     , mUserCompleterModel(new UserCompleterModel(this))
     , mStatusModel(new StatusModel(this))
     , mOtrManager(new OtrManager(this, this))
     , mSearchChannelModel(new SearchChannelModel(this))
     , mLoginMethodModel(new LoginMethodModel(this))
+    , mInputTextManager(new InputTextManager(this, this))
+    , mInputThreadMessageTextManager(new InputTextManager(this, this))
     , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
     , mDiscussionsModel(new DiscussionsModel(this))
     , mEmoticonFilterModel(new EmoticonFilterModel(this))
@@ -123,7 +126,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mServerConfigInfo = new ServerConfigInfo(this, this);
     // Create it before loading settings
 
-    mInputTextManager = new InputTextManager(this, this);
     mInputTextManager->setObjectName(QStringLiteral("mInputTextManager"));
     connect(mInputTextManager,
             &InputTextManager::completionRequested,
@@ -132,7 +134,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
                 inputAutocomplete(pattern, exceptions, type, false);
             });
 
-    mInputThreadMessageTextManager = new InputTextManager(this, this);
     mInputThreadMessageTextManager->setObjectName(QStringLiteral("mInputThreadMessageTextManager"));
     connect(mInputThreadMessageTextManager,
             &InputTextManager::completionRequested,
@@ -193,7 +194,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
 
     mAutoTranslateLanguagesModel->setObjectName(QStringLiteral("autotranslatelanguagesmodel"));
 
-    mRoomModel = new RoomModel(this, this);
     connect(mRoomModel, &RoomModel::needToUpdateNotification, this, &RocketChatAccount::slotNeedToUpdateNotification);
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
