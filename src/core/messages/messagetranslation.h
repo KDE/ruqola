@@ -21,6 +21,9 @@ public:
 
     Q_REQUIRED_RESULT QString translatedStringFromLanguage(const QString &lang);
 
+    static QJsonObject serialize(const MessageTranslation &url);
+    static MessageTranslation deserialize(const QJsonObject &o);
+
 private:
     QMap<QString, QString> mTranslatedString;
 };

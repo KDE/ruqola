@@ -44,3 +44,17 @@ QString MessageTranslation::translatedStringFromLanguage(const QString &lang)
 {
     return mTranslatedString.value(lang);
 }
+
+QJsonObject MessageTranslation::serialize(const MessageTranslation &url)
+{
+    QJsonObject obj;
+    // TODO
+    return obj;
+}
+
+MessageTranslation MessageTranslation::deserialize(const QJsonObject &o)
+{
+    MessageTranslation translationMessage;
+    // TODO
+    return translationMessage;
+}
