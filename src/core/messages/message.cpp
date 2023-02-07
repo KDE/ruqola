@@ -907,6 +907,8 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     // TODO add message translation !
 
+    // TODO add localTranslation
+
     return message;
 }
 
@@ -1038,6 +1040,9 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         return QCborValue::fromJsonValue(o).toCbor();
     }
     // TODO add message translation
+
+    // TODO add localTranslation
+
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);
 }
