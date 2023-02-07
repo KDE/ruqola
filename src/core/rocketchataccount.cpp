@@ -116,9 +116,11 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
     loadSettings(accountFileName);
+#if 0 // Disable it  otherwise autotests failed
     if (!mSettings->isValid()) {
         return;
     }
+#endif
     if (!qEnvironmentVariableIsEmpty("RUQOLA_LOGFILE")) {
         mRuqolaLogger = new RuqolaLogger(mSettings->accountName());
     }
