@@ -55,7 +55,7 @@ void VideoConferenceNotificationJob::inComingCall()
     const QStringList lstActions{i18n("Accept"), i18n("Reject")};
     notification->setActions(lstActions);
 
-    connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &VideoConferenceNotificationJob::slotActivateNotificationAction);
+    connect(notification, &KNotification::activated, this, &VideoConferenceNotificationJob::slotActivateNotificationAction);
     connect(notification, &KNotification::closed, this, &VideoConferenceNotificationJob::deleteLater);
     notification->sendEvent();
 }

@@ -58,7 +58,7 @@ void OtrNotificationJob::start()
         const QStringList lstActions{i18n("Reject"), i18n("Ok")};
         notification->setActions(lstActions);
 
-        connect(notification, qOverload<unsigned int>(&KNotification::activated), this, &OtrNotificationJob::slotActivateNotificationAction);
+        connect(notification, &KNotification::activated, this, &OtrNotificationJob::slotActivateNotificationAction);
         connect(notification, &KNotification::closed, this, &OtrNotificationJob::deleteLater);
         notification->sendEvent();
         break;

@@ -14,7 +14,7 @@ AwayManager::AwayManager(RocketChatAccount *const account, QObject *parent)
     , mRocketChatAccount(account)
 {
     connect(KIdleTime::instance(), &KIdleTime::resumingFromIdle, this, &AwayManager::slotResumeFromIdle);
-    connect(KIdleTime::instance(), QOverload<int, int>::of(&KIdleTime::timeoutReached), this, &AwayManager::slotIdleTimeoutReached);
+    connect(KIdleTime::instance(), &KIdleTime::timeoutReached, this, &AwayManager::slotIdleTimeoutReached);
 
     KIdleTime::instance()->catchNextResumeEvent();
 }
