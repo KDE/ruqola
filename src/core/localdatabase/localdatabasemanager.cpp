@@ -33,3 +33,13 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     mMessageLogger->deleteMessage(accountName, roomName, messageId);
     mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
 }
+
+void LocalDatabaseManager::addRoom(const QString &accountName, const QString &roomName, Room *room)
+{
+    mRoomsDatabase->addRoom(accountName, roomName, room);
+}
+
+void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString &roomName, const QString &roomId)
+{
+    mRoomsDatabase->deleteRoom(accountName, roomName, roomId);
+}

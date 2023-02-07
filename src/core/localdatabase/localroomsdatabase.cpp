@@ -29,20 +29,18 @@ LocalRoomsDatabase::LocalRoomsDatabase()
 
 LocalRoomsDatabase::~LocalRoomsDatabase() = default;
 
-void LocalRoomsDatabase::addRoom(const QString &accountName, const QString &roomName, const Room &room)
+void LocalRoomsDatabase::addRoom(const QString &accountName, const QString &roomName, Room *room)
 {
 #if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, roomName, db)) {
-        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"), db);
-        query.addBindValue(room.roomId());
-        query.addBindValue(room.updatedAt()); // TODO ?
-        // query.addBindValue(m.text()); // TODO replace by json
-#if 0 // TODO
+        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"), db);
+        query.addBindValue(room->roomId());
+        query.addBindValue(room->updatedAt()); // TODO ?
+        query.addBindValue(Room::serialize(room));
         if (!query.exec()) {
-            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         }
-#endif
     }
 #endif
 }
