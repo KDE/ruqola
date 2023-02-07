@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:58+0000\n"
+"POT-Creation-Date: 2023-02-07 00:59+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -896,7 +896,7 @@ msgstr "Sukurti"
 msgid "Channel Type"
 msgstr "Kanalo pavadinimas"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -952,12 +952,12 @@ msgstr ""
 msgid "Unread Threads Messages"
 msgstr "Ištrinti žinutę"
 
-#: core/model/messagemodel.cpp:280
+#: core/model/messagemodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr ""
 
-#: core/model/messagemodel.cpp:415
+#: core/model/messagemodel.cpp:363
 #, kde-format
 msgid "Ignored Message"
 msgstr ""
@@ -1061,62 +1061,62 @@ msgstr "Tapatybės nustatymo metodas"
 msgid "Last token part"
 msgstr ""
 
-#: core/model/roommodel.cpp:496
+#: core/model/roommodel.cpp:443
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Teams Room"
 msgstr "Ištrinti kambarį"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:449
 #, fuzzy, kde-format
 #| msgid "Private Room:"
 msgid "Private Room"
 msgstr "Privatus kambarys:"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:451
 #, fuzzy, kde-format
 #| msgid "Open Discussion"
 msgid "Discussion Room"
 msgstr "Atverti diskusiją"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:455
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Channel Info"
 msgid "Channel Room"
 msgstr "Informacija apie kanalą"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:515
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Threads"
 msgid "Unread"
 msgstr "Gijos"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "Favorites"
 msgstr ""
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr ""
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:523
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr ""
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:525
 #, kde-format
 msgid "Private Messages"
 msgstr ""
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:527
 #, fuzzy, kde-format
 #| msgid "Unknown state"
 msgid "Unknown"
@@ -7836,18 +7836,18 @@ msgstr[3] "%1 žinutė"
 msgid "No message yet"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:686
+#: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:690
+#: widgets/room/delegate/messagelistdelegate.cpp:693
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Žinutė prisegta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:697
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -7972,19 +7972,19 @@ msgstr ""
 msgid "Report Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:648
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ar norite ištrinti šią žinutę?"
 
-#: widgets/room/messagelistview.cpp:646
+#: widgets/room/messagelistview.cpp:649
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ištrinti žinutę"
 
-#: widgets/room/messagelistview.cpp:786
+#: widgets/room/messagelistview.cpp:789
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"

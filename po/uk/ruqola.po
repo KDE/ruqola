@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-04 00:58+0000\n"
+"POT-Creation-Date: 2023-02-07 00:59+0000\n"
 "PO-Revision-Date: 2023-02-03 08:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -860,7 +860,7 @@ msgstr "Створено"
 msgid "Channel Type"
 msgstr "Тип каналу"
 
-#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:574
+#: core/model/directoryteamsmodel.cpp:92 core/model/roommodel.cpp:521
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
@@ -914,12 +914,12 @@ msgstr "Повідомлення з гілками"
 msgid "Unread Threads Messages"
 msgstr "Повідомлення з непрочитаних гілок"
 
-#: core/model/messagemodel.cpp:280
+#: core/model/messagemodel.cpp:224
 #, kde-format
 msgid "Edited at %1 by %2"
 msgstr "Редаговано %1, %2"
 
-#: core/model/messagemodel.cpp:415
+#: core/model/messagemodel.cpp:363
 #, kde-format
 msgid "Ignored Message"
 msgstr "Ігнороване повідомлення"
@@ -1019,55 +1019,55 @@ msgstr "Двофакторне розпізнавання"
 msgid "Last token part"
 msgstr "Остання частина жетона"
 
-#: core/model/roommodel.cpp:496
+#: core/model/roommodel.cpp:443
 #, kde-format
 msgid "Teams Room"
 msgstr "Кімната команд"
 
-#: core/model/roommodel.cpp:502
+#: core/model/roommodel.cpp:449
 #, kde-format
 msgid "Private Room"
 msgstr "Приватна кімната"
 
-#: core/model/roommodel.cpp:504
+#: core/model/roommodel.cpp:451
 #, kde-format
 msgid "Discussion Room"
 msgstr "Кімната обговорення"
 
-#: core/model/roommodel.cpp:508
+#: core/model/roommodel.cpp:455
 #, kde-format
 msgid "Channel Room"
 msgstr "Кімната каналу"
 
-#: core/model/roommodel.cpp:568
+#: core/model/roommodel.cpp:515
 #, kde-format
 msgid "Unread"
 msgstr "Непрочитані"
 
-#: core/model/roommodel.cpp:570
+#: core/model/roommodel.cpp:517
 #, kde-format
 msgid "Favorites"
 msgstr "Улюблене"
 
-#: core/model/roommodel.cpp:572
+#: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
 #: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Teams"
 msgstr "Команди"
 
-#: core/model/roommodel.cpp:576
+#: core/model/roommodel.cpp:523
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:17
 #, kde-format
 msgid "Discussions"
 msgstr "Обговорення"
 
-#: core/model/roommodel.cpp:578
+#: core/model/roommodel.cpp:525
 #, kde-format
 msgid "Private Messages"
 msgstr "Конфіденційні повідомлення"
 
-#: core/model/roommodel.cpp:580
+#: core/model/roommodel.cpp:527
 #, kde-format
 msgid "Unknown"
 msgstr "Невідомий"
@@ -7670,17 +7670,17 @@ msgstr[3] "%1 повідомлення"
 msgid "No message yet"
 msgstr "Ще немає жодних повідомлень"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:686
+#: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
 msgstr "Стеження"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:690
+#: widgets/room/delegate/messagelistdelegate.cpp:693
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Повідомлення пришпилено"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:694
+#: widgets/room/delegate/messagelistdelegate.cpp:697
 #, kde-format
 msgid "Message has been starred"
 msgstr "Повідомлення позначено зіркою"
@@ -7797,18 +7797,18 @@ msgstr "Переклад повідомлення"
 msgid "Report Message"
 msgstr "Поскаржитися на повідомлення"
 
-#: widgets/room/messagelistview.cpp:645
+#: widgets/room/messagelistview.cpp:648
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Хочете вилучити це повідомлення?"
 
-#: widgets/room/messagelistview.cpp:646
+#: widgets/room/messagelistview.cpp:649
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Вилучення повідомлення"
 
-#: widgets/room/messagelistview.cpp:786
+#: widgets/room/messagelistview.cpp:789
 #, kde-format
 msgid "Translator Error"
 msgstr "Помилка під час перекладу"
