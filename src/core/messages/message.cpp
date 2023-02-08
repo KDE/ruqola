@@ -1038,11 +1038,13 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
     if (!message.mLocalTranslation.isEmpty()) {
         o[QStringLiteral("localTransation")] = message.mLocalTranslation;
     }
+    if (!message.mMessageTranslation.isEmpty()) {
+        // TODO add message translation
+    }
 
     if (toBinary) {
         return QCborValue::fromJsonValue(o).toCbor();
     }
-    // TODO add message translation
 
     d.setObject(o);
     return d.toJson(QJsonDocument::Indented);

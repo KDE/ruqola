@@ -18,4 +18,5 @@ void MessageTranslationTest::shouldHaveDefaultValues()
 {
     MessageTranslation t;
     QVERIFY(t.translatedString().isEmpty());
+    QVERIFY(t.isEmpty());
 }

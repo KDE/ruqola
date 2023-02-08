@@ -58,3 +58,8 @@ MessageTranslation MessageTranslation::deserialize(const QJsonObject &o)
     // TODO
     return translationMessage;
 }
+
+bool MessageTranslation::isEmpty() const
+{
+    return mTranslatedString.isEmpty();
+}

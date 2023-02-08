@@ -24,6 +24,8 @@ public:
     static QJsonObject serialize(const MessageTranslation &translation);
     static MessageTranslation deserialize(const QJsonObject &o);
 
+    Q_REQUIRED_RESULT bool isEmpty() const;
+
 private:
     QMap<QString, QString> mTranslatedString;
 };
