@@ -7,10 +7,12 @@
 #include "loaddatabasegui.h"
 #include "room/messagelistview.h"
 #include <QApplication>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSqlTableModel>
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
@@ -38,17 +40,25 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     connect(pushButton, &QPushButton::clicked, this, &LoadDataBaseGui::slotLoad);
 
     mainLayout->addWidget(mMessageListView);
-    // TODO
 }
 
 void LoadDataBaseGui::slotLoad()
 {
+    if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
+        auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
+        qDebug() << " tableModel " << tableModel.get();
+        if (tableModel) {
+            mMessageListView->setModel(tableModel.get());
+        }
+    }
 }
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QStandardPaths::setTestModeEnabled(true);
+    // Use specific ruqola name for databae path
+    app.setApplicationName(QStringLiteral("ruqola"));
+    // QStandardPaths::setTestModeEnabled(true);
 
     LoadDataBaseGui w;
     w.show();
