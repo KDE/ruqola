@@ -907,7 +907,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
 
     message.mLocalTranslation = o[QStringLiteral("localTransation")].toString();
 
-    // TODO add localTranslation
+    message.mMessageTranslation = MessageTranslation::deserialize(o[QStringLiteral("messageTranslation")].toObject());
 
     return message;
 }
@@ -1039,7 +1039,7 @@ QByteArray Message::serialize(const Message &message, bool toBinary)
         o[QStringLiteral("localTransation")] = message.mLocalTranslation;
     }
     if (!message.mMessageTranslation.isEmpty()) {
-        // TODO add message translation
+        o[QStringLiteral("messageTranslation")] = MessageTranslation::serialize(message.mMessageTranslation);
     }
 
     if (toBinary) {
