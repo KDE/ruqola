@@ -132,5 +132,6 @@ QDebug operator<<(QDebug d, const Block &t)
     d << "callId " << t.callId();
     d << "appId " << t.appId();
     d << "blockTypeStr " << t.blockTypeStr();
+    d << "mBlockType" << t.blockType();
     return d;
 }
