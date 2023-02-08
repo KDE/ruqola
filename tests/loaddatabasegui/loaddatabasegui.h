@@ -6,11 +6,23 @@
 
 #pragma once
 
+#include "localdatabase/localmessagedatabase.h"
 #include <QWidget>
+#include <memory.h>
+
+class MessageListView;
+class QLineEdit;
 class LoadDataBaseGui : public QWidget
 {
     Q_OBJECT
 public:
     explicit LoadDataBaseGui(QWidget *parent = nullptr);
     ~LoadDataBaseGui() override = default;
+
+private:
+    void slotLoad();
+    MessageListView *const mMessageListView;
+    std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
+    QLineEdit *const mAccountName;
+    QLineEdit *const mRoomName;
 };
