@@ -59,10 +59,14 @@ QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
     return array;
 }
 
-MessageTranslation MessageTranslation::deserialize(const QJsonObject &o)
+MessageTranslation MessageTranslation::deserialize(const QJsonArray &array)
 {
     MessageTranslation translationMessage;
-    // TODO
+    for (const QJsonValue &current : array) {
+        // TODO
+
+        // lst.append(current.toObject());
+    }
     return translationMessage;
 }
 
