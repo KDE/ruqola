@@ -4,6 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "messagetranslation.h"
+#include <QJsonArray>
 #include <QJsonObject>
 
 MessageTranslation::MessageTranslation() = default;
@@ -45,11 +46,17 @@ QString MessageTranslation::translatedStringFromLanguage(const QString &lang)
     return mTranslatedString.value(lang);
 }
 
-QJsonObject MessageTranslation::serialize(const MessageTranslation &translation)
+QJsonArray MessageTranslation::serialize(const MessageTranslation &translation)
 {
-    QJsonObject obj;
-    // TODO
-    return obj;
+    QJsonArray array;
+    QMapIterator<QString, QString> i(translation.mTranslatedString);
+    while (i.hasNext()) {
+        i.next();
+        QJsonObject obj;
+        obj.insert(i.key(), i.value());
+        array.append(obj);
+    }
+    return array;
 }
 
 MessageTranslation MessageTranslation::deserialize(const QJsonObject &o)
