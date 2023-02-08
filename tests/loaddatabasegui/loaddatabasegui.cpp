@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QStandardPaths>
 #include <QVBoxLayout>
@@ -48,6 +49,20 @@ void LoadDataBaseGui::slotLoad()
         auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
         qDebug() << " tableModel " << tableModel.get();
         if (tableModel) {
+            int rows = tableModel->rowCount();
+            for (int row = 0; row < rows; ++row) {
+                const QSqlRecord record = tableModel->record(row);
+                // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
+                // const QString userName = record.value(int(Fields::UserName)).toString();
+                // const QString text = record.value(int(Fields::Text)).toString();
+                // stream << "[" << timeStamp.toString(Qt::ISODate) << "] <" << userName << "> " << text << '\n';
+                if (row == rows - 1 && tableModel->canFetchMore()) {
+                    tableModel->fetchMore();
+                    rows = tableModel->rowCount();
+                }
+            }
+            // TODO create messages!
+
             mMessageListView->setModel(tableModel.get());
         }
     }
