@@ -138,7 +138,7 @@ AdministratorSettingsWidget::~AdministratorSettingsWidget() = default;
 
 void AdministratorSettingsWidget::loadSettings()
 {
-    mRocketChatAccount->rocketChatBackend()->loadPublicSettings();
+    mRocketChatAccount->rocketChatBackend()->loadPublicSettingsAdministrator();
 }
 
 void AdministratorSettingsWidget::initialize(const QJsonObject &obj)

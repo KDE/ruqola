@@ -155,7 +155,7 @@ void RocketChatBackend::slotConnectedChanged()
     ddp->method(QStringLiteral("public-settings/get"), QJsonDocument(), process_publicsettings);
 }
 
-void RocketChatBackend::loadPublicSettings()
+void RocketChatBackend::loadPublicSettingsAdministrator()
 {
     auto ddp = mRocketChatAccount->ddp();
     if (!ddp->isConnected()) {

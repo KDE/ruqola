@@ -38,7 +38,7 @@ public:
     void clearFilesList();
     Q_REQUIRED_RESULT QVector<File> files() const;
 
-    void loadPublicSettings();
+    void loadPublicSettingsAdministrator();
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)
