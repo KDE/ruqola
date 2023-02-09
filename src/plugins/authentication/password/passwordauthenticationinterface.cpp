@@ -33,7 +33,7 @@ void PasswordAuthenticationInterface::login()
         return;
     }
 
-    if (/*mAccount->settings()->useLdap()*/ 0) { // We need to look at public server info
+    if (mAccount->ldapEnabled()) {
         mAccount->ddp()->authenticationManager()->loginLDAP(mAccount->settings()->userName(), mAccount->settings()->password());
     } else {
         mAccount->ddp()->authenticationManager()->login(mAccount->settings()->userName(), mAccount->settings()->password());
