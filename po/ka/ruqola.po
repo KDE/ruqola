@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-01-14 03:37+0100\n"
+"PO-Revision-Date: 2023-02-08 11:44+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4603,6 +4603,7 @@ msgstr ""
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"CAS ბილეთის მიერ მოწოდებული მონაცემებიდან CAS მომხმარებლის შექმნის დაშვება."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
@@ -4930,7 +4931,7 @@ msgstr "რჩეული ოთახების ჩართვა"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:25
 #, kde-format
 msgid "UTF8 Names Slugify"
-msgstr ""
+msgstr "UTF8 სახელების შეტყუპება"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:31
 #, kde-format
@@ -5060,6 +5061,8 @@ msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
 "sending emails"
 msgstr ""
+"დააყენებს ნაგულისხმებ დროის სარტყელს, რომელიც სამუშაო დაფების ჩენებისა და "
+"ელფოსტის გაგზავნისას გამოიყენება"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
 #, kde-format
@@ -5392,6 +5395,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"ეს მოძველებული ფუნქციაა. მან შეიძლება არ იმუშაოს ისე, როგორც თქვენ გნებავთ "
+"და ის განახლებებს არ მიიღებს."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:77
 #, kde-format
@@ -5473,6 +5478,8 @@ msgid ""
 "When enabled, you'll force your users to use a PIN/BIOMETRY/FACEID to unlock "
 "the app."
 msgstr ""
+"როცა ჩართულია, მომხმარებლებს აპის გასახსნელად PIN-კოდის ან ბიომეტრიის ან "
+"სახისID-ის გამოყენება მოუწევთ."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:35
 #, kde-format
@@ -5480,6 +5487,8 @@ msgid ""
 "The time to request password again after the finish of the latest session, "
 "in seconds."
 msgstr ""
+"უკანასკნელი სესიის დასრულების შემდეგ პაროლის თავიდან მოთხოვნის დაყოვნება, "
+"წამებში."
 
 #: widgets/administratorsettingsdialog/mobile/mobilesettingswidget.cpp:36
 #, kde-format
@@ -5537,6 +5546,8 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
+"თუ გნებავთ, Apple login მხოლოდ მობილურზე გქონდეთ ჩართული, ეს ველები ცარიელი "
+"დატოვეთ."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
@@ -6028,12 +6039,13 @@ msgstr "API კოდები"
 #, kde-format
 msgid "Choose whether SlackBridge should also send your messages back to Slack"
 msgstr ""
+"აირჩიეთ, უნდა გააგზავნოს SlackBridge -მა Slack-ზე შეტყობინებები, თუ არა"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:45
 #, kde-format
 msgid ""
 "Send messages from all channels that exist in Slack and the bot has joined"
-msgstr ""
+msgstr "შეტყობინებების მიღება Slack-ის ყველა არხიდან, სადაც ბოტი შესულია"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:50
 #, kde-format
@@ -6296,6 +6308,9 @@ msgid ""
 "Username, password and port are allowed in the format username:password@stun:"
 "host:port or username:password@turn:host:port."
 msgstr ""
+"STUN და TURN სერვერების მძიმით გამოყოფილი სია.\n"
+"მომხმარებლის, პაროლის და პორტის მითითება შესაძლებელია ფორმატით username:"
+"password@stun:host:port ან username:password@turn:host:port."
 
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:41
 #, kde-format
@@ -6576,7 +6591,7 @@ msgstr "მომხარებლის უკუკავშირი"
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
-msgstr "_დამხმარე საშუალებები"
+msgstr "წვდომადობა"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
