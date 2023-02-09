@@ -289,9 +289,6 @@ public:
     void setPassword(const QString &password);
     Q_REQUIRED_RESULT QString password() const;
 
-    void setUseLdap(bool ldap);
-    Q_REQUIRED_RESULT bool useLdap() const;
-
     void setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode);
     Q_REQUIRED_RESULT QString twoFactorAuthenticationCode() const;
 

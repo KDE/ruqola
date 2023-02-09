@@ -1653,16 +1653,6 @@ void RocketChatAccount::setPassword(const QString &password)
     settings()->setPassword(password);
 }
 
-void RocketChatAccount::setUseLdap(bool ldap)
-{
-    settings()->setUseLdap(ldap);
-}
-
-bool RocketChatAccount::useLdap() const
-{
-    return settings()->useLdap();
-}
-
 void RocketChatAccount::setTwoFactorAuthenticationCode(const QString &twoFactorAuthenticationCode)
 {
     settings()->setTwoFactorAuthenticationCode(twoFactorAuthenticationCode);

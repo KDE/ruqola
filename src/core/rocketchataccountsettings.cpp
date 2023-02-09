@@ -203,24 +203,6 @@ void RocketChatAccountSettings::setPassword(const QString &password)
     Q_EMIT passwordChanged();
 }
 
-void RocketChatAccountSettings::setUseLdap(bool ldap)
-{
-    if (mUseLdap == ldap) {
-        return;
-    }
-
-    mUseLdap = ldap;
-    mSetting->setValue(QStringLiteral("useLdap"), mUseLdap);
-    mSetting->sync();
-
-    Q_EMIT useLdapChanged();
-}
-
-Q_REQUIRED_RESULT bool RocketChatAccountSettings::useLdap() const
-{
-    return mUseLdap;
-}
-
 QString RocketChatAccountSettings::twoFactorAuthenticationCode() const
 {
     return mTwoFactorAuthenticationCode;

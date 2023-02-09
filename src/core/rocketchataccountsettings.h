@@ -50,9 +50,6 @@ public:
     Q_REQUIRED_RESULT QString password() const;
     void setPassword(const QString &password);
 
-    void setUseLdap(bool ldap);
-    Q_REQUIRED_RESULT bool useLdap() const;
-
     void removeSettings();
 
     Q_REQUIRED_RESULT qint64 expireToken() const;
