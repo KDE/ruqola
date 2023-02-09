@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 00:59+0000\n"
-"PO-Revision-Date: 2023-02-04 11:30+0300\n"
+"PO-Revision-Date: 2023-02-08 21:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -833,7 +833,7 @@ msgstr "IP"
 #: core/model/deviceinfomodel.cpp:44
 #, kde-format
 msgid "Login At"
-msgstr "Giriş Tarihi"
+msgstr "Oturum Açma Tarihi"
 
 #: core/model/directoryroomsmodel.cpp:116
 #, kde-format
@@ -1467,7 +1467,7 @@ msgstr "Google"
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
 msgid "Login/Password"
-msgstr "Giriş/Parola"
+msgstr "Kullanıcı Adı/Parola"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
 #, kde-format
@@ -2129,7 +2129,7 @@ msgstr "Kullanıcı, bir lider değil"
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:430
 #, kde-format
 msgid "App user is not allowed to login"
-msgstr "Uygulama kullanıcısına giriş yapma izni verilmiyor"
+msgstr "Uygulama kullanıcısına oturum açma izni verilmiyor"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:432
 #, kde-format
@@ -3110,10 +3110,10 @@ msgid ""
 "E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
-"Geçerli Uçtan Uca Şifreleme'yi sıfırlamak kullanıcıyı çıkış yapar. Kullanıcı "
-"yeniden giriş yaptığınızda, Rocket.Chat yeni bir anahtar üretecek ve bir "
-"veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir odaya "
-"erişiminizi geri sağlayacaktır. Uçtan uca şifrelemenin doğasından ötürü, "
+"Geçerli Uçtan Uca Şifreleme'yi sıfırlamak kullanıcı oturumunu kapatır. "
+"Kullanıcı yeniden oturum açtığında, Rocket.Chat yeni bir anahtar üretecek ve "
+"bir veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir odaya "
+"erişimini geri sağlayacaktır. Uçtan uca şifrelemenin doğasından ötürü, "
 "Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi geri "
 "sağlayamaz."
 
@@ -3138,8 +3138,8 @@ msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
-"Geçerli İki Adımlı TOTP'yi sıfırlamak kullanıcıyı çıkış yapar. Kullanıcı, "
-"yine daha sonra iki adımlı ayarı yapabilecektir."
+"Geçerli İki Adımlı TOTP'yi sıfırlamak kullanıcı oturumunu kapatır. "
+"Kullanıcı, yine daha sonra iki adımlı ayarı yapabilecektir."
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:382
 #: widgets/administratordialog/users/administratoruserswidget.cpp:413
@@ -3226,7 +3226,7 @@ msgstr "Özel Durum İletilerine İzin Ver"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:33
 #, kde-format
 msgid "Block Failed Login Attempts by Username"
-msgstr "Kullanıcı Adı ile Hatalı Girişleri Engelle"
+msgstr "Kullanıcı Adı ile Hatalı Oturum Açma Denemelerini Engelle"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:36
 #, kde-format
@@ -3276,12 +3276,12 @@ msgstr "DNS Alan Adı Denetimi Kullan"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:99
 #, kde-format
 msgid "Login Expiration in Days"
-msgstr "Gün Türünden Giriş Süresi Dolumu"
+msgstr "Gün Türünden Oturum Açma Süresi Dolumu"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:109
 #, kde-format
 msgid "Failed Login Attempts"
-msgstr "Başarısız Giriş Denemeleri"
+msgstr "Başarısız Oturum Açma Denemeleri"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:122
 #, kde-format
@@ -3619,7 +3619,7 @@ msgstr "Dış SSO hizmetinizin taban URL'si; örn: https://sso.örnek.undef/sso/
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:38
 #, kde-format
 msgid "SSO Login URL"
-msgstr "SSO Giriş URL'si"
+msgstr "SSO Oturum Açma URL'si"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:39
 #, kde-format
@@ -3627,7 +3627,7 @@ msgid ""
 "The login URL of your external SSO service e.g: https://sso.example.undef/"
 "sso/login"
 msgstr ""
-"Dış SSO hizmetinizin giriş yapma URL'si; örn. https://sso.örnek.undef/sso/"
+"Dış SSO hizmetinizin oturum açma URL'si; örn. https://sso.örnek.undef/sso/"
 "login"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:46
@@ -3669,8 +3669,8 @@ msgid ""
 "login.\n"
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
-"Dış CAS kullanıcı verisini giriş sırasında kullanılabilir özniteliklerle her "
-"zaman eşzamanla.\n"
+"Dış CAS kullanıcı verisini oturum açma sırasında kullanılabilir "
+"özniteliklerle her zaman eşzamanla.\n"
 "Not: Öznitelikler, hesap oluşturma sırasında da her zaman eşzamanlanırlar."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:71
@@ -4062,7 +4062,7 @@ msgstr "UTF8 Kanal Adları Doğrulaması"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
 #, kde-format
 msgid "First Channel After Login"
-msgstr "Giriş Sonrası İlk Kanal"
+msgstr "Oturum Açma Sonrası İlk Kanal"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
 #, kde-format
@@ -4216,7 +4216,7 @@ msgstr "IRC sunucusuna yapılan başarılı bir bağlantı sonrası çıktıla."
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr "Giriş Başarılı"
+msgstr "Oturum Açma Başarılı"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4730,37 +4730,37 @@ msgstr "Apple ile giriş yap"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:20
 #, kde-format
 msgid "Twitter Login"
-msgstr "Twitter Girişi"
+msgstr "Twitter Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:24
 #, kde-format
 msgid "LinkedIn Login"
-msgstr "LinkedIn Girişi"
+msgstr "LinkedIn Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:30
 #, kde-format
 msgid "Meteor Login"
-msgstr "Meteor Girişi"
+msgstr "Meteor Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:34
 #, kde-format
 msgid "Facebook Login"
-msgstr "Facebook Girişi"
+msgstr "Facebook Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:38
 #, kde-format
 msgid "Github Login"
-msgstr "Github Girişi"
+msgstr "Github Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:42
 #, kde-format
 msgid "Tokenpass Login"
-msgstr "Tokenpass Girişi"
+msgstr "Tokenpass Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:47
 #, kde-format
 msgid "Google Login"
-msgstr "Google Girişi"
+msgstr "Google Oturumu Açma"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
@@ -4773,8 +4773,8 @@ msgid ""
 "If you want Apple login enabled only on mobile, you can leave all fields "
 "empty."
 msgstr ""
-"Apple girişinin yalnızca taşınabilirde etkin kalmasını istiyorsanız tüm "
-"alanları boş bırakabilirsiniz."
+"Apple oturumunu açmanın yalnızca taşınabilirde etkin kalmasını istiyorsanız "
+"tüm alanları boş bırakabilirsiniz."
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:66
 #, kde-format
@@ -6297,7 +6297,7 @@ msgstr "Oluşturulma:"
 #: widgets/dialogs/directchannelinfowidget.cpp:143
 #, kde-format
 msgid "Last Login:"
-msgstr "Son Giriş:"
+msgstr "Son Oturum Açma:"
 
 #: widgets/dialogs/directchannelinfowidget.cpp:149
 #, kde-format
@@ -6824,48 +6824,49 @@ msgstr "Bağlanıyor"
 #: widgets/misc/accountsoverviewwidget.cpp:37
 #, kde-format
 msgid "Login OTP code required"
-msgstr "Giriş için tek kerelik parola gerekiyor"
+msgstr "Oturum açma için tek kerelik parola gerekiyor"
 
 #: widgets/misc/accountsoverviewwidget.cpp:39
 #, kde-format
 msgid "Login failed: invalid username or password"
-msgstr "Giriş başarısız: Geçersiz kullanıcı adı veya parola"
+msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
 #: widgets/misc/accountsoverviewwidget.cpp:41
 #, kde-format
 msgid "Logging in"
-msgstr "Giriş yapılıyor"
+msgstr "Oturum açılıyor"
 
 #: widgets/misc/accountsoverviewwidget.cpp:43
 #, kde-format
 msgid "Logged in"
-msgstr "Giriş yapıldı"
+msgstr "Oturum açıldı"
 
 #: widgets/misc/accountsoverviewwidget.cpp:45
 #, kde-format
 msgid "Logged out"
-msgstr "Çıkış yapıldı"
+msgstr "Oturum kapatıldı"
 
 #: widgets/misc/accountsoverviewwidget.cpp:47
 #, kde-format
 msgid "Failed to login due to plugin problem"
-msgstr "Eklenti sorunu dolayısıyla giriş yapılamadı"
+msgstr "Eklenti sorunu dolayısıyla oturum açılamadı"
 
 #: widgets/misc/accountsoverviewwidget.cpp:49
 #, kde-format
 msgid "Login failed: generic error"
-msgstr "Giriş başarısız: Genel hata"
+msgstr "Oturum açma başarısız: Genel hata"
 
 #: widgets/misc/accountsoverviewwidget.cpp:51
 #, kde-format
 msgid "A one-time password is required to complete the login procedure."
 msgstr ""
-"Giriş prosedürlerini tamamlamak için bir adet tek kerelik parola gerekiyor."
+"Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
+"gerekiyor."
 
 #: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
 #, kde-format
 msgid "Login failed: Invalid OTP code."
-msgstr "Giriş başarısız: Geçersiz tek kerelik parola."
+msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
 
 #: widgets/misc/accountsoverviewwidget.cpp:59
 #, kde-format
@@ -6961,12 +6962,12 @@ msgid ""
 "the E2E encryption, Rocket.Chat will not be able to restore access to any "
 "encrypted room that has no member online."
 msgstr ""
-"Bu seçenek, geçerli uçtan uca şifreleme anahtarınızı kaldırır ve sizi çıkış "
-"yapar. Yeniden giriş yaptığınızda, Rocket.Chat yeni bir anahtar üretecek ve "
-"bir veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir odaya "
-"erişiminizi geri sağlayacaktır. Uçtan uca şifrelemenin doğasından ötürü, "
-"Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi geri "
-"sağlayamaz."
+"Bu seçenek, geçerli uçtan uca şifreleme anahtarınızı kaldırır ve oturumunuzu "
+"kapatır. Yeniden oturum açtığınızda, Rocket.Chat yeni bir anahtar üretecek "
+"ve bir veya birden çok kullanıcının çevrimiçi olduğu herhangi şifreli bir "
+"odaya erişiminizi geri sağlayacaktır. Uçtan uca şifrelemenin doğasından "
+"ötürü, Rocket.Chat, içinde çevrimiçi üye olmayan hiçbir odaya erişiminizi "
+"geri sağlayamaz."
 
 #: widgets/myaccount/myaccount2faconfigurewidget.cpp:19
 #, kde-format
@@ -7037,7 +7038,7 @@ msgid ""
 msgstr ""
 "Kodlarınızın bir kopyasına iye olduğunuzdan emin olun:\n"
 "%1\n"
-"Kimlik doğrulayıcı uygulamanıza erişiminizi kaybederseniz giriş yapmak için "
+"Kimlik doğrulayıcı uygulamanıza erişiminizi kaybederseniz oturum açmak için "
 "bu kodlardan birini kullanabilirsiniz."
 
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:88
@@ -7188,7 +7189,7 @@ msgstr "Avatarları göster"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
 #, kde-format
 msgid "Receive login detection emails"
-msgstr "Giriş algılama e-postalarını al"
+msgstr "Oturum açmayı algılama e-postalarını al"
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
 #, kde-format
@@ -7223,7 +7224,7 @@ msgstr "Anlık bildirim:"
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
-msgstr "Hesabınıza yeni bir giriş yapıldığında bir e-posta bildirimi alın."
+msgstr "Hesabınıza yeni bir oturum açıldığında bir e-posta bildirimi alın."
 
 #: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
 #, kde-format
@@ -7302,7 +7303,7 @@ msgstr "Hesabımı sil"
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:30
 #, kde-format
 msgid "Logout From Other Logged In Locations"
-msgstr "Diğer Giriş Yapılmış Konumlardan Çık"
+msgstr "Diğer Oturum Açılmış Konumlardan Çık"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:61
 #, kde-format
@@ -7975,7 +7976,7 @@ msgstr[1] "Odada %1 kullanıcı (Toplam: %2)"
 #: widgets/ruqolaloginwidget.cpp:32
 #, kde-format
 msgid "Login"
-msgstr "Giriş Yap"
+msgstr "Oturum Aç"
 
 #: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
@@ -8004,7 +8005,7 @@ msgstr ""
 #: widgets/ruqolaloginwidget.cpp:191
 #, kde-format
 msgid "Login Failed: invalid username or password"
-msgstr "Giriş başarısız: Geçersiz kullanıcı adı veya parola"
+msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
 #: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
@@ -8014,7 +8015,7 @@ msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 #: widgets/ruqolaloginwidget.cpp:211
 #, kde-format
 msgid "Login Failed: generic error"
-msgstr "Giriş başarısız: Genel hata"
+msgstr "Oturum açma başarısız: Genel hata"
 
 #: widgets/ruqolamainwindow.cpp:202
 #, kde-format
@@ -8034,7 +8035,7 @@ msgstr "Sunucu Bilgisi..."
 #: widgets/ruqolamainwindow.cpp:361
 #, kde-format
 msgid "Logout Current Server"
-msgstr "Geçerli Sunucudan Çıkış Yap"
+msgstr "Geçerli Sunucu Oturumunu Kapat"
 
 #: widgets/ruqolamainwindow.cpp:365
 #, kde-format

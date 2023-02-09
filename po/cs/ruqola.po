@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 00:59+0000\n"
-"PO-Revision-Date: 2023-01-25 09:08+0100\n"
+"PO-Revision-Date: 2023-02-08 15:07+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -4154,7 +4154,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:31
 #, kde-format
 msgid "Login Successful"
-msgstr ""
+msgstr "Přihlášení bylo úspěšné"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:28
 #, kde-format
@@ -4571,7 +4571,7 @@ msgstr "Microsoft"
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:172
 #, kde-format
 msgid "Service Provider"
-msgstr ""
+msgstr "Poskytovatel služby"
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:175
 #, kde-format
@@ -7372,12 +7372,12 @@ msgstr "Uložit zvuk"
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Image"
-msgstr ""
+msgstr "Stáhnout obrázek"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:57
 #, kde-format
 msgid "Download Image..."
-msgstr ""
+msgstr "Stáhnout obrázek..."
 
 #: widgets/room/delegate/messagelistdelegate.cpp:290
 #: widgets/room/usersinroommenu.cpp:86
@@ -8077,7 +8077,7 @@ msgstr ""
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format
 msgid "(Show Errors)"
-msgstr ""
+msgstr "(Zobrazit chyby)"
 
 #: widgets/servererrorinfohistory/servererrorinfomessagewidget.cpp:21
 #, kde-format

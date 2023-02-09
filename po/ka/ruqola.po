@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-08 00:59+0000\n"
-"PO-Revision-Date: 2023-02-03 16:32+0100\n"
+"PO-Revision-Date: 2023-02-08 07:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3646,6 +3646,7 @@ msgstr ""
 #, kde-format
 msgid "Allow CAS User creation from data provided by the CAS ticket."
 msgstr ""
+"CAS ბილეთის მიერ მოწოდებული მონაცემებიდან CAS მომხმარებლის შექმნის დაშვება."
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:60
 #, kde-format
@@ -4463,6 +4464,8 @@ msgid ""
 "This is a deprecated feature. It may not work as expected and will not get "
 "new updates."
 msgstr ""
+"ეს მოძველებული ფუნქციაა. მან შეიძლება არ იმუშაოს ისე, როგორც თქვენ გნებავთ "
+"და ის განახლებებს არ მიიღებს."
 
 #: widgets/administratorsettingsdialog/message/messagesettingswidget.cpp:87
 #, kde-format
