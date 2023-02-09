@@ -17,6 +17,12 @@
 #include <QStandardPaths>
 #include <QVBoxLayout>
 
+// Same as in localmessagedatabase.cpp
+enum class Fields {
+    MessageId,
+    TimeStamp,
+    Json,
+}; // in the same order as the table
 LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     : QWidget{parent}
     , mMessageListView(new MessageListView(nullptr, MessageListView::Mode::Viewing, this))
@@ -53,9 +59,7 @@ void LoadDataBaseGui::slotLoad()
             for (int row = 0; row < rows; ++row) {
                 const QSqlRecord record = tableModel->record(row);
                 // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-                // const QString userName = record.value(int(Fields::UserName)).toString();
-                // const QString text = record.value(int(Fields::Text)).toString();
-                // stream << "[" << timeStamp.toString(Qt::ISODate) << "] <" << userName << "> " << text << '\n';
+                // const QString json = record.value(int(Fields::Json)).toString();
                 if (row == rows - 1 && tableModel->canFetchMore()) {
                     tableModel->fetchMore();
                     rows = tableModel->rowCount();
