@@ -12,6 +12,7 @@
 
 class MessageListView;
 class QLineEdit;
+class MessageModel;
 class LoadDataBaseGui : public QWidget
 {
     Q_OBJECT
@@ -25,4 +26,5 @@ private:
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
     QLineEdit *const mAccountName;
     QLineEdit *const mRoomName;
+    MessageModel *const mMessageModel;
 };

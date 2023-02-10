@@ -5,8 +5,11 @@
 */
 
 #include "loaddatabasegui.h"
+#include "messages/message.h"
+#include "model/messagemodel.h"
 #include "room/messagelistview.h"
 #include <QApplication>
+#include <QCborMap>
 #include <QDebug>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -29,6 +32,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
+    , mMessageModel(new MessageModel()) // TODO allow to delete it
 {
     auto mainLayout = new QVBoxLayout(this);
     auto hboxLayout = new QHBoxLayout;
@@ -46,6 +50,7 @@ LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &LoadDataBaseGui::slotLoad);
 
+    mMessageListView->setModel(mMessageModel);
     mainLayout->addWidget(mMessageListView);
 }
 
@@ -54,20 +59,22 @@ void LoadDataBaseGui::slotLoad()
     if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
         auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
         qDebug() << " tableModel " << tableModel.get();
+        QVector<Message> listMessages;
         if (tableModel) {
             int rows = tableModel->rowCount();
             for (int row = 0; row < rows; ++row) {
                 const QSqlRecord record = tableModel->record(row);
                 // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
-                // const QString json = record.value(int(Fields::Json)).toString();
+                const QString json = record.value(int(Fields::Json)).toString();
+                const Message msg = Message::deserialize(QCborValue::fromCbor(json.toLatin1()).toMap().toJsonObject());
+                listMessages.append(std::move(msg));
                 if (row == rows - 1 && tableModel->canFetchMore()) {
                     tableModel->fetchMore();
                     rows = tableModel->rowCount();
                 }
             }
-            // TODO create messages!
-
-            mMessageListView->setModel(tableModel.get());
+            qDebug() << " listMessages " << listMessages.count();
+            mMessageModel->addMessages(listMessages);
         }
     }
 }
