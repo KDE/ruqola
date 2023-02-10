@@ -52,73 +52,72 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
             Q_ASSERT(previousMessage);
             return threadMessageId == previousMessage->threadMessageId();
         }();
-        if (!sameAsPreviousMessageThread) {
-            const MessageModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
-            if (model) {
-                auto *that = const_cast<MessageDelegateHelperText *>(this);
-                // Find the previous message in the same thread, to use it as context
-                auto hasSameThread = [&](const Message &msg) {
-                    return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
-                };
-                Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
-                auto messageCache = mRocketChatAccount->messageCache();
-                if (contextMessage.messageId().isEmpty()) {
-                    ThreadMessageModel *cachedModel = messageCache->threadMessageModel(threadMessageId);
-                    if (cachedModel) {
-                        contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
-                        if (contextMessage.messageId().isEmpty()) {
-                            Message *msg = messageCache->messageForId(threadMessageId);
-                            if (msg) {
-                                contextMessage = *msg;
-                            } else if (connectToUpdates) {
-                                connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
-                                    if (msgId == threadMessageId) {
-                                        that->updateView(index);
-                                    }
-                                });
+        if (mRocketChatAccount) {
+            if (!sameAsPreviousMessageThread) {
+                const MessageModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
+                if (model) {
+                    auto *that = const_cast<MessageDelegateHelperText *>(this);
+                    // Find the previous message in the same thread, to use it as context
+                    auto hasSameThread = [&](const Message &msg) {
+                        return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
+                    };
+                    Message contextMessage = model->findLastMessageBefore(message->messageId(), hasSameThread);
+                    auto messageCache = mRocketChatAccount->messageCache();
+                    if (contextMessage.messageId().isEmpty()) {
+                        ThreadMessageModel *cachedModel = messageCache->threadMessageModel(threadMessageId);
+                        if (cachedModel) {
+                            contextMessage = cachedModel->findLastMessageBefore(message->messageId(), hasSameThread);
+                            if (contextMessage.messageId().isEmpty()) {
+                                Message *msg = messageCache->messageForId(threadMessageId);
+                                if (msg) {
+                                    contextMessage = *msg;
+                                } else if (connectToUpdates) {
+                                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                                        if (msgId == threadMessageId) {
+                                            that->updateView(index);
+                                        }
+                                    });
+                                }
+                            } else {
+                                // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
                             }
-                        } else {
-                            // qDebug() << "using cache, found" << contextMessage.messageId() << contextMessage.text();
+                        } else if (connectToUpdates) {
+                            connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
+                                that->updateView(index);
+                            });
                         }
-                    } else if (connectToUpdates) {
-                        connect(messageCache, &MessageCache::modelLoaded, this, [=]() {
-                            that->updateView(index);
+                    }
+                    // Use TextConverter in case it starts with a [](URL) reply marker
+                    const QString contextText =
+                        KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
+
+                    QString needUpdateMessageId;
+                    const int maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
+                    const TextConverter::ConvertMessageTextSettings settings(contextText,
+                                                                             mRocketChatAccount->userName(),
+                                                                             {},
+                                                                             mRocketChatAccount->highlightWords(),
+                                                                             mRocketChatAccount->emojiManager(),
+                                                                             mRocketChatAccount->messageCache(),
+                                                                             contextMessage.mentions(),
+                                                                             contextMessage.channels(),
+                                                                             mSearchText,
+                                                                             maximumRecursiveQuotedText);
+
+                    int recursiveIndex = 0;
+                    const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
+                    if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
+                        connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
+                            if (msgId == needUpdateMessageId) {
+                                that->updateView(index);
+                            }
                         });
                     }
+                    // TODO add url ?
+                    Utils::QuotedRichTextInfo info;
+                    info.richText = contextString;
+                    text.prepend(Utils::formatQuotedRichText(info));
                 }
-                // Use TextConverter in case it starts with a [](URL) reply marker
-                const QString contextText =
-                    KStringHandler::rsqueeze(QLatin1Char('@') + contextMessage.username() + QLatin1String(": ") + contextMessage.text(), 200);
-
-                QString needUpdateMessageId;
-                int maximumRecursiveQuotedText = -1;
-                if (mRocketChatAccount) {
-                    maximumRecursiveQuotedText = mRocketChatAccount->ruqolaServerConfig()->messageQuoteChainLimit();
-                }
-                const TextConverter::ConvertMessageTextSettings settings(contextText,
-                                                                         mRocketChatAccount->userName(),
-                                                                         {},
-                                                                         mRocketChatAccount->highlightWords(),
-                                                                         mRocketChatAccount->emojiManager(),
-                                                                         mRocketChatAccount->messageCache(),
-                                                                         contextMessage.mentions(),
-                                                                         contextMessage.channels(),
-                                                                         mSearchText,
-                                                                         maximumRecursiveQuotedText);
-
-                int recursiveIndex = 0;
-                const QString contextString = TextConverter::convertMessageText(settings, needUpdateMessageId, recursiveIndex);
-                if (!needUpdateMessageId.isEmpty() && connectToUpdates) {
-                    connect(messageCache, &MessageCache::messageLoaded, this, [=](const QString &msgId) {
-                        if (msgId == needUpdateMessageId) {
-                            that->updateView(index);
-                        }
-                    });
-                }
-                // TODO add url ?
-                Utils::QuotedRichTextInfo info;
-                info.richText = contextString;
-                text.prepend(Utils::formatQuotedRichText(info));
             }
         }
     }
