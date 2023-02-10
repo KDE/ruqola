@@ -44,7 +44,7 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"), db);
         query.addBindValue(m.messageId());
         query.addBindValue(m.timeStamp());
-        query.addBindValue(Message::serialize(m)); // TODO binary or not ?
+        query.addBindValue(Message::serialize(m, false)); // TODO binary or not ?
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         }

@@ -7,11 +7,13 @@
 #include "loaddatabasegui.h"
 #include "messages/message.h"
 #include "model/messagemodel.h"
+#include "rocketchataccount.h"
 #include "room/messagelistview.h"
 #include <QApplication>
 #include <QCborMap>
 #include <QDebug>
 #include <QHBoxLayout>
+#include <QJsonDocument>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -28,7 +30,7 @@ enum class Fields {
 }; // in the same order as the table
 LoadDataBaseGui::LoadDataBaseGui(QWidget *parent)
     : QWidget{parent}
-    , mMessageListView(new MessageListView(nullptr, MessageListView::Mode::Viewing, this))
+    , mMessageListView(new MessageListView(new RocketChatAccount(QStringLiteral("test"), this), MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
@@ -66,7 +68,12 @@ void LoadDataBaseGui::slotLoad()
                 const QSqlRecord record = tableModel->record(row);
                 // const QDateTime timeStamp = QDateTime::fromMSecsSinceEpoch(record.value(int(Fields::TimeStamp)).toULongLong());
                 const QString json = record.value(int(Fields::Json)).toString();
-                const Message msg = Message::deserialize(QCborValue::fromCbor(json.toLatin1()).toMap().toJsonObject());
+                qDebug() << " json111 " << json.toUtf8();
+                QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+                qDebug() << " doc " << doc;
+                qDebug() << " json " << QCborValue::fromCbor(json.toUtf8()).toMap();
+                const Message msg = Message::deserialize(doc.object());
+                qDebug() << " msg " << msg;
                 listMessages.append(std::move(msg));
                 if (row == rows - 1 && tableModel->canFetchMore()) {
                     tableModel->fetchMore();
