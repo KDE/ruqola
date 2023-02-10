@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-08 00:59+0000\n"
+"POT-Creation-Date: 2023-02-10 00:58+0000\n"
 "PO-Revision-Date: 2022-12-31 19:25+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -1338,12 +1338,12 @@ msgstr "<strong>%1</strong> is typing..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> are typing..."
 
-#: core/rocketchataccount.cpp:2883
+#: core/rocketchataccount.cpp:2873
 #, kde-format
 msgid "Export Messages"
 msgstr "Export Messages"
 
-#: core/rocketchataccount.cpp:2884
+#: core/rocketchataccount.cpp:2874
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Your email has been queued for sending."
