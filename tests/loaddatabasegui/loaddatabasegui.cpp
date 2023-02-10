@@ -89,7 +89,7 @@ void LoadDataBaseGui::slotLoad()
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    // Use specific ruqola name for databae path
+    // Use specific ruqola name for database path
     app.setApplicationName(QStringLiteral("ruqola"));
     // QStandardPaths::setTestModeEnabled(true);
 
