@@ -222,7 +222,7 @@ void MessageListView::createTranslorMenu()
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
     const QModelIndex index = indexAt(event->pos());
-    if (!index.isValid()) {
+    if (!index.isValid() || !mRoom) {
         return;
     }
 
