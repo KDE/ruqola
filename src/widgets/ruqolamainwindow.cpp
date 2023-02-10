@@ -711,7 +711,7 @@ void RuqolaMainWindow::slotShowDatabaseMessage()
 
 void RuqolaMainWindow::slotShowServerInfo()
 {
-    auto dlg = ServerErrorInfoMessageHistoryDialog(this);
+    ServerErrorInfoMessageHistoryDialog dlg(this);
     dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
     dlg.exec();
 }
