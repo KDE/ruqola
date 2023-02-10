@@ -81,6 +81,7 @@ void LoadDataBaseGui::slotLoad()
                 }
             }
             qDebug() << " listMessages " << listMessages.count();
+            mMessageModel->clear();
             mMessageModel->addMessages(listMessages);
         }
     }
