@@ -10,6 +10,7 @@
 #include "libruqolawidgets_export.h"
 #include <KXmlGuiWindow>
 #include <QPointer>
+#include <config-ruqola.h>
 class StatusCombobox;
 class RuqolaCentralWidget;
 class QAction;
@@ -102,7 +103,9 @@ private:
     void slotPrivateSettingsChanged();
     void slotShowFavoriteRoom(bool checked);
     void slotShowServerInfo();
-
+#if HAVE_DATABASE_SUPPORT
+    void slotShowDatabaseMessage();
+#endif
     bool mReallyClose{false};
 
     RuqolaCentralWidget *const mMainWidget;
@@ -145,4 +148,7 @@ private:
     QAction *mShowRocketChatServerInfo = nullptr;
     QAction *mRoomAvatar = nullptr;
     QAction *mRoomFavorite = nullptr;
+#if HAVE_DATABASE_SUPPORT
+    QAction *mShowDatabaseMessage = nullptr;
+#endif
 };

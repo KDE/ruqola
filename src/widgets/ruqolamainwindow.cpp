@@ -415,6 +415,12 @@ void RuqolaMainWindow::setupActions()
     connect(mShowServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowServerInfo);
     ac->addAction(QStringLiteral("show_server_errors"), mShowServerInfo);
 
+#if HAVE_DATABASE_SUPPORT
+    mShowDatabaseMessage = new QAction(i18n("Show Database Message"), this);
+    connect(mShowDatabaseMessage, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessage);
+    ac->addAction(QStringLiteral("show_server_errors"), mShowDatabaseMessage);
+#endif
+
     mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);
     connect(mClearAlerts, &QAction::triggered, this, &RuqolaMainWindow::slotClearAccountAlerts);
@@ -692,6 +698,16 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
 {
     mCurrentRocketChatAccount->setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::Alphabetically);
 }
+
+#if HAVE_DATABASE_SUPPORT
+void RuqolaMainWindow::slotShowDatabaseMessage()
+{
+    // Use only when we want to debug and has database support
+    auto dlg = ServerErrorInfoMessageHistoryDialog(this);
+    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    dlg.exec();
+}
+#endif
 
 void RuqolaMainWindow::slotShowServerInfo()
 {
