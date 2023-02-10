@@ -45,7 +45,6 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
     , mMessageListDelegate(new MessageListDelegate(account, this))
     , mCurrentRocketChatAccount(account)
 {
-    mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     if (mCurrentRocketChatAccount) {
         mMessageListDelegate->setRocketChatAccount(mCurrentRocketChatAccount);
     }
@@ -492,7 +491,7 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     });
     menu.addAction(reportMessageAction);
 
-    if (mDebug) {
+    if (Ruqola::self()->debug()) {
         createSeparator(menu);
         auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
         connect(debugMessageAction, &QAction::triggered, this, [=]() {

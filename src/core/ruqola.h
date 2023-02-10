@@ -43,6 +43,8 @@ public:
 
     TextAutoCorrection::AutoCorrection *autoCorrection() const;
 
+    Q_REQUIRED_RESULT bool debug() const;
+
 Q_SIGNALS:
     void translatorMenuChanged();
 
@@ -50,4 +52,5 @@ private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
     TextAutoCorrection::AutoCorrection *const mAutoCorrection = nullptr;
+    bool mDebug = false;
 };

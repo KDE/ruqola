@@ -28,6 +28,7 @@ Ruqola::Ruqola(QObject *parent)
     , mAutoCorrection(new TextAutoCorrection::AutoCorrection())
 #endif
 {
+    mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     // Initialize paths
     (void)ManagerDataPaths::self();
     mAccountManager = new AccountManager(this);
@@ -68,6 +69,11 @@ void Ruqola::openMessageUrl(const QString &url)
 TextAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
 {
     return mAutoCorrection;
+}
+
+bool Ruqola::debug() const
+{
+    return mDebug;
 }
 
 void Ruqola::setCurrentAccount(const QString &accountName)

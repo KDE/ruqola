@@ -103,5 +103,4 @@ private:
     MessageListDelegate *const mMessageListDelegate;
     TextTranslator::TranslatorMenu *mTranslatorMenu = nullptr;
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
-    bool mDebug = false;
 };
