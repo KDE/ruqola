@@ -416,9 +416,11 @@ void RuqolaMainWindow::setupActions()
     ac->addAction(QStringLiteral("show_server_errors"), mShowServerInfo);
 
 #if HAVE_DATABASE_SUPPORT
-    mShowDatabaseMessage = new QAction(i18n("Show Database Message"), this);
-    connect(mShowDatabaseMessage, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessage);
-    ac->addAction(QStringLiteral("show_server_errors"), mShowDatabaseMessage);
+    if (Ruqola::self()->debug()) {
+        mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages"), this);
+        connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
+        ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
+    }
 #endif
 
     mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
@@ -700,7 +702,7 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
 }
 
 #if HAVE_DATABASE_SUPPORT
-void RuqolaMainWindow::slotShowDatabaseMessage()
+void RuqolaMainWindow::slotShowDatabaseMessages()
 {
     // Use only when we want to debug and has database support
     auto dlg = ServerErrorInfoMessageHistoryDialog(this);

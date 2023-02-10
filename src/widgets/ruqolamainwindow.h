@@ -104,7 +104,7 @@ private:
     void slotShowFavoriteRoom(bool checked);
     void slotShowServerInfo();
 #if HAVE_DATABASE_SUPPORT
-    void slotShowDatabaseMessage();
+    void slotShowDatabaseMessages();
 #endif
     bool mReallyClose{false};
 
@@ -149,6 +149,6 @@ private:
     QAction *mRoomAvatar = nullptr;
     QAction *mRoomFavorite = nullptr;
 #if HAVE_DATABASE_SUPPORT
-    QAction *mShowDatabaseMessage = nullptr;
+    QAction *mShowDatabaseMessages = nullptr;
 #endif
 };
