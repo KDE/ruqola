@@ -679,6 +679,9 @@ target_sources(libruqolawidgets PRIVATE
     servererrorinfohistory/servererrorinfomessagehistorylistview.cpp
     servererrorinfohistory/servererrorinfohistorydelegate.h
     servererrorinfohistory/servererrorinfohistorydelegate.cpp
+
+    databasedialog/exploredatabasedialog.h
+    databasedialog/exploredatabasedialog.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
