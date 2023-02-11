@@ -24,7 +24,6 @@ private:
     RocketChatAccount *const mRocketChatAccount;
     MessageListView *const mMessageListView;
     std::unique_ptr<LocalMessageDatabase> mLocalMessageDatabase;
-    QLineEdit *const mAccountName;
     QLineEdit *const mRoomName;
     MessageModel *const mMessageModel;
 };

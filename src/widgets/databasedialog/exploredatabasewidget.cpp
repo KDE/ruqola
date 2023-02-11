@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
@@ -25,19 +26,21 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mRocketChatAccount(account)
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessageDatabase())
-    , mAccountName(new QLineEdit(this))
     , mRoomName(new QLineEdit(this))
     , mMessageModel(new MessageModel()) // TODO allow to delete it
 {
     auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
+
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
 
-    auto label = new QLabel(QStringLiteral("Account name:"), this);
-    hboxLayout->addWidget(label);
-    hboxLayout->addWidget(mAccountName);
-    label = new QLabel(QStringLiteral("Room name:"), this);
+    mRoomName->setObjectName(QStringLiteral("mRoomName"));
+    mRoomName->setClearButtonEnabled(true);
+    new LineEditCatchReturnKey(mRoomName, this);
+    auto label = new QLabel(QStringLiteral("Room name:"), this);
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
 
@@ -53,8 +56,8 @@ ExploreDatabaseWidget::~ExploreDatabaseWidget() = default;
 
 void ExploreDatabaseWidget::slotLoad()
 {
-    if (!mRoomName->text().trimmed().isEmpty() && !mAccountName->text().trimmed().isEmpty()) {
-        auto tableModel = mLocalMessageDatabase->createMessageModel(mAccountName->text(), mRoomName->text());
+    if (!mRoomName->text().trimmed().isEmpty()) {
+        auto tableModel = mLocalMessageDatabase->createMessageModel(mRocketChatAccount->accountName(), mRoomName->text());
         qDebug() << " tableModel " << tableModel.get();
         QVector<Message> listMessages;
         if (tableModel) {
