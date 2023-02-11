@@ -706,7 +706,7 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
 void RuqolaMainWindow::slotShowDatabaseMessages()
 {
     // Use only when we want to debug and has database support
-    ExploreDatabaseDialog dlg(this);
+    ExploreDatabaseDialog dlg(mCurrentRocketChatAccount, this);
     dlg.exec();
 }
 #endif
@@ -770,6 +770,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
     mRoomFavorite->setEnabled(!loginPageActivated);
+    mShowDatabaseMessages->setEnabled(!loginPageActivated);
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()

@@ -18,9 +18,9 @@ namespace
 {
 const char myExploreDatabaseDialogConfigGroupName[] = "ExploreDatabaseDialog";
 }
-ExploreDatabaseDialog::ExploreDatabaseDialog(QWidget *parent)
+ExploreDatabaseDialog::ExploreDatabaseDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
-    , mExploreDatabaseWidget(new ExploreDatabaseWidget(this))
+    , mExploreDatabaseWidget(new ExploreDatabaseWidget(account, this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);

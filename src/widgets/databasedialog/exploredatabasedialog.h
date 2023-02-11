@@ -9,11 +9,12 @@
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
 class ExploreDatabaseWidget;
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseDialog(QWidget *parent = nullptr);
+    explicit ExploreDatabaseDialog(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseDialog() override;
 
 private:

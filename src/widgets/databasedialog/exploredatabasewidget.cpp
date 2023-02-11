@@ -5,10 +5,12 @@
 */
 
 #include "exploredatabasewidget.h"
+#include "rocketchataccount.h"
 #include <QVBoxLayout>
 
-ExploreDatabaseWidget::ExploreDatabaseWidget(QWidget *parent)
+ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
+    , mRocketChatAccount(account)
 {
 }
 

@@ -7,11 +7,14 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExploreDatabaseWidget(QWidget *parent = nullptr);
+    explicit ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent = nullptr);
     ~ExploreDatabaseWidget() override;
+
+private:
+    RocketChatAccount *const mRocketChatAccount;
 };
