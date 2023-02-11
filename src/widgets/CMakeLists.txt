@@ -798,6 +798,7 @@ if (BUILD_TESTING)
     add_subdirectory(bannerinfodialog/autotests)
     add_subdirectory(conferencecalldialog/autotests)
     add_subdirectory(servererrorinfohistory/autotests)
+    add_subdirectory(databasedialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
