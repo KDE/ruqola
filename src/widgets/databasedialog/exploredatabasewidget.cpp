@@ -56,8 +56,9 @@ ExploreDatabaseWidget::~ExploreDatabaseWidget() = default;
 
 void ExploreDatabaseWidget::slotLoad()
 {
-    if (!mRoomName->text().trimmed().isEmpty()) {
-        auto tableModel = mLocalMessageDatabase->createMessageModel(mRocketChatAccount->accountName(), mRoomName->text());
+    const QString roomName = mRoomName->text().trimmed();
+    if (!roomName.isEmpty()) {
+        auto tableModel = mLocalMessageDatabase->createMessageModel(mRocketChatAccount->accountName(), roomName);
         QVector<Message> listMessages;
         if (tableModel) {
             int rows = tableModel->rowCount();
@@ -77,7 +78,7 @@ void ExploreDatabaseWidget::slotLoad()
                     rows = tableModel->rowCount();
                 }
             }
-            qDebug() << " listMessages " << listMessages.count();
+            // qDebug() << " listMessages " << listMessages.count();
             mMessageModel->clear();
             mMessageModel->addMessages(listMessages);
         }
