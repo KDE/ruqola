@@ -5,6 +5,7 @@
 */
 
 #include "ruqolamainwindow.h"
+#include "databasedialog/exploredatabasedialog.h"
 #include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -705,8 +706,7 @@ void RuqolaMainWindow::slotRoomListSortAlphabetically()
 void RuqolaMainWindow::slotShowDatabaseMessages()
 {
     // Use only when we want to debug and has database support
-    auto dlg = ServerErrorInfoMessageHistoryDialog(this);
-    dlg.addServerList(Ruqola::self()->accountManager()->accountNamesSorted());
+    ExploreDatabaseDialog dlg(this);
     dlg.exec();
 }
 #endif
