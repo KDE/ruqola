@@ -8,7 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class ExploreDatabaseWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExploreDatabaseDialog : public QDialog
 {
     Q_OBJECT
@@ -19,4 +19,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    ExploreDatabaseWidget *const mExploreDatabaseWidget;
 };

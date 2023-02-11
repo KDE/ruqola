@@ -5,6 +5,7 @@
 */
 
 #include "exploredatabasedialog.h"
+#include "exploredatabasewidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -19,13 +20,14 @@ const char myExploreDatabaseDialogConfigGroupName[] = "ExploreDatabaseDialog";
 }
 ExploreDatabaseDialog::ExploreDatabaseDialog(QWidget *parent)
     : QDialog(parent)
+    , mExploreDatabaseWidget(new ExploreDatabaseWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Database Info"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
-    //    mServerErrorInfoMessageHistoryWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageHistoryWidget"));
-    //    mainLayout->addWidget(mServerErrorInfoMessageHistoryWidget);
+    mExploreDatabaseWidget->setObjectName(QStringLiteral("mExploreDatabaseWidget"));
+    mainLayout->addWidget(mExploreDatabaseWidget);
 
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));

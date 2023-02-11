@@ -682,6 +682,8 @@ target_sources(libruqolawidgets PRIVATE
 
     databasedialog/exploredatabasedialog.h
     databasedialog/exploredatabasedialog.cpp
+    databasedialog/exploredatabasewidget.h
+    databasedialog/exploredatabasewidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
