@@ -770,9 +770,11 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
     mRoomFavorite->setEnabled(!loginPageActivated);
+#if HAVE_DATABASE_SUPPORT
     if (mShowDatabaseMessages) {
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
     }
+#endif
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()
