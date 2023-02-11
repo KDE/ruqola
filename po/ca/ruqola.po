@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-10 00:58+0000\n"
+"POT-Creation-Date: 2023-02-11 00:57+0000\n"
 "PO-Revision-Date: 2023-02-03 15:19+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -797,7 +797,7 @@ msgstr "Desactivat"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgid "Status"
 msgstr "Estat"
@@ -1427,7 +1427,7 @@ msgstr "Manca la informació del traductor. És un error"
 msgid "User"
 msgstr "Usuari"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:431
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
@@ -2462,7 +2462,7 @@ msgstr "Edita l'estat de l'usuari"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:483
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Status:"
 msgstr "Estat:"
@@ -3383,7 +3383,7 @@ msgstr "Encriptatge"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:870
+#: widgets/ruqolamainwindow.cpp:888
 #, kde-format
 msgid "Message"
 msgstr "Missatge"
@@ -5649,7 +5649,7 @@ msgid "Mark As Unread"
 msgstr "Marca com a sense llegir"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Estableix com a preferit"
@@ -5955,7 +5955,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informació del canal quant a «%1»"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:271
 #, kde-format
 msgid "Delete"
 msgstr "Suprimeix"
@@ -6779,7 +6779,7 @@ msgstr "Obre un debat"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:482
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6787,7 +6787,7 @@ msgstr "Pronuncia el text"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:278
+#: widgets/room/messagelistview.cpp:277
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7386,13 +7386,13 @@ msgid "Notification"
 msgstr "Notificació"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:466
 #, kde-format
 msgid "Go to Message"
 msgstr "Ves al missatge"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:248
+#: widgets/room/messagelistview.cpp:247
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7661,105 +7661,105 @@ msgstr "Pujada de fitxer"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat aquest fitxer (tipus MIME no vàlid)"
 
-#: widgets/room/messagelistview.cpp:83
+#: widgets/room/messagelistview.cpp:82
 #, kde-format
 msgid "Room is Empty."
 msgstr "La sala està buida."
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Unpin Message"
 msgstr "No fixis el missatge"
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Pin Message"
 msgstr "Fixa el missatge"
 
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Elimina com a preferit"
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Marca el missatge com a no llegit"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:287
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Mostra el fil sencer"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:292
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copia l'enllaç al missatge"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Deixa de seguix el missatge"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Segueix un missatge"
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:328
 #, kde-format
 msgid "Copy URL"
 msgstr "Copia l'URL"
 
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:336
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Inicia un debat"
 
-#: widgets/room/messagelistview.cpp:344
+#: widgets/room/messagelistview.cpp:343
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Show Original Message"
 msgstr "Mostra el missatge original"
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Translate Message"
 msgstr "Tradueix el missatge"
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:649
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir aquest missatge?"
 
-#: widgets/room/messagelistview.cpp:651
+#: widgets/room/messagelistview.cpp:650
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Supressió de missatge"
 
-#: widgets/room/messagelistview.cpp:791
+#: widgets/room/messagelistview.cpp:790
 #, kde-format
 msgid "Translator Error"
 msgstr "Error del traductor"
@@ -8134,93 +8134,93 @@ msgstr "Mostra el registre del canal"
 msgid "Show Server Errors"
 msgstr "Mostra els errors del servidor"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marca tots els canals com a llegits"
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registra un usuari nou..."
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:435
 #, kde-format
 msgid "My Account..."
 msgstr "El meu compte..."
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrador..."
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgid "Server Settings..."
 msgstr "Configuració del servidor..."
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Directory..."
 msgstr "Directori..."
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "&Next Server"
 msgstr "Servidor següe&nt"
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor an&terior"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:507
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "Canal seleccionat anterior"
 
-#: widgets/ruqolamainwindow.cpp:506
+#: widgets/ruqolamainwindow.cpp:514
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "Canal seleccionat següent"
 
-#: widgets/ruqolamainwindow.cpp:540
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Show Notify History"
 msgstr "Mostra l'historial de notificacions"
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:552
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "Mostra la informació del RocketChat"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "Mostra l'avatar de la sala"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:561
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "Mostra la sala preferida"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Creació d'un equip"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Impossible obrir el registre."
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Show Log"
 msgstr "Mostra el registre"
 
-#: widgets/ruqolamainwindow.cpp:772
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8229,12 +8229,12 @@ msgstr ""
 "Us hem enviat un correu per a confirmar el registre.\n"
 "Si no rebeu un correu ben aviat, torneu i intenteu-ho de nou."
 
-#: widgets/ruqolamainwindow.cpp:773
+#: widgets/ruqolamainwindow.cpp:791
 #, kde-format
 msgid "Register New User"
 msgstr "Registra un usuari nou"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:915
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8243,7 +8243,7 @@ msgstr ""
 "<qt>Això ocultarà completament la barra de menús. La podeu tornar a mostrar "
 "prement %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:900
+#: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Oculta la barra de menús"

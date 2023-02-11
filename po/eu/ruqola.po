@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-10 00:58+0000\n"
+"POT-Creation-Date: 2023-02-11 00:57+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -795,7 +795,7 @@ msgstr "Ezgaituta"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:484
 #, kde-format
 msgid "Status"
 msgstr "Egoera"
@@ -1424,7 +1424,7 @@ msgstr "Itzultzailearen informazioa falta da. Akats bat da"
 msgid "User"
 msgstr "Erabiltzailea"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:431
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgid "Administrator"
 msgstr "Administratzailea"
@@ -2454,7 +2454,7 @@ msgstr "Editatu Erabiltzailearen-egoera"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:483
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Status:"
 msgstr "Egoera:"
@@ -3367,7 +3367,7 @@ msgstr "Zifratzea"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:870
+#: widgets/ruqolamainwindow.cpp:888
 #, kde-format
 msgid "Message"
 msgstr "Mezua"
@@ -5499,7 +5499,7 @@ msgid "Mark As Unread"
 msgstr "Markatu irakurri gabeko gisa"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Set as Favorite"
 msgstr ""
@@ -5806,7 +5806,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:271
 #, kde-format
 msgid "Delete"
 msgstr "Ezabatu"
@@ -6629,7 +6629,7 @@ msgstr "Ireki elkarrizketa"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:482
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6637,7 +6637,7 @@ msgstr "Esan testua"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:278
+#: widgets/room/messagelistview.cpp:277
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7207,13 +7207,13 @@ msgid "Notification"
 msgstr "Jakinarazpena"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:466
 #, kde-format
 msgid "Go to Message"
 msgstr "Joan mezura"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:248
+#: widgets/room/messagelistview.cpp:247
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7480,105 +7480,105 @@ msgstr "Fitxategiak zama-igotzea"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:83
+#: widgets/room/messagelistview.cpp:82
 #, kde-format
 msgid "Room is Empty."
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Unpin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Pin Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Remove as Favorite"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:282
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Markatu mezua «Irakurri gabeko» gisa"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:287
 #, kde-format
 msgid "Show Full Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:292
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Quote"
 msgstr "Aipua"
 
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgid "Copy Link To Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:328
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopiatu URL"
 
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:336
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Hasi elkarrizketa bat"
 
-#: widgets/room/messagelistview.cpp:344
+#: widgets/room/messagelistview.cpp:343
 #, kde-format
 msgid "Reply in Thread"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Show Original Message"
 msgstr "Erakutsi jatorrizko mezua"
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Translate Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgid "Report Message"
 msgstr "Mezuaren berri ematea"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:649
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:651
+#: widgets/room/messagelistview.cpp:650
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Ezabatu mezua"
 
-#: widgets/room/messagelistview.cpp:791
+#: widgets/room/messagelistview.cpp:790
 #, kde-format
 msgid "Translator Error"
 msgstr ""
@@ -7950,106 +7950,106 @@ msgstr ""
 msgid "Show Server Errors"
 msgstr "Erakutsi zerbitzariaren erroreak"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:426
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Markatu kanal denak irakurrita gisa"
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:431
 #, kde-format
 msgid "Register a New User..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:435
 #, kde-format
 msgid "My Account..."
 msgstr "Nire kontua..."
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Administrator..."
 msgstr "Administratzailea..."
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:446
 #, kde-format
 msgid "Server Settings..."
 msgstr "Zerbitzariaren ezarpenak..."
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Directory..."
 msgstr "Direktorioa..."
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:472
 #, kde-format
 msgid "&Next Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:477
 #, kde-format
 msgid "&Previous Server"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:507
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:506
+#: widgets/ruqolamainwindow.cpp:514
 #, kde-format
 msgid "Next Selected Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:540
+#: widgets/ruqolamainwindow.cpp:548
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:552
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:556
 #, kde-format
 msgid "Show Room Avatar"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:561
 #, kde-format
 msgid "Show Favorite Room"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:587
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Sortu taldea"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, fuzzy, kde-format
 #| msgid "View Log"
 msgid "Show Log"
 msgstr "Ikusi egunkaria"
 
-#: widgets/ruqolamainwindow.cpp:772
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:773
+#: widgets/ruqolamainwindow.cpp:791
 #, kde-format
 msgid "Register New User"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:915
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8058,7 +8058,7 @@ msgstr ""
 "<qt>Honek menu-barra erabat ezkutatutako du. %1 tekleatuz berriz erakuts "
 "dezakezu.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:900
+#: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Ezkutatu menu-barra"

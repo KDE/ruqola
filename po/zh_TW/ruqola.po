@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-10 00:58+0000\n"
+"POT-Creation-Date: 2023-02-11 00:57+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -834,7 +834,7 @@ msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:476
+#: widgets/ruqolamainwindow.cpp:484
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Status"
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "User"
 msgstr "使用者："
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:431
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:439
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -2542,7 +2542,7 @@ msgstr "自訂使用者狀態"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:483
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:491
 #, kde-format
 msgid "Status:"
 msgstr "狀態："
@@ -3547,7 +3547,7 @@ msgstr "加密："
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:870
+#: widgets/ruqolamainwindow.cpp:888
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -5751,7 +5751,7 @@ msgid "Mark As Unread"
 msgstr "找不到訊息"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Set as Favorite"
 msgstr "收藏"
@@ -6075,7 +6075,7 @@ msgid "Channel Info about '%1'"
 msgstr ""
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:272
+#: widgets/room/messagelistview.cpp:271
 #, kde-format
 msgid "Delete"
 msgstr "刪除"
@@ -6943,7 +6943,7 @@ msgstr "開啟討論區"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:482
+#: widgets/room/messagelistview.cpp:481
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, fuzzy, kde-format
 #| msgid "Status Text:"
@@ -6952,7 +6952,7 @@ msgstr "狀態文字："
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:278
+#: widgets/room/messagelistview.cpp:277
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7575,13 +7575,13 @@ msgid "Notification"
 msgstr "通知"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:467
+#: widgets/room/messagelistview.cpp:466
 #, kde-format
 msgid "Go to Message"
 msgstr ""
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:248
+#: widgets/room/messagelistview.cpp:247
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
@@ -7867,113 +7867,113 @@ msgstr "已上傳檔案：%1"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:83
+#: widgets/room/messagelistview.cpp:82
 #, kde-format
 msgid "Room is Empty."
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Unpin Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:256
+#: widgets/room/messagelistview.cpp:255
 #, kde-format
 msgid "Pin Message"
 msgstr "置頂訊息"
 
-#: widgets/room/messagelistview.cpp:265
+#: widgets/room/messagelistview.cpp:264
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "移出收藏"
 
-#: widgets/room/messagelistview.cpp:283
+#: widgets/room/messagelistview.cpp:282
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark Message As Unread"
 msgstr "找不到訊息"
 
-#: widgets/room/messagelistview.cpp:288
+#: widgets/room/messagelistview.cpp:287
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Show Threads"
 msgid "Show Full Thread"
 msgstr "顯示討論串"
 
-#: widgets/room/messagelistview.cpp:293
+#: widgets/room/messagelistview.cpp:292
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: widgets/room/messagelistview.cpp:298
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Quote"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:303
+#: widgets/room/messagelistview.cpp:302
 #, fuzzy, kde-format
 #| msgid "Unpin Message"
 msgid "Copy Link To Message"
 msgstr "取消訊息置頂"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Unfollow Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:316
+#: widgets/room/messagelistview.cpp:315
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Follow Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:329
+#: widgets/room/messagelistview.cpp:328
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgid "Copy URL"
 msgstr "複製"
 
-#: widgets/room/messagelistview.cpp:337
+#: widgets/room/messagelistview.cpp:336
 #, kde-format
 msgid "Start a Discussion"
 msgstr "開始討論"
 
-#: widgets/room/messagelistview.cpp:344
+#: widgets/room/messagelistview.cpp:343
 #, kde-format
 msgid "Reply in Thread"
 msgstr "回覆討論串"
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Show Original Message"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:404
+#: widgets/room/messagelistview.cpp:403
 #, kde-format
 msgid "Translate Message"
 msgstr "翻譯訊息"
 
-#: widgets/room/messagelistview.cpp:489
+#: widgets/room/messagelistview.cpp:488
 #, kde-format
 msgid "Report Message"
 msgstr "檢舉訊息"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:649
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "您確定要刪除此則訊息嗎？"
 
-#: widgets/room/messagelistview.cpp:651
+#: widgets/room/messagelistview.cpp:650
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "刪除訊息"
 
-#: widgets/room/messagelistview.cpp:791
+#: widgets/room/messagelistview.cpp:790
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"
@@ -8381,129 +8381,129 @@ msgstr "找不到頻道"
 msgid "Show Server Errors"
 msgstr "頻道資訊"
 
-#: widgets/ruqolamainwindow.cpp:418
+#: widgets/ruqolamainwindow.cpp:426
 #, fuzzy, kde-format
 #| msgid "No Messages found"
 msgid "Mark All Channels as Read"
 msgstr "找不到訊息"
 
-#: widgets/ruqolamainwindow.cpp:423
+#: widgets/ruqolamainwindow.cpp:431
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
 msgid "Register a New User..."
 msgstr "邀請使用者"
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:435
 #, fuzzy, kde-format
 #| msgid "Add Account"
 msgid "My Account..."
 msgstr "加入帳戶"
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:438
+#: widgets/ruqolamainwindow.cpp:446
 #, fuzzy, kde-format
 #| msgid "Server version:"
 msgid "Server Settings..."
 msgstr "伺服器版本："
 
-#: widgets/ruqolamainwindow.cpp:443
+#: widgets/ruqolamainwindow.cpp:451
 #, kde-format
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:464
+#: widgets/ruqolamainwindow.cpp:472
 #, fuzzy, kde-format
 #| msgid "Server Info"
 msgid "&Next Server"
 msgstr "伺服器資訊"
 
-#: widgets/ruqolamainwindow.cpp:469
+#: widgets/ruqolamainwindow.cpp:477
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "&Previous Server"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:499
+#: widgets/ruqolamainwindow.cpp:507
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous Selected Channel"
 msgstr "上一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:506
+#: widgets/ruqolamainwindow.cpp:514
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Selected Channel"
 msgstr "下一個頻道"
 
-#: widgets/ruqolamainwindow.cpp:540
+#: widgets/ruqolamainwindow.cpp:548
 #, fuzzy, kde-format
 #| msgid "Disable Notifications:"
 msgid "Show Notify History"
 msgstr "停用通知："
 
-#: widgets/ruqolamainwindow.cpp:544
+#: widgets/ruqolamainwindow.cpp:552
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat 登入"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:556
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Show Room Avatar"
 msgstr "密碼"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:561
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Show Favorite Room"
 msgstr "刪除聊天室"
 
-#: widgets/ruqolamainwindow.cpp:579
+#: widgets/ruqolamainwindow.cpp:587
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "建立帳戶"
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:719
+#: widgets/ruqolamainwindow.cpp:737
 #, fuzzy, kde-format
 #| msgid "No Channel found"
 msgid "Show Log"
 msgstr "找不到頻道"
 
-#: widgets/ruqolamainwindow.cpp:772
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:773
+#: widgets/ruqolamainwindow.cpp:791
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Invite Users"
 msgid "Register New User"
 msgstr "邀請使用者"
 
-#: widgets/ruqolamainwindow.cpp:897
+#: widgets/ruqolamainwindow.cpp:915
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:900
+#: widgets/ruqolamainwindow.cpp:918
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
