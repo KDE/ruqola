@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:58+0000\n"
 "PO-Revision-Date: 2023-02-08 07:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -793,7 +793,7 @@ msgstr "გამორთულია"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:485
 #, kde-format
 msgid "Status"
 msgstr "მდგომარეობა"
@@ -1422,7 +1422,7 @@ msgstr "მთარგმნელის ინფორმაცია ვე�
 msgid "User"
 msgstr "User"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:439
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Administrator"
 msgstr "ადმინისტრატორი"
@@ -2453,7 +2453,7 @@ msgstr "მომხმარებლის სტატუსის ჩას�
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:491
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgid "Status:"
 msgstr "სტატუსი:"
@@ -3363,7 +3363,7 @@ msgstr "დაშიფვრა"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:888
+#: widgets/ruqolamainwindow.cpp:893
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
@@ -5765,6 +5765,14 @@ msgstr "დისკზე დამახსოვრებულ ჟურნ�
 msgid "Do you want to remove this account '%1'?"
 msgstr "მართლა გნებავთ ამ ანგარიშის (%1) წაშლა?"
 
+#: widgets/databasedialog/exploredatabasedialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "User Info"
+msgctxt "@title:window"
+msgid "Database Info"
+msgstr "ინფორმაცია მომხმარებელზე"
+
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -7896,147 +7904,147 @@ msgstr "დაყენების შეცდომა. დამატებ
 msgid "Login Failed: generic error"
 msgstr "შესვლა ვერ მოხერხდა: ზოგადი შეცდომა"
 
-#: widgets/ruqolamainwindow.cpp:202
+#: widgets/ruqolamainwindow.cpp:203
 #, kde-format
 msgid "Show New Notifications"
 msgstr "ახალი შეტყობინებების ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:352
+#: widgets/ruqolamainwindow.cpp:353
 #, kde-format
 msgid "Add Server..."
 msgstr "სერვერის დამატება..."
 
-#: widgets/ruqolamainwindow.cpp:357
+#: widgets/ruqolamainwindow.cpp:358
 #, kde-format
 msgid "Server Info..."
 msgstr "სერვერის ინფორმაცია..."
 
-#: widgets/ruqolamainwindow.cpp:361
+#: widgets/ruqolamainwindow.cpp:362
 #, kde-format
 msgid "Logout Current Server"
 msgstr "მიმდინარე სერვერიდან გასვლა"
 
-#: widgets/ruqolamainwindow.cpp:365
+#: widgets/ruqolamainwindow.cpp:366
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "შემდეგ წაუკითხავ არხზე გადასვლა"
 
-#: widgets/ruqolamainwindow.cpp:370
+#: widgets/ruqolamainwindow.cpp:371
 #, kde-format
 msgid "Create New Channel..."
 msgstr "შექმენით ახალი არხი..."
 
-#: widgets/ruqolamainwindow.cpp:374
+#: widgets/ruqolamainwindow.cpp:375
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "შექმენით პირდაპირი შეტყობინებები..."
 
-#: widgets/ruqolamainwindow.cpp:378
+#: widgets/ruqolamainwindow.cpp:379
 #, kde-format
 msgid "Create Discussion..."
 msgstr "შექმენით კამათი..."
 
-#: widgets/ruqolamainwindow.cpp:382
+#: widgets/ruqolamainwindow.cpp:383
 #, kde-format
 msgid "Create Team..."
 msgstr "შექმენით გუნდი..."
 
-#: widgets/ruqolamainwindow.cpp:390
+#: widgets/ruqolamainwindow.cpp:391
 #, kde-format
 msgid "Unread on Top"
 msgstr "ჯერ წაუკითხავები"
 
-#: widgets/ruqolamainwindow.cpp:398
+#: widgets/ruqolamainwindow.cpp:399
 #, kde-format
 msgid "By Last Message"
 msgstr "ბოლო შეტყობინებით"
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:405
 #, kde-format
 msgid "Alphabetically"
 msgstr "ანბანის მიხედვით"
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:411
 #, kde-format
 msgid "Show Channel Log"
 msgstr "არხის ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:415
 #, kde-format
 msgid "Show Server Errors"
 msgstr "სერვერის შეცდომების ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:427
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "ყველა არხის წაკითხულად დაყენება"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:432
 #, kde-format
 msgid "Register a New User..."
 msgstr "ახალი მომხმარებლის რეგისტრაცია..."
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:436
 #, kde-format
 msgid "My Account..."
 msgstr "ჩემი ანგარიში..."
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:441
 #, kde-format
 msgid "Administrator..."
 msgstr "ადმინისტრატორი..."
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, kde-format
 msgid "Server Settings..."
 msgstr "სერვერის მორგება..."
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:452
 #, kde-format
 msgid "Directory..."
 msgstr "საქაღალდე  ..."
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:473
 #, kde-format
 msgid "&Next Server"
 msgstr "&შემდეგი სერვერი"
 
-#: widgets/ruqolamainwindow.cpp:477
+#: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "&Previous Server"
 msgstr "&წნა სერვერი"
 
-#: widgets/ruqolamainwindow.cpp:507
+#: widgets/ruqolamainwindow.cpp:508
 #, kde-format
 msgid "Previous Selected Channel"
 msgstr "წინა მონიშნულ არხზე გადასვლა"
 
-#: widgets/ruqolamainwindow.cpp:514
+#: widgets/ruqolamainwindow.cpp:515
 #, kde-format
 msgid "Next Selected Channel"
 msgstr "შემდეგი მონიშნული არხი"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "Show Notify History"
 msgstr "გაფრთხილებების ისტორიის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:553
 #, kde-format
 msgid "Show RocketChat Information"
 msgstr "RocketChat-ის ინფორმაციის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:557
 #, kde-format
 msgid "Show Room Avatar"
 msgstr "ოთახის ავატარის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:561
+#: widgets/ruqolamainwindow.cpp:562
 #, kde-format
 msgid "Show Favorite Room"
 msgstr "რჩეული ოთახის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:588
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
@@ -8052,7 +8060,7 @@ msgstr "ჟურნალის გახსნა შეუძლებელ�
 msgid "Show Log"
 msgstr "ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:790
+#: widgets/ruqolamainwindow.cpp:795
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8061,12 +8069,12 @@ msgstr ""
 "ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
-#: widgets/ruqolamainwindow.cpp:791
+#: widgets/ruqolamainwindow.cpp:796
 #, kde-format
 msgid "Register New User"
 msgstr "ახალი მომხმარებლის რეგისტრაცია"
 
-#: widgets/ruqolamainwindow.cpp:915
+#: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8075,7 +8083,7 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:918
+#: widgets/ruqolamainwindow.cpp:923
 #, kde-format
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"
@@ -8093,19 +8101,19 @@ msgid "Tools"
 msgstr "ხელსაწყოები"
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:47
+#: widgets/ruqolaui.rc:49
 #, kde-format
 msgid "&Settings"
 msgstr "&მორგება"
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:51
+#: widgets/ruqolaui.rc:53
 #, kde-format
 msgid "View"
 msgstr "ნახვა"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:64
+#: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "Main Toolbar"
 msgstr "ხელსაწყოთა მთავარი ზოლი"

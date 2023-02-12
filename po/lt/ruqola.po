@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-11 00:57+0000\n"
+"POT-Creation-Date: 2023-02-12 00:58+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -827,7 +827,7 @@ msgstr ""
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:484
+#: widgets/ruqolamainwindow.cpp:485
 #, fuzzy, kde-format
 #| msgid "Status Text:"
 msgid "Status"
@@ -1496,7 +1496,7 @@ msgstr ""
 msgid "User"
 msgstr "Naudotojai:"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:439
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:440
 #, kde-format
 msgid "Administrator"
 msgstr ""
@@ -2550,7 +2550,7 @@ msgstr "Tinkinta naudotojo būsena"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:491
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:492
 #, kde-format
 msgid "Status:"
 msgstr ""
@@ -3546,7 +3546,7 @@ msgstr "Aprašas:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:888
+#: widgets/ruqolamainwindow.cpp:893
 #, kde-format
 msgid "Message"
 msgstr ""
@@ -6023,6 +6023,14 @@ msgstr "Šalinti paskyrą"
 msgid "Do you want to remove this account '%1'?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
+#: widgets/databasedialog/exploredatabasedialog.cpp:25
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Server Info"
+msgctxt "@title:window"
+msgid "Database Info"
+msgstr "Informacija apie serverį"
+
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -8310,167 +8318,167 @@ msgstr ""
 msgid "Login Failed: generic error"
 msgstr "Prisijungti nepavyko"
 
-#: widgets/ruqolamainwindow.cpp:202
+#: widgets/ruqolamainwindow.cpp:203
 #, kde-format
 msgid "Show New Notifications"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:352
+#: widgets/ruqolamainwindow.cpp:353
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Add Server..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:357
+#: widgets/ruqolamainwindow.cpp:358
 #, kde-format
 msgid "Server Info..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:361
+#: widgets/ruqolamainwindow.cpp:362
 #, fuzzy, kde-format
 #| msgid "Create Account"
 msgid "Logout Current Server"
 msgstr "Sukurti paskyrą"
 
-#: widgets/ruqolamainwindow.cpp:365
+#: widgets/ruqolamainwindow.cpp:366
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:370
+#: widgets/ruqolamainwindow.cpp:371
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:374
+#: widgets/ruqolamainwindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Create Direct Messages..."
 msgstr "Ištrinti žinutę"
 
-#: widgets/ruqolamainwindow.cpp:378
+#: widgets/ruqolamainwindow.cpp:379
 #, fuzzy, kde-format
 #| msgid "Create Discussion"
 msgid "Create Discussion..."
 msgstr "Sukurti diskusiją"
 
-#: widgets/ruqolamainwindow.cpp:382
+#: widgets/ruqolamainwindow.cpp:383
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgid "Create Team..."
 msgstr "Sukurti naują kanalą..."
 
-#: widgets/ruqolamainwindow.cpp:390
+#: widgets/ruqolamainwindow.cpp:391
 #, kde-format
 msgid "Unread on Top"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:398
+#: widgets/ruqolamainwindow.cpp:399
 #, fuzzy, kde-format
 #| msgid "(Last Message: %1)"
 msgid "By Last Message"
 msgstr "(Paskutinė žinutė: %1)"
 
-#: widgets/ruqolamainwindow.cpp:404
+#: widgets/ruqolamainwindow.cpp:405
 #, kde-format
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:410
+#: widgets/ruqolamainwindow.cpp:411
 #, fuzzy, kde-format
 #| msgid "Search User..."
 msgid "Show Channel Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:414
+#: widgets/ruqolamainwindow.cpp:415
 #, fuzzy, kde-format
 #| msgid "Channel Info"
 msgid "Show Server Errors"
 msgstr "Informacija apie kanalą"
 
-#: widgets/ruqolamainwindow.cpp:426
+#: widgets/ruqolamainwindow.cpp:427
 #, fuzzy, kde-format
 #| msgid "Mark all channels read"
 msgid "Mark All Channels as Read"
 msgstr "Žymėti visus kanalus kaip skaitytus"
 
-#: widgets/ruqolamainwindow.cpp:431
+#: widgets/ruqolamainwindow.cpp:432
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "Register a New User..."
 msgstr "Naudotojų sąrašas"
 
-#: widgets/ruqolamainwindow.cpp:435
+#: widgets/ruqolamainwindow.cpp:436
 #, fuzzy, kde-format
 #| msgid "Add Account..."
 msgid "My Account..."
 msgstr "Pridėti paskyrą..."
 
-#: widgets/ruqolamainwindow.cpp:440
+#: widgets/ruqolamainwindow.cpp:441
 #, kde-format
 msgid "Administrator..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:446
+#: widgets/ruqolamainwindow.cpp:447
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Server Settings..."
 msgstr "Informacija apie serverį..."
 
-#: widgets/ruqolamainwindow.cpp:451
+#: widgets/ruqolamainwindow.cpp:452
 #, kde-format
 msgid "Directory..."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:472
+#: widgets/ruqolamainwindow.cpp:473
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Server Info"
 msgid "&Next Server"
 msgstr "Informacija apie serverį"
 
-#: widgets/ruqolamainwindow.cpp:477
+#: widgets/ruqolamainwindow.cpp:478
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "&Previous Server"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:507
+#: widgets/ruqolamainwindow.cpp:508
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Previous Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:514
+#: widgets/ruqolamainwindow.cpp:515
 #, fuzzy, kde-format
 #| msgid "Create Channel"
 msgid "Next Selected Channel"
 msgstr "Sukurti kanalą"
 
-#: widgets/ruqolamainwindow.cpp:548
+#: widgets/ruqolamainwindow.cpp:549
 #, kde-format
 msgid "Show Notify History"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:552
+#: widgets/ruqolamainwindow.cpp:553
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Rocket.Chat prisijungimas"
 
-#: widgets/ruqolamainwindow.cpp:556
+#: widgets/ruqolamainwindow.cpp:557
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Show Room Avatar"
 msgstr "Slaptažodis"
 
-#: widgets/ruqolamainwindow.cpp:561
+#: widgets/ruqolamainwindow.cpp:562
 #, fuzzy, kde-format
 #| msgid "Delete Room"
 msgid "Show Favorite Room"
 msgstr "Ištrinti kambarį"
 
-#: widgets/ruqolamainwindow.cpp:587
+#: widgets/ruqolamainwindow.cpp:588
 #, fuzzy, kde-format
 #| msgid "Create New Channel..."
 msgctxt "@title:window"
@@ -8488,27 +8496,27 @@ msgstr ""
 msgid "Show Log"
 msgstr "Ieškoti naudotojo..."
 
-#: widgets/ruqolamainwindow.cpp:790
+#: widgets/ruqolamainwindow.cpp:795
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:791
+#: widgets/ruqolamainwindow.cpp:796
 #, fuzzy, kde-format
 #| msgid "List of Users"
 msgid "Register New User"
 msgstr "Naudotojų sąrašas"
 
-#: widgets/ruqolamainwindow.cpp:915
+#: widgets/ruqolamainwindow.cpp:920
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:918
+#: widgets/ruqolamainwindow.cpp:923
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -8526,19 +8534,19 @@ msgid "Tools"
 msgstr ""
 
 #. i18n: ectx: Menu (settings)
-#: widgets/ruqolaui.rc:47
+#: widgets/ruqolaui.rc:49
 #, kde-format
 msgid "&Settings"
 msgstr ""
 
 #. i18n: ectx: Menu (view)
-#: widgets/ruqolaui.rc:51
+#: widgets/ruqolaui.rc:53
 #, kde-format
 msgid "View"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: widgets/ruqolaui.rc:64
+#: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "Main Toolbar"
 msgstr ""
