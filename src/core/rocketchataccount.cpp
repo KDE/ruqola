@@ -173,7 +173,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mSearchChannelFilterProxyModel = new SearchChannelFilterProxyModel(this);
     mSearchChannelFilterProxyModel->setSourceModel(mSearchChannelModel);
 
-    mSearchMessageModel = new SearchMessageModel(QString(), this, nullptr, this);
+    mSearchMessageModel = new SearchMessageModel(this, this);
     mSearchMessageFilterProxyModel = new SearchMessageFilterProxyModel(mSearchMessageModel, this);
 
     mFilesModelForRoom = new FilesForRoomModel(this, this);

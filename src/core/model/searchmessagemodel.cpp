@@ -9,8 +9,8 @@
 
 #include "listmessages.h"
 
-SearchMessageModel::SearchMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
-    : MessageModel(roomID, account, room, parent)
+SearchMessageModel::SearchMessageModel(RocketChatAccount *account, QObject *parent)
+    : MessageModel(QStringLiteral("no_room"), account, nullptr, parent)
 {
 }
 
