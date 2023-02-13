@@ -9,6 +9,7 @@
 #include "model/messagemodel.h"
 #include "rocketchataccount.h"
 #include "room/messagelistview.h"
+#include <KMessageBox>
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -85,6 +86,10 @@ void ExploreDatabaseWidget::slotLoad()
             // qDebug() << " listMessages " << listMessages.count();
             mMessageModel->clear();
             mMessageModel->addMessages(listMessages);
+        } else {
+            KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
         }
+    } else {
+        KMessageBox::error(this, QStringLiteral("Room '%1' does not exist").arg(roomName), QStringLiteral("Not existing room name"));
     }
 }
