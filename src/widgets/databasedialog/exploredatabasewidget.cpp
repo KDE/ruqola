@@ -29,7 +29,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mMessageListView(new MessageListView(account, MessageListView::Mode::Viewing, this))
     , mLocalMessageDatabase(new LocalMessageDatabase())
     , mRoomName(new QLineEdit(this))
-    , mMessageModel(new MessageModel()) // TODO allow to delete it
+    , mMessageModel(new MessageModel(QStringLiteral("no_room"), account, nullptr, this))
 {
     mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     auto mainLayout = new QVBoxLayout(this);
