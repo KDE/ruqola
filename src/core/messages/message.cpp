@@ -76,7 +76,7 @@ void Message::parseMessage(const QJsonObject &o, bool restApi)
     if (!type.isEmpty()) {
         if (type == QStringLiteral("videoconf")) {
             mMessageType = VideoConference;
-            qDebug() << " VIDEO " << o;
+            // qDebug() << " VIDEO " << o;
         } else {
             mSystemMessageType = type;
             mMessageType = System;
