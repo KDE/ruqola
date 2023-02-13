@@ -20,6 +20,9 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 ConferenceDirectCallDialog::ConferenceDirectCallDialog(RocketChatAccount *account, QWidget *parent)
     : QDialog(parent)
@@ -125,7 +128,7 @@ void ConferenceDirectCallDialog::callUser()
     }
     mRocketChatAccount->ddp()->videoConferenceCall(mRoomId, mCallId, mRocketChatAccount->userId());
     if (mNumberOfCall <= 3) {
-        QTimer::singleShot(3000, this, &ConferenceDirectCallDialog::callUser);
+        QTimer::singleShot(3s, this, &ConferenceDirectCallDialog::callUser);
     } else {
         cancelCall();
         reject();
