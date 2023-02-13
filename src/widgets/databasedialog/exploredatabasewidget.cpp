@@ -29,22 +29,26 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     , mRoomName(new QLineEdit(this))
     , mMessageModel(new MessageModel()) // TODO allow to delete it
 {
+    mMessageListView->setObjectName(QStringLiteral("mMessageListView"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
     auto hboxLayout = new QHBoxLayout;
     hboxLayout->setContentsMargins({});
+    hboxLayout->setObjectName(QStringLiteral("hboxLayout"));
     mainLayout->addLayout(hboxLayout);
 
     mRoomName->setObjectName(QStringLiteral("mRoomName"));
     mRoomName->setClearButtonEnabled(true);
     new LineEditCatchReturnKey(mRoomName, this);
     auto label = new QLabel(QStringLiteral("Room name:"), this);
+    label->setObjectName(QStringLiteral("label"));
     hboxLayout->addWidget(label);
     hboxLayout->addWidget(mRoomName);
 
     auto pushButton = new QPushButton(QStringLiteral("Load"), this);
+    pushButton->setObjectName(QStringLiteral("pushButton"));
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseWidget::slotLoad);
 
