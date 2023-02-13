@@ -22,6 +22,7 @@ enum class Fields {
     TimeStamp,
     Json,
 }; // in the same order as the table
+// debug dialogbox => don't translate it
 ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
     , mRocketChatAccount(account)
@@ -52,6 +53,7 @@ ExploreDatabaseWidget::ExploreDatabaseWidget(RocketChatAccount *account, QWidget
     pushButton->setObjectName(QStringLiteral("pushButton"));
     hboxLayout->addWidget(pushButton);
     connect(pushButton, &QPushButton::clicked, this, &ExploreDatabaseWidget::slotLoad);
+    connect(mRoomName, &QLineEdit::returnPressed, this, &ExploreDatabaseWidget::slotLoad);
 
     mMessageListView->setModel(mMessageModel);
     mainLayout->addWidget(mMessageListView);
