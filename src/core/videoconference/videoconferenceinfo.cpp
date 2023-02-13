@@ -169,6 +169,7 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
     d << "mEndedAtDateTime " << t.endedAtDateTime();
     d << "mProviderName " << t.providerName();
     d << "mUsers " << t.users();
+    d << "mConferenceType " << t.conferenceType();
     return d;
 }
 
