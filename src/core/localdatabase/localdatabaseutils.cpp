@@ -39,3 +39,8 @@ QString LocalDatabaseUtils::localAccountDatabasePath()
 {
     return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("account/");
 }
+
+QString LocalDatabaseUtils::localGlobalDatabasePath()
+{
+    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("global/");
+}

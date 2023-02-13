@@ -49,6 +49,9 @@ QString LocalDatabaseBase::databaseName(const QString &name) const
     case DatabaseType::Message:
         prefix = QStringLiteral("messages-");
         break;
+    case DatabaseType::Global:
+        prefix = QStringLiteral("global-");
+        break;
     case DatabaseType::Logger:
         break;
     }

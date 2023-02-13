@@ -16,7 +16,7 @@ enum class Fields {
 }; // in the same order as the table
 
 LocalGlobalDatabase::LocalGlobalDatabase()
-    : LocalDatabaseBase(LocalDatabaseUtils::localAccountDatabasePath(), LocalDatabaseBase::DatabaseType::Account)
+    : LocalDatabaseBase(LocalDatabaseUtils::localGlobalDatabasePath(), LocalDatabaseBase::DatabaseType::Global)
 {
 }
 
@@ -25,4 +25,9 @@ LocalGlobalDatabase::~LocalGlobalDatabase() = default;
 QString LocalGlobalDatabase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaAccountDataBase);
+}
+
+void LocalGlobalDatabase::addTimeStamp(qint64 timestamp)
+{
+    // TODO
 }

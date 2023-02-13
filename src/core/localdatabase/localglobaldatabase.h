@@ -14,6 +14,8 @@ public:
     LocalGlobalDatabase();
     ~LocalGlobalDatabase() override;
 
+    void addTimeStamp(qint64 timestamp);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };
