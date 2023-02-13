@@ -8,8 +8,8 @@
 
 #include "listmessages.h"
 
-ThreadMessageModel::ThreadMessageModel(const QString &roomID, RocketChatAccount *account, Room *room, QObject *parent)
-    : MessageModel(roomID, account, room, parent)
+ThreadMessageModel::ThreadMessageModel(RocketChatAccount *account, QObject *parent)
+    : MessageModel(QStringLiteral("no_room"), account, nullptr, parent)
 {
 }
 
