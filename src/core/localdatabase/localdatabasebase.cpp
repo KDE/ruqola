@@ -63,7 +63,7 @@ bool LocalDatabaseBase::checkDataBase(const QString &accountName, const QString 
     db = QSqlDatabase::database(dbName);
     if (!db.isValid()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "The assumption was wrong, deleteMessage was called before addMessage, in account" << accountName << "room"
-                                       << roomName;
+                                       << roomName << "database file " << dbName;
         return false;
     }
     Q_ASSERT(db.isValid());
