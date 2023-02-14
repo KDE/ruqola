@@ -1242,23 +1242,25 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
     r->setLastSeenAt(static_cast<qint64>(o[QStringLiteral("lastSeenAt")].toDouble()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
-    lst.reserve(mutedArray.count());
-    for (int i = 0; i < mutedArray.count(); ++i) {
+    const auto nbMutedElement{mutedArray.count()};
+    lst.reserve(nbMutedElement);
+    for (int i = 0; i < nbMutedElement; ++i) {
         lst << mutedArray.at(i).toString();
     }
     r->setMutedUsers(lst);
 
     const QJsonArray systemMessagesArray = o.value(QLatin1String("systemMessages")).toArray();
     lst.clear();
-    lst.reserve(systemMessagesArray.count());
-    for (int i = 0; i < systemMessagesArray.count(); ++i) {
+    const auto nbSystemMessagesCount{systemMessagesArray.count()};
+    lst.reserve(nbSystemMessagesCount);
+    for (int i = 0; i < nbSystemMessagesCount; ++i) {
         lst << systemMessagesArray.at(i).toString();
     }
     r->setDisplaySystemMessageTypes(lst);
 
     const QJsonArray ignoredArray = o.value(QLatin1String("ignored")).toArray();
     QStringList lstIgnored;
-    const int ignoredArrayCount = ignoredArray.count();
+    const auto ignoredArrayCount{ignoredArray.count()};
     lstIgnored.reserve(ignoredArrayCount);
     for (int i = 0; i < ignoredArrayCount; ++i) {
         lstIgnored << ignoredArray.at(i).toString();
@@ -1267,17 +1269,18 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
 
     const QJsonArray highlightsWordArray = o.value(QLatin1String("userHighlights")).toArray();
     QStringList lstHighlightsWord;
-    const int highlightsWordArrayCount = highlightsWordArray.count();
+    const auto highlightsWordArrayCount{highlightsWordArray.count()};
     lstHighlightsWord.reserve(highlightsWordArrayCount);
     for (int i = 0; i < highlightsWordArrayCount; ++i) {
         lstHighlightsWord << highlightsWordArray.at(i).toString();
     }
     r->setHighlightsWord(lstHighlightsWord);
-
     const QJsonArray rolesArray = o.value(QLatin1String("roles")).toArray();
     QStringList lstRoles;
-    lstRoles.reserve(rolesArray.count());
-    for (int i = 0; i < rolesArray.count(); ++i) {
+    const auto rolesCount{rolesArray.count()};
+
+    lstRoles.reserve(rolesCount);
+    for (int i = 0; i < rolesCount; ++i) {
         lstRoles << rolesArray.at(i).toString();
     }
     r->setRoles(lstRoles);
@@ -1292,8 +1295,9 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
 
     const QJsonArray uidsArray = o.value(QLatin1String("uids")).toArray();
     QStringList lstUids;
-    lstUids.reserve(uidsArray.count());
-    for (int i = 0; i < uidsArray.count(); ++i) {
+    const auto uidsArrayCount{uidsArray.count()};
+    lstUids.reserve(uidsArrayCount);
+    for (int i = 0; i < uidsArrayCount; ++i) {
         lstUids << uidsArray.at(i).toString();
     }
     r->setUids(lstUids);
