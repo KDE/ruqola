@@ -31,3 +31,34 @@ QString LocalAccountDatabase::schemaDataBase() const
 {
     return QString::fromLatin1(s_schemaAccountDataBase);
 }
+
+void LocalAccountDatabase::updateAccount(const QString &accountName)
+{
+#if HAVE_DATABASE_SUPPORT
+    QSqlDatabase db;
+    if (initializeDataBase(accountName, db)) {
+        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)"), db);
+        //        query.addBindValue(room->roomId());
+        //        query.addBindValue(room->updatedAt()); // TODO ?
+        //        query.addBindValue(Room::serialize(room)); // TODO use binary ?
+        if (!query.exec()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
+        }
+    }
+#endif
+}
+
+void LocalAccountDatabase::deleteAccount(const QString &accountName)
+{
+#if HAVE_DATABASE_SUPPORT
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, db)) {
+        return;
+    }
+    QSqlQuery query(QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?"), db);
+    query.addBindValue(accountName);
+    if (!query.exec()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();
+    }
+#endif
+}

@@ -14,6 +14,9 @@ public:
     LocalAccountDatabase();
     ~LocalAccountDatabase() override;
 
+    void deleteAccount(const QString &accountName);
+    void updateAccount(const QString &accountName);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };
