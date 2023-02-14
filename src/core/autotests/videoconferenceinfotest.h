@@ -16,4 +16,6 @@ public:
     ~VideoConferenceInfoTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldLoadVideoConferenceInfo();
+    void shouldLoadVideoConferenceInfo_data();
 };
