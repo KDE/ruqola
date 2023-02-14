@@ -832,7 +832,7 @@ Message Message::deserialize(const QJsonObject &o, EmojiManager *emojiManager)
     message.mMessageId = o[QStringLiteral("messageID")].toString();
     message.mRoomId = o[QStringLiteral("roomID")].toString();
     message.mText = o[QStringLiteral("message")].toString();
-    message.mTimeStamp = static_cast<qint64>(o[QStringLiteral("timestamp")].toDouble());
+    message.setTimeStamp(static_cast<qint64>(o[QStringLiteral("timestamp")].toDouble()));
     message.mUsername = o[QStringLiteral("username")].toString();
     message.mName = o[QStringLiteral("name")].toString();
     message.mUserId = o[QStringLiteral("userID")].toString();
