@@ -33,6 +33,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     // "url":"https://jitsi.rocket.chat/RocketChat639b1aba29673367a61eb4f7","capabilities":{"mic":true,"cam":true,"title":true},"success":true}
     mStatus = content[QLatin1String("status")].toInt();
     mUrl = content[QLatin1String("url")].toString();
+    mRoomId = content[QLatin1String("rid")].toString();
     if (content.contains(QLatin1String("createdAt"))) {
         setCreatedAtDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), content)));
     }
@@ -67,6 +68,16 @@ VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(
     }
     qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertTypeToEnum invalid " << str;
     return VideoConferenceInfo::VideoConferenceType::Unknown;
+}
+
+QString VideoConferenceInfo::messageId() const
+{
+    return mMessageId;
+}
+
+void VideoConferenceInfo::setMessageId(const QString &newMessageId)
+{
+    mMessageId = newMessageId;
 }
 
 QVector<User> VideoConferenceInfo::users() const
@@ -170,6 +181,7 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
     d << "mProviderName " << t.providerName();
     d << "mUsers " << t.users();
     d << "mConferenceType " << t.conferenceType();
+    d << "mMessageId " << t.messageId();
     return d;
 }
 
@@ -177,7 +189,7 @@ bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
 {
     return mCreatedAtDateTime == other.createdAtDateTime() && mEndedAtDateTime == other.endedAtDateTime() && mUrl == other.url() && mRoomId == other.roomId()
         && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing()
-        && mUsers == other.users();
+        && mUsers == other.users() && mMessageId == other.messageId();
 }
 
 QString VideoConferenceInfo::statusInformation() const

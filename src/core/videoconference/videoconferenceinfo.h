@@ -58,6 +58,9 @@ public:
 
     Q_REQUIRED_RESULT QString statusInformation() const;
 
+    Q_REQUIRED_RESULT QString messageId() const;
+    void setMessageId(const QString &newMessageId);
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
@@ -66,6 +69,7 @@ private:
     QString mUrl;
     QString mRoomId;
     QString mProviderName;
+    QString mMessageId;
     VideoConferenceType mConferenceType = Unknown;
     int mStatus = -1;
     bool mRinging = false;
