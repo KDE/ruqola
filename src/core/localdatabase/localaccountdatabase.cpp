@@ -13,9 +13,9 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
+static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
 enum class Fields {
-    RoomId,
+    AccountName,
     TimeStamp,
     Json,
 }; // in the same order as the table
