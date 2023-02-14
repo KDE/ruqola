@@ -5,6 +5,7 @@
 */
 
 #include "translatetextjobtest.h"
+#include "translatetext/translatetextjob.h"
 #include <QTest>
 
 QTEST_GUILESS_MAIN(TranslateTextJobTest)
@@ -12,4 +13,10 @@ QTEST_GUILESS_MAIN(TranslateTextJobTest)
 TranslateTextJobTest::TranslateTextJobTest(QObject *parent)
     : QObject(parent)
 {
+}
+
+void TranslateTextJobTest::shouldHaveDefaultValues()
+{
+    TranslateTextJob job;
+    QVERIFY(!job.info().isValid());
 }

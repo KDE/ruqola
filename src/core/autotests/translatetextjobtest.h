@@ -14,4 +14,6 @@ class TranslateTextJobTest : public QObject
 public:
     explicit TranslateTextJobTest(QObject *parent = nullptr);
     ~TranslateTextJobTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
