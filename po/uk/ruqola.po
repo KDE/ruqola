@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:58+0000\n"
+"POT-Creation-Date: 2023-02-14 00:58+0000\n"
 "PO-Revision-Date: 2023-02-12 09:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -1439,18 +1439,18 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferenceinfo.cpp:186
-#: core/videoconference/videoconferenceinfo.cpp:188
+#: core/videoconference/videoconferenceinfo.cpp:187
+#: core/videoconference/videoconferenceinfo.cpp:189
 #, kde-format
 msgid "Call was not answered"
 msgstr "На виклик не надано відповіді"
 
-#: core/videoconference/videoconferenceinfo.cpp:192
+#: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Очікуємо на відповідь"
 
-#: core/videoconference/videoconferenceinfo.cpp:194
+#: core/videoconference/videoconferenceinfo.cpp:195
 #, kde-format
 msgid "Call ongoing"
 msgstr "У процесі виклику"
@@ -5759,7 +5759,7 @@ msgid "Start a Call"
 msgstr "Почати виклик"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "Почати"
@@ -5784,7 +5784,7 @@ msgstr "Мікрофон увімкнено"
 msgid "Micro Off"
 msgstr "Мікрофон вимкнено"
 
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:29
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Direct Call"

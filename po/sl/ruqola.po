@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:58+0000\n"
-"PO-Revision-Date: 2023-02-12 18:35+0100\n"
+"POT-Creation-Date: 2023-02-14 00:58+0000\n"
+"PO-Revision-Date: 2023-02-13 08:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1436,18 +1436,18 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:186
-#: core/videoconference/videoconferenceinfo.cpp:188
+#: core/videoconference/videoconferenceinfo.cpp:187
+#: core/videoconference/videoconferenceinfo.cpp:189
 #, kde-format
 msgid "Call was not answered"
 msgstr "Klic ni bil odgovorjen"
 
-#: core/videoconference/videoconferenceinfo.cpp:192
+#: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čakajoč na odgovor"
 
-#: core/videoconference/videoconferenceinfo.cpp:194
+#: core/videoconference/videoconferenceinfo.cpp:195
 #, kde-format
 msgid "Call ongoing"
 msgstr "Klic v teku"
@@ -5712,7 +5712,7 @@ msgid "Start a Call"
 msgstr "Začni klic"
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "Začni"
@@ -5737,7 +5737,7 @@ msgstr "Mikrofon je vklopljen"
 msgid "Micro Off"
 msgstr "Mikrofon je izklopljen"
 
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:29
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Direct Call"
@@ -5877,12 +5877,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Ali želite odstraniti ta račun »%1«?"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "User Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Podatki o uporabniku"
+msgstr "Informacije o podatkovni zbirki"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format

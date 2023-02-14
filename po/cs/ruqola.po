@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-12 00:58+0000\n"
-"PO-Revision-Date: 2023-02-08 15:07+0100\n"
+"POT-Creation-Date: 2023-02-14 00:58+0000\n"
+"PO-Revision-Date: 2023-02-13 12:55+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1431,18 +1431,18 @@ msgstr "Administrátor"
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:186
-#: core/videoconference/videoconferenceinfo.cpp:188
+#: core/videoconference/videoconferenceinfo.cpp:187
+#: core/videoconference/videoconferenceinfo.cpp:189
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:192
+#: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čekám na odpověď"
 
-#: core/videoconference/videoconferenceinfo.cpp:194
+#: core/videoconference/videoconferenceinfo.cpp:195
 #, kde-format
 msgid "Call ongoing"
 msgstr "Probíhá hovor"
@@ -5556,7 +5556,7 @@ msgid "Start a Call"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencecalldialog.cpp:26
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:39
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:42
 #, kde-format
 msgid "Start"
 msgstr "Spustit"
@@ -5581,7 +5581,7 @@ msgstr ""
 msgid "Micro Off"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:29
+#: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Start a Direct Call"
@@ -5721,12 +5721,10 @@ msgid "Do you want to remove this account '%1'?"
 msgstr "Chcete odstranit tento účet '%1'?"
 
 #: widgets/databasedialog/exploredatabasedialog.cpp:25
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "User Info"
+#, kde-format
 msgctxt "@title:window"
 msgid "Database Info"
-msgstr "Informace o uživateli"
+msgstr "Informace o databázi"
 
 #: widgets/dialogs/addusersinroomdialog.cpp:25
 #, kde-format
