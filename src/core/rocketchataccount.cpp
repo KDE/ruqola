@@ -2726,47 +2726,50 @@ void RocketChatAccount::slotPostMessageDone(const QJsonObject &replyObject)
 void RocketChatAccount::updateUserData(const QJsonArray &contents)
 {
     qDebug() << " void RocketChatAccount::updateUserData(const QJsonArray &contents)" << contents;
-    for (auto array : contents) {
+    for (const auto &array : contents) {
         const QJsonObject updateJson = array[QLatin1String("diff")].toObject();
         const QStringList keys = updateJson.keys();
+        OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
         for (const QString &key : keys) {
             if (key == QStringLiteral("settings.preferences.highlights")) {
                 const QJsonArray highlightsArray = updateJson.value(key).toArray();
-                mOwnUser.ownUserPreferences().updateHighlightWords(highlightsArray);
+                ownUserPreferences.updateHighlightWords(highlightsArray);
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.enableAutoAway")) {
-                mOwnUser.ownUserPreferences().setEnableAutoAway(updateJson.value(key).toBool());
+                ownUserPreferences.setEnableAutoAway(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
             } else if (key == QStringLiteral("settings.preferences.convertAsciiEmoji")) {
-                mOwnUser.ownUserPreferences().setConvertAsciiEmoji(updateJson.value(key).toBool());
+                ownUserPreferences.setConvertAsciiEmoji(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.hideRoles")) {
-                mOwnUser.ownUserPreferences().setHideRoles(updateJson.value(key).toBool());
+                ownUserPreferences.setHideRoles(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.displayAvatars")) {
-                mOwnUser.ownUserPreferences().setDisplayAvatars(updateJson.value(key).toBool());
+                ownUserPreferences.setDisplayAvatars(updateJson.value(key).toBool());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.messageViewMode")) {
-                mOwnUser.ownUserPreferences().setMessageViewMode(updateJson.value(key).toInt());
+                ownUserPreferences.setMessageViewMode(updateJson.value(key).toInt());
+                mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT needUpdateMessageView();
             } else if (key == QStringLiteral("settings.preferences.sidebarViewMode")) { // Channel List view mode
                 // TODO
             } else if (key == QStringLiteral("settings.preferences.sidebarShowUnread")) {
-                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowUnread(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarDisplayAvatar")) { // Avatar in channel list view
-                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowRoomAvatar(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarShowFavorites")) {
-                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 ownUserPreferences.setShowFavorite(updateJson.value(key).toBool());
                 mOwnUser.setOwnUserPreferences(ownUserPreferences);
                 Q_EMIT ownUserPreferencesChanged();
             } else if (key == QStringLiteral("settings.preferences.sidebarSortby")) {
-                OwnUserPreferences ownUserPreferences = mOwnUser.ownUserPreferences();
                 const QString value = updateJson.value(key).toString();
                 if (value == QLatin1String("activity")) {
                     ownUserPreferences.setRoomListSortOrder(OwnUserPreferences::RoomListSortOrder::ByLastMessage);
