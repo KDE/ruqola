@@ -25,8 +25,8 @@ public:
     void deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId);
     void addMessage(const QString &accountName, const QString &roomName, const Message &m);
 
-    void addRoom(const QString &accountName, const QString &_roomName, Room *room);
-    void deleteRoom(const QString &accountName, const QString &roomName, const QString &roomId);
+    void addRoom(const QString &accountName, Room *room);
+    void deleteRoom(const QString &accountName, const QString &roomId);
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;

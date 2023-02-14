@@ -34,12 +34,12 @@ void LocalDatabaseManager::deleteMessage(const QString &accountName, const QStri
     mMessagesDatabase->deleteMessage(accountName, roomName, messageId);
 }
 
-void LocalDatabaseManager::addRoom(const QString &accountName, const QString &roomName, Room *room)
+void LocalDatabaseManager::addRoom(const QString &accountName, Room *room)
 {
-    mRoomsDatabase->addRoom(accountName, roomName, room);
+    mRoomsDatabase->addRoom(accountName, room);
 }
 
-void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString &roomName, const QString &roomId)
+void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString &roomId)
 {
-    mRoomsDatabase->deleteRoom(accountName, roomName, roomId);
+    mRoomsDatabase->deleteRoom(accountName, roomId);
 }
