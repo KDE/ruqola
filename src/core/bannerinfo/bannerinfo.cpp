@@ -33,9 +33,9 @@ void BannerInfo::parseBannerInfo(const QJsonObject &object)
     mIdentifier = object[QStringLiteral("id")].toString();
     mPriority = object[QStringLiteral("priority")].toInt(-1);
     mRead = object[QStringLiteral("read")].toBool(false);
-    if (mPriority != -1) {
-        qWarning() << " priority != -1 " << object;
-    }
+    //    if (mPriority != -1) {
+    //        qWarning() << " priority != -1 " << object;
+    //    }
 }
 
 QString BannerInfo::defaultText(const BannerInfo &info)
