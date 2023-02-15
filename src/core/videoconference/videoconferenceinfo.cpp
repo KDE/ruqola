@@ -40,6 +40,9 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     if (content.contains(QLatin1String("endedAt"))) {
         setEndedAtDateTime(Utils::parseIsoDate(QStringLiteral("endedAt"), content));
     }
+    const QJsonObject messageObj = content[QLatin1String("messages")].toObject();
+    mMessageId = messageObj[QLatin1String("started")].toString();
+
     mConferenceType = convertTypeToEnum(content[QLatin1String("type")].toString());
     mProviderName = content[QLatin1String("providerName")].toString();
     // Users
