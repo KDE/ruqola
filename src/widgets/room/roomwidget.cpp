@@ -419,6 +419,19 @@ void RoomWidget::slotCallRequested()
         dlg->setRoomId(mRoomWidgetBase->roomId());
         dlg->setAllowRinging(mRoom->hasPermission(QStringLiteral("videoconf-ring-users")));
         if (dlg->exec()) {
+#if 0
+            auto conferenceInfoJob = new RocketChatRestApi::VideoConferenceInfoJob(this);
+            conferenceInfoJob->setCallId(obj[QLatin1String("callId")].toString());
+            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
+            connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this, callInfo](const QJsonObject &obj) {
+                qDebug() << " info " << obj;
+                VideoConferenceInfo info;
+                info.parse(obj);
+            });
+            if (!conferenceInfoJob->start()) {
+                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";
+            }
+#endif
             // TODO show conf call info
         }
         delete dlg;
