@@ -31,30 +31,52 @@ MessageDelegateHelperConferenceVideo::~MessageDelegateHelperConferenceVideo() = 
 //
 void MessageDelegateHelperConferenceVideo::draw(const Block &block,
                                                 QPainter *painter,
-                                                QRect messageRect,
+                                                QRect blockRect,
                                                 const QModelIndex &index,
                                                 const QStyleOptionViewItem &option) const
 {
-    const ConferenceCallLayout layout = layoutConferenceCall(block, option, messageRect.width());
+    Q_UNUSED(index)
+    const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
     // Draw title and buttons
-    painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
-    mInfoIcon.paint(painter, layout.infoButtonRect.translated(messageRect.topLeft()));
-    // TODO draw conference info
-    const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
-    drawDescription(block, messageRect, painter, nextY, index, option);
+    int positionY = blockRect.y() + option.fontMetrics.ascent();
+    painter->drawText(blockRect.x(), positionY, layout.title);
+    mInfoIcon.paint(painter, layout.infoButtonRect.translated(blockRect.topLeft()));
+
+    // Draw join button
+    const QPen origPen = painter->pen();
+    const QBrush origBrush = painter->brush();
+    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+    QColor backgroundColor = option.palette.color(QPalette::Highlight);
+    backgroundColor.setAlpha(60);
+    const QBrush buttonBrush(backgroundColor);
+    const QRectF joinButtonRect = layout.joinButtonRect.translated(blockRect.topLeft());
+    // Rounded rect
+    painter->setPen(buttonPen);
+    painter->setBrush(buttonBrush);
+    painter->drawRoundedRect(joinButtonRect, 5, 5);
+    painter->setBrush(origBrush);
+    painter->setPen(origPen);
+    const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - layout.joinButtonTextSize.width()) / 2, 0, 0, 0);
+    painter->drawText(r, layout.joinButtonText);
+
+    // drawDescription(block, messageRect, painter, nextY, index, option);
 }
 
 QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
 {
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
-    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
+    const int height = layout.titleSize.height() + DelegatePaintUtil::margin() + layout.joinButtonRect.height();
+#if 0
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
         descriptionWidth = layout.descriptionSize.width();
         height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
     }
     return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
+#else
+    return {qMax(0, layout.titleSize.width()), height};
+#endif
 }
 
 QPoint MessageDelegateHelperConferenceVideo::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
@@ -85,6 +107,14 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
             dlg.exec();
             return true;
         }
+        if (layout.joinButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
+            qDebug() << " Join !!!!";
+            if (!block.videoConferenceInfo().url().isEmpty()) {
+                Q_EMIT mRocketChatAccount->openLinkRequested(block.videoConferenceInfo().url());
+                return true;
+            }
+            return true;
+        }
         break;
     }
     default:
@@ -95,14 +125,20 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
 }
 
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
-MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const
+MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
 {
+    Q_UNUSED(blockRectWidth)
     ConferenceCallLayout layout;
     layout.title = block.generateDescription();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    layout.descriptionSize = documentDescriptionForIndexSize(block, attachmentsWidth);
+    // layout.descriptionSize = documentDescriptionForIndexSize(block, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.infoButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
+    // Join Button
+    layout.joinButtonText = i18n("Join");
+    layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
+    layout.joinButtonRect =
+        QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
     return layout;
 }
 

@@ -37,11 +37,14 @@ public:
 
 private:
     struct ConferenceCallLayout {
-        QString description;
-        QSize descriptionSize;
+        // QString description;
+        // QSize descriptionSize;
         QString title;
         QSize titleSize;
         QRect infoButtonRect;
+        QString joinButtonText;
+        QSize joinButtonTextSize;
+        QRect joinButtonRect;
     };
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;
