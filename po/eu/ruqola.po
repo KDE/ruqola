@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:58+0000\n"
+"POT-Creation-Date: 2023-02-15 00:58+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -346,120 +346,120 @@ msgstr "Eskualdekoa"
 msgid "Flags"
 msgstr "Banderak"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:508
-#: core/messages/message.cpp:620 core/model/notificationhistorymodel.cpp:61
+#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "Biltzar deia"
 
-#: core/messages/message.cpp:514
+#: core/messages/message.cpp:515
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 kanalera batu da"
 
-#: core/messages/message.cpp:516
+#: core/messages/message.cpp:517
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1(e) kanala utzi du"
 
-#: core/messages/message.cpp:518
+#: core/messages/message.cpp:519
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1(e) talde hau utzi du"
 
-#: core/messages/message.cpp:521
+#: core/messages/message.cpp:522
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Honek gaia garbitu du: %1"
 
-#: core/messages/message.cpp:523
+#: core/messages/message.cpp:524
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2(e)k gaiak honetara aldatu du: <i>%1</i>"
 
-#: core/messages/message.cpp:526
+#: core/messages/message.cpp:527
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2(e) %1 gehitu du elkarrizketara"
 
-#: core/messages/message.cpp:528
+#: core/messages/message.cpp:529
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2(e)k gelako izena <a href=\"ruqola:/room/%1\">#%1</a>(e)ra aldatu du"
 
-#: core/messages/message.cpp:530
+#: core/messages/message.cpp:531
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2(e) %1 erabiltzailea atera du"
 
-#: core/messages/message.cpp:533
+#: core/messages/message.cpp:534
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "%1(e)k deskribapena hustu du"
 
-#: core/messages/message.cpp:535
+#: core/messages/message.cpp:536
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2(e)k gelaren deskribapena %1(e)ra aldatu du"
 
-#: core/messages/message.cpp:539
+#: core/messages/message.cpp:540
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "%1(e)k iragarpenak hustu du"
 
-#: core/messages/message.cpp:541
+#: core/messages/message.cpp:542
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2(e)k gelako iragarpena %1(e)ra aldatu du"
 
-#: core/messages/message.cpp:544
+#: core/messages/message.cpp:545
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2(e)k gelaren pribatutasuna %1(e)r aldatu du"
 
-#: core/messages/message.cpp:546
+#: core/messages/message.cpp:547
 #, kde-format
 msgid "Click to join to video"
 msgstr "Egin klik bideoan sartzeko."
 
-#: core/messages/message.cpp:549
+#: core/messages/message.cpp:550
 #, kde-format
 msgid "Message Deleted"
 msgstr "Mezua ezabatu da"
 
-#: core/messages/message.cpp:551
+#: core/messages/message.cpp:552
 #, kde-format
 msgid "Message Pinned"
 msgstr "Mezua iltzatu da"
 
-#: core/messages/message.cpp:553
+#: core/messages/message.cpp:554
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zifratutako mezua"
 
-#: core/messages/message.cpp:555
+#: core/messages/message.cpp:556
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%1 %2(e)k ozendu du"
 
-#: core/messages/message.cpp:557
+#: core/messages/message.cpp:558
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%1 %2(e)k isilarazi du"
 
-#: core/messages/message.cpp:559
+#: core/messages/message.cpp:560
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "'%3' eginkizuna gehitu dio %1(e)ri %2(e)k"
 
-#: core/messages/message.cpp:561
+#: core/messages/message.cpp:562
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "'%3' eginkizuna kendu dio %1(e)ri %2(e)k"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:565
+#: core/messages/message.cpp:566
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
@@ -468,127 +468,127 @@ msgstr ""
 "Mezu hau muturretik muturrera zifratuta dago. Hura ikusteko, zure kontuaren "
 "ezarpenetan zure zifratzeko gakoa sartu behar duzu."
 
-#: core/messages/message.cpp:567
+#: core/messages/message.cpp:568
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "\"%1\"(e)ri buruzko elkarrizketa sortu da"
 
-#: core/messages/message.cpp:569
+#: core/messages/message.cpp:570
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 elkarrizketara bat da"
 
-#: core/messages/message.cpp:571
+#: core/messages/message.cpp:572
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Gela hau %1(e)k artxibatu du"
 
-#: core/messages/message.cpp:573
+#: core/messages/message.cpp:574
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Gela hau artxibotik atera du %1(e)k"
 
-#: core/messages/message.cpp:576 core/messages/message.cpp:623
+#: core/messages/message.cpp:577 core/messages/message.cpp:624
 #, kde-format
 msgid "Unknown action!"
 msgstr "Ekintza ezezaguna!"
 
-#: core/messages/message.cpp:580
+#: core/messages/message.cpp:581
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Ongi etorri %1!"
 
-#: core/messages/message.cpp:582
+#: core/messages/message.cpp:583
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "Gelako abatarra aldatu du %1(e)k"
 
-#: core/messages/message.cpp:584
+#: core/messages/message.cpp:585
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr "Gela honetako zifratzea gaitu du %1(e)k"
 
-#: core/messages/message.cpp:586
+#: core/messages/message.cpp:587
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr "Gela honetako zifratzea ezgaitu du %1(e)k"
 
-#: core/messages/message.cpp:588
+#: core/messages/message.cpp:589
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr "Gela «Irakurtzeko soilik» gisa ezarri du %1(e)k"
 
-#: core/messages/message.cpp:590
+#: core/messages/message.cpp:591
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr "Gelara idazteko baimena gehitu du %1(e)k"
 
-#: core/messages/message.cpp:592
+#: core/messages/message.cpp:593
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1(e)k @%2 taldera gehitu du"
 
-#: core/messages/message.cpp:594
+#: core/messages/message.cpp:595
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1(e)k @%2 talde honetatik kendu du"
 
-#: core/messages/message.cpp:596
+#: core/messages/message.cpp:597
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1(e)k #%2 talde bihurtu du"
 
-#: core/messages/message.cpp:598
+#: core/messages/message.cpp:599
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr "%1(e)k #%2 kanal bihurtu du"
 
-#: core/messages/message.cpp:600
+#: core/messages/message.cpp:601
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1(e)k #%2 talde honetatik kendu du"
 
-#: core/messages/message.cpp:602
+#: core/messages/message.cpp:603
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1(e)k #%2 ezabatu du"
 
-#: core/messages/message.cpp:604
+#: core/messages/message.cpp:605
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1(e)k #%2 talde honetara gehitu du"
 
-#: core/messages/message.cpp:606
+#: core/messages/message.cpp:607
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr "%1(e)k gelan erreakzionatzeko aukera eman du"
 
-#: core/messages/message.cpp:608
+#: core/messages/message.cpp:609
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr "%1(e)k gelan erreakzionatzeko aukera kendu du"
 
-#: core/messages/message.cpp:610
+#: core/messages/message.cpp:611
 #, kde-format
 msgid "%1 joined this Team"
 msgstr "%1 talde honetara batu da"
 
-#: core/messages/message.cpp:612
+#: core/messages/message.cpp:613
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 OTR berriketara batu da."
 
-#: core/messages/message.cpp:614
+#: core/messages/message.cpp:615
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr "%1 gakoa ondo freskatu da"
 
-#: core/messages/message.cpp:616
+#: core/messages/message.cpp:617
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr "%1(e)k gakoa freskatzea eskatu du."
 
-#: core/messages/message.cpp:618
+#: core/messages/message.cpp:619
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr "Gelako gaia aldatu ondokora aldatu da: %2(e)n %1"
@@ -1340,12 +1340,12 @@ msgstr "<strong>%1</strong> tekleatzen ari da..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> idaten ari dira..."
 
-#: core/rocketchataccount.cpp:2873
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Export Messages"
 msgstr "Esportatu mezuak"
 
-#: core/rocketchataccount.cpp:2874
+#: core/rocketchataccount.cpp:2877
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Zure e-posta bidaltzeko ilaran ipini da."
@@ -1365,17 +1365,17 @@ msgstr "Jabea"
 msgid "Moderator"
 msgstr "Moderatzailea"
 
-#: core/room.cpp:1495
+#: core/room.cpp:1499
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanala irakur-soilekoa da."
 
-#: core/room.cpp:1498
+#: core/room.cpp:1502
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Kanal hau blokeatu duzu."
 
-#: core/room.cpp:1501
+#: core/room.cpp:1505
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanala blokeatu egin da."
@@ -1434,18 +1434,18 @@ msgstr "Administratzailea"
 msgid "Bot"
 msgstr "Bota"
 
-#: core/videoconference/videoconferenceinfo.cpp:187
-#: core/videoconference/videoconferenceinfo.cpp:189
+#: core/videoconference/videoconferenceinfo.cpp:199
+#: core/videoconference/videoconferenceinfo.cpp:201
 #, kde-format
 msgid "Call was not answered"
 msgstr "Deiak da erantzun"
 
-#: core/videoconference/videoconferenceinfo.cpp:193
+#: core/videoconference/videoconferenceinfo.cpp:205
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Erantzunaren zain"
 
-#: core/videoconference/videoconferenceinfo.cpp:195
+#: core/videoconference/videoconferenceinfo.cpp:207
 #, kde-format
 msgid "Call ongoing"
 msgstr "Uneko deia"

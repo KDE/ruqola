@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:58+0000\n"
+"POT-Creation-Date: 2023-02-15 00:58+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -348,265 +348,265 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:508
-#: core/messages/message.cpp:620 core/model/notificationhistorymodel.cpp:61
+#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
 #| msgid "Preference"
 msgid "Conference Call"
 msgstr "Suosio"
 
-#: core/messages/message.cpp:514
+#: core/messages/message.cpp:515
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 on liittynyt kanavalle"
 
-#: core/messages/message.cpp:516
+#: core/messages/message.cpp:517
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 on poistunut kanavalta"
 
-#: core/messages/message.cpp:518
+#: core/messages/message.cpp:519
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 left this Team"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:521
+#: core/messages/message.cpp:522
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "%1 on tyhjentänyt aiheen"
 
-#: core/messages/message.cpp:523
+#: core/messages/message.cpp:524
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 muutti aiheeksi <i>%1</i>"
 
-#: core/messages/message.cpp:526
+#: core/messages/message.cpp:527
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:528
+#: core/messages/message.cpp:529
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 muutti huoneen nimeksi <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:530
+#: core/messages/message.cpp:531
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 poisti käyttäjän %1"
 
-#: core/messages/message.cpp:533
+#: core/messages/message.cpp:534
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "%1 on tyhjentänyt kuvauksen"
 
-#: core/messages/message.cpp:535
+#: core/messages/message.cpp:536
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 muutti huoneen kuvaukseksi %1"
 
-#: core/messages/message.cpp:539
+#: core/messages/message.cpp:540
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "%1 on tyhjentänyt ilmoituksen"
 
-#: core/messages/message.cpp:541
+#: core/messages/message.cpp:542
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 muutti huoneen ilmoitukseksi %1"
 
-#: core/messages/message.cpp:544
+#: core/messages/message.cpp:545
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 muutti huoneen yksityisyydeksi %1"
 
-#: core/messages/message.cpp:546
+#: core/messages/message.cpp:547
 #, kde-format
 msgid "Click to join to video"
 msgstr "Liity videoon napsauttamalla"
 
-#: core/messages/message.cpp:549
+#: core/messages/message.cpp:550
 #, kde-format
 msgid "Message Deleted"
 msgstr "Viesti poistettu"
 
-#: core/messages/message.cpp:551
+#: core/messages/message.cpp:552
 #, kde-format
 msgid "Message Pinned"
 msgstr "Viesti kiinnitetty"
 
-#: core/messages/message.cpp:553
+#: core/messages/message.cpp:554
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Salattu viesti"
 
-#: core/messages/message.cpp:555
+#: core/messages/message.cpp:556
 #, fuzzy, kde-format
 #| msgid "%1 was unmuted"
 msgid "%1 was unmuted by %2"
 msgstr "%1 ei enää ole mykistetty"
 
-#: core/messages/message.cpp:557
+#: core/messages/message.cpp:558
 #, fuzzy, kde-format
 #| msgid "%1 was muted"
 msgid "%1 was muted by %2"
 msgstr "%1 oli mykistetty"
 
-#: core/messages/message.cpp:559
+#: core/messages/message.cpp:560
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "%2 lisäsi käyttäjälle %1 roolin ”%3”"
 
-#: core/messages/message.cpp:561
+#: core/messages/message.cpp:562
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "%2 poisti käyttäjältä %1 roolin ”%3”"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:565
+#: core/messages/message.cpp:566
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
 
-#: core/messages/message.cpp:567
+#: core/messages/message.cpp:568
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Luotu keskustelu aiheesta ”%1”"
 
-#: core/messages/message.cpp:569
+#: core/messages/message.cpp:570
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "%1 on liittynyt keskusteluun"
 
-#: core/messages/message.cpp:571
+#: core/messages/message.cpp:572
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "%1 on arkistoinut huoneen"
 
-#: core/messages/message.cpp:573
+#: core/messages/message.cpp:574
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "%1 on palauttanut huoneen arkistosta"
 
-#: core/messages/message.cpp:576 core/messages/message.cpp:623
+#: core/messages/message.cpp:577 core/messages/message.cpp:624
 #, kde-format
 msgid "Unknown action!"
 msgstr "Tuntematon toiminto!"
 
-#: core/messages/message.cpp:580
+#: core/messages/message.cpp:581
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Tervetuloa, %1!"
 
-#: core/messages/message.cpp:582
+#: core/messages/message.cpp:583
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: core/messages/message.cpp:584
+#: core/messages/message.cpp:585
 #, fuzzy, kde-format
 #| msgid "This room has been unarchived by %1"
 msgid "This room's encryption has been enabled by %1"
 msgstr "%1 on palauttanut huoneen arkistosta"
 
-#: core/messages/message.cpp:586
+#: core/messages/message.cpp:587
 #, fuzzy, kde-format
 #| msgid "This room has been archived by %1"
 msgid "This room's encryption has been disabled by %1"
 msgstr "%1 on arkistoinut huoneen"
 
-#: core/messages/message.cpp:588
+#: core/messages/message.cpp:589
 #, fuzzy, kde-format
 #| msgid "Room avatar changed by %1"
 msgid "Room set as Read Only by  %1"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: core/messages/message.cpp:590
+#: core/messages/message.cpp:591
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr ""
 
-#: core/messages/message.cpp:592
+#: core/messages/message.cpp:593
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 added @%2 to this Team"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:594
+#: core/messages/message.cpp:595
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 removed @%2 from this Team"
 msgstr "Poista huoneesta"
 
-#: core/messages/message.cpp:596
+#: core/messages/message.cpp:597
 #, fuzzy, kde-format
 #| msgid "Convert to Team"
 msgid "%1 converted #%2 to a Team"
 msgstr "Muunna ryhmäksi"
 
-#: core/messages/message.cpp:598
+#: core/messages/message.cpp:599
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Create Channel"
 msgid "%1 converted #%2 to a Channel"
 msgstr "Luo kanava"
 
-#: core/messages/message.cpp:600
+#: core/messages/message.cpp:601
 #, fuzzy, kde-format
 #| msgid "Remove from Team"
 msgid "%1 removed #%2 from this Team"
 msgstr "Poista huoneesta"
 
-#: core/messages/message.cpp:602
+#: core/messages/message.cpp:603
 #, fuzzy, kde-format
 #| msgid "Delete"
 msgid "%1 deleted #%2"
 msgstr "Poista"
 
-#: core/messages/message.cpp:604
+#: core/messages/message.cpp:605
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 added #%2 to this Team"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:606
+#: core/messages/message.cpp:607
 #, fuzzy, kde-format
 #| msgid "Room avatar changed by %1"
 msgid "Room allowed reacting by %1"
 msgstr "%1 vaihtoi huoneen avatarin"
 
-#: core/messages/message.cpp:608
+#: core/messages/message.cpp:609
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:610
+#: core/messages/message.cpp:611
 #, fuzzy, kde-format
 #| msgid "%2 added %1 to the conversation"
 msgid "%1 joined this Team"
 msgstr "%2 lisäsi henkilön %1 keskusteluun"
 
-#: core/messages/message.cpp:612
+#: core/messages/message.cpp:613
 #, fuzzy, kde-format
 #| msgid "%1 has joined the channel"
 msgid "%1 has joined OTR chat."
 msgstr "%1 on liittynyt kanavalle"
 
-#: core/messages/message.cpp:614
+#: core/messages/message.cpp:615
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr ""
 
-#: core/messages/message.cpp:616
+#: core/messages/message.cpp:617
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr ""
 
-#: core/messages/message.cpp:618
+#: core/messages/message.cpp:619
 #, fuzzy, kde-format
 #| msgid "Room avatar changed by %1"
 msgid "Room topic changed to: %1 by %2"
@@ -1406,12 +1406,12 @@ msgstr "<strong>%1</strong> kirjoittaa…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjoittavat…"
 
-#: core/rocketchataccount.cpp:2873
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Export Messages"
 msgstr "Vie viestejä"
 
-#: core/rocketchataccount.cpp:2874
+#: core/rocketchataccount.cpp:2877
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Sähköposti on viety jonoon lähetystä varten."
@@ -1431,17 +1431,17 @@ msgstr "Johtaja"
 msgid "Moderator"
 msgstr "Moderaattori"
 
-#: core/room.cpp:1495
+#: core/room.cpp:1499
 #, kde-format
 msgid "Channel is read only."
 msgstr "Kanavaa voi vain lukea."
 
-#: core/room.cpp:1498
+#: core/room.cpp:1502
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Olet estänyt tämän kanavan."
 
-#: core/room.cpp:1501
+#: core/room.cpp:1505
 #, kde-format
 msgid "Channel was blocked."
 msgstr "Kanava oli estetty."
@@ -1505,19 +1505,19 @@ msgstr "Ylläpitäjä"
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:187
-#: core/videoconference/videoconferenceinfo.cpp:189
+#: core/videoconference/videoconferenceinfo.cpp:199
+#: core/videoconference/videoconferenceinfo.cpp:201
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:193
+#: core/videoconference/videoconferenceinfo.cpp:205
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "Vastauksesi:"
 
-#: core/videoconference/videoconferenceinfo.cpp:195
+#: core/videoconference/videoconferenceinfo.cpp:207
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
