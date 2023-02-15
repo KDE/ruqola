@@ -39,6 +39,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
         info.setStatus(1);
         info.setRinging(false);
+        info.setCreatedAtDateTime(1676389636880);
         // TODO info.setMessageId();
         // mCreatedAtDateTime  QDateTime(2023-02-14 16:47:16.880 CET Qt::LocalTime)
 

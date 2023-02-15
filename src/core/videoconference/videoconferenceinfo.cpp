@@ -35,10 +35,10 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     mUrl = content[QLatin1String("url")].toString();
     mRoomId = content[QLatin1String("rid")].toString();
     if (content.contains(QLatin1String("createdAt"))) {
-        setCreatedAtDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("createdAt"), content)));
+        setCreatedAtDateTime(Utils::parseIsoDate(QStringLiteral("createdAt"), content));
     }
     if (content.contains(QLatin1String("endedAt"))) {
-        setEndedAtDateTime(QDateTime::fromMSecsSinceEpoch(Utils::parseIsoDate(QStringLiteral("endedAt"), content)));
+        setEndedAtDateTime(Utils::parseIsoDate(QStringLiteral("endedAt"), content));
     }
     mConferenceType = convertTypeToEnum(content[QLatin1String("type")].toString());
     mProviderName = content[QLatin1String("providerName")].toString();
@@ -140,22 +140,22 @@ void VideoConferenceInfo::setRoomId(const QString &newRoomId)
     mRoomId = newRoomId;
 }
 
-QDateTime VideoConferenceInfo::createdAtDateTime() const
+qint64 VideoConferenceInfo::createdAtDateTime() const
 {
     return mCreatedAtDateTime;
 }
 
-void VideoConferenceInfo::setCreatedAtDateTime(const QDateTime &newCreatedAtDateTime)
+void VideoConferenceInfo::setCreatedAtDateTime(qint64 newCreatedAtDateTime)
 {
     mCreatedAtDateTime = newCreatedAtDateTime;
 }
 
-QDateTime VideoConferenceInfo::endedAtDateTime() const
+qint64 VideoConferenceInfo::endedAtDateTime() const
 {
     return mEndedAtDateTime;
 }
 
-void VideoConferenceInfo::setEndedAtDateTime(const QDateTime &newEndedAtDateTime)
+void VideoConferenceInfo::setEndedAtDateTime(qint64 newEndedAtDateTime)
 {
     mEndedAtDateTime = newEndedAtDateTime;
 }
@@ -194,7 +194,7 @@ bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
 
 QString VideoConferenceInfo::statusInformation() const
 {
-    if (endedAtDateTime().isValid()) {
+    if (endedAtDateTime() >= 0) {
         if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct) {
             return i18n("Call was not answered");
         } else if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Conference && users().isEmpty()) {

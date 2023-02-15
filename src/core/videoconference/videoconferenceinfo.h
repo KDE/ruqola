@@ -39,11 +39,11 @@ public:
     Q_REQUIRED_RESULT QString roomId() const;
     void setRoomId(const QString &newRoomId);
 
-    Q_REQUIRED_RESULT QDateTime createdAtDateTime() const;
-    void setCreatedAtDateTime(const QDateTime &newCreatedAtDateTime);
+    Q_REQUIRED_RESULT qint64 createdAtDateTime() const;
+    void setCreatedAtDateTime(qint64 newCreatedAtDateTime);
 
-    Q_REQUIRED_RESULT QDateTime endedAtDateTime() const;
-    void setEndedAtDateTime(const QDateTime &newEndedAtDateTime);
+    Q_REQUIRED_RESULT qint64 endedAtDateTime() const;
+    void setEndedAtDateTime(qint64 newEndedAtDateTime);
 
     Q_REQUIRED_RESULT VideoConferenceType conferenceType() const;
     void setConferenceType(VideoConferenceType newConferenceType);
@@ -64,13 +64,13 @@ public:
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
-    QDateTime mCreatedAtDateTime;
-    QDateTime mEndedAtDateTime;
     QString mUrl;
     QString mRoomId;
     QString mProviderName;
     QString mMessageId;
     VideoConferenceType mConferenceType = Unknown;
+    qint64 mCreatedAtDateTime = -1;
+    qint64 mEndedAtDateTime = -1;
     int mStatus = -1;
     bool mRinging = false;
 };
