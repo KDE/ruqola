@@ -42,6 +42,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     }
     const QJsonObject messageObj = content[QLatin1String("messages")].toObject();
     mMessageId = messageObj[QLatin1String("started")].toString();
+    // TODO ended ???
 
     mConferenceType = convertTypeToEnum(content[QLatin1String("type")].toString());
     mProviderName = content[QLatin1String("providerName")].toString();
