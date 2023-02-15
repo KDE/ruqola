@@ -26,6 +26,9 @@ MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(Rocke
 
 MessageDelegateHelperConferenceVideo::~MessageDelegateHelperConferenceVideo() = default;
 
+// Title [margin] <icon info>
+// Button join [margin] <list avatar user>
+//
 void MessageDelegateHelperConferenceVideo::draw(const Block &block,
                                                 QPainter *painter,
                                                 QRect messageRect,
@@ -36,6 +39,7 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     // Draw title and buttons
     painter->drawText(messageRect.x(), messageRect.y() + option.fontMetrics.ascent(), layout.title);
     mInfoIcon.paint(painter, layout.infoButtonRect.translated(messageRect.topLeft()));
+    // TODO draw conference info
     const int nextY = messageRect.y() + layout.titleSize.height() + DelegatePaintUtil::margin();
     drawDescription(block, messageRect, painter, nextY, index, option);
 }
