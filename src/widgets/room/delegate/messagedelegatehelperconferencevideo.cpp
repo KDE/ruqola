@@ -6,7 +6,6 @@
 
 #include "messagedelegatehelperconferencevideo.h"
 #include "common/delegatepaintutil.h"
-#include "common/delegateutil.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
 #include "rocketchataccount.h"
 
@@ -67,6 +66,7 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
                                                             const QStyleOptionViewItem &option,
                                                             const QModelIndex &index)
 {
+    Q_UNUSED(index);
     const QEvent::Type eventType = mouseEvent->type();
     switch (eventType) {
     case QEvent::MouseButtonRelease: {
@@ -104,6 +104,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
 
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     return nullptr;
 }
 
