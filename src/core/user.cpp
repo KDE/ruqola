@@ -105,19 +105,19 @@ QDebug operator<<(QDebug d, const User::UserEmailsInfo &t)
 
 QDebug operator<<(QDebug d, const User &t)
 {
-    d << "Name " << t.name();
-    d << "UserId " << t.userId();
-    d << "Status " << t.status();
-    d << "UserName " << t.userName();
-    d << "UtcOffset " << t.utcOffset();
-    d << "StatusText " << t.statusText();
-    d << "roles : " << t.roles();
-    d << "CreatedAt: " << t.createdAt();
-    d << "Last Login " << t.lastLogin();
-    d << "userEmailsInfo " << t.userEmailsInfo();
-    d << "active " << t.active();
-    d << "mRequirePasswordChange " << t.requirePasswordChange();
-    d << "mBio " << t.bio();
+    d << " Name " << t.name();
+    d << " UserId " << t.userId();
+    d << " Status " << t.status();
+    d << " UserName " << t.userName();
+    d << " UtcOffset " << t.utcOffset();
+    d << " StatusText " << t.statusText();
+    d << " roles " << t.roles();
+    d << " CreatedAt " << t.createdAt();
+    d << " Last Login " << t.lastLogin();
+    d << " userEmailsInfo " << t.userEmailsInfo();
+    d << " active " << t.active();
+    d << " mRequirePasswordChange " << t.requirePasswordChange();
+    d << " mBio " << t.bio();
     return d;
 }
 

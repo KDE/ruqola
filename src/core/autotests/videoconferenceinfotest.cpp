@@ -43,6 +43,27 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         info.setMessageId(QStringLiteral("NusivujrtX38F8too"));
         QTest::addRow("videoconferenceinfo") << QStringLiteral("videoconferenceinfo") << info;
     }
+    {
+        VideoConferenceInfo info;
+        info.setProviderName(QStringLiteral("jitsi"));
+        info.setUrl(QStringLiteral("https://goo/RocketChat639593184ef3f3baa965910c"));
+        info.setConferenceType(VideoConferenceInfo::Conference);
+        info.setRoomId(QStringLiteral("hE6RS3iv5ND5EGWC6"));
+        info.setStatus(2);
+        info.setRinging(false);
+        info.setCreatedAtDateTime(1670746904785);
+        info.setEndedAtDateTime(1670835600213);
+        User user;
+        user.setUserName(QStringLiteral("laurent"));
+        user.setName(QStringLiteral("Laurent Montel"));
+        user.setUserId(QStringLiteral("uKK39zoewTkdacidH"));
+        user.setUtcOffset(0);
+        user.setActive(true);
+        user.setStatus(User::PresenceStatus::Unknown);
+        info.setUsers({user});
+        info.setMessageId(QStringLiteral("PmWesYrnRJkyTTi"));
+        QTest::addRow("videoconferenceinfo1") << QStringLiteral("videoconferenceinfo1") << info;
+    }
 }
 
 void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo()
