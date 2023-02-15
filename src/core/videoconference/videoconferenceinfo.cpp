@@ -18,7 +18,6 @@ VideoConferenceInfo::~VideoConferenceInfo() = default;
 
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
-    qDebug() << " parse " << content;
     qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;
     //{"_id":"63997dd831e2ca494753c544","type":"videoconference","users":[{"_id":"YbwG4T2uB3wZSZSKB","username":"laurent-montel",
     // "name":"laurent","ts":"2022-12-14T07:40:08.973Z"}],"messages":{"started":"ka85EtarYSjjt59w4"},"status":2,
