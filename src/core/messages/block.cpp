@@ -12,7 +12,6 @@ Block::Block() = default;
 
 void Block::parseBlock(const QJsonObject &block)
 {
-    qDebug() << " Block::parseBlock " << block;
     // "blocks":[{"appId":"videoconf-core","blockId":"63981f8a4ef3f3baa965a0d8","callId":"63981f8a4ef3f3baa965a0d8","type":"video_conf"}]
     mBlockId = block[QLatin1String("blockId")].toString();
     mCallId = block[QLatin1String("callId")].toString();
@@ -30,6 +29,16 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
     }
     qCWarning(RUQOLA_LOG) << " Invalid BlockType " << typeStr;
     return Unknown;
+}
+
+VideoConferenceInfo Block::info() const
+{
+    return mInfo;
+}
+
+void Block::setInfo(const VideoConferenceInfo &newInfo)
+{
+    mInfo = newInfo;
 }
 
 QString Block::blockTypeStr() const
@@ -133,5 +142,6 @@ QDebug operator<<(QDebug d, const Block &t)
     d << "appId " << t.appId();
     d << "blockTypeStr " << t.blockTypeStr();
     d << "mBlockType" << t.blockType();
+    d << "Video conf info " << t.info();
     return d;
 }

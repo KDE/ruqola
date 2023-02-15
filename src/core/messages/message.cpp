@@ -354,7 +354,7 @@ void Message::setChannels(const QMap<QString, QString> &newChannels)
 void Message::parseBlocks(const QJsonArray &blocks)
 {
     mBlocks.clear();
-    for (int i = 0; i < blocks.count(); i++) {
+    for (int i = 0, total = blocks.count(); i < total; ++i) {
         const QJsonObject blockObject = blocks.at(i).toObject();
         Block b;
         b.parseBlock(blockObject);

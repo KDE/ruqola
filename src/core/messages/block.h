@@ -7,6 +7,7 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "videoconference/videoconferenceinfo.h"
 #include <QDebug>
 #include <QJsonObject>
 class LIBRUQOLACORE_EXPORT Block
@@ -45,6 +46,9 @@ public:
     Q_REQUIRED_RESULT QString blockTypeStr() const;
     void setBlockTypeStr(const QString &newBlockStr);
 
+    Q_REQUIRED_RESULT VideoConferenceInfo info() const;
+    void setInfo(const VideoConferenceInfo &newInfo);
+
 private:
     Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;
@@ -52,6 +56,7 @@ private:
     QString mAppId;
     QString mBlockStr;
     BlockType mBlockType = Unknown;
+    VideoConferenceInfo mInfo;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_MOVABLE_TYPE);

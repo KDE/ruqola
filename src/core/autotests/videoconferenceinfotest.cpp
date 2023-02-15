@@ -25,6 +25,7 @@ void VideoConferenceInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.providerName().isEmpty());
     QVERIFY(info.users().isEmpty());
     QVERIFY(info.messageId().isEmpty());
+    QVERIFY(info.blockId().isEmpty());
 }
 
 void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
@@ -41,6 +42,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         info.setRinging(false);
         info.setCreatedAtDateTime(1676389636880);
         info.setMessageId(QStringLiteral("NusivujrtX38F8too"));
+        info.setBlockId(QStringLiteral("63ebad0405c6c93252c0f337"));
         QTest::addRow("videoconferenceinfo") << QStringLiteral("videoconferenceinfo") << info;
     }
     {
@@ -62,6 +64,7 @@ void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
         user.setStatus(User::PresenceStatus::Unknown);
         info.setUsers({user});
         info.setMessageId(QStringLiteral("PmWesYrnRJkyTTi"));
+        info.setBlockId(QStringLiteral("639593184ef3f3baa965910c"));
         QTest::addRow("videoconferenceinfo1") << QStringLiteral("videoconferenceinfo1") << info;
     }
 }
