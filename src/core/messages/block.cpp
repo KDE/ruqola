@@ -31,14 +31,14 @@ Block::BlockType Block::convertBlockTypeToEnum(const QString &typeStr)
     return Unknown;
 }
 
-VideoConferenceInfo Block::info() const
+VideoConferenceInfo Block::videoConferenceInfo() const
 {
-    return mInfo;
+    return mVideoConferenceInfo;
 }
 
-void Block::setInfo(const VideoConferenceInfo &newInfo)
+void Block::setVideoConferenceInfo(const VideoConferenceInfo &newInfo)
 {
-    mInfo = newInfo;
+    mVideoConferenceInfo = newInfo;
 }
 
 QString Block::blockTypeStr() const
@@ -142,6 +142,6 @@ QDebug operator<<(QDebug d, const Block &t)
     d << "appId " << t.appId();
     d << "blockTypeStr " << t.blockTypeStr();
     d << "mBlockType" << t.blockType();
-    d << "Video conf info " << t.info();
+    d << "Video conf info " << t.videoConferenceInfo();
     return d;
 }

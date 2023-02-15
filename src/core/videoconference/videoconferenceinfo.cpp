@@ -19,18 +19,6 @@ VideoConferenceInfo::~VideoConferenceInfo() = default;
 void VideoConferenceInfo::parse(const QJsonObject &content)
 {
     qCDebug(RUQOLA_VIDEO_CONFERENCE_LOG) << " content " << content;
-    //{"_id":"63997dd831e2ca494753c544","type":"videoconference","users":[{"_id":"YbwG4T2uB3wZSZSKB","username":"laurent-montel",
-    // "name":"laurent","ts":"2022-12-14T07:40:08.973Z"}],"messages":{"started":"ka85EtarYSjjt59w4"},"status":2,
-    // "anonymousUsers":0,"createdAt":"2022-12-14T07:40:08.262Z","providerName":"jitsi","ringing":true,"title":"ruqola252",
-    // "rid":"kNRwYoAPHKsSjLGkG","createdBy":{"_id":"YbwG4T2uB3wZSZSKB","name":"laurent","username":"laurent-montel"},
-    // "_updatedAt":"2022-12-15T09:00:00.050Z","url":"https://jitsi.rocket.chat/RocketChat63997dd831e2ca494753c544","endedAt":"2022-12-15T09:00:00.050Z",
-    // "capabilities":{"mic":true,"cam":true,"title":true},"success":true}
-
-    // {"_id":"639b1aba29673367a61eb4f7","type":"direct","users":[{"_id":"xkNpoB3T98EEPCj2K","username":"lili-2","name":"lili","ts":"2022-12-15T13:01:52.043Z"},
-    // {"_id":"YbwG4T2uB3wZSZSKB","username":"laurent-montel","name":"laurent","ts":"2022-12-15T13:01:52.473Z"}],"messages":{"started":"qqGWGre8EApENtFZR"},"status":1,
-    // "createdAt":"2022-12-15T13:01:46.995Z","providerName":"jitsi","ringing":false,"rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K",
-    // "createdBy":{"_id":"YbwG4T2uB3wZSZSKB","name":"laurent","username":"laurent-montel"},"_updatedAt":"2022-12-15T13:01:52.474Z",
-    // "url":"https://jitsi.rocket.chat/RocketChat639b1aba29673367a61eb4f7","capabilities":{"mic":true,"cam":true,"title":true},"success":true}
     mBlockId = content[QLatin1String("_id")].toString();
     mStatus = content[QLatin1String("status")].toInt();
     mUrl = content[QLatin1String("url")].toString();
@@ -83,6 +71,11 @@ QString VideoConferenceInfo::blockId() const
 void VideoConferenceInfo::setBlockId(const QString &newBlockId)
 {
     mBlockId = newBlockId;
+}
+
+bool VideoConferenceInfo::isValid() const
+{
+    return conferenceType() != VideoConferenceInfo::VideoConferenceType::Unknown;
 }
 
 QString VideoConferenceInfo::messageId() const

@@ -24,6 +24,7 @@ void BlockTest::shouldHaveDefaultValues()
     QVERIFY(b.blockTypeStr().isEmpty());
     QCOMPARE(b.blockType(), Block::Unknown);
 
+    QVERIFY(!b.videoConferenceInfo().isValid());
     QVERIFY(!b.isValid());
 }
 

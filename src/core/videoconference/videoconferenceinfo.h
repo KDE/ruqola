@@ -64,6 +64,8 @@ public:
     Q_REQUIRED_RESULT QString blockId() const;
     void setBlockId(const QString &newBlockId);
 
+    Q_REQUIRED_RESULT bool isValid() const;
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;

@@ -46,8 +46,8 @@ public:
     Q_REQUIRED_RESULT QString blockTypeStr() const;
     void setBlockTypeStr(const QString &newBlockStr);
 
-    Q_REQUIRED_RESULT VideoConferenceInfo info() const;
-    void setInfo(const VideoConferenceInfo &newInfo);
+    Q_REQUIRED_RESULT VideoConferenceInfo videoConferenceInfo() const;
+    void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
 private:
     Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
@@ -56,7 +56,7 @@ private:
     QString mAppId;
     QString mBlockStr;
     BlockType mBlockType = Unknown;
-    VideoConferenceInfo mInfo;
+    VideoConferenceInfo mVideoConferenceInfo;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const Block &t);
 Q_DECLARE_TYPEINFO(Block, Q_MOVABLE_TYPE);
