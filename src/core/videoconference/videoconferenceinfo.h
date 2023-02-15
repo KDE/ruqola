@@ -61,9 +61,13 @@ public:
     Q_REQUIRED_RESULT QString messageId() const;
     void setMessageId(const QString &newMessageId);
 
+    Q_REQUIRED_RESULT QString blockId() const;
+    void setBlockId(const QString &newBlockId);
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
+    QString mBlockId;
     QString mUrl;
     QString mRoomId;
     QString mProviderName;

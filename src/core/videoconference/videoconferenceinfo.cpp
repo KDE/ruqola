@@ -31,6 +31,7 @@ void VideoConferenceInfo::parse(const QJsonObject &content)
     // "createdAt":"2022-12-15T13:01:46.995Z","providerName":"jitsi","ringing":false,"rid":"YbwG4T2uB3wZSZSKBxkNpoB3T98EEPCj2K",
     // "createdBy":{"_id":"YbwG4T2uB3wZSZSKB","name":"laurent","username":"laurent-montel"},"_updatedAt":"2022-12-15T13:01:52.474Z",
     // "url":"https://jitsi.rocket.chat/RocketChat639b1aba29673367a61eb4f7","capabilities":{"mic":true,"cam":true,"title":true},"success":true}
+    mBlockId = content[QLatin1String("_id")].toString();
     mStatus = content[QLatin1String("status")].toInt();
     mUrl = content[QLatin1String("url")].toString();
     mRoomId = content[QLatin1String("rid")].toString();
@@ -72,6 +73,16 @@ VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(
     }
     qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertTypeToEnum invalid " << str;
     return VideoConferenceInfo::VideoConferenceType::Unknown;
+}
+
+QString VideoConferenceInfo::blockId() const
+{
+    return mBlockId;
+}
+
+void VideoConferenceInfo::setBlockId(const QString &newBlockId)
+{
+    mBlockId = newBlockId;
 }
 
 QString VideoConferenceInfo::messageId() const
@@ -186,6 +197,7 @@ QDebug operator<<(QDebug d, const VideoConferenceInfo &t)
     d << "mUsers " << t.users();
     d << "mConferenceType " << t.conferenceType();
     d << "mMessageId " << t.messageId();
+    d << "mBlockId " << t.blockId();
     return d;
 }
 
@@ -193,7 +205,7 @@ bool VideoConferenceInfo::operator==(const VideoConferenceInfo &other) const
 {
     return mCreatedAtDateTime == other.createdAtDateTime() && mEndedAtDateTime == other.endedAtDateTime() && mUrl == other.url() && mRoomId == other.roomId()
         && mProviderName == other.providerName() && mConferenceType == other.conferenceType() && mStatus == other.status() && mRinging == other.ringing()
-        && mUsers == other.users() && mMessageId == other.messageId();
+        && mUsers == other.users() && mMessageId == other.messageId() && mBlockId == other.blockId();
 }
 
 QString VideoConferenceInfo::statusInformation() const
