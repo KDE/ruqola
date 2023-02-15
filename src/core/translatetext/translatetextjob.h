@@ -12,7 +12,7 @@ class LIBRUQOLACORE_EXPORT TranslateTextJob : public QObject
 {
     Q_OBJECT
 public:
-    struct TranslateInfo {
+    struct LIBRUQOLACORE_EXPORT TranslateInfo {
         QString from;
         QString to;
         QString inputText;
