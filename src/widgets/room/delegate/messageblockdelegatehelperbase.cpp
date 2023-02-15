@@ -118,6 +118,10 @@ void MessageBlockDelegateHelperBase::drawDescription(const Block &block,
                                                      const QModelIndex &index,
                                                      const QStyleOptionViewItem &option) const
 {
+    Q_UNUSED(painter)
+    Q_UNUSED(topPos)
+    Q_UNUSED(index)
+    Q_UNUSED(option)
     auto *doc = documentDescriptionForIndex(block, descriptionRect.width());
     if (!doc) {
         return;
