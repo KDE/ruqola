@@ -452,27 +452,33 @@ void RoomWidget::slotCallRequested()
                 auto conferenceInfoJob = new RocketChatRestApi::VideoConferenceInfoJob(this);
                 conferenceInfoJob->setCallId(obj[QLatin1String("callId")].toString());
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
-                connect(conferenceInfoJob, &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone, this, [this, callInfo](const QJsonObject &obj) {
-                    qDebug() << " info " << obj;
-                    VideoConferenceInfo info;
-                    info.parse(obj);
-                    // TODO update message !
+                connect(conferenceInfoJob,
+                        &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone,
+                        this,
+                        [this, callInfo](const QJsonObject &conferenceInfoObj) {
+                            qDebug() << " info " << conferenceInfoObj;
+                            VideoConferenceInfo info;
+                            info.parse(conferenceInfoObj);
+                            // TODO update message !
 
-                    auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
-                    RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
-                    joinInfo.callId = obj[QLatin1String("_id")].toString();
-                    joinInfo.useCamera = callInfo.useCamera;
-                    joinInfo.useMicro = callInfo.useMic;
-                    conferenceJoinJob->setInfo(joinInfo);
-                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
-                    connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &obj) {
-                        // qDebug() << " join info " << obj;
-                        QDesktopServices::openUrl(QUrl(obj[QLatin1String("url")].toString()));
-                    });
-                    if (!conferenceJoinJob->start()) {
-                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
-                    }
-                });
+                            auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
+                            RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
+                            joinInfo.callId = info.blockId();
+                            joinInfo.useCamera = callInfo.useCamera;
+                            joinInfo.useMicro = callInfo.useMic;
+                            conferenceJoinJob->setInfo(joinInfo);
+                            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
+                            connect(conferenceJoinJob,
+                                    &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone,
+                                    this,
+                                    [](const QJsonObject &joinObject) {
+                                        // qDebug() << " join info " << obj;
+                                        QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
+                                    });
+                            if (!conferenceJoinJob->start()) {
+                                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
+                            }
+                        });
                 if (!conferenceInfoJob->start()) {
                     qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";
                 }
