@@ -375,9 +375,6 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
         } else {
             qCDebug(RUQOLA_LOG) << "USER CHANGED" << object;
         }
-        if (mRocketChatAccount->hasOldSubscriptionSupport()) {
-            mRocketChatAccount->updateUser(object);
-        }
     } else if (collection == QLatin1String("rooms")) {
         if (mRocketChatAccount->ruqolaLogger()) {
             QJsonDocument d;
@@ -684,14 +681,6 @@ void RocketChatBackend::slotUserIDChanged()
         QJsonArray params;
         params.append(QJsonValue(QStringLiteral("%1/%2").arg(userId, QStringLiteral("userData"))));
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-user"), params);
-    }
-    {
-        if (mRocketChatAccount->hasOldSubscriptionSupport()) {
-            // Subscribe activeUsers
-            QJsonArray params;
-            params.append(QJsonValue(params));
-            mRocketChatAccount->ddp()->subscribe(QStringLiteral("activeUsers"), params);
-        }
     }
     {
         // Subscribe users in room ? //TODO verify it.

@@ -200,7 +200,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     connect(mRoomModel, &RoomModel::roomNeedAttention, this, &RocketChatAccount::slotRoomNeedAttention);
     connect(mRoomModel, &RoomModel::roomRemoved, this, &RocketChatAccount::roomRemoved);
 
-    connect(mUserModel, &UsersModel::userStatusChanged, this, &RocketChatAccount::updateUserModel);
     mMessageQueue = new MessageQueue(this, this);
     mTypingNotification = new TypingNotification(this);
     mCache = new RocketChatCache(this, this);
@@ -257,13 +256,6 @@ void RocketChatAccount::reconnectToServer()
 Room::TeamRoomInfo RocketChatAccount::roomFromTeamId(const QString &teamId) const
 {
     return mRoomModel->roomFromTeamId(teamId);
-}
-
-void RocketChatAccount::updateUserModel(const User &user)
-{
-    if (hasOldSubscriptionSupport()) {
-        userStatusChanged(user);
-    }
 }
 
 void RocketChatAccount::removeSettings()
@@ -2240,9 +2232,7 @@ void RocketChatAccount::userStatusChanged(const User &user)
         statusModel()->setCustomText(user.statusText());
         Q_EMIT userStatusUpdated(mPresenceStatus, user.statusText(), accountName());
     }
-    if (!hasOldSubscriptionSupport()) {
-        mUserModel->addUser(user);
-    }
+    mUserModel->addUser(user);
     mRoomModel->userStatusChanged(user);
 }
 
@@ -2379,11 +2369,6 @@ void RocketChatAccount::followMessage(const QString &messageId, bool follow)
     } else {
         restApi()->unFollowMessage(messageId);
     }
-}
-
-bool RocketChatAccount::hasOldSubscriptionSupport() const
-{
-    return !mRuqolaServerConfig->hasAtLeastVersion(3, 0, 0);
 }
 
 void RocketChatAccount::getSupportedLanguages()

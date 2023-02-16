@@ -372,7 +372,6 @@ public:
 
     void getListCommands();
     Q_REQUIRED_RESULT bool runCommand(const QString &msg, const QString &roomId, const QString &tmid = QString());
-    Q_REQUIRED_RESULT bool hasOldSubscriptionSupport() const;
 
     void avatarChanged(const QJsonArray &contents);
     void markMessageAsUnReadFrom(const QString &messageId);
@@ -616,7 +615,6 @@ private:
     void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
     void slotListCommandDone(const QJsonObject &obj);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
-    void updateUserModel(const User &user);
 
     void loginStatusChangedSlot();
     void slotFileLanguagedParsed();
