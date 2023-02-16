@@ -457,7 +457,8 @@ void RoomWidget::slotCallRequested()
                         &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone,
                         this,
                         [this, callInfo](const QJsonObject &conferenceInfoObj) {
-                            qDebug() << " info " << conferenceInfoObj;
+                            // qDebug() << " info " << conferenceInfoObj;
+                            // Update message
                             VideoConferenceInfo info;
                             info.parse(conferenceInfoObj);
                             UpdateVideoConferenceMessageJob *job = new UpdateVideoConferenceMessageJob(this);
@@ -465,8 +466,7 @@ void RoomWidget::slotCallRequested()
                             job->setVideoConferenceInfo(info);
                             job->start();
 
-                            qDebug() << "info " << info;
-                            // TODO update message !
+                            // qDebug() << "info " << info;
 
                             auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
                             RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
