@@ -111,13 +111,15 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
             dlg.exec();
             return true;
         }
-        if (layout.joinButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
-            qDebug() << " Join !!!!";
-            if (!block.videoConferenceInfo().url().isEmpty()) {
-                Q_EMIT mRocketChatAccount->openLinkRequested(block.videoConferenceInfo().url());
+        if (layout.canJoin) {
+            if (layout.joinButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
+                qDebug() << " Join !!!!";
+                if (!block.videoConferenceInfo().url().isEmpty()) {
+                    Q_EMIT mRocketChatAccount->openLinkRequested(block.videoConferenceInfo().url());
+                    return true;
+                }
                 return true;
             }
-            return true;
         }
         break;
     }
@@ -140,10 +142,12 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     layout.infoButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     // Join Button
     layout.canJoin = block.videoConferenceInfo().endedAtDateTime() == -1;
-    layout.joinButtonText = i18n("Join");
-    layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
-    layout.joinButtonRect =
-        QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
+    if (layout.canJoin) {
+        layout.joinButtonText = i18n("Join");
+        layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
+        layout.joinButtonRect =
+            QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
+    }
     return layout;
 }
 
