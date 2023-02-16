@@ -28,19 +28,20 @@ void UpdateVideoConferenceMessageJob::start()
         deleteLater();
         return;
     }
-    auto room = mRocketChatAccount->room(mVideoConferenceInfo.roomId());
+    const QString roomId{mVideoConferenceInfo.roomId()};
+    auto room = mRocketChatAccount->room(roomId);
     if (room) {
         // qDebug() << " room" << room << " **** " << *room;
         auto messageModel = room->messageModel();
         // Search messages
         if (messageModel) {
             Message msg = messageModel->findMessageById(mVideoConferenceInfo.messageId());
-            msg.setVideoConferenceInfo(mVideoConferenceInfo);
+            msg.setVideoConferenceInfo(std::move(mVideoConferenceInfo));
             // qDebug() << " msg " << msg;
             messageModel->addMessages({msg});
         }
     } else {
-        qDebug() << " impossible to return room " << mVideoConferenceInfo.roomId();
+        qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << " impossible to return room " << roomId;
     }
     deleteLater();
 }
