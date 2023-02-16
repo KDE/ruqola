@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -353,7 +353,7 @@ msgstr "Регионы"
 msgid "Flags"
 msgstr "Флаги"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/block.cpp:68 core/messages/message.cpp:509
 #: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, fuzzy, kde-format
@@ -1328,7 +1328,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Отклонить"
@@ -1457,29 +1457,29 @@ msgstr "Администратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferenceinfo.cpp:199
-#: core/videoconference/videoconferenceinfo.cpp:201
+#: core/videoconference/videoconferenceinfo.cpp:208
+#: core/videoconference/videoconferenceinfo.cpp:210
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:205
+#: core/videoconference/videoconferenceinfo.cpp:214
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "Ваш ответ:"
 
-#: core/videoconference/videoconferenceinfo.cpp:207
+#: core/videoconference/videoconferenceinfo.cpp:216
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr ""
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr ""
@@ -7650,6 +7650,12 @@ msgstr "Сохранить файл"
 msgid "Save Sound"
 msgstr "Сохранить звук"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:138
+#, fuzzy, kde-format
+#| msgid "Join At"
+msgid "Join"
+msgstr "Присоединение"
+
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -7960,12 +7966,12 @@ msgstr "Ответ в ветке"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Ответить в ветке на сообщение: «%1»"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Удалить журнал?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Удалить журнал"

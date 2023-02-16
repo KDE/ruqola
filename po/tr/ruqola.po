@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
 "PO-Revision-Date: 2023-02-12 10:37+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -343,7 +343,7 @@ msgstr "Bölgesel"
 msgid "Flags"
 msgstr "Bayraklar"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/block.cpp:68 core/messages/message.cpp:509
 #: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1302,7 +1302,7 @@ msgid "OTR"
 msgstr "Kayıt Dışı"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Reddet"
@@ -1431,28 +1431,28 @@ msgstr "Yönetici"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:199
-#: core/videoconference/videoconferenceinfo.cpp:201
+#: core/videoconference/videoconferenceinfo.cpp:208
+#: core/videoconference/videoconferenceinfo.cpp:210
 #, kde-format
 msgid "Call was not answered"
 msgstr "Arama yanıtlanmadı"
 
-#: core/videoconference/videoconferenceinfo.cpp:205
+#: core/videoconference/videoconferenceinfo.cpp:214
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Yanıt bekleniyor"
 
-#: core/videoconference/videoconferenceinfo.cpp:207
+#: core/videoconference/videoconferenceinfo.cpp:216
 #, kde-format
 msgid "Call ongoing"
 msgstr "Arama sürüyor"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Gelen Arama"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Kabul Et"
@@ -7540,6 +7540,12 @@ msgstr "Dosyayı Kaydet"
 msgid "Save Sound"
 msgstr "Sesi Kaydet"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:138
+#, fuzzy, kde-format
+#| msgid "Join At"
+msgid "Join"
+msgstr "Şurada Katıl"
+
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, kde-format
 msgctxt "@title:window"
@@ -7841,12 +7847,12 @@ msgstr "Bir ilmekte yanıtlanıyor"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Şu iletiyi ilmekte yanıtla: '%1'"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Geçmişi kaldırmayı gerçekten istiyor musunuz?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Geçmişi Kaldır"

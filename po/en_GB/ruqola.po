@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
 "PO-Revision-Date: 2022-12-31 19:25+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -344,7 +344,7 @@ msgstr "Regional"
 msgid "Flags"
 msgstr "Flags"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/block.cpp:68 core/messages/message.cpp:509
 #: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1303,7 +1303,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Reject"
@@ -1432,28 +1432,28 @@ msgstr "Administrator"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:199
-#: core/videoconference/videoconferenceinfo.cpp:201
+#: core/videoconference/videoconferenceinfo.cpp:208
+#: core/videoconference/videoconferenceinfo.cpp:210
 #, kde-format
 msgid "Call was not answered"
 msgstr "Call was not answered"
 
-#: core/videoconference/videoconferenceinfo.cpp:205
+#: core/videoconference/videoconferenceinfo.cpp:214
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Waiting for answer"
 
-#: core/videoconference/videoconferenceinfo.cpp:207
+#: core/videoconference/videoconferenceinfo.cpp:216
 #, kde-format
 msgid "Call ongoing"
 msgstr "Call ongoing"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Incoming Call"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Accept"
@@ -7552,6 +7552,11 @@ msgstr "Save File"
 msgid "Save Sound"
 msgstr "Save Sound"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:138
+#, kde-format
+msgid "Join"
+msgstr "Join"
+
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -7855,12 +7860,12 @@ msgstr "Replying in a thread"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Reply in Thread for Message: '%1'"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Do you want really remove history?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Remove History"
@@ -9086,9 +9091,6 @@ msgstr "Return the number of account."
 
 #~ msgid "Search Teams"
 #~ msgstr "Search Teams"
-
-#~ msgid "Join"
-#~ msgstr "Join"
 
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"

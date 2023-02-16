@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
 "PO-Revision-Date: 2023-02-12 09:23+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -348,7 +348,7 @@ msgstr "Регіональні"
 msgid "Flags"
 msgstr "Прапорці"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/block.cpp:68 core/messages/message.cpp:509
 #: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1310,7 +1310,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Відмовити"
@@ -1439,28 +1439,28 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferenceinfo.cpp:199
-#: core/videoconference/videoconferenceinfo.cpp:201
+#: core/videoconference/videoconferenceinfo.cpp:208
+#: core/videoconference/videoconferenceinfo.cpp:210
 #, kde-format
 msgid "Call was not answered"
 msgstr "На виклик не надано відповіді"
 
-#: core/videoconference/videoconferenceinfo.cpp:205
+#: core/videoconference/videoconferenceinfo.cpp:214
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Очікуємо на відповідь"
 
-#: core/videoconference/videoconferenceinfo.cpp:207
+#: core/videoconference/videoconferenceinfo.cpp:216
 #, kde-format
 msgid "Call ongoing"
 msgstr "У процесі виклику"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Вхідний виклик"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Прийняти"
@@ -7631,6 +7631,11 @@ msgstr "Збереження файла"
 msgid "Save Sound"
 msgstr "Зберегти звукові дані"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:138
+#, kde-format
+msgid "Join"
+msgstr "Приєднатися"
+
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, kde-format
 msgctxt "@title:window"
@@ -7938,12 +7943,12 @@ msgstr "Відповідь до гілки"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Відповісти у гілку на повідомлення: «%1»"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ви справді хочете вилучити журнал?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Вилучити журнал"
@@ -9184,9 +9189,6 @@ msgstr "Повернути номер облікового запису."
 
 #~ msgid "Search Teams"
 #~ msgstr "Шукати команди"
-
-#~ msgid "Join"
-#~ msgstr "Приєднатися"
 
 #~ msgctxt "@title:window"
 #~ msgid "Search Channel"

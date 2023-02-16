@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-15 00:58+0000\n"
+"POT-Creation-Date: 2023-02-16 00:59+0000\n"
 "PO-Revision-Date: 2023-02-13 08:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -346,7 +346,7 @@ msgstr "Regionalno"
 msgid "Flags"
 msgstr "Zastave"
 
-#: core/messages/block.cpp:59 core/messages/message.cpp:509
+#: core/messages/block.cpp:68 core/messages/message.cpp:509
 #: core/messages/message.cpp:621 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -1307,7 +1307,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Zavrni"
@@ -1436,28 +1436,28 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:199
-#: core/videoconference/videoconferenceinfo.cpp:201
+#: core/videoconference/videoconferenceinfo.cpp:208
+#: core/videoconference/videoconferenceinfo.cpp:210
 #, kde-format
 msgid "Call was not answered"
 msgstr "Klic ni bil odgovorjen"
 
-#: core/videoconference/videoconferenceinfo.cpp:205
+#: core/videoconference/videoconferenceinfo.cpp:214
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čakajoč na odgovor"
 
-#: core/videoconference/videoconferenceinfo.cpp:207
+#: core/videoconference/videoconferenceinfo.cpp:216
 #, kde-format
 msgid "Call ongoing"
 msgstr "Klic v teku"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Dohodni klic"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Sprejmi"
@@ -7570,6 +7570,12 @@ msgstr "Shrani datoteko"
 msgid "Save Sound"
 msgstr "Shrani zvok"
 
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:138
+#, fuzzy, kde-format
+#| msgid "Join At"
+msgid "Join"
+msgstr "Pridružite se na"
+
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, kde-format
 msgctxt "@title:window"
@@ -7877,12 +7883,12 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: »%1«"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
