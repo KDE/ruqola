@@ -38,7 +38,7 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)"), db);
-        //        query.addBindValue(room->roomId());
+        query.addBindValue(accountName);
         //        query.addBindValue(room->updatedAt()); // TODO ?
         //        query.addBindValue(Room::serialize(room)); // TODO use binary ?
         if (!query.exec()) {
