@@ -45,7 +45,7 @@ private:
         QString joinButtonText;
         QSize joinButtonTextSize;
         QRect joinButtonRect;
-        bool canJoin = true;
+        bool canJoin = false;
     };
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos, const Block &block, QRect attachmentsRect, const QStyleOptionViewItem &option);
     Q_REQUIRED_RESULT ConferenceCallLayout layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int attachmentsWidth) const;

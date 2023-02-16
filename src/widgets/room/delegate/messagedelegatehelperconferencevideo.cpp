@@ -141,7 +141,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.infoButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     // Join Button
-    layout.canJoin = block.videoConferenceInfo().endedAtDateTime() == -1;
+    layout.canJoin = block.videoConferenceInfo().createdAtDateTime() != -1 && block.videoConferenceInfo().endedAtDateTime() == -1;
     if (layout.canJoin) {
         layout.joinButtonText = i18n("Join");
         layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
