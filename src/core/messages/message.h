@@ -212,6 +212,8 @@ public:
     Q_REQUIRED_RESULT QColor goToMessageBackgroundColor() const;
     void setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgroundColor);
 
+    void setVideoConferenceInfo(const VideoConferenceInfo &info);
+
 private:
     Q_REQUIRED_RESULT static QString generateAttachmentId(const QString &messageId, int index);
     void parseMentions(const QJsonArray &mentions);

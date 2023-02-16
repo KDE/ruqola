@@ -43,6 +43,7 @@
 #include "video-conference/videoconferenceinfojob.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "video-conference/videoconferencestartjob.h"
+#include "videoconference/updatevideoconferencemessagejob.h"
 #include "videoconference/videoconferenceinfo.h"
 
 #include <KLocalizedString>
@@ -459,6 +460,12 @@ void RoomWidget::slotCallRequested()
                             qDebug() << " info " << conferenceInfoObj;
                             VideoConferenceInfo info;
                             info.parse(conferenceInfoObj);
+                            UpdateVideoConferenceMessageJob *job = new UpdateVideoConferenceMessageJob(this);
+                            job->setRocketChatAccount(mCurrentRocketChatAccount);
+                            job->setVideoConferenceInfo(info);
+                            job->start();
+
+                            qDebug() << "info " << info;
                             // TODO update message !
 
                             auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);

@@ -374,6 +374,20 @@ void Message::setGoToMessageBackgroundColor(const QColor &newGoToMessageBackgrou
     mGoToMessageBackgroundColor = newGoToMessageBackgroundColor;
 }
 
+void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
+{
+    auto it = std::find_if(mBlocks.cbegin(), mBlocks.cend(), [info](const auto &block) {
+        return block.blockId() == info.blockId();
+    });
+    if (it != mBlocks.cend()) {
+        mBlocks.removeAll(*it);
+        Block b(*it);
+        b.setVideoConferenceInfo(info);
+        mBlocks.append(b);
+        qDebug() << " update video conference info";
+    }
+}
+
 void Message::parseMentions(const QJsonArray &mentions)
 {
     mMentions.clear();
