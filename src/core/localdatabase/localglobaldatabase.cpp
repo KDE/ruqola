@@ -27,7 +27,15 @@ QString LocalGlobalDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaAccountDataBase);
 }
 
-void LocalGlobalDatabase::addTimeStamp(qint64 timestamp)
+// TODO improve for identifier => account name/room name.
+void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
+    switch (type) {
+    case TimeStampType::MessageTimeStamp:
+        break;
+    case TimeStampType::RoomTimeStamp:
+        break;
+    }
+
     // TODO
 }

@@ -49,7 +49,6 @@ void LocalMessageDatabase::addMessage(const QString &accountName, const QString 
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in MESSAGES table" << db.databaseName() << query.lastError();
         }
-        // TODO add timestamp in another table
     }
 #endif
 }

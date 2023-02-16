@@ -26,6 +26,8 @@ void LocalDatabaseManager::addMessage(const QString &accountName, const QString 
 {
     mMessageLogger->addMessage(accountName, roomName, m);
     mMessagesDatabase->addMessage(accountName, roomName, m);
+    // Update timestamp.
+    // mGlobalDatabase->updateTimeStamp(accountName, roomName,);
 }
 
 void LocalDatabaseManager::deleteMessage(const QString &accountName, const QString &roomName, const QString &messageId)

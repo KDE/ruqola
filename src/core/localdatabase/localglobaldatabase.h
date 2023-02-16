@@ -11,10 +11,15 @@
 class LIBRUQOLACORE_EXPORT LocalGlobalDatabase : public LocalDatabaseBase
 {
 public:
+    enum class TimeStampType {
+        MessageTimeStamp,
+        RoomTimeStamp,
+        // Etc.
+    };
     LocalGlobalDatabase();
     ~LocalGlobalDatabase() override;
 
-    void addTimeStamp(qint64 timestamp);
+    void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, LocalGlobalDatabase::TimeStampType type);
 
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
