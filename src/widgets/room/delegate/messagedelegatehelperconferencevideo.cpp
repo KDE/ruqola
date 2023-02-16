@@ -60,6 +60,9 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
         const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - layout.joinButtonTextSize.width()) / 2, 0, 0, 0);
         painter->drawText(r, layout.joinButtonText);
     }
+
+    // Draw avatars!
+
     // drawDescription(block, messageRect, painter, nextY, index, option);
 }
 
