@@ -708,6 +708,10 @@ void RocketChatBackend::slotUserIDChanged()
         const QJsonArray params{QJsonValue(QStringLiteral("roles-change"))};
         mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
     }
+    //    { // Verify as in RC we don't have it
+    //        const QJsonArray params{QJsonValue(QStringLiteral("video-conference"))};
+    //        mRocketChatAccount->ddp()->subscribe(QStringLiteral("stream-notify-all"), params);
+    //    }
     // Sound
     {
         const QJsonArray params{QJsonValue(QStringLiteral("deleteCustomSound"))};
