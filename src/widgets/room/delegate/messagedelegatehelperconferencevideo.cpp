@@ -42,23 +42,24 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     painter->drawText(blockRect.x(), positionY, layout.title);
     mInfoIcon.paint(painter, layout.infoButtonRect.translated(blockRect.topLeft()));
 
-    // Draw join button
-    const QPen origPen = painter->pen();
-    const QBrush origBrush = painter->brush();
-    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
-    QColor backgroundColor = option.palette.color(QPalette::Highlight);
-    backgroundColor.setAlpha(60);
-    const QBrush buttonBrush(backgroundColor);
-    const QRectF joinButtonRect = layout.joinButtonRect.translated(blockRect.topLeft());
-    // Rounded rect
-    painter->setPen(buttonPen);
-    painter->setBrush(buttonBrush);
-    painter->drawRoundedRect(joinButtonRect, 5, 5);
-    painter->setBrush(origBrush);
-    painter->setPen(origPen);
-    const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - layout.joinButtonTextSize.width()) / 2, 0, 0, 0);
-    painter->drawText(r, layout.joinButtonText);
-
+    if (layout.canJoin) {
+        // Draw join button
+        const QPen origPen = painter->pen();
+        const QBrush origBrush = painter->brush();
+        const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+        QColor backgroundColor = option.palette.color(QPalette::Highlight);
+        backgroundColor.setAlpha(60);
+        const QBrush buttonBrush(backgroundColor);
+        const QRectF joinButtonRect = layout.joinButtonRect.translated(blockRect.topLeft());
+        // Rounded rect
+        painter->setPen(buttonPen);
+        painter->setBrush(buttonBrush);
+        painter->drawRoundedRect(joinButtonRect, 5, 5);
+        painter->setBrush(origBrush);
+        painter->setPen(origPen);
+        const QRectF r = joinButtonRect.adjusted((joinButtonRect.width() - layout.joinButtonTextSize.width()) / 2, 0, 0, 0);
+        painter->drawText(r, layout.joinButtonText);
+    }
     // drawDescription(block, messageRect, painter, nextY, index, option);
 }
 
@@ -66,7 +67,7 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const Q
 {
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
-    const int height = layout.titleSize.height() + DelegatePaintUtil::margin() + layout.joinButtonRect.height();
+    const int height = layout.titleSize.height() + DelegatePaintUtil::margin() + (layout.canJoin ? layout.joinButtonRect.height() : 0);
 #if 0
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -135,6 +136,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.infoButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     // Join Button
+    layout.canJoin = block.videoConferenceInfo().endedAtDateTime() == -1;
     layout.joinButtonText = i18n("Join");
     layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
     layout.joinButtonRect =
