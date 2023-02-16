@@ -159,3 +159,4 @@ if(HAVE_TEXT_TRANSLATOR)
 endif()
 
 add_ruqola_test(localmessagedatabasetest.cpp)
+add_ruqola_test(updatevideoconferencemessagejobtest.cpp)
