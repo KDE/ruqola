@@ -27,7 +27,7 @@ void VideoConferenceNotificationJob::start()
     switch (mVideoConference.action()) {
     case VideoConference::IncomingCall:
         inComingCall();
-        break;
+        return;
     case VideoConference::Unknown:
     case VideoConference::Canceled:
     case VideoConference::Confirmed:
@@ -35,6 +35,7 @@ void VideoConferenceNotificationJob::start()
     case VideoConference::Rejected:
         break;
     }
+    deleteLater();
 }
 
 QString VideoConferenceNotificationJob::generateText() const
