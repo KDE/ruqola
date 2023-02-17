@@ -300,7 +300,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         return threadMessageFollowed(message.threadMessageId());
     case MessageModel::ThreadMessage: {
         const Message tm = threadMessage(message.threadMessageId());
-        return QVariant::fromValue(&tm);
+        return QVariant::fromValue(tm);
     }
     case MessageModel::Groupable:
         return message.groupable();

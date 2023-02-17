@@ -630,8 +630,8 @@ void MessageListView::slotShowFullThread(const QModelIndex &index)
     info.threadMessagePreview = threadMessagePreview;
     info.threadIsFollowing = threadIsFollowing;
     info.room = mRoom;
-    const Message *tm = index.data(MessageModel::ThreadMessage).value<Message *>();
-    info.messageThread = *tm;
+    const Message tm = index.data(MessageModel::ThreadMessage).value<Message>();
+    info.messageThread = tm;
     dlg->setThreadMessageInfo(info);
     dlg->show();
 }
