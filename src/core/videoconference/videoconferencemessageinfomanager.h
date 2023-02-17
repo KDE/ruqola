@@ -6,11 +6,22 @@
 #pragma once
 #include "libruqolacore_export.h"
 #include <QObject>
-
+class RocketChatAccount;
+class QTimer;
 class LIBRUQOLACORE_EXPORT VideoConferenceMessageInfoManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit VideoConferenceMessageInfoManager(QObject *parent = nullptr);
+    explicit VideoConferenceMessageInfoManager(RocketChatAccount *account, QObject *parent = nullptr);
     ~VideoConferenceMessageInfoManager() override;
+    Q_REQUIRED_RESULT RocketChatAccount *rocketChatAccount() const;
+
+    void addCallId(const QString &callId);
+
+private:
+    void slotUpdateMessage();
+    void updateVideoConferenceInfo(const QString &callId);
+    QStringList mCallIdList;
+    RocketChatAccount *const mRocketChatAccount;
+    QTimer *const mTimer;
 };
