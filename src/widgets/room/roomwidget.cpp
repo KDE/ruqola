@@ -40,11 +40,9 @@
 #include "teams/teamchannelsdialog.h"
 #include "teams/teaminfo.h"
 #include "threadwidget/threadmessagedialog.h"
-#include "video-conference/videoconferenceinfojob.h"
 #include "video-conference/videoconferencejoinjob.h"
 #include "video-conference/videoconferencestartjob.h"
-#include "videoconference/updatevideoconferencemessagejob.h"
-#include "videoconference/videoconferenceinfo.h"
+#include "videoconference/videoconferencemessageinfomanager.h"
 
 #include <KLocalizedString>
 #include <KMessageBox>
