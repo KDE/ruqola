@@ -160,3 +160,6 @@ endif()
 
 add_ruqola_test(localmessagedatabasetest.cpp)
 add_ruqola_test(updatevideoconferencemessagejobtest.cpp)
+add_ruqola_test(videoconferencemessageinfomanagertest.cpp)
+add_ruqola_test(localdatabaseutilstest.cpp)
+add_ruqola_test(localglobaldatabasetest.cpp)

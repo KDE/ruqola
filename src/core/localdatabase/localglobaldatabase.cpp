@@ -27,15 +27,38 @@ QString LocalGlobalDatabase::schemaDataBase() const
     return QString::fromLatin1(s_schemaAccountDataBase);
 }
 
+QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type)
+{
+    QString identifier;
+    switch (type) {
+    case TimeStampType::MessageTimeStamp:
+        identifier = QStringLiteral("messages-");
+        break;
+    case TimeStampType::RoomTimeStamp:
+        identifier = QStringLiteral("rooms-");
+        break;
+    }
+    return identifier + accountName + QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
+}
+
 // TODO improve for identifier => account name/room name.
 void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
-    switch (type) {
-    case TimeStampType::MessageTimeStamp:
-        break;
-    case TimeStampType::RoomTimeStamp:
-        break;
-    }
+    const QString identifier = generateIdentifier(accountName, roomName, type);
 
     // TODO
+}
+
+void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+{
+    const QString identifier = generateIdentifier(accountName, roomName, type);
+
+    // TODO
+}
+
+qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
+{
+    // TODO
+    const QString identifier = generateIdentifier(accountName, roomName, type);
+    return {};
 }

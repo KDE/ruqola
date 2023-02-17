@@ -21,6 +21,11 @@ public:
 
     void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, LocalGlobalDatabase::TimeStampType type);
 
+    Q_REQUIRED_RESULT QString generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type);
+    void removeTimeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
+
+    Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName, const QString &roomName, TimeStampType type);
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };
