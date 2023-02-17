@@ -202,8 +202,6 @@ public:
 
     Q_REQUIRED_RESULT QString originalMessageOrAttachmentDescription() const;
 
-    Q_REQUIRED_RESULT QString videoConferenceText() const;
-
     Q_REQUIRED_RESULT QVector<Block> blocks() const;
     void setBlocks(const QVector<Block> &newBlocks);
 

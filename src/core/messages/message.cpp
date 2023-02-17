@@ -518,11 +518,6 @@ Message::MessageType Message::messageType() const
     return mMessageType;
 }
 
-QString Message::videoConferenceText() const
-{
-    return i18n("Conference Call");
-}
-
 QString Message::systemMessageText() const
 {
     if (mSystemMessageType == QLatin1String("uj")) {
