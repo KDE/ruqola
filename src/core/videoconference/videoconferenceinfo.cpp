@@ -218,6 +218,8 @@ QString VideoConferenceInfo::statusInformation() const
             return i18n("Call was not answered");
         } else if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Conference && users().isEmpty()) {
             return i18n("Call was not answered");
+        } else {
+            return i18n("Call ended");
         }
     } else {
         if (conferenceType() == VideoConferenceInfo::VideoConferenceType::Direct && status() == 0) {
