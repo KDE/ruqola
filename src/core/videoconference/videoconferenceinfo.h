@@ -70,6 +70,9 @@ public:
 
     Q_REQUIRED_RESULT QString title() const;
 
+    static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
+    static VideoConferenceInfo deserialize(const QJsonObject &o);
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;

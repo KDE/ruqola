@@ -88,6 +88,18 @@ QString VideoConferenceInfo::title() const
     return statusInformation();
 }
 
+QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfInfo)
+{
+    // TODO
+    return {};
+}
+
+VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
+{
+    // TODO
+    return {};
+}
+
 QString VideoConferenceInfo::messageId() const
 {
     return mMessageId;
