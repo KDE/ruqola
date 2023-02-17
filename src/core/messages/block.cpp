@@ -129,6 +129,9 @@ QJsonObject Block::serialize(const Block &block)
     o[QStringLiteral("callId")] = block.callId();
     o[QStringLiteral("appId")] = block.appId();
     o[QStringLiteral("type")] = block.blockTypeStr();
+    if (block.mVideoConferenceInfo.isValid()) {
+        // TODO
+    }
     return o;
 }
 
@@ -139,6 +142,11 @@ Block Block::deserialize(const QJsonObject &o)
     block.setCallId(o[QLatin1String("callId")].toString());
     block.setAppId(o[QLatin1String("appId")].toString());
     block.setBlockTypeStr(o[QLatin1String("type")].toString());
+    // TODO
+    const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o);
+    if (info.isValid()) {
+        block.mVideoConferenceInfo = info;
+    }
     return block;
 }
 
