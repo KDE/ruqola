@@ -17,6 +17,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QToolTip>
 
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
@@ -62,7 +63,22 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     }
 
     // Draw avatars!
+    const QPen origPen = painter->pen();
+    const QBrush origBrush = painter->brush();
+    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
+    QColor backgroundColor = option.palette.color(QPalette::Highlight);
+    backgroundColor.setAlpha(60);
+    const QBrush buttonBrush(backgroundColor);
 
+    for (const UserLayout &userLayout : layout.usersLayout) {
+        const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
+        // Rounded rect
+        painter->setPen(buttonPen);
+        painter->setBrush(buttonBrush);
+        painter->drawRoundedRect(avatarRect.adjusted(0, 0, -1, -1), 5, 5);
+        painter->setBrush(origBrush);
+        painter->setPen(origPen);
+    }
     // drawDescription(block, messageRect, painter, nextY, index, option);
 }
 
@@ -70,7 +86,7 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const Q
 {
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
-    const int height = layout.titleSize.height() + DelegatePaintUtil::margin() + (layout.canJoin ? layout.joinButtonRect.height() : 0);
+    int height = layout.titleSize.height() + DelegatePaintUtil::margin();
 #if 0
     int descriptionWidth = 0;
     if (!layout.description.isEmpty()) {
@@ -79,6 +95,12 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const Q
     }
     return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
 #else
+    // Button
+    if (layout.canJoin) {
+        height += layout.joinButtonRect.height();
+    } else if (!layout.usersLayout.isEmpty()) {
+        height += 10 + DelegatePaintUtil::margin(); // TODO customize it
+    }
     return {qMax(0, layout.titleSize.width()), height};
 #endif
 }
@@ -129,6 +151,20 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
     return false;
 }
 
+bool MessageDelegateHelperConferenceVideo::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
+{
+    const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
+    for (const UserLayout &userLayout : layout.usersLayout) {
+        if (userLayout.userAvatarRect.contains(helpEvent->pos())) {
+            qDebug() << " help :!::::";
+            // QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            return true;
+        }
+    }
+    // TODO
+    return false;
+}
+
 MessageDelegateHelperConferenceVideo::ConferenceCallLayout
 MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, const QStyleOptionViewItem &option, int blockRectWidth) const
 {
@@ -146,6 +182,19 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
         layout.joinButtonTextSize = option.fontMetrics.size(Qt::TextSingleLine, layout.joinButtonText);
         layout.joinButtonRect =
             QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
+    }
+    qreal x = 0;
+    const QVector<User> users = block.videoConferenceInfo().users();
+    for (const auto &user : users) {
+        UserLayout userLayout;
+        userLayout.userName = user.userName();
+        userLayout.userId = user.userId();
+        userLayout.userAvatarRect = QRectF((layout.canJoin ? layout.joinButtonTextSize.width() * 2 + DelegatePaintUtil::margin() : 0) + x,
+                                           layout.infoButtonRect.height() + DelegatePaintUtil::margin(),
+                                           iconSize,
+                                           iconSize);
+        layout.usersLayout.append(std::move(userLayout));
+        x += iconSize + DelegatePaintUtil::margin();
     }
     return layout;
 }

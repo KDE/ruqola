@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include "delegateutils/textselection.h"
 #include "delegateutils/textselectionimpl.h"
 #include "messageblockdelegatehelperbase.h"
 #include "messages/block.h"
@@ -33,12 +32,20 @@ public:
     void draw(const Block &block, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
     Q_REQUIRED_RESULT QSize sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
     Q_REQUIRED_RESULT bool
-    handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect attachmentsRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    handleMouseEvent(const Block &block, QMouseEvent *mouseEvent, QRect blockRect, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+    Q_REQUIRED_RESULT bool handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option) override;
 
 private:
+    struct UserLayout {
+        QRectF userAvatarRect;
+        QString userName;
+        QString userId;
+    };
     struct ConferenceCallLayout {
         // QString description;
         // QSize descriptionSize;
+        QVector<UserLayout> usersLayout;
         QString title;
         QSize titleSize;
         QRect infoButtonRect;
