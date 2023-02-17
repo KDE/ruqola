@@ -78,6 +78,11 @@ bool VideoConferenceInfo::isValid() const
     return conferenceType() != VideoConferenceInfo::VideoConferenceType::Unknown;
 }
 
+bool VideoConferenceInfo::canJoin() const
+{
+    return createdAtDateTime() != -1 && endedAtDateTime() == -1;
+}
+
 QString VideoConferenceInfo::messageId() const
 {
     return mMessageId;

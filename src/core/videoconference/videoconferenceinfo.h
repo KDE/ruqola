@@ -66,6 +66,8 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
+    Q_REQUIRED_RESULT bool canJoin() const;
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;

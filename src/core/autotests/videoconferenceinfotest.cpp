@@ -27,6 +27,7 @@ void VideoConferenceInfoTest::shouldHaveDefaultValues()
     QVERIFY(info.messageId().isEmpty());
     QVERIFY(info.blockId().isEmpty());
     QVERIFY(!info.isValid());
+    QVERIFY(!info.canJoin());
 }
 
 void VideoConferenceInfoTest::shouldLoadVideoConferenceInfo_data()
