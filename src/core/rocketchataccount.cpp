@@ -60,6 +60,7 @@
 #include "ruqola_thread_message_debug.h"
 #include "uploadfilemanager.h"
 #include "videoconference/videoconferencemanager.h"
+#include "videoconference/videoconferencemessageinfomanager.h"
 
 #include <KLocalizedString>
 #include <KNotification>
@@ -111,7 +112,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mSwitchChannelHistoryModel(new SwitchChannelHistoryModel(this))
     , mUploadFileManager(new UploadFileManager(this))
     , mVideoConferenceManager(new VideoConferenceManager(this))
-
+    , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -2477,6 +2478,11 @@ void RocketChatAccount::checkLicenses()
     if (!job->start()) {
         qCWarning(RUQOLA_LOG) << "Impossible to start LicensesIsEnterpriseJob job";
     }
+}
+
+VideoConferenceMessageInfoManager *RocketChatAccount::videoConferenceMessageInfoManager() const
+{
+    return mVideoConferenceMessageInfoManager;
 }
 
 VideoConferenceManager *RocketChatAccount::videoConferenceManager() const

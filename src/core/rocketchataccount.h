@@ -86,6 +86,7 @@ class AwayManager;
 class SwitchChannelHistoryModel;
 class UploadFileManager;
 class VideoConferenceManager;
+class VideoConferenceMessageInfoManager;
 
 namespace RocketChatRestApi
 {
@@ -510,6 +511,8 @@ public:
     void parseVideoConference(const QJsonArray &contents);
     Q_REQUIRED_RESULT VideoConferenceManager *videoConferenceManager() const;
 
+    Q_REQUIRED_RESULT VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
+
     Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
 
 Q_SIGNALS:
@@ -699,6 +702,7 @@ private:
     QStringList mSearchListCompletion;
     BannerInfos mBannerInfos;
     VideoConferenceManager *const mVideoConferenceManager;
+    VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;
