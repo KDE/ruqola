@@ -22,6 +22,7 @@ MessageBlockDelegateHelperBase::~MessageBlockDelegateHelperBase() = default;
 
 bool MessageBlockDelegateHelperBase::handleHelpEvent(QHelpEvent *helpEvent, QRect messageRect, const Block &block, const QStyleOptionViewItem &option)
 {
+    Q_UNUSED(option)
     if (helpEvent->type() != QEvent::ToolTip) {
         return false;
     }
@@ -46,6 +47,11 @@ bool MessageBlockDelegateHelperBase::maybeStartDrag(const Block &block,
                                                     const QStyleOptionViewItem &option,
                                                     const QModelIndex &index)
 {
+    Q_UNUSED(block)
+    Q_UNUSED(mouseEvent)
+    Q_UNUSED(blocksRect)
+    Q_UNUSED(option)
+    Q_UNUSED(index)
 #if 0
     if (!mSelectionImpl->mightStartDrag() || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
         return false;
