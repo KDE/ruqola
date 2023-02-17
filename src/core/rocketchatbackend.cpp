@@ -19,6 +19,7 @@
 #include "ruqola_message_debug.h"
 #include "ruqola_unknown_collectiontype_debug.h"
 #include "ruqolalogger.h"
+#include "videoconference/videoconferencemessageinfomanager.h"
 
 #include <QJsonArray>
 
@@ -188,6 +189,14 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         }
         Message m(mRocketChatAccount->emojiManager());
         m.parseMessage(o, restApi);
+        // Update video conf info
+        if (m.messageType() == Message::MessageType::VideoConference) {
+            for (const auto &b : m.blocks()) {
+                if (!b.callId().isEmpty()) {
+                    mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
+                }
+            }
+        }
         const QString roomId = m.roomId();
         if (roomId != lastRoomId) {
             messageModel = mRocketChatAccount->messageModelForRoom(roomId);
