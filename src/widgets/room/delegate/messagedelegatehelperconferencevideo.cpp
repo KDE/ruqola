@@ -134,7 +134,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
 {
     Q_UNUSED(blockRectWidth)
     ConferenceCallLayout layout;
-    layout.title = block.generateDescription();
+    layout.title = block.title();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
     // layout.descriptionSize = documentDescriptionForIndexSize(block, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);

@@ -41,7 +41,7 @@ public:
 
     Q_REQUIRED_RESULT bool isValid() const;
 
-    Q_REQUIRED_RESULT QString generateDescription() const;
+    Q_REQUIRED_RESULT QString title() const;
 
     Q_REQUIRED_RESULT QString blockTypeStr() const;
     void setBlockTypeStr(const QString &newBlockStr);

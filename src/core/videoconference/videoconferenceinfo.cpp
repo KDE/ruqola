@@ -83,6 +83,11 @@ bool VideoConferenceInfo::canJoin() const
     return createdAtDateTime() != -1 && endedAtDateTime() == -1;
 }
 
+QString VideoConferenceInfo::title() const
+{
+    return statusInformation();
+}
+
 QString VideoConferenceInfo::messageId() const
 {
     return mMessageId;

@@ -59,13 +59,20 @@ bool Block::isValid() const
     return mBlockType != Unknown;
 }
 
-QString Block::generateDescription() const
+QString Block::title() const
 {
     switch (mBlockType) {
     case Block::BlockType::Unknown:
         break;
-    case Block::BlockType::VideoConf:
+    case Block::BlockType::VideoConf: {
+        if (mVideoConferenceInfo.isValid()) {
+            const QString title = mVideoConferenceInfo.title();
+            if (!title.isEmpty()) {
+                return title;
+            }
+        }
         return i18n("Conference Call");
+    }
     }
     return {};
 }
