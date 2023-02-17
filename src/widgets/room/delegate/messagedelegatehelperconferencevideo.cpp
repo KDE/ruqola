@@ -113,7 +113,6 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
         }
         if (layout.canJoin) {
             if (layout.joinButtonRect.translated(blocksRect.topLeft()).contains(pos)) {
-                qDebug() << " Join !!!!";
                 if (!block.videoConferenceInfo().url().isEmpty()) {
                     Q_EMIT mRocketChatAccount->openLinkRequested(block.videoConferenceInfo().url());
                     return true;
