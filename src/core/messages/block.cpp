@@ -18,7 +18,7 @@ void Block::parseBlock(const QJsonObject &block)
     mAppId = block[QLatin1String("appId")].toString();
     setBlockTypeStr(block[QLatin1String("type")].toString());
     if (mBlockType == Unknown) {
-        qDebug() << " Unknown type " << block;
+        qCWarning(RUQOLA_LOG) << " Unknown type " << block;
     }
 }
 
