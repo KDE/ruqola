@@ -450,44 +450,20 @@ void RoomWidget::slotCallRequested()
             connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
                 // qDebug() << "obj  " << obj;
                 // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
-                auto conferenceInfoJob = new RocketChatRestApi::VideoConferenceInfoJob(this);
-                conferenceInfoJob->setCallId(obj[QLatin1String("callId")].toString());
-                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceInfoJob);
-                connect(conferenceInfoJob,
-                        &RocketChatRestApi::VideoConferenceInfoJob::videoConferenceInfoDone,
-                        this,
-                        [this, callInfo](const QJsonObject &conferenceInfoObj) {
-                            // qDebug() << " info " << conferenceInfoObj;
-                            // Update message
-                            VideoConferenceInfo info;
-                            info.parse(conferenceInfoObj);
-                            UpdateVideoConferenceMessageJob *job = new UpdateVideoConferenceMessageJob(this);
-                            job->setRocketChatAccount(mCurrentRocketChatAccount);
-                            job->setVideoConferenceInfo(info);
-                            job->start();
-
-                            // qDebug() << "info " << info;
-
-                            auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
-                            RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
-                            joinInfo.callId = info.blockId();
-                            joinInfo.useCamera = callInfo.useCamera;
-                            joinInfo.useMicro = callInfo.useMic;
-                            conferenceJoinJob->setInfo(joinInfo);
-                            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
-                            connect(conferenceJoinJob,
-                                    &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone,
-                                    this,
-                                    [](const QJsonObject &joinObject) {
-                                        // qDebug() << " join info " << obj;
-                                        QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
-                                    });
-                            if (!conferenceJoinJob->start()) {
-                                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
-                            }
-                        });
-                if (!conferenceInfoJob->start()) {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceInfoJob job";
+                const QString callId{obj[QLatin1String("callId")].toString()};
+                auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
+                RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
+                joinInfo.callId = callId;
+                joinInfo.useCamera = callInfo.useCamera;
+                joinInfo.useMicro = callInfo.useMic;
+                conferenceJoinJob->setInfo(joinInfo);
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
+                connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
+                    // qDebug() << " join info " << obj;
+                    QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
+                });
+                if (!conferenceJoinJob->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
                 }
             });
             if (!job->start()) {
