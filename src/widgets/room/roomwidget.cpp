@@ -449,6 +449,7 @@ void RoomWidget::slotCallRequested()
                 // qDebug() << "obj  " << obj;
                 // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
                 const QString callId{obj[QLatin1String("callId")].toString()};
+                mCurrentRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(callId);
                 auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
                 RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
                 joinInfo.callId = callId;
