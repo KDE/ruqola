@@ -154,14 +154,13 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
 bool MessageDelegateHelperConferenceVideo::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
 {
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
-    for (const UserLayout &userLayout : layout.usersLayout) {
-        if (userLayout.userAvatarRect.contains(helpEvent->pos())) {
+    for (UserLayout userLayout : layout.usersLayout) {
+        if (userLayout.userAvatarRect.translated(blockRect.topLeft()).contains(helpEvent->pos())) {
             qDebug() << " help :!::::";
             // QToolTip::showText(helpEvent->globalPos(), tooltip, view);
             return true;
         }
     }
-    // TODO
     return false;
 }
 
