@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-02-08 15:07+0100\n"
+"PO-Revision-Date: 2023-02-13 12:55+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -689,7 +689,7 @@ msgstr "Heslo klienta"
 #: core/model/adminoauthmodel.cpp:39
 #, kde-format
 msgid "Redirect Url"
-msgstr ""
+msgstr "Přesměrovat URL"
 
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
@@ -2307,23 +2307,23 @@ msgstr "Bing"
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr ""
+msgstr "Chyba: Nelze najít přihlašovací údaje Bing ve webové verzi."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
-msgstr ""
+msgstr "Chyba: Nelze získat klíč Bing z webové verze."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
-msgstr ""
+msgstr "Chyba: Nelze získat token Bing z webové verze."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:86
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
+msgstr "Chyba: Nelze získat dodatečné informace Bing z webové verze."
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
@@ -2405,12 +2405,12 @@ msgstr ""
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
+msgstr "Chyba: Nelze najít Yandex SID ve webové verzi."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
+msgstr "Chyba: Nelze získat Yandex SID z webové verze."
 
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
@@ -7202,7 +7202,7 @@ msgstr "Obrázky"
 #: widgets/dialogs/showattachmentcombobox.cpp:22
 #, kde-format
 msgid "Audios"
-msgstr ""
+msgstr "Audio"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
 #, kde-format
@@ -7277,7 +7277,7 @@ msgstr "100%"
 #: widgets/dialogs/showimagewidget.cpp:290
 #, kde-format
 msgid "Fit to View"
-msgstr ""
+msgstr "Vyplnit pohled"
 
 #: widgets/dialogs/showimagewidget.cpp:359
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
@@ -8198,7 +8198,7 @@ msgstr "Zatím žádné zprávy"
 #: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
-msgstr ""
+msgstr "Sledujete"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:693
 #, kde-format
