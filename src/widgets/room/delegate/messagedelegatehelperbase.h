@@ -21,7 +21,7 @@ public:
     explicit MessageDelegateHelperBase(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl);
     virtual ~MessageDelegateHelperBase();
 
-    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
+    virtual void setRocketChatAccount(RocketChatAccount *newRocketChatAccount);
 
     void removeMessageCache(const QString &messageId);
 

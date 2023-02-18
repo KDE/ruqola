@@ -24,6 +24,7 @@ class QRect;
 class QMouseEvent;
 class QStyleOptionViewItem;
 class RocketChatAccount;
+class AvatarCacheManager;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT MessageDelegateHelperConferenceVideo : public MessageBlockDelegateHelperBase
 {
 public:
@@ -36,11 +37,13 @@ public:
 
     Q_REQUIRED_RESULT bool handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option) override;
 
+    void setRocketChatAccount(RocketChatAccount *newRocketChatAccount) override;
+
 private:
     struct UserLayout {
         QRectF userAvatarRect;
         QString userName;
-        QString userId;
+        QPixmap avatarPixmap;
     };
     struct ConferenceCallLayout {
         // QString description;
@@ -60,6 +63,8 @@ private:
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const QModelIndex &index) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const MessageAttachment &msgAttach) const override;
     Q_REQUIRED_RESULT QTextDocument *documentForIndex(const Block &block) const override;
+    Q_REQUIRED_RESULT QPixmap makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const;
 
     const QIcon mInfoIcon;
+    AvatarCacheManager *const mAvatarCacheManager;
 };

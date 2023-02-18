@@ -7,6 +7,7 @@
 #include "messagedelegatehelperconferencevideo.h"
 #include "common/delegatepaintutil.h"
 #include "conferencecalldialog/conferenceinfodialog.h"
+#include "misc/avatarcachemanager.h"
 #include "rocketchataccount.h"
 
 #include <KLocalizedString>
@@ -22,6 +23,7 @@
 MessageDelegateHelperConferenceVideo::MessageDelegateHelperConferenceVideo(RocketChatAccount *account, QListView *view, TextSelectionImpl *textSelectionImpl)
     : MessageBlockDelegateHelperBase(account, view, textSelectionImpl)
     , mInfoIcon(QIcon::fromTheme(QStringLiteral("documentinfo")))
+    , mAvatarCacheManager(new AvatarCacheManager(Utils::AvatarType::User, this))
 {
 }
 
@@ -75,9 +77,10 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
         // Rounded rect
         painter->setPen(buttonPen);
         painter->setBrush(buttonBrush);
-        painter->drawRoundedRect(avatarRect.adjusted(0, 0, -1, -1), 5, 5);
+        painter->drawRect(avatarRect.adjusted(0, 0, -1, -1));
         painter->setBrush(origBrush);
         painter->setPen(origPen);
+        painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
     }
     // drawDescription(block, messageRect, painter, nextY, index, option);
 }
@@ -185,8 +188,8 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     const QVector<User> users = block.videoConferenceInfo().users();
     for (const auto &user : users) {
         UserLayout userLayout;
+        userLayout.avatarPixmap = makeAvatarPixmap(user.userName(), option.widget, layout.titleSize.height() * 2);
         userLayout.userName = user.userName();
-        userLayout.userId = user.userId();
         userLayout.userAvatarRect = QRectF((layout.canJoin ? layout.joinButtonTextSize.width() * 2 + DelegatePaintUtil::margin() : 0) + x,
                                            layout.infoButtonRect.height() + DelegatePaintUtil::margin(),
                                            iconSize,
@@ -218,4 +221,18 @@ QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const Bloc
     Q_UNUSED(block);
     Q_ASSERT(false);
     return nullptr;
+}
+
+void MessageDelegateHelperConferenceVideo::setRocketChatAccount(RocketChatAccount *newRocketChatAccount)
+{
+    mAvatarCacheManager->setCurrentRocketChatAccount(newRocketChatAccount);
+    MessageBlockDelegateHelperBase::setRocketChatAccount(newRocketChatAccount);
+}
+
+QPixmap MessageDelegateHelperConferenceVideo::makeAvatarPixmap(const QString &identifier, const QWidget *widget, int maxHeight) const
+{
+    Utils::AvatarInfo info;
+    info.avatarType = Utils::AvatarType::User;
+    info.identifier = identifier;
+    return mAvatarCacheManager->makeAvatarUrlPixmap(widget, info, maxHeight);
 }
