@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-17 00:58+0000\n"
+"POT-Creation-Date: 2023-02-18 00:58+0000\n"
 "PO-Revision-Date: 2023-02-13 12:55+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -343,247 +343,247 @@ msgstr "Místní"
 msgid "Flags"
 msgstr "Příznaky"
 
-#: core/messages/block.cpp:68 core/messages/message.cpp:523
-#: core/messages/message.cpp:635 core/model/notificationhistorymodel.cpp:61
+#: core/messages/block.cpp:74 core/messages/message.cpp:630
+#: core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
 msgid "Conference Call"
 msgstr "Konferenční telefonát"
 
-#: core/messages/message.cpp:529
+#: core/messages/message.cpp:524
 #, kde-format
 msgid "%1 has joined the channel"
 msgstr "%1 se připojil do kanálu"
 
-#: core/messages/message.cpp:531
+#: core/messages/message.cpp:526
 #, kde-format
 msgid "%1 has left the channel"
 msgstr "%1 opustil kanál"
 
-#: core/messages/message.cpp:533
+#: core/messages/message.cpp:528
 #, kde-format
 msgid "%1 left this Team"
 msgstr "%1 opustil tento tým"
 
-#: core/messages/message.cpp:536
+#: core/messages/message.cpp:531
 #, kde-format
 msgid "Topic was cleared by: %1"
 msgstr "Téma bylo smazáno uživatelem: %1"
 
-#: core/messages/message.cpp:538
+#: core/messages/message.cpp:533
 #, kde-format
 msgid "%2 changed topic to: <i>%1</i>"
 msgstr "%2 změnil téma na: <i>%1</i>"
 
-#: core/messages/message.cpp:541
+#: core/messages/message.cpp:536
 #, kde-format
 msgid "%2 added %1 to the conversation"
 msgstr "%2 přidal do konverzace uživatele %1"
 
-#: core/messages/message.cpp:543
+#: core/messages/message.cpp:538
 #, kde-format
 msgid "%2 changed room name to <a href=\"ruqola:/room/%1\">#%1</a>"
 msgstr "%2 změnil název místnosti na <a href=\"ruqola:/room/%1\">#%1</a>"
 
-#: core/messages/message.cpp:545
+#: core/messages/message.cpp:540
 #, kde-format
 msgid "%2 removed user %1"
 msgstr "%2 odebral uživatele %1"
 
-#: core/messages/message.cpp:548
+#: core/messages/message.cpp:543
 #, kde-format
 msgid "Description was cleared by %1"
 msgstr "Popis byl smazán uživatelem %1"
 
-#: core/messages/message.cpp:550
+#: core/messages/message.cpp:545
 #, kde-format
 msgid "%2 changed room description to %1"
 msgstr "%2 změnil popis místnosti na %1"
 
-#: core/messages/message.cpp:554
+#: core/messages/message.cpp:549
 #, kde-format
 msgid "Announcement was cleared by %1"
 msgstr "Oznámení bylo smazáno uživatelem %1"
 
-#: core/messages/message.cpp:556
+#: core/messages/message.cpp:551
 #, kde-format
 msgid "%2 changed room announcement to %1"
 msgstr "%2 změnil oznámení místnosti na %1"
 
-#: core/messages/message.cpp:559
+#: core/messages/message.cpp:554
 #, kde-format
 msgid "%2 changed room privacy to %1"
 msgstr "%2 změnil nastavení soukromí místnosti na %1"
 
-#: core/messages/message.cpp:561
+#: core/messages/message.cpp:556
 #, kde-format
 msgid "Click to join to video"
 msgstr "Kliknutím se připojíte k videu"
 
-#: core/messages/message.cpp:564
+#: core/messages/message.cpp:559
 #, kde-format
 msgid "Message Deleted"
 msgstr "Zpráva byla smazána"
 
-#: core/messages/message.cpp:566
+#: core/messages/message.cpp:561
 #, kde-format
 msgid "Message Pinned"
 msgstr "Zpráva byla připnuta"
 
-#: core/messages/message.cpp:568
+#: core/messages/message.cpp:563
 #, kde-format
 msgid "Encrypted Message"
 msgstr "Zašifrovaná zpráva"
 
-#: core/messages/message.cpp:570
+#: core/messages/message.cpp:565
 #, kde-format
 msgid "%1 was unmuted by %2"
 msgstr "%2 už neumlčuje %1"
 
-#: core/messages/message.cpp:572
+#: core/messages/message.cpp:567
 #, kde-format
 msgid "%1 was muted by %2"
 msgstr "%2 umlčel %1"
 
-#: core/messages/message.cpp:574
+#: core/messages/message.cpp:569
 #, kde-format
 msgid "Role '%3' was added to %1 by %2"
 msgstr "Role '%3' byla přiřazena uživateli %1 uživatelem %2"
 
-#: core/messages/message.cpp:576
+#: core/messages/message.cpp:571
 #, kde-format
 msgid "Role '%3' was removed to %1 by %2"
 msgstr "Role '%3' byla odebrána uživateli %1 uživatelem %2"
 
 #. i18n("Encrypted message: %1", mText);
-#: core/messages/message.cpp:580
+#: core/messages/message.cpp:575
 #, kde-format
 msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
 
-#: core/messages/message.cpp:582
+#: core/messages/message.cpp:577
 #, kde-format
 msgid "Discussion created about \"%1\""
 msgstr "Byla vytvořena diskuze o tématu \"%1\""
 
-#: core/messages/message.cpp:584
+#: core/messages/message.cpp:579
 #, kde-format
 msgid "%1 has joined the conversation"
 msgstr "Uživatel %1 se zapojil do konverzace"
 
-#: core/messages/message.cpp:586
+#: core/messages/message.cpp:581
 #, kde-format
 msgid "This room has been archived by %1"
 msgstr "Místnost byla archivována uživatelem %1"
 
-#: core/messages/message.cpp:588
+#: core/messages/message.cpp:583
 #, kde-format
 msgid "This room has been unarchived by %1"
 msgstr "Archivace místnosti byla zrušena uživatelem %1"
 
-#: core/messages/message.cpp:591 core/messages/message.cpp:638
+#: core/messages/message.cpp:586 core/messages/message.cpp:633
 #, kde-format
 msgid "Unknown action!"
 msgstr "Neznámá činnost."
 
-#: core/messages/message.cpp:595
+#: core/messages/message.cpp:590
 #, kde-format
 msgid "Welcome %1!"
 msgstr "Vítejte %1!"
 
-#: core/messages/message.cpp:597
+#: core/messages/message.cpp:592
 #, kde-format
 msgid "Room avatar changed by %1"
 msgstr "%1 změnil avatara místnosti"
 
-#: core/messages/message.cpp:599
+#: core/messages/message.cpp:594
 #, kde-format
 msgid "This room's encryption has been enabled by %1"
 msgstr ""
 
-#: core/messages/message.cpp:601
+#: core/messages/message.cpp:596
 #, kde-format
 msgid "This room's encryption has been disabled by %1"
 msgstr ""
 
-#: core/messages/message.cpp:603
+#: core/messages/message.cpp:598
 #, kde-format
 msgid "Room set as Read Only by  %1"
 msgstr " %1 nastavil/a místnost jako pouze ke čtení"
 
-#: core/messages/message.cpp:605
+#: core/messages/message.cpp:600
 #, kde-format
 msgid "Room added writing permission by %1"
 msgstr ""
 
-#: core/messages/message.cpp:607
+#: core/messages/message.cpp:602
 #, kde-format
 msgid "%1 added @%2 to this Team"
 msgstr "%1 přidal %2 do tohoto týmu"
 
-#: core/messages/message.cpp:609
+#: core/messages/message.cpp:604
 #, kde-format
 msgid "%1 removed @%2 from this Team"
 msgstr "%1 odstranil %2 z tohoto týmu"
 
-#: core/messages/message.cpp:611
+#: core/messages/message.cpp:606
 #, kde-format
 msgid "%1 converted #%2 to a Team"
 msgstr "%1 převedl #%2 na tým"
 
-#: core/messages/message.cpp:613
+#: core/messages/message.cpp:608
 #, kde-format
 msgid "%1 converted #%2 to a Channel"
 msgstr ""
 
-#: core/messages/message.cpp:615
+#: core/messages/message.cpp:610
 #, kde-format
 msgid "%1 removed #%2 from this Team"
 msgstr "%1 odstranil #%2 z tohoto týmu"
 
-#: core/messages/message.cpp:617
+#: core/messages/message.cpp:612
 #, kde-format
 msgid "%1 deleted #%2"
 msgstr "%1 smazal #%2"
 
-#: core/messages/message.cpp:619
+#: core/messages/message.cpp:614
 #, kde-format
 msgid "%1 added #%2 to this Team"
 msgstr "%1 přidal #%2 do tohoto týmu"
 
-#: core/messages/message.cpp:621
+#: core/messages/message.cpp:616
 #, kde-format
 msgid "Room allowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:623
+#: core/messages/message.cpp:618
 #, kde-format
 msgid "Room disallowed reacting by %1"
 msgstr ""
 
-#: core/messages/message.cpp:625
+#: core/messages/message.cpp:620
 #, kde-format
 msgid "%1 joined this Team"
 msgstr ""
 
-#: core/messages/message.cpp:627
+#: core/messages/message.cpp:622
 #, kde-format
 msgid "%1 has joined OTR chat."
 msgstr "%1 se připojil k OTR rozhovoru."
 
-#: core/messages/message.cpp:629
+#: core/messages/message.cpp:624
 #, kde-format
 msgid "%1 key refreshed successfully"
 msgstr ""
 
-#: core/messages/message.cpp:631
+#: core/messages/message.cpp:626
 #, kde-format
 msgid "%1 has requested key refresh."
 msgstr ""
 
-#: core/messages/message.cpp:633
+#: core/messages/message.cpp:628
 #, kde-format
 msgid "Room topic changed to: %1 by %2"
 msgstr ""
@@ -689,7 +689,7 @@ msgstr "Heslo klienta"
 #: core/model/adminoauthmodel.cpp:39
 #, kde-format
 msgid "Redirect Url"
-msgstr ""
+msgstr "Přesměrovat URL"
 
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
@@ -1337,12 +1337,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2867
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2862
+#: core/rocketchataccount.cpp:2868
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -1431,18 +1431,23 @@ msgstr "Administrátor"
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:208
-#: core/videoconference/videoconferenceinfo.cpp:210
+#: core/videoconference/videoconferenceinfo.cpp:230
+#: core/videoconference/videoconferenceinfo.cpp:232
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:214
+#: core/videoconference/videoconferenceinfo.cpp:234
+#, kde-format
+msgid "Call ended"
+msgstr ""
+
+#: core/videoconference/videoconferenceinfo.cpp:238
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čekám na odpověď"
 
-#: core/videoconference/videoconferenceinfo.cpp:216
+#: core/videoconference/videoconferenceinfo.cpp:240
 #, kde-format
 msgid "Call ongoing"
 msgstr "Probíhá hovor"
@@ -6395,7 +6400,7 @@ msgstr "Obrázky"
 #: widgets/dialogs/showattachmentcombobox.cpp:22
 #, kde-format
 msgid "Audios"
-msgstr ""
+msgstr "Audio"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
 #, kde-format
@@ -6470,7 +6475,7 @@ msgstr "100%"
 #: widgets/dialogs/showimagewidget.cpp:290
 #, kde-format
 msgid "Fit to View"
-msgstr ""
+msgstr "Vyplnit pohled"
 
 #: widgets/dialogs/showimagewidget.cpp:359
 #: widgets/room/delegate/messageattachmentdelegatehelpervideo.cpp:78
@@ -7374,10 +7379,10 @@ msgstr "Uložit soubor"
 msgid "Save Sound"
 msgstr "Uložit zvuk"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:146
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:181
 #, kde-format
 msgid "Join"
-msgstr ""
+msgstr "Připojit"
 
 #: widgets/room/delegate/messageimagedownloadjob.cpp:56
 #, kde-format
@@ -7425,7 +7430,7 @@ msgstr "Zatím žádné zprávy"
 #: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
-msgstr ""
+msgstr "Sledujete"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:693
 #, kde-format
@@ -7684,12 +7689,12 @@ msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
 # power-off message
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:233
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Opravdu si přejete odstranit historii?"
 
-#: widgets/room/roomwidget.cpp:236
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Remove History"
 msgstr "Odstranit historii"
