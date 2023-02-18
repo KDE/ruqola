@@ -39,7 +39,7 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
     // Draw title and buttons
-    int positionY = blockRect.y() + option.fontMetrics.ascent();
+    const int positionY = blockRect.y() + option.fontMetrics.ascent();
     painter->drawText(blockRect.x(), positionY, layout.title);
     mInfoIcon.paint(painter, layout.infoButtonRect.translated(blockRect.topLeft()));
 
@@ -199,6 +199,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
 
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const QModelIndex &index) const
 {
+    // Unused
     Q_UNUSED(index);
     return nullptr;
 }
@@ -213,6 +214,7 @@ QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const Mess
 
 QTextDocument *MessageDelegateHelperConferenceVideo::documentForIndex(const Block &block) const
 {
+    // Unused
     Q_UNUSED(block);
     Q_ASSERT(false);
     return nullptr;
