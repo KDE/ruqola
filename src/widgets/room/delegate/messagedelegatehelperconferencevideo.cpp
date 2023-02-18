@@ -156,8 +156,7 @@ bool MessageDelegateHelperConferenceVideo::handleHelpEvent(QHelpEvent *helpEvent
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
     for (UserLayout userLayout : layout.usersLayout) {
         if (userLayout.userAvatarRect.translated(blockRect.topLeft()).contains(helpEvent->pos())) {
-            qDebug() << " help :!::::";
-            // QToolTip::showText(helpEvent->globalPos(), tooltip, view);
+            QToolTip::showText(helpEvent->globalPos(), userLayout.userName, mListView);
             return true;
         }
     }
