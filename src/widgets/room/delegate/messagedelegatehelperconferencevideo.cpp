@@ -65,21 +65,8 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
     }
 
     // Draw avatars!
-    const QPen origPen = painter->pen();
-    const QBrush origBrush = painter->brush();
-    const QPen buttonPen(option.palette.color(QPalette::Highlight).darker());
-    QColor backgroundColor = option.palette.color(QPalette::Highlight);
-    backgroundColor.setAlpha(60);
-    const QBrush buttonBrush(backgroundColor);
-
     for (const UserLayout &userLayout : layout.usersLayout) {
         const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
-        // Rounded rect
-        painter->setPen(buttonPen);
-        painter->setBrush(buttonBrush);
-        painter->drawRect(avatarRect.adjusted(0, 0, -1, -1));
-        painter->setBrush(origBrush);
-        painter->setPen(origPen);
         painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
     }
     // drawDescription(block, messageRect, painter, nextY, index, option);
