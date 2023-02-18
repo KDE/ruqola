@@ -154,7 +154,7 @@ bool MessageDelegateHelperConferenceVideo::handleMouseEvent(const Block &block,
 bool MessageDelegateHelperConferenceVideo::handleHelpEvent(QHelpEvent *helpEvent, QRect blockRect, const Block &block, const QStyleOptionViewItem &option)
 {
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, blockRect.width());
-    for (UserLayout userLayout : layout.usersLayout) {
+    for (const UserLayout &userLayout : layout.usersLayout) {
         if (userLayout.userAvatarRect.translated(blockRect.topLeft()).contains(helpEvent->pos())) {
             QToolTip::showText(helpEvent->globalPos(), userLayout.userName, mListView);
             return true;
