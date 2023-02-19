@@ -69,7 +69,6 @@ void MessageDelegateHelperConferenceVideo::draw(const Block &block,
         const QRectF avatarRect = userLayout.userAvatarRect.translated(blockRect.topLeft());
         painter->drawPixmap(avatarRect.toRect(), userLayout.avatarPixmap);
     }
-    // drawDescription(block, messageRect, painter, nextY, index, option);
 }
 
 QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const
@@ -77,14 +76,6 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const Q
     Q_UNUSED(index)
     const ConferenceCallLayout layout = layoutConferenceCall(block, option, maxWidth);
     int height = layout.titleSize.height() + DelegatePaintUtil::margin();
-#if 0
-    int descriptionWidth = 0;
-    if (!layout.description.isEmpty()) {
-        descriptionWidth = layout.descriptionSize.width();
-        height += layout.descriptionSize.height() + DelegatePaintUtil::margin();
-    }
-    return {qMax(qMax(0, layout.titleSize.width()), descriptionWidth), height};
-#else
     // Button
     if (layout.canJoin) {
         height += layout.joinButtonRect.height();
@@ -92,7 +83,6 @@ QSize MessageDelegateHelperConferenceVideo::sizeHint(const Block &block, const Q
         height += 10 + DelegatePaintUtil::margin(); // TODO customize it
     }
     return {qMax(0, layout.titleSize.width()), height};
-#endif
 }
 
 QPoint MessageDelegateHelperConferenceVideo::adaptMousePosition(const QPoint &pos, const Block &block, QRect blocksRect, const QStyleOptionViewItem &option)
@@ -160,7 +150,6 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
     ConferenceCallLayout layout;
     layout.title = block.title();
     layout.titleSize = option.fontMetrics.size(Qt::TextSingleLine, layout.title);
-    // layout.descriptionSize = documentDescriptionForIndexSize(block, attachmentsWidth);
     const int iconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
     layout.infoButtonRect = QRect(layout.titleSize.width() + DelegatePaintUtil::margin(), 0, iconSize, iconSize);
     // Join Button
