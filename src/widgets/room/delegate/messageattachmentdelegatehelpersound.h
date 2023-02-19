@@ -18,7 +18,10 @@ public:
     ~MessageAttachmentDelegateHelperSound() override;
     void
     draw(const MessageAttachment &msgAttach, QPainter *painter, QRect messageRect, const QModelIndex &index, const QStyleOptionViewItem &option) const override;
-    QSize sizeHint(const MessageAttachment &msgAttach, const QModelIndex &index, int maxWidth, const QStyleOptionViewItem &option) const override;
+    Q_REQUIRED_RESULT QSize sizeHint(const MessageAttachment &msgAttach,
+                                     const QModelIndex &index,
+                                     int maxWidth,
+                                     const QStyleOptionViewItem &option) const override;
     Q_REQUIRED_RESULT bool handleMouseEvent(const MessageAttachment &msgAttach,
                                             QMouseEvent *mouseEvent,
                                             QRect attachmentsRect,
