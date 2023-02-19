@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
+"POT-Creation-Date: 2023-02-19 00:58+0000\n"
 "PO-Revision-Date: 2023-02-07 11:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1461,24 +1461,24 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:230
-#: core/videoconference/videoconferenceinfo.cpp:232
+#: core/videoconference/videoconferenceinfo.cpp:233
+#: core/videoconference/videoconferenceinfo.cpp:235
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:234
+#: core/videoconference/videoconferenceinfo.cpp:237
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:238
+#: core/videoconference/videoconferenceinfo.cpp:241
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "Sua resposta:"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
+#: core/videoconference/videoconferenceinfo.cpp:243
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
@@ -7710,7 +7710,7 @@ msgstr "Salvar arquivo"
 msgid "Save Sound"
 msgstr "Salvar som"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:181
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "Entrar"

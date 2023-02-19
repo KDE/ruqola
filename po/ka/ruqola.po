@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
-"PO-Revision-Date: 2023-02-16 05:58+0100\n"
+"POT-Creation-Date: 2023-02-19 00:58+0000\n"
+"PO-Revision-Date: 2023-02-18 07:05+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1432,23 +1432,23 @@ msgstr "ადმინისტრატორი"
 msgid "Bot"
 msgstr "ბოტი"
 
-#: core/videoconference/videoconferenceinfo.cpp:230
-#: core/videoconference/videoconferenceinfo.cpp:232
+#: core/videoconference/videoconferenceinfo.cpp:233
+#: core/videoconference/videoconferenceinfo.cpp:235
 #, kde-format
 msgid "Call was not answered"
 msgstr "ზარს პასუხი არ გაეცა"
 
-#: core/videoconference/videoconferenceinfo.cpp:234
+#: core/videoconference/videoconferenceinfo.cpp:237
 #, kde-format
 msgid "Call ended"
-msgstr ""
+msgstr "ზარი დასრულდა"
 
-#: core/videoconference/videoconferenceinfo.cpp:238
+#: core/videoconference/videoconferenceinfo.cpp:241
 #, kde-format
 msgid "Waiting for answer"
 msgstr "პასუხის მოლოდინი"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
+#: core/videoconference/videoconferenceinfo.cpp:243
 #, kde-format
 msgid "Call ongoing"
 msgstr "ზარი მიმდინარეობს"
@@ -7431,7 +7431,7 @@ msgstr "ფაილის შენახვა"
 msgid "Save Sound"
 msgstr "ხმის შენახვა"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:181
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "შეერთება"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-18 00:58+0000\n"
-"PO-Revision-Date: 2023-02-12 16:43+0100\n"
+"POT-Creation-Date: 2023-02-19 00:58+0000\n"
+"PO-Revision-Date: 2023-02-18 11:02+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1435,23 +1435,23 @@ msgstr "Systeembeheerder"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:230
-#: core/videoconference/videoconferenceinfo.cpp:232
+#: core/videoconference/videoconferenceinfo.cpp:233
+#: core/videoconference/videoconferenceinfo.cpp:235
 #, kde-format
 msgid "Call was not answered"
 msgstr "Oproep is niet beantwoord"
 
-#: core/videoconference/videoconferenceinfo.cpp:234
+#: core/videoconference/videoconferenceinfo.cpp:237
 #, kde-format
 msgid "Call ended"
-msgstr ""
+msgstr "Oproep eindigde"
 
-#: core/videoconference/videoconferenceinfo.cpp:238
+#: core/videoconference/videoconferenceinfo.cpp:241
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Wacht op antwoord"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
+#: core/videoconference/videoconferenceinfo.cpp:243
 #, kde-format
 msgid "Call ongoing"
 msgstr "Oproep is gaande"
@@ -7596,7 +7596,7 @@ msgstr "Bestand opslaan"
 msgid "Save Sound"
 msgstr "Geluid opslaan"
 
-#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:181
+#: widgets/room/delegate/messagedelegatehelperconferencevideo.cpp:169
 #, kde-format
 msgid "Join"
 msgstr "Deelnemen"
