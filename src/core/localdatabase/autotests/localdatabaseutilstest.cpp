@@ -7,7 +7,7 @@
 #include "localdatabaseutilstest.h"
 #include "localdatabase/localdatabaseutils.h"
 #include <QTest>
-QTEST_MAIN(LocalDatabaseUtilsTest)
+QTEST_GUILESS_MAIN(LocalDatabaseUtilsTest)
 
 LocalDatabaseUtilsTest::LocalDatabaseUtilsTest(QObject *parent)
     : QObject{parent}

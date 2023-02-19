@@ -7,7 +7,7 @@
 #include "localglobaldatabasetest.h"
 #include "localdatabase/localglobaldatabase.h"
 #include <QTest>
-QTEST_MAIN(LocalGlobalDatabaseTest)
+QTEST_GUILESS_MAIN(LocalGlobalDatabaseTest)
 LocalGlobalDatabaseTest::LocalGlobalDatabaseTest(QObject *parent)
     : QObject{parent}
 {
