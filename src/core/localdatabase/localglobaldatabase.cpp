@@ -82,8 +82,19 @@ void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QStr
 qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString &roomName, TimeStampType type)
 {
 #if HAVE_DATABASE_SUPPORT
-    // TODO
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, db)) {
+        return -1;
+    }
     const QString identifier = generateIdentifier(accountName, roomName, type);
+    QSqlQuery query(QStringLiteral("SELECT %1 GLOBAL WHERE identifier = %2").arg(QStringLiteral("timestamp"), identifier), db);
+    query.addBindValue(identifier);
+    if (!query.exec()) {
+        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't extract identifier from GLOBAL table" << db.databaseName() << query.lastError();
+    }
+    int i = query.boundValue(1).toInt();
+
+    // TODO
 #endif
     return {};
 }
