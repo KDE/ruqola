@@ -84,47 +84,48 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
 
     int positionIcon = senderX + senderTextSize.width() + margin;
     // Roles icon
+    const qreal iconSizeMargin = iconSize + margin;
     const bool hasRoles = !index.data(MessageModel::Roles).toString().isEmpty() && mRocketChatAccount && !mRocketChatAccount->hideRoles();
     if (hasRoles) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     // Edit icon
     const int editIconX = positionIcon;
     if (message->wasEdited()) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     const int favoriteIconX = positionIcon;
     // Favorite icon
     if (message->isStarred()) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     const int pinIconX = positionIcon;
     // Pin icon
     if (message->isPinned()) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     const int followingIconX = textLeft;
     layout.messageIsFollowing = mRocketChatAccount && message->replies().contains(mRocketChatAccount->userId());
     // Following icon
     if (layout.messageIsFollowing) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     const int translatedIconX = positionIcon;
     // translated icon
     if (message->isAutoTranslated()) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     const int showIgnoreMessageIconX = positionIcon;
     // showIgnoreMessage icon
     const bool ignoreMessage = MessageDelegateUtils::showIgnoreMessages(index);
     if (ignoreMessage) {
-        positionIcon += iconSize + margin;
+        positionIcon += iconSizeMargin;
     }
 
     // Timestamp
@@ -132,7 +133,7 @@ MessageListLayoutBase::Layout MessageListNormalLayout::doLayout(const QStyleOpti
     const QSize timeSize = MessageDelegateUtils::timeStampSize(layout.timeStampText, option);
 
     // Message (using the rest of the available width)
-    const int widthAfterMessage = iconSize + margin + timeSize.width() + margin / 2;
+    const int widthAfterMessage = iconSizeMargin + timeSize.width() + margin / 2;
     const int maxWidth = qMax(30, option.rect.width() - textLeft - widthAfterMessage);
     layout.baseLine = 0;
     const QSize textSize = mDelegate->helperText()->sizeHint(index, maxWidth, option, &layout.baseLine);
