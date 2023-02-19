@@ -9,7 +9,6 @@
 #include "misc/serverscombobox.h"
 #include "model/servererrorinfohistoryfilterproxymodel.h"
 #include "model/servererrorinfohistorymodel.h"
-#include "ruqolawidgets_debug.h"
 #include "servererrorinfohistorymanager.h"
 #include "servererrorinfomessagehistorylistview.h"
 #include <KLocalizedString>
