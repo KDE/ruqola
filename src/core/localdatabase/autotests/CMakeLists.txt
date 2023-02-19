@@ -14,3 +14,7 @@ macro(add_ruqola_localdatabase_test _source)
     )
 
 endmacro()
+add_ruqola_localdatabase_test(localmessagedatabasetest.cpp)
+add_ruqola_localdatabase_test(localmessageloggertest.cpp)
+add_ruqola_localdatabase_test(localdatabaseutilstest.cpp)
+add_ruqola_localdatabase_test(localglobaldatabasetest.cpp)
