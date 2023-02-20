@@ -10,8 +10,8 @@
 #include "ruqolawidgets_debug.h"
 #include "video-conference/videoconferencecapabilitiesjob.h"
 #include <KLocalizedString>
+#include <QFormLayout>
 #include <QToolButton>
-#include <QVBoxLayout>
 
 ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *parent)
     : QWidget{parent}
@@ -19,7 +19,7 @@ ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *
     , mMicroButton(new QToolButton(this))
     , mCameraButton(new QToolButton(this))
 {
-    auto mainLayout = new QVBoxLayout(this);
+    auto mainLayout = new QFormLayout(this);
     mainLayout->setContentsMargins({});
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -40,8 +40,8 @@ ConferenceCallWidget::ConferenceCallWidget(RocketChatAccount *account, QWidget *
         mMicroButton->setToolTip(clicked ? i18n("Micro On") : i18n("Micro Off"));
     });
 
-    mainLayout->addWidget(mMicroButton);
-    mainLayout->addWidget(mCameraButton);
+    mainLayout->addRow(i18n("Micro"), mMicroButton);
+    mainLayout->addRow(i18n("Camera"), mCameraButton);
 
     if (mRocketChatAccount) {
         initialize();

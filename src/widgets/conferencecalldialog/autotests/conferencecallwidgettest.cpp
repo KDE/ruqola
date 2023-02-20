@@ -6,9 +6,9 @@
 
 #include "conferencecallwidgettest.h"
 #include "conferencecalldialog/conferencecallwidget.h"
+#include <QFormLayout>
 #include <QTest>
 #include <QToolButton>
-#include <QVBoxLayout>
 QTEST_MAIN(ConferenceCallWidgetTest)
 ConferenceCallWidgetTest::ConferenceCallWidgetTest(QObject *parent)
     : QObject{parent}
@@ -19,7 +19,7 @@ void ConferenceCallWidgetTest::shouldHaveDefaultValues()
 {
     ConferenceCallWidget w(nullptr);
 
-    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 
