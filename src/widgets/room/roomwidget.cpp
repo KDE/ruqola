@@ -413,7 +413,7 @@ void RoomWidget::slotCallRequested()
     if (!mRoom) {
         return;
     }
-    if (mRoom->channelType() == Room::RoomType::Direct) {
+    if (mRoom->channelType() == Room::RoomType::Direct && mRoom->userNames().count() == 2) {
         QPointer<ConferenceDirectCallDialog> dlg = new ConferenceDirectCallDialog(mCurrentRocketChatAccount, this);
         dlg->setRoomId(mRoomWidgetBase->roomId());
         dlg->setAllowRinging(mRoom->hasPermission(QStringLiteral("videoconf-ring-users")));
