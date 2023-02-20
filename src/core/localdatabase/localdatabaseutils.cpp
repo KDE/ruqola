@@ -27,20 +27,36 @@ QString LocalDatabaseUtils::localDatabasePath()
 
 QString LocalDatabaseUtils::localMessagesDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("messages/");
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Messages);
 }
 
 QString LocalDatabaseUtils::localRoomsDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("rooms/");
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Rooms);
 }
 
 QString LocalDatabaseUtils::localAccountDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("account/");
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Account);
 }
 
 QString LocalDatabaseUtils::localGlobalDatabasePath()
 {
-    return LocalDatabaseUtils::localDatabasePath() + QStringLiteral("global/");
+    return LocalDatabaseUtils::localDatabasePath() + LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global);
+}
+
+QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathType)
+{
+    switch (pathType) {
+    case LocalDatabaseUtils::DatabasePath::Messages:
+        return QStringLiteral("messages/");
+    case LocalDatabaseUtils::DatabasePath::Rooms:
+        return QStringLiteral("rooms/");
+    case LocalDatabaseUtils::DatabasePath::Account:
+        return QStringLiteral("account/");
+    case LocalDatabaseUtils::DatabasePath::Global:
+        return QStringLiteral("global/");
+    }
+    Q_ASSERT(true);
+    return {};
 }

@@ -10,6 +10,13 @@
 
 namespace LocalDatabaseUtils
 {
+enum class DatabasePath {
+    Messages,
+    Rooms,
+    Account,
+    Global,
+};
+
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString fixRoomName(QString roomName);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localMessageLoggerPath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localDatabasePath();
@@ -17,4 +24,5 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localMessagesDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localRoomsDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localAccountDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 };
