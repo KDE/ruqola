@@ -160,6 +160,7 @@ MessageDelegateHelperConferenceVideo::layoutConferenceCall(const Block &block, c
         layout.joinButtonRect =
             QRect(0, layout.infoButtonRect.height() + DelegatePaintUtil::margin(), layout.joinButtonTextSize.width() * 2, layout.joinButtonTextSize.height());
     }
+    // Users
     qreal x = 0;
     const QVector<User> users = block.videoConferenceInfo().users();
     for (const auto &user : users) {
