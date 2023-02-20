@@ -99,7 +99,6 @@ bool LocalDatabaseBase::initializeDataBase(const QString &accountName, const QSt
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
     const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
     db = QSqlDatabase::database(dbName);
-    qDebug() << " dbName" << dbName;
     if (!db.isValid()) {
         db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
         const QString dirPath = mBasePath + accountName;
