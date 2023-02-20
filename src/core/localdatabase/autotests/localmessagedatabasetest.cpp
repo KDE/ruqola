@@ -85,10 +85,10 @@ void LocalMessageDatabaseTest::shouldStoreMessages()
     QVERIFY(tableModel);
     QCOMPARE(tableModel->rowCount(), 2);
     const QSqlRecord record0 = tableModel->record(0);
-    QCOMPARE(record0.value(int(Fields::Json)).toString(), message1.text());
+    QCOMPARE(record0.value(int(Fields::Json)).toByteArray(), Message::serialize(message1, false));
     QCOMPARE(record0.value(int(Fields::TimeStamp)).toULongLong(), message1.timeStamp());
     const QSqlRecord record1 = tableModel->record(1);
-    QCOMPARE(record1.value(int(Fields::Json)).toString(), message2.text());
+    QCOMPARE(record1.value(int(Fields::Json)).toByteArray(), Message::serialize(message2, false));
     QCOMPARE(record1.value(int(Fields::TimeStamp)).toULongLong(), message2.timeStamp());
 }
 
@@ -106,6 +106,7 @@ void LocalMessageDatabaseTest::shouldLoadExistingDb() // this test depends on sh
 
     // WHEN
     auto tableModel = logger.createMessageModel(accountName(), existingRoomName());
+    qDebug() << " accountName() " << accountName() << " existingRoomName() " << existingRoomName();
 
     // THEN
     QVERIFY(tableModel);

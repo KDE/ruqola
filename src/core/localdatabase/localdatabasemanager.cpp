@@ -45,3 +45,18 @@ void LocalDatabaseManager::deleteRoom(const QString &accountName, const QString 
 {
     mRoomsDatabase->deleteRoom(accountName, roomId);
 }
+
+void LocalDatabaseManager::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, LocalGlobalDatabase::TimeStampType type)
+{
+    mGlobalDatabase->updateTimeStamp(accountName, roomName, timestamp, type);
+}
+
+void LocalDatabaseManager::removeTimeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type)
+{
+    mGlobalDatabase->removeTimeStamp(accountName, roomName, type);
+}
+
+qint64 LocalDatabaseManager::timeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type)
+{
+    return mGlobalDatabase->timeStamp(accountName, roomName, type);
+}

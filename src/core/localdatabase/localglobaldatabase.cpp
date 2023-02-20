@@ -46,12 +46,11 @@ QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, cons
     return identifier + accountName + QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
 }
 
-// TODO improve for identifier => account name/room name.
 void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, TimeStampType type)
 {
 #if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
-    if (initializeDataBase(accountName, roomName, db)) {
+    if (initializeDataBase(accountName, db)) {
         const QString identifier = generateIdentifier(accountName, roomName, type);
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"), db);
         query.addBindValue(identifier);
@@ -71,7 +70,7 @@ void LocalGlobalDatabase::removeTimeStamp(const QString &accountName, const QStr
         return;
     }
     const QString identifier = generateIdentifier(accountName, roomName, type);
-    QSqlQuery query(QStringLiteral("DELETE FROM GLOBAL WHERE roomId = ?"), db);
+    QSqlQuery query(QStringLiteral("DELETE FROM GLOBAL WHERE %1 = ?").arg(identifier), db);
     query.addBindValue(identifier);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in GLOBAL table" << db.databaseName() << query.lastError();
@@ -87,12 +86,13 @@ qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString 
         return -1;
     }
     const QString identifier = generateIdentifier(accountName, roomName, type);
-    QSqlQuery query(QStringLiteral("SELECT %1 GLOBAL WHERE identifier = %2").arg(QStringLiteral("timestamp"), identifier), db);
-    query.addBindValue(identifier);
+    QSqlQuery query(QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\"").arg(identifier), db);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't extract identifier from GLOBAL table" << db.databaseName() << query.lastError();
     }
-    int i = query.boundValue(1).toInt();
+
+    int i = query.boundValue(0).toInt();
+    qDebug() << " i " << i << " ddd " << query.boundValues();
 
     // TODO
 #endif

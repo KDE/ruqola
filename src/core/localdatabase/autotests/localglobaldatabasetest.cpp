@@ -9,6 +9,25 @@
 #include <QStandardPaths>
 #include <QTest>
 QTEST_GUILESS_MAIN(LocalGlobalDatabaseTest)
+static QString accountName()
+{
+    return QStringLiteral("myAccount");
+}
+
+static QString roomName()
+{
+    return QStringLiteral("myRoom");
+}
+static QString roomNameOther()
+{
+    return QStringLiteral("myOtherRoom");
+}
+
+enum class Fields {
+    Identifier,
+    TimeStamp,
+}; // in the same order as the table
+
 LocalGlobalDatabaseTest::LocalGlobalDatabaseTest(QObject *parent)
     : QObject{parent}
 {
@@ -18,17 +37,17 @@ void LocalGlobalDatabaseTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
-#if 0
     // Clean up after previous runs
-    LocalMessageLogger logger;
-    QFile::remove(logger.dbFileName(accountName(), roomName()));
-    QFile::remove(logger.dbFileName(accountName(), otherRoomName()));
-    QFile::remove(logger.dbFileName(accountName(), existingRoomName()));
-#endif
+    LocalGlobalDatabase globalDataBase;
+    QFile::remove(globalDataBase.dbFileName(accountName()));
 }
 
-void LocalGlobalDatabaseTest::shouldHaveDefaultValues()
+void LocalGlobalDatabaseTest::shouldStoreIdentifier()
 {
-    LocalGlobalDatabase w;
-    // TODO
+    // GIVEN
+    LocalGlobalDatabase globalDataBase;
+    globalDataBase.updateTimeStamp(accountName(), roomName(), 12, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
+    globalDataBase.updateTimeStamp(accountName(), roomNameOther(), 12, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
+
+    globalDataBase.timeStamp(accountName(), roomName(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
 }

@@ -7,13 +7,13 @@
 #pragma once
 
 #include "libruqolacore_export.h"
+#include "localglobaldatabase.h"
 #include <QString>
 #include <memory>
 class LocalMessageLogger;
 class LocalMessageDatabase;
 class LocalRoomsDatabase;
 class LocalAccountDatabase;
-class LocalGlobalDatabase;
 class Message;
 class Room;
 class LIBRUQOLACORE_EXPORT LocalDatabaseManager
@@ -27,6 +27,10 @@ public:
 
     void addRoom(const QString &accountName, Room *room);
     void deleteRoom(const QString &accountName, const QString &roomId);
+
+    void updateTimeStamp(const QString &accountName, const QString &roomName, qint64 timestamp, LocalGlobalDatabase::TimeStampType type);
+    void removeTimeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type);
+    Q_REQUIRED_RESULT qint64 timeStamp(const QString &accountName, const QString &roomName, LocalGlobalDatabase::TimeStampType type);
 
 private:
     std::unique_ptr<LocalMessageLogger> mMessageLogger;
