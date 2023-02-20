@@ -99,6 +99,13 @@ QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfI
 VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
 {
     VideoConferenceInfo info;
+    info.mBlockId = o[QLatin1String("_id")].toString();
+    info.mStatus = o[QLatin1String("status")].toInt();
+    info.mUrl = o[QLatin1String("url")].toString();
+    info.mRoomId = o[QLatin1String("rid")].toString();
+    info.mProviderName = o[QLatin1String("providerName")].toString();
+    info.mMessageId = o[QLatin1String("messageId")].toString();
+    // Add user
     // TODO
     return info;
 }
