@@ -228,6 +228,18 @@ void User::setBio(const QString &newBio)
     mBio = newBio;
 }
 
+QJsonObject User::serialize(const User &user)
+{
+    // TODO
+    return {};
+}
+
+User User::deserialize(const QJsonObject &o)
+{
+    // TODO
+    return {};
+}
+
 void User::setRoles(const QStringList &roles, const QVector<RoleInfo> &roleInfo)
 {
     QStringList rolesI18n;

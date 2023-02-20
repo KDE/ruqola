@@ -99,6 +99,9 @@ public:
     Q_REQUIRED_RESULT QString bio() const;
     void setBio(const QString &newBio);
 
+    static QJsonObject serialize(const User &user);
+    static User deserialize(const QJsonObject &o);
+
 private:
     UserEmailsInfo mUserEmailsInfo;
     QDateTime mCreatedAt;
