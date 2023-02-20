@@ -14,6 +14,8 @@ class LocalGlobalDatabaseTest : public QObject
 public:
     explicit LocalGlobalDatabaseTest(QObject *parent = nullptr);
     ~LocalGlobalDatabaseTest() override = default;
+
 private Q_SLOTS:
+    void initTestCase();
     void shouldHaveDefaultValues();
 };
