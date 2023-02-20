@@ -16,4 +16,5 @@ public:
     ~LocalDatabaseUtilsTest() override = default;
 private Q_SLOTS:
     void shouldAdaptRoomName();
+    void shouldCheckPath();
 };
