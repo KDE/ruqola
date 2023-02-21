@@ -91,7 +91,12 @@ QString VideoConferenceInfo::title() const
 QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfInfo)
 {
     QJsonObject obj;
-
+    obj[QLatin1String("_id")] = videoConfInfo.mBlockId;
+    obj[QLatin1String("status")] = videoConfInfo.mStatus;
+    obj[QLatin1String("url")] = videoConfInfo.mUrl;
+    obj[QLatin1String("rid")] = videoConfInfo.mRoomId;
+    obj[QLatin1String("providerName")] = videoConfInfo.mProviderName;
+    obj[QLatin1String("messageId")] = videoConfInfo.mMessageId;
     // TODO
     return obj;
 }
