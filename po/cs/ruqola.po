@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:57+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-13 12:55+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1302,7 +1302,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Odmítnout"
@@ -1431,33 +1431,33 @@ msgstr "Administrátor"
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:233
-#: core/videoconference/videoconferenceinfo.cpp:235
+#: core/videoconference/videoconferenceinfo.cpp:240
+#: core/videoconference/videoconferenceinfo.cpp:242
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:237
+#: core/videoconference/videoconferenceinfo.cpp:244
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:241
+#: core/videoconference/videoconferenceinfo.cpp:248
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čekám na odpověď"
 
-#: core/videoconference/videoconferenceinfo.cpp:243
+#: core/videoconference/videoconferenceinfo.cpp:250
 #, kde-format
 msgid "Call ongoing"
 msgstr "Probíhá hovor"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Příchozí hovor"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Přijmout"
@@ -5584,6 +5584,17 @@ msgstr ""
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro Off"
+msgstr ""
+
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:43
+#, fuzzy, kde-format
+#| msgid "Microsoft"
+msgid "Micro"
+msgstr "Microsoft"
+
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:44
+#, kde-format
+msgid "Camera"
 msgstr ""
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32

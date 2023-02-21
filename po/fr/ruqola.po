@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-20 00:57+0000\n"
+"POT-Creation-Date: 2023-02-21 00:59+0000\n"
 "PO-Revision-Date: 2023-02-19 09:11+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -1305,7 +1305,7 @@ msgid "OTR"
 msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Reject"
 msgstr "Refuser"
@@ -1436,33 +1436,33 @@ msgstr "Administrateur"
 msgid "Bot"
 msgstr "Robot"
 
-#: core/videoconference/videoconferenceinfo.cpp:233
-#: core/videoconference/videoconferenceinfo.cpp:235
+#: core/videoconference/videoconferenceinfo.cpp:240
+#: core/videoconference/videoconferenceinfo.cpp:242
 #, kde-format
 msgid "Call was not answered"
 msgstr "Aucune réponse n'a été faite à cet appel"
 
-#: core/videoconference/videoconferenceinfo.cpp:237
+#: core/videoconference/videoconferenceinfo.cpp:244
 #, kde-format
 msgid "Call ended"
 msgstr "Appel terminé"
 
-#: core/videoconference/videoconferenceinfo.cpp:241
+#: core/videoconference/videoconferenceinfo.cpp:248
 #, kde-format
 msgid "Waiting for answer"
 msgstr "En attente d'une réponse"
 
-#: core/videoconference/videoconferenceinfo.cpp:243
+#: core/videoconference/videoconferenceinfo.cpp:250
 #, kde-format
 msgid "Call ongoing"
 msgstr "Appel en cours"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:52
+#: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
 msgid "InComing Call"
 msgstr "Appel entrant"
 
-#: core/videoconference/videoconferencenotificationjob.cpp:55
+#: core/videoconference/videoconferencenotificationjob.cpp:54
 #, kde-format
 msgid "Accept"
 msgstr "Accepter"
@@ -5805,6 +5805,18 @@ msgstr "Micro activé"
 #, kde-format
 msgid "Micro Off"
 msgstr "Micro désactivé"
+
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:43
+#, fuzzy, kde-format
+#| msgid "Micro On"
+msgid "Micro"
+msgstr "Micro activé"
+
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:44
+#, fuzzy, kde-format
+#| msgid "Camera On"
+msgid "Camera"
+msgstr "Caméra activée"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
