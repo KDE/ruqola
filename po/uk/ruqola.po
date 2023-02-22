@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-21 00:59+0000\n"
-"PO-Revision-Date: 2023-02-18 09:03+0200\n"
+"POT-Creation-Date: 2023-02-22 00:58+0000\n"
+"PO-Revision-Date: 2023-02-21 08:00+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1439,23 +1439,23 @@ msgstr "Адміністратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
-#: core/videoconference/videoconferenceinfo.cpp:242
+#: core/videoconference/videoconferenceinfo.cpp:245
+#: core/videoconference/videoconferenceinfo.cpp:247
 #, kde-format
 msgid "Call was not answered"
 msgstr "На виклик не надано відповіді"
 
-#: core/videoconference/videoconferenceinfo.cpp:244
+#: core/videoconference/videoconferenceinfo.cpp:249
 #, kde-format
 msgid "Call ended"
 msgstr "Виклик завершено"
 
-#: core/videoconference/videoconferenceinfo.cpp:248
+#: core/videoconference/videoconferenceinfo.cpp:253
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Очікуємо на відповідь"
 
-#: core/videoconference/videoconferenceinfo.cpp:250
+#: core/videoconference/videoconferenceinfo.cpp:255
 #, kde-format
 msgid "Call ongoing"
 msgstr "У процесі виклику"
@@ -5790,16 +5790,14 @@ msgid "Micro Off"
 msgstr "Мікрофон вимкнено"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Мікрофон увімкнено"
+msgstr "Мікрофон"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Камеру увімкнено"
+msgstr "Камера"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format

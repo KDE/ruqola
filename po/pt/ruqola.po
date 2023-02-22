@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-21 00:59+0000\n"
+"POT-Creation-Date: 2023-02-22 00:58+0000\n"
 "PO-Revision-Date: 2023-02-15 16:19+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1461,23 +1461,23 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Robot"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
-#: core/videoconference/videoconferenceinfo.cpp:242
+#: core/videoconference/videoconferenceinfo.cpp:245
+#: core/videoconference/videoconferenceinfo.cpp:247
 #, kde-format
 msgid "Call was not answered"
 msgstr "A chamada não foi respondida"
 
-#: core/videoconference/videoconferenceinfo.cpp:244
+#: core/videoconference/videoconferenceinfo.cpp:249
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:248
+#: core/videoconference/videoconferenceinfo.cpp:253
 #, kde-format
 msgid "Waiting for answer"
 msgstr "À espera de uma resposta"
 
-#: core/videoconference/videoconferenceinfo.cpp:250
+#: core/videoconference/videoconferenceinfo.cpp:255
 #, kde-format
 msgid "Call ongoing"
 msgstr "Chamada em curso"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-21 00:59+0000\n"
-"PO-Revision-Date: 2023-02-18 11:19+0100\n"
+"POT-Creation-Date: 2023-02-22 00:58+0000\n"
+"PO-Revision-Date: 2023-02-21 10:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1437,23 +1437,23 @@ msgstr "Administrador"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
-#: core/videoconference/videoconferenceinfo.cpp:242
+#: core/videoconference/videoconferenceinfo.cpp:245
+#: core/videoconference/videoconferenceinfo.cpp:247
 #, kde-format
 msgid "Call was not answered"
 msgstr "La tocada no s'ha contestat"
 
-#: core/videoconference/videoconferenceinfo.cpp:244
+#: core/videoconference/videoconferenceinfo.cpp:249
 #, kde-format
 msgid "Call ended"
 msgstr "Tocada finalitzada"
 
-#: core/videoconference/videoconferenceinfo.cpp:248
+#: core/videoconference/videoconferenceinfo.cpp:253
 #, kde-format
 msgid "Waiting for answer"
 msgstr "En espera de contestació"
 
-#: core/videoconference/videoconferenceinfo.cpp:250
+#: core/videoconference/videoconferenceinfo.cpp:255
 #, kde-format
 msgid "Call ongoing"
 msgstr "Tocada en curs"
@@ -5770,16 +5770,14 @@ msgid "Micro Off"
 msgstr "Micro apagat"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Micro encés"
+msgstr "Micro"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Càmera encesa"
+msgstr "Càmera"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format

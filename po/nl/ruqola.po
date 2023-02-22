@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-21 00:59+0000\n"
-"PO-Revision-Date: 2023-02-18 11:02+0100\n"
+"POT-Creation-Date: 2023-02-22 00:58+0000\n"
+"PO-Revision-Date: 2023-02-21 17:13+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1435,23 +1435,23 @@ msgstr "Systeembeheerder"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:240
-#: core/videoconference/videoconferenceinfo.cpp:242
+#: core/videoconference/videoconferenceinfo.cpp:245
+#: core/videoconference/videoconferenceinfo.cpp:247
 #, kde-format
 msgid "Call was not answered"
 msgstr "Oproep is niet beantwoord"
 
-#: core/videoconference/videoconferenceinfo.cpp:244
+#: core/videoconference/videoconferenceinfo.cpp:249
 #, kde-format
 msgid "Call ended"
 msgstr "Oproep eindigde"
 
-#: core/videoconference/videoconferenceinfo.cpp:248
+#: core/videoconference/videoconferenceinfo.cpp:253
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Wacht op antwoord"
 
-#: core/videoconference/videoconferenceinfo.cpp:250
+#: core/videoconference/videoconferenceinfo.cpp:255
 #, kde-format
 msgid "Call ongoing"
 msgstr "Oproep is gaande"
@@ -5774,16 +5774,14 @@ msgid "Micro Off"
 msgstr "Microfoon uit"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Microfoon aan"
+msgstr "Microfoon"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Camera aan"
+msgstr "Camera"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
