@@ -46,8 +46,12 @@ void LocalGlobalDatabaseTest::shouldStoreIdentifier()
 {
     // GIVEN
     LocalGlobalDatabase globalDataBase;
-    globalDataBase.updateTimeStamp(accountName(), roomName(), 12, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
-    globalDataBase.updateTimeStamp(accountName(), roomNameOther(), 12, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
+    int roomNameValue = 55;
+    globalDataBase.updateTimeStamp(accountName(), roomName(), roomNameValue, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
+    int roomNameOtherValue = 12;
+    globalDataBase.updateTimeStamp(accountName(), roomNameOther(), roomNameOtherValue, LocalGlobalDatabase::TimeStampType::MessageTimeStamp);
 
-    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp), 12);
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomName(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp), roomNameValue);
+
+    QCOMPARE(globalDataBase.timeStamp(accountName(), roomNameOther(), LocalGlobalDatabase::TimeStampType::MessageTimeStamp), roomNameOtherValue);
 }
