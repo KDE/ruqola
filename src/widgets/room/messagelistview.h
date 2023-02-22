@@ -96,6 +96,7 @@ private:
     void slotTextToSpeech(const QModelIndex &index);
 
 private:
+    void addDebugMenu(QMenu &menu, const QModelIndex &index);
     void addSelectedMessageBackgroundAnimation(const QModelIndex &index);
     void createTranslorMenu();
     QPointer<Room> mRoom;

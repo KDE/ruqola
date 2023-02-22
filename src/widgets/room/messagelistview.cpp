@@ -238,12 +238,16 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     }
     const auto messageType = index.data(MessageModel::MessageType).value<Message::MessageType>();
     const bool isSystemMessage = (messageType == Message::System) || (messageType == Message::Information) || (messageType == Message::VideoConference);
+    QMenu menu(this);
     if (isSystemMessage) {
+        if (Ruqola::self()->debug()) {
+            addDebugMenu(menu, index);
+            menu.exec(event->globalPos());
+        }
         return;
     }
     const bool canMarkAsUnread = (index.data(MessageModel::UserId).toString() != mCurrentRocketChatAccount->userId());
 
-    QMenu menu(this);
     auto copyAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Message"), &menu);
     copyAction->setShortcut(QKeySequence::Copy);
     connect(copyAction, &QAction::triggered, this, [=]() {
@@ -492,23 +496,28 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
     menu.addAction(reportMessageAction);
 
     if (Ruqola::self()->debug()) {
-        createSeparator(menu);
-        auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
-        connect(debugMessageAction, &QAction::triggered, this, [=]() {
-            slotDebugMessage(index);
-        });
-        menu.addAction(debugMessageAction);
-        createSeparator(menu);
-        auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
-        connect(debugRoomAction, &QAction::triggered, this, [=]() {
-            // Dump info about room => don't use qCDebug here.
-            qDebug() << " mRoom " << *mRoom;
-        });
-        menu.addAction(debugRoomAction);
+        addDebugMenu(menu, index);
     }
     if (!menu.actions().isEmpty()) {
         menu.exec(event->globalPos());
     }
+}
+
+void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
+{
+    createSeparator(menu);
+    auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
+    connect(debugMessageAction, &QAction::triggered, this, [=]() {
+        slotDebugMessage(index);
+    });
+    menu.addAction(debugMessageAction);
+    createSeparator(menu);
+    auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
+    connect(debugRoomAction, &QAction::triggered, this, [=]() {
+        // Dump info about room => don't use qCDebug here.
+        qDebug() << " mRoom " << *mRoom;
+    });
+    menu.addAction(debugRoomAction);
 }
 
 bool MessageListView::maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index)
