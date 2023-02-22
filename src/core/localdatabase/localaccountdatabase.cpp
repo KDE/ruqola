@@ -39,8 +39,8 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
     if (initializeDataBase(accountName, db)) {
         QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)"), db);
         query.addBindValue(accountName);
-        //        query.addBindValue(room->updatedAt()); // TODO ?
-        //        query.addBindValue(Room::serialize(room)); // TODO use binary ?
+        // Add timestamp
+        // Add Json
         if (!query.exec()) {
             qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
         }

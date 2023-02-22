@@ -87,14 +87,11 @@ qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString 
     }
     const QString identifier = generateIdentifier(accountName, roomName, type);
     QSqlQuery query(QStringLiteral("SELECT timestamp FROM GLOBAL WHERE identifier = \"%1\"").arg(identifier), db);
-    if (!query.exec()) {
-        qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't extract identifier from GLOBAL table" << db.databaseName() << query.lastError();
+    qint64 value = -1;
+    // We have one element
+    if (query.first()) {
+        value = query.value(0).toLongLong();
     }
-
-    int i = query.boundValue(0).toInt();
-    qDebug() << " i " << i << " ddd " << query.boundValues();
-
-    // TODO
 #endif
-    return {};
+    return value;
 }
