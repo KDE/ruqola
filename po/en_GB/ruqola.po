@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-22 00:58+0000\n"
+"POT-Creation-Date: 2023-02-23 00:58+0000\n"
 "PO-Revision-Date: 2022-12-31 19:25+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -5622,7 +5622,7 @@ msgid "Mark As Unread"
 msgstr "Mark As Unread"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Set as Favourite"
@@ -5950,7 +5950,7 @@ msgid "Channel Info about '%1'"
 msgstr "Channel Info about '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Delete"
 msgstr "Delete"
@@ -6773,7 +6773,7 @@ msgstr "Open Discussion"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:485
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6781,7 +6781,7 @@ msgstr "Speak Text"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7376,13 +7376,13 @@ msgid "Notification"
 msgstr "Notification"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:470
 #, kde-format
 msgid "Go to Message"
 msgstr "Go to Message"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:247
+#: widgets/room/messagelistview.cpp:251
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7662,100 +7662,100 @@ msgstr ""
 msgid "Room is Empty."
 msgstr "Room is Empty."
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Unpin Message"
 msgstr "Unpin Message"
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Pin Message"
 msgstr "Pin Message"
 
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Remove as Favourite"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Mark Message As Unread"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Show Full Thread"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Edit"
 msgstr "Edit"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Quote"
 msgstr "Quote"
 
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copy Link To Message"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Unfollow Message"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Follow Message"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:332
 #, kde-format
 msgid "Copy URL"
 msgstr "Copy URL"
 
-#: widgets/room/messagelistview.cpp:336
+#: widgets/room/messagelistview.cpp:340
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Start a Discussion"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Reply in Thread"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Show Original Message"
 msgstr "Show Original Message"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Translate Message"
 msgstr "Translate Message"
 
-#: widgets/room/messagelistview.cpp:488
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgid "Report Message"
 msgstr "Report Message"
 
-#: widgets/room/messagelistview.cpp:649
+#: widgets/room/messagelistview.cpp:658
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Do you want to delete this message?"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:659
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Delete Message"
 
-#: widgets/room/messagelistview.cpp:790
+#: widgets/room/messagelistview.cpp:799
 #, kde-format
 msgid "Translator Error"
 msgstr "Translator Error"

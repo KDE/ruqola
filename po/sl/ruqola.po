@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-22 00:58+0000\n"
-"PO-Revision-Date: 2023-02-21 09:52+0100\n"
+"POT-Creation-Date: 2023-02-23 00:58+0000\n"
+"PO-Revision-Date: 2023-02-22 09:07+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -5626,7 +5626,7 @@ msgid "Mark As Unread"
 msgstr "Označi kot neprebrano"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Nastavi kot priljubljeno"
@@ -5950,7 +5950,7 @@ msgid "Channel Info about '%1'"
 msgstr "Podatki o kanalu »%1«"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Delete"
 msgstr "Izbriši"
@@ -6782,7 +6782,7 @@ msgstr "Odpri razpravo"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:485
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6790,7 +6790,7 @@ msgstr "Govori besedilo"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7391,13 +7391,13 @@ msgid "Notification"
 msgstr "Obvestilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:470
 #, kde-format
 msgid "Go to Message"
 msgstr "Sporočilo"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:247
+#: widgets/room/messagelistview.cpp:251
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7680,100 +7680,100 @@ msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
 msgid "Room is Empty."
 msgstr "Soba je prazna."
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Unpin Message"
 msgstr "Odpni sporočilo"
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Pin Message"
 msgstr "Pripni sporočilo"
 
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Odstrani iz priljubljenih"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Označi sporočilo kot neprebrano"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Pokaži polno nit"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Quote"
 msgstr "Citiraj"
 
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Kopiraj povezavo v sporočilo"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Ne sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Sledi sporočilu"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:332
 #, kde-format
 msgid "Copy URL"
 msgstr "Kopiraj URL"
 
-#: widgets/room/messagelistview.cpp:336
+#: widgets/room/messagelistview.cpp:340
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Začni razpravo"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Odgovori v niti"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Show Original Message"
 msgstr "Pokaži izvirno sporočilo"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Translate Message"
 msgstr "Prevedi sporočilo"
 
-#: widgets/room/messagelistview.cpp:488
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgid "Report Message"
 msgstr "Sporočilo s poročilom"
 
-#: widgets/room/messagelistview.cpp:649
+#: widgets/room/messagelistview.cpp:658
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Ali želite izbrisati to sporočilo?"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:659
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:790
+#: widgets/room/messagelistview.cpp:799
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-22 00:58+0000\n"
+"POT-Creation-Date: 2023-02-23 00:58+0000\n"
 "PO-Revision-Date: 2023-02-21 10:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -5654,7 +5654,7 @@ msgid "Mark As Unread"
 msgstr "Marca com a sense llegir"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Estableix com a preferit"
@@ -5976,7 +5976,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informació del canal quant a «%1»"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:271
+#: widgets/room/messagelistview.cpp:275
 #, kde-format
 msgid "Delete"
 msgstr "Suprimeix"
@@ -6800,7 +6800,7 @@ msgstr "Obre un debat"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:481
+#: widgets/room/messagelistview.cpp:485
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6808,7 +6808,7 @@ msgstr "Pronuncia el text"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:277
+#: widgets/room/messagelistview.cpp:281
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7407,13 +7407,13 @@ msgid "Notification"
 msgstr "Notificació"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:466
+#: widgets/room/messagelistview.cpp:470
 #, kde-format
 msgid "Go to Message"
 msgstr "Ves al missatge"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:247
+#: widgets/room/messagelistview.cpp:251
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7692,100 +7692,100 @@ msgstr "El servidor no ha autoritzat aquest fitxer (tipus MIME no vàlid)"
 msgid "Room is Empty."
 msgstr "La sala està buida."
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Unpin Message"
 msgstr "No fixis el missatge"
 
-#: widgets/room/messagelistview.cpp:255
+#: widgets/room/messagelistview.cpp:259
 #, kde-format
 msgid "Pin Message"
 msgstr "Fixa el missatge"
 
-#: widgets/room/messagelistview.cpp:264
+#: widgets/room/messagelistview.cpp:268
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Elimina com a preferit"
 
-#: widgets/room/messagelistview.cpp:282
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Marca el missatge com a no llegit"
 
-#: widgets/room/messagelistview.cpp:287
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Mostra el fil sencer"
 
-#: widgets/room/messagelistview.cpp:292
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: widgets/room/messagelistview.cpp:297
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Quote"
 msgstr "Cita"
 
-#: widgets/room/messagelistview.cpp:302
+#: widgets/room/messagelistview.cpp:306
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copia l'enllaç al missatge"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Deixa de seguix el missatge"
 
-#: widgets/room/messagelistview.cpp:315
+#: widgets/room/messagelistview.cpp:319
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Segueix un missatge"
 
-#: widgets/room/messagelistview.cpp:328
+#: widgets/room/messagelistview.cpp:332
 #, kde-format
 msgid "Copy URL"
 msgstr "Copia l'URL"
 
-#: widgets/room/messagelistview.cpp:336
+#: widgets/room/messagelistview.cpp:340
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Inicia un debat"
 
-#: widgets/room/messagelistview.cpp:343
+#: widgets/room/messagelistview.cpp:347
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Resposta al fil"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Show Original Message"
 msgstr "Mostra el missatge original"
 
-#: widgets/room/messagelistview.cpp:403
+#: widgets/room/messagelistview.cpp:407
 #, kde-format
 msgid "Translate Message"
 msgstr "Tradueix el missatge"
 
-#: widgets/room/messagelistview.cpp:488
+#: widgets/room/messagelistview.cpp:492
 #, kde-format
 msgid "Report Message"
 msgstr "Informa del missatge"
 
-#: widgets/room/messagelistview.cpp:649
+#: widgets/room/messagelistview.cpp:658
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Voleu suprimir aquest missatge?"
 
-#: widgets/room/messagelistview.cpp:650
+#: widgets/room/messagelistview.cpp:659
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Supressió de missatge"
 
-#: widgets/room/messagelistview.cpp:790
+#: widgets/room/messagelistview.cpp:799
 #, kde-format
 msgid "Translator Error"
 msgstr "Error del traductor"
