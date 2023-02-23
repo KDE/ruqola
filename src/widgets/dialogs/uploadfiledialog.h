@@ -18,7 +18,6 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileDialog : public QDialog
 public:
     struct UploadFileInfo {
         QString description;
-        QString message;
         QUrl fileUrl;
         bool deleteTemporaryFile = false;
         Q_REQUIRED_RESULT bool isValid() const
