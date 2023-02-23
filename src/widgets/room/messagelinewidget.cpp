@@ -407,7 +407,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
     } else if (mimeData->hasImage()) {
         QTemporaryFile tempFile(QDir::tempPath() + QLatin1String("/XXXXXX.png"));
         if (tempFile.open()) {
-            auto image = mimeData->imageData().value<QImage>();
+            const auto image = mimeData->imageData().value<QImage>();
             QImageWriter writer(&tempFile, "PNG");
             if (writer.write(image)) {
                 const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
