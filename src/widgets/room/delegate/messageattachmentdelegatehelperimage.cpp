@@ -6,7 +6,6 @@
 
 #include "messageattachmentdelegatehelperimage.h"
 #include "common/delegatepaintutil.h"
-#include "common/delegateutil.h"
 #include "dialogs/showimagedialog.h"
 #include "messageimagedownloadjob.h"
 #include "rocketchataccount.h"
