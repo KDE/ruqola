@@ -63,6 +63,20 @@ VideoConferenceInfo::VideoConferenceType VideoConferenceInfo::convertTypeToEnum(
     return VideoConferenceInfo::VideoConferenceType::Unknown;
 }
 
+QString VideoConferenceInfo::convertEnumToString(const VideoConferenceInfo &info)
+{
+    switch (info.conferenceType()) {
+    case VideoConferenceInfo::VideoConferenceType::Conference:
+        return QLatin1String("videoconference");
+    case VideoConferenceInfo::VideoConferenceType::Direct:
+        return QLatin1String("direct");
+    case VideoConferenceInfo::VideoConferenceType::Unknown:
+        return {};
+    }
+    qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "VideoConferenceInfo::convertEnumToString invalid ";
+    return {};
+}
+
 QString VideoConferenceInfo::blockId() const
 {
     return mBlockId;
@@ -97,6 +111,7 @@ QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfI
     obj[QLatin1String("rid")] = videoConfInfo.mRoomId;
     obj[QLatin1String("providerName")] = videoConfInfo.mProviderName;
     obj[QLatin1String("messageId")] = videoConfInfo.mMessageId;
+    obj[QLatin1String("type")] = VideoConferenceInfo::convertEnumToString(videoConfInfo);
     // TODO
     return obj;
 }
@@ -110,6 +125,8 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mRoomId = o[QLatin1String("rid")].toString();
     info.mProviderName = o[QLatin1String("providerName")].toString();
     info.mMessageId = o[QLatin1String("messageId")].toString();
+
+    info.mConferenceType = info.convertTypeToEnum(o[QLatin1String("type")].toString());
     // Add user
     // TODO
     return info;

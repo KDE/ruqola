@@ -73,6 +73,8 @@ public:
     static QJsonObject serialize(const VideoConferenceInfo &videoConfInfo);
     static VideoConferenceInfo deserialize(const QJsonObject &o);
 
+    Q_REQUIRED_RESULT static QString convertEnumToString(const VideoConferenceInfo &info);
+
 private:
     Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
