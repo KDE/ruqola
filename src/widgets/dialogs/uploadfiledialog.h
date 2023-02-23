@@ -35,6 +35,8 @@ public:
 
     void setAuthorizedMediaTypes(const QStringList &mediaTypes);
 
+    void setPixmap(const QPixmap &pix);
+
 private:
     void readConfig();
     void writeConfig();

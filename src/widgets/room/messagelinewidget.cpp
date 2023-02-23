@@ -26,6 +26,7 @@
 #include <QImageWriter>
 #include <QMenu>
 #include <QMimeData>
+#include <QScreen>
 #include <QTemporaryFile>
 #include <QToolButton>
 #include <QWidgetAction>
@@ -387,9 +388,10 @@ void MessageLineWidget::setRoomId(const QString &roomId)
 
 bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
 {
-    auto uploadFile = [this](const QUrl &url) {
+    auto uploadFile = [this](const QUrl &url, const QPixmap &pix) {
         QPointer<UploadFileDialog> dlg = new UploadFileDialog(this);
         dlg->setFileUrl(url);
+        dlg->setPixmap(pix);
         if (dlg->exec()) {
             const UploadFileDialog::UploadFileInfo uploadFileInfo = dlg->fileInfo();
             sendFile(uploadFileInfo);
@@ -400,7 +402,7 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
         const QList<QUrl> urls = mimeData->urls();
         for (const QUrl &url : urls) {
             if (url.isLocalFile()) {
-                uploadFile(url);
+                uploadFile(url, QPixmap());
             }
         }
         return true;
@@ -412,7 +414,8 @@ bool MessageLineWidget::handleMimeData(const QMimeData *mimeData)
             if (writer.write(image)) {
                 const QUrl url = QUrl::fromLocalFile(tempFile.fileName());
                 tempFile.close();
-                uploadFile(url);
+                const QSize pixmapAvatarSize = QSize(120, 120) * screen()->devicePixelRatio();
+                uploadFile(url, QPixmap::fromImage(image).scaled(pixmapAvatarSize, Qt::KeepAspectRatio));
                 return true;
             }
         }

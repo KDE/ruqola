@@ -8,8 +8,10 @@
 #include "dialogs/uploadfilewidget.h"
 #include <KUrlRequester>
 #include <QFormLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(UploadFileWidgetTest)
 
 UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
@@ -20,6 +22,11 @@ UploadFileWidgetTest::UploadFileWidgetTest(QObject *parent)
 void UploadFileWidgetTest::shouldHaveDefaultValues()
 {
     UploadFileWidget w;
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
     auto layout = w.findChild<QFormLayout *>(QStringLiteral("layout"));
     QVERIFY(layout);
     QCOMPARE(layout->contentsMargins(), QMargins{});
@@ -30,6 +37,15 @@ void UploadFileWidgetTest::shouldHaveDefaultValues()
 
     auto mSelectFile = w.findChild<KUrlRequester *>(QStringLiteral("mSelectFile"));
     QVERIFY(mSelectFile);
+
+    auto mImagePreview = w.findChild<QLabel *>(QStringLiteral("mImagePreview"));
+    QVERIFY(mImagePreview);
+    QVERIFY(!mImagePreview->isVisible());
+
+    auto mFileLabel = w.findChild<QLabel *>(QStringLiteral("mFileLabel"));
+    QVERIFY(mFileLabel);
+    QVERIFY(!mFileLabel->isVisible());
+    QVERIFY(!mFileLabel->text().isEmpty());
 }
 
 void UploadFileWidgetTest::shouldReturnEmptyResult()

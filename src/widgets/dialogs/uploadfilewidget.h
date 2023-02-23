@@ -10,6 +10,7 @@
 #include <QWidget>
 class QLineEdit;
 class KUrlRequester;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT UploadFileWidget : public QWidget
 {
     Q_OBJECT
@@ -20,6 +21,7 @@ public:
     Q_REQUIRED_RESULT QString description() const;
     Q_REQUIRED_RESULT QUrl fileUrl() const;
     void setFileUrl(const QUrl &url);
+    void setPixmap(const QPixmap &pix);
     void setAuthorizedMediaTypes(const QStringList &mediaTypes);
 
 Q_SIGNALS:
@@ -28,4 +30,6 @@ Q_SIGNALS:
 private:
     QLineEdit *const mDescription;
     KUrlRequester *const mSelectFile;
+    QLabel *const mImagePreview;
+    QLabel *const mFileLabel;
 };
