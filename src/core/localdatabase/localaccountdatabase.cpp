@@ -62,3 +62,45 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     }
 #endif
 }
+
+qint64 LocalAccountDatabase::timeStamp(const QString &accountName)
+{
+#if HAVE_DATABASE_SUPPORT
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, db)) {
+        return -1;
+    }
+    QSqlQuery query(QStringLiteral("SELECT timestamp FROM ACCOUNT WHERE accountName = \"%1\"").arg(accountName), db);
+    qint64 value = -1;
+    // We have one element
+    if (query.first()) {
+        value = query.value(0).toLongLong();
+    }
+    return value;
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(type)
+    return -1;
+#endif
+}
+
+QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
+{
+#if HAVE_DATABASE_SUPPORT
+    QSqlDatabase db;
+    if (!checkDataBase(accountName, db)) {
+        return {};
+    }
+    QSqlQuery query(QStringLiteral("SELECT json FROM GLOBAL WHERE accountName = \"%1\"").arg(accountName), db);
+    QByteArray value;
+    // We have one element
+    if (query.first()) {
+        value = query.value(0).toByteArray();
+    }
+    return value;
+#else
+    Q_UNUSED(accountName)
+    return {};
+#endif
+}
