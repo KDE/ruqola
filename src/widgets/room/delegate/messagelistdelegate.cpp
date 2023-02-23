@@ -305,11 +305,18 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
         menu.addSeparator();
         menu.addAction(userInfoAction);
-        if (!menu.actions().isEmpty()) {
-            menu.exec(info.globalPos);
-        }
+        menu.exec(info.globalPos);
         return true;
     }
+    const auto attachments = message->attachments();
+    int i = 0;
+    for (const MessageAttachment &msgAttach : attachments) {
+        MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
+        if (helper->contextMenu(info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option)) {
+            return true;
+        }
+    }
+
     return false;
 }
 

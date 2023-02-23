@@ -267,3 +267,15 @@ QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &o
     const QPoint relativePos = adaptMousePosition(pos, msgAttach, attachmentsRect, option);
     return document->documentLayout()->anchorAt(relativePos);
 }
+
+bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
+                                                      const MessageAttachment &msgAttach,
+                                                      QRect attachmentsRect,
+                                                      const QStyleOptionViewItem &option)
+{
+    Q_UNUSED(msgAttach);
+    Q_UNUSED(attachmentsRect);
+    Q_UNUSED(pos);
+    Q_UNUSED(option);
+    return false;
+}

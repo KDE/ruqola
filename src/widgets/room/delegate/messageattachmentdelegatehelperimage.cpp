@@ -15,6 +15,10 @@
 
 #include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
+#include <QApplication>
+#include <QClipboard>
+#include <QMenu>
+#include <QMimeData>
 #include <QMouseEvent>
 #include <QMovie>
 #include <QPainter>
@@ -223,4 +227,23 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
     const QPoint relativePos = pos - attachmentsRect.topLeft() - QPoint(0, layout.imageSize.height() + layout.titleSize.height() + DelegatePaintUtil::margin());
     return relativePos;
+}
+
+bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
+                                                       const MessageAttachment &msgAttach,
+                                                       QRect attachmentsRect,
+                                                       const QStyleOptionViewItem &option)
+{
+    QMenu menu;
+    auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("Copy Image to Clipboard"), &menu);
+    connect(userInfoAction, &QAction::triggered, this, [this, msgAttach, option, attachmentsRect]() {
+        const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
+        auto data = new QMimeData();
+        data->setImageData(layout.pixmap.toImage());
+        data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
+        QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
+    });
+    menu.addAction(userInfoAction);
+    menu.exec(pos);
+    return true;
 }
