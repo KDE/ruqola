@@ -235,15 +235,15 @@ bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
                                                        const QStyleOptionViewItem &option)
 {
     QMenu menu;
-    auto userInfoAction = new QAction(QIcon::fromTheme(QStringLiteral("documentinfo")), i18n("Copy Image to Clipboard"), &menu);
-    connect(userInfoAction, &QAction::triggered, this, [this, msgAttach, option, attachmentsRect]() {
+    auto copyImageAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Image to Clipboard"), &menu);
+    connect(copyImageAction, &QAction::triggered, this, [this, msgAttach, option, attachmentsRect]() {
         const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
         auto data = new QMimeData();
         data->setImageData(layout.pixmap.toImage());
         data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
         QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
     });
-    menu.addAction(userInfoAction);
+    menu.addAction(copyImageAction);
     menu.exec(pos);
     return true;
 }

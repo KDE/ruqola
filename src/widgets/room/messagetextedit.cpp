@@ -16,6 +16,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QAbstractTextDocumentLayout>
+#include <QClipboard>
 #include <QKeyEvent>
 #include <QMenu>
 #include <QMimeData>
@@ -166,7 +167,17 @@ void MessageTextEdit::changeText(const QString &newText, int cursorPosition)
 QMenu *MessageTextEdit::mousePopupMenu()
 {
     QMenu *menu = KTextEdit::mousePopupMenu();
+
+    QClipboard *clip = QApplication::clipboard();
+    const QMimeData *mimeData = clip->mimeData();
+    if (mimeData->hasImage()) {
+        menu->addSeparator();
+        menu->addAction(i18n("Paste Image"), this, [this, mimeData]() {
+            Q_EMIT handleMimeData(mimeData);
+        });
+    }
     menu->addSeparator();
+
     auto formatMenu = new QMenu(menu);
     formatMenu->setTitle(i18n("Change Text Format"));
     menu->addMenu(formatMenu);
