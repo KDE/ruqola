@@ -670,7 +670,9 @@ void MessageListView::slotTextToSpeech(const QModelIndex &index)
     if (message.isEmpty()) {
         message = index.data(MessageModel::OriginalMessage).toString();
     }
-    Q_EMIT textToSpeech(message);
+    if (!message.isEmpty()) {
+        Q_EMIT textToSpeech(message);
+    }
 }
 
 void MessageListView::slotReportMessage(const QModelIndex &index)
@@ -780,26 +782,28 @@ void MessageListView::slotTranslate(const QString &from, const QString &to, cons
 #if HAVE_TEXT_TRANSLATOR
     if (modelIndex.isValid()) {
         const QString originalMessage = modelIndex.data(MessageModel::OriginalMessage).toString();
-        // qDebug() << " originalMessage " << originalMessage;
-        // qDebug() << " from " << from << " to " << to;
-        TranslateTextJob::TranslateInfo info;
-        info.from = from;
-        info.to = to;
-        info.inputText = originalMessage;
-        auto job = new TranslateTextJob(this);
-        job->setInfo(info);
-        connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex, job](const QString &str) {
-            auto messageModel = qobject_cast<MessageModel *>(model());
-            // qDebug() << " modelIndex " << modelIndex;
-            messageModel->setData(modelIndex, str, MessageModel::LocalTranslation);
-            // qDebug() << " str" << str;
-            job->deleteLater();
-        });
-        connect(job, &TranslateTextJob::translateFailed, this, [this, job](bool, const QString &errorMessage) {
-            KMessageBox::error(this, errorMessage, i18n("Translator Error"));
-            job->deleteLater();
-        });
-        job->translate();
+        if (!originalMessage.isEmpty()) {
+            // qDebug() << " originalMessage " << originalMessage;
+            // qDebug() << " from " << from << " to " << to;
+            TranslateTextJob::TranslateInfo info;
+            info.from = from;
+            info.to = to;
+            info.inputText = originalMessage;
+            auto job = new TranslateTextJob(this);
+            job->setInfo(info);
+            connect(job, &TranslateTextJob::translateDone, this, [this, modelIndex, job](const QString &str) {
+                auto messageModel = qobject_cast<MessageModel *>(model());
+                // qDebug() << " modelIndex " << modelIndex;
+                messageModel->setData(modelIndex, str, MessageModel::LocalTranslation);
+                // qDebug() << " str" << str;
+                job->deleteLater();
+            });
+            connect(job, &TranslateTextJob::translateFailed, this, [this, job](bool, const QString &errorMessage) {
+                KMessageBox::error(this, errorMessage, i18n("Translator Error"));
+                job->deleteLater();
+            });
+            job->translate();
+        }
     }
 #else
     Q_UNUSED(from)

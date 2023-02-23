@@ -107,7 +107,9 @@ QString ServerErrorInfoMessageHistoryListView::selectedText() const
 void ServerErrorInfoMessageHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);
-    Q_EMIT textToSpeech(messageText);
+    if (!messageText.isEmpty()) {
+        Q_EMIT textToSpeech(messageText);
+    }
 }
 
 QString ServerErrorInfoMessageHistoryListView::selectedText(const QModelIndex &index)

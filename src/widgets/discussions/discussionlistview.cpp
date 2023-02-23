@@ -85,7 +85,9 @@ void DiscussionListView::slotTextToSpeech(const QModelIndex &index)
     if (message.isEmpty()) {
         message = index.data(DiscussionsModel::LastMessage).toString();
     }
-    Q_EMIT textToSpeech(message);
+    if (!message.isEmpty()) {
+        Q_EMIT textToSpeech(message);
+    }
 }
 
 void DiscussionListView::slotSelectAll(const QModelIndex &index)

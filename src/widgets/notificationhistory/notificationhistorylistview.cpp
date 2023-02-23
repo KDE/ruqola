@@ -109,7 +109,9 @@ void NotificationHistoryListView::slotCustomContextMenuRequested(const QPoint &p
 void NotificationHistoryListView::slotTextToSpeech(const QModelIndex &index)
 {
     const QString messageText = selectedText(index);
-    Q_EMIT textToSpeech(messageText);
+    if (!messageText.isEmpty()) {
+        Q_EMIT textToSpeech(messageText);
+    }
 }
 
 QString NotificationHistoryListView::selectedText(const QModelIndex &index)
