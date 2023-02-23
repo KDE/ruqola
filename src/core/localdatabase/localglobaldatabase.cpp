@@ -92,6 +92,11 @@ qint64 LocalGlobalDatabase::timeStamp(const QString &accountName, const QString 
     if (query.first()) {
         value = query.value(0).toLongLong();
     }
-#endif
     return value;
+#else
+    Q_UNUSED(accountName)
+    Q_UNUSED(roomName)
+    Q_UNUSED(type)
+    return -1;
+#endif
 }
