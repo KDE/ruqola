@@ -230,12 +230,24 @@ void User::setBio(const QString &newBio)
 
 QJsonObject User::serialize(const User &user)
 {
+    QJsonObject o;
+    o[QLatin1String("identifier")] = user.userId();
+    o[QLatin1String("name")] = user.name();
     // TODO
-    return {};
+    return o;
 }
 
 User User::deserialize(const QJsonObject &o)
 {
+    User user;
+    user.setUserId(o.value(QLatin1String("identifier")).toString());
+    user.setName(o.value(QLatin1String("name")).toString());
+    user.setStatus(Utils::presenceStatusFromString(o.value(QLatin1String("status")).toString()));
+    user.setUserName(o.value(QLatin1String("username")).toString());
+    user.setStatusText(o.value(QLatin1String("statusText")).toString());
+    user.setUtcOffset(o.value(QLatin1String("utcOffset")).toDouble());
+    user.setActive(o.value(QLatin1String("active")).toBool(true)); // By default it's active
+    user.setBio(o.value(QLatin1String("bio")).toString());
     // TODO
     return {};
 }

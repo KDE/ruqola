@@ -67,9 +67,9 @@ QString VideoConferenceInfo::convertEnumToString(const VideoConferenceInfo &info
 {
     switch (info.conferenceType()) {
     case VideoConferenceInfo::VideoConferenceType::Conference:
-        return QLatin1String("videoconference");
+        return QStringLiteral("videoconference");
     case VideoConferenceInfo::VideoConferenceType::Direct:
-        return QLatin1String("direct");
+        return QStringLiteral("direct");
     case VideoConferenceInfo::VideoConferenceType::Unknown:
         return {};
     }
@@ -112,7 +112,14 @@ QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfI
     obj[QLatin1String("providerName")] = videoConfInfo.mProviderName;
     obj[QLatin1String("messageId")] = videoConfInfo.mMessageId;
     obj[QLatin1String("type")] = VideoConferenceInfo::convertEnumToString(videoConfInfo);
-    // TODO
+    // TODO createdAt/endedAt ?
+    if (!videoConfInfo.mUsers.isEmpty()) {
+        QJsonArray userArray;
+        for (const User &user : videoConfInfo.mUsers) {
+            userArray.append(User::serialize(user));
+        }
+        obj[QLatin1String("users")] = userArray;
+    }
     return obj;
 }
 
@@ -125,10 +132,23 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mRoomId = o[QLatin1String("rid")].toString();
     info.mProviderName = o[QLatin1String("providerName")].toString();
     info.mMessageId = o[QLatin1String("messageId")].toString();
+    // TODO createdAt/endedAt ?
 
     info.mConferenceType = info.convertTypeToEnum(o[QLatin1String("type")].toString());
-    // Add user
-    // TODO
+    const QJsonArray usersArray = o[QLatin1String("users")].toArray();
+    info.mUsers.reserve(usersArray.count());
+    for (const QJsonValue &current : usersArray) {
+        if (current.type() == QJsonValue::Object) {
+            const QJsonObject userObject = current.toObject();
+            User m;
+            m.parseUserRestApi(userObject, {});
+            if (m.isValid()) {
+                info.mUsers.append(std::move(m));
+            }
+        } else {
+            qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << "Problem when parsing Users" << current;
+        }
+    }
     return info;
 }
 
