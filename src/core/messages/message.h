@@ -165,9 +165,6 @@ public:
     Q_REQUIRED_RESULT bool showTranslatedMessage() const;
     void setShowTranslatedMessage(bool showTranslatedMessage);
 
-    Q_REQUIRED_RESULT bool showAttachment() const;
-    void setShowAttachment(bool showAttachment);
-
     Q_REQUIRED_RESULT QString name() const;
     void setName(const QString &name);
 
