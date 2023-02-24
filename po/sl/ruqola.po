@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-23 00:58+0000\n"
-"PO-Revision-Date: 2023-02-22 09:07+0100\n"
+"POT-Creation-Date: 2023-02-24 00:58+0000\n"
+"PO-Revision-Date: 2023-02-23 08:55+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1436,23 +1436,23 @@ msgstr "Skrbnik"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:245
-#: core/videoconference/videoconferenceinfo.cpp:247
+#: core/videoconference/videoconferenceinfo.cpp:282
+#: core/videoconference/videoconferenceinfo.cpp:284
 #, kde-format
 msgid "Call was not answered"
 msgstr "Klic ni bil odgovorjen"
 
-#: core/videoconference/videoconferenceinfo.cpp:249
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call ended"
 msgstr "Klic končan"
 
-#: core/videoconference/videoconferenceinfo.cpp:253
+#: core/videoconference/videoconferenceinfo.cpp:290
 #, kde-format
 msgid "Waiting for answer"
 msgstr "Čakajoč na odgovor"
 
-#: core/videoconference/videoconferenceinfo.cpp:255
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
 msgid "Call ongoing"
 msgstr "Klic v teku"
@@ -2330,7 +2330,7 @@ msgstr "Vzdevk:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:28
+#: widgets/dialogs/uploadfilewidget.cpp:20
 #, kde-format
 msgid "File:"
 msgstr "Datoteka:"
@@ -2609,7 +2609,7 @@ msgstr "Uporabi dvostopenjsko preverjanje pristnosti"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/uploadfilewidget.cpp:25
+#: widgets/dialogs/uploadfilewidget.cpp:37
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -6625,6 +6625,7 @@ msgid "Display Image"
 msgstr "Pokaži sliko"
 
 #: widgets/dialogs/showimagedialog.cpp:41
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:238
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr "Kopiraj sliko na odložišče"
@@ -6713,6 +6714,14 @@ msgstr "Video: %1"
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Naloži datoteko"
+
+#: widgets/dialogs/uploadfiledialog.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Download Image"
+msgctxt "@title:window"
+msgid "Upload Image"
+msgstr "Prenesi sliko"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -7612,7 +7621,7 @@ msgstr "Podatki o uporabniku"
 msgid "Start a Private Conversation"
 msgstr "Začni zasebni pogovor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:462
+#: widgets/room/delegate/messagelistdelegate.cpp:469
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
@@ -7621,7 +7630,7 @@ msgstr[1] "%1 odgovora"
 msgstr[2] "%1 odgovori"
 msgstr[3] "%1 odgovorov"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:476
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
@@ -7630,47 +7639,47 @@ msgstr[1] "%1 sporočili"
 msgstr[2] "%1 sporočila"
 msgstr[3] "%1 sporočilo"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:476
 #, kde-format
 msgid "No message yet"
 msgstr "Nobenega sporočila še ni"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:696
 #, kde-format
 msgid "Following"
 msgstr "Sledite"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:693
+#: widgets/room/delegate/messagelistdelegate.cpp:700
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Sporočilo pripeto"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:704
 #, kde-format
 msgid "Message has been starred"
 msgstr "Sporočilo označeno z zvezdico"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, kde-format
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Ali želite pretvoriti to obširno besedilo kot prilogo?"
 
-#: widgets/room/messagelinewidget.cpp:105
+#: widgets/room/messagelinewidget.cpp:106
 #, kde-format
 msgid "Message Too Big"
 msgstr "Sporočilo je preveliko"
 
-#: widgets/room/messagelinewidget.cpp:294
+#: widgets/room/messagelinewidget.cpp:295
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Izbrana datoteka je prevelika (največja velikost je %1)"
 
-#: widgets/room/messagelinewidget.cpp:294
+#: widgets/room/messagelinewidget.cpp:295
 #, kde-format
 msgid "File upload"
 msgstr "Nalaganje datoteke"
 
-#: widgets/room/messagelinewidget.cpp:299
+#: widgets/room/messagelinewidget.cpp:300
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
@@ -7773,37 +7782,43 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Izbriši sporočilo"
 
-#: widgets/room/messagelistview.cpp:799
+#: widgets/room/messagelistview.cpp:802
 #, kde-format
 msgid "Translator Error"
 msgstr "Napaka prevajalca"
 
-#: widgets/room/messagetextedit.cpp:171
+#: widgets/room/messagetextedit.cpp:175
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Paste Image"
+msgstr "Shrani sliko"
+
+#: widgets/room/messagetextedit.cpp:182
 #, kde-format
 msgid "Change Text Format"
 msgstr "Spremeni obliko besedila"
 
-#: widgets/room/messagetextedit.cpp:173
+#: widgets/room/messagetextedit.cpp:184
 #, kde-format
 msgid "Bold"
 msgstr "Krepko"
 
-#: widgets/room/messagetextedit.cpp:174
+#: widgets/room/messagetextedit.cpp:185
 #, kde-format
 msgid "Italic"
 msgstr "Ležeče"
 
-#: widgets/room/messagetextedit.cpp:175
+#: widgets/room/messagetextedit.cpp:186
 #, kde-format
 msgid "Strike-out"
 msgstr "Prečrtano"
 
-#: widgets/room/messagetextedit.cpp:177
+#: widgets/room/messagetextedit.cpp:188
 #, kde-format
 msgid "Code Block"
 msgstr "Blok kode"
 
-#: widgets/room/messagetextedit.cpp:179
+#: widgets/room/messagetextedit.cpp:190
 #, kde-format
 msgid "Markdown Url"
 msgstr "Url markdowna"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-23 00:58+0000\n"
+"POT-Creation-Date: 2023-02-24 00:58+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -1505,24 +1505,24 @@ msgstr "Ylläpitäjä"
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:245
-#: core/videoconference/videoconferenceinfo.cpp:247
+#: core/videoconference/videoconferenceinfo.cpp:282
+#: core/videoconference/videoconferenceinfo.cpp:284
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:249
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:253
+#: core/videoconference/videoconferenceinfo.cpp:290
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "Vastauksesi:"
 
-#: core/videoconference/videoconferenceinfo.cpp:255
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
@@ -2419,7 +2419,7 @@ msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:28
+#: widgets/dialogs/uploadfilewidget.cpp:20
 #, kde-format
 msgid "File:"
 msgstr "Tiedosto:"
@@ -2731,7 +2731,7 @@ msgstr "Kahden tekijän todennus"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/uploadfilewidget.cpp:25
+#: widgets/dialogs/uploadfilewidget.cpp:37
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
@@ -6839,6 +6839,7 @@ msgid "Display Image"
 msgstr "Näytä kuva"
 
 #: widgets/dialogs/showimagedialog.cpp:41
+#: widgets/room/delegate/messageattachmentdelegatehelperimage.cpp:238
 #, kde-format
 msgid "Copy Image to Clipboard"
 msgstr ""
@@ -6932,6 +6933,14 @@ msgstr "Video: %1"
 msgctxt "@title:window"
 msgid "Upload File"
 msgstr "Lähetä tiedosto"
+
+#: widgets/dialogs/uploadfiledialog.cpp:84
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Display Image"
+msgctxt "@title:window"
+msgid "Upload Image"
+msgstr "Näytä kuva"
 
 #: widgets/directory/directorydialog.cpp:27
 #, fuzzy, kde-format
@@ -7850,65 +7859,65 @@ msgstr "Käyttäjän tiedot"
 msgid "Start a Private Conversation"
 msgstr "Aloitus yksityiskeskustelu"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:462
+#: widgets/room/delegate/messagelistdelegate.cpp:469
 #, kde-format
 msgid "1 reply"
 msgid_plural "%1 replies"
 msgstr[0] "1 vastaus"
 msgstr[1] "%1 vastausta"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:476
 #, kde-format
 msgid "1 message"
 msgid_plural "%1 messages"
 msgstr[0] "1 viesti"
 msgstr[1] "%1 viestiä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:469
+#: widgets/room/delegate/messagelistdelegate.cpp:476
 #, kde-format
 msgid "No message yet"
 msgstr "Ei vielä viestejä"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:689
+#: widgets/room/delegate/messagelistdelegate.cpp:696
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:693
+#: widgets/room/delegate/messagelistdelegate.cpp:700
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Viesti kiinnitetty"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:697
+#: widgets/room/delegate/messagelistdelegate.cpp:704
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
 msgstr "Viesti poistettu"
 
-#: widgets/room/messagelinewidget.cpp:104
+#: widgets/room/messagelinewidget.cpp:105
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this attachment?"
 msgid "Do you want to convert this big text as attachment?"
 msgstr "Haluatko poistaa tämän liitteen?"
 
-#: widgets/room/messagelinewidget.cpp:105
+#: widgets/room/messagelinewidget.cpp:106
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Message Too Big"
 msgstr "Viesti"
 
-#: widgets/room/messagelinewidget.cpp:294
+#: widgets/room/messagelinewidget.cpp:295
 #, kde-format
 msgid "File selected is too big (Maximum size %1)"
 msgstr "Valittu tiedosto on liian iso (enimmäiskoko %1)"
 
-#: widgets/room/messagelinewidget.cpp:294
+#: widgets/room/messagelinewidget.cpp:295
 #, kde-format
 msgid "File upload"
 msgstr "Tiedoston lähetys"
 
-#: widgets/room/messagelinewidget.cpp:299
+#: widgets/room/messagelinewidget.cpp:300
 #, kde-format
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
@@ -8017,38 +8026,44 @@ msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
 
-#: widgets/room/messagelistview.cpp:799
+#: widgets/room/messagelistview.cpp:802
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Translator Error"
 msgstr "Käännös"
 
-#: widgets/room/messagetextedit.cpp:171
+#: widgets/room/messagetextedit.cpp:175
+#, fuzzy, kde-format
+#| msgid "Save Image"
+msgid "Paste Image"
+msgstr "Tallenna kuva"
+
+#: widgets/room/messagetextedit.cpp:182
 #, kde-format
 msgid "Change Text Format"
 msgstr "Muuta tekstin muotoa"
 
-#: widgets/room/messagetextedit.cpp:173
+#: widgets/room/messagetextedit.cpp:184
 #, kde-format
 msgid "Bold"
 msgstr "Lihavoitu"
 
-#: widgets/room/messagetextedit.cpp:174
+#: widgets/room/messagetextedit.cpp:185
 #, kde-format
 msgid "Italic"
 msgstr "Kursivoitu"
 
-#: widgets/room/messagetextedit.cpp:175
+#: widgets/room/messagetextedit.cpp:186
 #, kde-format
 msgid "Strike-out"
 msgstr "Yliviivattu"
 
-#: widgets/room/messagetextedit.cpp:177
+#: widgets/room/messagetextedit.cpp:188
 #, kde-format
 msgid "Code Block"
 msgstr "Koodilohko"
 
-#: widgets/room/messagetextedit.cpp:179
+#: widgets/room/messagetextedit.cpp:190
 #, kde-format
 msgid "Markdown Url"
 msgstr ""
