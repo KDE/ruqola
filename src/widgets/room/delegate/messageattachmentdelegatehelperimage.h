@@ -57,8 +57,11 @@ private:
 
     std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
-    Q_REQUIRED_RESULT bool
-    contextMenu(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option) override;
+    Q_REQUIRED_RESULT bool contextMenu(const QPoint &pos,
+                                       const QPoint &globalPos,
+                                       const MessageAttachment &msgAttach,
+                                       QRect attachmentsRect,
+                                       const QStyleOptionViewItem &option) override;
 
 private:
     Q_REQUIRED_RESULT QPoint adaptMousePosition(const QPoint &pos,

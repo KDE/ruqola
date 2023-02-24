@@ -312,7 +312,7 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
     int i = 0;
     for (const MessageAttachment &msgAttach : attachments) {
         MessageAttachmentDelegateHelperBase *helper = attachmentsHelper(msgAttach);
-        if (helper->contextMenu(info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option)) {
+        if (helper->contextMenu(info.pos, info.globalPos, msgAttach, layout.attachmentsRectList.at(i), option)) {
             return true;
         }
     }

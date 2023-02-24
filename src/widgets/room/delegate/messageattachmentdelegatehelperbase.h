@@ -49,7 +49,8 @@ public:
 
     Q_REQUIRED_RESULT QString urlAt(const QStyleOptionViewItem &option, const MessageAttachment &msgAttach, QRect attachmentsRect, QPoint pos);
 
-    virtual bool contextMenu(const QPoint &pos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option);
+    virtual bool
+    contextMenu(const QPoint &pos, const QPoint &globalPos, const MessageAttachment &msgAttach, QRect attachmentsRect, const QStyleOptionViewItem &option);
 
 protected:
     Q_REQUIRED_RESULT virtual QPoint

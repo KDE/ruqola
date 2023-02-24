@@ -230,24 +230,27 @@ QPoint MessageAttachmentDelegateHelperImage::adaptMousePosition(const QPoint &po
 }
 
 bool MessageAttachmentDelegateHelperImage::contextMenu(const QPoint &pos,
+                                                       const QPoint &globalPos,
                                                        const MessageAttachment &msgAttach,
                                                        QRect attachmentsRect,
                                                        const QStyleOptionViewItem &option)
 {
     const ImageLayout layout = layoutImage(msgAttach, option, attachmentsRect.width(), attachmentsRect.height());
     if (layout.isShown) {
-        QMenu menu;
-        auto copyImageAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Image to Clipboard"), &menu);
-        connect(copyImageAction, &QAction::triggered, this, [msgAttach, option, layout]() {
-            auto data = new QMimeData();
-            data->setImageData(layout.pixmap.toImage());
-            data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
-            QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
-        });
-        menu.addAction(copyImageAction);
-        menu.exec(pos);
-        return true;
-    } else {
-        return false;
+        const QRect rectAdjusted = attachmentsRect.adjusted(0, 0, 0, -(layout.titleSize.height() + DelegatePaintUtil::margin()));
+        if (rectAdjusted.contains(pos)) {
+            QMenu menu;
+            auto copyImageAction = new QAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy Image to Clipboard"), &menu);
+            connect(copyImageAction, &QAction::triggered, this, [msgAttach, option, layout]() {
+                auto data = new QMimeData();
+                data->setImageData(layout.pixmap.toImage());
+                data->setData(QStringLiteral("x-kde-force-image-copy"), QByteArray());
+                QApplication::clipboard()->setMimeData(data, QClipboard::Clipboard);
+            });
+            menu.addAction(copyImageAction);
+            menu.exec(globalPos);
+            return true;
+        }
     }
+    return false;
 }

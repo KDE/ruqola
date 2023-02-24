@@ -269,6 +269,7 @@ QString MessageAttachmentDelegateHelperBase::urlAt(const QStyleOptionViewItem &o
 }
 
 bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
+                                                      const QPoint &globalPos,
                                                       const MessageAttachment &msgAttach,
                                                       QRect attachmentsRect,
                                                       const QStyleOptionViewItem &option)
@@ -277,5 +278,6 @@ bool MessageAttachmentDelegateHelperBase::contextMenu(const QPoint &pos,
     Q_UNUSED(attachmentsRect);
     Q_UNUSED(pos);
     Q_UNUSED(option);
+    Q_UNUSED(globalPos);
     return false;
 }
