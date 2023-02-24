@@ -14,6 +14,7 @@ public:
     enum class TimeStampType {
         MessageTimeStamp,
         RoomTimeStamp,
+        AccountTimeStamp,
         // Etc.
     };
     LocalGlobalDatabase();

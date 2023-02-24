@@ -42,6 +42,9 @@ QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, cons
     case TimeStampType::RoomTimeStamp:
         identifier = QStringLiteral("rooms-");
         break;
+    case TimeStampType::AccountTimeStamp:
+        identifier = QStringLiteral("account-");
+        break;
     }
     return identifier + accountName + QLatin1Char('-') + LocalDatabaseUtils::fixRoomName(roomName);
 }
