@@ -79,8 +79,6 @@ qint64 LocalAccountDatabase::timeStamp(const QString &accountName)
     return value;
 #else
     Q_UNUSED(accountName)
-    Q_UNUSED(roomName)
-    Q_UNUSED(type)
     return -1;
 #endif
 }
