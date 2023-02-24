@@ -384,7 +384,6 @@ void Message::setVideoConferenceInfo(const VideoConferenceInfo &info)
         Block b(*it);
         b.setVideoConferenceInfo(info);
         mBlocks.append(b);
-        qDebug() << " update video conference info";
     }
 }
 
