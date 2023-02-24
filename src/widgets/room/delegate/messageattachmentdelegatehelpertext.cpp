@@ -98,7 +98,7 @@ bool MessageAttachmentDelegateHelperText::handleMouseEvent(const MessageAttachme
             MessageModel::AttachmentVisibility attachmentVisibility;
             attachmentVisibility.show = !layout.isShown;
             attachmentVisibility.attachmentId = msgAttach.attachmentId();
-            auto *model = const_cast<QAbstractItemModel *>(index.model());
+            auto model = const_cast<QAbstractItemModel *>(index.model());
             model->setData(index, QVariant::fromValue(attachmentVisibility), MessageModel::DisplayAttachment);
             return true;
         }

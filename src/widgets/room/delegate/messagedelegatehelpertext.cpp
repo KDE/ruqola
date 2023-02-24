@@ -56,7 +56,7 @@ QString MessageDelegateHelperText::makeMessageText(const QPersistentModelIndex &
             if (!sameAsPreviousMessageThread) {
                 const MessageModel *model = mRocketChatAccount->messageModelForRoom(message->roomId());
                 if (model) {
-                    auto *that = const_cast<MessageDelegateHelperText *>(this);
+                    auto that = const_cast<MessageDelegateHelperText *>(this);
                     // Find the previous message in the same thread, to use it as context
                     auto hasSameThread = [&](const Message &msg) {
                         return msg.threadMessageId() == threadMessageId || msg.messageId() == threadMessageId;
@@ -333,7 +333,7 @@ QTextDocument *MessageDelegateHelperText::documentForIndex(const QModelIndex &in
     auto ret = doc.get();
     connect(&Colors::self(), &Colors::needToUpdateColors, ret, [this, persistentIndex, ret]() {
         ret->setHtml(makeMessageText(persistentIndex, false));
-        auto *that = const_cast<MessageDelegateHelperText *>(this);
+        auto that = const_cast<MessageDelegateHelperText *>(this);
         that->updateView(persistentIndex);
     });
     mDocumentCache.insert(messageId, std::move(doc));
