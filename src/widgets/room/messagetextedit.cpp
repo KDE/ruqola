@@ -16,6 +16,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QAbstractTextDocumentLayout>
+#include <QApplication>
 #include <QClipboard>
 #include <QKeyEvent>
 #include <QMenu>
