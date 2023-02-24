@@ -233,6 +233,12 @@ QJsonObject User::serialize(const User &user)
     QJsonObject o;
     o[QLatin1String("identifier")] = user.userId();
     o[QLatin1String("name")] = user.name();
+    o[QLatin1String("username")] = user.userName();
+    o[QLatin1String("statusText")] = user.statusText();
+    o[QLatin1String("bio")] = user.bio();
+
+    // Add status/utcoffset/active
+
     // TODO
     return o;
 }
