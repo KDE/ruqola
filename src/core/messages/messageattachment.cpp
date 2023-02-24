@@ -99,57 +99,60 @@ void MessageAttachment::parseAttachment(const QJsonObject &attachment)
     mCollapsed = attachment.value(QLatin1String("collapsed")).toBool();
 }
 
-QJsonObject MessageAttachment::serialize(const MessageAttachment &message)
+QJsonObject MessageAttachment::serialize(const MessageAttachment &messageAttach)
 {
     QJsonObject obj;
-    if (!message.description().isEmpty()) {
-        obj[QStringLiteral("description")] = message.description();
+    if (!messageAttach.description().isEmpty()) {
+        obj[QStringLiteral("description")] = messageAttach.description();
     }
-    if (!message.title().isEmpty()) {
-        obj[QStringLiteral("title")] = message.title();
+    if (!messageAttach.title().isEmpty()) {
+        obj[QStringLiteral("title")] = messageAttach.title();
     }
-    obj[QStringLiteral("url")] = message.link();
-    if (!message.imageUrlPreview().isEmpty()) {
-        obj[QStringLiteral("image_preview")] = message.imageUrlPreview();
+    obj[QStringLiteral("url")] = messageAttach.link();
+    if (!messageAttach.imageUrlPreview().isEmpty()) {
+        obj[QStringLiteral("image_preview")] = messageAttach.imageUrlPreview();
     }
 
-    const QString authorname = message.authorName();
+    const QString authorname = messageAttach.authorName();
     if (!authorname.isEmpty()) {
         obj[QStringLiteral("authorname")] = authorname;
     }
-    const QString authorIcon = message.authorIcon();
+    const QString authorIcon = messageAttach.authorIcon();
     if (!authorIcon.isEmpty()) {
         obj[QStringLiteral("authoricon")] = authorIcon;
     }
-    const QString mimeType = message.mimeType();
+    const QString mimeType = messageAttach.mimeType();
     if (!mimeType.isEmpty()) {
         obj[QStringLiteral("mimetype")] = mimeType;
     }
-    if ((message.imageHeight() != -1) && (message.imageWidth() != -1)) {
-        obj[QStringLiteral("image_height")] = message.imageHeight();
-        obj[QStringLiteral("image_width")] = message.imageWidth();
+    if ((messageAttach.imageHeight() != -1) && (messageAttach.imageWidth() != -1)) {
+        obj[QStringLiteral("image_height")] = messageAttach.imageHeight();
+        obj[QStringLiteral("image_width")] = messageAttach.imageWidth();
     }
-    const QString color = message.color();
+    const QString color = messageAttach.color();
     if (!color.isEmpty()) {
         obj[QStringLiteral("color")] = color;
     }
-    const QString text = message.text();
+    const QString text = messageAttach.text();
     if (!text.isEmpty()) {
         obj[QStringLiteral("text")] = text;
     }
 
     QJsonArray fieldArray;
-    for (int i = 0, total = message.attachmentFields().count(); i < total; ++i) {
-        const QJsonObject fields = MessageAttachmentField::serialize(message.attachmentFields().at(i));
+    for (int i = 0, total = messageAttach.attachmentFields().count(); i < total; ++i) {
+        const QJsonObject fields = MessageAttachmentField::serialize(messageAttach.attachmentFields().at(i));
         fieldArray.append(std::move(fields));
     }
     if (!fieldArray.isEmpty()) {
         obj[QStringLiteral("fields")] = fieldArray;
     }
-    if (message.collapsed()) {
+    if (messageAttach.collapsed()) {
         obj[QStringLiteral("collapsed")] = true;
     }
-    obj[QStringLiteral("attachmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(message.attachmentType()));
+    obj[QStringLiteral("attachmentType")] = QJsonValue::fromVariant(QVariant::fromValue<MessageAttachment::AttachmentType>(messageAttach.attachmentType()));
+    if (bool show = messageAttach.showAttachment()) {
+        obj[QStringLiteral("show_attachment")] = show;
+    }
     return obj;
 }
 
@@ -182,6 +185,7 @@ MessageAttachment MessageAttachment::deserialize(const QJsonObject &o)
     att.setAttachmentFields(messageFields);
     att.setCollapsed(o.value(QLatin1String("collapsed")).toBool());
     att.setAttachmentType(o[QStringLiteral("attachmentType")].toVariant().value<AttachmentType>());
+    att.setShowAttachment(o[QStringLiteral("show_attachment")].toBool());
     return att;
 }
 
