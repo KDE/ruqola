@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-02-22 14:12+0100\n"
+"PO-Revision-Date: 2023-02-24 15:15+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -8738,12 +8738,12 @@ msgstr "Adresář..."
 #: widgets/ruqolamainwindow.cpp:463
 #, kde-format
 msgid "&Next Server"
-msgstr ""
+msgstr "&Následující server"
 
 #: widgets/ruqolamainwindow.cpp:468
 #, kde-format
 msgid "&Previous Server"
-msgstr ""
+msgstr "&Předchozí server"
 
 #: widgets/ruqolamainwindow.cpp:498
 #, kde-format
