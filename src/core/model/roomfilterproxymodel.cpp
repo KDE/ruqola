@@ -40,7 +40,7 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
                 if (leftRoomType == rightRoomType) {
                     return QString::localeAwareCompare(leftString, rightString) < 0;
                 } else {
-                    return rightRoomType > leftRoomType;
+                    return rightRoomType < leftRoomType;
                 }
             } else {
                 return QString::localeAwareCompare(leftString, rightString) < 0;
