@@ -32,7 +32,19 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
         if (leftDate == rightDate) {
             const QString leftString = sourceModel()->data(left, RoomModel::RoomFName).toString();
             const QString rightString = sourceModel()->data(right, RoomModel::RoomFName).toString();
-            return QString::localeAwareCompare(leftString, rightString) < 0;
+            const bool leftFavorite = sourceModel()->data(left, RoomModel::RoomFavorite).toBool();
+            const bool rightFavorite = sourceModel()->data(right, RoomModel::RoomFavorite).toBool();
+            if (leftFavorite && (leftFavorite == rightFavorite)) {
+                const auto leftRoomType = sourceModel()->data(left, RoomModel::RoomType).value<Room::RoomType>();
+                const auto rightRoomType = sourceModel()->data(right, RoomModel::RoomType).value<Room::RoomType>();
+                if (leftRoomType == rightRoomType) {
+                    return QString::localeAwareCompare(leftString, rightString) < 0;
+                } else {
+                    return rightRoomType > leftRoomType;
+                }
+            } else {
+                return QString::localeAwareCompare(leftString, rightString) < 0;
+            }
         } else {
             return leftDate > rightDate;
         }
