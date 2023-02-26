@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-25 01:00+0000\n"
-"PO-Revision-Date: 2023-02-22 10:34+0100\n"
+"PO-Revision-Date: 2023-02-24 20:48+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -6777,12 +6777,10 @@ msgid "Upload File"
 msgstr "Envoyer un fichier"
 
 #: widgets/dialogs/uploadfiledialog.cpp:84
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Download Image"
+#, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr "Télécharger une image"
+msgstr "Envoyer une image"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -7843,10 +7841,9 @@ msgid "Translator Error"
 msgstr "Erreur de traduction"
 
 #: widgets/room/messagetextedit.cpp:176
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Paste Image"
-msgstr "Enregistrer une image"
+msgstr "Coller une image"
 
 #: widgets/room/messagetextedit.cpp:183
 #, kde-format

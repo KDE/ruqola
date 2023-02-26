@@ -5795,16 +5795,14 @@ msgid "Micro Off"
 msgstr "Microfone Desligado"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:43
-#, fuzzy, kde-format
-#| msgid "Micro On"
+#, kde-format
 msgid "Micro"
-msgstr "Microfone Ligado"
+msgstr "Micro"
 
 #: widgets/conferencecalldialog/conferencecallwidget.cpp:44
-#, fuzzy, kde-format
-#| msgid "Camera On"
+#, kde-format
 msgid "Camera"
-msgstr "Câmara Ligada"
+msgstr "Câmara"
 
 #: widgets/conferencecalldialog/conferencedirectcalldialog.cpp:32
 #, kde-format
