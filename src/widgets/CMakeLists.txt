@@ -690,6 +690,9 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewdialog.cpp
     whatsnew/whatsnewwidget.h
     whatsnew/whatsnewwidget.cpp
+
+    whatsnew/whatsnewmessagewidget.h
+    whatsnew/whatsnewmessagewidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
