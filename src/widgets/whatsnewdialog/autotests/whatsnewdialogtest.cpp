@@ -5,8 +5,11 @@
 */
 #include "whatsnewdialogtest.h"
 #include "whatsnewdialog/whatsnewdialog.h"
+#include "whatsnewdialog/whatsnewwidget.h"
+#include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(WhatsNewDialogTest)
 WhatsNewDialogTest::WhatsNewDialogTest(QObject *parent)
     : QObject{parent}
@@ -17,5 +20,12 @@ WhatsNewDialogTest::WhatsNewDialogTest(QObject *parent)
 void WhatsNewDialogTest::shouldHaveDefaultValues()
 {
     WhatsNewDialog d;
-    // TODO
+    QVERIFY(!d.windowTitle().isEmpty());
+    auto mainLayout = d.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    auto mWhatsNewWidget = d.findChild<WhatsNewWidget *>(QStringLiteral("mWhatsNewWidget"));
+    QVERIFY(mWhatsNewWidget);
+
+    auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
+    QVERIFY(button);
 }

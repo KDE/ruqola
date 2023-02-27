@@ -7,7 +7,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDialog>
-
+class WhatsNewWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewDialog : public QDialog
 {
     Q_OBJECT
@@ -18,4 +18,5 @@ public:
 private:
     void readConfig();
     void writeConfig();
+    WhatsNewWidget *const mWhatsNewWidget;
 };

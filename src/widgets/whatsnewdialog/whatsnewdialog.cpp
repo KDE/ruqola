@@ -5,10 +5,14 @@
 */
 
 #include "whatsnewdialog.h"
+#include "whatsnewwidget.h"
 
 #include <KConfigGroup>
+#include <KLocalizedString>
 #include <KSharedConfig>
 #include <KWindowConfig>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 #include <QWindow>
 namespace
 {
@@ -16,7 +20,20 @@ const char myWhatsNewDialogGroupName[] = "WhatsNewDialog";
 }
 WhatsNewDialog::WhatsNewDialog(QWidget *parent)
     : QDialog(parent)
+    , mWhatsNewWidget(new WhatsNewWidget(this))
 {
+    setWindowTitle(i18nc("@title:window", "Server Error Informations"));
+    auto mainLayout = new QVBoxLayout(this);
+    mainLayout->setObjectName(QStringLiteral("mainLayout"));
+
+    mWhatsNewWidget->setObjectName(QStringLiteral("mWhatsNewWidget"));
+    mainLayout->addWidget(mWhatsNewWidget);
+
+    auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    button->setObjectName(QStringLiteral("button"));
+    mainLayout->addWidget(button);
+    connect(button, &QDialogButtonBox::rejected, this, &WhatsNewDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &WhatsNewDialog::accept);
     readConfig();
 }
 
