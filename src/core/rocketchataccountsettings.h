@@ -72,7 +72,6 @@ Q_SIGNALS:
     void userIdChanged();
     void accountNameChanged();
     void passwordChanged();
-    void useLdapChanged();
     void twoFactorAuthenticationCodeChanged();
     void enableAccountChanged();
     void displayNameChanged();

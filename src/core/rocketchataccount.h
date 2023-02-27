@@ -591,7 +591,6 @@ private:
     void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
     void slotGetSupportedLanguagesDone(const QJsonObject &obj);
     void slotUsersPresenceDone(const QJsonObject &obj);
-    void slotSocketError(QAbstractSocket::SocketError error, const QString &errorString);
     void slotReconnectToServer();
 
     void loadEmoji(const QJsonObject &obj);
