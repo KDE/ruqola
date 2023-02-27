@@ -686,10 +686,10 @@ target_sources(libruqolawidgets PRIVATE
     databasedialog/exploredatabasewidget.cpp
 
 
-    whatsnewdialog/whatsnewdialog.h
-    whatsnewdialog/whatsnewdialog.cpp
-    whatsnewdialog/whatsnewwidget.h
-    whatsnewdialog/whatsnewwidget.cpp
+    whatsnew/whatsnewdialog.h
+    whatsnew/whatsnewdialog.cpp
+    whatsnew/whatsnewwidget.h
+    whatsnew/whatsnewwidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
@@ -805,7 +805,7 @@ if (BUILD_TESTING)
     add_subdirectory(conferencecalldialog/autotests)
     add_subdirectory(servererrorinfohistory/autotests)
     add_subdirectory(databasedialog/autotests)
-    add_subdirectory(whatsnewdialog/autotests)
+    add_subdirectory(whatsnew/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

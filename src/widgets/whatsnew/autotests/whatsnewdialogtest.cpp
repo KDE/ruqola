@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewdialogtest.h"
-#include "whatsnewdialog/whatsnewdialog.h"
-#include "whatsnewdialog/whatsnewwidget.h"
+#include "whatsnew/whatsnewdialog.h"
+#include "whatsnew/whatsnewwidget.h"
 #include <QDialogButtonBox>
 #include <QStandardPaths>
 #include <QTest>

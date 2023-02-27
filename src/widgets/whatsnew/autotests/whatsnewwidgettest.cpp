@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 #include "whatsnewwidgettest.h"
-#include "whatsnewdialog/whatsnewwidget.h"
+#include "whatsnew/whatsnewwidget.h"
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(WhatsNewWidgetTest)
