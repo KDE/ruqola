@@ -7,6 +7,7 @@
 #include "ruqolacentralwidgettest.h"
 #include "ruqolacentralwidget.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
+#include "whatsnew/whatsnewmessagewidget.h"
 
 #include <QHBoxLayout>
 #include <QStackedWidget>
@@ -32,4 +33,7 @@ void RuqolaCentralWidgetTest::shouldHaveDefaultValues()
 
     auto mServerErrorInfoMessageWidget = w.findChild<ServerErrorInfoMessageWidget *>(QStringLiteral("mServerErrorInfoMessageWidget"));
     QVERIFY(mServerErrorInfoMessageWidget);
+
+    auto mWhatsNewMessageWidget = w.findChild<WhatsNewMessageWidget *>(QStringLiteral("mWhatsNewMessageWidget"));
+    QVERIFY(mWhatsNewMessageWidget);
 }
