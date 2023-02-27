@@ -8,6 +8,7 @@
 #include <KLazyLocalizedString>
 
 #include <QCryptographicHash>
+#include <QLabel>
 #include <QVBoxLayout>
 
 // enter items for the "Important changes" list here:
@@ -31,10 +32,14 @@ static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqol
 
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
+    , mLabelInfo(new QLabel(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
+
+    mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
+    mainLayout->addWidget(mLabelInfo);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;

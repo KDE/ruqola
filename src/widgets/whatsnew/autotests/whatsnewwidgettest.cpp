@@ -5,6 +5,7 @@
 */
 #include "whatsnewwidgettest.h"
 #include "whatsnew/whatsnewwidget.h"
+#include <QLabel>
 #include <QTest>
 #include <QVBoxLayout>
 QTEST_MAIN(WhatsNewWidgetTest)
@@ -19,4 +20,8 @@ void WhatsNewWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mLabelInfo = w.findChild<QLabel *>(QStringLiteral("mLabelInfo"));
+    QVERIFY(mLabelInfo);
+    QVERIFY(mLabelInfo->text().isEmpty());
 }

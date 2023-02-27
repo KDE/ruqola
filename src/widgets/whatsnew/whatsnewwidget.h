@@ -7,7 +7,7 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 {
     Q_OBJECT
@@ -15,4 +15,7 @@ public:
     explicit WhatsNewWidget(QWidget *parent = nullptr);
     ~WhatsNewWidget() override;
     Q_REQUIRED_RESULT static QString newFeaturesMD5();
+
+private:
+    QLabel *const mLabelInfo;
 };
