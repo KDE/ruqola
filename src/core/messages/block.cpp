@@ -131,6 +131,8 @@ QJsonObject Block::serialize(const Block &block)
     o[QStringLiteral("type")] = block.blockTypeStr();
     if (block.mVideoConferenceInfo.isValid()) {
         o[QStringLiteral("videoconferenceinfo")] = VideoConferenceInfo::serialize(block.mVideoConferenceInfo);
+    } else {
+        qWarning() << "block.mVideoConferenceInfo is invalid " << block.mVideoConferenceInfo;
     }
     return o;
 }
@@ -145,6 +147,8 @@ Block Block::deserialize(const QJsonObject &o)
     const VideoConferenceInfo info = VideoConferenceInfo::deserialize(o[QLatin1String("videoconferenceinfo")].toObject());
     if (info.isValid()) {
         block.mVideoConferenceInfo = info;
+    } else {
+        qWarning() << "info is invalid " << info;
     }
     return block;
 }
