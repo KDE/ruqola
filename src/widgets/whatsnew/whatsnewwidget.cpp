@@ -58,3 +58,8 @@ QString WhatsNewWidget::newFeaturesMD5()
     md5.addData(str);
     return QLatin1String(md5.result().toBase64());
 }
+
+void WhatsNewWidget::updateInformations()
+{
+    // TODO
+}

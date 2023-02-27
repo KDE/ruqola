@@ -16,6 +16,8 @@ public:
     ~WhatsNewWidget() override;
     Q_REQUIRED_RESULT static QString newFeaturesMD5();
 
+    void updateInformations();
+
 private:
     QLabel *const mLabelInfo;
 };

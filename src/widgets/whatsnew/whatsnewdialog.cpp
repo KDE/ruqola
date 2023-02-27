@@ -22,7 +22,7 @@ WhatsNewDialog::WhatsNewDialog(QWidget *parent)
     : QDialog(parent)
     , mWhatsNewWidget(new WhatsNewWidget(this))
 {
-    setWindowTitle(i18nc("@title:window", "Server Error Informations"));
+    setWindowTitle(i18nc("@title:window", "What's new in Ruqola"));
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
 
@@ -55,4 +55,9 @@ void WhatsNewDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myWhatsNewDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
+}
+
+void WhatsNewDialog::updateInformations()
+{
+    mWhatsNewWidget->updateInformations();
 }
