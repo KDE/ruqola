@@ -12,3 +12,4 @@ endmacro()
 
 add_whatsnew_test(whatsnewdialogtest.cpp)
 add_whatsnew_test(whatsnewwidgettest.cpp)
+add_whatsnew_test(whatsnewmessagewidgettest.cpp)
