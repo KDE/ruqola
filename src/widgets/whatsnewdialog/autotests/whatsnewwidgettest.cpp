@@ -6,6 +6,7 @@
 #include "whatsnewwidgettest.h"
 #include "whatsnewdialog/whatsnewwidget.h"
 #include <QTest>
+#include <QVBoxLayout>
 QTEST_MAIN(WhatsNewWidgetTest)
 WhatsNewWidgetTest::WhatsNewWidgetTest(QWidget *parent)
     : QWidget{parent}
@@ -14,6 +15,8 @@ WhatsNewWidgetTest::WhatsNewWidgetTest(QWidget *parent)
 
 void WhatsNewWidgetTest::shouldHaveDefaultValues()
 {
-    WhatsNewWidget d;
-    // TODO
+    WhatsNewWidget w;
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
