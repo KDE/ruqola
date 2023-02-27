@@ -4,14 +4,14 @@
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Josep M. Ferrer <txemaq@gmail.com>, 2019, 2020, 2021, 2022, 2023.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020, 2022.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2019, 2020, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-25 01:00+0000\n"
-"PO-Revision-Date: 2023-02-24 15:05+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2023-02-26 22:17+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2102,6 +2102,7 @@ msgstr ""
 msgid "User is not in this room"
 msgstr "L'usuari no està en aquesta sala"
 
+# skip-rule: rst-link0italic,rst-italic2
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:410
 #, kde-format
 msgid "You are not in the room `%s`"
@@ -7800,7 +7801,7 @@ msgstr "Error del traductor"
 #: widgets/room/messagetextedit.cpp:176
 #, kde-format
 msgid "Paste Image"
-msgstr "Enganxa imatge"
+msgstr "Enganxa una imatge"
 
 #: widgets/room/messagetextedit.cpp:183
 #, kde-format
