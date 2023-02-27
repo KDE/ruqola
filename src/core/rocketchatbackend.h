@@ -15,7 +15,6 @@
 #include <QJsonObject>
 #include <QObject>
 
-class LocalDatabaseManager;
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT RocketChatBackend : public QObject
 {
@@ -56,5 +55,4 @@ private:
     QVector<User> mUsers;
     QVector<File> mFiles;
     RocketChatAccount *mRocketChatAccount = nullptr;
-    std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
 };

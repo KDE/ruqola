@@ -87,6 +87,7 @@ class SwitchChannelHistoryModel;
 class UploadFileManager;
 class VideoConferenceManager;
 class VideoConferenceMessageInfoManager;
+class LocalDatabaseManager;
 
 namespace RocketChatRestApi
 {
@@ -514,6 +515,8 @@ public:
     Q_REQUIRED_RESULT VideoConferenceMessageInfoManager *videoConferenceMessageInfoManager() const;
 
     Q_REQUIRED_RESULT QUrl faviconLogoUrlFromLocalCache(const QString &url);
+    void addMessageToDataBase(const QString &roomName, const Message &message);
+    void deleteMessageFromDatabase(const QString &roomName, const QString &messageId);
 
 Q_SIGNALS:
     void roomRemoved(const QString &roomId);
@@ -702,6 +705,7 @@ private:
     BannerInfos mBannerInfos;
     VideoConferenceManager *const mVideoConferenceManager;
     VideoConferenceMessageInfoManager *const mVideoConferenceMessageInfoManager;
+    std::unique_ptr<LocalDatabaseManager> mLocalDatabaseManager;
 
     int mDelayReconnect = 100;
     bool mEditingMode = false;

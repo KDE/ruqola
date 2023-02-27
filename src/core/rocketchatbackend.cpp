@@ -125,7 +125,6 @@ void getsubscription_parsing(const QJsonObject &root, RocketChatAccount *account
 RocketChatBackend::RocketChatBackend(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
     , mRocketChatAccount(account)
-    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
 {
     connect(mRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &RocketChatBackend::slotLoginStatusChanged);
     connect(mRocketChatAccount, &RocketChatAccount::userIdChanged, this, &RocketChatBackend::slotUserIDChanged);
@@ -209,7 +208,7 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
                 // qDebug() << " Update thread message";
             }
             if (room) {
-                mLocalDatabaseManager->addMessage(mRocketChatAccount->accountName(), room->displayFName(), m);
+                mRocketChatAccount->addMessageToDataBase(room->displayFName(), m);
                 if (!loadHistory) {
                     room->newMessageAdded();
                 }
@@ -530,7 +529,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
                 messageModel->deleteMessage(messageId);
                 Room *room = mRocketChatAccount->room(roomId);
                 if (room) {
-                    mLocalDatabaseManager->deleteMessage(mRocketChatAccount->accountName(), room->displayFName(), messageId);
+                    mRocketChatAccount->deleteMessageFromDatabase(room->displayFName(), messageId);
                 }
                 // We don't know if we delete a message from thread. So look at in threadModel if we have this identifier
                 MessageModel *threadMessageModel = mRocketChatAccount->threadMessageModel();

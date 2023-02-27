@@ -53,6 +53,7 @@
 #include "discussions/discussions.h"
 #include "license/licensesisenterprisejob.h"
 #include "listmessages.h"
+#include "localdatabase/localdatabasemanager.h"
 #include "managechannels.h"
 #include "messagecache.h"
 #include "misc/roleslistjob.h"
@@ -113,6 +114,8 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mUploadFileManager(new UploadFileManager(this))
     , mVideoConferenceManager(new VideoConferenceManager(this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
+    , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
+
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
@@ -3032,4 +3035,14 @@ bool RocketChatAccount::hasLicense(const QString &name)
 void RocketChatAccount::parseLicenses(const QJsonArray &replyArray)
 {
     mLicensesManager.parseLicenses(replyArray);
+}
+
+void RocketChatAccount::addMessageToDataBase(const QString &roomName, const Message &message)
+{
+    mLocalDatabaseManager->addMessage(accountName(), roomName, message);
+}
+
+void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const QString &messageId)
+{
+    mLocalDatabaseManager->deleteMessage(accountName(), roomName, messageId);
 }
