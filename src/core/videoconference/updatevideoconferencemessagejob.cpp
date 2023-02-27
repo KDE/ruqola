@@ -39,6 +39,7 @@ void UpdateVideoConferenceMessageJob::start()
             msg.setVideoConferenceInfo(std::move(mVideoConferenceInfo));
             // qDebug() << " msg " << msg;
             messageModel->addMessages({msg});
+            // TODO update database
         }
     } else {
         qCWarning(RUQOLA_VIDEO_CONFERENCE_LOG) << " impossible to return room " << roomId;
