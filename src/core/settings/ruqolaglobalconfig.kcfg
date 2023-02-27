@@ -9,6 +9,9 @@
     <entry name="SetOnlineAccounts" type="Bool">
       <default>true</default>
     </entry>
+    <entry name="PreviousNewFeaturesMD5" type="String">
+      <default></default>
+    </entry>
   </group>
 
   <group name="View">

@@ -11,6 +11,7 @@
 #include "servererrorinfo.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
+#include "whatsnew/whatsnewmessagewidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QStackedWidget>
@@ -21,6 +22,7 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     , mRuqolaMainWidget(new RuqolaMainWidget(this))
     , mRuqolaLoginWidget(new RuqolaLoginWidget(this))
     , mServerErrorInfoMessageWidget(new ServerErrorInfoMessageWidget(this))
+    , mWhatsNewMessageWidget(new WhatsNewMessageWidget(this))
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins({});
@@ -28,6 +30,9 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
 
     mServerErrorInfoMessageWidget->setObjectName(QStringLiteral("mServerErrorInfoMessageWidget"));
     mainLayout->addWidget(mServerErrorInfoMessageWidget);
+
+    mWhatsNewMessageWidget->setObjectName(QStringLiteral("mWhatsNewMessageWidget"));
+    mainLayout->addWidget(mWhatsNewMessageWidget);
 
     mStackedWidget->setObjectName(QStringLiteral("mStackedWidget"));
     mainLayout->addWidget(mStackedWidget);

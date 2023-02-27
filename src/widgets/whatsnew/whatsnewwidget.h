@@ -14,4 +14,5 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT WhatsNewWidget : public QWidget
 public:
     explicit WhatsNewWidget(QWidget *parent = nullptr);
     ~WhatsNewWidget() override;
+    Q_REQUIRED_RESULT static QString newFeaturesMD5();
 };
