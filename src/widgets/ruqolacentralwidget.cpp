@@ -6,12 +6,14 @@
 
 #include "ruqolacentralwidget.h"
 #include "rocketchataccount.h"
+#include "ruqolaglobalconfig.h"
 #include "ruqolaloginwidget.h"
 #include "ruqolamainwidget.h"
 #include "servererrorinfo.h"
 #include "servererrorinfohistory/servererrorinfomessagewidget.h"
 #include "servererrorinfohistorymanager.h"
 #include "whatsnew/whatsnewmessagewidget.h"
+#include "whatsnew/whatsnewwidget.h"
 #include <KLocalizedString>
 #include <QHBoxLayout>
 #include <QStackedWidget>
@@ -46,6 +48,12 @@ RuqolaCentralWidget::RuqolaCentralWidget(QWidget *parent)
     mStackedWidget->setCurrentWidget(mRuqolaLoginWidget);
     connect(mRuqolaMainWidget, &RuqolaMainWidget::channelSelected, this, &RuqolaCentralWidget::channelSelected);
     connect(ServerErrorInfoHistoryManager::self(), &ServerErrorInfoHistoryManager::newServerErrorInfo, this, &RuqolaCentralWidget::slotNewErrorInfo);
+
+    const QString newFeaturesMD5 = WhatsNewWidget::newFeaturesMD5();
+    if (RuqolaGlobalConfig::self()->previousNewFeaturesMD5() != newFeaturesMD5) {
+        RuqolaGlobalConfig::self()->setPreviousNewFeaturesMD5(newFeaturesMD5);
+        mWhatsNewMessageWidget->animatedShow();
+    }
 }
 
 RuqolaCentralWidget::~RuqolaCentralWidget() = default;
