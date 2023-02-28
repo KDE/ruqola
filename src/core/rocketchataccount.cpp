@@ -2430,7 +2430,6 @@ void RocketChatAccount::slotReconnectToServer()
             mDelayReconnect *= 2;
         }
         Q_EMIT displayReconnectWidget(mDelayReconnect / 1000);
-        ddp()->enqueueLogin();
         tryLogin();
     });
 }
