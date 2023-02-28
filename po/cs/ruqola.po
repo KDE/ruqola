@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-25 01:00+0000\n"
-"PO-Revision-Date: 2023-02-22 14:12+0100\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
+"PO-Revision-Date: 2023-02-24 15:15+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1337,12 +1337,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2870
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6556,7 +6556,7 @@ msgstr "Odeslat soubor"
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload Image"
-msgstr ""
+msgstr "Odeslat obrázek"
 
 #: widgets/directory/directorydialog.cpp:27
 #, kde-format
@@ -7590,7 +7590,7 @@ msgstr ""
 #: widgets/room/messagetextedit.cpp:176
 #, kde-format
 msgid "Paste Image"
-msgstr ""
+msgstr "Vložit obrázek"
 
 #: widgets/room/messagetextedit.cpp:183
 #, kde-format
@@ -7997,12 +7997,12 @@ msgstr "Adresář..."
 #: widgets/ruqolamainwindow.cpp:473
 #, kde-format
 msgid "&Next Server"
-msgstr ""
+msgstr "&Následující server"
 
 #: widgets/ruqolamainwindow.cpp:478
 #, kde-format
 msgid "&Previous Server"
-msgstr ""
+msgstr "&Předchozí server"
 
 #: widgets/ruqolamainwindow.cpp:508
 #, kde-format
@@ -8233,3 +8233,38 @@ msgstr "Informace o účtu"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Vrátit číslo účtu."
+
+#: widgets/whatsnew/whatsnewdialog.cpp:25
+#, kde-format
+msgctxt "@title:window"
+msgid "What's new in Ruqola"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
+msgid "(Show News in Ruqola)"
+msgstr "(Zobrazit méně informací...)"
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, kde-format
+msgid "What's new in Ruqola. %1"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:16
+msgid "Store Message in Local Database"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:26
+msgid "Download Server Icon from Server"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:27
+msgid "Show Server Error Info in Specific DialogBox"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:28
+#, fuzzy
+#| msgid "Copy Image to Clipboard"
+msgid "Allow to Copy Image in Clipboard"
+msgstr "Zkopírovat obrázek do schránky"

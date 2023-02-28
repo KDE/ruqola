@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-25 01:00+0000\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
 "PO-Revision-Date: 2023-02-15 16:19+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -1367,12 +1367,12 @@ msgstr "O <strong>%1</strong> está a escrever..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão a escrever..."
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2870
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar as Mensagens"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "O seu e-mail está em espera para ser enviado."
@@ -8479,3 +8479,38 @@ msgstr "Informação da conta"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Devolver o número da conta."
+
+#: widgets/whatsnew/whatsnewdialog.cpp:25
+#, kde-format
+msgctxt "@title:window"
+msgid "What's new in Ruqola"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
+msgid "(Show News in Ruqola)"
+msgstr "(Mostrar Menos Informações...)"
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, kde-format
+msgid "What's new in Ruqola. %1"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:16
+msgid "Store Message in Local Database"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:26
+msgid "Download Server Icon from Server"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:27
+msgid "Show Server Error Info in Specific DialogBox"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:28
+#, fuzzy
+#| msgid "Copy Image to Clipboard"
+msgid "Allow to Copy Image in Clipboard"
+msgstr "Copiar a Imagem para a Área de Transferência"

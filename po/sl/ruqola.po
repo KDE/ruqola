@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-25 01:00+0000\n"
-"PO-Revision-Date: 2023-02-26 09:10+0100\n"
+"POT-Creation-Date: 2023-02-28 00:58+0000\n"
+"PO-Revision-Date: 2023-02-27 07:59+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1342,12 +1342,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2867
+#: core/rocketchataccount.cpp:2870
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2868
+#: core/rocketchataccount.cpp:2871
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -8437,6 +8437,41 @@ msgstr "Podatki o računu"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Vrnite številko računa."
+
+#: widgets/whatsnew/whatsnewdialog.cpp:25
+#, kde-format
+msgctxt "@title:window"
+msgid "What's new in Ruqola"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, fuzzy, kde-format
+#| msgid "(Show Less Info...)"
+msgid "(Show News in Ruqola)"
+msgstr "(Pokaži manj informacij ...)"
+
+#: widgets/whatsnew/whatsnewmessagewidget.cpp:17
+#, kde-format
+msgid "What's new in Ruqola. %1"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:16
+msgid "Store Message in Local Database"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:26
+msgid "Download Server Icon from Server"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:27
+msgid "Show Server Error Info in Specific DialogBox"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:28
+#, fuzzy
+#| msgid "Copy Image to Clipboard"
+msgid "Allow to Copy Image in Clipboard"
+msgstr "Kopiraj sliko na odložišče"
 
 #~ msgid "Error from '%1' account"
 #~ msgstr "Napaka iz računa »%1«"
