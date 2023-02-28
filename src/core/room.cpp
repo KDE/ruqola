@@ -141,6 +141,7 @@ QDebug operator<<(QDebug d, const Room &t)
     d << "highlightsWord " << t.highlightsWord();
     d << "RetentionInfo " << t.retentionInfo();
     d << "TeamInfo " << t.teamInfo();
+    d << "Number Of messages in room " << t.numberMessages();
     return d;
 }
 
