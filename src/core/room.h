@@ -260,6 +260,10 @@ public:
     Q_REQUIRED_RESULT bool roomIsEmpty() const;
     Q_REQUIRED_RESULT bool hideBadgeForMention() const;
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
+
+    Q_REQUIRED_RESULT qint64 numberMessages() const;
+    void setNumberMessages(qint64 newNumberMessages);
+
 Q_SIGNALS:
     void highlightsWordChanged();
     void nameChanged();
@@ -385,6 +389,8 @@ private:
     int mUserMentions = 0;
 
     int mThreadCount = 0;
+
+    qint64 mNumberMessages = 0;
 
     // ro - read-only chat or not
     bool mReadOnly = false;

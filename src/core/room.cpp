@@ -281,6 +281,10 @@ void Room::parseUpdateRoom(const QJsonObject &json)
         setLastMessageAt(lm);
     }
 
+    if (json.contains(QLatin1String("msgs"))) {
+        mNumberMessages = json[QLatin1String("msgs")].toInt();
+    }
+
     const QJsonArray highlightsWordArray = json.value(QLatin1String("userHighlights")).toArray();
     QStringList lstHighlightsWord;
     const int highlightsWordArrayCount = highlightsWordArray.count();
@@ -353,6 +357,16 @@ void Room::parseTeamInfo(const QJsonObject &json)
     TeamInfo info;
     info.parseTeamInfo(json);
     setTeamInfo(std::move(info));
+}
+
+qint64 Room::numberMessages() const
+{
+    return mNumberMessages;
+}
+
+void Room::setNumberMessages(qint64 newNumberMessages)
+{
+    mNumberMessages = newNumberMessages;
 }
 
 bool Room::selected() const

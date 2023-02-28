@@ -63,6 +63,7 @@ void RoomTest::shouldHaveDefaultValue()
     QVERIFY(input.displaySystemMessageTypes().isEmpty());
     QVERIFY(input.highlightsWord().isEmpty());
     QCOMPARE(input.lastMessageAt(), -1);
+    QCOMPARE(input.numberMessages(), 0);
 }
 
 // TODO add notification, userMentions too
