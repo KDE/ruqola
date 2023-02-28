@@ -257,7 +257,6 @@ public:
 
     Q_REQUIRED_RESULT Room::TeamRoomInfo teamRoomInfo() const;
     Q_REQUIRED_RESULT bool roomIsBlocked() const;
-    Q_REQUIRED_RESULT bool roomIsEmpty() const;
     Q_REQUIRED_RESULT bool hideBadgeForMention() const;
     Q_REQUIRED_RESULT bool hideUnreadStatus() const;
 

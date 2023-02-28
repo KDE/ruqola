@@ -1574,11 +1574,3 @@ void Room::setDirectChannelUserId(const QString &uid)
         Q_EMIT directChannelUserIdChanged();
     }
 }
-
-bool Room::roomIsEmpty() const
-{
-    if (mMessageModel) {
-        return (mMessageModel->rowCount() == 0);
-    }
-    return true;
-}

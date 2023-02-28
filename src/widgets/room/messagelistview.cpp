@@ -70,25 +70,21 @@ MessageListView::~MessageListView() = default;
 
 void MessageListView::paintEvent(QPaintEvent *e)
 {
-#if 0
     if (mRoom) {
-        if (mRoom->roomIsEmpty()) {
+        if (mRoom->numberMessages() == 0) {
             QPainter p(viewport());
 
             QFont font = p.font();
             font.setItalic(true);
             p.setFont(font);
 
-            p.drawText(QRect(0, 0, width(), height()), Qt::AlignCenter, i18n("Room is Empty."));
+            p.drawText(QRect(0, 0, width(), height()), Qt::AlignHCenter | Qt::AlignTop, i18n("Start of conversation"));
         } else {
             QListView::paintEvent(e);
         }
     } else {
         QListView::paintEvent(e);
     }
-#else
-    QListView::paintEvent(e);
-#endif
 }
 
 void MessageListView::slotUpdateView()
