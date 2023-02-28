@@ -605,6 +605,7 @@
       <li xml:lang="ca">Conferència de vídeo</li>
       <li xml:lang="ca-valencia">Conferència de vídeo</li>
       <li xml:lang="cs">Video konference</li>
+      <li xml:lang="en-GB">Video Conference</li>
       <li xml:lang="es">Conferencia de vídeo</li>
       <li xml:lang="eu">Bideo-konferentzia</li>
       <li xml:lang="fr">Vidéo-conférence</li>
@@ -768,6 +769,7 @@
       <li xml:lang="ca">Gestió del testimoni d'accés personal</li>
       <li xml:lang="ca-valencia">Gestioneu el testimoni d'accés personal</li>
       <li xml:lang="cs">Spravovat osobní přístupový token</li>
+      <li xml:lang="en-GB">Manage Personal Access Token</li>
       <li xml:lang="es">Administrar símbolo de acceso personal</li>
       <li xml:lang="eu">Kudeatu sarbide-token pertsonala</li>
       <li xml:lang="fr">Gérer un jeton d'accès personnel</li>
@@ -784,6 +786,7 @@
       <li xml:lang="ca">Afegeix la implementació per a la traducció local</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la traducció local</li>
       <li xml:lang="cs">Přidat podporu pro místní překlad</li>
+      <li xml:lang="en-GB">Add support for local translation</li>
       <li xml:lang="es">Añadir soporte para traducción local</li>
       <li xml:lang="eu">Itzulpen lokalen euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
@@ -800,6 +803,7 @@
       <li xml:lang="ca">Afegeix la implementació per a la correcció automàtica</li>
       <li xml:lang="ca-valencia">Afig la implementació per a la correcció automàtica</li>
       <li xml:lang="cs">Přidat podporu pro automatickou opravu textu</li>
+      <li xml:lang="en-GB">Add support for text auto-correction</li>
       <li xml:lang="es">Añadir soporte para la auto-corrección de texto</li>
       <li xml:lang="eu">Testuaren zuzenketa-automatikorako euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
