@@ -39,6 +39,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     mainLayout->setContentsMargins({});
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
+    mLabelInfo->setTextFormat(Qt::RichText);
     mainLayout->addWidget(mLabelInfo);
 }
 
@@ -61,5 +62,23 @@ QString WhatsNewWidget::newFeaturesMD5()
 
 void WhatsNewWidget::updateInformations()
 {
-    // TODO
+    QString message = QStringLiteral("<qt>");
+    if (numRuqolaChanges > 0) {
+        message += QStringLiteral("<b>") + i18n("Important changes since last version:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaChanges; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaChanges[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+    if (numRuqolaNewFeatures > 0) {
+        message += QStringLiteral("<b>") + i18n("Some of the new features in this release of Ruqola include:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaNewFeatures; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+    message += QStringLiteral("</qt>");
+    mLabelInfo->setText(message);
 }
