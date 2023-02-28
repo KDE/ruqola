@@ -40,7 +40,7 @@ WhatsNewWidget::WhatsNewWidget(QWidget *parent)
 
     mLabelInfo->setObjectName(QStringLiteral("mLabelInfo"));
     mLabelInfo->setTextFormat(Qt::RichText);
-    mainLayout->addWidget(mLabelInfo);
+    mainLayout->addWidget(mLabelInfo, 0, Qt::AlignTop);
 }
 
 WhatsNewWidget::~WhatsNewWidget() = default;
