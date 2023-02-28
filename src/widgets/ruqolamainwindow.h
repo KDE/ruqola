@@ -103,6 +103,7 @@ private:
     void slotPrivateSettingsChanged();
     void slotShowFavoriteRoom(bool checked);
     void slotShowServerInfo();
+    void slotWhatsNew();
 #if HAVE_DATABASE_SUPPORT
     void slotShowDatabaseMessages();
 #endif

@@ -47,6 +47,7 @@
 #include "ruqolaserverconfig.h"
 #include "switchchannelhistory/switchchanneltreeviewmanager.h"
 #include "teams/teamscreatejob.h"
+#include "whatsnew/whatsnewdialog.h"
 #include <KActionCollection>
 #include <KColorSchemeManager>
 #include <KConfigGroup>
@@ -563,6 +564,17 @@ void RuqolaMainWindow::setupActions()
     mRoomFavorite->setCheckable(true);
     connect(mRoomFavorite, &QAction::triggered, this, &RuqolaMainWindow::slotShowFavoriteRoom);
     ac->addAction(QStringLiteral("room_favorite"), mRoomFavorite);
+
+    auto showWhatsNewAction = new QAction(QIcon::fromTheme(QStringLiteral("ruqola")), i18n("What's new"), this);
+    ac->addAction(QStringLiteral("whatsnew_ruqola"), showWhatsNewAction);
+    connect(showWhatsNewAction, &QAction::triggered, this, &RuqolaMainWindow::slotWhatsNew);
+}
+
+void RuqolaMainWindow::slotWhatsNew()
+{
+    WhatsNewDialog dlg(this);
+    dlg.updateInformations();
+    dlg.exec();
 }
 
 void RuqolaMainWindow::showNextView()
