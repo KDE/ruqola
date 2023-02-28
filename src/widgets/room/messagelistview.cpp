@@ -76,8 +76,11 @@ void MessageListView::paintEvent(QPaintEvent *e)
         QFont font = p.font();
         font.setItalic(true);
         p.setFont(font);
-
-        p.drawText(QRect(0, 0, width(), height()), Qt::AlignHCenter | Qt::AlignTop, i18n("Start of conversation"));
+        if (mRoom->channelType() == Room::RoomType::Direct) {
+            p.drawText(QRect(0, 0, width(), height()), Qt::AlignHCenter | Qt::AlignTop, i18n("You have joined a new direct message"));
+        } else {
+            p.drawText(QRect(0, 0, width(), height()), Qt::AlignHCenter | Qt::AlignTop, i18n("Start of conversation"));
+        }
     } else {
         QListView::paintEvent(e);
     }
