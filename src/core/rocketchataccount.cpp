@@ -1766,6 +1766,11 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
 {
     MessageModel *roomModel = messageModelForRoom(roomID);
     if (roomModel) {
+        Room *room = mRoomModel->findRoom(roomID);
+        // qDebug() << " room->numberMessages() " << room->numberMessages() << " roomModel->rowCount() " << roomModel->rowCount();
+        if (!initial && (room->numberMessages() == roomModel->rowCount())) {
+            return;
+        }
         // TODO add autotest for it !
         QJsonArray params;
         params.append(QJsonValue(roomID));
@@ -1809,6 +1814,7 @@ void RocketChatAccount::loadHistory(const QString &roomID, bool initial, qint64 
             dateObjectStart[QStringLiteral("$date")] = QJsonValue(startDateTime);
             params.append(std::move(dateObjectStart));
         }
+        // qDebug() << " load history " << params;
         ddp()->loadHistory(params);
     } else {
         qCWarning(RUQOLA_LOG) << "Room is not found " << roomID;
