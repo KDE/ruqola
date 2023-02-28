@@ -1254,6 +1254,7 @@ std::unique_ptr<Room> Room::deserialize(const QJsonObject &o)
     r->setJoinCodeRequired(o[QStringLiteral("joinCodeRequired")].toBool());
     r->setUpdatedAt(static_cast<qint64>(o[QStringLiteral("updatedAt")].toDouble()));
     r->setLastSeenAt(static_cast<qint64>(o[QStringLiteral("lastSeenAt")].toDouble()));
+    r->setNumberMessages(static_cast<qint64>(o[QStringLiteral("msgs")].toInt()));
     const QJsonArray mutedArray = o.value(QLatin1String("mutedUsers")).toArray();
     QStringList lst;
     const auto nbMutedElement{mutedArray.count()};
@@ -1339,6 +1340,9 @@ QByteArray Room::serialize(Room *r, bool toBinary)
     o[QStringLiteral("fname")] = r->fName();
     o[QStringLiteral("roomCreatorUserName")] = r->roomOwnerUserName();
     o[QStringLiteral("roomCreatorUserID")] = r->roomCreatorUserId();
+    if (r->numberMessages() > 0) {
+        o[QStringLiteral("msgs")] = r->numberMessages();
+    }
     if (!r->topic().isEmpty()) {
         o[QStringLiteral("topic")] = r->topic();
     }
