@@ -190,7 +190,8 @@ void RocketChatBackend::processIncomingMessages(const QJsonArray &messages, bool
         m.parseMessage(o, restApi);
         // Update video conf info
         if (m.messageType() == Message::MessageType::VideoConference) {
-            for (const auto &b : m.blocks()) {
+            const auto blocks{m.blocks()};
+            for (const auto &b : blocks) {
                 if (!b.callId().isEmpty()) {
                     mRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(b.callId());
                 }
