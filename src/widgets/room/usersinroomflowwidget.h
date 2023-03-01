@@ -29,7 +29,7 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private:
-    void loadMoreUsersAttachment();
+    void loadMoreUsers();
     void generateListUsersWidget();
     void updateListUsersWidget(const QModelIndex &topLeft, const QModelIndex &bottomRight);
     void loadExternalDialog();

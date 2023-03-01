@@ -129,7 +129,7 @@ void UsersInRoomFlowWidget::generateListUsersWidget()
                 auto loadingMoreLabel = new QLabel(QStringLiteral("<a href=\"loadmoreelement\">%1</a>").arg(i18n("(Click here for Loading more...)")), this);
                 loadingMoreLabel->setTextFormat(Qt::RichText);
                 loadingMoreLabel->setContextMenuPolicy(Qt::CustomContextMenu);
-                connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsersAttachment);
+                connect(loadingMoreLabel, &QLabel::linkActivated, this, &UsersInRoomFlowWidget::loadMoreUsers);
                 mFlowLayout->addWidget(loadingMoreLabel);
             }
         }
@@ -143,7 +143,7 @@ void UsersInRoomFlowWidget::loadExternalDialog()
     dlg.exec();
 }
 
-void UsersInRoomFlowWidget::loadMoreUsersAttachment()
+void UsersInRoomFlowWidget::loadMoreUsers()
 {
     mCurrentRocketChatAccount->loadMoreUsersInRoom(mRoom->roomId(), mRoom->channelType());
 }
