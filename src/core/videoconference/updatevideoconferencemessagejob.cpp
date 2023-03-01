@@ -38,6 +38,7 @@ void UpdateVideoConferenceMessageJob::start()
             Message msg = messageModel->findMessageById(mVideoConferenceInfo.messageId());
             msg.setVideoConferenceInfo(std::move(mVideoConferenceInfo));
             // qDebug() << " msg " << msg;
+            mRocketChatAccount->addMessageToDataBase(room->displayFName(), msg);
             messageModel->addMessages({msg});
             // TODO update database
         }
