@@ -90,7 +90,7 @@ QByteArray LocalAccountDatabase::jsonAccount(const QString &accountName)
     if (!checkDataBase(accountName, db)) {
         return {};
     }
-    QSqlQuery query(QStringLiteral("SELECT json FROM GLOBAL WHERE accountName = \"%1\"").arg(accountName), db);
+    QSqlQuery query(QStringLiteral("SELECT json FROM ACCOUNT WHERE accountName = \"%1\"").arg(accountName), db);
     QByteArray value;
     // We have one element
     if (query.first()) {
