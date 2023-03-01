@@ -115,7 +115,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mVideoConferenceManager(new VideoConferenceManager(this))
     , mVideoConferenceMessageInfoManager(new VideoConferenceMessageInfoManager(this))
     , mLocalDatabaseManager(std::make_unique<LocalDatabaseManager>())
-
 {
     qCDebug(RUQOLA_LOG) << " RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *parent)" << accountFileName;
     // create an unique file for each account
