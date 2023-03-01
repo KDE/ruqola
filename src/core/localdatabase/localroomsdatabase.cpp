@@ -29,6 +29,11 @@ LocalRoomsDatabase::LocalRoomsDatabase()
 
 LocalRoomsDatabase::~LocalRoomsDatabase() = default;
 
+QString LocalRoomsDatabase::schemaDataBase() const
+{
+    return QString::fromLatin1(s_schemaRoomDataBase);
+}
+
 void LocalRoomsDatabase::addRoom(const QString &accountName, Room *room)
 {
 #if HAVE_DATABASE_SUPPORT
@@ -58,9 +63,4 @@ void LocalRoomsDatabase::deleteRoom(const QString &accountName, const QString &r
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ROOMS table" << db.databaseName() << query.lastError();
     }
 #endif
-}
-
-QString LocalRoomsDatabase::schemaDataBase() const
-{
-    return QString::fromLatin1(s_schemaRoomDataBase);
 }

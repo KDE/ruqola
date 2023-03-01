@@ -33,6 +33,11 @@ enum class Fields {
     Text,
 }; // in the same order as the table
 
+QString LocalMessageLogger::schemaDataBase() const
+{
+    return QString::fromLatin1(s_schema);
+}
+
 void LocalMessageLogger::addMessage(const QString &accountName, const QString &_roomName, const Message &m)
 {
     if (!RuqolaGlobalConfig::self()->enableLogging()) {
@@ -121,9 +126,4 @@ bool LocalMessageLogger::saveToFile(QFile &file, const QString &accountName, con
         }
     }
     return true;
-}
-
-QString LocalMessageLogger::schemaDataBase() const
-{
-    return QString::fromLatin1(s_schema);
 }
