@@ -58,6 +58,8 @@ protected:
 
     bool mouseEvent(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
     bool maybeStartDrag(QMouseEvent *event, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+    void wheelEvent(QWheelEvent *e) override;
+
 Q_SIGNALS:
     void modelChanged();
     void editMessageRequested(const QString &messageId, const QString &text);

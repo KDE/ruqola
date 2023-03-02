@@ -68,6 +68,17 @@ MessageListView::MessageListView(RocketChatAccount *account, Mode mode, QWidget 
 
 MessageListView::~MessageListView() = default;
 
+void MessageListView::wheelEvent(QWheelEvent *e)
+{
+    const int y = e->angleDelta().y();
+    if (y > 0) {
+        if (verticalScrollBar()->value() <= 1) {
+            Q_EMIT loadHistoryRequested();
+        }
+    }
+    MessageListViewBase::wheelEvent(e);
+}
+
 void MessageListView::paintEvent(QPaintEvent *e)
 {
     if (mRoom && (mRoom->numberMessages() == 0)) {
