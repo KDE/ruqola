@@ -396,15 +396,15 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
     }
     case MessageModel::ShowTranslatedMessage:
         message.setShowTranslatedMessage(value.toBool());
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessageModel::ShowTranslatedMessage});
         return true;
     case MessageModel::ShowIgnoredMessage:
         message.setShowIgnoredMessage(value.toBool());
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessageModel::ShowIgnoredMessage});
         return true;
     case MessageModel::MessageInEditMode:
         message.setIsEditingMode(value.toBool());
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessageModel::MessageInEditMode});
         return true;
     case MessageModel::HoverHighLight:
         message.setHoverHighlight(value.toBool());
@@ -412,7 +412,7 @@ bool MessageModel::setData(const QModelIndex &index, const QVariant &value, int 
         return true;
     case MessageModel::LocalTranslation:
         message.setLocalTranslation(value.toString());
-        Q_EMIT dataChanged(index, index);
+        Q_EMIT dataChanged(index, index, {MessageModel::LocalTranslation});
         return true;
     case MessageModel::GoToMessageBackgroundColor:
         message.setGoToMessageBackgroundColor(value.value<QColor>());
