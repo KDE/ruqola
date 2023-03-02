@@ -51,6 +51,9 @@ public:
     Q_REQUIRED_RESULT const QString &searchString() const;
     void setSearchString(const QString &newSearchString);
 
+    void setFilter(const QString &filter);
+    Q_REQUIRED_RESULT QString filter() const;
+
 private:
     int mOffset = -1;
     int mCount = -1;
@@ -58,6 +61,7 @@ private:
     QMap<QString, QString> mCustom;
     QString mType;
     QString mSearchString;
+    QString mFilter;
 };
 
 class LIBROCKETCHATRESTAPI_QT5_EXPORT RestApiAbstractJob : public QObject

@@ -24,14 +24,23 @@ void QueryParametersTest::shouldHaveDefaultValue()
     QVERIFY(query.sorting().isEmpty());
     QVERIFY(query.custom().isEmpty());
     QVERIFY(query.searchString().isEmpty());
+    QVERIFY(query.filter().isEmpty());
 }
 
 void QueryParametersTest::shouldQueryIsValid()
 {
-    RocketChatRestApi::QueryParameters query;
-    QVERIFY(!query.isValid());
-    query.setCount(4);
-    QVERIFY(query.isValid());
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setCount(4);
+        QVERIFY(query.isValid());
+    }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setFilter(QStringLiteral("bla"));
+        QVERIFY(query.isValid());
+    }
 }
 
 void QueryParametersTest::shouldGenerateQuery()

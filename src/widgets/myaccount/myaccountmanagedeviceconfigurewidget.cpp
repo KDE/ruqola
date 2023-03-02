@@ -65,7 +65,7 @@ void MyAccountManageDeviceConfigureWidget::slotLoadElements(int offset, int coun
         parameters.setCount(count);
     }
     if (!searchName.isEmpty()) {
-        parameters.setSearchString(searchName);
+        parameters.setFilter(searchName);
     }
 
     job->setQueryParameters(parameters);

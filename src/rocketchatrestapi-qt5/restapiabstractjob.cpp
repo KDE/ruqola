@@ -551,6 +551,16 @@ QJsonDocument RestApiAbstractJob::convertToJsonDocument(QNetworkReply *reply)
 
 QueryParameters::QueryParameters() = default;
 
+QString QueryParameters::filter() const
+{
+    return mFilter;
+}
+
+void QueryParameters::setFilter(const QString &filter)
+{
+    mFilter = filter;
+}
+
 int QueryParameters::offset() const
 {
     return mOffset;
@@ -573,7 +583,7 @@ void QueryParameters::setCount(int count)
 
 bool QueryParameters::isValid() const
 {
-    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty()) || !mCustom.isEmpty() || !mSearchString.isEmpty();
+    return (mCount >= 0) || (mOffset >= 0) || (!mSorting.isEmpty()) || !mCustom.isEmpty() || !mSearchString.isEmpty() || !mFilter.isEmpty();
 }
 
 QMap<QString, QueryParameters::SortOrder> QueryParameters::sorting() const
@@ -614,6 +624,10 @@ void QueryParameters::generateQueryParameter(const QueryParameters &queryParamet
     if (queryParameters.offset() >= 0) {
         urlQuery.addQueryItem(QStringLiteral("offset"), QString::number(queryParameters.offset()));
     }
+    if (!queryParameters.filter().isEmpty()) {
+        urlQuery.addQueryItem(QStringLiteral("filter"), queryParameters.filter());
+    }
+
     const QMap<QString, QString> custom = queryParameters.custom();
     if (!custom.isEmpty()) {
         QMapIterator<QString, QString> i(custom);
