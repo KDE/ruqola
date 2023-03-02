@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-28 00:58+0000\n"
+"POT-Creation-Date: 2023-03-02 00:55+0000\n"
 "PO-Revision-Date: 2023-02-07 11:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -803,7 +803,7 @@ msgstr "Desabilitado"
 
 #: core/model/adminusersmodel.cpp:116
 #: widgets/administratorsettingsdialog/enterprise/enterprisesettingswidget.cpp:24
-#: widgets/ruqolamainwindow.cpp:485
+#: widgets/ruqolamainwindow.cpp:486
 #, kde-format
 msgid "Status"
 msgstr "Status"
@@ -1365,42 +1365,42 @@ msgstr "<strong>%1</strong> está digitando..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:2870
+#: core/rocketchataccount.cpp:2874
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensagens"
 
-#: core/rocketchataccount.cpp:2871
+#: core/rocketchataccount.cpp:2875
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Seu e-mail está na fila para envio."
 
-#: core/room.cpp:1135
+#: core/room.cpp:1150
 #, kde-format
 msgid "Owner"
 msgstr "Proprietário"
 
-#: core/room.cpp:1138
+#: core/room.cpp:1153
 #, kde-format
 msgid "Leader"
 msgstr "Líder"
 
-#: core/room.cpp:1141
+#: core/room.cpp:1156
 #, kde-format
 msgid "Moderator"
 msgstr "Moderador"
 
-#: core/room.cpp:1499
+#: core/room.cpp:1518
 #, kde-format
 msgid "Channel is read only."
 msgstr "O canal é somente leitura."
 
-#: core/room.cpp:1502
+#: core/room.cpp:1521
 #, kde-format
 msgid "You have blocked this channel."
 msgstr "Você bloqueou este canal."
 
-#: core/room.cpp:1505
+#: core/room.cpp:1524
 #, kde-format
 msgid "Channel was blocked."
 msgstr "O canal foi bloqueado."
@@ -1451,7 +1451,7 @@ msgstr ""
 msgid "User"
 msgstr "Usuário"
 
-#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:440
+#: core/user.cpp:204 widgets/ruqolamainwindow.cpp:441
 #, kde-format
 msgid "Administrator"
 msgstr "Administrador"
@@ -2503,7 +2503,7 @@ msgstr "Editar status do usuário"
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:28
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:49
 #: widgets/dialogs/directchannelinfowidget.cpp:100
-#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:492
+#: widgets/dialogs/modifystatuswidget.cpp:32 widgets/ruqolamainwindow.cpp:493
 #, kde-format
 msgid "Status:"
 msgstr "Status:"
@@ -3449,7 +3449,7 @@ msgstr "Criptografado:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:893
+#: widgets/ruqolamainwindow.cpp:905
 #, kde-format
 msgid "Message"
 msgstr "Mensagem"
@@ -5718,7 +5718,7 @@ msgid "Mark As Unread"
 msgstr "Marcar como não lida"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:268
+#: widgets/room/messagelistview.cpp:263
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Definir como favorito"
@@ -6052,7 +6052,7 @@ msgid "Channel Info about '%1'"
 msgstr "Informação do canal sobre '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:275
+#: widgets/room/messagelistview.cpp:270
 #, kde-format
 msgid "Delete"
 msgstr "Excluir"
@@ -6919,7 +6919,7 @@ msgstr "Abrir discussão"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:485
+#: widgets/room/messagelistview.cpp:480
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6927,7 +6927,7 @@ msgstr "Falar texto"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:276
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7534,13 +7534,13 @@ msgid "Notification"
 msgstr "Notificações"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:470
+#: widgets/room/messagelistview.cpp:465
 #, kde-format
 msgid "Go to Message"
 msgstr "Ir para mensagem"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:251
+#: widgets/room/messagelistview.cpp:246
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7821,107 +7821,114 @@ msgstr "Enviar arquivo"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
-#: widgets/room/messagelistview.cpp:82
-#, kde-format
-msgid "Room is Empty."
-msgstr ""
+#: widgets/room/messagelistview.cpp:80
+#, fuzzy, kde-format
+#| msgid "Total Messages in Direct Messages"
+msgid "You have joined a new direct message"
+msgstr "Total de mensagens nas mensagens diretas"
 
-#: widgets/room/messagelistview.cpp:259
+#: widgets/room/messagelistview.cpp:82
+#, fuzzy, kde-format
+#| msgid "Start Conversation"
+msgid "Start of conversation"
+msgstr "Iniciar conversa"
+
+#: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Unpin Message"
 msgstr "Desafixar mensagem"
 
-#: widgets/room/messagelistview.cpp:259
+#: widgets/room/messagelistview.cpp:254
 #, kde-format
 msgid "Pin Message"
 msgstr "Fixar mensagem"
 
-#: widgets/room/messagelistview.cpp:268
+#: widgets/room/messagelistview.cpp:263
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Excluir como favorito"
 
-#: widgets/room/messagelistview.cpp:286
+#: widgets/room/messagelistview.cpp:281
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Marcar mensagem como não lida"
 
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:286
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Mostrar tópico completo"
 
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:291
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: widgets/room/messagelistview.cpp:301
+#: widgets/room/messagelistview.cpp:296
 #, kde-format
 msgid "Quote"
 msgstr "Citar"
 
-#: widgets/room/messagelistview.cpp:306
+#: widgets/room/messagelistview.cpp:301
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Copiar link para mensagem"
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:314
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Unfollow Message"
 msgstr "Seguir mensagem..."
 
-#: widgets/room/messagelistview.cpp:319
+#: widgets/room/messagelistview.cpp:314
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Follow Message..."
 msgid "Follow Message"
 msgstr "Seguir mensagem..."
 
-#: widgets/room/messagelistview.cpp:332
+#: widgets/room/messagelistview.cpp:327
 #, kde-format
 msgid "Copy URL"
 msgstr "Copiar URL"
 
-#: widgets/room/messagelistview.cpp:340
+#: widgets/room/messagelistview.cpp:335
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Iniciar uma discussão"
 
-#: widgets/room/messagelistview.cpp:347
+#: widgets/room/messagelistview.cpp:342
 #, kde-format
 msgid "Reply in Thread"
 msgstr "Responder no tópico"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:402
 #, kde-format
 msgid "Show Original Message"
 msgstr "Mostrar mensagem original"
 
-#: widgets/room/messagelistview.cpp:407
+#: widgets/room/messagelistview.cpp:402
 #, kde-format
 msgid "Translate Message"
 msgstr "Traduzir mensagem"
 
-#: widgets/room/messagelistview.cpp:492
+#: widgets/room/messagelistview.cpp:487
 #, kde-format
 msgid "Report Message"
 msgstr "Reportar mensagem"
 
-#: widgets/room/messagelistview.cpp:658
+#: widgets/room/messagelistview.cpp:653
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Deseja excluir esta mensagem?"
 
-#: widgets/room/messagelistview.cpp:659
+#: widgets/room/messagelistview.cpp:654
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Excluir mensagem"
 
-#: widgets/room/messagelistview.cpp:802
+#: widgets/room/messagelistview.cpp:797
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Translator Error"
@@ -8235,175 +8242,180 @@ msgstr "Encontrado problema na instalação. Nenhum plugin encontrado aqui."
 msgid "Login Failed: generic error"
 msgstr "Falha no login: erro genérico"
 
-#: widgets/ruqolamainwindow.cpp:203
+#: widgets/ruqolamainwindow.cpp:204
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "Show New Notifications"
 msgstr "Notificação no celular:"
 
-#: widgets/ruqolamainwindow.cpp:353
+#: widgets/ruqolamainwindow.cpp:354
 #, kde-format
 msgid "Add Server..."
 msgstr "Adicionar servidor..."
 
-#: widgets/ruqolamainwindow.cpp:358
+#: widgets/ruqolamainwindow.cpp:359
 #, kde-format
 msgid "Server Info..."
 msgstr "Informação do servidor..."
 
-#: widgets/ruqolamainwindow.cpp:362
+#: widgets/ruqolamainwindow.cpp:363
 #, kde-format
 msgid "Logout Current Server"
 msgstr "Sair do servidor atual"
 
-#: widgets/ruqolamainwindow.cpp:366
+#: widgets/ruqolamainwindow.cpp:367
 #, kde-format
 msgid "Jump to Next Unread Channel"
 msgstr "Pular para o próximo canal não lido"
 
-#: widgets/ruqolamainwindow.cpp:371
+#: widgets/ruqolamainwindow.cpp:372
 #, kde-format
 msgid "Create New Channel..."
 msgstr "Criar novo canal..."
 
-#: widgets/ruqolamainwindow.cpp:375
+#: widgets/ruqolamainwindow.cpp:376
 #, kde-format
 msgid "Create Direct Messages..."
 msgstr "Criar mensagens direta..."
 
-#: widgets/ruqolamainwindow.cpp:379
+#: widgets/ruqolamainwindow.cpp:380
 #, kde-format
 msgid "Create Discussion..."
 msgstr "Criar discussão..."
 
-#: widgets/ruqolamainwindow.cpp:383
+#: widgets/ruqolamainwindow.cpp:384
 #, kde-format
 msgid "Create Team..."
 msgstr "Criar equipe..."
 
-#: widgets/ruqolamainwindow.cpp:391
+#: widgets/ruqolamainwindow.cpp:392
 #, kde-format
 msgid "Unread on Top"
 msgstr "Não lidas em cima"
 
-#: widgets/ruqolamainwindow.cpp:399
+#: widgets/ruqolamainwindow.cpp:400
 #, fuzzy, kde-format
 #| msgid "Last Message"
 msgid "By Last Message"
 msgstr "Última mensagem"
 
-#: widgets/ruqolamainwindow.cpp:405
+#: widgets/ruqolamainwindow.cpp:406
 #, kde-format
 msgid "Alphabetically"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:411
+#: widgets/ruqolamainwindow.cpp:412
 #, kde-format
 msgid "Show Channel Log"
 msgstr "Mostrar log do canal"
 
-#: widgets/ruqolamainwindow.cpp:415
+#: widgets/ruqolamainwindow.cpp:416
 #, fuzzy, kde-format
 #| msgid "Channel's Information"
 msgid "Show Server Errors"
 msgstr "Informações do canal"
 
-#: widgets/ruqolamainwindow.cpp:427
+#: widgets/ruqolamainwindow.cpp:428
 #, kde-format
 msgid "Mark All Channels as Read"
 msgstr "Marcar todos os canais como lidos"
 
-#: widgets/ruqolamainwindow.cpp:432
+#: widgets/ruqolamainwindow.cpp:433
 #, kde-format
 msgid "Register a New User..."
 msgstr "Registra um novo usuário..."
 
-#: widgets/ruqolamainwindow.cpp:436
+#: widgets/ruqolamainwindow.cpp:437
 #, kde-format
 msgid "My Account..."
 msgstr "Minha conta..."
 
-#: widgets/ruqolamainwindow.cpp:441
+#: widgets/ruqolamainwindow.cpp:442
 #, kde-format
 msgid "Administrator..."
 msgstr "Administrador..."
 
-#: widgets/ruqolamainwindow.cpp:447
+#: widgets/ruqolamainwindow.cpp:448
 #, fuzzy, kde-format
 #| msgid "Server Info..."
 msgid "Server Settings..."
 msgstr "Informação do servidor..."
 
-#: widgets/ruqolamainwindow.cpp:452
+#: widgets/ruqolamainwindow.cpp:453
 #, kde-format
 msgid "Directory..."
 msgstr "Pasta..."
 
-#: widgets/ruqolamainwindow.cpp:473
+#: widgets/ruqolamainwindow.cpp:474
 #, kde-format
 msgid "&Next Server"
 msgstr "&Próximo servidor"
 
-#: widgets/ruqolamainwindow.cpp:478
+#: widgets/ruqolamainwindow.cpp:479
 #, kde-format
 msgid "&Previous Server"
 msgstr "Servidor &anterior"
 
-#: widgets/ruqolamainwindow.cpp:508
+#: widgets/ruqolamainwindow.cpp:509
 #, fuzzy, kde-format
 #| msgid "Previous Channel"
 msgid "Previous Selected Channel"
 msgstr "Canal anterior"
 
-#: widgets/ruqolamainwindow.cpp:515
+#: widgets/ruqolamainwindow.cpp:516
 #, fuzzy, kde-format
 #| msgid "Next Channel"
 msgid "Next Selected Channel"
 msgstr "Próximo canal"
 
-#: widgets/ruqolamainwindow.cpp:549
+#: widgets/ruqolamainwindow.cpp:550
 #, fuzzy, kde-format
 #| msgid "Mobile Notification:"
 msgid "Show Notify History"
 msgstr "Notificação no celular:"
 
-#: widgets/ruqolamainwindow.cpp:553
+#: widgets/ruqolamainwindow.cpp:554
 #, fuzzy, kde-format
 #| msgid "Rocket.Chat Login"
 msgid "Show RocketChat Information"
 msgstr "Login do Rocket.Chat"
 
-#: widgets/ruqolamainwindow.cpp:557
+#: widgets/ruqolamainwindow.cpp:558
 #, fuzzy, kde-format
 #| msgid "Show room avatar"
 msgid "Show Room Avatar"
 msgstr "Mostrar avatar da sala"
 
-#: widgets/ruqolamainwindow.cpp:562
+#: widgets/ruqolamainwindow.cpp:563
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Delete Rooms"
 msgid "Show Favorite Room"
 msgstr "Excluir salas"
 
-#: widgets/ruqolamainwindow.cpp:588
+#: widgets/ruqolamainwindow.cpp:568
+#, kde-format
+msgid "What's new"
+msgstr ""
+
+#: widgets/ruqolamainwindow.cpp:600
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Criar equipe..."
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:749
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:737
+#: widgets/ruqolamainwindow.cpp:749
 #, fuzzy, kde-format
 #| msgid "Show Channel Log"
 msgid "Show Log"
 msgstr "Mostrar log do canal"
 
-#: widgets/ruqolamainwindow.cpp:795
+#: widgets/ruqolamainwindow.cpp:807
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8412,19 +8424,19 @@ msgstr ""
 "Enviamos a você um e-mail para confirmar seu registro.\n"
 "Se você não receber o e-mail log, volte e tente novamente."
 
-#: widgets/ruqolamainwindow.cpp:796
+#: widgets/ruqolamainwindow.cpp:808
 #, kde-format
 msgid "Register New User"
 msgstr "Registrar novo usuário"
 
-#: widgets/ruqolamainwindow.cpp:920
+#: widgets/ruqolamainwindow.cpp:932
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
 "%1.</qt>"
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:923
+#: widgets/ruqolamainwindow.cpp:935
 #, kde-format
 msgid "Hide menu bar"
 msgstr ""
@@ -8454,8 +8466,14 @@ msgstr ""
 msgid "View"
 msgstr "Visualizar log"
 
-#. i18n: ectx: ToolBar (mainToolBar)
+#. i18n: ectx: Menu (help)
 #: widgets/ruqolaui.rc:66
+#, kde-format
+msgid "&Help"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: widgets/ruqolaui.rc:70
 #, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
@@ -8626,6 +8644,16 @@ msgstr ""
 #| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Copiar imagem para a área de transferência"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:67
+#, kde-format
+msgid "Important changes since last version:"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:75
+#, kde-format
+msgid "Some of the new features in this release of Ruqola include:"
+msgstr ""
 
 #~ msgid "Error from '%1' account"
 #~ msgstr "Erro da conta '%1'"
