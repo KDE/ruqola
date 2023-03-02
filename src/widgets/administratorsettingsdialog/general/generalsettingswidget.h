@@ -38,4 +38,5 @@ private:
     QCheckBox *const mSendStatisticsRocketChat;
     QSpinBox *const mMaxRoomMembersDisablingMessageNotifications;
     QLineEdit *const mUpdateLatestAvailableVersion;
+    QLineEdit *const mStreamCastAddress;
 };

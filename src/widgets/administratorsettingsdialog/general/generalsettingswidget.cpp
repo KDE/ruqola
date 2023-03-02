@@ -33,6 +33,7 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     , mSendStatisticsRocketChat(new QCheckBox(i18n("Send Statistics to Rocket.Chat"), this))
     , mMaxRoomMembersDisablingMessageNotifications(new QSpinBox(this))
     , mUpdateLatestAvailableVersion(new QLineEdit(this))
+    , mStreamCastAddress(new QLineEdit(this))
 {
     mEnableFavoriteRooms->setObjectName(QStringLiteral("mEnableFavoriteRooms"));
     mMainLayout->addWidget(mEnableFavoriteRooms);
@@ -135,6 +136,14 @@ GeneralSettingsWidget::GeneralSettingsWidget(RocketChatAccount *account, QWidget
     addSpinbox(i18n("Max Room Members Before Disabling All Message Notifications"),
                mMaxRoomMembersDisablingMessageNotifications,
                QStringLiteral("Notifications_Max_Room_Members"));
+
+    auto streamCastLabel = createBoldLabel(i18n("Stream Cast"));
+    streamCastLabel->setObjectName(QStringLiteral("streamCastLabel"));
+    mMainLayout->addWidget(streamCastLabel);
+
+    mStreamCastAddress->setObjectName(QStringLiteral("mStreamCastAddress"));
+    addLineEdit(i18n("Stream Cast Address"), mStreamCastAddress, QStringLiteral("Stream_Cast_Address"));
+    mStreamCastAddress->setToolTip(i18n("IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or localhost:4000"));
 }
 
 GeneralSettingsWidget::~GeneralSettingsWidget() = default;
@@ -157,4 +166,5 @@ void GeneralSettingsWidget::initialize(const QMap<QString, QVariant> &mapSetting
     initializeWidget(mSendStatisticsRocketChat, mapSettings, true);
     initializeWidget(mMaxRoomMembersDisablingMessageNotifications, mapSettings, 100);
     initializeWidget(mUpdateLatestAvailableVersion, mapSettings, QStringLiteral("0.0.0"));
+    initializeWidget(mStreamCastAddress, mapSettings, QString());
 }

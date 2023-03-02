@@ -141,4 +141,14 @@ void GeneralSettingsWidgetTest::shouldHaveDefaultValues()
     QVERIFY(!mMaxRoomMembersDisablingMessageNotifications->toolTip().isEmpty());
     QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mMaxRoomMembersDisablingMessageNotifications), QStringLiteral("Notifications_Max_Room_Members"));
     SettingsWidgetHelper::checkLabelToolButton(&w, QStringLiteral("Notifications_Max_Room_Members"));
+
+    auto streamCastLabel = w.findChild<QLabel *>(QStringLiteral("streamCastLabel"));
+    QVERIFY(streamCastLabel);
+    QVERIFY(!streamCastLabel->text().isEmpty());
+
+    auto mStreamCastAddress = w.findChild<QLineEdit *>(QStringLiteral("mStreamCastAddress"));
+    QVERIFY(mStreamCastAddress);
+    QVERIFY(mStreamCastAddress->text().isEmpty());
+    QVERIFY(!mStreamCastAddress->toolTip().isEmpty());
+    QCOMPARE(SettingsWidgetHelper::widgetSettingsName(mStreamCastAddress), QStringLiteral("Stream_Cast_Address"));
 }
