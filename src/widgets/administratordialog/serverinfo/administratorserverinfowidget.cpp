@@ -7,6 +7,7 @@
 #include "administratorserverinfowidget.h"
 #include "connection.h"
 #include "license/licenseslistjob.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include "misc/statisticsjob.h"
 #include "rocketchataccount.h"
 #include "ruqolawidgets_debug.h"
@@ -14,6 +15,7 @@
 
 #include <KIO/Global>
 #include <KLocalizedString>
+#include <KTreeWidgetSearchLine>
 #include <KTreeWidgetSearchLineWidget>
 #include <QApplication>
 #include <QClipboard>
@@ -38,6 +40,7 @@ AdministratorServerInfoWidget::AdministratorServerInfoWidget(RocketChatAccount *
     hboxLayout->setContentsMargins({});
     mainLayout->addLayout(hboxLayout);
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
+    new LineEditCatchReturnKey(mSearchLineWidget->searchLine(), this);
     hboxLayout->addWidget(mSearchLineWidget);
     mRefreshButton->setObjectName(QStringLiteral("mRefreshButton"));
     mRefreshButton->setToolTip(i18n("Refresh"));
