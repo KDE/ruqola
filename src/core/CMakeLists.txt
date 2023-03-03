@@ -67,6 +67,10 @@ target_sources(libruqolacore PRIVATE
     ddpapi/ddpclient.h
     ddpapi/ddpmanager.cpp
     ddpapi/ddpmanager.h
+
+    ddpapi/ddpauthenticationmanagerutils.h
+    ddpapi/ddpauthenticationmanagerutils.cpp
+
     discussions/discussion.cpp
     discussions/discussion.h
     discussions/discussions.cpp

@@ -159,3 +159,4 @@ endif()
 
 add_ruqola_test(updatevideoconferencemessagejobtest.cpp)
 add_ruqola_test(videoconferencemessageinfomanagertest.cpp)
+add_ruqola_test(ddpauthenticationmanagerutilstest.cpp)
