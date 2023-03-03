@@ -29,7 +29,7 @@ LocalGlobalDatabase::~LocalGlobalDatabase() = default;
 
 QString LocalGlobalDatabase::schemaDataBase() const
 {
-    return QString::fromLatin1(s_schemaAccountDataBase);
+    return QString::fromLatin1(s_schemaGlobalDataBase);
 }
 
 QString LocalGlobalDatabase::generateIdentifier(const QString &accountName, const QString &roomName, TimeStampType type)
