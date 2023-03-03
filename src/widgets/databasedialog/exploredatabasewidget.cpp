@@ -91,7 +91,5 @@ void ExploreDatabaseWidget::slotLoad()
         } else {
             KMessageBox::error(this, QStringLiteral("Room '%1' does not have database").arg(roomName), QStringLiteral("Database empty"));
         }
-    } else {
-        KMessageBox::error(this, QStringLiteral("Room '%1' does not exist").arg(roomName), QStringLiteral("Not existing room name"));
     }
 }
