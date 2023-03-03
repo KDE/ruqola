@@ -5,6 +5,7 @@
 */
 
 #include "ddpauthenticationmanagerutils.h"
+#include "utils.h"
 
 #include <QJsonObject>
 
@@ -39,5 +40,26 @@ QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialTo
     oauthCredentialObject[QStringLiteral("credentialSecret")] = credentialSecret;
     oauthObject[QStringLiteral("oauth")] = oauthCredentialObject;
     array.append(oauthObject);
+    return array;
+}
+
+QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QString &password)
+{
+    // TODO: need to support login with email too ("email": "address" instead of "username": "user")
+
+    QJsonArray array;
+    QJsonObject loginObject;
+
+    const QByteArray sha256pw = Utils::convertSha256Password(password);
+    QJsonObject userObject;
+    userObject[QStringLiteral("username")] = user;
+    loginObject[QStringLiteral("user")] = userObject;
+
+    QJsonObject passwordObject;
+    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
+    passwordObject[QStringLiteral("digest")] = QString::fromLatin1(sha256pw);
+    loginObject[QStringLiteral("password")] = passwordObject;
+
+    array.append(loginObject);
     return array;
 }

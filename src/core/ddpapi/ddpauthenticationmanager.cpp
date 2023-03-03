@@ -53,23 +53,7 @@ void DDPAuthenticationManager::login()
 
 void DDPAuthenticationManager::login(const QString &user, const QString &password)
 {
-    // TODO: need to support login with email too ("email": "address" instead of "username": "user")
-    const QByteArray sha256pw = Utils::convertSha256Password(password);
-    const QString params = sl(
-                               R"(
-                              [
-                              {
-                              "user": {
-                              "username": "%1"
-                              },
-                              "password": {
-                              "digest": "%2",
-                              "algorithm": "sha-256"
-                              }
-                              }
-                              ])")
-                               .arg(user, QString::fromLatin1(sha256pw));
-    loginImpl(Utils::strToJsonArray(params));
+    loginImpl(DDPAuthenticationManagerUtils::login(user, password));
 }
 
 void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &password)

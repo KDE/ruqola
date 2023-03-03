@@ -18,4 +18,5 @@ private Q_SLOTS:
     void shouldTestLoginResume();
     void shouldTestLdapLogin();
     void shouldTestloginOAuth();
+    void shouldTestlogin();
 };
