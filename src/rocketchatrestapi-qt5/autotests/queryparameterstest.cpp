@@ -41,6 +41,18 @@ void QueryParametersTest::shouldQueryIsValid()
         query.setFilter(QStringLiteral("bla"));
         QVERIFY(query.isValid());
     }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setOffset(5);
+        QVERIFY(query.isValid());
+    }
+    {
+        RocketChatRestApi::QueryParameters query;
+        QVERIFY(!query.isValid());
+        query.setSearchString(QStringLiteral("bla"));
+        QVERIFY(query.isValid());
+    }
 }
 
 void QueryParametersTest::shouldGenerateQuery()
