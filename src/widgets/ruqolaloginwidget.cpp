@@ -49,7 +49,8 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     mainLayout->addRow(i18n("Server URL:"), mServerUrl);
 
     mUserName->setObjectName(QStringLiteral("mUserName"));
-    mainLayout->addRow(i18n("Username:"), mUserName);
+    mainLayout->addRow(i18n("Username or Email:"), mUserName);
+    mUserName->setPlaceholderText(i18n("Username or email"));
 
     // Type of account
     mAuthenticationAccountWidget->setObjectName(QStringLiteral("mAuthenticationAccountWidget"));
