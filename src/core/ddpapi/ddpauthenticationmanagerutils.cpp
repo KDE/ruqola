@@ -45,12 +45,20 @@ QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialTo
     return array;
 }
 
+QJsonObject DDPAuthenticationManagerUtils::hashPassword(const QString &password)
+{
+    QJsonObject passwordObject;
+    const QByteArray sha256pw = Utils::convertSha256Password(password);
+    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
+    passwordObject[QStringLiteral("digest")] = QString::fromLatin1(sha256pw);
+    return passwordObject;
+}
+
 QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QString &password)
 {
     QJsonArray array;
     QJsonObject loginObject;
 
-    const QByteArray sha256pw = Utils::convertSha256Password(password);
     QJsonObject userObject;
     if (user.contains(QLatin1Char('@'))) {
         userObject[QStringLiteral("email")] = user;
@@ -59,9 +67,7 @@ QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QStri
     }
     loginObject[QStringLiteral("user")] = userObject;
 
-    QJsonObject passwordObject;
-    passwordObject[QStringLiteral("algorithm")] = QStringLiteral("sha-256");
-    passwordObject[QStringLiteral("digest")] = QString::fromLatin1(sha256pw);
+    const QJsonObject passwordObject = hashPassword(password);
     loginObject[QStringLiteral("password")] = passwordObject;
 
     array.append(loginObject);
