@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-02 00:55+0000\n"
+"POT-Creation-Date: 2023-03-03 00:48+0000\n"
 "PO-Revision-Date: 2023-02-28 10:52+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2874
+#: core/rocketchataccount.cpp:2875
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2876
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -1410,7 +1410,7 @@ msgstr "Direct"
 
 #: core/roominfo/roominfo.cpp:121
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:19
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:128
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
 #, kde-format
 msgid "Omnichannel"
 msgstr "Omni-kanaal"
@@ -2256,7 +2256,7 @@ msgid "Administrator"
 msgstr "Systeembeheerder"
 
 #: widgets/administratordialog/administratorwidget.cpp:48
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:306
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:309
 #, kde-format
 msgid "Server Info"
 msgstr "Serverinformatie"
@@ -2543,7 +2543,7 @@ msgstr "URL voor autorisatie:"
 msgid "Access Token URL:"
 msgstr "URL van toegangstoken:"
 
-#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:32
+#: widgets/administratordialog/oauth/administratoroauthwidget.cpp:33
 #, kde-format
 msgid "Search Oauth apps..."
 msgstr "Zoeken naar toepassingen voor Oauth..."
@@ -2770,204 +2770,204 @@ msgctxt "@title"
 msgid "Remove Room"
 msgstr "Uit room verwijderen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:43
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:46
 #, kde-format
 msgid "Refresh"
 msgstr "Vernieuwen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:62
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:65
 #, kde-format
 msgid "Copy"
 msgstr "Kopiëren"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:127
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:130
 #, kde-format
 msgid "Licenses"
 msgstr "Licenties"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:129
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:132
 #, kde-format
 msgid "Auditing"
 msgstr "Controleren"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:130
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:133
 #, kde-format
 msgid "Canned Responses"
 msgstr "Ingeblikte antwoorden"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:131
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:134
 #, kde-format
 msgid "Engagement Dashboard"
 msgstr "Dashboard met engagementen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:155
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:158
 #, kde-format
 msgid "Version"
 msgstr "Versie"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:156
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:159
 #, kde-format
 msgid "Deployment ID"
 msgstr "Inzet-ID"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:175
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
 #, kde-format
 msgid "Rocket.Chat App Users"
 msgstr "Rocket.Chat App gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:176
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
 #, kde-format
 msgid "Away Users"
 msgstr "Afwezige gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:177
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
 #, kde-format
 msgid "Total Uploads Size"
 msgstr "Totale grootte uploads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:178
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:181
 #, kde-format
 msgid "Total Uploads"
 msgstr "Totaal aantal uploads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:179
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
 #, kde-format
 msgid "Offline Users"
 msgstr "Offlinegebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:180
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
 #, kde-format
 msgid "Online Users"
 msgstr "Online gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:182
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:185
 #, kde-format
 msgid "Activated Users"
 msgstr "Geactiveerde gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:183
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
 #, kde-format
 msgid "Activated Guests"
 msgstr "Geactiveerde gasten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:184
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
 #, kde-format
 msgid "Deactivated Users"
 msgstr "Gedeactiveerde gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:186
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
 #, kde-format
 msgid "Total Channels"
 msgstr "Totaal aantal kanalen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:187
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
 #, kde-format
 msgid "Total Rooms"
 msgstr "Totaal aantal rooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:188
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
 #, kde-format
 msgid "Total Private Groups"
 msgstr "Totaal aantal private groepen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:189
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
 #, kde-format
 msgid "Total Direct Message Rooms"
 msgstr "Totaal aantal directe berichtenrooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:190
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
 #, kde-format
 msgid "Total Threads"
 msgstr "Totaal aantal threads"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:191
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:194
 #, kde-format
 msgid "Total Users"
 msgstr "Totaal aantal gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:192
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
 #, kde-format
 msgid "Total Discussions"
 msgstr "Totaal aantal discussies"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:193
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
 #, kde-format
 msgid "Total Omnichannel Rooms"
 msgstr "Totaal aantal Omnichannel rooms"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:195
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
 #, kde-format
 msgid "Total Messages"
 msgstr "Totaal aantal berichten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:196
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
 #, kde-format
 msgid "Total Messages in Channels"
 msgstr "Totaal aantal berichten in kanalen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:197
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:200
 #, kde-format
 msgid "Total Messages in Private Groups"
 msgstr "Totaal aantal berichten in private groepen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:198
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:201
 #, kde-format
 msgid "Total Messages in Direct Messages"
 msgstr "Totaal aantal berichten in directe berichten"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:199
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:202
 #, kde-format
 msgid "Total Connected Users"
 msgstr "Totaal aantal verbonden gebruikers"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:233
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:278
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:236
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:281
 #, kde-format
 msgid "OS Release"
 msgstr "OS-release"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:234
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
 #, kde-format
 msgid "OS Type"
 msgstr "Type OS"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:235
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:296
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:238
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:299
 #, kde-format
 msgid "OS Platform"
 msgstr "OS-platform"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:236
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:239
 #, kde-format
 msgid "OS Total Memory"
 msgstr "OS totaal geheugen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:237
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:240
 #, kde-format
 msgid "OS Free Memory"
 msgstr "OS vrij geheugen"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:244
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:247
 #, kde-format
 msgid "Hash"
 msgstr "Hash"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:250
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:253
 #, kde-format
 msgid "Branch"
 msgstr "Branch"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:256
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:259
 #, kde-format
 msgid "Tag"
 msgstr "Tag"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:262
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:265
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:268
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:271
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:105
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:110
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:128
@@ -2977,32 +2977,32 @@ msgstr "Auteur"
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:284
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:287
 #, kde-format
 msgid "Node Version"
 msgstr "Versie van node"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:290
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:293
 #, kde-format
 msgid "Arch"
 msgstr "Arch"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:311
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:314
 #, kde-format
 msgid "Usage"
 msgstr "Gebruik"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:316
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:319
 #, kde-format
 msgid "Runtime Environment"
 msgstr "Omgeving tijdens uitvoeren"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:326
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:329
 #, kde-format
 msgid "Commit"
 msgstr "Vastleggen (commit)"
 
-#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:330
+#: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:333
 #, kde-format
 msgid "Build Environment"
 msgstr "Omgeving tijdens bouwen"
@@ -4060,103 +4060,103 @@ msgstr "De controle op bijwerken inschakelen"
 msgid "Send Statistics to Rocket.Chat"
 msgstr "Statistieken verzenden naar Rocket.Chat"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:42
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:43
 #, kde-format
 msgid "Site URL"
 msgstr "URL van site"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:46
 #, kde-format
 msgid "Site Name"
 msgstr "Sitenaam"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:48
 #, kde-format
 msgid "UTF8"
 msgstr "UTF8"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
 #, kde-format
 msgid "RegExp that will be used to validate usernames"
 msgstr "RegExp die gebruikt zal worden om gebruikersnamen te valideren"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:53
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:54
 #, kde-format
 msgid "UTF8 Usernames Validation"
 msgstr "Validatie van UTF8 gebruikersnamen"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:56
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
 #, kde-format
 msgid "RegExp that will be used to validate channel names"
 msgstr "RegExp die gebruikt zal worden om kanaalnamen te valideren"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:57
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:58
 #, kde-format
 msgid "UTF8 Channel Names Validation"
 msgstr "Validatie van UTF8 kanaalnamen"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:64
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:65
 #, kde-format
 msgid "First Channel After Login"
 msgstr "Eerste kanaal na aanmelden"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:67
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:68
 #, kde-format
 msgid "Deep Link Url"
 msgstr "Deep Link Url"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:70
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:71
 #, kde-format
 msgid "CDN Prefix"
 msgstr "CDN-voorvoegsel"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:85
 #, kde-format
 msgid "All messages"
 msgstr "Alle berichten"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:76
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
 #, kde-format
 msgid "User mentions only"
 msgstr "Alleen wat gebruiker meldt"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:77
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
 #, kde-format
 msgid "Group mentions only"
 msgstr "Alleen wat groep meldt"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:78
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:79
 #, kde-format
 msgid "User and group mentions only"
 msgstr "Alleen wat gebruiker en groep meldt"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:80
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:81
 #, kde-format
 msgid "Unread Count"
 msgstr "Ongelezen aantal"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:85
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:86
 #, kde-format
 msgid "Mentions only"
 msgstr "Alleen wat is gemeld"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:87
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:88
 #, kde-format
 msgid "Unread Count for Direct Messages"
 msgstr "Ongelezen aantal van directe berichten"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:89
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:90
 #, kde-format
 msgid "Update"
 msgstr "Bijwerken"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:94
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:95
 #, kde-format
 msgid "Update Latest Available Version"
 msgstr "Element voor bijwerken met de laatst beschikbare versie"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:100
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:101
 #, kde-format
 msgid ""
 "Checks automatically for new updates / important messages from the Rocket."
@@ -4172,12 +4172,12 @@ msgstr ""
 "geklikt kan worden en als een bericht van de robot Rocket.Cat,\n"
 "beiden alleen zichtbaar voor beheerders."
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:105
 #, kde-format
 msgid "TimeZone"
 msgstr "Tijdzone"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:110
 #, kde-format
 msgid ""
 "Sets the default timezone that will be used when showing dashboards or "
@@ -4186,37 +4186,37 @@ msgstr ""
 "Stelt de standaard tijdzone in die gebruikt zal worden bij het tonen van "
 "dashboards of verzenden van e-mails"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:111
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
 #, kde-format
 msgid "Server Timezone"
 msgstr "Tijdzone van server"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:112
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
 #, kde-format
 msgid "Custom Timezone"
 msgstr "Aangepaste tijdzone"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:113
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:114
 #, kde-format
 msgid "User's current Timezone"
 msgstr "Huidige tijdzone van gebruiker"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:115
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:116
 #, kde-format
 msgid "Default timezone for reporting"
 msgstr "Standaard tijdzone voor rapportage"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:118
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:119
 #, kde-format
 msgid "Reporting"
 msgstr "Rapporteren"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:126
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:127
 #, kde-format
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:132
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:133
 #, kde-format
 msgid ""
 "Max number of members in room when notifications for all messages gets "
@@ -4228,10 +4228,27 @@ msgstr ""
 "om receive alle meldingen op een individuele basis te ontvangen. (0 om uit "
 "te schakelen)"
 
-#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:135
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:136
 #, kde-format
 msgid "Max Room Members Before Disabling All Message Notifications"
 msgstr "Max leden in room alvorens alle berichtmeldingen uit te schakelen"
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
+#, kde-format
+msgid "Stream Cast"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
+#, kde-format
+msgid "Stream Cast Address"
+msgstr ""
+
+#: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
+#, kde-format
+msgid ""
+"IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
+"localhost:4000"
+msgstr ""
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -5659,7 +5676,7 @@ msgid "Mark As Unread"
 msgstr "Als ongelezen markeren"
 
 #: widgets/channellist/channellistview.cpp:122
-#: widgets/room/messagelistview.cpp:263
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Set as Favorite"
 msgstr "Als favoriet instellen"
@@ -5981,7 +5998,7 @@ msgid "Channel Info about '%1'"
 msgstr "Kanaalinformatie over '%1'"
 
 #: widgets/dialogs/channelinfoeditablewidget.cpp:40
-#: widgets/room/messagelistview.cpp:270
+#: widgets/room/messagelistview.cpp:281
 #, kde-format
 msgid "Delete"
 msgstr "Verwijderen"
@@ -6812,7 +6829,7 @@ msgstr "Discussie openen"
 
 #: widgets/discussions/discussionlistview.cpp:67
 #: widgets/notificationhistory/notificationhistorylistview.cpp:95
-#: widgets/room/messagelistview.cpp:480
+#: widgets/room/messagelistview.cpp:491
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:57
 #, kde-format
 msgid "Speak Text"
@@ -6820,7 +6837,7 @@ msgstr "Tekst uitspreken"
 
 #: widgets/discussions/discussionlistview.cpp:73
 #: widgets/notificationhistory/notificationhistorylistview.cpp:101
-#: widgets/room/messagelistview.cpp:276
+#: widgets/room/messagelistview.cpp:287
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:64
 #, kde-format
 msgid "Select All"
@@ -7419,13 +7436,13 @@ msgid "Notification"
 msgstr "Melding"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:80
-#: widgets/room/messagelistview.cpp:465
+#: widgets/room/messagelistview.cpp:476
 #, kde-format
 msgid "Go to Message"
 msgstr "Naar bericht gaan"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:84
-#: widgets/room/messagelistview.cpp:246
+#: widgets/room/messagelistview.cpp:257
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorylistview.cpp:45
 #, kde-format
 msgid "Copy Message"
@@ -7699,112 +7716,112 @@ msgstr "Bestand uploaden"
 msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Server autoriseert dit bestand niet (ongeldig mime-type)"
 
-#: widgets/room/messagelistview.cpp:80
+#: widgets/room/messagelistview.cpp:91
 #, fuzzy, kde-format
 #| msgid "Maximum message age in direct messages"
 msgid "You have joined a new direct message"
 msgstr "Maximale leeftijd van een direct bericht"
 
-#: widgets/room/messagelistview.cpp:82
+#: widgets/room/messagelistview.cpp:93
 #, fuzzy, kde-format
 #| msgid "Start Conversation"
 msgid "Start of conversation"
 msgstr "Begin van conversatie"
 
-#: widgets/room/messagelistview.cpp:254
+#: widgets/room/messagelistview.cpp:265
 #, kde-format
 msgid "Unpin Message"
 msgstr "Bericht losmaken"
 
-#: widgets/room/messagelistview.cpp:254
+#: widgets/room/messagelistview.cpp:265
 #, kde-format
 msgid "Pin Message"
 msgstr "Bericht vastpinnen"
 
-#: widgets/room/messagelistview.cpp:263
+#: widgets/room/messagelistview.cpp:274
 #, kde-format
 msgid "Remove as Favorite"
 msgstr "Als favoriet verwijderen"
 
-#: widgets/room/messagelistview.cpp:281
+#: widgets/room/messagelistview.cpp:292
 #, kde-format
 msgid "Mark Message As Unread"
 msgstr "Bericht markeren als ongelezen"
 
-#: widgets/room/messagelistview.cpp:286
+#: widgets/room/messagelistview.cpp:297
 #, kde-format
 msgid "Show Full Thread"
 msgstr "Volledige thread tonen"
 
-#: widgets/room/messagelistview.cpp:291
+#: widgets/room/messagelistview.cpp:302
 #, kde-format
 msgid "Edit"
 msgstr "Bewerken"
 
-#: widgets/room/messagelistview.cpp:296
+#: widgets/room/messagelistview.cpp:307
 #, kde-format
 msgid "Quote"
 msgstr "Citaat"
 
-#: widgets/room/messagelistview.cpp:301
+#: widgets/room/messagelistview.cpp:312
 #, kde-format
 msgid "Copy Link To Message"
 msgstr "Koppeling naar bericht kopiëren"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:325
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Unfollow Message"
 msgstr "Bericht niet volgen"
 
-#: widgets/room/messagelistview.cpp:314
+#: widgets/room/messagelistview.cpp:325
 #: widgets/threadwidget/threadmessagewidget.cpp:114
 #, kde-format
 msgid "Follow Message"
 msgstr "Bericht volgen"
 
-#: widgets/room/messagelistview.cpp:327
+#: widgets/room/messagelistview.cpp:338
 #, kde-format
 msgid "Copy URL"
 msgstr "URL kopiëren"
 
-#: widgets/room/messagelistview.cpp:335
+#: widgets/room/messagelistview.cpp:346
 #, kde-format
 msgid "Start a Discussion"
 msgstr "Een discussie starten"
 
-#: widgets/room/messagelistview.cpp:342
+#: widgets/room/messagelistview.cpp:353
 #, kde-format
 msgid "Reply in Thread"
 msgstr "In discussie antwoorden"
 
-#: widgets/room/messagelistview.cpp:402
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgid "Show Original Message"
 msgstr "Oorspronkelijke bericht tonen"
 
-#: widgets/room/messagelistview.cpp:402
+#: widgets/room/messagelistview.cpp:413
 #, kde-format
 msgid "Translate Message"
 msgstr "Bericht vertalen"
 
-#: widgets/room/messagelistview.cpp:487
+#: widgets/room/messagelistview.cpp:498
 #, kde-format
 msgid "Report Message"
 msgstr "Bericht rapporteren"
 
-#: widgets/room/messagelistview.cpp:653
+#: widgets/room/messagelistview.cpp:664
 #, kde-format
 msgid "Do you want to delete this message?"
 msgstr "Wilt u dit bericht verwijderen?"
 
-#: widgets/room/messagelistview.cpp:654
+#: widgets/room/messagelistview.cpp:665
 #, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Bericht verwijderen"
 
-#: widgets/room/messagelistview.cpp:797
+#: widgets/room/messagelistview.cpp:808
 #, kde-format
 msgid "Translator Error"
 msgstr "Fout van vertaler"
