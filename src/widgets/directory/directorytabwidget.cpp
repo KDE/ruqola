@@ -5,6 +5,7 @@
 */
 #include "directorytabwidget.h"
 #include "directorywidget.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
 
 DirectoryTabWidget::DirectoryTabWidget(RocketChatAccount *account, QWidget *parent)
@@ -16,16 +17,29 @@ DirectoryTabWidget::DirectoryTabWidget(RocketChatAccount *account, QWidget *pare
     mRooms->setObjectName(QStringLiteral("mRooms"));
     mUsers->setObjectName(QStringLiteral("mUsers"));
     mTeams->setObjectName(QStringLiteral("mTeams"));
-    addTab(mRooms, i18n("Rooms"));
-    addTab(mUsers, i18n("Users"));
-    addTab(mTeams, i18n("Teams"));
+    const int roomsTabIndex = addTab(mRooms, i18n("Rooms"));
+    const int usersTabIndex = addTab(mUsers, i18n("Users"));
+    const int teamsTabIndex = addTab(mTeams, i18n("Teams"));
+
+    if (account && !account->hasPermission(QStringLiteral("view-c-room"))) {
+        setTabVisible(roomsTabIndex, false);
+        setTabVisible(teamsTabIndex, false);
+    }
+    if (account && (!account->hasPermission(QStringLiteral("view-outside-room")) || !account->hasPermission(QStringLiteral("view-d-room")))) {
+        setTabVisible(usersTabIndex, false);
+    }
+    // TODO show default page for informing that we don't have access.
 }
 
 DirectoryTabWidget::~DirectoryTabWidget() = default;
 
 void DirectoryTabWidget::fillTabs()
 {
-    mRooms->fillDirectory();
-    mUsers->fillDirectory();
-    mTeams->fillDirectory();
+    if (isTabVisible(indexOf(mRooms))) {
+        mRooms->fillDirectory();
+        mTeams->fillDirectory();
+    }
+    if (isTabVisible(indexOf(mUsers))) {
+        mUsers->fillDirectory();
+    }
 }
