@@ -24,6 +24,8 @@ QJsonArray DDPAuthenticationManagerUtils::loginLdap(const QString &user, const Q
     QJsonObject ldapObject;
     ldapObject[QStringLiteral("ldap")] = true;
     ldapObject[QStringLiteral("username")] = user;
+
+    // Ldap seems to new supported hashPassword... To bad.
     ldapObject[QStringLiteral("ldapPass")] = password;
     ldapObject[QStringLiteral("ldapOptions")] = QJsonObject();
     array.append(ldapObject);
