@@ -14,8 +14,8 @@
 #include <QSqlRecord>
 #include <QSqlTableModel>
 
-static const char s_schemaAccountDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
-enum class Fields {
+static const char s_schemaGlobalDataBase[] = "CREATE TABLE GLOBAL (identifier TEXT PRIMARY KEY NOT NULL, timestamp INTEGER)";
+enum class GlobalFields {
     Identifier,
     TimeStamp,
 }; // in the same order as the table

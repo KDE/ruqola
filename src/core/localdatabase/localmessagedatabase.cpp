@@ -18,7 +18,7 @@
 #include <QSqlTableModel>
 
 static const char s_schemaMessageDataBase[] = "CREATE TABLE MESSAGES (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
-enum class Fields {
+enum class MessagesFields {
     MessageId,
     TimeStamp,
     Json,
@@ -92,7 +92,7 @@ std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const Q
     Q_ASSERT(db.isOpen());
     auto model = std::make_unique<QSqlTableModel>(nullptr, db);
     model->setTable(QStringLiteral("MESSAGES"));
-    model->setSort(int(Fields::TimeStamp), Qt::AscendingOrder);
+    model->setSort(int(MessagesFields::TimeStamp), Qt::AscendingOrder);
     model->select();
     return model;
 }

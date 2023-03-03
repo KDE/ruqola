@@ -16,7 +16,7 @@
 #include <QSqlRecord>
 
 static const char s_schemaRoomDataBase[] = "CREATE TABLE ROOMS (roomId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
-enum class Fields {
+enum class RoomFields {
     RoomId,
     TimeStamp,
     Json,

@@ -14,7 +14,7 @@
 #include <QSqlRecord>
 
 static const char s_schemaAccountDataBase[] = "CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)";
-enum class Fields {
+enum class AccountFields {
     AccountName,
     TimeStamp,
     Json,
