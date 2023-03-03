@@ -103,5 +103,7 @@ void MyAccountConfigureWidget::initialize()
 {
     mMyAccount2ProfileConfigureWidget->initialize();
     mMyAccount2FaConfigureWidget->initialize();
-    mMyAccountPersonalAccessTokenConfigureWidget->initialize();
+    if (mRocketChatAccount && mRocketChatAccount->hasPermission(QStringLiteral("create-personal-access-tokens"))) {
+        mMyAccountPersonalAccessTokenConfigureWidget->initialize();
+    }
 }
