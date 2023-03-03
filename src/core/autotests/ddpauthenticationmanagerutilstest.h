@@ -19,4 +19,5 @@ private Q_SLOTS:
     void shouldTestLdapLogin();
     void shouldTestloginOAuth();
     void shouldTestlogin();
+    void shouldTestSendOtp();
 };

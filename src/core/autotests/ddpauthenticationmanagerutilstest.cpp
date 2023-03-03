@@ -7,6 +7,7 @@
 #include "ddpauthenticationmanagerutilstest.h"
 #include "ddpapi/ddpauthenticationmanagerutils.h"
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QTest>
 QTEST_GUILESS_MAIN(DDPAuthenticationManagerUtilsTest)
 DDPAuthenticationManagerUtilsTest::DDPAuthenticationManagerUtilsTest(QObject *parent)
@@ -69,5 +70,16 @@ void DDPAuthenticationManagerUtilsTest::shouldTestlogin()
         QCOMPARE(QJsonDocument(DDPAuthenticationManagerUtils::login(user, password)).toJson(QJsonDocument::Compact),
                  QByteArray("[{\"password\":{\"algorithm\":\"sha-256\",\"digest\":\"465906e4251bcc0e47e97be030e468a3dcc011eb422b12c2a6ddba35d76f9df8\"},"
                             "\"user\":{\"email\":\"foo@kde.org\"}}]"));
+    }
+}
+
+void DDPAuthenticationManagerUtilsTest::shouldTestSendOtp()
+{
+    {
+        const QString codeOtp = QStringLiteral(R"(foo42)");
+        QJsonObject lastLoginPayLoad;
+        lastLoginPayLoad[QStringLiteral("test")] = QStringLiteral("test");
+        QCOMPARE(QJsonDocument(DDPAuthenticationManagerUtils::sendOTP(codeOtp, lastLoginPayLoad)).toJson(QJsonDocument::Compact),
+                 QByteArray("[{\"totp\":{\"code\":\"foo42\",\"login\":{\"test\":\"test\"}}}]"));
     }
 }
