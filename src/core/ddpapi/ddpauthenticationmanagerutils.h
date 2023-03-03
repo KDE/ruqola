@@ -16,4 +16,5 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginResume(const QStrin
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginLdap(const QString &user, const QString &password);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray loginOAuth(const QString &credentialToken, const QString &credentialSecret);
 Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray login(const QString &user, const QString &password);
+Q_REQUIRED_RESULT LIBRUQOLACORE_TESTS_EXPORT QJsonArray sendOTP(const QString &otpCode, const QJsonObject &lastLoginPayload);
 };

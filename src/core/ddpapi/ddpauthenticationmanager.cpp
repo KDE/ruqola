@@ -104,19 +104,10 @@ void DDPAuthenticationManager::sendOTP(const QString &otpCode)
     //        qCWarning(RUQOLA_DDPAPI_LOG) << Q_FUNC_INFO << "Trying to send OTP but none was requested by the server.";
     //        return;
     //    }
-
-    const QString params = sl(R"(
-[
-    {
-        "totp": {
-            "login": %1,
-            "code": "%2"
-        }
-    }
-])")
-                               .arg(QLatin1String(QJsonDocument(mLastLoginPayload).toJson().constData()), otpCode);
-
-    ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP, Utils::strToJsonArray(params), this, static_cast<int>(Method::SendOtp));
+    ddpClient()->invokeMethodAndRegister(METHOD_SEND_OTP,
+                                         DDPAuthenticationManagerUtils::sendOTP(otpCode, mLastLoginPayload),
+                                         this,
+                                         static_cast<int>(Method::SendOtp));
     setLoginStatus(LoginStatus::LoginOtpAuthOngoing);
 }
 

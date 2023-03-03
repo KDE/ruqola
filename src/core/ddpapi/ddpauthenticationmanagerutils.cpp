@@ -65,3 +65,16 @@ QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QStri
     array.append(loginObject);
     return array;
 }
+
+QJsonArray DDPAuthenticationManagerUtils::sendOTP(const QString &otpCode, const QJsonObject &lastLoginPayload)
+{
+    QJsonArray array;
+    QJsonObject otp;
+
+    QJsonObject totpObject;
+    totpObject[QStringLiteral("code")] = otpCode;
+    totpObject[QStringLiteral("login")] = lastLoginPayload;
+    otp[QStringLiteral("totp")] = totpObject;
+    array.append(otp);
+    return array;
+}
