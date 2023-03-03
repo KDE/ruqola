@@ -62,4 +62,12 @@ void DDPAuthenticationManagerUtilsTest::shouldTestlogin()
                  QByteArray("[{\"password\":{\"algorithm\":\"sha-256\",\"digest\":\"465906e4251bcc0e47e97be030e468a3dcc011eb422b12c2a6ddba35d76f9df8\"},"
                             "\"user\":{\"username\":\"username42\"}}]"));
     }
+    {
+        // Use email as login
+        const QString user = QStringLiteral(R"(foo@kde.org)");
+        const QString password = QStringLiteral(R"(45p";)");
+        QCOMPARE(QJsonDocument(DDPAuthenticationManagerUtils::login(user, password)).toJson(QJsonDocument::Compact),
+                 QByteArray("[{\"password\":{\"algorithm\":\"sha-256\",\"digest\":\"465906e4251bcc0e47e97be030e468a3dcc011eb422b12c2a6ddba35d76f9df8\"},"
+                            "\"user\":{\"email\":\"foo@kde.org\"}}]"));
+    }
 }

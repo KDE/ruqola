@@ -45,14 +45,16 @@ QJsonArray DDPAuthenticationManagerUtils::loginOAuth(const QString &credentialTo
 
 QJsonArray DDPAuthenticationManagerUtils::login(const QString &user, const QString &password)
 {
-    // TODO: need to support login with email too ("email": "address" instead of "username": "user")
-
     QJsonArray array;
     QJsonObject loginObject;
 
     const QByteArray sha256pw = Utils::convertSha256Password(password);
     QJsonObject userObject;
-    userObject[QStringLiteral("username")] = user;
+    if (user.contains(QLatin1Char('@'))) {
+        userObject[QStringLiteral("email")] = user;
+    } else {
+        userObject[QStringLiteral("username")] = user;
+    }
     loginObject[QStringLiteral("user")] = userObject;
 
     QJsonObject passwordObject;
