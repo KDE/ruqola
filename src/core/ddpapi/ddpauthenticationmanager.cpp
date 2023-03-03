@@ -8,6 +8,7 @@
 
 #include "ddpapi/ddpauthenticationmanager.h"
 
+#include "ddpapi/ddpauthenticationmanagerutils.h"
 #include "ddpapi/ddpclient.h"
 
 #include "ruqola_ddpapi_debug.h"
@@ -47,15 +48,7 @@ void DDPAuthenticationManager::login()
         return;
     }
 
-    const QString params = sl(R"(
-[
-    {
-        "resume": "%1"
-    }
-])")
-                               .arg(mAuthToken);
-
-    loginImpl(Utils::strToJsonArray(params));
+    loginImpl(DDPAuthenticationManagerUtils::loginResume(mAuthToken));
 }
 
 void DDPAuthenticationManager::login(const QString &user, const QString &password)
@@ -81,34 +74,12 @@ void DDPAuthenticationManager::login(const QString &user, const QString &passwor
 
 void DDPAuthenticationManager::loginLDAP(const QString &user, const QString &password)
 {
-    const QString params = sl(R"(
-[
-    {
-        "ldap": true,
-        "username": "%1",
-        "ldapPass": "%2",
-        "ldapOptions": {}
-    }
-])")
-                               .arg(user, password);
-
-    loginImpl(Utils::strToJsonArray(params));
+    loginImpl(DDPAuthenticationManagerUtils::loginLdap(user, password));
 }
 
 void DDPAuthenticationManager::loginOAuth(const QString &credentialToken, const QString &credentialSecret)
 {
-    const QString params = sl(R"(
-[
-    {
-        "oauth": {
-            "credentialToken": "%1",
-            "credentialSecret": "%2"
-        }
-    }
-])")
-                               .arg(credentialToken, credentialSecret);
-
-    loginImpl(Utils::strToJsonArray(params));
+    loginImpl(DDPAuthenticationManagerUtils::loginOAuth(credentialToken, credentialSecret));
 }
 
 void DDPAuthenticationManager::loginImpl(const QJsonArray &params)
