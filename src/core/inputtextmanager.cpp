@@ -81,7 +81,10 @@ QString InputTextManager::applyCompletion(const QString &newWord, const QString 
     QString replaceText = text;
     const int textReplaceSize = end - start + 1;
     if (textReplaceSize > 0) {
-        replaceText.replace(start, end - start + 1, newWord);
+        replaceText.replace(start, textReplaceSize, newWord);
+        *pPosition = start + newWord.length();
+    } else if (textReplaceSize == 0) {
+        replaceText += newWord;
         *pPosition = start + newWord.length();
     }
     return replaceText;
