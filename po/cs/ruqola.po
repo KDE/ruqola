@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
+"POT-Creation-Date: 2023-03-04 00:47+0000\n"
 "PO-Revision-Date: 2023-02-24 15:15+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -858,7 +858,7 @@ msgstr "Typ kanálu"
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:19
+#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Místnosti"
@@ -1044,7 +1044,7 @@ msgstr "Oblíbené"
 
 #: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:21
+#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Týmy"
@@ -1474,27 +1474,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Přihlašovací jméno/heslo"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
 #, kde-format
 msgid "Share Text..."
 msgstr "Sdílet text..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Nastala chyba při sdílení dokumentu: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "Share"
 msgstr "Sdílet"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
 #, kde-format
 msgid "File was shared."
 msgstr "Soubor byl sdílen."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Nový požadavek naleznete na:<br /><a href='%1'>%1</a> </qt>"
@@ -2262,7 +2262,7 @@ msgstr "Vlastní emotikon"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:20
+#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Uživatelé"
@@ -3032,7 +3032,6 @@ msgstr ""
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Uživatelské jméno:"
@@ -3055,7 +3054,7 @@ msgstr "E-mail:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:74
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
@@ -6771,7 +6770,7 @@ msgstr "Přihlášení se nezdařilo: obecná chyba"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Pro dokončení přihlášení je potřeba heslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Přihlášení selhalo: Neplatný kód OTP."
@@ -7889,12 +7888,24 @@ msgstr "Název účtu:"
 msgid "Account name"
 msgstr "Název účtu"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:52
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username or Email:"
+msgstr "Uživatelské jméno:"
+
+#: widgets/ruqolaloginwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username or email"
+msgstr "Uživatelské jméno"
+
+#: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda ověření"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -7903,17 +7914,17 @@ msgstr ""
 "Máte zapnuto dvoufázové ověření.\n"
 "Zadejte vygenerovaný kód nebo záložní kód."
 
-#: widgets/ruqolaloginwidget.cpp:191
+#: widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Přihlášení se nezdařilo: neplatné jméno uživatele nebo heslo"
 
-#: widgets/ruqolaloginwidget.cpp:205
+#: widgets/ruqolaloginwidget.cpp:206
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Nalezen problém s instalací. Nebyly nalezeny žádné moduly."
 
-#: widgets/ruqolaloginwidget.cpp:211
+#: widgets/ruqolaloginwidget.cpp:212
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Přihlášení se nezdařilo: obecná chyba"

@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
-"PO-Revision-Date: 2023-02-28 08:33+0100\n"
+"POT-Creation-Date: 2023-03-04 00:47+0000\n"
+"PO-Revision-Date: 2023-03-03 11:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -862,7 +862,7 @@ msgstr "Vrsta kanala"
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:19
+#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Sobe"
@@ -1049,7 +1049,7 @@ msgstr "Priljubljeni"
 
 #: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:21
+#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Ekipe"
@@ -1479,27 +1479,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Prijava/geslo"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
 #, kde-format
 msgid "Share Text..."
 msgstr "Deli besedilo..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Bila je težava pri deljenju dokumenta: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "Share"
 msgstr "Deli"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
 #, kde-format
 msgid "File was shared."
 msgstr "Datoteka je bila deljena."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Novi zahtevek lahko najdete na:<br /><a href='%1'>%1</a> </qt>"
@@ -2267,7 +2267,7 @@ msgstr "Emodžiji po meri"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:20
+#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Uporabniki"
@@ -3041,7 +3041,6 @@ msgstr "Nastavi naključno geslo in ga pošlji po e-pošti"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Uporabniško ime:"
@@ -3064,7 +3063,7 @@ msgstr "E-naslov:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:74
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
@@ -4227,12 +4226,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Stream Cast"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Stream Cast Stream Cast"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4240,6 +4239,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"IP or gostitelj vašega Rocket.Chat centralnega Stream Casta. Npr. "
+"192.168.1.1:3000 ali localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -6937,7 +6938,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -7700,16 +7701,14 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Strežnik ne odobrava te datoteke (neveljavna vrsta mime)"
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Največja starost sporočil v neposrednih sporočilih"
+msgstr "Pridružili ste se novemu neposrednemu sporočilu"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Začni pogovor"
+msgstr "Začetek pogovora"
 
 #: widgets/room/messagelistview.cpp:265
 #, kde-format
@@ -8088,12 +8087,24 @@ msgstr "Ime računa:"
 msgid "Account name"
 msgstr "Ime računa"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:52
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username or Email:"
+msgstr "Uporabniško ime:"
+
+#: widgets/ruqolaloginwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username or email"
+msgstr "Uporabniško ime"
+
+#: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda preverjanja pristnosti"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8102,17 +8113,17 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:191
+#: widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:205
+#: widgets/ruqolaloginwidget.cpp:206
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:211
+#: widgets/ruqolaloginwidget.cpp:212
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"
@@ -8258,11 +8269,9 @@ msgid "Show Favorite Room"
 msgstr "Prikaži priljubljeno sobo"
 
 #: widgets/ruqolamainwindow.cpp:568
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "What's new in Ruqola"
+#, kde-format
 msgid "What's new"
-msgstr "Kaj je novega v aplikaciji Ruqola"
+msgstr "Kaj je novega"
 
 #: widgets/ruqolamainwindow.cpp:600
 #, kde-format
@@ -8336,7 +8345,7 @@ msgstr "Pogled"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "Pomoč"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8510,12 +8519,12 @@ msgstr "Dovoli kopiranje slike na odložišče"
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Pomembne spremembe od zadnje različice:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Soba je prazna."

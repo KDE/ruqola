@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
+"POT-Creation-Date: 2023-03-04 00:47+0000\n"
 "PO-Revision-Date: 2023-02-28 11:54+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -859,7 +859,7 @@ msgstr "Kanal Türü"
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:19
+#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Odalar"
@@ -1044,7 +1044,7 @@ msgstr "Sık Kullanılanlar"
 
 #: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:21
+#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Takımlar"
@@ -1474,27 +1474,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Kullanıcı Adı/Parola"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
 #, kde-format
 msgid "Share Text..."
 msgstr "Metin Paylaş..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Belgeyi paylaşırken bir sorun oluştu: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "Share"
 msgstr "Paylaş"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
 #, kde-format
 msgid "File was shared."
 msgstr "Dosya, paylaşıldı."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr "<qt>Yeni isteği şurada bulabilirsiniz:<br /><a href='%1'>%1</a> </qt>"
@@ -2255,7 +2255,7 @@ msgstr "Özel Emojiler"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:20
+#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Kullanıcılar"
@@ -3021,7 +3021,6 @@ msgstr "Rastgele bir parola ayarla ve e-posta ile gönder"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Kullanıcı Adı:"
@@ -3044,7 +3043,7 @@ msgstr "E-posta:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:74
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
@@ -6908,7 +6907,7 @@ msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
@@ -8050,12 +8049,24 @@ msgstr "Hesap Adı:"
 msgid "Account name"
 msgstr "Hesap adı"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:52
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username or Email:"
+msgstr "Kullanıcı Adı:"
+
+#: widgets/ruqolaloginwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username or email"
+msgstr "Kullanıcı Adı"
+
+#: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
 msgid "Authentication Method"
 msgstr "Kimlik Doğrulama Yöntemi"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8064,17 +8075,17 @@ msgstr ""
 "İki adımlı kimlik doğrulamayı etkinleştirdiniz.\n"
 "Üretilen kodu veya bir yedek kodunu girin."
 
-#: widgets/ruqolaloginwidget.cpp:191
+#: widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/ruqolaloginwidget.cpp:205
+#: widgets/ruqolaloginwidget.cpp:206
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 
-#: widgets/ruqolaloginwidget.cpp:211
+#: widgets/ruqolaloginwidget.cpp:212
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-03 00:48+0000\n"
-"PO-Revision-Date: 2023-02-28 10:52+0100\n"
+"POT-Creation-Date: 2023-03-04 00:47+0000\n"
+"PO-Revision-Date: 2023-03-03 10:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -861,7 +861,7 @@ msgstr "Kanaaltype"
 #: widgets/administratordialog/administratorwidget.cpp:51
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:13
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:19
+#: widgets/directory/directorytabwidget.cpp:20
 #, kde-format
 msgid "Rooms"
 msgstr "Rooms"
@@ -1046,7 +1046,7 @@ msgstr "Favorieten"
 
 #: core/model/roommodel.cpp:519
 #: widgets/administratordialog/rooms/administratorroomsselectroomtypewidget.cpp:18
-#: widgets/directory/directorytabwidget.cpp:21
+#: widgets/directory/directorytabwidget.cpp:22
 #, kde-format
 msgid "Teams"
 msgstr "Teams"
@@ -1478,27 +1478,27 @@ msgstr "Google"
 msgid "Login/Password"
 msgstr "Aanmelden/wachtwoord"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:20
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:26
 #, kde-format
 msgid "Share Text..."
 msgstr "Tekst delen..."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "There was a problem sharing the document: %1"
 msgstr "Er was een probleem bij het delen van het document: %1"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:65
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:71
 #, kde-format
 msgid "Share"
 msgstr "Delen"
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:69
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:75
 #, kde-format
 msgid "File was shared."
 msgstr "Bestand was gedeeld."
 
-#: plugins/textplugin/sharetext/purposemenuwidget.cpp:72
+#: plugins/textplugin/sharetext/purposemenuwidget.cpp:78
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
 msgstr ""
@@ -2278,7 +2278,7 @@ msgstr "Eigen emoji's"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
-#: widgets/directory/directorytabwidget.cpp:20
+#: widgets/directory/directorytabwidget.cpp:21
 #, kde-format
 msgid "Users"
 msgstr "Gebruikers"
@@ -3045,7 +3045,6 @@ msgstr "Willekeurig wachtwoord instellen en verzenden per e-mail"
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:39
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:53
 #: widgets/registeruser/registeruserwidget.cpp:30
-#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username:"
 msgstr "Gebruikersnaam:"
@@ -3068,7 +3067,7 @@ msgstr "E-mail:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:73
+#: widgets/ruqolaloginwidget.cpp:74
 #, kde-format
 msgid "Password:"
 msgstr "Wachtwoord:"
@@ -4236,12 +4235,12 @@ msgstr "Max leden in room alvorens alle berichtmeldingen uit te schakelen"
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Stream-cast"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Adres van stream-cast"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4249,6 +4248,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"IP of host van uw Rocket.Chat centrale stream-cast. Bijv. 192.168.1.1:3000 "
+"of localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -6959,7 +6960,7 @@ msgid "A one-time password is required to complete the login procedure."
 msgstr ""
 "Een eenmalig wachtwoord is vereist om de aanmeldprocedure te voltooien."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:195
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Aanmelden is mislukt: ongeldige OTP-code"
@@ -7717,14 +7718,12 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Server autoriseert dit bestand niet (ongeldig mime-type)"
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Maximale leeftijd van een direct bericht"
+msgstr "U doet mee met een nieuw direct bericht"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
 msgstr "Begin van conversatie"
 
@@ -8101,12 +8100,24 @@ msgstr "Accountnaam:"
 msgid "Account name"
 msgstr "Rekening naam"
 
-#: widgets/ruqolaloginwidget.cpp:60
+#: widgets/ruqolaloginwidget.cpp:52
+#, fuzzy, kde-format
+#| msgid "Username:"
+msgid "Username or Email:"
+msgstr "Gebruikersnaam:"
+
+#: widgets/ruqolaloginwidget.cpp:53
+#, fuzzy, kde-format
+#| msgid "Username"
+msgid "Username or email"
+msgstr "Gebruikersnaam"
+
+#: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
 msgid "Authentication Method"
 msgstr "Authenticatiemethode"
 
-#: widgets/ruqolaloginwidget.cpp:88
+#: widgets/ruqolaloginwidget.cpp:89
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8115,17 +8126,17 @@ msgstr ""
 "U hebt tweefactor authenticatie ingeschakeld.\n"
 "Voer de gegenereerde code of een backupcode in."
 
-#: widgets/ruqolaloginwidget.cpp:191
+#: widgets/ruqolaloginwidget.cpp:192
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Aanmelden is mislukt: ongeldige gebruikersnaam of wachtwoord"
 
-#: widgets/ruqolaloginwidget.cpp:205
+#: widgets/ruqolaloginwidget.cpp:206
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Installatieprobleem gevonden. Hier geen plug-ins gevonden."
 
-#: widgets/ruqolaloginwidget.cpp:211
+#: widgets/ruqolaloginwidget.cpp:212
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Aanmelden is mislukt: algemene fout"
@@ -8271,11 +8282,9 @@ msgid "Show Favorite Room"
 msgstr "Favoriete room tonen"
 
 #: widgets/ruqolamainwindow.cpp:568
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "What's new in Ruqola"
+#, kde-format
 msgid "What's new"
-msgstr "Wat is er nieuw in Ruqola"
+msgstr "Wat is nieuw"
 
 #: widgets/ruqolamainwindow.cpp:600
 #, kde-format
@@ -8350,7 +8359,7 @@ msgstr "Beeld"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Help"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8524,12 +8533,12 @@ msgstr "Afbeelding naar klembord kopiëren toestaan"
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Room is leeg."
