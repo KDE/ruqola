@@ -6,7 +6,7 @@
 
 #include "directorystackedwidget.h"
 
-DirectoryStackedWidget::DirectoryStackedWidget(QWidget *parent)
+DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QStackedWidget(parent)
 {
 }

@@ -5,13 +5,15 @@
 */
 #pragma once
 
+#include "directory/directorywidget.h"
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
+class RocketChatAccount;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryStackedWidget : public QStackedWidget
 {
     Q_OBJECT
 public:
-    explicit DirectoryStackedWidget(QWidget *parent = nullptr);
+    explicit DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryStackedWidget() override;
 };
