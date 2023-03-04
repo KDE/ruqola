@@ -93,6 +93,7 @@
     <p xml:lang="es">Soporta la funcionalidades de RC:</p>
     <p xml:lang="eu">«RC» keinuak onartzen ditu:</p>
     <p xml:lang="fr">Il prend en charge les fonctionnalités « RC »  :</p>
+    <p xml:lang="ia">Il supporta characteristicas de RC:</p>
     <p xml:lang="id">Yang mendukung fitur RC:</p>
     <p xml:lang="it">Supporta le funzionalità di RC:</p>
     <p xml:lang="ka">მას აქვს RC-ის ფუნქციები:</p>
@@ -170,6 +171,7 @@
       <li xml:lang="es">Soporte de traducción automática (cuando RC lo soporta)</li>
       <li xml:lang="eu">Itzulpen automatikoa onartzen du («RC»ek duenean)</li>
       <li xml:lang="fr">Prise en charge de la traduction automatique (Lorsque RC le propose)</li>
+      <li xml:lang="ia">Supporta autotraduction (quando RC lo ha)</li>
       <li xml:lang="id">Dukungan auto terjemah (ketika RC memilikinya)</li>
       <li xml:lang="it">Supporta la traduzione automatica (quando disponibile in RC)</li>
       <li xml:lang="ka">ავტოთარგმანის მხარდაჭერა (როცა RC-ს ის გააჩნია)</li>
@@ -188,6 +190,7 @@
       <li xml:lang="es">Configurando notificaciones de sala</li>
       <li xml:lang="eu">Gelako jakinarazpenak konfiguratzen</li>
       <li xml:lang="fr">Configuration en cours de la notification des salons</li>
+      <li xml:lang="ia">Configurante notification de sala</li>
       <li xml:lang="id">Pengaturan notifikasi ruang</li>
       <li xml:lang="it">Configurazione della notifica della stanza</li>
       <li xml:lang="ka">ოთახის შეტყობინებების მორგება</li>
@@ -206,6 +209,7 @@
       <li xml:lang="es">Configurando sala</li>
       <li xml:lang="eu">Gela konfiguratzen</li>
       <li xml:lang="fr">Configuration du salon en cours</li>
+      <li xml:lang="ia">Configurante sala</li>
       <li xml:lang="id">Pengaturan ruang</li>
       <li xml:lang="it">Configurazione della stanza</li>
       <li xml:lang="ka">ოთახის მორგება</li>
@@ -224,6 +228,7 @@
       <li xml:lang="es">Soporte de hilos de mensajes</li>
       <li xml:lang="eu">Mezu-harien euskarria</li>
       <li xml:lang="fr">Prise en charge d'un message en fil de discussions</li>
+      <li xml:lang="ia">Supporto de message de topico</li>
       <li xml:lang="id">Dukungan perpesanan utas</li>
       <li xml:lang="it">Supporto per messaggi di conversazioni</li>
       <li xml:lang="ka">ნაკადური შეტყობინებების მხარდაჭერა</li>
@@ -261,6 +266,7 @@
       <li xml:lang="es">Soporte de salas de equipo</li>
       <li xml:lang="eu">Taldearen gelaren euskarria</li>
       <li xml:lang="fr">Prise en charge des salles de discussions « Teams »</li>
+      <li xml:lang="ia">Supporto de Sala de Equipas</li>
       <li xml:lang="id">Dukungan ruang regu</li>
       <li xml:lang="it">Supporto stanze di squadra</li>
       <li xml:lang="ka">გუნდის ოთახის მხარდაჭერა</li>
@@ -279,6 +285,7 @@
       <li xml:lang="es">Configurando la cuenta propia</li>
       <li xml:lang="eu">Norbere kontua konfiguratzea</li>
       <li xml:lang="fr">Configuration de son propre compte en cours</li>
+      <li xml:lang="ia">Configurante proprie conto</li>
       <li xml:lang="id">Pengaturan akun milik sendiri</li>
       <li xml:lang="it">Configurazione del proprio account</li>
       <li xml:lang="ka">საკუთარი ანგარიშის მორგება</li>
@@ -297,6 +304,7 @@
       <li xml:lang="es">Registrando una cuenta nueva</li>
       <li xml:lang="eu">Kontu berria erregistratzea</li>
       <li xml:lang="fr">Enregistrement en cours d'un nouveau compte</li>
+      <li xml:lang="ia">Registrante nove conto</li>
       <li xml:lang="id">Peregistrasian akun baru</li>
       <li xml:lang="it">Registrazione nuovo account</li>
       <li xml:lang="ka">ახალი ანგარიშის რეგისტრაცია</li>
@@ -315,6 +323,7 @@
       <li xml:lang="es">Soportar varias cuentas</li>
       <li xml:lang="eu">Kontu-anitzen euskarria</li>
       <li xml:lang="fr">Prend en charge le compte multiple</li>
+      <li xml:lang="ia">Supporta conto multiple</li>
       <li xml:lang="id">Dukungan banyak akun</li>
       <li xml:lang="it">Supporta più account</li>
       <li xml:lang="ka">მრავალანგარიშიანობის მხარდაჭერა</li>
@@ -333,6 +342,7 @@
       <li xml:lang="es">Buscar mensaje en sala</li>
       <li xml:lang="eu">Gelan mezua bilatzea</li>
       <li xml:lang="fr">Rechercher un message dans le salon</li>
+      <li xml:lang="ia">Cerca message in sala</li>
       <li xml:lang="id">Pencarian pesan di ruang</li>
       <li xml:lang="it">Ricerca messaggio nella stanza</li>
       <li xml:lang="ka">ოთახში შეტყობინების ძებნა</li>
@@ -369,6 +379,7 @@
       <li xml:lang="es">Soporte de emojis</li>
       <li xml:lang="eu">Emoji-en euskarria</li>
       <li xml:lang="fr">Prendre en charge les émoticônes</li>
+      <li xml:lang="ia">Supporta emoji</li>
       <li xml:lang="id">Dukungan emoji</li>
       <li xml:lang="it">Supporto emoji</li>
       <li xml:lang="ka">ემოჯის მხარდაჭერა</li>
@@ -388,6 +399,7 @@
       <li xml:lang="es">Soporte de vídeo</li>
       <li xml:lang="eu">Bideoen euskarria</li>
       <li xml:lang="fr">Prise en charge de la vidéo</li>
+      <li xml:lang="ia">Supporto video</li>
       <li xml:lang="id">Dukungan video</li>
       <li xml:lang="it">Supporto video</li>
       <li xml:lang="ka">ვიდეოს მხარდაჭერა</li>
@@ -424,6 +436,7 @@
       <li xml:lang="es">Soporte de incógnito (en progreso)</li>
       <li xml:lang="eu">«OTR» euskarria (egiten ari da)</li>
       <li xml:lang="fr">Prise en charge de « OTR » (en cours)</li>
+      <li xml:lang="ia">Supporta OTR (in progresso)</li>
       <li xml:lang="id">Dukungan OTR (dalam progres)</li>
       <li xml:lang="it">Supporto OTR (in corso)</li>
       <li xml:lang="ka">OTR-ის მხარდაჭერა (დასრულებული არაა)</li>
@@ -442,6 +455,7 @@
       <li xml:lang="es">Soporte de imágenes gif</li>
       <li xml:lang="eu">gif irudien euskarria</li>
       <li xml:lang="fr">Prend en charge les images « gif »</li>
+      <li xml:lang="ia">supporta imagine gif</li>
       <li xml:lang="id">Dukungan gambar gift</li>
       <li xml:lang="it">supporto immagine GIF</li>
       <li xml:lang="ka">gif სურათების მხარდაჭერა</li>
@@ -460,6 +474,7 @@
       <li xml:lang="es">Añadir soporte para subir archivos adjuntos</li>
       <li xml:lang="eu">Erantsitako fitxategiak zama-igotzeko euskarria gehitu da</li>
       <li xml:lang="fr">Ajouter la prise en charge de l'envoi de fichiers en pièce jointe</li>
+      <li xml:lang="ia">Adde supporto per incarcar files de attachamento</li>
       <li xml:lang="id">Menambahkan dukungan untuk mengunggah pelampiran file</li>
       <li xml:lang="it">Aggiunge il supporto per il caricamento di file allegati</li>
       <li xml:lang="ka">მისამაგრებელი ფაილების ატვირთვის მხარდაჭერის დამატება</li>
@@ -478,6 +493,7 @@
       <li xml:lang="es">Mostrar información de mensajes no leídos</li>
       <li xml:lang="eu">Erakutsi irakurri gabeko mezuen gaineko informazioa</li>
       <li xml:lang="fr">Afficher les informations pour les messages non lus</li>
+      <li xml:lang="ia">Monstra information de message non legite</li>
       <li xml:lang="id">Tampilkan informasi pesan yang belum dibaca</li>
       <li xml:lang="it">Mostra le informazioni sui messaggi non letti</li>
       <li xml:lang="ka">წაუკითხავი შეტყობინებების ინფორმაციის ჩვენება</li>
@@ -496,6 +512,7 @@
       <li xml:lang="es">Permitir bloquear/desbloquear usuarios</li>
       <li xml:lang="eu">Erabiltzaileak blokeatzen/desblokeatzen uzten du</li>
       <li xml:lang="fr">Autoriser le blocage / déblocage d'utilisateurs</li>
+      <li xml:lang="ia">Permitte blocar/disblocar usatores</li>
       <li xml:lang="id">Izinkan memblokir/membuka blokir pengguna</li>
       <li xml:lang="it">Consente di bloccare/sbloccare gli utenti</li>
       <li xml:lang="ka">მომხმარებლების დაბლოკვა/განბლოკვა</li>
@@ -534,6 +551,7 @@
       <li xml:lang="es">Autenticación de dos factores a través de TOTP</li>
       <li xml:lang="eu">Bi faktoreko autentifikazioa «TOTP» bidez</li>
       <li xml:lang="fr">Authentification à deux facteurs par « TOTP »</li>
+      <li xml:lang="ia">Authentication a duo factores via TOTP</li>
       <li xml:lang="id">Dua faktor autentikasi via TOTP</li>
       <li xml:lang="it">Autenticazione a due fattori tramite TOTP</li>
       <li xml:lang="ka">2FA-ი TOTP-ით</li>
@@ -552,6 +570,7 @@
       <li xml:lang="es">Autenticación de dos factores a través de correo electrónico</li>
       <li xml:lang="eu">Bi faktoreko autentifikazioa e-posta bidez</li>
       <li xml:lang="fr">Authentification à deux facteurs par courriel</li>
+      <li xml:lang="ia">Authentication a duo factores via eposta</li>
       <li xml:lang="id">Dua faktor autentikasi via email</li>
       <li xml:lang="it">Autenticazione a due fattori tramite posta elettronica</li>
       <li xml:lang="ka">2FA-ი ელფოსტით</li>
@@ -609,6 +628,7 @@
       <li xml:lang="es">Conferencia de vídeo</li>
       <li xml:lang="eu">Bideo-konferentzia</li>
       <li xml:lang="fr">Vidéo-conférence</li>
+      <li xml:lang="ia">Video Conferentia</li>
       <li xml:lang="it">Videoconferenza</li>
       <li xml:lang="ka">ვიდეო კონფერენცია</li>
       <li xml:lang="nl">Videoconferentie</li>
@@ -626,6 +646,7 @@
     <p xml:lang="es">Funcionalidades extra:</p>
     <p xml:lang="eu">Ezaugarri gehigarriak:</p>
     <p xml:lang="fr">Fonctionnalités supplémentaires :</p>
+    <p xml:lang="ia">Characteristicas Extra:</p>
     <p xml:lang="id">Fitur ekstra:</p>
     <p xml:lang="it">Funzionalità aggiuntive:</p>
     <p xml:lang="ka">დამატებითი ფუნქციები:</p>
@@ -699,6 +720,7 @@
       <li xml:lang="es">Marcar todos los canales como leídos</li>
       <li xml:lang="eu">Markatu kanal guztiak irakurrita daudela</li>
       <li xml:lang="fr">Marquer tous les canaux comme lus</li>
+      <li xml:lang="ia">Marca omne canales como legite</li>
       <li xml:lang="id">Tandai Semua Kanal yang dibaca</li>
       <li xml:lang="it">Marca tutti i canali come letti</li>
       <li xml:lang="ka">ყველა არხის წაკითხულად დაყენება</li>
@@ -717,6 +739,7 @@
       <li xml:lang="es">Añadir el histórico de notificaciones</li>
       <li xml:lang="eu">Jakinarazpen-historia bat gehitzea</li>
       <li xml:lang="fr">Ajouter un historique de notifications</li>
+      <li xml:lang="ia">Adde chronologia de notification</li>
       <li xml:lang="id">Menambahkan histori notifikasi</li>
       <li xml:lang="it">Aggiunge la cronologia delle notifiche</li>
       <li xml:lang="ka">გაფრთხილებების ისტორიის დამაება</li>
@@ -754,6 +777,7 @@
       <li xml:lang="es">Administrar dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="eu">Kudeatu gailua («RC» &gt;= 5.0)</li>
       <li xml:lang="fr">Gérer un périphérique (Version candidate &gt;= 5.0)</li>
+      <li xml:lang="ia">Gere Dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="id">Kelola Peranti (RC &gt;= 5.0)</li>
       <li xml:lang="it">Gestisci dispositivo (RC &gt;= 5.0)</li>
       <li xml:lang="ka">მოწყობილობის მართვა (RC &gt;= 5.0)</li>
@@ -790,6 +814,7 @@
       <li xml:lang="es">Añadir soporte para traducción local</li>
       <li xml:lang="eu">Itzulpen lokalen euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la traduction en langue locale</li>
+      <li xml:lang="ia">Adde supporto per traduction local</li>
       <li xml:lang="id">Menambahkan dukungan terjemahan lokal</li>
       <li xml:lang="it">Aggiungi il supporto la traduzione locale</li>
       <li xml:lang="ka">ლოკალური თარგმანის მხარდაჭერის დამატება</li>
@@ -807,6 +832,7 @@
       <li xml:lang="es">Añadir soporte para la auto-corrección de texto</li>
       <li xml:lang="eu">Testuaren zuzenketa-automatikorako euskarria gehitzea</li>
       <li xml:lang="fr">Ajouter la prise en charge de la correction automatique de texte</li>
+      <li xml:lang="ia">Adde supporto per auto-correction de texto</li>
       <li xml:lang="id">Menambahkan dukungan untuk auto koreksi teks</li>
       <li xml:lang="it">Aggiungi il supporto per la correzione automatica del testo</li>
       <li xml:lang="ka">ტექსტის ავტოკორექციის მხარდაჭერის დამატება</li>
