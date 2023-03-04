@@ -401,6 +401,10 @@ target_sources(libruqolawidgets PRIVATE
     directory/directorytabwidget.h
     directory/directorywidget.cpp
     directory/directorywidget.h
+
+    directory/directorystackedwidget.h
+    directory/directorystackedwidget.cpp
+
     exportmessages/exportmessagesdialog.cpp
     exportmessages/exportmessagesdialog.h
     exportmessages/exportmessageswidget.cpp
