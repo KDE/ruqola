@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-01-24 15:48+0100\n"
+"PO-Revision-Date: 2023-03-03 12:22+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -156,7 +156,7 @@ msgstr "Servitor non trovate: %1"
 #: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
-msgstr ""
+msgstr "Nove version disponibile %1"
 
 #: core/bannerinfo/bannerinfos.cpp:64
 #, kde-format
@@ -1012,7 +1012,7 @@ msgstr "Authentication a duo factores"
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "Ultime parte de indicio"
 
 #: core/model/roommodel.cpp:496
 #, kde-format
@@ -1416,7 +1416,7 @@ msgstr "Omnicanal"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Mancante information de traductor. Il es un bug"
 
 #: core/user.cpp:202
 #, kde-format
@@ -1437,17 +1437,17 @@ msgstr "Bot(Robot)"
 #: core/videoconference/videoconferenceinfo.cpp:187
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "Appello non esseva respondite"
 
 #: core/videoconference/videoconferenceinfo.cpp:191
 #, kde-format
 msgid "Waiting for answer"
-msgstr ""
+msgstr "Attendente un responsa"
 
 #: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Appello in arrivata"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
@@ -1861,7 +1861,7 @@ msgstr "Reimplacia &singule virgulettas con virgulettas typographic"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:627
 #, kde-format
 msgid "'"
-msgstr ""
+msgstr "'"
 
 #. i18n: ectx: property (text), widget (QLabel, label_9)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:648
@@ -2343,7 +2343,7 @@ msgstr "Configura  motor"
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Una clave de licentia libere"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
@@ -2355,7 +2355,7 @@ msgstr "Clave API:"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr ""
+msgstr "Server necessita Clave de Api"
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2372,7 +2372,7 @@ msgstr "Traduce Libre"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr ""
+msgstr "Server requiriva Clave de Api"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -4138,13 +4138,13 @@ msgstr "Contrasigno:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "Bio:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Send Emails Invite"
-msgstr ""
+msgstr "Invia invitos de eposta"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
 #, kde-format
@@ -4245,22 +4245,22 @@ msgstr "Clave TOTP per %1 ha essite refixate"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:16
 #, kde-format
 msgid "Allow Name Change"
-msgstr ""
+msgstr "Permitte modification de nomine"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow User Profile Change"
-msgstr ""
+msgstr "Permitte modification de profilo de usator"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Avatar Change"
-msgstr ""
+msgstr "Permitte modification de Avatar de usator"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow Email Change"
-msgstr ""
+msgstr "Permitte modification de eposta"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
@@ -4428,12 +4428,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:123
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -4494,7 +4494,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Traciante ID"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
@@ -4691,7 +4691,7 @@ msgstr "smtp"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -4764,7 +4764,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:121
 #, kde-format
 msgid "Mention All Email Subject"
-msgstr ""
+msgstr "Mentiona omne Subkjecto de eposta"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:123
 #, kde-format
@@ -4899,17 +4899,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "GridFS"
-msgstr ""
+msgstr "GridFS"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
 #, kde-format
 msgid "AmazonS3"
-msgstr ""
+msgstr "AmazonS3"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "GoogleCloudStorage"
-msgstr ""
+msgstr "GoogleCloudStorage"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
@@ -5117,7 +5117,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
 msgid "RFC2813"
-msgstr ""
+msgstr "RFC2813"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
 #, kde-format
@@ -5573,7 +5573,7 @@ msgstr "Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
 msgid "Twitter Id"
-msgstr ""
+msgstr "Id de Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
@@ -5589,7 +5589,7 @@ msgstr "LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
 msgid "LinkedIn Id"
-msgstr ""
+msgstr "Id de LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:121
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
@@ -5615,12 +5615,12 @@ msgstr "Servicios de proxy"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
-msgstr ""
+msgstr "Id de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
@@ -5636,7 +5636,7 @@ msgstr "Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
 msgid "Facebook Id"
-msgstr ""
+msgstr "Id de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
@@ -5652,7 +5652,7 @@ msgstr "Github"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
-msgstr ""
+msgstr "Id de Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
@@ -5825,7 +5825,7 @@ msgstr "Applica que un contrasigno contine al minus un character special"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:15
 #, kde-format
 msgid "Enable Rate Limiter"
-msgstr ""
+msgstr "Habilita Limitator de rata"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:16
 #, kde-format
@@ -5855,12 +5855,12 @@ msgstr "Limite per connexion per Method"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
 msgid "API Rate Limiter"
-msgstr ""
+msgstr "Limitator de rata de API"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:41
 #, kde-format
 msgid "DDP Rate Limit"
-msgstr ""
+msgstr "Limitator de rata de DDP"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:51
 #, kde-format
@@ -6170,12 +6170,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
 #, kde-format
 msgid "Always Open in New Window"
-msgstr ""
+msgstr "Aperi sempre in nove fenestra"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr ""
+msgstr "Habilita hash de nomine de sala"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -6190,12 +6190,12 @@ msgstr "Habilita in Canales"
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:29
 #, kde-format
 msgid "Enable for Teams"
-msgstr ""
+msgstr "Habilita Equipas (Teams)"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:31
 #, kde-format
 msgid "Enable JWT auth"
-msgstr ""
+msgstr "Habilita auth de JWT"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:34
 #, kde-format
@@ -6444,7 +6444,7 @@ msgstr "Information de Appello de Conferentia"
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:44
 #, kde-format
 msgid "Meeting URL:"
-msgstr ""
+msgstr "URL de Incontro:"
 
 #: widgets/conferencecalldialog/conferenceinfowidget.cpp:45
 #, kde-format
@@ -7786,7 +7786,7 @@ msgstr "Disconnecte"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Personal Token"
-msgstr ""
+msgstr "Crea indicio personal"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatewidget.cpp:16
 #, kde-format
@@ -7809,12 +7809,12 @@ msgstr ""
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:125
 #, kde-format
 msgid "Personal Token Created"
-msgstr ""
+msgstr "Indicio Personal create"
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, kde-format
 msgid "Personal Token removed."
-msgstr ""
+msgstr "Indicio Personal Removite."
 
 #: widgets/myaccount/myaccountpersonalaccesstokenconfigurewidget.cpp:160
 #, kde-format
@@ -8371,7 +8371,7 @@ msgstr "Dele Messages"
 #: widgets/room/messagelistview.cpp:765
 #, kde-format
 msgid "Translator Error"
-msgstr ""
+msgstr "Error de traductor"
 
 #: widgets/room/messagetextedit.cpp:165
 #, kde-format
