@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 add_library(libruqolawidgets)
 
-if (TARGET KUserFeedbackWidgets)
+if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
     target_sources(libruqolawidgets PRIVATE
         userfeedback/userfeedbackmanager.cpp
         userfeedback/ruqolauserfeedbackprovider.cpp
@@ -739,8 +739,8 @@ if (COMPILE_WITH_UNITY_CMAKE_SUPPORT)
 endif()
 generate_export_header(libruqolawidgets BASE_NAME libruqolawidgets)
 
-if (TARGET KUserFeedbackWidgets)
-    target_link_libraries(libruqolawidgets KUserFeedbackWidgets)
+if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
+    target_link_libraries(libruqolawidgets KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
 endif()
 
 target_link_libraries(libruqolawidgets

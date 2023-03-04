@@ -155,9 +155,15 @@ set_package_properties(Qt${QT_MAJOR_VERSION}Keychain PROPERTIES
                                    URL "https://github.com/frankosterfeld/qtkeychain"
                                    TYPE REQUIRED)
 
-find_package(KUserFeedback 1.2.0 CONFIG)
-set(HAVE_KUSERFEEDBACK ${KUserFeedback_FOUND})
-set_package_properties(KUserFeedback PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
+
+set(KUSERFEEDBACK_SUFFIX)
+# Laurent reactivate when I will merge KuserFeedBack
+#if (QT_MAJOR_VERSION STREQUAL "6")
+#    set(KUSERFEEDBACK_SUFFIX "Qt6")
+#endif()
+find_package(KUserFeedback${KUSERFEEDBACK_SUFFIX} 1.2.0 CONFIG)
+set(HAVE_KUSERFEEDBACK ${KUserFeedback${KUSERFEEDBACK_SUFFIX}_FOUND})
+set_package_properties(KUserFeedback${KUSERFEEDBACK_SUFFIX} PROPERTIES DESCRIPTION "User Feedback lib" TYPE OPTIONAL PURPOSE "Allow to send Telemetry Information (optional).")
 
 find_package(KF${KF_MAJOR_VERSION}Solid ${KF_MIN_VERSION} CONFIG)
 if (KF${KF_MAJOR_VERSION}Solid_FOUND)
