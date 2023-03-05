@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-04 00:47+0000\n"
-"PO-Revision-Date: 2023-02-25 16:55+0100\n"
+"PO-Revision-Date: 2023-03-04 17:54+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -4240,12 +4240,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Transmisión"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Dirección de la transmisión"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4253,6 +4253,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"IP o anfitrión de su transmisión central de Rocket.Chat. Por ejemplo: "
+"192.168.1.1:3000 o localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -7714,16 +7716,14 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no autoriza este archivo (tipo mime no soportado)"
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Máxima edad de los mensajes en los mensajes directos"
+msgstr "Se ha unido a un nuevo mensaje directo"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Iniciar conversación"
+msgstr "Inicio de conversación"
 
 #: widgets/room/messagelistview.cpp:265
 #, kde-format
@@ -8099,16 +8099,14 @@ msgid "Account name"
 msgstr "Nombre de la cuenta"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Nombre del usuario:"
+msgstr "Nombre del usuario o correo electrónico:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Nombre del usuario"
+msgstr "Nombre del usuario o correo electrónico"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
@@ -8285,7 +8283,7 @@ msgstr "Mostrar sala favorita"
 #: widgets/ruqolamainwindow.cpp:568
 #, kde-format
 msgid "What's new"
-msgstr ""
+msgstr "¿Qué hay de nuevo?"
 
 #: widgets/ruqolamainwindow.cpp:600
 #, kde-format
@@ -8359,7 +8357,7 @@ msgstr "Vista"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Ayuda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8502,46 +8500,41 @@ msgstr "Devolver el número de cuenta"
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "¿Que hay de nuevo en Ruqola?"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Mostrar menos información...)"
+msgstr "(Mostrar noticias en Ruqola)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "¿Que hay de nuevo en Ruqola?. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
 msgid "Store Message in Local Database"
-msgstr ""
+msgstr "Almacenar mensaje en base de datos local"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Descargar icono de servidor desde el servidor"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr ""
+msgstr "Mostrar información de error del servidor en un diálogo específico"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
-#, fuzzy
-#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Copiar imagen al portapapeles"
+msgstr "Permitir copiar imagen al portapapeles"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Cambios importantes desde la última versión:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
-
-#~ msgid "Room is Empty."
-#~ msgstr "La habitación está vacía."
+"Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"

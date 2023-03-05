@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-04 00:47+0000\n"
-"PO-Revision-Date: 2023-02-28 11:54+0300\n"
+"PO-Revision-Date: 2023-03-04 14:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4204,12 +4204,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Akış Yayını"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Akış Yayını Adresi"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4217,6 +4217,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"Rocket.Chat merkezi akış yayınınızın IP'si veya makine adresi. Örn. "
+"192.168.1.1:3000 veya localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -7665,16 +7667,14 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "Sunucu, bu dosya türünü yetkilendirmedi (geçersiz MIME türü)"
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Doğrudan iletilerdeki en yüksek ileti yaşı"
+msgstr "Yeni bir doğrudan iletiye katıldınız"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Konuşma Başlat"
+msgstr "Konuşma başlangıcı"
 
 #: widgets/room/messagelistview.cpp:265
 #, kde-format
@@ -8050,16 +8050,14 @@ msgid "Account name"
 msgstr "Hesap adı"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Kullanıcı Adı:"
+msgstr "Kullanıcı Adı veya E-posta:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Kullanıcı Adı"
+msgstr "Kullanıcı adı veya e-posta"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
@@ -8231,11 +8229,9 @@ msgid "Show Favorite Room"
 msgstr "Sık Kullanılan Odayı Göster"
 
 #: widgets/ruqolamainwindow.cpp:568
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "What's new in Ruqola"
+#, kde-format
 msgid "What's new"
-msgstr "Ruqola'da neler yeni"
+msgstr "Neler yeni"
 
 #: widgets/ruqolamainwindow.cpp:600
 #, kde-format
@@ -8309,7 +8305,7 @@ msgstr "Görünüm"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Yardım"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8482,12 +8478,12 @@ msgstr "Panodaki Görseli Kopyalamaya İzin Ver"
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Son sürümden bu yana önemli değişiklikler:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Ruqola'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Oda Boş."

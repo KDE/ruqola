@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-04 00:47+0000\n"
-"PO-Revision-Date: 2023-03-03 07:20+0200\n"
+"PO-Revision-Date: 2023-03-04 08:33+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8149,16 +8149,14 @@ msgid "Account name"
 msgstr "Облікова назва"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Користувач:"
+msgstr "Користувач або адреса ел. пошти:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Користувач"
+msgstr "Ім'я користувача або адреса ел. пошти"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
