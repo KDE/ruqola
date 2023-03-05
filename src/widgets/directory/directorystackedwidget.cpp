@@ -20,6 +20,8 @@ DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, Direc
     setCurrentWidget(mDirectoryWidget);
 }
 
+DirectoryStackedWidget::~DirectoryStackedWidget() = default;
+
 bool DirectoryStackedWidget::isAutorized() const
 {
     return mIsAutorized;
@@ -28,6 +30,24 @@ bool DirectoryStackedWidget::isAutorized() const
 void DirectoryStackedWidget::setIsAutorized(bool newIsAutorized)
 {
     mIsAutorized = newIsAutorized;
+    if (!mIsAutorized) {
+        setCurrentWidget(mDirectoryNotAutorizedWidget);
+    }
 }
 
-DirectoryStackedWidget::~DirectoryStackedWidget() = default;
+void DirectoryStackedWidget::fillDirectory()
+{
+    if (mIsAutorized) {
+        mDirectoryWidget->fillDirectory();
+    }
+}
+
+DirectoryWidget *DirectoryStackedWidget::directoryWidget() const
+{
+    return mDirectoryWidget;
+}
+
+DirectoryNotAuthorizedWidget *DirectoryStackedWidget::directoryNotAutorizedWidget() const
+{
+    return mDirectoryNotAutorizedWidget;
+}

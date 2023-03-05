@@ -9,8 +9,8 @@
 #include <QTabWidget>
 
 #include "libruqolawidgets_private_export.h"
-class DirectoryWidget;
 class RocketChatAccount;
+class DirectoryStackedWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryTabWidget : public QTabWidget
 {
     Q_OBJECT
@@ -21,7 +21,7 @@ public:
     void fillTabs();
 
 private:
-    DirectoryWidget *const mRooms;
-    DirectoryWidget *const mUsers;
-    DirectoryWidget *const mTeams;
+    DirectoryStackedWidget *const mRooms;
+    DirectoryStackedWidget *const mUsers;
+    DirectoryStackedWidget *const mTeams;
 };

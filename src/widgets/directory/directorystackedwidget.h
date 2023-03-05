@@ -21,6 +21,12 @@ public:
     Q_REQUIRED_RESULT bool isAutorized() const;
     void setIsAutorized(bool newIsAutorized);
 
+    void fillDirectory();
+
+    Q_REQUIRED_RESULT DirectoryWidget *directoryWidget() const;
+
+    Q_REQUIRED_RESULT DirectoryNotAuthorizedWidget *directoryNotAutorizedWidget() const;
+
 private:
     DirectoryWidget *const mDirectoryWidget;
     DirectoryNotAuthorizedWidget *const mDirectoryNotAutorizedWidget;

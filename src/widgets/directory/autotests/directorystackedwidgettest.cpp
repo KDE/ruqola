@@ -29,4 +29,8 @@ void DirectoryStackedWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(w.currentWidget(), mDirectoryWidget);
 
     QVERIFY(w.isAutorized());
+
+    QVERIFY(w.directoryWidget());
+
+    QVERIFY(w.directoryNotAutorizedWidget());
 }

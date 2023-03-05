@@ -18,7 +18,7 @@ DirectoryNotAuthorizedWidget::DirectoryNotAuthorizedWidget(QWidget *parent)
 
     auto label = new QLabel(i18n("You are not authorized to view this page."), this);
     label->setObjectName(QStringLiteral("label"));
-    mainLayout->addWidget(label);
+    mainLayout->addWidget(label, 0, Qt::AlignCenter);
 }
 
 DirectoryNotAuthorizedWidget::~DirectoryNotAuthorizedWidget() = default;
