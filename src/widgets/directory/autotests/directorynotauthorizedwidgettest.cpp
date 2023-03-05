@@ -6,6 +6,8 @@
 
 #include "directorynotauthorizedwidgettest.h"
 #include "directory/directorynotauthorizedwidget.h"
+#include <QHBoxLayout>
+#include <QLabel>
 #include <QTest>
 QTEST_MAIN(DirectoryNotAuthorizedWidgetTest)
 DirectoryNotAuthorizedWidgetTest::DirectoryNotAuthorizedWidgetTest(QObject *parent)
@@ -16,5 +18,12 @@ DirectoryNotAuthorizedWidgetTest::DirectoryNotAuthorizedWidgetTest(QObject *pare
 void DirectoryNotAuthorizedWidgetTest::shouldHaveDefaultValues()
 {
     DirectoryNotAuthorizedWidget w(nullptr);
-    // TODO
+
+    auto mainLayout = w.findChild<QHBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins());
+
+    auto label = w.findChild<QLabel *>(QStringLiteral("label"));
+    QVERIFY(label);
+    QVERIFY(!label->text().isEmpty());
 }
