@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-13 03:55+0000\n"
-"PO-Revision-Date: 2023-01-15 10:44+0100\n"
+"PO-Revision-Date: 2023-03-04 09:19+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -2789,7 +2789,7 @@ msgstr "<strong>__field__</strong> jest już w użyciu :("
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:263
 #, kde-format
 msgid "File is too large"
-msgstr "Plik jest za duży"
+msgstr "Plik jest zbyt duży"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:265
 #, kde-format
