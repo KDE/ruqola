@@ -5,12 +5,19 @@
 */
 
 #include "directorystackedwidget.h"
+#include "directorynotauthorizedwidget.h"
 
 DirectoryStackedWidget::DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent)
     : QStackedWidget(parent)
+    , mDirectoryWidget(new DirectoryWidget(account, type, this))
+    , mDirectoryNotAutorizedWidget(new DirectoryNotAuthorizedWidget(this))
 {
+    mDirectoryWidget->setObjectName(QStringLiteral("mDirectoryWidget"));
+    mDirectoryNotAutorizedWidget->setObjectName(QStringLiteral("mDirectoryNotAutorizedWidget"));
+
+    addWidget(mDirectoryWidget);
+    addWidget(mDirectoryNotAutorizedWidget);
+    setCurrentWidget(mDirectoryWidget);
 }
 
-DirectoryStackedWidget::~DirectoryStackedWidget()
-{
-}
+DirectoryStackedWidget::~DirectoryStackedWidget() = default;

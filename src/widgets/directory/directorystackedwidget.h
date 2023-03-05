@@ -9,6 +9,7 @@
 #include "libruqolawidgets_private_export.h"
 #include <QStackedWidget>
 class RocketChatAccount;
+class DirectoryNotAuthorizedWidget;
 
 class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryStackedWidget : public QStackedWidget
 {
@@ -16,4 +17,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT DirectoryStackedWidget : public QStackedWidg
 public:
     explicit DirectoryStackedWidget(RocketChatAccount *account, DirectoryWidget::DirectoryType type, QWidget *parent = nullptr);
     ~DirectoryStackedWidget() override;
+
+private:
+    DirectoryWidget *const mDirectoryWidget;
+    DirectoryNotAuthorizedWidget *const mDirectoryNotAutorizedWidget;
 };

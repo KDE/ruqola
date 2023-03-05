@@ -84,9 +84,11 @@ void SearchTreeBaseWidget::slotLoadMoreElements()
 
 void SearchTreeBaseWidget::hideColumns()
 {
-    const auto hideColumns = mModel->hideColumns();
-    for (const auto col : hideColumns) {
-        mTreeView->setColumnHidden(col, true);
+    if (mModel) {
+        const auto hideColumns = mModel->hideColumns();
+        for (const auto col : hideColumns) {
+            mTreeView->setColumnHidden(col, true);
+        }
     }
 }
 
