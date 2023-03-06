@@ -294,12 +294,14 @@ bool MessageListDelegate::contextMenu(const QStyleOptionViewItem &option, const 
 
         if (info.editMode) {
             if (info.roomType != Room::RoomType::Direct) {
-                menu.addSeparator();
-                auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
-                connect(startPrivateConversationAction, &QAction::triggered, this, [=]() {
-                    Q_EMIT startPrivateConversation(message->username());
-                });
-                menu.addAction(startPrivateConversationAction);
+                if (mRocketChatAccount->hasPermission(QStringLiteral("create-d"))) {
+                    menu.addSeparator();
+                    auto startPrivateConversationAction = new QAction(i18n("Start a Private Conversation"), &menu);
+                    connect(startPrivateConversationAction, &QAction::triggered, this, [=]() {
+                        Q_EMIT startPrivateConversation(message->username());
+                    });
+                    menu.addAction(startPrivateConversationAction);
+                }
             }
         }
 

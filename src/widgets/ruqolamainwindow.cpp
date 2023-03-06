@@ -313,11 +313,23 @@ void RuqolaMainWindow::updateActions()
     mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
     mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
     mCreateNewChannel->setEnabled(canCreateChannels());
+    mCreateDirectMessages->setEnabled(canCreateDirectMessages());
+    mCreateTeam->setEnabled(canCreateTeams());
 }
 
 bool RuqolaMainWindow::canCreateChannels() const
 {
     return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-c"));
+}
+
+bool RuqolaMainWindow::canCreateDirectMessages() const
+{
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-d"));
+}
+
+bool RuqolaMainWindow::canCreateTeams() const
+{
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-team"));
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -772,13 +784,13 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
     mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels());
-    mCreateDirectMessages->setEnabled(!loginPageActivated);
+    mCreateDirectMessages->setEnabled(!loginPageActivated && canCreateDirectMessages());
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
     mMyAccount->setEnabled(!loginPageActivated);
     mStatus->setEnabled(!loginPageActivated);
     mCreateDiscussion->setEnabled(!loginPageActivated);
-    mCreateTeam->setEnabled(!loginPageActivated);
+    mCreateTeam->setEnabled(!loginPageActivated && canCreateTeams());
     mDirectory->setEnabled(!loginPageActivated);
     mNextUnreadChannel->setEnabled(!loginPageActivated);
     mShowLog->setEnabled(!loginPageActivated);

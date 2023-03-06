@@ -47,6 +47,8 @@ protected:
 
 private:
     Q_REQUIRED_RESULT bool canCreateChannels() const;
+    Q_REQUIRED_RESULT bool canCreateDirectMessages() const;
+    Q_REQUIRED_RESULT bool canCreateTeams() const;
     void slotRegisterUserSuccessed();
     void setupActions();
     void readConfig();
