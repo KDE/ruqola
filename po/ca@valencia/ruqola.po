@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 00:47+0000\n"
-"PO-Revision-Date: 2023-02-26 22:17+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
+"PO-Revision-Date: 2023-03-04 11:34+0100\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -4238,12 +4238,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Emissió de transmissió"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Adreça de l'emissió de transmissió"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4251,6 +4251,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"IP o servidor d'emissió de transmissió central de Rocket.Chat. P. ex. "
+"192.168.1.1:3000 o localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -6767,6 +6769,12 @@ msgctxt "@title:window"
 msgid "Directory - %1"
 msgstr "Directori - %1"
 
+#: widgets/directory/directorynotauthorizedwidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Generate link is not authorized in this channel."
+msgid "You are not authorized to view this page."
+msgstr "No s'ha autoritzat generar un enllaç en este canal."
+
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
 msgid "Search channels..."
@@ -7713,16 +7721,14 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr "El servidor no ha autoritzat este fitxer (tipus MIME no vàlid)"
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "Maximum message age in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Antiguitat màxima dels missatges en els missatges directes"
+msgstr "Vos heu unit a un missatge directe nou"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Inicia una conversa"
+msgstr "Inici de la conversa"
 
 #: widgets/room/messagelistview.cpp:265
 #, kde-format
@@ -8098,16 +8104,14 @@ msgid "Account name"
 msgstr "Nom del compte"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Nom d'usuari:"
+msgstr "Nom d'usuari o correu:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Nom d'usuari"
+msgstr "Nom d'usuari o correu"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
@@ -8283,7 +8287,7 @@ msgstr "Mostra la sala preferida"
 #: widgets/ruqolamainwindow.cpp:568
 #, kde-format
 msgid "What's new"
-msgstr ""
+msgstr "Què hi ha de nou"
 
 #: widgets/ruqolamainwindow.cpp:600
 #, kde-format
@@ -8357,7 +8361,7 @@ msgstr "Vista"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "&Ajuda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8500,46 +8504,41 @@ msgstr "Retorna el nombre de comptes."
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "Què hi ha de nou a Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Mostra menys informació...)"
+msgstr "(Mostra les novetats de Ruqola)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "Què hi ha de nou a Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
 msgid "Store Message in Local Database"
-msgstr ""
+msgstr "Emmagatzema el missatge en la base de dades local"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Baixa la icona del servidor des del servidor"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
-msgstr ""
+msgstr "Mostra la informació d'error del servidor en un diàleg específic"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
-#, fuzzy
-#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Copia la imatge al porta-retalls"
+msgstr "Permet copiar la imatge en el porta-retalls"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Canvis importants des de l'última versió:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
-
-#~ msgid "Room is Empty."
-#~ msgstr "La sala està buida."
+"Algunes de les característiques noves d'esta versió de Ruqola inclouen:"

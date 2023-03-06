@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 00:47+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -6931,6 +6931,11 @@ msgstr "Bild anzeigen"
 msgctxt "@title:window"
 msgid "Directory - %1"
 msgstr "Ordner"
+
+#: widgets/directory/directorynotauthorizedwidget.cpp:19
+#, kde-format
+msgid "You are not authorized to view this page."
+msgstr ""
 
 #: widgets/directory/directorywidget.cpp:32
 #, fuzzy, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 00:47+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2023-03-03 06:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6623,6 +6623,12 @@ msgstr "სურათის ატვირთვა"
 msgctxt "@title:window"
 msgid "Directory - %1"
 msgstr "საქაღალდე - %1"
+
+#: widgets/directory/directorynotauthorizedwidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Generate link is not authorized in this channel."
+msgid "You are not authorized to view this page."
+msgstr "ამ არხზე ბმულების შექმნა ავტორიზებული არაა."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format

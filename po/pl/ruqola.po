@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-04 00:47+0000\n"
+"POT-Creation-Date: 2023-03-06 00:48+0000\n"
 "PO-Revision-Date: 2023-01-15 10:44+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -6799,6 +6799,12 @@ msgstr "Wyświetl obraz"
 msgctxt "@title:window"
 msgid "Directory - %1"
 msgstr "Katalog - %1"
+
+#: widgets/directory/directorynotauthorizedwidget.cpp:19
+#, fuzzy, kde-format
+#| msgid "Generate link is not authorized in this channel."
+msgid "You are not authorized to view this page."
+msgstr "Wytworzony odnośnik nie jest uwierzytelniony na tym kanale."
 
 #: widgets/directory/directorywidget.cpp:32
 #, fuzzy, kde-format
