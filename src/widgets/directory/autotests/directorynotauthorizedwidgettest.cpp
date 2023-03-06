@@ -26,4 +26,5 @@ void DirectoryNotAuthorizedWidgetTest::shouldHaveDefaultValues()
     auto label = w.findChild<QLabel *>(QStringLiteral("label"));
     QVERIFY(label);
     QVERIFY(!label->text().isEmpty());
+    QCOMPARE(label->textFormat(), Qt::RichText);
 }
