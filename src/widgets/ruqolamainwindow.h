@@ -46,6 +46,7 @@ protected:
     Q_REQUIRED_RESULT bool queryClose() override;
 
 private:
+    Q_REQUIRED_RESULT bool canCreateChannels() const;
     void slotRegisterUserSuccessed();
     void setupActions();
     void readConfig();

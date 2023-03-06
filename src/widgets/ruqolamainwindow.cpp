@@ -312,6 +312,12 @@ void RuqolaMainWindow::updateActions()
     mShowRocketChatServerInfo->setVisible(hasBannerInfo());
     mRoomAvatar->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showRoomAvatar());
     mRoomFavorite->setChecked(mCurrentRocketChatAccount->ownUserPreferences().showFavorite());
+    mCreateNewChannel->setEnabled(canCreateChannels());
+}
+
+bool RuqolaMainWindow::canCreateChannels() const
+{
+    return mCurrentRocketChatAccount && mCurrentRocketChatAccount->hasPermission(QStringLiteral("create-c"));
 }
 
 bool RuqolaMainWindow::hasBannerInfo() const
@@ -765,7 +771,7 @@ void RuqolaMainWindow::slotMissingChannelPassword(const RocketChatRestApi::Chann
 
 void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
 {
-    mCreateNewChannel->setEnabled(!loginPageActivated);
+    mCreateNewChannel->setEnabled(!loginPageActivated && canCreateChannels());
     mCreateDirectMessages->setEnabled(!loginPageActivated);
     mLogout->setEnabled(!loginPageActivated);
     mClearAlerts->setEnabled(!loginPageActivated);
