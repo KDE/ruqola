@@ -414,6 +414,14 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         richTextStream << QLatin1String("</div>");
     };
 
+#if 0
+    auto addInlineQuoteChunk = [&](const QString &chunk) {
+        richTextStream << QLatin1String("<div>");
+        iterateOverRegions(chunk, QStringLiteral(">"), addInlineCodeChunk, addTextChunk);
+        richTextStream << QLatin1String("</div>");
+    };
+#endif
+
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
     return QLatin1String("<qt>") + quotedMessage + richText + QLatin1String("</qt>");
