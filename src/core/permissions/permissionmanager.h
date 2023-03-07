@@ -29,6 +29,9 @@ public:
 
     Q_REQUIRED_RESULT const Permission permission(const QString &permissionId) const;
 
+    // Only for debugging permissions. (debug mode)
+    Q_REQUIRED_RESULT QVector<Permission> permissions() const;
+
 private:
     Q_REQUIRED_RESULT bool storePermission(const QString &id);
     void parseRemovePermission(const QJsonArray &removeArray);
