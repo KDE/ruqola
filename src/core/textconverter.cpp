@@ -20,7 +20,7 @@
 #include <KSyntaxHighlighting/Theme>
 
 #include <KColorScheme>
-
+// #define SUPPORT_QUOTE_TEXT 1
 namespace
 {
 /// check if the @p str contains an uneven number of backslashes before @p pos
@@ -49,7 +49,7 @@ int findNonEscaped(const QString &str, const QString &regionMarker, int startFro
     }
     Q_UNREACHABLE();
 }
-
+#ifdef SUPPORT_QUOTE_TEXT
 int findNewLineOrEndLine(const QString &str, const QString &regionMarker, int startFrom)
 {
     const int index = str.indexOf(regionMarker, startFrom);
@@ -60,6 +60,7 @@ int findNewLineOrEndLine(const QString &str, const QString &regionMarker, int st
     }
     Q_UNREACHABLE();
 }
+#endif
 
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
@@ -87,6 +88,7 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
     outsideRegion(str.mid(startFrom));
 }
 
+#ifdef SUPPORT_QUOTE_TEXT
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverEndLineRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
 {
@@ -112,6 +114,7 @@ void iterateOverEndLineRegions(const QString &str, const QString &regionMarker, 
     }
     outsideRegion(str.mid(startFrom));
 }
+#endif
 
 QString markdownToRichText(const QString &markDown)
 {
@@ -439,12 +442,13 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         }
         richTextStream << htmlChunk;
     };
-
+#ifdef SUPPORT_QUOTE_TEXT
     auto addInlineQuoteChunk = [&](const QString &chunk) {
         richTextStream << QLatin1String("<div>");
         iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineCodeChunk, addTextChunk);
         richTextStream << QLatin1String("</div>");
     };
+#endif
     auto addNonCodeChunk = [&](QString chunk) {
         chunk = chunk.trimmed();
         if (chunk.isEmpty()) {
@@ -452,7 +456,11 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         }
 
         richTextStream << QLatin1String("<div>");
-        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, /*addInlineQuoteChunk*/ addTextChunk);
+#ifdef SUPPORT_QUOTE_TEXT
+        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addInlineQuoteChunk);
+#else
+        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
+#endif
         richTextStream << QLatin1String("</div>");
     };
 
