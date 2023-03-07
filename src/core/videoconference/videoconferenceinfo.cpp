@@ -112,7 +112,8 @@ QJsonObject VideoConferenceInfo::serialize(const VideoConferenceInfo &videoConfI
     obj[QLatin1String("providerName")] = videoConfInfo.mProviderName;
     obj[QLatin1String("messageId")] = videoConfInfo.mMessageId;
     obj[QLatin1String("type")] = VideoConferenceInfo::convertEnumToString(videoConfInfo);
-    // TODO createdAt/endedAt ?
+    obj[QLatin1String("createdAt")] = videoConfInfo.createdAtDateTime();
+    obj[QLatin1String("endedAt")] = videoConfInfo.endedAtDateTime();
     if (!videoConfInfo.mUsers.isEmpty()) {
         QJsonArray userArray;
         for (const User &user : videoConfInfo.mUsers) {
@@ -132,7 +133,8 @@ VideoConferenceInfo VideoConferenceInfo::deserialize(const QJsonObject &o)
     info.mRoomId = o[QLatin1String("rid")].toString();
     info.mProviderName = o[QLatin1String("providerName")].toString();
     info.mMessageId = o[QLatin1String("messageId")].toString();
-    // TODO createdAt/endedAt ?
+    info.mCreatedAtDateTime = o[QLatin1String("createdAt")].toInt();
+    info.mEndedAtDateTime = o[QLatin1String("endedAt")].toInt();
 
     info.mConferenceType = info.convertTypeToEnum(o[QLatin1String("type")].toString());
     const QJsonArray usersArray = o[QLatin1String("users")].toArray();
