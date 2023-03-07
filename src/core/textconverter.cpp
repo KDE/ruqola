@@ -50,6 +50,17 @@ int findNonEscaped(const QString &str, const QString &regionMarker, int startFro
     Q_UNREACHABLE();
 }
 
+int findNewLineOrEndLine(const QString &str, const QString &regionMarker, int startFrom)
+{
+    const int index = str.indexOf(regionMarker, startFrom);
+    if (index == -1) {
+        return str.length() - 1;
+    } else {
+        return index;
+    }
+    Q_UNREACHABLE();
+}
+
 template<typename InRegionCallback, typename OutsideRegionCallback>
 void iterateOverRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
 {
@@ -62,6 +73,32 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
         }
 
         const int endIndex = findNonEscaped(str, regionMarker, startIndex + markerSize);
+        if (endIndex == -1) {
+            break;
+        }
+
+        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
+
+        outsideRegion(str.mid(startFrom, startIndex - startFrom));
+        startFrom = endIndex + markerSize;
+
+        inRegion(codeBlock);
+    }
+    outsideRegion(str.mid(startFrom));
+}
+
+template<typename InRegionCallback, typename OutsideRegionCallback>
+void iterateOverEndLineRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
+{
+    int startFrom = 0;
+    const auto markerSize = regionMarker.size();
+    while (true) {
+        const int startIndex = findNonEscaped(str, regionMarker, startFrom);
+        if (startIndex == -1) {
+            break;
+        }
+
+        const int endIndex = findNewLineOrEndLine(str, QStringLiteral("\n"), startIndex + markerSize);
         if (endIndex == -1) {
             break;
         }
@@ -403,6 +440,11 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         richTextStream << htmlChunk;
     };
 
+    auto addInlineQuoteChunk = [&](const QString &chunk) {
+        richTextStream << QLatin1String("<div>");
+        iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineCodeChunk, addTextChunk);
+        richTextStream << QLatin1String("</div>");
+    };
     auto addNonCodeChunk = [&](QString chunk) {
         chunk = chunk.trimmed();
         if (chunk.isEmpty()) {
@@ -410,17 +452,9 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         }
 
         richTextStream << QLatin1String("<div>");
-        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, addTextChunk);
+        iterateOverRegions(chunk, QStringLiteral("`"), addInlineCodeChunk, /*addInlineQuoteChunk*/ addTextChunk);
         richTextStream << QLatin1String("</div>");
     };
-
-#if 0
-    auto addInlineQuoteChunk = [&](const QString &chunk) {
-        richTextStream << QLatin1String("<div>");
-        iterateOverRegions(chunk, QStringLiteral(">"), addInlineCodeChunk, addTextChunk);
-        richTextStream << QLatin1String("</div>");
-    };
-#endif
 
     iterateOverRegions(str, QStringLiteral("```"), addCodeChunk, addNonCodeChunk);
 
