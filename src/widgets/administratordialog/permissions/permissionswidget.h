@@ -11,7 +11,7 @@
 #include <QWidget>
 class PermissionsTreeView;
 class QLineEdit;
-class AdminPermissionsModel;
+class PermissionsModel;
 class QSortFilterProxyModel;
 class RocketChatAccount;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT PermissionsWidget : public QWidget
@@ -33,7 +33,7 @@ private:
     QVector<RoleInfo> mRoleInfo;
     PermissionsTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
-    AdminPermissionsModel *const mAdminPermissionsModel;
+    PermissionsModel *const mAdminPermissionsModel;
     QSortFilterProxyModel *const mPermissionFilterProxyModel;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -7,7 +7,7 @@
 #include "permissionswidget.h"
 #include "connection.h"
 #include "misc/lineeditcatchreturnkey.h"
-#include "model/adminpermissionsmodel.h"
+#include "model/permissionsmodel.h"
 #include "permissions/permissions.h"
 #include "permissions/permissionslistalljob.h"
 #include "permissions/permissionupdatejob.h"
@@ -26,7 +26,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     : QWidget(parent)
     , mTreeView(new PermissionsTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
-    , mAdminPermissionsModel(new AdminPermissionsModel(this))
+    , mAdminPermissionsModel(new PermissionsModel(this))
     , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
     , mRocketChatAccount(account)
 {
@@ -44,7 +44,7 @@ PermissionsWidget::PermissionsWidget(RocketChatAccount *account, QWidget *parent
     mainLayout->addWidget(mTreeView);
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
-    mTreeView->setColumnHidden(AdminPermissionsModel::Roles, true);
+    mTreeView->setColumnHidden(PermissionsModel::Roles, true);
     connect(mTreeView, &QTreeView::customContextMenuRequested, this, &PermissionsWidget::slotCustomContextMenuRequested);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &PermissionsWidget::slotFilterTextChanged);
     connect(mTreeView, &QTreeView::doubleClicked, this, &PermissionsWidget::slotModifyDoubleClickRoles);
@@ -76,7 +76,7 @@ void PermissionsWidget::slotPermissionListAllDone(const QJsonObject &obj)
     p.parsePermissions(obj, {}, mRoleInfo);
     mAdminPermissionsModel->setPermissions(p);
     // qDebug() << "obj" << obj;
-    for (int i : {AdminPermissionsModel::Identifier, AdminPermissionsModel::RolesStr}) {
+    for (int i : {PermissionsModel::Identifier, PermissionsModel::RolesStr}) {
         mTreeView->resizeColumnToContents(i);
     }
 }
@@ -106,8 +106,8 @@ void PermissionsWidget::slotModifyDoubleClickRoles(const QModelIndex &index)
 
 void PermissionsWidget::modifyRoles(const QModelIndex &index)
 {
-    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminPermissionsModel::Roles);
-    const QString identifier = mTreeView->model()->index(index.row(), AdminPermissionsModel::Identifier).data().toString();
+    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), PermissionsModel::Roles);
+    const QString identifier = mTreeView->model()->index(index.row(), PermissionsModel::Identifier).data().toString();
     slotEditRoles(modelIndex.data().toStringList(), identifier);
 }
 

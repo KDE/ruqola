@@ -11,7 +11,7 @@
 #include "roles/roleinfo.h"
 #include <QAbstractListModel>
 
-class LIBRUQOLACORE_EXPORT AdminPermissionsModel : public QAbstractListModel
+class LIBRUQOLACORE_EXPORT PermissionsModel : public QAbstractListModel
 {
     Q_OBJECT
 public:
@@ -23,8 +23,8 @@ public:
     };
     Q_ENUM(AdminPermissionsRoles)
 
-    explicit AdminPermissionsModel(QObject *parent = nullptr);
-    ~AdminPermissionsModel() override;
+    explicit PermissionsModel(QObject *parent = nullptr);
+    ~PermissionsModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
@@ -37,7 +37,7 @@ public:
     void setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos);
 
 private:
-    Q_DISABLE_COPY(AdminPermissionsModel)
+    Q_DISABLE_COPY(PermissionsModel)
     Permissions mPermissions;
     QVector<RoleInfo> mListRoleInfos;
 };

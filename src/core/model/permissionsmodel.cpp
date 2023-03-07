@@ -4,17 +4,17 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "adminpermissionsmodel.h"
+#include "permissionsmodel.h"
 #include <KLocalizedString>
 
-AdminPermissionsModel::AdminPermissionsModel(QObject *parent)
+PermissionsModel::PermissionsModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 }
 
-AdminPermissionsModel::~AdminPermissionsModel() = default;
+PermissionsModel::~PermissionsModel() = default;
 
-int AdminPermissionsModel::rowCount(const QModelIndex &parent) const
+int PermissionsModel::rowCount(const QModelIndex &parent) const
 {
     if (parent.isValid()) {
         return 0; // flat model
@@ -22,32 +22,32 @@ int AdminPermissionsModel::rowCount(const QModelIndex &parent) const
     return mPermissions.count();
 }
 
-QVariant AdminPermissionsModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant PermissionsModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (role == Qt::DisplayRole && orientation == Qt::Horizontal) {
         switch (static_cast<AdminPermissionsRoles>(section)) {
-        case AdminPermissionsModel::Identifier:
+        case PermissionsModel::Identifier:
             return i18n("Name");
-        case AdminPermissionsModel::RolesStr:
-        case AdminPermissionsModel::Roles:
+        case PermissionsModel::RolesStr:
+        case PermissionsModel::Roles:
             return i18n("Roles");
         }
     }
     return {};
 }
 
-int AdminPermissionsModel::columnCount(const QModelIndex &parent) const
+int PermissionsModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return static_cast<int>(AdminPermissionsModel::LastColumn) + 1;
+    return static_cast<int>(PermissionsModel::LastColumn) + 1;
 }
 
-Permissions AdminPermissionsModel::permissions() const
+Permissions PermissionsModel::permissions() const
 {
     return mPermissions;
 }
 
-void AdminPermissionsModel::setPermissions(const Permissions &newPermissions)
+void PermissionsModel::setPermissions(const Permissions &newPermissions)
 {
     if (rowCount() != 0) {
         beginRemoveRows(QModelIndex(), 0, mPermissions.count() - 1);
@@ -61,12 +61,12 @@ void AdminPermissionsModel::setPermissions(const Permissions &newPermissions)
     }
 }
 
-void AdminPermissionsModel::setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos)
+void PermissionsModel::setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos)
 {
     mListRoleInfos = newListRoleInfos;
 }
 
-QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
+QVariant PermissionsModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mPermissions.count()) {
         return {};
@@ -78,11 +78,11 @@ QVariant AdminPermissionsModel::data(const QModelIndex &index, int role) const
     const Permission &permissionInfo = mPermissions.at(index.row());
     const int col = index.column();
     switch (col) {
-    case AdminPermissionsModel::Identifier:
+    case PermissionsModel::Identifier:
         return permissionInfo.identifier();
-    case AdminPermissionsModel::Roles:
+    case PermissionsModel::Roles:
         return permissionInfo.roles();
-    case AdminPermissionsModel::RolesStr:
+    case PermissionsModel::RolesStr:
         return permissionInfo.rolesStr().join(QLatin1Char(','));
     }
     return {};

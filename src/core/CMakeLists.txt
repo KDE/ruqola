@@ -152,8 +152,8 @@ target_sources(libruqolacore PRIVATE
     model/admininvitemodel.h
     model/adminoauthmodel.cpp
     model/adminoauthmodel.h
-    model/adminpermissionsmodel.cpp
-    model/adminpermissionsmodel.h
+    model/permissionsmodel.cpp
+    model/permissionsmodel.h
     model/adminrolesmodel.cpp
     model/adminrolesmodel.h
     model/adminroomsfilterproxymodel.cpp
