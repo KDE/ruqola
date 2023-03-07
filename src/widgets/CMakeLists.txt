@@ -700,6 +700,11 @@ target_sources(libruqolawidgets PRIVATE
 
     whatsnew/whatsnewmessagewidget.h
     whatsnew/whatsnewmessagewidget.cpp
+
+    explorepermissiondialog/explorepermissiondialog.h
+    explorepermissiondialog/explorepermissiondialog.cpp
+    explorepermissiondialog/explorepermissionwidget.h
+    explorepermissiondialog/explorepermissionwidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
