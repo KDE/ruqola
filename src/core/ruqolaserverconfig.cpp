@@ -255,8 +255,10 @@ void RuqolaServerConfig::setAllowRegistrationFrom(const QString &registrationFro
     if (registrationFromValue == QStringLiteral("Public")) {
         mServerConfigFeatureTypes |= ServerConfigFeatureType::RegistrationFromEnabled;
     } else if (registrationFromValue == QStringLiteral("Disabled")) {
+        // Nothing => disabled
+        ;
     } else if (registrationFromValue == QStringLiteral("Secret URL")) {
-        // TODO implement it.
+        qCWarning(RUQOLA_LOG) << " Registration Secret Url not implemented";
     }
 }
 
