@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "permissions/permission.h"
 #include <QWidget>
 class QLineEdit;
 class PermissionsModel;
@@ -16,6 +17,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionWidget : public QWidget
 public:
     explicit ExplorePermissionWidget(QWidget *parent = nullptr);
     ~ExplorePermissionWidget() override;
+
+    void setPermissions(const QVector<Permission> &permissions);
 
 private:
     void slotFilterTextChanged(const QString &str);

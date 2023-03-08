@@ -50,3 +50,10 @@ void ExplorePermissionWidget::slotFilterTextChanged(const QString &str)
 {
     mPermissionFilterProxyModel->setFilterFixedString(str);
 }
+
+void ExplorePermissionWidget::setPermissions(const QVector<Permission> &permissions)
+{
+    Permissions perms;
+    perms.setPermissions(permissions);
+    mAdminPermissionsModel->setPermissions(perms);
+}

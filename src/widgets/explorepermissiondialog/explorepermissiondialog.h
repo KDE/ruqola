@@ -5,6 +5,7 @@
 */
 #pragma once
 #include "libruqolawidgets_private_export.h"
+#include "permissions/permission.h"
 #include <QDialog>
 class ExplorePermissionWidget;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionDialog : public QDialog
@@ -13,6 +14,8 @@ class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionDialog : public QDialog
 public:
     explicit ExplorePermissionDialog(QWidget *parent = nullptr);
     ~ExplorePermissionDialog() override;
+
+    void setPermissions(const QVector<Permission> &permissions);
 
 private:
     void readConfig();

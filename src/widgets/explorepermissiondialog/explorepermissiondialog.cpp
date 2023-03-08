@@ -56,3 +56,8 @@ void ExplorePermissionDialog::writeConfig()
     KConfigGroup group(KSharedConfig::openStateConfig(), myExplorePermissionDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
+
+void ExplorePermissionDialog::setPermissions(const QVector<Permission> &permissions)
+{
+    mExporePermissionWidget->setPermissions(permissions);
+}

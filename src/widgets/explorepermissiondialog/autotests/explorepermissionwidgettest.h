@@ -14,4 +14,6 @@ class ExplorePermissionWidgetTest : public QObject
 public:
     explicit ExplorePermissionWidgetTest(QObject *parent = nullptr);
     ~ExplorePermissionWidgetTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };

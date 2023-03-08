@@ -14,4 +14,6 @@ class ExplorePermissionDialogTest : public QObject
 public:
     explicit ExplorePermissionDialogTest(QObject *parent = nullptr);
     ~ExplorePermissionDialogTest() override = default;
+private Q_SLOTS:
+    void shouldHaveDefaultValues();
 };
