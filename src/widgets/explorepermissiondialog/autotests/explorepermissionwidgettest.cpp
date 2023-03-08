@@ -12,6 +12,7 @@
 #include <QStandardPaths>
 #include <QTest>
 #include <QTreeView>
+#include <QVBoxLayout>
 
 QTEST_MAIN(ExplorePermissionWidgetTest)
 ExplorePermissionWidgetTest::ExplorePermissionWidgetTest(QObject *parent)
@@ -34,4 +35,8 @@ void ExplorePermissionWidgetTest::shouldHaveDefaultValues()
 
     auto mPermissionFilterProxyModel = w.findChild<QSortFilterProxyModel *>(QStringLiteral("permissionFilterProxyModel"));
     QVERIFY(mPermissionFilterProxyModel);
+
+    auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
+    QVERIFY(mainLayout);
+    QCOMPARE(mainLayout->contentsMargins(), QMargins{});
 }
