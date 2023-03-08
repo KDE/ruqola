@@ -6,8 +6,11 @@
 
 #pragma once
 
+#ifdef USE_KUSERFEEDBACK_QT6
+#include <KUserFeedbackQt6/AbstractDataSource>
+#else
 #include <KUserFeedback/AbstractDataSource>
-
+#endif
 class AccountInfoSource : public KUserFeedback::AbstractDataSource
 {
 public:

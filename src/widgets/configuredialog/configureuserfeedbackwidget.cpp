@@ -9,8 +9,13 @@
 
 #if HAVE_KUSERFEEDBACK
 #include "userfeedback/userfeedbackmanager.h"
+#ifdef USE_KUSERFEEDBACK_QT6
+#include <KUserFeedbackQt6/FeedbackConfigWidget>
+#include <KUserFeedbackQt6/Provider>
+#else
 #include <KUserFeedback/FeedbackConfigWidget>
 #include <KUserFeedback/Provider>
+#endif
 #endif
 
 ConfigureUserFeedbackWidget::ConfigureUserFeedbackWidget(QWidget *parent)
