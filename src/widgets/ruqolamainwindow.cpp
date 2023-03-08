@@ -6,6 +6,7 @@
 
 #include "ruqolamainwindow.h"
 #include "databasedialog/exploredatabasedialog.h"
+#include "explorepermissiondialog/explorepermissiondialog.h"
 #include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -451,6 +452,10 @@ void RuqolaMainWindow::setupActions()
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
 #endif
+        mShowPermissions = new QAction(QStringLiteral("Show Database Messages"), this);
+        connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
+        ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
+        menu->addAction(mShowPermissions);
     }
 
     mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
@@ -751,6 +756,13 @@ void RuqolaMainWindow::slotShowDatabaseMessages()
 }
 #endif
 
+void RuqolaMainWindow::slotShowPermissions()
+{
+    ExplorePermissionDialog dlg(this);
+    dlg.setPermissions(mCurrentRocketChatAccount->permissions());
+    dlg.exec();
+}
+
 void RuqolaMainWindow::slotShowServerInfo()
 {
     ServerErrorInfoMessageHistoryDialog dlg(this);
@@ -815,6 +827,9 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
     }
 #endif
+    if (mShowPermissions) {
+        mShowPermissions->setEnabled(!loginPageActivated);
+    }
 }
 
 void RuqolaMainWindow::slotConfigureNotifications()

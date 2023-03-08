@@ -110,6 +110,8 @@ private:
 #if HAVE_DATABASE_SUPPORT
     void slotShowDatabaseMessages();
 #endif
+    void slotShowPermissions();
+
     bool mReallyClose{false};
 
     RuqolaCentralWidget *const mMainWidget;
@@ -156,4 +158,5 @@ private:
     QAction *mShowDatabaseMessages = nullptr;
 #endif
     QAction *mMenuDebug = nullptr;
+    QAction *mShowPermissions = nullptr;
 };

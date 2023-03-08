@@ -188,6 +188,8 @@ public:
 
     Q_REQUIRED_RESULT InputTextManager *inputThreadMessageTextManager() const;
 
+    Q_REQUIRED_RESULT QVector<Permission> permissions() const;
+
     void blockUser(const QString &userId, bool block);
     void deleteFileMessage(const QString &roomId, const QString &fileId, Room::RoomType channelType);
     void openDocumentation();

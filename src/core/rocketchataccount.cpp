@@ -3051,3 +3051,9 @@ void RocketChatAccount::deleteMessageFromDatabase(const QString &roomName, const
 {
     mLocalDatabaseManager->deleteMessage(accountName(), roomName, messageId);
 }
+
+// Only for debugging permissions. (debug mode)
+QVector<Permission> RocketChatAccount::permissions() const
+{
+    return mPermissionManager.permissions();
+}
