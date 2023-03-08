@@ -452,7 +452,7 @@ void RuqolaMainWindow::setupActions()
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
         menu->addAction(mShowDatabaseMessages);
 #endif
-        mShowPermissions = new QAction(QStringLiteral("Show Database Messages"), this);
+        mShowPermissions = new QAction(QStringLiteral("Show Permissions"), this);
         connect(mShowPermissions, &QAction::triggered, this, &RuqolaMainWindow::slotShowPermissions);
         ac->addAction(QStringLiteral("show_permissions"), mShowPermissions);
         menu->addAction(mShowPermissions);
