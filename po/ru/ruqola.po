@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 00:47+0000\n"
+"POT-Creation-Date: 2023-03-08 00:47+0000\n"
 "PO-Revision-Date: 2022-10-07 16:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -636,10 +636,10 @@ msgstr "%1 и %2"
 
 #: core/model/admincustomemojimodel.cpp:30
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
-#: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
-#: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -728,12 +728,6 @@ msgstr "Создано"
 #, kde-format
 msgid "Created By"
 msgstr "Автор"
-
-#: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
-#, kde-format
-msgid "Roles"
-msgstr "Роли"
 
 #: core/model/adminrolesmodel.cpp:34
 #, kde-format
@@ -1010,6 +1004,12 @@ msgstr "Все сообщения"
 #, kde-format
 msgid "Mentions"
 msgstr "Упоминания"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: widgets/administratordialog/administratorwidget.cpp:75
+#, kde-format
+msgid "Roles"
+msgstr "Роли"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, fuzzy, kde-format
@@ -1457,24 +1457,24 @@ msgstr "Администратор"
 msgid "Bot"
 msgstr "Бот"
 
-#: core/videoconference/videoconferenceinfo.cpp:282
 #: core/videoconference/videoconferenceinfo.cpp:284
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:290
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "Ваш ответ:"
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
@@ -6920,6 +6920,13 @@ msgstr[0] "%1 обсуждение в комнате (всего: %2)"
 msgstr[1] "%1 обсуждения в комнате (всего: %2)"
 msgstr[2] "%1 обсуждений в комнате (всего: %2)"
 msgstr[3] "%1 обсуждение в комнате (всего: %2)"
+
+#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Permissions"
+msgctxt "@title:window"
+msgid "Permissions"
+msgstr "Права доступа"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format

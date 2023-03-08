@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 00:47+0000\n"
-"PO-Revision-Date: 2023-03-03 14:04+0100\n"
+"POT-Creation-Date: 2023-03-08 00:47+0000\n"
+"PO-Revision-Date: 2023-03-05 10:36+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -619,10 +619,10 @@ msgstr "%1 e %2"
 
 #: core/model/admincustomemojimodel.cpp:30
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
-#: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
-#: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -711,12 +711,6 @@ msgstr "Creato il"
 #, kde-format
 msgid "Created By"
 msgstr "Creato da"
-
-#: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
-#, kde-format
-msgid "Roles"
-msgstr "Ruoli"
 
 #: core/model/adminrolesmodel.cpp:34
 #, kde-format
@@ -988,6 +982,12 @@ msgstr "Tutti i messaggi"
 #, kde-format
 msgid "Mentions"
 msgstr "Menzioni"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: widgets/administratordialog/administratorwidget.cpp:75
+#, kde-format
+msgid "Roles"
+msgstr "Ruoli"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -1433,23 +1433,23 @@ msgstr "Amministratore"
 msgid "Bot"
 msgstr "Bot"
 
-#: core/videoconference/videoconferenceinfo.cpp:282
 #: core/videoconference/videoconferenceinfo.cpp:284
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call was not answered"
 msgstr "Chiamata senza risposta"
 
-#: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
 msgstr "Chiamata terminata"
 
-#: core/videoconference/videoconferenceinfo.cpp:290
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
 msgid "Waiting for answer"
 msgstr "In attesa di risposta"
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Call ongoing"
 msgstr "Chiamata in corso"
@@ -6873,6 +6873,13 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "Una discussione nella stanza (totale: %2)"
 msgstr[1] "%1 discussioni nella stanza (totale: %2)"
 
+#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Permissions"
+msgctxt "@title:window"
+msgid "Permissions"
+msgstr "Permessi"
+
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
@@ -8107,16 +8114,14 @@ msgid "Account name"
 msgstr "Nome account"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Nome utente:"
+msgstr "Nome utente o indirizzo di posta:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Nome utente"
+msgstr "Nome utente o indirizzo di posta"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format

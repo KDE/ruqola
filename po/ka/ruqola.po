@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 00:47+0000\n"
+"POT-Creation-Date: 2023-03-08 00:47+0000\n"
 "PO-Revision-Date: 2023-03-03 06:16+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -618,10 +618,10 @@ msgstr "%1 და %2"
 
 #: core/model/admincustomemojimodel.cpp:30
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
-#: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
-#: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -710,12 +710,6 @@ msgstr "შექმნილია"
 #, kde-format
 msgid "Created By"
 msgstr "შექმნილია"
-
-#: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
-#, kde-format
-msgid "Roles"
-msgstr "როლები"
 
 #: core/model/adminrolesmodel.cpp:34
 #, kde-format
@@ -987,6 +981,12 @@ msgstr "ყველა შეტყობინება"
 #, kde-format
 msgid "Mentions"
 msgstr "მოხსენებები"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: widgets/administratordialog/administratorwidget.cpp:75
+#, kde-format
+msgid "Roles"
+msgstr "როლები"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -1432,23 +1432,23 @@ msgstr "ადმინისტრატორი"
 msgid "Bot"
 msgstr "ბოტი"
 
-#: core/videoconference/videoconferenceinfo.cpp:282
 #: core/videoconference/videoconferenceinfo.cpp:284
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call was not answered"
 msgstr "ზარს პასუხი არ გაეცა"
 
-#: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
 msgstr "ზარი დასრულდა"
 
-#: core/videoconference/videoconferenceinfo.cpp:290
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
 msgid "Waiting for answer"
 msgstr "პასუხის მოლოდინი"
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Call ongoing"
 msgstr "ზარი მიმდინარეობს"
@@ -6724,6 +6724,13 @@ msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "ოთახში %1 განხილვაა (სულ %2)"
 msgstr[1] "ოთახში %1 განხილვაა (სულ %2)"
+
+#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Permissions"
+msgctxt "@title:window"
+msgid "Permissions"
+msgstr "წვდომები"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, kde-format

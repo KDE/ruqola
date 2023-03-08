@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-07 00:47+0000\n"
+"POT-Creation-Date: 2023-03-08 00:47+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -643,10 +643,10 @@ msgstr ""
 
 #: core/model/admincustomemojimodel.cpp:30
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
-#: core/model/adminpermissionsmodel.cpp:30 core/model/adminrolesmodel.cpp:32
-#: core/model/adminroomsmodel.cpp:30 core/model/adminusersmodel.cpp:106
-#: core/model/directoryroomsmodel.cpp:114 core/model/directoryteamsmodel.cpp:90
-#: core/model/directoryusersmodel.cpp:100
+#: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
+#: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
+#: core/model/directoryteamsmodel.cpp:90 core/model/directoryusersmodel.cpp:100
+#: core/model/permissionsmodel.cpp:30
 #: core/model/personalaccesstokeninfosmodel.cpp:82
 #: core/model/usersinrolemodel.cpp:86
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:39
@@ -741,13 +741,6 @@ msgstr "建立帳戶"
 #| msgid "Create"
 msgid "Created By"
 msgstr "建立"
-
-#: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
-#: widgets/administratordialog/administratorwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Archive Room"
-msgid "Roles"
-msgstr "封存的聊天室"
 
 #: core/model/adminrolesmodel.cpp:34
 #, kde-format
@@ -1038,6 +1031,13 @@ msgstr ""
 #, kde-format
 msgid "Mentions"
 msgstr "提及"
+
+#: core/model/permissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
+#: widgets/administratordialog/administratorwidget.cpp:75
+#, fuzzy, kde-format
+#| msgid "Archive Room"
+msgid "Roles"
+msgstr "封存的聊天室"
 
 #: core/model/personalaccesstokeninfosmodel.cpp:45
 #, kde-format
@@ -1510,24 +1510,24 @@ msgstr ""
 msgid "Bot"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:282
 #: core/videoconference/videoconferenceinfo.cpp:284
+#: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call was not answered"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:286
+#: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
 msgid "Call ended"
 msgstr ""
 
-#: core/videoconference/videoconferenceinfo.cpp:290
+#: core/videoconference/videoconferenceinfo.cpp:292
 #, fuzzy, kde-format
 #| msgid "Your answer:"
 msgid "Waiting for answer"
 msgstr "回答："
 
-#: core/videoconference/videoconferenceinfo.cpp:292
+#: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Call ongoing"
 msgstr ""
@@ -7032,6 +7032,13 @@ msgstr "未找到討論區"
 msgid "%1 Discussion in room (Total: %2)"
 msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "聊天室中有 %1 個討論區 (總計：%2)"
+
+#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#, fuzzy, kde-format
+#| msgid "Discussions"
+msgctxt "@title:window"
+msgid "Permissions"
+msgstr "討論"
 
 #: widgets/exportmessages/exportmessagesdialog.cpp:25
 #, fuzzy, kde-format
