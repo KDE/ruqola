@@ -6,11 +6,21 @@
 #pragma once
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
-
+class QLineEdit;
+class PermissionsModel;
+class QSortFilterProxyModel;
+class QTreeView;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit ExplorePermissionWidget(QWidget *parent = nullptr);
     ~ExplorePermissionWidget() override;
+
+private:
+    void slotFilterTextChanged(const QString &str);
+    QTreeView *const mTreeView;
+    QLineEdit *const mSearchLineWidget;
+    PermissionsModel *const mAdminPermissionsModel;
+    QSortFilterProxyModel *const mPermissionFilterProxyModel;
 };
