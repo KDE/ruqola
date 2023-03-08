@@ -30,6 +30,7 @@ ExplorePermissionWidget::ExplorePermissionWidget(QWidget *parent)
 
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
+    mainLayout->setContentsMargins({});
 
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
