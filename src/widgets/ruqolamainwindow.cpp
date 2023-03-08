@@ -440,13 +440,18 @@ void RuqolaMainWindow::setupActions()
     connect(mShowServerInfo, &QAction::triggered, this, &RuqolaMainWindow::slotShowServerInfo);
     ac->addAction(QStringLiteral("show_server_errors"), mShowServerInfo);
 
-#if HAVE_DATABASE_SUPPORT
     if (Ruqola::self()->debug()) {
+        mMenuDebug = new QAction(QStringLiteral("Debug"), this);
+        ac->addAction(QStringLiteral("debug_menu"), mMenuDebug);
+        auto menu = new QMenu(this);
+        mMenuDebug->setMenu(menu);
+#if HAVE_DATABASE_SUPPORT
         mShowDatabaseMessages = new QAction(QStringLiteral("Show Database Messages"), this);
         connect(mShowDatabaseMessages, &QAction::triggered, this, &RuqolaMainWindow::slotShowDatabaseMessages);
         ac->addAction(QStringLiteral("show_database_messages"), mShowDatabaseMessages);
-    }
+        menu->addAction(mShowDatabaseMessages);
 #endif
+    }
 
     mClearAlerts = new QAction(i18n("Mark All Channels as Read"), this);
     ac->setDefaultShortcut(mClearAlerts, Qt::SHIFT | Qt::Key_Escape);

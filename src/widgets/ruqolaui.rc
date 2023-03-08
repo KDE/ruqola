@@ -1,5 +1,5 @@
 <!DOCTYPE gui SYSTEM "kpartgui.dtd">
-<gui name="ruqola" version="42">
+<gui name="ruqola" version="43">
  <MenuBar>
   <Menu name="file" >
    <Action name="add_server" />
@@ -43,7 +43,7 @@
    <Separator/>
    <Action name="show_rocketchat_information" />
    <Separator/>
-   <Action name="show_database_messages" />
+   <Action name="debug_menu" />
   </Menu>
   <Menu name="settings" append="settings_merge">
     <text>&amp;Settings</text>

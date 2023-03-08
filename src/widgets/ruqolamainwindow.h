@@ -155,4 +155,5 @@ private:
 #if HAVE_DATABASE_SUPPORT
     QAction *mShowDatabaseMessages = nullptr;
 #endif
+    QAction *mMenuDebug = nullptr;
 };
