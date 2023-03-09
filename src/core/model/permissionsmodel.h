@@ -8,7 +8,6 @@
 
 #include "libruqolacore_export.h"
 #include "permissions/permissions.h"
-#include "roles/roleinfo.h"
 #include <QAbstractListModel>
 
 class LIBRUQOLACORE_EXPORT PermissionsModel : public QAbstractListModel
@@ -34,10 +33,7 @@ public:
     Q_REQUIRED_RESULT Permissions permissions() const;
     void setPermissions(const Permissions &newPermissions);
 
-    void setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos);
-
 private:
     Q_DISABLE_COPY(PermissionsModel)
     Permissions mPermissions;
-    QVector<RoleInfo> mListRoleInfos;
 };

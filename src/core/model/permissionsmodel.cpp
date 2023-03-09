@@ -61,11 +61,6 @@ void PermissionsModel::setPermissions(const Permissions &newPermissions)
     }
 }
 
-void PermissionsModel::setListRoleInfos(const QVector<RoleInfo> &newListRoleInfos)
-{
-    mListRoleInfos = newListRoleInfos;
-}
-
 QVariant PermissionsModel::data(const QModelIndex &index, int role) const
 {
     if (index.row() < 0 || index.row() >= mPermissions.count()) {
