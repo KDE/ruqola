@@ -9,6 +9,7 @@
 #include "model/permissionsmodel.h"
 #include <KLocalizedString>
 #include <QHeaderView>
+#include <QLabel>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
 #include <QTreeView>
@@ -20,9 +21,9 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new PermissionsModel(this))
     , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
+    , mOwnRoles(new QLabel(this))
 {
     mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
-
     mTreeView->setRootIsDecorated(false);
     mTreeView->setSortingEnabled(true);
     mTreeView->sortByColumn(0, Qt::AscendingOrder);
@@ -32,6 +33,7 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mOwnRoles->setObjectName(QStringLiteral("mOwnRoles"));
     mSearchLineWidget->setObjectName(QStringLiteral("mSearchLineWidget"));
     mSearchLineWidget->setPlaceholderText(i18n("Search permissions..."));
     new LineEditCatchReturnKey(mSearchLineWidget, this);
@@ -43,6 +45,8 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     mTreeView->setModel(mPermissionFilterProxyModel);
     mTreeView->setColumnHidden(PermissionsModel::Roles, true);
     connect(mSearchLineWidget, &QLineEdit::textChanged, this, &ExplorePermissionsWidget::slotFilterTextChanged);
+
+    mainLayout->addWidget(mOwnRoles);
 }
 
 ExplorePermissionsWidget::~ExplorePermissionsWidget() = default;
@@ -57,4 +61,9 @@ void ExplorePermissionsWidget::setPermissions(const QVector<Permission> &permiss
     Permissions perms;
     perms.setPermissions(permissions);
     mAdminPermissionsModel->setPermissions(perms);
+}
+
+void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
+{
+    mOwnRoles->setText(QStringLiteral("<qt><b>Own Roles:</b> %1</qt>").arg(roleStr.join(QLatin1Char(','))));
 }

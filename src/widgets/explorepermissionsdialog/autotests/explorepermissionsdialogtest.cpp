@@ -8,6 +8,7 @@
 #include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "explorepermissionsdialog/explorepermissionswidget.h"
 #include <QDialogButtonBox>
+#include <QLabel>
 #include <QStandardPaths>
 #include <QTest>
 #include <QVBoxLayout>
@@ -32,4 +33,8 @@ void ExplorePermissionsDialogTest::shouldHaveDefaultValues()
 
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
+
+    auto mOwnRoles = d.findChild<QLabel *>(QStringLiteral("mOwnRoles"));
+    QVERIFY(mOwnRoles);
+    QVERIFY(mOwnRoles->text().isEmpty());
 }

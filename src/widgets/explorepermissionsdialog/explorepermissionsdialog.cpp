@@ -61,3 +61,8 @@ void ExplorePermissionsDialog::setPermissions(const QVector<Permission> &permiss
 {
     mExporePermissionWidget->setPermissions(permissions);
 }
+
+void ExplorePermissionsDialog::setOWnRoles(const QStringList &roleStr)
+{
+    mExporePermissionWidget->setOWnRoles(roleStr);
+}

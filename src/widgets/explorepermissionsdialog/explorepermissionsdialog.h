@@ -16,6 +16,7 @@ public:
     ~ExplorePermissionsDialog() override;
 
     void setPermissions(const QVector<Permission> &permissions);
+    void setOWnRoles(const QStringList &roleStr);
 
 private:
     void readConfig();

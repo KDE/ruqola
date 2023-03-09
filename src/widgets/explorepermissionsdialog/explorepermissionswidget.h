@@ -11,6 +11,7 @@ class QLineEdit;
 class PermissionsModel;
 class QSortFilterProxyModel;
 class QTreeView;
+class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionsWidget : public QWidget
 {
     Q_OBJECT
@@ -20,10 +21,13 @@ public:
 
     void setPermissions(const QVector<Permission> &permissions);
 
+    void setOWnRoles(const QStringList &roleStr);
+
 private:
     void slotFilterTextChanged(const QString &str);
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     PermissionsModel *const mAdminPermissionsModel;
     QSortFilterProxyModel *const mPermissionFilterProxyModel;
+    QLabel *const mOwnRoles;
 };
