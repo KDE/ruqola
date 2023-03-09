@@ -701,10 +701,10 @@ target_sources(libruqolawidgets PRIVATE
     whatsnew/whatsnewmessagewidget.h
     whatsnew/whatsnewmessagewidget.cpp
 
-    explorepermissiondialog/explorepermissiondialog.h
-    explorepermissiondialog/explorepermissiondialog.cpp
-    explorepermissiondialog/explorepermissionwidget.h
-    explorepermissiondialog/explorepermissionwidget.cpp
+    explorepermissionsdialog/explorepermissionsdialog.h
+    explorepermissionsdialog/explorepermissionsdialog.cpp
+    explorepermissionsdialog/explorepermissionswidget.h
+    explorepermissionsdialog/explorepermissionswidget.cpp
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)
@@ -821,7 +821,7 @@ if (BUILD_TESTING)
     add_subdirectory(servererrorinfohistory/autotests)
     add_subdirectory(databasedialog/autotests)
     add_subdirectory(whatsnew/autotests)
-    add_subdirectory(explorepermissiondialog/autotests)
+    add_subdirectory(explorepermissionsdialog/autotests)
 endif()
 
 install(TARGETS libruqolawidgets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)

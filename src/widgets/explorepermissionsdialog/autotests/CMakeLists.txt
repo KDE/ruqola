@@ -10,5 +10,5 @@ macro(add_ruqola_explorepermissions_test _source)
     set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro()
 
-add_ruqola_explorepermissions_test(explorepermissiondialogtest.cpp)
-add_ruqola_explorepermissions_test(explorepermissionwidgettest.cpp)
+add_ruqola_explorepermissions_test(explorepermissionsdialogtest.cpp)
+add_ruqola_explorepermissions_test(explorepermissionswidgettest.cpp)

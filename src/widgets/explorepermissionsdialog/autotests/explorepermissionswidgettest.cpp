@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "explorepermissionwidgettest.h"
-#include "explorepermissiondialog/explorepermissionwidget.h"
+#include "explorepermissionswidgettest.h"
+#include "explorepermissionsdialog/explorepermissionswidget.h"
 
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
@@ -14,16 +14,16 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 
-QTEST_MAIN(ExplorePermissionWidgetTest)
-ExplorePermissionWidgetTest::ExplorePermissionWidgetTest(QObject *parent)
+QTEST_MAIN(ExplorePermissionsWidgetTest)
+ExplorePermissionsWidgetTest::ExplorePermissionsWidgetTest(QObject *parent)
     : QObject{parent}
 {
     QStandardPaths::setTestModeEnabled(true);
 }
 
-void ExplorePermissionWidgetTest::shouldHaveDefaultValues()
+void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
 {
-    ExplorePermissionWidget w;
+    ExplorePermissionsWidget w;
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());

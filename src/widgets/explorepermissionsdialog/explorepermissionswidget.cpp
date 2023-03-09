@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "explorepermissionwidget.h"
+#include "explorepermissionswidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/permissionsmodel.h"
 #include <KLocalizedString>
@@ -14,7 +14,7 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 
-ExplorePermissionWidget::ExplorePermissionWidget(QWidget *parent)
+ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     : QWidget{parent}
     , mTreeView(new QTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
@@ -42,17 +42,17 @@ ExplorePermissionWidget::ExplorePermissionWidget(QWidget *parent)
     mPermissionFilterProxyModel->setSourceModel(mAdminPermissionsModel);
     mTreeView->setModel(mPermissionFilterProxyModel);
     mTreeView->setColumnHidden(PermissionsModel::Roles, true);
-    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &ExplorePermissionWidget::slotFilterTextChanged);
+    connect(mSearchLineWidget, &QLineEdit::textChanged, this, &ExplorePermissionsWidget::slotFilterTextChanged);
 }
 
-ExplorePermissionWidget::~ExplorePermissionWidget() = default;
+ExplorePermissionsWidget::~ExplorePermissionsWidget() = default;
 
-void ExplorePermissionWidget::slotFilterTextChanged(const QString &str)
+void ExplorePermissionsWidget::slotFilterTextChanged(const QString &str)
 {
     mPermissionFilterProxyModel->setFilterFixedString(str);
 }
 
-void ExplorePermissionWidget::setPermissions(const QVector<Permission> &permissions)
+void ExplorePermissionsWidget::setPermissions(const QVector<Permission> &permissions)
 {
     Permissions perms;
     perms.setPermissions(permissions);

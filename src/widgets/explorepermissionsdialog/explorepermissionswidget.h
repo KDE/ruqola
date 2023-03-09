@@ -11,12 +11,12 @@ class QLineEdit;
 class PermissionsModel;
 class QSortFilterProxyModel;
 class QTreeView;
-class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionWidget : public QWidget
+class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionsWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ExplorePermissionWidget(QWidget *parent = nullptr);
-    ~ExplorePermissionWidget() override;
+    explicit ExplorePermissionsWidget(QWidget *parent = nullptr);
+    ~ExplorePermissionsWidget() override;
 
     void setPermissions(const QVector<Permission> &permissions);
 

@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "explorepermissiondialog.h"
-#include "explorepermissionwidget.h"
+#include "explorepermissionsdialog.h"
+#include "explorepermissionswidget.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -17,9 +17,9 @@ namespace
 {
 const char myExplorePermissionDialogConfigGroupName[] = "ExplorePermissionDialog";
 }
-ExplorePermissionDialog::ExplorePermissionDialog(QWidget *parent)
+ExplorePermissionsDialog::ExplorePermissionsDialog(QWidget *parent)
     : QDialog(parent)
-    , mExporePermissionWidget(new ExplorePermissionWidget(this))
+    , mExporePermissionWidget(new ExplorePermissionsWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Permissions"));
     auto mainLayout = new QVBoxLayout(this);
@@ -31,18 +31,18 @@ ExplorePermissionDialog::ExplorePermissionDialog(QWidget *parent)
     auto button = new QDialogButtonBox(QDialogButtonBox::Close, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &ExplorePermissionDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &ExplorePermissionDialog::accept);
+    connect(button, &QDialogButtonBox::rejected, this, &ExplorePermissionsDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &ExplorePermissionsDialog::accept);
 
     readConfig();
 }
 
-ExplorePermissionDialog::~ExplorePermissionDialog()
+ExplorePermissionsDialog::~ExplorePermissionsDialog()
 {
     writeConfig();
 }
 
-void ExplorePermissionDialog::readConfig()
+void ExplorePermissionsDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(400, 300));
@@ -51,13 +51,13 @@ void ExplorePermissionDialog::readConfig()
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
-void ExplorePermissionDialog::writeConfig()
+void ExplorePermissionsDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myExplorePermissionDialogConfigGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);
 }
 
-void ExplorePermissionDialog::setPermissions(const QVector<Permission> &permissions)
+void ExplorePermissionsDialog::setPermissions(const QVector<Permission> &permissions)
 {
     mExporePermissionWidget->setPermissions(permissions);
 }

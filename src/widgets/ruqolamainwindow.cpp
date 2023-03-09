@@ -6,7 +6,7 @@
 
 #include "ruqolamainwindow.h"
 #include "databasedialog/exploredatabasedialog.h"
-#include "explorepermissiondialog/explorepermissiondialog.h"
+#include "explorepermissionsdialog/explorepermissionsdialog.h"
 #include "notificationhistorymanager.h"
 #include "ruqolaglobalconfig.h"
 #include "ruqolawidgets_debug.h"
@@ -758,7 +758,7 @@ void RuqolaMainWindow::slotShowDatabaseMessages()
 
 void RuqolaMainWindow::slotShowPermissions()
 {
-    ExplorePermissionDialog dlg(this);
+    ExplorePermissionsDialog dlg(this);
     dlg.setPermissions(mCurrentRocketChatAccount->permissions());
     dlg.exec();
 }

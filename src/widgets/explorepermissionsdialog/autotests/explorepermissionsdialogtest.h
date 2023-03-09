@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class ExplorePermissionDialogTest : public QObject
+class ExplorePermissionsDialogTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit ExplorePermissionDialogTest(QObject *parent = nullptr);
-    ~ExplorePermissionDialogTest() override = default;
+    explicit ExplorePermissionsDialogTest(QObject *parent = nullptr);
+    ~ExplorePermissionsDialogTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };
