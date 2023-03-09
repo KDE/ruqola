@@ -27,6 +27,7 @@ void OwnUser::parseOwnUserInfo(const QJsonObject &replyObject)
     mNickName = replyObject.value(QLatin1String("nickname")).toString();
     const QJsonArray array = replyObject.value(QLatin1String("roles")).toArray();
     const QVariantList rolesLst = array.toVariantList();
+    mRoles.clear();
     mRoles.reserve(rolesLst.count());
     for (const auto &role : rolesLst) {
         mRoles.append(role.toString());
