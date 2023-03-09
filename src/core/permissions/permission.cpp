@@ -23,15 +23,20 @@ bool Permission::parsePermission(const QJsonObject &replyObject, const QVector<R
         mUpdatedAt = Utils::parseDate(QStringLiteral("_updatedAt"), replyObject);
     }
     const QJsonArray roleArray = replyObject.value(QLatin1String("roles")).toArray();
-    mRoles.reserve(roleArray.count());
-    for (int i = 0; i < roleArray.count(); ++i) {
+    const auto roleArrayCount{roleArray.count()};
+    mRoles.reserve(roleArrayCount);
+    for (int i = 0; i < roleArrayCount; ++i) {
         const QString role{roleArray.at(i).toString()};
         mRoles.append(role);
-        auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [role](const RoleInfo &info) {
-            return (role == info.identifier());
-        });
-        if (index != roleInfo.end()) {
-            mRolesStr.append((*index).name());
+        if (roleInfo.isEmpty()) {
+            mRolesStr.append(role);
+        } else {
+            auto index = std::find_if(roleInfo.begin(), roleInfo.end(), [role](const RoleInfo &info) {
+                return (role == info.identifier());
+            });
+            if (index != roleInfo.end()) {
+                mRolesStr.append((*index).name());
+            }
         }
     }
     return true;
