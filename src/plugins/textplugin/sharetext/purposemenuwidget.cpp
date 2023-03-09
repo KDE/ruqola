@@ -8,7 +8,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <Purpose/AlternativesModel>
-#include <PurposeWidgets/Menu>
+#include <Purpose/Menu>
 #include <QJsonArray>
 #include <QTemporaryFile>
 #include <QUrl>
