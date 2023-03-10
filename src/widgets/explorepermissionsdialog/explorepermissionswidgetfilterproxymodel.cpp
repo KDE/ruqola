@@ -16,10 +16,21 @@ ExplorePermissionsWidgetFilterProxyModel::~ExplorePermissionsWidgetFilterProxyMo
 
 bool ExplorePermissionsWidgetFilterProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    return QSortFilterProxyModel::filterAcceptsColumn(source_row, source_parent);
-#if 0
-    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    const QString identifier = sourceIndex.data(PermissionsModel::Identifier).toString();
-    return (mTypeGroup == typegroup) && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
-#endif
+    if (mFilterString.isEmpty()) {
+        return true;
+    }
+    auto match = [&](int role) {
+        const QModelIndex modelIndex = sourceModel()->index(source_row, role, source_parent);
+        return modelIndex.data(0).toString().contains(mFilterString, Qt::CaseInsensitive);
+    };
+    if (match(PermissionsModel::RolesStr) || match(PermissionsModel::Identifier)) {
+        return true;
+    }
+    return false;
+}
+
+void ExplorePermissionsWidgetFilterProxyModel::setFilterString(const QString &string)
+{
+    mFilterString = string;
+    invalidate();
 }

@@ -14,6 +14,11 @@ public:
     explicit ExplorePermissionsWidgetFilterProxyModel(QObject *parent = nullptr);
     ~ExplorePermissionsWidgetFilterProxyModel() override;
 
+    void setFilterString(const QString &string);
+
 protected:
     Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    QString mFilterString;
 };
