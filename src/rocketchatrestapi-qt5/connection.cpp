@@ -664,6 +664,17 @@ void Connection::closeChannel(const QString &roomId, const QString &type)
     }
 }
 
+void Connection::historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info)
+{
+    // TODO
+    auto job = new ChannelHistoryJob(this);
+    initializeRestApiJob(job);
+    job->setChannelHistoryInfo(info);
+    if (!job->start()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start historyChannel job";
+    }
+}
+
 void Connection::historyChannel(const QString &roomId, const QString &type)
 {
     auto job = new ChannelHistoryJob(this);

@@ -7,13 +7,13 @@
 #pragma once
 
 #include "channelgroupbasejob.h"
+#include "channels/channelhistoryjob.h"
 #include "commands/runcommandjob.h"
 #include "createchannelteaminfo.h"
 #include "custom/customuserstatuscreatejob.h"
 #include "custom/customuserstatusupdatejob.h"
 #include "invite/findorcreateinvitejob.h"
 #include "librocketchatrestapi-qt5_export.h"
-#include "restapiutil.h"
 #include "rooms/adminroomsjob.h"
 #include "rooms/roomsautocompletechannelandprivatejob.h"
 #include "rooms/roomscleanhistoryjob.h"
@@ -201,6 +201,8 @@ public:
     void searchRooms(const QString &pattern);
     void getMentionedMessages(const QString &roomId, int offset = 0, int count = 50);
     void hideMentionStatus(const QString &roomId, bool value);
+    void historyChannel(const RocketChatRestApi::ChannelHistoryJob::ChannelHistoryInfo &info);
+
 Q_SIGNALS:
     void avatar(const UserBaseJob::UserInfo &info, const QUrl &url);
     void redownloadAvatar();
