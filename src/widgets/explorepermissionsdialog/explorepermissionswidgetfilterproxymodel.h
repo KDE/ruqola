@@ -13,4 +13,7 @@ class ExplorePermissionsWidgetFilterProxyModel : public QSortFilterProxyModel
 public:
     explicit ExplorePermissionsWidgetFilterProxyModel(QObject *parent = nullptr);
     ~ExplorePermissionsWidgetFilterProxyModel() override;
+
+protected:
+    Q_REQUIRED_RESULT bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
 };
