@@ -62,6 +62,7 @@ void ExplorePermissionsWidget::setPermissions(const QVector<Permission> &permiss
     Permissions perms;
     perms.setPermissions(permissions);
     mAdminPermissionsModel->setPermissions(perms);
+    mTreeView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void ExplorePermissionsWidget::setOWnRoles(const QStringList &roleStr)
