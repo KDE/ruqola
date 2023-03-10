@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:46+0000\n"
-"PO-Revision-Date: 2023-02-24 15:15+0100\n"
+"POT-Creation-Date: 2023-03-10 00:47+0000\n"
+"PO-Revision-Date: 2023-03-08 14:59+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2557,7 +2557,7 @@ msgid "Roles:"
 msgstr "Úlohy:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissiondialog/explorepermissionwidget.cpp:36
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, kde-format
 msgid "Search permissions..."
 msgstr "Hledat oprávnění..."
@@ -3364,7 +3364,7 @@ msgstr "Šifrování"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:948
+#: widgets/ruqolamainwindow.cpp:949
 #, kde-format
 msgid "Message"
 msgstr "Zpráva"
@@ -6582,10 +6582,9 @@ msgid "Directory - %1"
 msgstr "Adresář - %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "You are not authorized to view this page."
-msgstr "Tvorba odkazu není v tomto kanálu povolena."
+msgstr "Nejste oprávněni prohlížet tuto stránku."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -6685,9 +6684,8 @@ msgstr[0] "%1 diskuze v místnosti (celkem: %2)"
 msgstr[1] "%1 diskuze v místnosti (celkem: %2)"
 msgstr[2] "%1 diskuzí v místnosti (celkem: %2)"
 
-#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -7515,16 +7513,14 @@ msgid "Server doesn't authorized this file (invalid mimetype)"
 msgstr ""
 
 #: widgets/room/messagelistview.cpp:91
-#, fuzzy, kde-format
-#| msgid "File sharing not allowed in direct messages"
+#, kde-format
 msgid "You have joined a new direct message"
-msgstr "Sdílení souborů v soukromých zprávách není povoleno"
+msgstr "Připojili jste se k nové přímé zprávě"
 
 #: widgets/room/messagelistview.cpp:93
-#, fuzzy, kde-format
-#| msgid "Start Conversation"
+#, kde-format
 msgid "Start of conversation"
-msgstr "Zahájit rozhovor"
+msgstr "Zahájení rozhovoru"
 
 #: widgets/room/messagelistview.cpp:265
 #, kde-format
@@ -7903,16 +7899,14 @@ msgid "Account name"
 msgstr "Název účtu"
 
 #: widgets/ruqolaloginwidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Username:"
+#, kde-format
 msgid "Username or Email:"
-msgstr "Uživatelské jméno:"
+msgstr "Uživatelské jméno nebo e-mail:"
 
 #: widgets/ruqolaloginwidget.cpp:53
-#, fuzzy, kde-format
-#| msgid "Username"
+#, kde-format
 msgid "Username or email"
-msgstr "Uživatelské jméno"
+msgstr "Uživatelské jméno nebo e-mail"
 
 #: widgets/ruqolaloginwidget.cpp:61
 #, kde-format
@@ -8086,7 +8080,7 @@ msgstr "Zobrazit oblíbenou místnost"
 #: widgets/ruqolamainwindow.cpp:601
 #, kde-format
 msgid "What's new"
-msgstr ""
+msgstr "Co je nového"
 
 #: widgets/ruqolamainwindow.cpp:633
 #, kde-format
@@ -8094,29 +8088,29 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Vytvořit tým"
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Impossible to open log."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Show Log"
 msgstr "Zobrazit záznamy"
 
-#: widgets/ruqolamainwindow.cpp:850
+#: widgets/ruqolamainwindow.cpp:851
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
 "If you do not receive an email shortly, please come back and try again."
 msgstr ""
 
-#: widgets/ruqolamainwindow.cpp:851
+#: widgets/ruqolamainwindow.cpp:852
 #, kde-format
 msgid "Register New User"
 msgstr "Registrovat nového uživatele"
 
-#: widgets/ruqolamainwindow.cpp:975
+#: widgets/ruqolamainwindow.cpp:976
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8125,7 +8119,7 @@ msgstr ""
 "<qt>Toto úplně skryje panel nabídky. Můžete ji opětovně zobrazit pomocí %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:978
+#: widgets/ruqolamainwindow.cpp:979
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Skrýt nabídku"
@@ -8158,7 +8152,7 @@ msgstr "Pohled"
 #: widgets/ruqolaui.rc:66
 #, kde-format
 msgid "&Help"
-msgstr ""
+msgstr "Nápo&věda"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: widgets/ruqolaui.rc:70
@@ -8298,43 +8292,40 @@ msgstr "Vrátit číslo účtu."
 #, kde-format
 msgctxt "@title:window"
 msgid "What's new in Ruqola"
-msgstr ""
+msgstr "Co je nového v aplikaci Ruqola"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
-#, fuzzy, kde-format
-#| msgid "(Show Less Info...)"
+#, kde-format
 msgid "(Show News in Ruqola)"
-msgstr "(Zobrazit méně informací...)"
+msgstr "(Zobrazit novinky v aplikaci Ruqola)"
 
 #: widgets/whatsnew/whatsnewmessagewidget.cpp:17
 #, kde-format
 msgid "What's new in Ruqola. %1"
-msgstr ""
+msgstr "Co je nového v aplikaci Ruqola. %1"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:16
 msgid "Store Message in Local Database"
-msgstr ""
+msgstr "Ukládat zprávy v místní databázi"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:26
 msgid "Download Server Icon from Server"
-msgstr ""
+msgstr "Stáhnout ikonu serveru ze serveru"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:27
 msgid "Show Server Error Info in Specific DialogBox"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
-#, fuzzy
-#| msgid "Copy Image to Clipboard"
 msgid "Allow to Copy Image in Clipboard"
-msgstr "Zkopírovat obrázek do schránky"
+msgstr "Povolit zkování obrázku do schránky"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
 msgid "Important changes since last version:"
-msgstr ""
+msgstr "Důležité změny od poslední verze:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:75
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
-msgstr ""
+msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:46+0000\n"
+"POT-Creation-Date: 2023-03-10 00:47+0000\n"
 "PO-Revision-Date: 2023-03-08 09:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2562,7 +2562,7 @@ msgid "Roles:"
 msgstr "როლები:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissiondialog/explorepermissionwidget.cpp:36
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, kde-format
 msgid "Search permissions..."
 msgstr "წვდომების ძებნა..."
@@ -3368,7 +3368,7 @@ msgstr "დაშიფვრა"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:948
+#: widgets/ruqolamainwindow.cpp:949
 #, kde-format
 msgid "Message"
 msgstr "შეტყობინება"
@@ -6725,7 +6725,7 @@ msgid_plural "%1 Discussions in room (Total: %2)"
 msgstr[0] "ოთახში %1 განხილვაა (სულ %2)"
 msgstr[1] "ოთახში %1 განხილვაა (სულ %2)"
 
-#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
@@ -8135,17 +8135,17 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "გუნდის შექმნა"
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Impossible to open log."
 msgstr "ჟურნალის გახსნა შეუძლებელია."
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Show Log"
 msgstr "ჟურნალის ჩვენება"
 
-#: widgets/ruqolamainwindow.cpp:850
+#: widgets/ruqolamainwindow.cpp:851
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8154,12 +8154,12 @@ msgstr ""
 "ელფოსტის დასადასტურებლად შეტყობინება გამოგიგზავნეთ.\n"
 "თუ ელფოსტას მალევე არ მიიღებთ, მობრძანდით და თავიდან სცადეთ გეთაყვა."
 
-#: widgets/ruqolamainwindow.cpp:851
+#: widgets/ruqolamainwindow.cpp:852
 #, kde-format
 msgid "Register New User"
 msgstr "ახალი მომხმარებლის რეგისტრაცია"
 
-#: widgets/ruqolamainwindow.cpp:975
+#: widgets/ruqolamainwindow.cpp:976
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8168,7 +8168,7 @@ msgstr ""
 "<qt>მენიუს ზოლი მთლიანად დაიმალება. მისი თავიდან საჩვენებლად დააწექით: %1.</"
 "qt>"
 
-#: widgets/ruqolamainwindow.cpp:978
+#: widgets/ruqolamainwindow.cpp:979
 #, kde-format
 msgid "Hide menu bar"
 msgstr "მენიუს ზოლის დამალვა"

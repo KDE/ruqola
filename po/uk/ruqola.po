@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-09 00:46+0000\n"
+"POT-Creation-Date: 2023-03-10 00:47+0000\n"
 "PO-Revision-Date: 2023-03-08 07:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2580,7 +2580,7 @@ msgid "Roles:"
 msgstr "Ролі:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissiondialog/explorepermissionwidget.cpp:36
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
 #, kde-format
 msgid "Search permissions..."
 msgstr "Шукати права доступу…"
@@ -3403,7 +3403,7 @@ msgstr "Шифрування"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:107
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
-#: widgets/ruqolamainwindow.cpp:948
+#: widgets/ruqolamainwindow.cpp:949
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
@@ -6912,7 +6912,7 @@ msgstr[1] "%1 обговорення у кімнаті (загалом: %2)"
 msgstr[2] "%1 обговорень у кімнаті (загалом: %2)"
 msgstr[3] "%1 обговорення у кімнаті (загалом: %2)"
 
-#: widgets/explorepermissiondialog/explorepermissiondialog.cpp:24
+#: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
 #, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
@@ -8350,17 +8350,17 @@ msgctxt "@title:window"
 msgid "Create Team"
 msgstr "Створення команди"
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Impossible to open log."
 msgstr "Не вдалося відкрити журнал."
 
-#: widgets/ruqolamainwindow.cpp:789
+#: widgets/ruqolamainwindow.cpp:790
 #, kde-format
 msgid "Show Log"
 msgstr "Показати журнал"
 
-#: widgets/ruqolamainwindow.cpp:850
+#: widgets/ruqolamainwindow.cpp:851
 #, kde-format
 msgid ""
 "We have sent you an email to confirm your registration.\n"
@@ -8371,12 +8371,12 @@ msgstr ""
 "Якщо ви не отримаєте це повідомлення найближчим часом, будь ласка, "
 "поверніться сюди і повторіть спробу."
 
-#: widgets/ruqolamainwindow.cpp:851
+#: widgets/ruqolamainwindow.cpp:852
 #, kde-format
 msgid "Register New User"
 msgstr "Реєстрація нового користувача"
 
-#: widgets/ruqolamainwindow.cpp:975
+#: widgets/ruqolamainwindow.cpp:976
 #, kde-format
 msgid ""
 "<qt>This will hide the menu bar completely. You can show it again by typing "
@@ -8385,7 +8385,7 @@ msgstr ""
 "<qt>За допомогою цього пункту можна повністю сховати смужку меню. Наказати "
 "програмі знову показувати цю смужку можна клавіатурним скороченням %1.</qt>"
 
-#: widgets/ruqolamainwindow.cpp:978
+#: widgets/ruqolamainwindow.cpp:979
 #, kde-format
 msgid "Hide menu bar"
 msgstr "Приховати смужку меню"
