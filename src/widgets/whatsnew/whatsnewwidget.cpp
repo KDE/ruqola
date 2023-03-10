@@ -26,7 +26,7 @@ static const KLazyLocalizedString ruqolaNewFeatures[] = {
     kli18n("Download Server Icon from Server"),
     kli18n("Show Server Error Info in Specific DialogBox"),
     kli18n("Allow to Copy Image in Clipboard"),
-    // TODO
+    kli18n("Improve debug support (Allow to show current account permissions)"),
 };
 static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqolaNewFeatures;
 
