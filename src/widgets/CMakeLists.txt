@@ -705,6 +705,8 @@ target_sources(libruqolawidgets PRIVATE
     explorepermissionsdialog/explorepermissionsdialog.cpp
     explorepermissionsdialog/explorepermissionswidget.h
     explorepermissionsdialog/explorepermissionswidget.cpp
+    explorepermissionsdialog/explorepermissionswidgetfilterproxymodel.cpp
+    explorepermissionsdialog/explorepermissionswidgetfilterproxymodel.h
 )
 
 if (HAVE_TEXT_AUTOCORRECTION)

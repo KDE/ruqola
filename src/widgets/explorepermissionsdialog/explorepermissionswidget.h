@@ -9,7 +9,7 @@
 #include <QWidget>
 class QLineEdit;
 class PermissionsModel;
-class QSortFilterProxyModel;
+class ExplorePermissionsWidgetFilterProxyModel;
 class QTreeView;
 class QLabel;
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ExplorePermissionsWidget : public QWidget
@@ -28,6 +28,6 @@ private:
     QTreeView *const mTreeView;
     QLineEdit *const mSearchLineWidget;
     PermissionsModel *const mAdminPermissionsModel;
-    QSortFilterProxyModel *const mPermissionFilterProxyModel;
+    ExplorePermissionsWidgetFilterProxyModel *const mPermissionFilterProxyModel;
     QLabel *const mOwnRoles;
 };

@@ -5,6 +5,7 @@
 */
 
 #include "explorepermissionswidget.h"
+#include "explorepermissionswidgetfilterproxymodel.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/permissionsmodel.h"
 #include <KLocalizedString>
@@ -20,7 +21,7 @@ ExplorePermissionsWidget::ExplorePermissionsWidget(QWidget *parent)
     , mTreeView(new QTreeView(this))
     , mSearchLineWidget(new QLineEdit(this))
     , mAdminPermissionsModel(new PermissionsModel(this))
-    , mPermissionFilterProxyModel(new QSortFilterProxyModel(this))
+    , mPermissionFilterProxyModel(new ExplorePermissionsWidgetFilterProxyModel(this))
     , mOwnRoles(new QLabel(this))
 {
     mPermissionFilterProxyModel->setObjectName(QStringLiteral("permissionFilterProxyModel"));
