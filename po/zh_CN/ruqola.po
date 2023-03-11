@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 00:47+0000\n"
+"POT-Creation-Date: 2023-03-11 00:49+0000\n"
 "PO-Revision-Date: 2023-02-24 12:44\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2534,7 +2534,7 @@ msgid "Roles:"
 msgstr ""
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
 #, kde-format
 msgid "Search permissions..."
 msgstr ""
@@ -8261,6 +8261,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:29
+msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 00:47+0000\n"
+"POT-Creation-Date: 2023-03-11 00:49+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -2663,7 +2663,7 @@ msgid "Roles:"
 msgstr ""
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
 #, fuzzy, kde-format
 #| msgid "Search Discussions..."
 msgid "Search permissions..."
@@ -8817,6 +8817,10 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:29
+msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67

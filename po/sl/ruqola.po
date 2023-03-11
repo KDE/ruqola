@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 00:47+0000\n"
-"PO-Revision-Date: 2023-03-09 08:58+0100\n"
+"POT-Creation-Date: 2023-03-11 00:49+0000\n"
+"PO-Revision-Date: 2023-03-10 07:34+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2564,7 +2564,7 @@ msgid "Roles:"
 msgstr "Vloge:"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
 #, kde-format
 msgid "Search permissions..."
 msgstr "Išči dovoljenja..."
@@ -8525,6 +8525,10 @@ msgstr "Prikaži informacijo on napaki na strežniku v pogovornem oknu"
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Dovoli kopiranje slike na odložišče"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:29
+msgid "Improve debug support (Allow to show current account permissions)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 00:47+0000\n"
-"PO-Revision-Date: 2023-03-08 14:28+0100\n"
+"POT-Creation-Date: 2023-03-11 00:49+0000\n"
+"PO-Revision-Date: 2023-03-08 17:50+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -2583,7 +2583,7 @@ msgid "Roles:"
 msgstr "Rôles :"
 
 #: widgets/administratordialog/permissions/permissionswidget.cpp:39
-#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:38
+#: widgets/explorepermissionsdialog/explorepermissionswidget.cpp:39
 #, kde-format
 msgid "Search permissions..."
 msgstr "Rechercher les permissions..."
@@ -6908,8 +6908,7 @@ msgstr[0] "%1 discussion dans le salon (Total : %2)"
 msgstr[1] "%1 discussions dans le salon (Total : %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Droits d'accès"
@@ -8581,6 +8580,10 @@ msgstr ""
 #: widgets/whatsnew/whatsnewwidget.cpp:28
 msgid "Allow to Copy Image in Clipboard"
 msgstr "Autoriser la copie d'image dans le presse-papier"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:29
+msgid "Improve debug support (Allow to show current account permissions)"
+msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
