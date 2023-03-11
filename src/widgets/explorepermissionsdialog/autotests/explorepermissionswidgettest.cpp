@@ -7,6 +7,7 @@
 #include "explorepermissionswidgettest.h"
 #include "explorepermissionsdialog/explorepermissionswidget.h"
 
+#include <QLabel>
 #include <QLineEdit>
 #include <QSortFilterProxyModel>
 #include <QStandardPaths>
@@ -27,7 +28,6 @@ void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
     auto mTreeView = w.findChild<QTreeView *>(QStringLiteral("mTreeView"));
     QVERIFY(mTreeView);
     QVERIFY(!mTreeView->rootIsDecorated());
-    QVERIFY(!mTreeView->isSortingEnabled());
 
     auto mSearchLineWidget = w.findChild<QLineEdit *>(QStringLiteral("mSearchLineWidget"));
     QVERIFY(mSearchLineWidget);
@@ -39,4 +39,9 @@ void ExplorePermissionsWidgetTest::shouldHaveDefaultValues()
     auto mainLayout = w.findChild<QVBoxLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
+
+    auto mOwnRoles = w.findChild<QLabel *>(QStringLiteral("mOwnRoles"));
+    QVERIFY(mOwnRoles);
+    QVERIFY(mOwnRoles->text().isEmpty());
+    QCOMPARE(mOwnRoles->textInteractionFlags(), Qt::TextBrowserInteraction);
 }
