@@ -52,22 +52,7 @@ bool MessageBlockDelegateHelperBase::maybeStartDrag(const Block &block,
     Q_UNUSED(blocksRect)
     Q_UNUSED(option)
     Q_UNUSED(index)
-#if 0
-    if (!mSelectionImpl->mightStartDrag() || index != mCurrentIndex || !attachmentsRect.contains(mouseEvent->pos())) {
-        return false;
-    }
-
-    auto mimeData = new QMimeData;
-    mimeData->setUrls({mRocketChatAccount->attachmentUrlFromLocalCache(msgAttach.link())});
-
-    auto drag = new QDrag(const_cast<QWidget *>(option.widget));
-    drag->setMimeData(mimeData);
-    drag->exec(Qt::CopyAction);
-
-    return true;
-#else
     return false;
-#endif
 }
 
 QTextDocument *MessageBlockDelegateHelperBase::documentDescriptionForIndex(const Block &block, int width) const
@@ -128,10 +113,13 @@ void MessageBlockDelegateHelperBase::drawDescription(const Block &block,
     Q_UNUSED(topPos)
     Q_UNUSED(index)
     Q_UNUSED(option)
+    Q_UNUSED(block)
+    Q_UNUSED(descriptionRect)
+#if 0
     auto *doc = documentDescriptionForIndex(block, descriptionRect.width());
     if (!doc) {
         return;
     }
-
     // TODO MessageDelegateUtils::drawSelection(doc, descriptionRect, topPos, painter, index, option, mSelectionImpl->textSelection(), msgAttach);
+#endif
 }
