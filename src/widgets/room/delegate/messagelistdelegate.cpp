@@ -751,7 +751,6 @@ void MessageListDelegate::switchMessageLayout()
     // Move this line at end when we reactivate code
 #if 1
     mMessageListLayoutBase->setRocketChatAccount(mRocketChatAccount);
-    return;
 #else
     if (mRocketChatAccount) {
         delete mMessageListLayoutBase;
