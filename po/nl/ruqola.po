@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-11 00:49+0000\n"
-"PO-Revision-Date: 2023-03-08 12:37+0100\n"
+"PO-Revision-Date: 2023-03-11 14:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8543,6 +8543,8 @@ msgstr "Afbeelding naar klembord kopiëren toestaan"
 #: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
+"Ondersteunt voor debuggen verbeteren (sta toe de huidige toegangsrechten te "
+"bekijken)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format

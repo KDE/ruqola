@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-11 00:49+0000\n"
-"PO-Revision-Date: 2023-03-04 17:54+0100\n"
+"PO-Revision-Date: 2023-03-11 17:25+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -6771,10 +6771,9 @@ msgid "Directory - %1"
 msgstr "Directorio - %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "You are not authorized to view this page."
-msgstr "No se permite generar enlaces en este canal."
+msgstr "No está autorizado a ver esta página."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -6872,8 +6871,7 @@ msgstr[0] "%1 discusión en la sala (total: %2)"
 msgstr[1] "%1 discusiones en la sala (total: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permisos"
@@ -8545,6 +8543,7 @@ msgstr "Permitir copiar imagen al portapapeles"
 #: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
+"Mejora de la depuración (Permite mostrar los permisos actuales de la cuenta)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
