@@ -44,8 +44,15 @@ void VideoConferenceCapabilitiesJob::onGetRequestResponse(const QJsonDocument &r
         addLoggerInfo(QByteArrayLiteral("VideoConferenceCapabilitiesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceCapabilitiesDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
-        addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        const QString errorType = replyObject[QStringLiteral("error")].toString();
+        if (errorType == QLatin1String("no-videoconf-provider-app")) {
+            Q_EMIT noVideoConferenceProviderApps();
+            emitFailedMessage(replyObject);
+            addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        } else {
+            emitFailedMessage(replyObject);
+            addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
+        }
     }
 }
 

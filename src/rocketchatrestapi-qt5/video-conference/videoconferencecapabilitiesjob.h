@@ -27,6 +27,7 @@ public:
 
 Q_SIGNALS:
     void videoConferenceCapabilitiesDone(const QJsonObject &obj);
+    void noVideoConferenceProviderApps();
 
 private:
     Q_DISABLE_COPY(VideoConferenceCapabilitiesJob)
