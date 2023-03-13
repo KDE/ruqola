@@ -126,7 +126,7 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     }
     initComboboxValues();
     if (mRocketChatAccount) {
-        if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
+        if (!mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
             mReceiveLoginDetectionEmails->setVisible(false);
         } else if (!mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
                    || !mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
@@ -202,7 +202,7 @@ void MyAccountPreferenceConfigureWidget::save()
         info.displayAvatars = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mDisplayAvatars->isChecked());
         info.convertAsciiToEmoji = RocketChatRestApi::UsersSetPreferencesJob::UsersSetPreferencesInfo::convertToState(mConvertAsciiEmoji->isChecked());
         if (mRocketChatAccount) {
-            if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 2, 0)) {
+            if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(5, 4, 0)) {
                 if (mRocketChatAccount->ruqolaServerConfig()->deviceManagementEnableLoginEmails()
                     && mRocketChatAccount->ruqolaServerConfig()->deviceManagementAllowLoginEmailpreference()) {
                     info.receiveLoginDetectionEmail =
