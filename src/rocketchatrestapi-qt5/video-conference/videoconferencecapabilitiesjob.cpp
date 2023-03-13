@@ -47,7 +47,6 @@ void VideoConferenceCapabilitiesJob::onGetRequestResponse(const QString &replyEr
         const QString errorType = replyObject[QStringLiteral("error")].toString();
         if (errorType == QLatin1String("no-videoconf-provider-app")) {
             Q_EMIT noVideoConferenceProviderApps();
-            emitFailedMessage(replyErrorString, replyObject);
             addLoggerWarning(QByteArrayLiteral("VideoConferenceCapabilitiesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         } else {
             emitFailedMessage(replyErrorString, replyObject);
