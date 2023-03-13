@@ -101,9 +101,6 @@ QJsonDocument UsersSetPreferencesJob::json() const
     if (!mUsersSetPreferencesInfo.emailNotificationMode.isEmpty()) {
         dataObj[QLatin1String("emailNotificationMode")] = mUsersSetPreferencesInfo.emailNotificationMode;
     }
-    if (mUsersSetPreferencesInfo.messageViewMode != -1) {
-        dataObj[QLatin1String("messageViewMode")] = mUsersSetPreferencesInfo.messageViewMode;
-    }
     if (!mUsersSetPreferencesInfo.highlights.isEmpty()) {
         dataObj[QLatin1String("highlights")] = QJsonArray::fromStringList(mUsersSetPreferencesInfo.highlights);
     }
@@ -138,6 +135,7 @@ QJsonDocument UsersSetPreferencesJob::json() const
         dataObj[QLatin1String("receiveLoginDetectionEmail")] = UsersSetPreferencesInfo::convertToBool(mUsersSetPreferencesInfo.receiveLoginDetectionEmail);
     }
 #endif
+    qDebug() << " dataObj " << dataObj;
     jsonObj[QLatin1String("data")] = dataObj;
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
@@ -165,7 +163,6 @@ QDebug operator<<(QDebug d, const RocketChatRestApi::UsersSetPreferencesJob::Use
     d << "convertAsciiToEmoji: " << t.convertAsciiToEmoji;
     d << "hideRoles: " << t.hideRoles;
     d << "displayAvatars: " << t.displayAvatars;
-    d << "messageViewMode: " << t.messageViewMode;
     d << "sidebarShowUnread: " << t.sidebarShowUnread;
     d << "sidebarDisplayAvatar " << t.sidebarDisplayAvatar;
     d << "sidebarShowFavorites " << t.sidebarShowFavorites;

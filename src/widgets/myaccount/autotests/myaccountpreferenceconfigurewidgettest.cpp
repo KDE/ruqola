@@ -57,14 +57,6 @@ void MyAccountPreferenceConfigureWidgetTest::shouldHaveDefaultValues()
     QCOMPARE(pushNotificationLabel->textFormat(), Qt::PlainText);
     QVERIFY(!pushNotificationLabel->text().isEmpty());
 
-    auto viewModeLabel = w.findChild<QLabel *>(QStringLiteral("viewModeLabel"));
-    QVERIFY(viewModeLabel);
-    QCOMPARE(viewModeLabel->textFormat(), Qt::PlainText);
-    QVERIFY(!viewModeLabel->text().isEmpty());
-
-    auto mViewMode = w.findChild<QComboBox *>(QStringLiteral("mViewMode"));
-    QVERIFY(mViewMode);
-
     auto mUseEmojis = w.findChild<QCheckBox *>(QStringLiteral("mUseEmojis"));
     QVERIFY(mUseEmojis);
     QVERIFY(!mUseEmojis->isChecked()); // False by default as we didn't load values yet
