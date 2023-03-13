@@ -33,7 +33,6 @@ public:
         QString pushNotifications;
         QString emailNotificationMode;
         QStringList highlights;
-        int messageViewMode = -1;
         State useEmoji = Unknown;
         State convertAsciiToEmoji = Unknown;
         State hideRoles = Unknown;

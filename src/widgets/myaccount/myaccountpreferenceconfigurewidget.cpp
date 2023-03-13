@@ -26,7 +26,6 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     , mDesktopNotification(new QComboBox(this))
     , mEmailNotification(new QComboBox(this))
     , mPushNotification(new QComboBox(this))
-    , mViewMode(new QComboBox(this))
     , mUseEmojis(new QCheckBox(i18n("Use Emojis"), this))
     , mConvertAsciiEmoji(new QCheckBox(i18n("Convert Ascii to Emoji"), this))
     , mHideRoles(new QCheckBox(i18n("Hide roles"), this))
@@ -56,7 +55,6 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mDesktopNotification->setObjectName(QStringLiteral("mDesktopNotification"));
     mEmailNotification->setObjectName(QStringLiteral("mEmailNotification"));
     mPushNotification->setObjectName(QStringLiteral("mPushNotification"));
-    mViewMode->setObjectName(QStringLiteral("mViewMode"));
 
     auto desktopNotificationLabel = new QLabel(i18n("Desktop notification:"), this);
     desktopNotificationLabel->setObjectName(QStringLiteral("desktopNotificationLabel"));
@@ -83,13 +81,6 @@ MyAccountPreferenceConfigureWidget::MyAccountPreferenceConfigureWidget(RocketCha
     mReceiveLoginDetectionEmails->setToolTip(i18n("Receive an email each time a new login is detected on your account."));
     connect(mReceiveLoginDetectionEmails, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     mainLayout->addWidget(mReceiveLoginDetectionEmails);
-
-    auto viewModeLabel = new QLabel(i18n("View mode:"), this);
-    viewModeLabel->setObjectName(QStringLiteral("viewModeLabel"));
-    viewModeLabel->setTextFormat(Qt::PlainText);
-    mainLayout->addWidget(viewModeLabel);
-
-    mainLayout->addWidget(mViewMode);
 
     mainLayout->addWidget(mUseEmojis);
     connect(mUseEmojis, &QCheckBox::clicked, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
@@ -183,14 +174,9 @@ void MyAccountPreferenceConfigureWidget::initComboboxValues()
     mEmailNotification->addItem(i18n("Each Mentions"), QStringLiteral("mentions"));
     mEmailNotification->addItem(i18n("Disabled"), QStringLiteral("nothing"));
 
-    mViewMode->addItem(i18n("Normal"), 0);
-    mViewMode->addItem(i18n("Cozy"), 1);
-    mViewMode->addItem(i18n("Compact"), 2);
-
     connect(mDesktopNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mPushNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
     connect(mEmailNotification, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
-    connect(mViewMode, &QComboBox::activated, this, &MyAccountPreferenceConfigureWidget::setWasChanged);
 }
 
 void MyAccountPreferenceConfigureWidget::save()
@@ -224,7 +210,6 @@ void MyAccountPreferenceConfigureWidget::save()
                 }
             }
         }
-        info.messageViewMode = mViewMode->currentData().toInt();
         mRocketChatAccount->setUserPreferences(info);
     }
 }
@@ -241,7 +226,6 @@ void MyAccountPreferenceConfigureWidget::load()
     mDisplayAvatars->setChecked(ownUserPreferences.displayAvatars());
     mConvertAsciiEmoji->setChecked(ownUserPreferences.convertAsciiEmoji());
     mReceiveLoginDetectionEmails->setChecked(ownUserPreferences.receiveLoginDetectionEmail());
-    mViewMode->setCurrentIndex(mViewMode->findData(ownUserPreferences.messageViewMode()));
     mChanged = false;
 }
 

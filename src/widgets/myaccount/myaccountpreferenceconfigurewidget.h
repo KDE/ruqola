@@ -31,7 +31,6 @@ private:
     QComboBox *const mDesktopNotification;
     QComboBox *const mEmailNotification;
     QComboBox *const mPushNotification;
-    QComboBox *const mViewMode;
     QCheckBox *const mUseEmojis;
     QCheckBox *const mConvertAsciiEmoji;
     QCheckBox *const mHideRoles;
