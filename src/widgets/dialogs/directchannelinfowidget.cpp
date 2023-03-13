@@ -138,7 +138,7 @@ void DirectChannelInfoWidget::setUser(const User &user)
 
     const auto lastLogin = user.lastLogin();
     if (lastLogin.isValid()) {
-        auto lastLoginLabel = new QLabel(lastLogin.date().toString(), this);
+        auto lastLoginLabel = new QLabel(lastLogin.toString(), this);
         lastLoginLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
         mMainLayout->addRow(i18n("Last Login:"), lastLoginLabel);
     }
