@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-11 00:49+0000\n"
-"PO-Revision-Date: 2023-03-05 10:36+0100\n"
+"PO-Revision-Date: 2023-03-12 19:34+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -6774,10 +6774,9 @@ msgid "Directory - %1"
 msgstr "Cartella - %1"
 
 #: widgets/directory/directorynotauthorizedwidget.cpp:19
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "You are not authorized to view this page."
-msgstr "La generazione di collegamenti non è autorizzata in questo canale"
+msgstr "Non sei autorizzato a visualizzare questa pagina."
 
 #: widgets/directory/directorywidget.cpp:32
 #, kde-format
@@ -6875,8 +6874,7 @@ msgstr[0] "Una discussione nella stanza (totale: %2)"
 msgstr[1] "%1 discussioni nella stanza (totale: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permessi"
@@ -8544,6 +8542,8 @@ msgstr "Consenti di copiare l'immagine negli appunti"
 #: widgets/whatsnew/whatsnewwidget.cpp:29
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
+"Migliora il supporto per il debug (consenti di mostrare le autorizzazioni "
+"dell'account attuale)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:67
 #, kde-format
