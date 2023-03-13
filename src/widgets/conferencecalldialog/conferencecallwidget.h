@@ -23,7 +23,8 @@ public:
 
     void initialize();
 
-    Q_REQUIRED_RESULT ConferenceCallStart startInfo() const;
+    Q_REQUIRED_RESULT ConferenceCallStart conferenceCallInfo() const;
+    void setConferenceCallInfo(const ConferenceCallStart &infoCallStart);
 
 private:
     RocketChatAccount *const mRocketChatAccount;

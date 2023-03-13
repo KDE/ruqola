@@ -31,7 +31,12 @@ ConferenceCallDialog::ConferenceCallDialog(RocketChatAccount *account, QWidget *
 
 ConferenceCallDialog::~ConferenceCallDialog() = default;
 
-ConferenceCallWidget::ConferenceCallStart ConferenceCallDialog::startInfo() const
+ConferenceCallWidget::ConferenceCallStart ConferenceCallDialog::conferenceCallInfo() const
 {
-    return mConferenceCallWidget->startInfo();
+    return mConferenceCallWidget->conferenceCallInfo();
+}
+
+void ConferenceCallDialog::setConferenceCallInfo(const ConferenceCallWidget::ConferenceCallStart &infoCallStart)
+{
+    mConferenceCallWidget->setConferenceCallInfo(infoCallStart);
 }

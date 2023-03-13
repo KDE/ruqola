@@ -29,7 +29,7 @@ void ConferenceCallDialogTest::shouldHaveDefaultValues()
     auto button = d.findChild<QDialogButtonBox *>(QStringLiteral("button"));
     QVERIFY(button);
 
-    auto info = d.startInfo();
+    auto info = d.conferenceCallInfo();
     QVERIFY(!info.useCamera);
     QVERIFY(!info.useMic);
 }

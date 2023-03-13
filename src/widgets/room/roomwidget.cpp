@@ -437,7 +437,7 @@ void RoomWidget::slotCallRequested()
     } else {
         QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
         if (dlg->exec()) {
-            const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->startInfo();
+            const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->conferenceCallInfo();
 
             auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
             RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;

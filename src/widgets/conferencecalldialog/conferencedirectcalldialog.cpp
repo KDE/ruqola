@@ -105,7 +105,7 @@ void ConferenceDirectCallDialog::slotVideoConferenceAccepted(const VideoConferen
         auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
         RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
         joinInfo.callId = mCallId;
-        const auto confCallInfo = mConferenceCallWidget->startInfo();
+        const auto confCallInfo = mConferenceCallWidget->conferenceCallInfo();
         joinInfo.useCamera = confCallInfo.useCamera;
         joinInfo.useMicro = confCallInfo.useMic;
         conferenceJoinJob->setInfo(joinInfo);

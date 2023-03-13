@@ -69,10 +69,16 @@ void ConferenceCallWidget::initialize()
     }
 }
 
-ConferenceCallWidget::ConferenceCallStart ConferenceCallWidget::startInfo() const
+ConferenceCallWidget::ConferenceCallStart ConferenceCallWidget::conferenceCallInfo() const
 {
     ConferenceCallStart info;
     info.useCamera = mCameraButton->isChecked();
     info.useMic = mMicroButton->isChecked();
     return info;
+}
+
+void ConferenceCallWidget::setConferenceCallInfo(const ConferenceCallStart &infoCallStart)
+{
+    mCameraButton->setChecked(infoCallStart.useCamera);
+    mMicroButton->setChecked(infoCallStart.useMic);
 }

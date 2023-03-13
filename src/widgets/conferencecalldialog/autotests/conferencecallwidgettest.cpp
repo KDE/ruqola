@@ -35,7 +35,7 @@ void ConferenceCallWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mCameraButton->isCheckable());
     QVERIFY(mCameraButton->autoRaise());
 
-    auto info = w.startInfo();
+    auto info = w.conferenceCallInfo();
     QVERIFY(!info.useCamera);
     QVERIFY(!info.useMic);
 }
