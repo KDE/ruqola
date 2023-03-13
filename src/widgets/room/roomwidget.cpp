@@ -454,7 +454,7 @@ void RoomWidget::slotCallRequested()
             QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
             dlg->setConferenceCallInfo(callInfo);
             if (dlg->exec()) {
-                const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->conferenceCallInfo();
+                const ConferenceCallWidget::ConferenceCallStart conferenceCallInfo = dlg->conferenceCallInfo();
 
                 auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
                 RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
@@ -462,7 +462,7 @@ void RoomWidget::slotCallRequested()
                 startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
                 job->setInfo(startInfo);
                 mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-                connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
+                connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, conferenceCallInfo](const QJsonObject &obj) {
                     // qDebug() << "obj  " << obj;
                     // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
                     const QString callId{obj[QLatin1String("callId")].toString()};
@@ -470,8 +470,8 @@ void RoomWidget::slotCallRequested()
                     auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
                     RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
                     joinInfo.callId = callId;
-                    joinInfo.useCamera = callInfo.useCamera;
-                    joinInfo.useMicro = callInfo.useMic;
+                    joinInfo.useCamera = conferenceCallInfo.useCamera;
+                    joinInfo.useMicro = conferenceCallInfo.useMic;
                     conferenceJoinJob->setInfo(joinInfo);
                     mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
                     connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
