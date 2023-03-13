@@ -32,14 +32,14 @@ bool PermissionUpdateJob::start()
     return true;
 }
 
-void PermissionUpdateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void PermissionUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("PermissionUpdateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT permissionUpdateDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("PermissionUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

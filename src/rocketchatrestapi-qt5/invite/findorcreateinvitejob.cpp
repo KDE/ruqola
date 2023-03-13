@@ -33,7 +33,7 @@ bool FindOrCreateInviteJob::start()
     return true;
 }
 
-void FindOrCreateInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void FindOrCreateInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void FindOrCreateInviteJob::onPostRequestResponse(const QJsonDocument &replyJson
         addLoggerInfo(QByteArrayLiteral("FindOrCreateInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT findOrCreateInviteDone(parseResult(replyObject));
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("FindOrCreateInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

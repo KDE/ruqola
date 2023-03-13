@@ -33,7 +33,7 @@ bool ReactOnMessageJob::start()
     return true;
 }
 
-void ReactOnMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ReactOnMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void ReactOnMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ReactOnMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT reactOnMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ReactOnMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

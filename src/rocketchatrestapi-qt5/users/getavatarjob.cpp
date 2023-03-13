@@ -43,7 +43,7 @@ bool GetAvatarJob::start()
     return true;
 }
 
-void GetAvatarJob::onGetRequestResponse(const QJsonDocument &)
+void GetAvatarJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &)
 {
     const QString userId = mUserInfo.userIdentifier;
     if (!mReply->error()) {

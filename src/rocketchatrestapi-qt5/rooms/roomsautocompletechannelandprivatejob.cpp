@@ -37,14 +37,14 @@ bool RoomsAutocompleteChannelAndPrivateJob::start()
     return true;
 }
 
-void RoomsAutocompleteChannelAndPrivateJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void RoomsAutocompleteChannelAndPrivateJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomsAutoCompleteChannelAndPrivateDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsAutocompleteChannelAndPrivateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

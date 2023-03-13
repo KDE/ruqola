@@ -128,7 +128,7 @@ protected:
     Q_REQUIRED_RESULT QString errorStr(const QJsonObject &replyObject);
 
     Q_REQUIRED_RESULT QJsonDocument convertToJsonDocument(QNetworkReply *reply);
-    void emitFailedMessage(const QJsonObject &replyObject);
+    void emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject);
     void addAuthRawHeader(QNetworkRequest &request) const;
     Q_REQUIRED_RESULT virtual QString errorMessage(const QString &str, const QJsonObject &detail);
     Q_REQUIRED_RESULT virtual QString jobName() const;
@@ -143,21 +143,24 @@ protected:
     QPointer<QNetworkReply> mReply;
 
 protected Q_SLOTS:
-    virtual void onGetRequestResponse(const QJsonDocument &replyJson)
+    virtual void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
     {
         Q_UNUSED(replyJson)
+        Q_UNUSED(replyErrorString)
     }
-    virtual void onPostRequestResponse(const QJsonDocument &replyJson)
+    virtual void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
     {
         Q_UNUSED(replyJson)
+        Q_UNUSED(replyErrorString)
     }
-    virtual void onDeleteRequestResponse(const QJsonDocument &replyJson)
+    virtual void onDeleteRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
     {
         Q_UNUSED(replyJson)
+        Q_UNUSED(replyErrorString)
     }
 
 private:
-    void genericResponseHandler(void (RestApiAbstractJob::*func)(const QJsonDocument &replyJson));
+    void genericResponseHandler(void (RestApiAbstractJob::*func)(const QString &, const QJsonDocument &));
 
     QDateTime mUpdatedSince;
     QueryParameters mQueryParameters;

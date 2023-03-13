@@ -33,7 +33,7 @@ bool RoomFavoriteJob::start()
     return true;
 }
 
-void RoomFavoriteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoomFavoriteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void RoomFavoriteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("RoomFavoriteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeFavoriteDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomFavoriteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

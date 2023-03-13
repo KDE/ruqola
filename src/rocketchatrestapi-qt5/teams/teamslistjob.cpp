@@ -37,14 +37,14 @@ bool TeamsListJob::start()
     return true;
 }
 
-void TeamsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void TeamsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamsListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamsListDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool ChangeArchivationStateJob::start()
     return true;
 }
 
-void ChangeArchivationStateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeArchivationStateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChangeArchivationStateJob::onPostRequestResponse(const QJsonDocument &reply
         addLoggerInfo(QByteArrayLiteral("ChangeArchivationStateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeArchivationStateDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChangeArchivationStateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

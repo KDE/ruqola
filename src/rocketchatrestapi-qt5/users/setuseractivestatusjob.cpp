@@ -30,14 +30,14 @@ bool SetUserActiveStatusJob::start()
     return true;
 }
 
-void SetUserActiveStatusJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetUserActiveStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetUserActiveStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setUserActiveStatusDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetUserActiveStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

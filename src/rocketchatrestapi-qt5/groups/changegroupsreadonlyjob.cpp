@@ -31,7 +31,7 @@ bool ChangeGroupsReadonlyJob::start()
     return true;
 }
 
-void ChangeGroupsReadonlyJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeGroupsReadonlyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChangeGroupsReadonlyJob::onPostRequestResponse(const QJsonDocument &replyJs
         addLoggerInfo(QByteArrayLiteral("Change read only success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeReadonlyDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to change read only status: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

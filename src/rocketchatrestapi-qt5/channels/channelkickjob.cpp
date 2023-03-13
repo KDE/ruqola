@@ -31,7 +31,7 @@ bool ChannelKickJob::start()
     return true;
 }
 
-void ChannelKickJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelKickJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChannelKickJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChannelKickJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT kickUserDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelKickJob Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

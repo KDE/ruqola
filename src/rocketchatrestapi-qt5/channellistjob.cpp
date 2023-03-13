@@ -31,14 +31,14 @@ bool ChannelListJob::start()
     return false;
 }
 
-void ChannelListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ChannelListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelListDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

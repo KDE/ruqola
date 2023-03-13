@@ -35,14 +35,14 @@ bool UserInfoJob::start()
     return true;
 }
 
-void UserInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void UserInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT userInfoDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UsersInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

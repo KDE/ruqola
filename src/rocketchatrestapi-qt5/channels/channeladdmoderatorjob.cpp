@@ -31,7 +31,7 @@ bool ChannelAddModeratorJob::start()
     return true;
 }
 
-void ChannelAddModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChannelAddModeratorJob::onPostRequestResponse(const QJsonDocument &replyJso
         addLoggerInfo(QByteArrayLiteral("Add moderator success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addModeratorDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to add moderator: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

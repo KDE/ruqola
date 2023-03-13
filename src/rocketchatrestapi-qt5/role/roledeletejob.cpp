@@ -30,14 +30,14 @@ bool RoleDeleteJob::start()
     return true;
 }
 
-void RoleDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoleDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteRoleDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoleDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

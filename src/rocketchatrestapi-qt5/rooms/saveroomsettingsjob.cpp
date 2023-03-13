@@ -34,7 +34,7 @@ bool SaveRoomSettingsJob::start()
     return true;
 }
 
-void SaveRoomSettingsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SaveRoomSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -42,7 +42,7 @@ void SaveRoomSettingsJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SaveRoomSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT saveRoomSettingsDone(replyObject.value(QStringLiteral("rid")).toString());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SaveRoomSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

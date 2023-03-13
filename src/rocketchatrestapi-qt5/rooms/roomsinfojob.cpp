@@ -36,14 +36,14 @@ bool RoomsInfoJob::start()
     return true;
 }
 
-void RoomsInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void RoomsInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomsInfoDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -57,7 +57,7 @@ bool TwitterAuthJob::start()
     return true;
 }
 
-void TwitterAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TwitterAuthJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
@@ -69,7 +69,7 @@ void TwitterAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
             Q_EMIT twitterDone(authToken, userId);
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
     }
 }

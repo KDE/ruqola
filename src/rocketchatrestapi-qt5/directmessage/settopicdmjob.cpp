@@ -31,7 +31,7 @@ bool SetTopicDmJob::start()
     return true;
 }
 
-void SetTopicDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetTopicDmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SetTopicDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("Create direct message success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setTopicDmDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

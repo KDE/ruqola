@@ -31,14 +31,14 @@ bool SetStatusJob::start()
     return true;
 }
 
-void SetStatusJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetStatusJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetStatusJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setStatusDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

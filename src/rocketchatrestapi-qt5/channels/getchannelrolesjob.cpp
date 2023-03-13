@@ -62,14 +62,14 @@ bool GetChannelRolesJob::requireHttpAuthentication() const
     return true;
 }
 
-void GetChannelRolesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetChannelRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetChannelRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelRolesDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetChannelRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool ChangeGroupsAnnouncementJob::start()
     return true;
 }
 
-void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChangeGroupsAnnouncementJob::onPostRequestResponse(const QJsonDocument &rep
         addLoggerInfo(QByteArrayLiteral("ChangeGroupsDescriptionJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeGroupsAnnouncement();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChangeGroupsDescriptionJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

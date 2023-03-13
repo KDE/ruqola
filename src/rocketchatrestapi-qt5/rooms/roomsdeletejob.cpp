@@ -31,7 +31,7 @@ bool RoomsDeleteJob::start()
     return true;
 }
 
-void RoomsDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoomsDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void RoomsDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("RoomsDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomDeleteDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

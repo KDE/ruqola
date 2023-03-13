@@ -49,14 +49,14 @@ bool AdminRoomsGetRoomJob::start()
     return true;
 }
 
-void AdminRoomsGetRoomJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void AdminRoomsGetRoomJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AdminRoomsGetRoomJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT adminRoomGetRoomDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AdminRoomsGetRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

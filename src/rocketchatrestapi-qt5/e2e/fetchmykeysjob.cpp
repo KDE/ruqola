@@ -38,7 +38,7 @@ bool FetchMyKeysJob::start()
     return true;
 }
 
-void FetchMyKeysJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void FetchMyKeysJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -46,7 +46,7 @@ void FetchMyKeysJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("FetchMyKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT fetchMyKeysDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("FetchMyKeysJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -49,14 +49,14 @@ bool GetThreadsJob::start()
     return true;
 }
 
-void GetThreadsJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetThreadsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetThreadsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadsDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetThreadsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

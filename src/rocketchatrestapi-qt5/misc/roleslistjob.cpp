@@ -36,7 +36,7 @@ bool RolesListJob::start()
     return true;
 }
 
-void RolesListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void RolesListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -44,7 +44,7 @@ void RolesListJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("RolesListJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT rolesListDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RolesListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

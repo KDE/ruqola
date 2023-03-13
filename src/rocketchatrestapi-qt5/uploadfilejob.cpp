@@ -136,9 +136,10 @@ void UploadFileJob::slotUploadFinished()
                     qCWarning(ROCKETCHATQTRESTAPI_LOG) << metaObject()->className() << "NetworkSessionFailedError. Connection loss?";
                     return;
                 }
+                // TODO verify it !
                 Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(replyObject));
             } else {
-                emitFailedMessage(replyObject);
+                emitFailedMessage(reply->errorString(), replyObject);
                 addLoggerWarning(QByteArrayLiteral("UploadFileJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
             }
         }

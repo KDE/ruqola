@@ -31,7 +31,7 @@ bool LeaveGroupsJob::start()
     return true;
 }
 
-void LeaveGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void LeaveGroupsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void LeaveGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("LeaveGroupsJob: Success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT leaveGroupsDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("LeaveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

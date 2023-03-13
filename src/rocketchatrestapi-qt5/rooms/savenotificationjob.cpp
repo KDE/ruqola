@@ -31,7 +31,7 @@ bool SaveNotificationJob::start()
     return true;
 }
 
-void SaveNotificationJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SaveNotificationJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SaveNotificationJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SaveNotificationJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeNotificationDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SaveNotificationJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

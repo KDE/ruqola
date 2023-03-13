@@ -29,14 +29,14 @@ bool TranslateMessageJob::start()
     return true;
 }
 
-void TranslateMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TranslateMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TranslateMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TranslateMessageJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

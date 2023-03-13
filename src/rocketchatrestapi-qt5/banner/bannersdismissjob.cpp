@@ -31,7 +31,7 @@ bool BannersDismissJob::start()
     return true;
 }
 
-void BannersDismissJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void BannersDismissJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void BannersDismissJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("BannersDismissJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT dimissBannerDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("BannersDismissJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

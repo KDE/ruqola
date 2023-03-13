@@ -35,7 +35,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(ChannelsConvertToTeamJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mChannelId;
 };
 }

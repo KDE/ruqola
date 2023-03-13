@@ -34,7 +34,7 @@ bool RoomStartDiscussionJob::start()
     return true;
 }
 
-void RoomStartDiscussionJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoomStartDiscussionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -42,7 +42,7 @@ void RoomStartDiscussionJob::onPostRequestResponse(const QJsonDocument &replyJso
         addLoggerInfo(QByteArrayLiteral("RoomStartDiscussionJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT startDiscussionDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomStartDiscussionJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -49,7 +49,7 @@ bool FacebookAuthJob::start()
     return true;
 }
 
-void FacebookAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void FacebookAuthJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -62,7 +62,7 @@ void FacebookAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
             Q_EMIT facebookDone(authToken, userId);
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
     }
 }

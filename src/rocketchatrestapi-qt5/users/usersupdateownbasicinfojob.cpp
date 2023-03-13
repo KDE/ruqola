@@ -32,7 +32,7 @@ bool UsersUpdateOwnBasicInfoJob::start()
     return true;
 }
 
-void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
@@ -42,7 +42,7 @@ void UsersUpdateOwnBasicInfoJob::onPostRequestResponse(const QJsonDocument &repl
             Q_EMIT passwordChanged();
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UsersUpdateOwnBasicInfo: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

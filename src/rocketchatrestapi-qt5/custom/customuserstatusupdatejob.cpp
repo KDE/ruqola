@@ -31,14 +31,14 @@ bool CustomUserStatusUpdateJob::start()
     return true;
 }
 
-void CustomUserStatusUpdateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void CustomUserStatusUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserUpdateDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CustomUserStatusUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

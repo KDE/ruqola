@@ -31,7 +31,7 @@ bool RegeneratePersonalAccessTokenJob::start()
     return true;
 }
 
-void RegeneratePersonalAccessTokenJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RegeneratePersonalAccessTokenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void RegeneratePersonalAccessTokenJob::onPostRequestResponse(const QJsonDocument
         addLoggerInfo(QByteArrayLiteral("RegeneratePersonalAccessTokenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT regenerateTokenDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RegeneratePersonalAccessTokenJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

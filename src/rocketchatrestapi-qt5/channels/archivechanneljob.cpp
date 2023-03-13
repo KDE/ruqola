@@ -30,14 +30,14 @@ bool ArchiveChannelJob::start()
     return true;
 }
 
-void ArchiveChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ArchiveChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("archive or unarchive channel success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT archiveChannelDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to archive or unarchive a channel: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

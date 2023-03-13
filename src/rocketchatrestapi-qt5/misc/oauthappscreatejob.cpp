@@ -32,14 +32,14 @@ bool OauthAppsCreateJob::start()
     return true;
 }
 
-void OauthAppsCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void OauthAppsCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("OauthAppsCreateJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT oauthAppsCreateDone(replyObject[QStringLiteral("application")].toObject());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

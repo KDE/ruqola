@@ -33,7 +33,7 @@ bool TeamRemoveMembersJob::start()
     return true;
 }
 
-void TeamRemoveMembersJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamRemoveMembersJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void TeamRemoveMembersJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("TeamRemoveMembersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeTeamMembersDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamRemoveMembersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

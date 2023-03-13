@@ -31,7 +31,7 @@ bool ChannelInfoJob::start()
     return true;
 }
 
-void ChannelInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ChannelInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChannelInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("channelInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelInfoDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("channelInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -30,7 +30,7 @@ bool FollowMessageJob::start()
     return true;
 }
 
-void FollowMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void FollowMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void FollowMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("FollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT followMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("FollowMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

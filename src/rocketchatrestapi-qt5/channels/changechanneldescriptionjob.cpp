@@ -30,7 +30,7 @@ bool ChangeChannelDescriptionJob::start()
     return true;
 }
 
-void ChangeChannelDescriptionJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeChannelDescriptionJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void ChangeChannelDescriptionJob::onPostRequestResponse(const QJsonDocument &rep
         addLoggerInfo(QByteArrayLiteral("Change description success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeDescriptionDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to change description: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

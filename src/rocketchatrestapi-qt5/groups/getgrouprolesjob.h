@@ -34,6 +34,6 @@ protected:
 
 private:
     Q_DISABLE_COPY(GetGroupRolesJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

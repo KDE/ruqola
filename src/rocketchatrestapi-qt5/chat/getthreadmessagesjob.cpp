@@ -50,14 +50,14 @@ bool GetThreadMessagesJob::start()
     return true;
 }
 
-void GetThreadMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getThreadMessagesDone(replyObject, mThreadMessageId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

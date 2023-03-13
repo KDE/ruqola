@@ -34,7 +34,7 @@ bool ListInviteJob::start()
     return true;
 }
 
-void ListInviteJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ListInviteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     addLoggerInfo(QByteArrayLiteral("ListInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
     Q_EMIT listInviteDone(replyJson);

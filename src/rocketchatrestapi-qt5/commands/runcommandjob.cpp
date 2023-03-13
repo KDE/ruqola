@@ -31,7 +31,7 @@ bool RunCommandJob::start()
     return true;
 }
 
-void RunCommandJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RunCommandJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void RunCommandJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("RunCommandJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT runCommandDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RunCommandJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

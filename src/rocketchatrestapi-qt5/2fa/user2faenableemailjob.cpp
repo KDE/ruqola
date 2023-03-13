@@ -29,14 +29,14 @@ bool User2FAEnableEmailJob::start()
     return true;
 }
 
-void User2FAEnableEmailJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void User2FAEnableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("User2FAEnableEmail: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT enableEmailDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("User2FAEnableEmail: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

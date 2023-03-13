@@ -33,7 +33,7 @@ bool TeamAddRoomsJob::start()
     return true;
 }
 
-void TeamAddRoomsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamAddRoomsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void TeamAddRoomsJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("TeamAddRoomsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAddRoomsDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamAddRoomsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

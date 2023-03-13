@@ -53,14 +53,14 @@ bool SyncThreadMessagesJob::start()
     return true;
 }
 
-void SyncThreadMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void SyncThreadMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SyncThreadMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT syncThreadMessagesDone(replyObject, mThreadMessageId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SyncThreadMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

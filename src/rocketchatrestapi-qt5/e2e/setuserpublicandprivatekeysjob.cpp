@@ -31,7 +31,7 @@ bool SetUserPublicAndPrivateKeysJob::start()
     return true;
 }
 
-void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SetUserPublicAndPrivateKeysJob::onPostRequestResponse(const QJsonDocument &
         addLoggerInfo(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addKeyToChainDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetUserPublicAndPrivateKeysJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

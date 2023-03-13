@@ -31,7 +31,7 @@ bool TeamLeaveRoomJob::start()
     return true;
 }
 
-void TeamLeaveRoomJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamLeaveRoomJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void TeamLeaveRoomJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("TeamLeaveRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeLeaveRoomDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamLeaveRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

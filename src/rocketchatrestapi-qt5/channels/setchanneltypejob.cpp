@@ -31,7 +31,7 @@ bool SetChannelTypeJob::start()
     return true;
 }
 
-void SetChannelTypeJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetChannelTypeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SetChannelTypeJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SetChannelTypeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetChannelTypeJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

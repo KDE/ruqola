@@ -30,7 +30,7 @@ bool DeleteUserJob::start()
     return true;
 }
 
-void DeleteUserJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void DeleteUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     qDebug() << "replyObject " << replyObject;
@@ -39,7 +39,7 @@ void DeleteUserJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("DeleteUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteUserDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("DeleteUserJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

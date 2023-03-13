@@ -32,7 +32,7 @@ bool GroupRemoveOwnerJob::start()
     return true;
 }
 
-void GroupRemoveOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupRemoveOwnerJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void GroupRemoveOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupRemoveOwnerJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupRemoveOwnerDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupRemoveOwnerJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         if (replyObject[QStringLiteral("errorType")].toString() == QLatin1String("error-remove-last-owner")) {
             Q_EMIT failed(i18n("This is the last owner. Please set a new owner before removing this one."));

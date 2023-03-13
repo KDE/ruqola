@@ -29,7 +29,7 @@ bool TranslateSaveSettingsJob::start()
     return true;
 }
 
-void TranslateSaveSettingsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TranslateSaveSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -37,7 +37,7 @@ void TranslateSaveSettingsJob::onPostRequestResponse(const QJsonDocument &replyJ
         addLoggerInfo(QByteArrayLiteral("TranslateSaveSettingsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT translateSavesettingsDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TranslateSaveSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

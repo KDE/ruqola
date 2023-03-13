@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ServerInfoJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     bool mUseDeprecatedVersion = true;
     bool mForceRequiresAuthentication = false;
 };

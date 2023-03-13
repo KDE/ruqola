@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(FacebookAuthJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAccessToken;
     QString mSecret;
     int mExpireTokenInSeconds = -1;

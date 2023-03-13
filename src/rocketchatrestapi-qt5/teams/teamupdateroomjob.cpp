@@ -31,14 +31,14 @@ bool TeamUpdateRoomJob::start()
     return true;
 }
 
-void TeamUpdateRoomJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamUpdateRoomJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamUpdateRoomJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamUpdateRoomDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamUpdateRoomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

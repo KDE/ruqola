@@ -36,14 +36,14 @@ bool UsersAutocompleteJob::start()
     return true;
 }
 
-void UsersAutocompleteJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void UsersAutocompleteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersAutocompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersAutocompleteDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UsersAutocompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -30,7 +30,7 @@ bool UpdateMessageJob::start()
     return true;
 }
 
-void UpdateMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UpdateMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void UpdateMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("UpdateMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UpdateMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

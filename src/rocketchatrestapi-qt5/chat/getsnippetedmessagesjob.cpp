@@ -50,14 +50,14 @@ bool GetSnippetedMessagesJob::start()
     return true;
 }
 
-void GetSnippetedMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetSnippetedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetSnippetedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getSnippetedMessagesDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetSnippetedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

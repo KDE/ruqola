@@ -42,7 +42,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(SetStatusJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mStatusUserId;
     QString mStatusMessage;
     StatusType mStatus = Unknown;

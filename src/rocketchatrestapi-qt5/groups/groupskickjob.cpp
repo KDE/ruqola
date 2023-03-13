@@ -31,7 +31,7 @@ bool GroupsKickJob::start()
     return true;
 }
 
-void GroupsKickJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupsKickJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupsKickJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupsKickJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT kickUserDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupsKickJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

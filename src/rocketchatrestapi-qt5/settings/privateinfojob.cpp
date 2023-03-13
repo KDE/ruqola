@@ -31,7 +31,7 @@ bool PrivateInfoJob::start()
     return true;
 }
 
-void PrivateInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void PrivateInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void PrivateInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("PrivateInfoJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT privateInfoDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("PrivateInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

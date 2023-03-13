@@ -32,7 +32,7 @@ bool CustomSoundsListJob::start()
     return true;
 }
 
-void CustomSoundsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void CustomSoundsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void CustomSoundsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("CustomSoundsJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customSoundsListDone(replyObject); // TODO fix return value!
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CustomSoundsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

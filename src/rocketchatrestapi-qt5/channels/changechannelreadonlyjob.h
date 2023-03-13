@@ -36,7 +36,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChangeChannelReadonlyJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     bool mReadOnly = false;
 };

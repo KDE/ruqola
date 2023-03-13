@@ -31,7 +31,7 @@ bool GroupsDeleteJob::start()
     return true;
 }
 
-void GroupsDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupsDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupsDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupsDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteGroupsDone(channelGroupInfo().identifier);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupsDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

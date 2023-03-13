@@ -31,7 +31,7 @@ bool GroupsConvertToTeamJob::start()
     return true;
 }
 
-void GroupsConvertToTeamJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupsConvertToTeamJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupsConvertToTeamJob::onPostRequestResponse(const QJsonDocument &replyJso
         addLoggerInfo(QByteArrayLiteral("GroupsConvertToTeamJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupConvertToTeamDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupsConvertToTeamJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

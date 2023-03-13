@@ -32,7 +32,7 @@ bool GroupOpenJob::start()
     return true;
 }
 
-void GroupOpenJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupOpenJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void GroupOpenJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupOpenJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupOpenDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupOpenJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

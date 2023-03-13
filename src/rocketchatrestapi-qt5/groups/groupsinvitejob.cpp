@@ -31,7 +31,7 @@ bool GroupsInviteJob::start()
     return true;
 }
 
-void GroupsInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupsInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupsInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupsInviteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT inviteGroupsDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupsInviteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -32,7 +32,7 @@ bool CustomUserStatusListJob::start()
     return true;
 }
 
-void CustomUserStatusListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void CustomUserStatusListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void CustomUserStatusListJob::onGetRequestResponse(const QJsonDocument &replyJso
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT customUserStatusDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CustomUserStatusJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -32,7 +32,7 @@ bool GroupsInfoJob::start()
     return true;
 }
 
-void GroupsInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GroupsInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void GroupsInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("groupInfoDone success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelInfoDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("groupInfoDone problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

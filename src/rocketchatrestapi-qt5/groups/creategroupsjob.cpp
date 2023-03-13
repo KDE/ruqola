@@ -31,7 +31,7 @@ bool CreateGroupsJob::start()
     return true;
 }
 
-void CreateGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void CreateGroupsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void CreateGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("CreateGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createGroupsDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CreateGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

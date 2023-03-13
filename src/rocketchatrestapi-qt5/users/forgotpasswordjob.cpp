@@ -41,14 +41,14 @@ bool ForgotPasswordJob::start()
     return true;
 }
 
-void ForgotPasswordJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ForgotPasswordJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ForgotPasswordJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT forgotPasswordDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ForgotPasswordJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

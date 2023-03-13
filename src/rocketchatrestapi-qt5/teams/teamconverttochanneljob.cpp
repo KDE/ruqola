@@ -32,7 +32,7 @@ bool TeamConvertToChannelJob::start()
     return true;
 }
 
-void TeamConvertToChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamConvertToChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void TeamConvertToChannelJob::onPostRequestResponse(const QJsonDocument &replyJs
         addLoggerInfo(QByteArrayLiteral("TeamConvertToChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamConvertToChannelDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamConvertToChannelJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

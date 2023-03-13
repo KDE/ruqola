@@ -37,14 +37,14 @@ bool TeamsAutoCompleteJob::start()
     return true;
 }
 
-void TeamsAutoCompleteJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void TeamsAutoCompleteJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("TeamsAutoCompleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT teamAutoCompleteDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamsAutoCompleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

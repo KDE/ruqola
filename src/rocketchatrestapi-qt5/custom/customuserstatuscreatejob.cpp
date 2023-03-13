@@ -31,14 +31,14 @@ bool CustomUserStatusCreateJob::start()
     return true;
 }
 
-void CustomUserStatusCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void CustomUserStatusCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createUserStatusDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CustomUserStatusCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

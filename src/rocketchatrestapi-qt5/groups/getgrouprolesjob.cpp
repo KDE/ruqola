@@ -66,14 +66,14 @@ QString GetGroupRolesJob::jobName() const
     return i18n("Extract Roles");
 }
 
-void GetGroupRolesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetGroupRolesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetGroupRolesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT groupRolesDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetGroupRolesJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

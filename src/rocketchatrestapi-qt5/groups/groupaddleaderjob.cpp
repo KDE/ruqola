@@ -31,7 +31,7 @@ bool GroupAddLeaderJob::start()
     return true;
 }
 
-void GroupAddLeaderJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupAddLeaderJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addLeaderDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupAddLeaderJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

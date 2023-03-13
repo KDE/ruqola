@@ -36,7 +36,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(ChannelRemoveOwnerJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRemoveUserId;
 };
 }

@@ -32,14 +32,14 @@ bool VideoConferenceJoinJob::start()
     return true;
 }
 
-void VideoConferenceJoinJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void VideoConferenceJoinJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("VideoConferenceJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceJoinDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceJoinJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

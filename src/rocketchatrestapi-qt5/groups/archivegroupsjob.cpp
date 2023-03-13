@@ -31,7 +31,7 @@ bool ArchiveGroupsJob::start()
     return true;
 }
 
-void ArchiveGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ArchiveGroupsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ArchiveGroupsJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ArchiveGroupsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT archiveGroupsDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ArchiveGroupsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
         // FIXME report error
         Q_EMIT archiveGroupsError(QString());

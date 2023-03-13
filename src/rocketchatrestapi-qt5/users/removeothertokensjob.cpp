@@ -29,14 +29,14 @@ bool RemoveOtherTokensJob::start()
     return true;
 }
 
-void RemoveOtherTokensJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RemoveOtherTokensJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RemoveOtherTokensJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeOtherTokensDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RemoveOtherTokensJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

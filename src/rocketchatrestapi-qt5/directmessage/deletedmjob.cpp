@@ -31,7 +31,7 @@ bool DeleteDmJob::start()
     return true;
 }
 
-void DeleteDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void DeleteDmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void DeleteDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
         qDebug() << " replyObject " << replyObject;
         Q_EMIT deleteDirectMessagesDone(channelGroupInfo().identifier);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("DeleteDmJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

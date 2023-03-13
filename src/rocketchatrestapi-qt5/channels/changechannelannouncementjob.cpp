@@ -30,7 +30,7 @@ bool ChangeChannelAnnouncementJob::start()
     return true;
 }
 
-void ChangeChannelAnnouncementJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeChannelAnnouncementJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void ChangeChannelAnnouncementJob::onPostRequestResponse(const QJsonDocument &re
         addLoggerInfo(QByteArrayLiteral("Change announcement success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeAnnouncementDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to change announcement: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

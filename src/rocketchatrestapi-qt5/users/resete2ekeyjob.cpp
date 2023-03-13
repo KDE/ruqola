@@ -31,14 +31,14 @@ bool ResetE2EKeyJob::start()
     return true;
 }
 
-void ResetE2EKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ResetE2EKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetE2EKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetE2EKeyDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetE2EKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

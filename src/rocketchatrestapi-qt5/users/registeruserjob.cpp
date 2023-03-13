@@ -42,14 +42,14 @@ bool RegisterUserJob::start()
     return true;
 }
 
-void RegisterUserJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RegisterUserJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RegisterUserJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT registerUserDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RegisterUserJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool ChannelDeleteJob::start()
     return true;
 }
 
-void ChannelDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChannelDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChannelDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deletechannelDone(channelGroupInfo().identifier);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelDeleteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

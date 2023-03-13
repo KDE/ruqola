@@ -48,7 +48,7 @@ bool LoginJob::start()
     return true;
 }
 
-void LoginJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void LoginJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -61,7 +61,7 @@ void LoginJob::onPostRequestResponse(const QJsonDocument &replyJson)
             Q_EMIT loginDone(authToken, userId);
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
     }
 }

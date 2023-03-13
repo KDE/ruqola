@@ -53,7 +53,7 @@ bool OauthAppsJob::start()
     return true;
 }
 
-void OauthAppsJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void OauthAppsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -61,7 +61,7 @@ void OauthAppsJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("OauthAppsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT oauthAppDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("OauthAppsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

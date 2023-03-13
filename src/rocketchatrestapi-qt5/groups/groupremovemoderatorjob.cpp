@@ -31,7 +31,7 @@ bool GroupRemoveModeratorJob::start()
     return true;
 }
 
-void GroupRemoveModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupRemoveModeratorJob::onPostRequestResponse(const QJsonDocument &replyJs
         addLoggerInfo(QByteArrayLiteral("GroupRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeModeratorDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

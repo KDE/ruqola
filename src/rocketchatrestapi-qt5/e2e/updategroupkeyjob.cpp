@@ -31,7 +31,7 @@ bool UpdateGroupKeyJob::start()
     return true;
 }
 
-void UpdateGroupKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UpdateGroupKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void UpdateGroupKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("UpdateGroupKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateGroupKeyDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UpdateGroupKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -32,14 +32,14 @@ bool ResetTOTPJob::start()
     return true;
 }
 
-void ResetTOTPJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ResetTOTPJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetTOTPJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetTOTPDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetTOTPJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

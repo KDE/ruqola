@@ -33,7 +33,7 @@ bool TeamDeleteJob::start()
     return true;
 }
 
-void TeamDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void TeamDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void TeamDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("TeamDeleteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteTeamDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("TeamDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool GroupAddOwnerJob::start()
     return true;
 }
 
-void GroupAddOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupAddOwnerJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupAddOwnerJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupAddOwnerJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addOwnerDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupAddOwnerJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -62,7 +62,7 @@ void DirectoryJob::initialQueryParameters()
     setQueryParameters(parameters);
 }
 
-void DirectoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void DirectoryJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -70,7 +70,7 @@ void DirectoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("DirectoryJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT directoryDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("DirectoryJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

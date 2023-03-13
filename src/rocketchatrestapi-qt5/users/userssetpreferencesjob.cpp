@@ -33,14 +33,14 @@ bool UsersSetPreferencesJob::start()
     return true;
 }
 
-void UsersSetPreferencesJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UsersSetPreferencesJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersSetPreferencesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersSetPreferencesDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UsersSetPreferencesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

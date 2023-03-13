@@ -36,7 +36,7 @@ bool OwnInfoJob::start()
     return true;
 }
 
-void OwnInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void OwnInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     // TODO check success !

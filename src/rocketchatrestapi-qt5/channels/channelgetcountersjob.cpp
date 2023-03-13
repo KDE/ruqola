@@ -60,14 +60,14 @@ bool ChannelGetCountersJob::requireHttpAuthentication() const
     return true;
 }
 
-void ChannelGetCountersJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ChannelGetCountersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelGetCountersJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelGetCountersDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelGetCountersJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool MarkRoomAsReadJob::start()
     return true;
 }
 
-void MarkRoomAsReadJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void MarkRoomAsReadJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void MarkRoomAsReadJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("MarkRoomAsReadJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT markAsReadDone(mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("MarkRoomAsReadJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

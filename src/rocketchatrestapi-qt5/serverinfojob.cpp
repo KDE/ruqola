@@ -54,7 +54,7 @@ bool ServerInfoJob::useDeprecatedVersion() const
     return mUseDeprecatedVersion;
 }
 
-void ServerInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ServerInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     // TODO send replyObject too. Need by administrator server info.
@@ -74,7 +74,7 @@ void ServerInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
         Q_EMIT serverInfoFailed(mUseDeprecatedVersion);
         addLoggerWarning(QByteArrayLiteral("ServerInfoJob::slotServerInfoFinished: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
         if (!mUseDeprecatedVersion) {
-            emitFailedMessage(replyObject);
+            emitFailedMessage(replyErrorString, replyObject);
         }
     }
 }

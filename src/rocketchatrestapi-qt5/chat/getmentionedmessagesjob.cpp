@@ -50,14 +50,14 @@ bool GetMentionedMessagesJob::start()
     return true;
 }
 
-void GetMentionedMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetMentionedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("getMentionedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getMentionedMessagesDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("getMentionedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

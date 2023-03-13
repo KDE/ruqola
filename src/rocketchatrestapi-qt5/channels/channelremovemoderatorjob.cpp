@@ -32,7 +32,7 @@ bool ChannelRemoveModeratorJob::start()
     return true;
 }
 
-void ChannelRemoveModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelRemoveModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void ChannelRemoveModeratorJob::onPostRequestResponse(const QJsonDocument &reply
         addLoggerInfo(QByteArrayLiteral("ChannelRemoveModeratorJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT removeModeratorDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelRemoveModeratorJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

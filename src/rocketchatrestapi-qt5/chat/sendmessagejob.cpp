@@ -35,7 +35,7 @@ bool SendMessageJob::requireHttpAuthentication() const
     return true;
 }
 
-void SendMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SendMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -43,7 +43,7 @@ void SendMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SendMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sendMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SendMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

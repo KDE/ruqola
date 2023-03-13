@@ -31,7 +31,7 @@ bool SetJoinCodeChannelJob::start()
     return true;
 }
 
-void SetJoinCodeChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetJoinCodeChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SetJoinCodeChannelJob::onPostRequestResponse(const QJsonDocument &replyJson
         addLoggerInfo(QByteArrayLiteral("SetJoinCodeChannelJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setJoinCodeDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetJoinCodeChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

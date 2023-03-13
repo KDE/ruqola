@@ -36,7 +36,7 @@ bool GetUsernameSuggestionJob::start()
     return true;
 }
 
-void GetUsernameSuggestionJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetUsernameSuggestionJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
@@ -44,7 +44,7 @@ void GetUsernameSuggestionJob::onGetRequestResponse(const QJsonDocument &replyJs
         const QString result = replyObject[QStringLiteral("result")].toString();
         Q_EMIT getUsernameSuggestionDone(result);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetUsernameSuggestionJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -31,7 +31,7 @@ bool GroupAddModeratorJob::start()
     return true;
 }
 
-void GroupAddModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GroupAddModeratorJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void GroupAddModeratorJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("GroupAddModeratorJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addModeratorDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GroupAddModeratorJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

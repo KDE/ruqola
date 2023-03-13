@@ -30,6 +30,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelDeleteJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

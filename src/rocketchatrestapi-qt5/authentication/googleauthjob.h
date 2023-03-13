@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(GoogleAuthJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mAccessToken;
     QString mIdToken;
     int mExpireTokenInSeconds = -1;

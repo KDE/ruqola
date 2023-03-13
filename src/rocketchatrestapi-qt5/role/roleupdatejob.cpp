@@ -30,14 +30,14 @@ bool RoleUpdateJob::start()
     return true;
 }
 
-void RoleUpdateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoleUpdateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleUpdateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateRoleDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoleUpdateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

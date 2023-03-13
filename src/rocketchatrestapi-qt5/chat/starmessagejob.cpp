@@ -42,7 +42,7 @@ bool StarMessageJob::start()
     return true;
 }
 
-void StarMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void StarMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -50,7 +50,7 @@ void StarMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("StarMessageJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT messageStarred();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("StarMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

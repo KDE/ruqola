@@ -31,7 +31,7 @@ bool SetGroupTypeJob::start()
     return true;
 }
 
-void SetGroupTypeJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetGroupTypeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SetGroupTypeJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SetGroupTypeJob: Success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setGroupTypeDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetGroupTypeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

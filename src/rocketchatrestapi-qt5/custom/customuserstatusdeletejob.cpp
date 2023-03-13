@@ -31,14 +31,14 @@ bool CustomUserStatusDeleteJob::start()
     return true;
 }
 
-void CustomUserStatusDeleteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void CustomUserStatusDeleteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("CustomUserStatusDeleteJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT userStatusDeletedDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CustomUserStatusDeleteJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

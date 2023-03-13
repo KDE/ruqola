@@ -31,14 +31,14 @@ bool SpotlightJob::start()
     return true;
 }
 
-void SpotlightJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void SpotlightJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SpotlightJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT spotlightDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SpotlightJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

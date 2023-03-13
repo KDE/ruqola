@@ -31,7 +31,7 @@ bool OpenDmJob::start()
     return true;
 }
 
-void OpenDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void OpenDmJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void OpenDmJob::onPostRequestResponse(const QJsonDocument &replyJson)
         qDebug() << " replyJson " << replyJson;
         Q_EMIT openDmDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Create direct message Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

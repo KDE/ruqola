@@ -35,7 +35,7 @@ bool LicensesIsEnterpriseJob::start()
     return true;
 }
 
-void LicensesIsEnterpriseJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void LicensesIsEnterpriseJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -43,7 +43,7 @@ void LicensesIsEnterpriseJob::onGetRequestResponse(const QJsonDocument &replyJso
         addLoggerInfo(QByteArrayLiteral("LicensesIsEnterpriseJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT licensesIsEnterpriseDone(replyObject[QStringLiteral("isEnterprise")].toBool());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("LicensesIsEnterpriseJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

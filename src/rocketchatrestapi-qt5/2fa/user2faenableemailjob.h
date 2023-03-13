@@ -28,7 +28,7 @@ Q_SIGNALS:
     void enableEmailDone();
 
 protected:
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     Q_DISABLE_COPY(User2FAEnableEmailJob)

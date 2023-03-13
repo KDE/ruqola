@@ -30,7 +30,7 @@ bool ChangeChannelReadonlyJob::start()
     return true;
 }
 
-void ChangeChannelReadonlyJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeChannelReadonlyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 

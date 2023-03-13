@@ -31,7 +31,7 @@ bool ChannelInviteJob::start()
     return true;
 }
 
-void ChannelInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelInviteJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChannelInviteJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChannelInviteJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT inviteDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelInviteJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -30,7 +30,7 @@ bool UnFollowMessageJob::start()
     return true;
 }
 
-void UnFollowMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UnFollowMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void UnFollowMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("UnFollowMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT unFollowMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UnFollowMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

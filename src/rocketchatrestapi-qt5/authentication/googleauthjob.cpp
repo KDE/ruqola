@@ -49,7 +49,7 @@ bool GoogleAuthJob::start()
     return true;
 }
 
-void GoogleAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void GoogleAuthJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("status")].toString() == QLatin1String("success") && replyObject.contains(QLatin1String("data"))) {
@@ -61,7 +61,7 @@ void GoogleAuthJob::onPostRequestResponse(const QJsonDocument &replyJson)
             Q_EMIT googleauthDone(authToken, userId);
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning("Error during login" + replyJson.toJson(QJsonDocument::Indented));
     }
 }

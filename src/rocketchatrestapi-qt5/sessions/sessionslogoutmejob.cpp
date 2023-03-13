@@ -31,7 +31,7 @@ bool SessionsLogoutMeJob::start()
     return true;
 }
 
-void SessionsLogoutMeJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SessionsLogoutMeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void SessionsLogoutMeJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SessionsLogoutMeJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT logoutMeDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SessionsLogoutMeJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

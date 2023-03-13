@@ -30,14 +30,14 @@ bool ChannelAddLeaderJob::start()
     return true;
 }
 
-void ChannelAddLeaderJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelAddLeaderJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelAddLeaderJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addLeaderDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelAddLeaderJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

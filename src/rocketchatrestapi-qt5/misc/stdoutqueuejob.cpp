@@ -36,7 +36,7 @@ bool StdoutQueueJob::start()
     return true;
 }
 
-void StdoutQueueJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void StdoutQueueJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -44,7 +44,7 @@ void StdoutQueueJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("StdoutQueueJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT stdoutQueueDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("StdoutQueueJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

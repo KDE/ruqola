@@ -189,9 +189,9 @@ void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
     }
 }
 
-void RestApiAbstractJob::emitFailedMessage(const QJsonObject &replyObject)
+void RestApiAbstractJob::emitFailedMessage(const QString &replyErrorString, const QJsonObject &replyObject)
 {
-    Q_EMIT failed(errorStr(replyObject));
+    Q_EMIT failed(replyErrorString + QLatin1Char('\n') + errorStr(replyObject));
 }
 
 QString RestApiAbstractJob::errorStr(const QJsonObject &replyObject)
@@ -447,7 +447,7 @@ QString RestApiAbstractJob::jobName() const
     return {};
 }
 
-void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*responseHandler)(const QJsonDocument &))
+void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*responseHandler)(const QString &, const QJsonDocument &))
 {
     if (!mReply) {
         deleteLater();
@@ -465,10 +465,13 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
         // TODO add support error 400
         // TODO
         // (this->*responseHandler)(convertToJsonDocument(mReply));
-        const auto json = QJsonDocument::fromJson(mReply->readAll()).object();
-        Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(json));
+        // const auto readAll = mReply->readAll();
+        // const auto json = QJsonDocument::fromJson(readAll).object();
+        // qDebug() <<" mReply->readAll() " << readAll;
+        // Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(json));
+        (this->*responseHandler)(mReply->errorString(), convertToJsonDocument(mReply));
     } else {
-        (this->*responseHandler)(convertToJsonDocument(mReply));
+        (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
     }
 
     mReply->deleteLater();

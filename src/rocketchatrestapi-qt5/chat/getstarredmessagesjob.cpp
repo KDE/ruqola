@@ -50,14 +50,14 @@ bool GetStarredMessagesJob::start()
     return true;
 }
 
-void GetStarredMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetStarredMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetStarredMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getStarredMessagesDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetStarredMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

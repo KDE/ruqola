@@ -37,7 +37,7 @@ bool UserRequestDataDownloadJob::start()
     return true;
 }
 
-void UserRequestDataDownloadJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void UserRequestDataDownloadJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
@@ -46,7 +46,7 @@ void UserRequestDataDownloadJob::onGetRequestResponse(const QJsonDocument &reply
         const QString result = replyObject[QStringLiteral("result")].toString();
         Q_EMIT userRequestDataDownloadDone(result);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UserRequestDataDownloadJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

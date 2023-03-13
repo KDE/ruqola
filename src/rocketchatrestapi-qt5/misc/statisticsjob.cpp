@@ -37,7 +37,7 @@ bool StatisticsJob::start()
     return true;
 }
 
-void StatisticsJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void StatisticsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -45,7 +45,7 @@ void StatisticsJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("StatisticsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT statisticDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("StatisticsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

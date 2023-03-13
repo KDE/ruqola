@@ -75,20 +75,20 @@ void SetAvatarJob::slotSetAvatar()
     auto reply = mReply;
     if (reply) {
         const QJsonDocument replyJson = convertToJsonDocument(reply);
-        onPostRequestResponse(replyJson);
+        onPostRequestResponse(mReply->errorString(), replyJson);
         reply->deleteLater();
     }
     deleteLater();
 }
 
-void SetAvatarJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void SetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("SetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setAvatarDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

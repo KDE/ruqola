@@ -32,14 +32,14 @@ bool UsersCreateJob::start()
     return true;
 }
 
-void UsersCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UsersCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UsersCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT usersCreateDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UsersCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

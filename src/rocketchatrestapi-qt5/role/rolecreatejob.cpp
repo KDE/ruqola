@@ -30,14 +30,14 @@ bool RoleCreateJob::start()
     return true;
 }
 
-void RoleCreateJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoleCreateJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoleCreateJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT createRoleDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoleCreateJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

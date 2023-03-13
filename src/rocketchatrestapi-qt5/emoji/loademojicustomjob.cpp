@@ -32,7 +32,7 @@ bool LoadEmojiCustomJob::start()
     return true;
 }
 
-void LoadEmojiCustomJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void LoadEmojiCustomJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void LoadEmojiCustomJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("LoadEmojiCustomJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT loadEmojiCustomDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("LoadEmojiCustomJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

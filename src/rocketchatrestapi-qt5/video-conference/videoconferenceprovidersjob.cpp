@@ -36,7 +36,7 @@ bool VideoConferenceProvidersJob::start()
     return true;
 }
 
-void VideoConferenceProvidersJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void VideoConferenceProvidersJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -45,7 +45,7 @@ void VideoConferenceProvidersJob::onGetRequestResponse(const QJsonDocument &repl
         // {"data":[{"key":"jitsi","label":"Jitsi"}]
         Q_EMIT videoConferenceProvidersDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceProvidersJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

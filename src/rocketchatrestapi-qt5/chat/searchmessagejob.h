@@ -44,7 +44,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SearchMessageJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     Q_REQUIRED_RESULT QString convertSearchText() const;
     QString mRoomId;
     QString mSearchText;

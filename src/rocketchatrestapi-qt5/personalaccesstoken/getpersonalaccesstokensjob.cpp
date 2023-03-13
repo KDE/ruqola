@@ -32,7 +32,7 @@ bool GetPersonalAccessTokensJob::start()
     return true;
 }
 
-void GetPersonalAccessTokensJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetPersonalAccessTokensJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void GetPersonalAccessTokensJob::onGetRequestResponse(const QJsonDocument &reply
         addLoggerInfo(QByteArrayLiteral("GetPersonalAccessTokensJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPersonalAccessTokensDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetPersonalAccessTokensJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

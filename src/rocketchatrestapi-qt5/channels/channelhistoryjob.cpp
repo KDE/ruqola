@@ -32,7 +32,7 @@ bool ChannelHistoryJob::start()
     return true;
 }
 
-void ChannelHistoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ChannelHistoryJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void ChannelHistoryJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChannelHistoryJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelHistoryDone(replyObject, channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelHistoryJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

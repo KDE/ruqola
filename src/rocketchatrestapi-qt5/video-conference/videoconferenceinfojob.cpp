@@ -50,7 +50,7 @@ bool VideoConferenceInfoJob::start()
     return true;
 }
 
-void VideoConferenceInfoJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void VideoConferenceInfoJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -58,7 +58,7 @@ void VideoConferenceInfoJob::onGetRequestResponse(const QJsonDocument &replyJson
         addLoggerInfo(QByteArrayLiteral("VideoConferenceInfoJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT videoConferenceInfoDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("VideoConferenceInfoJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

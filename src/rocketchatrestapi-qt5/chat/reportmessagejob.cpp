@@ -31,7 +31,7 @@ bool ReportMessageJob::start()
     return true;
 }
 
-void ReportMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ReportMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     auto reply = mReply;
     if (reply) {

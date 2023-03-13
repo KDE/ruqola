@@ -31,7 +31,7 @@ bool PinMessageJob::start()
     return true;
 }
 
-void PinMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void PinMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -43,7 +43,7 @@ void PinMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
             Q_EMIT unPinMessageDone();
         }
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("PinMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

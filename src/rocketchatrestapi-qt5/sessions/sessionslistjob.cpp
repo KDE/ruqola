@@ -32,7 +32,7 @@ bool SessionsListJob::start()
     return true;
 }
 
-void SessionsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void SessionsListJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void SessionsListJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SessionsListJob done: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT sessionsListDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SessionsListJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

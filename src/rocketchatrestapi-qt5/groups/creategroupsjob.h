@@ -35,7 +35,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(CreateGroupsJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     CreateChannelTeamInfo mCreateGroupInfo;
     // {"name":"teams-test-room2","members":[],"readOnly":false,"extraData":{"description":"","broadcast":false,"encrypted":false,"teamId":"607fb34ee8da65ad4f476487"}
     // TODO add extraData

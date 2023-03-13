@@ -31,7 +31,7 @@ bool CreateChannelJob::start()
     return true;
 }
 
-void CreateChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void CreateChannelJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -40,7 +40,7 @@ void CreateChannelJob::onPostRequestResponse(const QJsonDocument &replyJson)
         qDebug() << " replyObject : " << replyObject;
         Q_EMIT createChannelDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("CreateChannelJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

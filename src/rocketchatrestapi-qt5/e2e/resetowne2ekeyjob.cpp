@@ -29,7 +29,7 @@ bool ResetOwnE2eKeyJob::start()
     return true;
 }
 
-void ResetOwnE2eKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ResetOwnE2eKeyJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -37,7 +37,7 @@ void ResetOwnE2eKeyJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ResetOwnE2eKeyJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetE2eKeyDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetOwnE2eKeyJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

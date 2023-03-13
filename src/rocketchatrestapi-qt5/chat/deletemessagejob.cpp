@@ -31,7 +31,7 @@ bool DeleteMessageJob::start()
     return true;
 }
 
-void DeleteMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void DeleteMessageJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void DeleteMessageJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("DeleteMessageJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT deleteMessageDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("DeleteMessageJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

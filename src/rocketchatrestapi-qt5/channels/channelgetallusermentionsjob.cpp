@@ -64,14 +64,14 @@ bool ChannelGetAllUserMentionsJob::requireHttpAuthentication() const
     return true;
 }
 
-void ChannelGetAllUserMentionsJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void ChannelGetAllUserMentionsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ChannelGetAllUserMentionsJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT channelGetAllUserMentionsDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelGetAllUserMentionsJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

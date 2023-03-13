@@ -30,14 +30,14 @@ bool AddUserToRoleJob::start()
     return true;
 }
 
-void AddUserToRoleJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void AddUserToRoleJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("AddUserToRoleJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT addUsersToRoleDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("AddUserToRoleJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

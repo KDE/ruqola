@@ -37,14 +37,14 @@ bool GetCommandsJob::start()
     return true;
 }
 
-void GetCommandsJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetCommandsJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetCommandsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getCommandsDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetCommandsJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

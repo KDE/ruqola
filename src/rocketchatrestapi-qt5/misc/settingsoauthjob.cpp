@@ -36,7 +36,7 @@ bool SettingsOauthJob::start()
     return true;
 }
 
-void SettingsOauthJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void SettingsOauthJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -44,7 +44,7 @@ void SettingsOauthJob::onGetRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("SettingsOauthJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT settingsOauthDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("SettingsOauthJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

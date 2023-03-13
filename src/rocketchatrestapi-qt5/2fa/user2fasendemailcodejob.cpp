@@ -30,7 +30,7 @@ bool User2FASendEmailCodeJob::start()
     return true;
 }
 
-void User2FASendEmailCodeJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void User2FASendEmailCodeJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     // TODO it reports only email.
 

@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(FindOrCreateInviteJob)
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     QString mRoomId;
     int mMaxUses = 20;
     int mNumberOfDays = 0;

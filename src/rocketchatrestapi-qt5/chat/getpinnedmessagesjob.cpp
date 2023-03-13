@@ -50,14 +50,14 @@ bool GetPinnedMessagesJob::start()
     return true;
 }
 
-void GetPinnedMessagesJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void GetPinnedMessagesJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("GetPinnedMessagesJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT getPinnedMessagesDone(replyObject, mRoomId);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("GetPinnedMessagesJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

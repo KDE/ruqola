@@ -44,7 +44,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(ChannelMembersJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     ChannelType mChannelType = Unknown;
 };
 }

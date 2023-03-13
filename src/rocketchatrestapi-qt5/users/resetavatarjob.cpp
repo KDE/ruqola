@@ -30,14 +30,14 @@ bool ResetAvatarJob::start()
     return true;
 }
 
-void ResetAvatarJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ResetAvatarJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ResetAvatarJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT resetAvatarDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ResetAvatarJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

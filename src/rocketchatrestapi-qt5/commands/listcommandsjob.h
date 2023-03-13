@@ -31,6 +31,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ListCommandsJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

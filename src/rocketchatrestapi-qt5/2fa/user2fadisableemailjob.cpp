@@ -30,14 +30,14 @@ bool User2FADisableEmailJob::start()
     return true;
 }
 
-void User2FADisableEmailJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void User2FADisableEmailJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("User2FADisableEmailJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT disableEmailDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("User2FADisableEmailJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

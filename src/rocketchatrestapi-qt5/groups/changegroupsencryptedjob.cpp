@@ -31,7 +31,7 @@ bool ChangeGroupsEncryptedJob::start()
     return true;
 }
 
-void ChangeGroupsEncryptedJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeGroupsEncryptedJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -39,7 +39,7 @@ void ChangeGroupsEncryptedJob::onPostRequestResponse(const QJsonDocument &replyJ
         addLoggerInfo(QByteArrayLiteral("Change encrypted success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeEncryptedDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to change encrypted status: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

@@ -29,7 +29,7 @@ bool ChangeChannelTopicJob::start()
     return true;
 }
 
-void ChangeChannelTopicJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeChannelTopicJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -37,7 +37,7 @@ void ChangeChannelTopicJob::onPostRequestResponse(const QJsonDocument &replyJson
         addLoggerInfo(QByteArrayLiteral("Change Topic success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeTopicDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("Problem when we tried to change topic: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

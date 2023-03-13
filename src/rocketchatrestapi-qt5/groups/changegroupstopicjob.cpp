@@ -30,7 +30,7 @@ bool ChangeGroupsTopicJob::start()
     return true;
 }
 
-void ChangeGroupsTopicJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChangeGroupsTopicJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -38,7 +38,7 @@ void ChangeGroupsTopicJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChangeGroupsTopicJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT changeTopicDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChangeGroupsTopicJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

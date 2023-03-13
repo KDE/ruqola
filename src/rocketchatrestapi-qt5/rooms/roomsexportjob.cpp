@@ -32,14 +32,14 @@ bool RoomsExportJob::start()
     return true;
 }
 
-void RoomsExportJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void RoomsExportJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("RoomsExportJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT roomExportDone();
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("RoomsExportJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

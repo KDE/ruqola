@@ -27,7 +27,7 @@ Q_SIGNALS:
     void logoutDone();
 
 protected:
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     Q_DISABLE_COPY(LogoutJob)

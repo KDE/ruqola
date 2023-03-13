@@ -31,14 +31,14 @@ bool UpdateAdminSettingsJob::start()
     return true;
 }
 
-void UpdateAdminSettingsJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void UpdateAdminSettingsJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("UpdateAdminSettingsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT updateAdminSettingsDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("UpdateAdminSettingsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

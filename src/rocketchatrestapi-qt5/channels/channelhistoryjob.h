@@ -50,7 +50,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ChannelHistoryJob)
-    void onGetRequestResponse(const QJsonDocument &replyJson) override;
+    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     ChannelHistoryInfo mChannelHistoryInfo;
 };
 }

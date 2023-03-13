@@ -41,7 +41,7 @@ Q_SIGNALS:
     void loginDone(const QString &authToken, const QString &userId);
 
 protected:
-    void onPostRequestResponse(const QJsonDocument &replyJson) override;
+    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 
 private:
     Q_DISABLE_COPY(LoginJob)

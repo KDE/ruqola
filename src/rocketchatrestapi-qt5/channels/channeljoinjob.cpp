@@ -33,7 +33,7 @@ bool ChannelJoinJob::start()
     return true;
 }
 
-void ChannelJoinJob::onPostRequestResponse(const QJsonDocument &replyJson)
+void ChannelJoinJob::onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
 
@@ -41,7 +41,7 @@ void ChannelJoinJob::onPostRequestResponse(const QJsonDocument &replyJson)
         addLoggerInfo(QByteArrayLiteral("ChannelJoinJob success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT setChannelJoinDone(channelGroupInfo());
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ChannelJoinJob problem: ") + replyJson.toJson(QJsonDocument::Indented));
         // Invalid password
         const QString errorType = replyObject[QStringLiteral("errorType")].toString();

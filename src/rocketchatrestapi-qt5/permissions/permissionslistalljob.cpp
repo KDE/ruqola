@@ -36,14 +36,14 @@ bool PermissionsListAllJob::start()
     return true;
 }
 
-void PermissionsListAllJob::onGetRequestResponse(const QJsonDocument &replyJson)
+void PermissionsListAllJob::onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson)
 {
     const QJsonObject replyObject = replyJson.object();
     if (replyObject[QStringLiteral("success")].toBool()) {
         addLoggerInfo(QByteArrayLiteral("ListPermissionsJob: success: ") + replyJson.toJson(QJsonDocument::Indented));
         Q_EMIT permissionListAllDone(replyObject);
     } else {
-        emitFailedMessage(replyObject);
+        emitFailedMessage(replyErrorString, replyObject);
         addLoggerWarning(QByteArrayLiteral("ListPermissionsJob: Problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }
