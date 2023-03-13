@@ -55,6 +55,7 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 
+#include "video-conference/videoconferencecapabilitiesjob.h"
 #include <config-ruqola.h>
 
 #if HAVE_TEXT_TO_SPEECH
@@ -435,41 +436,58 @@ void RoomWidget::slotCallRequested()
         }
         delete dlg;
     } else {
-        QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
-        if (dlg->exec()) {
-            const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->conferenceCallInfo();
+        auto job = new RocketChatRestApi::VideoConferenceCapabilitiesJob(this);
+        mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+        connect(job, &RocketChatRestApi::VideoConferenceCapabilitiesJob::videoConferenceCapabilitiesDone, this, [this](const QJsonObject &obj) {
+            // qDebug() << "obj  " << obj;
+            // {"capabilities":{"cam":true,"mic":true,"title":true},"providerName":"jitsi","success":true}
+            const QJsonObject capabilitiesObj = obj[QLatin1String("capabilities")].toObject();
+            const bool useCam = capabilitiesObj[QLatin1String("cam")].toBool();
+            const bool useMic = capabilitiesObj[QLatin1String("mic")].toBool();
+            ConferenceCallWidget::ConferenceCallStart callInfo;
+            callInfo.useCamera = useCam;
+            callInfo.useMic = useMic;
 
-            auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
-            RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
-            startInfo.roomId = mRoomWidgetBase->roomId();
-            startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
-            job->setInfo(startInfo);
-            mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
-                // qDebug() << "obj  " << obj;
-                // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
-                const QString callId{obj[QLatin1String("callId")].toString()};
-                mCurrentRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(callId);
-                auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
-                RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
-                joinInfo.callId = callId;
-                joinInfo.useCamera = callInfo.useCamera;
-                joinInfo.useMicro = callInfo.useMic;
-                conferenceJoinJob->setInfo(joinInfo);
-                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
-                connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
-                    // qDebug() << " join info " << obj;
-                    QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
+            QPointer<ConferenceCallDialog> dlg = new ConferenceCallDialog(mCurrentRocketChatAccount, this);
+            dlg->setConferenceCallInfo(callInfo);
+            if (dlg->exec()) {
+                const ConferenceCallWidget::ConferenceCallStart callInfo = dlg->conferenceCallInfo();
+
+                auto job = new RocketChatRestApi::VideoConferenceStartJob(this);
+                RocketChatRestApi::VideoConferenceStartJob::VideoConferenceStartInfo startInfo;
+                startInfo.roomId = mRoomWidgetBase->roomId();
+                startInfo.allowRinging = mRoom->hasPermission(QStringLiteral("videoconf-ring-users"));
+                job->setInfo(startInfo);
+                mCurrentRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::VideoConferenceStartJob::videoConferenceStartDone, this, [this, callInfo](const QJsonObject &obj) {
+                    // qDebug() << "obj  " << obj;
+                    // {"data":{"callId":"63949ea24ef3f3baa9658f25","providerName":"jitsi","rid":"hE6RS3iv5ND5EGWC6","type":"videoconference"},"success":true}
+                    const QString callId{obj[QLatin1String("callId")].toString()};
+                    mCurrentRocketChatAccount->videoConferenceMessageInfoManager()->addCallId(callId);
+                    auto conferenceJoinJob = new RocketChatRestApi::VideoConferenceJoinJob(this);
+                    RocketChatRestApi::VideoConferenceJoinJob::VideoConferenceJoinInfo joinInfo;
+                    joinInfo.callId = callId;
+                    joinInfo.useCamera = callInfo.useCamera;
+                    joinInfo.useMicro = callInfo.useMic;
+                    conferenceJoinJob->setInfo(joinInfo);
+                    mCurrentRocketChatAccount->restApi()->initializeRestApiJob(conferenceJoinJob);
+                    connect(conferenceJoinJob, &RocketChatRestApi::VideoConferenceJoinJob::videoConferenceJoinDone, this, [](const QJsonObject &joinObject) {
+                        // qDebug() << " join info " << obj;
+                        QDesktopServices::openUrl(QUrl(joinObject[QLatin1String("url")].toString()));
+                    });
+                    if (!conferenceJoinJob->start()) {
+                        qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
+                    }
                 });
-                if (!conferenceJoinJob->start()) {
-                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceJoinJob job";
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
                 }
-            });
-            if (!job->start()) {
-                qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
             }
+            delete dlg;
+        });
+        if (!job->start()) {
+            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start VideoConferenceCapabilitiesJob job";
         }
-        delete dlg;
     }
 }
 
