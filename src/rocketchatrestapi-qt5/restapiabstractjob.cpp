@@ -183,7 +183,7 @@ void RestApiAbstractJob::addStartRestApiInfo(const QByteArray &str)
 void RestApiAbstractJob::addLoggerWarning(const QByteArray &str)
 {
     if (mRestApiLogger) {
-        mRestApiLogger->dataSent("WARNING RESTAPI: " + str);
+        mRestApiLogger->dataSent(AbstractLogger::RESTApiType, "WARNING RESTAPI: ", str);
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "RESTAPI: " << str;
     }
