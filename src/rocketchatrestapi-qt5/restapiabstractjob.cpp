@@ -463,12 +463,6 @@ void RestApiAbstractJob::genericResponseHandler(void (RestApiAbstractJob::*respo
             return;
         }
         // TODO add support error 400
-        // TODO
-        // (this->*responseHandler)(convertToJsonDocument(mReply));
-        // const auto readAll = mReply->readAll();
-        // const auto json = QJsonDocument::fromJson(readAll).object();
-        // qDebug() <<" mReply->readAll() " << readAll;
-        // Q_EMIT failed(mReply->errorString() + QLatin1Char('\n') + errorStr(json));
         (this->*responseHandler)(mReply->errorString(), convertToJsonDocument(mReply));
     } else {
         (this->*responseHandler)(QString(), convertToJsonDocument(mReply));
