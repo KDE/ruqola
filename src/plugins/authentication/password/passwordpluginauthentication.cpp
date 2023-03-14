@@ -35,8 +35,7 @@ QString PasswordPluginAuthentication::name() const
 
 QString PasswordPluginAuthentication::iconName() const
 {
-    // TODO
-    return {};
+    return QStringLiteral("dialog-password");
 }
 
 #include "passwordpluginauthentication.moc"
