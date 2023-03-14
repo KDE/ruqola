@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-11 00:49+0000\n"
+"POT-Creation-Date: 2023-03-14 00:46+0000\n"
 "PO-Revision-Date: 2023-03-11 14:18+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -781,7 +781,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
 msgstr "Uitgeschakeld"
@@ -933,8 +933,8 @@ msgstr[1] "%1 seconden"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:171
 #, kde-format
 msgid "Nothing"
 msgstr "Niets"
@@ -970,15 +970,15 @@ msgid "Seasons"
 msgstr "Jaargetijden"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "All Messages"
 msgstr "Alle berichten"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Mentions"
 msgstr "Vermeldingen"
@@ -2239,7 +2239,7 @@ msgstr "Onzichtbare status is uitgeschakeld"
 msgid "%1 is already in use."
 msgstr "%1 is al in gebruik."
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:149
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:143
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Ongeldige parameters"
@@ -3421,6 +3421,7 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/room/roomwidget.cpp:442
 #, kde-format
 msgid "Video Conference"
 msgstr "Videoconferentie"
@@ -5772,32 +5773,32 @@ msgstr "Een oproep beginnen"
 msgid "Start"
 msgstr "Begin"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:36
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
 msgid "Camera On"
 msgstr "Camera aan"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:36
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
 msgid "Camera Off"
 msgstr "Camera uit"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:37
 #, kde-format
 msgid "Micro On"
 msgstr "Microfoon aan"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:37
 #, kde-format
 msgid "Micro Off"
 msgstr "Microfoon uit"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:43
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro"
 msgstr "Microfoon"
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:44
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:41
 #, kde-format
 msgid "Camera"
 msgstr "Camera"
@@ -7274,84 +7275,79 @@ msgstr "Wilt u het token \"%1\" verwijderen?"
 msgid "Remove Token"
 msgstr "Token verwijderen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, kde-format
 msgid "Use Emojis"
 msgstr "Emoji's gebruiken"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Ascii naar Emoji converteren"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
 msgid "Hide roles"
 msgstr "Rollen verbergen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, kde-format
 msgid "Display avatars"
 msgstr "Avatars tonen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "E-mails over aanmelddetectie ontvangen"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
 #, kde-format
 msgid "Highlight words:"
 msgstr "Woorden accentueren:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Gebruik ',' voor scheiden van woorden"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:52
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Elk woord scheiden met ','."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Bureaubladmeldingen:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Offline e-mailmelding:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
 #, kde-format
 msgid "Push notification:"
 msgstr "Push-melding:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Een e-mail ontvangen elke keer wanneer een nieuwe aanmelding met uw account "
 "wordt gedetecteerd."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View mode:"
-msgstr "Weergavemodus:"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:107
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Mijn gegevens downloaden (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Mijn gegevens exporteren (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -7360,30 +7356,15 @@ msgstr ""
 "Uw gegevensbestand zal gegenereerd worden. Een koppeling voor dit downloaden "
 "zal naar uw e-mailadres gezonden worden wanneer gereed."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download File Requested"
 msgstr "Verzocht bestand te downloaden"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Each Mentions"
 msgstr "Elke vermelding"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, kde-format
-msgid "Normal"
-msgstr "Normaal"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
-#, kde-format
-msgid "Cozy"
-msgstr "Knus"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
-#, kde-format
-msgid "Compact"
-msgstr "Compact"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -7959,15 +7940,21 @@ msgstr "In een discussie antwoorden"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "In discussiebundeling antwoorden op bericht: '%1'"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Wilt u de geschiedenis verwijderen?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, kde-format
 msgid "Remove History"
 msgstr "Geschiedenis verwijderen"
+
+#: widgets/room/roomwidget.cpp:442
+#, kde-format
+msgid ""
+"A workspace admin needs to install and configure a conference call apps."
+msgstr ""
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
@@ -8555,6 +8542,18 @@ msgstr "Belangrijke wijzigingen sinds de laatste versie:"
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
+
+#~ msgid "View mode:"
+#~ msgstr "Weergavemodus:"
+
+#~ msgid "Normal"
+#~ msgstr "Normaal"
+
+#~ msgid "Cozy"
+#~ msgstr "Knus"
+
+#~ msgid "Compact"
+#~ msgstr "Compact"
 
 #~ msgid "Room is Empty."
 #~ msgstr "Room is leeg."

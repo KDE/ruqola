@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-11 00:49+0000\n"
+"POT-Creation-Date: 2023-03-14 00:46+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -813,7 +813,7 @@ msgid "Role"
 msgstr ""
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
 msgstr ""
@@ -975,8 +975,8 @@ msgstr[3] ""
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:171
 #, kde-format
 msgid "Nothing"
 msgstr ""
@@ -1012,15 +1012,15 @@ msgid "Seasons"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "All Messages"
 msgstr ""
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Mentions"
 msgstr ""
@@ -2303,7 +2303,7 @@ msgstr "Naudotojų registracija yra išjungta"
 msgid "%1 is already in use."
 msgstr "Naudotojas jau yra savininkas"
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:149
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:143
 #, fuzzy, kde-format
 #| msgid "Encrypted message: %1"
 msgid "Invalid parameters"
@@ -3586,6 +3586,7 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
+#: widgets/room/roomwidget.cpp:442
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5879,32 +5880,32 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:36
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
 msgid "Camera On"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:36
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:33
 #, kde-format
 msgid "Camera Off"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:37
 #, kde-format
 msgid "Micro On"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:37
 #, kde-format
 msgid "Micro Off"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:43
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:40
 #, kde-format
 msgid "Micro"
 msgstr ""
 
-#: widgets/conferencecalldialog/conferencecallwidget.cpp:44
+#: widgets/conferencecalldialog/conferencecallwidget.cpp:41
 #, kde-format
 msgid "Camera"
 msgstr ""
@@ -7463,117 +7464,97 @@ msgstr "Ar norite ištrinti šį kambarį?"
 msgid "Remove Token"
 msgstr "Šalinti iš kambario"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Use Emojis"
 msgstr "Tinkinta naudotojo būsena"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Hide Room"
 msgid "Hide roles"
 msgstr "Slėpti kambarį"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Password"
 msgid "Display avatars"
 msgstr "Slaptažodis"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Receive login detection emails"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
 #, kde-format
 msgid "Highlight words:"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:52
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Separate each word with ','."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Desktop notification:"
 msgstr "Tapatybės nustatymo metodas"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Offline Email notification:"
 msgstr "Tapatybės nustatymo metodas"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Authentication Method"
 msgid "Push notification:"
 msgstr "Tapatybės nustatymo metodas"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View mode:"
-msgstr ""
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:107
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
 "email address when ready."
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download File Requested"
 msgstr ""
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Each Mentions"
-msgstr ""
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, kde-format
-msgid "Normal"
-msgstr ""
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
-#, kde-format
-msgid "Cozy"
-msgstr ""
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
-#, kde-format
-msgid "Compact"
 msgstr ""
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
@@ -8196,17 +8177,23 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/roomwidget.cpp:233
+#: widgets/room/roomwidget.cpp:234
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:235
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove History"
 msgstr "Šalinti"
+
+#: widgets/room/roomwidget.cpp:442
+#, kde-format
+msgid ""
+"A workspace admin needs to install and configure a conference call apps."
+msgstr ""
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
