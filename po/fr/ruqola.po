@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 03:03+0000\n"
+"POT-Creation-Date: 2023-03-14 02:53+0000\n"
 "PO-Revision-Date: 2023-01-24 19:35+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -784,7 +784,7 @@ msgid "Role"
 msgstr "Rôle"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
 msgstr "Désactivé"
@@ -940,8 +940,8 @@ msgstr[1] "%1 secondes"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:171
 #, kde-format
 msgid "Nothing"
 msgstr "Rien"
@@ -977,15 +977,15 @@ msgid "Seasons"
 msgstr "Saisons"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "All Messages"
 msgstr "Tous les messages"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Mentions"
 msgstr "Mentions"
@@ -3351,7 +3351,7 @@ msgstr "Le status invisible est désactivé"
 msgid "%1 is already in use."
 msgstr "%1 est déjà en cours d'utilisation."
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:149
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:147
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Paramètres non valables"
@@ -8054,84 +8054,79 @@ msgstr "Voulez-vous vraiment supprimer le jeton « %1 » ?"
 msgid "Remove Token"
 msgstr "Supprimer un jeton"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, kde-format
 msgid "Use Emojis"
 msgstr "Utiliser des émoticônes"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "Convertir de l'ASCII vers des émoticônes"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, kde-format
 msgid "Hide roles"
 msgstr "Masquer les rôles"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, kde-format
 msgid "Display avatars"
 msgstr "Afficher des avatars"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Recevoir les courriels de détection de connexion"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
 #, kde-format
 msgid "Highlight words:"
 msgstr "Surlignage des mots :"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Utiliser « , » pour la séparation des mots"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:52
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Séparer chaque mot avec « , »"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, kde-format
 msgid "Desktop notification:"
 msgstr "Notification de bureau :"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, kde-format
 msgid "Offline Email notification:"
 msgstr "Notification de courriel hors ligne :"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
 #, kde-format
 msgid "Push notification:"
 msgstr "Notification d'envoi :"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr ""
 "Recevoir un courriel à chaque fois qu'une nouvelle connexion est détectée "
 "pour votre compte."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, kde-format
-msgid "View mode:"
-msgstr "Mode d'affichage :"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:107
 #, kde-format
 msgid "Download my Data (HTML)"
 msgstr "Télécharger mes données (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, kde-format
 msgid "Export my Data (JSON)"
 msgstr "Exporter mes données (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8140,30 +8135,15 @@ msgstr ""
 "Votre fichier de données sera généré. Un lien pour le télécharger vous sera "
 "envoyé à votre adresse électronique lorsqu'il sera prêt."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download File Requested"
 msgstr "Télécharger le fichier demandé"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Each Mentions"
 msgstr "Chaque mention"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, kde-format
-msgid "Normal"
-msgstr "Normal"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
-#, kde-format
-msgid "Cozy"
-msgstr "Élégant"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
-#, kde-format
-msgid "Compact"
-msgstr "Synthétique"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -9210,6 +9190,18 @@ msgstr "Informations sur le compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Renvoyer le numéro du compte."
+
+#~ msgid "View mode:"
+#~ msgstr "Mode d'affichage :"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Cozy"
+#~ msgstr "Élégant"
+
+#~ msgid "Compact"
+#~ msgstr "Synthétique"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"

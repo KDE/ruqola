@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-10 03:03+0000\n"
+"POT-Creation-Date: 2023-03-14 02:53+0000\n"
 "PO-Revision-Date: 2023-02-08 21:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -793,7 +793,7 @@ msgid "Role"
 msgstr "Rol"
 
 #: core/model/adminusersmodel.cpp:114 core/model/adminusersmodel.cpp:160
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:184
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
 #, kde-format
 msgid "Disabled"
 msgstr "Devre Dışı"
@@ -949,8 +949,8 @@ msgstr[1] "%1 saniye"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:54
 #: core/model/notificationpreferencemodel.cpp:63
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:175
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:180
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:171
 #, kde-format
 msgid "Nothing"
 msgstr "Hiçbir şey"
@@ -986,15 +986,15 @@ msgid "Seasons"
 msgstr "Mevsimler"
 
 #: core/model/notificationpreferencemodel.cpp:51
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:173
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:178
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:164
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:169
 #, kde-format
 msgid "All Messages"
 msgstr "Tüm İletiler"
 
 #: core/model/notificationpreferencemodel.cpp:57
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:179
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:165
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:170
 #, kde-format
 msgid "Mentions"
 msgstr "Değinmeler"
@@ -3325,7 +3325,7 @@ msgstr "Görünmez durumu devre dışı"
 msgid "%1 is already in use."
 msgstr "%1, halihazırda kullanımda."
 
-#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:149
+#: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:147
 #, kde-format
 msgid "Invalid parameters"
 msgstr "Geçersiz parametreler"
@@ -7998,91 +7998,85 @@ msgstr "\"%1\" jetonunu silmek istediğinize emin misiniz?"
 msgid "Remove Token"
 msgstr "Jetonu Kaldır"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:29
 #, fuzzy, kde-format
 #| msgid "Use Emoji"
 msgid "Use Emojis"
 msgstr "Emoji Kullan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:30
 #, kde-format
 msgid "Convert Ascii to Emoji"
 msgstr "ASCII'yi Emojiye Dönüştür"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:31
 #, fuzzy, kde-format
 #| msgid "Hide Roles"
 msgid "Hide roles"
 msgstr "Rolleri Gizle"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:32
 #, fuzzy, kde-format
 #| msgid "Display Avatars"
 msgid "Display avatars"
 msgstr "Avatarları Göster"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:34
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:33
 #, kde-format
 msgid "Receive login detection emails"
 msgstr "Oturum açmayı algılama e-postalarını al"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:44
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:43
 #, kde-format
 msgid "Highlight words:"
 msgstr "Sözcükleri vurgula:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:50
 #, kde-format
 msgid "Use ',' for separating words"
 msgstr "Sözcükleri ayırmak için ',' kullan"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:52
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:51
 #, kde-format
 msgid "Separate each word with ','."
 msgstr "Her bir sözcüğü ',' ile ayır."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:61
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:59
 #, fuzzy, kde-format
 #| msgid "Desktop Notification:"
 msgid "Desktop notification:"
 msgstr "Masaüstü Bildirimi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:68
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:66
 #, fuzzy, kde-format
 #| msgid "Offline Email Notification:"
 msgid "Offline Email notification:"
 msgstr "Çevrimdişi E-posta Bildirimi:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:75
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:73
 #, fuzzy, kde-format
 #| msgid "Push Notification:"
 msgid "Push notification:"
 msgstr "Anlık Bildirim:"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:83
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:81
 #, kde-format
 msgid "Receive an email each time a new login is detected on your account."
 msgstr "Hesabınıza yeni bir oturum açıldığında bir e-posta bildirimi alın."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:87
-#, fuzzy, kde-format
-#| msgid "View Mode:"
-msgid "View mode:"
-msgstr "Görünüm Kipi:"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:116
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:107
 #, fuzzy, kde-format
 #| msgid "Download My Data (HTML)"
 msgid "Download my Data (HTML)"
 msgstr "Verimi İndir (HTML)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:123
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:114
 #, fuzzy, kde-format
 #| msgid "Export My Data (JSON)"
 msgid "Export my Data (JSON)"
 msgstr "Verimi Dışa Aktar (JSON)"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:166
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:157
 #, kde-format
 msgid ""
 "Your data file will be generated. A link to download it will be sent to your "
@@ -8091,30 +8085,15 @@ msgstr ""
 "Veri dosyanız üretilecek. Hazır olduğunda, indirmeniz için e-posta "
 "adresinize bir bağlantı gönderilecektir."
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:167
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:158
 #, kde-format
 msgid "Download File Requested"
 msgstr "Dosya İndirme İstendi"
 
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:183
+#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:174
 #, kde-format
 msgid "Each Mentions"
 msgstr "Her Bir Değinmeler"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:186
-#, kde-format
-msgid "Normal"
-msgstr "Olağan"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:187
-#, kde-format
-msgid "Cozy"
-msgstr "Rahat"
-
-#: widgets/myaccount/myaccountpreferenceconfigurewidget.cpp:188
-#, kde-format
-msgid "Compact"
-msgstr "Sıkışık"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
 #, kde-format
@@ -9163,6 +9142,20 @@ msgstr "Hesap bilgisi"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Hesabın numarasını döndür."
+
+#, fuzzy
+#~| msgid "View Mode:"
+#~ msgid "View mode:"
+#~ msgstr "Görünüm Kipi:"
+
+#~ msgid "Normal"
+#~ msgstr "Olağan"
+
+#~ msgid "Cozy"
+#~ msgstr "Rahat"
+
+#~ msgid "Compact"
+#~ msgstr "Sıkışık"
 
 #~ msgctxt "NAME OF TRANSLATORS"
 #~ msgid "Your names"
