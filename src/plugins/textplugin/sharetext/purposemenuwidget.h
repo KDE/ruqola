@@ -29,6 +29,6 @@ private:
     void slotInitializeShareMenu();
     void slotShareActionFinished(const QJsonObject &output, int error, const QString &message);
     QString mSelectedText;
-    Purpose::Menu *mShareMenu = nullptr;
+    Purpose::Menu *const mShareMenu;
     QTemporaryFile *mTemporaryShareFile = nullptr;
 };
