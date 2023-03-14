@@ -95,6 +95,8 @@ QString ChannelsConvertToTeamJob::generateErrorMessage(const QString &errorStr) 
 {
     if (errorStr == QLatin1String("unauthorized")) {
         return i18n("Channel can not convert to Team.");
+    } else if (errorStr == QLatin1String("team-name-already-exists")) {
+        return i18n("Team already exists.");
     }
     return RestApiAbstractJob::generateErrorMessage(errorStr);
 }
