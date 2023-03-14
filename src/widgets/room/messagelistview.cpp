@@ -226,8 +226,16 @@ void MessageListView::createTranslorMenu()
 
 void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 {
+    if (!mRoom) {
+        return;
+    }
     const QModelIndex index = indexAt(event->pos());
-    if (!index.isValid() || !mRoom) {
+    if (!index.isValid()) {
+        if (Ruqola::self()->debug()) {
+            QMenu menu(this);
+            addDebugMenu(menu, index);
+            menu.exec(event->globalPos());
+        }
         return;
     }
 
@@ -512,12 +520,14 @@ void MessageListView::contextMenuEvent(QContextMenuEvent *event)
 void MessageListView::addDebugMenu(QMenu &menu, const QModelIndex &index)
 {
     createSeparator(menu);
-    auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
-    connect(debugMessageAction, &QAction::triggered, this, [=]() {
-        slotDebugMessage(index);
-    });
-    menu.addAction(debugMessageAction);
-    createSeparator(menu);
+    if (index.isValid()) {
+        auto debugMessageAction = new QAction(QStringLiteral("Dump Message"), &menu); // Don't translate it.
+        connect(debugMessageAction, &QAction::triggered, this, [=]() {
+            slotDebugMessage(index);
+        });
+        menu.addAction(debugMessageAction);
+        createSeparator(menu);
+    }
     auto debugRoomAction = new QAction(QStringLiteral("Dump Room"), &menu); // Don't translate it.
     connect(debugRoomAction, &QAction::triggered, this, [=]() {
         // Dump info about room => don't use qCDebug here.
