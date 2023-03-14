@@ -7,6 +7,7 @@
 #include "teamslistroomsjob.h"
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
+#include <KLocalizedString>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -84,4 +85,12 @@ bool TeamsListRoomsJob::canStart() const
         return false;
     }
     return true;
+}
+
+QString TeamsListRoomsJob::generateErrorMessage(const QString &errorStr) const
+{
+    if (errorStr == QLatin1String("team-does-not-exist")) {
+        return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any teams");
+    }
+    return RestApiAbstractJob::generateErrorMessage(errorStr);
 }

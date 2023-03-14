@@ -436,6 +436,8 @@ QString RestApiAbstractJob::errorMessage(const QString &str, const QJsonObject &
         return i18n("Two Authentication Password Required");
     } else if (str == QLatin1String("totp-invalid")) {
         return i18n("Invalid Password");
+    } else if (str == QLatin1String("error-room-not-found")) {
+        return i18n("The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not match any channel");
     } else {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << " unknown error type " << str;
         return {};
