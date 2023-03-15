@@ -6,7 +6,6 @@
 #include "channelsearchnamelineedit.h"
 #include "common/completionlistview.h"
 #include "connection.h"
-#include "misc/directoryjob.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include "model/channelcompleterfilterproxymodel.h"
 #include "model/channelcompletermodel.h"
@@ -32,15 +31,17 @@ ChannelSearchNameLineEdit::~ChannelSearchNameLineEdit() = default;
 void ChannelSearchNameLineEdit::slotTextChanged(const QString &text)
 {
     if (!text.trimmed().isEmpty()) {
-        auto job = new RocketChatRestApi::DirectoryJob(this);
-        RocketChatRestApi::DirectoryJob::DirectoryInfo info;
-        info.pattern = text;
-        info.searchType = RocketChatRestApi::DirectoryJob::Rooms;
-        job->setDirectoryInfo(info);
+        auto job = new RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob(this);
+        RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo info;
+        info.name = text;
+        job->setRoomsCompleterInfo(info);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
-        connect(job, &RocketChatRestApi::DirectoryJob::directoryDone, this, &ChannelSearchNameLineEdit::slotSearchDone);
+        connect(job,
+                &RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob::roomsAutoCompleteChannelAndPrivateDone,
+                this,
+                &ChannelSearchNameLineEdit::slotSearchDone);
         if (!job->start()) {
-            qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start searchRoomUser job";
+            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoomsAutocompleteChannelAndPrivateJob";
         }
     } else {
         mChannelCompleterModel->clear();
@@ -51,7 +52,7 @@ void ChannelSearchNameLineEdit::slotSearchDone(const QJsonObject &obj)
 {
     Channel c;
     QVector<Channel> channelList;
-    const QJsonArray rooms = obj.value(QLatin1String("result")).toArray();
+    const QJsonArray rooms = obj.value(QLatin1String("items")).toArray();
     const auto roomsSize(rooms.size());
     channelList.reserve(roomsSize);
     for (auto i = 0; i < roomsSize; i++) {
