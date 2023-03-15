@@ -27,6 +27,9 @@ ConfirmPasswordWidget::ConfirmPasswordWidget(QWidget *parent)
     mPasswordLineEdit->setObjectName(QStringLiteral("mPasswordLineEdit"));
     mainLayout->addWidget(mPasswordLineEdit);
     mPasswordLineEdit->setRevealPasswordAvailable(KAuthorized::authorize(QStringLiteral("lineedit_reveal_password")));
+    connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, [this](const QString &password) {
+        Q_EMIT enabledOkButton(!password.isEmpty());
+    });
 }
 
 ConfirmPasswordWidget::~ConfirmPasswordWidget() = default;

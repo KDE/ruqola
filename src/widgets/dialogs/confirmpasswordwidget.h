@@ -18,6 +18,9 @@ public:
 
     Q_REQUIRED_RESULT QString password() const;
 
+Q_SIGNALS:
+    void enabledOkButton(bool enabled);
+
 private:
     KPasswordLineEdit *const mPasswordLineEdit;
 };

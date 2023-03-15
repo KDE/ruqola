@@ -9,6 +9,7 @@
 
 #include <KLocalizedString>
 #include <QDialogButtonBox>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
@@ -27,6 +28,11 @@ ConfirmPasswordDialog::ConfirmPasswordDialog(QWidget *parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &ConfirmPasswordDialog::reject);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &ConfirmPasswordDialog::accept);
     mainLayout->addWidget(buttonBox);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setEnabled(false);
+    connect(mConfirmPasswordWidget, &ConfirmPasswordWidget::enabledOkButton, [okButton](bool enabled) {
+        okButton->setEnabled(enabled);
+    });
 }
 
 ConfirmPasswordDialog::~ConfirmPasswordDialog() = default;
