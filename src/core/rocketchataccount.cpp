@@ -882,26 +882,11 @@ void RocketChatAccount::roomsAutocomplete(const QString &searchText, const QStri
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     userCompleterModel()->clear();
-    if (mRuqolaServerConfig->hasAtLeastVersion(2, 4, 0)) {
-        if (!searchText.isEmpty()) {
-            RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
-            info.pattern = searchText;
-            info.exception = exception;
-            restApi()->usersAutocomplete(info);
-        }
-    } else {
-        // Clear before to create new search
-        rocketChatBackend()->clearUsersList();
-        if (!searchText.isEmpty()) {
-            // Avoid to show own user
-            QString addUserNameToException;
-            if (exception.isEmpty()) {
-                addUserNameToException = userName();
-            } else {
-                addUserNameToException = exception + QLatin1Char(',') + userName();
-            }
-            ddp()->userAutocomplete(searchText, addUserNameToException);
-        }
+    if (!searchText.isEmpty()) {
+        RocketChatRestApi::UsersAutocompleteJob::UsersAutocompleterInfo info;
+        info.pattern = searchText;
+        info.exception = exception;
+        restApi()->usersAutocomplete(info);
     }
 }
 
