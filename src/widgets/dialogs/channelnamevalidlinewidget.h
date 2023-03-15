@@ -26,4 +26,5 @@ private:
     void slotChannelIsValid(ChannelNameValidLineEdit::ChannelNameStatus isValid);
     ChannelNameValidLineEdit *const mChannelNameValidLineEdit;
     QLabel *const mChannelNameLabel;
+    QString mValidCharacters;
 };

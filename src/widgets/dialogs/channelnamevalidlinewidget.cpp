@@ -39,6 +39,9 @@ ChannelNameValidLineWidget::ChannelNameValidLineWidget(RocketChatAccount *accoun
     mChannelNameLabel->hide();
     mainLayout->addWidget(mChannelNameLabel);
     connect(mChannelNameValidLineEdit, &ChannelNameValidLineEdit::channelIsValid, this, &ChannelNameValidLineWidget::slotChannelIsValid);
+    if (account) {
+        mValidCharacters = account->ruqolaServerConfig()->channelNameValidation();
+    }
 }
 
 ChannelNameValidLineWidget::~ChannelNameValidLineWidget() = default;
@@ -62,7 +65,8 @@ void ChannelNameValidLineWidget::slotChannelIsValid(ChannelNameValidLineEdit::Ch
         break;
     case ChannelNameValidLineEdit::ChannelNameStatus::InvalidCharacters:
         isValid = false;
-        mChannelNameLabel->setText(i18n("Invalid characters found."));
+        mChannelNameLabel->setText(mValidCharacters.isEmpty() ? i18n("Invalid characters found.")
+                                                              : i18n("Invalid characters found. (Valid characters: %1)", mValidCharacters));
         mChannelNameLabel->setHidden(false);
         break;
     }
