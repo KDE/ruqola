@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -1411,13 +1411,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "檢舉訊息"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6254,14 +6254,19 @@ msgstr ""
 msgid "Maximum message age in days (default: 300):"
 msgstr ""
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr ""
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, kde-format
 msgid "Invalid characters found."
+msgstr ""
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, kde-format
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr ""
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6345,7 +6350,7 @@ msgstr "提示："
 msgid "Sound:"
 msgstr "聲音："
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, fuzzy, kde-format
 #| msgid "Password:"
 msgctxt "@title:window"

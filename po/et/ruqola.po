@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1428,13 +1428,13 @@ msgstr "<strong>%1</strong> kirjutab ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6343,16 +6343,22 @@ msgstr ""
 msgid "Maximum message age in days (default: 300):"
 msgstr ""
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, fuzzy, kde-format
 #| msgid "User is already an owner"
 msgid "%1 name is already used."
 msgstr "Kasutaja on juba omanik"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Invalid date provided."
 msgid "Invalid characters found."
+msgstr "Vigane kuupäev."
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid date provided."
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Vigane kuupäev."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6436,7 +6442,7 @@ msgstr "Häire:"
 msgid "Sound:"
 msgstr "Heli:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, fuzzy, kde-format
 #| msgid "Channel Password:"
 msgctxt "@title:window"

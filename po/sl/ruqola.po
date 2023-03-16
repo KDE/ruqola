@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
-"PO-Revision-Date: 2023-03-12 08:32+0100\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"PO-Revision-Date: 2023-03-15 07:22+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
@@ -1342,12 +1342,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -2169,12 +2169,13 @@ msgid "Invalid Password"
 msgstr "Neveljavno geslo"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "Zahtevani parameter »%1« se ne ujema z nobenim kanalom"
+msgstr ""
+"Zahtevani in dani parameter \\\"roomId\\\" ali \\\"roomName\\\" se ne ujema "
+"z nobenim kanalom"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2202,10 +2203,9 @@ msgid "Channel can not convert to Team."
 msgstr "Kanala ni mogoče pretvoriti v ekipo."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Žeton s tem imenom že obstaja"
+msgstr "Ekipa že obstaja."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2213,12 +2213,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Nimate pravic za dodajanje tega kanala ekipi"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "Zahtevani parameter »%1« se ne ujema z nobenim kanalom"
+msgstr ""
+"Zahtevani in dani parameter \\\"roomId\\\" ali \\\"roomName\\\" se ne ujema "
+"z nobeno ekipo"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -6105,14 +6106,20 @@ msgstr "Klešči"
 msgid "Maximum message age in days (default: 300):"
 msgstr "Največja starost sporočila v dneh (privzeto: 300):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr "Ime %1 je že v uporabi."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, kde-format
 msgid "Invalid characters found."
+msgstr "Najdeni neveljavni znaki."
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid characters found."
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Najdeni neveljavni znaki."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6191,7 +6198,7 @@ msgstr "Opozorilo:"
 msgid "Sound:"
 msgstr "Zvok:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
@@ -7962,6 +7969,8 @@ msgstr "Odstrani zgodovino"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
+"Skrbnik delovnega prostora mora namestiti in konfigurirati aplikacije "
+"konferenčnih klicev."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format

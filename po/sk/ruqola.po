@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -1413,13 +1413,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -6256,15 +6256,21 @@ msgstr ""
 msgid "Maximum message age in days (default: 300):"
 msgstr ""
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr ""
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, fuzzy, kde-format
 #| msgid "Invalid email address"
 msgid "Invalid characters found."
+msgstr "Neplatná e-mailová adresa"
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid email address"
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Neplatná e-mailová adresa"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6350,7 +6356,7 @@ msgstr "Varovanie:"
 msgid "Sound:"
 msgstr "Zvuk:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, fuzzy, kde-format
 #| msgid "Channel Password"
 msgctxt "@title:window"

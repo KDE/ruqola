@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
-"PO-Revision-Date: 2023-03-14 08:34+0200\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"PO-Revision-Date: 2023-03-15 07:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1345,12 +1345,12 @@ msgstr "<strong>%1</strong> вводить текст…"
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> вводить текст…"
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, kde-format
 msgid "Export Messages"
 msgstr "Експортувати повідомлення"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Вашу електронну пошту додано до черги надсилання."
@@ -2183,12 +2183,13 @@ msgid "Invalid Password"
 msgstr "Некоректний пароль"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "Вказаний обов'язковий параметр «%1» не відповідає жодному каналу"
+msgstr ""
+"Вказаний обов'язковий параметр «roomId» або «roomName» не відповідає жодному "
+"каналу"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2216,10 +2217,9 @@ msgid "Channel can not convert to Team."
 msgstr "Не вдалося перетворити канал на команду."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Жетон із такою назвою вже існує"
+msgstr "Така команда вже існує."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2228,12 +2228,13 @@ msgstr ""
 "У вас немає достатніх прав доступу для додавання цього каналу до команди"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "Вказаний обов'язковий параметр «%1» не відповідає жодному каналу"
+msgstr ""
+"Вказаний обов'язковий параметр «roomId» або «roomName» не відповідає жодній "
+"команді"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -6152,14 +6153,20 @@ msgstr "Спрощення"
 msgid "Maximum message age in days (default: 300):"
 msgstr "Максимальний вік повідомлення у днях (типове значення — 300):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr "Назву %1 вже використано."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, kde-format
 msgid "Invalid characters found."
+msgstr "Виявлено некоректні символи."
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid characters found."
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Виявлено некоректні символи."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6238,7 +6245,7 @@ msgstr "Попередження:"
 msgid "Sound:"
 msgstr "Звук:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"

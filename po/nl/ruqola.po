@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
-"PO-Revision-Date: 2023-03-14 14:17+0100\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"PO-Revision-Date: 2023-03-15 18:22+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1341,12 +1341,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -2180,12 +2180,13 @@ msgid "Invalid Password"
 msgstr "Ongeldig wachtwoord"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "De vereiste geleverde parameter '%1' komt niet overeen met een kanaal"
+msgstr ""
+"De vereiste geleverde parameter \\\"roomId\\\" of \\\"roomName\\\" komt met "
+"geen enkel kanaal overeen"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2213,10 +2214,9 @@ msgid "Channel can not convert to Team."
 msgstr "Kanaal kan niet converteren naar team "
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Een token met deze naam bestaat al"
+msgstr "Team bestaat al."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2224,12 +2224,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "U hebt geen toestemming om dit kanaal aan het team toe te voegen"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "De vereiste geleverde parameter '%1' komt niet overeen met een kanaal"
+msgstr ""
+"De vereiste geleverde parameter \\\"roomId\\\" of \\\"roomName\\\" komt met "
+"geen enkel team overeen"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -6136,14 +6137,20 @@ msgstr "Rommel verwijderen"
 msgid "Maximum message age in days (default: 300):"
 msgstr "Maximale leeftijd van bericht in dagen (standaard: 300):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr "Naam %1 is al in gebruik."
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, kde-format
 msgid "Invalid characters found."
+msgstr "Ongeldig teken-gevonden."
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid characters found."
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Ongeldig teken-gevonden."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6222,7 +6229,7 @@ msgstr "Attentie:"
 msgid "Sound:"
 msgstr "Geluid:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"

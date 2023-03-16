@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-15 00:47+0000\n"
-"PO-Revision-Date: 2023-03-03 12:11+0100\n"
+"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"PO-Revision-Date: 2023-03-15 23:24+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -1008,7 +1008,7 @@ msgstr "Authentication a duo factores"
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "Ultime parte de indicio"
 
 #: core/model/roommodel.cpp:443
 #, kde-format
@@ -1335,12 +1335,12 @@ msgstr "<strong>%1</strong> es typante ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> es typante..."
 
-#: core/rocketchataccount.cpp:2875
+#: core/rocketchataccount.cpp:2860
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta Messages "
 
-#: core/rocketchataccount.cpp:2876
+#: core/rocketchataccount.cpp:2861
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Tu e-posta ha essite ponite in cauda pro inviar."
@@ -1412,7 +1412,7 @@ msgstr "Omnicanal"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Mancante information de traductor. Il es un bug"
 
 #: core/user.cpp:202
 #, kde-format
@@ -1433,7 +1433,7 @@ msgstr "Bot(Robot)"
 #: core/videoconference/videoconferenceinfo.cpp:286
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "Appello non esseva respondite"
 
 #: core/videoconference/videoconferenceinfo.cpp:288
 #, kde-format
@@ -1443,12 +1443,12 @@ msgstr ""
 #: core/videoconference/videoconferenceinfo.cpp:292
 #, kde-format
 msgid "Waiting for answer"
-msgstr ""
+msgstr "Attendente un responsa"
 
 #: core/videoconference/videoconferenceinfo.cpp:294
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Appello in arrivata"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:51
 #, kde-format
@@ -3093,13 +3093,13 @@ msgstr "Contrasigno:"
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:57
 #, kde-format
 msgid "Bio:"
-msgstr ""
+msgstr "Bio:"
 
 #: widgets/administratordialog/users/administratorinviteusersdialog.cpp:18
 #, kde-format
 msgctxt "@title:window"
 msgid "Send Emails Invite"
-msgstr ""
+msgstr "Invia invitos de eposta"
 
 #: widgets/administratordialog/users/administratorinviteuserswidget.cpp:21
 #, kde-format
@@ -3200,22 +3200,22 @@ msgstr "Clave TOTP per %1 ha essite refixate"
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:17
 #, kde-format
 msgid "Allow Name Change"
-msgstr ""
+msgstr "Permitte modification de nomine"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:18
 #, kde-format
 msgid "Allow User Profile Change"
-msgstr ""
+msgstr "Permitte modification de profilo de usator"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:19
 #, kde-format
 msgid "Allow User Avatar Change"
-msgstr ""
+msgstr "Permitte modification de Avatar de usator"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:20
 #, kde-format
 msgid "Allow Email Change"
-msgstr ""
+msgstr "Permitte modification de eposta"
 
 #: widgets/administratorsettingsdialog/accounts/accountsettingswidget.cpp:21
 #, kde-format
@@ -3499,12 +3499,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:127
 #, kde-format
 msgid "WebRTC"
-msgstr ""
+msgstr "WebRTC"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:128
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:130
 #, kde-format
@@ -3565,7 +3565,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:58
 #, kde-format
 msgid "Tracking ID"
-msgstr ""
+msgstr "Traciante ID"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:60
 #, kde-format
@@ -3762,7 +3762,7 @@ msgstr "smtp"
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:47
 #, kde-format
 msgid "smtps"
-msgstr ""
+msgstr "smtps"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:56
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:44
@@ -3970,17 +3970,17 @@ msgstr ""
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:66
 #, kde-format
 msgid "GridFS"
-msgstr ""
+msgstr "GridFS"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:67
 #, kde-format
 msgid "AmazonS3"
-msgstr ""
+msgstr "AmazonS3"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:68
 #, kde-format
 msgid "GoogleCloudStorage"
-msgstr ""
+msgstr "GoogleCloudStorage"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:69
 #, kde-format
@@ -4226,7 +4226,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:34
 #, kde-format
 msgid "RFC2813"
-msgstr ""
+msgstr "RFC2813"
 
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:42
 #, kde-format
@@ -4777,7 +4777,7 @@ msgstr "Twitter"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:101
 #, kde-format
 msgid "Twitter Id"
-msgstr ""
+msgstr "Id de Twitter"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:104
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:107
@@ -4793,7 +4793,7 @@ msgstr "LinkedIn"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
 msgid "LinkedIn Id"
-msgstr ""
+msgstr "Id de LinkedIn"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:121
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:124
@@ -4819,12 +4819,12 @@ msgstr "Servicios de proxy"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:137
 #, kde-format
 msgid "Meteor"
-msgstr ""
+msgstr "Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:146
 #, kde-format
 msgid "Meteor Id"
-msgstr ""
+msgstr "Id de Meteor"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:149
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:152
@@ -4840,7 +4840,7 @@ msgstr "Facebook"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:164
 #, kde-format
 msgid "Facebook Id"
-msgstr ""
+msgstr "Id de Facebook"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:167
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:170
@@ -4856,7 +4856,7 @@ msgstr "Github"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:182
 #, kde-format
 msgid "Github Id"
-msgstr ""
+msgstr "Id de Github"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:185
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:188
@@ -5374,12 +5374,12 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:27
 #, kde-format
 msgid "Always Open in New Window"
-msgstr ""
+msgstr "Aperi sempre in nove fenestra"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:25
 #, kde-format
 msgid "Enable room name hash"
-msgstr ""
+msgstr "Habilita hash de nomine de sala"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
 #, kde-format
@@ -5962,14 +5962,20 @@ msgstr "Puta"
 msgid "Maximum message age in days (default: 300):"
 msgstr "Etate maxime de message in dies (predefinite: 300):"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:59
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
 msgid "%1 name is already used."
 msgstr "%1 nomine  ja es in uso"
 
-#: widgets/dialogs/channelnamevalidlinewidget.cpp:65
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:68
 #, kde-format
 msgid "Invalid characters found."
+msgstr "Characteres  invalide trovate."
+
+#: widgets/dialogs/channelnamevalidlinewidget.cpp:69
+#, fuzzy, kde-format
+#| msgid "Invalid characters found."
+msgid "Invalid characters found. (Valid characters: %1)"
 msgstr "Characteres  invalide trovate."
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
@@ -6048,7 +6054,7 @@ msgstr "Alerta:"
 msgid "Sound:"
 msgstr "Sono:"
 
-#: widgets/dialogs/confirmpassworddialog.cpp:18
+#: widgets/dialogs/confirmpassworddialog.cpp:19
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Password"
@@ -6723,8 +6729,7 @@ msgstr[0] "%1 Discussion in sala (Total: %2)"
 msgstr[1] "%1 Discussiones in sala (Total: %2)"
 
 #: widgets/explorepermissionsdialog/explorepermissionsdialog.cpp:24
-#, fuzzy, kde-format
-#| msgid "Permissions"
+#, kde-format
 msgctxt "@title:window"
 msgid "Permissions"
 msgstr "Permissiones"
