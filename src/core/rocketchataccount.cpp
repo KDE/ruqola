@@ -535,10 +535,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::getSupportedLanguagesDone, this, &RocketChatAccount::slotGetSupportedLanguagesDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersPresenceDone, this, &RocketChatAccount::slotUsersPresenceDone);
         connect(mRestApi, &RocketChatRestApi::Connection::usersAutocompleteDone, this, &RocketChatAccount::slotUserAutoCompleterDone);
-        connect(mRestApi,
-                &RocketChatRestApi::Connection::roomsAutoCompleteChannelAndPrivateDone,
-                this,
-                &RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone);
         connect(mRestApi, &RocketChatRestApi::Connection::listCommandsDone, this, &RocketChatAccount::slotListCommandDone);
         connect(mRestApi, &RocketChatRestApi::Connection::registerUserDone, this, &RocketChatAccount::slotRegisterUserDone);
         connect(mRestApi, &RocketChatRestApi::Connection::channelGetCountersDone, this, &RocketChatAccount::slotChannelGetCountersDone);
@@ -871,14 +867,6 @@ void RocketChatAccount::insertCompleterUsers()
     userCompleterModel()->insertUsers(rocketChatBackend()->users());
 }
 
-void RocketChatAccount::roomsAutocomplete(const QString &searchText, const QString &exception)
-{
-    RocketChatRestApi::RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo info;
-    info.name = searchText;
-    info.exception = exception;
-    restApi()->roomsAutocomplete(info);
-}
-
 void RocketChatAccount::userAutocomplete(const QString &searchText, const QString &exception)
 {
     userCompleterModel()->clear();
@@ -1043,12 +1031,6 @@ void RocketChatAccount::slotUserAutoCompleterDone(const QJsonObject &obj)
 {
     const QVector<User> users = User::parseUsersList(obj, roleInfo());
     mUserCompleterModel->insertUsers(users);
-}
-
-void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)
-{
-    qDebug() << " void RocketChatAccount::slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj)" << obj;
-    // TODO
 }
 
 User::PresenceStatus RocketChatAccount::presenceStatus() const

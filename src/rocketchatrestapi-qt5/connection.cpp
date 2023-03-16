@@ -1832,17 +1832,6 @@ void Connection::usersAutocomplete(const UsersAutocompleteJob::UsersAutocomplete
     }
 }
 
-void Connection::roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info)
-{
-    auto job = new RoomsAutocompleteChannelAndPrivateJob(this);
-    job->setRoomsCompleterInfo(info);
-    initializeRestApiJob(job);
-    connect(job, &RoomsAutocompleteChannelAndPrivateJob::roomsAutoCompleteChannelAndPrivateDone, this, &Connection::roomsAutoCompleteChannelAndPrivateDone);
-    if (!job->start()) {
-        qCDebug(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start RoomsAutocompleteChannelAndPrivateJob";
-    }
-}
-
 void Connection::findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays)
 {
     auto job = new FindOrCreateInviteJob(this);

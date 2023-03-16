@@ -177,7 +177,6 @@ public:
     void getSnippetedMessages(const QString &roomId, int offset = 0, int count = 50);
     void customUserStatus();
     void usersAutocomplete(const UsersAutocompleteJob::UsersAutocompleterInfo &info);
-    void roomsAutocomplete(const RoomsAutocompleteChannelAndPrivateJob::RoomsAutocompleteChannelAndPrivateInfo &info);
     void findOrCreateInvite(const QString &roomId, int maxUses, int numberOfDays);
     void getMessage(const QString &messageId, const QString &roomId);
     void getCommand(const QString &commandName);
@@ -262,7 +261,6 @@ Q_SIGNALS:
     void customUserStatusDone(const QJsonObject &);
 
     void usersAutocompleteDone(const QJsonObject &obj);
-    void roomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
 
     void failed(const QString &str);
     void networkSessionFailedError();

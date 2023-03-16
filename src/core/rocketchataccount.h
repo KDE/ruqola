@@ -441,7 +441,6 @@ public:
 
     Q_REQUIRED_RESULT bool hideRoles() const;
     Q_REQUIRED_RESULT bool displayAvatars() const;
-    void roomsAutocomplete(const QString &searchText, const QString &exception);
     Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
@@ -619,7 +618,6 @@ private:
     void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog);
     void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
     void slotUserAutoCompleterDone(const QJsonObject &obj);
-    void slotRoomsAutoCompleteChannelAndPrivateDone(const QJsonObject &obj);
     void slotListCommandDone(const QJsonObject &obj);
     void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
 
