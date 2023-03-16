@@ -434,8 +434,6 @@ void RuqolaServerConfig::loadSettings(const QJsonObject &currentConfObject)
         assignSettingValue(value.toBool(), ServerConfigFeatureType::EncryptionEnabled);
     } else if (id == QLatin1String("Message_AllowPinning")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessagePinning);
-    } else if (id == QLatin1String("Message_AllowSnippeting")) {
-        assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessageSnippeting);
     } else if (id == QLatin1String("Message_AllowStarring")) {
         assignSettingValue(value.toBool(), ServerConfigFeatureType::AllowMessageStarring);
     } else if (id == QLatin1String("Message_AllowDeleting")) {

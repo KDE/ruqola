@@ -222,7 +222,6 @@ public:
 
     void getPinnedMessages(const QString &roomId);
     void getStarredMessages(const QString &roomId);
-    void getSnippetedMessages(const QString &roomId);
     void getMentionsMessages(const QString &roomId);
 
     void autoTranslateSaveLanguageSettings(const QString &roomId, const QString &language);
@@ -348,7 +347,6 @@ public:
 
     Q_REQUIRED_RESULT bool jitsiEnabled() const;
     Q_REQUIRED_RESULT bool allowMessagePinningEnabled() const;
-    Q_REQUIRED_RESULT bool allowMessageSnippetingEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageStarringEnabled() const;
     Q_REQUIRED_RESULT bool allowMessageDeletingEnabled() const;
 

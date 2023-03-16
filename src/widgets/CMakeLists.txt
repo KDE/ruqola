@@ -373,8 +373,6 @@ target_sources(libruqolawidgets PRIVATE
     dialogs/showmentionsmessagesdialog.h
     dialogs/showpinnedmessagesdialog.cpp
     dialogs/showpinnedmessagesdialog.h
-    dialogs/showsnipperedmessagesdialog.cpp
-    dialogs/showsnipperedmessagesdialog.h
     dialogs/showstarredmessagesdialog.cpp
     dialogs/showstarredmessagesdialog.h
     dialogs/showthreadsdialog.cpp

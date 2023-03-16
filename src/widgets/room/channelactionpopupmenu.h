@@ -35,7 +35,6 @@ private:
     QAction *mShowMentions = nullptr;
     QAction *mShowPinnedMessages = nullptr;
     QAction *mShowStarredMessages = nullptr;
-    QAction *mShowSnipperedMessages = nullptr;
     QAction *mConfigureNotification = nullptr;
     QAction *mShowFileAttachments = nullptr;
     QAction *mShowDiscussions = nullptr;

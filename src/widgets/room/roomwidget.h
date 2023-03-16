@@ -77,7 +77,6 @@ private:
     void slotStarredMessages();
     void slotPinnedMessages();
     void slotShowMentions();
-    void slotSnipperedMessages();
     void slotConfigureNotification();
     void slotLoadHistory();
     void slotOpenThreadRequested(const QString &threadMessageId, const QString &threadMessagePreview, bool threadIsFollowing, const Message &threadMessage);

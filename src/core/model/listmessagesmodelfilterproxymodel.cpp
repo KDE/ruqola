@@ -41,8 +41,6 @@ QString ListMessagesModelFilterProxyModel::title() const
         return {};
     case ListMessagesModel::StarredMessages:
         return i18n("Starred Messages");
-    case ListMessagesModel::SnipperedMessages:
-        return i18n("Snippered Messages");
     case ListMessagesModel::PinnedMessages:
         return i18n("Pinned Messages");
     case ListMessagesModel::MentionsMessages:

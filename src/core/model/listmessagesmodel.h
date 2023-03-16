@@ -16,7 +16,6 @@ public:
     enum ListMessageType {
         Unknown = 0,
         StarredMessages,
-        SnipperedMessages,
         PinnedMessages,
         MentionsMessages,
         ThreadsMessages,

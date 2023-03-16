@@ -52,12 +52,6 @@ void ChannelActionPopupMenu::createMenu()
         Q_EMIT actionRequested(RoomHeaderWidget::ShowStarred);
     });
 
-    mShowSnipperedMessages = new QAction(i18n("Show Snippered Messages..."), this);
-    mMenu->addAction(mShowSnipperedMessages);
-    connect(mShowSnipperedMessages, &QAction::triggered, this, [this]() {
-        Q_EMIT actionRequested(RoomHeaderWidget::ShowSnippered);
-    });
-
     mShowFileAttachments = new QAction(QIcon::fromTheme(QStringLiteral("document-send-symbolic")), i18n("Show File Attachments..."), this);
     mMenu->addAction(mShowFileAttachments);
     connect(mShowFileAttachments, &QAction::triggered, this, [this]() {
@@ -161,7 +155,6 @@ void ChannelActionPopupMenu::slotUpdateMenu()
 {
     mShowPinnedMessages->setVisible(mCurrentRocketChatAccount->allowMessagePinningEnabled());
     mShowStarredMessages->setVisible(mCurrentRocketChatAccount->allowMessageStarringEnabled());
-    mShowSnipperedMessages->setVisible(mCurrentRocketChatAccount->allowMessageSnippetingEnabled());
     mAutoTranslate->setVisible(mCurrentRocketChatAccount->hasAutotranslateSupport());
     mAutoTranslateSeparator->setVisible(mCurrentRocketChatAccount->autoTranslateEnabled());
 

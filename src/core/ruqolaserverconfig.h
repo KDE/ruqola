@@ -23,7 +23,6 @@ public:
         // NeedAdaptNewSubscriptionRC60 = 4,
         EncryptionEnabled = 8,
         AllowMessagePinning = 0x10,
-        AllowMessageSnippeting = 0x20,
         AllowMessageStarring = 0x40,
         AllowMessageDeleting = 0x80,
         JitsiEnabled = 0x100,

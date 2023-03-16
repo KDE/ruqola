@@ -18,7 +18,6 @@
 #include "dialogs/showattachmentdialog.h"
 #include "dialogs/showmentionsmessagesdialog.h"
 #include "dialogs/showpinnedmessagesdialog.h"
-#include "dialogs/showsnipperedmessagesdialog.h"
 #include "dialogs/showstarredmessagesdialog.h"
 #include "dialogs/showthreadsdialog.h"
 #include "discussions/showdiscussionsdialog.h"
@@ -176,9 +175,6 @@ void RoomWidget::slotActionRequested(RoomHeaderWidget::ChannelActionType type)
         break;
     case RoomHeaderWidget::ShowStarred:
         slotStarredMessages();
-        break;
-    case RoomHeaderWidget::ShowSnippered:
-        slotSnipperedMessages();
         break;
     case RoomHeaderWidget::ShowDiscussions:
         slotShowDiscussions();
@@ -342,21 +338,6 @@ void RoomWidget::slotShowMentions()
     dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
     dlg->setRoom(mRoom);
     mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::MentionsMessages);
-    connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
-    dlg->exec();
-    delete dlg;
-}
-
-void RoomWidget::slotSnipperedMessages()
-{
-    if (!mRoom) {
-        return;
-    }
-    QPointer<ShowSnipperedMessagesDialog> dlg = new ShowSnipperedMessagesDialog(mCurrentRocketChatAccount, this);
-    dlg->setRoomId(mRoomWidgetBase->roomId());
-    dlg->setModel(mCurrentRocketChatAccount->listMessagesFilterProxyModel());
-    dlg->setRoom(mRoom);
-    mCurrentRocketChatAccount->getListMessages(mRoomWidgetBase->roomId(), ListMessagesModel::SnipperedMessages);
     connect(dlg, &ShowListMessageBaseDialog::goToMessageRequested, this, &RoomWidget::slotGotoMessage);
     dlg->exec();
     delete dlg;

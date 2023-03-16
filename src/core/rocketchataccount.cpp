@@ -525,9 +525,6 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::getPinnedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::PinnedMessages);
         });
-        connect(mRestApi, &RocketChatRestApi::Connection::getSnippetedMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
-            slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::SnipperedMessages);
-        });
         connect(mRestApi, &RocketChatRestApi::Connection::getStarredMessagesDone, this, [this](const QJsonObject &obj, const QString &roomId) {
             slotGetListMessagesDone(obj, roomId, ListMessagesModel::ListMessageType::StarredMessages);
         });
@@ -1123,14 +1120,6 @@ void RocketChatAccount::getStarredMessages(const QString &roomId)
     restApi()->getStarredMessages(roomId);
 }
 
-void RocketChatAccount::getSnippetedMessages(const QString &roomId)
-{
-    mListMessageModel->clear();
-    mListMessageModel->setRoomId(roomId);
-    mListMessageModel->setLoadMoreListMessagesInProgress(true);
-    restApi()->getSnippetedMessages(roomId);
-}
-
 void RocketChatAccount::loadMoreFileAttachments(const QString &roomId, Room::RoomType channelType)
 {
     if (!mFilesModelForRoom->loadMoreFilesInProgress()) {
@@ -1170,9 +1159,6 @@ void RocketChatAccount::getListMessages(const QString &roomId, ListMessagesModel
         break;
     case ListMessagesModel::StarredMessages:
         getStarredMessages(roomId);
-        break;
-    case ListMessagesModel::SnipperedMessages:
-        getSnippetedMessages(roomId);
         break;
     case ListMessagesModel::PinnedMessages:
         getPinnedMessages(roomId);
@@ -1250,9 +1236,6 @@ void RocketChatAccount::loadMoreListMessages(const QString &roomId)
                 break;
             case ListMessagesModel::StarredMessages:
                 restApi()->getStarredMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
-                break;
-            case ListMessagesModel::SnipperedMessages:
-                restApi()->getSnippetedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
                 break;
             case ListMessagesModel::PinnedMessages:
                 restApi()->getPinnedMessages(roomId, offset, qMin(50, mListMessageModel->total() - offset));
@@ -1822,11 +1805,6 @@ void RocketChatAccount::enable2FaEmailJob(bool enable)
 bool RocketChatAccount::allowMessagePinningEnabled() const
 {
     return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessagePinning;
-}
-
-bool RocketChatAccount::allowMessageSnippetingEnabled() const
-{
-    return mRuqolaServerConfig->serverConfigFeatureTypes() & RuqolaServerConfig::ServerConfigFeatureType::AllowMessageSnippeting;
 }
 
 bool RocketChatAccount::allowMessageStarringEnabled() const
