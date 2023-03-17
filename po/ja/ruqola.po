@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2019-08-04 18:23-0700\n"
 "Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -875,25 +875,20 @@ msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
+msgid "Pinned Messages"
 msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
-msgid "Pinned Messages"
+msgid "Mentions Messages"
 msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
-msgid "Mentions Messages"
-msgstr ""
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
-#, kde-format
 msgid "Threads Messages"
 msgstr ""
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr ""
@@ -1291,7 +1286,7 @@ msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1332,12 +1327,12 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, kde-format
 msgid "Export Messages"
 msgstr ""
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3391,7 +3386,7 @@ msgid "Password"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5516,7 +5511,7 @@ msgid "Move to Team"
 msgstr ""
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr ""
@@ -6127,7 +6122,7 @@ msgid "Discussion Name"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr ""
@@ -6533,7 +6528,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr ""
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
@@ -7315,45 +7309,40 @@ msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
-msgid "Show Snippered Messages..."
+msgid "Show File Attachments..."
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
-msgid "Show File Attachments..."
+msgid "Show Discussions..."
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
-msgid "Show Discussions..."
-msgstr ""
-
-#: widgets/room/channelactionpopupmenu.cpp:73
-#, kde-format
 msgid "Show Threads..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
 msgid "Export Messages..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
 msgid "Encrypt Messages"
 msgstr ""
@@ -7711,17 +7700,17 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, kde-format
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

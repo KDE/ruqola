@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2023-03-15 07:22+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
@@ -883,25 +883,20 @@ msgstr "Sporočila z zvezdico"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
-msgstr "Drobci sporočil"
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, kde-format
 msgid "Pinned Messages"
 msgstr "Pripeta sporočila"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Sporočila z omembami"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Sporočila iz niti"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr "Neprebrana sporočila niti"
@@ -1301,7 +1296,7 @@ msgstr "Odgovori …"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
@@ -1342,12 +1337,12 @@ msgstr "<strong>%1</strong> vnaša ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> vnašajo …"
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, kde-format
 msgid "Export Messages"
 msgstr "Izvozi sporočila"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Vaša e-pošta je čakala v čakalni vrsti za pošiljanje."
@@ -3439,7 +3434,7 @@ msgid "Password"
 msgstr "Geslo"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr "Video konferenca"
@@ -5701,7 +5696,7 @@ msgid "Move to Team"
 msgstr "Premakni v ekipo"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Prilagodi obvestilo ..."
@@ -6319,7 +6314,7 @@ msgid "Discussion Name"
 msgstr "Ime razprave"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Povabi uporabnike"
@@ -6733,7 +6728,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Pokaži pripeta sporočila - %1"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
@@ -7552,45 +7546,40 @@ msgstr "Pokaži sporočila z zvezdico ..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
-msgid "Show Snippered Messages..."
-msgstr "Pokaži drobce sporočil ..."
-
-#: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
 msgid "Show File Attachments..."
 msgstr "Pokaži pripete datoteke ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr "Pokaži razprave ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "Pokaži niti ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr "Prilagodi samodejno prevajanje ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr "Dodaj uporabnike v kanal …"
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr "Video klepet"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
 msgid "Export Messages..."
 msgstr "Izvozi sporočila ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
 msgid "Encrypt Messages"
 msgstr "Šifriraj sporočila"
@@ -7954,17 +7943,17 @@ msgstr "Odgovarjanje v niti"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Odgovori v niti za sporočilo: »%1«"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Ali res želite odstraniti zgodovino?"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, kde-format
 msgid "Remove History"
 msgstr "Odstrani zgodovino"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8558,6 +8547,12 @@ msgstr "Pomembne spremembe od zadnje različice:"
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Nekaj novih zmožnosti v tej izdaji Ruqole vsebuje:"
+
+#~ msgid "Snippered Messages"
+#~ msgstr "Drobci sporočil"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Pokaži drobce sporočil ..."
 
 #~ msgid "View mode:"
 #~ msgstr "Način pogleda:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -921,25 +921,20 @@ msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
+msgid "Pinned Messages"
 msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
-msgid "Pinned Messages"
+msgid "Mentions Messages"
 msgstr ""
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
-msgid "Mentions Messages"
-msgstr ""
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
-#, kde-format
 msgid "Threads Messages"
 msgstr ""
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, fuzzy, kde-format
 #| msgid "Delete Message"
 msgid "Unread Threads Messages"
@@ -1366,7 +1361,7 @@ msgstr ""
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1407,13 +1402,13 @@ msgstr "<strong>%1</strong> rašo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> rašo..."
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages"
 msgstr "Šifruota žinutė"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3605,7 +3600,7 @@ msgid "Password"
 msgstr "Slaptažodis"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5832,7 +5827,7 @@ msgid "Move to Team"
 msgstr "Šalinti iš kambario"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr ""
@@ -6477,7 +6472,7 @@ msgid "Discussion Name"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr ""
@@ -6914,7 +6909,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Šifruota žinutė"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
@@ -7771,48 +7765,43 @@ msgid "Show Starred Messages..."
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:55
-#, kde-format
-msgid "Show Snippered Messages..."
-msgstr ""
-
-#: widgets/room/channelactionpopupmenu.cpp:61
 #, fuzzy, kde-format
 #| msgid "Delete Attachment"
 msgid "Show File Attachments..."
 msgstr "Ištrinti priedą"
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr "Rodyti diskusijas..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "Rodyti gijas..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr "Konfigūruoti automatinį vertimą..."
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Export Messages..."
 msgstr "Šifruota žinutė"
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Encrypt Messages"
@@ -8201,19 +8190,19 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Kopijuoti nuorodą"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Ar norite pašalinti šią paskyrą \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove History"
 msgstr "Šalinti"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."

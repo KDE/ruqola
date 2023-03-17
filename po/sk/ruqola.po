@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -922,29 +922,23 @@ msgstr "Súkromné adresy"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, fuzzy, kde-format
-#| msgid "Encrypted Message"
-msgid "Snippered Messages"
-msgstr "Zašifrovaná správa"
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Pinned Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Mentions Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Threads Messages"
 msgstr "Súkromné adresy"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, fuzzy, kde-format
 #| msgid "Private Messages"
 msgid "Unread Threads Messages"
@@ -1372,7 +1366,7 @@ msgstr "Odpovedať"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1413,13 +1407,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages"
 msgstr "Správa"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3596,7 +3590,7 @@ msgid "Password"
 msgstr "Heslo:"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5822,7 +5816,7 @@ msgid "Move to Team"
 msgstr "Odstrániť účet"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, fuzzy, kde-format
 #| msgid "Notifications"
 msgid "Configure Notification..."
@@ -6481,7 +6475,7 @@ msgid "Discussion Name"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, fuzzy, kde-format
 #| msgid "Enter Username"
 msgid "Invite Users"
@@ -6928,7 +6922,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Súkromné adresy"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Private Messages"
@@ -7793,50 +7786,44 @@ msgstr "Hľadať súbor..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, fuzzy, kde-format
-#| msgid "Search File..."
-msgid "Show Snippered Messages..."
-msgstr "Hľadať súbor..."
-
-#: widgets/room/channelactionpopupmenu.cpp:61
-#, fuzzy, kde-format
 #| msgid "Delete Attachment"
 msgid "Show File Attachments..."
 msgstr "Vymazať prílohu"
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, fuzzy, kde-format
 #| msgid "Threads"
 msgid "Show Threads..."
 msgstr "Vlákna"
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, fuzzy, kde-format
 #| msgid "Translation"
 msgid "Configure Auto-Translate..."
 msgstr "Preklad"
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Message"
 msgid "Export Messages..."
 msgstr "Správa"
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Encrypt Messages"
@@ -8228,17 +8215,17 @@ msgstr ""
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Správa"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, kde-format
 msgid "Remove History"
 msgstr ""
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8880,6 +8867,16 @@ msgstr ""
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Encrypted Message"
+#~ msgid "Snippered Messages"
+#~ msgstr "Zašifrovaná správa"
+
+#, fuzzy
+#~| msgid "Search File..."
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Hľadať súbor..."
 
 #, fuzzy
 #~| msgid "Message"

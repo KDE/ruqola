@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
-"PO-Revision-Date: 2023-03-15 14:40+0100\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"PO-Revision-Date: 2023-03-15 20:55+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -879,25 +879,20 @@ msgstr "Messages avec étoiles"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
-msgstr "Messages barrés"
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, kde-format
 msgid "Pinned Messages"
 msgstr "Messages agrafés"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Messages de citation"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Messages du fil de discussions"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr "Messages du fil de discussions non lus"
@@ -1299,7 +1294,7 @@ msgstr "Répondre..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
@@ -1340,12 +1335,12 @@ msgstr "<strong>%1</strong>est en train d'écrire un message..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>sont en train d'écrire un message..."
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporter des messages"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Un courrier électronique a été mis dans la liste d'attente pour envoi."
@@ -2189,13 +2184,13 @@ msgid "Invalid Password"
 msgstr "Mot de passe non valable"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
-"Le paramètre nécessaire « %1 » qui a été fourni, ne correspond à aucun canal"
+"Le paramètre nécessaire fourni \\« roomId\\ » ou \\« roomName\\ » ne "
+"correspond à aucun canal."
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2223,10 +2218,9 @@ msgid "Channel can not convert to Team."
 msgstr "Il est impossible de convertir le canal en un groupe"
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Un jeton portant ce nom existe déjà"
+msgstr "L'équipe existe déjà."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2234,13 +2228,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Vous n'avez pas les droits pour ajouter ce canal dans l'équipe."
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
-"Le paramètre nécessaire « %1 » qui a été fourni, ne correspond à aucun canal"
+"Le paramètre nécessaire fourni \\« roomId\\ » ou \\« roomName\\ » ne "
+"correspond à aucune équipe."
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -3459,7 +3453,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr "Vidéo conférence"
@@ -5767,7 +5761,7 @@ msgid "Move to Team"
 msgstr "Déplacer vers une équipe"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Configurer une notification..."
@@ -6387,7 +6381,7 @@ msgid "Discussion Name"
 msgstr "Nom de la discussion"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Inviter des utilisateurs"
@@ -6795,7 +6789,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Afficher les messages épinglés - %1"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
@@ -7611,45 +7604,40 @@ msgstr "Afficher les messages avec étoiles..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
-msgid "Show Snippered Messages..."
-msgstr "Afficher les messages barrés..."
-
-#: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
 msgid "Show File Attachments..."
 msgstr "Afficher les pièces jointes du fichier..."
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr "Afficher les discussions..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "Afficher les fils de discussion..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr "Configurer la traduction automatique..."
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr "Ajouter des utilisateurs dans un canal..."
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr "Chat vidéo"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
 msgid "Export Messages..."
 msgstr "Exporter des messages..."
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
 msgid "Encrypt Messages"
 msgstr "Chiffrer les messages"
@@ -8008,17 +7996,17 @@ msgstr "Réponse dans le fil de discussions"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Répondre dans le fil de discussion pour le message : « %1 »"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Voulez-vous vraiment supprimer l'historique ?"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, kde-format
 msgid "Remove History"
 msgstr "Supprimer l'historique"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8617,6 +8605,12 @@ msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Certaines des nouvelles fonctionnalités de cette version de Ruqola "
 "comprennent :"
+
+#~ msgid "Snippered Messages"
+#~ msgstr "Messages barrés"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Afficher les messages barrés..."
 
 #~ msgid "View mode:"
 #~ msgstr "Mode d'affichage :"

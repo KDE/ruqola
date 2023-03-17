@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2022-10-03 17:20+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -889,25 +889,20 @@ msgstr "Stjärnmärkta meddelanden"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
-msgstr "Fragmenterade meddelanden"
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, kde-format
 msgid "Pinned Messages"
 msgstr "Uppsatta meddelanden"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Omnämningsmeddelanden"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Trådmeddelanden"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, kde-format
 msgid "Unread Threads Messages"
 msgstr "Olästa meddelanden i tråd"
@@ -1307,7 +1302,7 @@ msgstr "Svara..."
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr "OTR"
@@ -1348,12 +1343,12 @@ msgstr "<strong>%1</strong> skriver..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> skriver ..."
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportera meddelanden"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Brevet har köats för att skickas."
@@ -3448,7 +3443,7 @@ msgid "Password"
 msgstr "Lösenord"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr "Videokonferens"
@@ -5694,7 +5689,7 @@ msgid "Move to Team"
 msgstr "Flytta till lag"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Anpassa underrättelser..."
@@ -6327,7 +6322,7 @@ msgid "Discussion Name"
 msgstr "Diskussionsnamn"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Bjud in användare"
@@ -6742,7 +6737,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Visa uppsatta meddelanden: %1"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, kde-format
 msgctxt "@title:window"
@@ -7566,45 +7560,40 @@ msgstr "Visa stjärnmärkta meddelanden..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
-msgid "Show Snippered Messages..."
-msgstr "Visa fragmenterade meddelanden..."
-
-#: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
 msgid "Show File Attachments..."
 msgstr "Visa filbilagor..."
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr "Visa diskussioner..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "Visa trådar..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr "Anpassa automatisk översättning..."
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr "Lägg till användare i kanal..."
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr "Videochatt"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, kde-format
 msgid "Export Messages..."
 msgstr "Exportera meddelanden..."
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, kde-format
 msgid "Encrypt Messages"
 msgstr "Kryptera meddelanden"
@@ -7968,17 +7957,17 @@ msgstr "Svarar i en tråd"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Svara i tråd för meddelande: '%1'"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, kde-format
 msgid "Do you want really remove history?"
 msgstr "Vill du verkligen ta bort historiken?"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, kde-format
 msgid "Remove History"
 msgstr "Ta bort historik"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8584,6 +8573,12 @@ msgstr ""
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
+
+#~ msgid "Snippered Messages"
+#~ msgstr "Fragmenterade meddelanden"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Visa fragmenterade meddelanden..."
 
 #, fuzzy
 #~| msgid "View Mode:"

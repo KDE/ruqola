@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -927,25 +927,20 @@ msgstr "Tärniga sõnumid"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
-msgstr "Lõigendsõnumid"
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, kde-format
 msgid "Pinned Messages"
 msgstr "Kinnistatud sõnumid"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr "Sõnumid mainimistega"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, kde-format
 msgid "Threads Messages"
 msgstr "Lõimesõnumid"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, fuzzy, kde-format
 #| msgid "Threads Messages"
 msgid "Unread Threads Messages"
@@ -1387,7 +1382,7 @@ msgstr "Vasta"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1428,13 +1423,13 @@ msgstr "<strong>%1</strong> kirjutab ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> kirjutavad ..."
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "Anna sõnumist teada"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3658,7 +3653,7 @@ msgid "Password"
 msgstr "Parool"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5917,7 +5912,7 @@ msgid "Move to Team"
 msgstr "Eemalda toast"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr "Seadista märguandeid ..."
@@ -6567,7 +6562,7 @@ msgid "Discussion Name"
 msgstr "Diskussiooni nimi"
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr "Kutsu kasutajaid"
@@ -7001,7 +6996,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "Kinnistatud sõnumite näitamine"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
@@ -7864,46 +7858,41 @@ msgstr "Näita tärniga sõnumeid ..."
 
 #: widgets/room/channelactionpopupmenu.cpp:55
 #, kde-format
-msgid "Show Snippered Messages..."
-msgstr "Näita lõigendsõnumeid"
-
-#: widgets/room/channelactionpopupmenu.cpp:61
-#, kde-format
 msgid "Show File Attachments..."
 msgstr "Näita failimanuseid ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr "Näita diskussioone ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "Näita lõimi ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, kde-format
 msgid "Configure Auto-Translate..."
 msgstr "Seadista automaattõlget"
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr "Lisa kanalile kasutajaid ..."
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr "Videovestlus"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages..."
 msgstr "Anna sõnumist teada"
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, fuzzy, kde-format
 #| msgid "Encrypted Message"
 msgid "Encrypt Messages"
@@ -8292,19 +8281,19 @@ msgstr "Vastamine lõimes"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "Lõimesõnumid: %1"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to remove this account '%1'?"
 msgid "Do you want really remove history?"
 msgstr "Kas eemaldada konto \"%1\"?"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgid "Remove History"
 msgstr "Laadi hiljutine ajalugu"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
@@ -8949,6 +8938,12 @@ msgstr ""
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
+
+#~ msgid "Snippered Messages"
+#~ msgstr "Lõigendsõnumid"
+
+#~ msgid "Show Snippered Messages..."
+#~ msgstr "Näita lõigendsõnumeid"
 
 #, fuzzy
 #~| msgid "Room is read-only."

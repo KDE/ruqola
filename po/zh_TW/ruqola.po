@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-16 01:00+0000\n"
+"POT-Creation-Date: 2023-03-17 00:57+0000\n"
 "PO-Revision-Date: 2020-02-28 01:44+0800\n"
 "Last-Translator: pan93412 <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@lists.linux.org.tw>\n"
@@ -929,26 +929,21 @@ msgstr "收藏的訊息"
 
 #: core/model/listmessagesmodelfilterproxymodel.cpp:45
 #, kde-format
-msgid "Snippered Messages"
-msgstr ""
-
-#: core/model/listmessagesmodelfilterproxymodel.cpp:47
-#, kde-format
 msgid "Pinned Messages"
 msgstr "置頂的訊息"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:49
+#: core/model/listmessagesmodelfilterproxymodel.cpp:47
 #, kde-format
 msgid "Mentions Messages"
 msgstr ""
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:51
+#: core/model/listmessagesmodelfilterproxymodel.cpp:49
 #, fuzzy, kde-format
 #| msgid "Thread Messages: %1"
 msgid "Threads Messages"
 msgstr "討論區訊息：%1"
 
-#: core/model/listmessagesmodelfilterproxymodel.cpp:53
+#: core/model/listmessagesmodelfilterproxymodel.cpp:51
 #, fuzzy, kde-format
 #| msgid "Thread Messages: %1"
 msgid "Unread Threads Messages"
@@ -1370,7 +1365,7 @@ msgstr "回覆"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
-#: widgets/room/channelactionpopupmenu.cpp:125
+#: widgets/room/channelactionpopupmenu.cpp:119
 #, kde-format
 msgid "OTR"
 msgstr ""
@@ -1411,13 +1406,13 @@ msgstr ""
 msgid "<strong>%1</strong> are typing..."
 msgstr ""
 
-#: core/rocketchataccount.cpp:2860
+#: core/rocketchataccount.cpp:2820
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages"
 msgstr "檢舉訊息"
 
-#: core/rocketchataccount.cpp:2861
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -3605,7 +3600,7 @@ msgid "Password"
 msgstr "密碼"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:113
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid "Video Conference"
 msgstr ""
@@ -5828,7 +5823,7 @@ msgid "Move to Team"
 msgstr "移除"
 
 #: widgets/channellist/channellistview.cpp:178
-#: widgets/room/channelactionpopupmenu.cpp:81
+#: widgets/room/channelactionpopupmenu.cpp:75
 #, kde-format
 msgid "Configure Notification..."
 msgstr ""
@@ -6473,7 +6468,7 @@ msgid "Discussion Name"
 msgstr ""
 
 #: widgets/dialogs/createnewdiscussionwidget.cpp:46
-#: widgets/room/channelactionpopupmenu.cpp:96
+#: widgets/room/channelactionpopupmenu.cpp:90
 #, kde-format
 msgid "Invite Users"
 msgstr ""
@@ -6902,7 +6897,6 @@ msgctxt "@title:window"
 msgid "Show Pinned Messages - %1"
 msgstr "置頂的訊息"
 
-#: widgets/dialogs/showsnipperedmessagesdialog.cpp:22
 #: widgets/dialogs/showstarredmessagesdialog.cpp:22
 #, fuzzy, kde-format
 #| msgid "Starred Messages"
@@ -7759,49 +7753,44 @@ msgid "Show Starred Messages..."
 msgstr ""
 
 #: widgets/room/channelactionpopupmenu.cpp:55
-#, kde-format
-msgid "Show Snippered Messages..."
-msgstr ""
-
-#: widgets/room/channelactionpopupmenu.cpp:61
 #, fuzzy, kde-format
 #| msgid "Show Files Attachment In Room"
 msgid "Show File Attachments..."
 msgstr "顯示聊天室中的檔案附件"
 
-#: widgets/room/channelactionpopupmenu.cpp:67
+#: widgets/room/channelactionpopupmenu.cpp:61
 #, kde-format
 msgid "Show Discussions..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:73
+#: widgets/room/channelactionpopupmenu.cpp:67
 #, kde-format
 msgid "Show Threads..."
 msgstr "顯示討論串…"
 
-#: widgets/room/channelactionpopupmenu.cpp:88
+#: widgets/room/channelactionpopupmenu.cpp:82
 #, fuzzy, kde-format
 #| msgid "Auto-Translate"
 msgid "Configure Auto-Translate..."
 msgstr "自動翻譯"
 
-#: widgets/room/channelactionpopupmenu.cpp:103
+#: widgets/room/channelactionpopupmenu.cpp:97
 #, kde-format
 msgid "Add Users in Channel..."
 msgstr ""
 
-#: widgets/room/channelactionpopupmenu.cpp:111
+#: widgets/room/channelactionpopupmenu.cpp:105
 #, kde-format
 msgid "Video Chat"
 msgstr "視訊聊天"
 
-#: widgets/room/channelactionpopupmenu.cpp:118
+#: widgets/room/channelactionpopupmenu.cpp:112
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Export Messages..."
 msgstr "檢舉訊息"
 
-#: widgets/room/channelactionpopupmenu.cpp:132
+#: widgets/room/channelactionpopupmenu.cpp:126
 #, fuzzy, kde-format
 #| msgid "Report Message"
 msgid "Encrypt Messages"
@@ -8186,19 +8175,19 @@ msgstr "回覆討論串"
 msgid "Reply in Thread for Message: '%1'"
 msgstr "回覆討論串"
 
-#: widgets/room/roomwidget.cpp:234
+#: widgets/room/roomwidget.cpp:230
 #, fuzzy, kde-format
 #| msgid "Do you want to delete this room?"
 msgid "Do you want really remove history?"
 msgstr "您確定要刪除此聊天室嗎？"
 
-#: widgets/room/roomwidget.cpp:235
+#: widgets/room/roomwidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Load Recent History"
 msgid "Remove History"
 msgstr "載入最近記錄"
 
-#: widgets/room/roomwidget.cpp:442
+#: widgets/room/roomwidget.cpp:423
 #, kde-format
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
