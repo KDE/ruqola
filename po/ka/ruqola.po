@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-17 00:57+0000\n"
-"PO-Revision-Date: 2023-03-15 06:25+0100\n"
+"PO-Revision-Date: 2023-03-17 05:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5999,10 +5999,9 @@ msgid "Invalid characters found."
 msgstr "ნაპოვნია არასწორი სიმბოლოები."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "ნაპოვნია არასწორი სიმბოლოები."
+msgstr "ნაპოვნია არასწორი სიმბოლოები. (სწორი სიმბოლოებია: %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
