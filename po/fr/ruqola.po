@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-17 00:57+0000\n"
-"PO-Revision-Date: 2023-03-15 20:55+0100\n"
+"PO-Revision-Date: 2023-03-17 20:32+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -6176,10 +6176,10 @@ msgid "Invalid characters found."
 msgstr "Des caractères non valables ont été trouvés."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Des caractères non valables ont été trouvés."
+msgstr ""
+"Des caractères non valables ont été trouvés. (Caractères valables : %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
