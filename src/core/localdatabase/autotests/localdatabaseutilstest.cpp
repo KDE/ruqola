@@ -30,3 +30,8 @@ void LocalDatabaseUtilsTest::shouldCheckPath()
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Account), QStringLiteral("account/"));
     QCOMPARE(LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath::Global), QStringLiteral("global/"));
 }
+
+void LocalDatabaseUtilsTest::shouldCheckDataBase()
+{
+    QCOMPARE(LocalDatabaseUtils::deleteMessage(), QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?"));
+}

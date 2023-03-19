@@ -17,4 +17,5 @@ public:
 private Q_SLOTS:
     void shouldAdaptRoomName();
     void shouldCheckPath();
+    void shouldCheckDataBase();
 };

@@ -60,3 +60,8 @@ QString LocalDatabaseUtils::databasePath(LocalDatabaseUtils::DatabasePath pathTy
     Q_ASSERT(true);
     return {};
 }
+
+QString LocalDatabaseUtils::deleteMessage()
+{
+    return QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?");
+}

@@ -25,4 +25,5 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localRoomsDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localAccountDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString deleteMessage();
 };
