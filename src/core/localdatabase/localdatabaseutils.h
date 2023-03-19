@@ -26,4 +26,5 @@ Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localAccountDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString localGlobalDatabasePath();
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString databasePath(LocalDatabaseUtils::DatabasePath pathType);
 Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString deleteMessage();
+Q_REQUIRED_RESULT LIBRUQOLACORE_EXPORT QString insertReplaceMessages();
 };

@@ -65,3 +65,8 @@ QString LocalDatabaseUtils::deleteMessage()
 {
     return QStringLiteral("DELETE FROM MESSAGES WHERE messageId = ?");
 }
+
+QString LocalDatabaseUtils::insertReplaceMessages()
+{
+    return QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)");
+}
