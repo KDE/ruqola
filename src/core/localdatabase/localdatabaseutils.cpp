@@ -70,3 +70,13 @@ QString LocalDatabaseUtils::insertReplaceMessages()
 {
     return QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)");
 }
+
+QString LocalDatabaseUtils::deleteRooms()
+{
+    return QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?");
+}
+
+QString LocalDatabaseUtils::insertReplaceRoom()
+{
+    return QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)");
+}
