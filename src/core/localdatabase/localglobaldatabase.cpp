@@ -55,7 +55,7 @@ void LocalGlobalDatabase::updateTimeStamp(const QString &accountName, const QStr
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
         const QString identifier = generateIdentifier(accountName, roomName, type);
-        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)"), db);
+        QSqlQuery query(LocalDatabaseUtils::insertReplaceGlobal(), db);
         query.addBindValue(identifier);
         query.addBindValue(timestamp);
         if (!query.exec()) {

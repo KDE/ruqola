@@ -45,7 +45,7 @@ void LocalMessageLogger::addMessage(const QString &accountName, const QString &_
     }
     QSqlDatabase db;
     if (initializeDataBase(accountName, _roomName, db)) {
-        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)"), db);
+        QSqlQuery query(LocalDatabaseUtils::insertReplaceMessageFromLogs(), db);
         query.addBindValue(m.messageId());
         query.addBindValue(m.timeStamp());
         query.addBindValue(m.username());
@@ -65,7 +65,7 @@ void LocalMessageLogger::deleteMessage(const QString &accountName, const QString
     if (!checkDataBase(accountName, roomName, db)) {
         return;
     }
-    QSqlQuery query(QStringLiteral("DELETE FROM LOGS WHERE messageId = ?"), db);
+    QSqlQuery query(LocalDatabaseUtils::deleteMessageFromLogs(), db);
     query.addBindValue(messageId);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in LOGS table" << db.databaseName() << query.lastError();

@@ -90,3 +90,18 @@ QString LocalDatabaseUtils::updateAccount()
 {
     return QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)");
 }
+
+QString LocalDatabaseUtils::insertReplaceGlobal()
+{
+    return QStringLiteral("INSERT OR REPLACE INTO GLOBAL VALUES (?, ?)");
+}
+
+QString LocalDatabaseUtils::deleteMessageFromLogs()
+{
+    return QStringLiteral("DELETE FROM LOGS WHERE messageId = ?");
+}
+
+QString LocalDatabaseUtils::insertReplaceMessageFromLogs()
+{
+    return QStringLiteral("INSERT OR REPLACE INTO LOGS VALUES (?, ?, ?, ?)");
+}
