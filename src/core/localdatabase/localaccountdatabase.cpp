@@ -55,7 +55,7 @@ void LocalAccountDatabase::deleteAccount(const QString &accountName)
     if (!checkDataBase(accountName, db)) {
         return;
     }
-    QSqlQuery query(QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?"), db);
+    QSqlQuery query(LocalDatabaseUtils::deleteAccount(), db);
     query.addBindValue(accountName);
     if (!query.exec()) {
         qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't insert-or-replace in ACCOUNT table" << db.databaseName() << query.lastError();

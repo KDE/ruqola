@@ -37,4 +37,5 @@ void LocalDatabaseUtilsTest::shouldCheckDataBase()
     QCOMPARE(LocalDatabaseUtils::insertReplaceMessages(), QStringLiteral("INSERT OR REPLACE INTO MESSAGES VALUES (?, ?, ?)"));
     QCOMPARE(LocalDatabaseUtils::deleteRooms(), QStringLiteral("DELETE FROM ROOMS WHERE roomId = ?"));
     QCOMPARE(LocalDatabaseUtils::insertReplaceRoom(), QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)"));
+    QCOMPARE(LocalDatabaseUtils::deleteAccount(), QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?"));
 }

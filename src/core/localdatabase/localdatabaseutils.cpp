@@ -80,3 +80,8 @@ QString LocalDatabaseUtils::insertReplaceRoom()
 {
     return QStringLiteral("INSERT OR REPLACE INTO ROOMS VALUES (?, ?, ?)");
 }
+
+QString LocalDatabaseUtils::deleteAccount()
+{
+    return QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?");
+}
