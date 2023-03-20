@@ -538,7 +538,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             } else {
                 qCWarning(RUQOLA_MESSAGE_LOG) << " MessageModel is empty for :" << roomId << " It's a bug for sure.";
             }
-        } else if (eventname.endsWith(QLatin1String("/typing"))) {
+        } else if (eventname.endsWith(QLatin1String("/user-activity"))) {
             if (mRocketChatAccount->ruqolaLogger()) {
                 QJsonDocument d;
                 d.setObject(object);
@@ -548,7 +548,7 @@ void RocketChatBackend::slotChanged(const QJsonObject &object)
             }
 
             QString roomId = eventname;
-            roomId.remove(QStringLiteral("/typing"));
+            roomId.remove(QStringLiteral("/user-activity"));
             // TODO Perhaps not necessary to convert to variantlist. Need to investigate
             // qCWarning(RUQOLA_LOG) << "stream-notify-room:  typing event ? " << eventname << " content  " << contents.toVariantList();
             const QString typingUserName = contents.toVariantList().at(0).toString();

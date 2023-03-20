@@ -202,7 +202,7 @@ RocketChatMessage::RocketChatMessageResult RocketChatMessage::deleteFileMessage(
 
 RocketChatMessage::RocketChatMessageResult RocketChatMessage::informTypingStatus(const QString &roomId, const QString &userId, bool typingStatus, quint64 id)
 {
-    const QString eventName = roomId + QStringLiteral("/typing");
+    const QString eventName = roomId + QStringLiteral("/user-activity");
     const QJsonArray params{{eventName}, {userId}, {typingStatus}};
     return generateMethod(QStringLiteral("stream-notify-room"), QJsonDocument(params), id);
 }
