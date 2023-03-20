@@ -37,7 +37,7 @@ void LocalAccountDatabase::updateAccount(const QString &accountName)
 #if HAVE_DATABASE_SUPPORT
     QSqlDatabase db;
     if (initializeDataBase(accountName, db)) {
-        QSqlQuery query(QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)"), db);
+        QSqlQuery query(LocalDatabaseUtils::updateAccount(), db);
         query.addBindValue(accountName);
         // Add timestamp
         // Add Json

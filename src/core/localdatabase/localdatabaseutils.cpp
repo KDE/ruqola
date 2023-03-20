@@ -85,3 +85,8 @@ QString LocalDatabaseUtils::deleteAccount()
 {
     return QStringLiteral("DELETE FROM ACCOUNT WHERE accountName = ?");
 }
+
+QString LocalDatabaseUtils::updateAccount()
+{
+    return QStringLiteral("INSERT OR REPLACE INTO ACCOUNT VALUES (?, ?, ?)");
+}
