@@ -8,6 +8,8 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <KLocalizedString>
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -88,4 +90,13 @@ QJsonDocument RoleCreateJob::json() const
 
     const QJsonDocument postData = QJsonDocument(jsonObj);
     return postData;
+}
+
+QString RoleCreateJob::errorMessage(const QString &str, const QJsonObject &detail)
+{
+    if (str == QLatin1String("error-action-not-allowed")) {
+        return i18n("This is an enterprise feature");
+    }
+
+    return RestApiAbstractJob::errorMessage(str, detail);
 }

@@ -39,6 +39,9 @@ public:
 Q_SIGNALS:
     void createRoleDone();
 
+protected:
+    Q_REQUIRED_RESULT QString errorMessage(const QString &str, const QJsonObject &detail) override;
+
 private:
     Q_DISABLE_COPY(RoleCreateJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
