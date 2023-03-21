@@ -40,7 +40,6 @@ private:
     QLineEdit *const mUserName;
     PasswordLineEditWidget *const mPasswordLineEditWidget;
     QMetaObject::Connection mUpdatePasswordConnection;
-    // QCheckBox *const mLdapCheckBox;
     QPushButton *const mLoginButton;
     KBusyIndicatorWidget *const mBusyIndicatorWidget;
     QLabel *const mFailedError;

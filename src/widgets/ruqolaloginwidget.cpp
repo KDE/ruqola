@@ -28,7 +28,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     , mServerUrl(new QLineEdit(this))
     , mUserName(new QLineEdit(this))
     , mPasswordLineEditWidget(new PasswordLineEditWidget(this))
-    // , mLdapCheckBox(new QCheckBox(i18n("Use LDAP"), this))
     , mLoginButton(new QPushButton(i18n("Login"), this))
     , mBusyIndicatorWidget(new KBusyIndicatorWidget(this))
     , mFailedError(new QLabel(this))
@@ -73,9 +72,6 @@ RuqolaLoginWidget::RuqolaLoginWidget(QWidget *parent)
     connect(mPasswordLineEditWidget->passwordLineEdit()->lineEdit(), &QLineEdit::returnPressed, this, &RuqolaLoginWidget::slotLogin);
     mainLayout->addRow(i18n("Password:"), mPasswordLineEditWidget);
     connect(mPasswordLineEditWidget, &PasswordLineEditWidget::resetPasswordRequested, this, &RuqolaLoginWidget::slotResetPasswordRequested);
-
-    //    mLdapCheckBox->setObjectName(QStringLiteral("mLdapCheckBox"));
-    //    mainLayout->addWidget(mLdapCheckBox);
 
     // Two Factor authentication
     mAuthenticationWidget->setObjectName(QStringLiteral("authenticationWidget"));
@@ -131,7 +127,6 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     mAccountName->setReadOnly(!mRocketChatAccount->displayName().isEmpty());
     mServerUrl->setText(mRocketChatAccount->serverUrl());
     mUserName->setText(mRocketChatAccount->userName());
-    // mLdapCheckBox->setChecked(mRocketChatAccount->useLdap());
     disconnect(mUpdatePasswordConnection);
     mPasswordLineEditWidget->passwordLineEdit()->setPassword(mRocketChatAccount->password());
     qCDebug(RUQOLA_PASSWORD_WIDGETS_LOG) << " RuqolaLoginWidget::setRocketChatAccount: password is empty ? " << mRocketChatAccount->password().isEmpty();
@@ -142,7 +137,6 @@ void RuqolaLoginWidget::setRocketChatAccount(RocketChatAccount *rocketChatAccoun
     });
     mAuthenticationCombobox->switchRocketChatAccount(mRocketChatAccount); // Authentication is rocketchatAccount specific
     mAuthenticationCombobox->setVisible(mAuthenticationCombobox->count() > 1);
-    // mLdapCheckBox->setVisible(rocketChatAccount->ldapEnabled());
     mTwoFactorAuthenticationPasswordLineEdit->setRocketChatAccount(mRocketChatAccount);
     mPasswordLineEditWidget->setAllowPasswordReset(mRocketChatAccount->allowPasswordReset() && mRocketChatAccount->allowPasswordChange());
 }
@@ -153,7 +147,6 @@ void RuqolaLoginWidget::slotLogin()
     mRocketChatAccount->setServerUrl(mServerUrl->text());
     mRocketChatAccount->setUserName(mUserName->text());
     mRocketChatAccount->setPassword(mPasswordLineEditWidget->passwordLineEdit()->password());
-    // mRocketChatAccount->setUseLdap(mLdapCheckBox->isChecked());
     if (mTwoFactorAuthenticationPasswordLineEdit->isHidden()) {
         mTwoFactorAuthenticationPasswordLineEdit->clear();
     } else {
