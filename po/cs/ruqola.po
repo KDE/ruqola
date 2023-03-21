@@ -8928,12 +8928,3 @@ msgstr "Informace o účtu"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Vrátit číslo účtu."
-
-#~ msgid "View mode:"
-#~ msgstr "Režim pohledu:"
-
-#~ msgid "Normal"
-#~ msgstr "Normální"
-
-#~ msgid "Compact"
-#~ msgstr "Kompaktní"
