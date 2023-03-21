@@ -64,9 +64,16 @@ AdministratorAddUserWidget::AdministratorAddUserWidget(RocketChatAccount *accoun
     connect(mUserName, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mEmail, &QLineEdit::textChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
     connect(mPasswordLineEdit, &KPasswordLineEdit::passwordChanged, this, &AdministratorAddUserWidget::slotUpdateOkButton);
+    connect(mSetRandowPassword, &QCheckBox::clicked, this, &AdministratorAddUserWidget::slotChangeSetRandomPassword);
 }
 
 AdministratorAddUserWidget::~AdministratorAddUserWidget() = default;
+
+void AdministratorAddUserWidget::slotChangeSetRandomPassword(bool checked)
+{
+    mRequirePassword->setChecked(checked);
+    mRequirePassword->setEnabled(!checked);
+}
 
 void AdministratorAddUserWidget::slotUpdateOkButton()
 {

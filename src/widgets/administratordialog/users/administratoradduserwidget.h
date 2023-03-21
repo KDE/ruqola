@@ -44,6 +44,7 @@ Q_SIGNALS:
     void updateButtonOk(bool b);
 
 private:
+    void slotChangeSetRandomPassword(bool checked);
     void slotUpdateOkButton();
     UserType mUserType = UserType::Create;
     QLineEdit *const mName;
