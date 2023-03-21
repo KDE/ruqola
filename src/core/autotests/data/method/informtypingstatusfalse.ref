@@ -3,7 +3,7 @@
     "method": "stream-notify-room",
     "msg": "method",
     "params": [
-        "roomId/typing",
+        "roomId/user-activity",
         "user1",
         false
     ]
