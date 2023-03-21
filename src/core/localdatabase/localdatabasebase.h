@@ -25,6 +25,9 @@ public:
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName, const QString &roomName) const;
     Q_REQUIRED_RESULT QString dbFileName(const QString &accountName) const;
 
+    // Only for test!
+    Q_REQUIRED_RESULT QString schemaDatabaseStr() const;
+
 protected:
     Q_REQUIRED_RESULT virtual QString schemaDataBase() const;
     Q_REQUIRED_RESULT bool initializeDataBase(const QString &accountName, const QString &_roomName, QSqlDatabase &db);

@@ -16,4 +16,5 @@ public:
     ~LocalAccountDatabaseTest() override = default;
 private Q_SLOTS:
     void initTestCase();
+    void shouldHaveDefaultValues();
 };

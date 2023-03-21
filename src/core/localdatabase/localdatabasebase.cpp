@@ -34,6 +34,11 @@ QString LocalDatabaseBase::dbFileName(const QString &accountName) const
     return dirPath + QLatin1Char('/') + accountName + QStringLiteral(".sqlite");
 }
 
+QString LocalDatabaseBase::schemaDatabaseStr() const
+{
+    return schemaDataBase();
+}
+
 QString LocalDatabaseBase::schemaDataBase() const
 {
     Q_ASSERT(true);

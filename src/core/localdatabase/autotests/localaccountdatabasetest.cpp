@@ -27,3 +27,9 @@ void LocalAccountDatabaseTest::initTestCase()
     LocalAccountDatabase accountDataBase;
     QFile::remove(accountDataBase.dbFileName(accountName()));
 }
+
+void LocalAccountDatabaseTest::shouldHaveDefaultValues()
+{
+    LocalAccountDatabase accountDataBase;
+    QCOMPARE(accountDataBase.schemaDatabaseStr(), QStringLiteral("CREATE TABLE ACCOUNT (accountName TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, json TEXT)"));
+}

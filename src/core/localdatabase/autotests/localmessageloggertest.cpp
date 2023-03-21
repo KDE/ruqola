@@ -142,3 +142,10 @@ void LocalMessageLoggerTest::shouldReturnNullIfDoesNotExist()
     // THEN
     QVERIFY(!tableModel);
 }
+
+void LocalMessageLoggerTest::shouldDefaultValues()
+{
+    LocalMessageLogger logger;
+    QCOMPARE(logger.schemaDatabaseStr(),
+             QStringLiteral("CREATE TABLE LOGS (messageId TEXT PRIMARY KEY NOT NULL, timestamp INTEGER, userName TEXT, text TEXT)"));
+}
