@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-17 00:57+0000\n"
-"PO-Revision-Date: 2023-03-08 14:59+0100\n"
+"PO-Revision-Date: 2023-03-16 16:30+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -2158,12 +2158,13 @@ msgid "Invalid Password"
 msgstr "Neplatné heslo"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "Zadaný povinný parametr '%1' neodpovídá žádnému kanálu"
+msgstr ""
+"Zadaný povinný parametr \\\"roomId\\\" nebo \\\"roomName\\\" neodpovídá "
+"žádnému kanálu"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2191,10 +2192,9 @@ msgid "Channel can not convert to Team."
 msgstr ""
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Token s tímto názvem již existuje"
+msgstr "Tým již existuje."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2202,12 +2202,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr ""
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "Zadaný povinný parametr '%1' neodpovídá žádnému kanálu"
+msgstr ""
+"Zadaný povinný parametr \\\"roomId\\\" nebo \\\"roomName\\\" neodpovídá "
+"žádnému týmu"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -8336,18 +8337,3 @@ msgstr "Důležité změny od poslední verze:"
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
-
-#~ msgid "Snippered Messages"
-#~ msgstr "Zprávy s ukázkou kódu"
-
-#~ msgid "Show Snippered Messages..."
-#~ msgstr "Zobrazit zprávy s kódem…"
-
-#~ msgid "View mode:"
-#~ msgstr "Režim pohledu:"
-
-#~ msgid "Normal"
-#~ msgstr "Normální"
-
-#~ msgid "Compact"
-#~ msgstr "Kompaktní"
