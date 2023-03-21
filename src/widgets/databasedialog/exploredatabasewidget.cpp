@@ -75,7 +75,7 @@ void ExploreDatabaseWidget::slotLoad()
                 const QString json = record.value(int(Fields::Json)).toString();
                 // qDebug() << " json111 " << json.toUtf8();
                 const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
-                qDebug() << " doc " << doc;
+                // qDebug() << " doc " << doc;
                 // qDebug() << " json " << QCborValue::fromCbor(json.toUtf8()).toMap();
                 const Message msg = Message::deserialize(doc.object());
                 // qDebug() << " msg " << msg;
