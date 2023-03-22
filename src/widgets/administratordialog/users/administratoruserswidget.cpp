@@ -9,6 +9,7 @@
 #include "administratorinviteusersdialog.h"
 #include "connection.h"
 #include "dialogs/confirmpassworddialog.h"
+#include "invite/sendinvitationemailjob.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/adminusersmodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
@@ -60,10 +61,22 @@ void AdministratorUsersWidget::slotInviteUsers()
 {
     QPointer<AdministratorInviteUsersDialog> dlg = new AdministratorInviteUsersDialog(this);
     if (dlg->exec()) {
-        const QStringList emails = dlg->emails();
-        qDebug() << " emails invitation " << emails;
-        qWarning() << " Still not implemented !";
-        // TODO
+        if (mRocketChatAccount->ruqolaServerConfig()->hasAtLeastVersion(6, 0, 0)) {
+            const QStringList emails = dlg->emails();
+            if (!emails.isEmpty()) {
+                auto job = new RocketChatRestApi::SendInvitationEmailJob(this);
+                job->setEmails(emails);
+                mRocketChatAccount->restApi()->initializeRestApiJob(job);
+                connect(job, &RocketChatRestApi::SendInvitationEmailJob::sendInvitationEmailsDone, this, []() {
+                    qDebug() << " Emails send";
+                });
+                if (!job->start()) {
+                    qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start SendInvitationEmailJob job";
+                }
+            }
+        } else {
+            qWarning() << " Still not implemented !";
+        }
     }
     delete dlg;
 }
