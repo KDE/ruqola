@@ -8,6 +8,7 @@
 #include "restapimethod.h"
 #include "rocketchatqtrestapi_debug.h"
 
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkReply>
@@ -62,7 +63,7 @@ bool SendInvitationEmailJob::canStart() const
     if (!RestApiAbstractJob::canStart()) {
         return false;
     }
-    if (!mEmails.isEmpty()) {
+    if (mEmails.isEmpty()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
         return false;
     }
@@ -80,5 +81,8 @@ QNetworkRequest SendInvitationEmailJob::request() const
 
 QJsonDocument SendInvitationEmailJob::json() const
 {
-    return {};
+    QJsonObject jsonObj;
+    jsonObj[QLatin1String("emails")] = QJsonArray::fromStringList(mEmails);
+    const QJsonDocument postData = QJsonDocument(jsonObj);
+    return postData;
 }

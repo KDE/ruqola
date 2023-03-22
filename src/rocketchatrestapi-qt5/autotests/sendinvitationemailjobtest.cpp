@@ -30,14 +30,18 @@ void SendInvitationEmailJobTest::shouldGenerateRequest()
     SendInvitationEmailJob job;
     QNetworkRequest request = QNetworkRequest(QUrl());
     verifyAuthentication(&job, request);
-    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/users.removeOtherTokens")));
+    QCOMPARE(request.url(), QUrl(QStringLiteral("http://www.kde.org/api/v1/sendInvitationEmail")));
     QCOMPARE(request.header(QNetworkRequest::ContentTypeHeader).toString(), QStringLiteral("application/json"));
 }
 
 void SendInvitationEmailJobTest::shouldGenerateJson()
 {
     SendInvitationEmailJob job;
-    QVERIFY(job.json().toJson(QJsonDocument::Compact).isNull());
+    QStringList emails;
+    emails.append(QStringLiteral("bla@kde.org"));
+    emails.append(QStringLiteral("bli@kde.org"));
+    job.setEmails(emails);
+    QCOMPARE(job.json().toJson(QJsonDocument::Compact), QStringLiteral(R"({"emails":["bla@kde.org","bli@kde.org"]})").toLatin1());
 }
 
 void SendInvitationEmailJobTest::shouldNotStarting()
@@ -56,5 +60,8 @@ void SendInvitationEmailJobTest::shouldNotStarting()
     job.setAuthToken(auth);
     QVERIFY(!job.canStart());
     job.setUserId(userId);
+    QVERIFY(!job.canStart());
+    const QStringList emails{QStringLiteral("foo"), QStringLiteral("bla")};
+    job.setEmails(emails);
     QVERIFY(job.canStart());
 }
