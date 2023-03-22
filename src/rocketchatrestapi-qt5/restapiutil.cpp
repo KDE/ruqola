@@ -433,6 +433,8 @@ QString RestApiUtil::restUrl(RestApiUtil::RestApiUrlType type)
         return QStringLiteral("useInviteToken");
     case RestApiUtil::RestApiUrlType::ValidateInviteToken:
         return QStringLiteral("validateInviteToken");
+    case RestApiUtil::RestApiUrlType::SendInvitationEmails:
+        return QStringLiteral("sendInvitationEmail");
     case RestApiUtil::RestApiUrlType::RoomsAutocompleteChannelAndPrivate:
         return QStringLiteral("rooms.autocomplete.channelAndPrivate");
     case RestApiUtil::RestApiUrlType::Users2FASendEmailCode:

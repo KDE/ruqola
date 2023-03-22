@@ -241,6 +241,9 @@ enum class RestApiUrlType {
     UseInviteToken,
     ValidateInviteToken,
 
+    // RC 6.0
+    SendInvitationEmails,
+
     // Since 2.4.0
     RoomsAutocompleteChannelAndPrivate,
 
