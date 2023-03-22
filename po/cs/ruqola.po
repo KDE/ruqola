@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-03-16 16:30+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2171,6 +2171,11 @@ msgstr ""
 msgid "This user is not in this role."
 msgstr ""
 
+#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#, kde-format
+msgid "This is an enterprise feature"
+msgstr ""
+
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
@@ -3073,7 +3078,7 @@ msgstr "E-mail:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:74
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Heslo:"
@@ -6183,7 +6188,7 @@ msgstr "Název účtu:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server URL:"
 msgstr "URL serveru:"
@@ -6805,7 +6810,7 @@ msgstr "Přihlášení se nezdařilo: obecná chyba"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Pro dokončení přihlášení je potřeba heslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Přihlášení selhalo: Neplatný kód OTP."
@@ -7886,38 +7891,37 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Přihlášení"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Název účtu:"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account name"
 msgstr "Název účtu"
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or Email:"
 msgstr "Uživatelské jméno nebo e-mail:"
 
-#: widgets/ruqolaloginwidget.cpp:53
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username or email"
 msgstr "Uživatelské jméno nebo e-mail"
 
-#: widgets/ruqolaloginwidget.cpp:61
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda ověření"
 
-#: widgets/ruqolaloginwidget.cpp:89
+#: widgets/ruqolaloginwidget.cpp:85
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -7926,17 +7930,17 @@ msgstr ""
 "Máte zapnuto dvoufázové ověření.\n"
 "Zadejte vygenerovaný kód nebo záložní kód."
 
-#: widgets/ruqolaloginwidget.cpp:192
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Přihlášení se nezdařilo: neplatné jméno uživatele nebo heslo"
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Nalezen problém s instalací. Nebyly nalezeny žádné moduly."
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Přihlášení se nezdařilo: obecná chyba"

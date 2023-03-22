@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-03-17 20:32+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
@@ -2197,6 +2197,11 @@ msgstr ""
 msgid "This user is not in this role."
 msgstr "L'utilisateur n'a pas ce rôle."
 
+#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#, kde-format
+msgid "This is an enterprise feature"
+msgstr ""
+
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
@@ -3098,7 +3103,7 @@ msgstr "Courriel :"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:74
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Mot de passe :"
@@ -6415,7 +6420,7 @@ msgstr "Nom du compte :"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server URL:"
 msgstr "URL du serveur :"
@@ -7031,7 +7036,7 @@ msgstr ""
 "Un mot de passe à usage unique est nécessaire pour terminer la procédure de "
 "connexion."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Échec de la connexion : code « OTP » non valable"
@@ -8141,38 +8146,37 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "%1 utilisateur(s) dans le salon (Total : %2)"
 msgstr[1] "%1 messages dans le salon (total : %2)"
 
-#. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Connexion"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Nom du compte :"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account name"
 msgstr "Nom du compte"
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or Email:"
 msgstr "Nom d'utilisateur ou courriel :"
 
-#: widgets/ruqolaloginwidget.cpp:53
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username or email"
 msgstr "Nom d'utilisateur ou courriel"
 
-#: widgets/ruqolaloginwidget.cpp:61
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Méthode d'authentification"
 
-#: widgets/ruqolaloginwidget.cpp:89
+#: widgets/ruqolaloginwidget.cpp:85
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8181,18 +8185,18 @@ msgstr ""
 "Vous avez activé l'authentification par double facteur. \n"
 "Veuillez saisir le code généré ou un code de secours."
 
-#: widgets/ruqolaloginwidget.cpp:192
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Connexion impossible : nom d'utilisateur ou mot de passe non valable."
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr ""
 "Problème d'installation découvert. Aucun module externe disponible ici."
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Échec de la connexion : erreur générique"

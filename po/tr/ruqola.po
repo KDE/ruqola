@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-03-16 11:38+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -2165,6 +2165,11 @@ msgstr ""
 msgid "This user is not in this role."
 msgstr "Kullanıcı, bu rolde değil."
 
+#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#, kde-format
+msgid "This is an enterprise feature"
+msgstr ""
+
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
@@ -3062,7 +3067,7 @@ msgstr "E-posta:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:74
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Parola:"
@@ -6326,7 +6331,7 @@ msgstr "Hesap adı:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server URL:"
 msgstr "Sunucu URL'si:"
@@ -6944,7 +6949,7 @@ msgstr ""
 "Oturum açma prosedürlerini tamamlamak için bir adet tek kerelik parola "
 "gerekiyor."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Oturum açma başarısız: Geçersiz tek kerelik parola."
@@ -8051,38 +8056,37 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Odada %1 kullanıcı (Toplam: %2)"
 msgstr[1] "Odada %1 kullanıcı (Toplam: %2)"
 
-#. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Oturum Aç"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Hesap Adı:"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account name"
 msgstr "Hesap adı"
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or Email:"
 msgstr "Kullanıcı Adı veya E-posta:"
 
-#: widgets/ruqolaloginwidget.cpp:53
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username or email"
 msgstr "Kullanıcı adı veya e-posta"
 
-#: widgets/ruqolaloginwidget.cpp:61
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Kimlik Doğrulama Yöntemi"
 
-#: widgets/ruqolaloginwidget.cpp:89
+#: widgets/ruqolaloginwidget.cpp:85
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8091,17 +8095,17 @@ msgstr ""
 "İki adımlı kimlik doğrulamayı etkinleştirdiniz.\n"
 "Üretilen kodu veya bir yedek kodunu girin."
 
-#: widgets/ruqolaloginwidget.cpp:192
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Oturum açma başarısız: Geçersiz kullanıcı adı veya parola"
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Kurulum sorunu bulundu. Burada hiçbir eklenti yok."
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Oturum açma başarısız: Genel hata"

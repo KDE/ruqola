@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2023-03-20 08:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
-"%100<=4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Poedit 3.2.2\n"
 
 #: apps/main.cpp:51
@@ -2177,6 +2177,11 @@ msgstr ""
 msgid "This user is not in this role."
 msgstr "Ta uporabnik ni v tej vlogi."
 
+#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#, kde-format
+msgid "This is an enterprise feature"
+msgstr ""
+
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
 msgid "Invalid Subscription"
@@ -3082,7 +3087,7 @@ msgstr "E-naslov:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:74
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Geslo:"
@@ -6345,7 +6350,7 @@ msgstr "Ime računa:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, kde-format
 msgid "Server URL:"
 msgstr "Url strežnika:"
@@ -6973,7 +6978,7 @@ msgstr "Prijava ni uspela: splošna napaka"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Za dokončanje postopka prijave je potrebno enkratno geslo."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Prijava ni uspela: neveljavna koda OTP."
@@ -8089,38 +8094,37 @@ msgstr[1] "%1 uporabnika v sobi (skupaj: %2)"
 msgstr[2] "%1 uporabniki v sobi (skupaj: %2)"
 msgstr[3] "%1 uporabnikov v sobi (skupaj: %2)"
 
-#. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Prijava"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Ime računa:"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, kde-format
 msgid "Account name"
 msgstr "Ime računa"
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, kde-format
 msgid "Username or Email:"
 msgstr "Uporabniško ime ali naslov e-pošte:"
 
-#: widgets/ruqolaloginwidget.cpp:53
+#: widgets/ruqolaloginwidget.cpp:52
 #, kde-format
 msgid "Username or email"
 msgstr "Uporabniško ime ali naslov e-pošte"
 
-#: widgets/ruqolaloginwidget.cpp:61
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Metoda preverjanja pristnosti"
 
-#: widgets/ruqolaloginwidget.cpp:89
+#: widgets/ruqolaloginwidget.cpp:85
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8129,17 +8133,17 @@ msgstr ""
 "Omogočili ste dvostopenjsko preverjanje pristnosti.\n"
 "Vnesite ustvarjeno kodo ali nadomestno varnostno kodo."
 
-#: widgets/ruqolaloginwidget.cpp:192
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Prijava ni uspela: neveljavno uporabniško ime ali geslo"
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Najdena je težava pri namestitvi. Tukaj ni nobenih vtičnikov."
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Prijava ni uspela: splošna napaka"

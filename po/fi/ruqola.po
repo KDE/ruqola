@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-17 00:57+0000\n"
+"POT-Creation-Date: 2023-03-22 00:48+0000\n"
 "PO-Revision-Date: 2021-05-07 18:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -2255,6 +2255,11 @@ msgstr "Vaadittu parametri ”%1” ei vastaa mitään kanavaa"
 msgid "This user is not in this role."
 msgstr "Käyttäjä ei ole tässä huoneessa"
 
+#: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
+#, kde-format
+msgid "This is an enterprise feature"
+msgstr ""
+
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, fuzzy, kde-format
 #| msgid "Invalid subscription"
@@ -3231,7 +3236,7 @@ msgstr "Sähköposti:"
 #: widgets/dialogs/channelinfoeditablewidget.cpp:75
 #: widgets/dialogs/createnewserverwidget.cpp:44
 #: widgets/registeruser/registeruserwidget.cpp:39
-#: widgets/ruqolaloginwidget.cpp:74
+#: widgets/ruqolaloginwidget.cpp:73
 #, kde-format
 msgid "Password:"
 msgstr "Salasana:"
@@ -6549,7 +6554,7 @@ msgstr "Tilin nimi:"
 
 #: widgets/dialogs/createnewserverwidget.cpp:35
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:44
-#: widgets/ruqolaloginwidget.cpp:49
+#: widgets/ruqolaloginwidget.cpp:48
 #, fuzzy, kde-format
 #| msgid "Server Url:"
 msgid "Server URL:"
@@ -7204,7 +7209,7 @@ msgstr "Kirjautuminen epäonnistui: yleinen virhe"
 msgid "A one-time password is required to complete the login procedure."
 msgstr "Kirjautumisen viimeistelyyn vaaditaan kertakäyttöinen salasana."
 
-#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:196
+#: widgets/misc/accountsoverviewwidget.cpp:53 widgets/ruqolaloginwidget.cpp:189
 #, kde-format
 msgid "Login failed: Invalid OTP code."
 msgstr "Kirjautuminen epäonnistui: virheellinen OTP-koodi."
@@ -8340,41 +8345,40 @@ msgid_plural "%1 Users in room (Total: %2)"
 msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
-#. i18n("Use LDAP"), this))
-#: widgets/ruqolaloginwidget.cpp:32
+#: widgets/ruqolaloginwidget.cpp:31
 #, kde-format
 msgid "Login"
 msgstr "Kirjaudu"
 
-#: widgets/ruqolaloginwidget.cpp:44
+#: widgets/ruqolaloginwidget.cpp:43
 #, kde-format
 msgid "Account Name:"
 msgstr "Tilin nimi:"
 
-#: widgets/ruqolaloginwidget.cpp:45
+#: widgets/ruqolaloginwidget.cpp:44
 #, fuzzy, kde-format
 #| msgid "Account name:"
 msgid "Account name"
 msgstr "Tilin nimi:"
 
-#: widgets/ruqolaloginwidget.cpp:52
+#: widgets/ruqolaloginwidget.cpp:51
 #, fuzzy, kde-format
 #| msgid "Username:"
 msgid "Username or Email:"
 msgstr "Käyttäjätunnus:"
 
-#: widgets/ruqolaloginwidget.cpp:53
+#: widgets/ruqolaloginwidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Username"
 msgid "Username or email"
 msgstr "Käyttäjätunnus"
 
-#: widgets/ruqolaloginwidget.cpp:61
+#: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
 msgid "Authentication Method"
 msgstr "Tunnistautumistapa"
 
-#: widgets/ruqolaloginwidget.cpp:89
+#: widgets/ruqolaloginwidget.cpp:85
 #, kde-format
 msgid ""
 "You have enabled second factor authentication.\n"
@@ -8383,17 +8387,17 @@ msgstr ""
 "Käytössä on kahden tekijän todennus.\n"
 "Anna luotu koodi tai varmistuskoodi."
 
-#: widgets/ruqolaloginwidget.cpp:192
+#: widgets/ruqolaloginwidget.cpp:185
 #, kde-format
 msgid "Login Failed: invalid username or password"
 msgstr "Kirjautuminen epäonnistui: virheellinen käyttäjätunnus tai salasana"
 
-#: widgets/ruqolaloginwidget.cpp:206
+#: widgets/ruqolaloginwidget.cpp:199
 #, kde-format
 msgid "Installation Problem found. No plugins found here."
 msgstr "Havaittiin asennusongelma: liitännäisiä ei löytynyt."
 
-#: widgets/ruqolaloginwidget.cpp:212
+#: widgets/ruqolaloginwidget.cpp:205
 #, kde-format
 msgid "Login Failed: generic error"
 msgstr "Kirjautuminen epäonnistui: yleinen virhe"
