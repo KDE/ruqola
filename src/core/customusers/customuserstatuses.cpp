@@ -143,6 +143,8 @@ void CustomUserStatuses::updateCustomUserStatues(const QJsonArray &replyArray)
                     }
                 }
             } else {
+                // It's a bug in RC server see https://github.com/RocketChat/Rocket.Chat/issues/28542
+
                 qCWarning(RUQOLA_LOG) << "updateCustomUser invalid QJsonObject" << customStatusObj;
             }
         }
