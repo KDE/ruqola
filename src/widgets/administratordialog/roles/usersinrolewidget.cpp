@@ -18,6 +18,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <QLabel>
+#include <QLayout>
 #include <QMenu>
 #include <QPointer>
 #include <QTreeView>
@@ -25,6 +26,8 @@
 UsersInRoleWidget::UsersInRoleWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
+    // Remove duplicate margins
+    layout()->setContentsMargins({});
     mModel = new UsersInRoleModel(this);
     mModel->setObjectName(QStringLiteral("mAdminUsersModel"));
 
