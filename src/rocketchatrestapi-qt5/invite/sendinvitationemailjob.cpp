@@ -6,6 +6,7 @@
 
 #include "sendinvitationemailjob.h"
 #include "restapimethod.h"
+#include "rocketchatqtrestapi_debug.h"
 
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -41,6 +42,16 @@ void SendInvitationEmailJob::onPostRequestResponse(const QString &replyErrorStri
     }
 }
 
+QStringList SendInvitationEmailJob::emails() const
+{
+    return mEmails;
+}
+
+void SendInvitationEmailJob::setEmails(const QStringList &newEmails)
+{
+    mEmails = newEmails;
+}
+
 bool SendInvitationEmailJob::requireHttpAuthentication() const
 {
     return true;
@@ -49,6 +60,10 @@ bool SendInvitationEmailJob::requireHttpAuthentication() const
 bool SendInvitationEmailJob::canStart() const
 {
     if (!RestApiAbstractJob::canStart()) {
+        return false;
+    }
+    if (!mEmails.isEmpty()) {
+        qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Any email defined";
         return false;
     }
     return true;

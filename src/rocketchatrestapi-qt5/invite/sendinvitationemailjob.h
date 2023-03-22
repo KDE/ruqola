@@ -23,11 +23,16 @@ public:
     Q_REQUIRED_RESULT QNetworkRequest request() const override;
 
     Q_REQUIRED_RESULT QJsonDocument json() const;
+
+    Q_REQUIRED_RESULT QStringList emails() const;
+    void setEmails(const QStringList &newEmails);
+
 Q_SIGNALS:
     void sendInvitationEmailsDone();
 
 private:
     Q_DISABLE_COPY(SendInvitationEmailJob)
     void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    QStringList mEmails;
 };
 }
