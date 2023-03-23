@@ -42,3 +42,14 @@ void RoleEditWidgetTest::shouldHaveDefaultValues()
 
     QVERIFY(!w.roleEditDialogInfo().isValid());
 }
+
+void RoleEditWidgetTest::shouldVerifyRoleEditDialogInfoValues()
+{
+    RoleEditWidget::RoleEditDialogInfo info;
+    QVERIFY(!info.isValid());
+    QVERIFY(info.mName.isEmpty());
+    QVERIFY(info.mDescription.isEmpty());
+    QVERIFY(info.mScope.isEmpty());
+    QVERIFY(!info.mTwoFactor);
+    QVERIFY(!info.mIsProtected);
+}

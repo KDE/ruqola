@@ -16,4 +16,5 @@ public:
     ~RoleEditWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
+    void shouldVerifyRoleEditDialogInfoValues();
 };
