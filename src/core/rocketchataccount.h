@@ -558,7 +558,7 @@ Q_SIGNALS:
     void ownInfoChanged();
     void customUserStatusChanged();
     void ownUserPreferencesChanged();
-    void updateStatusComboBox();
+    void customStatusChanged();
     void permissionChanged();
     void displayReconnectWidget(int seconds);
 

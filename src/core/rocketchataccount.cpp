@@ -2890,7 +2890,7 @@ MessageCache *RocketChatAccount::messageCache() const
 void RocketChatAccount::slotUpdateCustomUserStatus()
 {
     mStatusModel->updateCustomStatus(mCustomUserStatuses.customUserses());
-    Q_EMIT updateStatusComboBox();
+    Q_EMIT customStatusChanged();
 }
 
 bool RocketChatAccount::hideRoles() const
