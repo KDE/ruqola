@@ -2367,13 +2367,13 @@ msgstr "Utilitza una clau de llicència lliure"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
 #, kde-format
 msgid "Api Key:"
-msgstr "Clau de la API:"
+msgstr "Clau de l'API:"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr "El servidor necessita una clau de la API."
+msgstr "El servidor necessita una clau de l'API."
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2390,7 +2390,7 @@ msgstr "Libre Translate"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr "Clau de la API requerida pel servidor"
+msgstr "Clau de l'API requerida pel servidor"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -5991,7 +5991,7 @@ msgstr "Límit per connexió i per mètode"
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:33
 #, kde-format
 msgid "API Rate Limiter"
-msgstr "Limitador de velocitat de la API"
+msgstr "Limitador de velocitat de l'API"
 
 #: widgets/administratorsettingsdialog/ratelimiter/ratelimiterwidget.cpp:41
 #, kde-format
@@ -6148,7 +6148,7 @@ msgstr "Activa Rocket.Chat per a comunicar-se directament amb Slack."
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:33
 #, kde-format
 msgid "API Tokens"
-msgstr "Testimonis de la API"
+msgstr "Testimonis de l'API"
 
 #: widgets/administratorsettingsdialog/slackbridge/slackbridgewidget.cpp:40
 #, kde-format
@@ -9148,15 +9148,3 @@ msgstr "Informació del compte"
 #, kde-format
 msgid "Return the number of account."
 msgstr "Retorna el nombre de comptes."
-
-#~ msgid "View mode:"
-#~ msgstr "Mode de vista:"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Cozy"
-#~ msgstr "Confortable"
-
-#~ msgid "Compact"
-#~ msgstr "Compacta"
