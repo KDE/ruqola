@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <QDebug>
 #include <QWidget>
 
 #include "libruqolawidgets_private_export.h"
@@ -26,6 +27,11 @@ public:
         {
             return !mName.isEmpty();
         }
+        Q_REQUIRED_RESULT bool operator==(const RoleEditDialogInfo &other) const;
+        Q_REQUIRED_RESULT bool operator!=(const RoleEditDialogInfo &other) const
+        {
+            return !operator==(other);
+        }
     };
 
     explicit RoleEditWidget(QWidget *parent = nullptr);
@@ -43,3 +49,4 @@ private:
     QCheckBox *const mTwoFactor;
     RoleScopeComboBox *const mRoleScopeComboBox;
 };
+LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const RoleEditWidget::RoleEditDialogInfo &t);

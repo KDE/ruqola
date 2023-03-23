@@ -162,38 +162,40 @@ void AdministratorRolesWidget::modifyRole(const QModelIndex &modelIndex)
         return;
     }
     QPointer<RoleEditDialog> dlg = new RoleEditDialog(this);
-    RoleEditWidget::RoleEditDialogInfo info;
+    RoleEditWidget::RoleEditDialogInfo currentRole;
     QModelIndex index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Name);
-    info.mName = index.data().toString();
+    currentRole.mName = index.data().toString();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Mandatory2Fa);
-    info.mTwoFactor = index.data().toBool();
+    currentRole.mTwoFactor = index.data().toBool();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Scope);
-    info.mScope = index.data().toString();
+    currentRole.mScope = index.data().toString();
 
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Description);
-    info.mDescription = index.data().toString();
+    currentRole.mDescription = index.data().toString();
     index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Protected);
-    info.mIsProtected = index.data().toBool();
+    currentRole.mIsProtected = index.data().toBool();
 
-    dlg->setRoleEditDialogInfo(info);
+    dlg->setRoleEditDialogInfo(currentRole);
     if (dlg->exec()) {
-        info = dlg->roleEditDialogInfo();
-        auto roleUpdateJob = new RocketChatRestApi::RoleUpdateJob(this);
-        mRocketChatAccount->restApi()->initializeRestApiJob(roleUpdateJob);
-        RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
-        updateInfo.description = info.mDescription;
-        updateInfo.name = info.mName;
-        updateInfo.mandatory2fa = info.mTwoFactor;
-        updateInfo.scope = info.mScope;
-        index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Identifier);
-        updateInfo.identifier = index.data().toString();
+        const RoleEditWidget::RoleEditDialogInfo newRoleInfo = dlg->roleEditDialogInfo();
+        if (currentRole != newRoleInfo) {
+            auto roleUpdateJob = new RocketChatRestApi::RoleUpdateJob(this);
+            mRocketChatAccount->restApi()->initializeRestApiJob(roleUpdateJob);
+            RocketChatRestApi::RoleUpdateJob::RoleUpdateInfo updateInfo;
+            updateInfo.description = newRoleInfo.mDescription;
+            updateInfo.name = newRoleInfo.mName;
+            updateInfo.mandatory2fa = newRoleInfo.mTwoFactor;
+            updateInfo.scope = newRoleInfo.mScope;
+            index = mTreeView->model()->index(modelIndex.row(), AdminRolesModel::Identifier);
+            updateInfo.identifier = index.data().toString();
 
-        roleUpdateJob->setUpdateRoleInfo(updateInfo);
-        connect(roleUpdateJob, &RocketChatRestApi::RoleUpdateJob::updateRoleDone, this, &AdministratorRolesWidget::slotRoleUpdateDone);
-        if (!roleUpdateJob->start()) {
-            qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
+            roleUpdateJob->setUpdateRoleInfo(updateInfo);
+            connect(roleUpdateJob, &RocketChatRestApi::RoleUpdateJob::updateRoleDone, this, &AdministratorRolesWidget::slotRoleUpdateDone);
+            if (!roleUpdateJob->start()) {
+                qCDebug(RUQOLAWIDGETS_LOG) << "Impossible to start RoleUpdateJob";
+            }
         }
     }
     delete dlg;
