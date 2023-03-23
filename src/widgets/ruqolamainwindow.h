@@ -81,6 +81,7 @@ private:
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateDirectMessages();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotClose();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotStatusChanged();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateStatusMenu();
     LIBRUQOLAWIDGETS_NO_EXPORT void createSystemTray();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotUpdateCustomUserStatus();
     LIBRUQOLAWIDGETS_NO_EXPORT void slotCreateDiscussion();
@@ -141,6 +142,7 @@ private:
     QLabel *mStatusBarTypingMessage = nullptr;
     AccountsOverviewWidget *mAccountOverviewWidget = nullptr;
     Notification *mNotification = nullptr;
+    QMenu *mContextStatusMenu = nullptr;
     StatusCombobox *mStatusComboBox = nullptr;
     StatusModelFilterProxyModel *mStatusProxyModel = nullptr;
     SwitchChannelTreeViewManager *const mSwitchChannelTreeManager;

@@ -278,6 +278,8 @@ void RuqolaMainWindow::slotAccountChanged()
     slotUpdateCustomUserStatus();
     mStatusComboBox->setStatus(mCurrentRocketChatAccount->presenceStatus());
     mStatusComboBox->blockSignals(false);
+
+    slotUpdateStatusMenu();
 }
 
 void RuqolaMainWindow::slotPrivateSettingsChanged()
@@ -531,6 +533,7 @@ void RuqolaMainWindow::setupActions()
         mStatusComboBox->setObjectName(QStringLiteral("mStatusComboBox"));
         layout->addWidget(mStatusComboBox);
         connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotStatusChanged);
+        connect(mStatusComboBox, &StatusCombobox::currentIndexChanged, this, &RuqolaMainWindow::slotUpdateStatusMenu);
 
         mStatus = action;
         connect(mStatus, &QAction::triggered, mStatusComboBox, &QComboBox::showPopup);
@@ -823,6 +826,7 @@ void RuqolaMainWindow::slotLoginPageActivated(bool loginPageActivated)
     mRoomListSortByLastMessage->setEnabled(!loginPageActivated);
     mRoomListSortAlphabetically->setEnabled(!loginPageActivated);
     mRoomFavorite->setEnabled(!loginPageActivated);
+    mContextStatusMenu->menuAction()->setVisible(!loginPageActivated);
 #if HAVE_DATABASE_SUPPORT
     if (mShowDatabaseMessages) {
         mShowDatabaseMessages->setEnabled(!loginPageActivated);
@@ -906,8 +910,13 @@ void RuqolaMainWindow::createSystemTray()
     if (!mNotification) {
         mNotification = new Notification(this);
         auto trayMenu = mNotification->contextMenu();
+
+        mContextStatusMenu = mNotification->contextMenu()->addMenu(i18nc("@item:inmenu Instant message presence status", "Status"));
+        mContextStatusMenu->menuAction()->setVisible(false);
+
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::Preferences))));
         trayMenu->addAction(actionCollection()->action(QLatin1String(KStandardAction::name(KStandardAction::ConfigureNotifications))));
+
         // Create systray to show notifications on Desktop
         connect(mNotification, &Notification::alert, this, [this]() {
             QApplication::alert(this, 0);
@@ -939,9 +948,32 @@ void RuqolaMainWindow::slotStatusChanged()
     mCurrentRocketChatAccount->setDefaultStatus(status, messageStatus);
 }
 
+void RuqolaMainWindow::slotUpdateStatusMenu()
+{
+    const User::PresenceStatus status = mStatusComboBox->status();
+
+    mContextStatusMenu->setTitle(Utils::displaytextFromPresenceStatus(status));
+    mContextStatusMenu->setIcon(QIcon::fromTheme(Utils::iconFromPresenceStatus(status)));
+}
+
 void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
+
+    mContextStatusMenu->menuAction()->setVisible(true);
+    mContextStatusMenu->clear();
+
+    const StatusModel *statusModel = mCurrentRocketChatAccount->statusModel();
+
+    for (int i = 0; i < statusModel->rowCount(); i++) {
+        const QModelIndex index = statusModel->index(i);
+        QAction *action = mContextStatusMenu->addAction(index.data(Qt::DisplayRole).toString());
+        action->setIcon(index.data(Qt::DecorationRole).value<QIcon>());
+
+        connect(action, &QAction::triggered, this, [this, index] {
+            mStatusComboBox->setStatus(index.data(StatusModel::StatusRoles::Status).value<User::PresenceStatus>());
+        });
+    }
 }
 
 void RuqolaMainWindow::slotMessageUrlNotFound(const QString &str)
