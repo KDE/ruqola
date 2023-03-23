@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
 "PO-Revision-Date: 2023-01-25 23:24+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -698,7 +698,7 @@ msgstr "Birbideratu URLa"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
 msgid "Active"
 msgstr "Aktibo"
@@ -2394,8 +2394,8 @@ msgstr "Kendu Emojia"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:97
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:103
-#: widgets/administratordialog/users/administratoruserswidget.cpp:224
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -2410,7 +2410,7 @@ msgstr "Gehitu..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:99
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
-#: widgets/administratordialog/users/administratoruserswidget.cpp:231
+#: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
 msgid "Modify..."
@@ -2423,9 +2423,9 @@ msgstr "Aldatu..."
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:113
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
@@ -2654,8 +2654,8 @@ msgctxt "@title:window"
 msgid "Users in Role"
 msgstr "Eginkizuneko erabiltzaileak"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:33
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:36
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
@@ -2664,31 +2664,31 @@ msgstr "Eginkizuneko erabiltzaileak"
 msgid "Search users..."
 msgstr "Bilatu erabiltzaileak..."
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:49
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Users in Role"
 msgstr "Gehitu erabiltzailek eginkizunera"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:77
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:80
 #, kde-format
 msgid "Do you want to remove this user \"%1\"?"
 msgstr "\"%1\" erabiltzaile hau ezabatu nahi duzu?"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:78
-#: widgets/administratordialog/users/administratoruserswidget.cpp:167
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:81
+#: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, kde-format
 msgid "Remove User"
 msgstr "Kendu erabiltzailea"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:116
-#: widgets/administratordialog/users/administratoruserswidget.cpp:281
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:119
+#: widgets/administratordialog/users/administratoruserswidget.cpp:294
 #, kde-format
 msgid "No user found"
 msgstr "Ez da erabiltzaileri aurkitu"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:286
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:124
+#: widgets/administratordialog/users/administratoruserswidget.cpp:299
 #: widgets/directory/directorywidget.cpp:183
 #, kde-format
 msgid "%1 user (Total: %2)"
@@ -3108,43 +3108,43 @@ msgstr "E-postak:"
 msgid "Use ',' for separate emails"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:166
+#: widgets/administratordialog/users/administratoruserswidget.cpp:179
 #, kde-format
 msgid "Do you want to remove this user?"
 msgstr "Erabiltzaile hau kendu nahi duzu?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:218
+#: widgets/administratordialog/users/administratoruserswidget.cpp:231
 #, kde-format
 msgid "Invite..."
 msgstr "Gonbidatu..."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
 msgid "Deactivate"
 msgstr "Desaktibatu"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:249
+#: widgets/administratordialog/users/administratoruserswidget.cpp:262
 #, kde-format
 msgid "Remove Admin"
 msgstr "Kendu administratzailea"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:249
+#: widgets/administratordialog/users/administratoruserswidget.cpp:262
 #, kde-format
 msgid "Make Admin"
 msgstr "Egin administratzaile"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:261
+#: widgets/administratordialog/users/administratoruserswidget.cpp:274
 #, kde-format
 msgid "Reset Totp"
 msgstr "Berrezarri «Totp»"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:332
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3154,35 +3154,35 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:336
+#: widgets/administratordialog/users/administratoruserswidget.cpp:349
 #, kde-format
 msgid "Reset E2E key"
 msgstr "Berrezarri E2E gakoa"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:368
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr "%1(e)rako E2E gakoa berrezarri da."
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:368
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid "Reset E2E"
 msgstr "Berrezarri E2E"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:381
+#: widgets/administratordialog/users/administratoruserswidget.cpp:394
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:382
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:395
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid "Reset TOTP"
 msgstr "Berrezarri TOTP"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr "%1(e)rako TOTP gakoa berrezarri da"

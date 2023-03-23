@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-22 00:48+0000\n"
+"POT-Creation-Date: 2023-03-23 00:47+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -724,7 +724,7 @@ msgstr "Serveri URL:"
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:15
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, kde-format
 msgid "Active"
 msgstr ""
@@ -2519,8 +2519,8 @@ msgstr "Eemalda toast"
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:97
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:103
-#: widgets/administratordialog/users/administratoruserswidget.cpp:224
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:106
+#: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:37
 #, kde-format
@@ -2535,7 +2535,7 @@ msgstr "Lisa ..."
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:99
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
-#: widgets/administratordialog/users/administratoruserswidget.cpp:231
+#: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
 #, kde-format
 msgid "Modify..."
@@ -2548,9 +2548,9 @@ msgstr "Muuda ..."
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
 #: widgets/administratordialog/roles/administratorroleswidget.cpp:113
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:107
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
-#: widgets/administratordialog/users/administratoruserswidget.cpp:268
+#: widgets/administratordialog/users/administratoruserswidget.cpp:281
 #: widgets/configuredialog/configureaccountserverwidget.ui:53
 #: widgets/myaccount/myaccountpersonalaccesstokentreeview.cpp:44
 #, kde-format
@@ -2810,8 +2810,8 @@ msgctxt "@title:window"
 msgid "Users in Role"
 msgstr "Lisa tuppa kasutaja"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:33
-#: widgets/administratordialog/users/administratoruserswidget.cpp:45
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:36
+#: widgets/administratordialog/users/administratoruserswidget.cpp:46
 #: widgets/dialogs/addusersinroomwidget.cpp:23
 #: widgets/directory/directorywidget.cpp:37
 #: widgets/directory/directorywidget.cpp:204
@@ -2821,35 +2821,35 @@ msgstr "Lisa tuppa kasutaja"
 msgid "Search users..."
 msgstr "Otsi kasutajaid ..."
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:49
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:52
 #, fuzzy, kde-format
 #| msgid "Add User In Room"
 msgctxt "@title:window"
 msgid "Add Users in Role"
 msgstr "Lisa tuppa kasutaja"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:77
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:80
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this user \"%1\"?"
 msgstr "Kas eirata seda kasutajat?"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:78
-#: widgets/administratordialog/users/administratoruserswidget.cpp:167
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:81
+#: widgets/administratordialog/users/administratoruserswidget.cpp:180
 #, fuzzy, kde-format
 #| msgid "Remove as Owner"
 msgid "Remove User"
 msgstr "Eemalda omaniku staatus"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:116
-#: widgets/administratordialog/users/administratoruserswidget.cpp:281
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:119
+#: widgets/administratordialog/users/administratoruserswidget.cpp:294
 #, fuzzy, kde-format
 #| msgid "No Message found"
 msgid "No user found"
 msgstr "Ühtegi sõnumit ei leitud"
 
-#: widgets/administratordialog/roles/usersinrolewidget.cpp:121
-#: widgets/administratordialog/users/administratoruserswidget.cpp:286
+#: widgets/administratordialog/roles/usersinrolewidget.cpp:124
+#: widgets/administratordialog/users/administratoruserswidget.cpp:299
 #: widgets/directory/directorywidget.cpp:183
 #, fuzzy, kde-format
 #| msgid "%1 Message in room (Total: %2)"
@@ -3320,48 +3320,48 @@ msgstr "E-post"
 msgid "Use ',' for separate emails"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:166
+#: widgets/administratordialog/users/administratoruserswidget.cpp:179
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this user?"
 msgstr "Kas eirata seda kasutajat?"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:218
+#: widgets/administratordialog/users/administratoruserswidget.cpp:231
 #, fuzzy, kde-format
 #| msgid "Invite Users"
 msgid "Invite..."
 msgstr "Kutsu kasutajaid"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:240
+#: widgets/administratordialog/users/administratoruserswidget.cpp:253
 #, fuzzy, kde-format
 #| msgid "Add Users"
 msgid "Deactivate"
 msgstr "Kasutajate lisamine"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:249
+#: widgets/administratordialog/users/administratoruserswidget.cpp:262
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgid "Remove Admin"
 msgstr "Eemalda toast"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:249
+#: widgets/administratordialog/users/administratoruserswidget.cpp:262
 #, kde-format
 msgid "Make Admin"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:255
+#: widgets/administratordialog/users/administratoruserswidget.cpp:268
 #: widgets/myaccount/myaccount2e2configurewidget.cpp:20
 #, kde-format
 msgid "Reset E2E Key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:261
+#: widgets/administratordialog/users/administratoruserswidget.cpp:274
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Reset Totp"
 msgstr "Hangi avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:332
+#: widgets/administratordialog/users/administratoruserswidget.cpp:345
 #, kde-format
 msgid ""
 "Reset the current E2E key will log out the user. When the user login again, "
@@ -3371,37 +3371,37 @@ msgid ""
 "encrypted room that has no member online."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:336
+#: widgets/administratordialog/users/administratoruserswidget.cpp:349
 #, kde-format
 msgid "Reset E2E key"
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:368
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, kde-format
 msgid "E2E key for %1 has been reset."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:368
+#: widgets/administratordialog/users/administratoruserswidget.cpp:381
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Reset E2E"
 msgstr "Hangi avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:381
+#: widgets/administratordialog/users/administratoruserswidget.cpp:394
 #, kde-format
 msgid ""
 "Reset the current Two Factor TOTP will log out the user. The user will be "
 "able to set the Two Factor again later."
 msgstr ""
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:382
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:395
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, fuzzy, kde-format
 #| msgid "Get Avatar"
 msgid "Reset TOTP"
 msgstr "Hangi avatar"
 
-#: widgets/administratordialog/users/administratoruserswidget.cpp:413
+#: widgets/administratordialog/users/administratoruserswidget.cpp:426
 #, kde-format
 msgid "TOTP key for %1 has been reset"
 msgstr ""
