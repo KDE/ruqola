@@ -107,7 +107,7 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 menu.addSeparator();
             }
 
-            menu.addAction(QIcon::fromTheme(QStringLiteral("document-edit")), i18n("Add Users In Role..."), this, [this, index]() {
+            menu.addAction(QIcon::fromTheme(QStringLiteral("list-add")), i18n("Add Users In Role..."), this, [this, index]() {
                 const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
                 addUserInRole(modelIndex);
             });
