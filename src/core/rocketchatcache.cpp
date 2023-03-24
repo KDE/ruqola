@@ -13,6 +13,7 @@
 #include <QDateTime>
 #include <QDir>
 #include <QSettings>
+#include <QUrlQuery>
 
 RocketChatCache::RocketChatCache(RocketChatAccount *account, QObject *parent)
     : QObject(parent)
@@ -53,6 +54,10 @@ QString RocketChatCache::fileCachePath(const QUrl &url)
 {
     QString cachePath = ManagerDataPaths::self()->path(ManagerDataPaths::Cache, mAccount->accountName());
     cachePath += QLatin1Char('/') + url.path();
+    if (url.hasQuery()) {
+        const QUrlQuery query(url);
+        cachePath += query.queryItemValue(QStringLiteral("etag"));
+    }
     return cachePath;
 }
 
@@ -166,7 +171,6 @@ void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 {
     const QString avatarIdentifier = info.generateAvatarIdentifier();
     qDebug() << " updateAvatar" << info;
-    // TODO use etag too
     removeAvatar(avatarIdentifier);
     mAvatarUrl.remove(avatarIdentifier);
     insertAvatarUrl(avatarIdentifier, QUrl());
@@ -180,7 +184,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
     }
     // const QString avatarIdentifier = info.identifier;
     const QString avatarIdentifier = info.generateAvatarIdentifier();
-    qDebug() << " RocketChatCache::avatarUrl " << avatarIdentifier;
+    // qDebug() << " RocketChatCache::avatarUrl " << avatarIdentifier;
     // avoid to call this method several time.
     if (!mAvatarUrl.contains(avatarIdentifier)) {
         insertAvatarUrl(avatarIdentifier, QUrl());
@@ -188,6 +192,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
         return {};
     } else {
         const QUrl valueUrl = mAvatarUrl.value(avatarIdentifier);
+        // qDebug() << " valueUrl " << valueUrl;
 #if 0
         const QUrlQuery query{valueUrl};
         const QString etagValue = query.queryItemValue(QStringLiteral("etag"));
@@ -206,6 +211,7 @@ QString RocketChatCache::avatarUrl(const Utils::AvatarInfo &info)
         if (!valueUrl.isEmpty() && fileInCache(valueUrl)) {
             const QString url = QUrl::fromLocalFile(fileCachePath(valueUrl)).toString();
             // qDebug() << " Use image in cache" << url << " userId " << userId << " mUserAvatarUrl.value(userId) "<< mUserAvatarUrl.value(userId);
+            // qDebug() << "Use image in cache  " << url;
 
             return url;
         } else {
