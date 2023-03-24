@@ -65,6 +65,7 @@ struct AvatarInfo {
         return etag == other.etag && identifier == other.identifier && avatarType == other.avatarType;
     }
 
+    Q_REQUIRED_RESULT QString generateAvatarIdentifier() const;
     QString etag;
     QString identifier;
     AvatarType avatarType = AvatarType::Unknown;

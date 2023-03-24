@@ -326,3 +326,12 @@ QString Utils::displaytextFromPresenceStatus(User::PresenceStatus status)
     }
     return {};
 }
+
+QString Utils::AvatarInfo::generateAvatarIdentifier() const
+{
+    if (etag.isEmpty()) {
+        return identifier;
+    } else {
+        return identifier + QLatin1Char('-') + etag;
+    }
+}
