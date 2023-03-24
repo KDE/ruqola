@@ -58,12 +58,12 @@ bool EmojiCustomCreateJob::start()
     QHttpPart namePart;
     namePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"name\"")));
     namePart.setBody(mEmojiInfo.name.toUtf8());
-    multiPart->append(namePart);
+    multiPart->append(std::move(namePart));
 
     QHttpPart aliasesPart;
     aliasesPart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant(QLatin1String("form-data; name=\"aliases\"")));
     aliasesPart.setBody(mEmojiInfo.alias.toUtf8());
-    multiPart->append(aliasesPart);
+    multiPart->append(std::move(aliasesPart));
 
     mReply = networkAccessManager()->post(request(), multiPart);
     connect(mReply.data(), &QNetworkReply::finished, this, &EmojiCustomCreateJob::slotEmojiCustomCreateFinished);
