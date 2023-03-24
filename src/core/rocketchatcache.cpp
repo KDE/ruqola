@@ -164,8 +164,9 @@ void RocketChatCache::removeAvatar(const QString &avatarIdentifier)
 
 void RocketChatCache::updateAvatar(const Utils::AvatarInfo &info)
 {
-    const QString avatarIdentifier = info.identifier;
-    // qDebug() << " updateAvatar" << info;
+    const QString avatarIdentifier = info.generateAvatarIdentifier();
+    qDebug() << " updateAvatar" << info;
+    // TODO use etag too
     removeAvatar(avatarIdentifier);
     mAvatarUrl.remove(avatarIdentifier);
     insertAvatarUrl(avatarIdentifier, QUrl());
