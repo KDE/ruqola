@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-23 00:47+0000\n"
+"POT-Creation-Date: 2023-03-24 00:48+0000\n"
 "PO-Revision-Date: 2023-03-11 04:53\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2362,7 +2362,7 @@ msgstr ""
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:97
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:99
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:106
 #: widgets/administratordialog/users/administratoruserswidget.cpp:237
 #: widgets/configuredialog/configureaccountserverwidget.ui:39
@@ -2377,7 +2377,7 @@ msgstr ""
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
 #: widgets/administratordialog/permissions/permissionswidget.cpp:90
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:99
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:103
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:61
 #: widgets/administratordialog/users/administratoruserswidget.cpp:244
 #: widgets/configuredialog/configureaccountserverwidget.ui:46
@@ -2391,7 +2391,7 @@ msgstr ""
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:113
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:119
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
@@ -2563,17 +2563,17 @@ msgstr ""
 msgid "Search roles..."
 msgstr ""
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:105
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:110
 #, kde-format
 msgid "Add Users In Role..."
 msgstr ""
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:218
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:229
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
 msgstr ""
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:219
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:230
 #, kde-format
 msgid "Remove Role"
 msgstr ""
