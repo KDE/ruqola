@@ -66,7 +66,9 @@ RocketChatAccount *AvatarManager::account() const
 
 void AvatarManager::slotInsertAvatarUrl(const Utils::AvatarInfo &info, const QUrl &url)
 {
-    const QString identifier = info.identifier;
+    const QString identifier = info.generateAvatarIdentifier();
+    qDebug() << "AvatarManager::slotInsertAvatarUrl: identifier " << identifier;
+    // Use etag in identifier ?
     if (!url.isEmpty()) {
         Q_EMIT insertAvatarUrl(identifier, url);
     } // Else error for downloading => don't redownload it + continue.
