@@ -30,6 +30,13 @@ static const KLazyLocalizedString ruqolaNewFeatures[] = {
 };
 static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqolaNewFeatures;
 
+// enter items for the "Important changes" list here:
+static const KLazyLocalizedString ruqolaBugfixing[] = {
+    kli18n("Fix avatar support"),
+    // TODO
+};
+static const int numRuqolaBugfixing = sizeof ruqolaBugfixing / sizeof *ruqolaBugfixing;
+
 WhatsNewWidget::WhatsNewWidget(QWidget *parent)
     : QWidget{parent}
     , mLabelInfo(new QLabel(this))
@@ -55,6 +62,9 @@ QString WhatsNewWidget::newFeaturesMD5()
     for (int i = 0; i < numRuqolaNewFeatures; ++i) {
         str += ruqolaNewFeatures[i].untranslatedText();
     }
+    for (int i = 0; i < numRuqolaBugfixing; ++i) {
+        str += ruqolaBugfixing[i].untranslatedText();
+    }
     QCryptographicHash md5(QCryptographicHash::Md5);
     md5.addData(str);
     return QLatin1String(md5.result().toBase64());
@@ -76,6 +86,14 @@ void WhatsNewWidget::updateInformations()
         message += QStringLiteral("<ul>");
         for (int i = 0; i < numRuqolaNewFeatures; ++i) {
             message += QStringLiteral("<li>%1</li>").arg(ruqolaNewFeatures[i].toString());
+        }
+        message += QStringLiteral("</ul>");
+    }
+    if (numRuqolaBugfixing > 0) {
+        message += QStringLiteral("<b>") + i18n("Some bug fixing:") + QStringLiteral("</b>");
+        message += QStringLiteral("<ul>");
+        for (int i = 0; i < numRuqolaBugfixing; ++i) {
+            message += QStringLiteral("<li>%1</li>").arg(ruqolaBugfixing[i].toString());
         }
         message += QStringLiteral("</ul>");
     }
