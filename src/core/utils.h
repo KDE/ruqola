@@ -54,7 +54,7 @@ enum class AvatarType {
     User,
 };
 
-struct AvatarInfo {
+struct LIBRUQOLACORE_EXPORT AvatarInfo {
     Q_REQUIRED_RESULT bool isValid() const
     {
         return (avatarType != AvatarType::Unknown) && !identifier.isEmpty();

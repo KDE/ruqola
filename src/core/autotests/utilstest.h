@@ -26,4 +26,6 @@ private Q_SLOTS:
 
     void shouldGenerateAvatarUrl_data();
     void shouldGenerateAvatarUrl();
+
+    void shouldTestAvatarInfoValues();
 };

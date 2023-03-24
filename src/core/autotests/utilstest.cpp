@@ -155,3 +155,17 @@ void UtilsTest::shouldGenerateAvatarUrl()
     QFETCH(QUrl, result);
     QCOMPARE(Utils::avatarUrl(serverUrl, avatarInfo), result);
 }
+
+void UtilsTest::shouldTestAvatarInfoValues()
+{
+    Utils::AvatarInfo info;
+    QVERIFY(!info.isValid());
+    QVERIFY(info.etag.isEmpty());
+    QVERIFY(info.identifier.isEmpty());
+    QCOMPARE(info.avatarType, Utils::AvatarType::Unknown);
+
+    info.identifier = QStringLiteral("bla");
+    QCOMPARE(info.generateAvatarIdentifier(), QStringLiteral("bla"));
+    info.etag = QStringLiteral("foo");
+    QCOMPARE(info.generateAvatarIdentifier(), QStringLiteral("bla-foo"));
+}
