@@ -35,7 +35,7 @@ public:
     Q_REQUIRED_RESULT QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
     Q_REQUIRED_RESULT int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
-    const QVector<InviteInfo> &adminInvites() const;
+    Q_REQUIRED_RESULT const QVector<InviteInfo> &adminInvites() const;
     void setAdminInvites(const QVector<InviteInfo> &newAdminInvites);
 
     void removeInvite(const QString &identifier);
