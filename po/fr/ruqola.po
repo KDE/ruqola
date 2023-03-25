@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:48+0000\n"
-"PO-Revision-Date: 2023-03-17 20:32+0100\n"
+"POT-Creation-Date: 2023-03-25 00:46+0000\n"
+"PO-Revision-Date: 2023-03-23 21:25+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -2200,7 +2200,7 @@ msgstr "L'utilisateur n'a pas ce rôle."
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "Ceci est une fonctionnalité d'entreprise"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -8598,17 +8598,27 @@ msgstr ""
 "Améliorer la prise en charge du débogage (Permet d'afficher les droits "
 "d'accès actuels du compte)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:67
+#: widgets/whatsnew/whatsnewwidget.cpp:35
+msgid "Fix avatar support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifications importantes depuis la dernière version :"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:75
+#: widgets/whatsnew/whatsnewwidget.cpp:85
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Certaines des nouvelles fonctionnalités de cette version de Ruqola "
 "comprennent :"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:93
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
+msgid "Some bug fixing:"
+msgstr "Correction de bogues"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Messages barrés"

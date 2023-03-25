@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:48+0000\n"
+"POT-Creation-Date: 2023-03-25 00:46+0000\n"
 "PO-Revision-Date: 2023-03-12 08:57+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -8615,15 +8615,25 @@ msgstr "Skopiuj obraz do schowka"
 msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:67
+#: widgets/whatsnew/whatsnewwidget.cpp:35
+msgid "Fix avatar support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
 msgid "Important changes since last version:"
 msgstr ""
 
-#: widgets/whatsnew/whatsnewwidget.cpp:75
+#: widgets/whatsnew/whatsnewwidget.cpp:85
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:93
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
+msgid "Some bug fixing:"
+msgstr "Naprawa błędów"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Wiadomości nacelowane"

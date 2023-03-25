@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:48+0000\n"
+"POT-Creation-Date: 2023-03-25 00:46+0000\n"
 "PO-Revision-Date: 2023-03-18 17:12+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -8555,13 +8555,23 @@ msgid "Improve debug support (Allow to show current account permissions)"
 msgstr ""
 "Mejora de la depuración (Permite mostrar los permisos actuales de la cuenta)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:67
+#: widgets/whatsnew/whatsnewwidget.cpp:35
+msgid "Fix avatar support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Cambios importantes desde la última versión:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:75
+#: widgets/whatsnew/whatsnewwidget.cpp:85
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:93
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
+msgid "Some bug fixing:"
+msgstr "Corrección de errores"

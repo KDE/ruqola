@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-24 00:48+0000\n"
+"POT-Creation-Date: 2023-03-25 00:46+0000\n"
 "PO-Revision-Date: 2023-03-22 13:05+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -8555,13 +8555,23 @@ msgstr ""
 "Millora la implementació de la depuració (permet mostrar els permisos "
 "actuals dels comptes)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:67
+#: widgets/whatsnew/whatsnewwidget.cpp:35
+msgid "Fix avatar support"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de l'última versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:75
+#: widgets/whatsnew/whatsnewwidget.cpp:85
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'esta versió de Ruqola inclouen:"
+
+#: widgets/whatsnew/whatsnewwidget.cpp:93
+#, fuzzy, kde-format
+#| msgid "Bug fixing"
+msgid "Some bug fixing:"
+msgstr "Correcció d'errors"
