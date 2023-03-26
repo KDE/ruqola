@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 00:46+0000\n"
-"PO-Revision-Date: 2023-03-18 17:12+0100\n"
+"PO-Revision-Date: 2023-03-25 17:30+0100\n"
 "Last-Translator: Víctor Rodrigo Córdoba <vrcordoba@gmail.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2191,7 +2191,7 @@ msgstr "El usuario no tiene este rol."
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "Esta es una funcionalidad empresarial"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -8557,7 +8557,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Arregla el soporte de avatares"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
@@ -8571,7 +8571,6 @@ msgstr ""
 "Algunas de las nuevas funcionalidades en esta versión de Ruqola incluyen:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:93
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Corrección de errores"
+msgstr "Algunas correcciones de errores:"

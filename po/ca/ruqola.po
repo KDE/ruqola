@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 00:46+0000\n"
-"PO-Revision-Date: 2023-03-22 13:05+0100\n"
+"PO-Revision-Date: 2023-03-25 08:48+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -8556,7 +8556,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Corregeix la implementació dels avatars"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
@@ -8570,25 +8570,6 @@ msgstr ""
 "Algunes de les característiques noves d'aquesta versió del Ruqola inclouen:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:93
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Correcció d'errors"
-
-#~ msgid "Snippered Messages"
-#~ msgstr "Missatges fragmentats"
-
-#~ msgid "Show Snippered Messages..."
-#~ msgstr "Mostra els missatges fragmentats..."
-
-#~ msgid "View mode:"
-#~ msgstr "Mode de vista:"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Cozy"
-#~ msgstr "Confortable"
-
-#~ msgid "Compact"
-#~ msgstr "Compacta"
+msgstr "Correcció d'errors:"
