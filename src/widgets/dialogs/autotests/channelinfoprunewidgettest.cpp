@@ -45,4 +45,7 @@ void ChannelInfoPruneWidgetTest::shouldHaveDefaultValues()
 
     auto mMaximumAgeInDay = w.findChild<QSpinBox *>(QStringLiteral("mMaximumAgeInDay"));
     QVERIFY(mMaximumAgeInDay);
+    QCOMPARE(mMaximumAgeInDay->value(), 30);
+    QCOMPARE(mMaximumAgeInDay->minimum(), 1);
+    QCOMPARE(mMaximumAgeInDay->maximum(), 99999);
 }
