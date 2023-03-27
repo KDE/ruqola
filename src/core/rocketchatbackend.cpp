@@ -10,7 +10,6 @@
 #include "rocketchatbackend.h"
 #include "connection.h"
 #include "ddpapi/ddpclient.h"
-#include "localdatabase/localdatabasemanager.h"
 #include "model/messagemodel.h"
 #include "model/usersmodel.h"
 #include "receivetypingnotificationmanager.h"
