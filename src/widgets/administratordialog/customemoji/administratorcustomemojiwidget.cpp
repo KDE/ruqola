@@ -113,6 +113,7 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &index)
 {
     QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    dlg->setType(AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType::Update);
     AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info;
 
     info.alias = mModel->index(index.row(), AdminCustomEmojiModel::Aliases).data().toString();
