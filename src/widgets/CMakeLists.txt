@@ -14,6 +14,14 @@ if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
 endif()
 
 
+if (NOT TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+target_sources(libruqolawidgets PRIVATE
+    misc/lineeditcatchreturnkey.cpp
+    misc/lineeditcatchreturnkey.h
+)
+endif()
+
+
 target_sources(libruqolawidgets PRIVATE
     administratordialog/administratordialog.cpp
     administratordialog/administratordialog.h
@@ -431,8 +439,6 @@ target_sources(libruqolawidgets PRIVATE
     misc/emoticonmenuwidget.h
     misc/emoticonrecentusedfilterproxymodel.cpp
     misc/emoticonrecentusedfilterproxymodel.h
-    misc/lineeditcatchreturnkey.cpp
-    misc/lineeditcatchreturnkey.h
     misc/messagelistviewbase.h
     misc/messagelistviewbase.cpp
     misc/passwordconfirmwidget.cpp
@@ -748,6 +754,10 @@ if (TARGET KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
     target_link_libraries(libruqolawidgets KUserFeedbackWidgets${KUSERFEEDBACK_SUFFIX})
 endif()
 
+if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+    target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+endif()
+
 target_link_libraries(libruqolawidgets
     Qt::Gui
     Qt::Widgets
@@ -782,6 +792,12 @@ endif()
 if (HAVE_TEXT_TO_SPEECH)
     target_link_libraries(libruqolawidgets
         KF${KF_MAJOR_VERSION}::TextEditTextToSpeech
+    )
+endif()
+
+if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
+    target_link_libraries(libruqolawidgets
+        KF${KF_MAJOR_VERSION}::TextAddonsWidgets
     )
 endif()
 

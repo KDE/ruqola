@@ -6,7 +6,12 @@
 
 #pragma once
 
+#include "config-ruqola.h"
 #include "libruqolawidgets_private_export.h"
+#if HAVE_TEXT_ADDONS_WIDGETS_SUPPORT
+#include <TextAddonsWidgets/LineEditCatchReturnKey>
+using namespace TextAddonsWidgets;
+#else
 #include <QObject>
 class QLineEdit;
 /**
@@ -26,3 +31,4 @@ protected:
 private:
     QLineEdit *const mLineEdit;
 };
+#endif

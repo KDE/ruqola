@@ -5,7 +5,8 @@
 */
 
 #include "lineeditcatchreturnkey.h"
-
+#if HAVE_TEXT_ADDONS_WIDGETS_SUPPORT
+#else
 #include <QEvent>
 #include <QKeyEvent>
 #include <QLineEdit>
@@ -35,3 +36,4 @@ bool LineEditCatchReturnKey::eventFilter(QObject *obj, QEvent *event)
     }
     return QObject::eventFilter(obj, event);
 }
+#endif
