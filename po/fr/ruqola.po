@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2023-01-24 19:35+0100\n"
+"PO-Revision-Date: 2023-03-26 11:25+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1776,7 +1776,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:405
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr "Formater automatiquement  les &URL (Mode « HTML »)"
+msgstr "Formater automatiquement les &URL (Mode « HTML »)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:412
@@ -1824,7 +1824,7 @@ msgstr "Personnaliser les &quotes"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:463
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr "Remplacer les &doubles  quotes avec les quotes typographiques"
+msgstr "Remplacer les &doubles quotes avec les quotes typographiques"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -1864,7 +1864,7 @@ msgstr "Quote de début :"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:572
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
-msgstr "Remplacer les &simples  quotes avec les quotes typographiques"
+msgstr "Remplacer les &simples quotes avec les quotes typographiques"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -1931,7 +1931,7 @@ msgstr "Correction automatique pour KMail / Calligra "
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr "La chaîne  « Remplacer » est identique à la chaîne « Trouver »."
+msgstr "La chaîne « Remplacer » est identique à la chaîne « Trouver »."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
 #, kde-format
@@ -2374,7 +2374,7 @@ msgstr "Clé d'API :"
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr "Le serveur a besoin d'une clé  d'API."
+msgstr "Le serveur a besoin d'une clé d'API."
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -4562,7 +4562,7 @@ msgstr "URL"
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:73
 #, kde-format
 msgid "The site id to use for identifying this site. Example: 17"
-msgstr "L'identifiant du site  pour être identifié sur ce site. Exemple : 17"
+msgstr "L'identifiant du site pour être identifié sur ce site. Exemple : 17"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
@@ -4685,7 +4685,7 @@ msgid ""
 "Note: Attributes are always synced upon account creation anyway."
 msgstr ""
 "Toujours synchroniser les données de l’utilisateur « CAS » externe avec les "
-"attributs disponibles à la connexion.  \n"
+"attributs disponibles à la connexion.\n"
 "Remarque : Les attributs sont toujours synchronisés lors de la création du "
 "compte."
 
@@ -4710,7 +4710,7 @@ msgid ""
 "their team and department channel."
 msgstr ""
 "Utilisez cette entrée « JSON » pour créer des attributs internes (clés) à "
-"partir d’attributs externes (valeur).  \n"
+"partir d’attributs externes (valeur).\n"
 "Les noms d’attributs externes encadrés avec un caractère « % » seront "
 "interpolés dans les chaînes de valeurs. <br/>Exemple, {« courriel » : "
 "« %courriel% », « nom » : « %prénom%, %nom% »} \n"
