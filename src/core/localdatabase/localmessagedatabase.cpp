@@ -68,6 +68,45 @@ void LocalMessageDatabase::deleteMessage(const QString &accountName, const QStri
 #endif
 }
 
+// TODO add autotests
+QVector<QString> LocalMessageDatabase::loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const
+{
+    const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);
+    const QString dbName = databaseName(accountName + QLatin1Char('-') + roomName);
+    QSqlDatabase db = QSqlDatabase::database(dbName);
+    if (!db.isValid()) {
+        // Open the DB if it exists (don't create a new one)
+        const QString fileName = dbFileName(accountName, roomName);
+        qDebug() << " fileName " << fileName;
+        if (!QFileInfo::exists(fileName)) {
+            return {};
+        }
+        db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), dbName);
+        db.setDatabaseName(fileName);
+        if (!db.open()) {
+            qCWarning(RUQOLA_DATABASE_LOG) << "Couldn't open" << fileName;
+            return {};
+        }
+    }
+
+    Q_ASSERT(db.isValid());
+    Q_ASSERT(db.isOpen());
+    const QString query = QStringLiteral("SELECT * FROM MESSAGES WHERE timestamp >= :startId AND timestamp <= :endId LIMIT :limit");
+    QSqlQuery resultQuery(db);
+    resultQuery.prepare(query);
+    resultQuery.bindValue(QStringLiteral(":startId"), startId);
+    resultQuery.bindValue(QStringLiteral(":endId"), endId);
+    resultQuery.bindValue(QStringLiteral(":limit"), numberElements);
+    resultQuery.exec();
+    QVector<QString> result;
+    while (resultQuery.next()) {
+        const QString json = resultQuery.value(QStringLiteral("json")).toString();
+        result.append(json);
+    }
+
+    return result;
+}
+
 std::unique_ptr<QSqlTableModel> LocalMessageDatabase::createMessageModel(const QString &accountName, const QString &_roomName) const
 {
     const QString roomName = LocalDatabaseUtils::fixRoomName(_roomName);

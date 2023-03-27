@@ -23,6 +23,8 @@ public:
 
     std::unique_ptr<QSqlTableModel> createMessageModel(const QString &accountName, const QString &_roomName) const;
 
+    Q_REQUIRED_RESULT QVector<QString> loadMessages(const QString &accountName, const QString &_roomName, int startId, int endId, int numberElements) const;
+
 protected:
     Q_REQUIRED_RESULT QString schemaDataBase() const override;
 };
