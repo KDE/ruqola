@@ -18,4 +18,5 @@ private Q_SLOTS:
     void shouldLoadExistingDb();
     void shouldDeleteMessages();
     void shouldReturnNullIfDoesNotExist();
+    void shouldExtractMessages();
 };

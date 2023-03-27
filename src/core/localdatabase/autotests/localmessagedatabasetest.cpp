@@ -139,3 +139,8 @@ void LocalMessageDatabaseTest::shouldReturnNullIfDoesNotExist()
     // THEN
     QVERIFY(!tableModel);
 }
+
+void LocalMessageDatabaseTest::shouldExtractMessages()
+{
+    // TODO
+}
