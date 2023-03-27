@@ -120,13 +120,13 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
     // TODO info.fileNameUrl =
     dlg->setCustomEmojiInfo(info);
     if (dlg->exec()) {
-        const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
+        const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo newCustomEmojInfo = dlg->info();
 
         RocketChatRestApi::EmojiCustomUpdateJob::EmojiInfo emojiInfo;
-        emojiInfo.alias = info.alias;
-        emojiInfo.name = info.name;
+        emojiInfo.alias = newCustomEmojInfo.alias;
+        emojiInfo.name = newCustomEmojInfo.name;
         emojiInfo.emojiId = mModel->index(index.row(), AdminCustomEmojiModel::Identifier).data().toString();
-        emojiInfo.fileNameUrl = info.fileNameUrl;
+        emojiInfo.fileNameUrl = newCustomEmojInfo.fileNameUrl;
         auto job = new RocketChatRestApi::EmojiCustomUpdateJob(this);
         job->setEmojiInfo(emojiInfo);
         mRocketChatAccount->restApi()->initializeRestApiJob(job);
