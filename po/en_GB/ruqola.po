@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-25 00:46+0000\n"
-"PO-Revision-Date: 2023-03-14 20:49+0000\n"
+"PO-Revision-Date: 2023-03-26 14:36+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -2165,12 +2165,13 @@ msgid "Invalid Password"
 msgstr "Invalid Password"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
-msgstr "The required '%1' param provided does not match any channel"
+msgstr ""
+"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+"match any channel"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2180,7 +2181,7 @@ msgstr "This user is not in this role."
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "This is an enterprise feature"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -2203,10 +2204,9 @@ msgid "Channel can not convert to Team."
 msgstr "Channel can not convert to Team."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "A token with this name already exists"
+msgstr "Team already exists."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2214,12 +2214,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "You don't have permission to add this channel to the team"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
-msgstr "The required '%1' param provided does not match any channel"
+msgstr ""
+"The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
+"match any teams"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -6102,10 +6103,9 @@ msgid "Invalid characters found."
 msgstr "Invalid characters found."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Invalid characters found."
+msgstr "Invalid characters found. (Valid characters: %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -8501,7 +8501,7 @@ msgstr "Improve debug support (Allow to show current account permissions)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Fix avatar support"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
@@ -8514,10 +8514,9 @@ msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Some of the new features in this release of Ruqola include:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:93
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Bug fixing"
+msgstr "Some bug fixing:"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Snippered Messages"
