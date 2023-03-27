@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "administratorcustomemojicreatewidget.h"
+#include "administratorcustomemojicreateorupdatewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
 #include <QLabel>
@@ -15,7 +15,7 @@
 #include <KStatefulBrush>
 #include <KUrlRequester>
 
-AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidget *parent)
+AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateWidget(QWidget *parent)
     : QWidget(parent)
     , mName(new QLineEdit(this))
     , mAlias(new QLineEdit(this))
@@ -46,15 +46,15 @@ AdministratorCustomEmojiCreateWidget::AdministratorCustomEmojiCreateWidget(QWidg
     mainLayout->addRow(i18n("Alias:"), mAlias);
     mainLayout->addRow(i18n("File:"), mSelectFile);
     mainLayout->addWidget(mWarningLabel);
-    connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
-    connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
-    connect(mSelectFile, &KUrlRequester::urlSelected, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
-    connect(mSelectFile, &KUrlRequester::textChanged, this, &AdministratorCustomEmojiCreateWidget::slotUpdateOkButton);
+    connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
+    connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
+    connect(mSelectFile, &KUrlRequester::urlSelected, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
+    connect(mSelectFile, &KUrlRequester::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
 }
 
-AdministratorCustomEmojiCreateWidget::~AdministratorCustomEmojiCreateWidget() = default;
+AdministratorCustomEmojiCreateOrUpdateWidget::~AdministratorCustomEmojiCreateOrUpdateWidget() = default;
 
-void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiCreateInfo &info)
+void AdministratorCustomEmojiCreateOrUpdateWidget::setCustomEmojiInfo(const CustomEmojiCreateInfo &info)
 {
     mName->setText(info.name);
     mAlias->setText(info.alias);
@@ -63,27 +63,44 @@ void AdministratorCustomEmojiCreateWidget::setCustomEmojiInfo(const CustomEmojiC
     slotUpdateOkButton();
 }
 
-AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateWidget::info() const
+AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateOrUpdateWidget::info() const
 {
-    AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info;
+    AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info;
     info.name = mName->text().trimmed();
     info.alias = mAlias->text().trimmed();
     info.fileNameUrl = mSelectFile->url();
     return info;
 }
 
-void AdministratorCustomEmojiCreateWidget::slotUpdateOkButton()
+void AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton()
 {
     if (mName->text().trimmed() != mAlias->text().trimmed()) {
         mWarningLabel->hide();
-        Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && mSelectFile->url().isValid());
+        switch (mType) {
+        case Create:
+            Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && mSelectFile->url().isValid());
+            break;
+        case Update:
+            Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty());
+            break;
+        }
     } else {
         mWarningLabel->show();
         Q_EMIT updateOkButton(false);
     }
 }
 
-QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &t)
+AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType AdministratorCustomEmojiCreateOrUpdateWidget::type() const
+{
+    return mType;
+}
+
+void AdministratorCustomEmojiCreateOrUpdateWidget::setType(AdministratorCustomEmojiCreateOrUpdateType newType)
+{
+    mType = newType;
+}
+
+QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &t)
 {
     d << "alias " << t.alias;
     d << "name " << t.name;

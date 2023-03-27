@@ -4,8 +4,8 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "administratorcustomemojicreatewidgettest.h"
-#include "administratordialog/customemoji/administratorcustomemojicreatewidget.h"
+#include "administratorcustomemojicreateorupdatewidgettest.h"
+#include "administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.h"
 
 #include <KUrlRequester>
 #include <QFormLayout>
@@ -14,15 +14,15 @@
 #include <QSignalSpy>
 #include <QTest>
 
-QTEST_MAIN(AdministratorCustomEmojiCreateWidgetTest)
-AdministratorCustomEmojiCreateWidgetTest::AdministratorCustomEmojiCreateWidgetTest(QObject *parent)
+QTEST_MAIN(AdministratorCustomEmojiCreateOrUpdateWidgetTest)
+AdministratorCustomEmojiCreateOrUpdateWidgetTest::AdministratorCustomEmojiCreateOrUpdateWidgetTest(QObject *parent)
     : QObject(parent)
 {
 }
 
-void AdministratorCustomEmojiCreateWidgetTest::shouldHaveDefaultValues()
+void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldHaveDefaultValues()
 {
-    AdministratorCustomEmojiCreateWidget w;
+    AdministratorCustomEmojiCreateOrUpdateWidget w;
     auto mainLayout = w.findChild<QFormLayout *>(QStringLiteral("mainLayout"));
     QVERIFY(mainLayout);
     QCOMPARE(mainLayout->contentsMargins(), QMargins{});
@@ -43,12 +43,13 @@ void AdministratorCustomEmojiCreateWidgetTest::shouldHaveDefaultValues()
     auto mWarningLabel = w.findChild<QLabel *>(QStringLiteral("mWarningLabel"));
     QVERIFY(mWarningLabel);
     QVERIFY(mWarningLabel->isHidden());
+    QCOMPARE(w.type(), AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType::Create);
 }
 
-void AdministratorCustomEmojiCreateWidgetTest::shouldEmitSignal()
+void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldEmitSignal()
 {
-    AdministratorCustomEmojiCreateWidget w;
-    QSignalSpy updateOkButtonChanged(&w, &AdministratorCustomEmojiCreateWidget::updateOkButton);
+    AdministratorCustomEmojiCreateOrUpdateWidget w;
+    QSignalSpy updateOkButtonChanged(&w, &AdministratorCustomEmojiCreateOrUpdateWidget::updateOkButton);
 
     auto mName = w.findChild<QLineEdit *>(QStringLiteral("mName"));
     auto mAlias = w.findChild<QLineEdit *>(QStringLiteral("mAlias"));

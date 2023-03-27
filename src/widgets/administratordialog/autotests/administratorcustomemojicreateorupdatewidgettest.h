@@ -8,12 +8,12 @@
 
 #include <QObject>
 
-class AdministratorCustomEmojiCreateWidgetTest : public QObject
+class AdministratorCustomEmojiCreateOrUpdateWidgetTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit AdministratorCustomEmojiCreateWidgetTest(QObject *parent = nullptr);
-    ~AdministratorCustomEmojiCreateWidgetTest() override = default;
+    explicit AdministratorCustomEmojiCreateOrUpdateWidgetTest(QObject *parent = nullptr);
+    ~AdministratorCustomEmojiCreateOrUpdateWidgetTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
     void shouldEmitSignal();

@@ -4,7 +4,7 @@
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "administratorcustomemojicreatedialog.h"
+#include "administratorcustomemojicreateorupdatedialog.h"
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
@@ -18,9 +18,9 @@ namespace
 {
 static const char myConfigAdministratorCustomEmojiCreateDialogGroupName[] = "AdministratorCustomEmojiCreateDialog";
 }
-AdministratorCustomEmojiCreateDialog::AdministratorCustomEmojiCreateDialog(QWidget *parent)
+AdministratorCustomEmojiCreateOrUpdateDialog::AdministratorCustomEmojiCreateOrUpdateDialog(QWidget *parent)
     : QDialog(parent)
-    , mCreateWidget(new AdministratorCustomEmojiCreateWidget(this))
+    , mCreateWidget(new AdministratorCustomEmojiCreateOrUpdateWidget(this))
 {
     setWindowTitle(i18nc("@title:window", "Configure Custom Emoji"));
     auto mainLayout = new QVBoxLayout(this);
@@ -32,30 +32,40 @@ AdministratorCustomEmojiCreateDialog::AdministratorCustomEmojiCreateDialog(QWidg
     auto button = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
     button->setObjectName(QStringLiteral("button"));
     mainLayout->addWidget(button);
-    connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomEmojiCreateDialog::reject);
-    connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomEmojiCreateDialog::accept);
+    connect(button, &QDialogButtonBox::rejected, this, &AdministratorCustomEmojiCreateOrUpdateDialog::reject);
+    connect(button, &QDialogButtonBox::accepted, this, &AdministratorCustomEmojiCreateOrUpdateDialog::accept);
     readConfig();
     auto okButton = button->button(QDialogButtonBox::Ok);
     okButton->setEnabled(false);
-    connect(mCreateWidget, &AdministratorCustomEmojiCreateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
+    connect(mCreateWidget, &AdministratorCustomEmojiCreateOrUpdateWidget::updateOkButton, okButton, &QPushButton::setEnabled);
 }
 
-AdministratorCustomEmojiCreateDialog::~AdministratorCustomEmojiCreateDialog()
+AdministratorCustomEmojiCreateOrUpdateDialog::~AdministratorCustomEmojiCreateOrUpdateDialog()
 {
     writeConfig();
 }
 
-void AdministratorCustomEmojiCreateDialog::setCustomEmojiInfo(const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo &info)
+void AdministratorCustomEmojiCreateOrUpdateDialog::setCustomEmojiInfo(const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &info)
 {
     mCreateWidget->setCustomEmojiInfo(info);
 }
 
-AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateDialog::info() const
+AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo AdministratorCustomEmojiCreateOrUpdateDialog::info() const
 {
     return mCreateWidget->info();
 }
 
-void AdministratorCustomEmojiCreateDialog::readConfig()
+AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType AdministratorCustomEmojiCreateOrUpdateDialog::type() const
+{
+    return mCreateWidget->type();
+}
+
+void AdministratorCustomEmojiCreateOrUpdateDialog::setType(AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType newType)
+{
+    mCreateWidget->setType(newType);
+}
+
+void AdministratorCustomEmojiCreateOrUpdateDialog::readConfig()
 {
     create(); // ensure a window is created
     windowHandle()->resize(QSize(800, 300));
@@ -64,7 +74,7 @@ void AdministratorCustomEmojiCreateDialog::readConfig()
     resize(windowHandle()->size()); // workaround for QTBUG-40584
 }
 
-void AdministratorCustomEmojiCreateDialog::writeConfig()
+void AdministratorCustomEmojiCreateOrUpdateDialog::writeConfig()
 {
     KConfigGroup group(KSharedConfig::openStateConfig(), myConfigAdministratorCustomEmojiCreateDialogGroupName);
     KWindowConfig::saveWindowSize(windowHandle(), group);

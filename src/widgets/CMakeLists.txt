@@ -27,10 +27,10 @@ target_sources(libruqolawidgets PRIVATE
     administratordialog/administratordialog.h
     administratordialog/administratorwidget.cpp
     administratordialog/administratorwidget.h
-    administratordialog/customemoji/administratorcustomemojicreatedialog.cpp
-    administratordialog/customemoji/administratorcustomemojicreatedialog.h
-    administratordialog/customemoji/administratorcustomemojicreatewidget.cpp
-    administratordialog/customemoji/administratorcustomemojicreatewidget.h
+    administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp
+    administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.h
+    administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp
+    administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.h
     administratordialog/customemoji/administratorcustomemojiwidget.cpp
     administratordialog/customemoji/administratorcustomemojiwidget.h
     administratordialog/customsounds/administratorcustomsoundscreatedialog.cpp

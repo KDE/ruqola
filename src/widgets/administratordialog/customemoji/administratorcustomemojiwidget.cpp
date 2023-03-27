@@ -5,7 +5,7 @@
 */
 
 #include "administratorcustomemojiwidget.h"
-#include "administratorcustomemojicreatedialog.h"
+#include "administratorcustomemojicreateorupdatedialog.h"
 #include "connection.h"
 #include "emoji/emojicustomalljob.h"
 #include "emoji/emojicustomcreatejob.h"
@@ -87,9 +87,9 @@ void AdministratorCustomEmojiWidget::slotLoadElements(int offset, int count, con
 
 void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 {
-    QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
+    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
     if (dlg->exec()) {
-        const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info = dlg->info();
+        const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info = dlg->info();
 
         RocketChatRestApi::EmojiCustomCreateJob::EmojiInfo emojiInfo;
         emojiInfo.alias = info.alias;
@@ -112,15 +112,15 @@ void AdministratorCustomEmojiWidget::slotAddCustomEmoji()
 
 void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &index)
 {
-    QPointer<AdministratorCustomEmojiCreateDialog> dlg = new AdministratorCustomEmojiCreateDialog(this);
-    AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo info;
+    QPointer<AdministratorCustomEmojiCreateOrUpdateDialog> dlg = new AdministratorCustomEmojiCreateOrUpdateDialog(this);
+    AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo info;
 
     info.alias = mModel->index(index.row(), AdminCustomEmojiModel::Aliases).data().toString();
     info.name = mModel->index(index.row(), AdminCustomEmojiModel::Name).data().toString();
     // TODO info.fileNameUrl =
     dlg->setCustomEmojiInfo(info);
     if (dlg->exec()) {
-        const AdministratorCustomEmojiCreateWidget::CustomEmojiCreateInfo newCustomEmojInfo = dlg->info();
+        const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo newCustomEmojInfo = dlg->info();
 
         RocketChatRestApi::EmojiCustomUpdateJob::EmojiInfo emojiInfo;
         emojiInfo.alias = newCustomEmojInfo.alias;
