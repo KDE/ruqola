@@ -29,7 +29,7 @@ private:
     void unproxyModel(QAbstractItemModel *model);
 
     struct ProxyIndex {
-        QAbstractItemModel *model;
+        QAbstractItemModel *model = nullptr;
         std::function<QModelIndex()> root;
     };
     QVector<ProxyIndex> mProxied;
