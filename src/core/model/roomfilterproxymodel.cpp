@@ -35,8 +35,14 @@ bool RoomFilterProxyModel::lessThan(const QModelIndex &left, const QModelIndex &
             const bool leftFavorite = sourceModel()->data(left, RoomModel::RoomFavorite).toBool();
             const bool rightFavorite = sourceModel()->data(right, RoomModel::RoomFavorite).toBool();
             if (leftFavorite && (leftFavorite == rightFavorite)) {
-                const auto leftRoomType = sourceModel()->data(left, RoomModel::RoomType).value<Room::RoomType>();
-                const auto rightRoomType = sourceModel()->data(right, RoomModel::RoomType).value<Room::RoomType>();
+                auto leftRoomType = sourceModel()->data(left, RoomModel::RoomType).value<Room::RoomType>();
+                if (leftRoomType == Room::RoomType::Private) {
+                    leftRoomType = Room::RoomType::Channel;
+                }
+                auto rightRoomType = sourceModel()->data(right, RoomModel::RoomType).value<Room::RoomType>();
+                if (rightRoomType == Room::RoomType::Private) {
+                    rightRoomType = Room::RoomType::Channel;
+                }
                 if (leftRoomType == rightRoomType) {
                     return QString::localeAwareCompare(leftString, rightString) < 0;
                 } else {
