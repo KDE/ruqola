@@ -96,35 +96,43 @@ void iterateOverEndLineRegions(const QString &str,
                                OutsideRegionCallback &&outsideRegion,
                                NewLineCallBack &&newLine)
 {
-    int startFrom = 0;
-    const auto markerSize = regionMarker.size();
-    bool hasCode = false;
-    while (true) {
-        const int startIndex = findNonEscaped(str, regionMarker, startFrom);
-        if (startIndex == -1) {
-            break;
-        }
+    // We have quote text if text start with > or we have "\n>"
+    if (str.startsWith(regionMarker) || str.contains(QStringLiteral("\n>"))) {
+        int startFrom = 0;
+        const auto markerSize = regionMarker.size();
+        bool hasCode = false;
+        while (true) {
+            const int startIndex = findNonEscaped(str, regionMarker, startFrom);
+            if (startIndex == -1) {
+                break;
+            }
 
-        const int endIndex = findNewLineOrEndLine(str, QStringLiteral("\n"), startIndex + markerSize);
-        if (endIndex == -1) {
-            break;
-        }
+            const int endIndex = findNewLineOrEndLine(str, QStringLiteral("\n"), startIndex + markerSize);
+            if (endIndex == -1) {
+                break;
+            }
 
-        const QString codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
-        if (hasCode) {
-            newLine();
-        }
-        const QString midCode = str.mid(startFrom, startIndex - startFrom);
-        outsideRegion(midCode);
-        startFrom = endIndex + markerSize;
+            QStringView codeBlock = str.midRef(startIndex + markerSize, endIndex - startIndex).trimmed();
+            if (codeBlock.endsWith(regionMarker)) {
+                codeBlock.chop(regionMarker.size());
+            }
+            if (hasCode) {
+                newLine();
+            }
+            const QStringView midCode = str.midRef(startFrom, startIndex - startFrom);
+            outsideRegion(midCode.toString());
+            startFrom = endIndex + markerSize;
 
-        inRegion(codeBlock);
-        if (!codeBlock.isEmpty()) {
-            hasCode = true;
+            inRegion(codeBlock.toString());
+            if (!codeBlock.isEmpty()) {
+                hasCode = true;
+            }
         }
+        const auto afterstr = str.midRef(startFrom);
+        outsideRegion(afterstr.toString());
+    } else {
+        outsideRegion(str);
     }
-    const auto afterstr = str.mid(startFrom);
-    outsideRegion(afterstr);
 }
 #endif
 

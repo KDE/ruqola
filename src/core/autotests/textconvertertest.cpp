@@ -104,6 +104,23 @@ void TextConverterTest::shouldConvertText_data()
     QTest::newRow("quote<")
         << QStringLiteral("`inside quotes: <<....` this is outside the quotes <<.")
         << QStringLiteral("<div><code style='background-color:$BGCOLOR$'>inside quotes: &lt;&lt;....</code> this is outside the quotes &lt;&lt;.</div>");
+
+    QTest::newRow("quotedtext1") << QStringLiteral("> toto") << QStringLiteral("<div><code style='background-color:$BGCOLOR$'>toto</code></div>");
+
+    QTest::newRow("quotedtext2") << QStringLiteral("bla \n> toto")
+                                 << QStringLiteral("<div>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code></div>");
+
+    QTest::newRow("quotedtext3")
+        << QStringLiteral("bla \n> toto \n> bla")
+        << QStringLiteral(
+               "<div>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code><br /><code style='background-color:$BGCOLOR$'>bla</code></div>");
+
+    QTest::newRow("quotedtext4")
+        << QStringLiteral("bla \n> toto \n> *bla*")
+        << QStringLiteral(
+               "<div>bla <br />\n<code style='background-color:$BGCOLOR$'>toto</code><br /><code style='background-color:$BGCOLOR$'><b>bla</b></code></div>");
+
+    QTest::newRow("noquotedtext") << QStringLiteral("bla > toto") << QStringLiteral("<div>bla &gt; toto</div>");
 }
 
 void TextConverterTest::shouldConvertText()
