@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 00:46+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2023-03-26 07:02+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2318,18 +2318,18 @@ msgstr "წვდომები"
 msgid "Oauth"
 msgstr "Oauth"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatedialog.cpp:25
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
 msgstr "მითითებული ემოჯის მორგება"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:23
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
 msgstr "ემოჯუს სახელი და მისი მეტსახელები უნდა განსხვავდებოდნენ."
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:45
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:45
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:27
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:27
@@ -2348,12 +2348,12 @@ msgstr "ემოჯუს სახელი და მისი მეტს�
 msgid "Name:"
 msgstr "სახელი:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:46
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:46
 #, kde-format
 msgid "Alias:"
 msgstr "მეტსახელი:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:20
 #, kde-format
@@ -2377,19 +2377,19 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 მითითებული ემოჯი (სულ: %2)"
 msgstr[1] "%1 მითითებული ემოჯი (სულ: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:147
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "გნებავთ წაშალოთ ეს ემოჯი?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:149
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Emoji-ის წაშლა"
 
 #. i18n: ectx: property (text), widget (QPushButton, addServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:174
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:175
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
@@ -2403,7 +2403,7 @@ msgid "Add..."
 msgstr "დამატება..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:177
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
@@ -2417,7 +2417,7 @@ msgid "Modify..."
 msgstr "ჩასწორება..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
@@ -5989,8 +5989,9 @@ msgid "Prune"
 msgstr "შეკვეცა"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, kde-format
-msgid "Maximum message age in days (default: 300):"
+#, fuzzy, kde-format
+#| msgid "Maximum message age in days (default: 300):"
+msgid "Maximum message age in days (default: 30):"
 msgstr "შეტყობინების მაქსიმალური ასაკი, დღეებში (ნაგულისხმები: 300):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62

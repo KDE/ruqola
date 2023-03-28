@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-25 00:46+0000\n"
+"POT-Creation-Date: 2023-03-28 00:47+0000\n"
 "PO-Revision-Date: 2020-06-13 21:18+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -2436,19 +2436,19 @@ msgstr "Versioon %1"
 msgid "Oauth"
 msgstr ""
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatedialog.cpp:25
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatedialog.cpp:25
 #, fuzzy, kde-format
 #| msgid "Custom Status:"
 msgctxt "@title:window"
 msgid "Configure Custom Emoji"
 msgstr "Kohandatud olek:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:23
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
 msgstr ""
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:45
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:45
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:27
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:27
@@ -2467,12 +2467,12 @@ msgstr ""
 msgid "Name:"
 msgstr "Nimi:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:46
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:46
 #, kde-format
 msgid "Alias:"
 msgstr ""
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:20
 #, kde-format
@@ -2500,13 +2500,13 @@ msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 sõnum toas (kokku: %2)"
 msgstr[1] "%1 sõnumit toas (kokku: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:147
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
 #, fuzzy, kde-format
 #| msgid "Do you want to ignore this user?"
 msgid "Do you want to remove this emoji?"
 msgstr "Kas eirata seda kasutajat?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:149
 #, fuzzy, kde-format
 #| msgid "Remove from Room"
 msgctxt "@title"
@@ -2514,7 +2514,7 @@ msgid "Remove Emoji"
 msgstr "Eemalda toast"
 
 #. i18n: ectx: property (text), widget (QPushButton, addServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:174
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:175
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
@@ -2528,7 +2528,7 @@ msgid "Add..."
 msgstr "Lisa ..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:177
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
@@ -2542,7 +2542,7 @@ msgid "Modify..."
 msgstr "Muuda ..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:182
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
@@ -6339,9 +6339,10 @@ msgid "Prune"
 msgstr ""
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, kde-format
-msgid "Maximum message age in days (default: 300):"
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Quit Channel"
+msgid "Maximum message age in days (default: 30):"
+msgstr "Välju kanalilt"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, fuzzy, kde-format
