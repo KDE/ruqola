@@ -20,7 +20,7 @@
 #include <KSyntaxHighlighting/Theme>
 
 #include <KColorScheme>
-// #define SUPPORT_QUOTE_TEXT 1
+#define SUPPORT_QUOTE_TEXT 1
 namespace
 {
 /// check if the @p str contains an uneven number of backslashes before @p pos
@@ -89,11 +89,16 @@ void iterateOverRegions(const QString &str, const QString &regionMarker, InRegio
 }
 
 #ifdef SUPPORT_QUOTE_TEXT
-template<typename InRegionCallback, typename OutsideRegionCallback>
-void iterateOverEndLineRegions(const QString &str, const QString &regionMarker, InRegionCallback &&inRegion, OutsideRegionCallback &&outsideRegion)
+template<typename InRegionCallback, typename OutsideRegionCallback, typename NewLineCallBack>
+void iterateOverEndLineRegions(const QString &str,
+                               const QString &regionMarker,
+                               InRegionCallback &&inRegion,
+                               OutsideRegionCallback &&outsideRegion,
+                               NewLineCallBack &&newLine)
 {
     int startFrom = 0;
     const auto markerSize = regionMarker.size();
+    bool hasCode = false;
     while (true) {
         const int startIndex = findNonEscaped(str, regionMarker, startFrom);
         if (startIndex == -1) {
@@ -105,14 +110,21 @@ void iterateOverEndLineRegions(const QString &str, const QString &regionMarker, 
             break;
         }
 
-        const auto codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
-
-        outsideRegion(str.mid(startFrom, startIndex - startFrom));
+        const QString codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex - markerSize).trimmed();
+        if (hasCode) {
+            newLine();
+        }
+        const QString midCode = str.mid(startFrom, startIndex - startFrom);
+        outsideRegion(midCode);
         startFrom = endIndex + markerSize;
 
         inRegion(codeBlock);
+        if (!codeBlock.isEmpty()) {
+            hasCode = true;
+        }
     }
-    outsideRegion(str.mid(startFrom));
+    const auto afterstr = str.mid(startFrom);
+    outsideRegion(afterstr);
 }
 #endif
 
@@ -443,10 +455,21 @@ QString TextConverter::convertMessageText(const ConvertMessageTextSettings &sett
         richTextStream << htmlChunk;
     };
 #ifdef SUPPORT_QUOTE_TEXT
+    auto addInlineQuoteCodeChunk = [&](const QString &chunk) {
+        auto htmlChunk = generateRichText(chunk, settings.userName, settings.highlightWords, settings.mentions, settings.channels, settings.searchedText);
+        if (settings.emojiManager) {
+            settings.emojiManager->replaceEmojis(&htmlChunk);
+        }
+        richTextStream << QLatin1String("<code style='background-color:") << codeBackgroundColor.name() << QLatin1String("'>") << htmlChunk
+                       << QLatin1String("</code>");
+    };
+
+    auto addInlineQuoteCodeNewLineChunk = [&]() {
+        richTextStream << QLatin1String("<br />");
+    };
+
     auto addInlineQuoteChunk = [&](const QString &chunk) {
-        richTextStream << QLatin1String("<div>");
-        iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineCodeChunk, addTextChunk);
-        richTextStream << QLatin1String("</div>");
+        iterateOverEndLineRegions(chunk, QStringLiteral(">"), addInlineQuoteCodeChunk, addTextChunk, addInlineQuoteCodeNewLineChunk);
     };
 #endif
     auto addNonCodeChunk = [&](QString chunk) {
