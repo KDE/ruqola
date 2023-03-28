@@ -112,15 +112,13 @@ void AdministratorRolesWidget::slotCustomContextMenuRequested(const QPoint &pos)
                 addUserInRole(modelIndex);
             });
 
-            if (hasEntrepriseSupport) {
-                const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
-                if (!modelIndex.data().toBool()) { // Not protected we can delete it.
-                    menu.addSeparator();
-                    menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
-                        const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
-                        deleteRole(modelIndex);
-                    });
-                }
+            const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Protected);
+            if (!modelIndex.data().toBool()) { // Not protected we can delete it.
+                menu.addSeparator();
+                menu.addAction(QIcon::fromTheme(QStringLiteral("list-remove")), i18n("Remove"), this, [this, index]() {
+                    const QModelIndex modelIndex = mTreeView->model()->index(index.row(), AdminRolesModel::Identifier);
+                    deleteRole(modelIndex);
+                });
             }
         }
         if (!menu.isEmpty()) {
