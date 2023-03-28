@@ -795,12 +795,6 @@ if (HAVE_TEXT_TO_SPEECH)
     )
 endif()
 
-if (TARGET KF${KF_MAJOR_VERSION}::TextAddonsWidgets)
-    target_link_libraries(libruqolawidgets
-        KF${KF_MAJOR_VERSION}::TextAddonsWidgets
-    )
-endif()
-
 if (NOT WIN32 AND NOT APPLE)
     target_link_libraries(libruqolawidgets KF${KF_MAJOR_VERSION}::WindowSystem)
 endif()
