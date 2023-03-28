@@ -28,6 +28,7 @@ NotificationHistoryModel *NotificationHistoryManager::notificationHistoryModel()
 
 void NotificationHistoryManager::addNotification(const NotificationInfo &info)
 {
+    qDebug() << " info " << info;
     mNotificationHistoryModel->addNotification(info);
     Q_EMIT newNotification();
 }
