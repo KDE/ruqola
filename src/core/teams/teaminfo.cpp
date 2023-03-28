@@ -28,8 +28,9 @@ void TeamInfo::serialize(const TeamInfo &teams, QJsonObject &obj)
         if (teams.autoJoin()) {
             obj[QStringLiteral("teamDefault")] = true;
         }
-        if (teams.roomsCount() > 0) {
-            obj[QStringLiteral("roomsCount")] = teams.roomsCount();
+        const auto roomsCount = teams.roomsCount();
+        if (roomsCount > 0) {
+            obj[QStringLiteral("roomsCount")] = roomsCount;
         }
     }
 }
