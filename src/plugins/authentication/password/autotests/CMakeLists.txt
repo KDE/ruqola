@@ -11,6 +11,7 @@ macro(add_ruqola_plugin_unittest _source _additional)
 
     ecm_mark_as_test(${_name})
     target_link_libraries( ${_name} Qt::Test KF${KF_MAJOR_VERSION}::I18n libruqolacore)
+    set_target_properties(${_name} PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
 endmacro ()
 
 add_ruqola_plugin_unittest(passwordpluginauthenticationtest.cpp "../passwordpluginauthentication.cpp;../passwordauthenticationinterface.cpp")
