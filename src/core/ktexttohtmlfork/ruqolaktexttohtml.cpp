@@ -344,7 +344,7 @@ QString KTextToHTMLHelper::highlightedText()
 
     if (match.hasMatch()) {
         if (match.capturedStart() == mPos) {
-            int length = match.capturedLength();
+            const int length = match.capturedLength();
             // there must be a whitespace after the closing formatting symbol
             if (mPos + length < mText.length() && !mText.at(mPos + length).isSpace()) {
                 return {};
