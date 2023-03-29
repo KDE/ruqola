@@ -6,11 +6,11 @@
 
 #pragma once
 
-#include "librestapi_private_export.h"
+#include "librocketchatrestapi-qt5_export.h"
 #include "restapiabstractjob.h"
 namespace RocketChatRestApi
 {
-class LIBROCKETCHATRESTAPI_QT5_TESTS_EXPORT SendInvitationEmailJob : public RestApiAbstractJob
+class LIBROCKETCHATRESTAPI_QT5_EXPORT SendInvitationEmailJob : public RestApiAbstractJob
 {
     Q_OBJECT
 public:
