@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
-"PO-Revision-Date: 2023-03-12 19:34+0100\n"
+"POT-Creation-Date: 2023-03-29 00:47+0000\n"
+"PO-Revision-Date: 2023-03-26 10:07+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2173,14 +2173,13 @@ msgid "Invalid Password"
 msgstr "Password non valida"
 
 #: rocketchatrestapi-qt5/restapiabstractjob.cpp:440
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any channel"
 msgstr ""
-"Il parametro richiesto «%1» che è stato fornito non corrisponde a nessun "
-"canale"
+"Il parametro richiesto «roomId» o «roomName» che è stato fornito non "
+"corrisponde a un canale"
 
 #: rocketchatrestapi-qt5/role/removeuserfromrolejob.cpp:51
 #, kde-format
@@ -2190,7 +2189,7 @@ msgstr "L'utente non è in questo ruolo."
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "Questa è una funzionalità aziendale"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -2213,10 +2212,9 @@ msgid "Channel can not convert to Team."
 msgstr "Un canale non può essere convertito in squadra."
 
 #: rocketchatrestapi-qt5/teams/channelsconverttoteamjob.cpp:99
-#, fuzzy, kde-format
-#| msgid "A token with this name already exists"
+#, kde-format
 msgid "Team already exists."
-msgstr "Esiste già un token con questo nome"
+msgstr "La squadra esiste già."
 
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
@@ -2224,14 +2222,13 @@ msgid "You don't have permission to add this channel to the team"
 msgstr "Non hai il permesso di aggiungere questo canale alla squadra"
 
 #: rocketchatrestapi-qt5/teams/teamslistroomsjob.cpp:93
-#, fuzzy, kde-format
-#| msgid "The required '%1' param provided does not match any channel"
+#, kde-format
 msgid ""
 "The required \\\"roomId\\\" or \\\"roomName\\\" param provided does not "
 "match any teams"
 msgstr ""
-"Il parametro richiesto «%1» che è stato fornito non corrisponde a nessun "
-"canale"
+"Il parametro richiesto «roomId» o «roomName»che è stato fornito non "
+"corrisponde a una squadra"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -2433,7 +2430,7 @@ msgstr "Modifica..."
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:119
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:118
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
@@ -2611,12 +2608,12 @@ msgstr "Cerca ruoli..."
 msgid "Add Users In Role..."
 msgstr "Aggiungi utenti a ruolo..."
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:229
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:227
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
 msgstr "Vuoi rimuovere il ruolo «%1»?"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:230
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, kde-format
 msgid "Remove Role"
 msgstr "Rimuovi ruolo"
@@ -6153,10 +6150,9 @@ msgid "Invalid characters found."
 msgstr "Trovati caratteri non validi."
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:69
-#, fuzzy, kde-format
-#| msgid "Invalid characters found."
+#, kde-format
 msgid "Invalid characters found. (Valid characters: %1)"
-msgstr "Trovati caratteri non validi."
+msgstr "Caratteri non validi trovati. (Caratteri validi: %1)"
 
 #: widgets/dialogs/channelpassworddialog.cpp:18
 #, kde-format
@@ -7982,6 +7978,8 @@ msgstr "Rimuovi cronologia"
 msgid ""
 "A workspace admin needs to install and configure a conference call apps."
 msgstr ""
+"Un amministratore dell'area di lavoro deve installare e configurare "
+"un'applicazione per chiamate in conferenza."
 
 #: widgets/room/uploadfileprogressstatuswidget.cpp:34
 #, kde-format
@@ -8560,7 +8558,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:35
 msgid "Fix avatar support"
-msgstr ""
+msgstr "Risolto il problema con il supporto dell'avatar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:77
 #, kde-format
@@ -8574,10 +8572,9 @@ msgstr ""
 "Alcune delle nuove funzionalità di questa versione di Ruqola includono:"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:93
-#, fuzzy, kde-format
-#| msgid "Bug fixing"
+#, kde-format
 msgid "Some bug fixing:"
-msgstr "Correzione di bug"
+msgstr "Alcune correzioni di bug:"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Messaggi frammentati"

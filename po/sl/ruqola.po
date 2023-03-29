@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-28 00:47+0000\n"
+"POT-Creation-Date: 2023-03-29 00:47+0000\n"
 "PO-Revision-Date: 2023-03-25 10:47+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2422,7 +2422,7 @@ msgstr "Spremeni ..."
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:53
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:119
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:118
 #: widgets/administratordialog/roles/usersinrolewidget.cpp:110
 #: widgets/administratordialog/rooms/administratorroomswidget.cpp:65
 #: widgets/administratordialog/users/administratoruserswidget.cpp:281
@@ -2602,12 +2602,12 @@ msgstr "Išči vloge..."
 msgid "Add Users In Role..."
 msgstr "Dodaj uporabnike v vlogo ..."
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:229
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:227
 #, kde-format
 msgid "Do you want to remove this role '%1'?"
 msgstr "Ali želite odstraniti to vlogo »%1«?"
 
-#: widgets/administratordialog/roles/administratorroleswidget.cpp:230
+#: widgets/administratordialog/roles/administratorroleswidget.cpp:228
 #, kde-format
 msgid "Remove Role"
 msgstr "Odstrani vlogo"
