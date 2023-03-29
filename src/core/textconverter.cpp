@@ -111,15 +111,22 @@ void iterateOverEndLineRegions(const QString &str,
             if (endIndex == -1) {
                 break;
             }
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             QStringView codeBlock = str.midRef(startIndex + markerSize, endIndex - startIndex).trimmed();
+#else
+            QStringView codeBlock = str.mid(startIndex + markerSize, endIndex - startIndex).trimmed();
+#endif
             if (codeBlock.endsWith(regionMarker)) {
                 codeBlock.chop(regionMarker.size());
             }
             if (hasCode) {
                 newLine();
             }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             const QStringView midCode = str.midRef(startFrom, startIndex - startFrom);
+#else
+            const QStringView midCode = str.mid(startFrom, startIndex - startFrom);
+#endif
             outsideRegion(midCode.toString());
             startFrom = endIndex + markerSize;
 
@@ -128,8 +135,13 @@ void iterateOverEndLineRegions(const QString &str,
                 hasCode = true;
             }
         }
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
         const auto afterstr = str.midRef(startFrom);
         outsideRegion(afterstr.toString());
+#else
+        const auto afterstr = str.mid(startFrom);
+        outsideRegion(afterstr);
+#endif
     } else {
         outsideRegion(str);
     }
