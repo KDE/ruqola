@@ -7,8 +7,10 @@
 #include "administratorcustomemojicreateorupdatewidget.h"
 #include "misc/lineeditcatchreturnkey.h"
 #include <QFormLayout>
+#include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
+#include <QScreen>
 
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -21,6 +23,7 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     , mAlias(new QLineEdit(this))
     , mSelectFile(new KUrlRequester(this))
     , mWarningLabel(new QLabel(i18n("The custom emoji name and their aliases should be different."), this))
+    , mIconLabel(new QLabel(this))
 {
     mWarningLabel->setObjectName(QStringLiteral("mWarningLabel"));
     const KStatefulBrush bgBrush(KColorScheme::View, KColorScheme::NegativeText);
@@ -35,6 +38,8 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setContentsMargins({});
 
+    mIconLabel->setObjectName(QStringLiteral("mIconLabel"));
+
     mName->setObjectName(QStringLiteral("mName"));
     mName->setClearButtonEnabled(true);
     mAlias->setObjectName(QStringLiteral("mAlias"));
@@ -45,6 +50,7 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     mainLayout->addRow(i18n("Name:"), mName);
     mainLayout->addRow(i18n("Alias:"), mAlias);
     mainLayout->addRow(i18n("File:"), mSelectFile);
+    mainLayout->addWidget(mIconLabel);
     mainLayout->addWidget(mWarningLabel);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
     connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
@@ -58,7 +64,8 @@ void AdministratorCustomEmojiCreateOrUpdateWidget::setCustomEmojiInfo(const Cust
 {
     mName->setText(info.name);
     mAlias->setText(info.alias);
-
+    const QSize pixmapAvatarSize = QSize(60, 60) * screen()->devicePixelRatio();
+    mIconLabel->setPixmap(info.icon.pixmap(pixmapAvatarSize));
     // TODO url ???
     slotUpdateOkButton();
 }

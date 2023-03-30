@@ -8,6 +8,7 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QDebug>
+#include <QIcon>
 #include <QUrl>
 #include <QWidget>
 class QLineEdit;
@@ -26,6 +27,7 @@ public:
         QString alias;
         QString name;
         QUrl fileNameUrl;
+        QIcon icon;
     };
     explicit AdministratorCustomEmojiCreateOrUpdateWidget(QWidget *parent = nullptr);
     ~AdministratorCustomEmojiCreateOrUpdateWidget() override;
@@ -48,5 +50,6 @@ private:
     QLineEdit *const mAlias;
     KUrlRequester *const mSelectFile;
     QLabel *const mWarningLabel;
+    QLabel *const mIconLabel;
 };
 LIBRUQOLAWIDGETS_EXPORT QDebug operator<<(QDebug d, const AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo &t);

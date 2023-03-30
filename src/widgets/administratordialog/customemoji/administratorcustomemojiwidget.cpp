@@ -120,6 +120,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
     info.alias = mModel->index(index.row(), AdminCustomEmojiModel::Aliases).data().toString();
     info.name = mModel->index(index.row(), AdminCustomEmojiModel::Name).data().toString();
     const auto icon = mModel->index(index.row(), AdminCustomEmojiModel::Icon).data().value<QIcon>();
+    info.icon = icon;
     // TODO info.fileNameUrl =
     dlg->setCustomEmojiInfo(info);
     if (dlg->exec()) {
