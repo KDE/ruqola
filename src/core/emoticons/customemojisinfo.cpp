@@ -81,7 +81,7 @@ void CustomEmojisInfo::setRoomsCount(int count)
     mRoomsCount = count;
 }
 
-void CustomEmojisInfo::parseCustomSounds(const QJsonObject &obj)
+void CustomEmojisInfo::parseCustomEmojis(const QJsonObject &obj)
 {
     mRoomsCount = obj[QStringLiteral("count")].toInt();
     mOffset = obj[QStringLiteral("offset")].toInt();

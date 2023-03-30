@@ -78,7 +78,7 @@ void AdminCustomEmojiModel::parseElements(const QJsonObject &obj)
         mCustomEmojiList.clear();
         endRemoveRows();
     }
-    mCustomEmojiList.parseCustomSounds(obj);
+    mCustomEmojiList.parseCustomEmojis(obj);
     if (!mCustomEmojiList.isEmpty()) {
         beginInsertRows(QModelIndex(), 0, mCustomEmojiList.count() - 1);
         endInsertRows();
@@ -129,7 +129,7 @@ void AdminCustomEmojiModel::removeElement(const QString &identifier)
 void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 {
     const int numberOfElement = mCustomEmojiList.count();
-    mCustomEmojiList.parseCustomSounds(obj);
+    mCustomEmojiList.parseCustomEmojis(obj);
     beginInsertRows(QModelIndex(), numberOfElement, mCustomEmojiList.count() - 1);
     endInsertRows();
     checkFullList();

@@ -26,7 +26,7 @@ public:
     Q_REQUIRED_RESULT int total() const;
     void setTotal(int total);
 
-    void parseCustomSounds(const QJsonObject &obj);
+    void parseCustomEmojis(const QJsonObject &obj);
     void parseMoreCustomEmojis(const QJsonObject &obj);
 
     Q_REQUIRED_RESULT int roomsCount() const;
