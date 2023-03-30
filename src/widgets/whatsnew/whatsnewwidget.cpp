@@ -27,6 +27,7 @@ static const KLazyLocalizedString ruqolaNewFeatures[] = {
     kli18n("Show Server Error Info in Specific DialogBox"),
     kli18n("Allow to Copy Image in Clipboard"),
     kli18n("Improve debug support (Allow to show current account permissions)"),
+    kli18n("Add support for quoted text (text which starts by \'>\')"),
 };
 static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqolaNewFeatures;
 
