@@ -88,10 +88,10 @@ QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl
     return mCachedHtml;
 }
 
-QString CustomEmoji::generateHtmlFromCustomEmojiLocalPath(const QString &emojoLocalPath) const
+QString CustomEmoji::generateHtmlFromCustomEmojiLocalPath(const QString &emojiLocalPath) const
 {
     if (mCachedHtml.isEmpty()) {
-        mCachedHtml = QStringLiteral("<img height='22' width='22' src='%1' title='%2'/>").arg(emojoLocalPath, mEmojiIdentifier);
+        mCachedHtml = QStringLiteral("<img height='22' width='22' src='%1' title='%2'/>").arg(emojiLocalPath, mEmojiIdentifier);
     }
     return mCachedHtml;
 }
