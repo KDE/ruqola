@@ -44,6 +44,10 @@ void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldHaveDefaultValues()
     QVERIFY(mWarningLabel);
     QVERIFY(mWarningLabel->isHidden());
     QCOMPARE(w.type(), AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUpdateType::Create);
+
+    auto mIconLabel = w.findChild<QLabel *>(QStringLiteral("mIconLabel"));
+    QVERIFY(mIconLabel);
+    QVERIFY(mIconLabel->text().isEmpty());
 }
 
 void AdministratorCustomEmojiCreateOrUpdateWidgetTest::shouldEmitSignal()
