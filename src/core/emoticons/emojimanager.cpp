@@ -137,6 +137,16 @@ UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdenti
     return UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }
 
+QString EmojiManager::customEmojiFileNameFromIdentifier(const QString &emojiIdentifier) const
+{
+    for (const CustomEmoji &customEmoji : mCustomEmojiList) {
+        if (customEmoji.identifier() == emojiIdentifier) {
+            return customEmoji.emojiFileName();
+        }
+    }
+    return {};
+}
+
 QString EmojiManager::customEmojiFileName(const QString &emojiIdentifier) const
 {
     for (const CustomEmoji &customEmoji : mCustomEmojiList) {

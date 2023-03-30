@@ -9,6 +9,7 @@
 #include "directorybasemodel.h"
 #include "emoticons/customemojisinfo.h"
 #include "libruqolacore_export.h"
+class RocketChatAccount;
 
 class LIBRUQOLACORE_EXPORT AdminCustomEmojiModel : public DirectoryBaseModel
 {
@@ -18,11 +19,12 @@ public:
         Name,
         Identifier,
         Aliases,
-        LastColumn = Aliases,
+        Icon,
+        LastColumn = Icon,
     };
     Q_ENUM(CustomEmojiRoles)
 
-    explicit AdminCustomEmojiModel(QObject *parent = nullptr);
+    explicit AdminCustomEmojiModel(RocketChatAccount *account, QObject *parent = nullptr);
     ~AdminCustomEmojiModel() override;
 
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -38,6 +40,8 @@ public:
     const CustomEmojisInfo &customEmojis() const;
     void setCustomEmojis(const CustomEmojisInfo &newCustomEmojis);
 
+    Q_REQUIRED_RESULT QIcon createCustomIcon(const QString &name) const;
+
 protected:
     void removeElement(const QString &identifier) override;
 
@@ -45,4 +49,5 @@ private:
     Q_DISABLE_COPY(AdminCustomEmojiModel)
     void checkFullList();
     CustomEmojisInfo mCustomEmojiList;
+    RocketChatAccount *const mRocketChatAccount;
 };

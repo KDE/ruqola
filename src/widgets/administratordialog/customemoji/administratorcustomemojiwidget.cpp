@@ -11,6 +11,7 @@
 #include "emoji/emojicustomcreatejob.h"
 #include "emoji/emojicustomdeletejob.h"
 #include "emoji/emojicustomupdatejob.h"
+#include "emoticons/emojimanager.h"
 #include "misc/searchwithdelaylineedit.h"
 #include "model/admincustomemojimodel.h"
 #include "model/searchtreebasefilterproxymodel.h"
@@ -26,7 +27,7 @@
 AdministratorCustomEmojiWidget::AdministratorCustomEmojiWidget(RocketChatAccount *account, QWidget *parent)
     : SearchTreeBaseWidget(account, parent)
 {
-    mModel = new AdminCustomEmojiModel(this);
+    mModel = new AdminCustomEmojiModel(account, this);
     mModel->setObjectName(QStringLiteral("mModel"));
     mSearchLineEdit->setPlaceholderText(i18n("Search custom emojis"));
 
@@ -118,6 +119,7 @@ void AdministratorCustomEmojiWidget::slotModifyCustomEmoji(const QModelIndex &in
 
     info.alias = mModel->index(index.row(), AdminCustomEmojiModel::Aliases).data().toString();
     info.name = mModel->index(index.row(), AdminCustomEmojiModel::Name).data().toString();
+    const auto icon = mModel->index(index.row(), AdminCustomEmojiModel::Icon).data().value<QIcon>();
     // TODO info.fileNameUrl =
     dlg->setCustomEmojiInfo(info);
     if (dlg->exec()) {

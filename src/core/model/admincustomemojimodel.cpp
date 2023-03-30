@@ -5,10 +5,14 @@
 */
 
 #include "admincustomemojimodel.h"
+#include "emoticons/emojimanager.h"
+#include "rocketchataccount.h"
 #include <KLocalizedString>
+#include <QIcon>
 
-AdminCustomEmojiModel::AdminCustomEmojiModel(QObject *parent)
+AdminCustomEmojiModel::AdminCustomEmojiModel(RocketChatAccount *account, QObject *parent)
     : DirectoryBaseModel(parent)
+    , mRocketChatAccount(account)
 {
 }
 
@@ -32,6 +36,8 @@ QVariant AdminCustomEmojiModel::headerData(int section, Qt::Orientation orientat
             return i18n("Identifier");
         case CustomEmojiRoles::Aliases:
             return i18n("Aliases");
+        case CustomEmojiRoles::Icon:
+            return {};
         }
     }
     return {};
@@ -61,8 +67,9 @@ QVariant AdminCustomEmojiModel::data(const QModelIndex &index, int role) const
         return customEmoji.identifier();
     case CustomEmojiRoles::Aliases:
         return customEmoji.aliases().join(QLatin1Char(','));
+    case CustomEmojiRoles::Icon:
+        return createCustomIcon(customEmoji.identifier());
     }
-
     return {};
 }
 
@@ -137,5 +144,20 @@ void AdminCustomEmojiModel::addMoreElements(const QJsonObject &obj)
 
 QList<int> AdminCustomEmojiModel::hideColumns() const
 {
-    return {CustomEmojiRoles::Identifier};
+    return {CustomEmojiRoles::Identifier, CustomEmojiRoles::Icon};
+}
+
+QIcon AdminCustomEmojiModel::createCustomIcon(const QString &identifier) const
+{
+    if (mRocketChatAccount) {
+        const QString fileName = mRocketChatAccount->emojiManager()->customEmojiFileNameFromIdentifier(identifier);
+        if (!fileName.isEmpty()) {
+            const QUrl emojiUrl = mRocketChatAccount->attachmentUrlFromLocalCache(fileName);
+            if (!emojiUrl.isEmpty()) {
+                const QIcon icon(emojiUrl.toLocalFile());
+                return icon;
+            }
+        }
+    }
+    return {};
 }

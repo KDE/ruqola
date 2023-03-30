@@ -45,6 +45,7 @@ public:
 
     void addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomArray);
     void deleteEmojiCustom(const QJsonArray &obj);
+    Q_REQUIRED_RESULT QString customEmojiFileNameFromIdentifier(const QString &emojiIdentifier) const;
 
 Q_SIGNALS:
     void customEmojiChanged(bool fetchListCustom);
