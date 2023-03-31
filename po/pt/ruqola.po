@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-29 00:47+0000\n"
+"POT-Creation-Date: 2023-03-31 00:47+0000\n"
 "PO-Revision-Date: 2023-03-27 23:33+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -645,7 +645,7 @@ msgstr "%1, %2"
 msgid "%1 and %2"
 msgstr "%1 e %2"
 
-#: core/model/admincustomemojimodel.cpp:30
+#: core/model/admincustomemojimodel.cpp:34
 #: core/model/admincustomsoundmodel.cpp:30 core/model/adminoauthmodel.cpp:33
 #: core/model/adminrolesmodel.cpp:32 core/model/adminroomsmodel.cpp:30
 #: core/model/adminusersmodel.cpp:106 core/model/directoryroomsmodel.cpp:114
@@ -659,7 +659,7 @@ msgstr "%1 e %2"
 msgid "Name"
 msgstr "Nome"
 
-#: core/model/admincustomemojimodel.cpp:32
+#: core/model/admincustomemojimodel.cpp:36
 #: core/model/admincustomsoundmodel.cpp:32 core/model/adminoauthmodel.cpp:31
 #: core/model/adminrolesmodel.cpp:30 core/model/adminroomsmodel.cpp:38
 #: core/model/directoryroomsmodel.cpp:120 core/model/directoryteamsmodel.cpp:94
@@ -667,7 +667,7 @@ msgstr "Nome"
 msgid "Identifier"
 msgstr "Identificador"
 
-#: core/model/admincustomemojimodel.cpp:34
+#: core/model/admincustomemojimodel.cpp:38
 #, kde-format
 msgid "Aliases"
 msgstr "Nomes Alternativos"
@@ -2352,14 +2352,14 @@ msgctxt "@title:window"
 msgid "Configure Custom Emoji"
 msgstr "Configurar o Emoji Personalizado"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:23
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:25
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
 msgstr ""
 "O nome do emoji personalizado ou um dos seus códigos alternativos deverão "
 "ser diferentes."
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:45
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:50
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
 #: widgets/administratordialog/customuserstatus/administratorcustomuserstatuscreatewidget.cpp:27
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:27
@@ -2378,48 +2378,48 @@ msgstr ""
 msgid "Name:"
 msgstr "Nome:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:46
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:51
 #, kde-format
 msgid "Alias:"
 msgstr "Nome alternativo:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:47
+#: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
 #: widgets/dialogs/uploadfilewidget.cpp:20
 #, kde-format
 msgid "File:"
 msgstr "Ficheiro:"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:31
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:32
 #, kde-format
 msgid "Search custom emojis"
 msgstr "Procurar por emojis personalizados"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:45
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:46
 #, kde-format
 msgid "No custom emoji found"
 msgstr "Não foi encontrado nenhum emoji personalizado"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:50
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:51
 #, kde-format
 msgid "%1 custom emoji (Total: %2)"
 msgid_plural "%1 custom emojis (Total: %2)"
 msgstr[0] "%1 emoji personalizado (Total: %2)"
 msgstr[1] "%1 emojis personalizados (Total: %2)"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:148
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:151
 #, kde-format
 msgid "Do you want to remove this emoji?"
 msgstr "Deseja remover este emoji?"
 
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:149
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:152
 #, kde-format
 msgctxt "@title"
 msgid "Remove Emoji"
 msgstr "Remover o Emoji"
 
 #. i18n: ectx: property (text), widget (QPushButton, addServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:175
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:141
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:127
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:47
@@ -2433,7 +2433,7 @@ msgid "Add..."
 msgstr "Adicionar..."
 
 #. i18n: ectx: property (text), widget (QPushButton, modifyServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:178
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:181
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:143
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:130
 #: widgets/administratordialog/oauth/oauthtreeview.cpp:49
@@ -2447,7 +2447,7 @@ msgid "Modify..."
 msgstr "Modificar..."
 
 #. i18n: ectx: property (text), widget (QPushButton, removeServer)
-#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:183
+#: widgets/administratordialog/customemoji/administratorcustomemojiwidget.cpp:186
 #: widgets/administratordialog/customsounds/administratorcustomsoundswidget.cpp:147
 #: widgets/administratordialog/customuserstatus/customuserstatustreewidget.cpp:132
 #: widgets/administratordialog/invites/invitetreeview.cpp:39
@@ -8583,21 +8583,25 @@ msgstr ""
 "Melhorar o suporte de depuração (Permitir mostrar as permissões actuais da "
 "conta)"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:35
+#: widgets/whatsnew/whatsnewwidget.cpp:30
+msgid "Add support for quoted text (text which starts by '>')"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:36
 msgid "Fix avatar support"
 msgstr "Correcção do suporte de avatares"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:77
+#: widgets/whatsnew/whatsnewwidget.cpp:78
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modificações importantes desde a última versão:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:85
+#: widgets/whatsnew/whatsnewwidget.cpp:86
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:93
+#: widgets/whatsnew/whatsnewwidget.cpp:94
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
