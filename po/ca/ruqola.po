@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:47+0000\n"
-"PO-Revision-Date: 2023-03-28 16:59+0200\n"
+"PO-Revision-Date: 2023-03-31 12:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -8556,7 +8556,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Afegeix la implementació per al text citat (text que comença amb «>»)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:36
 msgid "Fix avatar support"

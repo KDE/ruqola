@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:47+0000\n"
-"PO-Revision-Date: 2023-03-28 08:23+0300\n"
+"PO-Revision-Date: 2023-03-31 14:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -8607,7 +8607,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Додано підтримку цитованого тексту (тексту, який починається з «>»)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:36
 msgid "Fix avatar support"

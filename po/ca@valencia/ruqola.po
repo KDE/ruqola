@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:47+0000\n"
-"PO-Revision-Date: 2023-03-25 08:48+0100\n"
+"PO-Revision-Date: 2023-03-31 12:59+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -6131,10 +6131,9 @@ msgid "Prune"
 msgstr "Eliminació"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Maximum message age in days (default: 300):"
+#, kde-format
 msgid "Maximum message age in days (default: 30):"
-msgstr "Antiguitat màxima dels missatges en dies (predeterminada: 300):"
+msgstr "Antiguitat màxima dels missatges en dies (predeterminada: 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
@@ -8558,7 +8557,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Afig la implementació per al text citat (text que comença amb «>»)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:36
 msgid "Fix avatar support"
