@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-31 00:47+0000\n"
-"PO-Revision-Date: 2023-03-27 23:33+0100\n"
+"PO-Revision-Date: 2023-04-01 12:19+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -6155,10 +6155,9 @@ msgid "Prune"
 msgstr "Eliminar"
 
 #: widgets/dialogs/channelinfoprunewidget.cpp:50
-#, fuzzy, kde-format
-#| msgid "Maximum message age in days (default: 300):"
+#, kde-format
 msgid "Maximum message age in days (default: 30):"
-msgstr "Idade máxima da mensagem em dias (por omissão: 300):"
+msgstr "Idade máxima da mensagem em dias (por omissão: 30):"
 
 #: widgets/dialogs/channelnamevalidlinewidget.cpp:62
 #, kde-format
@@ -8585,7 +8584,7 @@ msgstr ""
 
 #: widgets/whatsnew/whatsnewwidget.cpp:30
 msgid "Add support for quoted text (text which starts by '>')"
-msgstr ""
+msgstr "Adição do suporte para texto citado (texto que começa por '>')"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:36
 msgid "Fix avatar support"
