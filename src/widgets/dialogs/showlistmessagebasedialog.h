@@ -30,7 +30,7 @@ Q_SIGNALS:
     void goToMessageRequested(const QString &messageId, const QString &messageDateTimeUtc);
 
 private:
-    void slotLoadMoreMessages();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotLoadMoreMessages();
     QString mRoomId;
     ShowListMessageBaseWidget *const mShowListMessage;
     RocketChatAccount *const mRocketChatAccount;

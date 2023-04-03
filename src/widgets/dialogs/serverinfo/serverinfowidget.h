@@ -19,7 +19,7 @@ public:
     ~ServerInfoWidget() override;
 
 private:
-    void setServerConfigInfo(ServerConfigInfo *info);
+    LIBRUQOLAWIDGETS_NO_EXPORT void setServerConfigInfo(ServerConfigInfo *info);
     QLabel *const mAccountName;
     QLabel *const mUserName;
     QLabel *const mServerVersion;

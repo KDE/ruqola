@@ -20,7 +20,7 @@ public:
     void setPreviewMessage(const QString &msg);
 
 private:
-    void readConfig();
-    void writeConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
+    LIBRUQOLAWIDGETS_NO_EXPORT void writeConfig();
     ReportMessageWidget *const mReportMessageWidget;
 };

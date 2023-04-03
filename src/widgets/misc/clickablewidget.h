@@ -41,7 +41,7 @@ Q_SIGNALS:
     void removeClickableWidget(const QString &username);
 
 private:
-    void slotRemove();
+    LIBRUQOLAWIDGETS_NO_EXPORT void slotRemove();
     QString mName;
     QString mIdentifier;
     QLabel *const mLabel;

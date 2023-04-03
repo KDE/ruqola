@@ -37,9 +37,9 @@ Q_SIGNALS:
     void switchToChannel(const QString &identifier);
 
 private:
-    void activateChannel(const QModelIndex &index);
-    void switchToCollectionClicked(const QModelIndex &index);
-    void selectChannel(const int from, const int to);
+    LIBRUQOLAWIDGETS_NO_EXPORT void activateChannel(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void switchToCollectionClicked(const QModelIndex &index);
+    LIBRUQOLAWIDGETS_NO_EXPORT void selectChannel(const int from, const int to);
     QWidget *mParentWidget = nullptr;
     SwitchChannelTreeView *const mSwitcherChannelTreeView;
     SwitchChannelHistoryModel *mChannelSwitcherModel = nullptr;
