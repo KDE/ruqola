@@ -41,7 +41,7 @@ protected:
 
 private:
     Q_DISABLE_COPY(EmojiCustomCreateJob)
-    void slotEmojiCustomCreateFinished();
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void slotEmojiCustomCreateFinished();
     EmojiInfo mEmojiInfo;
 };
 }

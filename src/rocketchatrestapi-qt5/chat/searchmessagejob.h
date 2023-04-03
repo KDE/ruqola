@@ -44,8 +44,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(SearchMessageJob)
-    void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    Q_REQUIRED_RESULT QString convertSearchText() const;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void onGetRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    Q_REQUIRED_RESULT LIBROCKETCHATRESTAPI_QT5_NO_EXPORT QString convertSearchText() const;
     QString mRoomId;
     QString mSearchText;
     bool mUseRegularExpression = false;

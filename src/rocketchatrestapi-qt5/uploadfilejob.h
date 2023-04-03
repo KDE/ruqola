@@ -53,8 +53,8 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(UploadFileJob)
-    void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
-    void slotUploadFinished();
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void slotUploadProgress(qint64 bytesSent, qint64 bytesTotal);
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void slotUploadFinished();
     UploadFileInfo mUploadFileInfo;
 };
 }

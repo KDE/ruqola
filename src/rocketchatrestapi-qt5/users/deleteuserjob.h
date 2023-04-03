@@ -29,6 +29,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(DeleteUserJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
 };
 }

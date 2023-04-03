@@ -58,9 +58,9 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomsExportJob)
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
-    void createJsonForFile(QJsonObject &jsonObj) const;
-    void createJsonForEmail(QJsonObject &jsonObj) const;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void createJsonForFile(QJsonObject &jsonObj) const;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void createJsonForEmail(QJsonObject &jsonObj) const;
     RoomsExportInfo mRoomExportInfo;
 };
 }

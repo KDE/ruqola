@@ -37,7 +37,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RemoveInviteJob)
-    void slotRemoveInviteFinished();
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void slotRemoveInviteFinished();
     QString mIdentifier;
 };
 }

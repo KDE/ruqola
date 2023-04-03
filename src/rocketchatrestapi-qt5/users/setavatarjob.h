@@ -41,8 +41,8 @@ protected:
 
 private:
     Q_DISABLE_COPY(SetAvatarJob)
-    void slotSetAvatar();
-    void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void slotSetAvatar();
+    LIBROCKETCHATRESTAPI_QT5_NO_EXPORT void onPostRequestResponse(const QString &replyErrorString, const QJsonDocument &replyJson) override;
     SetAvatarInfo mAvatarInfo;
 };
 }
