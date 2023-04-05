@@ -55,7 +55,7 @@ void BannerMessageWidget::setBannerInfos(const QVector<BannerInfos::UnreadInform
 void BannerMessageWidget::updateInfo()
 {
     if (mBannerInfos.isEmpty()) {
-        hide();
+        animatedHide();
     } else {
         const auto info = mBannerInfos.first();
         setText(info.i18nMessage);
