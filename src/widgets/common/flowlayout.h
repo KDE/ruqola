@@ -40,7 +40,7 @@ public:
     void clearAndDeleteWidgets();
 
 private:
-    int doFlow(QRect rect, bool effective) const;
+    LIBRUQOLAWIDGETS_NO_EXPORT int doFlow(QRect rect, bool effective) const;
 
 private:
     QVector<QLayoutItem *> mItems;
