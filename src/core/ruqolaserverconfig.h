@@ -176,9 +176,9 @@ public:
 
 private:
     Q_DISABLE_COPY(RuqolaServerConfig)
-    void adaptToServerVersion();
-    void assignSettingValue(bool value, ServerConfigFeatureType type);
-    void loadSettings(const QJsonObject &currentConfObject);
+    LIBRUQOLACORE_NO_EXPORT void adaptToServerVersion();
+    LIBRUQOLACORE_NO_EXPORT void assignSettingValue(bool value, ServerConfigFeatureType type);
+    LIBRUQOLACORE_NO_EXPORT void loadSettings(const QJsonObject &currentConfObject);
     QString mUniqueId;
     QString mJitsiMeetUrl;
     QString mJitsiMeetPrefix;

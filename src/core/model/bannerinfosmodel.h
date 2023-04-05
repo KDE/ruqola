@@ -37,6 +37,6 @@ public:
     void insertBannerInfos(const BannerInfos &infos);
 
 private:
-    Q_REQUIRED_RESULT QString text(const BannerInfo &info) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString text(const BannerInfo &info) const;
     BannerInfos mBannerInfos;
 };

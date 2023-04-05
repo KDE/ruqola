@@ -37,7 +37,7 @@ public:
     void updateCustomUserStatues(const QJsonArray &replyArray);
 
 private:
-    void parseListCustomUserStatuses(const QJsonObject &commandsObj);
+    LIBRUQOLACORE_NO_EXPORT void parseListCustomUserStatuses(const QJsonObject &commandsObj);
     QVector<CustomUserStatus> mCustomUserses;
     int mCustomUserCount = 0;
     int mOffset = 0;

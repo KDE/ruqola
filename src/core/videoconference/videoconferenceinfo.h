@@ -76,7 +76,7 @@ public:
     Q_REQUIRED_RESULT static QString convertEnumToString(const VideoConferenceInfo &info);
 
 private:
-    Q_REQUIRED_RESULT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT VideoConferenceInfo::VideoConferenceType convertTypeToEnum(const QString &str) const;
     QVector<User> mUsers;
     QString mBlockId;
     QString mUrl;

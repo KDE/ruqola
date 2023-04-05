@@ -48,7 +48,7 @@ public:
     Q_REQUIRED_RESULT QVector<BannerInfos::UnreadInformation> bannerUnreadInformations() const;
 
 private:
-    Q_REQUIRED_RESULT QString generateText(const BannerInfo &info) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateText(const BannerInfo &info) const;
     QVector<BannerInfo> mBanners;
 };
 

@@ -37,8 +37,8 @@ public:
     void parseAllChannels(const QJsonObject &obj);
 
 private:
-    Q_REQUIRED_RESULT QIcon channelIconName(const Channel &channel) const;
-    Q_REQUIRED_RESULT QString channelId(const Channel &channel) const;
-    Q_REQUIRED_RESULT QString channelName(const Channel &channel) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon channelIconName(const Channel &channel) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString channelId(const Channel &channel) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString channelName(const Channel &channel) const;
     QVector<Channel> mChannel;
 };

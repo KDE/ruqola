@@ -19,8 +19,8 @@ public:
     void addCallId(const QString &callId);
 
 private:
-    void slotUpdateMessage();
-    void updateVideoConferenceInfo(const QString &callId);
+    LIBRUQOLACORE_NO_EXPORT void slotUpdateMessage();
+    LIBRUQOLACORE_NO_EXPORT void updateVideoConferenceInfo(const QString &callId);
     QStringList mCallIdList;
     RocketChatAccount *const mRocketChatAccount;
     QTimer *const mTimer;

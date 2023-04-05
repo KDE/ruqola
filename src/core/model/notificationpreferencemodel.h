@@ -40,7 +40,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(NotificationPreferenceModel)
-    void fillModel();
+    LIBRUQOLACORE_NO_EXPORT void fillModel();
     QVector<NotificationPreferenceInfo> mNotificationPreferenceList;
     int mCurrentPreference = 0;
 };

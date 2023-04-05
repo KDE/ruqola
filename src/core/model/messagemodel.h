@@ -143,26 +143,26 @@ public:
     Q_REQUIRED_RESULT Message threadMessage(const QString &threadMessageId) const;
 
 private:
-    void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
+    LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(const QString &filePath, const QUrl &cacheImageUrl);
     Q_DISABLE_COPY(MessageModel)
     /**
      * @brief Adds a message to the model
      *
      * @param message The message to be added
      */
-    void addMessage(const Message &message);
+    LIBRUQOLACORE_NO_EXPORT void addMessage(const Message &message);
 
-    void refresh();
-    Q_REQUIRED_RESULT bool threadMessageFollowed(const QString &threadMessageId) const;
-    Q_REQUIRED_RESULT QStringList roomRoles(const QString &userId) const;
-    Q_REQUIRED_RESULT QString convertMessageText(const Message &message,
-                                                 const QString &userName,
-                                                 const QStringList &highlightWords,
-                                                 const QString &searchedText) const;
-    Q_REQUIRED_RESULT QString threadMessagePreview(const QString &threadMessageId) const;
-    Q_REQUIRED_RESULT QVector<Message>::iterator findMessage(const QString &messageId);
-    Q_REQUIRED_RESULT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
-    Q_REQUIRED_RESULT QString convertedText(const Message &message, const QString &searchedText) const;
+    LIBRUQOLACORE_NO_EXPORT void refresh();
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT bool threadMessageFollowed(const QString &threadMessageId) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QStringList roomRoles(const QString &userId) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString convertMessageText(const Message &message,
+                                                                         const QString &userName,
+                                                                         const QStringList &highlightWords,
+                                                                         const QString &searchedText) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString threadMessagePreview(const QString &threadMessageId) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QVector<Message>::iterator findMessage(const QString &messageId);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QVector<Message>::const_iterator findMessage(const QString &messageId) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString convertedText(const Message &message, const QString &searchedText) const;
 
     QString mSearchText;
     QString mRoomId;

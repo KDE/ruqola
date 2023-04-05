@@ -27,7 +27,7 @@ Q_SIGNALS:
     void videoConferenceCallCanceled(const VideoConference &videoConference);
 
 private:
-    void showNotification(const VideoConference &videoConference);
+    LIBRUQOLACORE_NO_EXPORT void showNotification(const VideoConference &videoConference);
     QList<VideoConference> mVideoConferenceList;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -60,9 +60,9 @@ public:
 
 private:
     Q_DISABLE_COPY(AuthenticationManager)
-    void initializePluginList();
-    void loadPlugin(AuthenticationManagerInfo *item);
-    PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
+    LIBRUQOLACORE_NO_EXPORT void initializePluginList();
+    LIBRUQOLACORE_NO_EXPORT void loadPlugin(AuthenticationManagerInfo *item);
+    LIBRUQOLACORE_NO_EXPORT PluginUtilData createPluginMetaData(const KPluginMetaData &metaData);
     QVector<AuthenticationManagerInfo> mPluginList;
     QVector<PluginUtilData> mPluginDataList;
 };

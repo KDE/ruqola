@@ -51,8 +51,8 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    void parse(const QJsonObject &obj);
-    void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void parse(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void checkFullList();
     int mTotal = -1;
     bool mLoadingInProgress = false;
     bool mHasFullList = false;

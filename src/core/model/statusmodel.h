@@ -61,11 +61,11 @@ private:
         User::PresenceStatus status;
         int order = 0;
     };
-    Q_REQUIRED_RESULT QString textFromPresenceStatus(User::PresenceStatus status) const;
-    Q_REQUIRED_RESULT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
-    Q_REQUIRED_RESULT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString textFromPresenceStatus(User::PresenceStatus status) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon iconFromPresenceStatus(User::PresenceStatus status) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT StatusModel::DisplayStatusInfo createStatusInfo(User::PresenceStatus status, int order);
     Q_DISABLE_COPY(StatusModel)
-    void fillModel();
+    LIBRUQOLACORE_NO_EXPORT void fillModel();
     QVector<DisplayStatusInfo> mStatusList;
     QString mCustomText;
     int mCurrentStatus = 0;

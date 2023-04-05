@@ -27,8 +27,8 @@ Q_SIGNALS:
     void avatarDownloaded(const QByteArray &data, const QString &avatarUrl);
 
 private:
-    void slotFileDownloaded(QNetworkReply *reply);
-    void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(QNetworkReply *reply);
+    LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
     QString mAvatarUrl;
     QNetworkAccessManager *const mNetworkAccessManager;
 };

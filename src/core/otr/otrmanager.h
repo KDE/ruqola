@@ -21,11 +21,11 @@ public:
 
 private:
     Q_DISABLE_COPY(OtrManager)
-    void slotAcceptOtr(const Otr &t);
-    void slotRejectOtr(const Otr &t);
-    void slotAcknowLedgeOtr(const Otr &t);
-    void slotEndOtr(const Otr &t);
-    void slotActivateNotificationAction();
+    LIBRUQOLACORE_NO_EXPORT void slotAcceptOtr(const Otr &t);
+    LIBRUQOLACORE_NO_EXPORT void slotRejectOtr(const Otr &t);
+    LIBRUQOLACORE_NO_EXPORT void slotAcknowLedgeOtr(const Otr &t);
+    LIBRUQOLACORE_NO_EXPORT void slotEndOtr(const Otr &t);
+    LIBRUQOLACORE_NO_EXPORT void slotActivateNotificationAction();
     QList<Otr> mOtrList;
     RocketChatAccount *const mRocketChatAccount;
 };

@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT QString accountAvatarConfigPath(const QString &accountName) const;
 
 private:
-    void initializePaths();
+    LIBRUQOLACORE_NO_EXPORT void initializePaths();
     QHash<ManagerDataPaths::PathType, QString> mPathTypeHash;
     Q_REQUIRED_RESULT QString accountConfigPath(const QString &accountName) const;
 };

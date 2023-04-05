@@ -57,7 +57,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(DiscussionsModel)
-    void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QString mRoomId;
     bool mLoadMoreDiscussionsInProgress = false;
     bool mHasFullList = false;

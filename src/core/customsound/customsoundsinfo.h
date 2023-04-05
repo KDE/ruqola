@@ -42,7 +42,7 @@ public:
     CustomSoundInfo takeAt(int index);
 
 private:
-    void parseListCustomSound(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void parseListCustomSound(const QJsonObject &obj);
     QVector<CustomSoundInfo> mCustomSoundInfos;
     int mRoomsCount = 0;
     int mOffset = 0;

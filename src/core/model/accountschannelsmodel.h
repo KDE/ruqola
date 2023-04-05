@@ -23,10 +23,10 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
-    Q_REQUIRED_RESULT QModelIndex modelRoot(QAbstractItemModel *model) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QModelIndex modelRoot(QAbstractItemModel *model) const;
     QAbstractItemModel *rootModel(const QModelIndex &root) const;
-    void mapModelToIndex(QAbstractItemModel *model, const std::function<QModelIndex()> &root);
-    void unproxyModel(QAbstractItemModel *model);
+    LIBRUQOLACORE_NO_EXPORT void mapModelToIndex(QAbstractItemModel *model, const std::function<QModelIndex()> &root);
+    LIBRUQOLACORE_NO_EXPORT void unproxyModel(QAbstractItemModel *model);
 
     struct ProxyIndex {
         QAbstractItemModel *model = nullptr;

@@ -28,8 +28,8 @@ Q_SIGNALS:
     void fileDownloaded(const QByteArray &data);
 
 private:
-    void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
-    void slotFileDownloaded(QNetworkReply *reply);
+    LIBRUQOLACORE_NO_EXPORT void slotSslErrors(QNetworkReply *reply, const QList<QSslError> &error);
+    LIBRUQOLACORE_NO_EXPORT void slotFileDownloaded(QNetworkReply *reply);
     QString mServerUrl;
     QNetworkAccessManager *const mNetworkAccessManager;
 };

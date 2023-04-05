@@ -42,6 +42,6 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminInviteModel)
-    Q_REQUIRED_RESULT QString expireInvitation(const InviteInfo &inviteInfo) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString expireInvitation(const InviteInfo &inviteInfo) const;
     QVector<InviteInfo> mAdminInvites;
 };

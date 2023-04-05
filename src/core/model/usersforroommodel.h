@@ -55,8 +55,8 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_REQUIRED_RESULT QString generateDisplayName(const User &user) const;
-    void checkFullList();
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateDisplayName(const User &user) const;
+    LIBRUQOLACORE_NO_EXPORT void checkFullList();
     QVector<User> mUsers;
     int mTotal = 0;
     int mOffset = 0;

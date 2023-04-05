@@ -50,9 +50,9 @@ private:
     /**
      * @brief Creates tray icon consisting of actions
      */
-    void createTrayIcon();
-    void createToolTip();
-    void updateUnityService(int unreadMessage);
+    LIBRUQOLACORE_NO_EXPORT void createTrayIcon();
+    LIBRUQOLACORE_NO_EXPORT void createToolTip();
+    LIBRUQOLACORE_NO_EXPORT void updateUnityService(int unreadMessage);
 
     QMap<QString, TrayInfo> mListTrayIcon;
 #ifdef UNITY_SUPPORT

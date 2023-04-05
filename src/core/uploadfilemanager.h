@@ -25,7 +25,7 @@ Q_SIGNALS:
     void uploadProgress(const RocketChatRestApi::UploadFileJob::UploadStatusInfo &info, int identifier, const QString &accountName);
 
 private:
-    void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
+    LIBRUQOLACORE_NO_EXPORT void removeFile(const RocketChatRestApi::UploadFileJob::UploadFileInfo &info);
     RocketChatAccount *const mRocketChatAccount;
     QMap<int, QPointer<RocketChatRestApi::UploadFileJob>> mUploadMap;
     static int uploadIdentifier;

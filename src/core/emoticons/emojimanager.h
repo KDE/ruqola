@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(EmojiManager)
-    void clearCustomEmojiCachedHtml();
+    LIBRUQOLACORE_NO_EXPORT void clearCustomEmojiCachedHtml();
     // Use identifier in a QMap ???
     QVector<CustomEmoji> mCustomEmojiList;
     QString mServerUrl;

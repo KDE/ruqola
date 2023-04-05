@@ -28,7 +28,7 @@ public:
     Q_REQUIRED_RESULT int count() const;
 
 private:
-    Q_REQUIRED_RESULT QString i18nUnicodeCategory(const QString &name) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString i18nUnicodeCategory(const QString &name) const;
     void loadUnicodeEmoji();
     QVector<UnicodeEmoticon> mUnicodeEmojiList;
 };

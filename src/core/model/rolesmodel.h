@@ -29,7 +29,7 @@ public:
     void setRolesSelected(const QStringList &newRolesSelected);
 
 private:
-    void createItem(const QString &displayStr, const QString &identifier);
+    LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &identifier);
 
     Q_DISABLE_COPY(RolesModel)
     QStringList mRolesSelected;

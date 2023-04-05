@@ -38,7 +38,7 @@ public:
     CustomEmoji takeAt(int index);
 
 private:
-    void parseListCustomEmoji(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void parseListCustomEmoji(const QJsonObject &obj);
     QVector<CustomEmoji> mCustomEmojiInfos;
     int mRoomsCount = 0;
     int mOffset = 0;

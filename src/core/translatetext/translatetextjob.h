@@ -31,7 +31,7 @@ Q_SIGNALS:
     void translateFailed(bool result, const QString &errorMessage = QString());
 
 private:
-    void initializeTranslateEngine();
+    LIBRUQOLACORE_NO_EXPORT void initializeTranslateEngine();
     TranslateInfo mInfo;
 };
 LIBRUQOLACORE_EXPORT QDebug operator<<(QDebug d, const TranslateTextJob::TranslateInfo &t);

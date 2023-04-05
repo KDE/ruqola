@@ -121,11 +121,11 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RoomModel)
-    Room *createNewRoom();
-    Q_REQUIRED_RESULT bool userOffline(Room *r) const;
-    Q_REQUIRED_RESULT QIcon icon(Room *r) const;
-    Q_REQUIRED_RESULT Section section(Room *r) const;
-    Q_REQUIRED_RESULT QString generateToolTip(Room *r) const;
+    LIBRUQOLACORE_NO_EXPORT Room *createNewRoom();
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT bool userOffline(Room *r) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QIcon icon(Room *r) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT Section section(Room *r) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateToolTip(Room *r) const;
 
     RocketChatAccount *const mRocketChatAccount;
     QVector<Room *> mRoomsList;

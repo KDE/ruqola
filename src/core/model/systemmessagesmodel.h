@@ -24,6 +24,6 @@ public:
     void setMessagesSystem(const QStringList &lst);
 
 private:
-    void fillModel();
-    void createItem(const QString &displayStr, const QString &systemStr);
+    LIBRUQOLACORE_NO_EXPORT void fillModel();
+    LIBRUQOLACORE_NO_EXPORT void createItem(const QString &displayStr, const QString &systemStr);
 };

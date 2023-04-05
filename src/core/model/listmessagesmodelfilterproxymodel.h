@@ -31,7 +31,7 @@ Q_SIGNALS:
     void loadingInProgressChanged();
 
 private:
-    Q_REQUIRED_RESULT QString title() const;
-    Q_REQUIRED_RESULT ListMessagesModel::ListMessageType listMessageType() const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString title() const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT ListMessagesModel::ListMessageType listMessageType() const;
     ListMessagesModel *const mModel;
 };

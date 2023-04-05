@@ -36,10 +36,10 @@ public:
     QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override;
 
 private:
-    void onRowsInserted(const QModelIndex &parent, int first, int last);
-    void onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last);
-    void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
-    void rebuildSections();
+    LIBRUQOLACORE_NO_EXPORT void onRowsInserted(const QModelIndex &parent, int first, int last);
+    LIBRUQOLACORE_NO_EXPORT void onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last);
+    LIBRUQOLACORE_NO_EXPORT void onDataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles);
+    LIBRUQOLACORE_NO_EXPORT void rebuildSections();
 
     // each section vector is kept sorted for performance reasons
     std::array<std::vector<QPersistentModelIndex>, sectionCount> mSections;

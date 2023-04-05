@@ -50,7 +50,7 @@ public:
     void setVideoConferenceInfo(const VideoConferenceInfo &newInfo);
 
 private:
-    Q_REQUIRED_RESULT Block::BlockType convertBlockTypeToEnum(const QString &type);
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT Block::BlockType convertBlockTypeToEnum(const QString &type);
     QString mBlockId;
     QString mCallId;
     QString mAppId;

@@ -53,6 +53,6 @@ public:
 
 private:
     Q_DISABLE_COPY(AdminRoomsModel)
-    void checkFullList();
+    LIBRUQOLACORE_NO_EXPORT void checkFullList();
     RoomsInfo mAdminRooms;
 };

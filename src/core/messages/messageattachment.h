@@ -91,7 +91,7 @@ public:
     Q_REQUIRED_RESULT const QString &imageUrlPreview() const;
 
 private:
-    void generateAttachmentFieldsText();
+    LIBRUQOLACORE_NO_EXPORT void generateAttachmentFieldsText();
     QVector<MessageAttachmentField> mAttachmentFields;
     AttachmentType mAttachmentType = Unknown;
     QString mColor;

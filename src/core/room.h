@@ -315,10 +315,10 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(Room)
-    void parseCommonData(const QJsonObject &json);
-    void parseDisplaySystemMessage(const QJsonObject &json);
-    void parseRetentionInfo(const QJsonObject &json);
-    void parseTeamInfo(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void parseCommonData(const QJsonObject &json);
+    LIBRUQOLACORE_NO_EXPORT void parseDisplaySystemMessage(const QJsonObject &json);
+    LIBRUQOLACORE_NO_EXPORT void parseRetentionInfo(const QJsonObject &json);
+    LIBRUQOLACORE_NO_EXPORT void parseTeamInfo(const QJsonObject &obj);
 
     // Room Object Fields
 
