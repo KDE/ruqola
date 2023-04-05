@@ -43,7 +43,7 @@ public:
     void insertRoom(int index, const RoomInfo &room);
 
 private:
-    void parseListRooms(const QJsonObject &commandsObj, ParseType type);
+    LIBRUQOLACORE_NO_EXPORT void parseListRooms(const QJsonObject &commandsObj, ParseType type);
     QVector<RoomInfo> mRooms;
     int mRoomsCount = 0;
     int mOffset = 0;

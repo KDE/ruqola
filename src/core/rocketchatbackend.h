@@ -41,16 +41,16 @@ public:
 
 private:
     Q_DISABLE_COPY(RocketChatBackend)
-    void slotRemoved(const QJsonObject &object);
-    void slotAdded(const QJsonObject &object);
-    void slotChanged(const QJsonObject &object);
-    void slotLoginStatusChanged();
-    void slotConnectedChanged();
-    void slotUserIDChanged();
-    void slotGetServerInfoFailed(bool useDeprecatedVersion);
-    void parseServerVersionDone(const QString &version);
-    void tryAutoLogin();
-    void slotPrivateInfoDone(const QJsonObject &data);
+    LIBRUQOLACORE_NO_EXPORT void slotRemoved(const QJsonObject &object);
+    LIBRUQOLACORE_NO_EXPORT void slotAdded(const QJsonObject &object);
+    LIBRUQOLACORE_NO_EXPORT void slotChanged(const QJsonObject &object);
+    LIBRUQOLACORE_NO_EXPORT void slotLoginStatusChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotConnectedChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotUserIDChanged();
+    LIBRUQOLACORE_NO_EXPORT void slotGetServerInfoFailed(bool useDeprecatedVersion);
+    LIBRUQOLACORE_NO_EXPORT void parseServerVersionDone(const QString &version);
+    LIBRUQOLACORE_NO_EXPORT void tryAutoLogin();
+    LIBRUQOLACORE_NO_EXPORT void slotPrivateInfoDone(const QJsonObject &data);
 
     QVector<User> mUsers;
     QVector<File> mFiles;

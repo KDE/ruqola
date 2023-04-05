@@ -82,7 +82,7 @@ public:
     Q_REQUIRED_RESULT bool isTeam() const;
 
 private:
-    void generateDisplayChannelType();
+    LIBRUQOLACORE_NO_EXPORT void generateDisplayChannelType();
     TeamInfo mTeamInfo;
     QStringList mUserNames;
     QStringList mUsers;

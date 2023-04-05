@@ -27,6 +27,6 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(ReceiveTypingNotificationManager)
-    Q_REQUIRED_RESULT QString generateNotification(const QStringList &userNames) const;
+    Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString generateNotification(const QStringList &userNames) const;
     QMap<QString, QStringList> mMapTypingNotifications;
 };

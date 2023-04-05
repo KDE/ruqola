@@ -30,7 +30,7 @@ public:
     Q_REQUIRED_RESULT QString dateTimeStr() const;
 
 private:
-    void createUniqueIdentifier();
+    LIBRUQOLACORE_NO_EXPORT void createUniqueIdentifier();
     static quint64 identifierId;
     QString mAccountName;
     QString mMessage;

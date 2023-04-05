@@ -585,57 +585,59 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(RocketChatAccount)
 
-    void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void slotSplotLightDone(const QJsonObject &obj);
-    void slotChannelListDone(const QJsonObject &obj);
-    void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
-    void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
-    void slotGetSupportedLanguagesDone(const QJsonObject &obj);
-    void slotUsersPresenceDone(const QJsonObject &obj);
-    void slotReconnectToServer();
+    LIBRUQOLACORE_NO_EXPORT void slotChannelFilesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    LIBRUQOLACORE_NO_EXPORT void slotChannelGroupRolesDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    LIBRUQOLACORE_NO_EXPORT void slotSplotLightDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotChannelListDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotGetThreadMessagesDone(const QJsonObject &obj, const QString &threadMessageId);
+    LIBRUQOLACORE_NO_EXPORT void slotGetDiscussionsListDone(const QJsonObject &obj, const QString &roomId);
+    LIBRUQOLACORE_NO_EXPORT void slotGetSupportedLanguagesDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotUsersPresenceDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotReconnectToServer();
 
-    void loadEmoji(const QJsonObject &obj);
-    void slotSearchMessages(const QJsonObject &obj);
-    void slotNeedToUpdateNotification();
-    void loadSettings(const QString &accountFileName);
-    void clearModels();
-    void fillOauthModel();
-    void initializeAuthenticationPlugins();
-    void setDefaultAuthentication(AuthenticationManager::OauthType type);
-    void userStatusChanged(const User &user);
-    void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
-    void slotChannelGetCountersDone(const QJsonObject &obj, const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    LIBRUQOLACORE_NO_EXPORT void loadEmoji(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotSearchMessages(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotNeedToUpdateNotification();
+    LIBRUQOLACORE_NO_EXPORT void loadSettings(const QString &accountFileName);
+    LIBRUQOLACORE_NO_EXPORT void clearModels();
+    LIBRUQOLACORE_NO_EXPORT void fillOauthModel();
+    LIBRUQOLACORE_NO_EXPORT void initializeAuthenticationPlugins();
+    LIBRUQOLACORE_NO_EXPORT void setDefaultAuthentication(AuthenticationManager::OauthType type);
+    LIBRUQOLACORE_NO_EXPORT void userStatusChanged(const User &user);
+    LIBRUQOLACORE_NO_EXPORT void openArchivedRoom(const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
+    LIBRUQOLACORE_NO_EXPORT void slotChannelGetCountersDone(const QJsonObject &obj,
+                                                            const RocketChatRestApi::ChannelGroupBaseJob::ChannelGroupInfo &channelInfo);
 
-    void getSupportedLanguages();
-    void usersPresence();
-    void listEmojiCustom();
+    LIBRUQOLACORE_NO_EXPORT void getSupportedLanguages();
+    LIBRUQOLACORE_NO_EXPORT void usersPresence();
+    LIBRUQOLACORE_NO_EXPORT void listEmojiCustom();
 
-    void checkInitializedRoom(const QString &roomId);
-    void clearTypingNotification();
-    void inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog);
-    void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
-    void slotUserAutoCompleterDone(const QJsonObject &obj);
-    void slotListCommandDone(const QJsonObject &obj);
-    void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
+    LIBRUQOLACORE_NO_EXPORT void checkInitializedRoom(const QString &roomId);
+    LIBRUQOLACORE_NO_EXPORT void clearTypingNotification();
+    LIBRUQOLACORE_NO_EXPORT void
+    inputAutocomplete(const QString &pattern, const QString &exceptions, InputTextManager::CompletionForType type, bool threadDialog);
+    LIBRUQOLACORE_NO_EXPORT void slotGetListMessagesDone(const QJsonObject &obj, const QString &roomId, ListMessagesModel::ListMessageType type);
+    LIBRUQOLACORE_NO_EXPORT void slotUserAutoCompleterDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void slotListCommandDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void runCommand(const RocketChatRestApi::RunCommandJob::RunCommandInfo &runCommandInfo);
 
-    void loginStatusChangedSlot();
-    void slotFileLanguagedParsed();
-    void slotRegisterUserDone();
-    void slotRoomNeedAttention();
-    void slotMarkAsReadDone(const QString &roomId);
-    void slotCustomUserStatusDone(const QJsonObject &customList);
-    void slotPostMessageDone(const QJsonObject &replyObject);
-    void slotRoomExportDone();
-    void slotPermissionListAllDone(const QJsonObject &replyObject);
-    void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
-    void slotUpdateCustomUserStatus();
-    void slotDirectoryDone(const QJsonObject &obj);
-    void updateCustomEmojiList(bool fetchListCustom);
-    void slotLoadRoles();
-    void slotAwayStatusChanged(bool away);
-    void slotJobFailed(const QString &str);
-    void checkLicenses();
+    LIBRUQOLACORE_NO_EXPORT void loginStatusChangedSlot();
+    LIBRUQOLACORE_NO_EXPORT void slotFileLanguagedParsed();
+    LIBRUQOLACORE_NO_EXPORT void slotRegisterUserDone();
+    LIBRUQOLACORE_NO_EXPORT void slotRoomNeedAttention();
+    LIBRUQOLACORE_NO_EXPORT void slotMarkAsReadDone(const QString &roomId);
+    LIBRUQOLACORE_NO_EXPORT void slotCustomUserStatusDone(const QJsonObject &customList);
+    LIBRUQOLACORE_NO_EXPORT void slotPostMessageDone(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT void slotRoomExportDone();
+    LIBRUQOLACORE_NO_EXPORT void slotPermissionListAllDone(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT void slotUsersSetPreferencesDone(const QJsonObject &replyObject);
+    LIBRUQOLACORE_NO_EXPORT void slotUpdateCustomUserStatus();
+    LIBRUQOLACORE_NO_EXPORT void slotDirectoryDone(const QJsonObject &obj);
+    LIBRUQOLACORE_NO_EXPORT void updateCustomEmojiList(bool fetchListCustom);
+    LIBRUQOLACORE_NO_EXPORT void slotLoadRoles();
+    LIBRUQOLACORE_NO_EXPORT void slotAwayStatusChanged(bool away);
+    LIBRUQOLACORE_NO_EXPORT void slotJobFailed(const QString &str);
+    LIBRUQOLACORE_NO_EXPORT void checkLicenses();
 
     AccountRoomSettings *const mAccountRoomSettings;
 

@@ -78,9 +78,9 @@ Q_SIGNALS:
 
 private:
     Q_DISABLE_COPY(RocketChatAccountSettings)
-    void initializeSettings(const QString &accountFileName);
-    void slotPasswordRead(QKeychain::Job *job);
-    void slotPasswordWritten(QKeychain::Job *job);
+    LIBRUQOLACORE_NO_EXPORT void initializeSettings(const QString &accountFileName);
+    LIBRUQOLACORE_NO_EXPORT void slotPasswordRead(QKeychain::Job *job);
+    LIBRUQOLACORE_NO_EXPORT void slotPasswordWritten(QKeychain::Job *job);
 
     QString mUserId;
     QString mAuthToken;
