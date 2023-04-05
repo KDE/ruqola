@@ -46,9 +46,9 @@ protected:
     Q_REQUIRED_RESULT bool queryClose() override;
 
 private:
-    Q_REQUIRED_RESULT bool canCreateChannels() const;
-    Q_REQUIRED_RESULT bool canCreateDirectMessages() const;
-    Q_REQUIRED_RESULT bool canCreateTeams() const;
+    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateChannels() const;
+    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateDirectMessages() const;
+    Q_REQUIRED_RESULT LIBRUQOLAWIDGETS_NO_EXPORT bool canCreateTeams() const;
     LIBRUQOLAWIDGETS_NO_EXPORT void slotRegisterUserSuccessed();
     LIBRUQOLAWIDGETS_NO_EXPORT void setupActions();
     LIBRUQOLAWIDGETS_NO_EXPORT void readConfig();
