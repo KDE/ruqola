@@ -44,6 +44,7 @@ Q_SIGNALS:
 
 private:
     void slotUpdateOkButton();
+    void slotAddNewEmoji();
     // Set AdministratorCustomEmojiCreateOrUpdateType as Create
     AdministratorCustomEmojiCreateOrUpdateType mType = AdministratorCustomEmojiCreateOrUpdateType::Create;
     QLineEdit *const mName;

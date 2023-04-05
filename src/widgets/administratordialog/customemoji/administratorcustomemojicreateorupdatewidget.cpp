@@ -54,7 +54,7 @@ AdministratorCustomEmojiCreateOrUpdateWidget::AdministratorCustomEmojiCreateOrUp
     mainLayout->addWidget(mWarningLabel);
     connect(mName, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
     connect(mAlias, &QLineEdit::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
-    connect(mSelectFile, &KUrlRequester::urlSelected, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
+    connect(mSelectFile, &KUrlRequester::urlSelected, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotAddNewEmoji);
     connect(mSelectFile, &KUrlRequester::textChanged, this, &AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton);
 }
 
@@ -79,16 +79,30 @@ AdministratorCustomEmojiCreateOrUpdateWidget::CustomEmojiCreateInfo Administrato
     return info;
 }
 
+void AdministratorCustomEmojiCreateOrUpdateWidget::slotAddNewEmoji()
+{
+    const QSize pixmapAvatarSize = QSize(60, 60) * screen()->devicePixelRatio();
+    mIconLabel->setPixmap(QIcon(mSelectFile->url().toLocalFile()).pixmap(pixmapAvatarSize));
+
+    slotUpdateOkButton();
+}
+
 void AdministratorCustomEmojiCreateOrUpdateWidget::slotUpdateOkButton()
 {
-    if (mName->text().trimmed() != mAlias->text().trimmed()) {
+    const QString nameTrimmed{mName->text().trimmed()};
+    const QString aliasTrimmed{mAlias->text().trimmed()};
+    if (nameTrimmed.isEmpty() && aliasTrimmed.isEmpty()) {
+        Q_EMIT updateOkButton(false);
+        return;
+    }
+    if (nameTrimmed != aliasTrimmed) {
         mWarningLabel->hide();
         switch (mType) {
         case Create:
-            Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty() && mSelectFile->url().isValid());
+            Q_EMIT updateOkButton(!nameTrimmed.isEmpty() && mSelectFile->url().isValid());
             break;
         case Update:
-            Q_EMIT updateOkButton(!mName->text().trimmed().isEmpty());
+            Q_EMIT updateOkButton(!nameTrimmed.isEmpty());
             break;
         }
     } else {
