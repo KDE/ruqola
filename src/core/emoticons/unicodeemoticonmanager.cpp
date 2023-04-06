@@ -54,7 +54,7 @@ int UnicodeEmoticonManager::count() const
 
 QString UnicodeEmoticonManager::i18nUnicodeCategory(const QString &name) const
 {
-    // ame "🚗"Category "travel", Name "🇿"Category "regional", Name "🏳️"Category "flags")
+    // Name "🚗"Category "travel", Name "🇿"Category "regional", Name "🏳️"Category "flags")
     if (name == QLatin1String("symbols")) {
         return i18n("Symbols");
     } else if (name == QLatin1String("activity")) {
