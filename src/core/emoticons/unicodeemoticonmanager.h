@@ -29,6 +29,6 @@ public:
 
 private:
     Q_REQUIRED_RESULT LIBRUQOLACORE_NO_EXPORT QString i18nUnicodeCategory(const QString &name) const;
-    void loadUnicodeEmoji();
+    LIBRUQOLACORE_NO_EXPORT void loadUnicodeEmoji();
     QVector<UnicodeEmoticon> mUnicodeEmojiList;
 };
