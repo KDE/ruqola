@@ -66,6 +66,7 @@ private:
     void slotInsertMarkdownUrl();
     void slotLoginChanged();
     void switchAutoCorrectionLanguage(const QString &lang);
+    void slotUpdateMessageFailed(const QString &str);
 
     QPointer<RocketChatAccount> mCurrentRocketChatAccount;
     InputTextManager *mCurrentInputTextManager = nullptr;

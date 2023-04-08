@@ -39,6 +39,7 @@ void UpdateMessageJob::onPostRequestResponse(const QString &replyErrorString, co
         Q_EMIT updateMessageDone();
     } else {
         emitFailedMessage(replyErrorString, replyObject);
+        Q_EMIT updateMessageFailed(mUpdatedText);
         addLoggerWarning(QByteArrayLiteral("UpdateMessageJob: problem: ") + replyJson.toJson(QJsonDocument::Indented));
     }
 }

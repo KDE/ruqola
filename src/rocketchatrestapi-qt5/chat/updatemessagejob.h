@@ -35,6 +35,7 @@ public:
 
 Q_SIGNALS:
     void updateMessageDone();
+    void updateMessageFailed(const QString &str);
 
 private:
     Q_DISABLE_COPY(UpdateMessageJob)

@@ -287,6 +287,7 @@ Q_SIGNALS:
     void roomExportDone();
     void statisticDone(const QJsonObject &replyObject);
     void directoryDone(const QJsonObject &replyObject);
+    void updateMessageFailed(const QString &str);
 
 private:
     Q_DISABLE_COPY(Connection)

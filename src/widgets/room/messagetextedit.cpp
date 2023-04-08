@@ -116,6 +116,13 @@ void MessageTextEdit::setCurrentRocketChatAccount(RocketChatAccount *account, bo
     mCommandCompletionListView->setModel(mCurrentInputTextManager->commandModel());
     connect(mCurrentInputTextManager, &InputTextManager::completionTypeChanged, this, &MessageTextEdit::slotCompletionTypeChanged);
     connect(mCurrentRocketChatAccount, &RocketChatAccount::loginStatusChanged, this, &MessageTextEdit::slotLoginChanged);
+    connect(mCurrentRocketChatAccount, &RocketChatAccount::updateMessageFailed, this, &MessageTextEdit::slotUpdateMessageFailed);
+}
+
+void MessageTextEdit::slotUpdateMessageFailed(const QString &str)
+{
+    // Message Update failed => don't lose text!
+    setText(str);
 }
 
 void MessageTextEdit::slotLoginChanged()

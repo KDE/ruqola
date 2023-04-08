@@ -512,6 +512,7 @@ RocketChatRestApi::Connection *RocketChatAccount::restApi()
         connect(mRestApi, &RocketChatRestApi::Connection::channelListDone, this, &RocketChatAccount::slotChannelListDone);
         connect(mRestApi, &RocketChatRestApi::Connection::markAsReadDone, this, &RocketChatAccount::slotMarkAsReadDone);
         connect(mRestApi, &RocketChatRestApi::Connection::postMessageDone, this, &RocketChatAccount::slotPostMessageDone);
+        connect(mRestApi, &RocketChatRestApi::Connection::updateMessageFailed, this, &RocketChatAccount::updateMessageFailed);
 
         connect(mRestApi, &RocketChatRestApi::Connection::getThreadsDone, this, [this](const QJsonObject &obj, const QString &roomId, bool onlyUnread) {
             slotGetListMessagesDone(obj,

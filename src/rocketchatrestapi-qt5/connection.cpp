@@ -619,6 +619,7 @@ void Connection::updateMessage(const QString &roomId, const QString &messageId, 
     job->setRoomId(roomId);
     job->setMessageId(messageId);
     job->setUpdatedText(text);
+    connect(job, &UpdateMessageJob::updateMessageFailed, this, &Connection::updateMessageFailed);
     if (!job->start()) {
         qCWarning(ROCKETCHATQTRESTAPI_LOG) << "Impossible to start updateMessage job";
     }
