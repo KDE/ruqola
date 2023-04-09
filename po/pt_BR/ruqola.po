@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2023-02-07 11:18-0300\n"
 "Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -1360,12 +1360,12 @@ msgstr "<strong>%1</strong> está digitando..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estão digitando..."
 
-#: core/rocketchataccount.cpp:2820
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportar mensagens"
 
-#: core/rocketchataccount.cpp:2821
+#: core/rocketchataccount.cpp:2822
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Seu e-mail está na fila para envio."
@@ -7966,38 +7966,38 @@ msgstr "Excluir mensagem"
 msgid "Translator Error"
 msgstr "Tradução automática"
 
-#: widgets/room/messagetextedit.cpp:176
+#: widgets/room/messagetextedit.cpp:183
 #, fuzzy, kde-format
 #| msgid "Save Image"
 msgid "Paste Image"
 msgstr "Salvar imagem"
 
-#: widgets/room/messagetextedit.cpp:183
+#: widgets/room/messagetextedit.cpp:190
 #, kde-format
 msgid "Change Text Format"
 msgstr "Alterar formato do texto"
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:192
 #, kde-format
 msgid "Bold"
 msgstr "Negrito"
 
-#: widgets/room/messagetextedit.cpp:186
+#: widgets/room/messagetextedit.cpp:193
 #, kde-format
 msgid "Italic"
 msgstr "Itálico"
 
-#: widgets/room/messagetextedit.cpp:187
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Strike-out"
 msgstr "Tachado"
 
-#: widgets/room/messagetextedit.cpp:189
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Code Block"
 msgstr "Bloco de código"
 
-#: widgets/room/messagetextedit.cpp:191
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Markdown Url"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-03-31 00:47+0000\n"
+"POT-Creation-Date: 2023-04-09 00:47+0000\n"
 "PO-Revision-Date: 2023-03-31 12:35+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -1332,12 +1332,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2820
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2821
+#: core/rocketchataccount.cpp:2822
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -7789,37 +7789,37 @@ msgstr "İleti Sil"
 msgid "Translator Error"
 msgstr "Çevirmen Hatası"
 
-#: widgets/room/messagetextedit.cpp:176
+#: widgets/room/messagetextedit.cpp:183
 #, kde-format
 msgid "Paste Image"
 msgstr "Görseli Yapıştır"
 
-#: widgets/room/messagetextedit.cpp:183
+#: widgets/room/messagetextedit.cpp:190
 #, kde-format
 msgid "Change Text Format"
 msgstr "Metin Biçimini Değiştir"
 
-#: widgets/room/messagetextedit.cpp:185
+#: widgets/room/messagetextedit.cpp:192
 #, kde-format
 msgid "Bold"
 msgstr "Kalın"
 
-#: widgets/room/messagetextedit.cpp:186
+#: widgets/room/messagetextedit.cpp:193
 #, kde-format
 msgid "Italic"
 msgstr "Yatık"
 
-#: widgets/room/messagetextedit.cpp:187
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Strike-out"
 msgstr "Üzeri Çizili"
 
-#: widgets/room/messagetextedit.cpp:189
+#: widgets/room/messagetextedit.cpp:196
 #, kde-format
 msgid "Code Block"
 msgstr "Kod Bloku"
 
-#: widgets/room/messagetextedit.cpp:191
+#: widgets/room/messagetextedit.cpp:198
 #, kde-format
 msgid "Markdown Url"
 msgstr "Markdown URL'si"
