@@ -91,14 +91,6 @@ target_sources(libruqolacore PRIVATE
     emoticons/customemojisinfo.h
     emoticons/emojimanager.cpp
     emoticons/emojimanager.h
-    emoticons/emoticoncategory.cpp
-    emoticons/emoticoncategory.h
-    emoticons/unicodeemoticon.cpp
-    emoticons/unicodeemoticon.h
-    emoticons/unicodeemoticonmanager.cpp
-    emoticons/unicodeemoticonmanager.h
-    emoticons/unicodeemoticonparser.cpp
-    emoticons/unicodeemoticonparser.h
     inputtextmanager.cpp
     inputtextmanager.h
     invite/inviteinfo.cpp
@@ -461,6 +453,19 @@ target_sources(libruqolacore PRIVATE
     localdatabase/localglobaldatabase.cpp
 )
 
+#if (NOT HAVE_TEXTADDONS_TEXTEMOTICON)
+    target_sources(libruqolacore PRIVATE
+        emoticons/emoticoncategory.cpp
+        emoticons/emoticoncategory.h
+        emoticons/unicodeemoticon.cpp
+        emoticons/unicodeemoticon.h
+        emoticons/unicodeemoticonmanager.cpp
+        emoticons/unicodeemoticonmanager.h
+        emoticons/unicodeemoticonparser.cpp
+        emoticons/unicodeemoticonparser.h
+    )
+#endif()
+
 if (HAVE_TEXT_TRANSLATOR)
     target_sources(libruqolacore PRIVATE
         translatetext/translatetextjob.cpp
@@ -579,6 +584,10 @@ else()
     target_link_libraries(libruqolacore qt5keychain)
 endif()
 target_include_directories(libruqolacore PRIVATE ${QTKEYCHAIN_INCLUDE_DIRS})
+
+if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
+    target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::TextEmoticonsCore)
+endif()
 
 set_target_properties(libruqolacore
     PROPERTIES OUTPUT_NAME ruqolacore VERSION ${RUQOLA_LIB_VERSION} SOVERSION ${RUQOLA_LIB_SOVERSION}
