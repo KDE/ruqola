@@ -34,18 +34,18 @@ QVariant EmoticonCustomModel::data(const QModelIndex &index, int role) const
 
     if (index.row() < mCustomRows.count()) {
         const auto &row = mCustomRows.at(index.row());
-        const CustomEmoji &customEmoti = mCustomEmojiList.at(row.first);
+        const CustomEmoji &customEmoji = mCustomEmojiList.at(row.first);
         switch (role) {
         case EmojiName:
-            return customEmoti.name(); // Display name for the moment. In the future we need to display "icon"
+            return customEmoji.name(); // Display name for the moment. In the future we need to display "icon"
         case Qt::DecorationRole:
-            return generateIcon(customEmoti.emojiIdentifier());
+            return generateIcon(customEmoji.emojiIdentifier());
         case Identifier:
         case Qt::DisplayRole: // for the completion popup (until we have a delegate)
             if (row.second == -1) {
-                return customEmoti.emojiIdentifier();
+                return customEmoji.emojiIdentifier();
             }
-            return customEmoti.aliases().value(row.second);
+            return customEmoji.aliases().value(row.second);
         }
     }
     return {};
