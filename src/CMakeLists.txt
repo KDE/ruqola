@@ -8,6 +8,8 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
    include(PySide2ModuleBuild)
 endif()
 
+add_subdirectory(textemoticons)
+
 add_subdirectory(rocketchatrestapi-qt5)
 
 add_subdirectory(core)

@@ -35,6 +35,8 @@ include(CheckIncludeFileCXX)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 include(KDEClangFormat)
+include(ECMGenerateHeaders)
+include(ECMSetupVersion)
 
 option(OPTION_BUILD_PYTHON_BINDINGS "Build python bindings (experimental)" OFF)
 
@@ -131,14 +133,14 @@ if (TARGET KF${KF_MAJOR_VERSION}::TextEditTextToSpeech)
     set(HAVE_TEXT_TO_SPEECH TRUE)
 endif()
 
-find_package(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
-set_package_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES DESCRIPTION
-    "Add text emoticons support (ktextaddons)"
-    TYPE OPTIONAL
-)
-if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
-    set(HAVE_TEXTADDONS_TEXTEMOTICON TRUE)
-endif()
+#find_package(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets ${KTEXTADDONS_MIN_VERSION} CONFIG)
+#set_package_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES DESCRIPTION
+#    "Add text emoticons support (ktextaddons)"
+#    TYPE OPTIONAL
+#)
+#if (TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+#    set(HAVE_TEXTADDONS_TEXTEMOTICON TRUE)
+#endif()
 
 if (NOT WIN32 AND NOT APPLE)
     find_package(KF${KF_MAJOR_VERSION}DBusAddons ${KF_MIN_VERSION} CONFIG REQUIRED)
