@@ -78,7 +78,7 @@ MessageLineWidget::MessageLineWidget(QWidget *parent)
     action->setDefaultWidget(mEmoticonMenuWidget);
     emoticonMenu->addAction(action);
     mEmoticonButton->setMenu(emoticonMenu);
-    // connect(emoticonMenu, &QMenu::aboutToShow, mEmoticonMenuWidget, &EmoticonMenuWidget::loadRecentUsed);
+    connect(emoticonMenu, &QMenu::aboutToShow, mEmoticonMenuWidget, &EmoticonMenuWidget::forceLineEditFocus);
     connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoji, mMessageTextEdit, &MessageTextEdit::insertEmoji);
     connect(mMessageTextEdit, &MessageTextEdit::handleMimeData, this, &MessageLineWidget::handleMimeData);
 
@@ -256,7 +256,7 @@ void MessageLineWidget::setCurrentRocketChatAccount(RocketChatAccount *account, 
 {
     mCurrentRocketChatAccount = account;
     mMessageTextEdit->setCurrentRocketChatAccount(account, threadMessageDialog);
-    // TODO mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
+    mEmoticonMenuWidget->setCurrentRocketChatAccount(account);
 }
 
 void MessageLineWidget::setText(const QString &text)

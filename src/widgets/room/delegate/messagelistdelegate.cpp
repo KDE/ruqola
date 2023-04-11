@@ -524,7 +524,8 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message)) {
             auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-            // TODO mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+            mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+            mEmoticonMenuWidget->forceLineEditFocus();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             positionPopup(mev->globalPos(), mListView, mEmoticonMenuWidget);
 #else
