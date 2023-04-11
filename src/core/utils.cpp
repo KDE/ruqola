@@ -15,6 +15,8 @@
 #include <QJsonDocument>
 #include <QRegularExpression>
 
+#include <TextEmoticonsCore/EmoticonUnicodeUtils>
+
 QUrl Utils::generateServerUrl(const QString &url)
 {
     if (url.isEmpty()) {
@@ -303,11 +305,7 @@ QDebug operator<<(QDebug d, const Utils::AvatarInfo &t)
 
 QString Utils::emojiFontName()
 {
-#ifdef Q_OS_WIN
-    return QStringLiteral("Segoe UI Emoji");
-#else
-    return QStringLiteral("NotoColorEmoji");
-#endif
+    return TextEmoticonsCore::EmoticonUnicodeUtils::emojiFontName();
 }
 
 QString Utils::displaytextFromPresenceStatus(User::PresenceStatus status)
