@@ -19,3 +19,8 @@ QString EmoticonUnicodeUtils::recentIdentifier()
 {
     return QStringLiteral("recents");
 }
+
+QString EmoticonUnicodeUtils::customIdentifier()
+{
+    return QStringLiteral("customs");
+}

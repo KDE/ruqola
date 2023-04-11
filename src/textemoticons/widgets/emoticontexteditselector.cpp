@@ -52,17 +52,17 @@ EmoticonTextEditSelector::EmoticonTextEditSelector(QWidget *parent)
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins({});
-    d->mSearchUnicodeLineEdit->setObjectName(QStringLiteral("d->mSearchUnicodeLineEdit"));
+    d->mSearchUnicodeLineEdit->setObjectName(QStringLiteral("mSearchUnicodeLineEdit"));
     d->mSearchUnicodeLineEdit->setClearButtonEnabled(true);
     d->mSearchUnicodeLineEdit->setPlaceholderText(i18n("Search Emoticon..."));
     mainLayout->addWidget(d->mSearchUnicodeLineEdit);
 
-    d->mCategoryButtons->setObjectName(QStringLiteral("d->mCategoryButtons"));
+    d->mCategoryButtons->setObjectName(QStringLiteral("mCategoryButtons"));
     mainLayout->addWidget(d->mCategoryButtons);
-    d->mEmoticonListView->setObjectName(QStringLiteral("d->mEmoticonListView"));
+    d->mEmoticonListView->setObjectName(QStringLiteral("mEmoticonListView"));
     mainLayout->addWidget(d->mEmoticonListView);
 
-    d->mEmoticonProxyModel->setObjectName(QStringLiteral("d->mEmoticonProxyModel"));
+    d->mEmoticonProxyModel->setObjectName(QStringLiteral("mEmoticonProxyModel"));
     d->mEmoticonListView->setModel(d->mEmoticonProxyModel);
     connect(d->mEmoticonListView, &EmoticonListView::fontSizeChanged, d->mEmoticonListView, &EmoticonListView::setFontSize);
     connect(d->mEmoticonListView, &EmoticonListView::emojiItemSelected, this, &EmoticonTextEditSelector::slotItemSelected);
@@ -81,12 +81,18 @@ EmoticonTextEditSelector::EmoticonTextEditSelector(QWidget *parent)
     setMinimumSize(popupMenuSize);
 }
 
+void EmoticonTextEditSelector::forceLineEditFocus()
+{
+    d->mSearchUnicodeLineEdit->setFocus();
+}
+
 EmoticonTextEditSelector::~EmoticonTextEditSelector() = default;
 
 void EmoticonTextEditSelector::slotItemSelected(const QString &str, const QString &identifier)
 {
     TextEmoticonsCore::EmoticonUnicodeModelManager::self()->addIdentifier(identifier);
     Q_EMIT insertEmoji(str);
+    Q_EMIT insertEmojiIdentifier(identifier);
     if (isVisible() && parentWidget() && parentWidget()->inherits("QMenu")) {
         parentWidget()->close();
     }
@@ -118,9 +124,4 @@ void EmoticonTextEditSelector::slotCategorySelected(const QString &category)
     d->mSearchUnicodeLineEdit->setText({});
     d->mEmoticonProxyModel->setCategory(category);
     d->mEmoticonListView->setIsRecentView(category == TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier());
-}
-
-void EmoticonTextEditSelector::forceLineEditFocus()
-{
-    d->mSearchUnicodeLineEdit->setFocus();
 }

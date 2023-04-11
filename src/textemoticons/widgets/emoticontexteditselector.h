@@ -36,8 +36,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void insertEmoji(const QString &);
+    void insertEmojiIdentifier(const QString &);
 
-private:
 private:
     class EmoticonTextEditSelectorPrivate;
     std::unique_ptr<EmoticonTextEditSelectorPrivate> const d;

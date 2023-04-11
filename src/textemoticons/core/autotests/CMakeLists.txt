@@ -8,3 +8,4 @@ macro(add_textemoticon_unittest _source)
 endmacro()
 
 add_textemoticon_unittest( emoticoncategorytest.cpp )
+add_textemoticon_unittest( emoticonunicodeutilstest.cpp)
