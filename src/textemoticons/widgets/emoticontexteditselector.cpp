@@ -119,3 +119,8 @@ void EmoticonTextEditSelector::slotCategorySelected(const QString &category)
     d->mEmoticonProxyModel->setCategory(category);
     d->mEmoticonListView->setIsRecentView(category == TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier());
 }
+
+void EmoticonTextEditSelector::forceLineEditFocus()
+{
+    d->mSearchUnicodeLineEdit->setFocus();
+}

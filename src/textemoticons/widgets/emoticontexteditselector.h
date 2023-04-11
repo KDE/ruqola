@@ -29,6 +29,8 @@ public:
     explicit EmoticonTextEditSelector(QWidget *parent = nullptr);
     ~EmoticonTextEditSelector() override;
 
+    void forceLineEditFocus();
+
 public Q_SLOTS:
     void loadEmoticons();
 
