@@ -198,8 +198,6 @@ target_sources(libruqolacore PRIVATE
     model/emoticoncustommodelfilterproxymodel.cpp
     model/emoticoncustommodelfilterproxymodel.h
     model/emoticoncustommodel.h
-    model/emoticonfiltermodel.cpp
-    model/emoticonfiltermodel.h
     model/emoticonmodel.cpp
     model/emoticonmodelfilterproxymodel.cpp
     model/emoticonmodelfilterproxymodel.h

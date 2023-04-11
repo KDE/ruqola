@@ -67,7 +67,6 @@ class Room;
 class SearchMessageModel;
 class SearchMessageFilterProxyModel;
 class ReceiveTypingNotificationManager;
-class EmoticonFilterModel;
 class EmoticonModel;
 class DiscussionsFilterProxyModel;
 class DiscussionsModel;
@@ -245,7 +244,6 @@ public:
 
     UsersModel *usersModel() const;
     MessageModel *threadMessageModel() const;
-    EmoticonFilterModel *emoticonFilterModel() const;
     EmoticonModel *emoticonModel() const;
     CommandsModel *commandsModel() const;
     SearchChannelFilterProxyModel *searchChannelFilterProxyModel() const;
@@ -679,7 +677,6 @@ private:
     DiscussionsFilterProxyModel *mDiscussionsFilterProxyModel = nullptr;
     DiscussionsModel *const mDiscussionsModel;
 
-    EmoticonFilterModel *const mEmoticonFilterModel;
     EmoticonModel *mEmoticonModel = nullptr;
     EmoticonCustomModel *mEmoticonCustomModel = nullptr;
     CommandsModel *const mCommandsModel;

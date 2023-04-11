@@ -18,7 +18,6 @@
 #include "model/discussionsfilterproxymodel.h"
 #include "model/discussionsmodel.h"
 #include "model/emoticoncustommodel.h"
-#include "model/emoticonfiltermodel.h"
 #include "model/emoticonmodel.h"
 #include "model/filesforroomfilterproxymodel.h"
 #include "model/filesforroommodel.h"
@@ -102,7 +101,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     , mInputThreadMessageTextManager(new InputTextManager(this, this))
     , mReceiveTypingNotificationManager(new ReceiveTypingNotificationManager(this))
     , mDiscussionsModel(new DiscussionsModel(this))
-    , mEmoticonFilterModel(new EmoticonFilterModel(this))
     , mCommandsModel(new CommandsModel(this))
     , mAutoTranslateLanguagesModel(new AutotranslateLanguagesModel(this))
     , mDownloadAppsLanguagesManager(new DownloadAppsLanguagesManager(this))
@@ -165,10 +163,6 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mEmoticonModel->setUnicodeEmoticons(mEmojiManager->unicodeEmojiList());
     mInputTextManager->setEmoticonModel(mEmoticonModel);
     mInputThreadMessageTextManager->setEmoticonModel(mEmoticonModel);
-
-    mEmoticonFilterModel->setSourceModel(mEmoticonModel);
-
-    mEmoticonFilterModel->emoticonCategoriesModel()->setCategories(mEmojiManager->categories());
 
     mUserCompleterFilterModelProxy = new UserCompleterFilterProxyModel(this);
     mUserCompleterFilterModelProxy->setSourceModel(mUserCompleterModel);
@@ -939,11 +933,6 @@ DiscussionsModel *RocketChatAccount::discussionsModel() const
 FilesForRoomModel *RocketChatAccount::filesModelForRoom() const
 {
     return mFilesModelForRoom;
-}
-
-EmoticonFilterModel *RocketChatAccount::emoticonFilterModel() const
-{
-    return mEmoticonFilterModel;
 }
 
 EmoticonModel *RocketChatAccount::emoticonModel() const
