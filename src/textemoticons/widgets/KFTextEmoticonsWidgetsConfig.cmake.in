@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: BSD-3-Clause
+
+@PACKAGE_INIT@
+include(CMakeFindDependencyMacro)
+find_dependency(KF@KF_MAJOR_VERSION@TextEmoticonsCore "@KTEXTADDONS_CURRENT_VERSION@")
+include("${CMAKE_CURRENT_LIST_DIR}/KF@KF_MAJOR_VERSION@TextEmoticonsWidgetsTargets.cmake")
+@PACKAGE_INCLUDE_QCHTARGETS@
