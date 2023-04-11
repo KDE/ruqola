@@ -1,7 +1,4 @@
 <RCC>
-    <qresource prefix="/">
-        <file alias="emoji.json">emoticons/emoji.json</file>
-    </qresource>
     <qresource prefix="/icons">
         <file alias="systray.png">icons/systray.png</file>
     </qresource>

@@ -449,13 +449,6 @@ target_sources(libruqolacore PRIVATE
     localdatabase/localglobaldatabase.cpp
 )
 
-#if (NOT HAVE_TEXTADDONS_TEXTEMOTICON)
-    target_sources(libruqolacore PRIVATE
-        emoticons/emoticoncategory.cpp
-        emoticons/emoticoncategory.h
-    )
-#endif()
-
 if (HAVE_TEXT_TRANSLATOR)
     target_sources(libruqolacore PRIVATE
         translatetext/translatetextjob.cpp
