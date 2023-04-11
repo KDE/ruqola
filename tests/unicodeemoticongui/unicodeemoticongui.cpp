@@ -18,8 +18,7 @@
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QVBoxLayout>
-
-#include <emoticons/unicodeemoticonparser.h>
+#include <TextEmoticonsCore/UnicodeEmoticonParser>
 
 UnicodeEmoticonGui::UnicodeEmoticonGui(QWidget *parent)
     : QWidget(parent)
@@ -63,14 +62,14 @@ void UnicodeEmoticonGui::slotItemChanged(QListWidgetItem *item)
 {
     if (item) {
         auto itemResult = static_cast<UnicodeEmoticonListWidgetItem *>(item);
-        UnicodeEmoticon info = itemResult->info();
+        TextEmoticonsCore::UnicodeEmoticon info = itemResult->info();
         mWidgetInfo->setInfo(info);
     }
 }
 
 void UnicodeEmoticonGui::load()
 {
-    UnicodeEmoticonParser unicodeParser;
+    TextEmoticonsCore::UnicodeEmoticonParser unicodeParser;
     QFile file(QStringLiteral(":/emoji.json"));
     if (!file.open(QFile::ReadOnly)) {
         qWarning() << "Impossible to open file: " << file.errorString();
@@ -79,8 +78,8 @@ void UnicodeEmoticonGui::load()
     const QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
 
     const QJsonObject obj = doc.object();
-    const QVector<UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
-    for (const UnicodeEmoticon &emoticon : unicodeEmojiList) {
+    const QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList = unicodeParser.parse(obj);
+    for (const TextEmoticonsCore::UnicodeEmoticon &emoticon : unicodeEmojiList) {
         auto item = new UnicodeEmoticonListWidgetItem(emoticon.identifier(), mListWidget);
         item->setInfo(emoticon);
     }
@@ -123,12 +122,12 @@ UnicodeEmoticonInfo::UnicodeEmoticonInfo(QWidget *parent)
 
 UnicodeEmoticonInfo::~UnicodeEmoticonInfo() = default;
 
-UnicodeEmoticon UnicodeEmoticonInfo::info() const
+TextEmoticonsCore::UnicodeEmoticon UnicodeEmoticonInfo::info() const
 {
     return mInfo;
 }
 
-void UnicodeEmoticonInfo::setInfo(const UnicodeEmoticon &info)
+void UnicodeEmoticonInfo::setInfo(const TextEmoticonsCore::UnicodeEmoticon &info)
 {
     mIdentifier->setText(info.identifier());
     mUnicode->setText(info.unicode());
@@ -143,12 +142,12 @@ UnicodeEmoticonListWidgetItem::UnicodeEmoticonListWidgetItem(const QString &str,
 {
 }
 
-UnicodeEmoticon UnicodeEmoticonListWidgetItem::info() const
+TextEmoticonsCore::UnicodeEmoticon UnicodeEmoticonListWidgetItem::info() const
 {
     return mInfo;
 }
 
-void UnicodeEmoticonListWidgetItem::setInfo(const UnicodeEmoticon &info)
+void UnicodeEmoticonListWidgetItem::setInfo(const TextEmoticonsCore::UnicodeEmoticon &info)
 {
     mInfo = info;
 }

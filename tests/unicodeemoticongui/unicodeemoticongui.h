@@ -8,8 +8,7 @@
 
 #include <QListWidgetItem>
 #include <QWidget>
-
-#include <emoticons/unicodeemoticon.h>
+#include <TextEmoticonsCore/UnicodeEmoticon>
 
 class QLineEdit;
 class KListWidgetSearchLine;
@@ -20,8 +19,8 @@ public:
     explicit UnicodeEmoticonInfo(QWidget *parent = nullptr);
     ~UnicodeEmoticonInfo() override;
 
-    Q_REQUIRED_RESULT UnicodeEmoticon info() const;
-    void setInfo(const UnicodeEmoticon &info);
+    Q_REQUIRED_RESULT TextEmoticonsCore::UnicodeEmoticon info() const;
+    void setInfo(const TextEmoticonsCore::UnicodeEmoticon &info);
 
 private:
     QLineEdit *mIdentifier = nullptr;
@@ -29,7 +28,7 @@ private:
     QLineEdit *mAliases = nullptr;
     QLineEdit *mCategory = nullptr;
     QLineEdit *mOrder = nullptr;
-    UnicodeEmoticon mInfo;
+    TextEmoticonsCore::UnicodeEmoticon mInfo;
 };
 
 class UnicodeEmoticonListWidgetItem : public QListWidgetItem
@@ -37,11 +36,11 @@ class UnicodeEmoticonListWidgetItem : public QListWidgetItem
 public:
     explicit UnicodeEmoticonListWidgetItem(const QString &str, QListWidget *parent);
 
-    Q_REQUIRED_RESULT UnicodeEmoticon info() const;
-    void setInfo(const UnicodeEmoticon &info);
+    Q_REQUIRED_RESULT TextEmoticonsCore::UnicodeEmoticon info() const;
+    void setInfo(const TextEmoticonsCore::UnicodeEmoticon &info);
 
 private:
-    UnicodeEmoticon mInfo;
+    TextEmoticonsCore::UnicodeEmoticon mInfo;
 };
 
 class QListWidget;

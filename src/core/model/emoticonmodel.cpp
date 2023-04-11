@@ -51,7 +51,7 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     if (index.row() < mUnicodeRows.count()) {
         const auto &row = mUnicodeRows.at(index.row());
         if (row.first < mEmoticons.count()) {
-            const UnicodeEmoticon &unicodeEmoti = mEmoticons.at(row.first);
+            const TextEmoticonsCore::UnicodeEmoticon &unicodeEmoti = mEmoticons.at(row.first);
 
             switch (role) {
             case CompleterName:
@@ -106,12 +106,12 @@ QVariant EmoticonModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-QVector<UnicodeEmoticon> EmoticonModel::unicodeEmoticons() const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmoticonModel::unicodeEmoticons() const
 {
     return mEmoticons;
 }
 
-void EmoticonModel::setUnicodeEmoticons(const QVector<UnicodeEmoticon> &emoticons)
+void EmoticonModel::setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEmoticon> &emoticons)
 {
     beginResetModel();
     mEmoticons = emoticons;

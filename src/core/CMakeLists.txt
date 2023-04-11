@@ -453,12 +453,6 @@ target_sources(libruqolacore PRIVATE
     target_sources(libruqolacore PRIVATE
         emoticons/emoticoncategory.cpp
         emoticons/emoticoncategory.h
-        emoticons/unicodeemoticon.cpp
-        emoticons/unicodeemoticon.h
-        emoticons/unicodeemoticonmanager.cpp
-        emoticons/unicodeemoticonmanager.h
-        emoticons/unicodeemoticonparser.cpp
-        emoticons/unicodeemoticonparser.h
     )
 #endif()
 

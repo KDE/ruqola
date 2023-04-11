@@ -76,6 +76,7 @@ ecm_generate_headers(TextEmoticonsCore_CamelCase_HEADERS
     EmoticonUnicodeModel
     EmoticonUnicodeModelManager
     EmoticonUnicodeProxyModel
+    UnicodeEmoticonParser
     REQUIRED_HEADERS TextEmoticonsCore_HEADERS
     PREFIX TextEmoticonsCore
 )

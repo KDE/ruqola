@@ -166,8 +166,8 @@ void EmoticonMenuWidget::initializeTab(RocketChatAccount *account)
     if (mEmoticonCategoryProxyModels.isEmpty()) {
         // Default Emoji
         EmojiManager *emojiManager = account->emojiManager();
-        const QVector<EmoticonCategory> categories = emojiManager->categories();
-        for (const EmoticonCategory &category : categories) {
+        const QList<TextEmoticonsCore::EmoticonCategory> categories = emojiManager->categories();
+        for (const TextEmoticonsCore::EmoticonCategory &category : categories) {
             auto w = new EmoticonListView(this);
             auto categoryProxyModel = new EmoticonCategoryModelFilterProxyModel(w);
             connect(w, &EmoticonListViewBase::fontSizeChanged, this, &EmoticonMenuWidget::slotUpdateEmojiListViewFont);

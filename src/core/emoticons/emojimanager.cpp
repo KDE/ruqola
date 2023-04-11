@@ -5,9 +5,9 @@
 */
 
 #include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticonmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_debug.h"
+#include <TextEmoticonsCore/UnicodeEmoticonManager>
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -22,19 +22,19 @@ EmojiManager::EmojiManager(RocketChatAccount *account, QObject *parent)
 
 EmojiManager::~EmojiManager() = default;
 
-QVector<UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::unicodeEmojiList() const
 {
-    return UnicodeEmoticonManager::self()->unicodeEmojiList();
+    return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmojiList();
 }
 
-QVector<EmoticonCategory> EmojiManager::categories() const
+QList<TextEmoticonsCore::EmoticonCategory> EmojiManager::categories() const
 {
-    return UnicodeEmoticonManager::self()->categories();
+    return TextEmoticonsCore::UnicodeEmoticonManager::self()->categories();
 }
 
-QVector<UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
+QList<TextEmoticonsCore::UnicodeEmoticon> EmojiManager::emojisForCategory(const QString &category) const
 {
-    return UnicodeEmoticonManager::self()->emojisForCategory(category);
+    return TextEmoticonsCore::UnicodeEmoticonManager::self()->emojisForCategory(category);
 }
 
 void EmojiManager::addUpdateEmojiCustomList(const QJsonArray &arrayEmojiCustomArray)
@@ -116,7 +116,7 @@ void EmojiManager::loadCustomEmoji(const QJsonObject &obj)
 
 int EmojiManager::count() const
 {
-    return mCustomEmojiList.count() + UnicodeEmoticonManager::self()->count();
+    return mCustomEmojiList.count() + TextEmoticonsCore::UnicodeEmoticonManager::self()->count();
 }
 
 bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
@@ -132,9 +132,9 @@ bool EmojiManager::isAnimatedImage(const QString &emojiIdentifier) const
     return false;
 }
 
-UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
+TextEmoticonsCore::UnicodeEmoticon EmojiManager::unicodeEmoticonForEmoji(const QString &emojiIdentifier) const
 {
-    return UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
+    return TextEmoticonsCore::UnicodeEmoticonManager::self()->unicodeEmoticonForEmoji(emojiIdentifier);
 }
 
 QString EmojiManager::customEmojiFileNameFromIdentifier(const QString &emojiIdentifier) const
@@ -209,7 +209,7 @@ QString EmojiManager::replaceEmojiIdentifier(const QString &emojiIdentifier, boo
         }
     }
 
-    const UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
+    const TextEmoticonsCore::UnicodeEmoticon unicodeEmoticon = unicodeEmoticonForEmoji(emojiIdentifier);
     if (unicodeEmoticon.isValid()) {
         return unicodeEmoticon.unicodeDisplay();
     }

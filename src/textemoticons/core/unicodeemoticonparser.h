@@ -6,11 +6,12 @@
 
 #pragma once
 
+#include "textemoticonscore_export.h"
 #include "unicodeemoticon.h"
 #include <QList>
 namespace TextEmoticonsCore
 {
-class UnicodeEmoticonParser
+class TEXTEMOTICONSCORE_EXPORT UnicodeEmoticonParser
 {
 public:
     UnicodeEmoticonParser();

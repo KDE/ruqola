@@ -7,7 +7,6 @@
 #include "messagedelegatehelperreactions.h"
 #include "common/delegatepaintutil.h"
 #include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticon.h"
 #include "rocketchataccount.h"
 #include "utils.h"
 #include <model/messagemodel.h>

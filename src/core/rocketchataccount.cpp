@@ -10,7 +10,6 @@
 #include "config-ruqola.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticonmanager.h"
 #include "managerdatapaths.h"
 #include "messagequeue.h"
 #include "model/autotranslatelanguagesmodel.h"
@@ -44,6 +43,7 @@
 #include "ruqolaglobalconfig.h"
 #include "ruqolalogger.h"
 #include "typingnotification.h"
+#include <TextEmoticonsCore/UnicodeEmoticonManager>
 
 #include "channelcounterinfo.h"
 #include "connection.h"
@@ -150,7 +150,7 @@ RocketChatAccount::RocketChatAccount(const QString &accountFileName, QObject *pa
     mRocketChatBackend = new RocketChatBackend(this, this);
 
     // Load list of unicode emoticon
-    UnicodeEmoticonManager::self();
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
 
     // After loadSettings
     mEmojiManager = new EmojiManager(this, this);

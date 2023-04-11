@@ -7,9 +7,9 @@
 #pragma once
 
 #include "emoticons/customemoji.h"
-#include "emoticons/unicodeemoticon.h"
 #include "libruqolacore_export.h"
 #include <QAbstractListModel>
+#include <TextEmoticonsCore/UnicodeEmoticon>
 
 class RocketChatAccount;
 // Model showing all emojis
@@ -31,9 +31,9 @@ public:
     Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmoticons() const;
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmoticons() const;
 
-    void setUnicodeEmoticons(const QVector<UnicodeEmoticon> &emoticons);
+    void setUnicodeEmoticons(const QList<TextEmoticonsCore::UnicodeEmoticon> &emoticons);
 
     Q_REQUIRED_RESULT const QVector<CustomEmoji> &customEmojiList() const;
     void setCustomEmojiList(const QVector<CustomEmoji> &newCustomEmojiList);
@@ -45,7 +45,7 @@ public:
 private:
     Q_REQUIRED_RESULT QIcon createCustomIcon(const QString &name) const;
     Q_DISABLE_COPY(EmoticonModel)
-    QVector<UnicodeEmoticon> mEmoticons;
+    QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticons;
     QVector<CustomEmoji> mCustomEmojiList;
     // first int is an index into mEmoticons
     // second is -1 for the emoticon identifier or otherwise an index into the alias list

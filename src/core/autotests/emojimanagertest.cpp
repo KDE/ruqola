@@ -7,13 +7,13 @@
 #include "emojimanagertest.h"
 #include "emoticons/customemoji.h"
 #include "emoticons/emojimanager.h"
-#include "emoticons/unicodeemoticonmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola_autotest_helper.h"
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QSignalSpy>
 #include <QTest>
+#include <TextEmoticonsCore/UnicodeEmoticonManager>
 QTEST_GUILESS_MAIN(EmojiManagerTest)
 
 EmojiManagerTest::EmojiManagerTest(QObject *parent)
@@ -258,7 +258,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom()
 void EmojiManagerTest::shouldSupportUnicodeEmojis()
 {
     // Load list of unicode emoticon
-    UnicodeEmoticonManager::self();
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
     EmojiManager manager(nullptr);
     QString grinning;
     grinning += QChar(0xd800 + 61);
@@ -292,18 +292,18 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
 {
     // Load list of unicode emoticon
-    UnicodeEmoticonManager::self();
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
     EmojiManager manager(nullptr);
-    const QVector<UnicodeEmoticon> list = manager.unicodeEmojiList();
+    const QList<TextEmoticonsCore::UnicodeEmoticon> list = manager.unicodeEmojiList();
     auto hasCategory = [](const QString &category) {
-        return [category](const UnicodeEmoticon &emo) {
+        return [category](const TextEmoticonsCore::UnicodeEmoticon &emo) {
             return emo.category() == category;
         };
     };
     // Check what's the first emoji in the category "symbols"
     auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
     QVERIFY(it != list.end());
-    const UnicodeEmoticon firstSymbol = *it;
+    const TextEmoticonsCore::UnicodeEmoticon firstSymbol = *it;
     QCOMPARE(firstSymbol.order(), 1);
     QCOMPARE(firstSymbol.category(), QStringLiteral("symbols"));
     QCOMPARE(firstSymbol.identifier(), QStringLiteral(":heart:"));
@@ -311,7 +311,7 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
     // Check what's the first emoji in the category "regional"
     it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("regional")));
     QVERIFY(it != list.end());
-    const UnicodeEmoticon firstRegional = *it;
+    const TextEmoticonsCore::UnicodeEmoticon firstRegional = *it;
     QCOMPARE(firstRegional.identifier(), QStringLiteral(":regional_indicator_z:")); // letters are reversed, weird
 }
 
@@ -415,7 +415,7 @@ void EmojiManagerTest::replaceAsciiEmoji()
     QFETCH(bool, replaced);
     QString original = input;
 
-    UnicodeEmoticonManager::self();
+    TextEmoticonsCore::UnicodeEmoticonManager::self();
     RocketChatAccount account;
     account.ownUserPreferences().setConvertAsciiEmoji(true);
     EmojiManager manager(&account);

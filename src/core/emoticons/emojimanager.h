@@ -7,11 +7,12 @@
 #pragma once
 
 #include "customemoji.h"
-#include "emoticoncategory.h"
 #include "libruqolacore_export.h"
 #include "unicodeemoticon.h"
 #include <QObject>
 #include <QRegularExpression>
+#include <TextEmoticonsCore/EmoticonCategory>
+#include <TextEmoticonsCore/UnicodeEmoticon>
 class RocketChatAccount;
 class LIBRUQOLACORE_EXPORT EmojiManager : public QObject
 {
@@ -29,14 +30,14 @@ public:
     Q_REQUIRED_RESULT QString serverUrl() const;
     void setServerUrl(const QString &serverUrl);
 
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> unicodeEmojiList() const;
-    Q_REQUIRED_RESULT QVector<EmoticonCategory> categories() const;
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::UnicodeEmoticon> unicodeEmojiList() const;
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::EmoticonCategory> categories() const;
     // Only for test now
-    Q_REQUIRED_RESULT QVector<UnicodeEmoticon> emojisForCategory(const QString &category) const;
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::UnicodeEmoticon> emojisForCategory(const QString &category) const;
 
     Q_REQUIRED_RESULT bool isAnimatedImage(const QString &emojiIdentifier) const;
 
-    Q_REQUIRED_RESULT UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
+    Q_REQUIRED_RESULT TextEmoticonsCore::UnicodeEmoticon unicodeEmoticonForEmoji(const QString &emojiIdentifier) const;
 
     Q_REQUIRED_RESULT QString customEmojiFileName(const QString &emojiIdentifier) const;
     Q_REQUIRED_RESULT QString normalizedReactionEmoji(const QString &emojiIdentifier) const;

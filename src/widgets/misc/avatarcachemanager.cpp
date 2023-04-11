@@ -65,7 +65,7 @@ QPixmap AvatarCacheManager::makeAvatarEmojiPixmap(const QString &emojiStr, const
     auto downScaled = cache.findCachedPixmap(emojiStr);
     if (downScaled.isNull()) {
         auto *emojiManager = mRocketChatAccount->emojiManager();
-        const UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
+        const TextEmoticonsCore::UnicodeEmoticon emoticon = emojiManager->unicodeEmoticonForEmoji(emojiStr);
         if (emoticon.isValid()) {
             const QFontMetrics fm(mEmojiFont);
             const QSize size = fm.boundingRect(emoticon.unicode()).size();
