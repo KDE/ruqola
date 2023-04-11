@@ -86,7 +86,7 @@ EmoticonTextEditSelector::~EmoticonTextEditSelector() = default;
 void EmoticonTextEditSelector::slotItemSelected(const QString &str, const QString &identifier)
 {
     TextEmoticonsCore::EmoticonUnicodeModelManager::self()->addIdentifier(identifier);
-    Q_EMIT itemSelected(str);
+    Q_EMIT insertEmoji(str);
     if (isVisible() && parentWidget() && parentWidget()->inherits("QMenu")) {
         parentWidget()->close();
     }

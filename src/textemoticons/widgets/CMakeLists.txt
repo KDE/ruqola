@@ -64,13 +64,13 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-#ecm_generate_headers(TextEmoticonsWidgets_CamelCase_HEADERS
-#    HEADER_NAMES
-#    EmoticonTextEditSelector
-#    EmoticonTextEditAction
-#    REQUIRED_HEADERS TextEmoticonsWidgets_HEADERS
-#    PREFIX TextEmoticonsWidgets
-#)
+ecm_generate_headers(TextEmoticonsWidgets_CamelCase_HEADERS
+    HEADER_NAMES
+    EmoticonTextEditSelector
+    EmoticonTextEditAction
+    REQUIRED_HEADERS TextEmoticonsWidgets_HEADERS
+    PREFIX TextEmoticonsWidgets
+)
 
 #install(FILES
 #    ${TextEmoticonsWidgets_HEADERS}

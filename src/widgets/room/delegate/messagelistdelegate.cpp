@@ -524,14 +524,14 @@ bool MessageListDelegate::mouseEvent(QEvent *event, const QStyleOptionViewItem &
         if (layout.addReactionRect.contains(mev->pos()) && !isSystemMessage(message)) {
             auto mEmoticonMenuWidget = new EmoticonMenuWidget(mListView);
             mEmoticonMenuWidget->setWindowFlag(Qt::Popup);
-            mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
+            // TODO mEmoticonMenuWidget->setCurrentRocketChatAccount(mRocketChatAccount);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
             positionPopup(mev->globalPos(), mListView, mEmoticonMenuWidget);
 #else
             positionPopup(mev->globalPosition().toPoint(), mListView, mEmoticonMenuWidget);
 #endif
             mEmoticonMenuWidget->show();
-            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoticons, this, [=](const QString &id) {
+            connect(mEmoticonMenuWidget, &EmoticonMenuWidget::insertEmoji, this, [=](const QString &id) {
                 mRocketChatAccount->reactOnMessage(message->messageId(), id, true /*add*/);
             });
             return true;

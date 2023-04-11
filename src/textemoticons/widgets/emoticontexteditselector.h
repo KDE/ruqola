@@ -33,7 +33,7 @@ public Q_SLOTS:
     void loadEmoticons();
 
 Q_SIGNALS:
-    void itemSelected(const QString &);
+    void insertEmoji(const QString &);
 
 private:
 private:

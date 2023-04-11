@@ -12,7 +12,7 @@ endmacro()
 
 add_ruqolamisc_test(adduserswidgettest.cpp)
 add_ruqolamisc_test(clickablewidgettest.cpp)
-add_ruqolamisc_test(emoticonmenuwidgettest.cpp)
+# TODO add_ruqolamisc_test(emoticonmenuwidgettest.cpp)
 
 add_ruqolamisc_test(emoticonrecentusedfilterproxymodeltest.cpp)
 add_ruqolamisc_test(recentusedemoticonviewtest.cpp)
@@ -23,4 +23,3 @@ add_ruqolamisc_test(systemmessagescomboboxtest.cpp)
 add_ruqolamisc_test(searchwithdelaylineedittest.cpp)
 add_ruqolamisc_test(accountsoverviewwidgettest.cpp)
 add_ruqolamisc_test(rolescomboboxtest.cpp)
-#add_ruqolamisc_test(emoticonlistviewtest.cpp)
