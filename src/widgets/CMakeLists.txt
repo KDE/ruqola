@@ -431,14 +431,8 @@ target_sources(libruqolawidgets PRIVATE
     misc/avatarcachemanager.h
     misc/clickablewidget.cpp
     misc/clickablewidget.h
-    misc/emoticonlistviewbase.cpp
-    misc/emoticonlistviewbase.h
-    misc/emoticonlistview.cpp
-    misc/emoticonlistview.h
     misc/emoticonmenuwidget.cpp
     misc/emoticonmenuwidget.h
-    misc/emoticonrecentusedfilterproxymodel.cpp
-    misc/emoticonrecentusedfilterproxymodel.h
     misc/messagelistviewbase.h
     misc/messagelistviewbase.cpp
     misc/passwordconfirmwidget.cpp
@@ -447,8 +441,6 @@ target_sources(libruqolawidgets PRIVATE
     misc/passwordlineeditwidget.h
     misc/pixmapcache.cpp
     misc/pixmapcache.h
-    misc/recentusedemoticonview.cpp
-    misc/recentusedemoticonview.h
     misc/rolescombobox.cpp
     misc/rolescombobox.h
     misc/searchtreebasewidget.cpp

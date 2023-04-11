@@ -12,10 +12,6 @@ endmacro()
 
 add_ruqolamisc_test(adduserswidgettest.cpp)
 add_ruqolamisc_test(clickablewidgettest.cpp)
-# TODO add_ruqolamisc_test(emoticonmenuwidgettest.cpp)
-
-add_ruqolamisc_test(emoticonrecentusedfilterproxymodeltest.cpp)
-add_ruqolamisc_test(recentusedemoticonviewtest.cpp)
 add_ruqolamisc_test(passwordlineeditwidgettest.cpp)
 add_ruqolamisc_test(passwordconfirmwidgettest.cpp)
 add_ruqolamisc_test(twoauthenticationpasswordwidgettest.cpp)
