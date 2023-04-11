@@ -190,8 +190,6 @@ target_sources(libruqolacore PRIVATE
     model/discussionsfilterproxymodel.h
     model/discussionsmodel.cpp
     model/discussionsmodel.h
-    model/emoticoncategoriesmodel.cpp
-    model/emoticoncategoriesmodel.h
     model/emoticoncategorymodelfilterproxymodel.cpp
     model/emoticoncategorymodelfilterproxymodel.h
     model/emoticoncustommodel.cpp
