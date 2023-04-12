@@ -11,3 +11,6 @@ add_textemoticon_unittest( emoticoncategorytest.cpp )
 add_textemoticon_unittest( emoticonunicodeutilstest.cpp)
 add_textemoticon_unittest( emoticonunicodeproxymodeltest.cpp )
 add_textemoticon_unittest( unicodeemoticontest.cpp )
+add_textemoticon_unittest( emoticonunicodemodeltest.cpp )
+add_textemoticon_unittest( customemojitest.cpp )
+

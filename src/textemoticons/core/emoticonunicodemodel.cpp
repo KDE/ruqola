@@ -54,3 +54,13 @@ void EmoticonUnicodeModel::setEmoticonList(const QList<TextEmoticonsCore::Unicod
     mEmoticonList = newEmoticonList;
     endResetModel();
 }
+
+QList<TextEmoticonsCore::CustomEmoji> EmoticonUnicodeModel::customEmojiList() const
+{
+    return mCustomEmojiList;
+}
+
+void EmoticonUnicodeModel::setCustomEmojiList(const QList<TextEmoticonsCore::CustomEmoji> &newCustomEmojiList)
+{
+    mCustomEmojiList = newCustomEmojiList;
+}

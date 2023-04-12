@@ -30,7 +30,8 @@ target_sources(KF${KF_MAJOR_VERSION}TextEmoticonsCore PRIVATE
     emoticonunicodeproxymodel.h
     emoticonunicodemodelmanager.cpp
     emoticonunicodemodelmanager.h
-
+    customemoji.h
+    customemoji.cpp
 )
 
 target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsCore

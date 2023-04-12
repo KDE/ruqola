@@ -8,6 +8,7 @@
 
 #include "textemoticonscore_export.h"
 #include <QAbstractListModel>
+#include <TextEmoticonsCore/CustomEmoji>
 #include <TextEmoticonsCore/UnicodeEmoticon>
 namespace TextEmoticonsCore
 {
@@ -32,8 +33,12 @@ public:
     Q_REQUIRED_RESULT const QList<TextEmoticonsCore::UnicodeEmoticon> &emoticonList() const;
     void setEmoticonList(const QList<TextEmoticonsCore::UnicodeEmoticon> &newEmoticonList);
 
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::CustomEmoji> customEmojiList() const;
+    void setCustomEmojiList(const QList<TextEmoticonsCore::CustomEmoji> &newCustomEmojiList);
+
 private:
     Q_DISABLE_COPY(EmoticonUnicodeModel)
     QList<TextEmoticonsCore::UnicodeEmoticon> mEmoticonList;
+    QList<TextEmoticonsCore::CustomEmoji> mCustomEmojiList;
 };
 }
