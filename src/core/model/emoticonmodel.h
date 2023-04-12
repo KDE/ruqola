@@ -21,7 +21,8 @@ public:
         UnicodeEmoji = Qt::UserRole + 1,
         CompleterName, // keep value in sync with InputCompleterModel
         Identifier,
-        Category
+        Category,
+        Icon,
     };
     Q_ENUM(EmoticonsRoles)
 
