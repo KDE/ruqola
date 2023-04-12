@@ -33,9 +33,22 @@ public:
         delete emoticonMenu;
     }
 
+    void setCustomEmojiSupport(bool b);
+    Q_REQUIRED_RESULT bool customEmojiSupport() const;
+
     QMenu *const emoticonMenu;
     EmoticonTextEditSelector *selector = nullptr;
 };
+
+void EmoticonTextEditAction::EmoticonTextEditActionPrivate::setCustomEmojiSupport(bool b)
+{
+    selector->setCustomEmojiSupport(b);
+}
+
+bool EmoticonTextEditAction::EmoticonTextEditActionPrivate::customEmojiSupport() const
+{
+    return selector->customEmojiSupport();
+}
 
 EmoticonTextEditAction::EmoticonTextEditAction(QObject *parent)
     : KActionMenu(i18n("Add Smiley"), parent)
@@ -49,3 +62,13 @@ EmoticonTextEditAction::EmoticonTextEditAction(QObject *parent)
 }
 
 EmoticonTextEditAction::~EmoticonTextEditAction() = default;
+
+void EmoticonTextEditAction::setCustomEmojiSupport(bool b)
+{
+    d->setCustomEmojiSupport(b);
+}
+
+bool EmoticonTextEditAction::customEmojiSupport() const
+{
+    return d->customEmojiSupport();
+}

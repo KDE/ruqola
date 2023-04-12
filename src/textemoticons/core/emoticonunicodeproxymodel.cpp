@@ -8,8 +8,27 @@
 #include "emoticonunicodeutils.h"
 
 using namespace TextEmoticonsCore;
+
+class EmoticonUnicodeProxyModel::EmoticonUnicodeProxyModelPrivate
+{
+public:
+    EmoticonUnicodeProxyModelPrivate(EmoticonUnicodeProxyModel *qq)
+        : q(qq)
+    {
+    }
+    void clearSearch()
+    {
+        q->setSearchIdentifier(QString());
+    }
+    QString mCategory;
+    QStringList mRecentEmoticons;
+    QString mSearchIdentifier;
+    EmoticonUnicodeProxyModel *const q;
+};
+
 EmoticonUnicodeProxyModel::EmoticonUnicodeProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
+    , d(new EmoticonUnicodeProxyModel::EmoticonUnicodeProxyModelPrivate(this))
 {
     setFilterCaseSensitivity(Qt::CaseInsensitive);
     setFilterRole(EmoticonUnicodeModel::Identifier);
@@ -18,34 +37,29 @@ EmoticonUnicodeProxyModel::EmoticonUnicodeProxyModel(QObject *parent)
 
 EmoticonUnicodeProxyModel::~EmoticonUnicodeProxyModel() = default;
 
-void EmoticonUnicodeProxyModel::clearSearch()
-{
-    setSearchIdentifier(QString());
-}
-
 bool EmoticonUnicodeProxyModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    if (mCategory.isEmpty()) {
+    if (d->mCategory.isEmpty()) {
         return QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     }
-    if (!mSearchIdentifier.isEmpty()) {
+    if (!d->mSearchIdentifier.isEmpty()) {
         const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
         const QString identifier = sourceIndex.data(EmoticonUnicodeModel::Identifier).toString();
-        if (identifier.contains(mSearchIdentifier)) {
+        if (identifier.contains(d->mSearchIdentifier)) {
             return true;
         }
         return false;
     }
-    if (mCategory == TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier()) {
+    if (d->mCategory == TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier()) {
         const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
         const QString identifier = sourceIndex.data(EmoticonUnicodeModel::Identifier).toString();
-        if (mRecentEmoticons.contains(identifier)) {
+        if (d->mRecentEmoticons.contains(identifier)) {
             return true;
         }
     } else {
         const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
         const auto category = sourceIndex.data(EmoticonUnicodeModel::Category).toString();
-        if (mCategory == category) {
+        if (d->mCategory == category) {
             return true;
         }
     }
@@ -54,27 +68,27 @@ bool EmoticonUnicodeProxyModel::filterAcceptsRow(int source_row, const QModelInd
 
 QString EmoticonUnicodeProxyModel::searchIdentifier() const
 {
-    return mSearchIdentifier;
+    return d->mSearchIdentifier;
 }
 
 void EmoticonUnicodeProxyModel::setSearchIdentifier(const QString &newSearchIdentifier)
 {
-    if (mSearchIdentifier != newSearchIdentifier) {
-        mSearchIdentifier = newSearchIdentifier;
+    if (d->mSearchIdentifier != newSearchIdentifier) {
+        d->mSearchIdentifier = newSearchIdentifier;
         invalidateFilter();
     }
 }
 
 QStringList EmoticonUnicodeProxyModel::recentEmoticons() const
 {
-    return mRecentEmoticons;
+    return d->mRecentEmoticons;
 }
 
 void EmoticonUnicodeProxyModel::setRecentEmoticons(const QStringList &newRecentEmoticons)
 {
-    if (mRecentEmoticons != newRecentEmoticons) {
-        mRecentEmoticons = newRecentEmoticons;
-        if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == mCategory) {
+    if (d->mRecentEmoticons != newRecentEmoticons) {
+        d->mRecentEmoticons = newRecentEmoticons;
+        if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == d->mCategory) {
             invalidate();
         }
     }
@@ -82,19 +96,19 @@ void EmoticonUnicodeProxyModel::setRecentEmoticons(const QStringList &newRecentE
 
 QString EmoticonUnicodeProxyModel::category() const
 {
-    return mCategory;
+    return d->mCategory;
 }
 
 void EmoticonUnicodeProxyModel::setCategory(const QString &newCategorie)
 {
-    if (mCategory != newCategorie) {
-        mCategory = newCategorie;
-        if (!mSearchIdentifier.isEmpty()) {
-            clearSearch();
+    if (d->mCategory != newCategorie) {
+        d->mCategory = newCategorie;
+        if (!d->mSearchIdentifier.isEmpty()) {
+            d->clearSearch();
         } else {
             invalidateFilter();
         }
-        if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == mCategory) {
+        if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == d->mCategory) {
             // Make sure that we reorder recent category
             invalidate();
         }
@@ -103,11 +117,11 @@ void EmoticonUnicodeProxyModel::setCategory(const QString &newCategorie)
 
 bool EmoticonUnicodeProxyModel::lessThan(const QModelIndex &left, const QModelIndex &right) const
 {
-    if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == mCategory) {
+    if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == d->mCategory) {
         const QString leftIdentifier = sourceModel()->data(left, EmoticonUnicodeModel::Identifier).toString();
         const QString rightIdentifier = sourceModel()->data(right, EmoticonUnicodeModel::Identifier).toString();
-        const int positionIdentifierLeft = mRecentEmoticons.indexOf(leftIdentifier);
-        const int positionIdentifierRight = mRecentEmoticons.indexOf(rightIdentifier);
+        const int positionIdentifierLeft = d->mRecentEmoticons.indexOf(leftIdentifier);
+        const int positionIdentifierRight = d->mRecentEmoticons.indexOf(rightIdentifier);
         //        qDebug() << " leftIdentifier " << leftIdentifier << " rightIdentifier " << rightIdentifier << " positionIdentifierLeft " <<
         //        positionIdentifierLeft
         //                 << " positionIdentifierRight " << positionIdentifierRight;

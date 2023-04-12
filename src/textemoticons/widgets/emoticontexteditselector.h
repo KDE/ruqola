@@ -9,15 +9,11 @@
 
 #include "textemoticonswidgets_export.h"
 #include <QWidget>
-class QLineEdit;
 namespace TextEmoticonsCore
 {
-class EmoticonUnicodeProxyModel;
 }
 namespace TextEmoticonsWidgets
 {
-class EmoticonCategoryButtons;
-class EmoticonListView;
 /**
  * @brief The EmoticonTextEditSelector class
  * @author Laurent Montel <montel@kde.org>
@@ -31,6 +27,9 @@ public:
 
     void forceLineEditFocus();
 
+    void setCustomEmojiSupport(bool b);
+    Q_REQUIRED_RESULT bool customEmojiSupport() const;
+
 public Q_SLOTS:
     void loadEmoticons();
 
@@ -43,8 +42,5 @@ private:
     std::unique_ptr<EmoticonTextEditSelectorPrivate> const d;
 
     TEXTEMOTICONSWIDGETS_NO_EXPORT void slotItemSelected(const QString &str, const QString &identifier);
-    TEXTEMOTICONSWIDGETS_NO_EXPORT void slotSearchUnicode(const QString &str);
-    TEXTEMOTICONSWIDGETS_NO_EXPORT void slotCategorySelected(const QString &category);
-    TEXTEMOTICONSWIDGETS_NO_EXPORT void slotUsedIdentifierChanged(const QStringList &lst);
 };
 }

@@ -23,7 +23,7 @@ public:
     explicit EmoticonCategoryButtons(QWidget *parent = nullptr);
     ~EmoticonCategoryButtons() override;
 
-    void setCategories(const QList<TextEmoticonsCore::EmoticonCategory> &categories);
+    void setCategories(const QList<TextEmoticonsCore::EmoticonCategory> &categories, bool hasCustomSupport);
 
     Q_REQUIRED_RESULT bool wasLoaded() const;
 
@@ -34,7 +34,7 @@ protected:
     void wheelEvent(QWheelEvent *e) override;
 
 private:
-    void addButton(const QString &name, const QString &category);
+    void addButton(const QString &name, const QString &category, const QString &toolTip);
     QHBoxLayout *const mMainLayout;
     QButtonGroup *const mButtonGroup;
     bool mWasLoaded = false;

@@ -7,6 +7,7 @@
 
 #include "textemoticonscore_export.h"
 #include <QSortFilterProxyModel>
+#include <memory>
 namespace TextEmoticonsCore
 {
 class TEXTEMOTICONSCORE_EXPORT EmoticonUnicodeProxyModel : public QSortFilterProxyModel
@@ -29,9 +30,7 @@ protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
-    void clearSearch();
-    QString mCategory;
-    QStringList mRecentEmoticons;
-    QString mSearchIdentifier;
+    class EmoticonUnicodeProxyModelPrivate;
+    std::unique_ptr<EmoticonUnicodeProxyModelPrivate> const d;
 };
 }

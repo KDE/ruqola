@@ -22,6 +22,9 @@ public:
     explicit EmoticonTextEditAction(QObject *parent);
     ~EmoticonTextEditAction() override;
 
+    void setCustomEmojiSupport(bool b);
+    Q_REQUIRED_RESULT bool customEmojiSupport() const;
+
 Q_SIGNALS:
     void insertEmoticon(const QString &);
 

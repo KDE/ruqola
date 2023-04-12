@@ -36,4 +36,6 @@ void EmoticonTextEditSelectorTest::shouldHaveDefaultValues()
     QVERIFY(mSearchUnicodeLineEdit->isClearButtonEnabled());
     QVERIFY(mSearchUnicodeLineEdit->text().isEmpty());
     QVERIFY(!mSearchUnicodeLineEdit->placeholderText().isEmpty());
+
+    QVERIFY(!w.customEmojiSupport());
 }
