@@ -7,6 +7,6 @@ target_link_libraries(unicodeemoticongui
     Qt::Widgets
     KF${KF_MAJOR_VERSION}::ItemViews
     libruqolacore
-    KF${KF_MAJOR_VERSION}TextEmoticonsCore
+    KF${KF_MAJOR_VERSION}::TextEmoticonsCore
 )
 set_target_properties(unicodeemoticongui PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)

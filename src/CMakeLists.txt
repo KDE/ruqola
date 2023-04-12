@@ -8,7 +8,9 @@ if(OPTION_BUILD_PYTHON_BINDINGS)
    include(PySide2ModuleBuild)
 endif()
 
-add_subdirectory(textemoticons)
+if (NOT TARGET KF${KF_MAJOR_VERSION}::TextEmoticonsWidgets)
+    add_subdirectory(textemoticons)
+endif()
 
 add_subdirectory(rocketchatrestapi-qt5)
 
