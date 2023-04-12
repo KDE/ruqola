@@ -25,7 +25,7 @@ void EmojiManagerTest::shouldHaveDefaultValue()
 {
     EmojiManager manager(nullptr);
     QVERIFY(manager.serverUrl().isEmpty());
-    QCOMPARE(manager.count(), 3225);
+    QCOMPARE(manager.count(), 3671);
     QVERIFY(manager.customEmojiList().isEmpty());
 }
 
@@ -33,7 +33,7 @@ void EmojiManagerTest::shouldParseEmoji_data()
 {
     QTest::addColumn<QString>("name");
     QTest::addColumn<int>("number");
-    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3232;
+    QTest::addRow("emojiparent") << QStringLiteral("emojiparent") << 3678;
 }
 
 void EmojiManagerTest::shouldParseEmoji()
@@ -76,7 +76,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         QVector<CustomEmoji> emojiListAfterDeleting;
         emojiListAfterDeleting.append(val1);
 
-        QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("emojicustomdelete1") << emojiList << emojiListAfterDeleting;
+        QTest::addRow("delete1") << QStringLiteral("emojiparent2") << 3673 << QStringLiteral("emojicustomdelete1") << emojiList << emojiListAfterDeleting;
     }
     {
         QVector<CustomEmoji> emojiList;
@@ -98,7 +98,7 @@ void EmojiManagerTest::shouldDeleteEmojiCustom_data()
         emojiList.append(std::move(val));
         emojiList.append(std::move(val1));
         // We can't delete emoji which is not in liste.
-        QTest::addRow("delete2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("emojicustomdelete2") << emojiList << emojiList;
+        QTest::addRow("delete2") << QStringLiteral("emojiparent2") << 3673 << QStringLiteral("emojicustomdelete2") << emojiList << emojiList;
     }
 }
 
@@ -160,7 +160,7 @@ void EmojiManagerTest::shouldAddEmojiCustom_data()
         val2.setUpdatedAt(1631885946222);
         val2.setAliases({QStringLiteral(":roo:")});
         emojiList.append(std::move(val2));
-        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("addemojicustom1") << emojiListAfterDeleting << emojiList;
+        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3673 << QStringLiteral("addemojicustom1") << emojiListAfterDeleting << emojiList;
     }
 }
 
@@ -228,7 +228,7 @@ void EmojiManagerTest::shouldUpdateEmojiCustom_data()
         val2.setAliases({QStringLiteral("rooss")});
         emojiListAfterDeleting.append(val);
         emojiListAfterDeleting.append(val2);
-        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3227 << QStringLiteral("updateemojicustom1") << emojiList << emojiList;
+        QTest::addRow("emojiparent2") << QStringLiteral("emojiparent2") << 3673 << QStringLiteral("updateemojicustom1") << emojiList << emojiList;
     }
 }
 
@@ -286,7 +286,7 @@ void EmojiManagerTest::shouldSupportUnicodeEmojis()
 
     QCOMPARE(manager.categories().count(), 9);
     QCOMPARE(manager.categories().at(0).category(), QStringLiteral("people"));
-    QCOMPARE(manager.emojisForCategory(QStringLiteral("people")).count(), 1656);
+    QCOMPARE(manager.emojisForCategory(QStringLiteral("people")).count(), 2031);
 }
 
 void EmojiManagerTest::shouldOrderUnicodeEmojis()
@@ -304,7 +304,7 @@ void EmojiManagerTest::shouldOrderUnicodeEmojis()
     auto it = std::find_if(list.begin(), list.end(), hasCategory(QStringLiteral("symbols")));
     QVERIFY(it != list.end());
     const TextEmoticonsCore::UnicodeEmoticon firstSymbol = *it;
-    QCOMPARE(firstSymbol.order(), 1);
+    QCOMPARE(firstSymbol.order(), 3063);
     QCOMPARE(firstSymbol.category(), QStringLiteral("symbols"));
     QCOMPARE(firstSymbol.identifier(), QStringLiteral(":heart:"));
 
