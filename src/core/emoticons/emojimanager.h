@@ -8,7 +8,6 @@
 
 #include "customemoji.h"
 #include "libruqolacore_export.h"
-#include "unicodeemoticon.h"
 #include <QObject>
 #include <QRegularExpression>
 #include <TextEmoticonsCore/EmoticonCategory>
