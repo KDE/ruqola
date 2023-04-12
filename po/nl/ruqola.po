@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:47+0000\n"
+"POT-Creation-Date: 2023-04-12 00:49+0000\n"
 "PO-Revision-Date: 2023-03-31 11:43+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -299,51 +299,6 @@ msgstr "Archiveren ongedaan maken"
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "(Laatste bericht: %1)"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:59
-#, kde-format
-msgid "Symbols"
-msgstr "Symbolen"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:61
-#, kde-format
-msgid "Activity"
-msgstr "Activiteit"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:63
-#, kde-format
-msgid "Objects"
-msgstr "Objecten"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:65
-#, kde-format
-msgid "Nature"
-msgstr "Natuur"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:67
-#, kde-format
-msgid "Food"
-msgstr "Eten"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:69
-#, kde-format
-msgid "People"
-msgstr "Mensen"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:71
-#, kde-format
-msgid "Travel"
-msgstr "Reizen"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:73
-#, kde-format
-msgid "Regional"
-msgstr "Regionaal"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:75
-#, kde-format
-msgid "Flags"
-msgstr "Vlaggen"
 
 #: core/messages/block.cpp:74 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
@@ -870,7 +825,7 @@ msgstr "E-mailberichten"
 msgid "Join At"
 msgstr "Deelnemen op"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:108
+#: core/model/emoticonmodel.cpp:94
 #, kde-format
 msgid "Custom"
 msgstr "Aangepast"
@@ -1062,25 +1017,25 @@ msgstr "Privé berichten"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:317
+#: core/model/statusmodel.cpp:61 core/utils.cpp:315
 #, kde-format
 msgid "Online"
 msgstr "Online"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:319
+#: core/model/statusmodel.cpp:63 core/utils.cpp:317
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Bezet"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:321
+#: core/model/statusmodel.cpp:65 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Afwezig"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:323
+#: core/utils.cpp:321
 #, kde-format
 msgid "Offline"
 msgstr "Offline"
@@ -1336,12 +1291,12 @@ msgstr "<strong>%1</strong> bezig met typen..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> zijn aan het typen..."
 
-#: core/rocketchataccount.cpp:2821
+#: core/rocketchataccount.cpp:2810
 #, kde-format
 msgid "Export Messages"
 msgstr "Berichten exporteren"
 
-#: core/rocketchataccount.cpp:2822
+#: core/rocketchataccount.cpp:2811
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "Uw e-mailbericht is klaargezet voor verzending."
@@ -2271,6 +2226,69 @@ msgstr "Ongeldige parameters"
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr "Fout bij poging e-mail te verzenden %1"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:42
+#, kde-format
+msgid "Symbols"
+msgstr "Symbolen"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:44
+#, kde-format
+msgid "Activity"
+msgstr "Activiteit"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:46
+#, kde-format
+msgid "Objects"
+msgstr "Objecten"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:48
+#, kde-format
+msgid "Nature"
+msgstr "Natuur"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:50
+#, kde-format
+msgid "Food"
+msgstr "Eten"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:52
+#, kde-format
+msgid "People"
+msgstr "Mensen"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:54
+#, kde-format
+msgid "Travel"
+msgstr "Reizen"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:56
+#, kde-format
+msgid "Regional"
+msgstr "Regionaal"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:58
+#, kde-format
+msgid "Flags"
+msgstr "Vlaggen"
+
+#: textemoticons/widgets/emoticonlistview.cpp:103
+#, kde-format
+msgid "Clear Recents"
+msgstr "Recent wissen"
+
+#: textemoticons/widgets/emoticontexteditaction.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Add Role"
+msgid "Add Smiley"
+msgstr "Rol toevoegen"
+
+#: textemoticons/widgets/emoticontexteditselector.cpp:57
+#, fuzzy, kde-format
+#| msgid "Search room..."
+msgid "Search Emoticon..."
+msgstr "Room doorzoeken..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -5679,7 +5697,6 @@ msgid "Show Unread"
 msgstr "Ongelezen tonen"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:47
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
 #, kde-format
@@ -7015,16 +7032,6 @@ msgstr "Onbekende status"
 msgid "(Unnamed)"
 msgstr "(Naamloos)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:74
-#, kde-format
-msgid "Search"
-msgstr "Zoeken"
-
-#: widgets/misc/emoticonmenuwidget.cpp:98
-#, kde-format
-msgid "Recent"
-msgstr "Recent"
-
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7041,11 +7048,6 @@ msgstr "Wachtwoord bevestigen:"
 #, kde-format
 msgid "Reset Password"
 msgstr "Wachtwoord resetten"
-
-#: widgets/misc/recentusedemoticonview.cpp:24
-#, kde-format
-msgid "Clear Recents"
-msgstr "Recent wissen"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
@@ -7692,17 +7694,17 @@ msgstr[1] "%1 berichten"
 msgid "No message yet"
 msgstr "Nog geen bericht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:698
+#: widgets/room/delegate/messagelistdelegate.cpp:699
 #, kde-format
 msgid "Following"
 msgstr "Bezig met volgen"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:703
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Bericht is vastgepind"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:706
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, kde-format
 msgid "Message has been starred"
 msgstr "Bericht heeft een ster gekregen"
@@ -8579,6 +8581,12 @@ msgstr "Enige van de nieuwe functies in deze uitgave van Ruqola omvatten:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Enig repareren van bugs:"
+
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgid "Recent"
+#~ msgstr "Recent"
 
 #~ msgid "Snippered Messages"
 #~ msgstr "Versnipperde berichten"

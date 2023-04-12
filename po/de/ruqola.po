@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-09 00:47+0000\n"
+"POT-Creation-Date: 2023-04-12 00:49+0000\n"
 "PO-Revision-Date: 2022-03-13 09:40+0100\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -303,51 +303,6 @@ msgstr "Archiv:"
 #, kde-format
 msgid "(Last Message: %1)"
 msgstr "(Letzte Nachricht: %1)"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:59
-#, kde-format
-msgid "Symbols"
-msgstr "Symbole"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:61
-#, kde-format
-msgid "Activity"
-msgstr "Aktivität"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:63
-#, kde-format
-msgid "Objects"
-msgstr "Objekte"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:65
-#, kde-format
-msgid "Nature"
-msgstr "Natur"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:67
-#, kde-format
-msgid "Food"
-msgstr "Essen"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:69
-#, kde-format
-msgid "People"
-msgstr "Personen"
-
-#: core/emoticons/unicodeemoticonmanager.cpp:71
-#, kde-format
-msgid "Travel"
-msgstr ""
-
-#: core/emoticons/unicodeemoticonmanager.cpp:73
-#, kde-format
-msgid "Regional"
-msgstr ""
-
-#: core/emoticons/unicodeemoticonmanager.cpp:75
-#, kde-format
-msgid "Flags"
-msgstr ""
 
 #: core/messages/block.cpp:74 core/messages/message.cpp:629
 #: core/model/notificationhistorymodel.cpp:61
@@ -905,7 +860,7 @@ msgstr "E-Mails"
 msgid "Join At"
 msgstr "Betreten"
 
-#: core/model/emoticonmodel.cpp:94 widgets/misc/emoticonmenuwidget.cpp:108
+#: core/model/emoticonmodel.cpp:94
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom"
@@ -1112,25 +1067,25 @@ msgstr "Private Nachrichten"
 msgid "Unknown"
 msgstr "Unbekannter Status"
 
-#: core/model/statusmodel.cpp:61 core/utils.cpp:317
+#: core/model/statusmodel.cpp:61 core/utils.cpp:315
 #, kde-format
 msgid "Online"
 msgstr "Online"
 
-#: core/model/statusmodel.cpp:63 core/utils.cpp:319
+#: core/model/statusmodel.cpp:63 core/utils.cpp:317
 #: widgets/room/usersinroomcombobox.cpp:24
 #, kde-format
 msgid "Busy"
 msgstr "Beschäftigt"
 
-#: core/model/statusmodel.cpp:65 core/utils.cpp:321
+#: core/model/statusmodel.cpp:65 core/utils.cpp:319
 #: widgets/room/usersinroomcombobox.cpp:23
 #, kde-format
 msgid "Away"
 msgstr "Abwesend"
 
 #: core/model/statusmodel.cpp:67 core/model/usersmodel.cpp:71
-#: core/utils.cpp:323
+#: core/utils.cpp:321
 #, kde-format
 msgid "Offline"
 msgstr "Offline"
@@ -1399,12 +1354,12 @@ msgstr "<strong>%1</strong> schreibt gerade ..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> schreiben gerade ..."
 
-#: core/rocketchataccount.cpp:2821
+#: core/rocketchataccount.cpp:2810
 #, kde-format
 msgid "Export Messages"
 msgstr "Nachrichten exportieren"
 
-#: core/rocketchataccount.cpp:2822
+#: core/rocketchataccount.cpp:2811
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2321,6 +2276,69 @@ msgstr "Ungültige Argumente"
 #, kde-format
 msgid "Error trying to send email %1"
 msgstr ""
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:42
+#, kde-format
+msgid "Symbols"
+msgstr "Symbole"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:44
+#, kde-format
+msgid "Activity"
+msgstr "Aktivität"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:46
+#, kde-format
+msgid "Objects"
+msgstr "Objekte"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:48
+#, kde-format
+msgid "Nature"
+msgstr "Natur"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:50
+#, kde-format
+msgid "Food"
+msgstr "Essen"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:52
+#, kde-format
+msgid "People"
+msgstr "Personen"
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:54
+#, kde-format
+msgid "Travel"
+msgstr ""
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:56
+#, kde-format
+msgid "Regional"
+msgstr ""
+
+#: textemoticons/core/unicodeemoticonmanager.cpp:58
+#, kde-format
+msgid "Flags"
+msgstr ""
+
+#: textemoticons/widgets/emoticonlistview.cpp:103
+#, kde-format
+msgid "Clear Recents"
+msgstr "„Kürzliche“ leeren"
+
+#: textemoticons/widgets/emoticontexteditaction.cpp:41
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Edit User"
+msgid "Add Smiley"
+msgstr "Benutzer bearbeiten"
+
+#: textemoticons/widgets/emoticontexteditselector.cpp:57
+#, fuzzy, kde-format
+#| msgid "Search Room..."
+msgid "Search Emoticon..."
+msgstr "Raum suchen ..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -5780,7 +5798,6 @@ msgid "Show Unread"
 msgstr "Ungelesen"
 
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
-#: widgets/misc/emoticonmenuwidget.cpp:47
 #: widgets/notificationhistory/notificationhistorywidget.cpp:45
 #: widgets/servererrorinfohistory/servererrorinfomessagehistorywidget.cpp:44
 #, kde-format
@@ -7181,16 +7198,6 @@ msgstr "Unbekannter Status"
 msgid "(Unnamed)"
 msgstr "(Unbenannt)"
 
-#: widgets/misc/emoticonmenuwidget.cpp:74
-#, kde-format
-msgid "Search"
-msgstr "Suchen"
-
-#: widgets/misc/emoticonmenuwidget.cpp:98
-#, kde-format
-msgid "Recent"
-msgstr "Zuletzt verwendet"
-
 #: widgets/misc/passwordconfirmwidget.cpp:24
 #, kde-format
 msgid "New Password:"
@@ -7207,11 +7214,6 @@ msgstr "Passwort bestätigen:"
 #, kde-format
 msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
-
-#: widgets/misc/recentusedemoticonview.cpp:24
-#, kde-format
-msgid "Clear Recents"
-msgstr "„Kürzliche“ leeren"
 
 #: widgets/misc/searchwithdelaylineedit.cpp:16
 #, kde-format
@@ -7878,18 +7880,18 @@ msgstr[1] "%1 Nachrichten"
 msgid "No message yet"
 msgstr "1 Nachricht"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:698
+#: widgets/room/delegate/messagelistdelegate.cpp:699
 #, kde-format
 msgid "Following"
 msgstr ""
 
-#: widgets/room/delegate/messagelistdelegate.cpp:702
+#: widgets/room/delegate/messagelistdelegate.cpp:703
 #, fuzzy, kde-format
 #| msgid "Message Pinned"
 msgid "Message has been pinned"
 msgstr "Nachricht angeheftet"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:706
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, fuzzy, kde-format
 #| msgid "Message Deleted"
 msgid "Message has been starred"
@@ -8813,6 +8815,12 @@ msgstr ""
 #| msgid "Bug fixing"
 msgid "Some bug fixing:"
 msgstr "Fehlerkorrekturen"
+
+#~ msgid "Search"
+#~ msgstr "Suchen"
+
+#~ msgid "Recent"
+#~ msgstr "Zuletzt verwendet"
 
 #, fuzzy
 #~| msgid "Encrypted Message"
