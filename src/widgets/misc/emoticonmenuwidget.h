@@ -9,6 +9,7 @@
 #include <QWidget>
 #include <TextEmoticonsWidgets/EmoticonTextEditSelector>
 class RocketChatAccount;
+class CustomEmojiIconManager;
 class EmoticonMenuWidget : public TextEmoticonsWidgets::EmoticonTextEditSelector
 {
     Q_OBJECT
@@ -20,4 +21,7 @@ public:
 
 protected:
     QSize sizeHint() const override;
+
+private:
+    CustomEmojiIconManager *const mCustomEmojiIconManager;
 };

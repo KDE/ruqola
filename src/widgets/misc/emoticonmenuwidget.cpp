@@ -5,21 +5,30 @@
 */
 
 #include "emoticonmenuwidget.h"
+#include "customemojiiconmanager.h"
 #include <QScreen>
 #include <QVBoxLayout>
+#include <TextEmoticonsCore/EmojiModel>
+#include <TextEmoticonsCore/EmojiModelManager>
 EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     : TextEmoticonsWidgets::EmoticonTextEditSelector(parent)
+    , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
 {
+    setCustomEmojiSupport(true);
     loadEmoticons();
     const QSize popupMenuSize = QSize(400, 250) * screen()->devicePixelRatio();
     setFixedSize(popupMenuSize);
+    TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiIconManager(mCustomEmojiIconManager);
 }
 
 EmoticonMenuWidget::~EmoticonMenuWidget() = default;
 
 void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount)
 {
-    // TODO use custom emoji
+    if (currentRocketChatAccount) {
+        mCustomEmojiIconManager->setCurrentRocketChatAccount(currentRocketChatAccount);
+        // TODO use custom emoji
+    }
 }
 
 QSize EmoticonMenuWidget::sizeHint() const

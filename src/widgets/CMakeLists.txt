@@ -459,6 +459,10 @@ target_sources(libruqolawidgets PRIVATE
     misc/messagelistdelegatebase.h
     misc/serverscombobox.h
     misc/serverscombobox.cpp
+
+    misc/customemojiiconmanager.h
+    misc/customemojiiconmanager.cpp
+
     myaccount/myaccount2e2configurewidget.cpp
     myaccount/myaccount2e2configurewidget.h
     myaccount/myaccount2faconfigurewidget.cpp
