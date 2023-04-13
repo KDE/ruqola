@@ -3,16 +3,17 @@
 
    SPDX-License-Identifier: LGPL-2.0-or-later
 */
+
 #pragma once
 
 #include <QObject>
 
-class EmoticonUnicodeProxyModelTest : public QObject
+class CustomEmojiIconManagerTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmoticonUnicodeProxyModelTest(QObject *parent = nullptr);
-    ~EmoticonUnicodeProxyModelTest() override = default;
+    explicit CustomEmojiIconManagerTest(QObject *parent = nullptr);
+    ~CustomEmojiIconManagerTest() override = default;
 private Q_SLOTS:
     void shouldHaveDefaultValues();
 };

@@ -10,12 +10,12 @@
 #include <memory>
 namespace TextEmoticonsCore
 {
-class TEXTEMOTICONSCORE_EXPORT EmoticonUnicodeProxyModel : public QSortFilterProxyModel
+class TEXTEMOTICONSCORE_EXPORT EmojiProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 public:
-    explicit EmoticonUnicodeProxyModel(QObject *parent = nullptr);
-    ~EmoticonUnicodeProxyModel() override;
+    explicit EmojiProxyModel(QObject *parent = nullptr);
+    ~EmojiProxyModel() override;
     Q_REQUIRED_RESULT QString category() const;
     void setCategory(const QString &newCategories);
 
@@ -30,7 +30,7 @@ protected:
     Q_REQUIRED_RESULT bool lessThan(const QModelIndex &left, const QModelIndex &right) const override;
 
 private:
-    class EmoticonUnicodeProxyModelPrivate;
-    std::unique_ptr<EmoticonUnicodeProxyModelPrivate> const d;
+    class EmojiProxyModelPrivate;
+    std::unique_ptr<EmojiProxyModelPrivate> const d;
 };
 }

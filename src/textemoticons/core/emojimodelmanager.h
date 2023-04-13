@@ -9,26 +9,30 @@
 #include <QObject>
 namespace TextEmoticonsCore
 {
-class EmoticonUnicodeModel;
-class TEXTEMOTICONSCORE_EXPORT EmoticonUnicodeModelManager : public QObject
+class EmojiModel;
+class CustomEmojiIconManager;
+class TEXTEMOTICONSCORE_EXPORT EmojiModelManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit EmoticonUnicodeModelManager(QObject *parent = nullptr);
-    ~EmoticonUnicodeModelManager() override;
+    explicit EmojiModelManager(QObject *parent = nullptr);
+    ~EmojiModelManager() override;
 
-    static EmoticonUnicodeModelManager *self();
-    Q_REQUIRED_RESULT TextEmoticonsCore::EmoticonUnicodeModel *emoticonUnicodeModel() const;
+    static EmojiModelManager *self();
+    Q_REQUIRED_RESULT TextEmoticonsCore::EmojiModel *emojiModel() const;
 
     Q_REQUIRED_RESULT const QStringList &recentIdentifier() const;
     void setRecentIdentifier(const QStringList &newRecentIdentifier);
     void addIdentifier(const QString &identifier);
 
+    Q_REQUIRED_RESULT TextEmoticonsCore::CustomEmojiIconManager *customEmojiIconManager() const;
+    void setCustomEmojiIconManager(TextEmoticonsCore::CustomEmojiIconManager *newCustomEmojiIconManager);
+
 Q_SIGNALS:
     void usedIdentifierChanged(const QStringList &lst);
 
 private:
-    TextEmoticonsCore::EmoticonUnicodeModel *const mEmoticonUnicodeModel;
+    TextEmoticonsCore::EmojiModel *const mEmojiModel;
     QStringList mRecentIdentifier;
     void loadRecentUsed();
     void writeRecentUsed();

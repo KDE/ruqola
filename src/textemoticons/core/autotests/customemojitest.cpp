@@ -21,4 +21,5 @@ void CustomEmojiTest::shouldHaveDefaultValues()
     QVERIFY(!w.category().isEmpty());
     QVERIFY(w.identifier().isEmpty());
     QCOMPARE(w.category(), TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier());
+    QVERIFY(!w.isAnimatedEmoji());
 }
