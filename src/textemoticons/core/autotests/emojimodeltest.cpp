@@ -18,5 +18,6 @@ void EmojiModelTest::shouldHaveDefaultValues()
 {
     TextEmoticonsCore::EmojiModel w;
     QVERIFY(w.emoticonList().isEmpty());
+    QVERIFY(w.customEmojiList().isEmpty());
     QVERIFY(!w.customEmojiIconManager());
 }
