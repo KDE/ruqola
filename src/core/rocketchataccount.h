@@ -80,7 +80,6 @@ class DownloadAppsLanguagesManager;
 class UsersForRoomModel;
 class MessageCache;
 class ManageChannels;
-class EmoticonCustomModel;
 class CustomSoundsManager;
 class AwayManager;
 class SwitchChannelHistoryModel;
@@ -443,7 +442,6 @@ public:
     Q_REQUIRED_RESULT QString loadMessagesHistory(const QString &roomID, qint64 numberOfMessages);
     Q_REQUIRED_RESULT bool teamEnabled() const;
     void openPrivateGroup(const QString &identifier, ChannelTypeInfo typeInfo);
-    Q_REQUIRED_RESULT EmoticonCustomModel *emoticonCustomModel() const;
 
     void deleteEmojiCustom(const QJsonArray &replyArray);
     void addUpdateEmojiCustomList(const QJsonArray &replyArray);
@@ -681,7 +679,6 @@ private:
     DiscussionsModel *const mDiscussionsModel;
 
     EmoticonModel *mEmoticonModel = nullptr;
-    EmoticonCustomModel *mEmoticonCustomModel = nullptr;
     CommandsModel *const mCommandsModel;
     ThreadMessageModel *mThreadMessageModel = nullptr;
 
