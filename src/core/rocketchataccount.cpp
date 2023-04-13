@@ -827,6 +827,19 @@ void RocketChatAccount::setDefaultStatus(User::PresenceStatus status, const QStr
     restApi()->setUserStatus(userId(), type, messageStatus);
 }
 
+QList<TextEmoticonsCore::CustomEmoji> RocketChatAccount::customEmojies() const
+{
+    QList<TextEmoticonsCore::CustomEmoji> mCustomEmojies;
+    const auto customEmojiList = mEmojiManager->customEmojiList();
+    for (const auto &emoji : customEmojiList) {
+        TextEmoticonsCore::CustomEmoji custom;
+        custom.setIdentifier(emoji.emojiIdentifier());
+        custom.setIsAnimatedEmoji(emoji.isAnimatedImage());
+        mCustomEmojies.append(custom);
+    }
+    return mCustomEmojies;
+}
+
 void RocketChatAccount::loadEmoji(const QJsonObject &obj)
 {
     mEmojiManager->loadCustomEmoji(obj);

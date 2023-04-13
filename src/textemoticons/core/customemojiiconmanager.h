@@ -7,6 +7,7 @@
 #pragma once
 #include "textemoticonscore_export.h"
 #include <QIcon>
+#include <QObject>
 namespace TextEmoticonsCore
 {
 /**

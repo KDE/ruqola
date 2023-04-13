@@ -6,6 +6,7 @@
 
 #include "emoticonmenuwidget.h"
 #include "customemojiiconmanager.h"
+#include "rocketchataccount.h"
 #include <QScreen>
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/EmojiModel>
@@ -27,7 +28,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *currentR
 {
     if (currentRocketChatAccount) {
         mCustomEmojiIconManager->setCurrentRocketChatAccount(currentRocketChatAccount);
-        // TODO use custom emoji
+        TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiList(currentRocketChatAccount->customEmojies());
     }
 }
 

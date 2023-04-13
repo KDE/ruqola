@@ -40,6 +40,7 @@
 #include "utils.h"
 #include <QObject>
 #include <QUrl>
+#include <TextEmoticonsCore/CustomEmoji>
 #include <ddpapi/ddpclient.h>
 class TypingNotification;
 class UsersModel;
@@ -143,6 +144,8 @@ public:
         RemoveModerator,
     };
     Q_ENUM(RoleType)
+
+    Q_REQUIRED_RESULT QList<TextEmoticonsCore::CustomEmoji> customEmojies() const;
 
     void reconnectToServer();
     Q_REQUIRED_RESULT Room::TeamRoomInfo roomFromTeamId(const QString &teamId) const;
