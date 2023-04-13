@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:49+0000\n"
+"POT-Creation-Date: 2023-04-13 00:49+0000\n"
 "PO-Revision-Date: 2019-07-29 20:25+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Join At"
 msgstr ""
 
-#: core/model/emoticonmodel.cpp:94
+#: core/model/emoticonmodel.cpp:85
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Custom"
@@ -2330,18 +2330,32 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
+#, fuzzy, kde-format
+#| msgid "Invalid password"
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Neplatné heslo"
+
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
+#, fuzzy, kde-format
+#| msgid "Status:"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Stav:"
+
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
 msgid "Clear Recents"
 msgstr ""
 
-#: textemoticons/widgets/emoticontexteditaction.cpp:41
+#: textemoticons/widgets/emoticontexteditaction.cpp:54
 #, fuzzy, kde-format
 #| msgid "Status:"
 msgid "Add Smiley"
 msgstr "Stav:"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:57
+#: textemoticons/widgets/emoticontexteditselector.cpp:73
 #, fuzzy, kde-format
 #| msgid "Search File..."
 msgid "Search Emoticon..."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:49+0000\n"
-"PO-Revision-Date: 2023-03-31 12:59+0200\n"
+"POT-Creation-Date: 2023-04-13 00:49+0000\n"
+"PO-Revision-Date: 2023-04-12 16:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -828,7 +828,7 @@ msgstr "Correus electrònics"
 msgid "Join At"
 msgstr "Unix-te a"
 
-#: core/model/emoticonmodel.cpp:94
+#: core/model/emoticonmodel.cpp:85
 #, kde-format
 msgid "Custom"
 msgstr "Personalitzat"
@@ -2273,23 +2273,34 @@ msgstr "Regional"
 msgid "Flags"
 msgstr "Banderes"
 
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Elimina l'historial"
+
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Personalitzat"
+
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
 msgid "Clear Recents"
 msgstr "Neteja els recents"
 
-#: textemoticons/widgets/emoticontexteditaction.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#: textemoticons/widgets/emoticontexteditaction.cpp:54
+#, kde-format
 msgid "Add Smiley"
-msgstr "Addició de rol"
+msgstr "Afig una emoticona"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Busca una sala..."
+msgstr "Busca una emoticona..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -5772,7 +5783,7 @@ msgstr "Mou a un equip"
 #: widgets/channellist/channellistview.cpp:275
 #, kde-format
 msgid "Are you sure to convert it to team? It can not be undo."
-msgstr "Segur de convertir-ho a un equip? Açò no es pot desfer."
+msgstr "Segur de convertir-ho a un equip? Açò no es podrà desfer."
 
 #: widgets/channellist/channellistwidget.cpp:50
 #, kde-format
@@ -8580,9 +8591,3 @@ msgstr ""
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"
-
-#~ msgid "Search"
-#~ msgstr "Busca"
-
-#~ msgid "Recent"
-#~ msgstr "Recent"

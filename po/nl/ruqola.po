@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:49+0000\n"
-"PO-Revision-Date: 2023-03-31 11:43+0200\n"
+"POT-Creation-Date: 2023-04-13 00:49+0000\n"
+"PO-Revision-Date: 2023-04-12 11:02+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -825,7 +825,7 @@ msgstr "E-mailberichten"
 msgid "Join At"
 msgstr "Deelnemen op"
 
-#: core/model/emoticonmodel.cpp:94
+#: core/model/emoticonmodel.cpp:85
 #, kde-format
 msgid "Custom"
 msgstr "Aangepast"
@@ -2272,23 +2272,34 @@ msgstr "Regionaal"
 msgid "Flags"
 msgstr "Vlaggen"
 
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Geschiedenis verwijderen"
+
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Aangepast"
+
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
 msgid "Clear Recents"
 msgstr "Recent wissen"
 
-#: textemoticons/widgets/emoticontexteditaction.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#: textemoticons/widgets/emoticontexteditaction.cpp:54
+#, kde-format
 msgid "Add Smiley"
-msgstr "Rol toevoegen"
+msgstr "Smiley toevoegen"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Room doorzoeken..."
+msgstr "Emoticon zoeken..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format

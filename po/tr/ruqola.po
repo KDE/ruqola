@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:49+0000\n"
-"PO-Revision-Date: 2023-03-31 12:35+0300\n"
+"POT-Creation-Date: 2023-04-13 00:49+0000\n"
+"PO-Revision-Date: 2023-04-12 12:18+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -823,7 +823,7 @@ msgstr "E-postalar"
 msgid "Join At"
 msgstr "Şurada Katıl"
 
-#: core/model/emoticonmodel.cpp:94
+#: core/model/emoticonmodel.cpp:85
 #, kde-format
 msgid "Custom"
 msgstr "Özel"
@@ -2249,23 +2249,34 @@ msgstr "Bölgesel"
 msgid "Flags"
 msgstr "Bayraklar"
 
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
+#, fuzzy, kde-format
+#| msgid "Remove History"
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Geçmişi Kaldır"
+
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Özel"
+
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
 msgid "Clear Recents"
 msgstr "Son Kullanılanları Temizle"
 
-#: textemoticons/widgets/emoticontexteditaction.cpp:41
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#: textemoticons/widgets/emoticontexteditaction.cpp:54
+#, kde-format
 msgid "Add Smiley"
-msgstr "Rol Ekle"
+msgstr "İfade Ekle"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:57
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Oda ara..."
+msgstr "İfade Ara..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format

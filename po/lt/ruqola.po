@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-12 00:49+0000\n"
+"POT-Creation-Date: 2023-04-13 00:49+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Join At"
 msgstr ""
 
-#: core/model/emoticonmodel.cpp:94
+#: core/model/emoticonmodel.cpp:85
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Custom"
@@ -2333,18 +2333,32 @@ msgstr ""
 msgid "Flags"
 msgstr ""
 
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:82
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgctxt "Previously used emojis"
+msgid "History"
+msgstr "Šalinti"
+
+#: textemoticons/widgets/emoticoncategorybuttons.cpp:84
+#, fuzzy, kde-format
+#| msgid "Custom User Status"
+msgctxt "'Custom' is a category of emoji"
+msgid "Custom"
+msgstr "Tinkinta naudotojo būsena"
+
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
 msgid "Clear Recents"
 msgstr ""
 
-#: textemoticons/widgets/emoticontexteditaction.cpp:41
+#: textemoticons/widgets/emoticontexteditaction.cpp:54
 #, fuzzy, kde-format
 #| msgid "Custom User Status"
 msgid "Add Smiley"
 msgstr "Tinkinta naudotojo būsena"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:57
+#: textemoticons/widgets/emoticontexteditselector.cpp:73
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search Emoticon..."
