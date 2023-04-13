@@ -34,6 +34,7 @@ static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqol
 // enter items for the "Important changes" list here:
 static const KLazyLocalizedString ruqolaBugfixing[] = {
     kli18n("Fix avatar support"),
+    kli18n("Fix emoji support (use new ktextaddons/textemoticons)"),
     // TODO
 };
 static const int numRuqolaBugfixing = sizeof ruqolaBugfixing / sizeof *ruqolaBugfixing;
