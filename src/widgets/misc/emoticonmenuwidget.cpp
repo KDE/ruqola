@@ -29,6 +29,7 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *currentR
     if (currentRocketChatAccount) {
         mCustomEmojiIconManager->setCurrentRocketChatAccount(currentRocketChatAccount);
         TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiList(currentRocketChatAccount->customEmojies());
+        // TODO update list of custom emojies.
     }
 }
 
