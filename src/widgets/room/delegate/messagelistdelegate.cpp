@@ -502,6 +502,14 @@ static void positionPopup(QPoint pos, QWidget *parentWindow, QWidget *popup)
     if (popupRect.top() < screenRect.top()) {
         popupRect.moveTop(screenRect.top());
     }
+
+    if ((pos.x() + popupSize.width()) > (screenRect.x() + screenRect.width())) {
+        popupRect.setX(screenRect.x() + screenRect.width() - popupSize.width());
+    }
+    if (pos.x() - popupSize.width() < screenRect.x()) {
+        popupRect.setX(screenRect.x());
+    }
+
     popup->setGeometry(popupRect);
 }
 
