@@ -8,6 +8,7 @@
 
 #include "ruqola.h"
 #include "accountmanager.h"
+#include "customemojiiconmanager.h"
 #include "managerdatapaths.h"
 #include "rocketchataccount.h"
 
@@ -27,6 +28,7 @@ Ruqola::Ruqola(QObject *parent)
 #if HAVE_TEXT_AUTOCORRECTION
     , mAutoCorrection(new TextAutoCorrection::AutoCorrection())
 #endif
+    , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
 {
     mDebug = !qEnvironmentVariableIsEmpty("RUQOLA_DEBUGGING");
     // Initialize paths
@@ -69,6 +71,11 @@ void Ruqola::openMessageUrl(const QString &url)
 TextAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
 {
     return mAutoCorrection;
+}
+
+CustomEmojiIconManager *Ruqola::customEmojiIconManager() const
+{
+    return mCustomEmojiIconManager;
 }
 
 bool Ruqola::debug() const

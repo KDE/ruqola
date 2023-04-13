@@ -6,9 +6,10 @@
 
 #pragma once
 
+#include "libruqolacore_export.h"
 #include <TextEmoticonsCore/CustomEmojiIconManager>
 class RocketChatAccount;
-class CustomEmojiIconManager : public TextEmoticonsCore::CustomEmojiIconManager
+class LIBRUQOLACORE_EXPORT CustomEmojiIconManager : public TextEmoticonsCore::CustomEmojiIconManager
 {
     Q_OBJECT
 public:

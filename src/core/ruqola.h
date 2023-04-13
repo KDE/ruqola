@@ -18,6 +18,7 @@ namespace TextAutoCorrection
 {
 class AutoCorrection;
 }
+class CustomEmojiIconManager;
 class LIBRUQOLACORE_EXPORT Ruqola : public QObject
 {
     Q_OBJECT
@@ -43,6 +44,8 @@ public:
 
     TextAutoCorrection::AutoCorrection *autoCorrection() const;
 
+    CustomEmojiIconManager *customEmojiIconManager() const;
+
     Q_REQUIRED_RESULT bool debug() const;
 
 Q_SIGNALS:
@@ -52,5 +55,6 @@ private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
     TextAutoCorrection::AutoCorrection *const mAutoCorrection = nullptr;
+    CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
 };

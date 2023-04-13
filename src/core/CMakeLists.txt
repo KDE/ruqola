@@ -445,6 +445,10 @@ target_sources(libruqolacore PRIVATE
 
     localdatabase/localglobaldatabase.h
     localdatabase/localglobaldatabase.cpp
+
+    customemojiiconmanager.h
+    customemojiiconmanager.cpp
+
 )
 
 if (HAVE_TEXT_TRANSLATOR)

@@ -21,8 +21,11 @@ QIcon CustomEmojiIconManager::generateIcon(const QString &customIdentifier)
 {
     if (mCurrentRocketChatAccount) {
         const QString fileName = mCurrentRocketChatAccount->emojiManager()->customEmojiFileName(customIdentifier);
+        //        qDebug() << " mCurrentRocketChatAccount " << mCurrentRocketChatAccount->accountName();
+        //        qDebug() << " fileName " << fileName << "customIdentifier " << customIdentifier;
         if (!fileName.isEmpty()) {
             const QUrl emojiUrl = mCurrentRocketChatAccount->attachmentUrlFromLocalCache(fileName);
+            //            qDebug() << " emojiUrl " << emojiUrl;
             if (!emojiUrl.isEmpty()) {
                 const QIcon icon(emojiUrl.toLocalFile());
                 return icon;
