@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-13 00:49+0000\n"
+"POT-Creation-Date: 2023-04-14 00:46+0000\n"
 "PO-Revision-Date: 2023-03-31 18:05+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -1289,12 +1289,12 @@ msgstr "<strong>%1</strong> sta scrivendo..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> stanno scrivendo..."
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2814
 #, kde-format
 msgid "Export Messages"
 msgstr "Esporta messaggi"
 
-#: core/rocketchataccount.cpp:2811
+#: core/rocketchataccount.cpp:2815
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "La tua email è stata messa in coda per la spedizione."
@@ -7708,17 +7708,17 @@ msgstr[1] "%1 messaggi"
 msgid "No message yet"
 msgstr "Ancora nessun messaggio"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, kde-format
 msgid "Following"
 msgstr "Seguito"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:703
+#: widgets/room/delegate/messagelistdelegate.cpp:711
 #, kde-format
 msgid "Message has been pinned"
 msgstr "Il messaggio è stato appuntato"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "Message has been starred"
 msgstr "Il messaggio ha ricevuto una stella"
@@ -8579,18 +8579,22 @@ msgstr "Aggiungi il supporto per il testo citato (testo che inizia con '>')"
 msgid "Fix avatar support"
 msgstr "Risolto il problema con il supporto dell'avatar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:78
+#: widgets/whatsnew/whatsnewwidget.cpp:37
+msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Modifiche importanti dalla versione precedente:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:86
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Alcune delle nuove funzionalità di questa versione di Ruqola includono:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:94
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Alcune correzioni di bug:"

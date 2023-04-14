@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-13 00:49+0000\n"
-"PO-Revision-Date: 2023-03-29 05:26+0200\n"
+"POT-Creation-Date: 2023-04-14 00:46+0000\n"
+"PO-Revision-Date: 2023-04-13 06:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -1288,12 +1288,12 @@ msgstr "<strong>%1</strong> კრეფს..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> კრეფს..."
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2814
 #, kde-format
 msgid "Export Messages"
 msgstr "შეტყობინებების გატანა"
 
-#: core/rocketchataccount.cpp:2811
+#: core/rocketchataccount.cpp:2815
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "თქვენი ელფოსტა რიგშია გასაგზავნად."
@@ -2137,7 +2137,7 @@ msgstr "ეს მომხმარებელი ამ როლში ა�
 #: rocketchatrestapi-qt5/role/rolecreatejob.cpp:98
 #, kde-format
 msgid "This is an enterprise feature"
-msgstr ""
+msgstr "ეს ფასიანი ფუნქციაა"
 
 #: rocketchatrestapi-qt5/rooms/roomfavoritejob.cpp:62
 #, kde-format
@@ -2264,18 +2264,16 @@ msgid "Flags"
 msgstr "ალმები"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "ისტორიის წაშლა"
+msgstr "ისტორია"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "ხელით მითითებული"
+msgstr "მორგებული"
 
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
@@ -2283,17 +2281,14 @@ msgid "Clear Recents"
 msgstr "უახლესების გასუფთავება"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "როლის დამატება"
+msgstr "სიცილაკის დამატება"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:73
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "ოთახის ძებნა..."
+msgstr "ემოციის მოძებნა..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -3832,6 +3827,8 @@ msgid ""
 "[Beware] Enabling Debug mode would display your 'Plain Text Password' in "
 "Admin console."
 msgstr ""
+"[ფრთხილად] გამართვის რეჟიმის ჩართვის შედეგად ადმინის კონსოლში თქვენს 'პაროლს "
+"ღია ტექსტით' დაინახავთ."
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:100
 #, kde-format
@@ -4214,12 +4211,12 @@ msgstr "მაქსიმალური ოთახის წევრებ�
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:140
 #, kde-format
 msgid "Stream Cast"
-msgstr ""
+msgstr "Stream Cast"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:145
 #, kde-format
 msgid "Stream Cast Address"
-msgstr ""
+msgstr "Stream Cast-ის მისამართი"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:146
 #, kde-format
@@ -4227,6 +4224,8 @@ msgid ""
 "IP or Host of your Rocket.Chat central Stream Cast. E.g. 192.168.1.1:3000 or "
 "localhost:4000"
 msgstr ""
+"Rocket.Chat-ის ცენტრალური StreamCast-ის IP ან ჰოსტი. მაგ: 192.168.1.1:3000 "
+"ან localhost:4000"
 
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:21
 #: widgets/administratorsettingsdialog/irc/ircwidget.cpp:23
@@ -7541,17 +7540,17 @@ msgstr[1] "%1 შეტყობინება"
 msgid "No message yet"
 msgstr "შეტყობინებების გარეშე"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, kde-format
 msgid "Following"
 msgstr "გამოწერილია"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:703
+#: widgets/room/delegate/messagelistdelegate.cpp:711
 #, kde-format
 msgid "Message has been pinned"
 msgstr "შეტყობინება მიმაგრდა"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "Message has been starred"
 msgstr "შეტყობინებას ახლა ვარსკვლავი აქვს"
@@ -8410,17 +8409,21 @@ msgstr ""
 msgid "Fix avatar support"
 msgstr "ავატარის მხარდაჭერის გასწორება"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:78
+#: widgets/whatsnew/whatsnewwidget.cpp:37
+msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "მნიშვნელოვანი ცვლილებები ბოლო ვერსიის შემდეგ:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:86
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola-ის ახალ ფუნქციებში შედის:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:94
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "გამოსწორდა ზოგიერთი შეცდომა:"

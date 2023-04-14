@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-13 00:49+0000\n"
-"PO-Revision-Date: 2023-04-12 16:54+0200\n"
+"POT-Creation-Date: 2023-04-14 00:46+0000\n"
+"PO-Revision-Date: 2023-04-13 10:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -1293,12 +1293,12 @@ msgstr "<strong>%1</strong> està escrivint..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> estan escrivint..."
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2814
 #, kde-format
 msgid "Export Messages"
 msgstr "Exporta missatges"
 
-#: core/rocketchataccount.cpp:2811
+#: core/rocketchataccount.cpp:2815
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "El correu s'ha posat a la cua per a enviar."
@@ -2273,18 +2273,16 @@ msgid "Flags"
 msgstr "Banderes"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Elimina l'historial"
+msgstr "Historial"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Personalitzat"
+msgstr "Personalitzats"
 
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
@@ -7702,17 +7700,17 @@ msgstr[1] "%1 missatges"
 msgid "No message yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, kde-format
 msgid "Following"
 msgstr "Següent"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:703
+#: widgets/room/delegate/messagelistdelegate.cpp:711
 #, kde-format
 msgid "Message has been pinned"
 msgstr "El missatge s'ha fixat"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "Message has been starred"
 msgstr "El missatge s'ha destacat"
@@ -8575,18 +8573,22 @@ msgstr "Afegeix la implementació per al text citat (text que comença amb «>»
 msgid "Fix avatar support"
 msgstr "Corregeix la implementació dels avatars"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:78
+#: widgets/whatsnew/whatsnewwidget.cpp:37
+msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Canvis importants des de la darrera versió:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:86
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr ""
 "Algunes de les característiques noves d'aquesta versió del Ruqola inclouen:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:94
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Correcció d'errors:"

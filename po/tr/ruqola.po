@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-13 00:49+0000\n"
-"PO-Revision-Date: 2023-04-12 12:18+0300\n"
+"POT-Creation-Date: 2023-04-14 00:46+0000\n"
+"PO-Revision-Date: 2023-04-13 12:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1287,12 +1287,12 @@ msgstr "<strong>%1</strong>, yazıyor..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong>; yazıyor..."
 
-#: core/rocketchataccount.cpp:2810
+#: core/rocketchataccount.cpp:2814
 #, kde-format
 msgid "Export Messages"
 msgstr "İletileri Dışa Aktar"
 
-#: core/rocketchataccount.cpp:2811
+#: core/rocketchataccount.cpp:2815
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr "E-postanız, gönderme için kuyruğa eklendi."
@@ -2250,15 +2250,13 @@ msgid "Flags"
 msgstr "Bayraklar"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Geçmişi Kaldır"
+msgstr "Geçmiş"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Özel"
@@ -7654,17 +7652,17 @@ msgstr[1] "%1 ileti"
 msgid "No message yet"
 msgstr "Henüz ileti yok"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:699
+#: widgets/room/delegate/messagelistdelegate.cpp:707
 #, kde-format
 msgid "Following"
 msgstr "Takip Ediliyor"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:703
+#: widgets/room/delegate/messagelistdelegate.cpp:711
 #, kde-format
 msgid "Message has been pinned"
 msgstr "İleti sabitlendi"
 
-#: widgets/room/delegate/messagelistdelegate.cpp:707
+#: widgets/room/delegate/messagelistdelegate.cpp:715
 #, kde-format
 msgid "Message has been starred"
 msgstr "İleti yıldızlandı"
@@ -8524,17 +8522,21 @@ msgstr "Alıntı metinler için destek ekle ('>' ile başlayan metinler)"
 msgid "Fix avatar support"
 msgstr "Avatar desteğini onar"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:78
+#: widgets/whatsnew/whatsnewwidget.cpp:37
+msgid "Fix emoji support (use new ktextaddons/textemoticons)"
+msgstr ""
+
+#: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
 msgid "Important changes since last version:"
 msgstr "Son sürümden bu yana önemli değişiklikler:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:86
+#: widgets/whatsnew/whatsnewwidget.cpp:87
 #, kde-format
 msgid "Some of the new features in this release of Ruqola include:"
 msgstr "Ruqola'nın bu sürümündeki yeni özelliklerden bazıları şunlardır:"
 
-#: widgets/whatsnew/whatsnewwidget.cpp:94
+#: widgets/whatsnew/whatsnewwidget.cpp:95
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Hata düzeltmeler"
