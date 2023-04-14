@@ -20,6 +20,8 @@ public:
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
+    RocketChatAccount *currentRocketChatAccount() const;
+
 private:
     RocketChatAccount *mCurrentRocketChatAccount = nullptr;
 };

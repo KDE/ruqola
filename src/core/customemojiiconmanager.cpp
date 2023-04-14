@@ -39,3 +39,8 @@ void CustomEmojiIconManager::setCurrentRocketChatAccount(RocketChatAccount *curr
 {
     mCurrentRocketChatAccount = currentRocketChatAccount;
 }
+
+RocketChatAccount *CustomEmojiIconManager::currentRocketChatAccount() const
+{
+    return mCurrentRocketChatAccount;
+}

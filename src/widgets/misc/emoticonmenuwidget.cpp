@@ -30,7 +30,6 @@ void EmoticonMenuWidget::setCurrentRocketChatAccount(RocketChatAccount *currentR
     Ruqola::self()->customEmojiIconManager()->setCurrentRocketChatAccount(currentRocketChatAccount);
     if (currentRocketChatAccount) {
         TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiList(currentRocketChatAccount->customEmojies());
-        // TODO update list of custom emojies.
     }
 }
 

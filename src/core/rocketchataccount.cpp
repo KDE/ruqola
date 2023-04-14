@@ -8,6 +8,7 @@
 #include "attachments/fileattachments.h"
 #include "authenticationmanager.h"
 #include "config-ruqola.h"
+#include "customemojiiconmanager.h"
 #include "downloadappslanguages/downloadappslanguagesmanager.h"
 #include "emoticons/emojimanager.h"
 #include "managerdatapaths.h"
@@ -35,6 +36,7 @@
 #include "otr/otrmanager.h"
 #include "rocketchatbackend.h"
 #include "rocketchatcache.h"
+#include "ruqola.h"
 #include "ruqola_debug.h"
 #include "ruqola_notification_debug.h"
 #include "ruqola_reconnect_core_debug.h"
@@ -66,6 +68,8 @@
 #include <QDesktopServices>
 #include <QJsonArray>
 #include <QTimer>
+#include <TextEmoticonsCore/EmojiModel>
+#include <TextEmoticonsCore/EmojiModelManager>
 #include <channelgroupbasejob.h>
 
 #if HAVE_NETWORKMANAGER
@@ -850,6 +854,9 @@ void RocketChatAccount::updateCustomEmojiList(bool fetchListCustom)
     } else {
         const auto customEmojiList = mEmojiManager->customEmojiList();
         mEmoticonModel->setCustomEmojiList(customEmojiList);
+        if (Ruqola::self()->customEmojiIconManager()->currentRocketChatAccount() == this) {
+            TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiList(customEmojies());
+        }
     }
 }
 
