@@ -112,6 +112,10 @@ void EmojiProxyModel::setCategory(const QString &newCategorie)
             // Make sure that we reorder recent category
             invalidate();
         }
+        if (TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier() == d->mCategory) {
+            // Make sure that we reorder custom category
+            invalidate();
+        }
     }
 }
 
