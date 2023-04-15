@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-14 00:46+0000\n"
-"PO-Revision-Date: 2023-03-16 16:30+0100\n"
+"POT-Creation-Date: 2023-04-15 00:49+0000\n"
+"PO-Revision-Date: 2023-03-29 16:17+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1287,12 +1287,12 @@ msgstr "<strong>%1</strong> píše..."
 msgid "<strong>%1</strong> are typing..."
 msgstr "<strong>%1</strong> píší…"
 
-#: core/rocketchataccount.cpp:2814
+#: core/rocketchataccount.cpp:2821
 #, kde-format
 msgid "Export Messages"
 msgstr "Exportovat zprávy"
 
-#: core/rocketchataccount.cpp:2815
+#: core/rocketchataccount.cpp:2822
 #, kde-format
 msgid "Your email has been queued for sending."
 msgstr ""
@@ -2257,15 +2257,13 @@ msgid "Flags"
 msgstr "Příznaky"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Odstranit historii"
+msgstr "Historie"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Vlastní"
@@ -2278,13 +2276,12 @@ msgstr "Vyprázdnit nedávné"
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
 #, kde-format
 msgid "Add Smiley"
-msgstr ""
+msgstr "Přidat emotikon"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:73
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Hledat místnost..."
+msgstr "Hledat emotikon..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -8372,9 +8369,3 @@ msgstr "Některé nové vlastnosti tohoto vydání Ruqola zahrnují:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr ""
-
-#~ msgid "Search"
-#~ msgstr "Hledat"
-
-#~ msgid "Recent"
-#~ msgstr "Nedávné"
