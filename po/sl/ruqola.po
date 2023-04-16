@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:49+0000\n"
-"PO-Revision-Date: 2023-04-13 09:52+0200\n"
+"PO-Revision-Date: 2023-04-15 10:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:51
@@ -8562,7 +8562,7 @@ msgstr "Popravi podporo za avatar"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr ""
+msgstr "Popravi podporo čustvenčkom (uporabi novo ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format

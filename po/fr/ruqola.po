@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:49+0000\n"
-"PO-Revision-Date: 2023-04-13 20:09+0200\n"
+"PO-Revision-Date: 2023-04-14 14:40+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -2284,15 +2284,13 @@ msgid "Flags"
 msgstr "Étiquettes"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Supprimer l'historique"
+msgstr "Historique"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personnalisé"

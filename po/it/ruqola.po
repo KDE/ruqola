@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:49+0000\n"
-"PO-Revision-Date: 2023-03-31 18:05+0200\n"
+"PO-Revision-Date: 2023-04-14 16:59+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2272,18 +2272,16 @@ msgid "Flags"
 msgstr "Bandiere"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Rimuovi cronologia"
+msgstr "Cronologia"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Personalizzato"
+msgstr "Personalizzate"
 
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
@@ -2291,17 +2289,14 @@ msgid "Clear Recents"
 msgstr "Pulisci recenti"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Aggiungi ruolo"
+msgstr "Aggiungi faccina"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:73
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Cerca stanza..."
+msgstr "Cerca faccina..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -8582,6 +8577,7 @@ msgstr "Risolto il problema con il supporto dell'avatar"
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
+"Correggi il supporto delle emoji (usa i nuovi ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
