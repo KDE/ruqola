@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:49+0000\n"
-"PO-Revision-Date: 2023-04-14 14:40+0200\n"
+"PO-Revision-Date: 2023-04-15 19:55+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -8621,6 +8621,8 @@ msgstr "Correction de la prise en charge des avatars"
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
+"Correction de la prise en charge des émoticônes (Utilisation de nouveaux "
+"ktextaddons / textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
