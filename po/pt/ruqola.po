@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-15 00:49+0000\n"
-"PO-Revision-Date: 2023-04-01 12:19+0100\n"
+"PO-Revision-Date: 2023-04-17 17:16+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -45,7 +45,7 @@ msgstr ""
 "X-POFile-SpellExtra: GitHub avatares Áudios Hmong Video Deepl\n"
 "X-POFile-IgnoreConsistency: Secret\n"
 "X-POFile-SpellExtra: UtilizadorKeep Messages mensagen localhost roomId\n"
-"X-POFile-SpellExtra: roomName\n"
+"X-POFile-SpellExtra: roomName Smiley ktextaddons textemoticons\n"
 
 #: apps/main.cpp:51
 #, kde-format
@@ -2292,15 +2292,13 @@ msgid "Flags"
 msgstr "Bandeiras"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Remover o Histórico"
+msgstr "Histórico"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalizado"
@@ -2311,17 +2309,14 @@ msgid "Clear Recents"
 msgstr "Limpar as Recentes"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Adicionar um Papel"
+msgstr "Adicionar Smiley"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:73
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Procurar uma sala..."
+msgstr "Procurar um Ícone Emotivo..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -8609,6 +8604,8 @@ msgstr "Correcção do suporte de avatares"
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
 msgstr ""
+"Correcção do suporte para emoji's (uso do novo módulo ktextaddons/"
+"textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
@@ -8624,9 +8621,3 @@ msgstr "Algumas das novas funcionalidades nesta versão do Ruqola incluem:"
 #, kde-format
 msgid "Some bug fixing:"
 msgstr "Algumas correcções de erros:"
-
-#~ msgid "Search"
-#~ msgstr "Procurar"
-
-#~ msgid "Recent"
-#~ msgstr "Recentes"
