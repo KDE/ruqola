@@ -2301,7 +2301,7 @@ msgstr "Histórico"
 #, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
-msgstr "Personalizado"
+msgstr "Personalizados"
 
 #: textemoticons/widgets/emoticonlistview.cpp:103
 #, kde-format
