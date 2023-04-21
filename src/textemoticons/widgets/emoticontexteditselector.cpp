@@ -11,7 +11,6 @@
 
 #include <KLocalizedString>
 #include <QLineEdit>
-#include <QScreen>
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
@@ -96,7 +95,7 @@ EmoticonTextEditSelector::EmoticonTextEditSelector(QWidget *parent)
         TextEmoticonsCore::EmojiModelManager::self()->setRecentIdentifier(QStringList());
     });
 
-    const QSize popupMenuSize = QSize(400, 250) * screen()->devicePixelRatio();
+    const QSize popupMenuSize = QSize(400, 250);
     setMinimumSize(popupMenuSize);
 }
 

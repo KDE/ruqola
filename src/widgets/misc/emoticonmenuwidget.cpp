@@ -8,7 +8,6 @@
 #include "customemojiiconmanager.h"
 #include "rocketchataccount.h"
 #include "ruqola.h"
-#include <QScreen>
 #include <QVBoxLayout>
 #include <TextEmoticonsCore/EmojiModel>
 #include <TextEmoticonsCore/EmojiModelManager>
@@ -18,7 +17,7 @@ EmoticonMenuWidget::EmoticonMenuWidget(QWidget *parent)
     setCustomEmojiSupport(true);
     setAttribute(Qt::WA_DeleteOnClose);
     loadEmoticons();
-    const QSize popupMenuSize = QSize(400, 250) * screen()->devicePixelRatio();
+    const QSize popupMenuSize = QSize(400, 250);
     setFixedSize(popupMenuSize);
     TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiIconManager(Ruqola::self()->customEmojiIconManager());
 }
