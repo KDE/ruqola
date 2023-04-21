@@ -83,7 +83,9 @@ QString CustomEmoji::generateAnimatedUrlFromCustomEmoji(const QString &serverUrl
         // https://rocket.chat/docs/developer-guides/realtime-api/method-calls/list-custom-emoji/#list-custom-emoji
         // http://yourhost.com/emoji-custom/Emoji%20Name.png
         // TODO customize size.
-        mCachedHtml = url;
+        // Don't store url as cached html
+        // mCachedHtml = url;
+        return url;
     }
     return mCachedHtml;
 }
