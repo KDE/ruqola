@@ -5,6 +5,7 @@
 */
 
 #include "uploadfilewidget.h"
+#include "misc/lineeditcatchreturnkey.h"
 #include <KLocalizedString>
 #include <KUrlRequester>
 
@@ -35,6 +36,7 @@ UploadFileWidget::UploadFileWidget(QWidget *parent)
     mDescription->setObjectName(QStringLiteral("mDescription"));
     mDescription->setClearButtonEnabled(true);
     layout->addRow(i18n("Description:"), mDescription);
+    new LineEditCatchReturnKey(mDescription, this);
 
     mSelectFile->setObjectName(QStringLiteral("mSelectFile"));
     mFileLabel->setObjectName(QStringLiteral("mFileLabel"));
