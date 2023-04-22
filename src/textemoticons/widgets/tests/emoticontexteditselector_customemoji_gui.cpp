@@ -39,6 +39,12 @@ public:
             custom.setIdentifier(QStringLiteral(":custom2:"));
             customEmoji.append(custom);
         }
+        {
+            TextEmoticonsCore::CustomEmoji custom;
+            custom.setIdentifier(QStringLiteral(":gif1:"));
+            custom.setIsAnimatedEmoji(true);
+            customEmoji.append(custom);
+        }
         TextEmoticonsCore::EmojiModelManager::self()->emojiModel()->setCustomEmojiList(customEmoji);
         w->loadEmoticons();
 

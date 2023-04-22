@@ -21,5 +21,6 @@ public:
     explicit CustomEmojiIconManager(QObject *parent = nullptr);
     virtual ~CustomEmojiIconManager();
     virtual QIcon generateIcon(const QString &customIdentifier);
+    virtual QString fileName(const QString &customIdentifier);
 };
 }

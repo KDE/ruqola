@@ -47,6 +47,13 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case Qt::DecorationRole: {
             if (mCustomEmojiIconManager) {
+                if (customEmoji.isAnimatedEmoji()) {
+                    const QString filename = mCustomEmojiIconManager->fileName(customEmoji.identifier());
+                    if (!filename.isEmpty()) {
+                        const QIcon icon(filename);
+                        return icon;
+                    }
+                }
                 const QIcon icon = mCustomEmojiIconManager->generateIcon(customEmoji.identifier());
                 return icon;
             } else {
@@ -58,9 +65,8 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
             return customEmoji.category();
         case Order:
             return -1;
-        case Identifier:
         case Qt::ToolTipRole:
-            return customEmoji.identifier();
+        case Identifier:
         case UnicodeEmoji:
             return customEmoji.identifier();
         }

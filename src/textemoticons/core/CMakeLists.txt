@@ -43,7 +43,6 @@ target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsCore
     PUBLIC
     Qt::Gui
     PRIVATE
-    Qt::Widgets
     KF${KF_MAJOR_VERSION}::ConfigCore
 )
 

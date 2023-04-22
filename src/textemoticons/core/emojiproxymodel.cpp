@@ -108,12 +108,9 @@ void EmojiProxyModel::setCategory(const QString &newCategorie)
         } else {
             invalidateFilter();
         }
-        if (TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == d->mCategory) {
-            // Make sure that we reorder recent category
-            invalidate();
-        }
-        if (TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier() == d->mCategory) {
-            // Make sure that we reorder custom category
+        if ((TextEmoticonsCore::EmoticonUnicodeUtils::recentIdentifier() == d->mCategory)
+            || (TextEmoticonsCore::EmoticonUnicodeUtils::customIdentifier() == d->mCategory)) {
+            // Make sure that we reorder recent/custom category
             invalidate();
         }
     }

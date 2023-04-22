@@ -22,6 +22,16 @@ QIcon CustomEmojiIconManagerGuiTest::generateIcon(const QString &customIdentifie
         return QIcon::fromTheme(QStringLiteral("view-refresh"));
     } else if (customIdentifier == QStringLiteral(":custom2:")) {
         return QIcon::fromTheme(QStringLiteral("lock"));
+    } else if (customIdentifier == QStringLiteral(":gif1:")) {
+        return {};
+    }
+    return {};
+}
+
+QString CustomEmojiIconManagerGuiTest::fileName(const QString &customIdentifier)
+{
+    if (customIdentifier == QStringLiteral(":gif1:")) {
+        return QStringLiteral(":/gif1");
     }
     return {};
 }

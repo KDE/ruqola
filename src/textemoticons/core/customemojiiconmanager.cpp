@@ -21,3 +21,9 @@ QIcon CustomEmojiIconManager::generateIcon(const QString &customIdentifier)
     Q_UNUSED(customIdentifier)
     return {};
 }
+
+QString CustomEmojiIconManager::fileName(const QString &customIdentifier)
+{
+    Q_UNUSED(customIdentifier)
+    return {};
+}

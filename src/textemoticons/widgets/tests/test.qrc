@@ -1,0 +1,9 @@
+<!--
+    SPDX-FileCopyrightText: none
+    SPDX-License-Identifier: CC0-1.0
+-->
+<RCC>
+    <qresource prefix="/">
+        <file alias="gif1">gif1.gif</file>
+    </qresource>
+</RCC>
