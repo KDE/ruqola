@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:49+0000\n"
+"POT-Creation-Date: 2023-04-22 00:51+0000\n"
 "PO-Revision-Date: 2020-03-31 01:37+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: none\n"
@@ -2358,7 +2358,7 @@ msgstr ""
 msgid "Add Smiley"
 msgstr "Tinkinta naudotojo būsena"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#: textemoticons/widgets/emoticontexteditselector.cpp:72
 #, fuzzy, kde-format
 #| msgid "Search Messages..."
 msgid "Search Emoticon..."
@@ -2463,7 +2463,7 @@ msgstr ""
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:20
+#: widgets/dialogs/uploadfilewidget.cpp:21
 #, kde-format
 msgid "File:"
 msgstr "Failas:"
@@ -2776,7 +2776,7 @@ msgstr "Tapatybės nustatymo metodas"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/uploadfilewidget.cpp:37
+#: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"

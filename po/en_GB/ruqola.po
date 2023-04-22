@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:49+0000\n"
+"POT-Creation-Date: 2023-04-22 00:51+0000\n"
 "PO-Revision-Date: 2023-04-01 17:50+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2288,7 +2288,7 @@ msgstr "Clear Recents"
 msgid "Add Smiley"
 msgstr "Add Role"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#: textemoticons/widgets/emoticontexteditselector.cpp:72
 #, fuzzy, kde-format
 #| msgid "Search room..."
 msgid "Search Emoticon..."
@@ -2386,7 +2386,7 @@ msgstr "Alias:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:20
+#: widgets/dialogs/uploadfilewidget.cpp:21
 #, kde-format
 msgid "File:"
 msgstr "File:"
@@ -2662,7 +2662,7 @@ msgstr "Use Two Factor Authentication"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/uploadfilewidget.cpp:37
+#: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"

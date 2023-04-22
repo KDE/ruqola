@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:49+0000\n"
+"POT-Creation-Date: 2023-04-22 00:51+0000\n"
 "PO-Revision-Date: 2023-04-13 06:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2285,7 +2285,7 @@ msgstr "უახლესების გასუფთავება"
 msgid "Add Smiley"
 msgstr "სიცილაკის დამატება"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:73
+#: textemoticons/widgets/emoticontexteditselector.cpp:72
 #, kde-format
 msgid "Search Emoticon..."
 msgstr "ემოციის მოძებნა..."
@@ -2382,7 +2382,7 @@ msgstr "მეტსახელი:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreateorupdatewidget.cpp:52
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
-#: widgets/dialogs/uploadfilewidget.cpp:20
+#: widgets/dialogs/uploadfilewidget.cpp:21
 #, kde-format
 msgid "File:"
 msgstr "ფაილი:"
@@ -2658,7 +2658,7 @@ msgstr "2FA ავთენტიკაციის გამოყენებ�
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:53
 #: widgets/dialogs/channelinfoeditablewidget.cpp:68
 #: widgets/dialogs/channelinforeadonlywidget.cpp:60
-#: widgets/dialogs/uploadfilewidget.cpp:37
+#: widgets/dialogs/uploadfilewidget.cpp:38
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:27
 #, kde-format
 msgid "Description:"
