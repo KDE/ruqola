@@ -57,7 +57,7 @@ target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets
 #    EXPORT_NAME TextEmoticonsWidgets
 #)
 set_target_properties(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PROPERTIES OUTPUT_NAME ruqola-textemoticonswidgets)
-install(TARGETS KF${KF_MAJOR_VERSION}TextEmoticonsWidgets EXPORT KF${KF_MAJOR_VERSION}TextEmoticonsWidgetsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}  LIBRARY NAMELINK_SKIP)
+install(TARGETS KF${KF_MAJOR_VERSION}TextEmoticonsWidgets EXPORT KF${KF_MAJOR_VERSION}TextEmoticonsWidgetsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}  LIBRARY NAMELINK_SKIP)
 
 if(BUILD_TESTING)
     add_subdirectory(autotests)

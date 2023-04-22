@@ -69,7 +69,7 @@ target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsCore
 #    EXPORT_NAME TextEmoticonsCore
 #)
 set_target_properties(KF${KF_MAJOR_VERSION}TextEmoticonsCore PROPERTIES OUTPUT_NAME ruqola-textemoticonscore)
-install(TARGETS KF${KF_MAJOR_VERSION}TextEmoticonsCore EXPORT KF${KF_MAJOR_VERSION}TextEmoticonsCoreTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS}  LIBRARY NAMELINK_SKIP)
+install(TARGETS KF${KF_MAJOR_VERSION}TextEmoticonsCore EXPORT KF${KF_MAJOR_VERSION}TextEmoticonsCoreTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS}  LIBRARY NAMELINK_SKIP)
 if(BUILD_TESTING)
     add_subdirectory(autotests)
 endif()
