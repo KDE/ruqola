@@ -44,3 +44,9 @@ RocketChatAccount *CustomEmojiIconManager::currentRocketChatAccount() const
 {
     return mCurrentRocketChatAccount;
 }
+
+QString CustomEmojiIconManager::fileName(const QString &customIdentifier)
+{
+    Q_UNUSED(customIdentifier)
+    return {};
+}

@@ -17,6 +17,7 @@ public:
     ~CustomEmojiIconManager() override;
 
     Q_REQUIRED_RESULT QIcon generateIcon(const QString &customIdentifier) override;
+    Q_REQUIRED_RESULT QString fileName(const QString &customIdentifier) override;
 
     void setCurrentRocketChatAccount(RocketChatAccount *currentRocketChatAccount);
 
