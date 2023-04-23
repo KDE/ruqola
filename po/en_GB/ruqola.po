@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-22 00:51+0000\n"
-"PO-Revision-Date: 2023-04-01 17:50+0100\n"
+"PO-Revision-Date: 2023-04-22 10:59+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -2263,15 +2263,13 @@ msgid "Flags"
 msgstr "Flags"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:82
-#, fuzzy, kde-format
-#| msgid "Remove History"
+#, kde-format
 msgctxt "Previously used emojis"
 msgid "History"
-msgstr "Remove History"
+msgstr "History"
 
 #: textemoticons/widgets/emoticoncategorybuttons.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Custom"
@@ -2282,17 +2280,14 @@ msgid "Clear Recents"
 msgstr "Clear Recents"
 
 #: textemoticons/widgets/emoticontexteditaction.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Add Role"
+#, kde-format
 msgid "Add Smiley"
-msgstr "Add Role"
+msgstr "Add Smiley"
 
 #: textemoticons/widgets/emoticontexteditselector.cpp:72
-#, fuzzy, kde-format
-#| msgid "Search room..."
+#, kde-format
 msgid "Search Emoticon..."
-msgstr "Search room..."
+msgstr "Search Emoticon..."
 
 #: widgets/administratordialog/administratordialog.cpp:27
 #, kde-format
@@ -8525,7 +8520,7 @@ msgstr "Fix avatar support"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:37
 msgid "Fix emoji support (use new ktextaddons/textemoticons)"
-msgstr ""
+msgstr "Fix emoji support (use new ktextaddons/textemoticons)"
 
 #: widgets/whatsnew/whatsnewwidget.cpp:79
 #, kde-format
