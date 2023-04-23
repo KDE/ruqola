@@ -712,6 +712,12 @@ if (HAVE_TEXT_AUTOCORRECTION)
         configuredialog/configureautocorrectionwidget.cpp
     )
 endif()
+if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+    target_sources(libruqolawidgets PRIVATE
+        configuredialog/configureautocorrectionwidget.h
+        configuredialog/configureautocorrectionwidget.cpp
+    )
+endif()
 
 if (HAVE_TEXT_TO_SPEECH)
     target_sources(libruqolawidgets PRIVATE
@@ -780,6 +786,11 @@ endif()
 if (HAVE_TEXT_AUTOCORRECTION)
     target_link_libraries(libruqolawidgets
         KF${KF_MAJOR_VERSION}::TextAutoCorrection
+    )
+endif()
+if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+    target_link_libraries(libruqolawidgets
+        KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets
     )
 endif()
 

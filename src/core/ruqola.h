@@ -11,10 +11,15 @@
 
 #include "libruqolacore_export.h"
 #include <QObject>
+#include <config-ruqola.h>
 
 class RocketChatAccount;
 class AccountManager;
 namespace TextAutoCorrection
+{
+class AutoCorrection;
+}
+namespace TextAutoCorrectionCore
 {
 class AutoCorrection;
 }
@@ -41,8 +46,12 @@ public:
     void setCurrentAccount(const QString &accountName);
 
     void openMessageUrl(const QString &url);
-
+#if HAVE_TEXT_AUTOCORRECTION
     TextAutoCorrection::AutoCorrection *autoCorrection() const;
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    TextAutoCorrectionCore::AutoCorrection *autoCorrection() const;
+#endif
 
     CustomEmojiIconManager *customEmojiIconManager() const;
 
@@ -54,7 +63,13 @@ Q_SIGNALS:
 private:
     Q_DISABLE_COPY(Ruqola)
     AccountManager *mAccountManager = nullptr;
+#if HAVE_TEXT_AUTOCORRECTION
     TextAutoCorrection::AutoCorrection *const mAutoCorrection = nullptr;
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    TextAutoCorrectionCore::AutoCorrection *const mAutoCorrection = nullptr;
+#endif
+
     CustomEmojiIconManager *const mCustomEmojiIconManager;
     bool mDebug = false;
 };

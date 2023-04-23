@@ -18,6 +18,10 @@ if (HAVE_TEXT_AUTOCORRECTION)
     add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
 endif()
 
+if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+    add_ruqolaconfiguredialog_test(configureautocorrectionwidgettest.cpp)
+endif()
+
 if (HAVE_TEXT_TO_SPEECH)
     add_ruqolaconfiguredialog_test(configureaccessibilitywidgettest.cpp)
 endif()

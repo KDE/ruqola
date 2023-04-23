@@ -30,6 +30,10 @@
 #include "textautocorrection/autocorrection.h"
 #include "textautocorrection/textautocorrectionsettings.h"
 #endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+#include "textautocorrectioncore/textautocorrectionsettings.h"
+#include <TextAutoCorrectionCore/AutoCorrection>
+#endif
 
 MessageTextEdit::MessageTextEdit(QWidget *parent)
     : KTextEdit(parent)
@@ -82,6 +86,13 @@ void MessageTextEdit::slotLanguageChanged(const QString &lang)
 void MessageTextEdit::switchAutoCorrectionLanguage(const QString &lang)
 {
 #if HAVE_TEXT_AUTOCORRECTION
+    if (!lang.isEmpty()) {
+        auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
+        settings->setLanguage(lang);
+        Ruqola::self()->autoCorrection()->setAutoCorrectionSettings(settings);
+    }
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     if (!lang.isEmpty()) {
         auto settings = Ruqola::self()->autoCorrection()->autoCorrectionSettings();
         settings->setLanguage(lang);
@@ -261,6 +272,26 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e)
     const int key = e->key();
 
 #if HAVE_TEXT_AUTOCORRECTION
+    if (Ruqola::self()->autoCorrection()->autoCorrectionSettings()->isEnabledAutoCorrection()) {
+        if ((key == Qt::Key_Space) || (key == Qt::Key_Enter) || (key == Qt::Key_Return)) {
+            if (!textCursor().hasSelection()) {
+                int position = textCursor().position();
+                // no Html format in subject. => false
+                const bool addSpace = Ruqola::self()->autoCorrection()->autocorrect(false, *document(), position);
+                QTextCursor cur = textCursor();
+                cur.setPosition(position);
+                if (key == Qt::Key_Space) {
+                    if (addSpace) {
+                        cur.insertText(QStringLiteral(" "));
+                        setTextCursor(cur);
+                    }
+                    return;
+                }
+            }
+        }
+    }
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     if (Ruqola::self()->autoCorrection()->autoCorrectionSettings()->isEnabledAutoCorrection()) {
         if ((key == Qt::Key_Space) || (key == Qt::Key_Enter) || (key == Qt::Key_Return)) {
             if (!textCursor().hasSelection()) {

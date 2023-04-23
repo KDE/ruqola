@@ -555,6 +555,11 @@ if (HAVE_TEXT_AUTOCORRECTION)
         KF${KF_MAJOR_VERSION}::TextAutoCorrection
     )
 endif()
+if (HAVE_TEXT_AUTOCORRECTION_WIDGETS)
+    target_link_libraries(libruqolacore
+        KF${KF_MAJOR_VERSION}::TextAutoCorrectionWidgets
+    )
+endif()
 
 if (WIN32 OR APPLE)
     target_link_libraries(libruqolacore KF${KF_MAJOR_VERSION}::IconThemes)

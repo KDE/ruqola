@@ -28,6 +28,10 @@
 #include "configureautocorrectionwidget.h"
 #endif
 
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+#include "configureautocorrectionwidget.h"
+#endif
+
 #if HAVE_TEXT_TO_SPEECH
 #include "configureaccessibilitywidget.h"
 #endif
@@ -46,6 +50,9 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     , mConfigureSpellCheckingWidget(new ConfigureSpellCheckingWidget(this))
     , mConfigureGeneralWidget(new ConfigureGeneralWidget(this))
     , mConfigureFontWidget(new ConfigureFontWidget(this))
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
+#endif
 #if HAVE_TEXT_AUTOCORRECTION
     , mConfigureAutoCorrectionWidget(new ConfigureAutoCorrectionWidget(this))
 #endif
@@ -80,6 +87,12 @@ ConfigureSettingsDialog::ConfigureSettingsDialog(QWidget *parent)
     addPage(mConfigureFontWidgetPage);
 
 #if HAVE_TEXT_AUTOCORRECTION
+    const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
+    mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
+    // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
+    addPage(mConfigureAutoCorrectionWidgetPage);
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     const QString autoCorrectionPageName = i18nc("@title AutoCorrection page name", "AutoCorrection");
     mConfigureAutoCorrectionWidgetPage = new KPageWidgetItem(mConfigureAutoCorrectionWidget, autoCorrectionPageName);
     // TODO add icon mConfigureAutoCorrectionWidgetPage->setIcon(QIcon::fromTheme(QStringLiteral("font")));
@@ -171,6 +184,9 @@ void ConfigureSettingsDialog::load()
     mConfigureTranslateWidget->load();
 #endif
 #if HAVE_TEXT_AUTOCORRECTION
+    mConfigureAutoCorrectionWidget->load();
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     mConfigureAutoCorrectionWidget->load();
 #endif
 #if HAVE_TEXT_TO_SPEECH

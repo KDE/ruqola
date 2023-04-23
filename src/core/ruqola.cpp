@@ -14,11 +14,13 @@
 
 #include <KSharedConfig>
 
-#include <config-ruqola.h>
-
 #if HAVE_TEXT_AUTOCORRECTION
 #include "textautocorrection/autocorrection.h"
 #include "textautocorrection/textautocorrectionsettings.h"
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+#include "textautocorrectioncore/textautocorrectionsettings.h"
+#include <TextAutoCorrectionCore/AutoCorrection>
 #endif
 
 static Ruqola *s_self = nullptr;
@@ -27,6 +29,9 @@ Ruqola::Ruqola(QObject *parent)
     : QObject(parent)
 #if HAVE_TEXT_AUTOCORRECTION
     , mAutoCorrection(new TextAutoCorrection::AutoCorrection())
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    , mAutoCorrection(new TextAutoCorrectionCore::AutoCorrection())
 #endif
     , mCustomEmojiIconManager(new CustomEmojiIconManager(this))
 {
@@ -40,11 +45,19 @@ Ruqola::Ruqola(QObject *parent)
     TextAutoCorrection::TextAutoCorrectionSettings::self()->load();
     mAutoCorrection->readConfig();
 #endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->setSharedConfig(KSharedConfig::openConfig());
+    TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->load();
+    mAutoCorrection->readConfig();
+#endif
 }
 
 Ruqola::~Ruqola()
 {
 #if HAVE_TEXT_AUTOCORRECTION
+    delete mAutoCorrection;
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
     delete mAutoCorrection;
 #endif
 }
@@ -68,10 +81,19 @@ void Ruqola::openMessageUrl(const QString &url)
     mAccountManager->openMessageUrl(url);
 }
 
+#if HAVE_TEXT_AUTOCORRECTION
 TextAutoCorrection::AutoCorrection *Ruqola::autoCorrection() const
 {
     return mAutoCorrection;
 }
+#endif
+
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+TextAutoCorrectionCore::AutoCorrection *Ruqola::autoCorrection() const
+{
+    return mAutoCorrection;
+}
+#endif
 
 CustomEmojiIconManager *Ruqola::customEmojiIconManager() const
 {

@@ -6,14 +6,28 @@
 
 #include "configureautocorrectionwidget.h"
 #include "ruqola.h"
+
+#if HAVE_TEXT_AUTOCORRECTION
 #include "textautocorrection/autocorrection.h"
-#include "textautocorrection/autocorrectionwidget.h"
 #include "textautocorrection/textautocorrectionsettings.h"
+#include <TextAutoCorrection/AutoCorrectionWidget>
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+#include "textautocorrectioncore/textautocorrectionsettings.h"
+#include <TextAutoCorrectionCore/AutoCorrection>
+#include <TextAutoCorrectionWidgets/AutoCorrectionWidget>
+#endif
+
 #include <QVBoxLayout>
 
 ConfigureAutoCorrectionWidget::ConfigureAutoCorrectionWidget(QWidget *parent)
     : QWidget{parent}
+#if HAVE_TEXT_AUTOCORRECTION
     , mAutoCorrectionWidget(new TextAutoCorrection::AutoCorrectionWidget(this))
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    , mAutoCorrectionWidget(new TextAutoCorrectionWidgets::AutoCorrectionWidget(this))
+#endif
 {
     auto mainLayout = new QVBoxLayout(this);
     mainLayout->setObjectName(QStringLiteral("mainLayout"));
@@ -29,7 +43,12 @@ ConfigureAutoCorrectionWidget::~ConfigureAutoCorrectionWidget() = default;
 void ConfigureAutoCorrectionWidget::save()
 {
     mAutoCorrectionWidget->writeConfig();
+#if HAVE_TEXT_AUTOCORRECTION
     TextAutoCorrection::TextAutoCorrectionSettings::self()->save();
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    TextAutoCorrectionCore::TextAutoCorrectionSettings::self()->save();
+#endif
 }
 
 void ConfigureAutoCorrectionWidget::load()

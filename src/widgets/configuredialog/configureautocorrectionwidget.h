@@ -8,10 +8,20 @@
 
 #include "libruqolawidgets_private_export.h"
 #include <QWidget>
+#include <config-ruqola.h>
+#if HAVE_TEXT_AUTOCORRECTION
 namespace TextAutoCorrection
 {
 class AutoCorrectionWidget;
 }
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+namespace TextAutoCorrectionWidgets
+{
+class AutoCorrectionWidget;
+}
+#endif
+
 class LIBRUQOLAWIDGETS_TESTS_EXPORT ConfigureAutoCorrectionWidget : public QWidget
 {
     Q_OBJECT
@@ -23,5 +33,10 @@ public:
     void load();
 
 private:
+#if HAVE_TEXT_AUTOCORRECTION
     TextAutoCorrection::AutoCorrectionWidget *const mAutoCorrectionWidget;
+#endif
+#if HAVE_TEXT_AUTOCORRECTION_WIDGETS
+    TextAutoCorrectionWidgets::AutoCorrectionWidget *const mAutoCorrectionWidget;
+#endif
 };
