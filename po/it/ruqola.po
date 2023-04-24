@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# Paolo Zamponi <zapaolo@email.it>, 2019, 2020, 2021.
+# Paolo Zamponi <feus73@gmail.com>, 2019, 2020, 2021.
 # Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-22 00:51+0000\n"
+"POT-Creation-Date: 2023-04-24 00:48+0000\n"
 "PO-Revision-Date: 2023-04-14 16:59+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -5922,55 +5922,56 @@ msgstr "Abilita il registro"
 msgid "Show hover highlights"
 msgstr "Mostra le evidenziazioni al passaggio del mouse"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:62
+#: widgets/configuredialog/configuresettingsdialog.cpp:69
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Ruqola"
 msgstr "Configura Ruqola"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:67
+#: widgets/configuredialog/configuresettingsdialog.cpp:74
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "General"
 msgstr "Generale"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:72
+#: widgets/configuredialog/configuresettingsdialog.cpp:79
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Account"
 msgstr "Account"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:77
+#: widgets/configuredialog/configuresettingsdialog.cpp:84
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Font"
 msgstr "Carattere"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:83
+#: widgets/configuredialog/configuresettingsdialog.cpp:90
+#: widgets/configuredialog/configuresettingsdialog.cpp:96
 #, kde-format
 msgctxt "@title AutoCorrection page name"
 msgid "AutoCorrection"
 msgstr "Correzione automatica"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:89
+#: widgets/configuredialog/configuresettingsdialog.cpp:102
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Spell Checking"
 msgstr "Controllo ortografico"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:95
+#: widgets/configuredialog/configuresettingsdialog.cpp:108
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Translate"
 msgstr "Traduci"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:102
+#: widgets/configuredialog/configuresettingsdialog.cpp:115
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "User Feedback"
 msgstr "Segnalazioni degli utenti"
 
-#: widgets/configuredialog/configuresettingsdialog.cpp:109
+#: widgets/configuredialog/configuresettingsdialog.cpp:122
 #, kde-format
 msgctxt "@title Preferences page name"
 msgid "Accessibility"
@@ -7851,37 +7852,37 @@ msgstr "Elimina messaggio"
 msgid "Translator Error"
 msgstr "Errore del traduttore"
 
-#: widgets/room/messagetextedit.cpp:183
+#: widgets/room/messagetextedit.cpp:194
 #, kde-format
 msgid "Paste Image"
 msgstr "Incolla immagine"
 
-#: widgets/room/messagetextedit.cpp:190
+#: widgets/room/messagetextedit.cpp:201
 #, kde-format
 msgid "Change Text Format"
 msgstr "Cambia formato del testo"
 
-#: widgets/room/messagetextedit.cpp:192
+#: widgets/room/messagetextedit.cpp:203
 #, kde-format
 msgid "Bold"
 msgstr "Grassetto"
 
-#: widgets/room/messagetextedit.cpp:193
+#: widgets/room/messagetextedit.cpp:204
 #, kde-format
 msgid "Italic"
 msgstr "Corsivo"
 
-#: widgets/room/messagetextedit.cpp:194
+#: widgets/room/messagetextedit.cpp:205
 #, kde-format
 msgid "Strike-out"
 msgstr "Barrato"
 
-#: widgets/room/messagetextedit.cpp:196
+#: widgets/room/messagetextedit.cpp:207
 #, kde-format
 msgid "Code Block"
 msgstr "Blocco di codice"
 
-#: widgets/room/messagetextedit.cpp:198
+#: widgets/room/messagetextedit.cpp:209
 #, kde-format
 msgid "Markdown Url"
 msgstr "URL Markdown"
