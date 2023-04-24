@@ -10,6 +10,10 @@
 #include <memory>
 namespace TextEmoticonsCore
 {
+/**
+ * @brief The EmojiProxyModel class
+ * @author Laurent Montel <montel@kde.org>
+ */
 class TEXTEMOTICONSCORE_EXPORT EmojiProxyModel : public QSortFilterProxyModel
 {
     Q_OBJECT

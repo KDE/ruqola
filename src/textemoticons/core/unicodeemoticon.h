@@ -45,7 +45,7 @@ public:
     void setKey(const QString &key);
 
 private:
-    Q_REQUIRED_RESULT QString escapeUnicodeEmoji(const QString &pString);
+    Q_REQUIRED_RESULT TEXTEMOTICONSCORE_NO_EXPORT QString escapeUnicodeEmoji(const QString &pString);
     QStringList mAliases;
     QString mIdentifier;
     QString mUnicode;

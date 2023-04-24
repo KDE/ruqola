@@ -28,6 +28,7 @@ public:
         , mSearchUnicodeLineEdit(new QLineEdit(q))
         , mEmoticonListView(new EmoticonListView(q))
         , mEmojiProxyModel(new TextEmoticonsCore::EmojiProxyModel(q))
+        , qq(q)
     {
     }
     void slotUsedIdentifierChanged(const QStringList &lst)
@@ -46,11 +47,21 @@ public:
         mEmojiProxyModel->setSearchIdentifier(str);
     }
 
+    void slotItemSelected(const QString &str, const QString &identifier)
+    {
+        TextEmoticonsCore::EmojiModelManager::self()->addIdentifier(identifier);
+        Q_EMIT qq->insertEmoji(str);
+        Q_EMIT qq->insertEmojiIdentifier(identifier);
+        if (qq->isVisible() && qq->parentWidget() && qq->parentWidget()->inherits("QMenu")) {
+            qq->parentWidget()->close();
+        }
+    }
     EmoticonCategoryButtons *const mCategoryButtons;
     QLineEdit *const mSearchUnicodeLineEdit;
     EmoticonListView *const mEmoticonListView;
     TextEmoticonsCore::EmojiProxyModel *const mEmojiProxyModel;
     bool mCustomEmojiSupport = false;
+    EmoticonTextEditSelector *const qq;
 };
 
 EmoticonTextEditSelector::EmoticonTextEditSelector(QWidget *parent)
@@ -80,7 +91,9 @@ EmoticonTextEditSelector::EmoticonTextEditSelector(QWidget *parent)
     d->mEmojiProxyModel->setObjectName(QStringLiteral("mEmoticonProxyModel"));
     d->mEmoticonListView->setModel(d->mEmojiProxyModel);
     connect(d->mEmoticonListView, &EmoticonListView::fontSizeChanged, d->mEmoticonListView, &EmoticonListView::setFontSize);
-    connect(d->mEmoticonListView, &EmoticonListView::emojiItemSelected, this, &EmoticonTextEditSelector::slotItemSelected);
+    connect(d->mEmoticonListView, &EmoticonListView::emojiItemSelected, this, [this](const QString &str, const QString &identifier) {
+        d->slotItemSelected(str, identifier);
+    });
     connect(d->mCategoryButtons, &EmoticonCategoryButtons::categorySelected, this, [this](const QString &category) {
         d->slotCategorySelected(category);
     });
@@ -105,16 +118,6 @@ void EmoticonTextEditSelector::forceLineEditFocus()
 }
 
 EmoticonTextEditSelector::~EmoticonTextEditSelector() = default;
-
-void EmoticonTextEditSelector::slotItemSelected(const QString &str, const QString &identifier)
-{
-    TextEmoticonsCore::EmojiModelManager::self()->addIdentifier(identifier);
-    Q_EMIT insertEmoji(str);
-    Q_EMIT insertEmojiIdentifier(identifier);
-    if (isVisible() && parentWidget() && parentWidget()->inherits("QMenu")) {
-        parentWidget()->close();
-    }
-}
 
 void EmoticonTextEditSelector::loadEmoticons()
 {

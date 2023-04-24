@@ -20,7 +20,7 @@ using namespace TextEmoticonsWidgets;
 EmoticonListView::EmoticonListView(QWidget *parent)
     : QListView(parent)
 {
-    setUniformItemSizes(true);
+    // setUniformItemSizes(true);
     setViewMode(QListView::IconMode);
     setDragEnabled(false);
     setMouseTracking(true);

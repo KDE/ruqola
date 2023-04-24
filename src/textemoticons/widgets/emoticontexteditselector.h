@@ -40,7 +40,5 @@ Q_SIGNALS:
 private:
     class EmoticonTextEditSelectorPrivate;
     std::unique_ptr<EmoticonTextEditSelectorPrivate> const d;
-
-    TEXTEMOTICONSWIDGETS_NO_EXPORT void slotItemSelected(const QString &str, const QString &identifier);
 };
 }

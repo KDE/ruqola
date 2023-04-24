@@ -11,6 +11,10 @@ namespace TextEmoticonsCore
 {
 class EmojiModel;
 class CustomEmojiIconManager;
+/**
+ * @brief The EmojiModelManager class
+ * @author Laurent Montel <montel@kde.org>
+ */
 class TEXTEMOTICONSCORE_EXPORT EmojiModelManager : public QObject
 {
     Q_OBJECT
@@ -32,9 +36,9 @@ Q_SIGNALS:
     void usedIdentifierChanged(const QStringList &lst);
 
 private:
+    TEXTEMOTICONSCORE_NO_EXPORT void loadRecentUsed();
+    TEXTEMOTICONSCORE_NO_EXPORT void writeRecentUsed();
     TextEmoticonsCore::EmojiModel *const mEmojiModel;
     QStringList mRecentIdentifier;
-    void loadRecentUsed();
-    void writeRecentUsed();
 };
 }
