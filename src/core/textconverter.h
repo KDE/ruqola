@@ -41,15 +41,15 @@ struct LIBRUQOLACORE_EXPORT ConvertMessageTextSettings {
         , maximumRecursiveQuotedText(_maximumRecursiveQuotedText)
     {
     }
-    QString str;
-    QString userName;
-    QVector<Message> allMessages;
-    QStringList highlightWords;
-    EmojiManager *emojiManager = nullptr;
-    MessageCache *messageCache = nullptr;
-    QMap<QString, QString> mentions;
-    QMap<QString, QString> channels;
-    QString searchedText;
+    const QString str;
+    const QString userName;
+    const QVector<Message> allMessages;
+    const QStringList highlightWords;
+    EmojiManager *const emojiManager;
+    MessageCache *const messageCache;
+    const QMap<QString, QString> mentions;
+    const QMap<QString, QString> channels;
+    const QString searchedText;
     int maximumRecursiveQuotedText = -1;
 };
 
