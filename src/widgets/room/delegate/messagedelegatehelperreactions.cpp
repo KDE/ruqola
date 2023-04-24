@@ -11,7 +11,9 @@
 #include "utils.h"
 #include <model/messagemodel.h>
 
+#include <QAbstractItemView>
 #include <QAbstractTextDocumentLayout>
+#include <QMovie>
 #include <QPainter>
 #include <QStyleOptionViewItem>
 #include <QToolTip>
@@ -116,15 +118,63 @@ void MessageDelegateHelperReactions::draw(QPainter *painter, QRect reactionsRect
             }
             painter->drawText(r, reactionLayout.emojiString);
         } else {
-            const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
-            const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
-            const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-            painter->drawPixmap(r.x(), r.y(), scaledPixmap);
-        }
+            if (reactionLayout.reaction.isAnimatedImage()) {
+                const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
 
+                QPixmap scaledPixmap;
+                auto it = findRunningAnimatedImage(index);
+                if (it != mRunningAnimatedImages.end()) {
+                    scaledPixmap = (*it).movie->currentPixmap();
+                } else {
+                    mRunningAnimatedImages.emplace_back(index);
+                    auto &rai = mRunningAnimatedImages.back();
+                    rai.movie->setFileName(reactionLayout.emojiImagePath);
+                    rai.movie->setScaledSize(QSize(maxIconSize, maxIconSize));
+                    auto view = qobject_cast<QAbstractItemView *>(const_cast<QWidget *>(option.widget));
+                    const QPersistentModelIndex &idx = rai.index;
+                    QObject::connect(
+                        rai.movie,
+                        &QMovie::frameChanged,
+                        view,
+                        [view, idx, this]() {
+                            if (view->viewport()->rect().contains(view->visualRect(idx))) {
+                                view->update(idx);
+                            } else {
+                                removeRunningAnimatedImage(idx);
+                            }
+                        },
+                        Qt::QueuedConnection);
+                    rai.movie->start();
+                    scaledPixmap = rai.movie->currentPixmap();
+                }
+                scaledPixmap.setDevicePixelRatio(option.widget->devicePixelRatioF());
+                painter->drawPixmap(r.x(), r.y(), scaledPixmap);
+            } else {
+                const QPixmap pixmap = mPixmapCache.pixmapForLocalFile(reactionLayout.emojiImagePath);
+                const int maxIconSize = option.widget->style()->pixelMetric(QStyle::PM_ButtonIconSize);
+                const QPixmap scaledPixmap = pixmap.scaled(maxIconSize, maxIconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+                painter->drawPixmap(r.x(), r.y(), scaledPixmap);
+            }
+        }
         // Count
         painter->setFont(option.font);
         painter->drawText(reactionLayout.countRect, reactionLayout.countStr);
+    }
+}
+
+std::vector<RunningAnimatedImage>::iterator MessageDelegateHelperReactions::findRunningAnimatedImage(const QModelIndex &index) const
+{
+    auto matchesIndex = [&](const RunningAnimatedImage &rai) {
+        return rai.index == index;
+    };
+    return std::find_if(mRunningAnimatedImages.begin(), mRunningAnimatedImages.end(), matchesIndex);
+}
+
+void MessageDelegateHelperReactions::removeRunningAnimatedImage(const QModelIndex &index) const
+{
+    auto it = findRunningAnimatedImage(index);
+    if (it != mRunningAnimatedImages.end()) {
+        mRunningAnimatedImages.erase(it);
     }
 }
 
