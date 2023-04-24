@@ -22,4 +22,5 @@ void EmoticonListViewTest::shouldHaveDefaultValues()
     QVERIFY(!w.dragEnabled());
     QVERIFY(w.hasMouseTracking());
     QCOMPARE(w.contextMenuPolicy(), Qt::DefaultContextMenu);
+    QCOMPARE(w.itemDelegate()->objectName(), QStringLiteral("emoticonDelegate"));
 }

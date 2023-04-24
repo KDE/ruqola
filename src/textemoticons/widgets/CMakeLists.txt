@@ -24,6 +24,8 @@ target_sources(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets PRIVATE
     emoticontexteditaction.cpp
     emoticoncategorybutton.h
     emoticoncategorybutton.cpp
+    emoticonitemdelegate.cpp
+    emoticonitemdelegate.h
     )
 
 target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsWidgets

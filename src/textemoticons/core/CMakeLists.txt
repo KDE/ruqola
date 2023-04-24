@@ -36,7 +36,8 @@ target_sources(KF${KF_MAJOR_VERSION}TextEmoticonsCore PRIVATE
 
     customemojiiconmanager.h
     customemojiiconmanager.cpp
-
+    runninganimatedimage.h
+    runninganimatedimage.cpp
 )
 
 target_link_libraries(KF${KF_MAJOR_VERSION}TextEmoticonsCore
@@ -86,6 +87,7 @@ ecm_generate_headers(TextEmoticonsCore_CamelCase_HEADERS
     EmojiModelManager
     UnicodeEmoticonParser
     CustomEmojiIconManager
+    RunningAnimatedImage
     REQUIRED_HEADERS TextEmoticonsCore_HEADERS
     PREFIX TextEmoticonsCore
 )

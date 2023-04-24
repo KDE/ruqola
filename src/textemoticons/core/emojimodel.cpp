@@ -31,6 +31,10 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
     if (index.row() < mEmoticonList.count()) {
         const auto &unicodeEmoti = mEmoticonList.at(index.row());
         switch (role) {
+        case AnimatedFileName:
+            return {};
+        case Animated:
+            return false;
         case Qt::DisplayRole:
         case UnicodeEmoji:
             return unicodeEmoti.unicode();
@@ -45,6 +49,19 @@ QVariant EmojiModel::data(const QModelIndex &index, int role) const
     } else {
         const auto &customEmoji = mCustomEmojiList.at(index.row() - mEmoticonList.count());
         switch (role) {
+        case AnimatedFileName:
+            if (mCustomEmojiIconManager) {
+                if (customEmoji.isAnimatedEmoji()) {
+                    const QString filename = mCustomEmojiIconManager->fileName(customEmoji.identifier());
+                    return filename;
+                }
+                return {};
+            } else {
+                qCWarning(TEXTEMOTICONSCORE_LOG) << "mCustomEmojiIconManager is null. It's a bug";
+                return {};
+            }
+        case Animated:
+            return customEmoji.isAnimatedEmoji();
         case Qt::DecorationRole: {
             if (mCustomEmojiIconManager) {
                 if (customEmoji.isAnimatedEmoji()) {
