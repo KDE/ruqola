@@ -68,8 +68,10 @@ public:
     Q_REQUIRED_RESULT const QString &messageId() const;
     void setMessageId(const QString &newMessageId);
 
-    NotificationType notificationType() const;
+    Q_REQUIRED_RESULT NotificationType notificationType() const;
     void setNotificationType(const NotificationType &newNotificationType);
+
+    Q_REQUIRED_RESULT bool operator==(const NotificationInfo &other) const;
 
 private:
     QString mMessageId;

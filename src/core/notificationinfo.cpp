@@ -220,3 +220,11 @@ void NotificationInfo::setNotificationType(const NotificationType &newNotificati
 {
     mNotificationType = newNotificationType;
 }
+
+bool NotificationInfo::operator==(const NotificationInfo &other) const
+{
+    return other.mMessageId == mMessageId && other.mAccountName == mAccountName && other.mMessage == mMessage && other.mTitle == mTitle
+        && other.mSenderId == mSenderId && other.mSenderName == mSenderName && other.mSenderUserName == mSenderUserName && other.mRoomName == mRoomName
+        && other.mRoomId == mRoomId && other.mChannelType == mChannelType && other.mTmId == mTmId && other.mDateTime == mDateTime
+        && other.mPixmap.cacheKey() == mPixmap.cacheKey() && other.mNotificationType == mNotificationType;
+}

@@ -88,6 +88,9 @@ void NotificationHistoryModel::insertNotifications(const QVector<NotificationInf
 
 void NotificationHistoryModel::addNotification(const NotificationInfo &info)
 {
+    if (mNotificationInfo.contains(info)) {
+        return;
+    }
     const int numberOfElement = mNotificationInfo.count();
     mNotificationInfo.append(info);
     beginInsertRows(QModelIndex(), numberOfElement, mNotificationInfo.count() - 1);
