@@ -47,6 +47,10 @@ RocketChatAccount *CustomEmojiIconManager::currentRocketChatAccount() const
 
 QString CustomEmojiIconManager::fileName(const QString &customIdentifier)
 {
-    Q_UNUSED(customIdentifier)
+    const QString fileName = mCurrentRocketChatAccount->emojiManager()->customEmojiFileName(customIdentifier);
+    if (!fileName.isEmpty()) {
+        const QUrl emojiUrl = mCurrentRocketChatAccount->attachmentUrlFromLocalCache(fileName);
+        return emojiUrl.toLocalFile();
+    }
     return {};
 }
