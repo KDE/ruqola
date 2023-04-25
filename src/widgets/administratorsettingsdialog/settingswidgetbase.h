@@ -28,6 +28,9 @@ public:
 
     virtual void initialize(const QMap<QString, QVariant> &mapSettings) = 0;
 
+Q_SIGNALS:
+    void changedDone(const QString &buttonObjectName);
+
 protected:
     void connectCheckBox(QCheckBox *checkBox, const QString &variable);
     void addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable);
@@ -57,8 +60,10 @@ protected:
     RocketChatAccount *const mAccount;
 
 private:
-    void
-    updateSettings(const QString &settingName, const QVariant &value, RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue);
-    void slotAdminSettingsDone(const QJsonObject &obj);
+    void updateSettings(const QString &settingName,
+                        const QVariant &value,
+                        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
+                        const QString &buttonObjectName = {});
+    void slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName);
     void disableTooButton(const QString &variableName);
 };

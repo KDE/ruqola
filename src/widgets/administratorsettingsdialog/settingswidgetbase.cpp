@@ -54,7 +54,8 @@ void SettingsWidgetBase::connectCheckBox(QCheckBox *checkBox, const QString &var
 
 void SettingsWidgetBase::updateSettings(const QString &settingName,
                                         const QVariant &value,
-                                        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue)
+                                        RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::ValueType typeValue,
+                                        const QString &buttonObjectName)
 {
     if (mAccount) {
         QString password;
@@ -70,7 +71,9 @@ void SettingsWidgetBase::updateSettings(const QString &settingName,
             job->setAuthMethod(QStringLiteral("password"));
             job->setAuthCode(QString::fromLatin1(Utils::convertSha256Password(password)));
             mAccount->restApi()->initializeRestApiJob(job);
-            connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, &SettingsWidgetBase::slotAdminSettingsDone);
+            connect(job, &RocketChatRestApi::UpdateAdminSettingsJob::updateAdminSettingsDone, this, [this, buttonObjectName](const QJsonObject &obj) {
+                slotAdminSettingsDone(obj, buttonObjectName);
+            });
             if (!job->start()) {
                 qCWarning(RUQOLAWIDGETS_LOG) << "Impossible to start UpdateAdminSettingsJob job";
             }
@@ -79,9 +82,17 @@ void SettingsWidgetBase::updateSettings(const QString &settingName,
     }
 }
 
-void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj)
+void SettingsWidgetBase::slotAdminSettingsDone(const QJsonObject &obj, const QString &buttonObjectName)
 {
     qDebug() << "AccountSettingsWidget::slotAdminSettingsDone " << obj;
+    if (obj[QStringLiteral("success")].toBool()) {
+        // Disable apply button
+        if (!buttonObjectName.isEmpty()) {
+            Q_EMIT changedDone(buttonObjectName);
+        }
+    } else {
+        // Failed
+    }
 }
 
 void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, const QString &variable)
@@ -98,8 +109,13 @@ void SettingsWidgetBase::addSpinbox(const QString &labelStr, QSpinBox *spinBox, 
     spinBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox]() {
-        updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, spinBox, toolButton]() {
+        updateSettings(variable, spinBox->value(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::Integer, toolButton->objectName());
+    });
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+        if (toolButton->objectName() == buttonName) {
+            toolButton->setEnabled(false);
+        }
     });
     connect(spinBox, &QSpinBox::valueChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
@@ -124,9 +140,14 @@ void SettingsWidgetBase::addLineEdit(const QString &labelStr, QLineEdit *lineEdi
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
     toolButton->setVisible(!readOnly);
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+        if (toolButton->objectName() == buttonName) {
+            toolButton->setEnabled(false);
+        }
+    });
     if (!readOnly) {
-        connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
-            updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+        connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
+            updateSettings(variable, lineEdit->text(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
         });
         connect(lineEdit, &QLineEdit::textChanged, this, [toolButton]() {
             toolButton->setEnabled(true);
@@ -161,11 +182,16 @@ void SettingsWidgetBase::addPlainTextEdit(const QString &labelStr, QPlainTextEdi
     lineEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton, 0, Qt::AlignTop);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
-        updateSettings(variable, lineEdit->toPlainText(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
+        updateSettings(variable, lineEdit->toPlainText(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
     });
     connect(lineEdit, &QPlainTextEdit::textChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
+    });
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+        if (toolButton->objectName() == buttonName) {
+            toolButton->setEnabled(false);
+        }
     });
 
     mMainLayout->addRow(layout);
@@ -185,11 +211,16 @@ void SettingsWidgetBase::addPasswordEdit(const QString &labelStr, KPasswordLineE
     lineEdit->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit]() {
-        updateSettings(variable, lineEdit->password(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, lineEdit, toolButton]() {
+        updateSettings(variable, lineEdit->password(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String, toolButton->objectName());
     });
     connect(lineEdit, &KPasswordLineEdit::passwordChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
+    });
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+        if (toolButton->objectName() == buttonName) {
+            toolButton->setEnabled(false);
+        }
     });
 
     mMainLayout->addRow(layout);
@@ -219,8 +250,16 @@ void SettingsWidgetBase::addComboBox(const QString &labelStr, const QMap<QString
     comboBox->setProperty(s_property, variable);
     layout->addWidget(toolButton);
     toolButton->setEnabled(false);
-    connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox]() {
-        updateSettings(variable, comboBox->currentData().toString(), RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String);
+    connect(toolButton, &QToolButton::clicked, this, [this, variable, comboBox, toolButton]() {
+        updateSettings(variable,
+                       comboBox->currentData().toString(),
+                       RocketChatRestApi::UpdateAdminSettingsJob::UpdateAdminSettingsInfo::String,
+                       toolButton->objectName());
+    });
+    connect(this, &SettingsWidgetBase::changedDone, this, [toolButton](const QString &buttonName) {
+        if (toolButton->objectName() == buttonName) {
+            toolButton->setEnabled(false);
+        }
     });
     connect(comboBox, &QComboBox::currentIndexChanged, this, [toolButton]() {
         toolButton->setEnabled(true);
