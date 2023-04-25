@@ -50,7 +50,7 @@ private:
         bool useEmojiFont;
     };
 
-    std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
     Q_REQUIRED_RESULT QVector<ReactionLayout>
     layoutReactions(const QVector<Reaction> &reactions, QRect reactionsRect, const QStyleOptionViewItem &option) const;

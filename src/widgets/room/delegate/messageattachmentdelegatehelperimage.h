@@ -55,7 +55,7 @@ private:
                                               int attachmentsWidth,
                                               int attachmentsHeight) const;
 
-    std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
+    Q_REQUIRED_RESULT std::vector<RunningAnimatedImage>::iterator findRunningAnimatedImage(const QModelIndex &index) const;
     void removeRunningAnimatedImage(const QModelIndex &index) const;
     Q_REQUIRED_RESULT bool contextMenu(const QPoint &pos,
                                        const QPoint &globalPos,
