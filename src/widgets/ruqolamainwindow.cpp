@@ -963,10 +963,8 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
     mContextStatusMenu->menuAction()->setVisible(true);
     mContextStatusMenu->clear();
 
-    const StatusModel *statusModel = mCurrentRocketChatAccount->statusModel();
-
-    for (int i = 0; i < statusModel->rowCount(); i++) {
-        const QModelIndex index = statusModel->index(i);
+    for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
+        const QModelIndex index = mStatusProxyModel->index(i, 0);
         QAction *action = mContextStatusMenu->addAction(index.data(Qt::DisplayRole).toString());
         action->setIcon(index.data(Qt::DecorationRole).value<QIcon>());
 
