@@ -960,7 +960,7 @@ void RuqolaMainWindow::slotUpdateCustomUserStatus()
 {
     mStatusProxyModel->sort(0);
 
-    mContextStatusMenu->menuAction()->setVisible(true);
+    // mContextStatusMenu->menuAction()->setVisible(true);
     mContextStatusMenu->clear();
 
     for (int i = 0; i < mStatusProxyModel->rowCount(); i++) {
