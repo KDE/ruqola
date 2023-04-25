@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 00:48+0000\n"
+"POT-Creation-Date: 2023-04-25 00:51+0000\n"
 "PO-Revision-Date: 2023-04-14 17:17+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2284,7 +2284,7 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Personalitzats"
 
-#: textemoticons/widgets/emoticonlistview.cpp:103
+#: textemoticons/widgets/emoticonlistview.cpp:107
 #, kde-format
 msgid "Clear Recents"
 msgstr "Neteja els recents"
@@ -2294,7 +2294,7 @@ msgstr "Neteja els recents"
 msgid "Add Smiley"
 msgstr "Afegeix una emoticona"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:72
+#: textemoticons/widgets/emoticontexteditselector.cpp:83
 #, kde-format
 msgid "Search Emoticon..."
 msgstr "Cerca una emoticona..."

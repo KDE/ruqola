@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 00:48+0000\n"
+"POT-Creation-Date: 2023-04-25 00:51+0000\n"
 "PO-Revision-Date: 2023-04-14 17:44+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -2288,7 +2288,7 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "Нетипові"
 
-#: textemoticons/widgets/emoticonlistview.cpp:103
+#: textemoticons/widgets/emoticonlistview.cpp:107
 #, kde-format
 msgid "Clear Recents"
 msgstr "Спорожнити список нещодавніх"
@@ -2298,7 +2298,7 @@ msgstr "Спорожнити список нещодавніх"
 msgid "Add Smiley"
 msgstr "Додати емоційку"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:72
+#: textemoticons/widgets/emoticontexteditselector.cpp:83
 #, kde-format
 msgid "Search Emoticon..."
 msgstr "Шукати емоційку…"

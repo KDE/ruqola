@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-24 00:48+0000\n"
+"POT-Creation-Date: 2023-04-25 00:51+0000\n"
 "PO-Revision-Date: 2023-04-13 06:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2275,7 +2275,7 @@ msgctxt "'Custom' is a category of emoji"
 msgid "Custom"
 msgstr "მორგებული"
 
-#: textemoticons/widgets/emoticonlistview.cpp:103
+#: textemoticons/widgets/emoticonlistview.cpp:107
 #, kde-format
 msgid "Clear Recents"
 msgstr "უახლესების გასუფთავება"
@@ -2285,7 +2285,7 @@ msgstr "უახლესების გასუფთავება"
 msgid "Add Smiley"
 msgstr "სიცილაკის დამატება"
 
-#: textemoticons/widgets/emoticontexteditselector.cpp:72
+#: textemoticons/widgets/emoticontexteditselector.cpp:83
 #, kde-format
 msgid "Search Emoticon..."
 msgstr "ემოციის მოძებნა..."
