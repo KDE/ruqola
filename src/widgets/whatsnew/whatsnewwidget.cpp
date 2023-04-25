@@ -35,6 +35,7 @@ static const int numRuqolaNewFeatures = sizeof ruqolaNewFeatures / sizeof *ruqol
 static const KLazyLocalizedString ruqolaBugfixing[] = {
     kli18n("Fix avatar support"),
     kli18n("Fix emoji support (use new ktextaddons/textemoticons)"),
+    kli18n("Fix animated gif in reactions"),
     // TODO
 };
 static const int numRuqolaBugfixing = sizeof ruqolaBugfixing / sizeof *ruqolaBugfixing;
