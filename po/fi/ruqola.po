@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the ruqola package.
-# Tommi Nieminen <translator@legisign.org>, 2020, 2021.
+# Tommi Nieminen <translator@legisign.org>, 2020, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ruqola\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-03-14 02:53+0000\n"
-"PO-Revision-Date: 2021-05-07 18:44+0300\n"
+"PO-Revision-Date: 2023-04-20 14:28+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: apps/main.cpp:53
 #, kde-format
@@ -49,8 +49,7 @@ msgid "Riccardo Iaconelli"
 msgstr "Riccardo Iaconelli"
 
 #: apps/main.cpp:60
-#, fuzzy, kde-format
-#| msgid "Original author"
+#, kde-format
 msgid "Original Author"
 msgstr "Alkuperäinen tekijä"
 
@@ -128,12 +127,12 @@ msgstr "Paketointi"
 #: apps/main.cpp:73
 #, kde-format
 msgid "Waqar Ahmed"
-msgstr ""
+msgstr "Waqar Ahmed"
 
 #: apps/main.cpp:73
 #, kde-format
 msgid "Bug fixing (compile, network crash...)"
-msgstr ""
+msgstr "Ohjelmavirheiden korjaus (kääntäminen, verkkokaatuminen…)"
 
 #: apps/main.cpp:74
 #, kde-format
@@ -143,7 +142,7 @@ msgstr "Nicolas Fella"
 #: apps/main.cpp:74
 #, kde-format
 msgid "Optimization, fix windows/mac support"
-msgstr ""
+msgstr "Optimointi, Windows/Mac-tuen korjaus"
 
 #: apps/main.cpp:99
 #, kde-format
@@ -159,7 +158,7 @@ msgstr "Tiedostoa ei löydy: ”%1”"
 #: core/bannerinfo/bannerinfo.cpp:45
 #, kde-format
 msgid "New version available %1"
-msgstr ""
+msgstr "Uusi versio saatavilla: %1"
 
 #: core/bannerinfo/bannerinfos.cpp:64
 #, kde-format
@@ -304,12 +303,12 @@ msgstr "(Viimeisin viesti: %1)"
 #: core/emoticons/unicodeemoticonmanager.cpp:59
 #, kde-format
 msgid "Symbols"
-msgstr ""
+msgstr "Symbolit"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:61
 #, kde-format
 msgid "Activity"
-msgstr ""
+msgstr "Toiminta"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:63
 #, fuzzy, kde-format
@@ -320,40 +319,39 @@ msgstr "Aihe"
 #: core/emoticons/unicodeemoticonmanager.cpp:65
 #, kde-format
 msgid "Nature"
-msgstr ""
+msgstr "Luonto"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:67
 #, kde-format
 msgid "Food"
-msgstr ""
+msgstr "Ruoka"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:69
 #, kde-format
 msgid "People"
-msgstr ""
+msgstr "Ihmiset"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:71
 #, kde-format
 msgid "Travel"
-msgstr ""
+msgstr "Matkailu"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:73
 #, kde-format
 msgid "Regional"
-msgstr ""
+msgstr "Alueellinen"
 
 #: core/emoticons/unicodeemoticonmanager.cpp:75
 #, kde-format
 msgid "Flags"
-msgstr ""
+msgstr "Liput"
 
 #: core/messages/block.cpp:45 core/messages/message.cpp:498
 #: core/messages/message.cpp:610 core/model/notificationhistorymodel.cpp:61
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:122
-#, fuzzy, kde-format
-#| msgid "Preference"
+#, kde-format
 msgid "Conference Call"
-msgstr "Suosio"
+msgstr "Konferenssipuhelu"
 
 #: core/messages/message.cpp:504
 #, kde-format
@@ -470,6 +468,8 @@ msgid ""
 "This message is end-to-end encrypted. To view it, you must enter your "
 "encryption key in your account settings."
 msgstr ""
+"Tämä viesti on salattu päästä päähän. Nähdäksesi sen tilin asetuksiin on "
+"syötettävä salausavain."
 
 #: core/messages/message.cpp:557
 #, kde-format
@@ -661,7 +661,7 @@ msgstr "Tunniste"
 #: core/model/admincustomemojimodel.cpp:34
 #, kde-format
 msgid "Aliases"
-msgstr ""
+msgstr "Aliakset"
 
 #: core/model/admininvitemodel.cpp:34
 #, kde-format
@@ -697,23 +697,22 @@ msgstr "Vanheneminen (päivinä)"
 #: core/model/admininvitemodel.cpp:111
 #, kde-format
 msgid "Expired"
-msgstr ""
+msgstr "Vanhentunut"
 
 #: core/model/adminoauthmodel.cpp:35
 #, kde-format
 msgid "Client Id"
-msgstr ""
+msgstr "Asiakastunniste"
 
 #: core/model/adminoauthmodel.cpp:37
 #, kde-format
 msgid "Client Secret"
-msgstr ""
+msgstr "Asiakkaan salatieto"
 
 #: core/model/adminoauthmodel.cpp:39
-#, fuzzy, kde-format
-#| msgid "Server Url:"
+#, kde-format
 msgid "Redirect Url"
-msgstr "Palvelimen osoite:"
+msgstr "Uudelleenohjaa verkko-osoite"
 
 #: core/model/adminoauthmodel.cpp:41 core/model/adminusersmodel.cpp:160
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:15
@@ -721,7 +720,7 @@ msgstr "Palvelimen osoite:"
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
 #, kde-format
 msgid "Active"
-msgstr ""
+msgstr "Aktiivinen"
 
 #: core/model/adminoauthmodel.cpp:43
 #, fuzzy, kde-format
@@ -737,21 +736,19 @@ msgstr "Luo"
 
 #: core/model/adminpermissionsmodel.cpp:33 core/model/rolesmodel.cpp:29
 #: widgets/administratordialog/administratorwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Roles:"
+#, kde-format
 msgid "Roles"
-msgstr "Roolit:"
+msgstr "Roolit"
 
 #: core/model/adminrolesmodel.cpp:34
 #, kde-format
 msgid "Scope"
-msgstr ""
+msgstr "Ala"
 
 #: core/model/adminrolesmodel.cpp:36
-#, fuzzy, kde-format
-#| msgid "Connected"
+#, kde-format
 msgid "Protected"
-msgstr "Yhdistetty"
+msgstr "Protected"
 
 #: core/model/adminrolesmodel.cpp:38
 #, fuzzy, kde-format
@@ -783,10 +780,9 @@ msgid "Topic"
 msgstr "Aihe"
 
 #: core/model/adminroomsmodel.cpp:40 core/model/directoryroomsmodel.cpp:122
-#, fuzzy, kde-format
-#| msgid "Read-Only:"
+#, kde-format
 msgid "Read-only"
-msgstr "Vain luku:"
+msgstr "Vain luku"
 
 #: core/model/adminroomsmodel.cpp:42 core/model/directoryroomsmodel.cpp:124
 #, kde-format
@@ -840,27 +836,27 @@ msgstr "Kopioi linkki"
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:41
 #, kde-format
 msgid "Host"
-msgstr ""
+msgstr "Palvelin"
 
 #: core/model/deviceinfomodel.cpp:34
 #, kde-format
 msgid "Os"
-msgstr ""
+msgstr "Käyttöjärjestelmä"
 
 #: core/model/deviceinfomodel.cpp:36
 #, kde-format
 msgid "Client"
-msgstr ""
+msgstr "Asiakas"
 
 #: core/model/deviceinfomodel.cpp:38
 #, kde-format
 msgid "Session Id"
-msgstr ""
+msgstr "Istunnon tunniste"
 
 #: core/model/deviceinfomodel.cpp:40
 #, kde-format
 msgid "Ip"
-msgstr ""
+msgstr "IP"
 
 #: core/model/deviceinfomodel.cpp:44
 #, fuzzy, kde-format
@@ -880,10 +876,9 @@ msgid "Last Message"
 msgstr "(Viimeisin viesti: %1)"
 
 #: core/model/directoryroomsmodel.cpp:128 core/model/directoryteamsmodel.cpp:96
-#, fuzzy, kde-format
-#| msgid "Create"
+#, kde-format
 msgid "Created"
-msgstr "Luo"
+msgstr "Luotu"
 
 #: core/model/directoryroomsmodel.cpp:131
 #, fuzzy, kde-format
@@ -901,10 +896,9 @@ msgid "Rooms"
 msgstr "Huoneet"
 
 #: core/model/directoryusersmodel.cpp:102 core/model/usersinrolemodel.cpp:88
-#, fuzzy, kde-format
-#| msgid "Email"
+#, kde-format
 msgid "Emails"
-msgstr "Sähköposti"
+msgstr "Sähköpostit"
 
 #: core/model/directoryusersmodel.cpp:104
 #, fuzzy, kde-format
@@ -994,7 +988,7 @@ msgstr "Piippaus"
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:66
 #, kde-format
 msgid "Chelle"
-msgstr ""
+msgstr "Chelle"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:72
 #, kde-format
@@ -1004,12 +998,12 @@ msgstr "Kilahdus"
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:78
 #, kde-format
 msgid "Droplet"
-msgstr ""
+msgstr "Pisara"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:84
 #, kde-format
 msgid "Highbell"
-msgstr ""
+msgstr "Kirkas kello"
 
 #: core/model/notificationdesktopsoundpreferencemodel.cpp:90
 #, kde-format
@@ -1057,7 +1051,7 @@ msgstr "Kahden tekijän todennus"
 #: core/model/personalaccesstokeninfosmodel.cpp:88
 #, kde-format
 msgid "Last token part"
-msgstr ""
+msgstr "Merkin viimeinen osa"
 
 #: core/model/roommodel.cpp:496
 #, fuzzy, kde-format
@@ -1085,10 +1079,9 @@ msgid "Channel Room"
 msgstr "Kanavatiedot"
 
 #: core/model/roommodel.cpp:568
-#, fuzzy, kde-format
-#| msgid "Unread Rooms"
+#, kde-format
 msgid "Unread"
-msgstr "Lukematta olevat huoneet"
+msgstr "Lukematta"
 
 #: core/model/roommodel.cpp:570
 #, kde-format
@@ -1226,7 +1219,7 @@ msgstr "Piilota ”Huoneen avatar muuttunut” -viestit"
 #: core/model/systemmessagesmodel.cpp:48
 #, kde-format
 msgid "Hide \"User Muted / Unmuted\" messages"
-msgstr ""
+msgstr "Piilota ”Käyttäjä vaimensi / poisti vaimennuksen” -viestit"
 
 #: core/model/systemmessagesmodel.cpp:49
 #, kde-format
@@ -1360,17 +1353,16 @@ msgid "Reply"
 msgstr "Vastaa"
 
 #: core/notifications/notifierjob.cpp:36
-#, fuzzy, kde-format
-#| msgid "Reply"
+#, kde-format
 msgid "Reply..."
-msgstr "Vastaa"
+msgstr "Vastaa…"
 
 #: core/otr/otrnotificationjob.cpp:45 core/otr/otrnotificationjob.cpp:55
 #: core/otr/otrnotificationjob.cpp:68
 #: widgets/room/channelactionpopupmenu.cpp:125
 #, kde-format
 msgid "OTR"
-msgstr ""
+msgstr "OTR"
 
 #: core/otr/otrnotificationjob.cpp:58
 #: core/videoconference/videoconferencenotificationjob.cpp:55
@@ -1382,22 +1374,22 @@ msgstr "Aihe"
 #: core/otr/otrnotificationjob.cpp:58
 #, kde-format
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: core/otr/otrnotificationjob.cpp:92
 #, kde-format
 msgid "%1 ended the OTR session."
-msgstr ""
+msgstr "%1 päätti OTR-istunnon."
 
 #: core/otr/otrnotificationjob.cpp:97
 #, kde-format
 msgid "%1  wants to start OTR. Do you want to accept?."
-msgstr ""
+msgstr "%1 haluaa käynnistää OTR:n. Haluatko hyväksyä?"
 
 #: core/otr/otrnotificationjob.cpp:101
 #, kde-format
 msgid "%1 denied the OTR session."
-msgstr ""
+msgstr "%1 hylkäsi OTR-istunnon."
 
 #: core/receivetypingnotificationmanager.cpp:58
 #, kde-format
@@ -1491,7 +1483,7 @@ msgstr "Avaa kanava"
 #: core/translatetext/translatetextjob.cpp:31
 #, kde-format
 msgid "Missing translator info. It's a bug"
-msgstr ""
+msgstr "Kääntäjätieto puuttuu. Tämä on ohjelmavirhe"
 
 #: core/user.cpp:202
 #, kde-format
@@ -1506,13 +1498,13 @@ msgstr "Ylläpitäjä"
 #: core/user.cpp:206
 #, kde-format
 msgid "Bot"
-msgstr ""
+msgstr "Botti"
 
 #: core/videoconference/videoconferenceinfo.cpp:185
 #: core/videoconference/videoconferenceinfo.cpp:187
 #, kde-format
 msgid "Call was not answered"
-msgstr ""
+msgstr "Puheluun ei vastattu"
 
 #: core/videoconference/videoconferenceinfo.cpp:191
 #, fuzzy, kde-format
@@ -1523,17 +1515,17 @@ msgstr "Vastauksesi:"
 #: core/videoconference/videoconferenceinfo.cpp:193
 #, kde-format
 msgid "Call ongoing"
-msgstr ""
+msgstr "Puhelu käynnissä"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:52
 #, kde-format
 msgid "InComing Call"
-msgstr ""
+msgstr "Saapuva puhelu"
 
 #: core/videoconference/videoconferencenotificationjob.cpp:55
 #, kde-format
 msgid "Accept"
-msgstr ""
+msgstr "Hyväksy"
 
 #: kpimtextedittexttospeech/tests/texttospeechgui.cpp:28
 #, kde-format
@@ -1560,12 +1552,12 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Configure Text-To-Speech"
-msgstr ""
+msgstr "Puhesyntetisaattoriasetukset"
 
 #: kpimtextedittexttospeech/texttospeechconfiginterface.cpp:71
 #, kde-format
 msgid "Morning, this is the test for testing settings."
-msgstr ""
+msgstr "Huomenta, tämä on testi asetusten kokeilemiseksi."
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:34
 #, kde-format
@@ -1579,15 +1571,14 @@ msgid "Volume:"
 msgstr ""
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Private:"
+#, kde-format
 msgid "Rate:"
-msgstr "Yksityinen:"
+msgstr "Nopeus:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:51
 #, kde-format
 msgid "Pitch:"
-msgstr ""
+msgstr "Äänenkorkeus:"
 
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelistswidget.cpp:47
@@ -1605,7 +1596,7 @@ msgstr "Kieli:"
 #: kpimtextedittexttospeech/texttospeechconfigwidget.cpp:64
 #, kde-format
 msgid "Voice:"
-msgstr ""
+msgstr "Ääni:"
 
 #: kpimtextedittexttospeech/texttospeechwidget.cpp:54
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:236
@@ -1623,40 +1614,37 @@ msgstr "Ilmoitusasetukset…"
 #: pimcommonautocorrection/autocorrection/import/importlibreofficeautocorrection.cpp:52
 #, kde-format
 msgid "Archive cannot be opened in read mode."
-msgstr ""
+msgstr "Arkistoa ei saatu avattua luettavaksi."
 
 #. i18n: ectx: property (text), widget (QCheckBox, enabledAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:21
-#, fuzzy, kde-format
-#| msgid "Invalid description"
+#, kde-format
 msgid "Enable autocorrection"
-msgstr "Virheellinen kuvaus"
+msgstr "Käytä automaattikorjausta"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:30
 #, kde-format
 msgid "Replacement and exception for language:"
-msgstr ""
+msgstr "Korvaus- ja poikkeussäännöt kielelle:"
 
 #. i18n: ectx: property (text), widget (QPushButton, exportAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:44
-#, fuzzy, kde-format
-#| msgid "Export Messages..."
+#, kde-format
 msgid "Export..."
-msgstr "Vie viestejä…"
+msgstr "Vie…"
 
 #. i18n: ectx: property (text), widget (QPushButton, importAutoCorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:51
 #, kde-format
 msgid "Import..."
-msgstr ""
+msgstr "Tuo…"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:77
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Ad&vanced Autocorrection"
-msgstr "Lisää automaattiliittyminen"
+msgstr "Automaattikorjauksen lisäasetukset"
 
 #. i18n: ectx: property (text), widget (QPushButton, addButton)
 #. i18n: ectx: property (text), widget (QPushButton, add1)
@@ -1689,28 +1677,27 @@ msgstr "Poista"
 
 #. i18n: ectx: property (text), widget (QCheckBox, advancedAutocorrection)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:120
-#, fuzzy, kde-format
-#| msgid "Invalid password"
+#, kde-format
 msgid "&Enable word replacement"
-msgstr "Virheellinen salasana"
+msgstr "Käytä &sanojen korvausta"
 
 #. i18n: ectx: property (text), widget (QLabel, findLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:129
 #, kde-format
 msgid "&Find"
-msgstr ""
+msgstr "&Etsi"
 
 #. i18n: ectx: property (text), widget (QLabel, replaceLabel)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:149
 #, kde-format
 msgid "Re&place"
-msgstr ""
+msgstr "&Korvaa"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:187
 #, kde-format
 msgid "Find"
-msgstr ""
+msgstr "Etsi"
 
 #. i18n: ectx: property (text), widget (PimCommonAutoCorrection::AutoCorrectionTreeWidget, treeWidget)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:192
@@ -1730,7 +1717,7 @@ msgstr "Valinnat"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:209
 #, kde-format
 msgid "Do not treat as the end of a sentence:"
-msgstr ""
+msgstr "Älä tulkitse virkkeen lopuksi:"
 
 #. i18n: ectx: property (text), widget (QPushButton, remove1)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:235
@@ -1743,7 +1730,7 @@ msgstr "Poista"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:277
 #, kde-format
 msgid "Accept two uppercase letters in:"
-msgstr ""
+msgstr "Hyväksy kaksi isoa alkukirjainta:"
 
 #. i18n: ectx: property (text), widget (QPushButton, add2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:296
@@ -1756,7 +1743,7 @@ msgstr "Lisää…"
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:344
 #, kde-format
 msgid "Si&mple Autocorrection"
-msgstr ""
+msgstr "&Yksinkertainen automaattikorjaus"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:350
@@ -1765,6 +1752,8 @@ msgid ""
 "Detect when a new sentence is started and always ensure that the first "
 "character is an uppercase character"
 msgstr ""
+"Havaitse uuden virkkeen alku ja tarkista, että virke alkaa isolla "
+"alkukirjaimella."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperCase)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:354
@@ -1773,6 +1762,8 @@ msgid ""
 "Convert &first letter of a sentence automatically to uppercase\n"
 "(e.g. \"my house. in this town\" to \"my house. In this town\")"
 msgstr ""
+"Muuta virkkeen &ensimmäinen kirjain suuraakkoseksi\n"
+"(esim. ”asuntoni. tässä kaupungissa” → ”asuntoni. Tässä kaupungissa.”)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:364
@@ -1782,6 +1773,9 @@ msgid ""
 "bit too long. If some words must have two uppercase characters, then those "
 "exceptions should be added in the 'Exceptions' tab."
 msgstr ""
+"Kaikkien sanojen osalta tarkistetaan, ettei vaihtonäppäintä ole vahingossa "
+"painettu liian pitkään. Jos sana alkaa kahdella suuraakkosella, se on "
+"lisättävä Poikkeukset-välilehdelle."
 
 #. i18n: ectx: property (text), widget (QCheckBox, upperUpper)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:368
@@ -1791,6 +1785,8 @@ msgid ""
 "character\n"
 " (e.g. PErfect to Perfect)"
 msgstr ""
+"Muuta kaksi suuraakkosta yhdeksi suur- ja yhdeksi pienaakkoseksi\n"
+" (esim. KOrjaus muotoon Korjaus)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:375
@@ -1799,30 +1795,32 @@ msgid ""
 "Make sure that more than one space cannot be typed, as this is a common "
 "mistake which is quite hard to find in formatted text."
 msgstr ""
+"Tarkista, ettei välilyöntejä ole useampaa peräkkäin, koska tämä on yleinen "
+"virhe, jota muotoillusta tekstistä on vaikea havaita."
 
 #. i18n: ectx: property (text), widget (QCheckBox, ignoreDoubleSpace)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:378
 #, kde-format
 msgid "&Suppress double spaces"
-msgstr ""
+msgstr "&Estä peräkkäiset välilyönnit"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:385
 #, kde-format
 msgid "Most standard fraction notations will be converted when available"
-msgstr ""
+msgstr "Useimmat tavalliset murto-osamerkinnät muutetaan, kun mahdollista"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoReplaceNumber)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:388
 #, kde-format
 msgid "Re&place 1/2... with ½..."
-msgstr ""
+msgstr "&Muuta 1/2 muotoon ½…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, capitalizeDaysName)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:395
 #, kde-format
 msgid "Capitalize name of days"
-msgstr ""
+msgstr "Kirjoita &viikonpäivien nimet isolla alkukirjaimella"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:402
@@ -1831,12 +1829,14 @@ msgid ""
 "Detect when a URL (Uniform Resource Locator) is typed and provide formatting "
 "that matches the way an Internet browser would show a URL."
 msgstr ""
+"Havaitse verkko-osoitteet (URL) ja muuta ne muotoon, jossa verkkoselainkin "
+"ne esittää."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoFormatUrl)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:405
 #, kde-format
 msgid "Autoformat &URLs (HTML mode)"
-msgstr ""
+msgstr "Muotoile verkko-&osoitteet automaattisesti (HTML-tila)"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:412
@@ -1845,43 +1845,45 @@ msgid ""
 "When you use _underline_ or *bold*, the text between the underscores or "
 "asterisks will be converted to underlined or bold text."
 msgstr ""
+"Käyttäessäsi _alleviivausta_ tai *lihavointia*, merkkien välissä oleva "
+"teksti alleviivataan tai lihavoidaan."
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoChangeFormat)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:415
 #, kde-format
 msgid "Automatically do &bold, strikeout and underline formatting (HTML mode)"
-msgstr ""
+msgstr "&Lihavoi, alle- ja yliviivaa automaattisesti (HTML-tila)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoSuperScript)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:422
 #, kde-format
 msgid "Replace 1st... with 1^st... (HTML mode)"
-msgstr ""
+msgstr "Yläindeksoi ”st” merkinnöissä kuten ”1st” … (HTML-tila)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, addNonBreakingSpaceInFrench)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:429
 #, kde-format
 msgid "Add non breaking space before specific punctuation marks in French text"
 msgstr ""
+"Lisää sitova sanaväli ennen tiettyjä välimerkkejä ranskankielisessä tekstissä"
 
 #. i18n: ectx: property (text), widget (QCheckBox, replaceDoubleQuotesByFrenchQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:436
 #, kde-format
 msgid "Replace double quotes by french quotes"
-msgstr ""
+msgstr "Korvaa lainausmerkit ranskalaisilla lainausmerkeillä"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:457
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Custom &Quotes"
-msgstr "Mukautetut äänet"
+msgstr "Mukautetut &lainausmerkit"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicDoubleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:463
 #, kde-format
 msgid "Replace &double quotes with typographical quotes"
-msgstr ""
+msgstr "Korvaa &lainausmerkit typografisilla (kaarevilla) lainausmerkeillä"
 
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteBeginReplace)
 #. i18n: ectx: property (text), widget (QLabel, doubleQuoteEndReplace)
@@ -1891,8 +1893,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:514
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:641
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:655
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgid "By Default"
 msgstr "Oletus"
 
@@ -1908,7 +1909,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:507
 #, kde-format
 msgid "Ending Quote:"
-msgstr ""
+msgstr "Päättävä lainausmerkki:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #. i18n: ectx: property (text), widget (QLabel, label_8)
@@ -1916,13 +1917,14 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:634
 #, kde-format
 msgid "Opening Quote:"
-msgstr ""
+msgstr "Alkava lainausmerkki:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, typographicSingleQuotes)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:572
 #, kde-format
 msgid "Replace &single quotes with typographical quotes"
 msgstr ""
+"Korvaa &puolilainausmerkit typografisilla (kaarevilla) puolilainausmerkeillä"
 
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote1)
 #. i18n: ectx: property (text), widget (QPushButton, singleQuote2)
@@ -1936,7 +1938,7 @@ msgstr ""
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:648
 #, kde-format
 msgid "Ending Quotes:"
-msgstr ""
+msgstr "Päättävät lainausmerkit:"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:707
@@ -1955,109 +1957,104 @@ msgstr "Teksti"
 
 #. i18n: ectx: property (text), widget (QLabel, label_10)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:723
-#, fuzzy, kde-format
-#| msgid "Custom Status:"
+#, kde-format
 msgid "Custom System Path:"
-msgstr "Mukautettu tila:"
+msgstr "Mukautettu järjestelmäsijainti:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:780
 #, kde-format
 msgid "Writable Path:"
-msgstr ""
+msgstr "Kirjoitettavissa oleva sijainti:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:787
 #, kde-format
 msgid "System Path:"
-msgstr ""
+msgstr "Järjestelmäsijainti:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_11)
 #: pimcommonautocorrection/autocorrection/ui/autocorrectionwidget.ui:794
-#, fuzzy, kde-format
-#| msgid "Custom Status:"
+#, kde-format
 msgid "Custom Writable Path:"
-msgstr "Mukautettu tila:"
+msgstr "Mukautettu kirjoitettavissa oleva sijainti:"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:132
 #, kde-format
 msgid "LibreOffice Autocorrection"
-msgstr ""
+msgstr "LibreOfficen automaattikorjaus"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:136
 #, kde-format
 msgid "KMail/Calligra Autocorrection"
-msgstr ""
+msgstr "KMailin/Calligran automaattikorjaus"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
 #, kde-format
 msgid "\"Replace\" string is the same as \"Find\" string."
-msgstr ""
+msgstr "Korvattava merkkijono on sama kuin etsittävä jono."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:413
-#, fuzzy, kde-format
-#| msgid "Add Autojoin"
+#, kde-format
 msgid "Add Autocorrection Entry"
-msgstr "Lisää automaattiliittyminen"
+msgstr "Lisää automaattikorjausmerkintä"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:492
-#, fuzzy, kde-format
-#| msgid "Modify..."
+#, kde-format
 msgid "&Modify"
-msgstr "Muuta…"
+msgstr "&Muuta"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:603
 #, kde-format
 msgid "Import LibreOffice Autocorrection"
-msgstr ""
+msgstr "Tuo LibreOfficen automaattikorjaukset"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:604
 #, kde-format
 msgid "LibreOffice Autocorrection File (*.dat)"
-msgstr ""
+msgstr "LibreOfficen automaattikorjaustiedosto (*.dat)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:607
 #, kde-format
 msgid "Import KMail Autocorrection"
-msgstr ""
+msgstr "Tuo KMailin automaattikorjaukset"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:608
 #, kde-format
 msgid "KMail Autocorrection File (*.xml)"
-msgstr ""
+msgstr "KMailin automaattikorjaustiedosto (*.xml)"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:640
 #, kde-format
 msgid "Import Autocorrection File"
-msgstr ""
+msgstr "Tuo automaattikorjaustiedosto"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:667
 #, kde-format
 msgid "Language was changed, do you want to save config for previous language?"
-msgstr ""
+msgstr "Kieltä vaihdettiin: haluatko tallentaa edellisen kielen asetukset?"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:668
-#, fuzzy, kde-format
-#| msgid "Save Sound"
+#, kde-format
 msgid "Save config"
-msgstr "Tallenna ääni"
+msgstr "Tallenna asetukset"
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:707
 #, kde-format
 msgid "Please save changes before exporting settings."
-msgstr ""
+msgstr "Tallenna muutokset ennen asetusten vientiä."
 
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:707
 #: pimcommonautocorrection/autocorrection/widgets/autocorrectionwidget.cpp:710
 #, kde-format
 msgid "Export Autocorrection File"
-msgstr ""
+msgstr "Vie automaattikorjaustiedosto"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:32
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Special Characters"
-msgstr ""
+msgstr "Valitse erikoismerkkejä"
 
 #: pimcommonautocorrection/autocorrection/widgets/selectspecialchardialog.cpp:40
 #, kde-format
@@ -2073,12 +2070,12 @@ msgstr "Valitse kaikki"
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:30
 #, kde-format
 msgid "Detect language"
-msgstr ""
+msgstr "Tunnista kieli"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:33
 #, kde-format
 msgid "Hmong"
-msgstr ""
+msgstr "hmong"
 
 #: pimcommontexttranslator/translator/misc/translatorutil.cpp:36
 #, kde-format
@@ -2381,59 +2378,58 @@ msgstr ""
 #: pimcommontexttranslator/translator/plugins/bing/bingengineclient.cpp:26
 #, kde-format
 msgid "Bing"
-msgstr ""
+msgstr "Bing"
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:60
 #, kde-format
 msgid "Error: Unable to find Bing credentials in web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei löydy Bing-tunnistustietoja."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:68
 #, kde-format
 msgid "Error: Unable to extract Bing key from web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei saatu irrotettua Bing-avainta."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:77
 #, kde-format
 msgid "Error: Unable to extract Bing token from web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei saatu irrotettua Bing-merkkiä."
 
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:86
 #: pimcommontexttranslator/translator/plugins/bing/bingengineplugin.cpp:95
 #, kde-format
 msgid "Error: Unable to extract additional Bing information from web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei saatu irrotettua Bing-lisätietoja."
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineclient.cpp:31
 #, kde-format
 msgid "DeepL"
-msgstr ""
+msgstr "DeepL"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfiguredialog.cpp:17
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginedialog.cpp:18
-#, fuzzy, kde-format
-#| msgid "Configure Account"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Engine"
-msgstr "Tilin asetukset"
+msgstr "Moottorin asetukset"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:15
 #, kde-format
 msgid "Use Free License Key"
-msgstr ""
+msgstr "Käytä vapaata lisenssiavainta"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:34
 #, kde-format
 msgid "Api Key:"
-msgstr ""
+msgstr "API-avain"
 
 #: pimcommontexttranslator/translator/plugins/deepl/deeplengineplugin.cpp:36
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:39
 #, kde-format
 msgid "Server needs Api Key."
-msgstr ""
+msgstr "Palvelin vaatii API-avaimen."
 
 #: pimcommontexttranslator/translator/plugins/google/googleengineclient.cpp:26
 #: plugins/authentication/google/googlepluginauthentication.cpp:36
@@ -2443,16 +2439,14 @@ msgid "Google"
 msgstr "Google"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineclient.cpp:31
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgid "Libre Translate"
-msgstr "Automaattikäännöksen asetukset"
+msgstr "Libre Translate"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:19
 #, kde-format
 msgid "Server required Api Key"
-msgstr ""
+msgstr "Palvelin vaatii API-avaimen"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineconfigurewidget.cpp:27
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaenginewidget.cpp:23
@@ -2461,20 +2455,19 @@ msgid "Server Url:"
 msgstr "Palvelimen osoite:"
 
 #: pimcommontexttranslator/translator/plugins/libretranslate/libretranslateengineplugin.cpp:35
-#, fuzzy, kde-format
-#| msgid "File not found '%1'"
+#, kde-format
 msgid "Server url is not defined."
-msgstr "Tiedostoa ei löydy: ”%1”"
+msgstr "Palvelimen verkko-osoitetta ei ole määritetty."
 
 #: pimcommontexttranslator/translator/plugins/lingva/lingvaengineclient.cpp:31
 #, kde-format
 msgid "Lingva"
-msgstr ""
+msgstr "Lingva"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineclient.cpp:26
 #, kde-format
 msgid "Yandex"
-msgstr ""
+msgstr "Yandex"
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:54
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:100
@@ -2483,29 +2476,29 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
+"Virhe: Moottorijärjestelmät ovat havainneet tietoverkossa epäilyttävää "
+"liikennettä. Yritä pyyntöä myöhemmin uudelleen."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:63
 #, kde-format
 msgid "Error: Unable to find Yandex SID in web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei löydy Yandexin SIDiä."
 
 #: pimcommontexttranslator/translator/plugins/yandex/yandexengineplugin.cpp:71
 #, kde-format
 msgid "Error: Unable to extract Yandex SID from web version."
-msgstr ""
+msgstr "Virhe: Verkkoversiosta ei saatu irrotettua Yandexin SIDiä."
 
 #: pimcommontexttranslator/translator/translatorengineplugin.cpp:108
 #, kde-format
 msgid "You used same language for 'from' and 'to' language."
-msgstr ""
+msgstr "Lähde- ja kohdekieli ovat samat."
 
 #: pimcommontexttranslator/translator/widgets/translatorconfiguredialog.cpp:18
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Auto-Translate"
+#, kde-format
 msgctxt "@title:window"
 msgid "Configure Translator"
-msgstr "Automaattikäännöksen asetukset"
+msgstr "Käännösasetukset"
 
 #: pimcommontexttranslator/translator/widgets/translatorconfigurelanguagelistwidget.cpp:35
 #: widgets/bannerinfodialog/bannerinfolistsearchlinewidget.cpp:23
@@ -2529,17 +2522,15 @@ msgid "To:"
 msgstr "Vastaanottaja:"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:32
-#, fuzzy, kde-format
-#| msgid "Translate Message"
+#, kde-format
 msgctxt "@title:window"
 msgid "Translator Debug"
-msgstr "Käännä viesti"
+msgstr "Käännösohjelman virheenpaikannus"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:39
-#, fuzzy, kde-format
-#| msgid "Save &As..."
+#, kde-format
 msgid "Save As..."
-msgstr "Tallenna &nimellä…"
+msgstr "Tallenna nimellä…"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:88
 #, kde-format
@@ -2549,26 +2540,24 @@ msgid ""
 msgstr ""
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:92
-#, fuzzy, kde-format
-#| msgid "Save File"
+#, kde-format
 msgid "Save File Error"
-msgstr "Tallenna tiedosto"
+msgstr "Tiedoston tallennusvirhe"
 
 #: pimcommontexttranslator/translator/widgets/translatordebugdialog.cpp:115
 #, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Kaikki tiedostot (*)"
 
 #: pimcommontexttranslator/translator/widgets/translatormenu.cpp:22
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate..."
-msgstr "Käännös"
+msgstr "Käännä…"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:133
 #, kde-format
 msgid "Problem when connecting to the translator web site."
-msgstr ""
+msgstr "Ongelma yhdistettäessä käännössivustoon."
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:245
 #, fuzzy, kde-format
@@ -2632,13 +2621,12 @@ msgstr ""
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:416
 #, kde-format
 msgid "No network"
-msgstr ""
+msgstr "Ei verkkoyhteyttä"
 
 #: pimcommontexttranslator/translator/widgets/translatorwidget.cpp:455
-#, fuzzy, kde-format
-#| msgid "Translation"
+#, kde-format
 msgid "Translate error"
-msgstr "Käännös"
+msgstr "Kääntämisvirhe"
 
 #: plugins/authentication/password/passwordpluginauthentication.cpp:33
 #, kde-format
@@ -2646,31 +2634,29 @@ msgid "Login/Password"
 msgstr "Tunnus/salasana"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Save As Text..."
+#, kde-format
 msgid "Share Text..."
-msgstr "Tallenna tekstinä…"
+msgstr "Jaa tekstiä…"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "There was a problem sharing the document: %1"
-msgstr ""
+msgstr "Tiedoston jakamisessa ilmeni ongelma: %1"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:70
 #, kde-format
 msgid "Share"
-msgstr ""
+msgstr "Jaa"
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "File is too large"
+#, kde-format
 msgid "File was shared."
-msgstr "Tiedosto on liian iso"
+msgstr "Tiedosto on jaettu."
 
 #: plugins/textplugin/sharetext/purposemenuwidget.cpp:77
 #, kde-format
 msgid "<qt>You can find the new request at:<br /><a href='%1'>%1</a> </qt>"
-msgstr ""
+msgstr "<qt>Löydät uuden pyynnön osoitteesta:<br /><a href='%1'>%1</a> </qt>"
 
 #: rocketchatrestapi-qt5/autotranslate/getsupportedlanguagesjob.cpp:88
 #, fuzzy, kde-format
@@ -2689,10 +2675,9 @@ msgid "The room required a password."
 msgstr "Tämä huone vaatii salasanan."
 
 #: rocketchatrestapi-qt5/channels/channelmembersjob.cpp:49
-#, fuzzy, kde-format
-#| msgid "Generate link is not authorized in this channel."
+#, kde-format
 msgid "Get Members not authorized in this room"
-msgstr "Tällä kanavalla ei ole oikeutta luoda linkkejä."
+msgstr "Jäsenhankintaa ei ole valtuutettu tässä huoneessa"
 
 #: rocketchatrestapi-qt5/channels/channelopenjob.cpp:78
 #, fuzzy, kde-format
@@ -3357,7 +3342,7 @@ msgstr "Virheellinen tilaus"
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:61
 #, kde-format
 msgid "Unread message not authorized."
-msgstr "Lukematonta viestiä ei ole todennettu."
+msgstr "Lukematonta viestiä ei ole valtuutettu."
 
 #: rocketchatrestapi-qt5/subscriptions/markroomasunreadjob.cpp:63
 #, fuzzy, kde-format
@@ -3374,7 +3359,7 @@ msgstr "Muunna ryhmäksi"
 #: rocketchatrestapi-qt5/teams/teamaddroomsjob.cpp:112
 #, kde-format
 msgid "You don't have permission to add this channel to the team"
-msgstr ""
+msgstr "Sinulla ei ole oikeutta lisätä ryhmälle tätä kanavaa"
 
 #: rocketchatrestapi-qt5/users/getavatarjob.cpp:78
 #, kde-format
@@ -3409,8 +3394,7 @@ msgid "%1 is already in use."
 msgstr "Käyttäjä on jo omistaja"
 
 #: rocketchatrestapi-qt5/users/userssetpreferencesjob.cpp:147
-#, fuzzy, kde-format
-#| msgid "Invalid arguments"
+#, kde-format
 msgid "Invalid parameters"
 msgstr "Virheellisiä parametreja"
 
@@ -3443,10 +3427,9 @@ msgid "Custom Sounds"
 msgstr "Mukautetut äänet"
 
 #: widgets/administratordialog/administratorwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Custom Sounds"
+#, kde-format
 msgid "Custom Emojis"
-msgstr "Mukautetut äänet"
+msgstr "Mukautetut emojit"
 
 #: widgets/administratordialog/administratorwidget.cpp:63
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:19
@@ -3463,7 +3446,7 @@ msgstr "Kutsut"
 #: widgets/administratordialog/administratorwidget.cpp:69
 #, kde-format
 msgid "View Log"
-msgstr ""
+msgstr "Näytä loki"
 
 #: widgets/administratordialog/administratorwidget.cpp:72
 #, fuzzy, kde-format
@@ -3475,7 +3458,7 @@ msgstr "Versio"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:125
 #, kde-format
 msgid "Oauth"
-msgstr ""
+msgstr "Oauth"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatedialog.cpp:25
 #, fuzzy, kde-format
@@ -3487,7 +3470,7 @@ msgstr "Mukautetut äänet"
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:23
 #, kde-format
 msgid "The custom emoji name and their aliases should be different."
-msgstr ""
+msgstr "Oman emojin nimen ja aliasten tulisi erota."
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:45
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:28
@@ -3511,7 +3494,7 @@ msgstr "Nimi:"
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:46
 #, kde-format
 msgid "Alias:"
-msgstr ""
+msgstr "Alias:"
 
 #: widgets/administratordialog/customemoji/administratorcustomemojicreatewidget.cpp:47
 #: widgets/administratordialog/customsounds/administratorcustomsoundscreatewidget.cpp:29
@@ -3685,7 +3668,7 @@ msgstr "Poista suosikeista"
 #, kde-format
 msgctxt "@title:window"
 msgid "Add Oauth Apps"
-msgstr ""
+msgstr "Lisää OAuth-sovelluksia"
 
 #: widgets/administratordialog/oauth/administratoroauthcreatewidget.cpp:30
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:34
@@ -3703,17 +3686,17 @@ msgstr ""
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:37
 #, kde-format
 msgid "Client ID:"
-msgstr ""
+msgstr "Asiakastunniste:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:41
 #, kde-format
 msgid "Client Secret:"
-msgstr ""
+msgstr "Asiakkaan salatieto:"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:45
 #, kde-format
 msgid "Authorization Url:"
-msgstr ""
+msgstr "Valtuutuksen verkko-osoite"
 
 #: widgets/administratordialog/oauth/administratoroautheditwidget.cpp:49
 #, kde-format
@@ -3818,7 +3801,7 @@ msgstr "Kuvaus:"
 #: widgets/administratordialog/roles/roleeditwidget.cpp:37
 #, kde-format
 msgid "Scope:"
-msgstr ""
+msgstr "Laajuus:"
 
 #: widgets/administratordialog/roles/rolescopecombobox.cpp:14
 #, kde-format
@@ -3891,7 +3874,7 @@ msgstr "Suosikki"
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:22
 #, kde-format
 msgid "Featured"
-msgstr ""
+msgstr "Esitellyt"
 
 #: widgets/administratordialog/rooms/administratorroomseditdialog.cpp:25
 #, fuzzy, kde-format
@@ -3922,16 +3905,14 @@ msgid "Read-Only"
 msgstr "Vain luku:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:25
-#, fuzzy, kde-format
-#| msgid "Archive"
+#, kde-format
 msgid "Archived"
-msgstr "Arkisto"
+msgstr "Arkistoitu"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:40
-#, fuzzy, kde-format
-#| msgid "Owner"
+#, kde-format
 msgid "Owner:"
-msgstr "Omistaja"
+msgstr "Omistaja:"
 
 #: widgets/administratordialog/rooms/administratorroomseditwidget.cpp:47
 #: widgets/dialogs/channelinfoeditablewidget.cpp:61
@@ -3993,10 +3974,9 @@ msgid "Copy"
 msgstr "Kopioi"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:127
-#, fuzzy, kde-format
-#| msgid "License"
+#, kde-format
 msgid "Licenses"
-msgstr "Lisenssi"
+msgstr "Lisenssit"
 
 #: widgets/administratordialog/serverinfo/administratorserverinfowidget.cpp:129
 #, fuzzy, kde-format
@@ -4274,10 +4254,9 @@ msgid "Username:"
 msgstr "Käyttäjätunnus:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:54
-#, fuzzy, kde-format
-#| msgid "Status message"
+#, kde-format
 msgid "Status Message:"
-msgstr "Tilaviesti"
+msgstr "Tilaviesti:"
 
 #: widgets/administratordialog/users/administratoradduserwidget.cpp:55
 #: widgets/dialogs/directchannelinfowidget.cpp:154
@@ -4333,10 +4312,9 @@ msgid "Invite..."
 msgstr "Kutsut"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:246
-#, fuzzy, kde-format
-#| msgid "Deactivated Users"
+#, kde-format
 msgid "Deactivate"
-msgstr "Passivoidut käyttäjät"
+msgstr "Passivoi"
 
 #: widgets/administratordialog/users/administratoruserswidget.cpp:255
 #, fuzzy, kde-format
@@ -4491,16 +4469,14 @@ msgid "Administrator Server Settings - %1"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:102
-#, fuzzy, kde-format
-#| msgid "Account"
+#, kde-format
 msgid "Accounts"
-msgstr "Tili"
+msgstr "Tilit"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:103
-#, fuzzy, kde-format
-#| msgid "Encrypted:"
+#, kde-format
 msgid "Encryption"
-msgstr "Salattu:"
+msgstr "Salaus"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:104
 #: widgets/dialogs/createnewdiscussionwidget.cpp:54
@@ -4566,14 +4542,13 @@ msgstr "Käytä LDAP:ta"
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:114
 #, kde-format
 msgid "Layout"
-msgstr ""
+msgstr "Asettelu"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:115
 #: widgets/dialogs/serverinfo/serverinfowidget.cpp:52
-#, fuzzy, kde-format
-#| msgid "Enter code"
+#, kde-format
 msgid "Enterprise"
-msgstr "Anna koodi"
+msgstr "Enterprise"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:116
 #, fuzzy, kde-format
@@ -4589,7 +4564,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:118
 #, kde-format
 msgid "Logs"
-msgstr ""
+msgstr "Lokit"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:120
 #: widgets/dialogs/configurenotificationwidget.cpp:86
@@ -4610,7 +4585,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:124
 #, kde-format
 msgid "CAS"
-msgstr ""
+msgstr "CAS"
 
 #: widgets/administratorsettingsdialog/administratorsettingswidget.cpp:126
 #, kde-format
@@ -4701,7 +4676,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:74
 #, kde-format
 msgid "Client ID"
-msgstr ""
+msgstr "Asiakastunniste"
 
 #: widgets/administratorsettingsdialog/analytics/analyticswidget.cpp:77
 #, kde-format
@@ -4731,10 +4706,9 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:17
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:21
 #: widgets/administratorsettingsdialog/webrtc/webrtcsettingswidget.cpp:15
-#, fuzzy, kde-format
-#| msgid "E2E Enabled"
+#, kde-format
 msgid "Enabled"
-msgstr "E2E käytössä"
+msgstr "Käytössä"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:21
 #, fuzzy, kde-format
@@ -4781,7 +4755,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ircfederation/ircfederationwidget.cpp:36
 #, kde-format
 msgid "Protocol"
-msgstr ""
+msgstr "Yhteyskäytäntö"
 
 #: widgets/administratorsettingsdialog/cas/cassettingswidget.cpp:51
 #, kde-format
@@ -4868,7 +4842,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:40
 #, kde-format
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:46
 #, kde-format
@@ -4885,7 +4859,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:38
 #, kde-format
 msgid "Port"
-msgstr ""
+msgstr "Portti"
 
 #: widgets/administratorsettingsdialog/email/emailsettingswidget.cpp:63
 #, kde-format
@@ -5122,10 +5096,9 @@ msgid "FileSystem"
 msgstr "Tiedostot"
 
 #: widgets/administratorsettingsdialog/fileupload/fileuploadsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid "OS Type"
+#, kde-format
 msgid "Storage Type"
-msgstr "Käyttöjärjestelmän tyyppi"
+msgstr "Tallennustilatyyppi"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:20
 #, fuzzy, kde-format
@@ -5155,15 +5128,14 @@ msgid "Site URL"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Server Name:"
+#, kde-format
 msgid "Site Name"
-msgstr "Palvelimen nimi:"
+msgstr "Verkkoalueen nimi"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:47
 #, kde-format
 msgid "UTF8"
-msgstr ""
+msgstr "UTF8"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:52
 #, kde-format
@@ -5202,8 +5174,7 @@ msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:75
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:84
-#, fuzzy, kde-format
-#| msgid "All Messages"
+#, kde-format
 msgid "All messages"
 msgstr "Kaikki viestit"
 
@@ -5263,10 +5234,9 @@ msgid ""
 msgstr ""
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:104
-#, fuzzy, kde-format
-#| msgid "Timezone:"
+#, kde-format
 msgid "TimeZone"
-msgstr "Aikavyöhyke:"
+msgstr "Aikavyöhyke"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:109
 #, kde-format
@@ -5304,8 +5274,7 @@ msgid "Reporting"
 msgstr "Ilmoita ohjelmavirheestä"
 
 #: widgets/administratorsettingsdialog/general/generalsettingswidget.cpp:126
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
@@ -5390,10 +5359,9 @@ msgid "LDAP Enabled"
 msgstr "E2E käytössä"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:22
-#, fuzzy, kde-format
-#| msgid "Disconnected"
+#, kde-format
 msgid "Reconnect"
-msgstr "Ei yhteyttä"
+msgstr "Yhdistä uudelleen"
 
 #: widgets/administratorsettingsdialog/ldap/ldapsettingswidget.cpp:31
 #, kde-format
@@ -5511,7 +5479,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:37
 #, kde-format
 msgid "Log Level"
-msgstr ""
+msgstr "Lokitaso"
 
 #: widgets/administratorsettingsdialog/logs/logssettingswidget.cpp:41
 #, fuzzy, kde-format
@@ -5764,7 +5732,7 @@ msgstr "Google"
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:56
 #, kde-format
 msgid "Apple"
-msgstr ""
+msgstr "Apple"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:62
 #, kde-format
@@ -5791,7 +5759,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:74
 #, kde-format
 msgid "Dolphin"
-msgstr ""
+msgstr "Dolphin"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:79
 #, kde-format
@@ -5806,7 +5774,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:89
 #, kde-format
 msgid "Secret"
-msgstr ""
+msgstr "Salainen"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:92
 #, kde-format
@@ -5827,7 +5795,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:109
 #, kde-format
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn|/|$[aseta jakomuoto LinkedInissä]"
 
 #: widgets/administratorsettingsdialog/oauth/oauthsettingswidget.cpp:118
 #, kde-format
@@ -6034,7 +6002,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:59
 #, kde-format
 msgid "Maximum Length"
-msgstr ""
+msgstr "Enimmäispituus"
 
 #: widgets/administratorsettingsdialog/password/passwordsettingswidget.cpp:62
 #, kde-format
@@ -6467,10 +6435,9 @@ msgid "Enable room name hash"
 msgstr ""
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:26
-#, fuzzy, kde-format
-#| msgid "Use LDAP"
+#, kde-format
 msgid "Use SSL"
-msgstr "Käytä LDAP:ta"
+msgstr "Käytä SSL:ää"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:28
 #, fuzzy, kde-format
@@ -6507,7 +6474,7 @@ msgstr ""
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:48
 #, kde-format
 msgid "Shared Secret"
-msgstr ""
+msgstr "Jaettu salaisuus"
 
 #: widgets/administratorsettingsdialog/videoconference/videoconferencewidget.cpp:54
 #, kde-format
@@ -6599,8 +6566,7 @@ msgid "Show Unread"
 msgstr "Lukematta olevat huoneet"
 
 #: widgets/bannerinfodialog/bannermessagewidget.cpp:20
-#, fuzzy, kde-format
-#| msgid "Mark As Read"
+#, kde-format
 msgid "Mark as Read"
 msgstr "Merkitse luetuksi"
 
@@ -6898,8 +6864,7 @@ msgid "Do you want to Delete this File?"
 msgstr "Haluatko poistaa tämän tiedoston?"
 
 #: widgets/dialogs/attachment/listattachmentdelegate.cpp:113
-#, fuzzy, kde-format
-#| msgid "Delete File"
+#, kde-format
 msgctxt "@title"
 msgid "Delete File"
 msgstr "Poista tiedosto"
@@ -7205,6 +7170,8 @@ msgid ""
 "Only authorized users can write new messages, but the other users will be "
 "able to reply"
 msgstr ""
+"Vain valtuutetut käyttäjät voivat kirjoittaa uusia viestejä, mutta muutkin "
+"voivat vastata"
 
 #: widgets/dialogs/createnewchannelwidget.cpp:49
 #, kde-format
@@ -7544,22 +7511,19 @@ msgid "All"
 msgstr "Kaikki"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:20
-#, fuzzy, kde-format
-#| msgid "Video"
+#, kde-format
 msgid "Videos"
-msgstr "Video"
+msgstr "Videot"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:21
-#, fuzzy, kde-format
-#| msgid "Image"
+#, kde-format
 msgid "Images"
-msgstr "Kuva"
+msgstr "Kuvat"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:22
-#, fuzzy, kde-format
-#| msgid "Audio"
+#, kde-format
 msgid "Audios"
-msgstr "Ääni"
+msgstr "Äänitiedostot"
 
 #: widgets/dialogs/showattachmentcombobox.cpp:23
 #, fuzzy, kde-format
@@ -7617,12 +7581,12 @@ msgstr "Näytä kuva"
 #: widgets/dialogs/showimagedialog.cpp:41
 #, kde-format
 msgid "Copy Image to Clipboard"
-msgstr ""
+msgstr "Kopioi kuva leikepöydälle"
 
 #: widgets/dialogs/showimagedialog.cpp:43
 #, kde-format
 msgid "Copy Location to Clipboard"
-msgstr ""
+msgstr "Kopioi sijainti leikepöydälle"
 
 #: widgets/dialogs/showimagewidget.cpp:267
 #, kde-format
@@ -7851,10 +7815,9 @@ msgid "Convert Message As Attachment"
 msgstr "Poista liite"
 
 #: widgets/messagemaximumsizedialog/messagemaximumsizewidget.cpp:23
-#, fuzzy, kde-format
-#| msgid "File:"
+#, kde-format
 msgid "Filename:"
-msgstr "Tiedosto:"
+msgstr "Tiedostonimi:"
 
 #: widgets/misc/accountsoverviewwidget.cpp:31
 #, kde-format
@@ -8021,10 +7984,9 @@ msgstr "Tunnistautumistapa"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:41
 #: widgets/myaccount/myaccount2fatotpwidget.cpp:60
-#, fuzzy, kde-format
-#| msgid "Verified"
+#, kde-format
 msgid "Verify"
-msgstr "Vahvistettu"
+msgstr "Todenna"
 
 #: widgets/myaccount/myaccount2fadisabletotpwidget.cpp:50
 #, kde-format
@@ -8111,10 +8073,9 @@ msgid "Search device..."
 msgstr "Etsi tiedostoa…"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:41
-#, fuzzy, kde-format
-#| msgid "No Message found"
+#, kde-format
 msgid "No device found"
-msgstr "Viestejä ei löytynyt"
+msgstr "Laitteita ei löytynyt"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:46
 #, fuzzy, kde-format
@@ -8126,10 +8087,9 @@ msgstr[0] "Yksi käyttäjä huoneessa (yhteensä: %2)"
 msgstr[1] "%1 käyttäjää huoneessa (yhteensä: %2)"
 
 #: widgets/myaccount/myaccountmanagedeviceconfigurewidget.cpp:95
-#, fuzzy, kde-format
-#| msgid "Disconnected"
+#, kde-format
 msgid "Disconnect"
-msgstr "Ei yhteyttä"
+msgstr "Katkaise yhteys"
 
 #: widgets/myaccount/myaccountpersonalaccesscreatedialog.cpp:18
 #, kde-format
@@ -8289,10 +8249,9 @@ msgid "Each Mentions"
 msgstr "Kukin maininta"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:74
-#, fuzzy, kde-format
-#| msgid "Save Image"
+#, kde-format
 msgid "Select Image"
-msgstr "Tallenna kuva"
+msgstr "Valitse kuva"
 
 #: widgets/myaccount/myaccountprofileconfigureavatarwidget.cpp:84
 #, kde-format
@@ -8336,8 +8295,7 @@ msgid "Do you really delete your account ?"
 msgstr "Haluatko varmasti poistaa tilisi?"
 
 #: widgets/myaccount/myaccountprofileconfigurewidget.cpp:100
-#, fuzzy, kde-format
-#| msgid "Delete my Account"
+#, kde-format
 msgctxt "@title"
 msgid "Delete my Account"
 msgstr "Poista tilini"
@@ -8349,11 +8307,10 @@ msgid "Current Password"
 msgstr "Nykyinen salasana"
 
 #: widgets/notificationhistory/notificationhistorydialog.cpp:27
-#, fuzzy, kde-format
-#| msgid "Notifications"
+#, kde-format
 msgctxt "@title:window"
 msgid "Notification"
-msgstr "Ilmoitukset"
+msgstr "Ilmoitus"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:78
 #: widgets/room/messagelistview.cpp:453
@@ -8363,10 +8320,9 @@ msgstr "Siirry viestiin"
 
 #: widgets/notificationhistory/notificationhistorylistview.cpp:82
 #: widgets/room/messagelistview.cpp:238
-#, fuzzy, kde-format
-#| msgid "Go to Message"
+#, kde-format
 msgid "Copy Message"
-msgstr "Siirry viestiin"
+msgstr "Kopioi viesti"
 
 #: widgets/otr/otrwidget.cpp:18
 #, fuzzy, kde-format
@@ -8511,10 +8467,9 @@ msgid "Export Messages..."
 msgstr "Vie viestejä…"
 
 #: widgets/room/channelactionpopupmenu.cpp:132
-#, fuzzy, kde-format
-#| msgid "Encrypted Message"
+#, kde-format
 msgid "Encrypt Messages"
-msgstr "Salattu viesti"
+msgstr "Salaa viestit"
 
 #: widgets/room/delegate/messageattachmentdelegatehelperfile.cpp:117
 #, kde-format
@@ -8586,7 +8541,7 @@ msgstr "Ei vielä viestejä"
 #: widgets/room/delegate/messagelistdelegate.cpp:689
 #, kde-format
 msgid "Following"
-msgstr ""
+msgstr "Seuraa"
 
 #: widgets/room/delegate/messagelistdelegate.cpp:693
 #, fuzzy, kde-format
@@ -8720,8 +8675,7 @@ msgid "Do you want to delete this message?"
 msgstr "Haluatko poistaa tämän viestin?"
 
 #: widgets/room/messagelistview.cpp:637
-#, fuzzy, kde-format
-#| msgid "Delete Message"
+#, kde-format
 msgctxt "@title"
 msgid "Delete Message"
 msgstr "Poista viesti"
@@ -8897,15 +8851,13 @@ msgid "Do you want to block this user?"
 msgstr "Haluatko estää tämän käyttäjän?"
 
 #: widgets/room/usersinroommenu.cpp:42
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@title"
 msgid "Block User"
 msgstr "Estä käyttäjä"
 
 #: widgets/room/usersinroommenu.cpp:43
-#, fuzzy, kde-format
-#| msgid "Block User"
+#, kde-format
 msgctxt "@action:button"
 msgid "Block User"
 msgstr "Estä käyttäjä"
@@ -9013,10 +8965,9 @@ msgid "Account Name:"
 msgstr "Tilin nimi:"
 
 #: widgets/ruqolaloginwidget.cpp:45
-#, fuzzy, kde-format
-#| msgid "Account name:"
+#, kde-format
 msgid "Account name"
-msgstr "Tilin nimi:"
+msgstr "Tilin nimi"
 
 #: widgets/ruqolaloginwidget.cpp:60
 #, kde-format
@@ -9232,13 +9183,13 @@ msgstr ""
 #: widgets/ruqolaui.rc:32
 #, kde-format
 msgid "&Window"
-msgstr ""
+msgstr "&Ikkuna"
 
 #. i18n: ectx: Menu (Tools)
 #: widgets/ruqolaui.rc:37
 #, kde-format
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 #. i18n: ectx: Menu (settings)
 #: widgets/ruqolaui.rc:45
@@ -9363,12 +9314,10 @@ msgid "Delete Rooms"
 msgstr "Poista huoneita"
 
 #: widgets/threadwidget/threadmessagedialog.cpp:26
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Threads"
+#, kde-format
 msgctxt "@title:window"
 msgid "Thread"
-msgstr "Säikeet"
+msgstr "Säie"
 
 #: widgets/userfeedback/accountinfosource.cpp:22
 #, kde-format
